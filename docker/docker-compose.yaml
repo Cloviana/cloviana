@@ -139,6 +139,8 @@ services:
       - info@cloviana.com
       - --agree-tos
       - --no-eff-email
+      - --cert-name 
+      - cloviana 
       - -d
       - api.cloviana.com
       - -d
