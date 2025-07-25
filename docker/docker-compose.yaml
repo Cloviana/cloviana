@@ -1,5 +1,9 @@
 version: "3.9"
 
+volumes:
+  certbot-etc:
+  certbot-var:
+  
 networks:
   appnet:
 
