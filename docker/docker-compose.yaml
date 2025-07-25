@@ -129,18 +129,25 @@ services:
     image: certbot/certbot
     container_name: certbot
     command:
-      - sh
-      - -c
-      - |
-        certbot certonly --webroot -w /var/www/certbot \
-          --email info@cloviana.com --agree-tos --no-eff-email --non-interactive \
-          -d api.cloviana.com -d dashboard.cloviana.com;
-        crond -f
+      - certonly
+      - --webroot
+      - -w
+      - /var/www/certbot
+      - --email
+      - info@cloviana.com
+      - --agree-tos
+      - --no-eff-email
+      - --non-interactive
+      - -d
+      - api.cloviana.com
+      - -d
+      - dashboard.cloviana.com
     volumes:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
       - ./certbot/www:/var/www/certbot
-    restart: unless-stopped
     networks:
       - appnet
+    restart: unless-stopped
+
 
