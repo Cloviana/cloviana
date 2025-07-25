@@ -112,10 +112,31 @@ services:
       - "443:443"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./nginx/ssl:/etc/nginx/ssl:ro
+      - certbot-etc:/etc/letsencrypt         
+      - ./certbot/www:/var/www/certbot:ro    
     restart: unless-stopped
     networks:
       appnet:
         aliases:
           - api.cloviana.com
           - dashboard.cloviana.com
+
+  certbot:                                 
+    image: certbot/certbot
+    container_name: certbot
+    command: >
+      sh -c "
+      certbot certonly
+        --webroot -w /var/www/certbot
+        --deploy-hook 'nginx -s reload'
+        --email info@cloviana.com --agree-tos --no-eff-email
+        -d api.cloviana.com -d dashboard.cloviana.com
+      && crond -f"
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    restart: unless-stopped
+    networks:
+      - appnet
+
