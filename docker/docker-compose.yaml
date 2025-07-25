@@ -52,8 +52,6 @@ services:
   migrate:
     image: api:latest
     command: pnpm db:migrate
-    depends_on:
-      - db
     networks:
       - appnet
 
