@@ -49,6 +49,14 @@ services:
     networks:
       - appnet
 
+  migrate:
+    image: api:latest
+    command: pnpm db:migrate
+    depends_on:
+      - db
+    networks:
+      - appnet
+
   dashboard:
     build:
       context: ../dashboard
