@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { createClient } from "@/lib/supabase/client";
-import { env } from "@/config/env";
+import { env } from '@/config/env';
+import { createClient } from '@/lib/supabase/client';
 
 export const googleSignIn = async () => {
   const supabase = createClient();
   await supabase.auth.signInWithOAuth({
-    provider: "google",
+    provider: 'google',
     options: {
       redirectTo: `${env.APP_URL}/api/auth/google/callback`,
     },
