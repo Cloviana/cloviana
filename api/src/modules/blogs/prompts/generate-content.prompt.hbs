@@ -1,0 +1,29 @@
+You are an SEO specialist and professional copy-writer. Write the full body text for the blog-post section described below, strictly following the outline data.
+
+The article is titled “{{title}}” and is a {{blogType}} piece.  
+Its primary keyword is “{{bloggingKeyword}}”, and it must also reinforce the broader business keyword “{{businessKeyword}}”.  
+Use the {{#if brandVoice}}“{{brandVoice}}”{{else}}neutral-conversational{{/if}} voice unless told otherwise.
+
+Section you must write:  
+• type: {{type}}  
+• heading: {{headingText}}  
+• word-count range: {{wordCount.min}}–{{wordCount.max}} words  
+• talking points: {{talkingPoints}}
+
+{{#if previousSection}}
+For continuity, remember that the previous section was “{{previousHeading}}”.  
+Here is its full content:  
+{{{previousSectionText}}}
+{{/if}}
+
+{{#if transitionToNext}}
+Close this section with a natural bridging sentence that follows this guidance: {{transitionToNext}}  
+Do not reproduce the guidance text verbatim.
+{{/if}}
+
+Use a LIST block when a list is appropriate; otherwise use one or more TEXT blocks.  
+Do not include heading markup; the heading is injected elsewhere.  
+Embed the keywords naturally and refrain from keyword stuffing.  
+Don’t format the text using Markdown (for example, **HELLO**).
+Make the blog's content easy to understand
+Remember the introduction is supposed to briefly answer the broader question

@@ -1,0 +1,234 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum SubscriptionStatus {
+  TRIALING
+  ACTIVE
+  CANCELED
+  PAST_DUE
+}
+
+enum PlanName {
+  STANDARD
+  PREMIUM
+  BUSINESS
+}
+
+enum PlanInterval {
+  MONTHLY
+  YEARLY
+}
+
+enum StoreStatus {
+  DRAFT
+  ACTIVE
+  SETTING_UP
+  SETUP_FAILED
+}
+
+enum KeywordType {
+  BUSINESS
+  BLOG
+}
+
+enum KeywordIntent {
+  COMMERCIAL
+  INFORMATIONAL
+  NAVIGATIONAL
+  TRANSACTIONAL
+}
+
+enum BlogGenerationStatus {
+  QUEUED       
+  IN_PROGRESS   
+  READY       
+  ERROR      
+}
+
+enum BlogPublishStatus {
+  DRAFT       
+  PUBLISHED   
+  ARCHIVED     
+}
+
+enum BlogType {
+  LISTICLE
+  HOW_TO
+}
+
+enum NodeType {
+  PARAGRAPH
+  HEADING
+  LIST
+  LIST_ITEM
+  CODE_BLOCK
+  QUOTE
+  IMAGE
+  LINK
+  TEXT
+}
+
+model Profile {
+  id          String   @id @default(uuid()) @db.Uuid
+  firstName   String?
+  lastName    String?
+  profileUrl  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  storesOwned Store[]  @relation("StoreOwner")
+
+  @@map("profiles")
+}
+
+model Store {
+  id               String      @id @default(cuid())
+  ownerId          String      @db.Uuid
+  stripeCustomerId String?
+  name             String
+  domainUrl        String
+  profileUrl       String?
+  status           StoreStatus @default(DRAFT)
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+
+  owner            Profile     @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  keywords         StoreKeyword[]
+  blogs         Blog[]
+  subscription     Subscription?
+  channel          Channel? 
+
+  @@index([ownerId])
+  @@map("stores")
+}
+
+model Plan {
+  id            String         @id @default(uuid()) @db.Uuid
+  stripePriceId String         @unique
+  name          PlanName
+  interval      PlanInterval
+
+  subscriptions Subscription[]
+
+  @@map("plans")
+}
+
+model Keyword {
+  id          String            @id @default(uuid()) @db.Uuid
+  phrase      String            @unique
+  volume      Int
+  cpc         Int
+  intent      KeywordIntent   
+  difficulty  Int
+  competition Float
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  storeKeywords StoreKeyword[]
+  blogs         Blog[]
+
+  @@map("keywords")
+}
+
+model StoreKeyword {
+  storeId     String       
+  keywordId   String        @db.Uuid
+  type        KeywordType
+
+  store   Store     @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  keyword     Keyword       @relation(fields: [keywordId], references: [id], onDelete: Cascade)
+
+  @@id([storeId, keywordId, type])
+  @@map("stores_keywords")
+}
+
+model Subscription {
+  id                   String             @id @default(uuid()) @db.Uuid
+  storeId              String             @unique
+  planId               String             @db.Uuid
+  stripeSubscriptionId String             @unique
+  status               SubscriptionStatus
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
+
+  store                Store              @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  plan                 Plan               @relation(fields: [planId], references: [id])
+
+  @@map("subscriptions")
+}
+
+model Channel {
+  id          String   @id @default(uuid()) @db.Uuid
+  shop        String   @db.Citext @unique
+  config      Json
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  storeId     String   @unique
+  store       Store    @relation(fields: [storeId], references: [id], onDelete: Cascade)
+
+  @@map("channels")
+}
+
+model Blog {
+  id         String      @id @default(uuid()) @db.Uuid
+  title      String
+  slug       String?
+  description String?
+  brandVoice String?
+  type       BlogType
+  keywordId  String      @db.Uuid
+  generationStatus BlogGenerationStatus  @default(QUEUED)
+  publishStatus    BlogPublishStatus     @default(DRAFT)
+  storeId     String  
+  shopifyArticleId String?
+
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+
+  keyword    Keyword     @relation(fields: [keywordId], references: [id], onDelete: Cascade)
+  store       Store    @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  nodes   Node[]
+  thumbnail  Thumbnail?
+
+  @@index([storeId])
+  @@map("blogs")
+}
+
+model Node {
+  blogId    String @db.Uuid
+  key       String @default(cuid())
+  @@id([blogId, key])
+
+  blog      Blog   @relation(fields: [blogId], references: [id], onDelete: Cascade)
+
+  parentKey String?
+  parent    Node?  @relation("NodeChildren", fields: [blogId, parentKey], references: [blogId, key], onDelete: Cascade)
+  children  Node[] @relation("NodeChildren")
+
+  type      NodeType
+  sortOrder Int
+  payload   Json   @db.JsonB
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([blogId, parentKey, sortOrder])
+  @@map("nodes")
+}
+
+model Thumbnail {
+  id        String   @id @default(uuid()) @db.Uuid
+  blog      Blog     @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  blogId    String   @db.Uuid @unique
+  altText   String
+  blobPath      String   
+
+  @@map("thumbnails")
+}

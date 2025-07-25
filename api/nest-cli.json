@@ -1,0 +1,17 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+
+  "compilerOptions": {
+    "builder": "swc",
+    "deleteOutDir": true,
+    "manualRestart": true,
+
+    "assets": ["modules/blogs/prompts/**/*.hbs"],
+    "watchAssets": true
+  },
+
+  "generateOptions": {
+    "spec": false
+  }
+}

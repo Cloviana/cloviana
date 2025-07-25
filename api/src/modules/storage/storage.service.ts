@@ -1,0 +1,49 @@
+import { Injectable, OnModuleInit, Inject } from "@nestjs/common";
+import { BlobServiceClient } from "@azure/storage-blob";
+import { Readable } from "stream";
+import { AppConfiguration } from "@/config/app.configuration";
+
+@Injectable()
+export class StorageService implements OnModuleInit {
+  private readonly containerName = "uploads";
+  private readonly containerClient = this.blobServiceClient.getContainerClient(
+    this.containerName,
+  );
+
+  constructor(
+    @Inject(BlobServiceClient)
+    private readonly blobServiceClient: BlobServiceClient,
+    private readonly config: AppConfiguration,
+  ) {}
+
+  async onModuleInit() {
+    await this.containerClient.createIfNotExists();
+  }
+
+  async upload(
+    path: string,
+    data: Blob | ArrayBuffer | ArrayBufferView | Readable,
+    contentType = "application/octet-stream",
+  ): Promise<string> {
+    const client = this.containerClient.getBlockBlobClient(path);
+    if (this.isReadable(data)) {
+      await client.uploadStream(data, undefined, undefined, {
+        blobHTTPHeaders: { blobContentType: contentType },
+      });
+    } else {
+      await client.uploadData(data, {
+        blobHTTPHeaders: { blobContentType: contentType },
+      });
+    }
+    return client.url;
+  }
+
+  getCdnUrl(path: string): string {
+    const base = this.config.azureCdnEndpoint.replace(/\/$/, "");
+    return `${base}/${this.containerName}/${path}`;
+  }
+
+  private isReadable(obj: any): obj is Readable {
+    return obj && typeof obj.pipe === "function";
+  }
+}

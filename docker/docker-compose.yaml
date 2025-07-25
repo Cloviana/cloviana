@@ -1,0 +1,107 @@
+version: "3.9"
+
+networks:
+  appnet:
+
+services:
+  api:
+    build:
+      context: ../api
+      dockerfile: Dockerfile
+      target: production
+    image: api:latest
+    container_name: api
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      APP_PORT: 5000
+      RABBITMQ_URI: amqp://guest:guest@rabbitmq:5672
+      DATABASE_URL: ${DATABASE_URL}
+      SUPABASE_URL: ${SUPABASE_URL}
+      SUPABASE_JWT_SECRET: ${SUPABASE_JWT_SECRET}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY}
+      STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET}
+      SMTP2GO_API_KEY: ${SMTP2GO_API_KEY}
+      SMTP2GO_DEFAULT_FROM: ${SMTP2GO_DEFAULT_FROM}
+      AZURE_STORAGE_CONNECTION_STRING: ${AZURE_STORAGE_CONNECTION_STRING}
+      AZURE_CDN_ENDPOINT: ${AZURE_CDN_ENDPOINT}
+      SEMRUSH_API_KEY: ${SEMRUSH_API_KEY}
+      IDEOGRAM_API_KEY: ${IDEOGRAM_API_KEY}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY}
+      GOOGLE_CX: ${GOOGLE_CX}
+      SHOPIFY_API_KEY: ${SHOPIFY_API_KEY}
+      SHOPIFY_API_SECRET: ${SHOPIFY_API_SECRET}
+      SHOPIFY_HOST: ${SHOPIFY_HOST}
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:5000/api/health',r=>process.exit(r.statusCode===200?0:1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - appnet
+
+  dashboard:
+    build:
+      context: ../dashboard
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: https://api.cloviana.com
+        NEXT_PUBLIC_APP_URL: https://dashboard.cloviana.com
+        NEXT_PUBLIC_SUPABASE_URL: ${SUPABASE_URL}
+        NEXT_PUBLIC_SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
+    image: dashboard:latest
+    container_name: dashboard
+    env_file:
+      - .env
+    environment:
+      NEXT_PUBLIC_API_URL: https://api.cloviana.com
+      NEXT_PUBLIC_APP_URL: https://dashboard.cloviana.com
+      NEXT_PUBLIC_SUPABASE_URL: ${SUPABASE_URL}
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
+      SHOPIFY_API_KEY: ${SHOPIFY_API_KEY}
+      SHOPIFY_API_SECRET: ${SHOPIFY_API_SECRET}
+    depends_on:
+      - api
+    restart: always
+    networks:
+      - appnet
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq
+    ports:
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - appnet
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    depends_on:
+      - api
+      - dashboard
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    restart: unless-stopped
+    networks:
+      appnet:
+        aliases:
+          - api.cloviana.com
+          - dashboard.cloviana.com

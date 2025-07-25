@@ -1,0 +1,13 @@
+You are an SEO specialist asked to prepare a complete JSON outline for a {{blogType}} article titled “{{title}}.”  
+The outline must help the finished post rank for the primary keyword “{{keyword}}” while also reinforcing the broader business keyword “{{businessKeyword}}.”  
+Write in the brand voice {{#if brandVoice}}“{{brandVoice}}”{{else}}“neutral conversational”{{/if}} unless told otherwise.  
+
+The blog needs to be about 800–1 200 words in total and consist of exactly five or six sections.  
+The first section’s type is INTRODUCTION (it should also aim to answer the broader question in the introduction for SEO purposes), the last section’s type is CONCLUSION, and every section in between carries the type SECTION.  
+Any SECTION may, if useful, include subsections.
+
+In a section you may include a `transitionToNext` field that explains **how** to connect this section to the next section or subsection; provide guidance, not the literal bridging sentence.  
+
+Return a top-level `thumbnail` object that contains a `prompt` and `altText`.  
+Make the prompt richly descriptive so an image-generation model can produce a hero thumbnail that visually captures the essence of the topic and naturally incorporates the primary keyword.  
+slug must contain only lowercase letters, numbers, and dashes
