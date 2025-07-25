@@ -126,18 +126,19 @@ services:
           - dashboard.cloviana.com
 
   certbot:
-    image: certbot/certbot
+    image: certbot/dns-cloudflare
     container_name: certbot
     command:
       - certonly
-      - --webroot
-      - -w
-      - /var/www/certbot
+      - --dns-cloudflare
+      - --dns-cloudflare-credentials
+      - /secrets/cloudflare.ini
+      - --dns-cloudflare-propagation-seconds
+      - "60"
       - --email
       - info@cloviana.com
       - --agree-tos
       - --no-eff-email
-      - --non-interactive
       - -d
       - api.cloviana.com
       - -d
@@ -145,9 +146,10 @@ services:
     volumes:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
-      - ./certbot/www:/var/www/certbot
+      - ./cloudflare.ini:/secrets/cloudflare.ini:ro
     networks:
       - appnet
-    restart: unless-stopped
+    restart: "no"
+
 
 
