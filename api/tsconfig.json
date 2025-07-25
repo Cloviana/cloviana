@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    // Module and resolution
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+
+    // Output and compilation
+    "target": "ES2021",
+    "outDir": "./dist",
+    "sourceMap": true,
+    "declaration": true,
+    "removeComments": true,
+
+    // Decorators and metadata
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+
+    // Checks and safety
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+
+    // Path configuration
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/common/*", "./src/*"]
+    },
+
+    // Incremental compilation
+    "incremental": true
+  }
+}
