@@ -20,13 +20,14 @@ export async function GET(request: Request) {
         throw new Error('Failed to exchange code for session.');
       }
 
-      return NextResponse.redirect(`${env.APP_URL}${next}`);
+      return NextResponse.redirect(new URL(next, env.APP_URL));
     }
 
-    return NextResponse.redirect(`${env.APP_URL}/error`);
+    return NextResponse.redirect(new URL(paths.auth.login.getHref(), env.APP_URL))
   } catch (error) {
     await supabase.auth.signOut();
     console.error('Error during authentication:', error);
-    return NextResponse.redirect(paths.auth.login.getHref());
+    return NextResponse.redirect(new URL(paths.auth.login.getHref(), env.APP_URL))
+
   }
 }
