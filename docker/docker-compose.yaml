@@ -16,6 +16,9 @@ services:
     environment:
       NODE_ENV: production
       APP_PORT: 5000
+      API_HOST: 0.0.0.0
+      APP_URL: ${APP_URL}
+      ENVIRONMENT: production
       RABBITMQ_URI: amqp://guest:guest@rabbitmq:5672
       DATABASE_URL: ${DATABASE_URL}
       SUPABASE_URL: ${SUPABASE_URL}
@@ -51,8 +54,8 @@ services:
       context: ../dashboard
       dockerfile: Dockerfile
       args:
-        NEXT_PUBLIC_API_URL: https://api.cloviana.com
-        NEXT_PUBLIC_APP_URL: https://dashboard.cloviana.com
+        NEXT_PUBLIC_API_URL: ${API_URL}/api
+        NEXT_PUBLIC_APP_URL: ${APP_URL}
         NEXT_PUBLIC_SUPABASE_URL: ${SUPABASE_URL}
         NEXT_PUBLIC_SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
     image: dashboard:latest
@@ -60,8 +63,8 @@ services:
     env_file:
       - .env
     environment:
-      NEXT_PUBLIC_API_URL: https://api.cloviana.com
-      NEXT_PUBLIC_APP_URL: https://dashboard.cloviana.com
+      NEXT_PUBLIC_API_URL: ${API_URL}/api
+      NEXT_PUBLIC_APP_URL: ${APP_URL}
       NEXT_PUBLIC_SUPABASE_URL: ${SUPABASE_URL}
       NEXT_PUBLIC_SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
       SHOPIFY_API_KEY: ${SHOPIFY_API_KEY}
