@@ -10,6 +10,7 @@ import { FormLayout, Seperator } from '@/components/layout';
 import { paths } from '@/config/paths';
 
 import { signIn } from '../utils/sign-in';
+import { googleSignIn } from '../utils/google-sign-in';
 
 type FormValues = {
   email: string;
@@ -84,7 +85,7 @@ export const LoginForm = () => {
       <Seperator />
 
       <div className="flex w-full flex-col gap-4 lg:flex-row">
-        <Button fullWidth icon={GoogleLogoIcon} allowIconColor={false}>
+        <Button fullWidth icon={GoogleLogoIcon} allowIconColor={false} onClick={googleSignIn}>
           Google
         </Button>
         <Button fullWidth icon={AppleLogoIcon} allowIconColor={false}>
