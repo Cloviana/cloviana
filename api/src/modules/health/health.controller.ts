@@ -3,7 +3,7 @@ import {
   Get,
 } from "@nestjs/common";
 
-@Controller("stores")
+@Controller("health")
 export class HealthController {
   @Get()
   async getCurrentHealth() {
