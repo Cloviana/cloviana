@@ -146,6 +146,9 @@ services:
       --dns-cloudflare-credentials /secrets/cloudflare.ini
       --dns-cloudflare-propagation-seconds 60
       --cert-name cloviana
+      -d cloviana.com
+      -d api.cloviana.com
+      -d dashboard.cloviana.com
       --non-interactive
     volumes:
       - certbot-etc:/etc/letsencrypt
