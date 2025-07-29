@@ -147,7 +147,6 @@ services:
       --dns-cloudflare-propagation-seconds 60
       --cert-name cloviana
       --non-interactive
-      --deploy-hook "nginx -s reload"
     volumes:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
