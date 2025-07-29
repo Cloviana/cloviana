@@ -89,6 +89,16 @@ services:
     networks:
       - appnet
 
+  web:
+    build:
+      context: ../web
+      dockerfile: Dockerfile
+    image: web:latest
+    container_name: web
+    restart: always
+    networks:
+      - appnet
+
   rabbitmq:
     image: rabbitmq:3-management-alpine
     container_name: rabbitmq
@@ -111,6 +121,7 @@ services:
     depends_on:
       - api
       - dashboard
+      - web
     ports:
       - "80:80"
       - "443:443"
@@ -124,6 +135,7 @@ services:
         aliases:
           - api.cloviana.com
           - dashboard.cloviana.com
+          - cloviana.com
 
   certbot:
     image: certbot/dns-cloudflare
@@ -145,6 +157,8 @@ services:
       - api.cloviana.com
       - -d
       - dashboard.cloviana.com
+      - -d
+      - cloviana.com
     volumes:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
