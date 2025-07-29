@@ -1,8 +1,9 @@
 'use client';
 
-import { cn } from '@/utils/cn';
-import { FC, HTMLAttributes, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { FC, HTMLAttributes, useRef } from 'react';
+
+import { cn } from '@/utils/cn';
 
 interface ValuePropositionProps extends HTMLAttributes<HTMLDivElement> {}
 

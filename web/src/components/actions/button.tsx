@@ -21,7 +21,7 @@ const buttonVariants = cva(
         primary:
           'border border-primary/20 bg-gradient-to-b from-primary/90 to-primary text-white hover:opacity-85',
         secondary:
-          'border border-border/70 hover:border-gray-500/50 bg-white/10 backdrop-blur',
+          'border border-border/70 bg-white/10 backdrop-blur hover:border-gray-500/50',
         tertiary: '!shadow-none hover:bg-surface-200',
         plain: '!p-0 !font-normal !text-primary !shadow-none hover:opacity-80',
       },

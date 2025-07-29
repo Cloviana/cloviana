@@ -1,12 +1,6 @@
-import {
-  dehydrate,
-  HydrationBoundary,
-  QueryClient,
-} from '@tanstack/react-query';
 import Script from 'next/script';
 import React, { ReactNode } from 'react';
 
-import { AppProvider } from '@/app/provider';
 import '@/styles/globals.css';
 import { dmSans, inter, interDisplay } from '@/lib/fonts';
 import { cn } from '@/utils/cn';
@@ -17,9 +11,6 @@ export const metadata = {
 };
 
 const RootLayout = async ({ children }: { children: ReactNode }) => {
-  const queryClient = new QueryClient();
-  const dehydratedState = dehydrate(queryClient);
-
   return (
     <html
       lang="en"
@@ -78,13 +69,7 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
         />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body>
-        <AppProvider>
-          <HydrationBoundary state={dehydratedState}>
-            {children}
-          </HydrationBoundary>
-        </AppProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 };

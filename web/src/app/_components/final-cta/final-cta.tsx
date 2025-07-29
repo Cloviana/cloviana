@@ -1,8 +1,9 @@
+import { FC, HTMLAttributes } from 'react';
+
 import { Button, ButtonGroup } from '@/components/actions';
 import { links } from '@/config/links';
 import { paths } from '@/config/paths';
 import { cn } from '@/utils/cn';
-import { FC, HTMLAttributes } from 'react';
 
 interface FinalCTAProps extends HTMLAttributes<HTMLDivElement> {}
 
