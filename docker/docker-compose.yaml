@@ -153,7 +153,7 @@ services:
       - ./cloudflare.ini:/secrets/cloudflare.ini:ro
     networks:
       - appnet
-    restart: unless-stopped
+    restart: no
 
 
 
