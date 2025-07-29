@@ -138,23 +138,23 @@ services:
           - cloviana.com
 
   certbot:
-  image: certbot/dns-cloudflare
-  container_name: certbot
-  command: >
-    renew
-    --dns-cloudflare
-    --dns-cloudflare-credentials /secrets/cloudflare.ini
-    --dns-cloudflare-propagation-seconds 60
-    --cert-name cloviana
-    --non-interactive
-    --deploy-hook "nginx -s reload"
-  volumes:
-    - certbot-etc:/etc/letsencrypt
-    - certbot-var:/var/lib/letsencrypt
-    - ./cloudflare.ini:/secrets/cloudflare.ini:ro
-  networks:
-    - appnet
-  restart: unless-stopped
+    image: certbot/dns-cloudflare
+    container_name: certbot
+    command: >
+      renew
+      --dns-cloudflare
+      --dns-cloudflare-credentials /secrets/cloudflare.ini
+      --dns-cloudflare-propagation-seconds 60
+      --cert-name cloviana
+      --non-interactive
+      --deploy-hook "nginx -s reload"
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - ./cloudflare.ini:/secrets/cloudflare.ini:ro
+    networks:
+      - appnet
+    restart: unless-stopped
 
 
 
