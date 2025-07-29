@@ -1,11 +1,13 @@
 'use client';
 
-import React, { useRef } from 'react';
-import { GIcon } from '@/components/icons';
-import { cn } from '@/utils/cn';
-import { useScrollControls } from './hooks/use-scroll-controlls';
 import * as Avatar from '@radix-ui/react-avatar';
 import { cva, VariantProps } from 'class-variance-authority';
+import React, { useRef } from 'react';
+
+import { GIcon } from '@/components/icons';
+import { cn } from '@/utils/cn';
+
+import { useScrollControls } from './hooks/use-scroll-controlls';
 
 const testimonialCardImgVariants = cva('size-full object-cover', {
   variants: {
@@ -115,11 +117,11 @@ export function Testimonial({
       <div className="mb-5 flex flex-col justify-between gap-3 sm:flex-row">
         <div className="flex flex-1 flex-col gap-2">
           <h2 className="text-2xl font-medium md:text-3xl lg:text-4xl">
-            How Shopify stores win with our AI SEO Agent (Beta)
+            How Shopify stores win with our AI SEO Agent (Beta)
           </h2>
           <p className="text-base text-foreground-light lg:text-lg">
             Solo founders and small teams in our beta program use our
-            Shopify‑integrated AI SEO Agent to grow organic traffic and
+            Shopify-integrated AI SEO Agent to grow organic traffic and
             streamline SEO tasks.
           </p>
         </div>

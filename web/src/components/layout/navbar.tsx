@@ -5,12 +5,13 @@ import {
   useScroll,
   useMotionValueEvent,
   HTMLMotionProps,
-  ForwardRefComponent,
 } from 'framer-motion';
-import { cn } from '@/utils/cn';
-import { Button, ButtonGroup } from '../actions';
-import { paths } from '@/config/paths';
 import { FC, useState } from 'react';
+
+import { paths } from '@/config/paths';
+import { cn } from '@/utils/cn';
+
+import { Button, ButtonGroup } from '../actions';
 
 interface NavbarProps extends HTMLMotionProps<'nav'> {}
 

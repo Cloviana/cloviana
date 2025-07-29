@@ -1,4 +1,5 @@
 import { Footer, Navbar } from '@/components/layout';
+
 import {
   Hero,
   Features,
@@ -15,7 +16,7 @@ export default function HomePage() {
       <main className="py-14">
         <Hero />
         <Trusted className="mb-8" storeCount={100} />
-        <div className={'my-16 border-b border-t bg-white py-8 shadow-inner'}>
+        <div className={'my-16 border-y bg-white py-8 shadow-inner'}>
           <ValueProposition />
         </div>
         <Features className="my-24" />

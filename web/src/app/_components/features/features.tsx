@@ -1,8 +1,9 @@
-import { FC, HTMLAttributes } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
+import { FC, HTMLAttributes } from 'react';
+
 import { cn } from '@/utils/cn';
 
-const featureCardWrapper = cva('p-8 rounded-2xl', {
+const featureCardWrapper = cva('rounded-2xl p-8', {
   variants: {
     background: {
       pink: 'bg-[#8b045c]',
@@ -39,7 +40,7 @@ export const FeatureCard: FC<FeatureCardProps> = ({
     {...props}
   >
     <img
-      className="mb-5 w-full rounded-2xl border-l border-r border-t"
+      className="mb-5 w-full rounded-2xl border-x border-t"
       src={imgUrl}
       alt={caption}
     />
@@ -76,7 +77,7 @@ export const Features: FC<FeaturesProps> = ({ className, ...props }) => {
   return (
     <div className={cn('container relative space-y-8', className)} {...props}>
       <div className="space-y-2">
-        <h2 className="text-2xl font-medium lg:text-4xl">
+        <h2 className="text-2xl font-medium md:text-3xl lg:text-4xl">
           The growth engine for AI‑powered Shopify SEO
         </h2>
         <p className="text-base text-foreground-light lg:text-lg">

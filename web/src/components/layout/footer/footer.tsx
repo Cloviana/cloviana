@@ -1,6 +1,7 @@
+import { FC } from 'react';
+
 import { Anchor } from '@/components/actions';
 import { paths } from '@/config/paths';
-import { FC } from 'react';
 
 export const Footer: FC = () => (
   <footer className="border-t bg-surface-100">
