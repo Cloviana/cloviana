@@ -156,7 +156,7 @@ services:
       - ./cloudflare.ini:/secrets/cloudflare.ini:ro
     networks:
       - appnet
-    restart: no
+    restart: "no"
 
 
 
