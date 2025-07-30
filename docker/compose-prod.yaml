@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    depends_on:
+      - api
+      - dashboard
+      - web
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - certbot-etc:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot:ro
+    restart: unless-stopped
+    networks:
+      appnet:
+        aliases:
+          - api.cloviana.com
+          - dashboard.cloviana.com
+          - cloviana.com
+
+  certbot:
+    image: certbot/dns-cloudflare
+    container_name: certbot
+    command: >
+      renew
+      --dns-cloudflare
+      --dns-cloudflare-credentials /secrets/cloudflare.ini
+      --dns-cloudflare-propagation-seconds 60
+      --cert-name cloviana
+      -d cloviana.com
+      -d api.cloviana.com
+      -d dashboard.cloviana.com
+      --non-interactive
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - ./cloudflare.ini:/secrets/cloudflare.ini:ro
+    networks:
+      - appnet
+    restart: "no"

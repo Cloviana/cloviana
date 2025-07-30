@@ -3,6 +3,8 @@ import 'dotenv/config';
 
 const createEnv = () => {
   const EnvSchema = z.object({
+    APP_URL: z.string().optional().default('http://dashboard.localhost'),
+    WEB_URL: z.string().optional().default('http://localhost'),
     ENVIRONMENT: z
       .enum(['development', 'production'])
       .optional()
@@ -11,6 +13,7 @@ const createEnv = () => {
 
   const envVars = {
     ENVIRONMENT: process.env.NEXT_PUBLIC_ENVIRONMENT,
+    APP_URL: process.env.NEXT_PUBLIC_APP_URL,
   };
 
   const parsedEnv = EnvSchema.safeParse(envVars);
