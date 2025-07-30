@@ -1,0 +1,53 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: ../api
+      dockerfile: Dockerfile
+      target: dev
+    image: api:dev
+    volumes:
+      - ../api/src:/app/src:cached
+      - ../api/prisma:/app/prisma:cached
+    container_name: api
+
+  dashboard:
+    build:
+      context: ../dashboard
+      dockerfile: Dockerfile
+      target: dev
+    image: dashboard:dev
+    volumes:
+      - ../dashboard/src:/app/src:cached
+      - ../dashboard/public:/app/public:cached
+    container_name: dashboard
+
+  web:
+    build:
+      context: ../web
+      dockerfile: Dockerfile
+      target: dev
+    image: web:dev
+    volumes:
+      - ../web/src:/app/src:cached
+      - ../web/public:/app/public:cached
+    container_name: web
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-dev
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.dev.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api
+      - dashboard
+      - web
+    networks:
+      appnet:
+        aliases:
+          - api.localhost
+          - dashboard.localhost
+          - localhost
