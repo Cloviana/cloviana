@@ -13,7 +13,6 @@ import { cn } from '@/utils/cn';
 
 export const metadata = {
   title: 'Cloviana',
-  description: 'Showcasing Best Practices For Building React Applications',
 };
 
 const RootLayout = async ({ children }: { children: ReactNode }) => {
