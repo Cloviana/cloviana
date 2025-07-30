@@ -23,11 +23,14 @@ export async function GET(request: Request) {
       return NextResponse.redirect(new URL(next, env.APP_URL));
     }
 
-    return NextResponse.redirect(new URL(paths.auth.login.getHref(), env.APP_URL))
+    return NextResponse.redirect(
+      new URL(paths.auth.login.getHref(), env.APP_URL),
+    );
   } catch (error) {
     await supabase.auth.signOut();
     console.error('Error during authentication:', error);
-    return NextResponse.redirect(new URL(paths.auth.login.getHref(), env.APP_URL))
-
+    return NextResponse.redirect(
+      new URL(paths.auth.login.getHref(), env.APP_URL),
+    );
   }
 }
