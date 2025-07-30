@@ -94,10 +94,9 @@ export class WebhooksService {
     });
 
     if (status === SubscriptionStatus.TRIALING) {
-      let email = session.customer_details?.email as string;
+      //let email = session.customer_details?.email as string;
       this.keywordsProducer.seedKeywords({
         storeId,
-        email,
       });
     }
   }
