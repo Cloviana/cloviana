@@ -59,8 +59,10 @@ export async function GET(req: NextRequest) {
   cookies().delete('store_id');
 
   try {
-  await createChannel({ storeId, shop, offlineAccessToken: accessToken });
-  } catch {}
+    await createChannel({ storeId, shop, offlineAccessToken: accessToken });
+  } catch {
+    // pass
+  }
 
   const returnPath = cookies().get('shopify_oauth_return')?.value;
   cookies().delete('shopify_oauth_return');
