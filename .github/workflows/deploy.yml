@@ -23,6 +23,8 @@ jobs:
             git fetch --all
             git reset --hard origin/main
 
+            docker system prune -a --volumes -f
+
             cd docker
             docker compose \
               -f compose-core.yaml \
