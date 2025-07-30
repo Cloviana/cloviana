@@ -1,78 +1,45 @@
-import crypto from 'crypto';
-
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { paths } from '@/config/paths';
-import { createChannel } from '@/features/integrations/api/create-channel';
+import { exchangeCode } from '@/lib/shopify/auth';
+import { verifyCallbackHmac } from '@/lib/shopify/verify';
+import { env } from '@/config/env';
 
 export async function GET(req: NextRequest) {
   const { searchParams, origin } = req.nextUrl;
-  const shop = searchParams.get('shop');
-  const code = searchParams.get('code');
-  const returnedState = searchParams.get('state');
-  const hmac = searchParams.get('hmac');
-
-  if (!shop || !code || !returnedState || !hmac)
-    return new NextResponse(null, { status: 400 });
-
-  const storedState = cookies().get('shopify_oauth_state')?.value;
-  cookies().delete('shopify_oauth_state');
-  if (storedState !== returnedState)
-    return new NextResponse(null, { status: 401 });
-
-  const message = Array.from(searchParams.entries())
-    .filter(([k]) => k !== 'hmac' && k !== 'signature')
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([k, v]) => `${k}=${v}`)
-    .join('&');
-
-  const expectedHmac = crypto
-    .createHmac('sha256', process.env.SHOPIFY_API_SECRET!)
-    .update(message)
-    .digest('hex');
-
-  if (expectedHmac !== hmac) return new NextResponse(null, { status: 401 });
-
-  const tokenRes = await fetch(`https://${shop}/admin/oauth/access_token`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      client_id: process.env.SHOPIFY_API_KEY!,
-      client_secret: process.env.SHOPIFY_API_SECRET!,
-      code,
-    }),
-  });
-
-  const body = await tokenRes.json();
-  const accessToken = body.access_token;
-
-  if (!tokenRes.ok || !accessToken) {
-    console.error('Token exchange failed', tokenRes.status, body);
+  const required = ['shop', 'code', 'state', 'hmac'];
+  for (const p of required) {
+    if (!searchParams.get(p)) return NextResponse.json(null, { status: 400 });
+  }
+  const cookieStore = cookies();
+  const storedState = cookieStore.get('shopify_oauth_state')?.value;
+  cookieStore.delete('shopify_oauth_state');
+  if (storedState !== searchParams.get('state')) {
+    return NextResponse.json(null, { status: 401 });
+  }
+  if (!verifyCallbackHmac(searchParams)) {
+    return NextResponse.json(null, { status: 401 });
+  }
+  let token: string;
+  try {
+    token = await exchangeCode(
+      searchParams.get('shop')!,
+      searchParams.get('code')!,
+    );
+  } catch {
     return NextResponse.json(
       { error: 'Token exchange failed' },
       { status: 500 },
     );
   }
-
-  const storeId = cookies().get('store_id')?.value || '';
-  cookies().delete('store_id');
-
-  try {
-    await createChannel({ storeId, shop, offlineAccessToken: accessToken });
-  } catch {
-    // pass
-  }
-
-  const returnPath = cookies().get('shopify_oauth_return')?.value;
-  cookies().delete('shopify_oauth_return');
-
+  const returnPath = cookieStore.get('shopify_oauth_return')?.value;
+  cookieStore.delete('shopify_oauth_return');
   const redirectUrl = returnPath
-    ? new URL(returnPath, origin)
-    : new URL(paths.store.getHref(), origin);
-
-  redirectUrl.searchParams.set('host', searchParams.get('host') || '');
-  redirectUrl.searchParams.set('shop', shop);
-
+    ? new URL(returnPath, env.APP_URL)
+    : new URL(paths.store.getHref(), env.APP_URL);
+  redirectUrl.searchParams.set('host', searchParams.get('host') ?? '');
+  redirectUrl.searchParams.set('shop', searchParams.get('shop')!);
+  redirectUrl.searchParams.set('token', token);
   return NextResponse.redirect(redirectUrl);
 }

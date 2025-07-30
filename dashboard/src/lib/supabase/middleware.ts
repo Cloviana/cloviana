@@ -3,10 +3,16 @@ import { NextResponse, type NextRequest } from 'next/server';
 
 import { paths } from '@/config/paths';
 
+const PUBLIC_ROUTES = [
+  '/api/auth/shopify',
+  '/api/auth/google',
+  '/api/webhooks',
+];
+
 export async function updateSession(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  if (pathname.startsWith('/api')) {
+  if (PUBLIC_ROUTES.some((p) => pathname.startsWith(p))) {
     return NextResponse.next({ request });
   }
 
