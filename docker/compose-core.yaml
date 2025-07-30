@@ -12,7 +12,7 @@ services:
     build:
       context: ../api
       dockerfile: Dockerfile
-      target: production
+      target: runner
     image: api:latest
     container_name: api
     env_file:
@@ -25,6 +25,7 @@ services:
       ENVIRONMENT: production
       RABBITMQ_URI: amqp://guest:guest@rabbitmq:5672
       DATABASE_URL: ${DATABASE_URL}
+      DIRECT_URL: ${DIRECT_URL}
       SUPABASE_URL: ${SUPABASE_URL}
       SUPABASE_JWT_SECRET: ${SUPABASE_JWT_SECRET}
       OPENAI_API_KEY: ${OPENAI_API_KEY}
@@ -53,11 +54,14 @@ services:
       retries: 5
     restart: unless-stopped
     networks:
-      - appnet
+      appnet:
 
   migrate:
-    image: api:latest
-    command: sh -c "npx prisma migrate deploy"
+    build:
+      context: ../api
+      dockerfile: Dockerfile
+      target: builder           
+    command: npx prisma migrate deploy
     env_file:
       - .env
     networks:
@@ -67,8 +71,9 @@ services:
     build:
       context: ../dashboard
       dockerfile: Dockerfile
+      target: runner
       args:
-        NEXT_PUBLIC_API_URL: ${API_URL}/api
+        NEXT_PUBLIC_API_URL: ${API_URL}
         NEXT_PUBLIC_APP_URL: ${APP_URL}
         NEXT_PUBLIC_SUPABASE_URL: ${SUPABASE_URL}
         NEXT_PUBLIC_SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
@@ -77,7 +82,7 @@ services:
     env_file:
       - .env
     environment:
-      NEXT_PUBLIC_API_URL: ${API_URL}/api
+      NEXT_PUBLIC_API_URL: ${API_URL}
       NEXT_PUBLIC_APP_URL: ${APP_URL}
       NEXT_PUBLIC_SUPABASE_URL: ${SUPABASE_URL}
       NEXT_PUBLIC_SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
@@ -93,6 +98,13 @@ services:
     build:
       context: ../web
       dockerfile: Dockerfile
+      target: runner
+      args:
+        NEXT_PUBLIC_APP_URL: ${APP_URL}
+        NEXT_PUBLIC_WEB_URL: ${WEB_URL}
+    environment:
+      NEXT_PUBLIC_APP_URL: ${APP_URL}
+      NEXT_PUBLIC_WEB_URL: ${WEB_URL}
     image: web:latest
     container_name: web
     restart: always
@@ -114,49 +126,3 @@ services:
       retries: 5
     networks:
       - appnet
-
-  nginx:
-    image: nginx:alpine
-    container_name: nginx
-    depends_on:
-      - api
-      - dashboard
-      - web
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-      - certbot-etc:/etc/letsencrypt         
-      - ./certbot/www:/var/www/certbot:ro    
-    restart: unless-stopped
-    networks:
-      appnet:
-        aliases:
-          - api.cloviana.com
-          - dashboard.cloviana.com
-          - cloviana.com
-
-  certbot:
-    image: certbot/dns-cloudflare
-    container_name: certbot
-    command: >
-      renew
-      --dns-cloudflare
-      --dns-cloudflare-credentials /secrets/cloudflare.ini
-      --dns-cloudflare-propagation-seconds 60
-      --cert-name cloviana
-      -d cloviana.com
-      -d api.cloviana.com
-      -d dashboard.cloviana.com
-      --non-interactive
-    volumes:
-      - certbot-etc:/etc/letsencrypt
-      - certbot-var:/var/lib/letsencrypt
-      - ./cloudflare.ini:/secrets/cloudflare.ini:ro
-    networks:
-      - appnet
-    restart: "no"
-
-
-

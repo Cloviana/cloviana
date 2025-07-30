@@ -1,3 +1,5 @@
+import { env } from './env';
+
 const buildPath = (path: string, query?: Record<string, any>) =>
   query && Object.keys(query).length
     ? `${path}?${new URLSearchParams(query as Record<string, string>).toString()}`
@@ -11,22 +13,22 @@ export const paths = {
   auth: {
     login: {
       getHref: (query?: Record<string, any>) =>
-        buildPath(`https://dashboard.cloviana.com/auth/login`, query),
+        buildPath(`${env.APP_URL}/auth/login`, query),
     },
     signup: {
       getHref: (query?: Record<string, any>) =>
-        buildPath(`https://dashboard.cloviana.com/auth/signup`, query),
+        buildPath(`${env.APP_URL}/auth/signup`, query),
     },
   },
 
   regulations: {
     termsOfService: {
       getHref: (query?: Record<string, any>) =>
-        buildPath('https://cloviana.com/regulations/terms-of-service', query),
+        buildPath(`${env.WEB_URL}/regulations/terms-of-service`, query),
     },
     privacyPolicy: {
       getHref: (query?: Record<string, any>) =>
-        buildPath('https://cloviana.com/regulations/privacy-policy', query),
+        buildPath(`${env.WEB_URL}/regulations/privacy-policy`, query),
     },
   },
 } as const;
