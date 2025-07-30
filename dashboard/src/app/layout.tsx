@@ -46,7 +46,7 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
           rel="stylesheet"
           type="text/css"
         />
-        
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
