@@ -28,7 +28,7 @@ jobs:
             TAG=${TAG:-latest}
 
             echo "${{ secrets.PROD_REGISTRY_TOKEN }}" \
-              | docker login ghcr.io --username ${{ github.actor }} --password-stdin
+              | docker login ghcr.io --username samuelito22 --password-stdin
 
             docker pull ghcr.io/cloviana/api:${TAG}
             docker pull ghcr.io/cloviana/dashboard:${TAG}
