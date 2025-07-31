@@ -23,7 +23,12 @@ jobs:
           port:     22
           script: |
             set -e
-            cd ~/cloviana/docker
+
+            cd ~/cloviana 
+            git fetch origin main
+            git reset --hard origin/main
+
+            cd docker
 
             TAG=${TAG:-latest}
 
