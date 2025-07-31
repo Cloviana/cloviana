@@ -1,7 +1,6 @@
 import axios, { AxiosProgressEvent, AxiosRequestConfig } from 'axios';
 
 import { env } from '@/config/env';
-import { dmSans } from './fonts';
 
 type RequestOptions = {
   method?: string;
