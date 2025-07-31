@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download workflow run info
+      - name: Set TAG
         run: echo "TAG=${{ github.event.workflow_run.head_sha }}" >> $GITHUB_ENV
 
       - name: SSH deploy to VM
@@ -24,9 +24,18 @@ jobs:
           script: |
             set -e
             cd ~/cloviana/docker
-            echo "${{ secrets.PROD_REGISTRY_TOKEN }}" | docker login ghcr.io --username ${{ github.actor }} --password-stdin
-            IMAGE=ghcr.io/${{ github.actor }}/app
-            docker pull ${IMAGE}:${TAG}
-            docker compose -f compose-core.yaml -f compose-prod.yaml pull
-            docker compose -f compose-core.yaml -f compose-prod.yaml up -d --remove-orphans
+
+            echo "${{ secrets.PROD_REGISTRY_TOKEN }}" \
+              | docker login ghcr.io --username ${{ github.actor }} --password-stdin
+
+            # pull all three images by tag
+            docker pull ghcr.io/cloviana/api:${TAG}
+            docker pull ghcr.io/cloviana/dashboard:${TAG}
+            docker pull ghcr.io/cloviana/web:${TAG}
+
+            # update & start services
+            docker compose -f compose-core.yml -f compose-prod.yml pull
+            docker compose -f compose-core.yml -f compose-prod.yml up -d --remove-orphans
+
+            # clean up images older than 7 days
             docker image prune --filter "until=168h" -f
