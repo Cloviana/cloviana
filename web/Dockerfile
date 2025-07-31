@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 ####### 1) Base stage: common bits (Node, pnpm/corepack, working dir) #######
-FROM node:18-alpine AS base
+FROM node:20-alpine AS base
 RUN apk add --no-cache openssl \
  && npm install -g corepack
 WORKDIR /app
@@ -61,7 +61,7 @@ CMD \
   fi
 
 ####### 5) Runner stage: ultra‑small production image #######
-FROM node:18-alpine AS runner
+FROM node:20-alpine AS runner
 RUN addgroup --system --gid 1001 nodejs \
  && adduser --system --uid 1001 nextjs
 WORKDIR /app
