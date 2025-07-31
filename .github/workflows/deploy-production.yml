@@ -25,6 +25,8 @@ jobs:
             set -e
             cd ~/cloviana/docker
 
+            TAG=${TAG:-latest}
+
             echo "${{ secrets.PROD_REGISTRY_TOKEN }}" \
               | docker login ghcr.io --username ${{ github.actor }} --password-stdin
 
