@@ -17,10 +17,10 @@ jobs:
       - name: SSH deploy to VM
         uses: appleboy/ssh-action@v0.1.6
         with:
-          host:      ${{ secrets.PROD_HOST }}
-          username:  cloviana-admin
-          key:       ${{ secrets.SSH_PRIVATE_KEY }}
-          port:      22
+          host:     ${{ secrets.PROD_HOST }}
+          username: cloviana-admin
+          password: ${{ secrets.SSH_PASSWORD }}
+          port:     22
           script: |
             set -e
             cd ~/cloviana/docker
@@ -28,14 +28,11 @@ jobs:
             echo "${{ secrets.PROD_REGISTRY_TOKEN }}" \
               | docker login ghcr.io --username ${{ github.actor }} --password-stdin
 
-            # pull all three images by tag
             docker pull ghcr.io/cloviana/api:${TAG}
             docker pull ghcr.io/cloviana/dashboard:${TAG}
             docker pull ghcr.io/cloviana/web:${TAG}
 
-            # update & start services
             docker compose -f compose-core.yml -f compose-prod.yml pull
             docker compose -f compose-core.yml -f compose-prod.yml up -d --remove-orphans
 
-            # clean up images older than 7 days
             docker image prune --filter "until=168h" -f
