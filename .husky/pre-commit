@@ -1,2 +1,2 @@
-cd dashboard && npx lint-staged
-cd ../web && npx lint-staged
+cd dashboard && npx lint-staged --allow-empty
+cd ../web && npx lint-staged --allow-empty
