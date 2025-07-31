@@ -3,10 +3,15 @@ import { Injectable } from "@nestjs/common";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { AuthUser } from "@/interfaces/auth-user.interface";
 import { CreateStoreDto } from "./dto/create-store.dto";
+import { KeywordsProducer } from "../messaging/producers/keywords.producer";
+import { StoreStatus } from "@prisma/client";
 
 @Injectable()
 export class StoresService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly keywordsProducer: KeywordsProducer
+  ) {}
 
   async getStores(user: AuthUser) {
     const { sub: ownerId } = user;
@@ -40,14 +45,21 @@ export class StoresService {
     const { sub: ownerId } = user;
     const profileUrl = await this.resolveFavicon(domainUrl);
 
-    return this.prisma.store.create({
+    const store = await this.prisma.store.create({
       data: {
         ownerId,
         name,
         domainUrl,
         profileUrl,
+        status: StoreStatus.SETTING_UP,
       },
     });
+
+    this.keywordsProducer.seedKeywords({
+      storeId: store.id,
+    });
+
+    return store;
   }
 
   private async resolveFavicon(domain: string): Promise<string> {

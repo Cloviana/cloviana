@@ -24,8 +24,8 @@ const OnboardingPage: FC = () => {
 
   const onSubmit = async ({ name, domainUrl }: FormValues) => {
     try {
-      const store = await createStore({ name, domainUrl });
-      push(paths.onboarding.trial.getHref({ store: store.id }));
+      const { id } = await createStore({ name, domainUrl });
+      push(paths.store.getHref(id));
     } catch (error: any) {
       setError('domainUrl', { type: 'server', message: error.message });
     }

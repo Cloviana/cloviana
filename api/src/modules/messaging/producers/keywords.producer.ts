@@ -15,7 +15,6 @@ export class KeywordsProducer {
 
   async seedKeywords(payload: {
     storeId: string;
-    email: string;
   }): Promise<void> {
     await firstValueFrom(this.client.emit(KEYWORDS_SEEDED_EVENT, payload));
   }
