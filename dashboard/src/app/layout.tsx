@@ -10,6 +10,7 @@ import { AppProvider } from '@/app/provider';
 import '@/styles/globals.css';
 import { dmSans, inter, interDisplay } from '@/lib/fonts';
 import { cn } from '@/utils/cn';
+import { env } from '@/config/env';
 
 export const metadata = {
   title: 'Cloviana',
