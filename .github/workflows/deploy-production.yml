@@ -34,7 +34,7 @@ jobs:
             docker pull ghcr.io/cloviana/dashboard:${TAG}
             docker pull ghcr.io/cloviana/web:${TAG}
 
-            docker compose -f compose-core.yml -f compose-prod.yml pull
-            docker compose -f compose-core.yml -f compose-prod.yml up -d --remove-orphans
+            docker compose -f compose-core.yaml -f compose-prod.yaml pull
+            docker compose -f compose-core.yaml -f compose-prod.yaml up -d --remove-orphans
 
             docker image prune --filter "until=168h" -f
