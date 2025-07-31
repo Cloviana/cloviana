@@ -33,6 +33,7 @@ jobs:
   build-and-push:
     needs: detect-changes
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - uses: actions/checkout@v3
 
@@ -66,6 +67,11 @@ jobs:
           tags: |
             ghcr.io/cloviana/dashboard:${{ github.sha }}
             ghcr.io/cloviana/dashboard:latest
+          build-args: |
+            NEXT_PUBLIC_API_URL=${{ env.API_URL }}
+            NEXT_PUBLIC_APP_URL=${{ env.APP_URL }}
+            NEXT_PUBLIC_SUPABASE_URL=${{ secrets.SUPABASE_URL }}
+            NEXT_PUBLIC_SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}
 
       - name: Build & push Web
         if: needs.detect-changes.outputs.web == 'true'
@@ -78,3 +84,6 @@ jobs:
           tags: |
             ghcr.io/cloviana/web:${{ github.sha }}
             ghcr.io/cloviana/web:latest
+          build-args: |
+            NEXT_PUBLIC_APP_URL=${{ env.APP_URL }}
+            NEXT_PUBLIC_WEB_URL=${{ env.WEB_URL }}
