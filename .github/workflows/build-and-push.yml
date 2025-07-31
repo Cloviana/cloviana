@@ -24,12 +24,12 @@ jobs:
       - name: Build and tag
         run: |
           TAG=${{ github.sha }}
-          IMAGE=ghcr.io/${{ github.repository_owner }}/app
+          IMAGE=ghcr.io/${{ github.actor }}/app
           docker build -t ${IMAGE}:${TAG} -f docker/Dockerfile .
           docker tag ${IMAGE}:${TAG} ${IMAGE}:latest
 
       - name: Push
         run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/app
+          IMAGE=ghcr.io/${{ github.actor }}/app
           docker push ${IMAGE}:${{ github.sha }}
           docker push ${IMAGE}:latest

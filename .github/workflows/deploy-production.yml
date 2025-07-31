@@ -3,7 +3,7 @@ name: Deploy to Production
 on:
   workflow_run:
     workflows: ["Build & Push"]
-    types: [ completed ]
+    types: [completed]
 
 jobs:
   deploy:
@@ -23,24 +23,10 @@ jobs:
           port:      22
           script: |
             set -e
-
             cd ~/cloviana/docker
-
-            # Pull the exact image you just built
-            docker pull ghcr.io/your-org/app:${TAG}
-
-            # Optional: pull other service images
-            # docker pull ...
-
-            # Swap containers with zero-downtime (via Compose v2)
-            docker compose \
-              -f compose-core.yaml \
-              -f compose-prod.yaml \
-              pull
-            docker compose \
-              -f compose-core.yaml \
-              -f compose-prod.yaml \
-              up -d --remove-orphans
-
-            # (Optional) Prune old images older than 7 days
+            echo "${{ secrets.PROD_REGISTRY_TOKEN }}" | docker login ghcr.io --username ${{ github.actor }} --password-stdin
+            IMAGE=ghcr.io/${{ github.actor }}/app
+            docker pull ${IMAGE}:${TAG}
+            docker compose -f compose-core.yaml -f compose-prod.yaml pull
+            docker compose -f compose-core.yaml -f compose-prod.yaml up -d --remove-orphans
             docker image prune --filter "until=168h" -f
