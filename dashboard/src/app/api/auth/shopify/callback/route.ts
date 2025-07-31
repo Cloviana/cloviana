@@ -5,13 +5,15 @@ import { paths } from '@/config/paths';
 import { exchangeCode } from '@/lib/shopify/auth';
 import { verifyCallbackHmac } from '@/lib/shopify/verify';
 import { env } from '@/config/env';
+import { createChannel } from '@/features/integrations/api/create-channel';
 
 export async function GET(req: NextRequest) {
-  const { searchParams, origin } = req.nextUrl;
+  const { searchParams } = req.nextUrl;
   const required = ['shop', 'code', 'state', 'hmac'];
   for (const p of required) {
     if (!searchParams.get(p)) return NextResponse.json(null, { status: 400 });
   }
+
   const cookieStore = cookies();
   const storedState = cookieStore.get('shopify_oauth_state')?.value;
   cookieStore.delete('shopify_oauth_state');
@@ -21,6 +23,7 @@ export async function GET(req: NextRequest) {
   if (!verifyCallbackHmac(searchParams)) {
     return NextResponse.json(null, { status: 401 });
   }
+
   let token: string;
   try {
     token = await exchangeCode(
@@ -33,6 +36,19 @@ export async function GET(req: NextRequest) {
       { status: 500 },
     );
   }
+
+  const storeId = cookieStore.get('store_id')?.value || '';
+  cookieStore.delete('store_id');
+  try {
+    await createChannel({
+      storeId,
+      shop: searchParams.get('shop')!,
+      offlineAccessToken: token,
+    });
+  } catch (err) {
+    console.error('⚠️ createChannel failed:', err);
+  }
+
   const returnPath = cookieStore.get('shopify_oauth_return')?.value;
   cookieStore.delete('shopify_oauth_return');
   const redirectUrl = returnPath
@@ -40,6 +56,6 @@ export async function GET(req: NextRequest) {
     : new URL(paths.store.getHref(), env.APP_URL);
   redirectUrl.searchParams.set('host', searchParams.get('host') ?? '');
   redirectUrl.searchParams.set('shop', searchParams.get('shop')!);
-  redirectUrl.searchParams.set('token', token);
+
   return NextResponse.redirect(redirectUrl);
 }
