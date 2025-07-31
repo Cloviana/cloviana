@@ -73,6 +73,7 @@ RUN addgroup --system --gid 1001 nodejs \
 WORKDIR /app
 # Copy only the standalone build and static assets
 COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
 
 # Re‑expose your runtime ENVs if needed (e.g. for server‑side code)
