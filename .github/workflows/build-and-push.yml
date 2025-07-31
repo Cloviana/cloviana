@@ -9,7 +9,29 @@ permissions:
   packages: write
 
 jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      api: ${{ steps.filter.outputs.api }}
+      dashboard: ${{ steps.filter.outputs.dashboard }}
+      web: ${{ steps.filter.outputs.web }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Detect which folders changed
+        id: filter
+        uses: dorny/paths-filter@v2
+        with:
+          filters: |
+            api:
+              - 'api/**'
+            dashboard:
+              - 'dashboard/**'
+            web:
+              - 'web/**'
+
   build-and-push:
+    needs: detect-changes
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -22,6 +44,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build & push API
+        if: needs.detect-changes.outputs.api == 'true'
         uses: docker/build-push-action@v3
         with:
           context: ./api
@@ -33,6 +56,7 @@ jobs:
             ghcr.io/cloviana/api:latest
 
       - name: Build & push Dashboard
+        if: needs.detect-changes.outputs.dashboard == 'true'
         uses: docker/build-push-action@v3
         with:
           context: ./dashboard
@@ -44,6 +68,7 @@ jobs:
             ghcr.io/cloviana/dashboard:latest
 
       - name: Build & push Web
+        if: needs.detect-changes.outputs.web == 'true'
         uses: docker/build-push-action@v3
         with:
           context: ./web
