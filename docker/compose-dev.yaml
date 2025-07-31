@@ -6,7 +6,7 @@ services:
       context: ../api
       dockerfile: Dockerfile
       target: dev
-    image: api:dev
+    image: ghcr.io/cloviana/api:dev
     volumes:
       - ../api/src:/app/src:cached
       - ../api/prisma:/app/prisma:cached
@@ -17,7 +17,7 @@ services:
       context: ../dashboard
       dockerfile: Dockerfile
       target: dev
-    image: dashboard:dev
+    image: ghcr.io/cloviana/dashboard:dev
     volumes:
       - ../dashboard/src:/app/src:cached
       - ../dashboard/public:/app/public:cached
@@ -28,7 +28,7 @@ services:
       context: ../web
       dockerfile: Dockerfile
       target: dev
-    image: web:dev
+    image: ghcr.io/cloviana/web:dev
     volumes:
       - ../web/src:/app/src:cached
       - ../web/public:/app/public:cached
