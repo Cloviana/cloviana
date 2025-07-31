@@ -1,11 +1,11 @@
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 
+import { env } from '@/config/env';
 import { paths } from '@/config/paths';
+import { createChannel } from '@/features/integrations/api/create-channel';
 import { exchangeCode } from '@/lib/shopify/auth';
 import { verifyCallbackHmac } from '@/lib/shopify/verify';
-import { env } from '@/config/env';
-import { createChannel } from '@/features/integrations/api/create-channel';
 
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
