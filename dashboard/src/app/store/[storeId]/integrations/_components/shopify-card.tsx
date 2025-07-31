@@ -10,7 +10,6 @@ import { TextField } from '@/components/input';
 import { useGetStore } from '@/features/stores/api/get-store';
 
 import { IntegrationCard } from './integration-card';
-import { env } from '@/config/env';
 
 interface FormValues {
   storeUrl: string;
