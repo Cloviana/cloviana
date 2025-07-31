@@ -62,17 +62,6 @@ export const LoginForm = () => {
             error={errors.password?.message}
             {...register('password', {
               required: 'Password is required',
-              validate: {
-                hasLowerCase: (value) =>
-                  /[a-z]/.test(value) ||
-                  'Password must contain at least one lowercase letter',
-                hasUpperCase: (value) =>
-                  /[A-Z]/.test(value) ||
-                  'Password must contain at least one uppercase letter',
-                hasNumber: (value) =>
-                  /[0-9]/.test(value) ||
-                  'Password must contain at least one number',
-              },
             })}
           />
 

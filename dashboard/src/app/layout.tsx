@@ -13,7 +13,6 @@ import { cn } from '@/utils/cn';
 
 export const metadata = {
   title: 'Cloviana',
-  description: 'Showcasing Best Practices For Building React Applications',
 };
 
 const RootLayout = async ({ children }: { children: ReactNode }) => {
@@ -47,9 +46,17 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
           rel="stylesheet"
           type="text/css"
         />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=optional"
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap"
           rel="stylesheet"
+          fetchPriority="high"
         />
 
         <link

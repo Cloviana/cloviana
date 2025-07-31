@@ -8,7 +8,6 @@ import { StoreStatus } from "@prisma/client";
 
 interface KeywordsSeededEvent {
   storeId: string;
-  email: string;
 }
 
 @Controller()
@@ -23,18 +22,19 @@ export class KeywordsConsumer {
 
   @EventPattern(KEYWORDS_SEEDED_EVENT)
   async handleKeywordsSeeded(
-    @Payload() { storeId, email }: KeywordsSeededEvent,
+    @Payload() { storeId }: KeywordsSeededEvent,
   ) {
     this.logger.log(`Starting keyword‐seeding job for store ${storeId}`);
 
     let status: StoreStatus = StoreStatus.ACTIVE;
     try {
       await this.keywords.seedKeywords(storeId);
-      await this.smtp.sendMail({
+      /*await this.smtp.sendMail({
         to: email,
         subject: "Welcome to your new SEO workspace!",
         html: "<h1>Your keywords are ready</h1>",
       });
+      */
       this.logger.log(`Job succeeded for store ${storeId}`);
     } catch (err) {
       status = StoreStatus.SETUP_FAILED;
