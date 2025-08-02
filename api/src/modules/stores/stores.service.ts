@@ -10,7 +10,7 @@ import { StoreStatus } from "@prisma/client";
 export class StoresService {
   constructor(
     private readonly prisma: PrismaService,
-    private readonly keywordsProducer: KeywordsProducer
+    private readonly keywordsProducer: KeywordsProducer,
   ) {}
 
   async getStores(user: AuthUser) {

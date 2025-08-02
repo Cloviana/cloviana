@@ -3,5 +3,5 @@ import { IsEnum } from "class-validator";
 
 export class GetKeywordsQueryDto {
   @IsEnum(KeywordType)
-    type!: KeywordType;
+  type!: KeywordType;
 }
