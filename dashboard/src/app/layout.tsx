@@ -8,6 +8,7 @@ import React, { ReactNode } from 'react';
 
 import { AppProvider } from '@/app/provider';
 import '@/styles/globals.css';
+import { MATERIAL_SYMBOLS_STYLESHEET } from '@/config/material-symbols';
 import { dmSans, inter, interDisplay } from '@/lib/fonts';
 import { cn } from '@/utils/cn';
 
@@ -54,8 +55,8 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap"
           rel="stylesheet"
+          href={MATERIAL_SYMBOLS_STYLESHEET}
           fetchPriority="high"
         />
 
