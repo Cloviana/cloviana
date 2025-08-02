@@ -3,8 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
 
@@ -46,16 +46,16 @@ enum KeywordIntent {
 }
 
 enum BlogGenerationStatus {
-  QUEUED       
-  IN_PROGRESS   
-  READY       
-  ERROR      
+  QUEUED
+  IN_PROGRESS
+  READY
+  ERROR
 }
 
 enum BlogPublishStatus {
-  DRAFT       
-  PUBLISHED   
-  ARCHIVED     
+  DRAFT
+  PUBLISHED
+  ARCHIVED
 }
 
 enum BlogType {
@@ -75,15 +75,26 @@ enum NodeType {
   TEXT
 }
 
-model Profile {
-  id          String   @id @default(uuid()) @db.Uuid
-  firstName   String?
-  lastName    String?
-  profileUrl  String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+enum GenerationStep {
+  TOPIC
+  KEYWORD
+  COMPETITORS
+  TITLE
+  SECONDARY_KEYWORDS
+  META
+  REVIEW
+  COMPLETE
+}
 
-  storesOwned Store[]  @relation("StoreOwner")
+model Profile {
+  id         String   @id @default(uuid()) @db.Uuid
+  firstName  String?
+  lastName   String?
+  profileUrl String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  storesOwned Store[] @relation("StoreOwner")
 
   @@map("profiles")
 }
@@ -99,19 +110,19 @@ model Store {
   createdAt        DateTime    @default(now())
   updatedAt        DateTime    @updatedAt
 
-  owner            Profile     @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
-  keywords         StoreKeyword[]
-  blogs         Blog[]
-  subscription     Subscription?
-  channel          Channel? 
+  owner        Profile        @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  keywords     StoreKeyword[]
+  blogs        Blog[]
+  subscription Subscription?
+  channel      Channel?
 
   @@index([ownerId])
   @@map("stores")
 }
 
 model Plan {
-  id            String         @id @default(uuid()) @db.Uuid
-  stripePriceId String         @unique
+  id            String       @id @default(uuid()) @db.Uuid
+  stripePriceId String       @unique
   name          PlanName
   interval      PlanInterval
 
@@ -121,15 +132,15 @@ model Plan {
 }
 
 model Keyword {
-  id          String            @id @default(uuid()) @db.Uuid
-  phrase      String            @unique
+  id          String        @id @default(uuid()) @db.Uuid
+  phrase      String        @unique
   volume      Int
   cpc         Int
-  intent      KeywordIntent   
+  intent      KeywordIntent
   difficulty  Int
   competition Float
-  createdAt   DateTime          @default(now())
-  updatedAt   DateTime          @updatedAt
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
 
   storeKeywords StoreKeyword[]
   blogs         Blog[]
@@ -138,12 +149,12 @@ model Keyword {
 }
 
 model StoreKeyword {
-  storeId     String       
-  keywordId   String        @db.Uuid
-  type        KeywordType
+  storeId   String
+  keywordId String      @db.Uuid
+  type      KeywordType
 
-  store   Store     @relation(fields: [storeId], references: [id], onDelete: Cascade)
-  keyword     Keyword       @relation(fields: [keywordId], references: [id], onDelete: Cascade)
+  store   Store   @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  keyword Keyword @relation(fields: [keywordId], references: [id], onDelete: Cascade)
 
   @@id([storeId, keywordId, type])
   @@map("stores_keywords")
@@ -158,78 +169,81 @@ model Subscription {
   createdAt            DateTime           @default(now())
   updatedAt            DateTime           @updatedAt
 
-  store                Store              @relation(fields: [storeId], references: [id], onDelete: Cascade)
-  plan                 Plan               @relation(fields: [planId], references: [id])
+  store Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  plan  Plan  @relation(fields: [planId], references: [id])
 
   @@map("subscriptions")
 }
 
 model Channel {
-  id          String   @id @default(uuid()) @db.Uuid
-  shop        String   @db.Citext @unique
-  config      Json
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id        String   @id @default(uuid()) @db.Uuid
+  shop      String   @unique @db.Citext
+  config    Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  storeId     String   @unique
-  store       Store    @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  storeId String @unique
+  store   Store  @relation(fields: [storeId], references: [id], onDelete: Cascade)
 
   @@map("channels")
 }
 
 model Blog {
-  id         String      @id @default(uuid()) @db.Uuid
-  title      String
-  slug       String?
+  id          String  @id @default(uuid()) @db.Uuid
+  topic       String?
+  title       String?
+  slug        String?
   description String?
-  brandVoice String?
-  type       BlogType
-  keywordId  String      @db.Uuid
-  generationStatus BlogGenerationStatus  @default(QUEUED)
-  publishStatus    BlogPublishStatus     @default(DRAFT)
-  storeId     String  
+  brandVoice  String?
+  keywordId   String? @db.Uuid
+
+  generationStep   GenerationStep?
+  generationStatus BlogGenerationStatus @default(QUEUED)
+  publishStatus    BlogPublishStatus    @default(DRAFT)
+
+  storeId          String
   shopifyArticleId String?
 
-  createdAt  DateTime    @default(now())
-  updatedAt  DateTime    @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  keyword    Keyword     @relation(fields: [keywordId], references: [id], onDelete: Cascade)
-  store       Store    @relation(fields: [storeId], references: [id], onDelete: Cascade)
-  nodes   Node[]
-  thumbnail  Thumbnail?
+  keyword   Keyword?   @relation(fields: [keywordId], references: [id], onDelete: Cascade)
+  store     Store      @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  nodes     Node[]
+  thumbnail Thumbnail?
 
   @@index([storeId])
   @@map("blogs")
 }
 
 model Node {
-  blogId    String @db.Uuid
-  key       String @default(cuid())
-  @@id([blogId, key])
+  blogId String @db.Uuid
+  key    String @default(cuid())
 
-  blog      Blog   @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  blog Blog @relation(fields: [blogId], references: [id], onDelete: Cascade)
 
   parentKey String?
-  parent    Node?  @relation("NodeChildren", fields: [blogId, parentKey], references: [blogId, key], onDelete: Cascade)
-  children  Node[] @relation("NodeChildren")
+  parent    Node?   @relation("NodeChildren", fields: [blogId, parentKey], references: [blogId, key], onDelete: Cascade)
+  children  Node[]  @relation("NodeChildren")
 
   type      NodeType
   sortOrder Int
-  payload   Json   @db.JsonB
+  payload   Json     @db.JsonB
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  @@id([blogId, key])
   @@index([blogId, parentKey, sortOrder])
   @@map("nodes")
 }
 
 model Thumbnail {
-  id        String   @id @default(uuid()) @db.Uuid
-  blog      Blog     @relation(fields: [blogId], references: [id], onDelete: Cascade)
-  blogId    String   @db.Uuid @unique
-  altText   String
-  blobPath      String   
+  id       String @id @default(uuid()) @db.Uuid
+  blog     Blog   @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  blogId   String @unique @db.Uuid
+  altText  String
+  blobPath String
 
   @@map("thumbnails")
 }

@@ -9,4 +9,4 @@ export * from "./blogs/blogs.module";
 export * from "./http/http.module";
 
 export * from "./storage/storage.module";
-export * from "./health/health.module"
+export * from "./health/health.module";

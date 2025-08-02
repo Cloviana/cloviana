@@ -1,21 +1,22 @@
 'use client';
 
-import { useParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+import { FC } from 'react';
 
 import { Anchor } from '@/components/actions';
 import { GIcon } from '@/components/icons';
 import { Badge } from '@/components/indicators';
 import { IndexTable } from '@/components/table/index-table';
 import { paths } from '@/config/paths';
-import { useGetBlogs } from '@/features/blogs/api/get-blogs';
+import { Blog } from '@/types/api';
 import { formatWithDateFns } from '@/utils/format';
 
-export const BlogsTable = () => {
-  const { storeId } = useParams<{ storeId: string }>();
-  const { push } = useRouter();
-  const { data: blogs } = useGetBlogs(storeId);
+interface BlogsTableProps {
+  blogs: Blog[];
+}
 
-  if (!blogs) return null;
+export const BlogsTable: FC<BlogsTableProps> = ({ blogs }) => {
+  const { push } = useRouter();
 
   return (
     <div className="overflow-hidden rounded-md border shadow-sm">

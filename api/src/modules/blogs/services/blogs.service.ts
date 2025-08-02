@@ -26,6 +26,10 @@ import {
   LIST_BLOGS,
   UPDATE_ARTICLE,
 } from "../query";
+import {
+  BLOG_DETAIL_SELECT,
+  BLOG_SUMMARY_SELECT,
+} from "../constants/selects.constants";
 
 @Injectable()
 export class BlogsService {
@@ -36,79 +40,44 @@ export class BlogsService {
     private readonly blogsProducer: BlogsProducer,
     private readonly blogGeneration: BlogGenerationService,
     private readonly storage: StorageService,
-    private readonly shopify: ShopifyService
+    private readonly shopify: ShopifyService,
   ) {}
 
-  async getStoreBlogs(storeId: string) {
-    const blogs = await this.prisma.blog.findMany({
-      where: { storeId },
-      select: {
-        id: true,
-        createdAt: true,
-        updatedAt: true,
-        title: true,
-        publishStatus: true,
-        keyword: {
-          select: {
-            id: true,
-            phrase: true,
-          },
+  async getBlogs(storeId: string) {
+    return this.prisma.blog.findMany({
+      where: {
+        storeId,
+        generationStep: {
+          not: null,
         },
-        thumbnail: { select: { blobPath: true, altText: true } },
       },
+      select: BLOG_SUMMARY_SELECT,
       orderBy: { createdAt: "desc" },
     });
-
-    return blogs.map((blog) => ({
-      ...blog,
-      thumbnail: {
-        ...blog.thumbnail,
-        srcUrl: blog.thumbnail
-          ? this.storage.getCdnUrl(blog.thumbnail.blobPath)
-          : null,
-      },
-    }));
   }
 
   async getBlog(blogId: string) {
     const blog = await this.prisma.blog.findUniqueOrThrow({
       where: { id: blogId },
-      select: {
-        id: true,
-        title: true,
-        generationStatus: true,
-        slug: true,
-        description: true,
-        storeId: true,
-        publishStatus: true,
-        thumbnail: { select: { blobPath: true, altText: true } },
-        nodes: {
-          orderBy: [{ sortOrder: "asc" }, { parentKey: "asc" }],
-          select: {
-            key: true,
-            parentKey: true,
-            sortOrder: true,
-            type: true,
-            payload: true,
-          },
-        },
-        keyword: { select: { phrase: true } },
-      },
+      select: BLOG_DETAIL_SELECT,
     });
-
-    const srcUrl = blog.thumbnail
-      ? this.storage.getCdnUrl(blog.thumbnail.blobPath)
-      : "";
 
     return {
       ...blog,
-      thumbnail: blog.thumbnail
-        ? {
-            ...blog.thumbnail,
-            srcUrl,
-          }
-        : null,
+      thumbnail: blog.thumbnail && {
+        ...blog.thumbnail,
+        srcUrl: this.storage.getCdnUrl(blog.thumbnail.blobPath),
+      },
     };
+  }
+
+  async createDraft(storeId: string) {
+    return this.prisma.blog.create({
+      data: {
+        storeId,
+      },
+      select: BLOG_DETAIL_SELECT,
+    });
   }
 
   async updateBlog(blogId: string, dto: UpdateBlogDto) {
@@ -128,35 +97,6 @@ export class BlogsService {
     return updated;
   }
 
-  async createDraft(storeId: string, dto: CreateBlogDto) {
-    const blog = await this.prisma.blog.create({
-      data: {
-        storeId,
-        title: dto.title,
-        brandVoice: dto.brandVoice,
-        type: dto.type,
-        keywordId: dto.keywordId,
-      },
-      select: {
-        id: true,
-        createdAt: true,
-        updatedAt: true,
-        title: true,
-        publishStatus: true,
-        keyword: {
-          select: {
-            id: true,
-            phrase: true,
-          },
-        },
-      },
-    });
-
-    await this.blogsProducer.generateBlog({ blogId: blog.id, storeId });
-
-    return blog;
-  }
-
   async generateBlog(storeId: string, blogId: string) {
     const {
       keyword: { phrase: businessPhrase },
@@ -169,11 +109,11 @@ export class BlogsService {
       where: { id: blogId },
       include: { keyword: true },
     });
+    /*
 
     const { thumbnail, slug, description, sections } =
       await this.blogGeneration.generateStructure({
         title: blog.title,
-        type: blog.type,
         bloggingKeyword: blog.keyword.phrase,
         businessKeyword: businessPhrase,
         brandVoice: blog.brandVoice ?? "",
@@ -184,7 +124,6 @@ export class BlogsService {
       this.blogGeneration.generateContent({
         sections,
         title: blog.title,
-        type: blog.type,
         bloggingKeyword: blog.keyword.phrase,
         businessKeyword: businessPhrase,
         brandVoice: blog.brandVoice ?? "",
@@ -219,6 +158,7 @@ export class BlogsService {
         });
       }
     });
+    */
   }
 
   async suggestSources(title: string): Promise<GoogleSearchItem[]> {
@@ -249,7 +189,7 @@ export class BlogsService {
   private flattenNodes(
     tree: TreeNode[],
     blogId: string,
-    parentKey: string | null = null
+    parentKey: string | null = null,
   ): Prisma.NodeCreateManyInput[] {
     return tree.flatMap((n, i) => {
       const key = cuid();
@@ -269,19 +209,6 @@ export class BlogsService {
 
       return [base, ...this.flattenNodes(children, blogId, key)];
     });
-  }
-
-  async updateNode(blogId: string, dto: UpdateNodeDto) {
-    const { key, parentKey, type, sortOrder, payload } = dto;
-    return this.prisma.node.upsert({
-      where: { blogId_key: { blogId, key } },
-      update: { parentKey, type, sortOrder, payload },
-      create: { blogId, key, parentKey, type, sortOrder, payload },
-    });
-  }
-
-  async deleteNode(blogId: string, key: string) {
-    await this.prisma.node.delete({ where: { blogId_key: { blogId, key } } });
   }
 
   async syncAllNodes(blogId: string, dtos: UpdateNodeDto[]) {
