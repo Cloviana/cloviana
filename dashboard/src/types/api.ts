@@ -24,6 +24,16 @@ export type NodeType =
   | 'LINK'
   | 'TEXT';
 
+export type GenerationStep =
+  | 'TOPIC'
+  | 'KEYWORD'
+  | 'COMPETITORS'
+  | 'TITLE'
+  | 'SECONDARY_KEYWORDS'
+  | 'META'
+  | 'REVIEW'
+  | 'COMPLETE';
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Reusable primitives
 // ─────────────────────────────────────────────────────────────────────────────
@@ -159,6 +169,7 @@ export type Thumbnail = {
 
 export type BlogDetail = Blog & {
   brandVoice?: string;
+  generationStep?: GenerationStep;
   type: BlogType;
   generationStatus: GenerationStatus;
   storeId: string;

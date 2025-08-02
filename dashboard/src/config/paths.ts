@@ -39,7 +39,7 @@ export const paths = {
             blogId: string,
             query?: Record<string, any>,
           ) =>
-            buildPath(`/store/${storeId}/blogs/${blogId}/step-1-topic`, query),
+            buildPath(`/store/${storeId}/blogs/${blogId}/steps/topic`, query),
         },
       },
     },
