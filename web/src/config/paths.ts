@@ -13,11 +13,11 @@ export const paths = {
   auth: {
     login: {
       getHref: (query?: Record<string, any>) =>
-        buildPath(`${env.APP_URL}/auth/login`, query),
+        buildPath(`${env.APP_URL}/login`, query),
     },
     signup: {
       getHref: (query?: Record<string, any>) =>
-        buildPath(`${env.APP_URL}/auth/signup`, query),
+        buildPath(`${env.APP_URL}/signup`, query),
     },
   },
 

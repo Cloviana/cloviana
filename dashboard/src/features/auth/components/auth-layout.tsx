@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { FC, ReactNode } from 'react';
+import { FC, memo, ReactNode } from 'react';
 
 import { Anchor } from '@/components/actions';
 import {
@@ -24,29 +24,32 @@ const logos = [
   CnnLogo,
 ];
 
-const AuthMarketing: FC = () => (
-  <>
-    <Image
-      src="https://cloviana-assets.azureedge.net/assets/seascape_rhapsody_20250705T120000Z.png"
-      alt="Store background"
-      fill
-      priority
-      className="absolute left-0 top-0 z-10 size-full rounded-xl object-cover"
-    />
-    <div className="relative z-30 flex h-full max-w-[500px] flex-col justify-between">
-      <p className="text-2xl font-semibold leading-tight lg:text-[2rem]">
-        Sell smarter. Grow faster. Automatically.
-      </p>
-      <div className="hidden flex-wrap justify-center gap-6 text-white lg:flex">
-        {logos.map((Logo, i) => (
-          <Logo key={i} className="h-5 w-auto" />
-        ))}
+const AuthMarketing: FC = memo(function AuthMarketing() {
+  return (
+    <>
+      <Image
+        src="https://cloviana-assets.azureedge.net/assets/seascape_rhapsody_20250705T120000Z.png"
+        alt="Store background"
+        fill
+        priority
+        fetchPriority="high"
+        className="absolute left-0 top-0 z-10 size-full rounded-xl object-cover"
+      />
+      <div className="relative z-30 flex h-full max-w-[500px] flex-col justify-between">
+        <p className="text-2xl font-semibold leading-tight lg:text-[2rem]">
+          Sell smarter. Grow faster. Automatically.
+        </p>
+        <div className="hidden flex-wrap justify-center gap-6 text-white lg:flex">
+          {logos.map((Logo, i) => (
+            <Logo key={i} className="h-5 w-auto" />
+          ))}
+        </div>
       </div>
-    </div>
-  </>
-);
+    </>
+  );
+});
 
-const AuthLayout: FC<AuthLayoutProps> = ({ children }) => (
+export const AuthLayout: FC<AuthLayoutProps> = ({ children }) => (
   <SplitLayout
     left={
       <div className="flex w-full max-w-[500px] flex-col justify-between gap-8">
@@ -71,5 +74,3 @@ const AuthLayout: FC<AuthLayoutProps> = ({ children }) => (
     right={<AuthMarketing />}
   />
 );
-
-export default AuthLayout;

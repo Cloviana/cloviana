@@ -10,12 +10,11 @@ export const paths = {
 
   auth: {
     signup: {
-      getHref: (query?: Record<string, any>) =>
-        buildPath('/auth/signup', query),
+      getHref: (query?: Record<string, any>) => buildPath('/signup', query),
     },
 
     login: {
-      getHref: (query?: Record<string, any>) => buildPath('/auth/login', query),
+      getHref: (query?: Record<string, any>) => buildPath('/login', query),
     },
   },
 
@@ -32,14 +31,14 @@ export const paths = {
       getHref: (storeId: string, query?: Record<string, any>) =>
         buildPath(`/store/${storeId}/blogs`, query),
 
-      steps: {
+      setup: {
         topic: {
           getHref: (
             storeId: string,
             blogId: string,
             query?: Record<string, any>,
           ) =>
-            buildPath(`/store/${storeId}/blogs/${blogId}/steps/topic`, query),
+            buildPath(`/store/${storeId}/blogs/${blogId}/setup/topic`, query),
         },
       },
     },
