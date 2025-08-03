@@ -38,6 +38,12 @@ export class AppConfiguration {
   readonly rabbitmqUri!: string;
 
   @IsString()
+  @Value("REDIS_URL", {
+    parse: (value) => value || "redis://redis:6379",
+  })
+  readonly redisUrl!: string;
+
+  @IsString()
   @Value("SEMRUSH_API_KEY")
   readonly semrushApiKey!: string;
 

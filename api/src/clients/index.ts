@@ -3,3 +3,6 @@ export * from "./semrush/semrush.module";
 export * from "./stripe/stripe.module";
 export * from "./email/email.module";
 export * from "./shopify/shopify.module";
+
+// CAREFULLY ARRANGED
+export * from "./redis/redis.module";

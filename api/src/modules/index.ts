@@ -10,3 +10,6 @@ export * from "./http/http.module";
 
 export * from "./storage/storage.module";
 export * from "./health/health.module";
+
+// ORGANIZED AND CLEANED
+export * from "./suggestions";
