@@ -3,6 +3,7 @@ version: "3.9"
 volumes:
   certbot-etc:
   certbot-var:
+  redis-data:
 
 networks:
   appnet:
@@ -24,6 +25,7 @@ services:
       APP_URL: ${APP_URL}
       ENVIRONMENT: production
       RABBITMQ_URI: amqp://guest:guest@rabbitmq:5672
+      REDIS_URL: redis://redis:6379
       DATABASE_URL: ${DATABASE_URL}
       DIRECT_URL: ${DIRECT_URL}
       SUPABASE_URL: ${SUPABASE_URL}
@@ -44,6 +46,8 @@ services:
       SHOPIFY_HOST: ${SHOPIFY_HOST}
     depends_on:
       rabbitmq:
+        condition: service_healthy
+      redis:
         condition: service_healthy
       migrate:
         condition: service_completed_successfully
@@ -124,5 +128,22 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - appnet
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
     networks:
       - appnet

@@ -155,7 +155,7 @@ export class BlogGenerationService {
         prompt,
       ].join("\n\n"),
     );
-    form.append("rendering_speed", "TURBO");
+    form.append("rendering_speed", "QUALITY");
     form.append("resolution", "1344x768");
     form.append("style_type", "REALISTIC");
 

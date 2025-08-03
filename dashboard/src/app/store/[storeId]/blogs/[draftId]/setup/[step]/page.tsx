@@ -5,6 +5,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 
 import { Header } from './_components/header';
 import { Sidebar } from './_components/sidebar';
+import { TopicView } from './_views/topic-view';
 
 export default function StepPage() {
   return (
@@ -18,7 +19,9 @@ export default function StepPage() {
         </div>
         <div className="min-h-0 flex-1 overflow-y-auto">
           <Suspense fallback={''}>
-            <ErrorBoundary fallback={''}></ErrorBoundary>
+            <ErrorBoundary fallback={''}>
+              <TopicView />
+            </ErrorBoundary>
           </Suspense>
         </div>
       </div>

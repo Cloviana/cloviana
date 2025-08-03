@@ -156,6 +156,7 @@ export type Keyword = Entity<{
 
 export type Blog = Entity<{
   title: string;
+  topic: string;
   keyword: Pick<Keyword, 'id' | 'phrase'>;
   publishStatus: PublishStatus;
   thumbnail: Thumbnail | null;

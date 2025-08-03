@@ -6,7 +6,7 @@ import { cn } from '@/utils/cn';
 import { Button, ButtonProps } from '../actions';
 
 const pageVariants = cva(
-  'relative mx-auto w-full max-w-[1000px] px-6 py-3 md:px-8',
+  'relative mx-auto w-full max-w-[1000px] px-6 py-3 empty:px-0 md:px-8',
   {
     variants: {
       fullWidth: { true: 'max-w-none' },
@@ -35,20 +35,19 @@ export const Page: FC<PageProps> = ({
   title,
   primaryAction,
   ...rest
-}) => {
-  return (
-    <div className={cn(pageVariants({ fullWidth, narrowWidth }))} {...rest}>
-      <div className={'flex items-center justify-between gap-4 py-3.5'}>
-        <h1 className="text-xl font-medium">{title}</h1>
-        <div className="flex items-center gap-2">
-          {primaryAction && (
-            <Button size={'sm'} variant={'primary'} {...primaryAction}>
-              {primaryAction.children}
-            </Button>
-          )}
-        </div>
+}) => (
+  <div className={cn(pageVariants({ fullWidth, narrowWidth }))} {...rest}>
+    {(title || primaryAction) && (
+      <div className="flex items-center justify-between gap-4 py-3.5">
+        {title && <h1 className="text-xl font-medium">{title}</h1>}
+        {primaryAction && (
+          <Button size="sm" variant="primary" {...primaryAction}>
+            {primaryAction.children}
+          </Button>
+        )}
       </div>
-      <div>{children}</div>
-    </div>
-  );
-};
+    )}
+
+    {children}
+  </div>
+);
