@@ -27,7 +27,7 @@ export const StepItem: FC<StepItemProps> = ({
     <div
       className={cn(
         'flex size-3.5 items-center justify-center rounded-full',
-        status === 'complete' ? 'bg-sky-600' : 'bg-gray-200',
+        status === 'complete' ? 'bg-sky-600' : 'border bg-zinc-100',
       )}
     >
       {status === 'complete' && (

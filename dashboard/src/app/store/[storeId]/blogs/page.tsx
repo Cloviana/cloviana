@@ -23,7 +23,7 @@ export default function BlogListPage() {
     const { id } = await createBlog({
       data: { storeId },
     });
-    router.push(paths.store.blogs.steps.topic.getHref(storeId, id));
+    router.push(paths.store.blogs.setup.topic.getHref(storeId, id));
   };
 
   const hasBlogs = blogs.length > 0;
