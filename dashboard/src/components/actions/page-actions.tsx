@@ -1,40 +1,29 @@
 import { FC } from 'react';
 
-import { Button } from './button';
+import { Button, ButtonProps } from './button';
 import { ButtonGroup } from './button-group';
 
-export interface PageAction {
-  content: string;
-  loading?: boolean;
-  disabled?: boolean;
-  url?: string;
-  onClick?: () => void;
-  [key: string]: any;
-}
-
 interface PageActionsProps {
-  primaryAction?: PageAction;
-  secondaryActions?: PageAction[];
+  primaryAction?: ButtonProps;
+  secondaryActions?: ButtonProps[];
 }
 
 export const PageActions: FC<PageActionsProps> = ({
   primaryAction,
   secondaryActions = [],
 }) => {
-  const { content: primaryContent, ...primaryProps } = primaryAction || {};
-
   return (
     <div className="flex w-full justify-end py-4">
       <ButtonGroup gap="tight">
-        {secondaryActions.map(({ content, ...props }, i) => (
+        {secondaryActions.map(({ children, ...props }, i) => (
           <Button key={i} variant="secondary" size="sm" {...props}>
-            {content}
+            {children}
           </Button>
         ))}
 
         {primaryAction && (
-          <Button variant="primary" size="sm" {...primaryProps}>
-            {primaryContent}
+          <Button variant="primary" size="sm" {...primaryAction}>
+            {primaryAction.children}
           </Button>
         )}
       </ButtonGroup>
