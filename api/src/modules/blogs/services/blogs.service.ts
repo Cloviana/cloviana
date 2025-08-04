@@ -40,7 +40,7 @@ export class BlogsService {
     private readonly blogsProducer: BlogsProducer,
     private readonly blogGeneration: BlogGenerationService,
     private readonly storage: StorageService,
-    private readonly shopify: ShopifyService,
+    private readonly shopify: ShopifyService
   ) {}
 
   async getBlogs(storeId: string) {
@@ -81,20 +81,12 @@ export class BlogsService {
   }
 
   async updateBlog(blogId: string, dto: UpdateBlogDto) {
-    const updated = await this.prisma.blog.update({
+    return this.prisma.blog.update({
       where: { id: blogId },
       data: {
         ...dto,
       },
-      select: {
-        id: true,
-        title: true,
-        description: true,
-        slug: true,
-      },
     });
-
-    return updated;
   }
 
   async generateBlog(storeId: string, blogId: string) {
@@ -189,7 +181,7 @@ export class BlogsService {
   private flattenNodes(
     tree: TreeNode[],
     blogId: string,
-    parentKey: string | null = null,
+    parentKey: string | null = null
   ): Prisma.NodeCreateManyInput[] {
     return tree.flatMap((n, i) => {
       const key = cuid();

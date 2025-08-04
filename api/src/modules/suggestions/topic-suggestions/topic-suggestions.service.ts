@@ -1,5 +1,5 @@
 import { Cache, CACHE_MANAGER } from "@nestjs/cache-manager";
-import { Inject, Injectable } from "@nestjs/common";
+import { Inject, Injectable, Logger } from "@nestjs/common";
 import OpenAI from "openai";
 import { z } from "zod";
 import { zodTextFormat } from "openai/helpers/zod";
@@ -13,10 +13,11 @@ const TopicsSchema = z.object({
 @Injectable()
 export class TopicSuggestionsService {
   private readonly openai = new OpenAI();
+  private readonly logger = new Logger(TopicSuggestionsService.name);
 
   constructor(
     @Inject(CACHE_MANAGER) private cache: Cache,
-    private readonly prisma: PrismaService
+    private readonly prisma: PrismaService,
   ) {}
 
   async getTopics(storeId: string) {
@@ -24,9 +25,9 @@ export class TopicSuggestionsService {
     const cached = await this.cache.get<string[]>(key);
     if (cached) return cached as string[];
 
-    const topics = this.generateTopics(storeId);
+    const topics = await this.generateTopics(storeId);
 
-    await this.cache.set(key, topics, 60 * 60 * 24);
+    await this.cache.set(key, topics, 60 * 60 * 24 * 1000);
 
     return topics;
   }
@@ -54,7 +55,7 @@ export class TopicSuggestionsService {
     });
 
     const response = await this.openai.responses.parse({
-      model: "gpt-4o-mini",
+      model: "gpt-4o-mini-2024-07-18",
       input: [
         {
           role: "system",
@@ -82,6 +83,8 @@ export class TopicSuggestionsService {
     });
 
     const { topics } = response.output_parsed!;
+
+    this.logger.debug("Generated topic suggestions")
     return topics;
   }
 }

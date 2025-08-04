@@ -32,14 +32,11 @@ export const paths = {
         buildPath(`/store/${storeId}/blogs`, query),
 
       setup: {
-        topic: {
-          getHref: (
-            storeId: string,
-            blogId: string,
-            query?: Record<string, any>,
-          ) =>
-            buildPath(`/store/${storeId}/blogs/${blogId}/setup/topic`, query),
-        },
+        getHref: (
+          storeId: string,
+          blogId: string,
+          query?: Record<string, any>,
+        ) => buildPath(`/store/${storeId}/blogs/${blogId}/setup`, query),
       },
     },
 

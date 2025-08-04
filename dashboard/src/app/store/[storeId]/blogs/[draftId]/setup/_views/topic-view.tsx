@@ -1,11 +1,12 @@
 import { useParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { useGetBlog } from '@/api/blogs/get-blog';
+import { updateBlogInputSchema, useUpdateBlog } from '@/api/blogs/update-blog';
 import { useGetTopicSuggestions } from '@/api/suggestions/topic-suggestions/get-topics-suggestions';
+import { PageActions } from '@/components/actions';
 import { TextField } from '@/components/input';
 import { Page } from '@/components/layout';
-import { cn } from '@/utils/cn';
 
 import { Subtitle, Title } from '../_components/typography';
 
@@ -16,9 +17,28 @@ export const TopicView = () => {
   }>();
   const { data: suggestions } = useGetTopicSuggestions({ storeId });
   const { data: blog } = useGetBlog({ blogId: draftId });
+  const { mutateAsync: updateBlog, isPending } = useUpdateBlog();
 
   const [topic, setTopic] = useState<string>('');
   const [showSuggestions, setShowSuggestions] = useState(false);
+
+  const isValid = useMemo(() => {
+    const result = updateBlogInputSchema.safeParse({
+      blogId: draftId,
+      topic,
+      generationStep: 'COMPETITORS',
+    });
+    return result.success;
+  }, [draftId, topic]);
+
+  const handleUpdateBlog = async () => {
+    const validated = updateBlogInputSchema.parse({
+      blogId: draftId,
+      topic,
+      generationStep: 'COMPETITORS',
+    });
+    await updateBlog(validated);
+  };
 
   useEffect(() => {
     if (blog?.topic) {
@@ -46,33 +66,40 @@ export const TopicView = () => {
           />
 
           <div className="space-y-1.5">
-            <button
-              onClick={() => setShowSuggestions(true)}
-              className={cn(
-                !showSuggestions &&
-                  'text-foreground-light underline decoration-dotted underline-offset-[3px] transition-colors hover:text-foreground/90',
-              )}
-              disabled={showSuggestions}
-            >
-              {showSuggestions ? 'AI suggestions:' : 'Show suggestions'}
-            </button>
-
             {showSuggestions && suggestions && (
               <div className="space-y-2">
+                <p>AI suggestions:</p>
                 {suggestions.map((suggestion, idx) => (
                   <button
                     key={idx}
                     onClick={() => setTopic(suggestion)}
-                    className="w-full rounded-md bg-purple-50 px-2 py-1.5 text-left text-sm text-purple-800 underline decoration-dotted transition-colors hover:bg-purple-100/60 hover:decoration-solid"
+                    className="w-full rounded-md bg-slate-50 px-2 py-1.5 text-left text-sm text-slate-800 underline decoration-dotted transition-colors hover:bg-slate-100/60 hover:decoration-solid"
                   >
                     {suggestion}
                   </button>
                 ))}
               </div>
             )}
+            <button
+              onClick={() => setShowSuggestions((prevState) => !prevState)}
+              className={
+                'text-foreground-light underline decoration-dotted underline-offset-[3px] transition-colors hover:text-foreground/90'
+              }
+            >
+              {showSuggestions ? 'Hide' : 'Show suggestions'}
+            </button>
           </div>
         </div>
       </div>
+      <PageActions
+        primaryAction={{
+          children: 'Continue',
+          size: 'md',
+          loading: isPending,
+          onClick: handleUpdateBlog,
+          disabled: !isValid,
+        }}
+      />
     </Page>
   );
 };

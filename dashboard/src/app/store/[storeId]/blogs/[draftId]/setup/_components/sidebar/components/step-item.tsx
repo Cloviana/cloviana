@@ -19,7 +19,7 @@ export const StepItem: FC<StepItemProps> = ({
     className={cn(
       'flex w-full cursor-pointer items-center gap-3 rounded-md border border-gray-200 px-4 py-2 shadow-sm transition-colors',
       status === 'current'
-        ? 'border-purple-300 bg-purple-50'
+        ? 'border-sky-500 bg-gray-50'
         : 'bg-gray-50 hover:bg-gray-100',
       status === 'upcoming' && 'pointer-events-none',
     )}
@@ -27,7 +27,7 @@ export const StepItem: FC<StepItemProps> = ({
     <div
       className={cn(
         'flex size-3.5 items-center justify-center rounded-full',
-        status === 'complete' ? 'bg-purple-500' : 'border bg-white',
+        status === 'complete' ? 'bg-sky-600' : 'border bg-white',
       )}
     >
       {status === 'complete' && (
