@@ -84,7 +84,7 @@ export class TopicSuggestionsService {
 
     const { topics } = response.output_parsed!;
 
-    this.logger.debug("Generated topic suggestions")
+    this.logger.debug("Generated topic suggestions");
     return topics;
   }
 }

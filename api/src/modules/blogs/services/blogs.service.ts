@@ -40,7 +40,7 @@ export class BlogsService {
     private readonly blogsProducer: BlogsProducer,
     private readonly blogGeneration: BlogGenerationService,
     private readonly storage: StorageService,
-    private readonly shopify: ShopifyService
+    private readonly shopify: ShopifyService,
   ) {}
 
   async getBlogs(storeId: string) {
@@ -181,7 +181,7 @@ export class BlogsService {
   private flattenNodes(
     tree: TreeNode[],
     blogId: string,
-    parentKey: string | null = null
+    parentKey: string | null = null,
   ): Prisma.NodeCreateManyInput[] {
     return tree.flatMap((n, i) => {
       const key = cuid();
