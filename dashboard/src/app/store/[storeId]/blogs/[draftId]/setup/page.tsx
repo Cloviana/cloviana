@@ -5,11 +5,12 @@ import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import { useGetBlog } from '@/api/blogs/get-blog';
+import { LoadingSpinner } from '@/components/animations';
 import { GenerationStep } from '@/types/api';
 
 import { Header } from './_components/header';
 import { Sidebar } from './_components/sidebar';
-import { CompetitorsView, TopicView } from './_views';
+import { KeywordView, TopicView } from './_views';
 
 export default function StepPage() {
   const { draftId } = useParams<{ draftId: string }>();
@@ -19,7 +20,7 @@ export default function StepPage() {
 
   const viewMap: Partial<Record<GenerationStep, any>> = {
     TOPIC: <TopicView />,
-    COMPETITORS: <CompetitorsView />,
+    KEYWORD: <KeywordView />,
   };
 
   if (!blog) return null;
@@ -34,7 +35,13 @@ export default function StepPage() {
           <Sidebar />
         </div>
         <div className="min-h-0 flex-1 overflow-y-auto">
-          <Suspense fallback={''}>
+          <Suspense
+            fallback={
+              <div className="flex size-full items-center justify-center">
+                <LoadingSpinner size={'sm'} color={'base'} />
+              </div>
+            }
+          >
             <ErrorBoundary fallback={''}>
               {viewMap[blog.generationStep ?? 'TOPIC']}
             </ErrorBoundary>

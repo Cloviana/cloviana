@@ -47,9 +47,7 @@ export class BlogsService {
     return this.prisma.blog.findMany({
       where: {
         storeId,
-        generationStep: {
-          not: null,
-        },
+        generationStep: "COMPLETE"
       },
       select: BLOG_SUMMARY_SELECT,
       orderBy: { createdAt: "desc" },

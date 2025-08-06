@@ -12,7 +12,6 @@ import { AppConfiguration } from "@/config/app.configuration";
         store: await redisStore({
           url: config.redisUrl,
         }),
-        ttl: 60 * 60,
       }),
     }),
   ],

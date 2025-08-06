@@ -35,7 +35,7 @@ export const TopicView = () => {
     const validated = updateBlogInputSchema.parse({
       blogId: draftId,
       topic,
-      generationStep: 'COMPETITORS',
+      generationStep: 'KEYWORD',
     });
     await updateBlog(validated);
   };

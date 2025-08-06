@@ -1,2 +1,2 @@
-export * from './competitors-view';
+export * from './keyword-view';
 export * from './topic-view';
