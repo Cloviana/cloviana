@@ -21,4 +21,8 @@ export class UpdateBlogDto {
   @IsEnum(GenerationStep)
   @IsOptional()
   generationStep?: GenerationStep;
+
+  @IsString()
+  @IsOptional()
+  keywordId?: string;
 }
