@@ -10,7 +10,8 @@ import { GenerationStep } from '@/types/api';
 
 import { Header } from './_components/header';
 import { Sidebar } from './_components/sidebar';
-import { KeywordView, TopicView } from './_views';
+import { KeywordView, MetaView, TopicView } from './_views';
+import { TitleView } from './_views/title-view';
 
 export default function StepPage() {
   const { draftId } = useParams<{ draftId: string }>();
@@ -21,6 +22,8 @@ export default function StepPage() {
   const viewMap: Partial<Record<GenerationStep, any>> = {
     TOPIC: <TopicView />,
     KEYWORD: <KeywordView />,
+    TITLE: <TitleView />,
+    META: <MetaView />,
   };
 
   if (!blog) return null;

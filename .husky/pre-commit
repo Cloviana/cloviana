@@ -1,3 +1,2 @@
 cd dashboard && npx lint-staged --allow-empty
 cd ../web && npx lint-staged --allow-empty
-cd ../api && pnpm format 

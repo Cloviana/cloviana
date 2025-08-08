@@ -21,7 +21,17 @@ export class BlogsConsumer {
 
   @EventPattern(GENERATE_BLOG_EVENT)
   async handleGenerateBlog(@Payload() { blogId, storeId }: GenerateBlogsEvent) {
-    this.logger.log(`Starting blog generation job for blog ${blogId}`);
+    const record = await this.prisma.blog.findUnique({
+      where: { id: blogId },
+      select: { generationStatus: true },
+    });
+
+    if (record?.generationStatus !== BlogGenerationStatus.QUEUED) {
+      this.logger.log(`Skipping blog ${blogId}, status is ${record?.generationStatus}`);
+      return;
+    }
+
+    this.logger.log(`Starting blog generation for ${blogId}`);
 
     try {
       await this.prisma.blog.update({
@@ -36,21 +46,16 @@ export class BlogsConsumer {
         data: { generationStatus: BlogGenerationStatus.READY },
       });
 
-      this.logger.log(`Job succeeded for blog ${blogId}`);
+      this.logger.log(`Completed blog generation for ${blogId}`);
     } catch (err) {
-      try {
-        await this.prisma.blog.update({
-          where: { id: blogId },
-          data: { generationStatus: BlogGenerationStatus.ERROR },
-        });
-      } catch (updateErr) {
-        this.logger.error(
-          `Failed to update blog generation status for ${blogId}`,
-          updateErr.stack,
-        );
-      }
+      await this.prisma.blog.update({
+        where: { id: blogId },
+        data: { generationStatus: BlogGenerationStatus.ERROR },
+      }).catch(() =>
+        this.logger.error(`Failed to mark ERROR for ${blogId}`, err as any)
+      );
 
-      this.logger.error(`Job failed for blog ${blogId}`, err.stack);
+      this.logger.error(`Blog generation failed for ${blogId}`, (err as any).stack);
     }
   }
 }

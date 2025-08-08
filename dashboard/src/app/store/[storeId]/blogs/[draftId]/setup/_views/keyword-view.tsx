@@ -5,7 +5,7 @@ import { useState, useMemo } from 'react';
 
 import { updateBlogInputSchema, useUpdateBlog } from '@/api/blogs/update-blog';
 import { useGetKeywords } from '@/api/keywords/get-keywords';
-import { useGetKeywordSuggestions } from '@/api/suggestions/keyword-suggestions/get-keywords-suggestions';
+import { useGetKeywordSuggestions } from '@/api/suggestions/keyword-suggestions/get-keyword-suggestions';
 import { PageActions } from '@/components/actions';
 import { Autocomplete } from '@/components/input';
 import { Page } from '@/components/layout';
