@@ -1,8 +1,6 @@
-import { format } from 'date-fns';
+import { formatInTimeZone } from 'date-fns-tz';
 
 export function formatWithDateFns(date: string) {
-  // produces "Jul 8 at 7:40 PM"
-  const raw = format(date, "MMM d 'at' h:mm a");
-  // then lowercase only the AM/PM
+  const raw = formatInTimeZone(new Date(date), 'UTC', "MMM d 'at' h:mm a");
   return raw.replace(/AM|PM/, (m) => m.toLowerCase());
 }

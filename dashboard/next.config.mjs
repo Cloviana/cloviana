@@ -7,15 +7,19 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'cloviana-assets.azureedge.net',
-        port: ''
+        port: '',
       },
       {
         protocol: 'https',
         hostname: 'google.com',
-        port: ''
-      }
-    ]
-   
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'clovianadev.blob.core.windows.net',
+        port: '',
+      },
+    ],
   },
   webpack(config, { isServer, dev }) {
     const imageAssetRule = config.module.rules.find((rule) => {
@@ -28,9 +32,7 @@ const nextConfig = {
 
     if (imageAssetRule) {
       const newRegex = new RegExp(
-        imageAssetRule.test
-          .source
-          .replace(/\|?svg\|?/, '')
+        imageAssetRule.test.source.replace(/\|?svg\|?/, '')
       );
 
       imageAssetRule.test = newRegex;
@@ -46,9 +48,7 @@ const nextConfig = {
             svgo: true,
             svgoConfig: {
               multipass: true,
-              plugins: [
-                { name: 'removeViewBox', active: false },
-              ],
+              plugins: [{ name: 'removeViewBox', active: false }],
             },
           },
         },
