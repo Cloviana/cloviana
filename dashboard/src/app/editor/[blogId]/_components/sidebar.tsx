@@ -1,5 +1,6 @@
 import * as Tabs from '@radix-ui/react-tabs';
 import debounce from 'lodash.debounce';
+import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import React, {
   FC,
@@ -59,7 +60,8 @@ const SettingsView = () => {
   const debouncedSave = useMemo(
     () =>
       debounce((newSlug: string, newDesc: string) => {
-        saveBlog({ slug: newSlug, description: newDesc });
+        if (newSlug && newDesc)
+          saveBlog({ slug: newSlug, description: newDesc });
       }, 500),
     [saveBlog],
   );
@@ -96,11 +98,14 @@ const SettingsView = () => {
         helpText="This a description of the post and will appear as preview in search results and social media."
       />
       {blog?.thumbnail?.srcUrl && (
-        <img
-          fetchPriority="high"
+        <Image
           src={blog.thumbnail.srcUrl}
           alt={blog.thumbnail.altText ?? ''}
+          width={400} // small enough for preview
+          height={225}
           className="h-auto w-full rounded-md object-cover"
+          fetchPriority="high"
+          quality={50} // reduces file size
         />
       )}
     </div>

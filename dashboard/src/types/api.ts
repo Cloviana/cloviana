@@ -24,6 +24,16 @@ export type NodeType =
   | 'LINK'
   | 'TEXT';
 
+export type GenerationStep =
+  | 'TOPIC'
+  | 'KEYWORD'
+  | 'COMPETITORS'
+  | 'TITLE'
+  | 'SECONDARY_KEYWORDS'
+  | 'META'
+  | 'REVIEW'
+  | 'COMPLETE';
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Reusable primitives
 // ─────────────────────────────────────────────────────────────────────────────
@@ -146,7 +156,9 @@ export type Keyword = Entity<{
 
 export type Blog = Entity<{
   title: string;
-  keyword: Pick<Keyword, 'id' | 'phrase'>;
+  topic: string;
+  generationStep?: GenerationStep;
+  keyword?: Pick<Keyword, 'id' | 'phrase'>;
   publishStatus: PublishStatus;
   thumbnail: Thumbnail | null;
 }>;

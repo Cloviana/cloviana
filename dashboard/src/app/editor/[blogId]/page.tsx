@@ -67,6 +67,8 @@ export default function EditorPage() {
     );
   }
 
+  if (!blog?.nodes || !blog.nodes.length) return null;
+
   return (
     <LexicalProvider nodes={blog?.nodes ?? []}>
       <div className="flex h-screen w-screen flex-col overflow-hidden">

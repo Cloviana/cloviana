@@ -53,7 +53,7 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const isAuthRoute = pathname.startsWith('/auth');
+  const isAuthRoute = ['/login', '/signup'].some((p) => pathname.startsWith(p));
 
   // If the user is authenticated and is trying to access the home page route, redirect to dashboard
   if (user && pathname === paths.home.getHref()) {

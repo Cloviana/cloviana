@@ -11,7 +11,7 @@ interface GraphQLResponse<T> {
 export class ShopifyService {
   constructor(
     @Inject("SHOPIFY_CLIENT")
-    private readonly shopify: ReturnType<typeof shopifyApi>
+    private readonly shopify: ReturnType<typeof shopifyApi>,
   ) {}
 
   private graphqlClient(shop: string, accessToken: string) {
@@ -25,20 +25,20 @@ export class ShopifyService {
 
     return new this.shopify.clients.Graphql({ session });
   }
-  
+
   async runMutation<T>(
     shop: string,
     accessToken: string,
     query: string,
-    variables?: any
+    variables?: any,
   ): Promise<T> {
     const client = this.graphqlClient(shop, accessToken);
     const { body } = await client.query<GraphQLResponse<T>>({
       data: { query, variables },
     });
-    if (!body) throw new Error('No response body');
+    if (!body) throw new Error("No response body");
     if (body.errors?.length) throw new Error(JSON.stringify(body.errors));
-    if (body.data === undefined) throw new Error('No data');
+    if (body.data === undefined) throw new Error("No data");
     return body.data;
   }
 }

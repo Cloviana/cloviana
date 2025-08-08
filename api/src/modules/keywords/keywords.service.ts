@@ -2,7 +2,12 @@ import { PrismaService } from "@/clients/prisma/prisma.service";
 import { SemrushService } from "@/clients/semrush/semrush.service";
 import { AppConfiguration } from "@/config/app.configuration";
 import { Retryable } from "@/decorators/retryable.decorator";
-import { BadRequestException, Injectable, Logger, NotFoundException } from "@nestjs/common";
+import {
+  BadRequestException,
+  Injectable,
+  Logger,
+  NotFoundException,
+} from "@nestjs/common";
 import { Keyword, KeywordType, Store } from "@prisma/client";
 import axios from "axios";
 import OpenAI from "openai";
@@ -27,49 +32,50 @@ export class KeywordsService {
   ) {}
 
   async getKeywordDetail(storeId: string, phrase: string) {
-  const p = phrase.trim();
-  if (!p) throw new BadRequestException("Phrase cannot be empty");
+    const p = phrase.trim();
+    if (!p) throw new BadRequestException("Phrase cannot be empty");
 
-  const existing = await this.prisma.keyword.findUnique({
-    where: { phrase: p },
-    include: {
-      storeKeywords: {
-        where: { storeId },
-        select: { type: true },
+    const existing = await this.prisma.keyword.findUnique({
+      where: { phrase: p },
+      include: {
+        storeKeywords: {
+          where: { storeId },
+          select: { type: true },
+        },
       },
-    },
-  });
+    });
 
-  if (existing) return existing;
+    if (existing) return existing;
 
-  const [summary] = await this.semrush.summary([p]);
-  const { searchVolume: volume, cpc, competition, intent: rawIntent, difficulty } = summary ?? {};
-  const intent = mapIntentCode(rawIntent);
+    const [summary] = await this.semrush.summary([p]);
+    const {
+      searchVolume: volume,
+      cpc,
+      competition,
+      intent: rawIntent,
+      difficulty,
+    } = summary ?? {};
+    const intent = mapIntentCode(rawIntent);
 
-  return this.prisma.keyword.upsert({
-    where: { phrase: p },
-    update: { volume, cpc, competition, intent, difficulty },
-    create: { phrase: p, volume, cpc, competition, intent, difficulty },
-  });
-}
+    return this.prisma.keyword.upsert({
+      where: { phrase: p },
+      update: { volume, cpc, competition, intent, difficulty },
+      create: { phrase: p, volume, cpc, competition, intent, difficulty },
+    });
+  }
 
-async attachKeyword(storeId: string, keywordId: string, type: KeywordType) {
+  async attachKeyword(storeId: string, keywordId: string, type: KeywordType) {
+    const storeKeyword = await this.prisma.storeKeyword.upsert({
+      where: { storeId_keywordId_type: { keywordId, storeId, type } },
+      create: { keywordId, storeId, type },
+      update: {},
+      include: { keyword: true },
+    });
 
-  const storeKeyword = await this.prisma.storeKeyword.upsert({
-    where: { storeId_keywordId_type: { keywordId, storeId, type } },
-    create: { keywordId, storeId, type },
-    update: {},
-    include: { keyword: true },
-  });
+    return storeKeyword.keyword;
+  }
 
-  return storeKeyword.keyword;
-}
-
-
-  async getStoreKeywords(
-    store: Store,
-    type: KeywordType,
-  ): Promise<Keyword[]> {
+  async getStoreKeywords(store: Store, type: KeywordType): Promise<Keyword[]> {
     const filter = { storeId: store.id, type };
 
     return (

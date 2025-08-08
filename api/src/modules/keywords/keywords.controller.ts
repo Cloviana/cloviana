@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Post, Query, UseGuards } from "@nestjs/common";
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Query,
+  UseGuards,
+} from "@nestjs/common";
 import { KeywordsService } from "./keywords.service";
 import { GetKeywordsQueryDto } from "./dtos/get-keywords-query.dto";
 import { StoreOwnerGuard } from "@/guards/store-owner.guard";
@@ -23,7 +31,10 @@ export class KeywordsController {
   }
 
   @Get("detail")
-  async getKeywordDetail(@Query() dto: GetKeywordQueryDto, @StoreEntity() store: Store) {
+  async getKeywordDetail(
+    @Query() dto: GetKeywordQueryDto,
+    @StoreEntity() store: Store,
+  ) {
     return this.keywords.getKeywordDetail(store.id, dto.phrase);
   }
 

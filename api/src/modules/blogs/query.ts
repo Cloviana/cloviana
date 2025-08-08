@@ -13,7 +13,6 @@ export const FIND_ARTICLE = `
   }
 `;
 
-
 export const CREATE_ARTICLE = `
   mutation CreateArticle($article: ArticleCreateInput!) {
     articleCreate(article: $article) {
