@@ -10,7 +10,7 @@ export const Keyword = () => {
   return (
     <div className="flex items-center gap-2 text-base text-foreground-light">
       <GIcon name="key" size={17} className="-rotate-45" />
-      <span>{blog?.keyword.phrase}</span>
+      <span>{blog?.keyword?.phrase}</span>
     </div>
   );
 };

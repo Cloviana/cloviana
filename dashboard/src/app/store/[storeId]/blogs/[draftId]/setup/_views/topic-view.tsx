@@ -1,9 +1,9 @@
 import { useParams } from 'next/navigation';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useGetBlog } from '@/api/blogs/get-blog';
 import { updateBlogInputSchema, useUpdateBlog } from '@/api/blogs/update-blog';
-import { useGetTopicSuggestions } from '@/api/suggestions/topic-suggestions/get-topics-suggestions';
+import { useGetTopicSuggestions } from '@/api/suggestions/topic-suggestions/get-topic-suggestions';
 import { PageActions } from '@/components/actions';
 import { TextField } from '@/components/input';
 import { Page } from '@/components/layout';
@@ -21,15 +21,6 @@ export const TopicView = () => {
 
   const [topic, setTopic] = useState<string>('');
   const [showSuggestions, setShowSuggestions] = useState(false);
-
-  const isValid = useMemo(() => {
-    const result = updateBlogInputSchema.safeParse({
-      blogId: draftId,
-      topic,
-      generationStep: 'COMPETITORS',
-    });
-    return result.success;
-  }, [draftId, topic]);
 
   const handleUpdateBlog = async () => {
     const validated = updateBlogInputSchema.parse({
@@ -97,7 +88,7 @@ export const TopicView = () => {
           size: 'md',
           loading: isPending,
           onClick: handleUpdateBlog,
-          disabled: !isValid,
+          disabled: !topic,
         }}
       />
     </Page>

@@ -1,9 +1,9 @@
-import { Inject, Injectable, Logger } from '@nestjs/common';
-import { CACHE_MANAGER, Cache } from '@nestjs/cache-manager';
-import OpenAI from 'openai';
-import { z } from 'zod';
-import { zodTextFormat } from 'openai/helpers/zod';
-import { PrismaService } from '@/clients/prisma/prisma.service';
+import { Inject, Injectable, Logger } from "@nestjs/common";
+import { CACHE_MANAGER, Cache } from "@nestjs/cache-manager";
+import OpenAI from "openai";
+import { z } from "zod";
+import { zodTextFormat } from "openai/helpers/zod";
+import { PrismaService } from "@/clients/prisma/prisma.service";
 
 const KeywordsSchema = z.object({
   keywords: z
@@ -11,7 +11,7 @@ const KeywordsSchema = z.object({
       z.object({
         id: z.string().uuid(),
         phrase: z.string().max(60),
-      })
+      }),
     )
     .length(7),
 });
@@ -31,10 +31,11 @@ export class KeywordSuggestionsService {
       where: { id: blogId },
       select: { topic: true },
     });
-    const topic = blog?.topic ?? '';
+    const topic = blog?.topic ?? "";
 
     const cacheKey = `keywords:${topic}:${storeId}`;
-    const cached = await this.cache.get<typeof KeywordsSchema['_output']>(cacheKey);
+    const cached =
+      await this.cache.get<(typeof KeywordsSchema)["_output"]>(cacheKey);
     if (cached) return cached;
 
     const suggestions = await this.generateKeywords(storeId, topic);
@@ -45,34 +46,34 @@ export class KeywordSuggestionsService {
   private async generateKeywords(storeId: string, topic: string) {
     const blogKeywords = await this.prisma.keyword.findMany({
       where: {
-        storeKeywords: { some: { storeId, type: 'BLOG' } },
+        storeKeywords: { some: { storeId, type: "BLOG" } },
       },
-      select: { id: true, phrase: true,  },
-      orderBy: { volume: 'desc' },
+      select: { id: true, phrase: true },
+      orderBy: { volume: "desc" },
       take: 50,
     });
 
     const response = await this.openai.responses.parse({
-      model: 'gpt-4o-mini-2024-07-18',
+      model: "gpt-4o-mini-2024-07-18",
       input: [
         {
-          role: 'system',
+          role: "system",
           content:
-            'You are an e-commerce SEO strategist. ' +
-            'Choose 7 keywords from the provided list that best match the given blog topic. '
+            "You are an e-commerce SEO strategist. " +
+            "Choose 7 keywords from the provided list that best match the given blog topic. ",
         },
         {
-          role: 'user',
+          role: "user",
           content: JSON.stringify({ topic, blogKeywords }),
         },
       ],
       text: {
-        format: zodTextFormat(KeywordsSchema, 'keywords'),
+        format: zodTextFormat(KeywordsSchema, "keywords"),
       },
     });
 
     const { keywords } = response.output_parsed!;
-    this.logger.debug('Generated keyword suggestions');
+    this.logger.debug("Generated keyword suggestions");
     return keywords;
   }
 }

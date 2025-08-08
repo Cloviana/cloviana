@@ -6,3 +6,4 @@ export * from "./shopify/shopify.module";
 
 // CAREFULLY ARRANGED
 export * from "./redis/redis.module";
+export * from "./http/http.module"

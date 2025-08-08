@@ -1,7 +1,6 @@
 import {
   Body,
   Controller,
-  Delete,
   Get,
   HttpCode,
   HttpStatus,
@@ -14,10 +13,8 @@ import {
 } from "@nestjs/common";
 import { BlogsService } from "./services/blogs.service";
 import { CreateBlogDto } from "./dtos/create-blog.dto";
-import { SuggestSourcesDto } from "./dtos/suggest-sources.dto";
 import { BlogOwnerGuard } from "./guards/blog-owner.guard";
 import { UpdateBlogDto } from "./dtos/update-blog.dto";
-import { UpdateNodeDto } from "./dtos/update-node.dto";
 import { SyncNodesDto } from "./dtos/sync-nodes.dto";
 
 @Controller("blogs")
@@ -32,11 +29,6 @@ export class BlogsController {
   @HttpCode(HttpStatus.CREATED)
   async createDraft(@Body() { storeId }: CreateBlogDto) {
     return this.blogs.createDraft(storeId);
-  }
-
-  @Post("sources-suggestions")
-  async suggestSources(@Body() { title }: SuggestSourcesDto) {
-    return this.blogs.suggestSources(title);
   }
 
   @Get(":blogId")

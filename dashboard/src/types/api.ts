@@ -157,7 +157,8 @@ export type Keyword = Entity<{
 export type Blog = Entity<{
   title: string;
   topic: string;
-  keyword: Pick<Keyword, 'id' | 'phrase'>;
+  generationStep?: GenerationStep;
+  keyword?: Pick<Keyword, 'id' | 'phrase'>;
   publishStatus: PublishStatus;
   thumbnail: Thumbnail | null;
 }>;
@@ -170,7 +171,6 @@ export type Thumbnail = {
 
 export type BlogDetail = Blog & {
   brandVoice?: string;
-  generationStep?: GenerationStep;
   type: BlogType;
   generationStatus: GenerationStatus;
   storeId: string;

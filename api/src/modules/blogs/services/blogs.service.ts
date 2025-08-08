@@ -1,19 +1,14 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 
 import { PrismaService } from "@/clients/prisma/prisma.service";
-import { GoogleSearchItem } from "../interfaces/google-custom-search.interfaces";
-import OpenAI from "openai";
-import { CreateBlogDto } from "../dtos/create-blog.dto";
 import { BlogsProducer } from "../../messaging/producers/blogs.producer";
-import { SourceRecommendationService } from "./source-recommendation.service";
-import { BlogGenerationService } from "./blog-generation.service";
 import {
+  BlogGenerationStatus,
   BlogPublishStatus,
+  GenerationStep,
   KeywordType,
-  NodeType,
   Prisma,
 } from "@prisma/client";
-import { TreeNode } from "../schemas/node.schemas";
 import cuid from "cuid";
 import { UpdateBlogDto } from "../dtos/update-blog.dto";
 import { UpdateNodeDto } from "../dtos/update-node.dto";
@@ -30,24 +25,29 @@ import {
   BLOG_DETAIL_SELECT,
   BLOG_SUMMARY_SELECT,
 } from "../constants/selects.constants";
+import { BlogWriterAgent } from "../agents/blog-writer";
+import { firstValueFrom } from "rxjs";
+import { HttpService } from "@nestjs/axios";
+import { flattenNodes } from "../utils/flatten-nodes";
 
 @Injectable()
 export class BlogsService {
-  private readonly openai = new OpenAI();
   constructor(
     private readonly prisma: PrismaService,
-    private readonly sourceRecommendation: SourceRecommendationService,
     private readonly blogsProducer: BlogsProducer,
-    private readonly blogGeneration: BlogGenerationService,
+    private readonly agent: BlogWriterAgent,
     private readonly storage: StorageService,
     private readonly shopify: ShopifyService,
+    private readonly http: HttpService
   ) {}
 
   async getBlogs(storeId: string) {
     return this.prisma.blog.findMany({
       where: {
         storeId,
-        generationStep: "COMPLETE"
+        generationStep: {
+          not: null
+        },
       },
       select: BLOG_SUMMARY_SELECT,
       orderBy: { createdAt: "desc" },
@@ -79,80 +79,76 @@ export class BlogsService {
   }
 
   async updateBlog(blogId: string, dto: UpdateBlogDto) {
-    return this.prisma.blog.update({
+    const updated = await this.prisma.blog.update({
       where: { id: blogId },
-      data: {
-        ...dto,
-      },
+      data: { ...dto },
+      select: { id: true, storeId: true, generationStep: true },
     });
+
+    if (updated.generationStep === GenerationStep.COMPLETE) {
+      await this.blogsProducer.generateBlog({
+        blogId: updated.id,
+        storeId: updated.storeId,
+      });
+    }
+
+    return updated;
   }
 
   async generateBlog(storeId: string, blogId: string) {
-    const {
-      keyword: { phrase: businessPhrase },
-    } = await this.prisma.storeKeyword.findFirstOrThrow({
-      where: { storeId, type: KeywordType.BLOG },
-      select: { keyword: { select: { phrase: true } } },
-    });
-
-    const blog = await this.prisma.blog.findUniqueOrThrow({
-      where: { id: blogId },
-      include: { keyword: true },
-    });
-    /*
-
-    const { thumbnail, slug, description, sections } =
-      await this.blogGeneration.generateStructure({
-        title: blog.title,
-        bloggingKeyword: blog.keyword.phrase,
-        businessKeyword: businessPhrase,
-        brandVoice: blog.brandVoice ?? "",
-      });
-
-    const [thumbnailPath, nodes] = await Promise.all([
-      this.blogGeneration.generateThumbnail(thumbnail.prompt, blogId),
-      this.blogGeneration.generateContent({
-        sections,
-        title: blog.title,
-        bloggingKeyword: blog.keyword.phrase,
-        businessKeyword: businessPhrase,
-        brandVoice: blog.brandVoice ?? "",
+    const [{ keyword }, blog] = await this.prisma.$transaction([
+      this.prisma.storeKeyword.findFirstOrThrow({
+        where: { storeId, type: KeywordType.BLOG },
+        select: { keyword: { select: { phrase: true } } },
+      }),
+      this.prisma.blog.findUniqueOrThrow({
+        where: { id: blogId },
+        include: { keyword: true },
       }),
     ]);
 
-    const nodeInputs = this.flattenNodes(nodes, blogId);
+    const { nodes, metadata, image } = await this.agent.run({
+      brandVoice: blog.brandVoice ?? "",
+      blogginKeyword: blog.keyword?.phrase ?? "",
+      businessKeyword: keyword?.phrase ?? "",
+      title: blog.title ?? "",
+    });
+
+    const slug = (blog.title ?? "")
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, "-")
+      .replace(/[^a-z0-9\-]/g, "");
+
+    const { data } = await firstValueFrom(
+      this.http.get<ArrayBuffer>(image.url, { responseType: "arraybuffer" })
+    );
+    await this.storage.upload(
+      `thumbnails/${blogId}/thumbnail.png`,
+      Buffer.from(data),
+      "image/png"
+    );
 
     await this.prisma.$transaction(async (tx) => {
       await tx.blog.update({
         where: { id: blogId },
-        data: { slug, description },
+        data: {
+          slug,
+          description: metadata.description,
+          generationStatus: BlogGenerationStatus.READY,
+        },
       });
-
-      await tx.thumbnail.upsert({
-        where: { blogId },
-        create: {
+      await tx.thumbnail.create({
+        data: {
           blogId,
-          altText: thumbnail.altText,
-          blobPath: thumbnailPath,
-        },
-        update: {
-          altText: thumbnail.altText,
-          blobPath: thumbnailPath,
+          altText: image.altText,
+          blobPath: `thumbnails/${blogId}/thumbnail.png`,
         },
       });
-
-      if (nodeInputs.length) {
-        await tx.node.createMany({
-          data: nodeInputs,
-          skipDuplicates: true,
-        });
-      }
-    }); 
-    */
-  }
-
-  async suggestSources(title: string): Promise<GoogleSearchItem[]> {
-    return this.sourceRecommendation.suggestSources(title);
+      const nodeInputs = flattenNodes(nodes, blogId);
+      if (nodeInputs.length)
+        await tx.node.createMany({ data: nodeInputs, skipDuplicates: true });
+    });
   }
 
   async getGenerationStatus(blogId: string) {
@@ -174,31 +170,6 @@ export class BlogsService {
       status: blog.generationStatus,
       lastUpdated: blog.updatedAt,
     };
-  }
-
-  private flattenNodes(
-    tree: TreeNode[],
-    blogId: string,
-    parentKey: string | null = null,
-  ): Prisma.NodeCreateManyInput[] {
-    return tree.flatMap((n, i) => {
-      const key = cuid();
-      const base: Prisma.NodeCreateManyInput = {
-        blogId,
-        key,
-        parentKey,
-        sortOrder: i,
-        type: n.type as NodeType,
-        payload: n,
-      };
-
-      const children =
-        "children" in n && Array.isArray(n.children)
-          ? (n.children as TreeNode[])
-          : [];
-
-      return [base, ...this.flattenNodes(children, blogId, key)];
-    });
   }
 
   async syncAllNodes(blogId: string, dtos: UpdateNodeDto[]) {

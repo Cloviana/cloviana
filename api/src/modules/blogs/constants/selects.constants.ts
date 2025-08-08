@@ -3,6 +3,7 @@ import { Prisma } from "@prisma/client";
 export const BLOG_SUMMARY_SELECT: Prisma.BlogSelect = {
   id: true,
   title: true,
+  topic: true,
   publishStatus: true,
   createdAt: true,
   updatedAt: true,

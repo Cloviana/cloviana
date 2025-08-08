@@ -10,7 +10,7 @@ import { blogsKeys } from '../keys';
 
 export const updateBlogInputSchema = z.object({
   blogId: z.string().min(1),
-  keywordId: z.string().min(1),
+  keywordId: z.string().min(1).optional(),
   slug: z.string().min(1).optional(),
   topic: z.string().min(1).optional(),
   title: z.string().min(1).optional(),

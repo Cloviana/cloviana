@@ -20,3 +20,9 @@ export const keywordSuggestionsKeys = {
   list: (storeId: string, blogId: string) =>
     [...keywordSuggestionsKeys.base, 'list', storeId, blogId] as const,
 };
+
+export const titleSuggestionsKeys = {
+  base: ['titles-suggestions'] as const,
+  list: (storeId: string, blogId: string) =>
+    [...titleSuggestionsKeys.base, 'list', storeId, blogId] as const,
+};
