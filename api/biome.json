@@ -44,5 +44,10 @@
     "parser": {
       "unsafeParameterDecoratorsEnabled": true
     }
+  },
+
+  "files": {
+    "ignoreUnknown": true,
+    "ignore": ["**/*.prisma"]
   }
 }

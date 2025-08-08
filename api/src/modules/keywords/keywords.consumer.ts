@@ -21,9 +21,7 @@ export class KeywordsConsumer {
   ) {}
 
   @EventPattern(KEYWORDS_SEEDED_EVENT)
-  async handleKeywordsSeeded(
-    @Payload() { storeId }: KeywordsSeededEvent,
-  ) {
+  async handleKeywordsSeeded(@Payload() { storeId }: KeywordsSeededEvent) {
     this.logger.log(`Starting keyword‐seeding job for store ${storeId}`);
 
     let status: StoreStatus = StoreStatus.ACTIVE;

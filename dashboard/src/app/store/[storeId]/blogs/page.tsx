@@ -1,29 +1,56 @@
-import {
-  dehydrate,
-  HydrationBoundary,
-  QueryClient,
-} from '@tanstack/react-query';
+'use client';
 
-import { getBlogsQueryOptions } from '@/features/blogs/api/get-blogs';
+import { useParams, useRouter } from 'next/navigation';
 
-import { Wrapper } from './_components';
+import { useCreateBlog } from '@/api/blogs/create-blog';
+import { Page } from '@/components/layout';
+import { paths } from '@/config/paths';
+import { useGetBlogs } from '@/features/blogs/api/get-blogs';
+
+import { DashboardShell } from '../_components/dashboard-shell';
+
 import { BlogsTable } from './_components/blogs-table';
+import { EmptyBlogList } from './_components/empty-blog-list';
 
-interface BlogsPageProps {
-  params: { storeId: string };
-}
+export default function BlogListPage() {
+  const { storeId } = useParams<{ storeId: string }>();
+  const router = useRouter();
 
-export default async function BlogsPage({ params }: BlogsPageProps) {
-  const qc = new QueryClient();
-  const { storeId } = params;
+  const { data: blogs = [] } = useGetBlogs(storeId);
+  const { mutateAsync: createBlog, isPending: isCreating } = useCreateBlog();
 
-  await qc.prefetchQuery(getBlogsQueryOptions(storeId));
+  const handleCreateBlog = async () => {
+    const { id } = await createBlog({
+      data: { storeId },
+    });
+    router.push(paths.store.blogs.setup.getHref(storeId, id));
+  };
+
+  const hasBlogs = blogs.length > 0;
+
+  if (!storeId) return null;
 
   return (
-    <HydrationBoundary state={dehydrate(qc)}>
-      <Wrapper>
-        <BlogsTable />
-      </Wrapper>
-    </HydrationBoundary>
+    <DashboardShell>
+      <Page
+        title="Blogs"
+        fullWidth={hasBlogs}
+        primaryAction={
+          hasBlogs
+            ? {
+                children: 'Add blog post',
+                onClick: handleCreateBlog,
+                loading: isCreating,
+              }
+            : undefined
+        }
+      >
+        {hasBlogs ? (
+          <BlogsTable blogs={blogs} />
+        ) : (
+          <EmptyBlogList onCreate={handleCreateBlog} loading={isCreating} />
+        )}
+      </Page>
+    </DashboardShell>
   );
 }

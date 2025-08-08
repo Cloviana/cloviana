@@ -1,7 +1,6 @@
 import {
   Body,
   Controller,
-  Delete,
   Get,
   HttpCode,
   HttpStatus,
@@ -14,10 +13,8 @@ import {
 } from "@nestjs/common";
 import { BlogsService } from "./services/blogs.service";
 import { CreateBlogDto } from "./dtos/create-blog.dto";
-import { SuggestSourcesDto } from "./dtos/suggest-sources.dto";
 import { BlogOwnerGuard } from "./guards/blog-owner.guard";
 import { UpdateBlogDto } from "./dtos/update-blog.dto";
-import { UpdateNodeDto } from "./dtos/update-node.dto";
 import { SyncNodesDto } from "./dtos/sync-nodes.dto";
 
 @Controller("blogs")
@@ -25,18 +22,13 @@ export class BlogsController {
   constructor(private readonly blogs: BlogsService) {}
   @Get()
   async listBlogs(@Query("storeId") storeId: string) {
-    return this.blogs.getStoreBlogs(storeId);
+    return this.blogs.getBlogs(storeId);
   }
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  async createDraft(@Body() dto: CreateBlogDto) {
-    return this.blogs.createDraft(dto.storeId, dto);
-  }
-
-  @Post("sources-suggestions")
-  async suggestSources(@Body() { title }: SuggestSourcesDto) {
-    return this.blogs.suggestSources(title);
+  async createDraft(@Body() { storeId }: CreateBlogDto) {
+    return this.blogs.createDraft(storeId);
   }
 
   @Get(":blogId")
@@ -61,23 +53,6 @@ export class BlogsController {
     return this.blogs.getGenerationStatus(blogId);
   }
 
-  @Patch(":blogId/nodes")
-  @UseGuards(BlogOwnerGuard)
-  @HttpCode(HttpStatus.OK)
-  async updateNode(
-    @Param("blogId") blogId: string,
-    @Body() dto: UpdateNodeDto,
-  ) {
-    return this.blogs.updateNode(blogId, dto);
-  }
-
-  @Delete(":blogId/nodes")
-  @UseGuards(BlogOwnerGuard)
-  @HttpCode(HttpStatus.NO_CONTENT)
-  async deleteNode(@Param("blogId") blogId: string, @Query("key") key: string) {
-    await this.blogs.deleteNode(blogId, key);
-  }
-
   @Put(":blogId/nodes/sync")
   @UseGuards(BlogOwnerGuard)
   @HttpCode(HttpStatus.OK)
@@ -88,10 +63,8 @@ export class BlogsController {
     await this.blogs.syncAllNodes(blogId, nodes);
   }
 
-  @Put(':blogId/publish')
-  async publish(
-    @Param('blogId') blogId: string
-  ) {
+  @Put(":blogId/publish")
+  async publish(@Param("blogId") blogId: string) {
     return this.blogs.publishToShopify(blogId);
   }
 }

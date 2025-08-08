@@ -1,4 +1,4 @@
-import '@shopify/shopify-api/adapters/node';
+import "@shopify/shopify-api/adapters/node";
 
 import { Module, Global } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
@@ -12,7 +12,7 @@ import { SCOPES } from "./shopify.constants";
   imports: [ConfigModule],
   providers: [
     {
-      provide: 'SHOPIFY_CLIENT',
+      provide: "SHOPIFY_CLIENT",
       useFactory: (config: AppConfiguration) =>
         shopifyApi({
           apiKey: config.shopifyApiKey,
@@ -26,7 +26,6 @@ import { SCOPES } from "./shopify.constants";
     },
     ShopifyService,
   ],
-  exports: ['SHOPIFY_CLIENT', ShopifyService],
+  exports: ["SHOPIFY_CLIENT", ShopifyService],
 })
 export class ShopifyModule {}
-

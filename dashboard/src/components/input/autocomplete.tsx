@@ -1,7 +1,14 @@
 'use client';
 
-import * as Popover from '@radix-ui/react-popover';
-import React, { FC, ReactElement, useState, useMemo, useCallback } from 'react';
+import React, {
+  FC,
+  ReactElement,
+  useState,
+  useMemo,
+  useCallback,
+  useRef,
+  useEffect,
+} from 'react';
 
 import { cn } from '@/utils/cn';
 
@@ -26,9 +33,11 @@ const AutocompleteRoot: FC<AutocompleteProps> = ({
   selected = [],
   onSelect,
 }) => {
+  const [open, setOpen] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(0);
-  const optionCount = options.length;
   const selectedSet = useMemo(() => new Set(selected), [selected]);
+  const optionCount = options.length;
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   const resetHighlight = useCallback(() => setHighlightedIndex(0), []);
 
@@ -44,7 +53,7 @@ const AutocompleteRoot: FC<AutocompleteProps> = ({
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
-      if (optionCount === 0) return;
+      if (!open || optionCount === 0) return;
       switch (e.key) {
         case 'ArrowDown':
           e.preventDefault();
@@ -60,38 +69,47 @@ const AutocompleteRoot: FC<AutocompleteProps> = ({
           break;
       }
     },
-    [optionCount, options, highlightedIndex, handleSelectValue],
+    [open, optionCount, options, highlightedIndex, handleSelectValue],
   );
 
-  const inputWithKeys = React.cloneElement(textfield, {
+  const handleClickOutside = useCallback((e: MouseEvent) => {
+    if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+      setOpen(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [handleClickOutside]);
+
+  const input = React.cloneElement(textfield, {
+    onFocus: () => {
+      resetHighlight();
+      setOpen(true);
+    },
     onKeyDown: handleKeyDown,
   });
 
   return (
-    <Popover.Root onOpenChange={(open) => open && resetHighlight()}>
-      <Popover.Trigger asChild>{inputWithKeys}</Popover.Trigger>
-
-      <Popover.Portal>
-        <Popover.Content
-          sideOffset={5}
-          onOpenAutoFocus={(e) => e.preventDefault()}
-          onCloseAutoFocus={(e) => e.preventDefault()}
-          className="max-h-[300px] w-[var(--radix-popover-trigger-width)] overflow-y-scroll rounded-md border bg-white p-2 shadow"
-        >
-          <ul role="listbox" className="space-y-1">
+    <div ref={wrapperRef} className="relative">
+      {input}
+      {open && (
+        <div className="absolute z-10 -mt-4 max-h-60 w-full overflow-y-auto rounded-md border bg-white shadow">
+          <ul role="listbox" className="space-y-1 p-1">
             {options.map(({ label, value }, idx) => {
               const isSelected = selectedSet.has(value);
-              const isHighlighted =
-                selected.length === 0 && idx === highlightedIndex;
+              const isHighlighted = idx === highlightedIndex;
               return (
                 <li
                   key={value}
                   role="option"
                   aria-selected={isSelected}
                   className={cn(
-                    'flex cursor-pointer items-center justify-between rounded-md px-3 py-1.5 text-[13px] hover:bg-surface-200/60',
+                    'flex cursor-pointer items-center justify-between rounded-md px-3 py-1.5 text-[13px]',
                     isHighlighted && '!bg-surface-200',
                     isSelected && '!bg-surface-200 font-medium',
+                    '!hover:bg-surface-200/60',
                   )}
                   onMouseMove={() => setHighlightedIndex(idx)}
                   onMouseDown={(e) => {
@@ -108,14 +126,14 @@ const AutocompleteRoot: FC<AutocompleteProps> = ({
               <li className="px-3 py-1.5 text-sm">No results</li>
             )}
             {loading && (
-              <div className="absolute inset-0 flex items-center justify-center bg-white/30 p-2 backdrop-blur-sm">
-                <LoadingSpinner color="light" size="sm" />
+              <div className="flex items-center justify-center p-2">
+                <LoadingSpinner size="sm" color="light" />
               </div>
             )}
           </ul>
-        </Popover.Content>
-      </Popover.Portal>
-    </Popover.Root>
+        </div>
+      )}
+    </div>
   );
 };
 
