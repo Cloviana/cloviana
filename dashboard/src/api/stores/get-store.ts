@@ -5,7 +5,7 @@ import { QueryConfig } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
 import { StoreDetail } from '@/types/api';
 
-import { getStoreKey } from '../keys';
+import { storeKeys } from '../keys';
 
 export const getStore = async (id: string): Promise<StoreDetail> => {
   const token = await fetchAccessToken();
@@ -18,10 +18,8 @@ export const getStore = async (id: string): Promise<StoreDetail> => {
 
 export const getStoreQueryOptions = (id: string) =>
   queryOptions({
-    queryKey: getStoreKey(id),
+    queryKey: storeKeys.detail(id),
     queryFn: () => getStore(id),
-    staleTime: 1000 * 60,
-    gcTime: 1000 * 60 * 15,
   });
 
 type UseGetStoreOptions = {
@@ -34,7 +32,6 @@ export const useGetStore = (
 ) => {
   return useQuery({
     ...getStoreQueryOptions(id),
-    enabled: Boolean(id),
     ...config,
   });
 };

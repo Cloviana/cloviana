@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { getStoreKey } from '@/features/stores/keys';
+import { storeKeys } from '@/api/keys';
 import { api } from '@/lib/api-client';
 import type { QueryConfig } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
@@ -28,7 +28,7 @@ export const getKeywords = async (
 };
 
 export const getKeywordsKey = (storeId: string, params: GetKeywordsParams) =>
-  [...getStoreKey(storeId), 'keywords', params] as const;
+  [...storeKeys.detail(storeId), 'keywords', params] as const;
 
 export const getKeywordsQueryOptions = (
   storeId: string,

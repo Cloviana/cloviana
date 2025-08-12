@@ -6,6 +6,7 @@ import {
   createChannel,
 } from '@/api/channel/create-channel';
 import { createStore, createStoreSchema } from '@/api/stores/create-store';
+import { getStore } from '@/api/stores/get-store';
 import { getStores } from '@/api/stores/get-stores';
 import { env } from '@/config/env';
 import { paths } from '@/config/paths';
@@ -39,13 +40,17 @@ export async function GET(req: NextRequest) {
       }),
     ));
 
-  await createChannel(
-    createChannelSchema.parse({
-      storeId: store.id,
-      shop,
-      offlineAccessToken,
-    }),
-  );
+  const storeDetail = await getStore(store.id);
+
+  if (!storeDetail.channel) {
+    await createChannel(
+      createChannelSchema.parse({
+        storeId: store.id,
+        shop,
+        offlineAccessToken,
+      }),
+    );
+  }
 
   const returnPath =
     cookiesJar.get('shopify_return_to')?.value ?? paths.store.getHref(store.id);
