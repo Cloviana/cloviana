@@ -1,11 +1,13 @@
 'use server';
 
 import { env } from '@/config/env';
-import { supabaseAdmin } from '@/lib/supabase/admin';
+import { getSupabaseAdmin } from '@/lib/supabase/admin';
 import { createClient } from '@/lib/supabase/server';
 
 export async function shopifySignIn(shop: string) {
   const supabase = createClient();
+  const supabaseAdmin = getSupabaseAdmin();
+
   const email = `${shop.replace(/\./g, '_')}@shops.cloviana.app`;
 
   const { error: createUserError } = await supabaseAdmin.auth.admin.createUser({
