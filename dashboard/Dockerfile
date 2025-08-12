@@ -76,6 +76,9 @@ COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
 
+ENV NEXT_CACHE_DIR=/tmp/next-cache
+RUN mkdir -p /tmp/next-cache && chown -R nextjs:nodejs /tmp/next-cache
+
 # Re‑expose your runtime ENVs if needed (e.g. for server‑side code)
 ARG NEXT_PUBLIC_API_URL
 ARG NEXT_PUBLIC_APP_URL
