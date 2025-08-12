@@ -4,8 +4,8 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useMemo } from 'react';
 
+import { useGetStores } from '@/api/stores/get-stores';
 import { paths } from '@/config/paths';
-import { useGetStores } from '@/features/stores/api/get-stores';
 
 export default function Page() {
   const router = useRouter();

@@ -5,8 +5,8 @@ import { AuthUser } from '@supabase/supabase-js';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
+import { useGetStore } from '@/api/stores/get-store';
 import { signOut } from '@/features/auth/actions/sign-out';
-import { useGetStore } from '@/features/stores/api/get-store';
 import { createClient } from '@/lib/supabase/client';
 
 import { SubscriptionDialog } from './subscription-dialog';

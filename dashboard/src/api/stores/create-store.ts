@@ -49,10 +49,10 @@ export const useCreateStore = ({ config }: UseCreateStoreOptions = {}) => {
   return useMutation({
     mutationFn: createStore,
     onSuccess: (newStore, variables, context) => {
-      queryClient.setQueryData<Store[]>(
-        storeKeys.detail(newStore.id),
-        (old = []) => [...old, newStore],
-      );
+      queryClient.setQueryData<Store[]>(storeKeys.list(), (old = []) => [
+        ...old,
+        newStore,
+      ]);
 
       if (config?.onSuccess) {
         config.onSuccess(newStore, variables, context);

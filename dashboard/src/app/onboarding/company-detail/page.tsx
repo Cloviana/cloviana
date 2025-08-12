@@ -4,9 +4,9 @@ import { useRouter } from 'next/navigation';
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 
+import { useCreateStore } from '@/api/stores/create-store';
 import { SplitLayout } from '@/components/layout';
 import { paths } from '@/config/paths';
-import { useCreateStore } from '@/features/stores/api/create-store';
 
 import {
   StoreSetupSection,

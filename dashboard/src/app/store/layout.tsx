@@ -6,8 +6,8 @@ import {
 import { redirect } from 'next/navigation';
 import { ReactNode } from 'react';
 
+import { getStoresQueryOptions } from '@/api/stores/get-stores';
 import { paths } from '@/config/paths';
-import { getStoresQueryOptions } from '@/features/stores/api/get-stores';
 
 interface LayoutProps {
   children: ReactNode;
