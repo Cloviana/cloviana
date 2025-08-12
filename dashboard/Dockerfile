@@ -70,13 +70,14 @@ CMD \
 FROM node:20-alpine AS runner
 RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs
 WORKDIR /app
+
 # Copy only the standalone build and static assets
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
 
-ENV NEXT_CACHE_DIR=/tmp/next-cache
-RUN mkdir -p /tmp/next-cache && chown -R nextjs:nodejs /tmp/next-cache
+RUN mkdir -p /app/.next/cache && chown -R nextjs:nodejs /app
+ENV NEXT_CACHE_DIR=/app/.next/cache
 
 # Re‑expose your runtime ENVs if needed (e.g. for server‑side code)
 ARG NEXT_PUBLIC_API_URL
