@@ -5,7 +5,7 @@ import { AuthUser } from '@supabase/supabase-js';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { signOut } from '@/features/auth/utils/sign-out';
+import { signOut } from '@/features/auth/actions/sign-out';
 import { useGetStore } from '@/features/stores/api/get-store';
 import { createClient } from '@/lib/supabase/client';
 

@@ -1,61 +1,55 @@
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 
+import {
+  createChannelSchema,
+  createChannel,
+} from '@/api/channel/create-channel';
+import { createStore, createStoreSchema } from '@/api/stores/create-store';
+import { getStores } from '@/api/stores/get-stores';
 import { env } from '@/config/env';
 import { paths } from '@/config/paths';
-import { createChannel } from '@/features/integrations/api/create-channel';
-import { exchangeCode } from '@/lib/shopify/auth';
-import { verifyCallbackHmac } from '@/lib/shopify/verify';
+import { shopifySignIn } from '@/features/auth/actions/shopify-sign-in';
+import { exchangeCode } from '@/features/shopify/actions/exchange-code';
+import { verifyHmac } from '@/features/shopify/utils/verify-hmac';
 
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
-  const required = ['shop', 'code', 'state', 'hmac'];
-  for (const p of required) {
-    if (!searchParams.get(p)) return NextResponse.json(null, { status: 400 });
-  }
+  const cookiesJar = cookies();
 
-  const cookieStore = cookies();
-  const storedState = cookieStore.get('shopify_oauth_state')?.value;
-  cookieStore.delete('shopify_oauth_state');
-  if (storedState !== searchParams.get('state')) {
+  if (cookiesJar.get('shopify_state')?.value !== searchParams.get('state'))
     return NextResponse.json(null, { status: 401 });
-  }
-  if (!verifyCallbackHmac(searchParams)) {
+  cookiesJar.delete('shopify_state');
+  if (!verifyHmac(searchParams))
     return NextResponse.json(null, { status: 401 });
-  }
 
-  let token: string;
-  try {
-    token = await exchangeCode(
-      searchParams.get('shop')!,
-      searchParams.get('code')!,
-    );
-  } catch {
-    return NextResponse.json(
-      { error: 'Token exchange failed' },
-      { status: 500 },
-    );
-  }
+  const shop = searchParams.get('shop')!;
+  const code = searchParams.get('code')!;
 
-  const storeId = cookieStore.get('store_id')?.value || '';
-  cookieStore.delete('store_id');
-  try {
-    await createChannel({
-      storeId,
-      shop: searchParams.get('shop')!,
-      offlineAccessToken: token,
-    });
-  } catch (err) {
-    console.error('⚠️ createChannel failed:', err);
-  }
+  const offlineAccessToken = await exchangeCode(shop, code);
+  await shopifySignIn(shop);
 
-  const returnPath = cookieStore.get('shopify_oauth_return')?.value;
-  cookieStore.delete('shopify_oauth_return');
-  const redirectUrl = returnPath
-    ? new URL(returnPath, env.APP_URL)
-    : new URL(paths.store.getHref(), env.APP_URL);
-  redirectUrl.searchParams.set('host', searchParams.get('host') ?? '');
-  redirectUrl.searchParams.set('shop', searchParams.get('shop')!);
+  const stores = await getStores();
+  const store =
+    stores[0] ??
+    (await createStore(
+      createStoreSchema.parse({
+        name: 'My Personal Store',
+        domainUrl: shop,
+      }),
+    ));
 
-  return NextResponse.redirect(redirectUrl);
+  await createChannel(
+    createChannelSchema.parse({
+      storeId: store.id,
+      shop,
+      offlineAccessToken,
+    }),
+  );
+
+  const returnPath =
+    cookiesJar.get('shopify_return_to')?.value ?? paths.store.getHref(store.id);
+  cookiesJar.delete('shopify_return_to');
+
+  return NextResponse.redirect(new URL(returnPath, env.APP_URL));
 }

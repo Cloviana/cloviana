@@ -4,6 +4,12 @@ export const blogsKeys = {
   detail: (blogId: string) => [...blogsKeys.base, 'detail', blogId] as const,
 };
 
+export const storeKeys = {
+  base: ['stores'] as const,
+  list: () => [...storeKeys.base, 'list'] as const,
+  detail: (storeId: string) => [...storeKeys.base, 'detail', storeId] as const,
+};
+
 export const keywordsKeys = {
   base: ['keywords'] as const,
   list: (type: string) => [...blogsKeys.base, 'list', type] as const,

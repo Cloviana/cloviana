@@ -1,4 +1,4 @@
-export const SHOPIFY_SCOPES = [
+export const SCOPES = [
   'read_products',
   'write_products',
   'read_content',
@@ -13,11 +13,3 @@ export const SHOPIFY_SCOPES = [
   'write_script_tags',
   'read_locales',
 ];
-
-export const COOKIE_OPTIONS = {
-  httpOnly: true,
-  sameSite: 'lax' as const,
-  secure: process.env.NODE_ENV === 'production',
-  path: '/',
-  maxAge: 600,
-};
