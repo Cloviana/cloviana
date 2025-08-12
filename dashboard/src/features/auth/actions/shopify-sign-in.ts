@@ -16,11 +16,12 @@ export async function shopifySignIn(shop: string) {
     user_metadata: { shop_domain: shop },
   });
 
-  if (
-    createUserError &&
-    !createUserError.message.toLowerCase().includes('already registered')
-  ) {
-    throw createUserError;
+  if (createUserError) {
+    const code = (createUserError as any).code || '';
+    const msg = createUserError.message || '';
+    const ignore =
+      code === 'email_exists' || /already\s+been?\s+registered/i.test(msg);
+    if (!ignore) throw createUserError;
   }
 
   const linkRes = await supabaseAdmin.auth.admin.generateLink({
