@@ -5,7 +5,7 @@ import { QueryConfig } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
 import { Store } from '@/types/api';
 
-export const getStoresKey = () => ['stores'] as const;
+import { storeKeys } from '../keys';
 
 export const getStores = async (): Promise<Store[]> => {
   const accessToken = await fetchAccessToken();
@@ -22,10 +22,8 @@ export const getStores = async (): Promise<Store[]> => {
 
 export const getStoresQueryOptions = () => {
   return queryOptions({
-    queryKey: getStoresKey(),
+    queryKey: storeKeys.list(),
     queryFn: () => getStores(),
-    staleTime: 1000 * 60 * 5,
-    gcTime: 1000 * 60 * 30,
   });
 };
 
