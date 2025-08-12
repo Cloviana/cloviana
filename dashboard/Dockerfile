@@ -68,8 +68,7 @@ CMD \
 
 ####### 5) Runner stage: ultra‑small production image #######
 FROM node:20-alpine AS runner
-RUN addgroup --system --gid 1001 nodejs \
- && adduser --system --uid 1001 nextjs
+RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs
 WORKDIR /app
 # Copy only the standalone build and static assets
 COPY --from=builder /app/.next/standalone ./
