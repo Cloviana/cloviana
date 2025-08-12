@@ -1,12 +1,13 @@
 'use client';
 
 import * as Dialog from '@radix-ui/react-dialog';
-import { useParams, usePathname, useRouter } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 import React, { FC } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 import { Button } from '@/components/actions';
 import { TextField } from '@/components/input';
+import { startShopifyInstall } from '@/features/shopify/actions/start-install';
 import { useGetStore } from '@/features/stores/api/get-store';
 
 import { IntegrationCard } from './integration-card';
@@ -21,17 +22,13 @@ export const ShopifyCard: FC = () => {
     handleSubmit,
     formState: { errors, isSubmitting, isValid },
   } = useForm<FormValues>();
-  const { push } = useRouter();
   const pathname = usePathname();
   const { storeId } = useParams();
   const { data: store } = useGetStore(storeId as string);
 
   const onSubmit: SubmitHandler<FormValues> = async ({ storeUrl }) => {
-    const returnTo = encodeURIComponent(pathname);
-    const shop = encodeURIComponent(storeUrl);
-    const id = encodeURIComponent(storeId as string);
-
-    push(`/api/auth/shopify?shop=${shop}&returnTo=${returnTo}&storeId=${id}`);
+    const url = await startShopifyInstall(storeUrl, pathname);
+    window.location.href = url;
   };
 
   return (
