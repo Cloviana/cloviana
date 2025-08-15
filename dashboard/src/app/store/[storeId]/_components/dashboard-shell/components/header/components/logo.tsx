@@ -1,15 +1,20 @@
 'use client';
 
-import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
-import { paths } from '@/config/paths';
+import { AccountDropdown } from './account-dropdown';
 
 export const Logo = () => {
-  const { storeId } = useParams();
   return (
-    <Link href={paths.store.getHref(storeId as string)}>
-      <img src="/logo-full.png" alt="logo" className="h-auto w-[77px]" />
-    </Link>
+    <DropdownMenu.Root>
+      <DropdownMenu.Trigger asChild>
+        <div className="flex cursor-pointer items-center gap-2 rounded-md px-2 py-1 transition-all hover:bg-gray-100">
+          <img src="/logo-full.png" alt="logo" className="h-auto w-[77px]" />
+          <ExpandMoreIcon width={20} height={20} />
+        </div>
+      </DropdownMenu.Trigger>
+      <AccountDropdown />
+    </DropdownMenu.Root>
   );
 };
