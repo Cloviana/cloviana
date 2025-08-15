@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname, useParams } from 'next/navigation';
-import { FC, ElementType } from 'react';
+import { useParams, usePathname } from 'next/navigation';
+import { ElementType, FC } from 'react';
 
 import {
   KeyIcon,
@@ -12,6 +12,8 @@ import {
 } from '@/components/icons';
 import { paths } from '@/config/paths';
 import { cn } from '@/utils/cn';
+
+import { Logo } from './header/components/logo';
 
 type IconComponent = ElementType;
 
@@ -99,7 +101,13 @@ export const Sidebar: FC = () => {
 
   return (
     <aside className="flex size-full flex-col gap-y-3 p-2.5">
-      <SidebarSection items={mainNav} />
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center justify-between gap-2">
+          <Logo />
+        </div>
+        <SidebarSection items={mainNav} />
+      </div>
+
       <div className="flex flex-1 flex-col justify-end">
         <p className="text-center text-[10px] text-foreground-light">
           Desktop-first dashboard; mobile support coming soon. Use a laptop for
