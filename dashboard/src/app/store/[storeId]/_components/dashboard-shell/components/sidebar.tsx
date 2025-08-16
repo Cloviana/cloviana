@@ -1,140 +1,111 @@
 'use client';
 
-import * as Separator from '@radix-ui/react-separator';
-import { AuthUser } from '@supabase/supabase-js';
+import * as Accordion from '@radix-ui/react-accordion';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { useParams, usePathname } from 'next/navigation';
-import { ElementType, FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 
-import { useGetStore } from '@/api/stores/get-store';
+import { SUPPORT_EMAIL } from '../../../shared/models/constants';
 import {
-  KeyIcon,
-  LayerPlusIcon,
-  ShopIcon,
-  SignatureIcon,
-} from '@/components/icons';
-import { paths } from '@/config/paths';
-import { createClient } from '@/lib/supabase/client';
-import { cn } from '@/utils/cn';
+  NavGroup,
+  SidebarItemProps,
+} from '../../../shared/models/sidebar-interface';
+import { useGenerateSidebarMenu } from '../../../shared/usecases/use-generate-sidebar-menu';
 
 import { Logo } from './header/components/logo';
 
-type IconComponent = ElementType;
+const ArrowRightIcon = dynamic(() => import('@mui/icons-material/ArrowRight'), {
+  ssr: false,
+});
 
-interface NavItem {
-  label: string;
-  href: string;
-  icon: IconComponent;
-  isActive: boolean;
-}
-
-interface SidebarSectionProps {
-  items: NavItem[];
-}
-
-interface SidebarItemProps extends NavItem {}
+const QuestionMarkIcon = dynamic(
+  () => import('@mui/icons-material/QuestionMark'),
+  {
+    ssr: false,
+  },
+);
 
 const SidebarItem: FC<SidebarItemProps> = ({
   label,
   href,
   icon: Icon,
   isActive,
+  disabled,
 }) => (
   <Link
-    href={href}
+    href={disabled ? '#' : href}
+    aria-disabled={disabled}
     data-state={isActive ? 'active' : undefined}
-    className={`flex w-full items-center gap-x-2 rounded-lg px-3 py-1.5 transition-all hover:bg-surface-200 ${
-      isActive ? 'bg-surface-200' : ''
-    }`}
+    className={[
+      'flex w-full items-center gap-x-2 rounded-lg px-3 py-1.5 transition-all hover:bg-[#eeeeee]',
+      isActive ? 'bg-[#e8e8e8]' : '',
+      disabled ? 'pointer-events-none cursor-not-allowed opacity-50' : '',
+    ].join(' ')}
   >
     <Icon
       width={14}
       height={14}
       className={isActive ? 'fill-foreground' : 'fill-foreground-lighter'}
     />
-    <span
-      className={cn(
-        isActive ? 'text-foreground' : 'text-foreground-lighter',
-        'text-sm font-medium',
-      )}
-    >
-      {label}
-    </span>
+    <span className="text-sm font-medium text-foreground">{label}</span>
   </Link>
 );
 
-const SidebarSection: FC<SidebarSectionProps> = ({ items }) => (
-  <div className="flex flex-col gap-y-1">
-    {items.map((item) => (
-      <SidebarItem key={item.label} {...item} />
-    ))}
-  </div>
+const SidebarGroup: FC<{ group: NavGroup }> = ({ group }) => (
+  <Accordion.Item value={group.id} className="border-none">
+    <Accordion.Header>
+      <Accordion.Trigger className="group flex w-full items-center rounded-md px-2 py-1.5 text-[11px] tracking-wide text-foreground transition-colors hover:bg-[#eeeeee]">
+        <span>{group.label}</span>
+        <ArrowRightIcon
+          sx={{
+            fontSize: 15,
+          }}
+          className="transition-transform duration-200 group-data-[state=open]:rotate-90"
+        />
+      </Accordion.Trigger>
+    </Accordion.Header>
+
+    <Accordion.Content className="accordion-motion">
+      <div className="ml-1.5 mt-1 flex flex-col gap-y-1">
+        {group.items.map((item) => (
+          <SidebarItem key={`${group.id}-${item.label}`} {...item} />
+        ))}
+      </div>
+    </Accordion.Content>
+  </Accordion.Item>
 );
 
 export const Sidebar: FC = () => {
-  const pathname = usePathname();
-  const params = useParams();
-  const storeId = params.storeId as string;
-  const supabase = createClient();
-  const [user, setUser] = useState<AuthUser | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => {
-      setUser(data.user);
-      setLoading(false);
-    });
-  }, [supabase.auth]);
-
-  const { isLoading: storeLoading } = useGetStore(storeId as string);
-  if (loading || !user || storeLoading)
-    return <div className="h-7 w-36 animate-pulse rounded-md bg-surface-200" />;
-
-  const { email } = user;
-
-  const mainNav: NavItem[] = [
-    {
-      label: 'Brand Overview',
-      icon: ShopIcon,
-      href: paths.store.getHref(storeId),
-      isActive: pathname === paths.store.getHref(storeId),
-    },
-    {
-      label: 'Blogs',
-      icon: SignatureIcon,
-      href: paths.store.blogs.getHref(storeId),
-      isActive: pathname.startsWith(paths.store.blogs.getHref(storeId)),
-    },
-    {
-      label: 'Keywords',
-      icon: KeyIcon,
-      href: paths.store.keywords.getHref(storeId),
-      isActive: pathname.startsWith(paths.store.keywords.getHref(storeId)),
-    },
-    {
-      label: 'Integrations',
-      icon: LayerPlusIcon,
-      href: paths.store.integrations.getHref(storeId),
-      isActive: pathname.startsWith(paths.store.integrations.getHref(storeId)),
-    },
-  ];
+  const { groups, defaultOpen } = useGenerateSidebarMenu();
 
   return (
-    <aside className="flex size-full flex-col gap-y-3 bg-gray-50 p-2.5">
-      <div className="flex flex-col gap-4">
+    <aside className="flex size-full flex-col bg-[#f5f5f5]">
+      <div className="sticky top-0 z-10 bg-[#f5f5f5] p-2.5">
         <div className="flex items-center justify-between gap-2">
           <Logo />
         </div>
-        <SidebarSection items={mainNav} />
       </div>
 
-      <div className="flex flex-1 flex-col justify-end">
-        <p className="text-center text-[10px] text-foreground-light">
-          Desktop-first dashboard; mobile support coming soon. Use a laptop for
-          the best experience—stay tuned for new features!
-        </p>
-        <Separator.Root className="my-[15px] bg-gray-300 data-[orientation=horizontal]:h-px data-[orientation=vertical]:h-full data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-px" />
-        <span className="text-xs text-foreground-light">{email}</span>
+      <div className="flex min-h-0 flex-1 flex-col justify-between overflow-y-auto scroll-smooth px-2.5 pb-2.5">
+        <Accordion.Root
+          type="multiple"
+          defaultValue={defaultOpen}
+          className="flex flex-col gap-y-3 pb-16"
+        >
+          {groups.map((group) => (
+            <SidebarGroup key={group.id} group={group} />
+          ))}
+        </Accordion.Root>
+
+        <div className="sticky bottom-0 justify-end">
+          <a
+            href={`mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent('Support request')}`}
+            aria-label="Contact support"
+            className="flex size-6 items-center justify-center rounded-full border border-gray-300 bg-[#f5f5f5] p-2 transition-colors hover:bg-[#eeeeee]"
+          >
+            <QuestionMarkIcon fontSize="inherit" />
+          </a>
+        </div>
       </div>
     </aside>
   );

@@ -1,38 +1,48 @@
 'use client';
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { useRouter } from 'next/navigation';
 
-import { signOut } from '@/features/auth/actions/sign-out';
+import { useGenerateStoreDropdownItem } from '@/app/store/[storeId]/shared/usecases/use-generate-store-dropdown-item';
 
 export const AccountDropdown = () => {
-  const { refresh } = useRouter();
-
-  const handleSignOut = async () => {
-    const { success } = await signOut();
-    if (success) refresh();
-  };
-
+  const { menu } = useGenerateStoreDropdownItem();
   return (
-    <>
-      <DropdownMenu.Portal>
-        <DropdownMenu.Content
-          sideOffset={5}
-          align="end"
-          className="dropdown-content ml-3"
-        >
-          <div>
-            <div className="dropdown-content-section">
+    <DropdownMenu.Portal>
+      <DropdownMenu.Content
+        sideOffset={5}
+        align="end"
+        className="dropdown-content ml-3"
+      >
+        <div className="dropdown-content-section">
+          {menu.map((entry, i) =>
+            entry.type === 'separator' ? (
+              <DropdownMenu.Separator
+                key={`sep-${i}`}
+                className="dropdown-separator"
+              />
+            ) : (
               <DropdownMenu.Item
-                className="dropdown-item"
-                onClick={handleSignOut}
+                key={entry.label}
+                disabled={entry.disabled}
+                className={`dropdown-item ${
+                  entry.intent === 'danger'
+                    ? 'text-red-600 hover:bg-red-50 focus:bg-red-50'
+                    : ''
+                }`}
+                onSelect={(e) => {
+                  if (entry.disabled) {
+                    e.preventDefault();
+                    return;
+                  }
+                  entry.onSelect?.();
+                }}
               >
-                Log out
+                {entry.label}
               </DropdownMenu.Item>
-            </div>
-          </div>
-        </DropdownMenu.Content>
-      </DropdownMenu.Portal>
-    </>
+            ),
+          )}
+        </div>
+      </DropdownMenu.Content>
+    </DropdownMenu.Portal>
   );
 };
