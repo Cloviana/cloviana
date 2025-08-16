@@ -14,7 +14,7 @@ module.exports = {
       fontFamily: {
         'inter-display': ['var(--font-inter-display)', 'sans-serif'],
         'dm-sans': ['var(--font-dm-sans)', 'sans-serif'],
-        'inter': ['var(--font-inter)', 'sans-serif'],
+        inter: ['var(--font-inter)', 'sans-serif'],
       },
       colors: {
         primary: {
@@ -47,7 +47,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ]
+  plugins: [require('@tailwindcss/typography')],
 };
