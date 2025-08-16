@@ -1,7 +1,6 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 
 import { PrismaService } from "@/clients/prisma/prisma.service";
-import { BlogsProducer } from "../../messaging/producers/blogs.producer";
 import {
   BlogGenerationStatus,
   BlogPublishStatus,
@@ -12,7 +11,7 @@ import {
 import cuid from "cuid";
 import { UpdateBlogDto } from "../dtos/update-blog.dto";
 import { UpdateNodeDto } from "../dtos/update-node.dto";
-import { StorageService } from "@/modules/storage/storage.service";
+import { StorageService } from "@/modules/core/storage/storage.service";
 import { ShopifyService } from "@/clients/shopify-legacy/shopify.service";
 import { fromNodes } from "../utils/from-nodes";
 import {
@@ -29,6 +28,7 @@ import { BlogWriterAgent } from "../agents/blog-writer";
 import { firstValueFrom } from "rxjs";
 import { HttpService } from "@nestjs/axios";
 import { flattenNodes } from "../utils/flatten-nodes";
+import { BlogsProducer } from "@/modules/integrations/messaging/producers/blogs.producer";
 
 @Injectable()
 export class BlogsService {

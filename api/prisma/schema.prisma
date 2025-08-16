@@ -159,20 +159,12 @@ model Store {
   createdAt        DateTime    @default(now())
   updatedAt        DateTime    @updatedAt
 
-<<<<<<< HEAD
-  owner    Profile        @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
-  keywords StoreKeyword[]
-  blogs    Blog[]
-  channel  Channel?
-=======
   owner        Profile        @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
   keywords     StoreKeyword[]
   blogs        Blog[]
   jobs         Job[]
   products     Product[]
-  subscription Subscription?
   channel      Channel?
->>>>>>> 3870e64 (Added sync products workflow)
 
   @@index([ownerId])
   @@map("stores")
