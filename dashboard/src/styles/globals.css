@@ -79,10 +79,10 @@
   }
 
   .dropdown-item {
-    @apply block cursor-pointer rounded px-2 py-1.5 text-[12px] hover:bg-primary-light hover:text-white focus:outline-none;
+    @apply block cursor-pointer rounded px-2 py-1.5 text-[12px] text-sm hover:bg-gray-100 focus:outline-none;
   }
   .dropdown-content {
-    @apply rounded border bg-background shadow will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade;
+    @apply w-56 rounded-md border bg-background shadow will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade;
   }
   .dropdown-seperator {
     @apply h-px bg-border;
