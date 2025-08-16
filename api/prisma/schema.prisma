@@ -69,6 +69,72 @@ enum GenerationStep {
   COMPLETE
 }
 
+enum ShopifyProductStatus {
+  ACTIVE
+  DRAFT
+  ARCHIVED
+}
+
+enum JobType {
+  PRODUCT_SYNC
+  BLOG_GENERATION
+  SITEMAP_BUILD
+  KEYWORD_DISCOVERY
+}
+
+enum JobStatus {
+  PENDING
+  RUNNING
+  SUCCESS
+  FAILED
+}
+
+model Job {
+  id          String    @id @default(uuid()) @db.Uuid
+  type        JobType
+  storeId     String?
+  status      JobStatus @default(PENDING)
+  priority    Int       @default(0)
+  attempts    Int       @default(0)
+  scheduledAt DateTime?
+  startedAt   DateTime?
+  finishedAt  DateTime?
+  payload     Json?     @db.JsonB
+  result      Json?     @db.JsonB
+  error       String?
+  dedupeKey   String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  store Store? @relation(fields: [storeId], references: [id], onDelete: Cascade)
+
+  @@index([type, status, priority, scheduledAt])
+  @@index([storeId, type, status])
+  @@unique([type, storeId, dedupeKey])
+  @@map("jobs")
+}
+
+model Product {
+  id               String                @id
+  storeId          String
+  handle           String                @db.Citext
+  title            String
+  status           ShopifyProductStatus
+  description      String?
+  tags             String[]              @default([])
+  mainImageUrl     String?
+  mainImageAlt     String?
+  updatedAtShopify DateTime
+  createdAt        DateTime              @default(now())
+  updatedAt        DateTime              @updatedAt
+
+  store            Store                 @relation(fields: [storeId], references: [id], onDelete: Cascade)
+
+  @@unique([storeId, handle])
+  @@index([storeId, status])
+  @@map("products")
+}
+
 model Profile {
   id         String   @id @default(uuid()) @db.Uuid
   firstName  String?
@@ -93,10 +159,20 @@ model Store {
   createdAt        DateTime    @default(now())
   updatedAt        DateTime    @updatedAt
 
+<<<<<<< HEAD
   owner    Profile        @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
   keywords StoreKeyword[]
   blogs    Blog[]
   channel  Channel?
+=======
+  owner        Profile        @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  keywords     StoreKeyword[]
+  blogs        Blog[]
+  jobs         Job[]
+  products     Product[]
+  subscription Subscription?
+  channel      Channel?
+>>>>>>> 3870e64 (Added sync products workflow)
 
   @@index([ownerId])
   @@map("stores")
