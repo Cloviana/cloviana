@@ -16,8 +16,6 @@ import { IndexTable } from '@/components/table/index-table';
 import { useGetKeywords } from '@/features/keywords/api/get-keywords';
 import { KeywordType } from '@/features/keywords/types';
 
-import { DashboardShell } from '../_components/dashboard-shell';
-
 import { AddKeywordButton, KeywordFilter, KeywordInfo } from './_components';
 import { ReplaceKeywordButton } from './_components/replace-keyword-button';
 
@@ -63,76 +61,68 @@ const KeywordsPage = () => {
   );
 
   return (
-    <DashboardShell>
-      <Page title="Keywords" fullWidth>
-        <div className="w-full space-y-4">
-          <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-            <div className="flex gap-2">
-              <KeywordFilter type={type} setType={setType} />
-              <KeywordInfo type={type} />
-            </div>
-            <div className="flex flex-1 items-center justify-between gap-2">
-              <div className="min-w-[200px] max-md:flex-1">
-                <TextField
-                  placeholder="Search for a keyword"
-                  variant="surface"
-                  size="sm"
-                  icon={
-                    <SearchIcon className="size-2.5 fill-foreground-light" />
-                  }
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.currentTarget.value)}
-                />
-              </div>
-              {type === 'BLOG' ? (
-                <AddKeywordButton />
-              ) : (
-                <ReplaceKeywordButton />
-              )}
-            </div>
+    <Page title="Keywords" fullWidth>
+      <div className="w-full space-y-4">
+        <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+          <div className="flex gap-2">
+            <KeywordFilter type={type} setType={setType} />
+            <KeywordInfo type={type} />
           </div>
-
-          <div className="overflow-hidden rounded-md border shadow-sm">
-            <IndexTable
-              headings={[
-                { title: 'Keyword' },
-                { title: 'Intent' },
-                { title: 'Traffic' },
-                { title: 'Difficulty', alignment: 'end' },
-              ]}
-            >
-              {filtered.map(({ id, phrase, difficulty, volume, intent }) => (
-                <IndexTable.Row key={id} id={id}>
-                  <IndexTable.Cell>
-                    <span className="text-[13px] font-semibold">{phrase}</span>
-                  </IndexTable.Cell>
-
-                  <IndexTable.Cell>
-                    <Badge
-                      variant={intentColorMap[intent.toLowerCase()] ?? 'purple'}
-                    >
-                      {intent}
-                    </Badge>
-                  </IndexTable.Cell>
-
-                  <IndexTable.Cell>
-                    <span className="text-[13px] font-semibold">
-                      {formatter.format(volume)}
-                    </span>
-                  </IndexTable.Cell>
-
-                  <IndexTable.Cell>
-                    <span className="text-[13px] font-semibold">
-                      {difficulty}
-                    </span>
-                  </IndexTable.Cell>
-                </IndexTable.Row>
-              ))}
-            </IndexTable>
+          <div className="flex flex-1 items-center justify-between gap-2">
+            <div className="min-w-[200px] max-md:flex-1">
+              <TextField
+                placeholder="Search for a keyword"
+                variant="surface"
+                size="sm"
+                icon={<SearchIcon className="size-2.5 fill-foreground-light" />}
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.currentTarget.value)}
+              />
+            </div>
+            {type === 'BLOG' ? <AddKeywordButton /> : <ReplaceKeywordButton />}
           </div>
         </div>
-      </Page>
-    </DashboardShell>
+
+        <div className="overflow-hidden rounded-md border shadow-sm">
+          <IndexTable
+            headings={[
+              { title: 'Keyword' },
+              { title: 'Intent' },
+              { title: 'Traffic' },
+              { title: 'Difficulty', alignment: 'end' },
+            ]}
+          >
+            {filtered.map(({ id, phrase, difficulty, volume, intent }) => (
+              <IndexTable.Row key={id} id={id}>
+                <IndexTable.Cell>
+                  <span className="text-[13px] font-semibold">{phrase}</span>
+                </IndexTable.Cell>
+
+                <IndexTable.Cell>
+                  <Badge
+                    variant={intentColorMap[intent.toLowerCase()] ?? 'purple'}
+                  >
+                    {intent}
+                  </Badge>
+                </IndexTable.Cell>
+
+                <IndexTable.Cell>
+                  <span className="text-[13px] font-semibold">
+                    {formatter.format(volume)}
+                  </span>
+                </IndexTable.Cell>
+
+                <IndexTable.Cell>
+                  <span className="text-[13px] font-semibold">
+                    {difficulty}
+                  </span>
+                </IndexTable.Cell>
+              </IndexTable.Row>
+            ))}
+          </IndexTable>
+        </div>
+      </div>
+    </Page>
   );
 };
 

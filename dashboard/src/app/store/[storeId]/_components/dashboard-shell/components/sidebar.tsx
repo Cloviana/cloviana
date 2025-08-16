@@ -1,9 +1,12 @@
 'use client';
 
+import * as Separator from '@radix-ui/react-separator';
+import { AuthUser } from '@supabase/supabase-js';
 import Link from 'next/link';
 import { useParams, usePathname } from 'next/navigation';
-import { ElementType, FC } from 'react';
+import { ElementType, FC, useEffect, useState } from 'react';
 
+import { useGetStore } from '@/api/stores/get-store';
 import {
   KeyIcon,
   LayerPlusIcon,
@@ -11,6 +14,7 @@ import {
   SignatureIcon,
 } from '@/components/icons';
 import { paths } from '@/config/paths';
+import { createClient } from '@/lib/supabase/client';
 import { cn } from '@/utils/cn';
 
 import { Logo } from './header/components/logo';
@@ -71,6 +75,22 @@ export const Sidebar: FC = () => {
   const pathname = usePathname();
   const params = useParams();
   const storeId = params.storeId as string;
+  const supabase = createClient();
+  const [user, setUser] = useState<AuthUser | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    supabase.auth.getUser().then(({ data }) => {
+      setUser(data.user);
+      setLoading(false);
+    });
+  }, [supabase.auth]);
+
+  const { isLoading: storeLoading } = useGetStore(storeId as string);
+  if (loading || !user || storeLoading)
+    return <div className="h-7 w-36 animate-pulse rounded-md bg-surface-200" />;
+
+  const { email } = user;
 
   const mainNav: NavItem[] = [
     {
@@ -100,7 +120,7 @@ export const Sidebar: FC = () => {
   ];
 
   return (
-    <aside className="flex size-full flex-col gap-y-3 p-2.5">
+    <aside className="flex size-full flex-col gap-y-3 bg-gray-50 p-2.5">
       <div className="flex flex-col gap-4">
         <div className="flex items-center justify-between gap-2">
           <Logo />
@@ -113,6 +133,8 @@ export const Sidebar: FC = () => {
           Desktop-first dashboard; mobile support coming soon. Use a laptop for
           the best experience—stay tuned for new features!
         </p>
+        <Separator.Root className="my-[15px] bg-gray-300 data-[orientation=horizontal]:h-px data-[orientation=vertical]:h-full data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-px" />
+        <span className="text-xs text-foreground-light">{email}</span>
       </div>
     </aside>
   );

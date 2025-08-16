@@ -11,7 +11,11 @@ export const Logo = () => {
       <DropdownMenu.Trigger asChild>
         <div className="flex cursor-pointer items-center gap-2 rounded-md px-2 py-1 transition-all hover:bg-gray-100">
           <img src="/logo-full.png" alt="logo" className="h-auto w-[77px]" />
-          <ExpandMoreIcon width={20} height={20} />
+          <ExpandMoreIcon
+            width={20}
+            height={20}
+            className="fill-foreground-lighter"
+          />
         </div>
       </DropdownMenu.Trigger>
       <AccountDropdown />

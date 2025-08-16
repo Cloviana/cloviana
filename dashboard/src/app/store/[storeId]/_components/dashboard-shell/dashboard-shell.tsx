@@ -12,9 +12,6 @@ interface DashboardShellProps {
 export function DashboardShell({ children }: DashboardShellProps) {
   return (
     <div className="flex h-screen flex-col overflow-hidden bg-white">
-      {/* <div className="flex h-11 shrink-0 border-b">
-        <Header />
-      </div> */}
       <div className="flex flex-1 overflow-hidden">
         <div className="hidden min-h-0 w-60 border-r md:flex">
           <Sidebar />
