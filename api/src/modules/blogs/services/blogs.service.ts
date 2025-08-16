@@ -13,7 +13,7 @@ import cuid from "cuid";
 import { UpdateBlogDto } from "../dtos/update-blog.dto";
 import { UpdateNodeDto } from "../dtos/update-node.dto";
 import { StorageService } from "@/modules/storage/storage.service";
-import { ShopifyService } from "@/clients/shopify/shopify.service";
+import { ShopifyService } from "@/clients/shopify-legacy/shopify.service";
 import { fromNodes } from "../utils/from-nodes";
 import {
   CREATE_ARTICLE,

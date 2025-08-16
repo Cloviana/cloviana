@@ -1,0 +1,28 @@
+query Products($first: Int!, $after: String, $query: String) {
+  products(first: $first, after: $after, query: $query) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    nodes {
+      id
+      title
+      handle
+      status
+      description
+      tags
+      updatedAt
+      media(first: 1) {
+        nodes {
+          ... on MediaImage {
+            id
+            image {
+              url
+              altText
+            }
+          }
+        }
+      }
+    }
+  }
+}
