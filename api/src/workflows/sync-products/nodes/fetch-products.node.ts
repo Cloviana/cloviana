@@ -23,11 +23,11 @@ export async function fetchProducts(
   const all: Product[] = [];
 
   do {
-    const { data } = await pRetry(
+    const data = await pRetry(
       () =>
-        client.rawRequest<ProductsQuery, ProductsQueryVariables>(
+        client.request<ProductsQuery, ProductsQueryVariables>(
           ProductsDocument,
-          { first, after, query: undefined }
+          { first, after: after ?? undefined, query: undefined }
         ),
       {
         retries: 5,

@@ -49,6 +49,8 @@ export async function saveProducts(
           updatedAtShopify: new Date(p.updatedAt),
         },
       });
+
+      // DELETE ANY ONE THAT IS NOT IN THE LIST
     })
   );
 
