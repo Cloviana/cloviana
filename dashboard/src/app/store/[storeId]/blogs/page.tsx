@@ -7,8 +7,6 @@ import { Page } from '@/components/layout';
 import { paths } from '@/config/paths';
 import { useGetBlogs } from '@/features/blogs/api/get-blogs';
 
-import { DashboardShell } from '../_components/dashboard-shell';
-
 import { BlogsTable } from './_components/blogs-table';
 import { EmptyBlogList } from './_components/empty-blog-list';
 
@@ -31,26 +29,24 @@ export default function BlogListPage() {
   if (!storeId) return null;
 
   return (
-    <DashboardShell>
-      <Page
-        title="Blogs"
-        fullWidth={hasBlogs}
-        primaryAction={
-          hasBlogs
-            ? {
-                children: 'Add blog post',
-                onClick: handleCreateBlog,
-                loading: isCreating,
-              }
-            : undefined
-        }
-      >
-        {hasBlogs ? (
-          <BlogsTable blogs={blogs} />
-        ) : (
-          <EmptyBlogList onCreate={handleCreateBlog} loading={isCreating} />
-        )}
-      </Page>
-    </DashboardShell>
+    <Page
+      title="Blogs"
+      fullWidth={hasBlogs}
+      primaryAction={
+        hasBlogs
+          ? {
+              children: 'Add blog post',
+              onClick: handleCreateBlog,
+              loading: isCreating,
+            }
+          : undefined
+      }
+    >
+      {hasBlogs ? (
+        <BlogsTable blogs={blogs} />
+      ) : (
+        <EmptyBlogList onCreate={handleCreateBlog} loading={isCreating} />
+      )}
+    </Page>
   );
 }

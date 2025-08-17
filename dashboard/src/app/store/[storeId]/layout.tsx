@@ -9,6 +9,8 @@ import { ReactNode } from 'react';
 import { getStoreQueryOptions } from '@/api/stores/get-store';
 import { paths } from '@/config/paths';
 
+import { DashboardShell } from './_components/dashboard-shell';
+
 interface LayoutProps {
   children: ReactNode;
   params: { storeId: string };
@@ -24,6 +26,8 @@ export default async function Layout({ children, params }: LayoutProps) {
   }
 
   return (
-    <HydrationBoundary state={dehydrate(qc)}>{children}</HydrationBoundary>
+    <HydrationBoundary state={dehydrate(qc)}>
+      <DashboardShell>{children}</DashboardShell>
+    </HydrationBoundary>
   );
 }
