@@ -4,10 +4,11 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
-import { Anchor, Button } from '@/components/actions';
+import { Anchor } from '@/components/actions';
 import { AppleLogoIcon, GoogleLogoIcon } from '@/components/icons';
 import { Form, TextField } from '@/components/input';
 import { FormLayout, Seperator } from '@/components/layout';
+import { Button } from '@/components/legacy';
 import { paths } from '@/config/paths';
 import { googleSignIn } from '@/features/auth/actions/google-sign-in';
 import { AuthRootLayout } from '@/features/auth/components/auth-layout';

@@ -6,7 +6,7 @@ import { updateBlogInputSchema, useUpdateBlog } from '@/api/blogs/update-blog';
 import { useGetTopicSuggestions } from '@/api/suggestions/topic-suggestions/get-topic-suggestions';
 import { PageActions } from '@/components/actions';
 import { TextField } from '@/components/input';
-import { Page } from '@/components/layout';
+import { Page } from '@/components/legacy';
 
 import { Subtitle, Title } from '../_components/typography';
 

@@ -1,17 +1,11 @@
 import { cva, VariantProps } from 'class-variance-authority';
 import Link, { LinkProps } from 'next/link';
-import {
-  ButtonHTMLAttributes,
-  FC,
-  forwardRef,
-  ReactNode,
-  Ref,
-  SVGProps,
-} from 'react';
+import { ButtonHTMLAttributes, forwardRef, ReactNode, Ref } from 'react';
 
 import { cn } from '@/utils/cn';
 
 import { LoadingSpinner } from '../animations';
+import { GIcon } from '../icons';
 
 const buttonVariants = cva(
   'relative inline-flex items-center justify-center gap-x-2 rounded-md transition-all duration-300 ease-out disabled:opacity-80',
@@ -23,6 +17,7 @@ const buttonVariants = cva(
         secondary: 'border border-border/70 hover:border-gray-500/50',
         tertiary: '!shadow-none hover:bg-surface-200',
         plain: '!p-0 !font-normal !text-primary !shadow-none hover:opacity-80',
+        green: 'bg-[#5e8e3e] text-white hover:bg-[#548136]',
       },
       size: {
         sm: 'h-6 px-2.5 text-xs font-medium',
@@ -47,7 +42,7 @@ type Variant = VariantProps<typeof buttonVariants>;
 
 type CommonProps = Variant & {
   children?: ReactNode;
-  icon?: FC<SVGProps<SVGSVGElement>>;
+  icon?: string;
   url?: string;
   external?: boolean;
   loading?: boolean;
@@ -72,7 +67,7 @@ export const Button = forwardRef<
   {
     children,
     className,
-    icon: Icon,
+    icon,
     url,
     external = false,
     loading = false,
@@ -94,10 +89,10 @@ export const Button = forwardRef<
   const buttonType = type ?? (submit ? 'submit' : 'button');
   const isPlain = variant === 'plain';
 
-  const iconNode = Icon && (
-    <Icon
-      width={16}
-      height={16}
+  const iconNode = icon && (
+    <GIcon
+      name={icon}
+      size={16}
       className={cn(
         allowIconColor &&
           (variant === 'primary' ? 'fill-white' : 'fill-foreground-light'),

@@ -4,6 +4,7 @@ import { useParams, usePathname } from 'next/navigation';
 import { FC } from 'react';
 
 import { paths } from '@/config/paths';
+import { SUPPORT_EMAIL } from '@/constants/emails';
 
 import { SidebarGroup } from './components/sidebar-group';
 import { SidebarItem } from './components/sidebar-item';
@@ -76,6 +77,13 @@ export const Sidebar: FC = () => {
             isActive={false}
             disabled
           />
+          <SidebarItem
+            icon="graphic_eq"
+            label="Brand Voices"
+            href={'#'}
+            isActive={false}
+            disabled
+          />
         </SidebarGroup>
         <SidebarGroup label="Report">
           <SidebarItem
@@ -94,15 +102,18 @@ export const Sidebar: FC = () => {
           />
         </SidebarGroup>
       </div>
-      {/*<div className="flex px-2.5 ">
-          <a
-            href={`mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent('Support request')}`}
-            aria-label="Contact support"
-            className="flex size-6 items-center justify-center rounded-full border border-gray-300 bg-[#f5f5f5] p-2 transition-colors"
-          >
-            <GIcon name='question_mark' className='text-foreground-light'/>
-          </a>
-        </div>*/}
+      <div className="flex px-2.5">
+        <a
+          href={`mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent('Support request')}`}
+          aria-label="Contact support"
+          className="flex items-center justify-center rounded-full"
+        >
+          <p className="text-center text-[10px] text-sidebar-item-foreground">
+            Desktop-first dashboard; mobile support coming soon. Use a laptop
+            for the best experience—stay tuned for new features!
+          </p>
+        </a>
+      </div>
     </aside>
   );
 };

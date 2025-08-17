@@ -2,8 +2,8 @@
 
 import { FC } from 'react';
 
-import { Button } from '@/components/actions';
 import { InboxIcon } from '@/components/icons';
+import { Button } from '@/components/legacy';
 
 interface EmptyBlogListProps {
   onCreate: () => void;

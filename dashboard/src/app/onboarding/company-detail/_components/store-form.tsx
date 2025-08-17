@@ -2,9 +2,9 @@
 
 import { SubmitHandler, UseFormReturn } from 'react-hook-form';
 
-import { Button } from '@/components/actions';
 import { Form, TextField } from '@/components/input';
 import { FormLayout } from '@/components/layout';
+import { Button } from '@/components/legacy';
 
 type FormValues = {
   name: string;

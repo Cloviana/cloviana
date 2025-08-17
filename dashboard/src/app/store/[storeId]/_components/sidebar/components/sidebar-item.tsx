@@ -25,8 +25,9 @@ export const SidebarItem: FC<SidebarItemProps> = ({
     href={disabled ? '#' : href}
     aria-disabled={disabled}
     className={cn(
-      'flex w-full items-center gap-x-2 rounded-md px-2 py-1 transition-colors hover:bg-surface-300/50',
-      isActive && '!bg-surface-300',
+      'flex w-full items-center gap-x-2 rounded-md px-2 py-1 transition-colors hover:bg-sidebar-item-hover',
+      isActive &&
+        'border border-sidebar-item-border !bg-sidebar-item-active/70',
       disabled && 'pointer-events-none cursor-not-allowed opacity-50',
     )}
   >
@@ -34,9 +35,13 @@ export const SidebarItem: FC<SidebarItemProps> = ({
       name={icon}
       className={cn(
         'shrink-0',
-        isActive ? 'text-foreground' : 'text-foreground-light',
+        isActive
+          ? 'text-sidebar-item-foreground'
+          : 'text-sidebar-item-foreground/70',
       )}
     />
-    <span className="text-[13px] font-medium text-foreground">{label}</span>
+    <span className="text-[13px] font-medium text-sidebar-item-foreground">
+      {label}
+    </span>
   </Link>
 );

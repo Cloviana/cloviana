@@ -3,7 +3,7 @@
 import { useParams, useRouter } from 'next/navigation';
 
 import { useCreateBlog } from '@/api/blogs/create-blog';
-import { Page } from '@/components/layout';
+import { Page } from '@/components/legacy';
 import { paths } from '@/config/paths';
 import { useGetBlogs } from '@/features/blogs/api/get-blogs';
 

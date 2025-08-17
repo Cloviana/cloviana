@@ -8,7 +8,7 @@ import { useGetKeywords } from '@/api/keywords/get-keywords';
 import { useGetKeywordSuggestions } from '@/api/suggestions/keyword-suggestions/get-keyword-suggestions';
 import { PageActions } from '@/components/actions';
 import { Autocomplete } from '@/components/input';
-import { Page } from '@/components/layout';
+import { Page } from '@/components/legacy';
 
 import { Title, Subtitle } from '../_components/typography';
 
