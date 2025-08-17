@@ -14,7 +14,7 @@ module.exports = {
       fontFamily: {
         'inter-display': ['var(--font-inter-display)', 'sans-serif'],
         'dm-sans': ['var(--font-dm-sans)', 'sans-serif'],
-        'inter': ['var(--font-inter)', 'sans-serif'],
+        inter: ['var(--font-inter)', 'sans-serif'],
       },
       colors: {
         primary: {
@@ -35,6 +35,10 @@ module.exports = {
           100: withOpacity('--surface-100'),
           75: withOpacity('--surface-75'),
         },
+        muted: {
+          DEFAULT: withOpacity('--muted'),
+          foreground: withOpacity('--muted-foreground'),
+        },
       },
       keyframes: {
         slideUpAndFade: {
@@ -47,7 +51,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ]
+  plugins: [require('@tailwindcss/typography')],
 };

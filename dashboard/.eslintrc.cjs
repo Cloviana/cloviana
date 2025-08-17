@@ -117,7 +117,7 @@ module.exports = {
         ],
         'import/default': 'off',
         'import/no-named-as-default-member': 'off',
-        "@next/next/no-page-custom-font": "off",
+        '@next/next/no-page-custom-font': 'off',
         'import/no-named-as-default': 'off',
         'react/react-in-jsx-scope': 'off',
         'jsx-a11y/anchor-is-valid': 'off',
@@ -127,7 +127,7 @@ module.exports = {
         '@typescript-eslint/no-empty-function': ['off'],
         '@typescript-eslint/no-explicit-any': ['off'],
         'prettier/prettier': ['error', {}, { usePrettierrc: true }],
-        "react/no-unescaped-entities": "off"
+        'react/no-unescaped-entities': 'off',
       },
     },
     {
@@ -150,6 +150,7 @@ module.exports = {
             '!(**/__tests__)/**/*': 'KEBAB_CASE',
           },
         ],
+        '@typescript-eslint/no-unused-vars': ['error'],
       },
     },
   ],
