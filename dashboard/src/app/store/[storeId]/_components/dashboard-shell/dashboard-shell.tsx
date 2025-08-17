@@ -12,7 +12,7 @@ interface DashboardShellProps {
 
 export function DashboardShell({ children }: DashboardShellProps) {
   return (
-    <div className="flex h-screen flex-col overflow-hidden bg-background">
+    <div className="flex h-screen flex-col overflow-hidden bg-sidebar-background">
       <div className="border-b md:hidden">
         <div className="flex items-center gap-2 p-2">
           <MobileSidebarDrawer />

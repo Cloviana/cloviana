@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 
 import { env } from '@/config/env';
 import { paths } from '@/config/paths';
-import { handleCallback } from '@/lib/supabase/callback';
+import { createClient } from '@/lib/supabase/server';
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
@@ -11,7 +11,14 @@ export async function GET(request: Request) {
   try {
     if (!code) throw new Error('Code is missing');
 
-    await handleCallback(code);
+    const supabase = createClient();
+    const { data: session, error } =
+      await supabase.auth.exchangeCodeForSession(code);
+
+    if (error || !session) {
+      throw new Error('Failed to exchange code for session');
+    }
+
     return NextResponse.redirect(new URL(paths.store.getHref(), env.APP_URL));
   } catch (err) {
     console.error('Supabase auth callback error:', err);

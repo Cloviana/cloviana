@@ -16,7 +16,6 @@ export const ICON_NAMES = [
   'format_list_numbered',
   'chevron_right',
   'question_mark',
-  'inbox',
   'deployed_code',
   'nest_true_radiant',
   'package_2',
@@ -29,6 +28,8 @@ export const ICON_NAMES = [
   'thumbnail_bar',
   'add_link',
   'add',
+  'graphic_eq',
+  'check_circle',
 ] as const;
 
 const sortedIconNames = [...ICON_NAMES].sort();

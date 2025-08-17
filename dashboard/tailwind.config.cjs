@@ -39,6 +39,15 @@ module.exports = {
           DEFAULT: withOpacity('--muted'),
           foreground: withOpacity('--muted-foreground'),
         },
+        sidebar: {
+          background: withOpacity('--sidebar-background'),
+          item: {
+            hover: withOpacity('--sidebar-item-hover'),
+            active: withOpacity('--sidebar-item-active'),
+            border: withOpacity('--sidebar-item-border'),
+            foreground: withOpacity('--sidebar-item-foreground'),
+          },
+        },
       },
       keyframes: {
         slideUpAndFade: {
