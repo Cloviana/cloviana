@@ -34,7 +34,7 @@ export const SidebarStoreDropwdown: FC<SidebarStoreDropwdownProps> = ({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="flex items-center gap-1.5 px-2 focus:outline-none">
+        <button className="flex w-fit items-center gap-1.5 rounded-md px-2 py-1 transition-colors hover:bg-sidebar-item-hover focus:outline-none">
           <img
             className="size-3.5"
             src={store.profileUrl}

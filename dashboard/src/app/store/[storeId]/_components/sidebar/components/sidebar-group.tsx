@@ -14,7 +14,7 @@ export const SidebarGroup: FC<SidebarGroupProps> = ({ label, children }) => (
   <Accordion.Root type="single" defaultValue={label} collapsible>
     <Accordion.Item value={label} className="flex flex-col gap-y-1">
       <Accordion.Header>
-        <Accordion.Trigger className="group flex w-full items-center gap-2 rounded-md px-1.5 py-1 text-[13px] font-medium text-foreground-light transition-colors hover:bg-surface-300/50">
+        <Accordion.Trigger className="group flex w-full items-center gap-2 rounded-md px-1.5 py-1 text-[13px] font-medium text-sidebar-item-foreground transition-colors hover:bg-sidebar-item-hover">
           {label}
           <GIcon
             name="chevron_right"

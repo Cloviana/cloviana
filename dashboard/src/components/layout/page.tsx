@@ -22,7 +22,7 @@ const contentVariants = cva(
 type RootProps = HTMLAttributes<HTMLElement>;
 type ContentProps = HTMLAttributes<HTMLElement> &
   VariantProps<typeof contentVariants>;
-type PageButtonProps = Omit<ButtonProps, 'size' | 'variant'>;
+type PageButtonProps = Omit<ButtonProps, 'size'>;
 
 const Root: FC<RootProps> = ({ className, children, ...rest }) => (
   <div className={cn(className)} {...rest}>
@@ -36,7 +36,10 @@ const Header: FC<HTMLAttributes<HTMLElement>> = ({
   ...rest
 }) => (
   <div
-    className={cn('border-b border-surface-300 px-6 py-2', className)}
+    className={cn(
+      'flex h-10 items-center border-b border-surface-300 px-8',
+      className,
+    )}
     {...rest}
   >
     {children}
@@ -49,7 +52,10 @@ const SubHeader: FC<HTMLAttributes<HTMLElement>> = ({
   ...rest
 }) => (
   <div
-    className={cn('border-b border-surface-300 px-6 py-2', className)}
+    className={cn(
+      'flex h-10 items-center border-b border-surface-300 px-8',
+      className,
+    )}
     {...rest}
   >
     {children}
@@ -78,14 +84,14 @@ const Title: FC<HTMLAttributes<HTMLHeadingElement>> = ({
   ...rest
 }) => (
   <div className="min-w-0">
-    <h1 className={cn('truncate text-xs font-medium', className)} {...rest}>
+    <h1 className={cn('truncate text-[13px] font-medium', className)} {...rest}>
       {children}
     </h1>
   </div>
 );
 
 const PageButton: FC<PageButtonProps> = ({ children, className, ...rest }) => (
-  <Button size="sm" variant="tertiary" className={className} {...rest}>
+  <Button size="sm" className={className} {...rest}>
     {children}
   </Button>
 );
