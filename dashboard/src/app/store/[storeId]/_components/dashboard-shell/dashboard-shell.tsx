@@ -12,8 +12,7 @@ interface DashboardShellProps {
 
 export function DashboardShell({ children }: DashboardShellProps) {
   return (
-    <div className="flex h-screen flex-col overflow-hidden bg-background">
-      {/* Mobile top bar with menu button */}
+    <div className="flex h-screen flex-col overflow-hidden bg-sidebar-background">
       <div className="border-b md:hidden">
         <div className="flex items-center gap-2 p-2">
           <MobileSidebarDrawer />
@@ -21,15 +20,13 @@ export function DashboardShell({ children }: DashboardShellProps) {
       </div>
 
       <div className="flex flex-1 overflow-hidden">
-        {/* Desktop sidebar */}
         <div className="hidden min-h-0 w-60 md:flex">
           <Sidebar />
         </div>
 
-        {/* Main content */}
         <div
           role="main"
-          className="min-h-0 flex-1 overflow-y-auto bg-white md:m-2 md:rounded-md md:border md:shadow-sm"
+          className="flex-1 overflow-hidden bg-white md:m-2 md:rounded-md md:border md:shadow-sm"
         >
           <Suspense fallback={<LoadingFallback />}>
             <ErrorBoundary fallback={<ErrorFallback />}>

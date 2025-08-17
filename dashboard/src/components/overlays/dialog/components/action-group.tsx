@@ -1,7 +1,8 @@
 import { Close } from '@radix-ui/react-dialog';
 import { FC } from 'react';
 
-import { Button, ButtonGroup, ButtonProps } from '@/components/actions';
+import { ButtonGroup } from '@/components/actions';
+import { Button, ButtonProps } from '@/components/legacy';
 
 interface ActionGroupProps {
   primaryAction: ButtonProps;
