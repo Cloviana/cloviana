@@ -35,6 +35,10 @@ module.exports = {
           100: withOpacity('--surface-100'),
           75: withOpacity('--surface-75'),
         },
+        muted: {
+          DEFAULT: withOpacity('--muted'),
+          foreground: withOpacity('--muted-foreground'),
+        },
       },
       keyframes: {
         slideUpAndFade: {

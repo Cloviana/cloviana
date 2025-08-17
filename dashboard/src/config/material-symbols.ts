@@ -14,10 +14,23 @@ export const ICON_NAMES = [
   'format_h3',
   'format_list_bulleted',
   'format_list_numbered',
+  'chevron_right',
+  'question_mark',
+  'inbox',
+  'deployed_code',
+  'nest_true_radiant',
+  'package_2',
+  'crossword',
+  'person_search',
+  'reviews',
+  'overview_key',
+  'note_stack',
+  'web_traffic',
+  'thumbnail_bar',
 ] as const;
 
 const sortedIconNames = [...ICON_NAMES].sort();
 
-export const MATERIAL_SYMBOLS_STYLESHEET = `https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@0..1&icon_names=${sortedIconNames.join(
+export const MATERIAL_SYMBOLS_STYLESHEET = `https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:FILL@0..1&icon_names=${sortedIconNames.join(
   ',',
 )}&display=block`;
