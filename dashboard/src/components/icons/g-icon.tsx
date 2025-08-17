@@ -15,7 +15,7 @@ export function GIcon({
 }) {
   return (
     <span
-      className={cn('material-symbols-outlined leading-none', className)}
+      className={cn('material-symbols-rounded leading-none', className)}
       style={{
         fontSize: `${size}px`,
         fontVariationSettings: `'FILL' ${fill ? 1 : 0}`,
