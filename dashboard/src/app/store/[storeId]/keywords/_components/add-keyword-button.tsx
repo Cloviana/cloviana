@@ -2,9 +2,9 @@ import { useParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { Button } from '@/components/actions';
 import { GIcon } from '@/components/icons';
 import { TextField } from '@/components/input';
+import { Button } from '@/components/legacy';
 import { Dialog } from '@/components/overlays/dialog';
 import { IndexTable } from '@/components/table/index-table';
 import { useAttachKeyword } from '@/features/keywords/api/attach-keyword';

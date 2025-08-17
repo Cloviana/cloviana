@@ -6,8 +6,8 @@ import React, { FC } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 import { useGetStore } from '@/api/stores/get-store';
-import { Button } from '@/components/actions';
 import { TextField } from '@/components/input';
+import { Button } from '@/components/legacy';
 import { startShopifyInstall } from '@/features/shopify/actions/start-install';
 
 import { IntegrationCard } from './integration-card';

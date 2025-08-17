@@ -28,6 +28,7 @@ export const ICON_NAMES = [
   'web_traffic',
   'thumbnail_bar',
   'add_link',
+  'add',
 ] as const;
 
 const sortedIconNames = [...ICON_NAMES].sort();

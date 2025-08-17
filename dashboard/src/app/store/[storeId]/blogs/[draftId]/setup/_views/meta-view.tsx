@@ -7,7 +7,7 @@ import { useGetBlog } from '@/api/blogs/get-blog';
 import { updateBlogInputSchema, useUpdateBlog } from '@/api/blogs/update-blog';
 import { PageActions } from '@/components/actions';
 import { TextArea } from '@/components/input';
-import { Page } from '@/components/layout';
+import { Page } from '@/components/legacy';
 import { paths } from '@/config/paths';
 
 import { Subtitle, Title } from '../_components/typography';

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
-import { Button, ButtonProps } from './button';
+import { Button, ButtonProps } from '@/components/legacy';
+
 import { ButtonGroup } from './button-group';
 
 interface PageActionsProps {
