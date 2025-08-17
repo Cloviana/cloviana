@@ -26,7 +26,7 @@ export function DashboardShell({ children }: DashboardShellProps) {
 
         <div
           role="main"
-          className="min-h-0 flex-1 overflow-y-auto bg-white md:m-2 md:rounded-md md:border md:shadow-sm"
+          className="flex-1 overflow-hidden bg-white md:m-2 md:rounded-md md:border md:shadow-sm"
         >
           <Suspense fallback={<LoadingFallback />}>
             <ErrorBoundary fallback={<ErrorFallback />}>

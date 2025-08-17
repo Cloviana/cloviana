@@ -1,31 +1,17 @@
-import { cva, VariantProps } from 'class-variance-authority';
 import { FC, HTMLAttributes } from 'react';
 
 import { Button, ButtonProps } from '@/components/actions';
 import { cn } from '@/utils/cn';
 
-const contentVariants = cva(
-  'relative mx-auto w-full px-4 py-3 empty:px-0 md:px-8',
-  {
-    variants: {
-      fullWidth: { true: 'max-w-none' },
-      centeredLayout: {
-        true: 'flex h-[calc(100vh-100px)] w-full items-center justify-center',
-      },
-    },
-    defaultVariants: {
-      fullWidth: true,
-    },
-  },
-);
-
 type RootProps = HTMLAttributes<HTMLElement>;
-type ContentProps = HTMLAttributes<HTMLElement> &
-  VariantProps<typeof contentVariants>;
+type ContentProps = HTMLAttributes<HTMLElement>;
 type PageButtonProps = Omit<ButtonProps, 'size'>;
 
 const Root: FC<RootProps> = ({ className, children, ...rest }) => (
-  <div className={cn(className)} {...rest}>
+  <div
+    className={cn('flex h-full min-h-0 flex-col overflow-hidden', className)}
+    {...rest}
+  >
     {children}
   </div>
 );
@@ -37,7 +23,7 @@ const Header: FC<HTMLAttributes<HTMLElement>> = ({
 }) => (
   <div
     className={cn(
-      'flex h-10 items-center border-b border-surface-300 px-8',
+      'z-10 flex h-10 shrink-0 items-center border-b border-surface-300 px-8',
       className,
     )}
     {...rest}
@@ -53,7 +39,7 @@ const SubHeader: FC<HTMLAttributes<HTMLElement>> = ({
 }) => (
   <div
     className={cn(
-      'flex h-10 items-center border-b border-surface-300 px-8',
+      'z-10 flex h-10 shrink-0 items-center border-b border-surface-300 px-8',
       className,
     )}
     {...rest}
@@ -62,17 +48,11 @@ const SubHeader: FC<HTMLAttributes<HTMLElement>> = ({
   </div>
 );
 
-const Content: FC<ContentProps> = ({
-  fullWidth,
-  centeredLayout,
-  className,
-  ...rest
-}) => (
+const Content: FC<ContentProps> = ({ className, ...rest }) => (
   <section
     className={cn(
-      'py-2',
+      'relative mx-auto min-h-0 w-full flex-1 overflow-y-auto px-4 py-3 empty:px-0 md:px-8',
       className,
-      contentVariants({ fullWidth, centeredLayout }),
     )}
     {...rest}
   />
