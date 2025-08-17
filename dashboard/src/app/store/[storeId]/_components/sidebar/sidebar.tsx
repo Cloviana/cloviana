@@ -56,8 +56,15 @@ export const Sidebar: FC = () => {
             isActive={pathname.startsWith(paths.store.blogs.getHref(storeId))}
           />
           <SidebarItem
-            icon="person_search"
+            icon="add_link"
             label="Backlinks"
+            href={'#'}
+            isActive={false}
+            disabled
+          />
+          <SidebarItem
+            icon="person_search"
+            label="Competitors"
             href={'#'}
             isActive={false}
             disabled
