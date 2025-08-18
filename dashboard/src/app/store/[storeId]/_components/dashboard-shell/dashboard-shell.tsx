@@ -4,6 +4,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { MobileSidebarDrawer, Sidebar } from '../sidebar';
 
 import { ErrorFallback } from './components/error-fallback';
+import { Guard } from './components/guard';
 import { LoadingFallback } from './components/loading-fallback';
 
 interface DashboardShellProps {
@@ -30,7 +31,7 @@ export function DashboardShell({ children }: DashboardShellProps) {
         >
           <Suspense fallback={<LoadingFallback />}>
             <ErrorBoundary fallback={<ErrorFallback />}>
-              {children}
+              <Guard>{children}</Guard>
             </ErrorBoundary>
           </Suspense>
         </div>

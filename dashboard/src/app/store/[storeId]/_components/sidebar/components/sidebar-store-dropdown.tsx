@@ -35,11 +35,7 @@ export const SidebarStoreDropwdown: FC<SidebarStoreDropwdownProps> = ({
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button className="flex w-fit items-center gap-1.5 rounded-md px-2 py-1 transition-colors hover:bg-sidebar-item-hover focus:outline-none">
-          <img
-            className="size-3.5"
-            src={store.profileUrl}
-            alt="store-profile"
-          />
+          <img className="size-4" src={store.profileUrl} alt="store-profile" />
           <span className="text-sm font-semibold">{store.name}</span>
           <GIcon
             name={'chevron_right'}

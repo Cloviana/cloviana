@@ -2,7 +2,12 @@
 // Enum / literal‐union types
 // ─────────────────────────────────────────────────────────────────────────────
 
-export type StoreStatus = 'DRAFT' | 'ACTIVE';
+export type StoreStatus =
+  | 'DRAFT'
+  | 'ACTIVE'
+  | 'INITIALIZING'
+  | 'FAILED'
+  | 'LOCKED';
 export type PlanName = 'STANDARD' | 'PREMIUM' | 'BUSINESS';
 export type SubscriptionStatus =
   | 'TRIALING'
