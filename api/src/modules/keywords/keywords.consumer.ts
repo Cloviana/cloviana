@@ -35,7 +35,7 @@ export class KeywordsConsumer {
       */
       this.logger.log(`Job succeeded for store ${storeId}`);
     } catch (err) {
-      status = StoreStatus.SETUP_FAILED;
+      status = StoreStatus.FAILED;
       this.logger.error(`Job failed for store ${storeId}`, err.stack);
     } finally {
       try {

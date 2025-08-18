@@ -3,14 +3,12 @@ import { Injectable } from "@nestjs/common";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { AuthUser } from "@/interfaces/auth-user.interface";
 import { CreateStoreDto } from "./dto/create-store.dto";
-import { KeywordsProducer } from "../messaging/producers/keywords.producer";
 import { StoreStatus } from "@prisma/client";
 
 @Injectable()
 export class StoresService {
   constructor(
     private readonly prisma: PrismaService,
-    private readonly keywordsProducer: KeywordsProducer,
   ) {}
 
   async getStores(user: AuthUser) {
@@ -25,9 +23,6 @@ export class StoresService {
     return this.prisma.store.findFirst({
       where: { id: storeId, ownerId },
       include: {
-        subscription: {
-          include: { plan: true },
-        },
         channel: {
           select: {
             id: true,
@@ -51,12 +46,7 @@ export class StoresService {
         name,
         domainUrl,
         profileUrl,
-        status: StoreStatus.SETTING_UP,
       },
-    });
-
-    this.keywordsProducer.seedKeywords({
-      storeId: store.id,
     });
 
     return store;

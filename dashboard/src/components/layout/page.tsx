@@ -23,7 +23,7 @@ const Header: FC<HTMLAttributes<HTMLElement>> = ({
 }) => (
   <div
     className={cn(
-      'z-10 flex h-10 shrink-0 items-center border-b border-surface-300 px-8',
+      'flex h-10 shrink-0 items-center border-b border-surface-300 px-8',
       className,
     )}
     {...rest}
