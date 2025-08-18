@@ -9,20 +9,20 @@ export const KEYWORDS_QUEUE_OPTS = {
   autoDelete: false,
 } as const;
 
-// Billing
-export const BILLING_CLIENT = "BILLING_CLIENT";
-export const BILLING_QUEUE = "billing_queue";
-export const BILLING_TRIAL_EXPIRED_EVENT = "billing.trial.expired";
-export const BILLING_QUEUE_OPTS = {
-  durable: true,
-  autoDelete: false,
-} as const;
-
 // Blog
 export const BLOGS_CLIENT = "BLOGS_CLIENT";
 export const BLOGS_QUEUE = "blogs_queue";
 export const GENERATE_BLOG_EVENT = "blog.generate";
 export const BLOGS_QUEUE_OPTS = {
+  durable: true,
+  autoDelete: false,
+} as const;
+
+// Stores
+export const STORES_CLIENT = "STORES_CLIENT";
+export const STORES_QUEUE = "stores_queue";
+export const INIT_STORES_EVENT = "store.init";
+export const STORES_QUEUE_OPTS = {
   durable: true,
   autoDelete: false,
 } as const;

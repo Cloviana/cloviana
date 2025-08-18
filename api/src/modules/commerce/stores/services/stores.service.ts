@@ -2,9 +2,7 @@ import { Injectable } from "@nestjs/common";
 
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { AuthUser } from "@/interfaces/auth-user.interface";
-import { CreateStoreDto } from "./dto/create-store.dto";
-import { StoreStatus } from "@prisma/client";
-import { KeywordsProducer } from "@/modules/integrations/messaging/producers/keywords.producer";
+import { CreateStoreDto } from "../dto/create-store.dto";
 
 @Injectable()
 export class StoresService {

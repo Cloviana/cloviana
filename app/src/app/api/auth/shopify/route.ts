@@ -1,4 +1,3 @@
-import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { paths } from '@/config/paths';
@@ -15,18 +14,22 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: 'bad_hmac' }, { status: 400 });
 
   const state = generateShopifyOAuthState();
-  cookies().set('shopify_state', state, {
-    httpOnly: true,
-    sameSite: 'lax',
-    secure: true,
-    path: '/',
-  });
-  cookies().set('shopify_shop', shop, {
-    httpOnly: true,
-    sameSite: 'lax',
-    secure: true,
-    path: '/',
-  });
+  const isSecure =
+    req.headers.get('x-forwarded-proto') === 'https' ||
+    process.env.NODE_ENV === 'production';
 
-  return NextResponse.redirect(buildShopifyAuthUrl(shop, state));
+  const res = NextResponse.redirect(buildShopifyAuthUrl(shop, state));
+  res.cookies.set('shopify_state', state, {
+    httpOnly: true,
+    sameSite: 'lax',
+    secure: isSecure,
+    path: '/',
+  });
+  res.cookies.set('shopify_shop', shop, {
+    httpOnly: true,
+    sameSite: 'lax',
+    secure: isSecure,
+    path: '/',
+  });
+  return res;
 }

@@ -14,6 +14,8 @@ import {
   BLOGS_QUEUE_OPTS,
   KEYWORDS_QUEUE,
   KEYWORDS_QUEUE_OPTS,
+  STORES_QUEUE,
+  STORES_QUEUE_OPTS,
 } from "@/constants/rabbitmq.constants";
 import { SupabaseAuthGuard } from "./modules/core/auth/guards/supabase-auth.guards";
 
@@ -36,6 +38,7 @@ async function bootstrap() {
   const queues = [
     { name: KEYWORDS_QUEUE, opts: KEYWORDS_QUEUE_OPTS },
     { name: BLOGS_QUEUE, opts: BLOGS_QUEUE_OPTS },
+    { name: STORES_QUEUE, opts: STORES_QUEUE_OPTS },
   ];
 
   for (const { name, opts } of queues) {
@@ -59,9 +62,9 @@ async function bootstrap() {
   app.useGlobalFilters(new AllExceptionsFilter());
   app.enableCors({
     origin: [
-      "https://dashboard.cloviana.com",
+      "https://app.cloviana.com",
       "http://localhost:3000",
-      "http://dashboard.localhost",
+      "http://app.localhost",
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     credentials: false,

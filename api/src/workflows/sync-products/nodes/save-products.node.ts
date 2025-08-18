@@ -17,18 +17,20 @@ export async function saveProducts(
 ): Promise<Partial<typeof StateAnnotation.State>> {
   const prisma = configurable?.prisma as PrismaClient;
   if (!prisma) throw new Error("Prisma client not provided");
+  if (!state._storeId) throw new Error("Missing storeId");
   if (!Array.isArray(state._products) || state._products.length === 0) return {};
 
   const storeId = state._storeId;
+  const incomingShopifyIds = state._products.map(p => p.id);
 
-  await prisma.$transaction(
-    state._products.map((p) => {
+  await prisma.$transaction([
+    ...state._products.map((p) => {
       const img = pickMainImage(p);
       return prisma.product.upsert({
-        where: { id: p.id },
+        where: { storeId_shopifyId: { storeId, shopifyId: p.id } },
         create: {
-          id: p.id,
           storeId,
+          shopifyId: p.id,
           handle: p.handle,
           title: p.title,
           status: p.status as ShopifyProductStatus,
@@ -36,7 +38,6 @@ export async function saveProducts(
           tags: p.tags ?? [],
           mainImageUrl: img.url,
           mainImageAlt: img.alt,
-          updatedAtShopify: new Date(p.updatedAt),
         },
         update: {
           handle: p.handle,
@@ -46,13 +47,16 @@ export async function saveProducts(
           tags: p.tags ?? [],
           mainImageUrl: img.url,
           mainImageAlt: img.alt,
-          updatedAtShopify: new Date(p.updatedAt),
         },
       });
-
-      // DELETE ANY ONE THAT IS NOT IN THE LIST
-    })
-  );
+    }),
+    prisma.product.deleteMany({
+      where: {
+        storeId,
+        shopifyId: { notIn: incomingShopifyIds },
+      },
+    }),
+  ]);
 
   return {};
 }
