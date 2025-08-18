@@ -1,11 +1,12 @@
 'use client';
 
-import { FC, ReactNode } from 'react';
 import { useParams, usePathname } from 'next/navigation';
+import { FC, ReactNode } from 'react';
+
 import { useGetStore } from '@/api/stores/get-store';
-import { paths } from '@/config/paths';
 import { Anchor } from '@/components/actions';
 import { LoadingDots } from '@/components/animations';
+import { paths } from '@/config/paths';
 
 interface GuardProps {
   children: ReactNode;
@@ -30,12 +31,10 @@ export const Guard: FC<GuardProps> = ({ children }) => {
             src="/logo-icon.png"
             alt="logo"
             width={30}
-            fetchPriority='high'
-            className="logo-swing mb-2"
+            fetchPriority="high"
+            className="mb-2"
           />
-          <h2 className="text-sm font-medium text-foreground">
-            Store Locked
-          </h2>
+          <h2 className="text-sm font-medium text-foreground">Store Locked</h2>
           <p className="text-xs text-foreground-light">
             This store is locked because your Shopify store isn’t connected.
             Please{' '}
