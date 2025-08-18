@@ -9,7 +9,7 @@ export class SyncProductsWorkflow {
   constructor(private readonly prisma: PrismaService, private readonly shopify: ShopifyService) {}
 
   async run(storeId: string) {
-    const key = `PRODUCT_SYNC:${storeId}:${new Date().toISOString().slice(0,10)}`;
+    const key = `${JobType.PRODUCT_SYNC}:${storeId}:${new Date().toISOString().slice(0,10)}`;
 
     const job = await this.prisma.job.upsert({
       where: { type_storeId_dedupeKey: { type: JobType.PRODUCT_SYNC, storeId, dedupeKey: key } },

@@ -115,21 +115,21 @@ model Job {
 }
 
 model Product {
-  id               String                @id
-  storeId          String
-  handle           String                @db.Citext
-  title            String
-  status           ShopifyProductStatus
-  description      String?
-  tags             String[]              @default([])
-  mainImageUrl     String?
-  mainImageAlt     String?
-  updatedAtShopify DateTime
-  createdAt        DateTime              @default(now())
-  updatedAt        DateTime              @updatedAt
+  storeId       String
+  shopifyId     String
+  handle        String                @db.Citext
+  title         String
+  status        ShopifyProductStatus
+  description   String?
+  tags          String[]              @default([])
+  mainImageUrl  String?
+  mainImageAlt  String?
+  createdAt     DateTime              @default(now())
+  updatedAt     DateTime              @updatedAt
 
-  store            Store                 @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  store         Store                 @relation(fields: [storeId], references: [id], onDelete: Cascade)
 
+  @@id([storeId, shopifyId])
   @@unique([storeId, handle])
   @@index([storeId, status])
   @@map("products")

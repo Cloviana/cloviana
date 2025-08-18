@@ -1,4 +1,5 @@
 # syntax=docker/dockerfile:1
+
 ####### 1) Base stage: common bits (Node, pnpm/corepack, working dir) #######
 FROM node:20-alpine AS base
 RUN apk add --no-cache openssl \
@@ -21,7 +22,10 @@ RUN \
 
 ####### 3) Builder stage: compile & export standalone #######
 FROM deps AS builder
-# Build‑time vars for your Next.js client
+# Ensure optimized build
+ENV NODE_ENV=production
+
+# Build-time vars for your Next.js client
 ARG NEXT_PUBLIC_API_URL
 ARG NEXT_PUBLIC_APP_URL
 ARG NEXT_PUBLIC_SUPABASE_URL
@@ -49,7 +53,7 @@ RUN \
     npm run build; \
   fi
 
-####### 4) Dev stage: hot‑reload container #######
+####### 4) Dev stage: hot-reload container #######
 FROM deps AS dev
 WORKDIR /app
 ENV NODE_ENV=development
@@ -66,10 +70,13 @@ CMD \
     npm run dev; \
   fi
 
-####### 5) Runner stage: ultra‑small production image #######
+####### 5) Runner stage: ultra-small production image #######
 FROM node:20-alpine AS runner
 RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs
 WORKDIR /app
+
+# Ensure runtime is production
+ENV NODE_ENV=production
 
 # Copy only the standalone build and static assets
 COPY --from=builder /app/.next/standalone ./
@@ -79,7 +86,7 @@ COPY --from=builder /app/public ./public
 RUN mkdir -p /app/.next/cache && chown -R nextjs:nodejs /app
 ENV NEXT_CACHE_DIR=/app/.next/cache
 
-# Re‑expose your runtime ENVs if needed (e.g. for server‑side code)
+# Re-expose your runtime ENVs if needed (e.g. for server-side code)
 ARG NEXT_PUBLIC_API_URL
 ARG NEXT_PUBLIC_APP_URL
 ARG NEXT_PUBLIC_SUPABASE_URL

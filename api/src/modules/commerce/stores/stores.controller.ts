@@ -10,7 +10,7 @@ import {
   ValidationPipe,
 } from "@nestjs/common";
 import { CreateStoreDto } from "./dto/create-store.dto";
-import { StoresService } from "./stores.service";
+import { StoresService } from "./services/stores.service";
 
 @Controller("stores")
 export class StoresController {

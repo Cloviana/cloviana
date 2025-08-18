@@ -48,7 +48,9 @@ export const Guard: FC<GuardProps> = ({ children }) => {
     );
   }
 
-  if (store.status === 'INITIALIZING')
+  if (store.status === 'INITIALIZING') {
+    if (pathname.startsWith(integrationsHref)) return children;
+
     return (
       <div className="grid min-h-full place-items-center px-6 py-16">
         <div className="flex max-w-md flex-col items-center gap-2 text-center">
@@ -63,6 +65,7 @@ export const Guard: FC<GuardProps> = ({ children }) => {
         </div>
       </div>
     );
+  }
 
   return children;
 };
