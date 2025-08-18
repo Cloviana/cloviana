@@ -25,11 +25,8 @@
     "db:seed": "tsx prisma/seed.ts",
     "migrate:dev": "prisma migrate dev",
     "migrate:deploy": "prisma migrate deploy",
-<<<<<<< HEAD
-    "migrate:reset": "prisma migrate reset --force"
-=======
+    "migrate:reset": "prisma migrate reset --force",
     "gql:gen": "graphql-codegen --config codegen.ts"
->>>>>>> 3870e64 (Added sync products workflow)
   },
   "dependencies": {
     "@azure/storage-blob": "^12.27.0",
