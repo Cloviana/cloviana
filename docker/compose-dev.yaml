@@ -12,16 +12,16 @@ services:
       - ../api/prisma:/app/prisma:cached
     container_name: api
 
-  dashboard:
+  app:
     build:
-      context: ../dashboard
+      context: ../app
       dockerfile: Dockerfile
       target: dev
-    image: ghcr.io/cloviana/dashboard:dev
+    image: ghcr.io/cloviana/app:dev
     volumes:
-      - ../dashboard:/app:cached
+      - ../app:/app:cached
       - /app/node_modules
-    container_name: dashboard
+    container_name: app
 
   web:
     build:
@@ -43,11 +43,11 @@ services:
       - ./nginx/nginx.dev.conf:/etc/nginx/nginx.conf:ro
     depends_on:
       - api
-      - dashboard
+      - app
       - web
     networks:
       appnet:
         aliases:
           - api.localhost
-          - dashboard.localhost
+          - app.localhost
           - localhost
