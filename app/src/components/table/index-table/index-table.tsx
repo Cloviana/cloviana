@@ -11,6 +11,8 @@ import {
   cloneElement,
 } from 'react';
 
+import { cn } from '@/utils/cn';
+
 const alignVariants = cva('flex', {
   variants: {
     alignment: {
@@ -29,6 +31,8 @@ type Alignment = VariantProps<typeof alignVariants>['alignment'];
 type Heading = {
   title: string;
   alignment?: Alignment;
+  width?: string | number;
+  className?: string;
 };
 
 interface RootProps {
@@ -54,10 +58,17 @@ const Root: FC<RootProps> = ({ headings, children }) => {
   return (
     <div className="w-full">
       <table className="w-full">
-        <thead className="border-b bg-surface-200/60">
+        <thead className="border-b border-surface-300 bg-white">
           <tr>
-            {headings.map(({ title, alignment }, idx) => (
-              <th key={idx} className="px-3 py-2 text-[12px] font-medium">
+            {headings.map(({ title, alignment, width, className }, idx) => (
+              <th
+                key={idx}
+                className={cn(
+                  'px-4 py-2 text-[12px] font-normal text-foreground-light md:px-8',
+                  className,
+                )}
+                style={{ width: width || 'auto' }}
+              >
                 <div className={alignVariants({ alignment })}>{title}</div>
               </th>
             ))}
@@ -102,7 +113,7 @@ const Row: FC<RowProps> = ({ children, id, onNavigation }) => {
 
 const Cell: FC<CellProps> = ({ children, alignment = 'start' }) => {
   return (
-    <td className="px-3 py-2">
+    <td className="border-b border-surface-300 px-4 py-3 md:px-8">
       <div className={alignVariants({ alignment })}>{children}</div>
     </td>
   );

@@ -51,7 +51,7 @@ const SubHeader: FC<HTMLAttributes<HTMLElement>> = ({
 const Content: FC<ContentProps> = ({ className, ...rest }) => (
   <section
     className={cn(
-      'relative mx-auto min-h-0 w-full flex-1 overflow-y-auto px-4 py-3 empty:px-0 md:px-8',
+      'relative mx-auto min-h-0 w-full flex-1 overflow-y-auto',
       className,
     )}
     {...rest}

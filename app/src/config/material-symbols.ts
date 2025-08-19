@@ -30,6 +30,7 @@ export const ICON_NAMES = [
   'add',
   'graphic_eq',
   'check_circle',
+  'sync',
 ] as const;
 
 const sortedIconNames = [...ICON_NAMES].sort();
