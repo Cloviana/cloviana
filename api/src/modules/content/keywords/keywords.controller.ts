@@ -44,6 +44,6 @@ export class KeywordsController {
     @Body() dto: AttachKeywordDto,
     @StoreEntity() store: Store,
   ) {
-    return this.keywords.attachKeyword(store.id, keywordId, dto.type);
+    //return this.keywords.attachKeyword(store.id, keywordId, dto.type);
   }
 }

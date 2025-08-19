@@ -4,7 +4,7 @@ import { ScheduleModule } from "@nestjs/schedule";
 
 import * as Clients from "@/clients";
 import * as Modules from "@/modules";
-import * as Workflows from "@/workflows"
+import * as Workflows from "@/workflows";
 
 @Module({
   imports: [

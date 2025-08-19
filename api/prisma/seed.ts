@@ -1,4 +1,4 @@
-import 'dotenv/config'
+import "dotenv/config";
 import { Client } from "pg";
 
 async function main() {
@@ -29,7 +29,9 @@ create trigger after_insert_auth_users_create_profile
 after insert on auth.users for each row execute function public.create_profile_on_signup();
   `);
 
-  const { rows: [{ count: userCount }] } = await client.query(`select count(*)::int as count from auth.users`);
+  const {
+    rows: [{ count: userCount }],
+  } = await client.query(`select count(*)::int as count from auth.users`);
 
   const res = await client.query(`
 with to_insert as (
@@ -52,4 +54,7 @@ returning id
   await client.end();
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});

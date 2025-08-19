@@ -17,6 +17,7 @@ export default function IntegrationsPage() {
   const { storeId } = useParams<{ storeId: string }>();
   const pathname = usePathname();
   const { data: store } = useGetStore(storeId);
+  const connected = Boolean(store?.channel);
 
   const {
     register,
@@ -58,14 +59,14 @@ export default function IntegrationsPage() {
               </p>
             </div>
 
-            <Dialog.Root>
-              <Dialog.Trigger asChild disabled={Boolean(store?.channel)}>
-                {store?.channel ? (
-                  <div className="flex items-center gap-2">
-                    <GIcon name="check_circle" className="text-green-700" />
-                    <span className="text-xs text-green-700">Connected</span>
-                  </div>
-                ) : (
+            {connected ? (
+              <div className="flex items-center gap-2">
+                <GIcon name="check_circle" className="text-green-700" />
+                <span className="text-xs text-green-700">Connected</span>
+              </div>
+            ) : (
+              <Dialog.Root>
+                <Dialog.Trigger asChild>
                   <Button
                     variant="secondary"
                     size="sm"
@@ -74,54 +75,54 @@ export default function IntegrationsPage() {
                   >
                     Connect Shopify
                   </Button>
-                )}
-              </Dialog.Trigger>
+                </Dialog.Trigger>
 
-              <Dialog.Portal>
-                <Dialog.Overlay className="fixed inset-0 bg-white/30 backdrop-blur-sm" />
-                <Dialog.Content className="fixed left-1/2 top-1/2 w-96 max-w-full -translate-x-1/2 -translate-y-1/2 rounded-md border bg-white shadow-sm">
-                  <div className="border-b px-5 py-3.5">
-                    <Dialog.Title className="text-sm font-medium">
-                      Connect Your Shopify Store
-                    </Dialog.Title>
-                  </div>
+                <Dialog.Portal>
+                  <Dialog.Overlay className="fixed inset-0 bg-white/30 backdrop-blur-sm" />
+                  <Dialog.Content className="fixed left-1/2 top-1/2 w-96 max-w-full -translate-x-1/2 -translate-y-1/2 rounded-md border bg-white shadow-sm">
+                    <div className="border-b px-5 py-3.5">
+                      <Dialog.Title className="text-sm font-medium">
+                        Connect Your Shopify Store
+                      </Dialog.Title>
+                    </div>
 
-                  <div className="border-b px-5 py-3.5">
-                    <TextField
-                      label="Shopify store URL"
-                      size="sm"
-                      variant="surface"
-                      placeholder="your-store.myshopify.com"
-                      error={errors.storeUrl?.message}
-                      {...register('storeUrl', {
-                        required: 'Store URL is required',
-                        pattern: {
-                          value: /^[a-z0-9-]+\.myshopify\.com$/,
-                          message: 'Enter a valid Shopify store URL',
-                        },
-                      })}
-                    />
-                  </div>
+                    <div className="border-b px-5 py-3.5">
+                      <TextField
+                        label="Shopify store URL"
+                        size="sm"
+                        variant="surface"
+                        placeholder="your-store.myshopify.com"
+                        error={errors.storeUrl?.message}
+                        {...register('storeUrl', {
+                          required: 'Store URL is required',
+                          pattern: {
+                            value: /^[a-z0-9-]+\.myshopify\.com$/,
+                            message: 'Enter a valid Shopify store URL',
+                          },
+                        })}
+                      />
+                    </div>
 
-                  <div className="flex justify-end gap-2 px-5 py-3.5">
-                    <Dialog.Close asChild>
-                      <Button variant="secondary" size="sm">
-                        Cancel
+                    <div className="flex justify-end gap-2 px-5 py-3.5">
+                      <Dialog.Close asChild>
+                        <Button variant="secondary" size="sm">
+                          Cancel
+                        </Button>
+                      </Dialog.Close>
+                      <Button
+                        variant="primary"
+                        size="sm"
+                        onClick={handleSubmit(onSubmit)}
+                        loading={isSubmitting}
+                        disabled={!isValid || isSubmitting}
+                      >
+                        Connect
                       </Button>
-                    </Dialog.Close>
-                    <Button
-                      variant="primary"
-                      size="sm"
-                      onClick={handleSubmit(onSubmit)}
-                      loading={isSubmitting}
-                      disabled={!isValid || isSubmitting}
-                    >
-                      Connect
-                    </Button>
-                  </div>
-                </Dialog.Content>
-              </Dialog.Portal>
-            </Dialog.Root>
+                    </div>
+                  </Dialog.Content>
+                </Dialog.Portal>
+              </Dialog.Root>
+            )}
           </div>
         </div>
       </Page.Content>

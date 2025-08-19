@@ -44,8 +44,8 @@ export class AppConfiguration {
   readonly redisUrl!: string;
 
   @IsString()
-  @Value("SEMRUSH_API_KEY")
-  readonly semrushApiKey!: string;
+  @Value("SERANKING_API_KEY")
+  readonly serankingApiKey!: string;
 
   @IsString()
   @Value("SMTP2GO_API_KEY")

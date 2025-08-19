@@ -6,9 +6,7 @@ import { CreateStoreDto } from "../dto/create-store.dto";
 
 @Injectable()
 export class StoresService {
-  constructor(
-    private readonly prisma: PrismaService,
-  ) {}
+  constructor(private readonly prisma: PrismaService) {}
 
   async getStores(user: AuthUser) {
     const { sub: ownerId } = user;

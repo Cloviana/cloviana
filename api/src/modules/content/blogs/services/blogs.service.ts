@@ -38,7 +38,7 @@ export class BlogsService {
     private readonly agent: BlogWriterAgent,
     private readonly storage: StorageService,
     private readonly shopify: ShopifyService,
-    private readonly http: HttpService
+    private readonly http: HttpService,
   ) {}
 
   async getBlogs(storeId: string) {
@@ -46,7 +46,7 @@ export class BlogsService {
       where: {
         storeId,
         generationStep: {
-          not: null
+          not: null,
         },
       },
       select: BLOG_SUMMARY_SELECT,
@@ -98,7 +98,7 @@ export class BlogsService {
   async generateBlog(storeId: string, blogId: string) {
     const [{ keyword }, blog] = await this.prisma.$transaction([
       this.prisma.storeKeyword.findFirstOrThrow({
-        where: { storeId, type: KeywordType.BLOG },
+        where: { storeId },
         select: { keyword: { select: { phrase: true } } },
       }),
       this.prisma.blog.findUniqueOrThrow({
@@ -121,12 +121,12 @@ export class BlogsService {
       .replace(/[^a-z0-9\-]/g, "");
 
     const { data } = await firstValueFrom(
-      this.http.get<ArrayBuffer>(image.url, { responseType: "arraybuffer" })
+      this.http.get<ArrayBuffer>(image.url, { responseType: "arraybuffer" }),
     );
     await this.storage.upload(
       `thumbnails/${blogId}/thumbnail.png`,
       Buffer.from(data),
-      "image/png"
+      "image/png",
     );
 
     await this.prisma.$transaction(async (tx) => {

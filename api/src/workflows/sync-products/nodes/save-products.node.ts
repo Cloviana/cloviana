@@ -13,15 +13,16 @@ function pickMainImage(p: Product) {
 
 export async function saveProducts(
   state: typeof StateAnnotation.State,
-  { configurable }: RunnableConfig
+  { configurable }: RunnableConfig,
 ): Promise<Partial<typeof StateAnnotation.State>> {
   const prisma = configurable?.prisma as PrismaClient;
   if (!prisma) throw new Error("Prisma client not provided");
   if (!state._storeId) throw new Error("Missing storeId");
-  if (!Array.isArray(state._products) || state._products.length === 0) return {};
+  if (!Array.isArray(state._products) || state._products.length === 0)
+    return {};
 
   const storeId = state._storeId;
-  const incomingShopifyIds = state._products.map(p => p.id);
+  const incomingShopifyIds = state._products.map((p) => p.id);
 
   await prisma.$transaction([
     ...state._products.map((p) => {

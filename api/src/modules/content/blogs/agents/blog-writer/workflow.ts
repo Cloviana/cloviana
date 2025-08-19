@@ -12,20 +12,21 @@ export const graph = new StateGraph(StateAnnotation)
   .addConditionalEdges(
     "outline",
     (st) => {
-      const sectionSends = st._outline.sections.map((section, idx) =>
-        new Send("section", {
-          _section: section,
-          _payload: st._payload,
-          _index: idx,
-        })
+      const sectionSends = st._outline.sections.map(
+        (section, idx) =>
+          new Send("section", {
+            _section: section,
+            _payload: st._payload,
+            _index: idx,
+          }),
       );
       const imageSend = new Send("image", {
-        _thumbnail: st._outline.thumbnail,  
+        _thumbnail: st._outline.thumbnail,
         _payload: st._payload,
       });
       return [...sectionSends, imageSend];
     },
-    ["section", "image"]
+    ["section", "image"],
   )
 
   .addEdge("section", "assemble")

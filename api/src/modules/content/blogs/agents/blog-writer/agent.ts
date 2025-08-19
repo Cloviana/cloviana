@@ -1,6 +1,6 @@
-import { Injectable } from '@nestjs/common';
-import { NodePayload } from './schemas/node';
-import { graph } from './workflow';
+import { Injectable } from "@nestjs/common";
+import { NodePayload } from "./schemas/node";
+import { graph } from "./workflow";
 
 export interface BlogPayload {
   title: string;
@@ -15,7 +15,7 @@ export class BlogWriterAgent {
     nodes: NodePayload[];
     image: { url: string; altText: string };
     metadata: { description: string };
-  }>  {
+  }> {
     const controller = new AbortController();
 
     try {
@@ -23,18 +23,14 @@ export class BlogWriterAgent {
         {
           _payload: payload,
         },
-        { configurable: { thread_id: 'blog-123' } },
+        { configurable: { thread_id: "blog-123" } },
       );
 
       if (!result) {
-        throw new Error('No result returned from graph.invoke');
+        throw new Error("No result returned from graph.invoke");
       }
 
-      const {
-        _image,
-        _nodes,
-        _outline,
-      } = result;
+      const { _image, _nodes, _outline } = result;
 
       return {
         nodes: _nodes,
@@ -47,7 +43,9 @@ export class BlogWriterAgent {
         },
       };
     } catch (error) {
-      throw new Error(`BlogWriterAgent failed: ${error instanceof Error ? error.message : String(error)}`);
+      throw new Error(
+        `BlogWriterAgent failed: ${error instanceof Error ? error.message : String(error)}`,
+      );
     } finally {
       controller.abort();
     }

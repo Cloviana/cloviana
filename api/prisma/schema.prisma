@@ -22,10 +22,10 @@ enum KeywordType {
 }
 
 enum KeywordIntent {
-  COMMERCIAL
-  INFORMATIONAL
-  NAVIGATIONAL
-  TRANSACTIONAL
+  I  // Informational
+  N  // Navigational
+  C  // Commercial
+  L  // Transactional
 }
 
 enum BlogGenerationStatus {
@@ -99,6 +99,7 @@ model Job {
   scheduledAt DateTime?
   startedAt   DateTime?
   finishedAt  DateTime?
+  lastHeartbeatAt DateTime?
   payload     Json?     @db.JsonB
   result      Json?     @db.JsonB
   error       String?
@@ -108,26 +109,26 @@ model Job {
 
   store Store? @relation(fields: [storeId], references: [id], onDelete: Cascade)
 
+  @@unique([type, storeId, dedupeKey])
   @@index([type, status, priority, scheduledAt])
   @@index([storeId, type, status])
-  @@unique([type, storeId, dedupeKey])
   @@map("jobs")
 }
 
 model Product {
-  storeId       String
-  shopifyId     String
-  handle        String                @db.Citext
-  title         String
-  status        ShopifyProductStatus
-  description   String?
-  tags          String[]              @default([])
-  mainImageUrl  String?
-  mainImageAlt  String?
-  createdAt     DateTime              @default(now())
-  updatedAt     DateTime              @updatedAt
+  storeId      String
+  shopifyId    String
+  handle       String               @db.Citext
+  title        String
+  status       ShopifyProductStatus
+  description  String?
+  tags         String[]             @default([])
+  mainImageUrl String?
+  mainImageAlt String?
+  createdAt    DateTime             @default(now())
+  updatedAt    DateTime             @updatedAt
 
-  store         Store                 @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
 
   @@id([storeId, shopifyId])
   @@unique([storeId, handle])
@@ -159,12 +160,12 @@ model Store {
   createdAt        DateTime    @default(now())
   updatedAt        DateTime    @updatedAt
 
-  owner        Profile        @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
-  keywords     StoreKeyword[]
-  blogs        Blog[]
-  jobs         Job[]
-  products     Product[]
-  channel      Channel?
+  owner    Profile        @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  keywords StoreKeyword[]
+  blogs    Blog[]
+  jobs     Job[]
+  products Product[]
+  channel  Channel?
 
   @@index([ownerId])
   @@map("stores")
@@ -188,7 +189,8 @@ model Keyword {
   phrase      String        @unique
   volume      Int
   cpc         Int
-  intent      KeywordIntent
+  intents       KeywordIntent[] @default([])
+  historyTrend Json?         @db.JsonB 
   difficulty  Int
   competition Float
   createdAt   DateTime      @default(now())
@@ -203,12 +205,11 @@ model Keyword {
 model StoreKeyword {
   storeId   String
   keywordId String      @db.Uuid
-  type      KeywordType
 
   store   Store   @relation(fields: [storeId], references: [id], onDelete: Cascade)
   keyword Keyword @relation(fields: [keywordId], references: [id], onDelete: Cascade)
 
-  @@id([storeId, keywordId, type])
+  @@id([storeId, keywordId])
   @@map("stores_keywords")
 }
 
@@ -247,8 +248,8 @@ model Node {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  blog     Blog  @relation(fields: [blogId], references: [id], onDelete: Cascade)
-  parent   Node? @relation("NodeChildren", fields: [blogId, parentKey], references: [blogId, key], onDelete: Cascade)
+  blog     Blog   @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  parent   Node?  @relation("NodeChildren", fields: [blogId, parentKey], references: [blogId, key], onDelete: Cascade)
   children Node[] @relation("NodeChildren")
 
   @@id([blogId, key])

@@ -35,15 +35,13 @@ export const ListNodePayloadSchema = z.object({
   children: z.array(ListItemNodePayloadSchema),
 });
 
-export const NodePayloadSchema = 
-        z.discriminatedUnion("type", [
-          ParagraphNodePayloadSchema,
-          HeadingNodePayloadSchema,
-          ListNodePayloadSchema,
-          ListItemNodePayloadSchema,
-          TextNodePayloadSchema
-        ])
-      
+export const NodePayloadSchema = z.discriminatedUnion("type", [
+  ParagraphNodePayloadSchema,
+  HeadingNodePayloadSchema,
+  ListNodePayloadSchema,
+  ListItemNodePayloadSchema,
+  TextNodePayloadSchema,
+]);
 
 export const RootSchema = z
   .object({
@@ -53,7 +51,7 @@ export const RootSchema = z
           ParagraphNodePayloadSchema,
           HeadingNodePayloadSchema,
           ListNodePayloadSchema,
-        ])
+        ]),
       )
       .min(1),
   })

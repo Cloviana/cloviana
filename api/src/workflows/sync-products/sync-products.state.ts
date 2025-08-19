@@ -5,5 +5,5 @@ export const StateAnnotation = Annotation.Root({
   _storeId: Annotation<string>(),
   _token: Annotation<string>(),
   _shop: Annotation<string>(),
-  _products: Annotation<Product[]>
+  _products: Annotation<Product[]>,
 });

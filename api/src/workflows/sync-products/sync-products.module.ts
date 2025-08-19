@@ -1,8 +1,9 @@
-import { Global, Module } from "@nestjs/common";
+import { Module } from "@nestjs/common";
 import { SyncProductsWorkflow } from "./sync-products.workflow";
+import { CatalogModule } from "@/modules/commerce/catalog/catalog.module";
 
-@Global()
 @Module({
+  imports: [CatalogModule],
   providers: [SyncProductsWorkflow],
   exports: [SyncProductsWorkflow],
 })

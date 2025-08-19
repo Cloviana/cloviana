@@ -4,6 +4,7 @@ import { PrismaService } from "@/clients/prisma/prisma.service";
 import { StoreStatus } from "@prisma/client";
 import { INIT_STORES_EVENT } from "@/constants/rabbitmq.constants";
 import { SyncProductsWorkflow } from "@/workflows/sync-products/sync-products.workflow";
+import { KeywordDiscoveryWorkflow } from "@/workflows/keyword-discovery/keyword-discovery.workflow";
 
 interface GenerateBlogsEvent {
   storeId: string;
@@ -15,7 +16,8 @@ export class StoresConsumer {
 
   constructor(
     private readonly prisma: PrismaService,
-    private readonly syncProducts: SyncProductsWorkflow
+    private readonly syncProducts: SyncProductsWorkflow,
+    private readonly keywordDiscovery: KeywordDiscoveryWorkflow,
   ) {}
 
   @EventPattern(INIT_STORES_EVENT)
@@ -26,23 +28,24 @@ export class StoresConsumer {
       where: { id: storeId },
       data: { status: StoreStatus.INITIALIZING },
     });
-    this.logger.debug(`Store ${storeId} status set to INITIALIZING`);
 
     try {
-      this.logger.log(`Starting product sync for storeId=${storeId}`);
-      await this.syncProducts.run(storeId);
-      this.logger.log(`Product sync finished successfully for storeId=${storeId}`);
+      this.logger.log(`Starting product sync and keyword discovery for storeId=${storeId}`);
+
+      await Promise.all([
+        this.syncProducts.run(storeId),
+        this.keywordDiscovery.run(storeId),
+      ]);
+
+      this.logger.log(`Product sync and keyword discovery finished for storeId=${storeId}`);
 
       await this.prisma.store.update({
         where: { id: storeId },
         data: { status: StoreStatus.ACTIVE },
       });
       this.logger.log(`Store ${storeId} status updated to ACTIVE`);
-    } catch (err) {
-      this.logger.error(
-        `Failed to initialize storeId=${storeId}: ${err.message}`,
-        err.stack
-      );
+    } catch (err: any) {
+      this.logger.error(`Failed to initialize storeId=${storeId}: ${err.message}`, err.stack);
       await this.prisma.store.update({
         where: { id: storeId },
         data: { status: StoreStatus.FAILED },
