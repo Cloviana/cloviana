@@ -1,9 +1,9 @@
-import { Inject, Injectable, Logger } from '@nestjs/common';
-import { CACHE_MANAGER, Cache } from '@nestjs/cache-manager';
-import OpenAI from 'openai';
-import { z } from 'zod';
-import { zodTextFormat } from 'openai/helpers/zod';
-import { PrismaService } from '@/clients/prisma/prisma.service';
+import { Inject, Injectable, Logger } from "@nestjs/common";
+import { CACHE_MANAGER, Cache } from "@nestjs/cache-manager";
+import OpenAI from "openai";
+import { z } from "zod";
+import { zodTextFormat } from "openai/helpers/zod";
+import { PrismaService } from "@/clients/prisma/prisma.service";
 
 const TitlesSchema = z.object({
   titles: z.array(z.string().max(100)).length(7),
@@ -30,13 +30,13 @@ export class TitleSuggestionsService {
       },
     });
 
-    const topic = blog.topic ?? '';
-    const keywordPhrase = blog.keyword?.phrase ?? '';
+    const topic = blog.topic ?? "";
+    const keywordPhrase = blog.keyword?.phrase ?? "";
     const cacheKey = `titles:${topic}:${keywordPhrase}:${storeId}`;
 
     const cached = await this.cache.get<z.infer<typeof TitlesSchema>>(cacheKey);
     if (cached) {
-      this.logger.debug('Returning cached title suggestions');
+      this.logger.debug("Returning cached title suggestions");
       return cached.titles;
     }
 
@@ -47,26 +47,26 @@ export class TitleSuggestionsService {
 
   private async generateTitles(topic: string, keyword: string) {
     const response = await this.openai.responses.parse({
-      model: 'gpt-4o-mini-2024-07-18',
+      model: "gpt-4o-mini-2024-07-18",
       input: [
         {
-          role: 'system',
+          role: "system",
           content:
-            'You are an e-commerce SEO strategist. ' +
-            'Generate 7 blog post titles (≤100 chars) for the given topic, ' +
-            'and include the specified keyword phrase in each title where it fits naturally. '
+            "You are an e-commerce SEO strategist. " +
+            "Generate 7 blog post titles (≤100 chars) for the given topic, " +
+            "and include the specified keyword phrase in each title where it fits naturally. ",
         },
         {
-          role: 'user',
+          role: "user",
           content: JSON.stringify({ topic, keyword }),
         },
       ],
       text: {
-        format: zodTextFormat(TitlesSchema, 'titles'),
+        format: zodTextFormat(TitlesSchema, "titles"),
       },
     });
 
-    this.logger.debug('Generated title suggestions');
+    this.logger.debug("Generated title suggestions");
     return response.output_parsed!;
   }
 }

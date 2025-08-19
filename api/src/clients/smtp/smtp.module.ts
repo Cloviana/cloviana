@@ -6,4 +6,4 @@ import { Smtp2GoClient } from "./services/smtp2go.service";
   providers: [Smtp2GoClient],
   exports: [Smtp2GoClient],
 })
-export class EmailClientModule {}
+export class SmtpModule {}

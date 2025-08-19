@@ -9,7 +9,7 @@ export class ChannelsService {
 
   constructor(
     private readonly prisma: PrismaService,
-    private readonly storesProducer: StoresProducer
+    private readonly storesProducer: StoresProducer,
   ) {}
 
   async createChannel(storeId: string, dto: CreateChannelDto) {

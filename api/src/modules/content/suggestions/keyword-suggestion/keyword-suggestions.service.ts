@@ -46,7 +46,7 @@ export class KeywordSuggestionsService {
   private async generateKeywords(storeId: string, topic: string) {
     const blogKeywords = await this.prisma.keyword.findMany({
       where: {
-        storeKeywords: { some: { storeId, type: "BLOG" } },
+        storeKeywords: { some: { storeId } },
       },
       select: { id: true, phrase: true },
       orderBy: { volume: "desc" },

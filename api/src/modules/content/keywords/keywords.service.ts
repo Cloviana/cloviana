@@ -1,6 +1,4 @@
 import { PrismaService } from "@/clients/prisma/prisma.service";
-import { SemrushService } from "@/clients/semrush/semrush.service";
-import { AppConfiguration } from "@/config/app.configuration";
 import { Retryable } from "@/decorators/retryable.decorator";
 import {
   BadRequestException,
@@ -19,7 +17,6 @@ import {
   normalizeDomainToUrl,
 } from "./utils/scraper.utils";
 import { mapIntentCode } from "./utils/intent.utils";
-import { mockKeywordsSummary } from "./utils/mocks.utils";
 
 @Injectable()
 export class KeywordsService {
@@ -28,9 +25,9 @@ export class KeywordsService {
 
   constructor(
     private readonly prisma: PrismaService,
-    private readonly semrush: SemrushService,
   ) {}
 
+  
   async getKeywordDetail(storeId: string, phrase: string) {
     const p = phrase.trim();
     if (!p) throw new BadRequestException("Phrase cannot be empty");
@@ -40,13 +37,12 @@ export class KeywordsService {
       include: {
         storeKeywords: {
           where: { storeId },
-          select: { type: true },
         },
       },
     });
 
     if (existing) return existing;
-
+    /*
     const [summary] = await this.semrush.summary([p]);
     const {
       searchVolume: volume,
@@ -73,6 +69,7 @@ export class KeywordsService {
     });
 
     return storeKeyword.keyword;
+    */
   }
 
   async getStoreKeywords(store: Store, type: KeywordType): Promise<Keyword[]> {
@@ -99,10 +96,11 @@ export class KeywordsService {
       this.getKeywordSummaries([term], KeywordType.BLOG),
     ]);
 
+    /*
     await Promise.all([
       this.saveKeywords(storeId, businessKeywords, KeywordType.BUSINESS),
       this.saveKeywords(storeId, bloggingKeywords, KeywordType.BLOG),
-    ]);
+    ]);*/
   }
 
   private async getStore(storeId: string) {
@@ -116,15 +114,16 @@ export class KeywordsService {
   private async getKeywordSummaries(
     terms: string[],
     type: KeywordType,
-  ): Promise<KeywordSummary[]> {
+  ) {
     /*
     if (this.config.environment === "development") {
       return mockKeywordsSummary(terms);
     }
       */
-    return type === KeywordType.BUSINESS
+    /*return type === KeywordType.BUSINESS
       ? this.semrush.summary(terms)
-      : this.semrush.related(terms);
+      : this.semrush.related(terms);*/
+      return
   }
 
   private async saveKeywords(
@@ -145,15 +144,15 @@ export class KeywordsService {
           const intent = mapIntentCode(rawIntent);
           const { id: keywordId } = await tx.keyword.upsert({
             where: { phrase },
-            update: { volume, cpc, competition, intent, difficulty },
-            create: { phrase, volume, cpc, competition, intent, difficulty },
+            update: { volume, cpc, competition, intents: [intent], difficulty },
+            create: { phrase, volume, cpc, competition,  intents: [intent], difficulty },
           });
           await tx.storeKeyword.upsert({
             where: {
-              storeId_keywordId_type: { storeId, keywordId, type },
+              storeId_keywordId: { storeId, keywordId },
             },
             update: {},
-            create: { storeId, keywordId, type },
+            create: { storeId, keywordId },
           });
         } catch (err) {
           this.logger.warn(`Failed to save ${type} keyword “${phrase}”:`, err);

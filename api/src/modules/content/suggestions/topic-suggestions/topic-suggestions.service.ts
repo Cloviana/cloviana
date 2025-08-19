@@ -36,7 +36,7 @@ export class TopicSuggestionsService {
     const businessKeyword = await this.prisma.keyword.findFirst({
       where: {
         storeKeywords: {
-          some: { storeId, type: "BUSINESS" },
+          some: { storeId },
         },
       },
       select: { phrase: true },
@@ -46,7 +46,7 @@ export class TopicSuggestionsService {
     const blogKeywords = await this.prisma.keyword.findMany({
       where: {
         storeKeywords: {
-          some: { storeId, type: "BLOG" },
+          some: { storeId },
         },
       },
       select: { phrase: true },

@@ -6,7 +6,12 @@ import { StoresProducer } from "./producers/stores.producer";
 
 @Global()
 @Module({
-  providers: [...RabbitMqProviders, KeywordsProducer, BlogsProducer, StoresProducer],
+  providers: [
+    ...RabbitMqProviders,
+    KeywordsProducer,
+    BlogsProducer,
+    StoresProducer,
+  ],
   exports: [KeywordsProducer, BlogsProducer, StoresProducer],
 })
 export class MessagingModule {}

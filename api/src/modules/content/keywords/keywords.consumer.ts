@@ -1,6 +1,6 @@
 import { Controller, Logger } from "@nestjs/common";
 import { EventPattern, Payload } from "@nestjs/microservices";
-import { Smtp2GoClient } from "@/clients/email/services/smtp2go.service";
+import { Smtp2GoClient } from "@/clients/smtp/services/smtp2go.service";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { KEYWORDS_SEEDED_EVENT } from "@/constants/rabbitmq.constants";
 import { KeywordsService } from "./keywords.service";

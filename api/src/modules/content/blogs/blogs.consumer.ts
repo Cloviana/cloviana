@@ -27,7 +27,9 @@ export class BlogsConsumer {
     });
 
     if (record?.generationStatus !== BlogGenerationStatus.QUEUED) {
-      this.logger.log(`Skipping blog ${blogId}, status is ${record?.generationStatus}`);
+      this.logger.log(
+        `Skipping blog ${blogId}, status is ${record?.generationStatus}`,
+      );
       return;
     }
 
@@ -48,14 +50,19 @@ export class BlogsConsumer {
 
       this.logger.log(`Completed blog generation for ${blogId}`);
     } catch (err) {
-      await this.prisma.blog.update({
-        where: { id: blogId },
-        data: { generationStatus: BlogGenerationStatus.ERROR },
-      }).catch(() =>
-        this.logger.error(`Failed to mark ERROR for ${blogId}`, err as any)
-      );
+      await this.prisma.blog
+        .update({
+          where: { id: blogId },
+          data: { generationStatus: BlogGenerationStatus.ERROR },
+        })
+        .catch(() =>
+          this.logger.error(`Failed to mark ERROR for ${blogId}`, err as any),
+        );
 
-      this.logger.error(`Blog generation failed for ${blogId}`, (err as any).stack);
+      this.logger.error(
+        `Blog generation failed for ${blogId}`,
+        (err as any).stack,
+      );
     }
   }
 }

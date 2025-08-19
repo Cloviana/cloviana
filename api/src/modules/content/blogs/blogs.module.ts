@@ -13,7 +13,7 @@ import { BlogWriterAgent } from "./agents/blog-writer";
     BlogsService,
     SourceRecommendationService,
     BlogOwnerGuard,
-    BlogWriterAgent
+    BlogWriterAgent,
   ],
 })
 export class BlogsModule {}
