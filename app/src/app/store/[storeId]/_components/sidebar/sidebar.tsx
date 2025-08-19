@@ -28,9 +28,10 @@ export const Sidebar: FC = () => {
           <SidebarItem
             icon="package_2"
             label="Products"
-            href="#"
-            isActive={false}
-            disabled
+            href={paths.store.products.getHref(storeId)}
+            isActive={pathname.startsWith(
+              paths.store.products.getHref(storeId),
+            )}
           />
           <SidebarItem
             icon="nest_true_radiant"

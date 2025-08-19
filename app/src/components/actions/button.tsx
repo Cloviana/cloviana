@@ -50,6 +50,7 @@ type CommonProps = Variant & {
   type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
   className?: string;
   allowIconColor?: boolean;
+  iconClassName?: string;
 };
 
 type NativeProps = ButtonHTMLAttributes<HTMLButtonElement>;
@@ -78,6 +79,7 @@ export const Button = forwardRef<
     fullWidth = false,
     textAlign = 'start',
     allowIconColor = true,
+    iconClassName,
     ...rest
   },
   ref,
@@ -96,6 +98,7 @@ export const Button = forwardRef<
       className={cn(
         allowIconColor &&
           (variant === 'primary' ? 'fill-white' : 'fill-foreground-light'),
+        iconClassName,
       )}
       aria-hidden={loading}
     />
