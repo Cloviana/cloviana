@@ -168,6 +168,16 @@ export type Blog = Entity<{
   thumbnail: Thumbnail | null;
 }>;
 
+export type Product = Entity<{
+  handle: string;
+  title: string;
+  status: string;
+  description: string | null;
+  tags: string[];
+  mainImageUrl: string | undefined;
+  mainImageAlt: string | undefined;
+}>;
+
 export type Thumbnail = {
   blobPath: string;
   altText: string;
