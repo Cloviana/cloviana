@@ -1,12 +1,38 @@
 'use client';
 
-import { FC, useMemo, useState } from 'react';
+import {
+  ColumnDef,
+  ColumnFiltersState,
+  flexRender,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  SortingState,
+  useReactTable,
+  VisibilityState,
+} from '@tanstack/react-table';
+import React, { FC } from 'react';
 
 import * as Page from '@/components/layout/page';
-import { IndexTable, SortConfig } from '@/components/table/index-table';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/table/data-table/data-table';
 
-// Sample product data
-const products = [
+interface IProducts {
+  id: string;
+  name: string;
+  image: string;
+  status: string;
+  handle: string;
+  lastUpdated: string;
+}
+const products: IProducts[] = [
   {
     id: '1',
     name: 'Wireless Bluetooth Headphones',
@@ -63,28 +89,81 @@ const products = [
   },
 ];
 
+const columns: ColumnDef<IProducts>[] = [
+  {
+    accessorKey: 'title',
+    header: 'Title',
+    cell: ({ row }) => (
+      <div className="flex items-center gap-3">
+        <div className="size-8 shrink-0 overflow-hidden rounded-lg bg-gray-100">
+          <img
+            src={row.original.image}
+            alt={row.original.name}
+            className="size-full object-cover"
+          />
+        </div>
+        <div className="min-w-0 flex-1 font-medium">
+          <p className="truncate text-xs">{row.original.name}</p>
+        </div>
+      </div>
+    ),
+  },
+  {
+    accessorKey: 'status',
+    header: 'Status',
+    cell: ({ row }) => (
+      <span className="text-xs font-normal text-foreground-light">
+        {row.original.status}
+      </span>
+    ),
+  },
+  {
+    accessorKey: 'handle',
+    header: 'Handle',
+    cell: ({ row }) => (
+      <span className="text-xs font-normal text-foreground-light">
+        {row.original.handle}
+      </span>
+    ),
+  },
+  {
+    accessorKey: 'lastUpdated',
+    header: 'Sync',
+    cell: ({ row }) => (
+      <span className="text-xs font-normal text-foreground-light">
+        {row.original.lastUpdated}
+      </span>
+    ),
+  },
+];
+
 const ProductsPage: FC = () => {
-  const [sortConfig, setSortConfig] = useState<SortConfig | null>(null);
+  const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+    [],
+  );
+  const [columnVisibility, setColumnVisibility] =
+    React.useState<VisibilityState>({});
+  const [rowSelection, setRowSelection] = React.useState({});
 
-  const sortedProducts = useMemo(() => {
-    if (!sortConfig) return products;
-
-    const { key, direction } = sortConfig;
-    return [...products].sort((a, b) => {
-      const aVal = a[key as keyof typeof a];
-      const bVal = b[key as keyof typeof b];
-
-      const aStr = String(aVal || '').toLowerCase();
-      const bStr = String(bVal || '').toLowerCase();
-      const result = aStr.localeCompare(bStr);
-      return direction === 'asc' ? result : -result;
-    });
-  }, [sortConfig]);
-
-  const handleSort = (newSortConfig: SortConfig | null) => {
-    setSortConfig(newSortConfig);
-  };
-
+  const table = useReactTable({
+    data: products,
+    columns,
+    onSortingChange: setSorting,
+    onColumnFiltersChange: setColumnFilters,
+    getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    onColumnVisibilityChange: setColumnVisibility,
+    onRowSelectionChange: setRowSelection,
+    state: {
+      sorting,
+      columnFilters,
+      columnVisibility,
+      rowSelection,
+    },
+  });
   return (
     <Page.Root>
       <Page.Header className="flex items-center justify-between gap-2">
@@ -99,65 +178,54 @@ const ProductsPage: FC = () => {
       </Page.Header>
 
       <Page.Content className="overflow-y-auto">
-        <IndexTable
-          headings={[
-            {
-              title: 'Title',
-              width: 600,
-              className: 'text-foreground',
-            },
-            {
-              title: 'Status',
-              width: 120,
-            },
-            {
-              title: 'Handle',
-              width: 250,
-            },
-            {
-              title: 'Last Updated',
-              width: 180,
-            },
-          ]}
-          onSort={handleSort}
-        >
-          {sortedProducts.map((product) => (
-            <IndexTable.Row key={product.id} id={product.id}>
-              <IndexTable.Cell>
-                <div className="flex items-center gap-3">
-                  <div className="size-8 shrink-0 overflow-hidden rounded-lg bg-gray-100">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="size-full object-cover"
-                    />
-                  </div>
-                  <div className="min-w-0 flex-1 font-medium">
-                    <p className="truncate text-xs">{product.name}</p>
-                  </div>
-                </div>
-              </IndexTable.Cell>
-
-              <IndexTable.Cell>
-                <span className="text-xs font-normal text-foreground-light">
-                  {product.status}
-                </span>
-              </IndexTable.Cell>
-
-              <IndexTable.Cell>
-                <span className="text-xs font-normal text-foreground-light">
-                  {product.handle}
-                </span>
-              </IndexTable.Cell>
-
-              <IndexTable.Cell>
-                <span className="text-xs font-normal text-foreground-light">
-                  {product.lastUpdated}
-                </span>
-              </IndexTable.Cell>
-            </IndexTable.Row>
-          ))}
-        </IndexTable>
+        <Table>
+          <TableHeader>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id}>
+                {headerGroup.headers.map((header) => {
+                  return (
+                    <TableHead key={header.id}>
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext(),
+                          )}
+                    </TableHead>
+                  );
+                })}
+              </TableRow>
+            ))}
+          </TableHeader>
+          <TableBody>
+            {table.getRowModel().rows?.length ? (
+              table.getRowModel().rows.map((row) => (
+                <TableRow
+                  key={row.id}
+                  data-state={row.getIsSelected() && 'selected'}
+                >
+                  {row.getVisibleCells().map((cell) => (
+                    <TableCell key={cell.id}>
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext(),
+                      )}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))
+            ) : (
+              <TableRow>
+                <TableCell
+                  colSpan={columns.length}
+                  className="h-24 text-center"
+                >
+                  No results.
+                </TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
       </Page.Content>
     </Page.Root>
   );
