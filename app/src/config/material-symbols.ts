@@ -31,6 +31,9 @@ export const ICON_NAMES = [
   'graphic_eq',
   'check_circle',
   'sync',
+  'discover_tune',
+  'south',
+  'north',
 ] as const;
 
 const sortedIconNames = [...ICON_NAMES].sort();
