@@ -6,7 +6,7 @@ import { FC } from 'react';
 import { Anchor } from '@/components/actions';
 import { GIcon } from '@/components/icons';
 import { Badge } from '@/components/indicators';
-import { IndexTable } from '@/components/table/index-table';
+import { IndexTable } from '@/components/legacy/index-table';
 import { paths } from '@/config/paths';
 import { Blog } from '@/types/api';
 import { formatWithDateFns } from '@/utils/format';

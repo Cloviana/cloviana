@@ -11,7 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from '@/components/overlays/dropdown/dropdown-menu';
 import { signOut } from '@/features/auth/actions/sign-out';
 
 interface SidebarStoreDropwdownProps {

@@ -12,7 +12,7 @@ import { SearchIcon } from '@/components/icons';
 import { Badge } from '@/components/indicators';
 import { TextField } from '@/components/input';
 import { Page } from '@/components/legacy';
-import { IndexTable } from '@/components/table/index-table';
+import { IndexTable } from '@/components/legacy/index-table';
 import { useGetKeywords } from '@/features/keywords/api/get-keywords';
 import { KeywordType } from '@/features/keywords/types';
 
