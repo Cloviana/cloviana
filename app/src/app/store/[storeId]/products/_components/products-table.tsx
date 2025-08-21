@@ -51,6 +51,16 @@ export function ProductsTable({ products }: { products: Product[] }) {
         ),
       },
       {
+        accessorKey: 'category',
+        header: 'Category',
+        cell: ({ row }) => (
+          <BasicCellRenderer
+            value={row.original.category!}
+            emptyText="No category provided"
+          />
+        ),
+      },
+      {
         accessorKey: 'handle',
         header: 'Handle',
         cell: ({ row }) => (
