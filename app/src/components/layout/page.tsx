@@ -5,7 +5,7 @@ import { cn } from '@/utils/cn';
 
 type RootProps = HTMLAttributes<HTMLElement>;
 type ContentProps = HTMLAttributes<HTMLElement>;
-type PageButtonProps = Omit<ButtonProps, 'size'>;
+type PageButtonProps = ButtonProps;
 
 const Root: FC<RootProps> = ({ className, children, ...rest }) => (
   <div

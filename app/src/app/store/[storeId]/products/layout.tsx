@@ -5,7 +5,7 @@ import {
 } from '@tanstack/react-query';
 import { ReactNode } from 'react';
 
-import { getProductsQueryOptions } from '@/features/products/get-products';
+import { getProductsQueryOptions } from '@/api/products/get-products';
 
 interface LayoutProps {
   children: ReactNode;

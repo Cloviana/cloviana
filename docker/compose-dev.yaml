@@ -20,7 +20,6 @@ services:
     image: ghcr.io/cloviana/app:dev
     volumes:
       - ../app:/app:cached
-      - /app/node_modules
     container_name: app
 
   web:
@@ -31,7 +30,6 @@ services:
     image: ghcr.io/cloviana/web:dev
     volumes:
       - ../web:/app:cached
-      - /app/node_modules
     container_name: web
 
   nginx:

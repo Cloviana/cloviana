@@ -14,6 +14,8 @@ import {
   BLOGS_QUEUE_OPTS,
   KEYWORDS_QUEUE,
   KEYWORDS_QUEUE_OPTS,
+  PRODUCTS_QUEUE,
+  PRODUCTS_QUEUE_OPTS,
   STORES_QUEUE,
   STORES_QUEUE_OPTS,
 } from "@/constants/rabbitmq.constants";
@@ -39,6 +41,7 @@ async function bootstrap() {
     { name: KEYWORDS_QUEUE, opts: KEYWORDS_QUEUE_OPTS },
     { name: BLOGS_QUEUE, opts: BLOGS_QUEUE_OPTS },
     { name: STORES_QUEUE, opts: STORES_QUEUE_OPTS },
+    { name: PRODUCTS_QUEUE, opts: PRODUCTS_QUEUE_OPTS },
   ];
 
   for (const { name, opts } of queues) {

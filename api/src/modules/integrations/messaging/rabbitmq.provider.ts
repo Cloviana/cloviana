@@ -12,6 +12,9 @@ import {
   KEYWORDS_CLIENT,
   KEYWORDS_QUEUE,
   KEYWORDS_QUEUE_OPTS,
+  PRODUCTS_CLIENT,
+  PRODUCTS_QUEUE,
+  PRODUCTS_QUEUE_OPTS,
   STORES_CLIENT,
   STORES_QUEUE,
   STORES_QUEUE_OPTS,
@@ -55,6 +58,20 @@ export const RabbitMqProviders: Provider[] = [
           urls: [cfg.rabbitmqUri],
           queue: STORES_QUEUE,
           queueOptions: STORES_QUEUE_OPTS,
+        },
+      });
+    },
+    inject: [AppConfiguration],
+  },
+  {
+    provide: PRODUCTS_CLIENT,
+    useFactory: (cfg: AppConfiguration): ClientProxy => {
+      return ClientProxyFactory.create({
+        transport: Transport.RMQ,
+        options: {
+          urls: [cfg.rabbitmqUri],
+          queue: PRODUCTS_QUEUE,
+          queueOptions: PRODUCTS_QUEUE_OPTS,
         },
       });
     },

@@ -26,3 +26,12 @@ export const STORES_QUEUE_OPTS = {
   durable: true,
   autoDelete: false,
 } as const;
+
+// Products
+export const PRODUCTS_CLIENT = "PRODUCTS_CLIENT";
+export const PRODUCTS_QUEUE = "products_queue";
+export const SYNC_PRODUCTS_EVENT = "products.sync";
+export const PRODUCTS_QUEUE_OPTS = {
+  durable: true,
+  autoDelete: false,
+} as const;
