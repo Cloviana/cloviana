@@ -21,7 +21,6 @@ export class ChannelsController {
   @Post()
   @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
   async createChannel(
-    @CurrentUser() user: AuthUser,
     @Param("storeId") storeId: string,
     @Body() dto: CreateChannelDto,
   ) {

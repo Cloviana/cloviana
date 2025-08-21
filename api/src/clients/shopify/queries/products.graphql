@@ -11,15 +11,15 @@ query Products($first: Int!, $after: String, $query: String) {
       status
       description
       tags
-      updatedAt
-      media(first: 1) {
-        nodes {
-          ... on MediaImage {
-            id
-            image {
-              url
-              altText
-            }
+      onlineStoreUrl
+      onlineStorePreviewUrl
+      category {
+        name
+      }
+      featuredMedia {
+        preview {
+          image {
+            url
           }
         }
       }

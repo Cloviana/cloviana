@@ -3,6 +3,7 @@ import { RabbitMqProviders } from "./rabbitmq.provider";
 import { KeywordsProducer } from "./producers/keywords.producer";
 import { BlogsProducer } from "./producers/blogs.producer";
 import { StoresProducer } from "./producers/stores.producer";
+import { ProductsProducer } from "./producers/products.producer";
 
 @Global()
 @Module({
@@ -11,7 +12,8 @@ import { StoresProducer } from "./producers/stores.producer";
     KeywordsProducer,
     BlogsProducer,
     StoresProducer,
+    ProductsProducer
   ],
-  exports: [KeywordsProducer, BlogsProducer, StoresProducer],
+  exports: [KeywordsProducer, BlogsProducer, StoresProducer, ProductsProducer],
 })
 export class MessagingModule {}

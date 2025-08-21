@@ -1,30 +1,39 @@
-import React, { FC } from 'react';
+import Image from 'next/image';
+import { FC } from 'react';
 
 import { GIcon } from '@/components/icons';
+import { cn } from '@/utils/cn';
 
-const ProductImage: FC<{ url?: string; alt?: string }> = ({ url, alt }) => {
-  const hasImage = Boolean(url);
+type Props = { url?: string; alt?: string };
+
+const ProductImage: FC<Props> = ({ url, alt }) => {
+  const hasImage = !!url;
 
   return (
-    <React.Fragment>
-      {hasImage ? (
-        <div className="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-surface-200">
-          <img
-            src={url}
-            alt={alt || 'Product image'}
-            className="size-full object-cover"
-          />
-        </div>
-      ) : (
-        <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-surface-200">
-          <GIcon
-            name="question_mark"
-            size={20}
-            className="text-foreground-lighter"
-          />
-        </div>
+    <div
+      className={cn(
+        'flex size-8 shrink-0 items-center justify-center rounded-lg bg-surface-200',
+        hasImage && 'overflow-hidden',
       )}
-    </React.Fragment>
+    >
+      {hasImage ? (
+        <Image
+          src={url!}
+          alt={alt || 'Product image'}
+          width={32}
+          height={32}
+          priority
+          fetchPriority="high"
+          className="size-full object-cover"
+        />
+      ) : (
+        <GIcon
+          name="question_mark"
+          size={20}
+          className="text-foreground-lighter"
+        />
+      )}
+    </div>
   );
 };
 

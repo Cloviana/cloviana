@@ -116,17 +116,20 @@ model Job {
 }
 
 model Product {
-  storeId      String
-  shopifyId    String
-  handle       String               @db.Citext
-  title        String
-  status       ShopifyProductStatus
-  description  String?
-  tags         String[]             @default([])
-  mainImageUrl String?
-  mainImageAlt String?
-  createdAt    DateTime             @default(now())
-  updatedAt    DateTime             @updatedAt
+  storeId    String
+  shopifyId  String
+  handle     String?              @db.Citext
+  title      String
+  status     ShopifyProductStatus
+  description String?
+  tags       String[]             @default([])
+  category   String?
+  imageUrl   String?
+  onlineStoreUrl String?
+  onlineStorePreviewUrl String
+  syncedAt   DateTime?
+  createdAt  DateTime             @default(now())
+  updatedAt  DateTime             @updatedAt
 
   store Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
 

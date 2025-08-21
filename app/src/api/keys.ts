@@ -32,3 +32,19 @@ export const titleSuggestionsKeys = {
   list: (storeId: string, blogId: string) =>
     [...titleSuggestionsKeys.base, 'list', storeId, blogId] as const,
 };
+
+export const productKeys = {
+  base: ['products'] as const,
+  list: (storeId: string) => [...productKeys.base, 'list', storeId] as const,
+};
+
+export const jobsKeys = {
+  base: ['jobs'] as const,
+  list: (storeId: string) => [...jobsKeys.base, 'list', storeId] as const,
+  detail: (storeId: string, jobId: string) =>
+    [...jobsKeys.base, 'detail', storeId, jobId] as const,
+  latest: (storeId: string, type: string) =>
+    [...jobsKeys.base, 'latest', storeId, type] as const,
+  latestStatus: (storeId: string, type: string) =>
+    [...jobsKeys.base, 'latestStatus', storeId, type] as const,
+};

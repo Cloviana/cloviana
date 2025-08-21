@@ -2,6 +2,13 @@
 // Enum / literal‐union types
 // ─────────────────────────────────────────────────────────────────────────────
 
+export type JobType =
+  | 'PRODUCT_SYNC'
+  | 'BLOG_GENERATION'
+  | 'SITEMAP_BUILD'
+  | 'KEYWORD_DISCOVERY';
+export type JobStatus = 'PENDING' | 'RUNNING' | 'SUCCESS' | 'FAILED';
+
 export type StoreStatus =
   | 'DRAFT'
   | 'ACTIVE'
@@ -174,8 +181,11 @@ export type Product = Entity<{
   status: string;
   description: string | null;
   tags: string[];
-  mainImageUrl: string | undefined;
-  mainImageAlt: string | undefined;
+  imageUrl: string | undefined;
+  category: string | null;
+  syncedAt: string | null;
+  onlineStorePreviewUrl: string;
+  onlineStoreUrl: string | null;
 }>;
 
 export type Thumbnail = {
@@ -214,4 +224,20 @@ export type RankedGoogleSearchItem = {
   snippet: string;
   recommended: boolean;
   logo: string;
+};
+
+export type Job = {
+  id: string;
+  type: JobType;
+  storeId: string | null;
+  status: JobStatus;
+  priority: number;
+  attempts: number;
+  scheduledAt: string | null;
+  startedAt: string | null;
+  finishedAt: string | null;
+  lastHeartbeatAt: string | null;
+  error: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
