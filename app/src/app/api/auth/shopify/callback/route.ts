@@ -1,18 +1,12 @@
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 
-import {
-  createChannelSchema,
-  createChannel,
-} from '@/api/channel/create-channel';
-import { createStore, createStoreSchema } from '@/api/stores/create-store';
-import { getStore } from '@/api/stores/get-store';
+import { shopifyExchange } from '@/api/auth/shopify-exchange';
+import { shopifyConnect } from '@/api/channels/shopify-connect';
 import { getStores } from '@/api/stores/get-stores';
 import { env } from '@/config/env';
-import { paths } from '@/config/paths';
-import { shopifySignIn } from '@/features/auth/actions/shopify-sign-in';
-import { exchangeCode } from '@/features/shopify/actions/exchange-code';
 import { verifyHmac } from '@/features/shopify/utils/verify-hmac';
+import { createClient } from '@/lib/supabase/server';
 
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
@@ -25,33 +19,36 @@ export async function GET(req: NextRequest) {
 
   const shop = searchParams.get('shop')!;
   const code = searchParams.get('code')!;
+  const state = stateParam!;
 
-  const offlineAccessToken = await exchangeCode(shop, code);
-  await shopifySignIn(shop);
+  const supabase = createClient();
 
-  const stores = await getStores();
-  const store =
-    stores[0] ??
-    (await createStore(
-      createStoreSchema.parse({ name: 'My Personal Store', domainUrl: shop }),
-    ));
-  const storeDetail = await getStore(store.id);
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-  if (!storeDetail.channel) {
-    await createChannel(
-      createChannelSchema.parse({
-        storeId: store.id,
-        shop,
-        offlineAccessToken,
-      }),
-    );
+  if (user) {
+    const stores = await getStores();
+    const store = stores[0];
+
+    await shopifyConnect({ shop, code, state, storeId: store.id });
+  } else {
+    const { access_token, refresh_token } = await shopifyExchange({
+      shop,
+      code,
+      state,
+    });
+    await supabase.auth.setSession({
+      access_token,
+      refresh_token,
+    });
   }
 
-  const returnPath =
-    cookies().get('shopify_return_to')?.value ?? paths.store.getHref(store.id);
-
+  const returnPath = cookies().get('shopify_return_to')?.value ?? '/';
   const res = NextResponse.redirect(new URL(returnPath, env.APP_URL));
+
   res.cookies.delete('shopify_state');
   res.cookies.delete('shopify_return_to');
+
   return res;
 }
