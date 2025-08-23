@@ -11,19 +11,18 @@ import {
 } from "@nestjs/common";
 import { ChannelsService } from "./channels.service";
 import { StoreOwnerGuard } from "@/guards/store-owner.guard";
-import { CreateChannelDto } from "./dto/create-channel.dto";
+import { ShopifyConnectDto } from "./dto/connect-shopify.dto";
 
 @Controller("stores/:storeId/channels")
 @UseGuards(StoreOwnerGuard)
 export class ChannelsController {
   constructor(private readonly channels: ChannelsService) {}
 
-  @Post()
-  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
-  async createChannel(
+  @Post("shopify/connect")
+  async exchange(
+    @Body() dto: ShopifyConnectDto,
     @Param("storeId") storeId: string,
-    @Body() dto: CreateChannelDto,
   ) {
-    return this.channels.createChannel(storeId, dto);
+    return this.channels.connectShopify({ ...dto, storeId });
   }
 }

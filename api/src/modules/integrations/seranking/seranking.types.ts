@@ -1,7 +1,13 @@
 export type SerankingSource = string;
 
-export type SortField = 'keyword' | 'volume' | 'cpc' | 'difficulty' | 'competition' | 'history_trend';
-export type SortOrder = 'asc' | 'desc';
+export type SortField =
+  | "keyword"
+  | "volume"
+  | "cpc"
+  | "difficulty"
+  | "competition"
+  | "history_trend";
+export type SortOrder = "asc" | "desc";
 
 export interface ExportKeywordsMetricsInput {
   source: SerankingSource;
@@ -23,7 +29,7 @@ export interface KeywordMetrics {
   history_trend?: KeywordHistoryTrend | null;
 }
 
-export type SerpIntent = 'I' | 'N' | 'C' | 'L';
+export type SerpIntent = "I" | "N" | "C" | "L";
 
 export interface SimilarRelatedItem {
   keyword: string;
@@ -67,7 +73,7 @@ export interface SimilarRelatedParams {
   keyword: string;
   limit?: number;
   offset?: number;
-  sort?: Exclude<SortField, 'history_trend'>;
+  sort?: Exclude<SortField, "history_trend">;
   sort_order?: SortOrder;
   history_trend?: boolean;
   filter?: CommonFilters;
@@ -75,7 +81,7 @@ export interface SimilarRelatedParams {
 
 export type QuestionsParams = SimilarRelatedParams;
 
-export type LongtailParams = Omit<SimilarRelatedParams, 'history_trend'>;
+export type LongtailParams = Omit<SimilarRelatedParams, "history_trend">;
 
 export interface PagedResult<T> {
   total: number;

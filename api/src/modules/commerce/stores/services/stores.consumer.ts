@@ -22,7 +22,9 @@ export class StoresConsumer {
 
   @EventPattern(INIT_STORES_EVENT)
   async handleInit(@Payload() { storeId }: GenerateBlogsEvent) {
-    this.logger.log(`Received ${INIT_STORES_EVENT} event for storeId=${storeId}`);
+    this.logger.log(
+      `Received ${INIT_STORES_EVENT} event for storeId=${storeId}`,
+    );
 
     await this.prisma.store.update({
       where: { id: storeId },
@@ -30,14 +32,18 @@ export class StoresConsumer {
     });
 
     try {
-      this.logger.log(`Starting product sync and keyword discovery for storeId=${storeId}`);
+      this.logger.log(
+        `Starting product sync and keyword discovery for storeId=${storeId}`,
+      );
 
       await Promise.all([
         this.syncProducts.run(storeId),
         this.keywordDiscovery.run(storeId),
       ]);
 
-      this.logger.log(`Product sync and keyword discovery finished for storeId=${storeId}`);
+      this.logger.log(
+        `Product sync and keyword discovery finished for storeId=${storeId}`,
+      );
 
       await this.prisma.store.update({
         where: { id: storeId },
@@ -45,7 +51,10 @@ export class StoresConsumer {
       });
       this.logger.log(`Store ${storeId} status updated to ACTIVE`);
     } catch (err: any) {
-      this.logger.error(`Failed to initialize storeId=${storeId}: ${err.message}`, err.stack);
+      this.logger.error(
+        `Failed to initialize storeId=${storeId}: ${err.message}`,
+        err.stack,
+      );
       await this.prisma.store.update({
         where: { id: storeId },
         data: { status: StoreStatus.FAILED },

@@ -5,6 +5,7 @@ import {
   FastifyAdapter,
   NestFastifyApplication,
 } from "@nestjs/platform-fastify";
+import fastifyCookie from "@fastify/cookie";
 
 import { AppModule } from "@/app.module";
 import { AppConfiguration } from "@/common/config/app.configuration";
@@ -28,6 +29,7 @@ async function bootstrap() {
     adapter,
     { rawBody: true },
   );
+  await app.register(fastifyCookie);
 
   // Global API prefix and auth guard
   app.setGlobalPrefix("api");
@@ -70,7 +72,7 @@ async function bootstrap() {
       "http://app.localhost",
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-    credentials: false,
+    credentials: true,
   });
 
   // Start HTTP server
