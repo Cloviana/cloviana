@@ -41,7 +41,11 @@ export class SyncProductsWorkflow {
       if (age > STALE_MS) {
         job = await this.prisma.job.update({
           where: { id: job.id },
-          data: { status: JobStatus.FAILED, finishedAt: new Date(), error: "Stale running job (no heartbeat)" },
+          data: {
+            status: JobStatus.FAILED,
+            finishedAt: new Date(),
+            error: "Stale running job (no heartbeat)",
+          },
         });
       } else {
         return job;
@@ -59,10 +63,12 @@ export class SyncProductsWorkflow {
     });
 
     const hb = setInterval(() => {
-      this.prisma.job.update({
-        where: { id: job.id },
-        data: { lastHeartbeatAt: new Date() },
-      }).catch(() => {});
+      this.prisma.job
+        .update({
+          where: { id: job.id },
+          data: { lastHeartbeatAt: new Date() },
+        })
+        .catch(() => {});
     }, 15000);
 
     try {
@@ -100,7 +106,11 @@ export class SyncProductsWorkflow {
       clearInterval(hb);
       await this.prisma.job.updateMany({
         where: { id: job.id, status: JobStatus.RUNNING },
-        data: { status: JobStatus.FAILED, finishedAt: new Date(), error: "Process terminated without finalization" },
+        data: {
+          status: JobStatus.FAILED,
+          finishedAt: new Date(),
+          error: "Process terminated without finalization",
+        },
       });
     }
   }

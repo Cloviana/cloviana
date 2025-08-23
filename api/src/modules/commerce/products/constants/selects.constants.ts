@@ -10,4 +10,3 @@ export const PRODUCT_SUMMARY_SELECT: Prisma.ProductSelect = {
   handle: true,
   syncedAt: true,
 };
-

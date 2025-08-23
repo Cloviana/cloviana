@@ -12,7 +12,7 @@ import { ProductsProducer } from "./producers/products.producer";
     KeywordsProducer,
     BlogsProducer,
     StoresProducer,
-    ProductsProducer
+    ProductsProducer,
   ],
   exports: [KeywordsProducer, BlogsProducer, StoresProducer, ProductsProducer],
 })

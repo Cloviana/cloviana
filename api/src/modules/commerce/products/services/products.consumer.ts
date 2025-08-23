@@ -11,21 +11,24 @@ interface GenerateBlogsEvent {
 export class ProductsConsumer {
   private readonly logger = new Logger(ProductsConsumer.name);
 
-  constructor(
-    private readonly syncProducts: SyncProductsWorkflow,
-  ) {}
+  constructor(private readonly syncProducts: SyncProductsWorkflow) {}
 
   @EventPattern(SYNC_PRODUCTS_EVENT)
   async handleSync(@Payload() { storeId }: GenerateBlogsEvent) {
-    this.logger.log(`Received ${SYNC_PRODUCTS_EVENT} event for storeId=${storeId}`);
+    this.logger.log(
+      `Received ${SYNC_PRODUCTS_EVENT} event for storeId=${storeId}`,
+    );
     try {
       this.logger.log(`Starting product sync for storeId=${storeId}`);
 
-      await this.syncProducts.run(storeId)
+      await this.syncProducts.run(storeId);
 
       this.logger.log(`Product sync finished for storeId=${storeId}`);
     } catch (err: any) {
-      this.logger.error(`Failed to sync products storeId=${storeId}: ${err.message}`, err.stack);
+      this.logger.error(
+        `Failed to sync products storeId=${storeId}: ${err.message}`,
+        err.stack,
+      );
     }
   }
 }

@@ -23,11 +23,8 @@ export class KeywordsService {
   private readonly openai = new OpenAI();
   private readonly logger = new Logger(KeywordsService.name);
 
-  constructor(
-    private readonly prisma: PrismaService,
-  ) {}
+  constructor(private readonly prisma: PrismaService) {}
 
-  
   async getKeywordDetail(storeId: string, phrase: string) {
     const p = phrase.trim();
     if (!p) throw new BadRequestException("Phrase cannot be empty");
@@ -111,10 +108,7 @@ export class KeywordsService {
     return store;
   }
 
-  private async getKeywordSummaries(
-    terms: string[],
-    type: KeywordType,
-  ) {
+  private async getKeywordSummaries(terms: string[], type: KeywordType) {
     /*
     if (this.config.environment === "development") {
       return mockKeywordsSummary(terms);
@@ -123,7 +117,7 @@ export class KeywordsService {
     /*return type === KeywordType.BUSINESS
       ? this.semrush.summary(terms)
       : this.semrush.related(terms);*/
-      return
+    return;
   }
 
   private async saveKeywords(
@@ -145,7 +139,14 @@ export class KeywordsService {
           const { id: keywordId } = await tx.keyword.upsert({
             where: { phrase },
             update: { volume, cpc, competition, intents: [intent], difficulty },
-            create: { phrase, volume, cpc, competition,  intents: [intent], difficulty },
+            create: {
+              phrase,
+              volume,
+              cpc,
+              competition,
+              intents: [intent],
+              difficulty,
+            },
           });
           await tx.storeKeyword.upsert({
             where: {

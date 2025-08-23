@@ -9,10 +9,11 @@ export async function saveProducts(
   const prisma = configurable?.prisma as PrismaClient;
   if (!prisma) throw new Error("Prisma client not provided");
   if (!state._storeId) throw new Error("Missing storeId");
-  if (!Array.isArray(state._products) || state._products.length === 0) return {};
+  if (!Array.isArray(state._products) || state._products.length === 0)
+    return {};
 
   const storeId = state._storeId;
-  const ids = state._products.map(p => p.id);
+  const ids = state._products.map((p) => p.id);
 
   await prisma.$transaction(async (tx) => {
     for (const p of state._products) {
