@@ -6,7 +6,7 @@ import { JobStatus, JobType } from "@prisma/client";
 import { CatalogService } from "@/modules/commerce/catalog/catalog.service";
 import { SerankingMetricsService } from "@/modules/integrations/seranking/services/seranking.metrics.service";
 
-const STALE_MS = 10 * 60 * 1000; 
+const STALE_MS = 10 * 60 * 1000;
 
 @Injectable()
 export class KeywordDiscoveryWorkflow {
@@ -65,10 +65,12 @@ export class KeywordDiscoveryWorkflow {
     });
 
     const hb = setInterval(() => {
-      this.prisma.job.update({
-        where: { id: job.id },
-        data: { lastHeartbeatAt: new Date() },
-      }).catch(() => {});
+      this.prisma.job
+        .update({
+          where: { id: job.id },
+          data: { lastHeartbeatAt: new Date() },
+        })
+        .catch(() => {});
     }, 15000);
 
     try {

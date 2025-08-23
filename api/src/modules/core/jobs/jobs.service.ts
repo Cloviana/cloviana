@@ -31,7 +31,10 @@ export class JobsService {
     });
   }
 
-  async latestStatus(storeId: string, type: JobType): Promise<{ status: JobStatus | null; jobId: string | null }> {
+  async latestStatus(
+    storeId: string,
+    type: JobType,
+  ): Promise<{ status: JobStatus | null; jobId: string | null }> {
     const job = await this.latest(storeId, type);
     return { status: job?.status ?? null, jobId: job?.id ?? null };
   }

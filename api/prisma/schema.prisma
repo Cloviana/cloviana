@@ -22,10 +22,10 @@ enum KeywordType {
 }
 
 enum KeywordIntent {
-  I  // Informational
-  N  // Navigational
-  C  // Commercial
-  L  // Transactional
+  I // Informational
+  N // Navigational
+  C // Commercial
+  L // Transactional
 }
 
 enum BlogGenerationStatus {
@@ -90,22 +90,22 @@ enum JobStatus {
 }
 
 model Job {
-  id          String    @id @default(uuid()) @db.Uuid
-  type        JobType
-  storeId     String?
-  status      JobStatus @default(PENDING)
-  priority    Int       @default(0)
-  attempts    Int       @default(0)
-  scheduledAt DateTime?
-  startedAt   DateTime?
-  finishedAt  DateTime?
+  id              String    @id @default(uuid()) @db.Uuid
+  type            JobType
+  storeId         String?
+  status          JobStatus @default(PENDING)
+  priority        Int       @default(0)
+  attempts        Int       @default(0)
+  scheduledAt     DateTime?
+  startedAt       DateTime?
+  finishedAt      DateTime?
   lastHeartbeatAt DateTime?
-  payload     Json?     @db.JsonB
-  result      Json?     @db.JsonB
-  error       String?
-  dedupeKey   String?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  payload         Json?     @db.JsonB
+  result          Json?     @db.JsonB
+  error           String?
+  dedupeKey       String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
 
   store Store? @relation(fields: [storeId], references: [id], onDelete: Cascade)
 
@@ -116,20 +116,20 @@ model Job {
 }
 
 model Product {
-  storeId    String
-  shopifyId  String
-  handle     String?              @db.Citext
-  title      String
-  status     ShopifyProductStatus
-  description String?
-  tags       String[]             @default([])
-  category   String?
-  imageUrl   String?
-  onlineStoreUrl String?
+  storeId               String
+  shopifyId             String
+  handle                String?              @db.Citext
+  title                 String
+  status                ShopifyProductStatus
+  description           String?
+  tags                  String[]             @default([])
+  category              String?
+  imageUrl              String?
+  onlineStoreUrl        String?
   onlineStorePreviewUrl String
-  syncedAt   DateTime?
-  createdAt  DateTime             @default(now())
-  updatedAt  DateTime             @updatedAt
+  syncedAt              DateTime?
+  createdAt             DateTime             @default(now())
+  updatedAt             DateTime             @updatedAt
 
   store Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
 
@@ -188,16 +188,16 @@ model Channel {
 }
 
 model Keyword {
-  id          String        @id @default(uuid()) @db.Uuid
-  phrase      String        @unique
-  volume      Int
-  cpc         Int
-  intents       KeywordIntent[] @default([])
-  historyTrend Json?         @db.JsonB 
-  difficulty  Int
-  competition Float
-  createdAt   DateTime      @default(now())
-  updatedAt   DateTime      @updatedAt
+  id           String          @id @default(uuid()) @db.Uuid
+  phrase       String          @unique
+  volume       Int
+  cpc          Int
+  intents      KeywordIntent[] @default([])
+  historyTrend Json?           @db.JsonB
+  difficulty   Int
+  competition  Float
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
 
   storeKeywords StoreKeyword[]
   blogs         Blog[]
@@ -207,7 +207,7 @@ model Keyword {
 
 model StoreKeyword {
   storeId   String
-  keywordId String      @db.Uuid
+  keywordId String @db.Uuid
 
   store   Store   @relation(fields: [storeId], references: [id], onDelete: Cascade)
   keyword Keyword @relation(fields: [keywordId], references: [id], onDelete: Cascade)

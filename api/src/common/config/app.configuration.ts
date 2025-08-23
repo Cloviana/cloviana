@@ -16,12 +16,28 @@ export class AppConfiguration {
   readonly appUrl: string;
 
   @IsString()
+  @Value("API_URL", { parse: (value) => value || "http://localhost:3000" })
+  readonly apiUrl: string;
+
+  @IsString()
   @Value("ENVIRONMENT", { parse: (value) => value || "development" })
   readonly environment: "development" | "production";
 
   @IsString()
   @Value("SUPABASE_JWT_SECRET")
   readonly supabaseJwtSecret!: string;
+
+  @IsString()
+  @Value("SUPABASE_SERVICE_ROLE_KEY")
+  readonly supabaseServiceRoleKey!: string;
+
+  @IsString()
+  @Value("SUPABASE_ANON_KEY")
+  readonly supabaseAnonKey!: string;
+
+  @IsString()
+  @Value("SUPABASE_URL")
+  readonly supabaseUrl!: string;
 
   @IsString()
   @Value("STRIPE_SECRET_KEY")

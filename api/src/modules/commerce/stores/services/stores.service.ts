@@ -3,6 +3,7 @@ import { Injectable } from "@nestjs/common";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { AuthUser } from "@/interfaces/auth-user.interface";
 import { CreateStoreDto } from "../dto/create-store.dto";
+import { resolveFavicon } from "@/utils/resolve-favicon.util";
 
 @Injectable()
 export class StoresService {
@@ -35,7 +36,7 @@ export class StoresService {
   async createStore(user: AuthUser, dto: CreateStoreDto) {
     const { name, domainUrl } = dto;
     const { sub: ownerId } = user;
-    const profileUrl = await this.resolveFavicon(domainUrl);
+    const profileUrl = await resolveFavicon(domainUrl);
 
     const store = await this.prisma.store.create({
       data: {
@@ -47,18 +48,5 @@ export class StoresService {
     });
 
     return store;
-  }
-
-  private async resolveFavicon(domain: string): Promise<string> {
-    const googleFavicon = `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
-    try {
-      const response = await fetch(googleFavicon);
-      if (response.ok) {
-        return googleFavicon;
-      }
-    } catch {
-      // ignore fetch errors
-    }
-    return `https://icons.duckduckgo.com/ip3/${domain}.ico`;
   }
 }
