@@ -1,7 +1,7 @@
 'use client';
 
 import * as Dialog from '@radix-ui/react-dialog';
-import { useParams, usePathname } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 import { useGetStore } from '@/api/stores/get-store';
@@ -9,13 +9,11 @@ import { Button } from '@/components/actions';
 import { GIcon } from '@/components/icons';
 import { TextField } from '@/components/input';
 import * as Page from '@/components/layout/page';
-import { startShopifyInstall } from '@/features/shopify/actions/start-install';
 
-type FormValues = { storeUrl: string };
+type FormValues = { shop: string };
 
 export default function IntegrationsPage() {
   const { storeId } = useParams<{ storeId: string }>();
-  const pathname = usePathname();
   const { data: store } = useGetStore(storeId);
   const connected = Boolean(store?.channel);
 
@@ -23,11 +21,13 @@ export default function IntegrationsPage() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isValid },
-  } = useForm<FormValues>({ mode: 'onChange' });
+  } = useForm<FormValues>({ mode: 'onSubmit' });
 
-  const onSubmit: SubmitHandler<FormValues> = async ({ storeUrl }) => {
-    const url = await startShopifyInstall(storeUrl, pathname);
-    window.location.href = url;
+  const { push } = useRouter();
+
+  const onSubmit: SubmitHandler<FormValues> = async ({ shop }) => {
+    const q = new URLSearchParams({ shop }).toString();
+    push(`/api/auth/shopify?${q}`);
   };
 
   return (
@@ -92,8 +92,8 @@ export default function IntegrationsPage() {
                         size="sm"
                         variant="surface"
                         placeholder="your-store.myshopify.com"
-                        error={errors.storeUrl?.message}
-                        {...register('storeUrl', {
+                        error={errors.shop?.message}
+                        {...register('shop', {
                           required: 'Store URL is required',
                           pattern: {
                             value: /^[a-z0-9-]+\.myshopify\.com$/,
