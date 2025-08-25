@@ -8,7 +8,7 @@ import { useGetStore } from '@/api/stores/get-store';
 import { Button } from '@/components/actions';
 import { GIcon } from '@/components/icons';
 import { TextField } from '@/components/input';
-import * as Page from '@/components/layout/page';
+import { Page } from '@/components/layout';
 
 type FormValues = { shop: string };
 
