@@ -17,11 +17,7 @@ export const KeywordView = () => {
     storeId: string;
     draftId: string;
   }>();
-  const { data: keywords = [], isFetching: loading } = useGetKeywords({
-    storeId,
-    params: { type: 'BLOG' },
-    queryConfig: { suspense: true },
-  });
+  const { data: keywords = [], isFetching: loading } = useGetKeywords(storeId);
 
   const { data: suggestions = [] } = useGetKeywordSuggestions({
     storeId,
@@ -108,7 +104,7 @@ export const KeywordView = () => {
           <button
             onClick={() => setShowSuggestions((prevState) => !prevState)}
             className={
-              'text-foreground-light underline decoration-dotted underline-offset-[3px] transition-colors hover:text-foreground/90'
+              'hover:text-foreground/90 text-foreground-light underline decoration-dotted underline-offset-[3px] transition-colors'
             }
           >
             {showSuggestions ? 'Hide' : 'Show suggestions'}
