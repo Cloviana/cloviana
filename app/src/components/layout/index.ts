@@ -4,3 +4,4 @@ export * from './split-layout';
 export * from './page';
 export * from './layout';
 export * from './card';
+export * from './scroll-area';
