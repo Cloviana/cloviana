@@ -160,10 +160,10 @@ export type Channel = Entity<{
 export type Keyword = Entity<{
   phrase: string;
   volume: number;
-  cpc: number;
-  competition: number;
-  intent: string;
   difficulty: number;
+  competition: number;
+  intents: ('I' | 'C' | 'L' | 'N')[];
+  historyTrend: Record<string, number>;
 }>;
 
 export type Blog = Entity<{

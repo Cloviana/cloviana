@@ -12,7 +12,7 @@ export const storeKeys = {
 
 export const keywordsKeys = {
   base: ['keywords'] as const,
-  list: (type: string) => [...blogsKeys.base, 'list', type] as const,
+  list: (storeId: string) => [...keywordsKeys.base, 'list', storeId] as const,
 };
 
 export const topicSuggestionsKeys = {

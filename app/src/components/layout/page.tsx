@@ -1,10 +1,13 @@
-import { FC, HTMLAttributes } from 'react';
+import { ScrollAreaProps } from '@radix-ui/react-scroll-area';
+import { FC, HTMLAttributes, RefAttributes } from 'react';
 
-import { Button, ButtonProps } from '@/components/actions';
+import { Button as Button_, ButtonProps } from '@/components/actions';
 import { cn } from '@/utils/cn';
 
+import { ScrollArea } from './scroll-area';
+
 type RootProps = HTMLAttributes<HTMLElement>;
-type ContentProps = HTMLAttributes<HTMLElement>;
+type ContentProps = ScrollAreaProps & RefAttributes<HTMLDivElement>;
 type PageButtonProps = ButtonProps;
 
 const Root: FC<RootProps> = ({ className, children, ...rest }) => (
@@ -22,10 +25,7 @@ const Header: FC<HTMLAttributes<HTMLElement>> = ({
   ...rest
 }) => (
   <div
-    className={cn(
-      'flex h-10 shrink-0 items-center border-b border-surface-300 px-8',
-      className,
-    )}
+    className={cn('flex h-10 shrink-0 items-center border-b px-8', className)}
     {...rest}
   >
     {children}
@@ -39,7 +39,7 @@ const SubHeader: FC<HTMLAttributes<HTMLElement>> = ({
 }) => (
   <div
     className={cn(
-      'z-10 flex h-10 shrink-0 items-center border-b border-surface-300 px-8',
+      'z-10 flex h-10 shrink-0 items-center border-b px-8',
       className,
     )}
     {...rest}
@@ -48,14 +48,10 @@ const SubHeader: FC<HTMLAttributes<HTMLElement>> = ({
   </div>
 );
 
-const Content: FC<ContentProps> = ({ className, ...rest }) => (
-  <section
-    className={cn(
-      'relative mx-auto min-h-0 w-full flex-1 overflow-y-auto',
-      className,
-    )}
-    {...rest}
-  />
+const Content: FC<ContentProps> = ({ className, children, ...rest }) => (
+  <ScrollArea className={className} {...rest}>
+    {children}
+  </ScrollArea>
 );
 
 const Title: FC<HTMLAttributes<HTMLHeadingElement>> = ({
@@ -70,10 +66,10 @@ const Title: FC<HTMLAttributes<HTMLHeadingElement>> = ({
   </div>
 );
 
-const PageButton: FC<PageButtonProps> = ({ children, className, ...rest }) => (
-  <Button size="sm" className={className} {...rest}>
+const Button: FC<PageButtonProps> = ({ children, className, ...rest }) => (
+  <Button_ size="sm" className={className} {...rest}>
     {children}
-  </Button>
+  </Button_>
 );
 
-export { PageButton as Button, Content, Header, Root, SubHeader, Title };
+export const Page = { Button, Content, Header, Root, SubHeader, Title };

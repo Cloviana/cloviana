@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { useGetLatestJobStatus } from '@/api/jobs/get-latest-job-status';
 import { productKeys } from '@/api/keys';
 import { useSyncProducts } from '@/api/products/sync-products';
-import * as Page from '@/components/layout/page';
+import { Page } from '@/components/layout';
 
 export function SyncProductsButton({ storeId }: { storeId: string }) {
   const qc = useQueryClient();

@@ -4,9 +4,9 @@ import { useParams } from 'next/navigation';
 import { FC } from 'react';
 
 import { useGetProducts } from '@/api/products/get-products';
-import * as Page from '@/components/layout/page';
+import { Page } from '@/components/layout';
 
-import { ProductsTable } from './_components/products-table';
+import { DataTable } from './_components/data-table';
 import { SyncProductsButton } from './_components/sync-products-button';
 
 const ProductsPage: FC = () => {
@@ -21,7 +21,7 @@ const ProductsPage: FC = () => {
       </Page.Header>
 
       <Page.Content className="overflow-y-auto">
-        <ProductsTable products={products} />
+        <DataTable products={products} />
       </Page.Content>
     </Page.Root>
   );
