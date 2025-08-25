@@ -4,7 +4,7 @@ import { FC, HTMLAttributes, RefAttributes } from 'react';
 import { Button as Button_, ButtonProps } from '@/components/actions';
 import { cn } from '@/utils/cn';
 
-import { ScrollArea } from './scroll-area';
+import { ScrollArea, ScrollBar } from './scroll-area';
 
 type RootProps = HTMLAttributes<HTMLElement>;
 type ContentProps = ScrollAreaProps & RefAttributes<HTMLDivElement>;
@@ -51,6 +51,8 @@ const SubHeader: FC<HTMLAttributes<HTMLElement>> = ({
 const Content: FC<ContentProps> = ({ className, children, ...rest }) => (
   <ScrollArea className={className} {...rest}>
     {children}
+    <ScrollBar orientation="vertical" />
+    <ScrollBar orientation="horizontal" />
   </ScrollArea>
 );
 
