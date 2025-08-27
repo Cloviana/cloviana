@@ -6,7 +6,10 @@ import { SelectionByIdSchema } from "../schemas/selected-keyword.schema";
 import { SerankingMetricsService } from "@/modules/integrations/seranking/services/seranking.metrics.service";
 import { RunnableConfig } from "@langchain/core/runnables";
 import pRetry from "p-retry";
-import { SerpIntent, SimilarRelatedItem } from "@/modules/integrations/seranking/seranking.types";
+import {
+  SerpIntent,
+  SimilarRelatedItem,
+} from "@/modules/integrations/seranking/seranking.types";
 
 type HistoryTrend = Record<string, number> | null;
 
@@ -41,7 +44,11 @@ const BASE_FILTER = {
 } as const;
 
 function normalize(s: string) {
-  return s.toLowerCase().replace(/[^\p{L}\p{N}\s\-]/gu, "").replace(/\s+/g, " ").trim();
+  return s
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s\-]/gu, "")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function parseTrend(h: HistoryTrend): TrendInfo | null {
@@ -56,7 +63,8 @@ function parseTrend(h: HistoryTrend): TrendInfo | null {
   const eff = vals.length >= 2 ? vals.slice(0, -1) : vals.slice();
   if (!eff.length) return null;
   const slice = (n: number) => eff.slice(-n);
-  const avg = (a: number[]) => (a.length ? a.reduce((x, y) => x + y, 0) / a.length : 0);
+  const avg = (a: number[]) =>
+    a.length ? a.reduce((x, y) => x + y, 0) / a.length : 0;
   const slope = (a: number[]) => {
     const n = a.length;
     if (n < 2) return 0;
@@ -89,20 +97,49 @@ function rankScore(c: Candidate) {
   const t = parseTrend(c.history_trend ?? null);
   const v = c.volume ?? 0;
   const d = c.difficulty ?? 0;
-  const comp = typeof c.competition === "number" ? c.competition : Number(c.competition ?? 0);
+  const comp =
+    typeof c.competition === "number"
+      ? c.competition
+      : Number(c.competition ?? 0);
   const cpc = c.cpc ?? 0;
-  const intentBoost = (c.intents ?? []).some((i) => ["commercial", "transactional"].includes(String(i))) ? 1.25 : 1;
-  const trendBoost = t ? 1 + Math.min(2, (Math.max(0, t.slope6) * 2 + Math.max(0, t.slope12) + (t.avg3 >= t.avg12 ? 1 : 0)) / 10) : 1;
+  const intentBoost = (c.intents ?? []).some((i) =>
+    ["commercial", "transactional"].includes(String(i)),
+  )
+    ? 1.25
+    : 1;
+  const trendBoost = t
+    ? 1 +
+      Math.min(
+        2,
+        (Math.max(0, t.slope6) * 2 +
+          Math.max(0, t.slope12) +
+          (t.avg3 >= t.avg12 ? 1 : 0)) /
+          10,
+      )
+    : 1;
   const volumeScore = Math.log10(Math.max(1, v));
   const difficultyPenalty = 1 / (1 + Math.max(0, d - 10) / 45);
   const compPenalty = 1 / (1 + Math.max(0, comp - 0.3));
   const cpcBoost = 1 + Math.min(1, cpc / 3);
-  return volumeScore * difficultyPenalty * compPenalty * cpcBoost * trendBoost * intentBoost;
+  return (
+    volumeScore *
+    difficultyPenalty *
+    compPenalty *
+    cpcBoost *
+    trendBoost *
+    intentBoost
+  );
 }
 
 function gate(
   c: Candidate,
-  g: { minVol: number; lastMin: number; minSlope6: number; minSlope12: number; minAvg3Vs12: number }
+  g: {
+    minVol: number;
+    lastMin: number;
+    minSlope6: number;
+    minSlope12: number;
+    minAvg3Vs12: number;
+  },
 ) {
   const t = parseTrend(c.history_trend ?? null);
   if (!t) return false;
@@ -125,18 +162,29 @@ function dedupeKeepBest(list: Candidate[]) {
 
 async function buildSeeds(
   llm: ChatOpenAI,
-  products: Array<{ title: string; handle: string; tags: string[]; description: string }>,
-  collections: Array<{ title: string; handle: string; description: string }>
+  products: Array<{
+    title: string;
+    handle: string;
+    tags: string[];
+    description: string;
+  }>,
+  collections: Array<{ title: string; handle: string; description: string }>,
 ) {
   const res = await pRetry(
     () =>
       llm.withStructuredOutput(SeedKeywordsSchema).invoke([
         new SystemMessage(
-          "You generate seed keywords for an e-commerce store. Return exactly the requested total as foundational, deduplicated seed phrases to expand later with a keyword tool. Seeds must be short, generic-but-commercial, represent categories, product families, and high-value products. No questions, how-tos, comparisons, or ultra-specific variants unless core to buyer search. Prefer 4–6 words max. Use only information present in the inputs."
+          "You generate seed keywords for an e-commerce store. Return exactly the requested total as foundational, deduplicated seed phrases to expand later with a keyword tool. Seeds must be short, generic-but-commercial, represent categories, product families, and high-value products. No questions, how-tos, comparisons, or ultra-specific variants unless core to buyer search. Prefer 4–6 words max. Use only information present in the inputs.",
         ),
-        new HumanMessage(JSON.stringify({ products, collections, constraints: { min: 4, max: 6 } })),
+        new HumanMessage(
+          JSON.stringify({
+            products,
+            collections,
+            constraints: { min: 4, max: 6 },
+          }),
+        ),
       ]),
-    { retries: 5, factor: 2, minTimeout: 1200, maxTimeout: 4000 }
+    { retries: 5, factor: 2, minTimeout: 1200, maxTimeout: 4000 },
   );
   return res.items.map((i) => i.phrase);
 }
@@ -148,8 +196,27 @@ async function fetchBuckets(metrics: SerankingMetricsService, seeds: string[]) {
   await Promise.all(
     seeds.map(async (seed) => {
       const [rel, qs] = await Promise.allSettled([
-        metrics.getRelated({ source: REGION, keyword: seed, limit: 160, sort: "volume", sort_order: "desc", history_trend: true, filter: { ...BASE_FILTER, cpc: { from: 0.1 } } }),
-        metrics.getQuestions({ source: REGION, keyword: seed, limit: 80, sort: "volume", sort_order: "desc", history_trend: true, filter: { ...BASE_FILTER, serp_features: ["featured_snippets", "people_also_ask", "sge"] } }),
+        metrics.getRelated({
+          source: REGION,
+          keyword: seed,
+          limit: 160,
+          sort: "volume",
+          sort_order: "desc",
+          history_trend: true,
+          filter: BASE_FILTER,
+        }),
+        metrics.getQuestions({
+          source: REGION,
+          keyword: seed,
+          limit: 80,
+          sort: "volume",
+          sort_order: "desc",
+          history_trend: true,
+          filter: {
+            ...BASE_FILTER,
+            serp_features: ["featured_snippets", "people_also_ask", "sge"],
+          },
+        }),
       ]);
       if (rel.status === "fulfilled") {
         for (const k of rel.value.items ?? []) {
@@ -167,12 +234,15 @@ async function fetchBuckets(metrics: SerankingMetricsService, seeds: string[]) {
           questions.push(k);
         }
       }
-    })
+    }),
   );
   return { related, questions };
 }
 
-function buildCandidates(related: SimilarRelatedItem[], questions: SimilarRelatedItem[]): Candidate[] {
+function buildCandidates(
+  related: SimilarRelatedItem[],
+  questions: SimilarRelatedItem[],
+): Candidate[] {
   return [
     ...related.map((k, i) => ({
       id: `related-${i}-${normalize(k.keyword)}`,
@@ -201,13 +271,39 @@ function buildCandidates(related: SimilarRelatedItem[], questions: SimilarRelate
 
 function ensureAtLeastN(candidates: Candidate[], n = 50) {
   const stages = [
-    { minVol: 300, lastMin: 300, minSlope6: 0.1, minSlope12: 0, minAvg3Vs12: 0.9 },
-    { minVol: 200, lastMin: 200, minSlope6: 0, minSlope12: 0, minAvg3Vs12: 0.85 },
-    { minVol: 150, lastMin: 150, minSlope6: -0.02, minSlope12: 0, minAvg3Vs12: 0.8 },
-    { minVol: 120, lastMin: 120, minSlope6: -0.05, minSlope12: -0.02, minAvg3Vs12: 0.75 },
+    {
+      minVol: 300,
+      lastMin: 300,
+      minSlope6: 0.1,
+      minSlope12: 0,
+      minAvg3Vs12: 0.9,
+    },
+    {
+      minVol: 200,
+      lastMin: 200,
+      minSlope6: 0,
+      minSlope12: 0,
+      minAvg3Vs12: 0.85,
+    },
+    {
+      minVol: 150,
+      lastMin: 150,
+      minSlope6: -0.02,
+      minSlope12: 0,
+      minAvg3Vs12: 0.8,
+    },
+    {
+      minVol: 120,
+      lastMin: 120,
+      minSlope6: -0.05,
+      minSlope12: -0.02,
+      minAvg3Vs12: 0.75,
+    },
   ];
   for (const g of stages) {
-    const kept = candidates.filter((c) => gate(c, g)).sort((a, b) => rankScore(b) - rankScore(a));
+    const kept = candidates
+      .filter((c) => gate(c, g))
+      .sort((a, b) => rankScore(b) - rankScore(a));
     if (kept.length >= n) return kept.slice(0, n);
   }
   return candidates.sort((a, b) => rankScore(b) - rankScore(a)).slice(0, n);
@@ -235,10 +331,22 @@ function chunk<T>(arr: T[], size: number) {
 async function selectBatch(
   llm: ChatOpenAI,
   now: string,
-  products: Array<{ title: string; handle: string; tags: string[]; description: string }>,
+  products: Array<{
+    title: string;
+    handle: string;
+    tags: string[];
+    description: string;
+  }>,
   collections: Array<{ title: string; handle: string; description: string }>,
-  batch: { id: string; phrase: string; volume?: number; difficulty?: number; intents?: SerpIntent[]; t?: { s6: number; s12: number; r: number; last: number } }[],
-  take: number
+  batch: {
+    id: string;
+    phrase: string;
+    volume?: number;
+    difficulty?: number;
+    intents?: SerpIntent[];
+    t?: { s6: number; s12: number; r: number; last: number };
+  }[],
+  take: number,
 ) {
   const res = await pRetry(
     () =>
@@ -250,11 +358,18 @@ async function selectBatch(
             "Avoid downtrends, very low volume, and near-duplicates within the batch.",
             `Return exactly ${take} IDs if feasible; if not feasible, return as many high-quality IDs as possible.`,
             `Optimize for current season ${now}.`,
-          ].join(" ")
+          ].join(" "),
         ),
-        new HumanMessage(JSON.stringify({ products, collections, candidates: batch, constraints: { total: take } })),
+        new HumanMessage(
+          JSON.stringify({
+            products,
+            collections,
+            candidates: batch,
+            constraints: { total: take },
+          }),
+        ),
       ]),
-    { retries: 3, factor: 2, minTimeout: 800, maxTimeout: 2500 }
+    { retries: 3, factor: 2, minTimeout: 800, maxTimeout: 2500 },
   );
   return res.items.map((i) => i.id);
 }
@@ -262,10 +377,22 @@ async function selectBatch(
 async function selectFinal(
   llm: ChatOpenAI,
   now: string,
-  products: Array<{ title: string; handle: string; tags: string[]; description: string }>,
+  products: Array<{
+    title: string;
+    handle: string;
+    tags: string[];
+    description: string;
+  }>,
   collections: Array<{ title: string; handle: string; description: string }>,
-  pool: { id: string; phrase: string; volume?: number; difficulty?: number; intents?: SerpIntent[]; t?: { s6: number; s12: number; r: number; last: number } }[],
-  total: number
+  pool: {
+    id: string;
+    phrase: string;
+    volume?: number;
+    difficulty?: number;
+    intents?: SerpIntent[];
+    t?: { s6: number; s12: number; r: number; last: number };
+  }[],
+  total: number,
 ) {
   const res = await pRetry(
     () =>
@@ -276,16 +403,27 @@ async function selectFinal(
             "Ensure diversity and avoid near-duplicates. Keep clear commercial/transactional intent, stable-to-upward trends excluding the most recent month, and reasonable difficulty. Avoid keywords for local seo like 'shops near me'",
             `Return exactly ${total} IDs.`,
             `Optimize for current season ${now}.`,
-          ].join(" ")
+          ].join(" "),
         ),
-        new HumanMessage(JSON.stringify({ products, collections, candidates: pool, constraints: { total } })),
+        new HumanMessage(
+          JSON.stringify({
+            products,
+            collections,
+            candidates: pool,
+            constraints: { total },
+          }),
+        ),
       ]),
-    { retries: 3, factor: 2, minTimeout: 800, maxTimeout: 2500 }
+    { retries: 3, factor: 2, minTimeout: 800, maxTimeout: 2500 },
   );
   return res.items.map((i) => i.id);
 }
 
-async function mapWithConcurrency<T, R>(arr: T[], limit: number, fn: (item: T, index: number) => Promise<R>) {
+async function mapWithConcurrency<T, R>(
+  arr: T[],
+  limit: number,
+  fn: (item: T, index: number) => Promise<R>,
+) {
   const ret = new Array<R>(arr.length);
   let i = 0;
   await Promise.all(
@@ -295,7 +433,7 @@ async function mapWithConcurrency<T, R>(arr: T[], limit: number, fn: (item: T, i
         if (idx >= arr.length) break;
         ret[idx] = await fn(arr[idx], idx);
       }
-    })
+    }),
   );
   return ret;
 }
@@ -303,7 +441,12 @@ async function mapWithConcurrency<T, R>(arr: T[], limit: number, fn: (item: T, i
 async function selectCandidatesBatched(
   llm: ChatOpenAI,
   payload: {
-    products: Array<{ title: string; handle: string; tags: string[]; description: string }>;
+    products: Array<{
+      title: string;
+      handle: string;
+      tags: string[];
+      description: string;
+    }>;
     collections: Array<{ title: string; handle: string; description: string }>;
     candidates: {
       id: string;
@@ -315,19 +458,34 @@ async function selectCandidatesBatched(
     }[];
   },
   target = 50,
-  concurrency = 3
+  concurrency = 3,
 ) {
-  const now = new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" });
+  const now = new Date().toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
+  });
   const MAX_BATCH = 160;
   const MAX_SHORTLIST = 220;
 
   const ranked = payload.candidates.slice().sort((a, b) => {
     const va = Math.log10(Math.max(1, a.volume ?? 0));
     const vb = Math.log10(Math.max(1, b.volume ?? 0));
-    const ra = a.t ? (Math.max(0, a.t.s6) * 2 + Math.max(0, a.t.s12) + (a.t.r >= 1 ? 1 : 0)) : 0;
-    const rb = b.t ? (Math.max(0, b.t.s6) * 2 + Math.max(0, b.t.s12) + (b.t.r >= 1 ? 1 : 0)) : 0;
-    const ia = (a.intents ?? []).some((i) => ["commercial", "transactional"].includes(String(i))) ? 1 : 0;
-    const ib = (b.intents ?? []).some((i) => ["commercial", "transactional"].includes(String(i))) ? 1 : 0;
+    const ra = a.t
+      ? Math.max(0, a.t.s6) * 2 + Math.max(0, a.t.s12) + (a.t.r >= 1 ? 1 : 0)
+      : 0;
+    const rb = b.t
+      ? Math.max(0, b.t.s6) * 2 + Math.max(0, b.t.s12) + (b.t.r >= 1 ? 1 : 0)
+      : 0;
+    const ia = (a.intents ?? []).some((i) =>
+      ["commercial", "transactional"].includes(String(i)),
+    )
+      ? 1
+      : 0;
+    const ib = (b.intents ?? []).some((i) =>
+      ["commercial", "transactional"].includes(String(i)),
+    )
+      ? 1
+      : 0;
     const da = a.difficulty ?? 0;
     const db = b.difficulty ?? 0;
     const pa = va - Math.max(0, da - 10) / 40 + ia + ra / 10;
@@ -337,7 +495,9 @@ async function selectCandidatesBatched(
 
   const trimmed = ranked.slice(0, Math.max(MAX_SHORTLIST, target));
   const batches = chunk(trimmed, MAX_BATCH);
-  const quotasBase = batches.map((b) => Math.floor((b.length / trimmed.length) * target));
+  const quotasBase = batches.map((b) =>
+    Math.floor((b.length / trimmed.length) * target),
+  );
   let allocated = quotasBase.reduce((s, x) => s + x, 0);
   let i = 0;
   while (allocated < target) {
@@ -350,8 +510,11 @@ async function selectCandidatesBatched(
     .map((batch, idx) => ({ batch, take: quotasBase[idx] }))
     .filter((x) => x.take > 0);
 
-  const results = await mapWithConcurrency(batchInputs, concurrency, async ({ batch, take }) =>
-    selectBatch(llm, now, payload.products, payload.collections, batch, take)
+  const results = await mapWithConcurrency(
+    batchInputs,
+    concurrency,
+    async ({ batch, take }) =>
+      selectBatch(llm, now, payload.products, payload.collections, batch, take),
   );
 
   const selectedIds = new Set<string>();
@@ -359,13 +522,23 @@ async function selectCandidatesBatched(
 
   if (selectedIds.size < target) {
     const missing = target - selectedIds.size;
-    const remaining = trimmed.filter((c) => !selectedIds.has(c.id)).slice(0, missing).map((c) => c.id);
+    const remaining = trimmed
+      .filter((c) => !selectedIds.has(c.id))
+      .slice(0, missing)
+      .map((c) => c.id);
     for (const id of remaining) selectedIds.add(id);
   }
 
   if (selectedIds.size > target) {
     const pool = trimmed.filter((c) => selectedIds.has(c.id));
-    const finalIds = await selectFinal(llm, now, payload.products, payload.collections, pool, target);
+    const finalIds = await selectFinal(
+      llm,
+      now,
+      payload.products,
+      payload.collections,
+      pool,
+      target,
+    );
     return finalIds;
   }
 
@@ -374,7 +547,7 @@ async function selectCandidatesBatched(
 
 export async function generateKeywords(
   state: typeof StateAnnotation.State,
-  { configurable }: RunnableConfig
+  { configurable }: RunnableConfig,
 ): Promise<Partial<typeof StateAnnotation.State>> {
   const metrics = configurable?.metrics as SerankingMetricsService;
   if (!metrics) throw new Error("SEranking metrics service not provided");
@@ -392,7 +565,10 @@ export async function generateKeywords(
   }));
   if (!products.length && !collections.length) return { _keywords: [] };
 
-  const llm = new ChatOpenAI({ model: "gpt-4o-mini-2024-07-18", temperature: 0 });
+  const llm = new ChatOpenAI({
+    model: "gpt-4.1-mini",
+    temperature: 0,
+  });
 
   const seeds = await buildSeeds(llm, products, collections);
   const { related, questions } = await fetchBuckets(metrics, seeds);
@@ -408,14 +584,21 @@ export async function generateKeywords(
       volume: c.volume,
       difficulty: c.difficulty,
       intents: c.intents,
-      t: t ? { s6: t.slope6, s12: t.slope12, r: t.avg12 ? t.avg3 / t.avg12 : 0, last: t.last_effective } : undefined,
+      t: t
+        ? {
+            s6: t.slope6,
+            s12: t.slope12,
+            r: t.avg12 ? t.avg3 / t.avg12 : 0,
+            last: t.last_effective,
+          }
+        : undefined,
     };
   });
 
   const selectionIds = await selectCandidatesBatched(
     llm,
     { products, collections, candidates: compactCandidates },
-    50
+    50,
   );
 
   const selected = selectionIds

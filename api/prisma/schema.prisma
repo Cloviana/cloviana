@@ -80,6 +80,7 @@ enum JobType {
   BLOG_GENERATION
   SITEMAP_BUILD
   KEYWORD_DISCOVERY
+  STORE_METADATA
 }
 
 enum JobStatus {
@@ -108,6 +109,7 @@ model Job {
   updatedAt       DateTime  @updatedAt
 
   store Store? @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  blogs Blog[]
 
   @@unique([type, storeId, dedupeKey])
   @@index([type, status, priority, scheduledAt])
@@ -140,12 +142,9 @@ model Product {
 }
 
 model Profile {
-  id         String   @id @default(uuid()) @db.Uuid
-  firstName  String?
-  lastName   String?
-  profileUrl String?
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id        String   @id @default(uuid()) @db.Uuid
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   storesOwned Store[] @relation("StoreOwner")
 
@@ -159,6 +158,7 @@ model Store {
   name             String
   domainUrl        String
   profileUrl       String?
+  description      String?
   status           StoreStatus @default(LOCKED)
   createdAt        DateTime    @default(now())
   updatedAt        DateTime    @updatedAt
@@ -229,11 +229,13 @@ model Blog {
   publishStatus    BlogPublishStatus    @default(DRAFT)
   storeId          String
   shopifyArticleId String?
+  jobId            String?              @db.Uuid
   createdAt        DateTime             @default(now())
   updatedAt        DateTime             @updatedAt
 
   keyword   Keyword?   @relation(fields: [keywordId], references: [id], onDelete: Cascade)
   store     Store      @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  job       Job?       @relation(fields: [jobId], references: [id], onDelete: Cascade)
   nodes     Node[]
   thumbnail Thumbnail?
 

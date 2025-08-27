@@ -5,10 +5,8 @@ import {
   BlogGenerationStatus,
   BlogPublishStatus,
   GenerationStep,
-  KeywordType,
   Prisma,
 } from "@prisma/client";
-import cuid from "cuid";
 import { UpdateBlogDto } from "../dtos/update-blog.dto";
 import { UpdateNodeDto } from "../dtos/update-node.dto";
 import { StorageService } from "@/modules/core/storage/storage.service";
@@ -24,7 +22,6 @@ import {
   BLOG_DETAIL_SELECT,
   BLOG_SUMMARY_SELECT,
 } from "../constants/selects.constants";
-import { BlogWriterAgent } from "../agents/blog-writer";
 import { firstValueFrom } from "rxjs";
 import { HttpService } from "@nestjs/axios";
 import { flattenNodes } from "../utils/flatten-nodes";
@@ -35,7 +32,6 @@ export class BlogsService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly blogsProducer: BlogsProducer,
-    private readonly agent: BlogWriterAgent,
     private readonly storage: StorageService,
     private readonly shopify: ShopifyService,
     private readonly http: HttpService,
@@ -96,7 +92,7 @@ export class BlogsService {
   }
 
   async generateBlog(storeId: string, blogId: string) {
-    const [{ keyword }, blog] = await this.prisma.$transaction([
+    /*const [{ keyword }, blog] = await this.prisma.$transaction([
       this.prisma.storeKeyword.findFirstOrThrow({
         where: { storeId },
         select: { keyword: { select: { phrase: true } } },
@@ -148,7 +144,7 @@ export class BlogsService {
       const nodeInputs = flattenNodes(nodes, blogId);
       if (nodeInputs.length)
         await tx.node.createMany({ data: nodeInputs, skipDuplicates: true });
-    });
+    });*/
   }
 
   async getGenerationStatus(blogId: string) {

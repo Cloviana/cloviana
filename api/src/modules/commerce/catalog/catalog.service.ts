@@ -9,6 +9,10 @@ import {
   CollectionsQuery,
   CollectionsQueryVariables,
   Collection,
+  ArticlesQuery,
+  ArticlesDocument,
+  ArticlesQueryVariables,
+  Article,
 } from "@/clients/shopify/generated";
 import pRetry from "p-retry";
 
@@ -63,6 +67,32 @@ export class CatalogService {
       all.push(...(data.collections.nodes as Collection[]));
       after = data.collections.pageInfo.hasNextPage
         ? (data.collections.pageInfo.endCursor ?? null)
+        : null;
+    } while (after);
+    return all;
+  }
+
+  async listAllArticles(
+    shop: string,
+    token: string,
+    opts?: { query?: string; first?: number },
+  ): Promise<Article[]> {
+    const client = await this.shopify.getAdminClient(shop, token);
+    const first = opts?.first ?? 250;
+    let after: string | null = null;
+    const all: Article[] = [];
+    do {
+      const data = await pRetry(
+        () =>
+          client.request<ArticlesQuery, ArticlesQueryVariables>(
+            ArticlesDocument,
+            { first, after: after ?? undefined, query: opts?.query },
+          ),
+        { retries: 5, factor: 2, minTimeout: 500, maxTimeout: 4000 },
+      );
+      all.push(...(data.articles.nodes as Article[]));
+      after = data.articles.pageInfo.hasNextPage
+        ? (data.articles.pageInfo.endCursor ?? null)
         : null;
     } while (after);
     return all;
