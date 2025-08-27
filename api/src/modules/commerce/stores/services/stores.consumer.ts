@@ -5,6 +5,7 @@ import { StoreStatus } from "@prisma/client";
 import { INIT_STORES_EVENT } from "@/constants/rabbitmq.constants";
 import { SyncProductsWorkflow } from "@/workflows/sync-products/sync-products.workflow";
 import { KeywordDiscoveryWorkflow } from "@/workflows/keyword-discovery/keyword-discovery.workflow";
+import { StoreMetadataWorkflow } from "@/workflows/store-metadata/store-metadata.workflow";
 
 interface GenerateBlogsEvent {
   storeId: string;
@@ -18,6 +19,7 @@ export class StoresConsumer {
     private readonly prisma: PrismaService,
     private readonly syncProducts: SyncProductsWorkflow,
     private readonly keywordDiscovery: KeywordDiscoveryWorkflow,
+    private readonly storeMetadata: StoreMetadataWorkflow,
   ) {}
 
   @EventPattern(INIT_STORES_EVENT)
@@ -39,6 +41,7 @@ export class StoresConsumer {
       await Promise.all([
         this.syncProducts.run(storeId),
         this.keywordDiscovery.run(storeId),
+        this.storeMetadata.run(storeId),
       ]);
 
       this.logger.log(
