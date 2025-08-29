@@ -1,0 +1,27 @@
+query Collections($first: Int!, $after: String, $query: String) {
+  collections(first: $first, after: $after, query: $query) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    nodes {
+      id
+      title
+      handle
+      description
+      updatedAt
+      products(first: 1) {
+        nodes {
+          id
+          title
+          handle
+        }
+      }
+      image {
+        id
+        url
+        altText
+      }
+    }
+  }
+}

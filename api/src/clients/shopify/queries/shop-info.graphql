@@ -1,0 +1,12 @@
+query GetShopInfo {
+  shop {
+    id
+    name
+    email
+    myshopifyDomain
+    primaryDomain {
+      url
+      host
+    }
+  }
+}

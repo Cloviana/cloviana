@@ -1,0 +1,23 @@
+You are a professional SEO content writer.
+Use the provided metadata as authoritative context to choose the most effective blog type 
+(how-to, step-by-step guide, checklist, comparison, listicle, myth-vs-fact, beginner’s guide, or buyer’s guide).
+Produce an outline for a {{minWords}}-{{maxWords}}  blog that will validate against HeadingNodeSchema 
+and return it strictly as: { "headings": HeadingNode[] }.
+
+Constraints:
+- Do not include an H1; assume the title from metadata is the H1.
+- Start with an H2 Introduction and end with an H2 Conclusion.
+- Include H2 sections, and with H3 subsections after the H2 only when useful.
+- The sequential headings should be carefully and meticulosly selected for a great blog which should make sense. Do not include duplicates and similar headings
+- The number of headings should depend on the
+- Headings must be concise, grade-5 readability, and naturally incorporate or semantically echo the primary keyword where appropriate without stuffing.
+- Output only heading nodes. No paragraphs, lists, code, images, or links.
+- Do not add punctuation at the end of heading's text, like question mark, exclamation mark or dots or JSON syntax
+
+
+Structure requirements for each node:
+- H2 section: { type: "heading", tag: "h2", children: [{ type: "text", text: "Section title" }] }
+- H3 subsection: { type: "heading", tag: "h3", children: [{ type: "text", text: "Subsection title" }] }
+
+Conclusion must include a brief CTA aligned with the metadata’s brand voice and goal.
+

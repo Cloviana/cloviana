@@ -5,6 +5,7 @@ import {
   FastifyAdapter,
   NestFastifyApplication,
 } from "@nestjs/platform-fastify";
+import fastifyCookie from "@fastify/cookie";
 
 import { AppModule } from "@/app.module";
 import { AppConfiguration } from "@/common/config/app.configuration";
@@ -14,8 +15,12 @@ import {
   BLOGS_QUEUE_OPTS,
   KEYWORDS_QUEUE,
   KEYWORDS_QUEUE_OPTS,
+  PRODUCTS_QUEUE,
+  PRODUCTS_QUEUE_OPTS,
+  STORES_QUEUE,
+  STORES_QUEUE_OPTS,
 } from "@/constants/rabbitmq.constants";
-import { SupabaseAuthGuard } from "./modules/auth/guards/supabase-auth.guards";
+import { SupabaseAuthGuard } from "./modules/core/auth/guards/supabase-auth.guards";
 
 async function bootstrap() {
   const adapter = new FastifyAdapter();
@@ -24,6 +29,7 @@ async function bootstrap() {
     adapter,
     { rawBody: true },
   );
+  await app.register(fastifyCookie);
 
   // Global API prefix and auth guard
   app.setGlobalPrefix("api");
@@ -36,6 +42,8 @@ async function bootstrap() {
   const queues = [
     { name: KEYWORDS_QUEUE, opts: KEYWORDS_QUEUE_OPTS },
     { name: BLOGS_QUEUE, opts: BLOGS_QUEUE_OPTS },
+    { name: STORES_QUEUE, opts: STORES_QUEUE_OPTS },
+    { name: PRODUCTS_QUEUE, opts: PRODUCTS_QUEUE_OPTS },
   ];
 
   for (const { name, opts } of queues) {
@@ -59,12 +67,12 @@ async function bootstrap() {
   app.useGlobalFilters(new AllExceptionsFilter());
   app.enableCors({
     origin: [
-      "https://dashboard.cloviana.com",
+      "https://app.cloviana.com",
       "http://localhost:3000",
-      "http://dashboard.localhost",
+      "http://app.localhost",
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-    credentials: false,
+    credentials: true,
   });
 
   // Start HTTP server

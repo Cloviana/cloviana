@@ -23,6 +23,7 @@ services:
       API_PORT: 5000
       API_HOST: 0.0.0.0
       APP_URL: ${APP_URL}
+      API_URL: ${API_URL}
       ENVIRONMENT: production
       RABBITMQ_URI: amqp://guest:guest@rabbitmq:5672
       REDIS_URL: redis://redis:6379
@@ -30,6 +31,8 @@ services:
       DIRECT_URL: ${DIRECT_URL}
       SUPABASE_URL: ${SUPABASE_URL}
       SUPABASE_JWT_SECRET: ${SUPABASE_JWT_SECRET}
+      SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY}
+      SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
       OPENAI_API_KEY: ${OPENAI_API_KEY}
       STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY}
       STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET}
@@ -37,7 +40,8 @@ services:
       SMTP2GO_DEFAULT_FROM: ${SMTP2GO_DEFAULT_FROM}
       AZURE_STORAGE_CONNECTION_STRING: ${AZURE_STORAGE_CONNECTION_STRING}
       AZURE_CDN_ENDPOINT: ${AZURE_CDN_ENDPOINT}
-      SEMRUSH_API_KEY: ${SEMRUSH_API_KEY}
+      SERANKING_API_KEY: ${SERANKING_API_KEY}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
       IDEOGRAM_API_KEY: ${IDEOGRAM_API_KEY}
       GOOGLE_API_KEY: ${GOOGLE_API_KEY}
       GOOGLE_CX: ${GOOGLE_CX}
@@ -71,9 +75,9 @@ services:
     networks:
       - appnet
 
-  dashboard:
+  app:
     build:
-      context: ../dashboard
+      context: ../app
       dockerfile: Dockerfile
       target: runner
       args:
@@ -81,8 +85,8 @@ services:
         NEXT_PUBLIC_APP_URL: ${APP_URL}
         NEXT_PUBLIC_SUPABASE_URL: ${SUPABASE_URL}
         NEXT_PUBLIC_SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
-    image: ghcr.io/cloviana/dashboard:latest
-    container_name: dashboard
+    image: ghcr.io/cloviana/app:latest
+    container_name: app
     env_file:
       - .env
     environment:
