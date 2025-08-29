@@ -3,7 +3,7 @@ import 'dotenv/config';
 
 const createEnv = () => {
   const EnvSchema = z.object({
-    APP_URL: z.string().optional().default('http://dashboard.localhost'),
+    APP_URL: z.string().optional().default('http://app.localhost'),
     WEB_URL: z.string().optional().default('http://localhost'),
     ENVIRONMENT: z
       .enum(['development', 'production'])
