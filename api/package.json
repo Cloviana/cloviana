@@ -22,12 +22,18 @@
     "db:generate": "prisma generate",
     "db:studio": "prisma studio",
     "db:push": "prisma db push --skip-generate",
+    "db:seed": "tsx prisma/seed.ts",
     "migrate:dev": "prisma migrate dev",
-    "migrate:deploy": "prisma migrate deploy"
+    "migrate:deploy": "prisma migrate deploy",
+    "migrate:reset": "prisma migrate reset --force",
+    "gql:gen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
     "@azure/storage-blob": "^12.27.0",
+    "@fastify/cookie": "^10.0.1",
+    "@graphql-typed-document-node/core": "^3.2.0",
     "@itgorillaz/configify": "^4.0.0",
+    "@langchain/anthropic": "^0.3.26",
     "@langchain/community": "^0.3.50",
     "@langchain/core": "^0.3.68",
     "@langchain/langgraph": "^0.4.3",
@@ -41,7 +47,7 @@
     "@nestjs/mapped-types": "^2.1.0",
     "@nestjs/microservices": "^11.1.3",
     "@nestjs/passport": "^11.0.5",
-    "@nestjs/platform-fastify": "^11.1.3",
+    "@nestjs/platform-fastify": "^11.1.6",
     "@nestjs/schedule": "^6.0.0",
     "@prisma/client": "^6.10.1",
     "@shopify/shopify-api": "^11.14.1",
@@ -53,22 +59,33 @@
     "cheerio": "^1.1.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
+    "cookie": "^1.0.2",
     "cuid": "^3.0.0",
-    "fastify": "^5.4.0",
+    "dotenv": "^17.2.1",
+    "fastify": "^5.5.0",
     "form-data": "^4.0.3",
+    "graphql-tag": "^2.12.6",
     "handlebars": "^4.7.8",
     "nestjs-supabase-auth": "^1.0.9",
     "openai": "^5.7.0",
+    "p-limit": "^7.1.0",
     "p-retry": "^6.2.1",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
+    "pg": "^8.16.3",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.2",
     "stripe": "^18.2.1",
+    "tsx": "^4.20.4",
     "zod": "^3.25.67"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
+    "@graphql-codegen/cli": "^5.0.7",
+    "@graphql-codegen/typescript": "^4.1.6",
+    "@graphql-codegen/typescript-document-nodes": "^4.0.16",
+    "@graphql-codegen/typescript-graphql-request": "^6.3.0",
+    "@graphql-codegen/typescript-operations": "^4.6.1",
     "@nestjs/cli": "^11.0.7",
     "@nestjs/schematics": "^11.0.5",
     "@swc/cli": "^0.7.7",
@@ -76,7 +93,10 @@
     "@types/form-data": "^2.5.2",
     "@types/node": "^22.15.32",
     "@types/passport-jwt": "^4.0.1",
+    "@types/pg": "^8.15.5",
     "@types/stripe": "^8.0.417",
+    "graphql": "^16.11.0",
+    "graphql-request": "^7.2.0",
     "prisma": "^6.10.1",
     "source-map-support": "^0.5.21",
     "ts-loader": "^9.5.2",
@@ -93,6 +113,9 @@
       "@swc/core",
       "nice-napi",
       "prisma"
-    ]
+    ],
+    "overrides": {
+      "fastify": "5.5.0"
+    }
   }
 }

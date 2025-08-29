@@ -1,44 +1,41 @@
-import { Inject, Injectable } from "@nestjs/common";
-import type { shopifyApi } from "@shopify/shopify-api";
-import { Session } from "@shopify/shopify-api";
+import { Injectable, Logger } from "@nestjs/common";
+import { GraphQLClient } from "graphql-request";
 
-interface GraphQLResponse<T> {
-  data?: T;
-  errors?: Array<{ message: string; [key: string]: any }>;
-}
+type ShopQuery = { shop: { name: string } };
 
 @Injectable()
 export class ShopifyService {
-  constructor(
-    @Inject("SHOPIFY_CLIENT")
-    private readonly shopify: ReturnType<typeof shopifyApi>,
-  ) {}
+  private readonly logger = new Logger(ShopifyService.name, {
+    timestamp: true,
+  });
+  private readonly clients = new Map<string, GraphQLClient>();
 
-  private graphqlClient(shop: string, accessToken: string) {
-    const session = new Session({
-      id: `offline-${shop}`,
-      shop,
-      state: "",
-      isOnline: false,
-      accessToken,
-    });
-
-    return new this.shopify.clients.Graphql({ session });
+  private normalizeDomain(domain: string) {
+    return domain.replace(/^https?:\/\//, "").replace(/\/+$/, "");
   }
 
-  async runMutation<T>(
-    shop: string,
+  async getAdminClient(
+    shopDomain: string,
     accessToken: string,
-    query: string,
-    variables?: any,
-  ): Promise<T> {
-    const client = this.graphqlClient(shop, accessToken);
-    const { body } = await client.query<GraphQLResponse<T>>({
-      data: { query, variables },
+    apiVersion = "2025-07",
+  ) {
+    const key = `${this.normalizeDomain(shopDomain)}|${apiVersion}`;
+    const existing = this.clients.get(key);
+    if (existing) return existing;
+
+    const adminUrl = `https://${this.normalizeDomain(shopDomain)}/admin/api/${apiVersion}/graphql.json`;
+
+    const client = new GraphQLClient(adminUrl, {
+      headers: { "X-Shopify-Access-Token": accessToken },
     });
-    if (!body) throw new Error("No response body");
-    if (body.errors?.length) throw new Error(JSON.stringify(body.errors));
-    if (body.data === undefined) throw new Error("No data");
-    return body.data;
+
+    const { data } = await client.rawRequest<ShopQuery>(
+      "query { shop { name } }",
+    );
+    this.logger.log(
+      `Connected to Shopify shop "${data.shop.name}" (${adminUrl})`,
+    );
+    this.clients.set(key, client);
+    return client;
   }
 }

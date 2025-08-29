@@ -36,7 +36,7 @@ jobs:
               | docker login ghcr.io --username samuelito22 --password-stdin
 
             docker pull ghcr.io/cloviana/api:${TAG}
-            docker pull ghcr.io/cloviana/dashboard:${TAG}
+            docker pull ghcr.io/cloviana/app:${TAG}
             docker pull ghcr.io/cloviana/web:${TAG}
 
             docker compose -f compose-core.yaml -f compose-prod.yaml pull

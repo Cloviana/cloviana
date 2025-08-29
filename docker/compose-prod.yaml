@@ -6,7 +6,7 @@ services:
     container_name: nginx
     depends_on:
       - api
-      - dashboard
+      - app
       - web
     ports:
       - "80:80"
@@ -20,7 +20,7 @@ services:
       appnet:
         aliases:
           - api.cloviana.com
-          - dashboard.cloviana.com
+          - app.cloviana.com
           - cloviana.com
 
   certbot:
@@ -34,7 +34,7 @@ services:
       --cert-name cloviana
       -d cloviana.com
       -d api.cloviana.com
-      -d dashboard.cloviana.com
+      -d app.cloviana.com
       --non-interactive
     volumes:
       - certbot-etc:/etc/letsencrypt

@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       api: ${{ steps.filter.outputs.api }}
-      dashboard: ${{ steps.filter.outputs.dashboard }}
+      app: ${{ steps.filter.outputs.app }}
       web: ${{ steps.filter.outputs.web }}
     steps:
       - uses: actions/checkout@v3
@@ -25,8 +25,8 @@ jobs:
           filters: |
             api:
               - 'api/**'
-            dashboard:
-              - 'dashboard/**'
+            app:
+              - 'app/**'
             web:
               - 'web/**'
 
@@ -56,17 +56,17 @@ jobs:
             ghcr.io/cloviana/api:${{ github.sha }}
             ghcr.io/cloviana/api:latest
 
-      - name: Build & push Dashboard
-        if: needs.detect-changes.outputs.dashboard == 'true'
+      - name: Build & push App
+        if: needs.detect-changes.outputs.app == 'true'
         uses: docker/build-push-action@v3
         with:
-          context: ./dashboard
-          file: ./dashboard/Dockerfile
+          context: ./app
+          file: ./app/Dockerfile
           target: runner
           push: true
           tags: |
-            ghcr.io/cloviana/dashboard:${{ github.sha }}
-            ghcr.io/cloviana/dashboard:latest
+            ghcr.io/cloviana/app:${{ github.sha }}
+            ghcr.io/cloviana/app:latest
           build-args: |
             NEXT_PUBLIC_API_URL=${{ vars.API_URL }}
             NEXT_PUBLIC_APP_URL=${{ vars.APP_URL }}
