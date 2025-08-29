@@ -2,7 +2,9 @@ version: "3.9"
 
 volumes:
   certbot-etc:
+    name: cloviana_certbot_etc
   certbot-var:
+    name: cloviana_certbot_var
   redis-data:
 
 networks:
