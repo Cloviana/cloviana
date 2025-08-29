@@ -1,3 +1,4 @@
+// app/(...)/editor/page.tsx
 'use client';
 
 import { ContentEditable } from '@lexical/react/LexicalContentEditable';
@@ -5,13 +6,14 @@ import { LexicalErrorBoundary } from '@lexical/react/LexicalErrorBoundary';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 
+import { useGetJob } from '@/api/jobs/get-job';
 import { Anchor } from '@/components/actions';
 import { LoadingSpinner } from '@/components/animations';
 import { paths } from '@/config/paths';
 import { useGetBlog } from '@/features/blogs/api/get-blog';
-import { useGetBlogGenerationStatus } from '@/features/blogs/api/get-blog-generation-status';
+import { JobStatus } from '@/types/api';
 
 import { Header, Sidebar, Toolbar } from './_components';
 import { Keyword } from './_components/keyword';
@@ -19,36 +21,57 @@ import { PublishStatusBadge } from './_components/publish-status-badge';
 import { Title } from './_components/title';
 import LexicalProvider from './provider';
 
+const ACTIVE: ReadonlyArray<JobStatus> = ['PENDING', 'RUNNING'];
+
 export default function EditorPage() {
   const { blogId } = useParams() as { blogId: string };
 
   const { data: blog, refetch: refetchBlog } = useGetBlog(blogId);
-  const initialStatus = blog?.generationStatus;
+  const storeId = blog?.storeId ?? '';
+  const jobId = blog?.job?.id ?? '';
+  const initialJobStatus = blog?.job?.status as JobStatus | undefined;
 
-  const { data: blogStatus, isLoading: blogStatusLoading } =
-    useGetBlogGenerationStatus(blogId, {
-      config: {
-        enabled:
-          initialStatus && ['IN_PROGRESS', 'QUEUED'].includes(initialStatus),
-      },
-      pollInterval: 3000,
-    });
-  const currentStatus = blogStatus?.status;
+  const enabled = useMemo(
+    () =>
+      Boolean(
+        storeId &&
+          jobId &&
+          initialJobStatus &&
+          ACTIVE.includes(initialJobStatus),
+      ),
+    [storeId, jobId, initialJobStatus],
+  );
+
+  const { data: job } = useGetJob(storeId, jobId, {
+    queryConfig: {
+      enabled,
+      refetchInterval: (q) =>
+        q.state.data && ACTIVE.includes(q.state.data.status as JobStatus)
+          ? 3000
+          : false,
+      staleTime: 15_000,
+    },
+  });
+
+  const currentStatus = (job?.status ?? initialJobStatus) as
+    | JobStatus
+    | undefined;
 
   useEffect(() => {
-    if (initialStatus !== 'READY' && currentStatus && currentStatus === 'READY')
+    if (!initialJobStatus) return;
+    if (initialJobStatus !== 'SUCCESS' && currentStatus === 'SUCCESS')
       refetchBlog();
-  }, [currentStatus, initialStatus, refetchBlog]);
+  }, [currentStatus, initialJobStatus, refetchBlog]);
 
   if (
-    initialStatus !== 'READY' &&
-    (blogStatusLoading || (currentStatus && currentStatus !== 'READY'))
+    ACTIVE.includes(currentStatus as JobStatus) &&
+    (!blog?.nodes || blog.nodes.length === 0)
   ) {
     return (
       <div className="flex h-screen w-screen items-center justify-center">
         <div className="flex max-w-sm flex-col items-center gap-2">
           <div className="flex items-center justify-center gap-2">
-            <LoadingSpinner size={'xs'} color={'primary'} />
+            <LoadingSpinner size="xs" color="primary" />
             <span className="text-sm font-medium">Generating blog</span>
           </div>
           <p className="text-center text-sm text-foreground-light">
@@ -57,8 +80,8 @@ export default function EditorPage() {
           </p>
           <Anchor
             className="w-fit text-center text-sm text-foreground-light"
-            href={paths.store.getHref(blog?.storeId)}
-            variant={'subtle'}
+            href={paths.store.getHref(storeId)}
+            variant="subtle"
           >
             Return back to your store?
           </Anchor>
@@ -70,14 +93,14 @@ export default function EditorPage() {
   if (!blog?.nodes || !blog.nodes.length) return null;
 
   return (
-    <LexicalProvider nodes={blog?.nodes ?? []}>
+    <LexicalProvider nodes={blog.nodes}>
       <div className="flex h-screen w-screen flex-col overflow-hidden">
         <div className="flex">
           <div className="flex size-10 items-center justify-center border-b border-r">
-            <Link href={paths.store.getHref(blog?.storeId)}>
+            <Link href={paths.store.getHref(storeId)}>
               <img
-                src={'/logo-icon.png'}
-                alt={'logo'}
+                src="/logo-icon.png"
+                alt="logo"
                 className="size-[18px] object-contain transition-transform hover:rotate-12"
               />
             </Link>

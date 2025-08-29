@@ -1,8 +1,4 @@
-import {
-  Controller,
-  Get,
-  UseGuards,
-} from "@nestjs/common";
+import { Controller, Get, UseGuards } from "@nestjs/common";
 import { KeywordsService } from "./keywords.service";
 import { StoreOwnerGuard } from "@/guards/store-owner.guard";
 import { StoreEntity } from "@/decorators/store.decorator";
@@ -14,9 +10,7 @@ export class KeywordsController {
   constructor(private readonly keywords: KeywordsService) {}
 
   @Get()
-  async getAll(
-    @StoreEntity() { id }: Store,
-  ) {
+  async getAll(@StoreEntity() { id }: Store) {
     return this.keywords.getStoreKeywords(id);
   }
 }

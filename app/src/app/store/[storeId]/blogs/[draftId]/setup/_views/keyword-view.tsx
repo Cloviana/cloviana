@@ -104,7 +104,7 @@ export const KeywordView = () => {
           <button
             onClick={() => setShowSuggestions((prevState) => !prevState)}
             className={
-              'hover:text-foreground/90 text-foreground-light underline decoration-dotted underline-offset-[3px] transition-colors'
+              'text-foreground-light underline decoration-dotted underline-offset-[3px] transition-colors hover:text-foreground/90'
             }
           >
             {showSuggestions ? 'Hide' : 'Show suggestions'}

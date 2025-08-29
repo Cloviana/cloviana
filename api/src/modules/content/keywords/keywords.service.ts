@@ -1,7 +1,5 @@
 import { PrismaService } from "@/clients/prisma/prisma.service";
-import {
-  Injectable,
-} from "@nestjs/common";
+import { Injectable } from "@nestjs/common";
 import { Keyword } from "@prisma/client";
 import OpenAI from "openai";
 

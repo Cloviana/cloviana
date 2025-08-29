@@ -1,9 +1,11 @@
 'use client';
 
+import { useQueryClient } from '@tanstack/react-query';
 import { useParams, usePathname } from 'next/navigation';
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, useEffect, useRef } from 'react';
 
 import { useGetStore } from '@/api/stores/get-store';
+import { useGetStoreStatus } from '@/api/stores/get-store-status';
 import { Anchor } from '@/components/actions';
 import { LoadingDots } from '@/components/animations';
 import { paths } from '@/config/paths';
@@ -15,13 +17,31 @@ interface GuardProps {
 export const Guard: FC<GuardProps> = ({ children }) => {
   const { storeId } = useParams<{ storeId: string }>();
   const { data: store } = useGetStore(storeId);
+  const { data: storeStatus } = useGetStoreStatus(storeId, {
+    config: {
+      refetchInterval: (q) =>
+        q.state.data?.status === 'INITIALIZING' ? 5000 : false,
+    },
+  });
   const pathname = usePathname();
+  const queryClient = useQueryClient();
 
-  if (!store) return null;
+  const effectiveStatus = storeStatus?.status ?? store?.status;
+
+  const prevStatus = useRef<string | null>(null);
+  useEffect(() => {
+    if (prevStatus.current === 'INITIALIZING' && effectiveStatus === 'ACTIVE') {
+      // when store flips to ACTIVE -> invalidate all queries
+      queryClient.invalidateQueries();
+    }
+    prevStatus.current = effectiveStatus ?? null;
+  }, [effectiveStatus, queryClient]);
+
+  if (!effectiveStatus) return null;
 
   const integrationsHref = paths.store.integrations.getHref(storeId);
 
-  if (store.status === 'LOCKED') {
+  if (effectiveStatus === 'LOCKED') {
     if (pathname.startsWith(integrationsHref)) return children;
 
     return (
@@ -48,13 +68,13 @@ export const Guard: FC<GuardProps> = ({ children }) => {
     );
   }
 
-  if (store.status === 'INITIALIZING') {
+  if (effectiveStatus === 'INITIALIZING') {
     if (pathname.startsWith(integrationsHref)) return children;
 
     return (
       <div className="grid min-h-full place-items-center px-6 py-16">
         <div className="flex max-w-md flex-col items-center gap-2 text-center">
-          <LoadingDots size={'sm'} />
+          <LoadingDots size="sm" />
           <h2 className="text-sm font-medium text-foreground">
             Preparing Your Store
           </h2>
