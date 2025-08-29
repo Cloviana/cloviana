@@ -1,15 +1,17 @@
 import { ChatOpenAI } from "@langchain/openai";
-import { OutlineSection, StateAnnotation } from "../blog-generation.state";
+import { StateAnnotation } from "../blog-generation.state";
 import { EditorStateSchema, Node } from "../schemas/node.schemas";
 import { loadPromptHbs } from "../utils/load-prompt-hbs.util";
 import path from "path";
 import pRetry from "p-retry";
 import fs from "fs/promises";
+import { fileURLToPath } from "url";
+import { Section } from "../schemas/outline.schemas";
 
-function groupH2H3(sections: OutlineSection[]): OutlineSection[][] {
+function groupH2H3(sections: Section[]): Section[][] {
   console.info("[sections] grouping H2/H3 sections. Count:", sections.length);
-  const grouped: OutlineSection[][] = [];
-  let current: OutlineSection[] = [];
+  const grouped: Section[][] = [];
+  let current: Section[] = [];
   for (const s of sections) {
     if (s.heading?.tag === "h2") {
       if (current.length) grouped.push(current);
@@ -24,7 +26,7 @@ function groupH2H3(sections: OutlineSection[]): OutlineSection[][] {
 }
 
 async function writeSections(
-  sections: OutlineSection[],
+  sections: Section[],
   state: typeof StateAnnotation.State,
 ): Promise<Node[]> {
   console.info("[writeSections] start. Sections:", sections.length);
@@ -34,7 +36,7 @@ async function writeSections(
     reasoning: { effort: "low" },
   }).withStructuredOutput(EditorStateSchema, { strict: true });
 
-  const baseDir = path.resolve(__dirname, "../prompts");
+  const baseDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../prompts");
   const [editorStateSysPrompt, mainPrompt] = await Promise.all([
     loadPromptHbs("editor-state-system.prompt", undefined, { baseDir }),
     loadPromptHbs("sections.prompt", undefined, { baseDir }),
@@ -103,7 +105,7 @@ async function smoothContent(
     model: "gpt-4.1-mini",
   }).withStructuredOutput(EditorStateSchema, { strict: true });
 
-  const baseDir = path.resolve(__dirname, "../prompts");
+  const baseDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../prompts");
   const [editorStateSysPrompt, mainPrompt] = await Promise.all([
     loadPromptHbs("editor-state-system.prompt", undefined, { baseDir }),
     loadPromptHbs(
@@ -163,10 +165,10 @@ export async function sections(
 ): Promise<Partial<typeof StateAnnotation.State>> {
   console.info("[sections] pipeline start");
 
-  const outlineSections = state._outline.sections;
-  console.debug("[sections] outline sections count:", outlineSections.length);
+  const Sections = state._outline.sections;
+  console.debug("[sections] outline sections count:", Sections.length);
 
-  const grouped = groupH2H3(outlineSections);
+  const grouped = groupH2H3(Sections);
 
   const results = await Promise.all(
     grouped.map((group) => writeSections(group, state)),
@@ -194,6 +196,6 @@ export async function sections(
 
   console.info("[sections] pipeline success");
   return {
-    _nodes: smoothNodes,
+    _nodes: smoothNodes.slice(1)
   };
 }

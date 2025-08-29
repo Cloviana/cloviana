@@ -8,8 +8,6 @@ import { ChatOpenAI } from "@langchain/openai";
 const ResponseSchema = z.object({
   brandDescription: z
     .string()
-    .min(40)
-    .max(300)
     .describe(
       "An excellent detailed yet coincised brand description of the store.",
     ),
@@ -42,6 +40,7 @@ export async function createMetadata(
             "Using this information you should provide a very clear brand description, that clearly summarizes the brand's offering, perceived target customers if possible (don't assume).",
             "In general the description should be good enough to be used other times as clear overview of the business.",
             "This is a very good example: 'Lustrao is a modern beauty brand that focuses on clean, effective, and science-backed skincare. Our mission is to make skincare simple and empowering by combining nature-inspired ingredients with dermatologist-approved formulations. We believe in routines that are easy to follow, gentle on the skin, and designed to help everyone glow with confidence.'",
+            "Description should be abou 40 to 300 words max"
           ].join("\n"),
         },
         {

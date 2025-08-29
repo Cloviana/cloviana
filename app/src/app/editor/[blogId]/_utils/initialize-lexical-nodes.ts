@@ -1,6 +1,6 @@
 import { $getRoot, ElementNode, LexicalEditor, LexicalNode } from 'lexical';
 
-import { InlineStyles, Node } from '@/types/api';
+import { Node } from '@/types/api';
 
 import {
   $createExtendedHeadingNode,
@@ -10,19 +10,6 @@ import {
   $createExtendedTextNode,
   ExtendedTextNode,
 } from './extended-nodes';
-
-export function stylesToFormat(styles?: InlineStyles): number {
-  if (!styles) return 0;
-  return (
-    (styles.bold ? 1 : 0) |
-    (styles.italic ? 2 : 0) |
-    (styles.underline ? 4 : 0) |
-    (styles.strikethrough ? 8 : 0) |
-    (styles.code ? 16 : 0) |
-    (styles.subscript ? 32 : 0) |
-    (styles.superscript ? 64 : 0)
-  );
-}
 
 export const initializeLexicalNodes = (
   nodes: Node[],
@@ -65,7 +52,7 @@ const transverse = (
 
     switch (k.type) {
       case 'HEADING':
-        lexNode = $createExtendedHeadingNode(`h${k.payload.level}`, k.key);
+        lexNode = $createExtendedHeadingNode(k.payload.tag, k.key);
         break;
 
       case 'TEXT': {
@@ -73,9 +60,7 @@ const transverse = (
           k.payload.text,
         ) as ExtendedTextNode;
 
-        if (k.payload.styles) {
-          textNode.setFormat(stylesToFormat(k.payload.styles));
-        }
+        textNode.setFormat(k.payload.format);
 
         lexNode = textNode;
         break;
@@ -87,10 +72,7 @@ const transverse = (
       }
 
       case 'LIST': {
-        lexNode = $createExtendedListNode(
-          k.payload.style === 'unordered' ? 'bullet' : 'number',
-          k.key,
-        );
+        lexNode = $createExtendedListNode(k.payload.listType, k.key);
         break;
       }
 

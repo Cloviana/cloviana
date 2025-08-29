@@ -28,13 +28,6 @@ enum KeywordIntent {
   L // Transactional
 }
 
-enum BlogGenerationStatus {
-  QUEUED
-  IN_PROGRESS
-  READY
-  ERROR
-}
-
 enum BlogPublishStatus {
   DRAFT
   PUBLISHED
@@ -225,7 +218,6 @@ model Blog {
   brandVoice       String?
   keywordId        String?              @db.Uuid
   generationStep   GenerationStep?
-  generationStatus BlogGenerationStatus @default(QUEUED)
   publishStatus    BlogPublishStatus    @default(DRAFT)
   storeId          String
   shopifyArticleId String?

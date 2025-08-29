@@ -1,31 +1,25 @@
-import { Injectable, NotFoundException } from "@nestjs/common";
+import { Injectable } from "@nestjs/common";
 
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import {
-  BlogGenerationStatus,
   BlogPublishStatus,
   GenerationStep,
+  JobStatus,
+  JobType,
   Prisma,
 } from "@prisma/client";
 import { UpdateBlogDto } from "../dtos/update-blog.dto";
-import { UpdateNodeDto } from "../dtos/update-node.dto";
+import { UpdateNodeDto } from "../dtos/sync-nodes.dto";
 import { StorageService } from "@/modules/core/storage/storage.service";
-import { ShopifyService } from "@/clients/shopify-legacy/shopify.service";
 import { fromNodes } from "../utils/from-nodes";
-import {
-  CREATE_ARTICLE,
-  FIND_ARTICLE,
-  LIST_BLOGS,
-  UPDATE_ARTICLE,
-} from "../query";
 import {
   BLOG_DETAIL_SELECT,
   BLOG_SUMMARY_SELECT,
 } from "../constants/selects.constants";
-import { firstValueFrom } from "rxjs";
-import { HttpService } from "@nestjs/axios";
-import { flattenNodes } from "../utils/flatten-nodes";
 import { BlogsProducer } from "@/modules/integrations/messaging/producers/blogs.producer";
+import { makeDedupeKey } from "@/utils/job.util";
+import { CatalogService } from "@/modules/commerce/catalog/catalog.service";
+import { ArticleCreateInput, ArticleUpdateInput } from "@/clients/shopify/generated";
 
 @Injectable()
 export class BlogsService {
@@ -33,8 +27,7 @@ export class BlogsService {
     private readonly prisma: PrismaService,
     private readonly blogsProducer: BlogsProducer,
     private readonly storage: StorageService,
-    private readonly shopify: ShopifyService,
-    private readonly http: HttpService,
+    private readonly catalog: CatalogService
   ) {}
 
   async getBlogs(storeId: string) {
@@ -75,13 +68,50 @@ export class BlogsService {
   }
 
   async updateBlog(blogId: string, dto: UpdateBlogDto) {
-    const updated = await this.prisma.blog.update({
-      where: { id: blogId },
-      data: { ...dto },
-      select: { id: true, storeId: true, generationStep: true },
-    });
+    const { updated, shouldEnqueue } = await this.prisma.$transaction(
+      async (tx) => {
+        const updated = await tx.blog.update({
+          where: { id: blogId },
+          data: dto,
+          select: { id: true, storeId: true, generationStep: true },
+        });
 
-    if (updated.generationStep === GenerationStep.COMPLETE) {
+        if (updated.generationStep === GenerationStep.COMPLETE) {
+          const key = makeDedupeKey(
+            JobType.BLOG_GENERATION,
+            blogId,
+            new Date()
+          );
+          const job = await tx.job.upsert({
+            where: {
+              type_storeId_dedupeKey: {
+                type: JobType.BLOG_GENERATION,
+                storeId: updated.storeId,
+                dedupeKey: key,
+              },
+            },
+            update: {},
+            create: {
+              type: JobType.BLOG_GENERATION,
+              storeId: updated.storeId,
+              dedupeKey: key,
+              status: JobStatus.PENDING,
+            },
+          });
+
+          await tx.blog.update({
+            where: { id: blogId },
+            data: { jobId: job.id },
+          });
+
+          return { updated, shouldEnqueue: true };
+        }
+
+        return { updated, shouldEnqueue: false };
+      }
+    );
+
+    if (shouldEnqueue) {
       await this.blogsProducer.generateBlog({
         blogId: updated.id,
         storeId: updated.storeId,
@@ -89,83 +119,6 @@ export class BlogsService {
     }
 
     return updated;
-  }
-
-  async generateBlog(storeId: string, blogId: string) {
-    /*const [{ keyword }, blog] = await this.prisma.$transaction([
-      this.prisma.storeKeyword.findFirstOrThrow({
-        where: { storeId },
-        select: { keyword: { select: { phrase: true } } },
-      }),
-      this.prisma.blog.findUniqueOrThrow({
-        where: { id: blogId },
-        include: { keyword: true },
-      }),
-    ]);
-
-    const { nodes, metadata, image } = await this.agent.run({
-      brandVoice: blog.brandVoice ?? "",
-      blogginKeyword: blog.keyword?.phrase ?? "",
-      businessKeyword: keyword?.phrase ?? "",
-      title: blog.title ?? "",
-    });
-
-    const slug = (blog.title ?? "")
-      .trim()
-      .toLowerCase()
-      .replace(/\s+/g, "-")
-      .replace(/[^a-z0-9\-]/g, "");
-
-    const { data } = await firstValueFrom(
-      this.http.get<ArrayBuffer>(image.url, { responseType: "arraybuffer" }),
-    );
-    await this.storage.upload(
-      `thumbnails/${blogId}/thumbnail.png`,
-      Buffer.from(data),
-      "image/png",
-    );
-
-    await this.prisma.$transaction(async (tx) => {
-      await tx.blog.update({
-        where: { id: blogId },
-        data: {
-          slug,
-          description: metadata.description,
-          generationStatus: BlogGenerationStatus.READY,
-        },
-      });
-      await tx.thumbnail.create({
-        data: {
-          blogId,
-          altText: image.altText,
-          blobPath: `thumbnails/${blogId}/thumbnail.png`,
-        },
-      });
-      const nodeInputs = flattenNodes(nodes, blogId);
-      if (nodeInputs.length)
-        await tx.node.createMany({ data: nodeInputs, skipDuplicates: true });
-    });*/
-  }
-
-  async getGenerationStatus(blogId: string) {
-    const blog = await this.prisma.blog.findUnique({
-      where: { id: blogId },
-      select: {
-        id: true,
-        generationStatus: true,
-        updatedAt: true,
-      },
-    });
-
-    if (!blog) {
-      throw new NotFoundException(`Blog with id ${blogId} not found`);
-    }
-
-    return {
-      id: blog.id,
-      status: blog.generationStatus,
-      lastUpdated: blog.updatedAt,
-    };
   }
 
   async syncAllNodes(blogId: string, dtos: UpdateNodeDto[]) {
@@ -187,6 +140,18 @@ export class BlogsService {
     });
   }
 
+  private async getDefaultShopifyBlogId(shop: string, token: string): Promise<string> {
+    const client = await this.catalog["shopify"].getAdminClient(shop, token);
+    const res = await client.request<{ blogs: { nodes: { id: string }[] } }>(
+      `
+        query { blogs(first: 1) { nodes { id } } }
+      `
+    );
+    const id = res.blogs?.nodes?.[0]?.id;
+    if (!id) throw new Error("No Shopify blog found");
+    return id;
+  }
+
   async publishToShopify(blogId: string) {
     const blog = await this.prisma.blog.findUniqueOrThrow({
       where: { id: blogId },
@@ -201,63 +166,76 @@ export class BlogsService {
     const { shop, config } = store.channel!;
     const { offlineAccessToken } = config as { offlineAccessToken: string };
 
-    const { blogs } = await this.shopify.runMutation<{
-      blogs: { nodes: Array<{ id: string }> };
-    }>(shop, offlineAccessToken, `query { blogs(first: 1) { nodes { id } } }`);
+    const cdn = blog.thumbnail ? this.storage.getCdnUrl(blog.thumbnail.blobPath) : undefined;
 
-    const targetBlogId = blogs.nodes[0].id;
-
-    const payload = {
+    const basePayload = {
       title: blog.title,
       body: fromNodes(blog.nodes),
       summary: blog.description ?? "",
       isPublished: true,
       handle: blog.slug ?? undefined,
       author: { name: store.name },
-      image: blog.thumbnail
+      image: cdn
         ? {
-            altText: blog.thumbnail.altText,
-            url: this.storage.getCdnUrl(blog.thumbnail.blobPath),
+            altText: blog.thumbnail?.altText ?? undefined,
+            url: cdn,
           }
         : undefined,
     };
 
     if (blog.shopifyArticleId) {
-      const { articleUpdate } = await this.shopify.runMutation<{
-        articleUpdate: {
-          article: { id: string };
-          userErrors: Array<{ field: string[]; message: string }>;
-        };
-      }>(shop, offlineAccessToken, UPDATE_ARTICLE, {
-        id: blog.shopifyArticleId,
-        article: payload,
+      const payload: ArticleUpdateInput = {
+        title: basePayload.title,
+        body: basePayload.body,
+        summary: basePayload.summary,
+        handle: basePayload.handle,
+        author: basePayload.author,
+        image: basePayload.image,
+        isPublished: true,
+      };
+
+      const updated = await this.catalog.updateArticle(
+        shop,
+        offlineAccessToken,
+        blog.shopifyArticleId,
+        payload
+      );
+
+      await this.prisma.blog.update({
+        where: { id: blogId },
+        data: { publishStatus: BlogPublishStatus.PUBLISHED },
       });
 
-      if (articleUpdate.userErrors.length)
-        throw new Error(JSON.stringify(articleUpdate.userErrors));
-      return articleUpdate.article.id;
-    }
+      return updated.id;
+    } else {
+      const targetBlogId = await this.getDefaultShopifyBlogId(shop, offlineAccessToken);
 
-    const { articleCreate } = await this.shopify.runMutation<{
-      articleCreate: {
-        article: { id: string };
-        userErrors: Array<{ field: string[]; message: string }>;
+      const payload: ArticleCreateInput = {
+        blogId: targetBlogId,
+        title: basePayload.title!,
+        body: basePayload.body,
+        summary: basePayload.summary,
+        handle: basePayload.handle,
+        author: basePayload.author,
+        image: basePayload.image,
+        isPublished: true,
       };
-    }>(shop, offlineAccessToken, CREATE_ARTICLE, {
-      article: { blogId: targetBlogId, ...payload },
-    });
 
-    if (articleCreate.userErrors.length)
-      throw new Error(JSON.stringify(articleCreate.userErrors));
+      const created = await this.catalog.createArticle(
+        shop,
+        offlineAccessToken,
+        payload
+      );
 
-    await this.prisma.blog.update({
-      where: { id: blogId },
-      data: {
-        shopifyArticleId: articleCreate.article.id,
-        publishStatus: BlogPublishStatus.PUBLISHED,
-      },
-    });
+      await this.prisma.blog.update({
+        where: { id: blogId },
+        data: {
+          shopifyArticleId: created.id,
+          publishStatus: BlogPublishStatus.PUBLISHED,
+        },
+      });
 
-    return articleCreate.article.id;
+      return created.id;
+    }
   }
 }

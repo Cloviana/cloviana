@@ -8,6 +8,7 @@ export const storeKeys = {
   base: ['stores'] as const,
   list: () => [...storeKeys.base, 'list'] as const,
   detail: (storeId: string) => [...storeKeys.base, 'detail', storeId] as const,
+  status: (storeId: string) => [...storeKeys.base, 'status', storeId] as const,
 };
 
 export const keywordsKeys = {

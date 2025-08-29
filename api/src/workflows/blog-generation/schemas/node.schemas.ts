@@ -1,65 +1,79 @@
 import { z } from "zod";
 
+type TextFormat = "bold" | "italic" | "underline";
+
+export type TextNode = { type: "TEXT"; text: string; format: TextFormat[] | null };
+export type ParagraphNode = { type: "PARAGRAPH"; children: Node[] };
+export type HeadingNode = { type: "HEADING"; tag: "h2" | "h3"; children: Node[] };
+export type ListItemNode = { type: "LIST_ITEM"; children: (ParagraphNode | ListNode)[] };
+export type ListNode = { type: "LIST"; listType: "bullet" | "number"; children: ListItemNode[] };
+export type QuoteNode = { type: "QUOTE"; children: Node[] };
+export type ImageNode = { type: "IMAGE"; src: string; altText: string };
+export type LinkNode = { type: "LINK"; url: string; children: TextNode[] };
+export type RootNode = { type: "ROOT"; children: Node[] };
+
+export type Node =
+  | TextNode
+  | ParagraphNode
+  | HeadingNode
+  | ListNode
+  | ListItemNode
+  | QuoteNode
+  | ImageNode
+  | LinkNode
+  | RootNode;
+
 export const TextNodeSchema = z.object({
-  type: z.literal("text"),
+  type: z.literal("TEXT"),
   text: z.string(),
   format: z.enum(["bold", "italic", "underline"]).array().nullable(),
 });
-export type TextNode = z.infer<typeof TextNodeSchema>;
 
 export const ParagraphNodeSchema = z.object({
-  type: z.literal("paragraph"),
+  type: z.literal("PARAGRAPH"),
   children: z.array(z.lazy(() => NodeSchema)),
 });
-export type ParagraphNode = z.infer<typeof ParagraphNodeSchema>;
 
 export const HeadingNodeSchema = z.object({
-  type: z.literal("heading"),
+  type: z.literal("HEADING"),
   tag: z.enum(["h2", "h3"]),
   children: z.array(z.lazy(() => NodeSchema)),
 });
-export type HeadingNode = z.infer<typeof HeadingNodeSchema>;
-
-export const ListNodeSchema = z.object({
-  type: z.literal("list"),
-  listType: z.enum(["bullet", "number"]),
-  children: z.array(z.lazy(() => NodeSchema)),
-});
-export type ListNode = z.infer<typeof ListNodeSchema>;
 
 export const ListItemNodeSchema = z.object({
-  type: z.literal("listitem"),
-  children: z.array(z.lazy(() => NodeSchema)),
+  type: z.literal("LIST_ITEM"),
+  children: z.array(z.lazy(() => TextNodeSchema)),
 });
-export type ListItemNode = z.infer<typeof ListItemNodeSchema>;
+
+export const ListNodeSchema = z.object({
+  type: z.literal("LIST"),
+  listType: z.enum(["bullet", "number"]),
+  children: z.array(z.lazy(() => ListItemNodeSchema)).min(1),
+});
 
 export const QuoteNodeSchema = z.object({
-  type: z.literal("quote"),
+  type: z.literal("QUOTE"),
   children: z.array(z.lazy(() => NodeSchema)),
 });
-export type QuoteNode = z.infer<typeof QuoteNodeSchema>;
 
 export const ImageNodeSchema = z.object({
-  type: z.literal("image"),
+  type: z.literal("IMAGE"),
   src: z.string(),
   altText: z.string(),
 });
-export type ImageNode = z.infer<typeof ImageNodeSchema>;
 
 export const LinkNodeSchema = z.object({
-  type: z.literal("link"),
+  type: z.literal("LINK"),
   url: z.string(),
-  children: z.array(z.lazy(() => NodeSchema)),
+  children: z.array(z.lazy(() => TextNodeSchema)).min(1),
 });
-export type LinkNode = z.infer<typeof LinkNodeSchema>;
 
 export const RootNodeSchema = z.object({
-  type: z.literal("root"),
+  type: z.literal("ROOT"),
   children: z.array(z.lazy(() => NodeSchema)),
 });
-export type RootNode = z.infer<typeof RootNodeSchema>;
 
-export const NodeSchema = z.union([
+export const NodeSchema = z.discriminatedUnion("type", [
   TextNodeSchema,
   ParagraphNodeSchema,
   HeadingNodeSchema,
@@ -67,9 +81,9 @@ export const NodeSchema = z.union([
   ListItemNodeSchema,
   RootNodeSchema,
 ]);
-export type Node = z.infer<typeof NodeSchema>;
+
+export type InferNode = z.infer<typeof NodeSchema>;
 
 export const EditorStateSchema = z.object({
   root: RootNodeSchema,
 });
-export type EditorState = z.infer<typeof EditorStateSchema>;

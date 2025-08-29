@@ -199,7 +199,7 @@ async function fetchBuckets(metrics: SerankingMetricsService, seeds: string[]) {
         metrics.getRelated({
           source: REGION,
           keyword: seed,
-          limit: 160,
+          limit: 200,
           sort: "volume",
           sort_order: "desc",
           history_trend: true,

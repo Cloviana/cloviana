@@ -1,49 +1,24 @@
 import { z } from "zod";
+import { HeadingNodeSchema } from "./node.schemas";
 
-export const WordCount = z
-  .object({
-    min: z.number().int().positive().describe("Minimum required word count"),
-    max: z.number().int().positive().describe("Maximum allowed word count"),
-  })
-  .refine(({ max, min }) => max >= min, {
-    path: ["max"],
-    message: "max must be ≥ min",
-  })
-  .describe("Defines the allowed word‐count range");
 
-export const WritingGuideSchema = z.object({
-  objective: z.string().min(1).describe("What this section must achieve"),
-  angle: z.string().nullable().describe("Chosen framing or POV"),
-  voice: z.string().nullable().describe("Tone/voice overrides if any"),
-  do: z
-    .array(z.string().min(1))
-    .nullable()
-    .describe("Positive directives for the section to follow"),
-  avoid: z
-    .array(z.string().min(1))
-    .nullable()
-    .describe("Pitfalls or constraints that section should avoid"),
-});
-
-export const SeoSchema = z.object({
-  keywordDensity: z
-    .number()
-    .min(0)
-    .max(1)
-    .describe(
-      "Desired density for the primary keyword in this section; 0 allows skipping",
-    ),
-});
+export const StructureSchema = z.discriminatedUnion("type", [
+  z.object({ type: z.literal("paragraphs"), minParagraphs: z.number().int().min(1) }),
+  z.object({ type: z.literal("bulleted_list"), minItems: z.number().int().min(2), maxItems: z.number().int().nullable() }),
+  z.object({ type: z.literal("steps"), minItems: z.number().int().min(2), maxItems: z.number().int().nullable() }),
+]);
 
 export const SectionSchema = z.object({
-  headingId: z.string().describe("The id of the heading described"),
-  wordCount: WordCount,
-  talkingPoints: z
-    .array(z.string().min(1))
-    .min(1)
-    .describe("Main points to address"),
-  guide: WritingGuideSchema.describe("How to write the section"),
-  seo: SeoSchema.nullable(),
+  heading: HeadingNodeSchema,
+  goal: z.string().min(1),
+  mustCover: z.array(z.string().min(1)).min(1),
+  structure: StructureSchema,
+  wordTarget: z.number().int().min(120),
+  role: z.enum(["intro","body","how_to","list","cta","conclusion"]),
+  seo: z.object({
+    keywordDensity: z.number().min(0).max(1),
+    requireExact: z.boolean()
+  }).nullable(),
 });
 
 export const ThumbnailSchema = z.object({
@@ -57,7 +32,5 @@ export const ThumbnailSchema = z.object({
     .describe("Descriptive alt text for the cover image"),
 });
 
-export type WritingGuide = z.infer<typeof WritingGuideSchema>;
-export type Seo = z.infer<typeof SeoSchema>;
 export type Section = z.infer<typeof SectionSchema>;
 export type Thumbnail = z.infer<typeof ThumbnailSchema>;
