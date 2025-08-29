@@ -47,12 +47,6 @@ export class BlogsController {
     return this.blogs.updateBlog(blogId, dto);
   }
 
-  @Get(":blogId/status")
-  @UseGuards(BlogOwnerGuard)
-  async getGenerationStatus(@Param("blogId") blogId: string) {
-    return this.blogs.getGenerationStatus(blogId);
-  }
-
   @Put(":blogId/nodes/sync")
   @UseGuards(BlogOwnerGuard)
   @HttpCode(HttpStatus.OK)

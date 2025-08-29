@@ -18,6 +18,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import { cn } from '@/utils/cn';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -39,63 +40,54 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <div>
-      <div className="overflow-hidden border-b">
-        <Table>
-          <TableHeader>
-            {table.getHeaderGroups().map((hg) => (
-              <TableRow key={hg.id}>
-                {hg.headers.map((h) => (
-                  <TableHead
-                    key={h.id}
-                    className={
-                      h.column.columnDef.meta?.align === 'right'
-                        ? 'text-right'
-                        : undefined
-                    }
+    <div className="border-b">
+      <Table>
+        <TableHeader>
+          {table.getHeaderGroups().map((hg) => (
+            <TableRow key={hg.id}>
+              {hg.headers.map((h, i) => (
+                <TableHead
+                  key={h.id}
+                  className={cn(
+                    i === 0 && 'sticky left-0 z-20',
+                    h.column.columnDef.meta?.align === 'right' && 'text-right',
+                  )}
+                >
+                  {h.isPlaceholder
+                    ? null
+                    : flexRender(h.column.columnDef.header, h.getContext())}
+                </TableHead>
+              ))}
+            </TableRow>
+          ))}
+        </TableHeader>
+        <TableBody>
+          {table.getRowModel().rows.length ? (
+            table.getRowModel().rows.map((r) => (
+              <TableRow key={r.id} data-state={r.getIsSelected() && 'selected'}>
+                {r.getVisibleCells().map((c, i) => (
+                  <TableCell
+                    key={c.id}
+                    className={cn(
+                      i === 0 && 'sticky left-0 z-20 max-w-[250px] truncate',
+                      c.column.columnDef.meta?.align === 'right' &&
+                        'text-right',
+                    )}
                   >
-                    {h.isPlaceholder
-                      ? null
-                      : flexRender(h.column.columnDef.header, h.getContext())}
-                  </TableHead>
+                    {flexRender(c.column.columnDef.cell, c.getContext())}
+                  </TableCell>
                 ))}
               </TableRow>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {table.getRowModel().rows.length ? (
-              table.getRowModel().rows.map((r) => (
-                <TableRow
-                  key={r.id}
-                  data-state={r.getIsSelected() && 'selected'}
-                >
-                  {r.getVisibleCells().map((c) => (
-                    <TableCell
-                      key={c.id}
-                      className={
-                        c.column.columnDef.meta?.align === 'right'
-                          ? 'text-right'
-                          : undefined
-                      }
-                    >
-                      {flexRender(c.column.columnDef.cell, c.getContext())}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center"
-                >
-                  No results.
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
-      </div>
+            ))
+          ) : (
+            <TableRow>
+              <TableCell colSpan={columns.length} className="h-24 text-center">
+                No results.
+              </TableCell>
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
     </div>
   );
 }

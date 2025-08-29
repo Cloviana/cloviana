@@ -30,11 +30,11 @@ module.exports = {
   				foreground: 'hsl(var(--primary-foreground))'
   			},
   			background: 'hsl(var(--background))',
-        background: 'hsl(--background)',
+        background: 'hsl(var(--background))',
         foreground: {
-          DEFAULT: 'hsl(--foreground)',
-          light: 'hsl(--foreground-light)',
-          lighter: 'hsl(--foreground-lighter)'
+          DEFAULT: 'hsl(var(--foreground))',
+          light: 'hsl(var(--foreground-light))',
+          lighter: 'hsl(var(--foreground-lighter))'
         },
   			border: 'hsl(var(--border))',
   			surface: {

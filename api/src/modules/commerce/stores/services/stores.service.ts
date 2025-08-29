@@ -49,4 +49,13 @@ export class StoresService {
 
     return store;
   }
+
+  async getStoreStatus(user: AuthUser, storeId: string) {
+    const { sub: ownerId } = user;
+    const store = await this.prisma.store.findFirstOrThrow({
+      where: { id: storeId, ownerId },
+      select: { id: true, status: true, updatedAt: true },
+    });
+    return { storeId: store.id, status: store.status, lastUpdated: store.updatedAt };
+  }
 }

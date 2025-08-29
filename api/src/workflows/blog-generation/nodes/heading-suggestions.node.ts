@@ -5,26 +5,37 @@ import { loadPromptHbs } from "../utils/load-prompt-hbs.util";
 import path from "path";
 import pRetry from "p-retry";
 import { ChatOpenAI } from "@langchain/openai";
+import { fileURLToPath } from "url";
 
 const ResponseSchema = z.object({
   headings: z.array(HeadingNodeSchema).min(1),
 });
 
 export async function headingSuggestions(
-  state: typeof StateAnnotation.State,
+  state: typeof StateAnnotation.State
 ): Promise<Partial<typeof StateAnnotation.State>> {
   console.info("[headingSuggestions] start");
 
   const llm = new ChatOpenAI({
-    model: "gpt-5-nano",
+    model: "gpt-4o-mini-2024-07-18",
   }).withStructuredOutput(ResponseSchema, { strict: true });
 
-  console.info("[headingSuggestions] LLM configured:", "gpt-5-nano");
+  console.info("[headingSuggestions] LLM configured:", "gpt-4o-mini-2024-07-18");
 
-  const baseDir = path.resolve(__dirname, "../prompts");
+  const baseDir = path.resolve(
+    path.dirname(fileURLToPath(import.meta.url)),
+    "../prompts"
+  );
   const [editorStateSysPrompt, mainPrompt] = await Promise.all([
     loadPromptHbs("editor-state-system.prompt", undefined, { baseDir }),
-    loadPromptHbs("heading-suggestions.prompt", undefined, { baseDir }),
+    loadPromptHbs(
+      "heading-suggestions.prompt",
+      {
+        minWords: state._metadata.blogLength.min,
+        maxWords: state._metadata.blogLength.max,
+      },
+      { baseDir }
+    ),
   ]);
 
   console.debug("[headingSuggestions] prompts loaded:", {
@@ -35,7 +46,7 @@ export async function headingSuggestions(
   const metadataStr = JSON.stringify(state._metadata);
   console.debug(
     "[headingSuggestions] metadata size (bytes):",
-    Buffer.byteLength(metadataStr, "utf8"),
+    Buffer.byteLength(metadataStr, "utf8")
   );
 
   const t0 = Date.now();
@@ -55,7 +66,7 @@ export async function headingSuggestions(
       console.info(
         "[headingSuggestions] LLM completed in",
         Date.now() - t0,
-        "ms",
+        "ms"
       );
       return res;
     },
@@ -65,23 +76,25 @@ export async function headingSuggestions(
       maxTimeout: 5000,
       onFailedAttempt: (context) =>
         console.warn(
-          `[headingSuggestions] retry ${context.attemptNumber}/3 failed. Error: ${context.message}`,
+          `[headingSuggestions] retry ${context.attemptNumber}/3 failed. Error: ${context.message}`
         ),
-    },
+    }
   );
 
   if (!headings?.length) {
     console.error("[headingSuggestions] no headings returned");
     throw new Error(
-      "Model returned no headings; revise heading-suggestions.prompt to enforce at least one.",
+      "Model returned no headings; revise heading-suggestions.prompt to enforce at least one."
     );
   }
 
   console.info(
     "[headingSuggestions] success. Headings count:",
-    headings.length,
+    headings.length
   );
   console.debug("[headingSuggestions] first heading sample:", headings[0]);
+
+  console.dir(headings)
 
   return {
     _headings: headings,

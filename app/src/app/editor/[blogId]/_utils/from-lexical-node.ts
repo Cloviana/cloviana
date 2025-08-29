@@ -1,6 +1,6 @@
 import { LexicalNode } from 'lexical';
 
-import { InlineStyles, Node } from '@/types/api';
+import { Node } from '@/types/api';
 
 import {
   $isExtendedHeadingNode,
@@ -15,20 +15,6 @@ import {
   ExtendedTextNode,
 } from './extended-nodes';
 
-export function formatToStyles(format: number = 0): InlineStyles {
-  const styles: InlineStyles = {};
-
-  if (format & 1) styles.bold = true;
-  if (format & 2) styles.italic = true;
-  if (format & 4) styles.underline = true;
-  if (format & 8) styles.strikethrough = true;
-  if (format & 16) styles.code = true;
-  if (format & 32) styles.subscript = true;
-  if (format & 64) styles.superscript = true;
-
-  return styles;
-}
-
 export function fromLexicalNode(node: LexicalNode): Node {
   switch (node.getType()) {
     case 'extended-paragraph': {
@@ -40,9 +26,7 @@ export function fromLexicalNode(node: LexicalNode): Node {
           key: lexJson.id,
           type: 'PARAGRAPH',
           sortOrder,
-          payload: {
-            indent: lexJson.indent,
-          },
+          payload: {},
         };
       }
       break;
@@ -61,7 +45,7 @@ export function fromLexicalNode(node: LexicalNode): Node {
           sortOrder,
           payload: {
             text: text.getTextContent(),
-            styles: formatToStyles(text.getFormat()),
+            format: text.getFormat(),
           },
         };
       }
@@ -73,13 +57,13 @@ export function fromLexicalNode(node: LexicalNode): Node {
         const list = node as ExtendedListNode;
         const lexJson = list.exportJSON();
         const sortOrder = list.getIndexWithinParent();
-        const style = lexJson.listType === 'number' ? 'ordered' : 'unordered';
+        const listType = lexJson.listType;
         return {
           key: lexJson.id,
           type: 'LIST',
           sortOrder,
           payload: {
-            style,
+            listType,
           },
         };
       }
@@ -109,16 +93,12 @@ export function fromLexicalNode(node: LexicalNode): Node {
         const lexJson = heading.exportJSON();
         const sortOrder = heading.getIndexWithinParent();
         const tag = heading.getTag();
-        let level: 2 | 3;
-        if (tag === 'h2') level = 2;
-        else if (tag === 'h3') level = 3;
-        else level = 2;
         return {
           key: lexJson.id,
           type: 'HEADING',
           sortOrder,
           payload: {
-            level,
+            tag,
           },
         };
       }

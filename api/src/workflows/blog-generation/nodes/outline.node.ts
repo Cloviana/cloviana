@@ -5,10 +5,12 @@ import path from "path";
 import { loadPromptHbs } from "../utils/load-prompt-hbs.util";
 import pRetry from "p-retry";
 import { ChatOpenAI } from "@langchain/openai";
+import { fileURLToPath } from "url";
 
 const ResponseSchema = z.object({
   thumbnail: ThumbnailSchema,
   sections: z.array(SectionSchema).min(1),
+  description: z.string().describe("A meta description is a short summary (usually 150–160 characters) placed in a webpage’s HTML that tells search engines and users what the page is about.")
 });
 
 function extractText(node: any): string {
@@ -30,13 +32,11 @@ export async function outline(
   );
 
   const llm = new ChatOpenAI({
-    model: "gpt-5-mini",
+    model: "gpt-4.1-mini-2025-04-14",
   }).withStructuredOutput(ResponseSchema, { strict: true });
 
-  console.info("[outline] LLM configured:", "gpt-5-mini");
-
-  const mainPromptPath = path.resolve(__dirname, "../prompts");
-  console.debug("[outline] prompts baseDir:", mainPromptPath);
+  const baseDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../prompts");
+  console.debug("[outline] prompts baseDir:", baseDir);
 
   const mainPrompt = await loadPromptHbs(
     "outline.prompt",
@@ -45,21 +45,14 @@ export async function outline(
       maxWords: state._metadata.blogLength.max,
     },
     {
-      baseDir: mainPromptPath,
+      baseDir,
     },
   );
 
   console.debug("[outline] prompt length:", mainPrompt?.length ?? 0);
 
-  const headingsIdx = state._headings.map((h, i) => ({
-    ...h,
-    id: `heading-${i}`,
-  }));
-  console.debug("[outline] indexed headings:", headingsIdx.length);
-
   const payload = {
     metadata: state._metadata,
-    headings: headingsIdx.map((h) => ({ id: h.id, heading: extractText(h) })),
   };
 
   const payloadStr = JSON.stringify(payload);
@@ -67,11 +60,10 @@ export async function outline(
     "[outline] payload size (bytes):",
     Buffer.byteLength(payloadStr, "utf8"),
   );
-  console.debug("[outline] sample heading:", payload.headings?.[0]);
 
   const t0 = Date.now();
 
-  const { thumbnail, sections } = await pRetry(
+  const { thumbnail, sections, description } = await pRetry(
     async () => {
       console.info("[outline] invoking LLM");
       const invokeStart = Date.now();
@@ -109,20 +101,7 @@ export async function outline(
   }
 
   console.debug("[outline] sections count:", sections.length);
-  console.debug("[outline] first section headingId:", sections[0]?.headingId);
 
-  const mapped = sections.map((s) => {
-    const match = headingsIdx.find((a) => a.id === s.headingId);
-    if (!match) {
-      console.error("[outline] missing heading for headingId:", s.headingId);
-      throw new Error(`No heading found for headingId=${s.headingId}`);
-    }
-    const { id, ...heading } = match;
-    return { ...s, heading };
-  });
-
-  console.info("[outline] mapping complete");
-  console.debug("[outline] mapped sections count:", mapped.length);
   console.debug(
     "[outline] thumbnail prompt length:",
     thumbnail?.prompt?.length ?? 0,
@@ -131,7 +110,8 @@ export async function outline(
   const result = {
     _outline: {
       thumbnail,
-      sections: mapped,
+      sections,
+      description
     },
   };
 

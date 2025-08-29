@@ -15,11 +15,10 @@ export type BlogMetadata = {
   };
 };
 
-export type OutlineSection = Section & { heading: HeadingNode };
-
 export type Outline = {
-  sections: OutlineSection[];
+  sections: Section[];
   thumbnail: Thumbnail;
+  description: string
 };
 
 export type Image = {
