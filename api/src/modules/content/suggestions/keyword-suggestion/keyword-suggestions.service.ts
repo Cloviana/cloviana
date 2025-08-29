@@ -54,7 +54,7 @@ export class KeywordSuggestionsService {
     });
 
     const response = await this.openai.responses.parse({
-      model: "gpt-4o-mini-2024-07-18",
+      model: "gpt-4.1-nano-2025-04-14",
       input: [
         {
           role: "system",

@@ -10,21 +10,31 @@ import {
 
 type Range = { from?: number; to?: number };
 
-const SORTS = ["keyword", "volume", "cpc", "difficulty", "competition"] as const;
+const SORTS = [
+  "keyword",
+  "volume",
+  "cpc",
+  "difficulty",
+  "competition",
+] as const;
 type SortKey = (typeof SORTS)[number];
 
 class HttpError extends Error {
   constructor(
     readonly status: number,
     readonly body: unknown,
-    readonly endpoint: string
+    readonly endpoint: string,
   ) {
     super(`SERanking ${endpoint} ${status}`);
   }
 }
 
 function isRange(v: unknown): v is Range {
-  return typeof v === "object" && v !== null && ("from" in (v as any) || "to" in (v as any));
+  return (
+    typeof v === "object" &&
+    v !== null &&
+    ("from" in (v as any) || "to" in (v as any))
+  );
 }
 
 function buildQuery(params: {
@@ -62,7 +72,8 @@ function buildQuery(params: {
     for (const k of keys) {
       const v = f[k];
       if (v && isRange(v)) {
-        if (v.from != null) q.append(`filter[${String(k)}][from]`, String(v.from));
+        if (v.from != null)
+          q.append(`filter[${String(k)}][from]`, String(v.from));
         if (v.to != null) q.append(`filter[${String(k)}][to]`, String(v.to));
       }
     }
@@ -74,16 +85,24 @@ export class SerankingClient {
   constructor(
     private readonly token = process.env.SERANKING_API_KEY ?? "",
     private readonly base = "https://api.seranking.com/v1",
-    private readonly defaultTimeoutMs = 15000
+    private readonly defaultTimeoutMs = 15000,
   ) {}
 
   private headers() {
     return { Authorization: `Token ${this.token}` };
   }
 
-  private async handle<T>(endpoint: string, url: string, init?: RequestInit, timeoutMs?: number): Promise<T> {
+  private async handle<T>(
+    endpoint: string,
+    url: string,
+    init?: RequestInit,
+    timeoutMs?: number,
+  ): Promise<T> {
     const controller = new AbortController();
-    const id = setTimeout(() => controller.abort(), timeoutMs ?? this.defaultTimeoutMs);
+    const id = setTimeout(
+      () => controller.abort(),
+      timeoutMs ?? this.defaultTimeoutMs,
+    );
     try {
       const r = await fetch(url, { ...init, signal: controller.signal });
       const text = await r.text().catch(() => "");
@@ -106,9 +125,13 @@ export class SerankingClient {
       history_trend: p.history_trend,
       filter: p.filter,
     });
-    return this.handle<SimilarRelatedResponse>("similar", `${this.base}/keywords/similar?${qs}`, {
-      headers: this.headers(),
-    });
+    return this.handle<SimilarRelatedResponse>(
+      "similar",
+      `${this.base}/keywords/similar?${qs}`,
+      {
+        headers: this.headers(),
+      },
+    );
   }
 
   async related(p: SimilarRelatedParams) {
@@ -122,9 +145,13 @@ export class SerankingClient {
       history_trend: p.history_trend,
       filter: p.filter,
     });
-    return this.handle<SimilarRelatedResponse>("related", `${this.base}/keywords/related?${qs}`, {
-      headers: this.headers(),
-    });
+    return this.handle<SimilarRelatedResponse>(
+      "related",
+      `${this.base}/keywords/related?${qs}`,
+      {
+        headers: this.headers(),
+      },
+    );
   }
 
   async questions(p: QuestionsParams) {
@@ -138,9 +165,13 @@ export class SerankingClient {
       history_trend: p.history_trend,
       filter: p.filter,
     });
-    return this.handle<QuestionsResponse>("questions", `${this.base}/keywords/questions?${qs}`, {
-      headers: this.headers(),
-    });
+    return this.handle<QuestionsResponse>(
+      "questions",
+      `${this.base}/keywords/questions?${qs}`,
+      {
+        headers: this.headers(),
+      },
+    );
   }
 
   async longtail(p: LongtailParams) {
@@ -153,9 +184,13 @@ export class SerankingClient {
       sort_order: p.sort_order,
       filter: p.filter,
     });
-    return this.handle<LongtailResponse>("longtail", `${this.base}/keywords/longtail?${qs}`, {
-      headers: this.headers(),
-    });
+    return this.handle<LongtailResponse>(
+      "longtail",
+      `${this.base}/keywords/longtail?${qs}`,
+      {
+        headers: this.headers(),
+      },
+    );
   }
 
   async exportKeywords<T = any[]>(args: {
@@ -173,7 +208,7 @@ export class SerankingClient {
     return this.handle<T>(
       "export",
       `${this.base}/keywords/export?source=${args.source}`,
-      { method: "POST", headers: this.headers(), body: form }
+      { method: "POST", headers: this.headers(), body: form },
     );
   }
 }

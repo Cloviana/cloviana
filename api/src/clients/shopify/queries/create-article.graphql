@@ -1,0 +1,17 @@
+mutation CreateArticle($article: ArticleCreateInput!, $blog: ArticleBlogInput) {
+  articleCreate(article: $article, blog: $blog) {
+    article {
+      id
+      title
+      handle
+      image { altText originalSrc }
+      summary
+      tags
+      publishedAt
+      createdAt
+      updatedAt
+      blog { id title handle }
+    }
+    userErrors { field message }
+  }
+}

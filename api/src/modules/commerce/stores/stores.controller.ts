@@ -6,8 +6,6 @@ import {
   Get,
   Param,
   Post,
-  UsePipes,
-  ValidationPipe,
 } from "@nestjs/common";
 import { CreateStoreDto } from "./dto/create-store.dto";
 import { StoresService } from "./services/stores.service";
@@ -27,11 +25,15 @@ export class StoresController {
   }
 
   @Post()
-  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
   async createStore(
     @Body() dto: CreateStoreDto,
     @CurrentUser() user: AuthUser,
   ) {
     return this.store.createStore(user, dto);
+  }
+
+  @Get(":id/status")
+  async getStoreStatus(@CurrentUser() user: AuthUser, @Param("id") id: string) {
+    return this.store.getStoreStatus(user, id);
   }
 }
