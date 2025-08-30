@@ -33,7 +33,10 @@ export const AuthForm: FC<AuthFormProps> = ({ className }) => {
 
   return (
     <div className={cn('flex w-full flex-col gap-6', className)}>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form
+        onSubmit={handleSubmit(onSubmit)}
+        className="pointer-events-none opacity-50"
+      >
         <FormLayout>
           <TextField
             label="Shopify store URL"
