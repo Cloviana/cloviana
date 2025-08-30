@@ -157,54 +157,62 @@ export class AuthService {
   }
 
   private async ensureStoreAndChannel(args: {
-    ownerId: string;
-    shopName: string;
-    domain: string;
-    offlineAccessToken: string;
-  }) {
-    const { ownerId, shopName, domain, offlineAccessToken } = args;
+  ownerId: string;
+  shopName: string;
+  domain: string;
+  offlineAccessToken: string;
+}) {
+  const { ownerId, shopName, domain, offlineAccessToken } = args;
 
-    return this.prisma.$transaction(async (tx) => {
-      let store = await tx.store.findFirst({ where: { ownerId } });
-      if (!store) {
-        const profileUrl = await resolveFavicon(domain);
-        store = await tx.store.create({
-          data: { ownerId, name: shopName, domainUrl: domain, profileUrl },
-        });
-      } else if (!store.domainUrl) {
-        store = await tx.store.update({
-          where: { id: store.id },
-          data: { domainUrl: domain },
-        });
-      }
+  return this.prisma.$transaction(async (tx) => {
+    let store = await tx.store.findFirst({ where: { ownerId } });
+    if (!store) {
+      const profileUrl = await resolveFavicon(domain);
+      store = await tx.store.create({
+        data: { ownerId, name: shopName, domainUrl: domain, profileUrl },
+      });
+    } else if (!store.domainUrl) {
+      store = await tx.store.update({
+        where: { id: store.id },
+        data: { domainUrl: domain },
+      });
+    }
 
-      const existing = await tx.channel.findUnique({ where: { shop: domain } });
-      if (existing && existing.storeId && existing.storeId !== store.id) {
-        throw new BadRequestException("Shop already linked to another store");
-      }
+    const byShop = await tx.channel.findUnique({ where: { shop: domain } });
+    if (byShop && byShop.storeId !== store.id) {
+      throw new BadRequestException("Shop already linked to another store");
+    }
 
-      const channel = existing
-        ? await tx.channel.update({
-            where: { id: existing.id },
-            data: { storeId: store.id, config: { offlineAccessToken } },
-          })
-        : await tx.channel.create({
-            data: {
-              shop: domain,
-              storeId: store.id,
-              config: { offlineAccessToken },
-            },
-          });
-
-      if (!existing) await this.storesProducer.init({ storeId: store.id });
-
-      return {
-        storeId: store.id,
-        channelId: channel.id,
-        link_status: existing ? "UPDATED" : "CREATED",
-      };
+    const existedByStore = await tx.channel.findUnique({
+      where: { storeId: store.id,
+      },
     });
-  }
+
+    const channel = await tx.channel.upsert({
+      where: { storeId: store.id },
+      create: {
+        shop: domain,
+        storeId: store.id,
+        config: { offlineAccessToken },
+      },
+      update: {
+        shop: domain,
+        config: { offlineAccessToken },
+      },
+    });
+
+    if (!existedByStore) {
+      await this.storesProducer.init({ storeId: store.id });
+    }
+
+    return {
+      storeId: store.id,
+      channelId: channel.id,
+      link_status: existedByStore ? "UPDATED" : "CREATED",
+    };
+  });
+}
+
 
   private async getShopInfo(shop: string, token: string) {
     const client = await this.shopify.getAdminClient(shop, token);
