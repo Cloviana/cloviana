@@ -1,12 +1,10 @@
 import { createServerClient } from '@supabase/ssr';
-import { SupabaseClient } from '@supabase/supabase-js';
 import { cookies } from 'next/headers';
 
 import { env } from '@/config/env';
 
-export function createClient(): SupabaseClient {
+export function createClient() {
   const cookieStore = cookies();
-
   return createServerClient(env.SUPABASE_URL!, env.SUPABASE_ANON_KEY!, {
     cookies: {
       getAll() {
@@ -18,11 +16,10 @@ export function createClient(): SupabaseClient {
             cookieStore.set(name, value, options),
           );
         } catch {
-          // The `setAll` method was called from a Server Component.
-          // This can be ignored if you have middleware refreshing
-          // user sessions.
+          // Intentionally ignore: setAll was called in a Server Component
         }
       },
     },
+    auth: { flowType: 'pkce' },
   });
 }
