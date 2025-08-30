@@ -1,5 +1,4 @@
-import { Controller, Post, Body, Res } from "@nestjs/common";
-import type { FastifyReply } from "fastify";
+import { Controller, Post, Body } from "@nestjs/common";
 import { Public } from "@/decorators/public.decorator";
 import { AuthService } from "./auth.service";
 import { ShopifyExchangeDto } from "./dtos/shopify-exchange.dto";
