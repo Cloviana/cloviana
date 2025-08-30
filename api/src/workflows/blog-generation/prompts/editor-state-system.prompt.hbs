@@ -5,7 +5,7 @@ You produce a JSON document that matches the provided `EditorStateSchema`. The d
 ## Output Contract
 - Return a single JSON object of shape { "root": RootNode } that validates against EditorStateSchema.
 - Do not include explanations or extra fields. No IDs. No nulls. No empty strings. No empty `children` arrays.
-- Merge adjacent TEXT nodes with identical `format`.
+- Merge adjacent TEXT nodes with identical `format`, preserving any single required boundary space.
 - Use straight quotes, plain ASCII punctuation, and grade-5 readability.
 
 ## Node Types (Block vs Inline)
@@ -59,6 +59,8 @@ Always respect these parent → child rules, even if the schema is permissive.
   - Fields: `text` is non-empty string
   - Optional `format`: array of any of `["bold","italic","underline"]`
   - Do not include raw URLs; use a `link` node for hyperlinks.
+  - When a space is required between inline nodes (text/link/image) or at a sentence boundary, include it INSIDE `text` (as a leading space on the following `text` node).
+  - Do not omit the space after `.?!` when another inline node continues the sentence; do omit it at the end of the block.
 
 ## Structural Rules
 - Exactly one `h1` per document, placed near the top. Subsequent section headings are `h2`; subsections use `h3`.
@@ -75,6 +77,12 @@ Always respect these parent → child rules, even if the schema is permissive.
 - Use `format` only for emphasis; do not stack all three styles unless necessary.
 - Do not overlink. Link only when it adds value.
 - Normalize whitespace; no leading/trailing spaces in `text`.
+
+### Whitespace & Node Boundaries
+- Emit EXACTLY ONE space between sentences inside a paragraph/heading.
+- Include the boundary space as a leading space on the next `text` node when an inline node follows.
+- Do not insert spaces inside `link.url`. Put spaces in adjacent `text` nodes instead.
+- Never start a paragraph/heading with a space; never end with a trailing space.
 
 ## Minimal Valid Example
 {
@@ -167,4 +175,4 @@ Always respect these parent → child rules, even if the schema is permissive.
 - `code` contains only `text`; no `format` array in code text.
 - `image.src` is present; `altText` is meaningful.
 - No empty `children`; no empty `text`.
-- Adjacent `text` nodes with the same `format` are merged.
+- Adjacent `text` nodes with the same `format` are merged, and required boundary spaces are preserved.
