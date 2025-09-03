@@ -2,7 +2,8 @@ import Script from 'next/script';
 import React, { ReactNode } from 'react';
 
 import '@/styles/globals.css';
-import { dmSans, inter, interDisplay } from '@/lib/fonts';
+import { MATERIAL_SYMBOLS_STYLESHEET } from '@/config/material-symbols';
+import { dmSans, gambarino, inter, switzer } from '@/lib/fonts';
 import { cn } from '@/utils/cn';
 
 export const metadata = {
@@ -14,7 +15,12 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
   return (
     <html
       lang="en"
-      className={cn(interDisplay.variable, dmSans.variable, inter.variable)}
+      className={cn(
+        switzer.variable,
+        gambarino.variable,
+        dmSans.variable,
+        inter.variable,
+      )}
     >
       <head>
         <Script
@@ -34,10 +40,11 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
           }}
         />
         <link
-          href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/components/loading.css"
+          href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/components/loading.css,npm/daisyui@5/components/mockup.css"
           rel="stylesheet"
           type="text/css"
         />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -45,8 +52,8 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap"
           rel="stylesheet"
+          href={MATERIAL_SYMBOLS_STYLESHEET}
           fetchPriority="high"
         />
 
