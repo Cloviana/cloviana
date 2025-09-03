@@ -15,12 +15,12 @@ interface LogoProps {
 }
 
 const LOGOS = [
-  { src: '/logos/OpenAI_Logo_0.svg', alt: 'OpenAI' },
-  { src: '/logos/SE Ranking_idvwstdxyha_1.svg', alt: 'SE Ranking' },
-  { src: '/logos/SEMrush_idVjVMO52_0.svg', alt: 'SEMrush' },
-  { src: '/logos/Shopify.com_Logo_0.svg', alt: 'Shopify' },
+  { src: '/logos/Stereogum_idr3trpdhu_1.svg', alt: 'Stereogum' },
+  { src: '/logos/Spoon University_idxZY62vbh_1.svg', alt: 'Spoon University' },
+  { src: '/logos/Fur_idBYFuX1Kq_1.svg', alt: 'Fur' },
+  { src: '/logos/idLfBXG-XJ_1756918529631.png', alt: 'Kiss' },
   { src: '/logos/New Scientist_idGmamynOX_1.svg', alt: 'New Scientist' },
-  { src: '/logos/Ideogram_id9LsmXQWF_0.svg', alt: 'Ideogram' },
+  { src: '/logos/Christianity Today_Logo_0.svg', alt: 'Christian Today' },
   { src: '/logos/casper.png', alt: 'Casper' },
   { src: '/logos/overtone.png', alt: 'Overtone' },
 ] as const;
@@ -67,10 +67,11 @@ export const LogoWall: FC<LogoWallProps> = ({ className }) => {
       <div className="border-dashed-wide container border px-0">
         <div className="border-dashed-wide mx-auto border-b px-2 py-5">
           <h2 className="text-center text-xl font-medium">
-            Powering the world’s best product teams,
+            Proudly powering 50 businesses
             <br />
             <span className="opacity-60">
-              From next-gen startups to established enterprises.
+              Trusted by growing Shopify brands and teams who want results
+              without the lift.
             </span>
           </h2>
         </div>

@@ -38,7 +38,9 @@ const Notification: FC<NotificationProps> = ({
           <span className="text-foreground/50 text-sm font-normal">{time}</span>
         ) : null}
       </div>
-      <p className="text-foreground/80 mt-0.5 text-[15px]">{body}</p>
+      <p className="text-foreground/80 mt-0.5 line-clamp-1 text-[15px]">
+        {body}
+      </p>
     </div>
   </div>
 );
@@ -49,14 +51,18 @@ export const Problem: FC<ProblemProps> = ({ className }) => {
   const notifications = [
     {
       title: 'Cloviana',
-      body: '+6 from Reminders, Notes, and Mail',
-      time: '9:41 AM',
+      body: 'Published to Shopify Blog — “Top 10 Microscope Kits"',
+      time: '11:23 AM',
     },
-    { title: 'Cloviana', body: 'You’ve a new message' },
     {
       title: 'Cloviana',
-      body: 'Your account has been updated, go and check!',
-      time: '9:41 AM',
+      body: 'Internal links added to 12 product pages',
+      time: '3:05 PM',
+    },
+    {
+      title: 'Cloviana',
+      body: 'Rank watch: 6 new top-10 positions this week',
+      time: '7:20 PM',
     },
   ];
 
@@ -76,7 +82,7 @@ export const Problem: FC<ProblemProps> = ({ className }) => {
       )}
     >
       <div className="container flex flex-col gap-6 px-0 md:flex-row">
-        <div className="relative aspect-[5/4] w-full overflow-hidden rounded-lg md:w-[600px]">
+        <div className="relative aspect-[5/4] w-full flex-1 overflow-hidden rounded-lg md:max-w-[550px] md:min-w-[450px]">
           <img
             alt="Problem Banner"
             src="/problem-banner.png"
@@ -93,10 +99,12 @@ export const Problem: FC<ProblemProps> = ({ className }) => {
                     key={i}
                     {...n}
                     className={cn(
-                      'absolute right-0 bottom-0 left-0 mx-auto',
+                      'absolute right-0 bottom-0 left-0 mx-auto transition-all duration-500',
                       pos === 0 && 'z-30 translate-y-0 scale-100 opacity-100',
-                      pos === 1 && 'z-20 -translate-y-4 scale-90 opacity-95',
-                      pos === 2 && 'z-10 -translate-y-8 scale-85 opacity-90',
+                      pos === 1 &&
+                        'z-20 -translate-y-[15%] scale-95 opacity-95',
+                      pos === 2 &&
+                        'z-10 -translate-y-[30%] scale-90 opacity-90',
                     )}
                   />
                 );
@@ -107,12 +115,15 @@ export const Problem: FC<ProblemProps> = ({ className }) => {
 
         <div className="flex flex-1 flex-col justify-between gap-4">
           <h2 className="text-2xl font-medium">
-            Powering the world’s best product teams
+            SEO feels expensive — and unclear
           </h2>
           <p className="text-base font-light">
-            Conversion is the AI-native Marketing Automation Platform built for
-            high-growth B2B businesses. Activate customer data, build custom
-            journeys, and send beautiful emails to every single customer.
+            Merchants pay big retainers and wait months for vague reports and
+            slow content, with little link to sales. Search is changing fast:
+            SEO still matters, but now you must show up in AI answers (AEO) and
+            generative engines (GEO). Cloviana makes it simple—we plan, write,
+            and publish so you see wins in search and LLM answers, without
+            chasing agencies.{' '}
           </p>
         </div>
       </div>

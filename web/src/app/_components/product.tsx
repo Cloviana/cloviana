@@ -60,7 +60,7 @@ const squareVariants = cva('absolute w-2 h-2 [inset:auto_-4px_-4px_auto]', {
 });
 
 const productContentVariants = cva(
-  'rounded-tl-[0.125rem] rounded-tr-[0.125rem] justify-center items-end pt-[3rem] pr-[3rem] pl-[3rem] flex',
+  'rounded-tl-[0.125rem] rounded-tr-[0.125rem] justify-center items-end pt-[1rem] md:pt-[3rem] pr-[1rem] md:pr-[3rem] pl-[1rem] md:pl-[3rem] flex',
   {
     variants: {
       variant: {
@@ -200,9 +200,10 @@ export const Product: FC<ProductProps> = ({
           )}
         >
           <img
-            className="inline-block w-full rounded-t-lg border border-b-0 border-[#ffffff29]"
+            className="inline-block w-full rounded-t-lg border border-b-0 border-black/60"
             src={image.src}
             loading="lazy"
+            fetchPriority="high"
             alt={image.alt}
             sizes="(max-width: 2980px) 100vw, 2980px"
             style={{

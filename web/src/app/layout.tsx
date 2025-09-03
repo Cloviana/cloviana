@@ -7,8 +7,49 @@ import { dmSans, gambarino, inter, switzer } from '@/lib/fonts';
 import { cn } from '@/utils/cn';
 
 export const metadata = {
-  title: 'Cloviana',
-  description: 'Showcasing Best Practices For Building React Applications',
+  title: 'Cloviana | The Fully Automated SEO Agency for Shopify',
+  description:
+    'Cloviana is the AI-native SEO platform for Shopify. Discover keywords, generate on-brand blogs, sync to your store, and grow traffic — fully automated.',
+  keywords: [
+    'Shopify SEO',
+    'AI SEO',
+    'AI blog generator',
+    'Shopify marketing automation',
+    'SEO agency automation',
+    'AI Shopify apps',
+  ],
+  openGraph: {
+    type: 'website',
+    url: 'https://cloviana.com',
+    title: 'Cloviana | The Fully Automated SEO Agency for Shopify',
+    description:
+      'Cloviana plans, writes, and publishes SEO content for Shopify brands. Get traffic growth on autopilot.',
+    siteName: 'Cloviana',
+    images: [
+      {
+        url: 'https://cloviana.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Cloviana SEO platform preview',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@cloviana',
+    creator: '@cloviana',
+    title: 'Cloviana | The Fully Automated SEO Agency for Shopify',
+    description:
+      'Grow your Shopify traffic while you sleep. Automated keyword discovery, blog writing, and publishing.',
+    images: ['https://cloviana.com/og-image.png'],
+  },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
+  alternates: {
+    canonical: 'https://cloviana.com',
+  },
 };
 
 const RootLayout = async ({ children }: { children: ReactNode }) => {
