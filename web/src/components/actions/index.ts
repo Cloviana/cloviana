@@ -1,3 +1,2 @@
-export * from './button';
 export * from './anchor';
-export * from './button-group';
+export * from './button';

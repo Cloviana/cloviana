@@ -1,54 +1,40 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-inter-display: var(--font-inter-display);
+  --font-dm-sans: var(--font-dm-sans);
+  --font-inter: var(--font-inter);
+  --font-switzer: var(--font-switzer);
+  --font-gambarino: var(--font-gambarino);
+
+  --color-primary: hsl(var(--primary));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-foreground-light: hsl(var(--foreground-light));
+  --color-border: hsl(var(--border));
+}
 
 @layer base {
   :root {
-    /* Brand colors */
-    --primary: 209.84, 76.71%, 51.18%;
-    --primary-light: 209.84, 76.71%, 55.18%;
-
-    /* Neutrals & surfaces */
-    --sand: 60, 11%, 98%;
-    --mist: 0, 0%, 94%;
-    --background: 0, 0%, 100%;
-    --alternative: 0, 0%, 97%;
-    --surface-400: 0, 0%, 89.8%;
-    --surface-300: 0, 0%, 92.9%;
-    --surface-200: 0, 0%, 95.3%;
-    --surface-100: 0, 0%, 98.8%;
-    --surface-75: 0, 0%, 100%;
-
-    /* Text & borders */
-    --foreground: 0, 0%, 9%;
-    --foreground-light: 0, 0%, 32.2%;
-    --foreground-lighter: 0, 0%, 43.9%;
-    --border: 0, 0%, 87%;
-
-    /* Spacing */
-    --space-100: 4px;
-    --space-200: 8px;
-    --space-300: 12px;
-    --space-400: 16px;
-    --space-500: 24px;
-    --space-600: 32px;
-    --space-700: 40px;
-    --space-800: 48px;
-    --space-900: 64px;
+    --primary: 0 3% 13%;
+    --background: 30 33% 99%;
+    --foreground: 48 8% 12%;
+    --foreground-light: 60 3% 29%;
+    --border: 0 0% 88%;
   }
 
-  /* Global reset & fonts */
   *,
   *::before,
   *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    border-color: hsl(var(--border));
+    border-color: var(--color-border);
   }
 
   body {
-    @apply bg-background font-dm-sans text-foreground;
+    @apply bg-background font-switzer text-foreground;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -59,61 +45,50 @@
   h4,
   h5,
   h6 {
-    @apply font-inter-display text-foreground;
+    @apply font-gambarino text-foreground;
   }
 
-  /* Autofill fixes */
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  input:-webkit-autofill:active {
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: black !important;
-    transition: background-color 5000s ease-in-out 0s !important;
-    box-shadow: inset 0 0 20px 20px white !important;
-  }
-
-  /* SVG cleanup */
   svg {
     background-color: transparent !important;
   }
+}
 
-  .dropdown-item {
-    @apply block cursor-pointer rounded px-2 py-1.5 text-[12px] hover:bg-primary-light hover:text-white focus:outline-none;
+@utility border-dashed-wide {
+  border-style: solid;
+  border-image: repeating-linear-gradient(
+      45deg,
+      #e2e2e2 0,
+      #e2e2e2 6px,
+      transparent 6px,
+      transparent 12px
+    )
+    1;
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  max-width: 100%;
+
+  @variant sm {
+    max-width: 40rem;
   }
-  .dropdown-content {
-    @apply rounded border bg-background shadow will-change-[opacity,transform] data-[side=bottom]:animate-slideUpAndFade;
-  }
-  .dropdown-seperator {
-    @apply h-px bg-border;
-  }
-  .dropdown-content-section {
-    @apply space-y-1 p-1;
+  @variant md {
+    max-width: 68rem;
   }
 }
 
-@keyframes swing {
-  0% {
-    transform: rotate(0deg);
-  }
-  20% {
-    transform: rotate(15deg);
-  }
-  40% {
-    transform: rotate(-10deg);
-  }
-  60% {
-    transform: rotate(5deg);
-  }
-  80% {
-    transform: rotate(-5deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
+@utility padding-global {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
-.logo-swing {
-  /* pivot at the bottom so the top moves */
-  transform-origin: bottom center;
-  animation: swing 2s ease-in-out infinite;
+
+@utility padding-section-medium {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@utility padding-section-large {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
