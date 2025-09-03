@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { FC, useState } from 'react';
 
 import { Button } from '@/components/actions';
@@ -39,25 +40,50 @@ export const Hero: FC<HeroProps> = ({ className }) => {
       <div className="padding-global relative z-20 h-full">
         <div className="bg-background container h-full border-r border-l pt-[4rem]">
           <div className="mx-auto flex w-full flex-col items-center gap-6 text-center">
-            <h1 className="max-w-[20ch] text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-              The Modern Marketing Automation Platform
-            </h1>
-            <p className="max-w-[55ch] text-sm md:text-base">
-              Conversion is the AI-native Marketing Automation Platform built
-              for high-growth B2B businesses. Activate customer data, build
-              custom journeys, and send beautiful emails to every single
-              customer.
-            </p>
-            <div className="mt-5 flex w-full max-w-sm rounded-full border bg-white p-[2px] shadow-xs">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+              className="max-w-[20ch] text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+            >
+              The Fully Automated SEO Agency for Shopify
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
+              className="max-w-[55ch] text-sm md:text-base"
+            >
+              Cloviana is the AI-native SEO platform for growing Shopify brands.
+              It finds keywords, writes blogs, improves product and page SEO,
+              adds links, fixes site basics, and publishes to Shopify for you—so
+              you show up in search and in AI answers.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.4 }}
+              className="mt-5 flex w-full max-w-sm items-center rounded-full border bg-white p-[2px] shadow-xs"
+            >
               <input
-                className="flex-1 px-3 text-sm font-medium focus:outline-0"
+                className="w-0 min-w-0 flex-1 truncate px-3 text-sm font-medium focus:outline-0"
                 placeholder="What's your work email?"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <Button onClick={handleBookDemo}>Book a demo</Button>
-            </div>
-            <div className="mockup-window w-full !rounded-t-lg border">
+              <Button onClick={handleBookDemo} className="shrink-0">
+                Book a demo
+              </Button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.6 }}
+              className="mockup-window w-full !rounded-t-lg border"
+            >
               <div className="w-full border-t">
                 <video
                   src="/hero-banner.mp4"
@@ -68,7 +94,7 @@ export const Hero: FC<HeroProps> = ({ className }) => {
                   className="w-full object-cover"
                 />
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

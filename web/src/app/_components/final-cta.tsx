@@ -30,20 +30,31 @@ export const FinalCTA: FC<FinalCTAProps> = ({ className }) => {
         <div className="container flex h-[400px] items-center justify-center">
           <div className="mx-auto flex w-full flex-col items-center gap-6 text-center">
             <h1 className="max-w-[20ch] text-3xl text-white sm:text-5xl">
-              Turn Every Form Fill-Out Into Your Next Customer
+              Grow your traffic while you sleep
             </h1>
             <p className="max-w-[55ch] text-sm text-white">
-              Trigger personalized emails and actions based on real-time
-              behavior, not static lists.
+              Turn keywords into customers with zero lift. Cloviana plans,
+              writes, and publishes for you.
             </p>
-            <div className="mt-5 flex w-full max-w-sm rounded-full border bg-white p-[2px] shadow">
+            <div className="mt-5 flex w-full max-w-sm items-center gap-2 rounded-full border bg-white p-[2px] shadow">
               <input
-                className="flex-1 px-3 text-sm font-medium focus:outline-0"
+                className="w-0 min-w-0 flex-1 truncate bg-transparent px-3 py-2 text-sm font-medium text-black outline-none placeholder:text-neutral-500"
                 placeholder="What's your work email?"
+                type="email"
+                autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') handleBookDemo();
+                }}
               />
-              <Button onClick={handleBookDemo}>Book a demo</Button>
+              <Button
+                className="shrink-0 rounded-full"
+                size="sm"
+                onClick={handleBookDemo}
+              >
+                Book a demo
+              </Button>
             </div>
           </div>
         </div>

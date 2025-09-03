@@ -21,10 +21,10 @@ const NAV_SECTIONS: NavSection[] = [
   {
     title: 'Product',
     items: [
-      { label: 'Workflows', href: '#' },
-      { label: 'Email Design', href: '#' },
-      { label: 'Audiences', href: '#' },
-      { label: 'Reporting', href: '#' },
+      { label: 'Keywords', href: '#' },
+      { label: 'Blogs', href: '#' },
+      { label: 'Competitors', href: '#' },
+      { label: 'Reviews', href: '#' },
     ],
   },
   {
@@ -46,16 +46,16 @@ const SOCIAL_ICONS: {
   {
     alt: 'LinkedIn',
     src: '/icons/linkedin.svg',
-    href: '#',
-    size: 'size-[22px]',
+    href: 'https://www.linkedin.com/company/cloviana',
+    size: 'size-[20px]',
   },
   {
     alt: 'Instagram',
     src: '/icons/instagram.svg',
     href: '#',
-    size: 'size-[22px]',
+    size: 'size-[20px]',
   },
-  { alt: 'YouTube', src: '/icons/youtube.svg', href: '#', size: 'size-6' },
+  { alt: 'YouTube', src: '/icons/youtube.svg', href: '#', size: 'size-[23px]' },
 ];
 
 export const Footer: FC = () => (
@@ -64,7 +64,7 @@ export const Footer: FC = () => (
       <div className="flex flex-col justify-between gap-4">
         <div className="flex flex-col gap-2">
           <img src="/logo-full.png" className="w-22" alt="Relentlo logo" />
-          <span className="font-medium">AI-Native Marketing Automation</span>
+          <span className="font-medium">AI-native SEO platform</span>
         </div>
         <Button asChild className="group w-fit" size="sm">
           <a href={links.demo} target="_blank" rel="noopener noreferrer">
@@ -101,14 +101,15 @@ export const Footer: FC = () => (
 
     <div className="border-foreground/10 container mt-12 border-t pt-6">
       <div className="flex items-center justify-between">
-        <span className="text-sm">© Relentlo Inc. 2025</span>
+        <span className="text-sm">© Cloviana Inc. 2025</span>
         <div className="flex items-center gap-4">
           {SOCIAL_ICONS.map((icon) => (
             <Link
               key={icon.alt}
               href={icon.href}
               aria-label={icon.alt}
-              className="opacity-80 hover:opacity-100"
+              target="_blank"
+              className="opacity-80 transition-opacity hover:opacity-70"
             >
               <img
                 src={icon.src}

@@ -28,41 +28,41 @@ export default function HomePage() {
           <Product
             className="top-[3.55rem] -mt-[6rem] mb-[15rem]"
             variant={'green'}
-            title="Build custom workflows that adapt to every customer"
-            paragraph="Trigger emails, update CRM records, and assign leads based on product usage, enrichment data, and more — all without writing code."
+            title="Win the right keywords — fast"
+            paragraph="Cloviana scans your niche, competitors, and catalog to surface terms you can rank for now—complete with intent, difficulty, and product fit."
             image={{
-              src: '/product-1.png',
-              alt: 'product',
+              src: '/products/keywords.png',
+              alt: 'Keywords',
             }}
           />
           <Product
             className="top-[6.0075rem] -mt-[15rem] mb-[11rem] -translate-y-[1rem]"
             variant={'purple'}
-            title="Build custom workflows that adapt to every customer"
-            paragraph="Trigger emails, update CRM records, and assign leads based on product usage, enrichment data, and more — all without writing code."
+            title="On-brand blogs, written for you"
+            paragraph="Cloviana drafts full articles fast—headings, meta, links, and alt text—optimized to read well for people and rank in search."
             image={{
-              src: '/product-1.png',
-              alt: 'product',
+              src: '/products/blog-editor.png',
+              alt: 'Blog Editor',
             }}
           />
           <Product
             className="top-[8.2125rem] -mt-[11rem] mb-[7rem] -translate-y-[2rem]"
             variant={'blue'}
-            title="Build custom workflows that adapt to every customer"
-            paragraph="Trigger emails, update CRM records, and assign leads based on product usage, enrichment data, and more — all without writing code."
+            title="Publish to Shopify in one click"
+            paragraph="Publish directly to Shopify—posts, images, SEO fields, and product links sync automatically, with clean slugs and updates as you grow."
             image={{
-              src: '/product-1.png',
-              alt: 'product',
+              src: '/products/integration.png',
+              alt: 'Integration',
             }}
           />
           <Product
             className="top-[9.2875rem] -mt-[7rem] mb-[3rem] -translate-y-[3rem]"
             variant={'red'}
-            title="Build custom workflows that adapt to every customer"
-            paragraph="Trigger emails, update CRM records, and assign leads based on product usage, enrichment data, and more — all without writing code."
+            title="Ultra-realistic images, on brand"
+            paragraph="Generate studio-grade blog visuals in your brand style—realistic, SEO-ready images with alt text and Shopify-fit sizes."
             image={{
-              src: '/product-1.png',
-              alt: 'product',
+              src: '/products/images.png',
+              alt: 'Product Images',
             }}
           />
         </section>
