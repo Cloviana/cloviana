@@ -67,7 +67,7 @@ export const LogoWall: FC<LogoWallProps> = ({ className }) => {
       <div className="border-dashed-wide container border px-0">
         <div className="border-dashed-wide mx-auto border-b px-2 py-5">
           <h2 className="text-center text-xl font-medium">
-            Proudly powering 50 businesses
+            Proudly powering 200+ businesses
             <br />
             <span className="opacity-60">
               Trusted by growing Shopify brands and teams who want results
