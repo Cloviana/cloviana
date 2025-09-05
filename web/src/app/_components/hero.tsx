@@ -46,7 +46,7 @@ export const Hero: FC<HeroProps> = ({ className }) => {
               transition={{ duration: 0.7, ease: 'easeOut' }}
               className="max-w-[20ch] text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
             >
-              The Fully Automated SEO Agency for Shopify
+              The Modern SEO Automation Platform
             </motion.h1>
 
             <motion.p
