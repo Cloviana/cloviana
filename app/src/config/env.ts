@@ -11,6 +11,7 @@ const createEnv = () => {
       .enum(['development', 'production'])
       .optional()
       .default('development'),
+    GA4_ID: z.string(),
   });
 
   const envVars = {
@@ -19,6 +20,7 @@ const createEnv = () => {
     SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
     SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     ENVIRONMENT: process.env.NEXT_PUBLIC_ENVIRONMENT,
+    GA4_ID: process.env.NEXT_PUBLIC_GA4_ID,
   };
 
   const parsedEnv = EnvSchema.safeParse(envVars);

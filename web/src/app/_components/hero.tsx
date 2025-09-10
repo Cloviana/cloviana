@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { FC, useState } from 'react';
 
 import { Button } from '@/components/actions';
-import { links } from '@/config/links';
+import { useBookDemo } from '@/hooks/use-book-demo';
 import { cn } from '@/utils/cn';
 
 import { HatchCard } from './hatch-card';
@@ -15,12 +15,7 @@ interface HeroProps {
 
 export const Hero: FC<HeroProps> = ({ className }) => {
   const [email, setEmail] = useState('');
-
-  const handleBookDemo = () => {
-    if (!email) return;
-    const calendlyUrl = `${links.demo}?email=${encodeURIComponent(email)}`;
-    window.open(calendlyUrl, '_blank');
-  };
+  const bookDemo = useBookDemo();
 
   return (
     <section className={cn('relative w-full border-b', className)}>
@@ -73,7 +68,7 @@ export const Hero: FC<HeroProps> = ({ className }) => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <Button onClick={handleBookDemo} className="shrink-0">
+              <Button onClick={() => bookDemo(email)} className="shrink-0">
                 Book a demo
               </Button>
             </motion.div>

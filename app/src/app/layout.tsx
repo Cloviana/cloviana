@@ -8,6 +8,7 @@ import React, { ReactNode } from 'react';
 
 import { AppProvider } from '@/app/provider';
 import '@/styles/globals.css';
+import { env } from '@/config/env';
 import { MATERIAL_SYMBOLS_STYLESHEET } from '@/config/material-symbols';
 import { dmSans, inter, interDisplay } from '@/lib/fonts';
 import { cn } from '@/utils/cn';
@@ -27,7 +28,7 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
     >
       <head>
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-VSMD7B6WN1"
+          src={`https://www.googletagmanager.com/gtag/js?id=${env.GA4_ID}`}
           strategy="afterInteractive"
         />
         <Script
@@ -38,10 +39,11 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
               window.dataLayer = window.dataLayer || [];
               function gtag(){ dataLayer.push(arguments); }
               gtag('js', new Date());
-              gtag('config', 'G-VSMD7B6WN1', { page_path: window.location.pathname });
+              gtag('config', '${env.GA4_ID}', { page_path: window.location.pathname });
             `,
           }}
         />
+
         <link
           href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/components/loading.css"
           rel="stylesheet"

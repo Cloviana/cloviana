@@ -9,11 +9,13 @@ const createEnv = () => {
       .enum(['development', 'production'])
       .optional()
       .default('development'),
+    GA4_ID: z.string(),
   });
 
   const envVars = {
     ENVIRONMENT: process.env.NEXT_PUBLIC_ENVIRONMENT,
     APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+    GA4_ID: process.env.NEXT_PUBLIC_GA4_ID,
   };
 
   const parsedEnv = EnvSchema.safeParse(envVars);
