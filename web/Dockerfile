@@ -24,9 +24,12 @@ FROM deps AS builder
 # Build‑time vars for your Next.js client
 ARG NEXT_PUBLIC_APP_URL
 ARG NEXT_PUBLIC_WEB_URL
+ARG NEXT_PUBLIC_GA4_ID
+
 ENV NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
     NEXT_PUBLIC_WEB_URL=${NEXT_PUBLIC_WEB_URL} \
-    NEXT_PUBLIC_ENVIRONMENT=production
+    NEXT_PUBLIC_ENVIRONMENT=production \
+    NEXT_PUBLIC_GA4_ID=${NEXT_PUBLIC_GA4_ID}
 
 # Copy everything (we already got lockfiles & .npmrc)
 COPY . .
@@ -73,9 +76,12 @@ COPY --from=builder /app/public ./public
 # Re‑expose your runtime ENVs if needed (e.g. for server‑side code)
 ARG NEXT_PUBLIC_APP_URL
 ARG NEXT_PUBLIC_WEB_URL
+ARG NEXT_PUBLIC_GA4_ID
+
 ENV NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
     NEXT_PUBLIC_WEB_URL=${NEXT_PUBLIC_WEB_URL} \
-    NEXT_PUBLIC_ENVIRONMENT=production
+    NEXT_PUBLIC_ENVIRONMENT=production \
+    NEXT_PUBLIC_GA4_ID=${NEXT_PUBLIC_GA4_ID}
 
 USER nextjs
 EXPOSE 3000

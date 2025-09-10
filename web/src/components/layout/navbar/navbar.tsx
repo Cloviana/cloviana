@@ -7,6 +7,7 @@ import { Button } from '@/components/actions';
 import { GIcon } from '@/components/icons';
 import { links } from '@/config/links';
 import { paths } from '@/config/paths';
+import { useBookDemo } from '@/hooks/use-book-demo';
 import { cn } from '@/utils/cn';
 
 import { NavItem } from './components/nav-item';
@@ -17,6 +18,7 @@ interface NavbarProps {
 
 export const Navbar: FC<NavbarProps> = ({ className }) => {
   const [menuOpened, setMenuOpened] = useState(false);
+  const bookDemo = useBookDemo();
 
   return (
     <div className="relative">
@@ -94,14 +96,12 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
               </NavItem>
             </div>
             <div className="flex flex-col gap-3">
-              <Button asChild className="group">
-                <a href={links.demo} target="_blank" rel="noopener noreferrer">
-                  Book a demo
-                  <GIcon
-                    name="arrow_forward"
-                    className="transition-transform group-hover:translate-x-0.5"
-                  />
-                </a>
+              <Button asChild className="group" onClick={() => bookDemo()}>
+                Book a demo
+                <GIcon
+                  name="arrow_forward"
+                  className="transition-transform group-hover:translate-x-0.5"
+                />
               </Button>
               <Button asChild variant={'outline'}>
                 <Link href={paths.auth.login.getHref()}>Login</Link>
