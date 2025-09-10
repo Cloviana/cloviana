@@ -3,7 +3,7 @@
 import { FC, useState } from 'react';
 
 import { Button } from '@/components/actions';
-import { links } from '@/config/links';
+import { useBookDemo } from '@/hooks/use-book-demo';
 import { cn } from '@/utils/cn';
 
 interface FinalCTAProps {
@@ -12,12 +12,7 @@ interface FinalCTAProps {
 
 export const FinalCTA: FC<FinalCTAProps> = ({ className }) => {
   const [email, setEmail] = useState('');
-
-  const handleBookDemo = () => {
-    if (!email) return;
-    const calendlyUrl = `${links.demo}?email=${encodeURIComponent(email)}`;
-    window.open(calendlyUrl, '_blank');
-  };
+  const bookDemo = useBookDemo();
 
   return (
     <section
@@ -44,14 +39,11 @@ export const FinalCTA: FC<FinalCTAProps> = ({ className }) => {
                 autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') handleBookDemo();
-                }}
               />
               <Button
                 className="shrink-0 rounded-full"
                 size="sm"
-                onClick={handleBookDemo}
+                onClick={() => bookDemo(email)}
               >
                 Book a demo
               </Button>
