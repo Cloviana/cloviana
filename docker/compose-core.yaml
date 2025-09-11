@@ -87,7 +87,7 @@ services:
         NEXT_PUBLIC_APP_URL: ${APP_URL}
         NEXT_PUBLIC_SUPABASE_URL: ${SUPABASE_URL}
         NEXT_PUBLIC_SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
-        NEXT_PUBLIC_GA4_ID: ${GA4_ID}
+        NEXT_PUBLIC_GA4_ID: G-C4Z5BHM2R1
     image: ghcr.io/cloviana/app:latest
     container_name: app
     env_file:
@@ -97,7 +97,7 @@ services:
       NEXT_PUBLIC_APP_URL: ${APP_URL}
       NEXT_PUBLIC_SUPABASE_URL: ${SUPABASE_URL}
       NEXT_PUBLIC_SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
-      NEXT_PUBLIC_GA4_ID: ${GA4_ID}
+      NEXT_PUBLIC_GA4_ID: G-C4Z5BHM2R1
       GA4_API_SECRET: ${GA4_API_SECRET}
       SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY}
       SHOPIFY_API_KEY: ${SHOPIFY_API_KEY}
@@ -116,11 +116,11 @@ services:
       args:
         NEXT_PUBLIC_APP_URL: ${APP_URL}
         NEXT_PUBLIC_WEB_URL: ${WEB_URL}
-        NEXT_PUBLIC_GA4_ID: ${GA4_ID}
+        NEXT_PUBLIC_GA4_ID: G-VSMD7B6WN1
     environment:
       NEXT_PUBLIC_APP_URL: ${APP_URL}
       NEXT_PUBLIC_WEB_URL: ${WEB_URL}
-      NEXT_PUBLIC_GA4_ID: ${GA4_ID}
+      NEXT_PUBLIC_GA4_ID: G-VSMD7B6WN1
       GA4_API_SECRET: ${GA4_API_SECRET}
     image: ghcr.io/cloviana/web:latest
     container_name: web
