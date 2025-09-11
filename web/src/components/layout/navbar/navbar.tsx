@@ -46,6 +46,9 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
               </NavItem>
             </div>
             <div className="flex items-center gap-2">
+              <Button asChild variant={'outline'}>
+                <Link href={paths.auth.signup.getHref()}>Start for free</Link>
+              </Button>
               <Button asChild className="group">
                 <a href={links.demo} target="_blank" rel="noopener noreferrer">
                   Book a demo
@@ -54,9 +57,6 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
                     className="transition-transform group-hover:translate-x-0.5"
                   />
                 </a>
-              </Button>
-              <Button asChild variant={'outline'}>
-                <Link href={paths.auth.login.getHref()}>Login</Link>
               </Button>
             </div>
           </div>
