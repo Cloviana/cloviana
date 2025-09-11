@@ -18,7 +18,7 @@ export const FinalCTA: FC<FinalCTAProps> = ({ className }) => {
     <section
       className={cn(
         className,
-        "bg-[#21201c] bg-[url('/patterns/dots-pattern.svg')] bg-center bg-repeat",
+        "bg-[#21201c] bg-[url('https://cloviana-assets.azureedge.net/assets/dots-pattern.svg')] bg-center bg-repeat",
       )}
     >
       <div className="padding-global padding-section-medium">
