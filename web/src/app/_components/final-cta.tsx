@@ -1,9 +1,10 @@
 'use client';
 
+import Link from 'next/link';
 import { FC, useState } from 'react';
 
 import { Button } from '@/components/actions';
-import { useBookDemo } from '@/hooks/use-book-demo';
+import { paths } from '@/config/paths';
 import { cn } from '@/utils/cn';
 
 interface FinalCTAProps {
@@ -12,7 +13,6 @@ interface FinalCTAProps {
 
 export const FinalCTA: FC<FinalCTAProps> = ({ className }) => {
   const [email, setEmail] = useState('');
-  const bookDemo = useBookDemo();
 
   return (
     <section
@@ -40,12 +40,8 @@ export const FinalCTA: FC<FinalCTAProps> = ({ className }) => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <Button
-                className="shrink-0 rounded-full"
-                size="sm"
-                onClick={() => bookDemo(email)}
-              >
-                Book a demo
+              <Button asChild className="shrink-0">
+                <Link href={paths.auth.signup.getHref()}>Sign up</Link>
               </Button>
             </div>
           </div>

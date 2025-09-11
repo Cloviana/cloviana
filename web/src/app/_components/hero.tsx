@@ -1,10 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { FC, useState } from 'react';
 
 import { Button } from '@/components/actions';
-import { useBookDemo } from '@/hooks/use-book-demo';
+import { paths } from '@/config/paths';
 import { cn } from '@/utils/cn';
 
 import { HatchCard } from './hatch-card';
@@ -15,7 +16,6 @@ interface HeroProps {
 
 export const Hero: FC<HeroProps> = ({ className }) => {
   const [email, setEmail] = useState('');
-  const bookDemo = useBookDemo();
 
   return (
     <section className={cn('relative w-full border-b', className)}>
@@ -60,7 +60,7 @@ export const Hero: FC<HeroProps> = ({ className }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: 'easeOut', delay: 0.4 }}
-              className="mt-5 flex w-full max-w-sm items-center rounded-full border bg-white p-[2px] shadow-xs"
+              className="mt-5 flex w-full max-w-sm items-center rounded-full border bg-white p-[4px] shadow-xs"
             >
               <input
                 className="w-0 min-w-0 flex-1 truncate px-3 text-sm font-medium focus:outline-0"
@@ -68,8 +68,8 @@ export const Hero: FC<HeroProps> = ({ className }) => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <Button onClick={() => bookDemo(email)} className="shrink-0">
-                Book a demo
+              <Button asChild className="shrink-0">
+                <Link href={paths.auth.signup.getHref()}>Sign up</Link>
               </Button>
             </motion.div>
 
