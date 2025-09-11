@@ -31,8 +31,10 @@ export default function HomePage() {
             title="Win the right keywords — fast"
             paragraph="Cloviana scans your niche, competitors, and catalog to surface terms you can rank for now—complete with intent, difficulty, and product fit."
             image={{
-              src: '/products/keywords.png',
+              src: 'https://cloviana-assets.azureedge.net/assets/keywords.png',
               alt: 'Keywords',
+              blurDataURL:
+                'data:image/webp;base64,UklGRi4AAABXRUJQVlA4ICIAAAAwAQCdASoKAAUAAUAmJaQAA3AA/vyrVJGf/ianLyzyAgAA',
             }}
           />
           <Product
@@ -41,8 +43,10 @@ export default function HomePage() {
             title="On-brand blogs, written for you"
             paragraph="Cloviana drafts full articles fast—headings, meta, links, and alt text—optimized to read well for people and rank in search."
             image={{
-              src: '/products/blog-editor.png',
+              src: 'https://cloviana-assets.azureedge.net/assets/blog-editor.png',
               alt: 'Blog Editor',
+              blurDataURL:
+                'data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACQAQCdASoKAAUAAUAmJaQAAtzDOzQA/v4SK3aniNukq8QzdfL9kw/YoAAAAA==',
             }}
           />
           <Product
@@ -51,8 +55,10 @@ export default function HomePage() {
             title="Publish to Shopify in one click"
             paragraph="Publish directly to Shopify—posts, images, SEO fields, and product links sync automatically, with clean slugs and updates as you grow."
             image={{
-              src: '/products/integration.png',
+              src: 'https://cloviana-assets.azureedge.net/assets/integration.png',
               alt: 'Integration',
+              blurDataURL:
+                'data:image/webp;base64,UklGRioAAABXRUJQVlA4IB4AAACQAQCdASoKAAUAAUAmJaQAAudFrAAA/v70RI80AAA=',
             }}
           />
           <Product
@@ -61,8 +67,10 @@ export default function HomePage() {
             title="Ultra-realistic images, on brand"
             paragraph="Generate studio-grade blog visuals in your brand style—realistic, SEO-ready images with alt text and Shopify-fit sizes."
             image={{
-              src: '/products/images.png',
+              src: 'https://cloviana-assets.azureedge.net/assets/images.png',
               alt: 'Product Images',
+              blurDataURL:
+                'data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADQAQCdASoKAAUAAUAmJaACdAEfUBkzIAD+raXg+bMbK2h3znQ+7vAc2SmuLw+Gw1XwPo/s87aOU5Fe+t7FCbKWdBuv35v5J8qnwqzl+TyHRB3Jge4ZAAAA',
             }}
           />
         </section>
