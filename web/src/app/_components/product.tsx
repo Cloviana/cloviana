@@ -1,4 +1,5 @@
 import { cva, VariantProps } from 'class-variance-authority';
+import Image from 'next/image';
 import { FC } from 'react';
 
 import { Button } from '@/components/actions';
@@ -13,6 +14,7 @@ interface ProductProps extends VariantProps<typeof productRootVariants> {
   image: {
     src: string;
     alt: string;
+    blurDataURL?: string;
   };
 }
 
@@ -90,7 +92,7 @@ export const Product: FC<ProductProps> = ({
       )}
     >
       <div className="grid w-full [grid-auto-columns:1fr] [grid-template-columns:minmax(1.25rem,1fr)_minmax(1.25rem,1.25rem)_minmax(auto,68.5rem)_minmax(1.25rem,1.25rem)_minmax(1.25rem,1fr)] [grid-template-rows:minmax(1.5rem,1.5rem)_auto_auto_minmax(1px,auto)_minmax(auto,5rem)_auto_auto_minmax(auto,5rem)] items-stretch [grid-column-gap:0rem] [grid-row-gap:0rem]">
-        <div className="relative flex items-start justify-between px-5 py-10 [grid-area:2/3/3/4]">
+        <div className="relative flex flex-col items-start justify-between px-5 py-10 [grid-area:2/3/3/4] md:flex-row">
           <div className="w-full max-w-[30rem]">
             <h2 className="text-[2.5rem] leading-[1] tracking-[-0.02em] text-white">
               {title}
@@ -199,19 +201,16 @@ export const Product: FC<ProductProps> = ({
             productContentVariants({ variant }),
           )}
         >
-          <img
-            className="inline-block w-full rounded-t-lg border border-b-0 border-black/60"
+          <Image
             src={image.src}
-            loading="lazy"
-            fetchPriority="high"
             alt={image.alt}
-            sizes="(max-width: 2980px) 100vw, 2980px"
-            style={{
-              transform:
-                'translate3d(0px, 0rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg)',
-              transformStyle: 'preserve-3d',
-              opacity: 1,
-            }}
+            width={1200}
+            height={900}
+            priority
+            placeholder={image.blurDataURL ? 'blur' : undefined}
+            blurDataURL={image.blurDataURL}
+            sizes="(max-width: 1024px) 100vw, 68.5rem"
+            className="h-auto w-full rounded-t-lg border border-b-0 border-black/60"
           />
         </div>
       </div>

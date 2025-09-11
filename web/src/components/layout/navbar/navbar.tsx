@@ -96,7 +96,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
               </NavItem>
             </div>
             <div className="flex flex-col gap-3">
-              <Button asChild className="group" onClick={() => bookDemo()}>
+              <Button className="group" onClick={() => bookDemo()}>
                 Book a demo
                 <GIcon
                   name="arrow_forward"

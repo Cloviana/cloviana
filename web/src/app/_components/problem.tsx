@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
 
 import { cn } from '@/utils/cn';
@@ -83,10 +84,15 @@ export const Problem: FC<ProblemProps> = ({ className }) => {
     >
       <div className="container flex flex-col gap-6 px-0 md:flex-row">
         <div className="relative aspect-[5/4] w-full flex-1 overflow-hidden rounded-lg md:max-w-[550px] md:min-w-[450px]">
-          <img
+          <Image
+            src="https://cloviana-assets.azureedge.net/assets/problem-banner.png"
             alt="Problem Banner"
-            src="/problem-banner.png"
-            className="h-full w-full object-cover"
+            width={1200}
+            height={960}
+            placeholder="blur"
+            blurDataURL="data:image/webp;base64,UklGRqYAAABXRUJQVlA4WAoAAAAQAAAACQAABwAAQUxQSBcAAAABF9D/iAgoaBsFuhfwrxoJEf1P4vAgAgBWUDggaAAAAPABAJ0BKgoACAABQCYliAJ0AQ56pqAgAAD+56//bqeIP3P9zPpfv0x2bsuPZlAu0UVNG6L8/cUOt8029+D+AV7XPQ4J/jZWJUdV1KAN73N3Wp+8T2I/IOH7Gom71hgcZ1tTT7e3LAAA"
+            className="h-full w-full rounded-lg object-cover"
+            sizes="(max-width: 768px) 100vw, 550px"
           />
 
           <div className="pointer-events-none absolute inset-0 flex items-end justify-start p-3 sm:p-4">
