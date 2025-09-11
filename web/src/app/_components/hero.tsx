@@ -81,7 +81,7 @@ export const Hero: FC<HeroProps> = ({ className }) => {
             >
               <div className="w-full border-t">
                 <video
-                  src="/hero-banner.mp4"
+                  src="https://cloviana-assets.azureedge.net/assets/hero-banner.mp4"
                   autoPlay
                   playsInline
                   muted
