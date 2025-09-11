@@ -5,39 +5,41 @@ on:
     workflows: ["Build & Push"]
     types: [completed]
 
-permissions:
-  contents: read
-  packages: read
-
-concurrency:
-  group: deploy-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   deploy:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
-    environment: production
+
     steps:
       - name: Set TAG
         run: echo "TAG=${{ github.event.workflow_run.head_sha }}" >> $GITHUB_ENV
 
-      - uses: appleboy/ssh-action@v0.1.10
+      - name: SSH deploy to VM
+        uses: appleboy/ssh-action@v0.1.6
         with:
-          host: ${{ secrets.PROD_HOST }}
+          host:     ${{ secrets.PROD_HOST }}
           username: cloviana-admin
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
+          password: ${{ secrets.SSH_PASSWORD }}
+          port:     22
           script: |
             set -e
-            cd ~/cloviana
+
+            cd ~/cloviana 
             git fetch origin main
             git reset --hard origin/main
+
             cd docker
-            echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io --username ${{ secrets.GHCR_USERNAME }} --password-stdin
-            export TAG=${TAG:-latest}
-            export COMPOSE_DOCKER_CLI_BUILD=1
-            export DOCKER_BUILDKIT=1
+
+            TAG=${TAG:-latest}
+
+            echo "${{ secrets.GITHUB_TOKEN }}" \
+              | docker login ghcr.io --username samuelito22 --password-stdin
+
+            docker pull ghcr.io/cloviana/api:${TAG}
+            docker pull ghcr.io/cloviana/app:${TAG}
+            docker pull ghcr.io/cloviana/web:${TAG}
+
             docker compose -f compose-core.yaml -f compose-prod.yaml pull
-            docker compose -f compose-core.yaml -f compose-prod.yaml up -d --remove-orphans
+            docker compose -f compose-core.yaml -f compose-prod.yaml up -d --remove-orphans --force-recreate nginx
+
             docker image prune --filter "until=168h" -f
