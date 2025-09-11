@@ -9,44 +9,24 @@ permissions:
   packages: write
 
 jobs:
-  detect-changes:
-    runs-on: ubuntu-latest
-    outputs:
-      api: ${{ steps.filter.outputs.api }}
-      app: ${{ steps.filter.outputs.app }}
-      web: ${{ steps.filter.outputs.web }}
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Detect which folders changed
-        id: filter
-        uses: dorny/paths-filter@v2
-        with:
-          filters: |
-            api:
-              - 'api/**'
-            app:
-              - 'app/**'
-            web:
-              - 'web/**'
-
   build-and-push:
-    needs: detect-changes
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
+      - name: Set up Buildx
+        uses: docker/setup-buildx-action@v3
 
       - name: Log in to GHCR
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build & push API
-        if: needs.detect-changes.outputs.api == 'true'
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v6
         with:
           context: ./api
           file: ./api/Dockerfile
@@ -55,10 +35,12 @@ jobs:
           tags: |
             ghcr.io/cloviana/api:${{ github.sha }}
             ghcr.io/cloviana/api:latest
+          cache-from: type=registry,ref=ghcr.io/cloviana/api:buildcache
+          cache-to: type=registry,ref=ghcr.io/cloviana/api:buildcache,mode=max
+          provenance: false
 
       - name: Build & push App
-        if: needs.detect-changes.outputs.app == 'true'
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v6
         with:
           context: ./app
           file: ./app/Dockerfile
@@ -73,10 +55,12 @@ jobs:
             NEXT_PUBLIC_SUPABASE_URL=${{ vars.SUPABASE_URL }}
             NEXT_PUBLIC_SUPABASE_ANON_KEY=${{ vars.SUPABASE_ANON_KEY }}
             NEXT_PUBLIC_GA4_ID=${{ vars.APP_GA4_ID }}
+          cache-from: type=registry,ref=ghcr.io/cloviana/app:buildcache
+          cache-to: type=registry,ref=ghcr.io/cloviana/app:buildcache,mode=max
+          provenance: false
 
       - name: Build & push Web
-        if: needs.detect-changes.outputs.web == 'true'
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v6
         with:
           context: ./web
           file: ./web/Dockerfile
@@ -89,3 +73,6 @@ jobs:
             NEXT_PUBLIC_APP_URL=${{ vars.APP_URL }}
             NEXT_PUBLIC_WEB_URL=${{ vars.WEB_URL }}
             NEXT_PUBLIC_GA4_ID=${{ vars.WEB_GA4_ID }}
+          cache-from: type=registry,ref=ghcr.io/cloviana/web:buildcache
+          cache-to: type=registry,ref=ghcr.io/cloviana/web:buildcache,mode=max
+          provenance: false
