@@ -103,6 +103,8 @@ jobs:
 
             docker compose -f compose-core.yaml -f compose-prod.yaml pull
             docker compose -f compose-core.yaml -f compose-prod.yaml up -d --remove-orphans
+            
+            docker compose -f compose-core.yaml -f compose-prod.yaml restart nginx
 
             docker system prune -af --volumes
             
