@@ -1,4 +1,5 @@
 import axios, { AxiosProgressEvent, AxiosRequestConfig } from 'axios';
+
 import { env } from '@/config/env';
 
 type RequestOptions = {
@@ -10,24 +11,45 @@ type RequestOptions = {
   onUploadProgress?: (progressEvent: AxiosProgressEvent) => void;
 };
 
-const axiosInstance = axios.create({ baseURL: env.API_URL, withCredentials: false });
+const axiosInstance = axios.create({
+  baseURL: env.API_URL,
+  withCredentials: false,
+});
 
-function filterParams(params?: RequestOptions['params']): Record<string, any> | undefined {
+function filterParams(
+  params?: RequestOptions['params'],
+): Record<string, any> | undefined {
   if (!params) return undefined;
-  return Object.fromEntries(Object.entries(params).filter(([, v]) => v !== undefined && v !== null));
+  return Object.fromEntries(
+    Object.entries(params).filter(([, v]) => v !== undefined && v !== null),
+  );
 }
 
 export async function getServerCookies(): Promise<string> {
   if (typeof window !== 'undefined') return '';
   const mod = await import('next/headers');
   const store = await mod.cookies();
-  return store.getAll().map((c) => `${c.name}=${c.value}`).join('; ');
+  return store
+    .getAll()
+    .map((c) => `${c.name}=${c.value}`)
+    .join('; ');
 }
 
-async function axiosApi<T>(url: string, options: RequestOptions = {}): Promise<T> {
-  const { method = 'GET', headers = {}, body, cookie, params, onUploadProgress } = options;
+async function axiosApi<T>(
+  url: string,
+  options: RequestOptions = {},
+): Promise<T> {
+  const {
+    method = 'GET',
+    headers = {},
+    body,
+    cookie,
+    params,
+    onUploadProgress,
+  } = options;
   let cookieHeader = cookie;
-  if (typeof window === 'undefined' && !cookieHeader) cookieHeader = await getServerCookies();
+  if (typeof window === 'undefined' && !cookieHeader)
+    cookieHeader = await getServerCookies();
 
   const config: AxiosRequestConfig = {
     url,
@@ -43,9 +65,19 @@ async function axiosApi<T>(url: string, options: RequestOptions = {}): Promise<T
 }
 
 export const api = {
-  get<T>(url: string, options?: RequestOptions) { return axiosApi<T>(url, { ...options, method: 'GET' }); },
-  post<T>(url: string, body?: any, options?: RequestOptions) { return axiosApi<T>(url, { ...options, method: 'POST', body }); },
-  put<T>(url: string, body?: any, options?: RequestOptions) { return axiosApi<T>(url, { ...options, method: 'PUT', body }); },
-  patch<T>(url: string, body?: any, options?: RequestOptions) { return axiosApi<T>(url, { ...options, method: 'PATCH', body }); },
-  delete<T>(url: string, options?: RequestOptions) { return axiosApi<T>(url, { ...options, method: 'DELETE' }); },
+  get<T>(url: string, options?: RequestOptions) {
+    return axiosApi<T>(url, { ...options, method: 'GET' });
+  },
+  post<T>(url: string, body?: any, options?: RequestOptions) {
+    return axiosApi<T>(url, { ...options, method: 'POST', body });
+  },
+  put<T>(url: string, body?: any, options?: RequestOptions) {
+    return axiosApi<T>(url, { ...options, method: 'PUT', body });
+  },
+  patch<T>(url: string, body?: any, options?: RequestOptions) {
+    return axiosApi<T>(url, { ...options, method: 'PATCH', body });
+  },
+  delete<T>(url: string, options?: RequestOptions) {
+    return axiosApi<T>(url, { ...options, method: 'DELETE' });
+  },
 };

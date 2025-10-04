@@ -9,11 +9,11 @@ import { getKeywordsQueryOptions } from '@/api/keywords/get-keywords';
 
 interface LayoutProps {
   children: ReactNode;
-  params: { storeId: string };
+  params: Promise<{ storeId: string }>;
 }
 
 export default async function Layout({ children, params }: LayoutProps) {
-  const { storeId } = params;
+  const { storeId } = await params;
   const qc = new QueryClient();
 
   await qc.prefetchQuery(getKeywordsQueryOptions(storeId));
