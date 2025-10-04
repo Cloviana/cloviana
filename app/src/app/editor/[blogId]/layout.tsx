@@ -9,16 +9,16 @@ import { getBlogQueryOptions } from '@/features/blogs/api/get-blog';
 
 interface LayoutProps {
   children: ReactNode;
-  params: {
+  params: Promise<{
     blogId: string;
-  };
+  }>;
 }
 
-export default async function Layout({
-  children,
-  params: { blogId },
-}: LayoutProps) {
+export default async function Layout({ children, params }: LayoutProps) {
   const qc = new QueryClient();
+
+  const { blogId } = await params;
+
   await qc.prefetchQuery(getBlogQueryOptions(blogId));
 
   return (
