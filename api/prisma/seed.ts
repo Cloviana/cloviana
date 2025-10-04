@@ -14,16 +14,13 @@ async function main() {
 
   const res = await client.query(`
 with to_insert as (
-  select u.id,
-         nullif(u.raw_user_meta_data->>'firstName','') as first_name,
-         nullif(u.raw_user_meta_data->>'lastName','') as last_name,
-         nullif(u.raw_user_meta_data->>'profileUrl','') as profile_url
+  select u.id
   from auth.users u
   left join public.profiles p on p.id = u.id
   where p.id is null
 )
-insert into public.profiles (id,"firstName","lastName","profileUrl","createdAt","updatedAt")
-select id, first_name, last_name, profile_url, now(), now()
+insert into public.profiles (id,"createdAt","updatedAt")
+select id, now(), now()
 from to_insert
 returning id
   `);

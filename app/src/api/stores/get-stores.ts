@@ -12,6 +12,7 @@ export const getStores = async (): Promise<Store[]> => {
   if (!accessToken) {
     throw new Error('Access token is not available');
   }
+
   const response = await api.get<Store[]>(`/stores`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
