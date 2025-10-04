@@ -10,45 +10,31 @@ import { createClient } from '@/lib/supabase/server';
 
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
-  const stateCookie = cookies().get('shopify_state')?.value;
+  const store = await cookies();
+  const stateCookie = store.get('shopify_state')?.value;
   const stateParam = searchParams.get('state');
-  if (stateCookie !== stateParam)
-    return NextResponse.json(null, { status: 401 });
-  if (!verifyHmac(searchParams))
-    return NextResponse.json(null, { status: 401 });
+  if (stateCookie !== stateParam) return NextResponse.json(null, { status: 401 });
+  if (!verifyHmac(searchParams)) return NextResponse.json(null, { status: 401 });
 
   const shop = searchParams.get('shop')!;
   const code = searchParams.get('code')!;
   const state = stateParam!;
 
-  const supabase = createClient();
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
 
   if (user) {
     const stores = await getStores();
-    const store = stores[0];
-
-    await shopifyConnect({ shop, code, state, storeId: store.id });
+    const current = stores[0];
+    await shopifyConnect({ shop, code, state, storeId: current.id });
   } else {
-    const { access_token, refresh_token } = await shopifyExchange({
-      shop,
-      code,
-      state,
-    });
-    await supabase.auth.setSession({
-      access_token,
-      refresh_token,
-    });
+    const { access_token, refresh_token } = await shopifyExchange({ shop, code, state });
+    await supabase.auth.setSession({ access_token, refresh_token });
   }
 
-  const returnPath = cookies().get('shopify_return_to')?.value ?? '/';
+  const returnPath = store.get('shopify_return_to')?.value ?? '/';
   const res = NextResponse.redirect(new URL(returnPath, env.APP_URL));
-
   res.cookies.delete('shopify_state');
   res.cookies.delete('shopify_return_to');
-
   return res;
 }

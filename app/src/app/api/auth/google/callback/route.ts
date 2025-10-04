@@ -13,11 +13,11 @@ export async function GET(request: Request) {
   try {
     if (!code) throw new Error('Code is missing');
 
-    const supabase = createClient();
+    const supabase = await createClient();
     const { data: session, error } =
       await supabase.auth.exchangeCodeForSession(code);
 
-    if (error || !session) {
+      if (error || !session) {
       throw new Error('Failed to exchange code for session');
     }
 
