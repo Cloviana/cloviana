@@ -13,22 +13,30 @@ export async function GET(req: NextRequest) {
   const store = await cookies();
   const stateCookie = store.get('shopify_state')?.value;
   const stateParam = searchParams.get('state');
-  if (stateCookie !== stateParam) return NextResponse.json(null, { status: 401 });
-  if (!verifyHmac(searchParams)) return NextResponse.json(null, { status: 401 });
+  if (stateCookie !== stateParam)
+    return NextResponse.json(null, { status: 401 });
+  if (!verifyHmac(searchParams))
+    return NextResponse.json(null, { status: 401 });
 
   const shop = searchParams.get('shop')!;
   const code = searchParams.get('code')!;
   const state = stateParam!;
 
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   if (user) {
     const stores = await getStores();
     const current = stores[0];
     await shopifyConnect({ shop, code, state, storeId: current.id });
   } else {
-    const { access_token, refresh_token } = await shopifyExchange({ shop, code, state });
+    const { access_token, refresh_token } = await shopifyExchange({
+      shop,
+      code,
+      state,
+    });
     await supabase.auth.setSession({ access_token, refresh_token });
   }
 
