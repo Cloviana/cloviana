@@ -53,6 +53,8 @@
   }
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @utility border-dashed-wide {
   border-style: solid;
   border-image: repeating-linear-gradient(

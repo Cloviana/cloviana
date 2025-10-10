@@ -6,7 +6,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'cloviana-assets.azureedge.net',
+        hostname: 'cloviana-assets-czbfhwh7a2epccgb.z01.azurefd.net',
         port: ''
       },
       {
