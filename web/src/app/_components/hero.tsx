@@ -1,97 +1,67 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
 import { Button } from '@/components/actions';
+import { GIcon } from '@/components/icons';
+import { Safari } from '@/components/mockups';
+import { links } from '@/config/links';
 import { paths } from '@/config/paths';
 import { cn } from '@/utils/cn';
-
-import { HatchCard } from './hatch-card';
 
 interface HeroProps {
   className?: string;
 }
 
 export const Hero: FC<HeroProps> = ({ className }) => {
-  const [email, setEmail] = useState('');
-
   return (
-    <section className={cn('relative w-full border-b', className)}>
-      <div className="border-dashed-wide bg-background absolute top-0 right-0 left-0 z-0 h-[1.75rem] border-b" />
-      <div className="border-dashed-wide bg-background absolute top-[1.75rem] right-0 left-0 z-0 h-[1.75rem] border-b" />
-      <div className="border-dashed-wide bg-background absolute right-0 bottom-0 left-0 z-0 h-[1.75rem] border-t" />
-      <div className="border-dashed-wide bg-background absolute right-0 bottom-[1.75rem] left-0 z-0 h-[1.75rem] border-t" />
-      <div className="absolute inset-0 z-0 flex">
-        <div className="h-full w-[11rem] border-r py-[3.5rem]">
-          <HatchCard />
-        </div>
-        <div className="flex-1" />
-        <div className="h-full w-[11rem] border-l py-[3.5rem]">
-          <HatchCard />
-        </div>
-      </div>
-      <div className="padding-global relative z-20 h-full">
-        <div className="bg-background container h-full border-r border-l pt-[4rem]">
-          <div className="mx-auto flex w-full flex-col items-center gap-6 text-center">
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: 'easeOut' }}
-              className="max-w-[20ch] text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
-            >
-              The Modern SEO Automation Platform
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
-              className="max-w-[55ch] text-sm md:text-base"
-            >
-              Cloviana is the AI-native SEO platform for growing Shopify brands.
-              It finds keywords, writes blogs, improves product and page SEO,
-              adds links, fixes site basics, and publishes to Shopify for you—so
-              you show up in search and in AI answers.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.4 }}
-              className="mt-5 flex w-full max-w-sm items-center rounded-full border bg-white p-[4px] shadow-xs"
-            >
-              <input
-                className="w-0 min-w-0 flex-1 truncate px-3 text-sm font-medium focus:outline-0"
-                placeholder="What's your work email?"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <Button asChild className="shrink-0">
-                <Link href={paths.auth.signup.getHref()}>Sign up</Link>
-              </Button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.6 }}
-              className="mockup-window w-full !rounded-t-lg border"
-            >
-              <div className="w-full border-t">
-                <video
-                  src="https://cloviana-assets.azureedge.net/assets/hero-banner.mp4"
-                  autoPlay
-                  playsInline
-                  muted
-                  loop
-                  className="w-full object-cover"
+    <section className={cn(className, 'padding-global')}>
+      <div className="padding-section-medium container">
+        <div className="space-y-6">
+          <div className="text-foreground-light flex w-fit items-center gap-2 border-b border-dashed pb-2">
+            <GIcon name="square" size={6} fill />
+            <span className="text-xs md:text-sm">
+              SEO that runs on autopilot for your Shopify store
+            </span>
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl">
+            An SEO teammate that grows your Shopify store while you sleep
+          </h1>
+          <p className="max-w-[70ch] text-base md:text-lg">
+            Cloviana lives right inside your Shopify store. It finds keywords,
+            writes content, and{' '}
+            <strong>boosts your traffic — all on autopilot</strong>, so you can
+            focus on growing your business.
+          </p>
+          <div className="flex flex-col items-stretch gap-2 md:flex-row md:items-center">
+            <Button asChild size="lg">
+              <Link href={paths.auth.signup.getHref()}>
+                Get started for free
+              </Link>
+            </Button>
+            <Button asChild className="group" variant="ghost" size="lg">
+              <a href={links.demo} target="_blank" rel="noopener noreferrer">
+                Request a demo
+                <GIcon
+                  name="arrow_forward"
+                  className="transition-transform group-hover:translate-x-0.5"
                 />
-              </div>
-            </motion.div>
+              </a>
+            </Button>
           </div>
         </div>
+      </div>
+      <div className="relative container mt-4">
+        <Safari
+          url="https://app.cloviana.com"
+          mode="default"
+          className="light relative h-auto w-full rounded-xl ring-8 ring-gray-200/30"
+          videoSrc="https://cloviana-assets-czbfhwh7a2epccgb.z01.azurefd.net/landing/hero-banner.mp4"
+        />
+        <img
+          className="absolute -top-18 right-0 h-16"
+          src="https://cloviana-assets-czbfhwh7a2epccgb.z01.azurefd.net/landing/watch-a-quick-demo.png"
+          alt="Watch a quick demo"
+        />
       </div>
     </section>
   );

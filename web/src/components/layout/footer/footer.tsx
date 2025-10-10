@@ -3,7 +3,7 @@ import { FC } from 'react';
 
 import { Button } from '@/components/actions';
 import { GIcon } from '@/components/icons';
-import { links } from '@/config/links';
+import { paths } from '@/config/paths';
 
 type NavItem = { label: string; href: string };
 type NavSection = { title: string; items: NavItem[] };
@@ -59,16 +59,20 @@ const SOCIAL_ICONS: {
 ];
 
 export const Footer: FC = () => (
-  <footer className="padding-global font-inter py-12">
+  <footer className="padding-global font-inter border-t py-12">
     <div className="container flex flex-col justify-between gap-12 md:flex-row md:gap-16">
       <div className="flex flex-col justify-between gap-4">
         <div className="flex flex-col gap-2">
           <img src="/logo-full.png" className="w-22" alt="Relentlo logo" />
-          <span className="font-medium">AI-native SEO platform</span>
+          <span className="font-medium">AI SEO platform</span>
         </div>
-        <Button asChild className="group w-fit" size="sm">
-          <a href={links.demo} target="_blank" rel="noopener noreferrer">
-            Book a demo
+        <Button asChild className="group w-fit" size={'sm'}>
+          <a
+            href={paths.auth.signup.getHref()}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get started
             <GIcon
               name="arrow_forward"
               className="transition-transform group-hover:translate-x-0.5"

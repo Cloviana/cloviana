@@ -9,7 +9,7 @@ const createEnv = () => {
       .enum(['development', 'production'])
       .optional()
       .default('development'),
-    GA4_ID: z.string(),
+    GA4_ID: z.string().optional().default('G-XXXXXXX'),
   });
 
   const envVars = {
