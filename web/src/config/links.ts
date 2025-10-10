@@ -1,3 +1,3 @@
 export const links = {
-  demo: 'https://calendly.com/sedorodion2003/30min',
+  demo: 'https://calendly.com/cloviana/30min',
 } as const;

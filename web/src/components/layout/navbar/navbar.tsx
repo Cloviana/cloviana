@@ -7,7 +7,6 @@ import { Button } from '@/components/actions';
 import { GIcon } from '@/components/icons';
 import { links } from '@/config/links';
 import { paths } from '@/config/paths';
-import { useBookDemo } from '@/hooks/use-book-demo';
 import { cn } from '@/utils/cn';
 
 import { NavItem } from './components/nav-item';
@@ -18,11 +17,10 @@ interface NavbarProps {
 
 export const Navbar: FC<NavbarProps> = ({ className }) => {
   const [menuOpened, setMenuOpened] = useState(false);
-  const bookDemo = useBookDemo();
 
   return (
     <div className="relative">
-      <nav className={cn('padding-global border-b py-2.5', className)}>
+      <nav className={cn('padding-global border-b-[1px] py-2.5', className)}>
         <div className="container flex items-center px-0">
           <div className="flex w-32 shrink-0">
             <Link href={paths.home.getHref()}>
@@ -46,12 +44,16 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
               </NavItem>
             </div>
             <div className="flex items-center gap-2">
-              <Button asChild variant={'outline'}>
-                <Link href={paths.auth.signup.getHref()}>Start for free</Link>
+              <Button asChild variant="ghost">
+                <Link href={links.demo}>Book demo</Link>
               </Button>
               <Button asChild className="group">
-                <a href={links.demo} target="_blank" rel="noopener noreferrer">
-                  Book a demo
+                <a
+                  href={paths.auth.signup.getHref()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Get started
                   <GIcon
                     name="arrow_forward"
                     className="transition-transform group-hover:translate-x-0.5"
@@ -60,7 +62,10 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
               </Button>
             </div>
           </div>
-          <div className="flex flex-1 items-center justify-end [@media(min-width:860px)]:hidden">
+          <div className="flex flex-1 items-center justify-end gap-2.5 [@media(min-width:860px)]:hidden">
+            <Button asChild>
+              <Link href={paths.auth.signup.getHref()}>Get started</Link>
+            </Button>
             <Button
               onClick={() => setMenuOpened((prevState) => !prevState)}
               variant={'outline'}
@@ -96,15 +101,10 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
               </NavItem>
             </div>
             <div className="flex flex-col gap-3">
-              <Button className="group" onClick={() => bookDemo()}>
-                Book a demo
-                <GIcon
-                  name="arrow_forward"
-                  className="transition-transform group-hover:translate-x-0.5"
-                />
-              </Button>
-              <Button asChild variant={'outline'}>
-                <Link href={paths.auth.login.getHref()}>Login</Link>
+              <Button asChild variant="ghost">
+                <a href={links.demo} target="_blank" rel="noopener noreferrer">
+                  Request a demo
+                </a>
               </Button>
             </div>
           </div>
