@@ -10,9 +10,9 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'border border-primary/20 bg-gradient-to-b from-primary/90 to-primary text-white hover:opacity-85 shadow-xs',
+          'border border-primary/20 bg-primary from-primary/90 to-primary text-white hover:opacity-85 shadow-xs',
         outline: 'bg-[#fefbf9] border shadow-xs hover:bg-[#ebeaea]',
-        ghost: 'hover:bg-[#ebeaea]',
+        ghost: 'bg-background/30 backdrop-blur hover:bg-[#ebeaea]',
         green:
           'border border-[#3ab07f]/20 bg-gradient-to-b from-[#3ab07f]/90 to-[#3ab07f] text-white hover:opacity-85 shadow-xs',
         purple:

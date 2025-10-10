@@ -4,6 +4,16 @@ export const ICON_NAMES = [
   'menu',
   'close',
   'format_quote',
+  'square',
+  'send_time_extension',
+  'hourglass_empty',
+  'money_off',
+  'article',
+  'link_off',
+  'bolt',
+  'edit_note',
+  'link',
+  'trending_up',
 ] as const;
 
 const sortedIconNames = [...ICON_NAMES].sort();
