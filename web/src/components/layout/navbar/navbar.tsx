@@ -7,6 +7,7 @@ import { Button } from '@/components/actions';
 import { GIcon } from '@/components/icons';
 import { links } from '@/config/links';
 import { paths } from '@/config/paths';
+import { gaEvent } from '@/lib/ga/client';
 import { cn } from '@/utils/cn';
 
 import { NavItem } from './components/nav-item';
@@ -44,10 +45,18 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
               </NavItem>
             </div>
             <div className="flex items-center gap-2">
-              <Button asChild variant="ghost">
+              <Button
+                asChild
+                variant="ghost"
+                onClick={() => gaEvent('book_demo')}
+              >
                 <Link href={links.demo}>Book demo</Link>
               </Button>
-              <Button asChild className="group">
+              <Button
+                asChild
+                className="group"
+                onClick={() => gaEvent('sign_up')}
+              >
                 <a
                   href={paths.auth.signup.getHref()}
                   target="_blank"
@@ -63,7 +72,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
             </div>
           </div>
           <div className="flex flex-1 items-center justify-end gap-2.5 [@media(min-width:860px)]:hidden">
-            <Button asChild>
+            <Button asChild onClick={() => gaEvent('sign_up')}>
               <Link href={paths.auth.signup.getHref()}>Get started</Link>
             </Button>
             <Button
@@ -101,7 +110,11 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
               </NavItem>
             </div>
             <div className="flex flex-col gap-3">
-              <Button asChild variant="ghost">
+              <Button
+                asChild
+                variant="ghost"
+                onClick={() => gaEvent('book_demo')}
+              >
                 <a href={links.demo} target="_blank" rel="noopener noreferrer">
                   Request a demo
                 </a>
