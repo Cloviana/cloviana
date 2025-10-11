@@ -1,9 +1,12 @@
+'use client';
+
 import Link from 'next/link';
 import { FC } from 'react';
 
 import { Button } from '@/components/actions';
 import { GIcon } from '@/components/icons';
 import { paths } from '@/config/paths';
+import { gaEvent } from '@/lib/ga/client';
 
 type NavItem = { label: string; href: string };
 type NavSection = { title: string; items: NavItem[] };
@@ -66,7 +69,12 @@ export const Footer: FC = () => (
           <img src="/logo-full.png" className="w-22" alt="Relentlo logo" />
           <span className="font-medium">AI SEO platform</span>
         </div>
-        <Button asChild className="group w-fit" size={'sm'}>
+        <Button
+          asChild
+          className="group w-fit"
+          size={'sm'}
+          onClick={() => gaEvent('sign_up')}
+        >
           <a
             href={paths.auth.signup.getHref()}
             target="_blank"

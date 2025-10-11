@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { FC } from 'react';
 
@@ -6,6 +8,7 @@ import { GIcon } from '@/components/icons';
 import { Safari } from '@/components/mockups';
 import { links } from '@/config/links';
 import { paths } from '@/config/paths';
+import { gaEvent } from '@/lib/ga/client';
 import { cn } from '@/utils/cn';
 
 interface HeroProps {
@@ -33,12 +36,19 @@ export const Hero: FC<HeroProps> = ({ className }) => {
             focus on growing your business.
           </p>
           <div className="flex flex-col items-stretch gap-2 md:flex-row md:items-center">
-            <Button asChild size="lg">
+            <Button asChild size="lg" onClick={() => gaEvent('sign_up')}>
               <Link href={paths.auth.signup.getHref()}>
                 Get started for free
               </Link>
             </Button>
-            <Button asChild className="group" variant="ghost" size="lg">
+
+            <Button
+              asChild
+              className="group"
+              variant="ghost"
+              size="lg"
+              onClick={() => gaEvent('book_demo')}
+            >
               <a href={links.demo} target="_blank" rel="noopener noreferrer">
                 Request a demo
                 <GIcon
