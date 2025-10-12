@@ -50,10 +50,10 @@ export default function IntegrationsPage() {
               />
 
               <div className="flex flex-col gap-2">
-                <h3 className="text-sm font-medium text-foreground">
+                <h3 className="text-foreground text-sm font-medium">
                   Integration
                 </h3>
-                <p className="text-xs text-foreground-light">
+                <p className="text-foreground-light text-xs">
                   Connect your Shopify store to seamlessly sync products,
                   collections, and blog posts. Our AI SEO engine turns your
                   catalog into search-ready content with consistent metadata,
@@ -81,8 +81,8 @@ export default function IntegrationsPage() {
                   </Dialog.Trigger>
 
                   <Dialog.Portal>
-                    <Dialog.Overlay className="fixed inset-0 bg-white/30 backdrop-blur-sm" />
-                    <Dialog.Content className="fixed left-1/2 top-1/2 w-96 max-w-full -translate-x-1/2 -translate-y-1/2 rounded-md border bg-white shadow-sm">
+                    <Dialog.Overlay className="backdrop-blur-xs fixed inset-0 bg-white/30" />
+                    <Dialog.Content className="shadow-xs fixed left-1/2 top-1/2 w-96 max-w-full -translate-x-1/2 -translate-y-1/2 rounded-md border bg-white">
                       <div className="border-b px-5 py-3.5">
                         <Dialog.Title className="text-sm font-medium">
                           Connect Your Shopify Store

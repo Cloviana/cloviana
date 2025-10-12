@@ -13,10 +13,10 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'border border-primary/20 bg-gradient-to-b from-primary/90 to-primary text-white hover:opacity-85',
-        secondary: 'border border-border/70 hover:border-gray-500/50',
-        tertiary: '!shadow-none hover:bg-surface-200',
-        plain: '!p-0 !font-normal !text-primary !shadow-none hover:opacity-80',
+          'border-primary/20 bg-linear-to-b from-primary/90 to-primary border text-white hover:opacity-85',
+        secondary: 'border-border/70 border hover:border-gray-500/50',
+        tertiary: 'shadow-none! hover:bg-surface-200',
+        plain: 'p-0! font-normal! text-primary! shadow-none! hover:opacity-80',
         green: 'bg-[#5e8e3e] text-white hover:bg-[#548136]',
       },
       size: {

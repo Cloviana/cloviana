@@ -57,7 +57,7 @@ export const BlockTypeDropdown = () => {
               return (
                 <div className="flex items-center gap-1">
                   <GIcon name={cfg.icon} className="text-foreground-light" />
-                  <span className="text-sm font-medium text-foreground-light">
+                  <span className="text-foreground-light text-sm font-medium">
                     {cfg.label}
                   </span>
                 </div>
@@ -65,7 +65,7 @@ export const BlockTypeDropdown = () => {
             })()}
             <GIcon
               name="keyboard_arrow_down"
-              className="size-4 text-foreground-light"
+              className="text-foreground-light size-4"
             />
           </div>
         </CommandButton>
@@ -75,7 +75,7 @@ export const BlockTypeDropdown = () => {
         <Dropdown.Content
           sideOffset={4}
           align="start"
-          className="rounded-md border bg-white/30 p-1 shadow-sm backdrop-blur-sm"
+          className="shadow-xs backdrop-blur-xs rounded-md border bg-white/30 p-1"
         >
           {BLOCK_TYPE_CONFIG.map((cfg) => (
             <Dropdown.Item
@@ -90,8 +90,8 @@ export const BlockTypeDropdown = () => {
                 }
               }}
               className={cn(
-                'flex cursor-pointer items-center gap-2 rounded-sm px-3 py-2 text-sm outline-none hover:bg-surface-200',
-                cfg.type === type && '!bg-surface-200',
+                'outline-hidden hover:bg-surface-200 flex cursor-pointer items-center gap-2 rounded-sm px-3 py-2 text-sm',
+                cfg.type === type && 'bg-surface-200!',
               )}
             >
               <GIcon name={cfg.icon} size={14} /> {cfg.label}

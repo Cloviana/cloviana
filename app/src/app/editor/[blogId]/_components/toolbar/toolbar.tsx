@@ -16,7 +16,7 @@ export const ToolbarSection: FC<{ children?: ReactNode }> = ({ children }) => (
 );
 
 export const ToolbarRoot: FC<{ children?: ReactNode }> = ({ children }) => (
-  <div className="sticky inset-x-0 top-0 z-10 flex h-11 items-stretch justify-between bg-white/30 py-1.5 backdrop-blur-sm">
+  <div className="backdrop-blur-xs sticky inset-x-0 top-0 z-10 flex h-11 items-stretch justify-between bg-white/30 py-1.5">
     {children}
   </div>
 );
