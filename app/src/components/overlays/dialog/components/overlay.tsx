@@ -10,7 +10,7 @@ import { cn } from '@/utils/cn';
 const overlayVariants = cva('fixed inset-0', {
   variants: {
     blur: {
-      true: 'backdrop-blur-sm',
+      true: 'backdrop-blur-xs',
     },
     backgroundColor: {
       light: 'bg-white/30',

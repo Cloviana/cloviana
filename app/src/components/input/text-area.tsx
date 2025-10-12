@@ -9,7 +9,7 @@ import { cn } from '@/utils/cn';
 const textAreaVariants = cva(
   [
     'text-foreground transition-shadow w-full duration-300 border border-gray-200 placeholder:text-foreground-lighter/90',
-    'rounded-md focus:outline-none focus:ring focus:ring-gray-300/30',
+    'rounded-md focus:outline-hidden focus:ring-3 focus:ring-gray-300/30',
   ].join(' '),
   {
     variants: {
@@ -59,7 +59,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     return (
       <div className="flex w-full flex-col items-start">
         {label && (
-          <span className="mb-1 text-xs font-medium text-foreground-light">
+          <span className="text-foreground-light mb-1 text-xs font-medium">
             {label}
           </span>
         )}
@@ -82,7 +82,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           />
         </div>
         {helpText && (
-          <span className="mt-1 text-xs text-foreground-lighter">
+          <span className="text-foreground-lighter mt-1 text-xs">
             {helpText}
           </span>
         )}

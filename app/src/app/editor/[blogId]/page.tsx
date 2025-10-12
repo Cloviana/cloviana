@@ -74,12 +74,12 @@ export default function EditorPage() {
             <LoadingSpinner size="xs" color="primary" />
             <span className="text-sm font-medium">Generating blog</span>
           </div>
-          <p className="text-center text-sm text-foreground-light">
+          <p className="text-foreground-light text-center text-sm">
             It may take a few minutes to generate, you will get an email once
             your blog is ready.
           </p>
           <Anchor
-            className="w-fit text-center text-sm text-foreground-light"
+            className="text-foreground-light w-fit text-center text-sm"
             href={paths.store.getHref(storeId)}
             variant="subtle"
           >
@@ -125,10 +125,10 @@ export default function EditorPage() {
                       <Keyword />
                     </div>
                   </div>
-                  <hr className="w-full bg-border" />
+                  <hr className="bg-border w-full" />
                   <RichTextPlugin
                     contentEditable={
-                      <ContentEditable className="prose marker:text-foreground focus:outline-none" />
+                      <ContentEditable className="prose marker:text-foreground focus:outline-hidden" />
                     }
                     ErrorBoundary={LexicalErrorBoundary}
                   />

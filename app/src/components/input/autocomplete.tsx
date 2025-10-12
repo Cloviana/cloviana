@@ -95,7 +95,7 @@ const AutocompleteRoot: FC<AutocompleteProps> = ({
     <div ref={wrapperRef} className="relative">
       {input}
       {open && (
-        <div className="absolute z-10 -mt-4 max-h-60 w-full overflow-y-auto rounded-md border bg-white shadow">
+        <div className="absolute z-10 -mt-4 max-h-60 w-full overflow-y-auto rounded-md border bg-white shadow-sm">
           <ul role="listbox" className="space-y-1 p-1">
             {options.map(({ label, value }, idx) => {
               const isSelected = selectedSet.has(value);
@@ -107,8 +107,8 @@ const AutocompleteRoot: FC<AutocompleteProps> = ({
                   aria-selected={isSelected}
                   className={cn(
                     'flex cursor-pointer items-center justify-between rounded-md px-3 py-1.5 text-[13px]',
-                    isHighlighted && '!bg-surface-200',
-                    isSelected && '!bg-surface-200 font-medium',
+                    isHighlighted && 'bg-surface-200!',
+                    isSelected && 'bg-surface-200! font-medium',
                     '!hover:bg-surface-200/60',
                   )}
                   onMouseMove={() => setHighlightedIndex(idx)}

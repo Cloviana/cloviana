@@ -1,88 +1,43 @@
 # syntax=docker/dockerfile:1
-####### 1) Base stage: common bits (Node, pnpm/corepack, working dir) #######
-FROM node:20-alpine AS base
-RUN apk add --no-cache openssl \
- && npm install -g corepack
-WORKDIR /app
 
-####### 2) Deps stage: install all deps (yarn, npm or pnpm) #######
+FROM node:22-bookworm AS base
+WORKDIR /app
+RUN corepack enable
+
 FROM base AS deps
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* .npmrc* ./
-RUN \
-  if [ -f yarn.lock ]; then \
-    yarn install --frozen-lockfile; \
-  elif [ -f package-lock.json ]; then \
-    npm ci; \
-  elif [ -f pnpm-lock.yaml ]; then \
-    pnpm install; \
-  else \
-    echo "⚠️  No lockfile, installing latest"; yarn install; \
-  fi
+RUN if [ -f yarn.lock ]; then yarn install --frozen-lockfile; \
+    elif [ -f package-lock.json ]; then npm ci; \
+    elif [ -f pnpm-lock.yaml ]; then pnpm install; \
+    else npm install; fi
 
-####### 3) Builder stage: compile & export standalone #######
 FROM deps AS builder
-# Build‑time vars for your Next.js client
 ARG NEXT_PUBLIC_APP_URL
 ARG NEXT_PUBLIC_WEB_URL
 ARG NEXT_PUBLIC_GA4_ID
-
 ENV NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
     NEXT_PUBLIC_WEB_URL=${NEXT_PUBLIC_WEB_URL} \
     NEXT_PUBLIC_ENVIRONMENT=production \
     NEXT_PUBLIC_GA4_ID=${NEXT_PUBLIC_GA4_ID}
-
-# Copy everything (we already got lockfiles & .npmrc)
 COPY . .
+RUN if [ -f yarn.lock ]; then yarn build; \
+    elif [ -f package-lock.json ]; then npm run build; \
+    elif [ -f pnpm-lock.yaml ]; then pnpm build; \
+    else npm run build; fi
 
-# Run the Next.js build
-RUN \
-  if [ -f yarn.lock ]; then \
-    yarn build; \
-  elif [ -f package-lock.json ]; then \
-    npm run build; \
-  elif [ -f pnpm-lock.yaml ]; then \
-    pnpm build; \
-  else \
-    npm run build; \
-  fi
-
-####### 4) Dev stage: hot‑reload container #######
 FROM deps AS dev
 WORKDIR /app
 ENV NODE_ENV=development
 COPY . .
 EXPOSE 3000
-CMD \
-  if [ -f yarn.lock ]; then \
-    yarn dev; \
-  elif [ -f package-lock.json ]; then \
-    npm run dev; \
-  elif [ -f pnpm-lock.yaml ]; then \
-    pnpm dev; \
-  else \
-    npm run dev; \
-  fi
+CMD [ "npm", "run", "dev", "--", "-H", "0.0.0.0", "-p", "3000" ]
 
-####### 5) Runner stage: ultra‑small production image #######
-FROM node:20-alpine AS runner
-RUN addgroup --system --gid 1001 nodejs \
- && adduser --system --uid 1001 nextjs
+FROM node:22-bookworm-slim AS runner
 WORKDIR /app
-# Copy only the standalone build and static assets
+RUN useradd -m nextjs
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/public ./public
-
-# Re‑expose your runtime ENVs if needed (e.g. for server‑side code)
-ARG NEXT_PUBLIC_APP_URL
-ARG NEXT_PUBLIC_WEB_URL
-ARG NEXT_PUBLIC_GA4_ID
-
-ENV NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
-    NEXT_PUBLIC_WEB_URL=${NEXT_PUBLIC_WEB_URL} \
-    NEXT_PUBLIC_ENVIRONMENT=production \
-    NEXT_PUBLIC_GA4_ID=${NEXT_PUBLIC_GA4_ID}
-
 USER nextjs
 EXPOSE 3000
 CMD ["node", "server.js"]

@@ -13,7 +13,7 @@ interface DashboardShellProps {
 
 export function DashboardShell({ children }: DashboardShellProps) {
   return (
-    <div className="flex h-screen flex-col overflow-hidden bg-sidebar-background">
+    <div className="bg-sidebar-background flex h-screen flex-col overflow-hidden">
       <div className="border-b md:hidden">
         <div className="flex items-center gap-2 p-2">
           <MobileSidebarDrawer />
@@ -27,7 +27,7 @@ export function DashboardShell({ children }: DashboardShellProps) {
 
         <div
           role="main"
-          className="flex-1 overflow-hidden bg-white md:m-2 md:rounded-md md:border md:shadow-sm"
+          className="md:shadow-xs flex-1 overflow-hidden bg-white md:m-2 md:rounded-md md:border"
         >
           <Suspense fallback={<LoadingFallback />}>
             <ErrorBoundary fallback={<ErrorFallback />}>

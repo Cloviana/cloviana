@@ -20,7 +20,7 @@ export const BlogsTable: FC<BlogsTableProps> = ({ blogs }) => {
   const { storeId } = useParams<{ storeId: string }>();
 
   return (
-    <div className="overflow-hidden rounded-md border shadow-sm">
+    <div className="shadow-xs overflow-hidden rounded-md border">
       <IndexTable
         headings={[
           { title: 'Topic' },
@@ -66,13 +66,13 @@ export const BlogsTable: FC<BlogsTableProps> = ({ blogs }) => {
                 </Anchor>
               </IndexTable.Cell>
               <IndexTable.Cell>
-                <div className="flex items-center gap-2 text-[13px] text-foreground">
+                <div className="text-foreground flex items-center gap-2 text-[13px]">
                   {keyword ? (
                     <>
                       <GIcon
                         name="key"
                         size={17}
-                        className="-rotate-45 text-foreground-light"
+                        className="text-foreground-light -rotate-45"
                       />
                       <span>{keyword.phrase}</span>
                     </>

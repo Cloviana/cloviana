@@ -25,9 +25,9 @@ export const SidebarItem: FC<SidebarItemProps> = ({
     href={disabled ? '#' : href}
     aria-disabled={disabled}
     className={cn(
-      'flex w-full items-center gap-x-2 rounded-md px-2 py-1 transition-colors hover:bg-sidebar-item-hover',
+      'hover:bg-sidebar-item-hover flex w-full items-center gap-x-2 rounded-md px-2 py-1 transition-colors',
       isActive &&
-        'border border-sidebar-item-border !bg-sidebar-item-active/70',
+        'border-sidebar-item-border bg-sidebar-item-active/70! border',
       disabled && 'pointer-events-none cursor-not-allowed opacity-50',
     )}
   >
@@ -40,7 +40,7 @@ export const SidebarItem: FC<SidebarItemProps> = ({
           : 'text-sidebar-item-foreground/70',
       )}
     />
-    <span className="text-[13px] font-medium text-sidebar-item-foreground">
+    <span className="text-sidebar-item-foreground text-[13px] font-medium">
       {label}
     </span>
   </Link>

@@ -10,7 +10,7 @@ import { CrossedEyeIcon, EyeIcon } from '../icons';
 const textFieldVariants = cva(
   [
     'text-foreground transition-shadow w-full duration-300 border border-gray-200 placeholder:text-foreground-lighter/90 ',
-    'rounded-md focus:outline-none focus:ring focus:ring-gray-300/30',
+    'rounded-md focus:outline-hidden focus:ring-3 focus:ring-gray-300/30',
   ].join(' '),
   {
     variants: {
@@ -49,7 +49,7 @@ const ErrorText = ({ children }: { children: string }) => {
 
 const LabelText = ({ children }: { children: string }) => {
   return (
-    <span className="mb-1 text-xs font-medium text-foreground-light">
+    <span className="text-foreground-light mb-1 text-xs font-medium">
       {children}
     </span>
   );
@@ -57,7 +57,7 @@ const LabelText = ({ children }: { children: string }) => {
 
 const HelpText = ({ children }: { children: string }) => {
   return (
-    <span className="mt-1 text-xs font-normal text-foreground-lighter">
+    <span className="text-foreground-lighter mt-1 text-xs font-normal">
       {children}
     </span>
   );
@@ -110,9 +110,9 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             )}
           >
             {showPassword ? (
-              <EyeIcon className="size-3.5 fill-foreground-lighter" />
+              <EyeIcon className="fill-foreground-lighter size-3.5" />
             ) : (
-              <CrossedEyeIcon className="size-3.5 fill-foreground-lighter" />
+              <CrossedEyeIcon className="fill-foreground-lighter size-3.5" />
             )}
           </button>
         </div>
