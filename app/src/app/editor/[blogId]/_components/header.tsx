@@ -2,7 +2,7 @@
 
 import { useParams } from 'next/navigation';
 
-import { Button } from '@/components/legacy';
+import { Button } from '@/components/deprecated/legacy';
 import { useGetBlog } from '@/features/blogs/api/get-blog';
 import { usePublishBlog } from '@/features/blogs/api/publish-blog';
 

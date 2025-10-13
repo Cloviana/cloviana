@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { GlobeIcon, ShopIcon } from '@/components/icons';
+import { GlobeIcon, ShopIcon } from '@/components/deprecated/icons';
 
 interface StoreSummaryCardProps {
   name: string;

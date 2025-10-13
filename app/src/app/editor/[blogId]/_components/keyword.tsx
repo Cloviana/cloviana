@@ -1,6 +1,6 @@
 import { useParams } from 'next/navigation';
 
-import { GIcon } from '@/components/icons';
+import { GIcon } from '@/components/deprecated/icons';
 import { useGetBlog } from '@/features/blogs/api/get-blog';
 
 export const Keyword = () => {
@@ -8,7 +8,7 @@ export const Keyword = () => {
   const { data: blog } = useGetBlog(blogId);
 
   return (
-    <div className="flex items-center gap-2 text-base text-foreground-light">
+    <div className="text-foreground-light flex items-center gap-2 text-base">
       <GIcon name="key" size={17} className="-rotate-45" />
       <span>{blog?.keyword?.phrase}</span>
     </div>

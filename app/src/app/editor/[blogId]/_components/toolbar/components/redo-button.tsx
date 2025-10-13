@@ -1,6 +1,6 @@
 'use client';
 
-import { GIcon } from '@/components/icons';
+import { GIcon } from '@/components/deprecated/icons';
 
 import { useUndoRedo } from '../hooks';
 

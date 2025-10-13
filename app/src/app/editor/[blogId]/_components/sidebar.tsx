@@ -11,8 +11,8 @@ import React, {
   useState,
 } from 'react';
 
-import { SignatureIcon } from '@/components/icons';
-import { TextArea, TextField } from '@/components/input';
+import { SignatureIcon } from '@/components/deprecated/icons';
+import { TextArea, TextField } from '@/components/deprecated/input';
 import { useGetBlog } from '@/features/blogs/api/get-blog';
 import { useUpdateBlog } from '@/features/blogs/api/update-blog';
 import { cn } from '@/utils/cn';
@@ -26,7 +26,7 @@ const SidebarItem: FC<SidebarItemProps> = ({ icon: Icon, active = false }) => {
   return (
     <div
       className={cn(
-        'flex w-full cursor-pointer items-center justify-center p-1.5 hover:bg-surface-200/70',
+        'hover:bg-surface-200/70 flex w-full cursor-pointer items-center justify-center p-1.5',
         active && 'bg-surface-200',
       )}
     >

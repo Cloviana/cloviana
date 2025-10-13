@@ -1,14 +1,14 @@
 import { FC, memo, ReactNode } from 'react';
 
-import { Anchor } from '@/components/actions';
+import { Anchor } from '@/components/deprecated/actions';
 import {
   BusinessInsiderLogo,
   CnnLogo,
   ForbesLogo,
   FoxLogo,
   RollingStoneLogo,
-} from '@/components/icons';
-import { SplitLayout } from '@/components/layout';
+} from '@/components/deprecated/icons';
+import { SplitLayout } from '@/components/deprecated/layout';
 import { paths } from '@/config/paths';
 
 interface AuthRootLayoutProps {

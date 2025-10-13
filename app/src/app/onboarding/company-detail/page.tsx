@@ -5,7 +5,7 @@ import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useCreateStore } from '@/api/stores/create-store';
-import { SplitLayout } from '@/components/layout';
+import { SplitLayout } from '@/components/deprecated/layout';
 import { paths } from '@/config/paths';
 
 import {

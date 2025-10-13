@@ -4,7 +4,7 @@ import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext
 import { $getSelection, $isRangeSelection, FORMAT_TEXT_COMMAND } from 'lexical';
 import { useEffect, useState } from 'react';
 
-import { GIcon } from '@/components/icons';
+import { GIcon } from '@/components/deprecated/icons';
 
 import CommandButton from './command-button';
 
