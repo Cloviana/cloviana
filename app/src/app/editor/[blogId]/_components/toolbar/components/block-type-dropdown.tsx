@@ -7,7 +7,7 @@ import * as Dropdown from '@radix-ui/react-dropdown-menu';
 import { $getSelection, $isRangeSelection, $isParagraphNode } from 'lexical';
 import { useEffect, useState, useCallback } from 'react';
 
-import { GIcon } from '@/components/icons';
+import { GIcon } from '@/components/deprecated/icons';
 import { cn } from '@/utils/cn';
 
 import { BLOCK_TYPE_CONFIG, BlockType } from '../constants/block-options';
@@ -90,7 +90,7 @@ export const BlockTypeDropdown = () => {
                 }
               }}
               className={cn(
-                'outline-hidden hover:bg-surface-200 flex cursor-pointer items-center gap-2 rounded-sm px-3 py-2 text-sm',
+                'hover:bg-surface-200 outline-hidden flex cursor-pointer items-center gap-2 rounded-sm px-3 py-2 text-sm',
                 cfg.type === type && 'bg-surface-200!',
               )}
             >

@@ -1,14 +1,22 @@
-import path from 'path';
+import path from 'node:path'
 
-const buildEslintCommand = (filenames) => {
-  return `next lint --fix --file ${filenames
-    .filter((f) => f.includes('/src/'))
-    .map((f) => path.relative(process.cwd(), f))
-    .join(' --file ')}`;
-};
+const onlySrc = files =>
+  files
+    .filter(f => f.includes(`${path.sep}src${path.sep}`))
+    .map(f => path.relative(process.cwd(), f))
+    .join(' ')
 
-const config = {
-  '*.{ts,tsx}': [buildEslintCommand, "bash -c 'yarn check-types'"],
-};
+const buildEslint = files => {
+  const list = onlySrc(files)
+  return list ? `eslint --fix --max-warnings=0 ${list}` : 'echo "no src files"'
+}
 
-export default config;
+const buildPrettier = files => {
+  const list = onlySrc(files)
+  return list ? `prettier --write ${list}` : 'echo "no src files"'
+}
+
+export default {
+  '*.{js,jsx,ts,tsx}': [buildEslint, buildPrettier],
+  '*.{json,css,md,mdx}': files => `prettier --write ${files.join(' ')}`
+}

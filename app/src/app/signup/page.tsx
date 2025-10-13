@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import { Anchor } from '@/components/actions';
+import { Anchor } from '@/components/deprecated/actions';
 import { paths } from '@/config/paths';
 import { AuthForm } from '@/features/auth/components/auth-form';
 import { AuthRootLayout } from '@/features/auth/components/auth-layout';

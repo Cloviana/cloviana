@@ -9,8 +9,8 @@ import { useParams } from 'next/navigation';
 import { useEffect, useMemo } from 'react';
 
 import { useGetJob } from '@/api/jobs/get-job';
-import { Anchor } from '@/components/actions';
-import { LoadingSpinner } from '@/components/animations';
+import { Anchor } from '@/components/deprecated/actions';
+import { LoadingSpinner } from '@/components/deprecated/animations';
 import { paths } from '@/config/paths';
 import { useGetBlog } from '@/features/blogs/api/get-blog';
 import { JobStatus } from '@/types/api';
