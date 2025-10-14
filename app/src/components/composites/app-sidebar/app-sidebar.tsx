@@ -1,6 +1,7 @@
 'use client';
 
 import { Blocks, PenTool } from 'lucide-react';
+import Link from 'next/link';
 import { useParams, usePathname } from 'next/navigation';
 import * as React from 'react';
 
@@ -46,10 +47,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild isActive={item.isActive}>
-                    <a href={item.url}>
+                    <Link href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -59,7 +60,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarContent>
       <SidebarFooter>
         <div className="flex px-2.5">
-          <a
+          <Link
             href={`mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent('Support request')}`}
             aria-label="Contact support"
             className="flex items-center justify-center rounded-full"
@@ -68,7 +69,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               Desktop-first dashboard; mobile support coming soon. Use a laptop
               for the best experience—stay tuned for new features!
             </p>
-          </a>
+          </Link>
         </div>
       </SidebarFooter>
       <SidebarRail />
