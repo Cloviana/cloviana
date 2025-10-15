@@ -8,7 +8,6 @@ import * as React from 'react';
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarMenu,
@@ -17,7 +16,6 @@ import {
   SidebarRail,
 } from '@/components/ui/sidebar';
 import { paths } from '@/config/paths';
-import { SUPPORT_EMAIL } from '@/constants/emails';
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { storeId } = useParams() as { storeId: string };
@@ -58,20 +56,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter>
-        <div className="flex px-2.5">
-          <Link
-            href={`mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent('Support request')}`}
-            aria-label="Contact support"
-            className="flex items-center justify-center rounded-full"
-          >
-            <p className="text-sidebar-item-foreground text-center text-[10px]">
-              Desktop-first dashboard; mobile support coming soon. Use a laptop
-              for the best experience—stay tuned for new features!
-            </p>
-          </Link>
-        </div>
-      </SidebarFooter>
+
       <SidebarRail />
     </Sidebar>
   );
