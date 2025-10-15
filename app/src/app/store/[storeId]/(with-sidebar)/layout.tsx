@@ -12,7 +12,7 @@ import { LoadingFallback } from './_components/loading-fallback';
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider>
-      <div className="flex h-screen w-full flex-col overflow-hidden">
+      <div className="bg-background flex h-screen w-full flex-col overflow-hidden">
         <AppHeader />
         <div className="relative flex flex-1">
           <AppSidebar className="absolute h-full" />
