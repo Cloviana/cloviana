@@ -1,6 +1,8 @@
 'use client';
 
 import { Check, ChevronsUpDown, ShieldAlert, UserRound } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import React from 'react';
 
@@ -9,6 +11,12 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { Skeleton } from '@/components/ui/skeleton';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
+import { paths } from '@/config/paths';
 import { useUser } from '@/hooks/use-user';
 
 export const AppHeader = () => {
@@ -21,8 +29,7 @@ export const AppHeader = () => {
       <div className="flex h-12 shrink-0 items-center justify-between gap-2 border-b px-4">
         <div className="flex items-center gap-2.5">
           <SidebarTrigger className="-ml-1 md:hidden" />
-          <img src="/logo-full.png" alt="logo" className="h-5" />
-          {/*<Image src="/logo-icon.png" alt="logo" width={18} height={18} /> */}
+          <Image src="/logo-icon.png" alt="logo" width={18} height={18} />
 
           {isUserLoading || !user ? (
             <Skeleton className="h-[22px] w-[200px] rounded-full" />
@@ -56,10 +63,31 @@ export const AppHeader = () => {
             </div>
             <div className=""></div>
             {!store.channel ? (
-              <Badge variant={'warning'} className="rounded-full font-normal">
-                <ShieldAlert size={12} className="mr-1" />
-                Inactive
-              </Badge>
+              <Tooltip>
+                <TooltipTrigger>
+                  <Badge
+                    variant={'warning'}
+                    className="rounded-full font-normal"
+                  >
+                    <ShieldAlert size={12} className="mr-1" />
+                    Inactive
+                  </Badge>
+                </TooltipTrigger>
+                <TooltipContent side="bottom">
+                  <div className="max-w-xs">
+                    <p>
+                      Your Cloviana services are inactive. Connect your Shopify
+                      from the{' '}
+                      <Link
+                        className="underline"
+                        href={paths.store.integrations.getHref(storeId)}
+                      >
+                        integrations section.
+                      </Link>
+                    </p>
+                  </div>
+                </TooltipContent>
+              </Tooltip>
             ) : (
               <Badge variant={'success'} className="rounded-full font-normal">
                 <Check size={12} className="mr-1" />

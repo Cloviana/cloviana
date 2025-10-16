@@ -20,7 +20,7 @@ export const BlogsTable: FC<BlogsTableProps> = ({ blogs }) => {
   const { storeId } = useParams<{ storeId: string }>();
 
   return (
-    <div className="shadow-xs overflow-hidden rounded-md border">
+    <div className="overflow-hidden rounded-md border shadow-xs">
       <IndexTable
         headings={[
           { title: 'Topic' },
