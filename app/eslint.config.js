@@ -3,6 +3,7 @@ import tsParser from '@typescript-eslint/parser'
 import ts from '@typescript-eslint/eslint-plugin'
 import { FlatCompat } from '@eslint/eslintrc'
 import checkFile from 'eslint-plugin-check-file'
+import reactHooks from 'eslint-plugin-react-hooks'
 
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
@@ -36,7 +37,8 @@ export default [
       sourceType: 'module'
     },
     plugins: {
-      'check-file': checkFile
+      'check-file': checkFile,
+      'react-hooks': reactHooks
     },
     settings: {
       react: { version: 'detect' },
@@ -44,6 +46,7 @@ export default [
     },
     rules: {
       '@next/next/no-img-element': 'off',
+      'react-hooks/exhaustive-deps': 'warn',
       'import/no-restricted-paths': [
         'error',
         {
@@ -96,7 +99,7 @@ export default [
 
   {
     files: ['src/**/*'],
-    plugins: { 'check-file': checkFile, '@typescript-eslint': ts },
+    plugins: { 'check-file': checkFile, '@typescript-eslint': ts, 'react-hooks': reactHooks },
     rules: {
       'check-file/filename-naming-convention': [
         'error',

@@ -41,7 +41,7 @@ export const Title = () => {
 
   return (
     <h1
-      className="focus:outline-hidden w-full max-w-none text-2xl font-semibold"
+      className="w-full max-w-none text-2xl font-semibold focus:outline-hidden"
       contentEditable
       suppressContentEditableWarning
       onInput={handleInput}

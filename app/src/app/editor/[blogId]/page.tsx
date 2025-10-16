@@ -96,7 +96,7 @@ export default function EditorPage() {
     <LexicalProvider nodes={blog.nodes}>
       <div className="flex h-screen w-screen flex-col overflow-hidden">
         <div className="flex">
-          <div className="flex size-10 items-center justify-center border-b border-r">
+          <div className="flex size-10 items-center justify-center border-r border-b">
             <Link href={paths.store.getHref(storeId)}>
               <img
                 src="/logo-icon.png"

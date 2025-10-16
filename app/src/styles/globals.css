@@ -57,6 +57,9 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+  --color-tooltip: var(--tooltip);
+  --color-tooltip-foreground: var(--tooltip-foreground);
+
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -190,6 +193,9 @@
     --sidebar-accent-foreground: hsl(0 0% 9%);
     --sidebar-border: hsl(0 0% 87%);
     --sidebar-ring: hsl(217.2 91.2% 59.8%);
+
+    --tooltip: hsl(0, 0%, 24%);
+    --tooltip-foreground: hsl(0 0% 100%);
   }
 
   *,

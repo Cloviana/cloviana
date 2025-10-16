@@ -75,7 +75,7 @@ export const BlockTypeDropdown = () => {
         <Dropdown.Content
           sideOffset={4}
           align="start"
-          className="shadow-xs backdrop-blur-xs rounded-md border bg-white/30 p-1"
+          className="rounded-md border bg-white/30 p-1 shadow-xs backdrop-blur-xs"
         >
           {BLOCK_TYPE_CONFIG.map((cfg) => (
             <Dropdown.Item
@@ -90,7 +90,7 @@ export const BlockTypeDropdown = () => {
                 }
               }}
               className={cn(
-                'hover:bg-surface-200 outline-hidden flex cursor-pointer items-center gap-2 rounded-sm px-3 py-2 text-sm',
+                'hover:bg-surface-200 flex cursor-pointer items-center gap-2 rounded-sm px-3 py-2 text-sm outline-hidden',
                 cfg.type === type && 'bg-surface-200!',
               )}
             >

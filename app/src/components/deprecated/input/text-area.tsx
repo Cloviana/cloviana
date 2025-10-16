@@ -65,7 +65,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
         )}
         <div className="relative w-full">
           {icon && (
-            <div className="pointer-events-none absolute left-3 top-3">
+            <div className="pointer-events-none absolute top-3 left-3">
               {icon}
             </div>
           )}

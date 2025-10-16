@@ -34,10 +34,10 @@ const AuthMarketing: FC = memo(function AuthMarketing() {
         playsInline
         preload="metadata"
         //poster="https://cloviana-assets.azureedge.net/assets/seascape_rhapsody_20250705T120000Z.png"
-        className="absolute left-0 top-0 z-10 size-full rounded-xl object-cover"
+        className="absolute top-0 left-0 z-10 size-full rounded-xl object-cover"
       />
       <div className="relative z-30 flex h-full max-w-[500px] flex-col justify-between">
-        <p className="text-2xl font-semibold leading-tight lg:text-[2rem]">
+        <p className="text-2xl leading-tight font-semibold lg:text-[2rem]">
           Sell smarter. Grow faster. Automatically.
         </p>
         <div className="hidden flex-wrap justify-center gap-6 text-white lg:flex">
