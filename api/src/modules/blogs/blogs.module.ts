@@ -4,7 +4,7 @@ import { BlogsController } from "./blogs.controller";
 import { BlogsService } from "./services/blogs.service";
 import { BlogsConsumer } from "./services/blogs.consumer";
 import { BlogGenerationModule } from "@/workflows";
-import { CatalogModule } from "@/modules/commerce";
+import { CatalogModule } from "@/modules/catalog/catalog.module";
 
 @Module({
   imports: [BlogGenerationModule, CatalogModule],

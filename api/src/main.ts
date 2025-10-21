@@ -20,7 +20,7 @@ import {
   STORES_QUEUE,
   STORES_QUEUE_OPTS,
 } from "@/constants/rabbitmq.constants";
-import { SupabaseAuthGuard } from "./modules/core/auth/guards/supabase-auth.guards";
+import { SupabaseAuthGuard } from "./modules/auth/guards/supabase-auth.guards";
 
 async function bootstrap() {
   const adapter = new FastifyAdapter();

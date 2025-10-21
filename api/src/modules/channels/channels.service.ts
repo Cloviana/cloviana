@@ -1,7 +1,7 @@
 import { BadRequestException, Injectable } from "@nestjs/common";
 import pRetry from "p-retry";
 import { PrismaService } from "@/clients/prisma/prisma.service";
-import { StoresProducer } from "@/modules/integrations/messaging/producers/stores.producer";
+import { StoresProducer } from "@/modules/messaging/producers/stores.producer";
 import { ShopifyService } from "@/clients/shopify/shopify.service";
 import {
   GetShopInfoDocument,

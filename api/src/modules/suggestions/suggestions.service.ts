@@ -3,9 +3,9 @@ import { Inject, Injectable, Logger } from "@nestjs/common";
 import Groq from "groq-sdk";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import pRetry from "p-retry";
-import { SerankingMetricsService } from "@/modules/integrations/seranking/services/seranking.metrics.service";
-import { type KeywordSuggestion } from "@/modules/content/suggestions/suggestions.types";
-import { SerpIntent } from "@/modules/integrations/seranking/seranking.types";
+import { SerankingMetricsService } from "@/modules/seranking/services/seranking.metrics.service";
+import { type KeywordSuggestion } from "@/modules/suggestions/suggestions.types";
+import { SerpIntent } from "@/modules/seranking/seranking.types";
 
 @Injectable()
 export class SuggestionsService {

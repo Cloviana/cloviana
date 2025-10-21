@@ -4,15 +4,15 @@ import { PrismaService } from "@/clients/prisma/prisma.service";
 import { BlogStatus, JobStatus, JobType, Prisma } from "@prisma/client";
 import { UpdateBlogDto } from "../dtos/update-blog.dto";
 import { UpdateNodeDto } from "../dtos/sync-nodes.dto";
-import { StorageService } from "@/modules/core/storage/storage.service";
+import { StorageService } from "@/modules/storage/storage.service";
 import { fromNodes } from "../utils/from-nodes";
 import {
   BLOG_DETAIL_SELECT,
   BLOG_SUMMARY_SELECT,
 } from "../constants/selects.constants";
-import { BlogsProducer } from "@/modules/integrations/messaging/producers/blogs.producer";
+import { BlogsProducer } from "@/modules/messaging/producers/blogs.producer";
 import { makeDedupeKey } from "@/utils/job.util";
-import { CatalogService } from "@/modules/commerce/catalog/catalog.service";
+import { CatalogService } from "@/modules/catalog/catalog.service";
 import {
   ArticleCreateInput,
   ArticleUpdateInput,

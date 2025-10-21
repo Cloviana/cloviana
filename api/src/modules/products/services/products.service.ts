@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { PRODUCT_SUMMARY_SELECT } from "../constants/selects.constants";
-import { ProductsProducer } from "@/modules/integrations/messaging/producers/products.producer";
+import { ProductsProducer } from "@/modules/messaging/producers/products.producer";
 
 @Injectable()
 export class ProductsService {

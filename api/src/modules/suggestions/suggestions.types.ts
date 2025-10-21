@@ -1,4 +1,4 @@
-import { SerpIntent } from "@/modules/integrations/seranking/seranking.types";
+import { SerpIntent } from "@/modules/seranking/seranking.types";
 
 export type KeywordSuggestion = {
   keyword: string;
