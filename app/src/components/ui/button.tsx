@@ -10,18 +10,21 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'border-primary/20 bg-linear-to-b from-primary/90 to-primary border shadow-xs text-white hover:opacity-85',
+          'bg-primary shadow-xs text-primary-foreground hover:opacity-85',
         'brand-secondary':
-          'border-brand-secondary/20 bg-linear-to-b from-brand-secondary/90 to-brand-secondary border shadow-xs text-brand-secondary-foreground hover:opacity-85',
+          'bg-brand-secondary shadow-xs text-brand-secondary-foreground hover:opacity-85',
         outline: 'shadow-xs border bg-background hover:bg-[#ebeaea]',
         ghost: 'bg-background/30 backdrop-blur hover:bg-[#ebeaea]',
+        link: 'text-brand-secondary hover:underline',
       },
       size: {
         default: 'h-9 px-4 py-2 has-[>svg]:px-3',
-        sm: 'h-8 gap-1.5 px-3 has-[>svg]:px-2.5',
+        sm: 'h-7 text-xs gap-1.5 px-3 has-[>svg]:px-2.5',
         xs: 'h-6 gap-1.5 px-2 has-[>svg]:px-2 text-xs font-normal',
         lg: 'h-10 px-6 has-[>svg]:px-4',
         icon: 'size-9',
+        'icon-sm': 'size-8',
+        'icon-lg': 'size-10',
       },
     },
     defaultVariants: {
@@ -46,8 +49,20 @@ function Button({
   }) {
   const Comp = asChild ? Slot : 'button';
 
+  if (asChild) {
+    return (
+      <Comp
+        data-slot="button"
+        className={cn(buttonVariants({ variant, size, className }))}
+        {...props}
+      >
+        {children}
+      </Comp>
+    );
+  }
+
   return (
-    <Comp
+    <button
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
@@ -60,12 +75,12 @@ function Button({
           <span
             className={cn(
               'loading loading-spinner',
-              size === 'xs' ? 'loading-xs' : 'loading-sm',
+              size === 'xs' || size === 'sm' ? 'loading-xs' : 'loading-sm',
             )}
           />
         </span>
       )}
-    </Comp>
+    </button>
   );
 }
 

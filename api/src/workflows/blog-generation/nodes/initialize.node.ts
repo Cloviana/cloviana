@@ -11,14 +11,14 @@ export async function initialize(
 
   const blog = await prisma.blog.findUniqueOrThrow({
     where: { id: state._blogId },
-    include: { keyword: true, store: true },
+    include: { store: true },
   });
 
   return {
     _metadata: {
       title: blog.title!,
       topic: blog.topic!,
-      keyword: blog.keyword?.phrase!,
+      keyword: blog.primaryKeyword!,
       brandVoice: blog.brandVoice,
       brandName: blog.store.name,
       brandDescription: blog.store.description!,

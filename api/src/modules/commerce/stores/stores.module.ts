@@ -4,13 +4,12 @@ import { StoresController } from "./stores.controller";
 import { StoresService } from "./services/stores.service";
 import { StoresConsumer } from "./services/stores.consumer";
 import {
-  KeywordDiscoveryModule,
   StoreMetadataModule,
   SyncProductsModule,
 } from "@/workflows";
 
 @Module({
-  imports: [SyncProductsModule, KeywordDiscoveryModule, StoreMetadataModule],
+  imports: [SyncProductsModule, StoreMetadataModule],
   controllers: [StoresController, StoresConsumer],
   providers: [StoresService],
 })

@@ -1,7 +1,7 @@
 import { useParams } from 'next/navigation';
 
 import { GIcon } from '@/components/deprecated/icons';
-import { useGetBlog } from '@/features/blogs/api/get-blog';
+import { useGetBlog } from '@/features/blogs/_api/get-blog';
 
 export const Keyword = () => {
   const { blogId } = useParams<{ blogId: string }>();

@@ -133,7 +133,7 @@
 
 @layer base {
   :root {
-    --primary: hsl(0 3% 13%);
+    --primary: hsl(209, 88%, 55%);
 
     --sand: hsl(60 11% 98%);
     --mist: hsl(0 0% 94%);
@@ -171,7 +171,8 @@
     --destructive: hsl(0 84.2% 60.2%);
     --destructive-foreground: hsl(0 0% 98%);
 
-    --brand-secondary: hsl(168 100% 31%);
+    --brand-secondary: hsl(209, 88%, 55%);
+    /* --brand-secondary: hsl(168 100% 31%); */
     --brand-secondary-foreground: hsl(0 0% 100%);
 
     --input: hsl(0 0% 89.8%);

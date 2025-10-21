@@ -6,7 +6,7 @@ import debounce from 'lodash.debounce';
 import { useParams } from 'next/navigation';
 import { useCallback, useRef } from 'react';
 
-import { useSyncNodes } from '@/features/blogs/api/sync-nodes';
+import { useSyncNodes } from '@/features/blogs/_api/sync-nodes';
 import { Node } from '@/types/api';
 
 import { fromLexicalNode } from '../_utils/from-lexical-node';

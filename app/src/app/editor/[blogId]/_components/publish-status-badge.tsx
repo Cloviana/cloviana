@@ -1,7 +1,7 @@
 import { useParams } from 'next/navigation';
 
 import { Badge } from '@/components/deprecated/indicators';
-import { useGetBlog } from '@/features/blogs/api/get-blog';
+import { useGetBlog } from '@/features/blogs/_api/get-blog';
 
 export const PublishStatusBadge = () => {
   const { blogId } = useParams<{ blogId: string }>();

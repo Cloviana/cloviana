@@ -1,13 +1,7 @@
 import { Injectable } from "@nestjs/common";
 
 import { PrismaService } from "@/clients/prisma/prisma.service";
-import {
-  BlogPublishStatus,
-  GenerationStep,
-  JobStatus,
-  JobType,
-  Prisma,
-} from "@prisma/client";
+import { BlogStatus, JobStatus, JobType, Prisma } from "@prisma/client";
 import { UpdateBlogDto } from "../dtos/update-blog.dto";
 import { UpdateNodeDto } from "../dtos/sync-nodes.dto";
 import { StorageService } from "@/modules/core/storage/storage.service";
@@ -19,7 +13,10 @@ import {
 import { BlogsProducer } from "@/modules/integrations/messaging/producers/blogs.producer";
 import { makeDedupeKey } from "@/utils/job.util";
 import { CatalogService } from "@/modules/commerce/catalog/catalog.service";
-import { ArticleCreateInput, ArticleUpdateInput } from "@/clients/shopify/generated";
+import {
+  ArticleCreateInput,
+  ArticleUpdateInput,
+} from "@/clients/shopify/generated";
 
 @Injectable()
 export class BlogsService {
@@ -34,8 +31,8 @@ export class BlogsService {
     return this.prisma.blog.findMany({
       where: {
         storeId,
-        generationStep: {
-          not: null,
+        status: {
+          not: BlogStatus.DRAFT,
         },
       },
       select: BLOG_SUMMARY_SELECT,
@@ -68,57 +65,77 @@ export class BlogsService {
   }
 
   async updateBlog(blogId: string, dto: UpdateBlogDto) {
-    const { updated, shouldEnqueue } = await this.prisma.$transaction(
-      async (tx) => {
-        const updated = await tx.blog.update({
-          where: { id: blogId },
-          data: dto,
-          select: { id: true, storeId: true, generationStep: true },
-        });
+    return this.prisma.blog.update({
+      where: { id: blogId },
+      data: dto,
+      select: BLOG_DETAIL_SELECT,
+    });
+  }
 
-        if (updated.generationStep === GenerationStep.COMPLETE) {
-          const key = makeDedupeKey(
-            JobType.BLOG_GENERATION,
-            blogId,
-            new Date()
-          );
-          const job = await tx.job.upsert({
-            where: {
-              type_storeId_dedupeKey: {
-                type: JobType.BLOG_GENERATION,
-                storeId: updated.storeId,
-                dedupeKey: key,
-              },
-            },
-            update: {},
-            create: {
-              type: JobType.BLOG_GENERATION,
-              storeId: updated.storeId,
-              dedupeKey: key,
-              status: JobStatus.PENDING,
-            },
-          });
+  async startGeneration(blogId: string) {
+    const res = await this.prisma.$transaction(async (tx) => {
+      const b = await tx.blog.findUniqueOrThrow({
+        where: { id: blogId },
+        select: {
+          id: true,
+          storeId: true,
+          jobId: true,
+          topic: true,
+          title: true,
+          primaryKeyword: true,
+          secondaryKeywords: true,
+          productId: true,
+        },
+      });
 
-          await tx.blog.update({
-            where: { id: blogId },
-            data: { jobId: job.id },
-          });
+      if (b.jobId)
+        return { blog: { id: b.id, storeId: b.storeId }, shouldEnqueue: false };
 
-          return { updated, shouldEnqueue: true };
-        }
-
-        return { updated, shouldEnqueue: false };
+      if (
+        !b.topic ||
+        !b.primaryKeyword ||
+        !b.title ||
+        !b.secondaryKeywords?.length
+      ) {
+        throw new Error("Blog is not ready to generate");
       }
-    );
 
-    if (shouldEnqueue) {
+      const key = makeDedupeKey(JobType.BLOG_GENERATION, blogId, new Date());
+      const job = await tx.job.upsert({
+        where: {
+          type_storeId_dedupeKey: {
+            type: JobType.BLOG_GENERATION,
+            storeId: b.storeId,
+            dedupeKey: key,
+          },
+        },
+        update: {},
+        create: {
+          type: JobType.BLOG_GENERATION,
+          storeId: b.storeId,
+          dedupeKey: key,
+          status: JobStatus.PENDING,
+        },
+        select: { id: true },
+      });
+
+      await tx.blog.update({
+        where: { id: blogId },
+        data: { jobId: job.id },
+        select: { id: true },
+      });
+
+      return { blog: { id: b.id, storeId: b.storeId }, shouldEnqueue: true };
+    });
+
+    if (res.shouldEnqueue) {
       await this.blogsProducer.generateBlog({
-        blogId: updated.id,
-        storeId: updated.storeId,
+        blogId: res.blog.id,
+        storeId: res.blog.storeId,
       });
     }
 
-    return updated;
+    return res;
   }
 
   async syncAllNodes(blogId: string, dtos: UpdateNodeDto[]) {
@@ -140,7 +157,10 @@ export class BlogsService {
     });
   }
 
-  private async getDefaultShopifyBlogId(shop: string, token: string): Promise<string> {
+  private async getDefaultShopifyBlogId(
+    shop: string,
+    token: string
+  ): Promise<string> {
     const client = await this.catalog["shopify"].getAdminClient(shop, token);
     const res = await client.request<{ blogs: { nodes: { id: string }[] } }>(
       `
@@ -166,7 +186,9 @@ export class BlogsService {
     const { shop, config } = store.channel!;
     const { offlineAccessToken } = config as { offlineAccessToken: string };
 
-    const cdn = blog.thumbnail ? this.storage.getCdnUrl(blog.thumbnail.blobPath) : undefined;
+    const cdn = blog.thumbnail
+      ? this.storage.getCdnUrl(blog.thumbnail.blobPath)
+      : undefined;
 
     const basePayload = {
       title: blog.title,
@@ -203,12 +225,15 @@ export class BlogsService {
 
       await this.prisma.blog.update({
         where: { id: blogId },
-        data: { publishStatus: BlogPublishStatus.PUBLISHED },
+        data: { status: BlogStatus.PUBLISHED },
       });
 
       return updated.id;
     } else {
-      const targetBlogId = await this.getDefaultShopifyBlogId(shop, offlineAccessToken);
+      const targetBlogId = await this.getDefaultShopifyBlogId(
+        shop,
+        offlineAccessToken
+      );
 
       const payload: ArticleCreateInput = {
         blogId: targetBlogId,
@@ -231,7 +256,7 @@ export class BlogsService {
         where: { id: blogId },
         data: {
           shopifyArticleId: created.id,
-          publishStatus: BlogPublishStatus.PUBLISHED,
+          status: BlogStatus.PUBLISHED,
         },
       });
 

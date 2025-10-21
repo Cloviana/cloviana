@@ -4,31 +4,73 @@ import { cn } from '@/utils/cn';
 
 const Page = ({
   fullWidth,
+  className,
   children,
+  ...props
 }: React.ComponentProps<'div'> & { fullWidth?: boolean }) => {
   return (
-    <div className="py-9">
-      <div className={cn('mx-auto w-full px-11', !fullWidth && 'max-w-5xl')}>
-        {children}
-      </div>
+    <div
+      className={cn(
+        'mx-auto w-full flex-1 px-6 py-9 sm:px-11',
+        !fullWidth && 'max-w-5xl',
+        className,
+      )}
+      {...props}
+    >
+      {children}
     </div>
   );
 };
 
-const PageHeader = ({ children }: React.ComponentProps<'div'>) => {
-  return <div className="mb-7 space-y-1">{children}</div>;
+const PageHeader = ({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<'div'>) => {
+  return (
+    <div className={cn('mb-7 space-y-1', className)} {...props}>
+      {children}
+    </div>
+  );
 };
 
-const PageTitle = ({ children }: React.ComponentProps<'h1'>) => {
-  return <h1 className="text-xl font-semibold tracking-tight">{children}</h1>;
+const PageTitle = ({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<'h1'>) => {
+  return (
+    <h1
+      className={cn('text-lg font-semibold tracking-tight', className)}
+      {...props}
+    >
+      {children}
+    </h1>
+  );
 };
 
-const PageParagraph = ({ children }: React.ComponentProps<'p'>) => {
-  return <p className="text-foreground-light text-sm">{children}</p>;
+const PageParagraph = ({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<'p'>) => {
+  return (
+    <p className={cn('text-foreground-light text-sm', className)} {...props}>
+      {children}
+    </p>
+  );
 };
 
-const PageContent = ({ children }: React.ComponentProps<'div'>) => {
-  return <div className="grid gap-6">{children}</div>;
+const PageContent = ({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<'div'>) => {
+  return (
+    <div className={cn('relative w-full space-y-6', className)} {...props}>
+      {children}
+    </div>
+  );
 };
 
 export { Page, PageHeader, PageTitle, PageParagraph, PageContent };

@@ -1,6 +1,6 @@
 import { RunnableConfig } from "@langchain/core/runnables";
 import { StateAnnotation } from "../sync-products.state";
-import { PrismaClient, ShopifyProductStatus } from "@prisma/client";
+import { PrismaClient, ProductStatus } from "@prisma/client";
 
 export async function saveProducts(
   state: typeof StateAnnotation.State,
@@ -20,7 +20,7 @@ export async function saveProducts(
       const data = {
         handle: p.handle ?? null,
         title: p.title,
-        status: p.status as ShopifyProductStatus,
+        status: p.status as ProductStatus,
         description: p.description ?? null,
         tags: p.tags ?? [],
         category: p.category?.name ?? null,
