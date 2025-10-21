@@ -69,15 +69,15 @@ function IntegrationRow({
 type FormValues = { shop: string };
 
 function ShopifyRow() {
+  const { storeId } = useParams<{ storeId: string }>();
+  const { data: store } = useGetStore(storeId);
+  const connected = Boolean(store?.channel);
+
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isValid },
-  } = useForm<FormValues>({ defaultValues: { shop: '' } });
-
-  const { storeId } = useParams<{ storeId: string }>();
-  const { data: store } = useGetStore(storeId);
-  const connected = Boolean(store?.channel);
+  } = useForm<FormValues>({ defaultValues: { shop: store?.channel?.shop } });
 
   const { push } = useRouter();
 

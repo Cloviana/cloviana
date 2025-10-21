@@ -13,9 +13,9 @@ import {
 } from "@nestjs/common";
 import { BlogsService } from "./services/blogs.service";
 import { CreateBlogDto } from "./dtos/create-blog.dto";
-import { BlogOwnerGuard } from "./guards/blog-owner.guard";
 import { UpdateBlogDto } from "./dtos/update-blog.dto";
 import { SyncNodesDto } from "./dtos/sync-nodes.dto";
+import { BlogOwnerGuard } from "@/guards/blog-owner.guard";
 
 @Controller("blogs")
 export class BlogsController {
@@ -42,9 +42,17 @@ export class BlogsController {
   @HttpCode(HttpStatus.OK)
   async updateBlog(
     @Param("blogId") blogId: string,
-    @Body() dto: UpdateBlogDto,
+    @Body() dto: UpdateBlogDto
   ) {
     return this.blogs.updateBlog(blogId, dto);
+  }
+
+  @Post(":blogId/generate")
+  @UseGuards(BlogOwnerGuard)
+  @HttpCode(HttpStatus.ACCEPTED)
+  async generate(@Param("blogId") blogId: string) {
+    await this.blogs.startGeneration(blogId);
+    return { ok: true };
   }
 
   @Put(":blogId/nodes/sync")
@@ -52,7 +60,7 @@ export class BlogsController {
   @HttpCode(HttpStatus.OK)
   async syncAllNodes(
     @Param("blogId") blogId: string,
-    @Body() { nodes }: SyncNodesDto,
+    @Body() { nodes }: SyncNodesDto
   ) {
     await this.blogs.syncAllNodes(blogId, nodes);
   }

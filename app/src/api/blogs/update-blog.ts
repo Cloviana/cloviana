@@ -8,26 +8,32 @@ import { BlogDetail } from '@/types/api';
 
 import { blogsKeys } from '../keys';
 
+const str = z.string().trim();
+
 export const updateBlogInputSchema = z.object({
-  blogId: z.string().min(1),
-  keywordId: z.string().min(1).optional(),
-  slug: z.string().min(1).optional(),
-  topic: z.string().min(1).optional(),
-  title: z.string().min(1).optional(),
+  blogId: z.string().uuid(),
+  slug: str.min(1).optional(),
+  topic: str.min(1).optional(),
+  title: str.min(1).optional(),
   description: z.string().optional(),
-  generationStep: z
+  brandVoice: str.min(1).optional(),
+  primaryKeyword: str.min(1).optional(),
+  secondaryKeywords: z.array(str.min(1)).optional(),
+  additionalInstruction: z.string().optional(),
+  productId: z.string().uuid().optional(),
+  currentStep: z
     .enum([
       'TOPIC',
-      'KEYWORD',
-      'COMPETITORS',
+      'PRIMARY_KEYWORD',
       'TITLE',
       'SECONDARY_KEYWORDS',
-      'META',
-      'REVIEW',
-      'COMPLETE',
+      'PRODUCT',
+      'ENHANCEMENTS',
+      'COMPLETED',
     ])
     .optional(),
 });
+
 export type UpdateBlogInput = z.infer<typeof updateBlogInputSchema>;
 
 export const updateBlog = async (

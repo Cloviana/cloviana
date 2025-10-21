@@ -3,8 +3,8 @@
 import { useParams } from 'next/navigation';
 
 import { Button } from '@/components/deprecated/legacy';
-import { useGetBlog } from '@/features/blogs/api/get-blog';
-import { usePublishBlog } from '@/features/blogs/api/publish-blog';
+import { useGetBlog } from '@/features/blogs/_api/get-blog';
+import { usePublishBlog } from '@/features/blogs/_api/publish-blog';
 
 export const Header = () => {
   const { blogId } = useParams<{ blogId: string }>();

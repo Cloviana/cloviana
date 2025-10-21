@@ -16,29 +16,6 @@ enum StoreStatus {
   FAILED
 }
 
-enum KeywordType {
-  BUSINESS
-  BLOG
-}
-
-enum KeywordIntent {
-  I // Informational
-  N // Navigational
-  C // Commercial
-  L // Transactional
-}
-
-enum BlogPublishStatus {
-  DRAFT
-  PUBLISHED
-  ARCHIVED
-}
-
-enum BlogType {
-  LISTICLE
-  HOW_TO
-}
-
 enum NodeType {
   PARAGRAPH
   HEADING
@@ -51,18 +28,23 @@ enum NodeType {
   TEXT
 }
 
-enum GenerationStep {
-  TOPIC
-  KEYWORD
-  COMPETITORS
-  TITLE
-  SECONDARY_KEYWORDS
-  META
-  REVIEW
-  COMPLETE
+enum BlogStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
 }
 
-enum ShopifyProductStatus {
+enum BlogSetupStep {
+  TOPIC
+  PRIMARY_KEYWORD
+  TITLE
+  SECONDARY_KEYWORDS
+  PRODUCT
+  ENHANCEMENTS
+  COMPLETED
+}
+
+enum ProductStatus {
   ACTIVE
   DRAFT
   ARCHIVED
@@ -111,25 +93,27 @@ model Job {
 }
 
 model Product {
+  id                    String        @id @default(uuid()) @db.Uuid
   storeId               String
   shopifyId             String
-  handle                String?              @db.Citext
+  handle                String?       @db.Citext
   title                 String
-  status                ShopifyProductStatus
+  status                ProductStatus
   description           String?
-  tags                  String[]             @default([])
+  tags                  String[]      @default([])
   category              String?
   imageUrl              String?
   onlineStoreUrl        String?
   onlineStorePreviewUrl String
   syncedAt              DateTime?
-  createdAt             DateTime             @default(now())
-  updatedAt             DateTime             @updatedAt
+  createdAt             DateTime      @default(now())
+  updatedAt             DateTime      @updatedAt
 
-  store Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  store Store  @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  blogs Blog[] @relation("BlogProduct")
 
-  @@id([storeId, shopifyId])
   @@unique([storeId, handle])
+  @@unique([storeId, shopifyId])
   @@index([storeId, status])
   @@map("products")
 }
@@ -156,8 +140,7 @@ model Store {
   createdAt        DateTime    @default(now())
   updatedAt        DateTime    @updatedAt
 
-  owner    Profile        @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
-  keywords StoreKeyword[]
+  owner    Profile   @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
   blogs    Blog[]
   jobs     Job[]
   products Product[]
@@ -180,58 +163,33 @@ model Channel {
   @@map("channels")
 }
 
-model Keyword {
-  id           String          @id @default(uuid()) @db.Uuid
-  phrase       String          @unique
-  volume       Int
-  cpc          Int
-  intents      KeywordIntent[] @default([])
-  historyTrend Json?           @db.JsonB
-  difficulty   Int
-  competition  Float
-  createdAt    DateTime        @default(now())
-  updatedAt    DateTime        @updatedAt
-
-  storeKeywords StoreKeyword[]
-  blogs         Blog[]
-
-  @@map("keywords")
-}
-
-model StoreKeyword {
-  storeId   String
-  keywordId String @db.Uuid
-
-  store   Store   @relation(fields: [storeId], references: [id], onDelete: Cascade)
-  keyword Keyword @relation(fields: [keywordId], references: [id], onDelete: Cascade)
-
-  @@id([storeId, keywordId])
-  @@map("stores_keywords")
-}
-
 model Blog {
-  id               String               @id @default(uuid()) @db.Uuid
-  topic            String?
-  title            String?
-  slug             String?
-  description      String?
-  brandVoice       String?
-  keywordId        String?              @db.Uuid
-  generationStep   GenerationStep?
-  publishStatus    BlogPublishStatus    @default(DRAFT)
-  storeId          String
-  shopifyArticleId String?
-  jobId            String?              @db.Uuid
-  createdAt        DateTime             @default(now())
-  updatedAt        DateTime             @updatedAt
+  id                    String        @id @default(uuid()) @db.Uuid
+  topic                 String?
+  title                 String?
+  slug                  String?
+  description           String?
+  brandVoice            String?
+  primaryKeyword        String?
+  secondaryKeywords     String[]      @default([])
+  additionalInstruction String?
+  status                BlogStatus    @default(DRAFT)
+  currentStep           BlogSetupStep @default(TOPIC)
+  storeId               String
+  shopifyArticleId      String?
+  jobId                 String?       @db.Uuid
+  productId             String?       @db.Uuid
+  createdAt             DateTime      @default(now())
+  updatedAt             DateTime      @updatedAt
 
-  keyword   Keyword?   @relation(fields: [keywordId], references: [id], onDelete: Cascade)
   store     Store      @relation(fields: [storeId], references: [id], onDelete: Cascade)
   job       Job?       @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  product   Product?   @relation("BlogProduct", fields: [productId], references: [id], onDelete: SetNull)
   nodes     Node[]
   thumbnail Thumbnail?
 
   @@index([storeId])
+  @@index([productId])
   @@map("blogs")
 }
 

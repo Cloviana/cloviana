@@ -13,8 +13,8 @@ import React, {
 
 import { SignatureIcon } from '@/components/deprecated/icons';
 import { TextArea, TextField } from '@/components/deprecated/input';
-import { useGetBlog } from '@/features/blogs/api/get-blog';
-import { useUpdateBlog } from '@/features/blogs/api/update-blog';
+import { useGetBlog } from '@/features/blogs/_api/get-blog';
+import { useUpdateBlog } from '@/features/blogs/_api/update-blog';
 import { cn } from '@/utils/cn';
 
 interface SidebarItemProps {

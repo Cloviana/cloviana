@@ -1,5 +1,5 @@
-import { GenerationStep } from "@prisma/client";
-import { IsString, IsOptional, IsEnum } from "class-validator";
+import { IsString, IsOptional, IsEnum, IsArray, IsUUID } from "class-validator";
+import { BlogSetupStep } from "@prisma/client";
 
 export class UpdateBlogDto {
   @IsString()
@@ -18,11 +18,28 @@ export class UpdateBlogDto {
   @IsOptional()
   topic?: string;
 
-  @IsEnum(GenerationStep)
+  @IsString()
   @IsOptional()
-  generationStep?: GenerationStep;
+  brandVoice?: string;
 
   @IsString()
   @IsOptional()
-  keywordId?: string;
+  additionalInstruction?: string;
+
+  @IsString()
+  @IsOptional()
+  primaryKeyword?: string;
+
+  @IsOptional()
+@IsArray()
+@IsString({ each: true })
+secondaryKeywords?: string[];
+
+@IsUUID()
+  @IsOptional()
+  productId?: string;
+
+  @IsEnum(BlogSetupStep)
+  @IsOptional()
+  currentStep?: BlogSetupStep;
 }

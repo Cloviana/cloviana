@@ -7,16 +7,22 @@ export type JobType =
   | 'SITEMAP_BUILD'
   | 'KEYWORD_DISCOVERY';
 export type JobStatus = 'PENDING' | 'RUNNING' | 'SUCCESS' | 'FAILED';
-
 export type StoreStatus =
   | 'DRAFT'
   | 'ACTIVE'
   | 'INITIALIZING'
   | 'FAILED'
   | 'LOCKED';
-export type BlogType = 'HOW_TO' | 'LISTICLE';
-export type PublishStatus = 'DRAFT' | 'PUBLISHED' | 'ARCHIVED';
-export type GenerationStatus = 'QUEUED' | 'IN_PROGRESS' | 'READY' | 'ERROR';
+export type BlogStatus = 'DRAFT' | 'PUBLISHED' | 'ARCHIVED' | 'UNPUBLISHED';
+export type BlogSetupStep =
+  | 'TOPIC'
+  | 'PRIMARY_KEYWORD'
+  | 'TITLE'
+  | 'SECONDARY_KEYWORDS'
+  | 'PRODUCT'
+  | 'ENHANCEMENTS'
+  | 'COMPLETED';
+export type ProductStatus = 'ACTIVE' | 'DRAFT' | 'ARCHIVED';
 
 export type NodeType =
   | 'PARAGRAPH'
@@ -28,16 +34,6 @@ export type NodeType =
   | 'IMAGE'
   | 'LINK'
   | 'TEXT';
-
-export type GenerationStep =
-  | 'TOPIC'
-  | 'KEYWORD'
-  | 'COMPETITORS'
-  | 'TITLE'
-  | 'SECONDARY_KEYWORDS'
-  | 'META'
-  | 'REVIEW'
-  | 'COMPLETE';
 
 export type Link = {
   href: string;
@@ -65,7 +61,7 @@ type BaseNode = {
 type PayloadByType = {
   TEXT: { text: string; format: number };
   PARAGRAPH: Record<string, never>;
-  HEADING: { tag: 'h2' | 'h3' | 'h1' | 'h5' | 'h6' | 'h4' };
+  HEADING: { tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' };
   LIST_ITEM: Record<string, never>;
   LIST: { listType: 'bullet' | 'number' | 'check' };
 };
@@ -86,17 +82,6 @@ export type Channel = Entity<{
   shop: string;
 }>;
 
-export type Intent = 'I' | 'C' | 'L' | 'N';
-
-export type Keyword = Entity<{
-  phrase: string;
-  volume: number;
-  difficulty: number;
-  competition: number;
-  intents: Intent[];
-  historyTrend: Record<string, number>;
-}>;
-
 export type Thumbnail = {
   blobPath: string;
   altText: string;
@@ -104,23 +89,26 @@ export type Thumbnail = {
 };
 
 export type Blog = Entity<{
-  title: string;
-  topic: string;
-  generationStep?: GenerationStep;
-  keyword?: Pick<Keyword, 'id' | 'phrase'>;
-  publishStatus: PublishStatus;
-  thumbnail: Thumbnail | null;
+  title?: string;
+  topic?: string;
+  status: BlogStatus;
 }>;
 
 export type BlogDetail = Blog & {
-  brandVoice?: string;
-  type: BlogType;
   storeId: ID;
-  jobId?: ID;
+  jobId?: ID | null;
+  productId?: ID | null;
+  shopifyArticleId?: string | null;
+  currentStep: BlogSetupStep;
   slug?: string;
-  description?: string;
+  description?: string | null;
+  brandVoice?: string | null;
+  primaryKeyword?: string | null;
+  secondaryKeywords?: string[];
+  additionalInstruction?: string | null;
   nodes: Node[];
   job?: Job | null;
+  thumbnail?: Thumbnail | null;
 };
 
 export type StoreDetail = Store & {
@@ -128,12 +116,12 @@ export type StoreDetail = Store & {
 };
 
 export type Product = Entity<{
-  handle: string;
+  handle?: string | null;
   title: string;
-  status: string;
+  status: ProductStatus;
   description: string | null;
   tags: string[];
-  imageUrl: string | undefined;
+  imageUrl: string | null;
   category: string | null;
   syncedAt: ISODate | null;
   onlineStorePreviewUrl: string;

@@ -4,8 +4,8 @@ import debounce from 'lodash.debounce';
 import { useParams } from 'next/navigation';
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
 
-import { useGetBlog } from '@/features/blogs/api/get-blog';
-import { useUpdateBlog } from '@/features/blogs/api/update-blog';
+import { useGetBlog } from '@/features/blogs/_api/get-blog';
+import { useUpdateBlog } from '@/features/blogs/_api/update-blog';
 
 export const Title = () => {
   const { blogId } = useParams<{ blogId: string }>();

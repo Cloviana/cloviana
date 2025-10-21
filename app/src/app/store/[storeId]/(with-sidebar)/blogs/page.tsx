@@ -1,52 +1,60 @@
 'use client';
 
+import { PlusIcon } from 'lucide-react';
 import { useParams, useRouter } from 'next/navigation';
 
 import { useCreateBlog } from '@/api/blogs/create-blog';
-import { Page } from '@/components/deprecated/legacy';
+import { Button } from '@/components/ui/button';
+import {
+  Page,
+  PageContent,
+  PageHeader,
+  PageParagraph,
+  PageTitle,
+} from '@/components/ui/page';
 import { paths } from '@/config/paths';
-import { useGetBlogs } from '@/features/blogs/api/get-blogs';
 
-import { BlogsTable } from './_components/blogs-table';
-import { EmptyBlogList } from './_components/empty-blog-list';
+import { EmptyBlogList } from '../../../../../features/blogs/components/states/empty-blog-list';
 
-export default function BlogListPage() {
+export default function ContentCreationPage() {
   const { storeId } = useParams<{ storeId: string }>();
-  const router = useRouter();
-
-  const { data: blogs = [] } = useGetBlogs(storeId);
   const { mutateAsync: createBlog, isPending: isCreating } = useCreateBlog();
+  const { push } = useRouter();
 
   const handleCreateBlog = async () => {
     const { id } = await createBlog({
       data: { storeId },
     });
-    router.push(paths.store.blogs.setup.getHref(storeId, id));
+    push(paths.store.blogs.getHref(storeId, id));
   };
 
-  const hasBlogs = blogs.length > 0;
-
-  if (!storeId) return null;
-
   return (
-    <Page
-      title="Blogs"
-      fullWidth={hasBlogs}
-      primaryAction={
-        hasBlogs
-          ? {
-              children: 'Add blog post',
-              onClick: handleCreateBlog,
-              loading: isCreating,
-            }
-          : undefined
-      }
-    >
-      {hasBlogs ? (
-        <BlogsTable blogs={blogs} />
-      ) : (
-        <EmptyBlogList onCreate={handleCreateBlog} loading={isCreating} />
-      )}
+    <Page>
+      <PageHeader>
+        <PageTitle>Content Creation</PageTitle>
+        <div className="flex flex-col justify-between gap-8 md:flex-row">
+          <PageParagraph>
+            Connect your Shopify store to let Cloviana fully work with your
+            shop. You can also link Google Console to help your pages get found
+            faster and reach more customers.
+          </PageParagraph>
+          <Button
+            size={'sm'}
+            variant={'brand-secondary'}
+            onClick={handleCreateBlog}
+            loading={isCreating}
+          >
+            <span className="flex items-center">
+              <PlusIcon className="mr-2 size-3" />
+              Add blog post
+            </span>
+          </Button>
+        </div>
+      </PageHeader>
+
+      <PageContent>
+        <EmptyBlogList />
+      </PageContent>
     </Page>
   );
 }
