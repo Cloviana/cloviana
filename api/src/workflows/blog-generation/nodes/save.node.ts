@@ -3,7 +3,7 @@ import { RunnableConfig } from "@langchain/core/runnables";
 import { StateAnnotation } from "../blog-generation.state";
 import { Node } from "../schemas/node.schemas";
 import cuid from "cuid";
-import { StorageService } from "@/modules/core/storage/storage.service";
+import { StorageService } from "@/modules/storage/storage.service";
 import axios from "axios";
 
 type TextFormat = "bold" | "italic" | "underline";

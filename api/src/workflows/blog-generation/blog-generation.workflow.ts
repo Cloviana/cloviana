@@ -3,7 +3,7 @@ import { graph } from "./blog-generation.graph";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { JobStatus, JobType } from "@prisma/client";
 import { makeDedupeKey } from "@/utils/job.util";
-import { StorageService } from "@/modules/core/storage/storage.service";
+import { StorageService } from "@/modules/storage/storage.service";
 
 const STALE_MS = 10 * 60 * 1000;
 

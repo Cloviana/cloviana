@@ -10,7 +10,7 @@ import {
   GetShopInfoQueryVariables,
 } from "@/clients/shopify/generated";
 import { resolveFavicon } from "@/utils/resolve-favicon.util";
-import { StoresProducer } from "@/modules/integrations/messaging/producers/stores.producer";
+import { StoresProducer } from "@/modules/messaging/producers/stores.producer";
 
 type SessionOut = {
   user_id: string;
