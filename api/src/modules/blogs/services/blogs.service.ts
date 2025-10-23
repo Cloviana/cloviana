@@ -1,9 +1,8 @@
 import { Injectable } from "@nestjs/common";
 
 import { PrismaService } from "@/clients/prisma/prisma.service";
-import { BlogStatus, JobStatus, JobType, Prisma } from "@prisma/client";
+import { BlogSetupStep, BlogStatus, JobStatus, JobType, Prisma } from "@prisma/client";
 import { UpdateBlogDto } from "../dtos/update-blog.dto";
-import { UpdateNodeDto } from "../dtos/sync-nodes.dto";
 import { StorageService } from "@/modules/storage/storage.service";
 import { fromNodes } from "../utils/from-nodes";
 import {
@@ -17,6 +16,7 @@ import {
   ArticleCreateInput,
   ArticleUpdateInput,
 } from "@/clients/shopify/generated";
+import { lexicalJsonToNodes } from "@/modules/blogs/utils/lexical-json-to-nodes";
 
 @Injectable()
 export class BlogsService {
@@ -31,8 +31,8 @@ export class BlogsService {
     return this.prisma.blog.findMany({
       where: {
         storeId,
-        status: {
-          not: BlogStatus.DRAFT,
+        currentStep: {
+          equals: BlogSetupStep.COMPLETED,
         },
       },
       select: BLOG_SUMMARY_SELECT,
@@ -139,20 +139,21 @@ export class BlogsService {
 
     return res;
   }
-
-  async syncAllNodes(blogId: string, dtos: UpdateNodeDto[]) {
-    const createInputs: Prisma.NodeCreateManyInput[] = dtos.map((dto) => ({
+  
+  async syncAllNodesFromLexical(blogId: string, state: Record<string, any>) {
+    const inputs = lexicalJsonToNodes(state);
+    
+    const createInputs: Prisma.NodeCreateManyInput[] = inputs.map((n) => ({
       blogId,
-      key: dto.key,
-      parentKey: dto.parentKey,
-      sortOrder: dto.sortOrder,
-      type: dto.type,
-      payload: dto.payload,
+      key: n.key,
+      parentKey: n.parentKey ?? null,
+      sortOrder: n.sortOrder,
+      type: n.type,
+      payload: n.payload,
     }));
 
     await this.prisma.$transaction(async (tx) => {
       await tx.node.deleteMany({ where: { blogId } });
-
       if (createInputs.length) {
         await tx.node.createMany({ data: createInputs });
       }

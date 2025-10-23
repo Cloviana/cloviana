@@ -63,8 +63,8 @@ const SidebarBody = () => {
       <div className="space-y-1">
         <h1 className="text-sm font-medium">AI Content Writer</h1>
         <p className="text-foreground-light text-xs">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam.
+          Set up your blog details so Cloviana’s AI can craft a product-led
+          article that fits your brand, keywords, and goals.
         </p>
       </div>
       <div className="mt-5 space-y-3">

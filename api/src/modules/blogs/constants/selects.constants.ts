@@ -4,6 +4,7 @@ export const BLOG_SUMMARY_SELECT: Prisma.BlogSelect = {
   id: true,
   title: true,
   topic: true,
+  primaryKeyword: true,
   status: true,
   createdAt: true,
   updatedAt: true,

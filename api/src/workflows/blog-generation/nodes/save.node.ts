@@ -65,7 +65,7 @@ export async function save(
   const nodes = state._nodes;
   if (!Array.isArray(nodes) || nodes.length === 0) throw new Error("No nodes to save");
 
-  const rows = toRows(blogId, nodes as Node[], null);
+  const rows = toRows(blogId, nodes.slice(1) as Node[], null);
 
   const slug = state._metadata.title
     .trim()

@@ -41,6 +41,19 @@ function renderSection(parentKey: string, map: Record<string, Node[]>): string {
         html += `<li>${renderSection(node.key, map)}</li>`;
         break;
       }
+      case "LINK": {
+        const url = (node.payload as any)["url"] ?? "#"
+        html += `<a href="${url}" target="_blank" rel="noopener noreferrer">${renderSection(node.key, map)}</a>`;
+        break;
+      }
+      case "QUOTE": {
+        html += `<blockquote>${renderSection(node.key, map)}</blockquote>`;
+        break;
+      }
+      case "LINEBREAK": {
+        html += `<br/>`;
+        break;
+      }
       default: {
         break;
       }

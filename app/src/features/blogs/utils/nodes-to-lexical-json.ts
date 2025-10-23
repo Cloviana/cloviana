@@ -69,6 +69,10 @@ type LexicalNode =
       format: '';
       indent: 0;
       version: 1;
+    }
+  | {
+      type: 'linebreak';
+      version: 1;
     };
 
 export function nodesToLexicalState(nodes: Node[]): SerializedEditorState {
@@ -78,14 +82,17 @@ export function nodesToLexicalState(nodes: Node[]): SerializedEditorState {
     if (!byParent[pk]) byParent[pk] = [];
     byParent[pk].push(n);
   }
+
   const build = (parentKey: string): LexicalNode[] => {
     const kids = (byParent[parentKey] ?? [])
       .slice()
       .sort((a, b) => a.sortOrder - b.sortOrder);
     const out: LexicalNode[] = [];
+
     for (let i = 0; i < kids.length; i++) {
       const k = kids[i]!;
       let node: LexicalNode | null = null;
+
       if (k.type === 'TEXT') {
         node = {
           type: 'text',
@@ -99,6 +106,7 @@ export function nodesToLexicalState(nodes: Node[]): SerializedEditorState {
         out.push(node);
         continue;
       }
+
       if (k.type === 'PARAGRAPH') {
         node = {
           type: 'paragraph',
@@ -173,12 +181,21 @@ export function nodesToLexicalState(nodes: Node[]): SerializedEditorState {
           indent: 0,
           version: 1,
         };
+      } else if (k.type === 'LINEBREAK') {
+        node = {
+          type: 'linebreak',
+          version: 1,
+        };
       }
+
       if (node) out.push(node);
     }
+
     return out;
   };
+
   const rootChildren = build('root');
+
   return {
     root: {
       children: rootChildren,

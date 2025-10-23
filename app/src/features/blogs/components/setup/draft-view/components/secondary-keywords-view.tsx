@@ -332,8 +332,9 @@ export function SecondaryKeywordsView() {
         <PageHeader>
           <PageTitle>Secondary Keywords</PageTitle>
           <PageParagraph>
-            Select multiple supporting keywords. You can also add custom ones
-            separated by commas.
+            Select a few supporting keywords related to your main topic.
+            Cloviana will weave them naturally into the article to improve
+            search coverage.
           </PageParagraph>
         </PageHeader>
         <PageContent>

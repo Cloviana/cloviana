@@ -13,7 +13,8 @@ import {
 } from '@/components/ui/page';
 import { paths } from '@/config/paths';
 import { useCreateBlog } from '@/features/blogs/api/create-blog';
-import { EmptyBlogList } from '@/features/blogs/components/states/empty-blog-list';
+
+import { BlogList } from './_components/blog-list';
 
 export default function ContentCreationPage() {
   const { storeId } = useParams<{ storeId: string }>();
@@ -33,9 +34,9 @@ export default function ContentCreationPage() {
         <PageTitle>Content Creation</PageTitle>
         <div className="flex flex-col justify-between gap-8 md:flex-row">
           <PageParagraph>
-            Connect your Shopify store to let Cloviana fully work with your
-            shop. You can also link Google Console to help your pages get found
-            faster and reach more customers.
+            Create product-led blog posts that rank on Google and bring shoppers
+            to your store. Every article is optimized to boost visibility, build
+            trust, and convert traffic into sales.
           </PageParagraph>
           <Button
             size={'sm'}
@@ -52,7 +53,7 @@ export default function ContentCreationPage() {
       </PageHeader>
 
       <PageContent>
-        <EmptyBlogList />
+        <BlogList />
       </PageContent>
     </Page>
   );

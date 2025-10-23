@@ -14,7 +14,7 @@ export const editorTheme: EditorThemeClasses = {
     h6: 'scroll-m-20 text-sm font-semibold tracking-tight',
   },
   paragraph: 'leading-normal text-[15px] pb-3.5',
-  quote: 'mt-6 border-l-2 pl-6 italic',
+  quote: 'mt-6 pb-3.5 border-l-2 pl-6 italic',
   link: 'text-[#1255cc] underline hover:cursor-pointer',
   list: {
     checklist: 'relative',

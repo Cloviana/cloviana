@@ -26,6 +26,7 @@ enum NodeType {
   IMAGE
   LINK
   TEXT
+  LINEBREAK
 }
 
 enum BlogStatus {

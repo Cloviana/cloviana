@@ -85,8 +85,8 @@ export const ProductView = () => {
         <PageHeader>
           <PageTitle>Product</PageTitle>
           <PageParagraph>
-            Select the single best product to feature in this blog post. You can
-            search and choose from your store’s products below.
+            Choose the main product this article will highlight. Cloviana will
+            naturally feature it within the content to drive traffic and sales.
           </PageParagraph>
         </PageHeader>
         <PageContent>

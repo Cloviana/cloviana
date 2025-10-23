@@ -13,8 +13,8 @@ import React, {
 
 import { SignatureIcon } from '@/components/deprecated/icons';
 import { TextArea, TextField } from '@/components/deprecated/input';
-import { useGetBlog } from '@/features/blogs/_api/get-blog';
-import { useUpdateBlog } from '@/features/blogs/_api/update-blog';
+import { useGetBlog } from '@/features/blogs/api/get-blog';
+import { useUpdateBlog } from '@/features/blogs/api/update-blog';
 import { cn } from '@/utils/cn';
 
 interface SidebarItemProps {
@@ -50,20 +50,20 @@ const SidebarContentHeader: FC<SidebarContentHeaderProps> = ({ children }) => (
 
 const SettingsView = () => {
   const { blogId } = useParams<{ blogId: string }>();
-  const { data: blog } = useGetBlog(blogId);
+  const { data: blog } = useGetBlog({ blogId });
 
   const [slug, setSlug] = useState(blog?.slug || '');
   const [description, setDescription] = useState(blog?.description || '');
 
-  const { mutate: saveBlog } = useUpdateBlog(blogId);
+  const { mutate: saveBlog } = useUpdateBlog();
 
   const debouncedSave = useMemo(
     () =>
       debounce((newSlug: string, newDesc: string) => {
         if (newSlug && newDesc)
-          saveBlog({ slug: newSlug, description: newDesc });
+          saveBlog({ slug: newSlug, description: newDesc, blogId });
       }, 500),
-    [saveBlog],
+    [saveBlog, blogId],
   );
 
   useEffect(() => {
@@ -121,7 +121,7 @@ export const EditorSidebar: FC = () => {
         </Tabs.Trigger>
       </Tabs.List>
       <Tabs.Content
-        className="flex w-[400px] flex-col gap-y-4 px-4 py-2.5"
+        className="flex w-full max-w-sm flex-col gap-y-4 px-4 py-2.5"
         value="settings"
       >
         <SidebarContentHeader>Settings</SidebarContentHeader>
