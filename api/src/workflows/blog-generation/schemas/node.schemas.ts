@@ -80,6 +80,8 @@ export const NodeSchema = z.discriminatedUnion("type", [
   ListNodeSchema,
   ListItemNodeSchema,
   RootNodeSchema,
+  LinkNodeSchema,
+  QuoteNodeSchema
 ]);
 
 export type InferNode = z.infer<typeof NodeSchema>;

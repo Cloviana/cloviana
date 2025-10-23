@@ -128,7 +128,7 @@ export class SuggestionsService {
     );
 
     this.logger.debug(`Caching topics for store ${storeId}`);
-    await this.cache.set(key, topics, 60 * 60 * 24 * 1000);
+    await this.cache.set(key, topics, 60 * 60 * 24 * 1000 * 2);
     return topics;
   }
 
@@ -349,7 +349,7 @@ export class SuggestionsService {
     });
 
     this.logger.debug(`Caching ${out.length} suggestions at ${cacheKey}`);
-    await this.cache.set(cacheKey, out, 60 * 60 * 24 * 1000);
+    await this.cache.set(cacheKey, out, 60 * 60 * 24 * 1000 * 2);
     return out;
   }
 
@@ -433,7 +433,7 @@ export class SuggestionsService {
     );
 
     this.logger.debug(`Caching titles at ${cacheKey}`);
-    await this.cache.set(cacheKey, titles, 60 * 60 * 24 * 1000);
+    await this.cache.set(cacheKey, titles, 60 * 60 * 24 * 1000 * 2);
     return titles;
   }
 
@@ -610,7 +610,7 @@ Selection guidance:
     this.logger.debug(
       `Caching ${out.length} secondary suggestions at ${cacheKey}`
     );
-    await this.cache.set(cacheKey, out, 60 * 60 * 24 * 1000);
+    await this.cache.set(cacheKey, out, 60 * 60 * 24 * 1000 * 2);
     return out;
   }
 
@@ -708,7 +708,7 @@ Selection guidance:
     recommended: p.id === recommendedId,
   }));
 
-  await this.cache.set(cacheKey, out, 60 * 60 * 24 * 1000);
+  await this.cache.set(cacheKey, out, 60 * 60 * 24 * 1000 * 2);
   return out;
 }
 

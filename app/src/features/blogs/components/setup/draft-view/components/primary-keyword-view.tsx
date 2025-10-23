@@ -1,8 +1,6 @@
 import { ListFilter, Sparkles } from 'lucide-react';
 import * as React from 'react';
 
-import { useGetBlog } from '@/api/blogs/get-blog';
-import { useUpdateBlog } from '@/api/blogs/update-blog';
 import { Badge } from '@/components/ui/badge';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
@@ -28,7 +26,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
+import { useGetBlog } from '@/features/blogs/api/get-blog';
 import { useGetPrimaryKeywordSuggestions } from '@/features/blogs/api/get-primary-keyword-suggestions';
+import { useUpdateBlog } from '@/features/blogs/api/update-blog';
 import { ViewLoading } from '@/features/blogs/components/setup/draft-view/components/view-loading';
 import { ViewWrapper } from '@/features/blogs/components/setup/draft-view/components/view-wrapper';
 import { useDrafter } from '@/features/blogs/context/drafter';

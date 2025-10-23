@@ -64,6 +64,8 @@ type PayloadByType = {
   HEADING: { tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' };
   LIST_ITEM: Record<string, never>;
   LIST: { listType: 'bullet' | 'number' | 'check' };
+  LINK: { href: string; title?: string };
+  QUOTE: Record<string, never>;
 };
 
 export type Node = {

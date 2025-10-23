@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import { useGetBlog } from '@/api/blogs/get-blog';
-import { useUpdateBlog } from '@/api/blogs/update-blog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import {
@@ -11,7 +9,9 @@ import {
   PageParagraph,
   PageTitle,
 } from '@/components/ui/page';
+import { useGetBlog } from '@/features/blogs/api/get-blog';
 import { useGetTopicSuggestions } from '@/features/blogs/api/get-topic-suggestions';
+import { useUpdateBlog } from '@/features/blogs/api/update-blog';
 import { ViewLoading } from '@/features/blogs/components/setup/draft-view/components/view-loading';
 import { ViewWrapper } from '@/features/blogs/components/setup/draft-view/components/view-wrapper';
 import { useDrafter } from '@/features/blogs/context/drafter';

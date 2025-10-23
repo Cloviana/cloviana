@@ -40,6 +40,8 @@ function toRows(blogId: string, nodes: Node[], parentKey: string | null): FlatRo
       payload = { tag: n.tag };
     } else if (n.type === "LIST") {
       payload = { listType: n.listType };
+    } else if (n.type === "LINK") {
+      payload = { url: n.url };
     } else {
       payload = {};
     }
@@ -79,7 +81,7 @@ export async function save(
     async (tx) => {
       await tx.node.deleteMany({ where: { blogId } });
       await tx.node.createMany({ data: rows });
-      await tx.blog.update({ where: { id: blogId }, data: { slug, description: state._outline.description } });
+      await tx.blog.update({ where: { id: blogId }, data: { slug, description: state._plan.description } });
       await tx.thumbnail.upsert({
         where: { blogId },
         update: { altText: state._image.alt, blobPath },

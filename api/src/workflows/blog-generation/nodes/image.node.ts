@@ -7,7 +7,7 @@ export async function image(
 ): Promise<Partial<typeof StateAnnotation.State>> {
   console.info("[image] start");
 
-  if (!state._outline?.thumbnail?.prompt) {
+  if (!state._plan?.thumbnail?.prompt) {
     console.error("[image] missing thumbnail prompt in state._outline");
     throw new Error(
       "No thumbnail prompt available in state._outline.thumbnail.prompt",
@@ -17,7 +17,7 @@ export async function image(
   const form = new FormData();
   const prompt = [
     "Images must be photorealistic, with realistic lighting, texture, and tone.",
-    state._outline.thumbnail.prompt,
+    state._plan.thumbnail.prompt,
   ].join("\n\n");
 
   form.append("prompt", prompt);
@@ -60,5 +60,5 @@ export async function image(
 
   console.info("[image] success. URL:", url);
 
-  return { _image: { url, alt: state._outline.thumbnail.altText } };
+  return { _image: { url, alt: state._plan.thumbnail.altText } };
 }

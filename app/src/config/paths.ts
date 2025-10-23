@@ -45,6 +45,14 @@ export const paths = {
           query?: Record<string, any>,
         ) => buildPath(`/store/${storeId}/blogs/${blogId}/setup`, query),
       },
+
+      editor: {
+        getHref: (
+          storeId: string,
+          blogId: string,
+          query?: Record<string, any>,
+        ) => buildPath(`/store/${storeId}/blogs/${blogId}/editor`, query),
+      },
     },
 
     integrations: {
@@ -56,11 +64,6 @@ export const paths = {
       getHref: (storeId: string, query?: Record<string, any>) =>
         buildPath(`/store/${storeId}/products`, query),
     },
-  },
-
-  editor: {
-    getHref: (blogId: string, query?: Record<string, any>) =>
-      buildPath(`/editor/${blogId}`, query),
   },
 
   onboarding: {

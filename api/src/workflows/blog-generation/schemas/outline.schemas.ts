@@ -1,25 +1,85 @@
 import { z } from "zod";
-import { HeadingNodeSchema } from "./node.schemas";
 
-
-export const StructureSchema = z.discriminatedUnion("type", [
-  z.object({ type: z.literal("paragraphs"), minParagraphs: z.number().int().min(1) }),
-  z.object({ type: z.literal("bulleted_list"), minItems: z.number().int().min(2), maxItems: z.number().int().nullable() }),
-  z.object({ type: z.literal("steps"), minItems: z.number().int().min(2), maxItems: z.number().int().nullable() }),
-]);
-
-export const SectionSchema = z.object({
-  heading: HeadingNodeSchema,
-  goal: z.string().min(1),
-  mustCover: z.array(z.string().min(1)).min(1),
-  structure: StructureSchema,
-  wordTarget: z.number().int().min(120),
-  role: z.enum(["intro","body","how_to","list","cta","conclusion"]),
-  seo: z.object({
-    keywordDensity: z.number().min(0).max(1),
-    requireExact: z.boolean()
-  }).nullable(),
+const SubSectionSchema = z.object({
+  heading: z.string().min(1).describe("The heading of the sub-section"),
+  keyPoints: z
+    .array(z.string())
+    .nullable()
+    .describe("A list of key points covered in this sub-section"),
+  wordBudget: z
+    .number()
+    .int()
+    .positive()
+    .describe("The suggested word count for this sub-section"),
 });
+
+const SectionSchema = z.object({
+  type: z
+    .enum(["INTRODUCTION", "SECTION", "CONCLUSION"])
+    .describe("The type of section"),
+  heading: z.string().min(1).describe("The heading of the section"),
+  keyPoints: z
+    .array(z.string())
+    .min(1)
+    .describe("A list of key points covered in this section"),
+  wordBudget: z
+    .number()
+    .int()
+    .positive()
+    .describe("The suggested word count for this section"),
+  subSections: z
+    .array(SubSectionSchema)
+    .nullable()
+    .describe("Optional sub-sections for this section. Add 1–3 when they provide helpful structure or clarity; otherwise set to null."),
+});
+
+export const OutlineSchema = z
+  .object({
+    type: z
+      .enum([
+        "listicle",
+        "how-to",
+        "review",
+        "comparison",
+        "guide",
+        "story",
+        "news",
+      ])
+      .describe(
+        "Choose the most suitable blog type based on the topic and title: use 'comparison' for X vs Y, 'review' for evaluative product coverage, 'guide' for comprehensive orientation without strict steps, 'how-to' for procedural step-by-step tasks, 'listicle' only when the content naturally enumerates items or benefits, 'story' for narrative case studies/user journeys, and 'news' for timely announcements."
+      ),
+    sections: z
+      .array(SectionSchema)
+      .min(3)
+      .describe("The sections that make up the blog outline"),
+  })
+  .superRefine((val, ctx) => {
+    if (val.sections[0]?.type !== "INTRODUCTION") {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["sections", 0, "type"],
+        message: "First section must be INTRODUCTION",
+      });
+    }
+    if (val.sections[val.sections.length - 1]?.type !== "CONCLUSION") {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["sections", val.sections.length - 1, "type"],
+        message: "Last section must be CONCLUSION",
+      });
+    }
+    const hasMiddleSection = val.sections
+      .slice(1, -1)
+      .some((s) => s.type === "SECTION");
+    if (!hasMiddleSection) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["sections"],
+        message:
+          "There must be at least one SECTION between INTRODUCTION and CONCLUSION",
+      });
+    }
+  });
 
 export const ThumbnailSchema = z.object({
   prompt: z
@@ -32,5 +92,5 @@ export const ThumbnailSchema = z.object({
     .describe("Descriptive alt text for the cover image"),
 });
 
-export type Section = z.infer<typeof SectionSchema>;
+export type Outline = z.infer<typeof OutlineSchema>;
 export type Thumbnail = z.infer<typeof ThumbnailSchema>;
