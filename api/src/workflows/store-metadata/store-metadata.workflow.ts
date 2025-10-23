@@ -3,7 +3,7 @@ import { graph } from "./store-metadata.graph";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { ShopifyService } from "@/clients/shopify/shopify.service";
 import { JobStatus, JobType } from "@prisma/client";
-import { CatalogService } from "@/modules/commerce/catalog/catalog.service";
+import { CatalogService } from "@/modules/catalog/catalog.service";
 
 const STALE_MS = 10 * 60 * 1000;
 

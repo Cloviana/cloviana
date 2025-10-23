@@ -1,6 +1,6 @@
 import { Module } from "@nestjs/common";
 import { CacheModule } from "@nestjs/cache-manager";
-import { redisStore } from "cache-manager-redis-store";
+import KeyvRedis from "@keyv/redis";
 import { AppConfiguration } from "@/config/app.configuration";
 
 @Module({
@@ -9,9 +9,7 @@ import { AppConfiguration } from "@/config/app.configuration";
       isGlobal: true,
       inject: [AppConfiguration],
       useFactory: async (config: AppConfiguration) => ({
-        store: await redisStore({
-          url: config.redisUrl,
-        }),
+        stores: [new KeyvRedis(config.redisUrl)],
       }),
     }),
   ],

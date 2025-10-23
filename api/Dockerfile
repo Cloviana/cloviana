@@ -8,10 +8,9 @@ COPY package.json pnpm-lock.yaml ./
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm fetch
 
 FROM dependencies AS builder
-COPY prisma ./prisma
+COPY . .
 RUN pnpm install --offline
 RUN pnpm db:generate
-COPY . .
 RUN pnpm build
 
 FROM builder AS dev
