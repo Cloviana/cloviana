@@ -85,6 +85,7 @@ export class BlogsService {
           primaryKeyword: true,
           secondaryKeywords: true,
           productId: true,
+          currentStep: true
         },
       });
 
@@ -95,7 +96,8 @@ export class BlogsService {
         !b.topic ||
         !b.primaryKeyword ||
         !b.title ||
-        !b.secondaryKeywords?.length
+        !b.secondaryKeywords?.length ||
+        b.currentStep !== "COMPLETED"
       ) {
         throw new Error("Blog is not ready to generate");
       }

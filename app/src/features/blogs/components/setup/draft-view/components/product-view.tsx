@@ -1,8 +1,6 @@
 import { Check, ChevronsUpDown } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 
-import { useGetBlog } from '@/api/blogs/get-blog';
-import { useUpdateBlog } from '@/api/blogs/update-blog';
 import {
   Command,
   CommandEmpty,
@@ -24,7 +22,9 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
+import { useGetBlog } from '@/features/blogs/api/get-blog';
 import { useGetProductSuggestions } from '@/features/blogs/api/get-product-suggestions';
+import { useUpdateBlog } from '@/features/blogs/api/update-blog';
 import { ViewLoading } from '@/features/blogs/components/setup/draft-view/components/view-loading';
 import { ViewWrapper } from '@/features/blogs/components/setup/draft-view/components/view-wrapper';
 import { useDrafter } from '@/features/blogs/context/drafter';

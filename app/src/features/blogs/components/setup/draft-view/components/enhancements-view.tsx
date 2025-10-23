@@ -1,7 +1,6 @@
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { useGetBlog } from '@/api/blogs/get-blog';
-import { useUpdateBlog } from '@/api/blogs/update-blog';
 import { Label } from '@/components/ui/label';
 import {
   Page,
@@ -11,14 +10,20 @@ import {
   PageTitle,
 } from '@/components/ui/page';
 import { Textarea } from '@/components/ui/textarea';
+import { paths } from '@/config/paths';
+import { useGenerateBlog } from '@/features/blogs/api/generate-blog';
+import { useGetBlog } from '@/features/blogs/api/get-blog';
+import { useUpdateBlog } from '@/features/blogs/api/update-blog';
 import { ViewWrapper } from '@/features/blogs/components/setup/draft-view/components/view-wrapper';
 import { useDrafter } from '@/features/blogs/context/drafter';
 import { BlogSetupStep } from '@/types/api';
 
 export const EnhancementsView = () => {
+  const { push } = useRouter();
   const { blogId, getNextStepEnum } = useDrafter();
   const { data: blog } = useGetBlog({ blogId });
-  const { mutateAsync: update } = useUpdateBlog();
+  const { mutateAsync: update, isPending: isSaving } = useUpdateBlog();
+  const { mutateAsync: generate, isPending: isGenerating } = useGenerateBlog();
 
   const [brandVoice, setBrandVoice] = useState('');
   const [instructions, setInstructions] = useState('');
@@ -44,10 +49,12 @@ export const EnhancementsView = () => {
       brandVoice: trimmedBrandVoice || undefined,
       additionalInstruction: trimmedInstructions || undefined,
     });
+    await generate({ data: { blogId } });
+    push(paths.store.blogs.editor.getHref(blog!.storeId, blogId));
   };
 
   return (
-    <ViewWrapper onNext={save} isNextDisabled={false}>
+    <ViewWrapper onNext={save} isNextDisabled={isSaving || isGenerating}>
       <Page>
         <PageHeader>
           <PageTitle>Enhancements</PageTitle>

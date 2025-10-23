@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
-import { useGetBlog } from '@/api/blogs/get-blog';
+import { useGetBlog } from '@/features/blogs/api/get-blog';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 export type DrafterKey =
@@ -82,6 +82,7 @@ export function DrafterProvider({
   );
 
   const currentIndex = useMemo(() => {
+    if (blog?.currentStep === 'COMPLETED') return order.length - 1;
     const key = enumToKey[blog?.currentStep ?? 'TOPIC'] ?? 'topic';
     const i = indexByKey.get(key);
     return i ?? 0;
@@ -90,12 +91,12 @@ export function DrafterProvider({
   const completed = useMemo(() => {
     return order.reduce(
       (acc, k, i) => {
-        acc[k] = i < currentIndex;
+        acc[k] = blog?.currentStep === 'COMPLETED' ? true : i < currentIndex;
         return acc;
       },
       {} as Record<DrafterKey, boolean>,
     );
-  }, [currentIndex]);
+  }, [blog?.currentStep, currentIndex]);
 
   const [openMobile, setOpenMobile] = useState(false);
   const [currentKey, setCurrentKey] = useState<DrafterKey>('topic');
@@ -122,8 +123,10 @@ export function DrafterProvider({
   };
 
   const getNextStepEnum = () => {
+    if (blog?.currentStep === 'COMPLETED') return 'COMPLETED';
     const i = indexByKey.get(currentKey) ?? 0;
-    const nextKey = order[Math.min(i + 1, order.length - 1)];
+    if (i >= order.length - 1) return 'COMPLETED';
+    const nextKey = order[i + 1];
     return keyToEnum[nextKey];
   };
 

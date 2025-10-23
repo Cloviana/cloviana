@@ -24,6 +24,7 @@ export const BLOG_DETAIL_SELECT: Prisma.BlogSelect = {
   brandVoice: true,
   status: true,
   storeId: true,
+  jobId: true,
   thumbnail: { select: { blobPath: true, altText: true} },
   job: { select: { id: true, status: true, startedAt: true, finishedAt: true, error: true } },
   nodes: {

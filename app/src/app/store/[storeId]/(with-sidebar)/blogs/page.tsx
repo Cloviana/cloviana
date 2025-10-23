@@ -3,7 +3,6 @@
 import { PlusIcon } from 'lucide-react';
 import { useParams, useRouter } from 'next/navigation';
 
-import { useCreateBlog } from '@/api/blogs/create-blog';
 import { Button } from '@/components/ui/button';
 import {
   Page,
@@ -13,8 +12,8 @@ import {
   PageTitle,
 } from '@/components/ui/page';
 import { paths } from '@/config/paths';
-
-import { EmptyBlogList } from '../../../../../features/blogs/components/states/empty-blog-list';
+import { useCreateBlog } from '@/features/blogs/api/create-blog';
+import { EmptyBlogList } from '@/features/blogs/components/states/empty-blog-list';
 
 export default function ContentCreationPage() {
   const { storeId } = useParams<{ storeId: string }>();
