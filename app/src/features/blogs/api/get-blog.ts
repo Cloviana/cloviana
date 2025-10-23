@@ -5,8 +5,6 @@ import { QueryConfig } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
 import { BlogDetail } from '@/types/api';
 
-import { getBlogKey } from '../keys';
-
 export const getBlog = async (blogId: string): Promise<BlogDetail> => {
   const token = await fetchAccessToken();
   if (!token) {
@@ -20,23 +18,18 @@ export const getBlog = async (blogId: string): Promise<BlogDetail> => {
 
 export const getBlogQueryOptions = (blogId: string) =>
   queryOptions({
-    queryKey: getBlogKey(blogId),
+    queryKey: ['blogs', 'detail', blogId],
     queryFn: () => getBlog(blogId),
-    staleTime: 1000 * 60 * 5,
-    gcTime: 1000 * 60 * 30,
-    enabled: Boolean(blogId),
   });
 
 type UseGetBlogOptions = {
-  config?: QueryConfig<typeof getBlogQueryOptions>;
+  blogId: string;
+  queryConfig?: QueryConfig<typeof getBlogQueryOptions>;
 };
 
-export const useGetBlog = (
-  blogId: string,
-  { config }: UseGetBlogOptions = {},
-) => {
+export const useGetBlog = ({ blogId, queryConfig }: UseGetBlogOptions) => {
   return useQuery({
     ...getBlogQueryOptions(blogId),
-    ...config,
+    ...queryConfig,
   });
 };

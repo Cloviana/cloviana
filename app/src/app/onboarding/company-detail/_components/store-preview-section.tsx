@@ -21,7 +21,7 @@ export const StorePreviewSection: FC<StorePreviewSectionProps> = ({
       alt="Store background"
       fill
       priority
-      className="absolute left-0 top-0 z-10 size-full rounded-xl object-cover"
+      className="absolute top-0 left-0 z-10 size-full rounded-xl object-cover"
     />
     <div className="z-20 flex size-full items-center justify-center">
       <StoreSummaryCard name={name} domainUrl={domainUrl} />

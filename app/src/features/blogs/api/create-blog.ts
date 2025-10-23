@@ -1,53 +1,47 @@
-import {
-  useMutation,
-  useQueryClient,
-  UseMutationOptions,
-} from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { z } from 'zod';
 
 import { api } from '@/lib/api-client';
+import { MutationConfig } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
-import { Blog, BlogType } from '@/types/api';
+import { Blog } from '@/types/api';
 
-import { getBlogsKey } from '../keys';
+export const createBlogInputSchema = z.object({
+  storeId: z.string().min(1, 'Required'),
+});
 
-export type CreateBlogData = {
-  title: string;
-  brandVoice?: string;
-  type: BlogType;
-  keywordId: string;
-  storeId: string;
-};
+export type CreateBlogInput = z.infer<typeof createBlogInputSchema>;
 
 export const createBlog = async ({
-  ...payload
-}: { storeId: string } & CreateBlogData): Promise<Blog> => {
+  data,
+}: {
+  data: CreateBlogInput;
+}): Promise<Blog> => {
   const token = await fetchAccessToken();
   if (!token) {
     throw new Error('Access token is missing');
   }
-  const response = await api.post<Blog>(`/blogs`, payload, {
+  return api.post<Blog>('/blogs', data, {
     headers: { Authorization: `Bearer ${token}` },
   });
-  return response;
 };
 
 type UseCreateBlogOptions = {
-  config?: UseMutationOptions<Blog, Error, CreateBlogData>;
+  mutationConfig?: MutationConfig<typeof createBlog>;
 };
 
-export const useCreateBlog = ({ config }: UseCreateBlogOptions = {}) => {
+export const useCreateBlog = ({
+  mutationConfig,
+}: UseCreateBlogOptions = {}) => {
   const queryClient = useQueryClient();
+  const { onSuccess, ...restConfig } = mutationConfig || {};
 
-  return useMutation<Blog, Error, CreateBlogData>({
-    mutationFn: (data) => createBlog({ ...data }),
+  return useMutation({
+    mutationFn: createBlog,
     onSuccess: (newBlog, variables, context) => {
-      const { storeId } = variables;
-      queryClient.setQueryData<Blog[]>(getBlogsKey(storeId), (old = []) => [
-        ...old,
-        newBlog,
-      ]);
-      config?.onSuccess?.(newBlog, variables, context);
+      queryClient.setQueryData<Blog>(['blogs', 'detail', newBlog.id], newBlog);
+      onSuccess?.(newBlog, variables, context);
     },
-    ...config,
+    ...restConfig,
   });
 };

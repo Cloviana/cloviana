@@ -22,14 +22,16 @@ export const paths = {
     getHref: (storeId?: string, query?: Record<string, any>) =>
       buildPath(storeId ? `/store/${storeId}` : '/store', query),
 
-    keywords: {
-      getHref: (storeId: string, query?: Record<string, any>) =>
-        buildPath(`/store/${storeId}/keywords`, query),
-    },
-
     blogs: {
-      getHref: (storeId: string, query?: Record<string, any>) =>
-        buildPath(`/store/${storeId}/blogs`, query),
+      getHref: (
+        storeId: string,
+        blogId?: string,
+        query?: Record<string, any>,
+      ) =>
+        buildPath(
+          `/store/${storeId}/blogs${blogId ? `/${blogId}` : ''}`,
+          query,
+        ),
 
       setup: {
         getHref: (
@@ -38,22 +40,20 @@ export const paths = {
           query?: Record<string, any>,
         ) => buildPath(`/store/${storeId}/blogs/${blogId}/setup`, query),
       },
+
+      editor: {
+        getHref: (
+          storeId: string,
+          blogId: string,
+          query?: Record<string, any>,
+        ) => buildPath(`/store/${storeId}/blogs/${blogId}/editor`, query),
+      },
     },
 
     integrations: {
       getHref: (storeId: string, query?: Record<string, any>) =>
         buildPath(`/store/${storeId}/integrations`, query),
     },
-
-    products: {
-      getHref: (storeId: string, query?: Record<string, any>) =>
-        buildPath(`/store/${storeId}/products`, query),
-    },
-  },
-
-  editor: {
-    getHref: (blogId: string, query?: Record<string, any>) =>
-      buildPath(`/editor/${blogId}`, query),
   },
 
   onboarding: {

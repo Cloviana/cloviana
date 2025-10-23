@@ -10,6 +10,7 @@ export type ListNode = { type: "LIST"; listType: "bullet" | "number"; children: 
 export type QuoteNode = { type: "QUOTE"; children: Node[] };
 export type ImageNode = { type: "IMAGE"; src: string; altText: string };
 export type LinkNode = { type: "LINK"; url: string; children: TextNode[] };
+export type LineBreakNode = { type: "LINEBREAK" };
 export type RootNode = { type: "ROOT"; children: Node[] };
 
 export type Node =
@@ -21,6 +22,7 @@ export type Node =
   | QuoteNode
   | ImageNode
   | LinkNode
+  | LineBreakNode
   | RootNode;
 
 export const TextNodeSchema = z.object({
@@ -68,6 +70,10 @@ export const LinkNodeSchema = z.object({
   children: z.array(z.lazy(() => TextNodeSchema)).min(1),
 });
 
+export const LineBreakNodeSchema = z.object({
+  type: z.literal("LINEBREAK"),
+});
+
 export const RootNodeSchema = z.object({
   type: z.literal("ROOT"),
   children: z.array(z.lazy(() => NodeSchema)),
@@ -80,6 +86,9 @@ export const NodeSchema = z.discriminatedUnion("type", [
   ListNodeSchema,
   ListItemNodeSchema,
   RootNodeSchema,
+  LinkNodeSchema,
+  QuoteNodeSchema,
+  LineBreakNodeSchema,
 ]);
 
 export type InferNode = z.infer<typeof NodeSchema>;

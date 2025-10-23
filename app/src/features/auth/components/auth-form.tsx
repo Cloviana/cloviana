@@ -4,10 +4,10 @@ import { useRouter } from 'next/navigation';
 import { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { AppleLogoIcon, GoogleLogoIcon } from '@/components/icons';
-import { Form, TextField } from '@/components/input';
-import { FormLayout, Seperator } from '@/components/layout';
-import { Button } from '@/components/legacy';
+import { AppleLogoIcon, GoogleLogoIcon } from '@/components/deprecated/icons';
+import { Form, TextField } from '@/components/deprecated/input';
+import { FormLayout, Seperator } from '@/components/deprecated/layout';
+import { Button } from '@/components/deprecated/legacy';
 import { cn } from '@/utils/cn';
 
 import { googleSignIn } from '../actions/google-sign-in';

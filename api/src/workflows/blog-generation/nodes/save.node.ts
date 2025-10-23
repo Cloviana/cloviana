@@ -3,7 +3,7 @@ import { RunnableConfig } from "@langchain/core/runnables";
 import { StateAnnotation } from "../blog-generation.state";
 import { Node } from "../schemas/node.schemas";
 import cuid from "cuid";
-import { StorageService } from "@/modules/core/storage/storage.service";
+import { StorageService } from "@/modules/storage/storage.service";
 import axios from "axios";
 
 type TextFormat = "bold" | "italic" | "underline";
@@ -40,6 +40,8 @@ function toRows(blogId: string, nodes: Node[], parentKey: string | null): FlatRo
       payload = { tag: n.tag };
     } else if (n.type === "LIST") {
       payload = { listType: n.listType };
+    } else if (n.type === "LINK") {
+      payload = { url: n.url };
     } else {
       payload = {};
     }
@@ -63,7 +65,7 @@ export async function save(
   const nodes = state._nodes;
   if (!Array.isArray(nodes) || nodes.length === 0) throw new Error("No nodes to save");
 
-  const rows = toRows(blogId, nodes as Node[], null);
+  const rows = toRows(blogId, nodes.slice(1) as Node[], null);
 
   const slug = state._metadata.title
     .trim()
@@ -79,7 +81,7 @@ export async function save(
     async (tx) => {
       await tx.node.deleteMany({ where: { blogId } });
       await tx.node.createMany({ data: rows });
-      await tx.blog.update({ where: { id: blogId }, data: { slug, description: state._outline.description } });
+      await tx.blog.update({ where: { id: blogId }, data: { slug, description: state._plan.description } });
       await tx.thumbnail.upsert({
         where: { blogId },
         update: { altText: state._image.alt, blobPath },
