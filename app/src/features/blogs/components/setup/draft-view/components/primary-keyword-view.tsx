@@ -253,8 +253,9 @@ export const PrimaryKeywordView = () => {
         <PageHeader>
           <PageTitle>Primary Keyword</PageTitle>
           <PageParagraph>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium.
+            Choose the main keyword you want this article to rank for. Cloviana
+            will optimize the content around it to help your store appear in
+            relevant searches.
           </PageParagraph>
         </PageHeader>
         <PageContent>

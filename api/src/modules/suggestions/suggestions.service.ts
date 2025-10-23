@@ -244,7 +244,7 @@ export class SuggestionsService {
                 Selection criteria:
                 - Prioritize keywords with a **strong balance of search volume and low-to-moderate difficulty**.
                 - Avoid keywords with very low volume, even if the difficulty is low.
-                - Prefer keywords with solid volume and manageable difficulty over keywords that are only easy to rank for.
+                - Prefer keywords with solid volume and manageable difficulty over keywords that are only easy to rank for. Also prefer ones that can be used naturally throughout the blog.
                 - Favor keywords that reflect strong searcher intent aligned with the topic.
                 - The "recommended" keyword should be the **single best opportunity** overall — ideally good search volume and realistic ranking potential.
 

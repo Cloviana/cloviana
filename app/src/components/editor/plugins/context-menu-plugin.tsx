@@ -115,7 +115,7 @@ export function ContextMenuPlugin(): JSX.Element {
         icon: <ClipboardType className="h-4 w-4" />,
       }),
       new NodeContextMenuSeparator(),
-      new NodeContextMenuOption(`Delete Node`, {
+      new NodeContextMenuOption(`Delete Block`, {
         $onSelect: () => {
           const selection = $getSelection();
           if ($isRangeSelection(selection)) {

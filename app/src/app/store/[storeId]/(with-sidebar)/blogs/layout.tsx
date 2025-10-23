@@ -5,7 +5,7 @@ import {
 } from '@tanstack/react-query';
 import { ReactNode } from 'react';
 
-import { getBlogsQueryOptions } from '@/features/blogs/_api/get-blogs';
+import { getBlogsQueryOptions } from '@/features/blogs/api/get-blogs';
 
 interface LayoutProps {
   children: ReactNode;

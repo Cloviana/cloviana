@@ -31,10 +31,13 @@ importers:
         version: 0.3.26(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76)))
       '@langchain/community':
         specifier: ^0.3.50
-        version: 0.3.53(@azure/storage-blob@12.28.0)(@browserbasehq/sdk@2.6.0)(@browserbasehq/stagehand@1.14.0(@playwright/test@1.55.0)(deepmerge@4.3.1)(dotenv@17.2.1)(openai@5.15.0(ws@8.18.3)(zod@3.25.76))(zod@3.25.76))(@ibm-cloud/watsonx-ai@1.6.10)(@langchain/anthropic@0.3.26(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76))))(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76)))(@supabase/supabase-js@2.56.0)(axios@1.11.0)(cheerio@1.1.2)(fast-xml-parser@5.2.5)(handlebars@4.7.8)(ibm-cloud-sdk-core@5.4.2)(ignore@5.3.2)(jsonwebtoken@9.0.2)(lodash@4.17.21)(openai@5.15.0(ws@8.18.3)(zod@3.25.76))(pg@8.16.3)(playwright@1.55.0)(redis@4.7.1)(weaviate-client@3.8.1)(ws@8.18.3)
+        version: 0.3.53(@azure/storage-blob@12.28.0)(@browserbasehq/sdk@2.6.0)(@browserbasehq/stagehand@1.14.0(@playwright/test@1.55.0)(deepmerge@4.3.1)(dotenv@17.2.1)(openai@5.15.0(ws@8.18.3)(zod@3.25.76))(zod@3.25.76))(@ibm-cloud/watsonx-ai@1.6.10)(@langchain/anthropic@0.3.26(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76))))(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76)))(@langchain/groq@1.0.0(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76))))(@supabase/supabase-js@2.56.0)(axios@1.11.0)(cheerio@1.1.2)(fast-xml-parser@5.2.5)(handlebars@4.7.8)(ibm-cloud-sdk-core@5.4.2)(ignore@5.3.2)(jsonwebtoken@9.0.2)(lodash@4.17.21)(openai@5.15.0(ws@8.18.3)(zod@3.25.76))(pg@8.16.3)(playwright@1.55.0)(redis@4.7.1)(weaviate-client@3.8.1)(ws@8.18.3)
       '@langchain/core':
         specifier: ^0.3.68
         version: 0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76))
+      '@langchain/groq':
+        specifier: ^1.0.0
+        version: 1.0.0(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76)))
       '@langchain/langgraph':
         specifier: ^0.4.3
         version: 0.4.6(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76)))(zod-to-json-schema@3.24.6(zod@3.25.76))
@@ -1754,6 +1757,12 @@ packages:
   '@langchain/core@0.3.72':
     resolution: {integrity: sha512-WsGWVZYnlKffj2eEfDocPNiaTRoxyYiLSQdQ7oxZvxGZBqo/90vpjbC33UGK1uPNBM4kT+pkdaol/MnvKUh8TQ==}
     engines: {node: '>=18'}
+
+  '@langchain/groq@1.0.0':
+    resolution: {integrity: sha512-6fG9MEQHNXnxgObFHSPh+BPYyTGcoDnKd+GhI9l96cpHh+QNI+IvypicRCZVSsLdqzRCFHISvBQaH+SP5vgjIw==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      '@langchain/core': ^1.0.0
 
   '@langchain/langgraph-checkpoint@0.1.0':
     resolution: {integrity: sha512-7oY5b0VQSxcV3DgoHdXiCgBhEzml/ZjZfKNeuq6oZ3ggcdUICa/fzrIBbFju6gxPU8ly93s0OsjF4yURnHw70Q==}
@@ -3573,6 +3582,9 @@ packages:
   graphql@16.11.0:
     resolution: {integrity: sha512-mS1lbMsxgQj6hge1XZ6p7GPhbrtFwUFYi3wRzXAC/FmYnyXMTvvI3td3rjmQ2u8ewXueaSvRPWaEcgVVOT9Jnw==}
     engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
+
+  groq-sdk@0.19.0:
+    resolution: {integrity: sha512-vdh5h7ORvwvOvutA80dKF81b0gPWHxu6K/GOJBOM0n6p6CSqAVLhFfeS79Ef0j/yCycDR09jqY7jkYz9dLiS6w==}
 
   groq-sdk@0.33.0:
     resolution: {integrity: sha512-wb7NrBq7LZDDhDPSpuAd9LpZ0MNjmWKGLfybYfjY3r63mSpfiP8+GQZQcSDJcX+jIMzSm+SwzxModDyVZ2T66Q==}
@@ -6776,7 +6788,7 @@ snapshots:
       '@langchain/core': 0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76))
       fast-xml-parser: 4.5.3
 
-  '@langchain/community@0.3.53(@azure/storage-blob@12.28.0)(@browserbasehq/sdk@2.6.0)(@browserbasehq/stagehand@1.14.0(@playwright/test@1.55.0)(deepmerge@4.3.1)(dotenv@17.2.1)(openai@5.15.0(ws@8.18.3)(zod@3.25.76))(zod@3.25.76))(@ibm-cloud/watsonx-ai@1.6.10)(@langchain/anthropic@0.3.26(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76))))(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76)))(@supabase/supabase-js@2.56.0)(axios@1.11.0)(cheerio@1.1.2)(fast-xml-parser@5.2.5)(handlebars@4.7.8)(ibm-cloud-sdk-core@5.4.2)(ignore@5.3.2)(jsonwebtoken@9.0.2)(lodash@4.17.21)(openai@5.15.0(ws@8.18.3)(zod@3.25.76))(pg@8.16.3)(playwright@1.55.0)(redis@4.7.1)(weaviate-client@3.8.1)(ws@8.18.3)':
+  '@langchain/community@0.3.53(@azure/storage-blob@12.28.0)(@browserbasehq/sdk@2.6.0)(@browserbasehq/stagehand@1.14.0(@playwright/test@1.55.0)(deepmerge@4.3.1)(dotenv@17.2.1)(openai@5.15.0(ws@8.18.3)(zod@3.25.76))(zod@3.25.76))(@ibm-cloud/watsonx-ai@1.6.10)(@langchain/anthropic@0.3.26(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76))))(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76)))(@langchain/groq@1.0.0(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76))))(@supabase/supabase-js@2.56.0)(axios@1.11.0)(cheerio@1.1.2)(fast-xml-parser@5.2.5)(handlebars@4.7.8)(ibm-cloud-sdk-core@5.4.2)(ignore@5.3.2)(jsonwebtoken@9.0.2)(lodash@4.17.21)(openai@5.15.0(ws@8.18.3)(zod@3.25.76))(pg@8.16.3)(playwright@1.55.0)(redis@4.7.1)(weaviate-client@3.8.1)(ws@8.18.3)':
     dependencies:
       '@browserbasehq/stagehand': 1.14.0(@playwright/test@1.55.0)(deepmerge@4.3.1)(dotenv@17.2.1)(openai@5.15.0(ws@8.18.3)(zod@3.25.76))(zod@3.25.76)
       '@ibm-cloud/watsonx-ai': 1.6.10
@@ -6788,7 +6800,7 @@ snapshots:
       flat: 5.0.2
       ibm-cloud-sdk-core: 5.4.2
       js-yaml: 4.1.0
-      langchain: 0.3.31(@langchain/anthropic@0.3.26(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76))))(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76)))(axios@1.11.0)(cheerio@1.1.2)(handlebars@4.7.8)(openai@5.15.0(ws@8.18.3)(zod@3.25.76))(ws@8.18.3)
+      langchain: 0.3.31(@langchain/anthropic@0.3.26(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76))))(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76)))(@langchain/groq@1.0.0(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76))))(axios@1.11.0)(cheerio@1.1.2)(handlebars@4.7.8)(openai@5.15.0(ws@8.18.3)(zod@3.25.76))(ws@8.18.3)
       langsmith: 0.3.63(openai@5.15.0(ws@8.18.3)(zod@3.25.76))
       openai: 5.15.0(ws@8.18.3)(zod@3.25.76)
       uuid: 10.0.0
@@ -6847,6 +6859,13 @@ snapshots:
       - '@opentelemetry/exporter-trace-otlp-proto'
       - '@opentelemetry/sdk-trace-base'
       - openai
+
+  '@langchain/groq@1.0.0(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76)))':
+    dependencies:
+      '@langchain/core': 0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76))
+      groq-sdk: 0.19.0
+    transitivePeerDependencies:
+      - encoding
 
   '@langchain/langgraph-checkpoint@0.1.0(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76)))':
     dependencies:
@@ -8846,6 +8865,18 @@ snapshots:
 
   graphql@16.11.0: {}
 
+  groq-sdk@0.19.0:
+    dependencies:
+      '@types/node': 18.19.123
+      '@types/node-fetch': 2.6.13
+      abort-controller: 3.0.0
+      agentkeepalive: 4.6.0
+      form-data-encoder: 1.7.2
+      formdata-node: 4.4.1
+      node-fetch: 2.7.0
+    transitivePeerDependencies:
+      - encoding
+
   groq-sdk@0.33.0:
     dependencies:
       '@types/node': 18.19.123
@@ -9146,7 +9177,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  langchain@0.3.31(@langchain/anthropic@0.3.26(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76))))(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76)))(axios@1.11.0)(cheerio@1.1.2)(handlebars@4.7.8)(openai@5.15.0(ws@8.18.3)(zod@3.25.76))(ws@8.18.3):
+  langchain@0.3.31(@langchain/anthropic@0.3.26(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76))))(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76)))(@langchain/groq@1.0.0(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76))))(axios@1.11.0)(cheerio@1.1.2)(handlebars@4.7.8)(openai@5.15.0(ws@8.18.3)(zod@3.25.76))(ws@8.18.3):
     dependencies:
       '@langchain/core': 0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76))
       '@langchain/openai': 0.6.9(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76)))(ws@8.18.3)
@@ -9162,6 +9193,7 @@ snapshots:
       zod: 3.25.76
     optionalDependencies:
       '@langchain/anthropic': 0.3.26(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76)))
+      '@langchain/groq': 1.0.0(@langchain/core@0.3.72(openai@5.15.0(ws@8.18.3)(zod@3.25.76)))
       axios: 1.11.0(debug@4.4.1)
       cheerio: 1.1.2
       handlebars: 4.7.8

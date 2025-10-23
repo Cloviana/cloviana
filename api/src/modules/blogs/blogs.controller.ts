@@ -14,8 +14,8 @@ import {
 import { BlogsService } from "./services/blogs.service";
 import { CreateBlogDto } from "./dtos/create-blog.dto";
 import { UpdateBlogDto } from "./dtos/update-blog.dto";
-import { SyncNodesDto } from "./dtos/sync-nodes.dto";
 import { BlogOwnerGuard } from "@/guards/blog-owner.guard";
+import { SyncLexicalDto } from "@/modules/blogs/dtos/sync-nodes.dto";
 
 @Controller("blogs")
 export class BlogsController {
@@ -55,14 +55,12 @@ export class BlogsController {
     return { ok: true };
   }
 
-  @Put(":blogId/nodes/sync")
+  @Put(':blogId/nodes/sync')
   @UseGuards(BlogOwnerGuard)
   @HttpCode(HttpStatus.OK)
-  async syncAllNodes(
-    @Param("blogId") blogId: string,
-    @Body() { nodes }: SyncNodesDto
-  ) {
-    await this.blogs.syncAllNodes(blogId, nodes);
+  async syncAllNodes(@Param('blogId') blogId: string, @Body() { state }: SyncLexicalDto) {
+    await this.blogs.syncAllNodesFromLexical(blogId, state);
+    return { ok: true };
   }
 
   @Put(":blogId/publish")

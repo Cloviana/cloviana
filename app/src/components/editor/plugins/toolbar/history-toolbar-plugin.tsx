@@ -9,7 +9,7 @@ import {
   REDO_COMMAND,
   UNDO_COMMAND,
 } from 'lexical';
-import { RedoIcon, UndoIcon } from 'lucide-react';
+import { Redo2Icon, Undo2Icon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 import { useToolbarContext } from '@/components/editor/context/toolbar-context';
@@ -66,7 +66,7 @@ export function HistoryToolbarPlugin() {
         className="!h-8 !w-8"
         variant={'outline'}
       >
-        <UndoIcon className="size-4" />
+        <Undo2Icon className="size-4" />
       </Button>
       <Button
         disabled={!canRedo || !isEditable}
@@ -80,7 +80,7 @@ export function HistoryToolbarPlugin() {
         size="icon"
         className="!h-8 !w-8"
       >
-        <RedoIcon className="size-4" />
+        <Redo2Icon className="size-4" />
       </Button>
     </ButtonGroup>
   );

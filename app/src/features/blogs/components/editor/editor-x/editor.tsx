@@ -10,7 +10,7 @@ import { EditorState, SerializedEditorState } from 'lexical';
 import { editorTheme } from '@/components/editor/themes/editor-theme';
 import { TooltipProvider } from '@/components/ui/tooltip';
 
-import { nodes } from './nodes';
+import { nodes } from './components/nodes';
 import { Plugins } from './plugins';
 
 const editorConfig: InitialConfigType = {

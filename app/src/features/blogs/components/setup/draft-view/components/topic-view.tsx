@@ -50,10 +50,10 @@ export const TopicView = () => {
     <ViewWrapper onNext={save} isNextDisabled={disabled}>
       <Page>
         <PageHeader>
-          <PageTitle>Topic</PageTitle>
+          <PageTitle>Choose a Topic</PageTitle>
           <PageParagraph>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium.
+            Pick the main theme for your article. This helps Cloviana understand
+            what your blog should focus on before generating ideas and keywords.
           </PageParagraph>
         </PageHeader>
         <PageContent>

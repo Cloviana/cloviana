@@ -23,12 +23,9 @@ import {
 } from 'lexical';
 import {
   BoldIcon,
-  CodeIcon,
   ItalicIcon,
   LinkIcon,
   StrikethroughIcon,
-  SubscriptIcon,
-  SuperscriptIcon,
   UnderlineIcon,
 } from 'lucide-react';
 import * as React from 'react';
@@ -250,50 +247,12 @@ function FloatingTextFormat({
             </ToggleGroupItem>
             <Separator orientation="vertical" />
             <ToggleGroupItem
-              value="code"
-              aria-label="Toggle code"
-              onClick={() => {
-                editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'code');
-              }}
-              size="sm"
-            >
-              <CodeIcon className="h-4 w-4" />
-            </ToggleGroupItem>
-            <ToggleGroupItem
               value="link"
               aria-label="Toggle link"
               onClick={insertLink}
               size="sm"
             >
               <LinkIcon className="h-4 w-4" />
-            </ToggleGroupItem>
-            <Separator orientation="vertical" />
-          </ToggleGroup>
-          <ToggleGroup
-            type="single"
-            defaultValue={
-              isSubscript ? 'subscript' : isSuperscript ? 'superscript' : ''
-            }
-          >
-            <ToggleGroupItem
-              value="subscript"
-              aria-label="Toggle subscript"
-              onClick={() => {
-                editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'subscript');
-              }}
-              size="sm"
-            >
-              <SubscriptIcon className="h-4 w-4" />
-            </ToggleGroupItem>
-            <ToggleGroupItem
-              value="superscript"
-              aria-label="Toggle superscript"
-              onClick={() => {
-                editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'superscript');
-              }}
-              size="sm"
-            >
-              <SuperscriptIcon className="h-4 w-4" />
             </ToggleGroupItem>
           </ToggleGroup>
         </>

@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { Anchor } from '@/components/ui/anchor';
 import { paths } from '@/config/paths';
 import { EditorHeader } from '@/features/blogs/components/editor/editor-header';
+import { EditorMobileNotice } from '@/features/blogs/components/editor/editor-mobile-notice';
 import { EditorSidebar } from '@/features/blogs/components/editor/editor-sidebar';
 import { Editor } from '@/features/blogs/components/editor/editor-x/editor';
 import { useBlogGeneration } from '@/features/blogs/hooks/use-blog-generation';
@@ -58,6 +59,7 @@ export default function EditorPage() {
 
   return (
     <div className="flex h-screen w-screen flex-col overflow-hidden">
+      <EditorMobileNotice />
       <div className="flex">
         <div className="flex size-10 items-center justify-center border-r border-b">
           <Link href={paths.store.getHref(storeId)}>

@@ -2,13 +2,13 @@
 
 import { useParams } from 'next/navigation';
 
-import { Button } from '@/components/deprecated/legacy';
-import { useGetBlog } from '@/features/blogs/_api/get-blog';
-import { usePublishBlog } from '@/features/blogs/_api/publish-blog';
+import { Button } from '@/components/ui/button';
+import { useGetBlog } from '@/features/blogs/api/get-blog';
+import { usePublishBlog } from '@/features/blogs/api/publish-blog';
 
 export const EditorHeader = () => {
   const { blogId, storeId } = useParams<{ blogId: string; storeId: string }>();
-  const { data: blog } = useGetBlog(blogId);
+  const { data: blog } = useGetBlog({ blogId });
   const { mutateAsync: publish, isPending } = usePublishBlog(blogId, storeId);
 
   const handlePublish = async () => {
@@ -24,12 +24,7 @@ export const EditorHeader = () => {
           </span>
         </div>
         <div className="flex items-center">
-          <Button
-            size={'sm'}
-            variant={'primary'}
-            onClick={handlePublish}
-            loading={isPending}
-          >
+          <Button size={'xs'} onClick={handlePublish} loading={isPending}>
             Publish
           </Button>
         </div>

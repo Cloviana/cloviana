@@ -52,10 +52,11 @@ export const TitleView = () => {
     <ViewWrapper onNext={save} isNextDisabled={disabled}>
       <Page>
         <PageHeader>
-          <PageTitle>Title</PageTitle>
+          <PageTitle>Blog Title</PageTitle>
           <PageParagraph>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium.
+            Choose a clear, engaging title for your article. Cloviana will
+            suggest options based on your topic and keyword, or you can write
+            your own.
           </PageParagraph>
         </PageHeader>
         <PageContent>

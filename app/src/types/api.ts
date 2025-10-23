@@ -33,7 +33,8 @@ export type NodeType =
   | 'QUOTE'
   | 'IMAGE'
   | 'LINK'
-  | 'TEXT';
+  | 'TEXT'
+  | 'LINEBREAK';
 
 export type Link = {
   href: string;
@@ -66,6 +67,7 @@ type PayloadByType = {
   LIST: { listType: 'bullet' | 'number' | 'check' };
   LINK: { href: string; title?: string };
   QUOTE: Record<string, never>;
+  LINEBREAK: Record<string, never>;
 };
 
 export type Node = {
