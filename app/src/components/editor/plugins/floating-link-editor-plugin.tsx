@@ -273,7 +273,6 @@ function FloatingLinkEditor({
             </Button>
             <Button
               size="icon"
-              variant="destructive"
               onClick={() => {
                 editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
               }}
