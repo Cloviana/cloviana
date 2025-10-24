@@ -29,6 +29,7 @@ export default [
     'plugin:vitest/legacy-recommended'
   ),
 
+  // 🔹 Default TypeScript + React config
   {
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
@@ -97,6 +98,7 @@ export default [
     }
   },
 
+  // 🔹 File and folder naming convention rules
   {
     files: ['src/**/*'],
     plugins: { 'check-file': checkFile, '@typescript-eslint': ts, 'react-hooks': reactHooks },
@@ -111,6 +113,14 @@ export default [
         { '!(src/app)/**/*': 'KEBAB_CASE', '!(**/__tests__)/**/*': 'KEBAB_CASE' }
       ],
       '@typescript-eslint/no-unused-vars': ['error']
+    }
+  },
+
+  // 🔹 IGNORE unused-vars for Lexical editor nodes
+  {
+    files: ['src/components/editor/**/*.{ts,tsx}'],
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'off'
     }
   }
 ]

@@ -51,7 +51,6 @@ export function ClearEditorActionPlugin() {
 
           <DialogClose asChild>
             <Button
-              variant="destructive"
               onClick={() => {
                 editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
               }}
