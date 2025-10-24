@@ -58,7 +58,7 @@ Return only a JSON object matching:
 
   * `"heading": string`
   * `"keyPoints": non-empty array of strings`
-  * `"wordBudget": positive integer"
+  * `"wordBudget": positive integer`
   * `"subSections": array (1–3) or null`
 
 ## ThumbnailSchema
@@ -169,7 +169,6 @@ If all subSections are null, consider adding them to exactly one **high-impact s
 7. CTA included in final or penultimate section if product exists
 8. Total wordBudget within metadata.blogLength range
 9. SubSection wordBudgets sum correctly with parent section
-10. **No orphan headings:** every section and subSection must include at least one keyPoint and a positive wordBudget; never output a heading (section or subSection) without associated content. If a heading would be empty, remove or merge it.
 
 ---
 
@@ -180,3 +179,5 @@ If all subSections are null, consider adding them to exactly one **high-impact s
 * If fields are missing, generate a **strong default structure**.
 * Integrate product mentions strategically but naturally when present.
 * Use subSections only when they add clarity; otherwise set them to `null`.
+
+---
