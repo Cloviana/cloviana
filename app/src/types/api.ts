@@ -36,6 +36,13 @@ export type NodeType =
   | 'TEXT'
   | 'LINEBREAK';
 
+export type AccessStage =
+  | 'WAITLISTED'
+  | 'INVITED'
+  | 'BETA'
+  | 'ACTIVE'
+  | 'REJECTED';
+
 export type Link = {
   href: string;
   title?: string;
@@ -80,6 +87,7 @@ export type Store = Entity<{
   domainUrl: string;
   profileUrl?: string;
   status: StoreStatus;
+  stage: AccessStage;
 }>;
 
 export type Channel = Entity<{

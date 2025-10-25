@@ -27,6 +27,7 @@ export class BlogsController {
   }
 
   @Post()
+  @UseGuards(StoreAccessGuard)
   @HttpCode(HttpStatus.CREATED)
   async createDraft(@Body() { storeId }: CreateBlogDto) {
     return this.blogs.createDraft(storeId);
