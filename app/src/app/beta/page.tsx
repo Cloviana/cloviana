@@ -65,7 +65,7 @@ export default function InvitePage() {
     return (
       <div className="flex h-screen w-screen items-center justify-center p-4">
         <div className="w-full max-w-md text-center">
-          <div className="mx-auto mb-2 flex h-10 w-10 items-center justify-center">
+          <div className="mx-auto mb-3 flex items-center justify-center">
             <AlertTriangle className="size-7 text-yellow-600" />
           </div>
           <h1 className="mb-1 text-sm font-medium">

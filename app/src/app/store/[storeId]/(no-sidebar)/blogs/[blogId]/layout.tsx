@@ -4,6 +4,7 @@ import {
   QueryClient,
 } from '@tanstack/react-query';
 
+import { AccessStageGuard } from '@/features/access/components/access-stage-guard';
 import { getBlogQueryOptions } from '@/features/blogs/api/get-blog';
 
 export default async function Layout({
@@ -22,6 +23,8 @@ export default async function Layout({
   await qc.prefetchQuery(getBlogQueryOptions(blogId));
 
   return (
-    <HydrationBoundary state={dehydrate(qc)}>{children}</HydrationBoundary>
+    <HydrationBoundary state={dehydrate(qc)}>
+      <AccessStageGuard>{children}</AccessStageGuard>
+    </HydrationBoundary>
   );
 }
