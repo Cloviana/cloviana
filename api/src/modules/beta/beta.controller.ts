@@ -2,7 +2,8 @@ import { Body, Controller, Get, Post, Query } from "@nestjs/common";
 import { BetaService } from "./beta.service";
 import { AcceptBetaDto } from "./dtos/accept-beta.dto";
 import { ValidateTokenDto } from "./dtos/validate-token.dto";
-import { AuthUser } from "@/interfaces/auth-user.interface";
+import type { AuthUser } from "@/interfaces/auth-user.interface";
+import { CurrentUser } from "@/decorators/current-user.decorator";
 
 @Controller("beta")
 export class BetaController {
@@ -14,7 +15,7 @@ export class BetaController {
   }
 
   @Post("accept")
-  accept(@Body() dto: AcceptBetaDto, user: AuthUser) {
+  accept(@Body() dto: AcceptBetaDto, @CurrentUser() user: AuthUser) {
     return this.beta.accept(dto.token, user.sub);
   }
 }
