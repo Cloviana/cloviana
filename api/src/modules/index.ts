@@ -10,3 +10,4 @@ export * from "./jobs/jobs.module";
 export * from "./messaging/messaging.module";
 export * from "./seranking/seranking.module";
 export * from "./channels/channels.module";
+export * from "./beta/beta.module"
