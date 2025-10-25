@@ -17,14 +17,11 @@ import { UpdateBlogDto } from "./dtos/update-blog.dto";
 import { BlogOwnerGuard } from "@/guards/blog-owner.guard";
 import { SyncLexicalDto } from "@/modules/blogs/dtos/sync-nodes.dto";
 import { StoreAccessGuard } from "@/guards/store-access-guard";
-import { Public } from "@/decorators/public.decorator";
 
-@UseGuards(BlogOwnerGuard, StoreAccessGuard)
 @Controller("blogs")
 export class BlogsController {
   constructor(private readonly blogs: BlogsService) {}
   @Get()
-  @Public()
   async listBlogs(@Query("storeId") storeId: string) {
     return this.blogs.getBlogs(storeId);
   }
@@ -36,11 +33,13 @@ export class BlogsController {
   }
 
   @Get(":blogId")
+  @UseGuards(BlogOwnerGuard, StoreAccessGuard)
   async getBlog(@Param("blogId") blogId: string) {
     return this.blogs.getBlog(blogId);
   }
 
   @Patch(":blogId")
+  @UseGuards(BlogOwnerGuard, StoreAccessGuard)
   @HttpCode(HttpStatus.OK)
   async updateBlog(
     @Param("blogId") blogId: string,
@@ -50,6 +49,7 @@ export class BlogsController {
   }
 
   @Post(":blogId/generate")
+  @UseGuards(BlogOwnerGuard, StoreAccessGuard)
   @HttpCode(HttpStatus.ACCEPTED)
   async generate(@Param("blogId") blogId: string) {
     await this.blogs.startGeneration(blogId);
@@ -57,6 +57,7 @@ export class BlogsController {
   }
 
   @Put(':blogId/nodes/sync')
+  @UseGuards(BlogOwnerGuard, StoreAccessGuard)
   @HttpCode(HttpStatus.OK)
   async syncAllNodes(@Param('blogId') blogId: string, @Body() { state }: SyncLexicalDto) {
     await this.blogs.syncAllNodesFromLexical(blogId, state);
