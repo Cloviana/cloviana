@@ -1,4 +1,5 @@
 import { ListFilter, Sparkles } from 'lucide-react';
+import { useParams } from 'next/navigation';
 import * as React from 'react';
 
 import { Badge } from '@/components/ui/badge';
@@ -213,8 +214,10 @@ export function KeywordSuggestionsTable({
 }
 
 export const PrimaryKeywordView = () => {
-  const { blogId, getNextStepEnum } = useDrafter();
-  const { data: blog } = useGetBlog({ blogId });
+  const { getNextStepEnum } = useDrafter();
+  const { blogId, storeId } = useParams<{ blogId: string; storeId: string }>();
+
+  const { data: blog } = useGetBlog({ blogId, storeId });
   const { mutateAsync: update } = useUpdateBlog();
   const { data: suggestions = [], isLoading } = useGetPrimaryKeywordSuggestions(
     {
@@ -242,6 +245,7 @@ export const PrimaryKeywordView = () => {
       blogId,
       primaryKeyword: trimmed,
       currentStep: nextEnum as BlogSetupStep,
+      storeId,
     });
   };
 

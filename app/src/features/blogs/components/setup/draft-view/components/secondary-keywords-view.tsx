@@ -1,4 +1,5 @@
 import { ListFilter, Sparkles, X } from 'lucide-react';
+import { useParams } from 'next/navigation';
 import * as React from 'react';
 
 import { Badge } from '@/components/ui/badge';
@@ -265,8 +266,10 @@ export function SelectedKeywordsChips({
 }
 
 export function SecondaryKeywordsView() {
-  const { blogId, getNextStepEnum } = useDrafter();
-  const { data: blog } = useGetBlog({ blogId });
+  const { getNextStepEnum } = useDrafter();
+  const { blogId, storeId } = useParams<{ blogId: string; storeId: string }>();
+
+  const { data: blog } = useGetBlog({ blogId, storeId });
   const { mutateAsync: update } = useUpdateBlog();
   const { data: suggestions = [], isLoading } =
     useGetSecondaryKeywordSuggestions({
@@ -321,6 +324,7 @@ export function SecondaryKeywordsView() {
       blogId,
       secondaryKeywords: selected,
       currentStep: nextEnum as BlogSetupStep,
+      storeId,
     });
   };
 

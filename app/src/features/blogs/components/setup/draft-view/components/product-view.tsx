@@ -1,4 +1,5 @@
 import { Check, ChevronsUpDown } from 'lucide-react';
+import { useParams } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 
 import {
@@ -32,8 +33,13 @@ import { BlogSetupStep } from '@/types/api';
 import { cn } from '@/utils/cn';
 
 export const ProductView = () => {
-  const { blogId, getNextStepEnum } = useDrafter();
-  const { data: blog, isLoading: isBlogLoading } = useGetBlog({ blogId });
+  const { getNextStepEnum } = useDrafter();
+  const { blogId, storeId } = useParams<{ blogId: string; storeId: string }>();
+
+  const { data: blog, isLoading: isBlogLoading } = useGetBlog({
+    blogId,
+    storeId,
+  });
   const { mutateAsync: update } = useUpdateBlog();
 
   const topic = blog?.topic ?? '';
@@ -72,6 +78,7 @@ export const ProductView = () => {
       blogId,
       productId: selectedId,
       currentStep: nextEnum as BlogSetupStep,
+      storeId,
     });
   };
 

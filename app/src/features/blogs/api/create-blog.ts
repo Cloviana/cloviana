@@ -21,9 +21,13 @@ export const createBlog = async ({
   if (!token) {
     throw new Error('Access token is missing');
   }
-  return api.post<Blog>('/blogs', data, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
+  return api.post<Blog>(
+    `/stores/${data.storeId}/blogs`,
+    {},
+    {
+      headers: { Authorization: `Bearer ${token}` },
+    },
+  );
 };
 
 type UseCreateBlogOptions = {
@@ -39,7 +43,10 @@ export const useCreateBlog = ({
   return useMutation({
     mutationFn: createBlog,
     onSuccess: (newBlog, variables, context) => {
-      queryClient.setQueryData<Blog>(['blogs', 'detail', newBlog.id], newBlog);
+      queryClient.setQueryData<Blog>(
+        ['blogs', 'detail', variables.data.storeId, newBlog.id],
+        newBlog,
+      );
       onSuccess?.(newBlog, variables, context);
     },
     ...restConfig,

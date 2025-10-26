@@ -8,65 +8,68 @@ import {
   Patch,
   Post,
   Put,
-  Query,
   UseGuards,
-} from "@nestjs/common";
-import { BlogsService } from "./services/blogs.service";
-import { CreateBlogDto } from "./dtos/create-blog.dto";
-import { UpdateBlogDto } from "./dtos/update-blog.dto";
-import { BlogOwnerGuard } from "@/guards/blog-owner.guard";
-import { SyncLexicalDto } from "@/modules/blogs/dtos/sync-nodes.dto";
-import { StoreAccessGuard } from "@/guards/store-access-guard";
+} from '@nestjs/common';
+import { BlogsService } from './services/blogs.service';
+import { UpdateBlogDto } from './dtos/update-blog.dto';
+import { SyncLexicalDto } from '@/modules/blogs/dtos/sync-nodes.dto';
+import { StoreAccessGuard } from '@/guards/store-access-guard';
+import { StoreOwnerGuard } from '@/guards/store-owner.guard';
 
-@Controller("blogs")
+@Controller('stores/:storeId/blogs')
 export class BlogsController {
   constructor(private readonly blogs: BlogsService) {}
+
   @Get()
-  async listBlogs(@Query("storeId") storeId: string) {
+  async listBlogs(@Param('storeId') storeId: string) {
     return this.blogs.getBlogs(storeId);
   }
 
   @Post()
   @UseGuards(StoreAccessGuard)
   @HttpCode(HttpStatus.CREATED)
-  async createDraft(@Body() { storeId }: CreateBlogDto) {
+  async createDraft(@Param('storeId') storeId: string) {
     return this.blogs.createDraft(storeId);
   }
 
-  @Get(":blogId")
-  @UseGuards(BlogOwnerGuard, StoreAccessGuard)
-  async getBlog(@Param("blogId") blogId: string) {
+  @Get(':blogId')
+  @UseGuards(StoreAccessGuard, StoreOwnerGuard)
+  async getBlog(@Param('blogId') blogId: string) {
     return this.blogs.getBlog(blogId);
   }
 
-  @Patch(":blogId")
-  @UseGuards(BlogOwnerGuard, StoreAccessGuard)
+  @Patch(':blogId')
+  @UseGuards(StoreAccessGuard, StoreOwnerGuard)
   @HttpCode(HttpStatus.OK)
   async updateBlog(
-    @Param("blogId") blogId: string,
-    @Body() dto: UpdateBlogDto
+    @Param('blogId') blogId: string,
+    @Body() dto: UpdateBlogDto,
   ) {
     return this.blogs.updateBlog(blogId, dto);
   }
 
-  @Post(":blogId/generate")
-  @UseGuards(BlogOwnerGuard, StoreAccessGuard)
+  @Post(':blogId/generate')
+  @UseGuards(StoreAccessGuard, StoreOwnerGuard)
   @HttpCode(HttpStatus.ACCEPTED)
-  async generate(@Param("blogId") blogId: string) {
+  async generate(@Param('blogId') blogId: string) {
     await this.blogs.startGeneration(blogId);
     return { ok: true };
   }
 
   @Put(':blogId/nodes/sync')
-  @UseGuards(BlogOwnerGuard, StoreAccessGuard)
+  @UseGuards(StoreAccessGuard, StoreOwnerGuard)
   @HttpCode(HttpStatus.OK)
-  async syncAllNodes(@Param('blogId') blogId: string, @Body() { state }: SyncLexicalDto) {
+  async syncAllNodes(
+    @Param('blogId') blogId: string,
+    @Body() { state }: SyncLexicalDto,
+  ) {
     await this.blogs.syncAllNodesFromLexical(blogId, state);
     return { ok: true };
   }
 
-  @Put(":blogId/publish")
-  async publish(@Param("blogId") blogId: string) {
+  @Put(':blogId/publish')
+  @UseGuards(StoreAccessGuard, StoreOwnerGuard)
+  async publish(@Param('blogId') blogId: string) {
     return this.blogs.publishToShopify(blogId);
   }
 }

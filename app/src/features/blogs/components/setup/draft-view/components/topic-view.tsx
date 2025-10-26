@@ -1,3 +1,4 @@
+import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { Input } from '@/components/ui/input';
@@ -18,8 +19,10 @@ import { useDrafter } from '@/features/blogs/context/drafter';
 import { BlogSetupStep } from '@/types/api';
 
 export const TopicView = () => {
-  const { blogId, getNextStepEnum } = useDrafter();
-  const { data: blog } = useGetBlog({ blogId });
+  const { getNextStepEnum } = useDrafter();
+  const { blogId, storeId } = useParams<{ blogId: string; storeId: string }>();
+
+  const { data: blog } = useGetBlog({ blogId, storeId });
   const { mutateAsync: update } = useUpdateBlog();
   const { data: suggestions = [], isLoading } = useGetTopicSuggestions({
     blogId,
@@ -39,6 +42,7 @@ export const TopicView = () => {
       blogId,
       topic: trimmed,
       currentStep: nextEnum as BlogSetupStep,
+      storeId,
     });
   };
 

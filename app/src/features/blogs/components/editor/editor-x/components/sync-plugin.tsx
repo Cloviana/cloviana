@@ -11,15 +11,15 @@ import { useSyncNodes } from '@/features/blogs/api/sync-nodes';
 type EditorStateJSON = ReturnType<EditorState['toJSON']>;
 
 export function SyncPlugin() {
-  const { blogId } = useParams<{ blogId: string }>();
+  const { blogId, storeId } = useParams<{ blogId: string; storeId: string }>();
   const { mutate: syncNodes } = useSyncNodes();
 
   const buildAndSync = useCallback(
     (editor: LexicalEditor) => {
       const state: EditorStateJSON = editor.getEditorState().toJSON();
-      syncNodes({ blogId, state });
+      syncNodes({ blogId, storeId, state });
     },
-    [blogId, syncNodes],
+    [blogId, syncNodes, storeId],
   );
 
   const debouncedSync = useRef(debounce(buildAndSync, 1000)).current;
