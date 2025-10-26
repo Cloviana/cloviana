@@ -8,8 +8,8 @@ import { usePublishBlog } from '@/features/blogs/api/publish-blog';
 
 export const EditorHeader = () => {
   const { blogId, storeId } = useParams<{ blogId: string; storeId: string }>();
-  const { data: blog } = useGetBlog({ blogId });
-  const { mutateAsync: publish, isPending } = usePublishBlog(blogId, storeId);
+  const { data: blog } = useGetBlog({ blogId, storeId });
+  const { mutateAsync: publish, isPending } = usePublishBlog(storeId, blogId);
 
   const handlePublish = async () => {
     await publish(blogId);

@@ -16,11 +16,12 @@ export default async function DraftSetupPage({
 }: {
   params: Promise<{
     blogId: string;
+    storeId: string;
   }>;
 }) {
-  const { blogId } = await params;
+  const { blogId, storeId } = await params;
   return (
-    <DrafterProvider blogId={blogId}>
+    <DrafterProvider blogId={blogId} storeId={storeId}>
       <div className="bg-background flex h-screen w-full flex-col overflow-hidden">
         <AppHeader.Root>
           <AppHeader.Row>

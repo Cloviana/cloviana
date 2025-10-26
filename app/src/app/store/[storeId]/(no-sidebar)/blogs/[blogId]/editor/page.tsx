@@ -22,7 +22,7 @@ export default function EditorPage() {
     blogId: string;
     storeId: string;
   };
-  const { blog, isSuccess } = useBlogGeneration(blogId);
+  const { blog, isSuccess } = useBlogGeneration(blogId, storeId);
 
   useEffect(() => {
     if (!editorState && blog?.nodes && blog.nodes.length > 0) {

@@ -1,5 +1,6 @@
 import { ForbiddenException, Injectable, NotFoundException } from "@nestjs/common";
 import { PrismaService } from "@/clients/prisma/prisma.service";
+import { AccessStage } from "@prisma/client";
 
 @Injectable()
 export class BetaService {
@@ -56,7 +57,7 @@ export class BetaService {
     const now = new Date();
     if (now > expiresAt) throw new ForbiddenException("Invite expired");
 
-    const alreadyAccepted = !!invite.acceptedAt || invite.store.stage === "ACTIVE" || invite.store.stage === "BETA";
+    const alreadyAccepted = !!invite.acceptedAt || invite.store.stage === AccessStage.ACTIVE || invite.store.stage === AccessStage.BETA;
     if (alreadyAccepted) {
       return {
         storeId: invite.storeId,
@@ -73,7 +74,7 @@ export class BetaService {
     const [store] = await this.prisma.$transaction([
       this.prisma.store.update({
         where: { id: invite.storeId },
-        data: { stage: "BETA", acceptedAt: now, betaUntil },
+        data: { stage: AccessStage.BETA, acceptedAt: now, betaUntil },
         select: { id: true, stage: true, acceptedAt: true, betaUntil: true },
       }),
       this.prisma.betaInvite.update({

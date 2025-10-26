@@ -16,14 +16,13 @@ export const acceptInvite = async (
   inviteToken: string,
 ): Promise<BetaAcceptResponse> => {
   const accessToken = await fetchAccessToken();
-  if (!accessToken) {
-    throw new Error('Access token is not available');
-  }
-  const response = await api.post<BetaAcceptResponse>(`/beta/accept`, {
-    headers: { Authorization: `Bearer ${accessToken}` },
-    body: { token: inviteToken },
-  });
-  return response;
+  if (!accessToken) throw new Error('Access token is not available');
+
+  return api.post<BetaAcceptResponse>(
+    `/beta/accept`,
+    { token: inviteToken },
+    { headers: { Authorization: `Bearer ${accessToken}` } },
+  );
 };
 
 type UseAcceptInviteOptions = {

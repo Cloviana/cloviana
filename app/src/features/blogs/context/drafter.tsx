@@ -69,11 +69,13 @@ const enumToKey = Object.fromEntries(
 export function DrafterProvider({
   children,
   blogId,
+  storeId,
 }: {
   blogId: string;
+  storeId: string;
   children: React.ReactNode;
 }) {
-  const { data: blog } = useGetBlog({ blogId });
+  const { data: blog } = useGetBlog({ blogId, storeId });
   const isMobile = useIsMobile();
 
   const indexByKey = useMemo(

@@ -5,13 +5,11 @@ import { MutationConfig } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
 import { Blog, BlogDetail } from '@/types/api';
 
-export const publishBlog = async (blogId: string) => {
+export const publishBlog = async (storeId: string, blogId: string) => {
   const token = await fetchAccessToken();
-  if (!token) {
-    throw new Error('Access token is missing');
-  }
+  if (!token) throw new Error('Access token is missing');
   await api.put(
-    `/blogs/${blogId}/publish`,
+    `/stores/${storeId}/blogs/${blogId}/publish`,
     {},
     {
       headers: { Authorization: `Bearer ${token}` },
@@ -24,17 +22,17 @@ type UsePublishBlogOptions = {
 };
 
 export const usePublishBlog = (
-  blogId: string,
   storeId: string,
+  blogId: string,
   { config }: UsePublishBlogOptions = {},
 ) => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: () => publishBlog(blogId),
+    mutationFn: () => publishBlog(storeId, blogId),
     onSuccess: (data, variables, context) => {
       queryClient.setQueryData<BlogDetail>(
-        ['blogs', 'detail', blogId],
+        ['blogs', 'detail', storeId, blogId],
         (old) => (old ? { ...old, publishStatus: 'PUBLISHED' } : old),
       );
 
@@ -46,9 +44,7 @@ export const usePublishBlog = (
           : old,
       );
 
-      if (config?.onSuccess) {
-        config.onSuccess(data, variables, context);
-      }
+      config?.onSuccess?.(data, variables, context);
     },
     ...config,
   });

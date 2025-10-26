@@ -7,14 +7,10 @@ import { Blog } from '@/types/api';
 
 export const getBlogs = async (storeId: string): Promise<Blog[]> => {
   const token = await fetchAccessToken();
-  if (!token) {
-    throw new Error('Access token is not available');
-  }
-  const response = await api.get<Blog[]>(`/blogs`, {
+  if (!token) throw new Error('Access token is not available');
+  return api.get<Blog[]>(`/stores/${storeId}/blogs`, {
     headers: { Authorization: `Bearer ${token}` },
-    params: { storeId },
   });
-  return response;
 };
 
 export const getBlogsQueryOptions = (storeId: string) =>
@@ -33,9 +29,8 @@ type UseGetBlogsOptions = {
 export const useGetBlogs = (
   storeId: string,
   { config }: UseGetBlogsOptions = {},
-) => {
-  return useQuery({
+) =>
+  useQuery({
     ...getBlogsQueryOptions(storeId),
     ...config,
   });
-};
