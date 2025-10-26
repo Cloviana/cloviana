@@ -6,6 +6,7 @@ import { MutationConfig } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
 
 export const generateBlogInputSchema = z.object({
+  storeId: z.string().min(1, 'Required'),
   blogId: z.string().min(1, 'Required'),
 });
 
@@ -19,12 +20,9 @@ export const generateBlog = async ({
   data: GenerateBlogInput;
 }): Promise<GenerateBlogResponse> => {
   const token = await fetchAccessToken();
-  if (!token) {
-    throw new Error('Access token is missing');
-  }
-
+  if (!token) throw new Error('Access token is missing');
   return api.post<GenerateBlogResponse>(
-    `/blogs/${data.blogId}/generate`,
+    `/stores/${data.storeId}/blogs/${data.blogId}/generate`,
     undefined,
     {
       headers: { Authorization: `Bearer ${token}` },
@@ -46,7 +44,12 @@ export const useGenerateBlog = ({
     mutationFn: generateBlog,
     onSuccess: async (res, variables, context) => {
       await queryClient.invalidateQueries({
-        queryKey: ['blogs', 'detail', variables.data.blogId],
+        queryKey: [
+          'blogs',
+          'detail',
+          variables.data.storeId,
+          variables.data.blogId,
+        ],
       });
       onSuccess?.(res, variables, context);
     },

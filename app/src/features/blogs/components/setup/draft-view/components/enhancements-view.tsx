@@ -1,4 +1,4 @@
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { Label } from '@/components/ui/label';
@@ -20,8 +20,9 @@ import { BlogSetupStep } from '@/types/api';
 
 export const EnhancementsView = () => {
   const { push } = useRouter();
-  const { blogId, getNextStepEnum } = useDrafter();
-  const { data: blog } = useGetBlog({ blogId });
+  const { getNextStepEnum } = useDrafter();
+  const { blogId, storeId } = useParams<{ blogId: string; storeId: string }>();
+  const { data: blog } = useGetBlog({ blogId, storeId });
   const { mutateAsync: update, isPending: isSaving } = useUpdateBlog();
   const { mutateAsync: generate, isPending: isGenerating } = useGenerateBlog();
 
@@ -48,8 +49,9 @@ export const EnhancementsView = () => {
       currentStep: nextEnum as BlogSetupStep,
       brandVoice: trimmedBrandVoice || undefined,
       additionalInstruction: trimmedInstructions || undefined,
+      storeId,
     });
-    await generate({ data: { blogId } });
+    await generate({ data: { blogId, storeId } });
     push(paths.store.blogs.editor.getHref(blog!.storeId, blogId));
   };
 

@@ -9,6 +9,7 @@ import { BlogDetail } from '@/types/api';
 const str = z.string().trim();
 
 export const updateBlogInputSchema = z.object({
+  storeId: z.string().cuid(),
   blogId: z.string().uuid(),
   slug: str.min(1).optional(),
   topic: str.min(1).optional(),
@@ -36,12 +37,12 @@ export type UpdateBlogInput = z.infer<typeof updateBlogInputSchema>;
 
 export const updateBlog = async (
   data: UpdateBlogInput,
-): Promise<Omit<UpdateBlogInput, 'blogId'>> => {
-  const { blogId, ...payload } = updateBlogInputSchema.parse(data);
+): Promise<Omit<UpdateBlogInput, 'blogId' | 'storeId'>> => {
+  const { blogId, storeId, ...payload } = updateBlogInputSchema.parse(data);
   const token = await fetchAccessToken();
   if (!token) throw new Error('Access token is missing');
 
-  await api.patch(`/blogs/${blogId}`, payload, {
+  await api.patch(`/stores/${storeId}/blogs/${blogId}`, payload, {
     headers: { Authorization: `Bearer ${token}` },
   });
 
@@ -61,9 +62,9 @@ export const useUpdateBlog = ({
   return useMutation({
     mutationFn: updateBlog,
     onSuccess: (data, variables, context) => {
-      const { blogId, ...updates } = variables;
+      const { blogId, storeId, ...updates } = variables;
       queryClient.setQueryData<BlogDetail>(
-        ['blogs', 'detail', blogId],
+        ['blogs', 'detail', storeId, blogId],
         (old) => ({
           ...old!,
           ...updates,
@@ -71,7 +72,6 @@ export const useUpdateBlog = ({
       );
       onSuccess?.(data, variables, context);
     },
-
     ...restConfig,
   });
 };

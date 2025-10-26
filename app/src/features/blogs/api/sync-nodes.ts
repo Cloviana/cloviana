@@ -8,9 +8,8 @@ import type { SerializedEditorState, SerializedLexicalNode } from 'lexical';
 import { api } from '@/lib/api-client';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
 
-import { getBlogKey } from '../keys';
-
 export type SyncStateData = {
+  storeId: string;
   blogId: string;
   state: SerializedEditorState<SerializedLexicalNode>;
 };
@@ -18,6 +17,7 @@ export type SyncStateData = {
 export type SyncNodesData = SyncStateData;
 
 export const syncNodes = async ({
+  storeId,
   blogId,
   state,
 }: SyncStateData): Promise<void> => {
@@ -26,7 +26,7 @@ export const syncNodes = async ({
     throw new Error('Access token is missing');
   }
   await api.put<void>(
-    `/blogs/${blogId}/nodes/sync`,
+    `/stores/${storeId}/blogs/${blogId}/nodes/sync`,
     { state },
     { headers: { Authorization: `Bearer ${token}` } },
   );
@@ -40,8 +40,10 @@ export const useSyncNodes = ({ config }: UseSyncNodesOptions = {}) => {
   const queryClient = useQueryClient();
   return useMutation<void, Error, SyncStateData>({
     mutationFn: syncNodes,
-    onSuccess: (_data, { blogId }) => {
-      queryClient.invalidateQueries({ queryKey: getBlogKey(blogId) });
+    onSuccess: (_data, { storeId, blogId }) => {
+      queryClient.invalidateQueries({
+        queryKey: ['blogs', 'detail', storeId, blogId],
+      });
     },
     ...config,
   });
