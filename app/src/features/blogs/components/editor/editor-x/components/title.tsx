@@ -8,18 +8,21 @@ import { useGetBlog } from '@/features/blogs/api/get-blog';
 import { useUpdateBlog } from '@/features/blogs/api/update-blog';
 
 export const Title = () => {
-  const { blogId } = useParams<{ blogId: string }>();
-  const { data: blog } = useGetBlog({ blogId });
+  const { blogId, storeId } = useParams<{ blogId: string; storeId: string }>();
+  const { data: blog } = useGetBlog({ blogId, storeId });
   const { mutate } = useUpdateBlog();
 
   const ref = useRef<HTMLHeadingElement>(null);
   const saveRef = useRef<(t: string) => void>(() => {});
 
   useEffect(() => {
-    const fn = debounce((t: string) => mutate({ title: t, blogId }), 500);
+    const fn = debounce(
+      (t: string) => mutate({ title: t, blogId, storeId }),
+      500,
+    );
     saveRef.current = fn;
     return () => fn.cancel();
-  }, [mutate, blogId]);
+  }, [mutate, blogId, storeId]);
 
   useEffect(() => {
     const el = ref.current;

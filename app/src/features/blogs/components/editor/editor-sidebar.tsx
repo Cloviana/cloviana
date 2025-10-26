@@ -49,8 +49,8 @@ const SidebarContentHeader: FC<SidebarContentHeaderProps> = ({ children }) => (
 );
 
 const SettingsView = () => {
-  const { blogId } = useParams<{ blogId: string }>();
-  const { data: blog } = useGetBlog({ blogId });
+  const { blogId, storeId } = useParams<{ blogId: string; storeId: string }>();
+  const { data: blog } = useGetBlog({ blogId, storeId });
 
   const [slug, setSlug] = useState(blog?.slug || '');
   const [description, setDescription] = useState(blog?.description || '');
@@ -61,9 +61,9 @@ const SettingsView = () => {
     () =>
       debounce((newSlug: string, newDesc: string) => {
         if (newSlug && newDesc)
-          saveBlog({ slug: newSlug, description: newDesc, blogId });
+          saveBlog({ slug: newSlug, description: newDesc, blogId, storeId });
       }, 500),
-    [saveBlog, blogId],
+    [saveBlog, blogId, storeId],
   );
 
   useEffect(() => {

@@ -14,13 +14,14 @@ export default async function Layout({
   children: React.ReactNode;
   params: Promise<{
     blogId: string;
+    storeId: string;
   }>;
 }) {
   const qc = new QueryClient();
 
-  const { blogId } = await params;
+  const { blogId, storeId } = await params;
 
-  await qc.prefetchQuery(getBlogQueryOptions(blogId));
+  await qc.prefetchQuery(getBlogQueryOptions(storeId, blogId));
 
   return (
     <HydrationBoundary state={dehydrate(qc)}>
