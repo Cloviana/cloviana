@@ -1,7 +1,7 @@
-import { Footer, Navbar } from '@/components/layout';
+import FooterSection from '@/components/sections/footer/default';
+import { Navbar } from '@/components/sections/navbar';
 
 import {
-  Benefits,
   Comparison,
   FinalCTA,
   Hero,
@@ -17,13 +17,12 @@ export default function HomePage() {
       </header>
       <main className="bg-background">
         <Hero />
-        <PartneredBy className="border-b" />
-        <Benefits />
-        <Comparison className="bg-[#f9f9f9]" />
+        <PartneredBy />
         <Testimonial />
+        <Comparison className="bg-[#f9f9f9]" />
         <FinalCTA />
       </main>
-      <Footer />
+      <FooterSection />
     </div>
   );
 }
