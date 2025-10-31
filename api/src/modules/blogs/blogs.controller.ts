@@ -13,7 +13,7 @@ import {
 import { BlogsService } from './services/blogs.service';
 import { UpdateBlogDto } from './dtos/update-blog.dto';
 import { SyncLexicalDto } from '@/modules/blogs/dtos/sync-nodes.dto';
-import { StoreAccessGuard } from '@/guards/store-access-guard';
+import { StoreAccessGuard } from '@/guards/store-access.guard';
 import { StoreOwnerGuard } from '@/guards/store-owner.guard';
 
 @Controller('stores/:storeId/blogs')

@@ -28,7 +28,7 @@ export const NavItem: FC<NavItem> = ({
   ...props
 }) => {
   const navItemRootClassname =
-    'group text-sm transition-colors text-foreground-light cursor-pointer hover:bg-zinc-100 px-3 py-1 rounded';
+    'group text-sm transition-colors text-foreground font-medium cursor-pointer hover:bg-zinc-100 px-3 py-1 rounded';
 
   if (as === 'mobile') {
     console.log(as);

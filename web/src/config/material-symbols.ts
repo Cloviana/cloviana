@@ -14,6 +14,9 @@ export const ICON_NAMES = [
   'edit_note',
   'link',
   'trending_up',
+  'timer_off',
+  'search_off',
+  'insights',
 ] as const;
 
 const sortedIconNames = [...ICON_NAMES].sort();

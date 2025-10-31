@@ -4,34 +4,34 @@ import React, { ReactNode } from 'react';
 import '@/styles/globals.css';
 import { env } from '@/config/env';
 import { MATERIAL_SYMBOLS_STYLESHEET } from '@/config/material-symbols';
-import { dmSans, gambarino, inter, switzer } from '@/lib/fonts';
+import { gambarino, switzer } from '@/lib/fonts';
 import { cn } from '@/utils/cn';
 
 export const metadata = {
-  title: 'Cloviana | The Fully Automated SEO Agency for Shopify',
+  title: 'Cloviana | Your Always-On AI Teammate for Organic Growth',
   description:
-    'Cloviana is the AI-native SEO platform for Shopify. Discover keywords, generate on-brand blogs, sync to your store, and grow traffic — fully automated.',
+    'Cloviana helps Shopify brands grow organically by turning products into product-led content that shows up where buyers are already searching — no agencies, no freelancers.',
   keywords: [
-    'Shopify SEO',
-    'AI SEO',
-    'AI blog generator',
+    'Shopify organic growth',
+    'Shopify SEO automation',
+    'AI content for Shopify',
+    'product-led content',
     'Shopify marketing automation',
-    'SEO agency automation',
     'AI Shopify apps',
   ],
   openGraph: {
     type: 'website',
     url: 'https://cloviana.com',
-    title: 'Cloviana | The Fully Automated SEO Agency for Shopify',
+    title: 'Cloviana | Your Always-On AI Teammate for Organic Growth',
     description:
-      'Cloviana plans, writes, and publishes SEO content for Shopify brands. Get traffic growth on autopilot.',
+      'Cloviana turns your Shopify products into SEO-ready content that helps you show up where buyers are already searching — without hiring an SEO team.',
     siteName: 'Cloviana',
     images: [
       {
         url: 'https://cloviana.com/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Cloviana SEO platform preview',
+        alt: 'Cloviana organic growth platform preview',
       },
     ],
   },
@@ -39,9 +39,9 @@ export const metadata = {
     card: 'summary_large_image',
     site: '@cloviana',
     creator: '@cloviana',
-    title: 'Cloviana | The Fully Automated SEO Agency for Shopify',
+    title: 'Cloviana | Your Always-On AI Teammate for Organic Growth',
     description:
-      'Grow your Shopify traffic while you sleep. Automated keyword discovery, blog writing, and publishing.',
+      'Grow your Shopify brand organically. Cloviana creates product-led content that attracts real buyers — no agencies required.',
     images: ['https://cloviana.com/og-image.png'],
   },
   icons: {
@@ -55,16 +55,12 @@ export const metadata = {
 
 const RootLayout = async ({ children }: { children: ReactNode }) => {
   return (
-    <html
-      lang="en"
-      className={cn(
-        switzer.variable,
-        gambarino.variable,
-        dmSans.variable,
-        inter.variable,
-      )}
-    >
+    <html lang="en" className={cn(switzer.variable, gambarino.variable)}>
       <head>
+        <Script
+          src="https://app.guideflow.com/assets/opt.js"
+          data-iframe-id="0p0y33obvk"
+        />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${env.GA4_ID}`}
           strategy="afterInteractive"
