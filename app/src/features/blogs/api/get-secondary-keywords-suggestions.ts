@@ -2,7 +2,7 @@ import { queryOptions, useQuery } from '@tanstack/react-query';
 
 import { SerpIntent } from '@/features/blogs/types';
 import { api } from '@/lib/api-client';
-import { QueryConfig } from '@/lib/react-query';
+import { QueryConfig, suggestionsKeys } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
 
 export type SecondaryKeywordSuggestion = {
@@ -15,20 +15,13 @@ export type SecondaryKeywordSuggestion = {
 
 export const getSecondaryKeywordSuggestions = async (
   blogId: string,
-  topic: string,
-  primaryKeyword: string,
-  title: string,
 ): Promise<SecondaryKeywordSuggestion[]> => {
   const token = await fetchAccessToken();
   if (!token) {
     throw new Error('Access token is not available');
   }
   const response = await api.get<SecondaryKeywordSuggestion[]>(
-    `/blogs/${blogId}/suggestions/secondary-keywords?topic=${encodeURIComponent(
-      topic,
-    )}&primary-keyword=${encodeURIComponent(
-      primaryKeyword,
-    )}&title=${encodeURIComponent(title)}`,
+    `/blogs/${blogId}/suggestions/secondary-keywords`,
     {
       headers: { Authorization: `Bearer ${token}` },
     },
@@ -36,47 +29,23 @@ export const getSecondaryKeywordSuggestions = async (
   return response;
 };
 
-export const getSecondaryKeywordSuggestionsQueryOptions = (
-  blogId: string,
-  topic: string,
-  primaryKeyword: string,
-  title: string,
-) =>
+export const getSecondaryKeywordSuggestionsQueryOptions = (blogId: string) =>
   queryOptions({
-    queryKey: [
-      'suggestions',
-      'secondary-keywords',
-      blogId,
-      topic,
-      primaryKeyword,
-      title,
-    ],
-    queryFn: () =>
-      getSecondaryKeywordSuggestions(blogId, topic, primaryKeyword, title),
-    enabled: Boolean(blogId && topic && primaryKeyword && title),
+    queryKey: suggestionsKeys.secondary(blogId),
+    queryFn: () => getSecondaryKeywordSuggestions(blogId),
+    enabled: Boolean(blogId),
   });
 
 type UseGetSecondaryKeywordSuggestionsOptions = {
   blogId: string;
-  topic: string;
-  primaryKeyword: string;
-  title: string;
   queryConfig?: QueryConfig<typeof getSecondaryKeywordSuggestionsQueryOptions>;
 };
 
 export const useGetSecondaryKeywordSuggestions = ({
   blogId,
-  topic,
-  primaryKeyword,
-  title,
   queryConfig,
 }: UseGetSecondaryKeywordSuggestionsOptions) =>
   useQuery({
-    ...getSecondaryKeywordSuggestionsQueryOptions(
-      blogId,
-      topic,
-      primaryKeyword,
-      title,
-    ),
+    ...getSecondaryKeywordSuggestionsQueryOptions(blogId),
     ...queryConfig,
   });

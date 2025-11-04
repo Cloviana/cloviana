@@ -1,18 +1,12 @@
 import { StateAnnotation } from "../blog-generation.state";
 import { z } from "zod";
-import { OutlineSchema, ThumbnailSchema } from "../schemas/outline.schemas";
+import { OutlineSchema, PlanSchema, ThumbnailSchema } from "../schemas/outline.schemas";
 import path from "path";
 import { loadPromptHbs } from "../utils/load-prompt-hbs.util";
 import pRetry from "p-retry";
 import { fileURLToPath } from "url";
 import Groq from "groq-sdk";
 import { zodToJsonSchema } from "zod-to-json-schema";
-
-const ResponseSchema = z.object({
-  thumbnail: ThumbnailSchema,
-  outline: OutlineSchema,
-  description: z.string().describe("A meta description is a short summary (usually 150–160 characters) placed in a webpage’s HTML that tells search engines and users what the page is about.")
-});
 
 export async function outline(
   state: typeof StateAnnotation.State,
@@ -45,7 +39,7 @@ export async function outline(
 
   const t0 = Date.now();
 
-  const { thumbnail, outline, description } = await pRetry(
+  const _plan = await pRetry(
     async () => {
       console.info("[outline] invoking LLM");
       const invokeStart = Date.now();
@@ -61,13 +55,13 @@ export async function outline(
           type: "json_schema",
           json_schema: {
             name: "outline_schema",
-            schema: zodToJsonSchema(ResponseSchema, "outline_schema"),
+            schema: zodToJsonSchema(PlanSchema, "outline_schema"),
           },
         },
       });
 
       const raw = JSON.parse(response.choices[0].message.content || "{}");
-      const parsed = ResponseSchema.parse(raw);
+      const parsed = PlanSchema.parse(raw);
 
       console.info("[outline] LLM invocation done in", Date.now() - invokeStart, "ms");
       return parsed;
@@ -89,10 +83,6 @@ export async function outline(
   console.info("[outline] success");
 
   return {
-    _plan: {
-      thumbnail,
-      outline,
-      description,
-    },
+    _plan
   };
 }

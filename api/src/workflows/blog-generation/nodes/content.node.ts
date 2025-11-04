@@ -28,16 +28,7 @@ export async function content(
       const payload = {
     metadata: state._metadata,
     outline: state._plan.outline,
-    constraints: {
-      primaryKeywordCount:
-        ((state._metadata.blogLength.max + state._metadata.blogLength.min) /
-          2) *
-        0.01,
-      secondaryKeywordCount:
-        ((state._metadata.blogLength.max + state._metadata.blogLength.min) /
-          2) *
-        0.005,
-    },
+    title: state._plan.title,
   };
     
       const payloadStr = JSON.stringify(payload);

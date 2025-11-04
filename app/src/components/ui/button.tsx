@@ -9,11 +9,11 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default:
-          'bg-primary shadow-xs text-primary-foreground hover:opacity-85',
+        default: 'bg-primary text-primary-foreground hover:opacity-85',
         'brand-secondary':
-          'bg-brand-secondary shadow-xs text-brand-secondary-foreground hover:opacity-85',
-        outline: 'shadow-xs border bg-background hover:bg-[#ebeaea]',
+          'bg-primary text-primary-foreground hover:opacity-85',
+        outline: 'border bg-background hover:bg-[#ebeaea]',
+        dashed: 'border border-dashed bg-background hover:bg-[#ebeaea]',
         ghost: 'bg-background/30 backdrop-blur hover:bg-[#ebeaea]',
         link: 'text-brand-secondary hover:underline',
       },
@@ -23,7 +23,7 @@ const buttonVariants = cva(
         xs: 'h-6 gap-1.5 px-2 has-[>svg]:px-2 text-xs',
         lg: 'h-10 px-6 has-[>svg]:px-4',
         icon: 'size-9',
-        'icon-sm': 'size-8',
+        'icon-sm': 'size-7',
         'icon-lg': 'size-10',
       },
     },

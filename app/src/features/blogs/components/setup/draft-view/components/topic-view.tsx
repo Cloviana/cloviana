@@ -67,7 +67,6 @@ export const TopicView = () => {
               id="topic"
               type="text"
               size="lg"
-              variant="white"
               placeholder="Enter your article's topic here"
               value={value}
               onChange={(e) => setValue(e.target.value)}

@@ -1,7 +1,13 @@
 import { Injectable } from "@nestjs/common";
 
 import { PrismaService } from "@/clients/prisma/prisma.service";
-import { BlogSetupStep, BlogStatus, JobStatus, JobType, Prisma } from "@prisma/client";
+import {
+  BlogSetupStep,
+  BlogStatus,
+  JobStatus,
+  JobType,
+  Prisma,
+} from "@prisma/client";
 import { UpdateBlogDto } from "../dtos/update-blog.dto";
 import { StorageService } from "@/modules/storage/storage.service";
 import { fromNodes } from "../utils/from-nodes";
@@ -65,44 +71,51 @@ export class BlogsService {
   }
 
   async updateBlog(blogId: string, dto: UpdateBlogDto) {
-    return this.prisma.blog.update({
+    const { productIds, ...rest } = dto;
+
+    const updated = await this.prisma.blog.update({
       where: { id: blogId },
-      data: dto,
+      data: {
+        ...rest,
+        products:
+          productIds !== undefined
+            ? { set: productIds.map((id) => ({ id })) }
+            : undefined,
+      },
       select: BLOG_DETAIL_SELECT,
     });
+
+    return {
+      ...updated,
+      thumbnail: updated.thumbnail && {
+        ...updated.thumbnail,
+        srcUrl: this.storage.getCdnUrl(updated.thumbnail.blobPath),
+      },
+    };
   }
 
   async startGeneration(blogId: string) {
     const res = await this.prisma.$transaction(async (tx) => {
       const b = await tx.blog.findUniqueOrThrow({
         where: { id: blogId },
-        select: {
-          id: true,
-          storeId: true,
-          jobId: true,
-          topic: true,
-          title: true,
-          primaryKeyword: true,
-          secondaryKeywords: true,
-          productId: true,
-          currentStep: true
-        },
+        include: { job: { select: { id: true, status: true } } },
       });
-
-      if (b.jobId)
-        return { blog: { id: b.id, storeId: b.storeId }, shouldEnqueue: false };
 
       if (
         !b.topic ||
         !b.primaryKeyword ||
-        !b.title ||
         !b.secondaryKeywords?.length ||
         b.currentStep !== "COMPLETED"
       ) {
         throw new Error("Blog is not ready to generate");
       }
 
+      if (b.job && (b.job.status === "RUNNING" || b.job.status === "PENDING")) {
+        return { blog: { id: b.id, storeId: b.storeId }, shouldEnqueue: false };
+      }
+
       const key = makeDedupeKey(JobType.BLOG_GENERATION, blogId, new Date());
+
       const job = await tx.job.upsert({
         where: {
           type_storeId_dedupeKey: {
@@ -111,7 +124,14 @@ export class BlogsService {
             dedupeKey: key,
           },
         },
-        update: {},
+        update: {
+          status: JobStatus.PENDING,
+          error: null,
+          finishedAt: null,
+          startedAt: null,
+          lastHeartbeatAt: null,
+          attempts: { increment: 1 },
+        },
         create: {
           type: JobType.BLOG_GENERATION,
           storeId: b.storeId,
@@ -124,7 +144,6 @@ export class BlogsService {
       await tx.blog.update({
         where: { id: blogId },
         data: { jobId: job.id },
-        select: { id: true },
       });
 
       return { blog: { id: b.id, storeId: b.storeId }, shouldEnqueue: true };
@@ -139,10 +158,10 @@ export class BlogsService {
 
     return res;
   }
-  
+
   async syncAllNodesFromLexical(blogId: string, state: Record<string, any>) {
     const inputs = lexicalJsonToNodes(state);
-    
+
     const createInputs: Prisma.NodeCreateManyInput[] = inputs.map((n) => ({
       blogId,
       key: n.key,
