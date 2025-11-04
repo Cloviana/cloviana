@@ -30,7 +30,9 @@ const SectionSchema = z.object({
   subSections: z
     .array(SubSectionSchema)
     .nullable()
-    .describe("Optional sub-sections for this section. Add 1–3 when they provide helpful structure or clarity; otherwise set to null."),
+    .describe(
+      "Optional sub-sections for this section. Add 1–3 when they provide helpful structure or clarity; otherwise set to null."
+    ),
 });
 
 export const OutlineSchema = z
@@ -92,5 +94,25 @@ export const ThumbnailSchema = z.object({
     .describe("Descriptive alt text for the cover image"),
 });
 
+export const PlanSchema = z.object({
+  thumbnail: ThumbnailSchema,
+  outline: OutlineSchema,
+  title: z
+    .string()
+    .min(5)
+    .describe(
+      "The main title of the blog post. Should include the primary keyword naturally and be written for both readers and search engines."
+    ),
+  description: z
+    .string()
+    .min(50)
+    .max(180)
+    .describe(
+      "The meta description — a short, persuasive summary (around 150–160 characters) that clearly conveys what the page is about and encourages clicks from search results."
+    ),
+});
+
 export type Outline = z.infer<typeof OutlineSchema>;
 export type Thumbnail = z.infer<typeof ThumbnailSchema>;
+export type Plan = z.infer<typeof PlanSchema>;
+

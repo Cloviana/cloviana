@@ -1,17 +1,16 @@
 import { Annotation } from "@langchain/langgraph";
 import { Node } from "./schemas/node.schemas";
-import { Outline, Thumbnail } from "./schemas/outline.schemas";
+import { Plan } from "./schemas/outline.schemas";
 
 export type BlogMetadata = {
-  title: string;
   topic: string;
   primaryKeyword: string;
   secondaryKeywords: string[];
-  product?: {
+  products: {
     url: string;
     title: string;
     description: string;
-  } | null;
+  }[];
   additionalInstruction?: string | null;
   brandVoice?: string | null;
 
@@ -21,12 +20,6 @@ export type BlogMetadata = {
     min: number;
     max: number;
   };
-};
-
-export type Plan = {
-  outline: Outline;
-  thumbnail: Thumbnail;
-  description: string
 };
 
 export type Image = {

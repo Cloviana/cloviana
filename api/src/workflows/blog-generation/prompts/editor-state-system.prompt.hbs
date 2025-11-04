@@ -3,176 +3,182 @@
 You produce a JSON document that matches the provided `EditorStateSchema`. The document represents a clean, valid, well-structured blog article. Follow these rules exactly.
 
 ## Output Contract
-- Return a single JSON object of shape { "root": RootNode } that validates against EditorStateSchema.
-- Do not include explanations or extra fields. No IDs. No nulls. No empty strings. No empty `children` arrays.
-- Merge adjacent TEXT nodes with identical `format`, preserving any single required boundary space.
-- Use straight quotes, plain ASCII punctuation, and grade-5 readability.
+
+* Return a single JSON object of shape { "root": RootNode } that validates against EditorStateSchema.
+* Do not include explanations or extra fields. No IDs. No empty strings. No empty `children` arrays.
+* Allow `null` only where the schema permits it (e.g., `TEXT.format` may be null).
+* Merge adjacent TEXT nodes with identical `format`, preserving any single required boundary space.
+* Use straight quotes, plain ASCII punctuation, and grade-5 readability.
 
 ## Node Types (Block vs Inline)
-- Block-level nodes (direct children of `root` or other block containers): `paragraph`, `heading`, `list`, `quote`, `code`, `image`
-- Inline-level nodes (only inside text containers): `text`, `link` (and `image` may be used inline if the surrounding container allows it)
+
+* Block-level nodes (direct children of `ROOT` or other block containers): `PARAGRAPH`, `HEADING`, `LIST`, `QUOTE`, `IMAGE`
+* Inline-level nodes (only inside text containers): `TEXT`, `LINK` (and `IMAGE` may be used inline inside `PARAGRAPH`/`HEADING`)
 
 ## Hierarchy & Allowed Children
+
 Always respect these parent → child rules, even if the schema is permissive.
 
-- root
-  - Children: only block nodes: `paragraph | heading | list | quote | code | image`
+* ROOT
 
-- paragraph
-  - Children: `text | link | image`
-  - Do not nest block nodes inside a paragraph.
+  * Children: only block nodes: `PARAGRAPH | HEADING | LIST | QUOTE | IMAGE`
 
-- heading
-  - Fields: `tag` is one of `"h1" | "h2" | "h3"`
-  - Children: `text | link | image`
-  - Do not nest block nodes inside a heading.
+* PARAGRAPH
 
-- list
-  - Fields: `listType` is `"bullet"` or `"number"`
-  - Children: only `listitem`
-  - Do not place `text` or `paragraph` directly under `list`.
+  * Children: `TEXT | LINK | IMAGE`
+  * Do not nest block nodes inside a paragraph.
 
-- listitem
-  - Children: one or more `text` nodes ONLY.
-  - Do not include `paragraph`, `list`, `link`, `image`, or any block node inside `listitem`.
+* HEADING
 
-- quote
-  - Children: `paragraph | list | heading (h2/h3 only)`
-  - Do not include `h1` inside quotes. Avoid code blocks inside quotes.
+  * Fields: `tag` is one of `"h2" | "h3"`
+  * Children: `TEXT | LINK | IMAGE`
+  * Do not nest block nodes inside a heading.
 
-- code
-  - Fields: optional `language` (e.g., `"ts"`, `"js"`, `"json"`, `"bash"`, `"html"`, `"css"`)
-  - Children: one or more `text` nodes only
-  - No `format` on code text; keep it unformatted.
+* LIST
 
-- image
-  - Fields: `src` (absolute URL or canonical path), `altText` (non-empty preferred)
-  - May appear as a standalone block under `root` or inline within `paragraph/heading`.
-  - Do not place children under `image`.
+  * Fields: `listType` is `"bullet"` or `"number"`
+  * Children: only `LIST_ITEM`
+  * Do not place `TEXT` or `PARAGRAPH` directly under `LIST`.
 
-- link
-  - Fields: `url` (valid http/https)
-  - Children: `text` (and optionally `image` if you need a linked image)
-  - Links must wrap only the words that are linked. Do not nest links inside links.
+* LIST_ITEM
 
-- text
-  - Fields: `text` is non-empty string
-  - Optional `format`: array of any of `["bold","italic","underline"]`
-  - Do not include raw URLs; use a `link` node for hyperlinks.
-  - When a space is required between inline nodes (text/link/image) or at a sentence boundary, include it INSIDE `text` (as a leading space on the following `text` node).
-  - Do not omit the space after `.?!` when another inline node continues the sentence; do omit it at the end of the block.
+  * Children: one or more `TEXT` nodes ONLY.
+  * Do not include `PARAGRAPH`, `LIST`, `LINK`, `IMAGE`, or any block node inside `LIST_ITEM`.
+
+* QUOTE
+
+  * Children: `PARAGRAPH | LIST | HEADING (h2/h3 only)`
+  * Avoid deep nesting inside quotes.
+
+* IMAGE
+
+  * Fields: `src` (absolute URL or canonical path), `altText` (non-empty preferred)
+  * May appear as a standalone block under `ROOT` or inline within `PARAGRAPH/HEADING`.
+  * Do not place children under `IMAGE`.
+
+* LINK
+
+  * Fields: `url` (valid http/https)
+  * Children: `TEXT` nodes only (no images inside links).
+  * Links must wrap only the words that are linked. Do not nest links inside links.
+
+* TEXT
+
+  * Fields: `text` is a non-empty string
+  * Optional `format`: array of any of `["bold","italic","underline"]` or `null`
+  * Do not include raw URLs; use a `LINK` node for hyperlinks.
+  * When a space is required between inline nodes (text/link/image) or at a sentence boundary, include it inside `TEXT` as described below.
 
 ## Structural Rules
-- Exactly one `h1` per document, placed near the top. Subsequent section headings are `h2`; subsections use `h3`.
-- Avoid heading jumps (e.g., don’t go from `h1` to `h3` without an `h2`).
-- Use paragraphs for prose. Do not put raw `text` directly under `root`.
-- Lists must be meaningful and concise. Do not nest a `list` inside a `listitem`.
-- Quotes should contain self-contained thoughts; don’t overuse headings inside quotes.
-- Code blocks must contain only code text. No prose inside code.
-- Images should have descriptive `altText`. Use sparingly and where they add value.
-- No empty nodes, no empty `children`, no placeholder text like “lorem ipsum”.
+
+* Use `HEADING` with `tag: "h2"` for sections; use `HEADING` with `tag: "h3"` for subsections under the current `h2`.
+* Avoid heading jumps (don’t go from `h2` to `h3` without a parent `h2`).
+* Use paragraphs for prose. Do not put raw `TEXT` directly under `ROOT`.
+* Lists must be meaningful and concise. Do not nest a `LIST` inside a `LIST_ITEM`.
+* Images should have descriptive `altText`. Use sparingly and where they add value.
+* No empty nodes, no empty `children`, no placeholder text like “lorem ipsum”.
 
 ## Formatting Rules
-- Keep sentences short and concrete.
-- Use `format` only for emphasis; do not stack all three styles unless necessary.
-- Do not overlink. Link only when it adds value.
-- Normalize whitespace; no leading/trailing spaces in `text`.
+
+* Keep sentences short and concrete.
+* Use `format` only for emphasis; do not stack all three styles unless necessary.
+* Do not overlink. Link only when it adds value.
+* Normalize whitespace; no leading/trailing spaces at block boundaries.
 
 ### Whitespace & Node Boundaries
-- Emit EXACTLY ONE space between sentences inside a paragraph/heading.
-- Include the boundary space as a leading space on the next `text` node when an inline node follows.
-- Do not insert spaces inside `link.url`. Put spaces in adjacent `text` nodes instead.
-- Never start a paragraph/heading with a space; never end with a trailing space.
+
+* Emit EXACTLY ONE space between sentences inside a `PARAGRAPH`/`HEADING`.
+* TEXT → LINK: if the preceding `TEXT.text` ends with a letter/number, append exactly one trailing space inside that `TEXT.text`.
+* LINK → TEXT: the following `TEXT.text` must begin with exactly one leading space (or punctuation). The space must be inside that `TEXT.text`.
+* Do not insert spaces inside `LINK.url`. Put spaces in adjacent `TEXT` nodes instead.
+* Never start a `PARAGRAPH`/`HEADING` with a space; never end a block with a trailing space.
 
 ## Minimal Valid Example
+
 {
-  "root": {
-    "type": "root",
-    "children": [
-      {
-        "type": "heading",
-        "tag": "h1",
-        "children": [{ "type": "text", "text": "The Beginner’s Skincare Routine" }]
-      },
-      {
-        "type": "paragraph",
-        "children": [
-          { "type": "text", "text": "Start simple. Cleanse, moisturize, and protect daily." }
-        ]
-      }
-    ]
-  }
+"root": {
+"type": "ROOT",
+"children": [
+{
+"type": "HEADING",
+"tag": "h2",
+"children": [{ "type": "TEXT", "text": "The Beginner’s Skincare Routine", "format": null }]
+},
+{
+"type": "PARAGRAPH",
+"children": [
+{ "type": "TEXT", "text": "Start simple. Cleanse, moisturize, and protect daily.", "format": null }
+]
+}
+]
+}
 }
 
-## Rich Example (Headings, List, Link, Image, Code)
+## Rich Example (Headings, List, Link, Image)
+
 {
-  "root": {
-    "type": "root",
-    "children": [
-      {
-        "type": "heading",
-        "tag": "h1",
-        "children": [{ "type": "text", "text": "Build a Skincare Routine That Works" }]
-      },
-      {
-        "type": "paragraph",
-        "children": [
-          { "type": "text", "text": "A simple routine helps your skin stay healthy. Follow the steps below. " },
-          {
-            "type": "link",
-            "url": "https://example.com/dermatologist-basics",
-            "children": [{ "type": "text", "text": "Learn the basics" }]
-          },
-          { "type": "text", "text": " before you add extras." }
-        ]
-      },
-      {
-        "type": "image",
-        "src": "https://cdn.example.com/img/routine.jpg",
-        "altText": "Cleanser, moisturizer, and sunscreen on a counter"
-      },
-      {
-        "type": "heading",
-        "tag": "h2",
-        "children": [{ "type": "text", "text": "Morning Steps" }]
-      },
-      {
-        "type": "list",
-        "listType": "bullet",
-        "children": [
-          { "type": "listitem", "children": [{ "type": "text", "text": "Cleanser: wash gently for 30 seconds." }] },
-          { "type": "listitem", "children": [{ "type": "text", "text": "Moisturizer: use a pea-sized amount." }] },
-          { "type": "listitem", "children": [{ "type": "text", "text": "Sunscreen: SPF 30+ every day." }] }
-        ]
-      },
-      {
-        "type": "heading",
-        "tag": "h2",
-        "children": [{ "type": "text", "text": "Night Steps" }]
-      },
-      {
-        "type": "paragraph",
-        "children": [
-          { "type": "text", "text": "At night, cleanse again. Add a simple treatment if needed." }
-        ]
-      },
-      {
-        "type": "code",
-        "language": "json",
-        "children": [
-          { "type": "text", "text": "{\n  \"routine\": [\"cleanse\", \"moisturize\", \"protect\"]\n}" }
-        ]
-      }
-    ]
-  }
+"root": {
+"type": "ROOT",
+"children": [
+{
+"type": "HEADING",
+"tag": "h2",
+"children": [{ "type": "TEXT", "text": "Build a Skincare Routine That Works", "format": null }]
+},
+{
+"type": "PARAGRAPH",
+"children": [
+{ "type": "TEXT", "text": "A simple routine helps your skin stay healthy. Follow the steps below. ", "format": null },
+{
+"type": "LINK",
+"url": "[https://example.com/dermatologist-basics](https://example.com/dermatologist-basics)",
+"children": [{ "type": "TEXT", "text": "Learn the basics", "format": null }]
+},
+{ "type": "TEXT", "text": " before you add extras.", "format": null }
+]
+},
+{
+"type": "IMAGE",
+"src": "[https://cdn.example.com/img/routine.jpg](https://cdn.example.com/img/routine.jpg)",
+"altText": "Cleanser, moisturizer, and sunscreen on a counter"
+},
+{
+"type": "HEADING",
+"tag": "h2",
+"children": [{ "type": "TEXT", "text": "Morning Steps", "format": null }]
+},
+{
+"type": "LIST",
+"listType": "bullet",
+"children": [
+{ "type": "LIST_ITEM", "children": [{ "type": "TEXT", "text": "Cleanser: wash gently for 30 seconds.", "format": null }] },
+{ "type": "LIST_ITEM", "children": [{ "type": "TEXT", "text": "Moisturizer: use a pea-sized amount.", "format": null }] },
+{ "type": "LIST_ITEM", "children": [{ "type": "TEXT", "text": "Sunscreen: SPF 30+ every day.", "format": null }] }
+]
+},
+{
+"type": "HEADING",
+"tag": "h2",
+"children": [{ "type": "TEXT", "text": "Night Steps", "format": null }]
+},
+{
+"type": "PARAGRAPH",
+"children": [
+{ "type": "TEXT", "text": "At night, cleanse again. Add a simple treatment if needed.", "format": null }
+]
+}
+]
+}
 }
 
 ## Validation Checklist
-- Exactly one `h1`; heading levels are sequential (`h2` under `h1`, `h3` under `h2`).
-- No block nodes inside `paragraph` or `heading`.
-- `list` contains only `listitem`; each `listitem` contains only TEXT nodes.
-- No nested lists inside `listitem`.
-- `code` contains only `text`; no `format` array in code text.
-- `image.src` is present; `altText` is meaningful.
-- No empty `children`; no empty `text`.
-- Adjacent `text` nodes with the same `format` are merged, and required boundary spaces are preserved.
+
+* Heading levels are sequential: `h2` for sections, `h3` only under the current `h2`.
+* No block nodes inside `PARAGRAPH` or `HEADING`.
+* `LIST` contains only `LIST_ITEM`; each `LIST_ITEM` contains only `TEXT` nodes.
+* No nested lists inside `LIST_ITEM`.
+* `IMAGE.src` is present; `altText` is meaningful.
+* No empty `children`; no empty `text`. `TEXT.format` may be `null`.
+* `LINK.children` are `TEXT` nodes only.
+* Adjacent `TEXT` nodes with the same `format` are merged, and required boundary spaces are preserved.
+

@@ -67,7 +67,7 @@ export async function save(
 
   const rows = toRows(blogId, nodes.slice(1) as Node[], null);
 
-  const slug = state._metadata.title
+  const slug = state._plan.title
     .trim()
     .toLowerCase()
     .replace(/\s+/g, "-")
@@ -81,7 +81,7 @@ export async function save(
     async (tx) => {
       await tx.node.deleteMany({ where: { blogId } });
       await tx.node.createMany({ data: rows });
-      await tx.blog.update({ where: { id: blogId }, data: { slug, description: state._plan.description } });
+      await tx.blog.update({ where: { id: blogId }, data: { slug, description: state._plan.description, title: state._plan.title } });
       await tx.thumbnail.upsert({
         where: { blogId },
         update: { altText: state._image.alt, blobPath },

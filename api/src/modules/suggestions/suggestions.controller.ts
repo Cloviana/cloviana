@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   Controller,
   Get,
   HttpCode,
@@ -25,25 +26,25 @@ export class SuggestionsController {
 
   @Get("primary-keyword")
   @HttpCode(HttpStatus.OK)
-  async suggestPrimaryKeyword(@Query("topic") topic: string) {
-    return this.suggestions.suggestPrimaryKeyword(topic);
-  }
-
-  @Get("title")
-  @HttpCode(HttpStatus.OK)
-  async suggestTitle(@Query("topic") topic: string, @Query("primary-keyword") primaryKeyword: string) {
-    return this.suggestions.suggestTitle(topic, primaryKeyword);
+  async suggestPrimaryKeyword(
+    @Param("blogId") blogId: string,
+  ) {
+    return this.suggestions.suggestPrimaryKeyword(blogId);
   }
 
   @Get("secondary-keywords")
   @HttpCode(HttpStatus.OK)
-  async suggestSecondaryKeywords(@Query("title") title: string, @Query("topic") topic: string, @Query("primary-keyword") primaryKeyword: string) {
-    return this.suggestions.suggestSecondaryKeywords(topic, primaryKeyword, title);
+  async suggestSecondaryKeywords(
+    @Param("blogId") blogId: string,
+  ) {
+    return this.suggestions.suggestSecondaryKeywords(blogId);
   }
 
   @Get("product")
   @HttpCode(HttpStatus.OK)
-  async suggestProduct(@Query("title") title: string, @Query("topic") topic: string, @Param("blogId") blogId: string) {
-    return this.suggestions.suggestProduct(blogId, topic, title);
+  async suggestProduct(
+    @Param("blogId") blogId: string,
+  ) {
+    return this.suggestions.suggestProduct(blogId);
   }
 }

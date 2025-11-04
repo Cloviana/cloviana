@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { z } from 'zod';
 
 import { api } from '@/lib/api-client';
-import { MutationConfig } from '@/lib/react-query';
+import { blogKeys, MutationConfig } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
 
 export const generateBlogInputSchema = z.object({
@@ -44,12 +44,7 @@ export const useGenerateBlog = ({
     mutationFn: generateBlog,
     onSuccess: async (res, variables, context) => {
       await queryClient.invalidateQueries({
-        queryKey: [
-          'blogs',
-          'detail',
-          variables.data.storeId,
-          variables.data.blogId,
-        ],
+        queryKey: blogKeys.detail(variables.data.blogId),
       });
       onSuccess?.(res, variables, context);
     },

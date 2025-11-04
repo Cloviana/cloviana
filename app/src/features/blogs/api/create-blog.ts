@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { z } from 'zod';
 
 import { api } from '@/lib/api-client';
-import { MutationConfig } from '@/lib/react-query';
+import { blogKeys, MutationConfig } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
 import { Blog } from '@/types/api';
 
@@ -43,10 +43,7 @@ export const useCreateBlog = ({
   return useMutation({
     mutationFn: createBlog,
     onSuccess: (newBlog, variables, context) => {
-      queryClient.setQueryData<Blog>(
-        ['blogs', 'detail', variables.data.storeId, newBlog.id],
-        newBlog,
-      );
+      queryClient.setQueryData<Blog>(blogKeys.detail(newBlog.id), newBlog);
       onSuccess?.(newBlog, variables, context);
     },
     ...restConfig,

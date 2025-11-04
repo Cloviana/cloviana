@@ -3,7 +3,6 @@
 import {
   Feather,
   KeyRound,
-  Heading3,
   Tags,
   Package,
   WandSparkles,
@@ -17,7 +16,6 @@ import { useIsMobile } from '@/hooks/use-mobile';
 export type DrafterKey =
   | 'topic'
   | 'primary-keyword'
-  | 'title'
   | 'secondary-keywords'
   | 'product'
   | 'enhancements';
@@ -44,10 +42,9 @@ const DrafterContext = createContext<DrafterContextValue | null>(null);
 
 const steps: DrafterStep[] = [
   { title: 'Enter a Topic', key: 'topic', icon: Feather },
+  { title: 'Select Products', key: 'product', icon: Package },
   { title: 'Select a Primary Keyword', key: 'primary-keyword', icon: KeyRound },
-  { title: 'Enter a Title', key: 'title', icon: Heading3 },
   { title: 'Select Secondary Keywords', key: 'secondary-keywords', icon: Tags },
-  { title: 'Select a Product', key: 'product', icon: Package },
   { title: 'Enhancements', key: 'enhancements', icon: WandSparkles },
 ];
 
@@ -56,7 +53,6 @@ const order = steps.map((s) => s.key) as DrafterKey[];
 const keyToEnum = {
   topic: 'TOPIC',
   'primary-keyword': 'PRIMARY_KEYWORD',
-  title: 'TITLE',
   'secondary-keywords': 'SECONDARY_KEYWORDS',
   product: 'PRODUCT',
   enhancements: 'ENHANCEMENTS',
@@ -116,7 +112,7 @@ export function DrafterProvider({
 
   const goNext = () => {
     const i = indexByKey.get(currentKey) ?? 0;
-    setCurrentKey(order[Math.min(i + 1, currentIndex)]);
+    setCurrentKey(order[Math.min(i + 1, order.length - 1)]);
   };
 
   const goPrev = () => {

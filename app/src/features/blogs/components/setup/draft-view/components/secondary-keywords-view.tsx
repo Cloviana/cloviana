@@ -274,9 +274,6 @@ export function SecondaryKeywordsView() {
   const { data: suggestions = [], isLoading } =
     useGetSecondaryKeywordSuggestions({
       blogId,
-      topic: blog?.topic ?? '',
-      primaryKeyword: blog?.primaryKeyword ?? '',
-      title: blog?.title ?? '',
     });
 
   const [selected, setSelected] = React.useState<string[]>([]);

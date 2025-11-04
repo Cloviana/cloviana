@@ -2,7 +2,7 @@ import { queryOptions, useQuery } from '@tanstack/react-query';
 
 import { SerpIntent } from '@/features/blogs/types';
 import { api } from '@/lib/api-client';
-import { QueryConfig } from '@/lib/react-query';
+import { QueryConfig, suggestionsKeys } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
 
 export type PrimaryKeywordSuggestion = {
@@ -15,14 +15,13 @@ export type PrimaryKeywordSuggestion = {
 
 export const getPrimaryKeywordSuggestions = async (
   blogId: string,
-  topic: string,
 ): Promise<PrimaryKeywordSuggestion[]> => {
   const token = await fetchAccessToken();
   if (!token) {
     throw new Error('Access token is not available');
   }
   const response = await api.get<PrimaryKeywordSuggestion[]>(
-    `/blogs/${blogId}/suggestions/primary-keyword?topic=${encodeURIComponent(topic)}`,
+    `/blogs/${blogId}/suggestions/primary-keyword`,
     {
       headers: { Authorization: `Bearer ${token}` },
     },
@@ -30,28 +29,23 @@ export const getPrimaryKeywordSuggestions = async (
   return response;
 };
 
-export const getPrimaryKeywordSuggestionsQueryOptions = (
-  blogId: string,
-  topic: string,
-) =>
+export const getPrimaryKeywordSuggestionsQueryOptions = (blogId: string) =>
   queryOptions({
-    queryKey: ['suggestions', 'primary-keyword', blogId, topic],
-    queryFn: () => getPrimaryKeywordSuggestions(blogId, topic),
-    enabled: Boolean(blogId && topic),
+    queryKey: suggestionsKeys.primary(blogId),
+    queryFn: () => getPrimaryKeywordSuggestions(blogId),
+    enabled: Boolean(blogId),
   });
 
 type UseGetPrimaryKeywordSuggestionsOptions = {
   blogId: string;
-  topic: string;
   queryConfig?: QueryConfig<typeof getPrimaryKeywordSuggestionsQueryOptions>;
 };
 
 export const useGetPrimaryKeywordSuggestions = ({
   blogId,
-  topic,
   queryConfig,
 }: UseGetPrimaryKeywordSuggestionsOptions) =>
   useQuery({
-    ...getPrimaryKeywordSuggestionsQueryOptions(blogId, topic),
+    ...getPrimaryKeywordSuggestionsQueryOptions(blogId),
     ...queryConfig,
   });

@@ -28,7 +28,7 @@ const PageHeader = ({
   ...props
 }: React.ComponentProps<'div'>) => {
   return (
-    <div className={cn('mb-7 space-y-1', className)} {...props}>
+    <div className={cn('mb-5 space-y-[3px]', className)} {...props}>
       {children}
     </div>
   );
@@ -41,7 +41,7 @@ const PageTitle = ({
 }: React.ComponentProps<'h1'>) => {
   return (
     <h1
-      className={cn('text-lg font-semibold tracking-tight', className)}
+      className={cn('text-base font-semibold tracking-tight', className)}
       {...props}
     >
       {children}
@@ -55,7 +55,10 @@ const PageParagraph = ({
   ...props
 }: React.ComponentProps<'p'>) => {
   return (
-    <p className={cn('text-foreground-light text-sm', className)} {...props}>
+    <p
+      className={cn('text-foreground-light text-[13px]', className)}
+      {...props}
+    >
       {children}
     </p>
   );
