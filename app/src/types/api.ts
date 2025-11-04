@@ -121,6 +121,7 @@ export type BlogDetail = Blog & {
   nodes: Node[];
   job?: Job | null;
   thumbnail?: Thumbnail | null;
+  products: Product[];
 };
 
 export type StoreDetail = Store & {
@@ -132,11 +133,7 @@ export type Product = Entity<{
   title: string;
   status: ProductStatus;
   description: string | null;
-  tags: string[];
   imageUrl: string | null;
-  category: string | null;
-  syncedAt: ISODate | null;
-  onlineStorePreviewUrl: string;
   onlineStoreUrl: string | null;
 }>;
 

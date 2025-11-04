@@ -1,7 +1,7 @@
 import { queryOptions, useQuery } from '@tanstack/react-query';
 
 import { api } from '@/lib/api-client';
-import { QueryConfig } from '@/lib/react-query';
+import { QueryConfig, suggestionsKeys } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
 
 export const getTopicSuggestions = async (
@@ -22,8 +22,9 @@ export const getTopicSuggestions = async (
 
 export const getTopicSuggestionsQueryOptions = (blogId: string) =>
   queryOptions({
-    queryKey: ['suggestions', 'topic', blogId],
+    queryKey: suggestionsKeys.topics(blogId),
     queryFn: () => getTopicSuggestions(blogId),
+    enabled: Boolean(blogId),
   });
 
 type UseGetTopicSuggestionsOptions = {

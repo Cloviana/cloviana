@@ -19,7 +19,6 @@ export const BLOG_DETAIL_SELECT: Prisma.BlogSelect = {
   primaryKeyword: true,
   secondaryKeywords: true,
   currentStep: true,
-  productId: true,
   slug: true,
   description: true,
   brandVoice: true,
@@ -31,5 +30,13 @@ export const BLOG_DETAIL_SELECT: Prisma.BlogSelect = {
   nodes: {
     orderBy: [{ sortOrder: "asc" }, { parentKey: "asc" }],
     select: { key: true, parentKey: true, sortOrder: true, type: true, payload: true },
+  },
+  products: {
+    select: {
+      id: true,
+      title: true,
+      imageUrl: true,
+      onlineStoreUrl: true,
+    },
   },
 };

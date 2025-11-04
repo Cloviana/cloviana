@@ -222,7 +222,6 @@ export const PrimaryKeywordView = () => {
   const { data: suggestions = [], isLoading } = useGetPrimaryKeywordSuggestions(
     {
       blogId,
-      topic: blog?.topic ?? '',
     },
   );
 
