@@ -1,7 +1,7 @@
 import { queryOptions, useQuery } from '@tanstack/react-query';
 
 import { api } from '@/lib/api-client';
-import { QueryConfig } from '@/lib/react-query';
+import { blogKeys, QueryConfig } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
 import { Blog } from '@/types/api';
 
@@ -15,7 +15,7 @@ export const getBlogs = async (storeId: string): Promise<Blog[]> => {
 
 export const getBlogsQueryOptions = (storeId: string) =>
   queryOptions({
-    queryKey: ['blogs', 'list', storeId],
+    queryKey: blogKeys.all,
     queryFn: () => getBlogs(storeId),
     staleTime: 1000 * 60 * 5,
     gcTime: 1000 * 60 * 30,

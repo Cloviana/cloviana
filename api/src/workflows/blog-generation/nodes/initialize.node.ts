@@ -11,20 +11,19 @@ export async function initialize(
 
   const blog = await prisma.blog.findUniqueOrThrow({
     where: { id: state._blogId },
-    include: { store: true, product: true },
+    include: { store: true, products: true },
   });
 
   return {
     _metadata: {
-      title: blog.title!,
       topic: blog.topic!,
       primaryKeyword: blog.primaryKeyword!,
       secondaryKeywords: blog.secondaryKeywords!,
-      product: blog.product && {
-        url: blog.product?.onlineStoreUrl ?? blog.product?.onlineStorePreviewUrl,
-        title: blog.product?.title!,
-        description: blog.product?.description!
-      },
+      products: blog.products.map((product) => ({
+        url: product?.onlineStoreUrl ?? product?.onlineStorePreviewUrl,
+        title: product.title!,
+        description: product.description!,
+      })), 
       additionalInstruction: blog.additionalInstruction,
       brandVoice: blog.brandVoice,
 

@@ -35,9 +35,10 @@ export class UpdateBlogDto {
 @IsString({ each: true })
 secondaryKeywords?: string[];
 
-@IsUUID()
   @IsOptional()
-  productId?: string;
+  @IsArray()
+  @IsUUID('4', { each: true })
+  productIds?: string[];
 
   @IsEnum(BlogSetupStep)
   @IsOptional()

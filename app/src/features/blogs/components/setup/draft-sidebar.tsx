@@ -3,7 +3,6 @@
 import { Check, Menu } from 'lucide-react';
 import * as React from 'react';
 
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -29,7 +28,7 @@ export const StepButton = React.forwardRef<HTMLButtonElement, StepButtonProps>(
         ref={ref}
         {...props}
         className={cn(
-          'flex w-full cursor-pointer items-center justify-between gap-3 rounded-md border border-neutral-200 px-3.5 py-2 text-left transition-colors',
+          'flex w-full cursor-pointer items-center gap-3 rounded-md border border-neutral-200 px-3.5 py-2 text-left transition-colors',
           isCurrent ? 'bg-zinc-100' : 'bg-neutral-50 hover:bg-neutral-200/50',
           !canGoTo(step.key) && 'pointer-events-none opacity-65',
           className,
@@ -38,18 +37,20 @@ export const StepButton = React.forwardRef<HTMLButtonElement, StepButtonProps>(
         onClick={() => goTo(step.key)}
         aria-current={isCurrent ? 'step' : undefined}
       >
+        <div
+          className={cn(
+            'flex size-4 items-center justify-center rounded-full text-white',
+            isDone ? 'bg-primary' : 'border bg-neutral-50',
+          )}
+        >
+          {isDone && <Check className="size-2" strokeWidth={3} />}
+        </div>
         <div className="flex items-center gap-2">
           <step.icon className="size-3.5" strokeWidth={2.7} />
           <span className="text-sm font-semibold text-nowrap">
             {step.title}
           </span>
         </div>
-        {isDone && (
-          <Badge variant="warning" className="pointer-events-none rounded-full">
-            <Check className="mr-1 size-3" />
-            Complete
-          </Badge>
-        )}
       </button>
     );
   },

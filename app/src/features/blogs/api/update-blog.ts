@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { z } from 'zod';
 
 import { api } from '@/lib/api-client';
-import { MutationConfig } from '@/lib/react-query';
+import { MutationConfig, blogKeys, suggestionsKeys } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
 import { BlogDetail } from '@/types/api';
 
@@ -19,7 +19,7 @@ export const updateBlogInputSchema = z.object({
   primaryKeyword: str.min(1).optional(),
   secondaryKeywords: z.array(str.min(1)).optional(),
   additionalInstruction: z.string().optional(),
-  productId: z.string().uuid().optional(),
+  productIds: z.array(z.string().uuid()).optional(),
   currentStep: z
     .enum([
       'TOPIC',
@@ -56,20 +56,50 @@ type UseUpdateBlogOptions = {
 export const useUpdateBlog = ({
   mutationConfig,
 }: UseUpdateBlogOptions = {}) => {
-  const queryClient = useQueryClient();
+  const qc = useQueryClient();
   const { onSuccess, ...restConfig } = mutationConfig || {};
 
   return useMutation({
     mutationFn: updateBlog,
-    onSuccess: (data, variables, context) => {
-      const { blogId, storeId, ...updates } = variables;
-      queryClient.setQueryData<BlogDetail>(
-        ['blogs', 'detail', storeId, blogId],
-        (old) => ({
-          ...old!,
-          ...updates,
-        }),
-      );
+    onSuccess: async (data, variables, context) => {
+      const { blogId, ...updates } = variables;
+
+      qc.setQueryData<BlogDetail>(blogKeys.detail(blogId), (old) => ({
+        ...old!,
+        ...updates,
+      }));
+
+      const changed = new Set(Object.keys(updates));
+
+      const invalidations: Array<Promise<unknown>> = [
+        qc.invalidateQueries({ queryKey: blogKeys.detail(blogId) }),
+      ];
+
+      if (changed.has('topic')) {
+        invalidations.push(
+          qc.invalidateQueries({ queryKey: suggestionsKeys.topics(blogId) }),
+          qc.invalidateQueries({ queryKey: suggestionsKeys.primary(blogId) }),
+          qc.invalidateQueries({ queryKey: suggestionsKeys.secondary(blogId) }),
+          qc.invalidateQueries({ queryKey: suggestionsKeys.product(blogId) }),
+        );
+      }
+
+      if (changed.has('productIds')) {
+        invalidations.push(
+          qc.invalidateQueries({ queryKey: suggestionsKeys.product(blogId) }),
+          qc.invalidateQueries({ queryKey: suggestionsKeys.primary(blogId) }),
+          qc.invalidateQueries({ queryKey: suggestionsKeys.secondary(blogId) }),
+        );
+      }
+
+      if (changed.has('primaryKeyword')) {
+        invalidations.push(
+          qc.invalidateQueries({ queryKey: suggestionsKeys.secondary(blogId) }),
+        );
+      }
+
+      await Promise.all(invalidations);
+
       onSuccess?.(data, variables, context);
     },
     ...restConfig,

@@ -149,7 +149,7 @@ model Product {
   updatedAt             DateTime      @updatedAt
 
   store Store  @relation(fields: [storeId], references: [id], onDelete: Cascade)
-  blogs Blog[] @relation("BlogProduct")
+  blogs   Blog[]
 
   @@unique([storeId, handle])
   @@unique([storeId, shopifyId])
@@ -223,18 +223,16 @@ model Blog {
   storeId               String
   shopifyArticleId      String?
   jobId                 String?       @db.Uuid
-  productId             String?       @db.Uuid
   createdAt             DateTime      @default(now())
   updatedAt             DateTime      @updatedAt
 
   store     Store      @relation(fields: [storeId], references: [id], onDelete: Cascade)
   job       Job?       @relation(fields: [jobId], references: [id], onDelete: Cascade)
-  product   Product?   @relation("BlogProduct", fields: [productId], references: [id], onDelete: SetNull)
+  products  Product[]
   nodes     Node[]
   thumbnail Thumbnail?
 
   @@index([storeId])
-  @@index([productId])
   @@map("blogs")
 }
 
