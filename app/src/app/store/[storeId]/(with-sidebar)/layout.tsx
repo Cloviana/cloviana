@@ -6,7 +6,6 @@ import { LoadingFallback } from '@/components/fallbacks/loading-fallback';
 import * as AppHeader from '@/components/layouts/app-header';
 import { AppSidebar } from '@/components/layouts/app-sidebar';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
-import { AccessStageGuard } from '@/features/access/components/access-stage-guard';
 
 import { Guard } from './_components/guard';
 
@@ -40,9 +39,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <main className="flex-1 overflow-y-auto">
               <Suspense fallback={<LoadingFallback />}>
                 <ErrorBoundary fallback={<ErrorFallback />}>
-                  <AccessStageGuard>
-                    <Guard>{children}</Guard>
-                  </AccessStageGuard>
+                  <Guard>{children}</Guard>
                 </ErrorBoundary>
               </Suspense>
             </main>

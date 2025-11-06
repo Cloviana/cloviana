@@ -13,7 +13,6 @@ import {
 import { BlogsService } from './services/blogs.service';
 import { UpdateBlogDto } from './dtos/update-blog.dto';
 import { SyncLexicalDto } from '@/modules/blogs/dtos/sync-nodes.dto';
-import { StoreAccessGuard } from '@/guards/store-access.guard';
 import { StoreOwnerGuard } from '@/guards/store-owner.guard';
 
 @Controller('stores/:storeId/blogs')
@@ -26,20 +25,19 @@ export class BlogsController {
   }
 
   @Post()
-  @UseGuards(StoreAccessGuard)
   @HttpCode(HttpStatus.CREATED)
   async createDraft(@Param('storeId') storeId: string) {
     return this.blogs.createDraft(storeId);
   }
 
   @Get(':blogId')
-  @UseGuards(StoreAccessGuard, StoreOwnerGuard)
+  @UseGuards(StoreOwnerGuard)
   async getBlog(@Param('blogId') blogId: string) {
     return this.blogs.getBlog(blogId);
   }
 
   @Patch(':blogId')
-  @UseGuards(StoreAccessGuard, StoreOwnerGuard)
+  @UseGuards(StoreOwnerGuard)
   @HttpCode(HttpStatus.OK)
   async updateBlog(
     @Param('blogId') blogId: string,
@@ -49,7 +47,7 @@ export class BlogsController {
   }
 
   @Post(':blogId/generate')
-  @UseGuards(StoreAccessGuard, StoreOwnerGuard)
+  @UseGuards(StoreOwnerGuard)
   @HttpCode(HttpStatus.ACCEPTED)
   async generate(@Param('blogId') blogId: string) {
     await this.blogs.startGeneration(blogId);
@@ -57,7 +55,7 @@ export class BlogsController {
   }
 
   @Put(':blogId/nodes/sync')
-  @UseGuards(StoreAccessGuard, StoreOwnerGuard)
+  @UseGuards(StoreOwnerGuard)
   @HttpCode(HttpStatus.OK)
   async syncAllNodes(
     @Param('blogId') blogId: string,
@@ -68,7 +66,7 @@ export class BlogsController {
   }
 
   @Put(':blogId/publish')
-  @UseGuards(StoreAccessGuard, StoreOwnerGuard)
+  @UseGuards(StoreOwnerGuard)
   async publish(@Param('blogId') blogId: string) {
     return this.blogs.publishToShopify(blogId);
   }
