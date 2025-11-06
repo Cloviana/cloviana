@@ -1,18 +1,17 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
-import { FC } from 'react';
+import { useRouter } from 'next/navigation';
+import { FC, useState } from 'react';
 
-import { GIcon } from '@/components/icons';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import {
   Marquee,
   MarqueeContent,
   MarqueeFade,
   MarqueeItem,
 } from '@/components/ui/marquee';
-import { links } from '@/config/links';
 import { paths } from '@/config/paths';
 import { gaEvent } from '@/lib/ga/client';
 import { cn } from '@/utils/cn';
@@ -22,44 +21,70 @@ interface HeroProps {
 }
 
 export const Hero: FC<HeroProps> = ({ className }) => {
+  const { push } = useRouter();
+  const [storeUrl, setStoreUrl] = useState('');
+
+  function normalize(url: string) {
+    let v = url.trim();
+    if (!/^https?:\/\//i.test(v)) v = 'https://' + v;
+    return v;
+  }
+
+  function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    gaEvent('sign_up');
+    const v = normalize(storeUrl);
+    push(paths.auth.signup.getHref({ store: v }));
+  }
+
   return (
     <section className={cn(className, 'padding-global')}>
       <div className="padding-section-medium container pb-[3rem]">
-        <div className="flex flex-col space-y-6">
-          <span className="text-foreground-light text-sm">
-            Your always-on AI teammate for organic growth
-          </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl">
-            The fastest way to get pages for ready-to-buy searches live
-          </h1>
-          <p className="max-w-[70ch] text-base md:text-lg">
-            We turn your Shopify products into on-brand posts mapped to{' '}
-            <strong>real search volume</strong> and link them to product
-            pages—approve, publish, track in GSC/GA4.
-          </p>
+        <div className="max-w-[70ch]">
+          <div className="flex flex-col space-y-3 md:space-y-4">
+            <span className="text-foreground-light text-sm">
+              For Shopify stores
+            </span>
 
-          <div className="flex w-full flex-col items-stretch gap-2 md:flex-row md:items-center">
-            <Button asChild size="lg" onClick={() => gaEvent('sign_up')}>
-              <Link href={paths.auth.signup.getHref()}>
-                Get started for free
-              </Link>
-            </Button>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl">
+              More buyers from Google and AI search — no ads
+            </h1>
 
-            <Button
-              asChild
-              className="group"
-              variant={'outline'}
-              size="lg"
-              onClick={() => gaEvent('book_demo')}
-            >
-              <a href={links.demo} target="_blank" rel="noopener noreferrer">
-                Request a demo
-                <GIcon
-                  name="arrow_forward"
-                  className="transition-transform group-hover:translate-x-0.5"
+            <div className="flex flex-col">
+              <p className="text-base md:text-lg">
+                Your products become on-brand posts that rank on Google and in
+                AI search. We find buyer searches, write, link to your SKUs, and
+                publish to Shopify.
+              </p>
+              <p className="text-foreground-lighter mt-1.5 text-xs md:mt-2">
+                Find what people search · Write the post · Link to product pages
+                · Publish to Shopify
+              </p>
+            </div>
+          </div>
+          <div className="mt-6 flex w-full flex-col items-stretch gap-2 md:mt-8 md:flex-row md:items-center">
+            <form onSubmit={onSubmit} className="w-full md:max-w-lg">
+              <div className="relative">
+                <Input
+                  type="url"
+                  inputMode="url"
+                  placeholder="Enter your Shopify store URL"
+                  value={storeUrl}
+                  onChange={(e) => setStoreUrl(e.target.value)}
+                  className="h-12 pr-36"
+                  size="lg"
+                  required
                 />
-              </a>
-            </Button>
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="absolute top-1/2 right-1 -translate-y-1/2"
+                >
+                  <span className="sm:hidden">Get started</span>
+                  <span className="hidden sm:inline">Get started for free</span>
+                </Button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

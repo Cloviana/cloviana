@@ -1,7 +1,13 @@
 import FooterSection from '@/components/sections/footer/default';
 import { Navbar } from '@/components/sections/navbar';
 
-import { FinalCTA, Hero, Overview, Testimonial } from './_components';
+import {
+  FinalCTA,
+  Hero,
+  Benefits,
+  Testimonial,
+  HowItWorks,
+} from './_components';
 
 export default function HomePage() {
   return (
@@ -11,9 +17,9 @@ export default function HomePage() {
       </header>
       <main className="bg-background">
         <Hero />
-        <Overview />
+        <Benefits />
+        <HowItWorks />
         <Testimonial />
-        {/*<Comparison /> */}
         <FinalCTA />
       </main>
       <FooterSection />
