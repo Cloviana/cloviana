@@ -126,7 +126,7 @@ export const Hero: FC<HeroProps> = ({ className }) => {
       <div className="container">
         <div className="relative z-10 p-3 md:p-8 lg:p-10">
           <Image
-            src="https://cloviana-assets-czbfhwh7a2epccgb.z01.azurefd.net/landing/hero-background.png"
+            src="https://cloviana-assets-czbfhwh7a2epccgb.z01.azurefd.net/landing/hero-background.png?v=2025-11-06-1"
             alt="Demo background"
             fill
             priority
