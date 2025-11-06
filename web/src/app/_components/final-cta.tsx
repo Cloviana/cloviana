@@ -17,12 +17,12 @@ interface FinalCTAProps {
 export const FinalCTA: FC<FinalCTAProps> = ({ className }) => {
   return (
     <section className={cn(className, 'padding-section-small')}>
-      <div className="md:container">
+      <div className="container">
         <div className="relative overflow-hidden md:aspect-[3/1] md:rounded-xl">
           <video
             src="https://cloviana-assets-czbfhwh7a2epccgb.z01.azurefd.net/landing/final-cta.mp4"
             poster="https://cloviana-assets-czbfhwh7a2epccgb.z01.azurefd.net/landing/final-cta-blur.jpg"
-            className="h-auto w-full object-cover md:absolute md:inset-0 md:h-full md:w-full"
+            className="h-auto w-full rounded-xl object-cover md:absolute md:inset-0 md:h-full md:w-full"
             autoPlay
             loop
             muted
@@ -30,7 +30,7 @@ export const FinalCTA: FC<FinalCTAProps> = ({ className }) => {
           />
 
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center">
-            <h2 className="font-switzer mb-8 text-4xl font-medium text-white md:text-5xl lg:text-6xl">
+            <h2 className="font-switzer mb-6 text-3xl font-medium text-white md:text-4xl lg:text-6xl">
               Try Cloviana now.
             </h2>
             <div className="flex flex-row items-center justify-center gap-4">
@@ -46,7 +46,7 @@ export const FinalCTA: FC<FinalCTAProps> = ({ className }) => {
               </Button>
               <Button
                 asChild
-                variant="ghost"
+                variant="ghost_a"
                 className="group text-white"
                 onClick={() => gaEvent('book_demo')}
               >
