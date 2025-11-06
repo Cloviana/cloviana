@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { Separator } from '@/components/ui/separator';
-import { links } from '@/config/links';
 import { paths } from '@/config/paths';
 
 const footerLinks = [
@@ -34,7 +33,7 @@ const footerLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-background">
+    <footer className="bg-background mt-8">
       <div className="mx-auto max-w-(--breakpoint-xl)">
         <div className="flex flex-col items-start justify-between gap-x-8 gap-y-10 px-6 py-10 sm:flex-row xl:px-0">
           <div>
@@ -66,7 +65,7 @@ const Footer = () => {
           </span>
 
           <div className="text-foreground flex items-center gap-5">
-            <Link target="_blank" href={links.linkedin}>
+            <Link target="_blank" href={'#'}>
               <Image
                 width={22}
                 height={22}

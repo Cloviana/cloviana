@@ -1,5 +1,11 @@
 import { FC } from 'react';
 
+import {
+  Marquee,
+  MarqueeContent,
+  MarqueeFade,
+  MarqueeItem,
+} from '@/components/ui/marquee';
 import { cn } from '@/utils/cn';
 
 interface PartneredByProps {
@@ -9,58 +15,70 @@ interface PartneredByProps {
 export const PartneredBy: FC<PartneredByProps> = ({ className }) => {
   return (
     <section
-      className={cn(className, 'padding-global relative overflow-hidden')}
+      className={cn(
+        className,
+        'padding-global relative overflow-hidden border-t border-b',
+      )}
     >
-      <div className="padding-section-small relative z-10 container space-y-8 pb-26">
-        <p className="text-center text-sm md:text-base">
+      <div className="relative z-10 container border-r border-l pt-8">
+        <p className="text-foreground-lighter text-center text-sm">
           Proudly partnered with leading companies powering smarter organic
           growth.
         </p>
 
-        <div className="grid grid-cols-2 place-items-center gap-x-3 gap-y-6 md:grid-cols-3 lg:grid-cols-6">
-          <div className="flex h-19 w-full items-center justify-center rounded-md border bg-neutral-50/70 shadow-xs">
-            <img
-              className="h-7 opacity-75"
-              src="/logos/openai-logo.svg"
-              alt="OpenAI"
-            />
-          </div>
-          <div className="flex h-19 w-full items-center justify-center rounded-md border bg-neutral-50/70 shadow-xs">
-            <img
-              className="h-6 opacity-75"
-              src="/logos/Claude_Logo_0.svg"
-              alt="Claude"
-            />
-          </div>
-          <div className="flex h-19 w-full items-center justify-center rounded-md border bg-neutral-50/70 shadow-xs">
-            <img
-              className="h-7 opacity-75"
-              src="/logos/Ideogram_id9LsmXQWf_0.svg"
-              alt="Ideogram"
-            />
-          </div>
-          <div className="flex h-19 w-full items-center justify-center rounded-md border bg-neutral-50/70 shadow-xs">
-            <img
-              className="h-6.5 opacity-75"
-              src="/logos/Shopify.com_Logo_0.svg"
-              alt="Shopify"
-            />
-          </div>
-          <div className="flex h-19 w-full items-center justify-center rounded-md border bg-neutral-50/70 shadow-xs">
-            <img
-              className="h-9 opacity-75"
-              src="/logos/SEMrush_idVgjVMO52_0.svg"
-              alt="SEMrush"
-            />
-          </div>
-          <div className="flex h-19 w-full items-center justify-center rounded-md border bg-neutral-50/70 shadow-xs">
-            <img
-              className="h-7 opacity-75"
-              src="/logos/SE Ranking_idwstdxyha_1.svg"
-              alt="SE Ranking"
-            />
-          </div>
-        </div>
+        <Marquee>
+          <MarqueeFade side="left" />
+          <MarqueeFade side="right" />
+          <MarqueeContent pauseOnHover={false}>
+            <MarqueeItem className="mx-10 flex h-28 w-28 items-center justify-center">
+              <img
+                src="/logos/openai-logo.svg"
+                alt="OpenAI"
+                className="h-7 object-contain opacity-70"
+              />
+            </MarqueeItem>
+
+            <MarqueeItem className="mx-10 flex h-28 w-28 items-center justify-center">
+              <img
+                src="/logos/Claude_Logo_0.svg"
+                alt="Claude"
+                className="h-7 object-contain opacity-70"
+              />
+            </MarqueeItem>
+
+            <MarqueeItem className="mx-10 flex h-28 w-28 items-center justify-center">
+              <img
+                src="/logos/Ideogram_id9LsmXQWf_0.svg"
+                alt="Ideogram"
+                className="h-9 object-contain opacity-70"
+              />
+            </MarqueeItem>
+
+            <MarqueeItem className="mx-10 flex h-28 w-28 items-center justify-center">
+              <img
+                src="/logos/Shopify.com_Logo_0.svg"
+                alt="Shopify"
+                className="h-7 object-contain opacity-70"
+              />
+            </MarqueeItem>
+
+            <MarqueeItem className="mx-10 flex h-28 w-28 items-center justify-center">
+              <img
+                src="/logos/SEMrush_idVgjVMO52_0.svg"
+                alt="SEMrush"
+                className="h-10 object-contain opacity-70"
+              />
+            </MarqueeItem>
+
+            <MarqueeItem className="mx-10 flex h-28 w-28 items-center justify-center">
+              <img
+                src="/logos/SE Ranking_idwstdxyha_1.svg"
+                alt="SE Ranking"
+                className="h-8 object-contain opacity-70"
+              />
+            </MarqueeItem>
+          </MarqueeContent>
+        </Marquee>
       </div>
     </section>
   );
