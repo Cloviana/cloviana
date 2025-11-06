@@ -12,6 +12,7 @@ const buttonVariants = cva(
         default: 'bg-primary text-primary-foreground hover:opacity-85',
         outline: 'border bg-background hover:bg-[#ebeaea]',
         ghost: 'bg-background/30 backdrop-blur hover:bg-[#ebeaea]',
+        ghost_a: 'bg-background/30 backdrop-blur hover:opacity-85',
         link: 'text-brand-secondary hover:underline',
       },
       size: {

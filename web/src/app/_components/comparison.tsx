@@ -12,11 +12,11 @@ export const Comparison: FC<ComparisonProps> = ({ className }) => {
   return (
     <section className={cn(className, 'padding-global relative')}>
       <div className="padding-section-large container">
-        <div className="mb-12 space-y-6 text-center">
+        <div className="mb-12 space-y-6 text-left">
           <h1 className="text-3xl md:text-4xl">
             See how Cloviana handles organic growth — without hiring
           </h1>
-          <p className="mx-auto max-w-[55ch] text-base md:text-lg">
+          <p className="max-w-[55ch] text-base md:text-lg">
             We turn your Shopify products into product-led content around real
             buyer searches, publish with your approval, and point readers
             straight to your product pages.
