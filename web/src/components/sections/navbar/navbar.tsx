@@ -1,5 +1,6 @@
 'use client';
 
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { X, Menu } from 'lucide-react';
 import Link from 'next/link';
 import { FC, useState } from 'react';
@@ -19,77 +20,93 @@ interface NavbarProps {
 
 export const Navbar: FC<NavbarProps> = ({ className }) => {
   const [menuOpened, setMenuOpened] = useState(false);
+  const [showBorder, setShowBorder] = useState(false);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    setShowBorder(latest > 10);
+  });
 
   return (
     <div className="relative">
-      <nav className={cn('padding-global py-2.5', className)}>
-        <div className="relative container flex items-center justify-between gap-8 px-0">
+      <motion.nav
+        className={cn(
+          'padding-global py-2.5 backdrop-blur transition-colors duration-300',
+          showBorder
+            ? 'border-b bg-[#f9f9f9]/60'
+            : 'border-b border-transparent bg-white',
+          className,
+        )}
+      >
+        <div className="relative container flex items-center gap-8 px-0">
           <div className="flex shrink-0">
             <Link href={paths.home.getHref()}>
               <img src="/logo-full.png" alt="Logo" className="w-19" />
             </Link>
           </div>
+          <div className="flex flex-1 items-center justify-between">
+            <div className="hidden items-center md:flex">
+              <NavItem type="link" href={paths.home.getHref()}>
+                Home
+              </NavItem>
+              <NavItem type="link" href={paths.home.getHref()}>
+                Case Studies
+              </NavItem>
+              <NavItem type="link" href={paths.home.getHref()}>
+                Blog
+              </NavItem>
+              <NavItem type="link" href={paths.home.getHref()}>
+                Support
+              </NavItem>
+            </div>
 
-          <div className="absolute left-1/2 hidden -translate-x-1/2 items-center md:flex">
-            <NavItem type="link" href={paths.home.getHref()}>
-              Home
-            </NavItem>
-            <NavItem type="link" href={paths.home.getHref()}>
-              Case Studies
-            </NavItem>
-            <NavItem type="link" href={paths.home.getHref()}>
-              Blog
-            </NavItem>
-            <NavItem type="link" href={paths.home.getHref()}>
-              Support
-            </NavItem>
-          </div>
-
-          <div className="hidden items-center gap-2 md:flex">
-            <Button
-              asChild
-              variant="ghost"
-              onClick={() => gaEvent('book_demo')}
-            >
-              <Link href={links.demo}>Book demo</Link>
-            </Button>
-            <Button
-              asChild
-              className="group"
-              onClick={() => gaEvent('sign_up')}
-            >
-              <a
-                href={paths.auth.signup.getHref()}
-                target="_blank"
-                rel="noopener noreferrer"
+            <div className="hidden items-center gap-2 md:flex">
+              <Button
+                asChild
+                variant="ghost"
+                className="font-normal"
+                onClick={() => gaEvent('book_demo')}
               >
-                Get started
-                <GIcon
-                  name="arrow_forward"
-                  className="transition-transform group-hover:translate-x-0.5"
-                />
-              </a>
-            </Button>
-          </div>
+                <Link href={links.demo}>Book demo</Link>
+              </Button>
+              <Button
+                asChild
+                className="group"
+                onClick={() => gaEvent('sign_up')}
+              >
+                <a
+                  href={paths.auth.signup.getHref()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Get started
+                  <GIcon
+                    name="arrow_forward"
+                    className="transition-transform group-hover:translate-x-0.5"
+                  />
+                </a>
+              </Button>
+            </div>
 
-          <div className="flex flex-1 items-center justify-end gap-2.5 md:hidden">
-            <Button asChild onClick={() => gaEvent('sign_up')}>
-              <Link href={paths.auth.signup.getHref()}>Get started</Link>
-            </Button>
-            <Button
-              onClick={() => setMenuOpened((prevState) => !prevState)}
-              variant={'outline'}
-              size={'icon'}
-            >
-              {menuOpened ? (
-                <X className="text-lg" />
-              ) : (
-                <Menu className="text-lg" />
-              )}
-            </Button>
+            <div className="flex flex-1 items-center justify-end gap-2.5 md:hidden">
+              <Button asChild onClick={() => gaEvent('sign_up')}>
+                <Link href={paths.auth.signup.getHref()}>Get started</Link>
+              </Button>
+              <Button
+                onClick={() => setMenuOpened((prevState) => !prevState)}
+                variant={'outline'}
+                size={'icon'}
+              >
+                {menuOpened ? (
+                  <X className="text-lg" />
+                ) : (
+                  <Menu className="text-lg" />
+                )}
+              </Button>
+            </div>
           </div>
         </div>
-      </nav>
+      </motion.nav>
 
       {menuOpened && (
         <div className={'border-b py-5 md:hidden'}>
