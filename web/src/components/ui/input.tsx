@@ -9,6 +9,7 @@ const inputVariants = cva(
     variants: {
       variant: {
         default: 'bg-transparent',
+        ghost: 'bg-muted/40 text-muted-foreground',
       },
       size: {
         default: 'h-9',

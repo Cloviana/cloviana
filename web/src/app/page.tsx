@@ -18,8 +18,8 @@ export default function HomePage() {
       <main className="bg-background">
         <Hero />
         <Benefits />
-        <HowItWorks />
         <Testimonial />
+        <HowItWorks />
         <FinalCTA />
       </main>
       <FooterSection />

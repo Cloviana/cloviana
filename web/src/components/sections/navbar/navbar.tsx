@@ -109,7 +109,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
       </motion.nav>
 
       {menuOpened && (
-        <div className={'border-b py-5 md:hidden'}>
+        <div className={'border-b bg-white py-5 md:hidden'}>
           <div className={'padding-global container flex flex-col gap-6 px-0'}>
             <div className="flex flex-col gap-3">
               <NavItem as="mobile" type="link" href={paths.home.getHref()}>
