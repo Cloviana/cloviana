@@ -66,12 +66,13 @@ export const Hero: FC<HeroProps> = ({ className }) => {
             <form onSubmit={onSubmit} className="w-full md:max-w-lg">
               <div className="relative">
                 <Input
-                  type="url"
-                  inputMode="url"
+                  type="text"
+                  inputMode="text"
+                  variant={'ghost'}
                   placeholder="Enter your Shopify store URL"
                   value={storeUrl}
                   onChange={(e) => setStoreUrl(e.target.value)}
-                  className="h-12 pr-36"
+                  className="h-12 pr-36 shadow-xs"
                   size="lg"
                   required
                 />
