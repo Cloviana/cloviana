@@ -159,6 +159,7 @@ model Product {
 
 model Profile {
   id        String   @id @default(uuid()) @db.Uuid
+  email     String   
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -178,11 +179,6 @@ model Store {
   status           StoreStatus @default(LOCKED)
   createdAt        DateTime    @default(now())
   updatedAt        DateTime    @updatedAt
-
-  stage         AccessStage  @default(WAITLISTED)
-  betaUntil     DateTime?
-  acceptedAt    DateTime?
-
 
   owner    Profile   @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
   blogs    Blog[]
