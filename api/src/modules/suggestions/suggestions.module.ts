@@ -8,8 +8,6 @@ import { GroqModule } from "@/clients";
 @Module({
   imports: [SerankingModule, GroqModule],
   controllers: [SuggestionsController],
-  providers: [
-    SuggestionsService,
-  ],
+  providers: [SuggestionsService],
 })
 export class SuggestionsModule {}

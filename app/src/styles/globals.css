@@ -133,6 +133,7 @@
 
 @layer base {
   :root {
+    --primary2: hsl(240, 6%, 7%);
     --primary: hsl(209, 88%, 55%);
 
     --sand: hsl(60 11% 98%);
@@ -209,7 +210,7 @@
   }
 
   body {
-    @apply bg-background font-dm-sans text-foreground;
+    @apply bg-background font-inter text-foreground;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

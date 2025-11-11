@@ -6,7 +6,7 @@ export const SecondaryKeywordsSchema = z.object({
       z.object({
         keyword: z.string().trim().min(1),
         recommended: z.boolean(),
-      })
+      }),
     )
     .length(30),
 });

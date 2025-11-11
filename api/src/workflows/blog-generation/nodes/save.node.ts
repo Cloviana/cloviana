@@ -28,14 +28,21 @@ function formatArrayToLexical(format: TextFormat[] | null): number {
   return v;
 }
 
-function toRows(blogId: string, nodes: Node[], parentKey: string | null): FlatRow[] {
+function toRows(
+  blogId: string,
+  nodes: Node[],
+  parentKey: string | null,
+): FlatRow[] {
   const rows: FlatRow[] = [];
   nodes.forEach((n, idx) => {
     const key = cuid();
     const type = n.type as NodeType;
     let payload: any = {};
     if (n.type === "TEXT") {
-      payload = { text: n.text, format: formatArrayToLexical(n.format ?? null) };
+      payload = {
+        text: n.text,
+        format: formatArrayToLexical(n.format ?? null),
+      };
     } else if (n.type === "HEADING") {
       payload = { tag: n.tag };
     } else if (n.type === "LIST") {
@@ -47,7 +54,8 @@ function toRows(blogId: string, nodes: Node[], parentKey: string | null): FlatRo
     }
     rows.push({ blogId, key, parentKey, type, sortOrder: idx, payload });
     const children = (n as any).children as Node[] | undefined;
-    if (children && children.length) rows.push(...toRows(blogId, children, key));
+    if (children && children.length)
+      rows.push(...toRows(blogId, children, key));
   });
   return rows;
 }
@@ -63,7 +71,8 @@ export async function save(
   const blogId = state._blogId;
   if (!blogId) throw new Error("blogId missing in state");
   const nodes = state._nodes;
-  if (!Array.isArray(nodes) || nodes.length === 0) throw new Error("No nodes to save");
+  if (!Array.isArray(nodes) || nodes.length === 0)
+    throw new Error("No nodes to save");
 
   const rows = toRows(blogId, nodes.slice(1) as Node[], null);
 
@@ -73,7 +82,9 @@ export async function save(
     .replace(/\s+/g, "-")
     .replace(/[^a-z0-9\-]/g, "");
 
-  const { data: arrayBuf } = await axios.get<ArrayBuffer>(state._image.url, { responseType: "arraybuffer" });
+  const { data: arrayBuf } = await axios.get<ArrayBuffer>(state._image.url, {
+    responseType: "arraybuffer",
+  });
   const data = Buffer.from(arrayBuf);
   const blobPath = `thumbnails/${blogId}/thumbnail.png`;
 
@@ -81,7 +92,14 @@ export async function save(
     async (tx) => {
       await tx.node.deleteMany({ where: { blogId } });
       await tx.node.createMany({ data: rows });
-      await tx.blog.update({ where: { id: blogId }, data: { slug, description: state._plan.description, title: state._plan.title } });
+      await tx.blog.update({
+        where: { id: blogId },
+        data: {
+          slug,
+          description: state._plan.description,
+          title: state._plan.title,
+        },
+      });
       await tx.thumbnail.upsert({
         where: { blogId },
         update: { altText: state._image.alt, blobPath },

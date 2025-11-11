@@ -1,11 +1,9 @@
 import {
-  BadRequestException,
   Controller,
   Get,
   HttpCode,
   HttpStatus,
   Param,
-  Query,
   Req,
   UseGuards,
 } from "@nestjs/common";
@@ -26,25 +24,19 @@ export class SuggestionsController {
 
   @Get("primary-keyword")
   @HttpCode(HttpStatus.OK)
-  async suggestPrimaryKeyword(
-    @Param("blogId") blogId: string,
-  ) {
+  async suggestPrimaryKeyword(@Param("blogId") blogId: string) {
     return this.suggestions.suggestPrimaryKeyword(blogId);
   }
 
   @Get("secondary-keywords")
   @HttpCode(HttpStatus.OK)
-  async suggestSecondaryKeywords(
-    @Param("blogId") blogId: string,
-  ) {
+  async suggestSecondaryKeywords(@Param("blogId") blogId: string) {
     return this.suggestions.suggestSecondaryKeywords(blogId);
   }
 
   @Get("product")
   @HttpCode(HttpStatus.OK)
-  async suggestProduct(
-    @Param("blogId") blogId: string,
-  ) {
+  async suggestProduct(@Param("blogId") blogId: string) {
     return this.suggestions.suggestProduct(blogId);
   }
 }

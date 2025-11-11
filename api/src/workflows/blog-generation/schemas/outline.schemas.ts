@@ -31,7 +31,7 @@ const SectionSchema = z.object({
     .array(SubSectionSchema)
     .nullable()
     .describe(
-      "Optional sub-sections for this section. Add 1–3 when they provide helpful structure or clarity; otherwise set to null."
+      "Optional sub-sections for this section. Add 1–3 when they provide helpful structure or clarity; otherwise set to null.",
     ),
 });
 
@@ -48,7 +48,7 @@ export const OutlineSchema = z
         "news",
       ])
       .describe(
-        "Choose the most suitable blog type based on the topic and title: use 'comparison' for X vs Y, 'review' for evaluative product coverage, 'guide' for comprehensive orientation without strict steps, 'how-to' for procedural step-by-step tasks, 'listicle' only when the content naturally enumerates items or benefits, 'story' for narrative case studies/user journeys, and 'news' for timely announcements."
+        "Choose the most suitable blog type based on the topic and title: use 'comparison' for X vs Y, 'review' for evaluative product coverage, 'guide' for comprehensive orientation without strict steps, 'how-to' for procedural step-by-step tasks, 'listicle' only when the content naturally enumerates items or benefits, 'story' for narrative case studies/user journeys, and 'news' for timely announcements.",
       ),
     sections: z
       .array(SectionSchema)
@@ -101,18 +101,17 @@ export const PlanSchema = z.object({
     .string()
     .min(5)
     .describe(
-      "The main title of the blog post. Should include the primary keyword naturally and be written for both readers and search engines."
+      "The main title of the blog post. Should include the primary keyword naturally and be written for both readers and search engines.",
     ),
   description: z
     .string()
     .min(50)
     .max(180)
     .describe(
-      "The meta description — a short, persuasive summary (around 150–160 characters) that clearly conveys what the page is about and encourages clicks from search results."
+      "The meta description — a short, persuasive summary (around 150–160 characters) that clearly conveys what the page is about and encourages clicks from search results.",
     ),
 });
 
 export type Outline = z.infer<typeof OutlineSchema>;
 export type Thumbnail = z.infer<typeof ThumbnailSchema>;
 export type Plan = z.infer<typeof PlanSchema>;
-

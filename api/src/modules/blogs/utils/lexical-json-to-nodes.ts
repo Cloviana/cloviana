@@ -1,6 +1,9 @@
-import { Prisma, NodeType } from '@prisma/client';
+import { Prisma, NodeType } from "@prisma/client";
 
-export type NodeInput = Omit<Prisma.NodeCreateManyInput, 'blogId' | 'createdAt' | 'updatedAt'>;
+export type NodeInput = Omit<
+  Prisma.NodeCreateManyInput,
+  "blogId" | "createdAt" | "updatedAt"
+>;
 
 type Lx = {
   root?: {
@@ -9,67 +12,70 @@ type Lx = {
 };
 
 function asKey(v: unknown) {
-  if (typeof v === 'string') return v;
-  if (typeof v === 'number') return String(v);
+  if (typeof v === "string") return v;
+  if (typeof v === "number") return String(v);
   return undefined;
 }
 
 function textFrom(node: any): string {
-  if (!node) return '';
-  if (node.type === 'text') return node.text ?? '';
+  if (!node) return "";
+  if (node.type === "text") return node.text ?? "";
   const children = Array.isArray(node.children) ? node.children : [];
-  return children.map(textFrom).filter(Boolean).join('');
+  return children.map(textFrom).filter(Boolean).join("");
 }
 
 function mapType(t: string): NodeType | undefined {
   switch (t) {
-    case 'paragraph':
+    case "paragraph":
       return NodeType.PARAGRAPH;
-    case 'heading':
+    case "heading":
       return NodeType.HEADING;
-    case 'list':
+    case "list":
       return NodeType.LIST;
-    case 'listitem':
+    case "listitem":
       return NodeType.LIST_ITEM;
-    case 'quote':
+    case "quote":
       return NodeType.QUOTE;
-    case 'link':
+    case "link":
       return NodeType.LINK;
-    case 'text':
+    case "text":
       return NodeType.TEXT;
-    case 'image':
+    case "image":
       return NodeType.IMAGE;
-    case 'code':
+    case "code":
       return NodeType.CODE_BLOCK;
-    case 'linebreak':
+    case "linebreak":
       return NodeType.LINEBREAK;
     default:
       return undefined;
   }
 }
 
-export function lexicalJsonToNodes(state: Lx | Record<string, any>): NodeInput[] {
+export function lexicalJsonToNodes(
+  state: Lx | Record<string, any>,
+): NodeInput[] {
   const out: NodeInput[] = [];
   const root = (state as Lx)?.root;
   if (!root || !Array.isArray(root.children)) return out;
 
   const walk = (node: any, parentKey: string | undefined, index: number) => {
     const type = mapType(node.type);
-    const key = asKey(node.key) || `${parentKey ?? 'root'}-${index}-${Date.now()}`;
+    const key =
+      asKey(node.key) || `${parentKey ?? "root"}-${index}-${Date.now()}`;
     const sortOrder = index;
 
     if (type) {
       let payload: Record<string, any> = {};
       if (type === NodeType.TEXT) {
-        payload = { text: node.text ?? '', format: node.format ?? 0 };
+        payload = { text: node.text ?? "", format: node.format ?? 0 };
       } else if (type === NodeType.HEADING) {
-        payload = { tag: node.tag ?? 'h2' };
+        payload = { tag: node.tag ?? "h2" };
       } else if (type === NodeType.LIST) {
-        payload = { listType: node.listType ?? 'bullet' };
+        payload = { listType: node.listType ?? "bullet" };
       } else if (type === NodeType.LINK) {
-        payload = { url: node.url ?? node.href ?? '' };
+        payload = { url: node.url ?? node.href ?? "" };
       } else if (type === NodeType.IMAGE) {
-        payload = { src: node.src ?? '', altText: node.altText ?? '' };
+        payload = { src: node.src ?? "", altText: node.altText ?? "" };
       } else if (type === NodeType.CODE_BLOCK) {
         payload = { language: node.language ?? null, code: textFrom(node) };
       } else if (type === NodeType.LINEBREAK) {

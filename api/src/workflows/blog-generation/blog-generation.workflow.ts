@@ -9,7 +9,10 @@ const STALE_MS = 10 * 60 * 1000;
 
 @Injectable()
 export class BlogGenerationWorkflow {
-  constructor(private readonly prisma: PrismaService, private readonly storage: StorageService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly storage: StorageService,
+  ) {}
 
   async run(blogId: string) {
     const now = new Date();
@@ -29,13 +32,22 @@ export class BlogGenerationWorkflow {
         if (Date.now() - last <= STALE_MS) return job;
         await this.prisma.job.update({
           where: { id: job.id },
-          data: { status: JobStatus.FAILED, finishedAt: now, error: "Stale running job (no heartbeat)" },
+          data: {
+            status: JobStatus.FAILED,
+            finishedAt: now,
+            error: "Stale running job (no heartbeat)",
+          },
         });
         job = null;
       } else if (job.status === JobStatus.PENDING) {
         await this.prisma.job.update({
           where: { id: job.id },
-          data: { status: JobStatus.RUNNING, attempts: { increment: 1 }, startedAt: now, lastHeartbeatAt: now },
+          data: {
+            status: JobStatus.RUNNING,
+            attempts: { increment: 1 },
+            startedAt: now,
+            lastHeartbeatAt: now,
+          },
         });
       } else if (job.status === JobStatus.SUCCESS && job.dedupeKey === key) {
         return job;
@@ -71,18 +83,34 @@ export class BlogGenerationWorkflow {
 
       job = await this.prisma.job.update({
         where: { id: job.id },
-        data: { status: JobStatus.RUNNING, attempts: { increment: 1 }, startedAt: now, lastHeartbeatAt: now },
+        data: {
+          status: JobStatus.RUNNING,
+          attempts: { increment: 1 },
+          startedAt: now,
+          lastHeartbeatAt: now,
+        },
       });
     }
 
     const hb = setInterval(() => {
-      this.prisma.job.update({ where: { id: job!.id }, data: { lastHeartbeatAt: new Date() } }).catch(() => {});
+      this.prisma.job
+        .update({
+          where: { id: job!.id },
+          data: { lastHeartbeatAt: new Date() },
+        })
+        .catch(() => {});
     }, 15000);
 
     try {
       const { _nodes, _image } = await graph.invoke(
         { _blogId: blogId, _storeId: blog.storeId },
-        { configurable: { prisma: this.prisma, jobId: job.id, storage: this.storage } }
+        {
+          configurable: {
+            prisma: this.prisma,
+            jobId: job.id,
+            storage: this.storage,
+          },
+        },
       );
 
       const finished = new Date();
@@ -91,19 +119,33 @@ export class BlogGenerationWorkflow {
         data: { status: JobStatus.SUCCESS, finishedAt: finished },
       });
 
-      return { id: job.id, status: JobStatus.SUCCESS, finishedAt: finished, nodes: _nodes, image: _image };
+      return {
+        id: job.id,
+        status: JobStatus.SUCCESS,
+        finishedAt: finished,
+        nodes: _nodes,
+        image: _image,
+      };
     } catch (err: any) {
       const finished = new Date();
       await this.prisma.job.update({
         where: { id: job.id },
-        data: { status: JobStatus.FAILED, finishedAt: finished, error: String(err?.message ?? err).slice(0, 1000) },
+        data: {
+          status: JobStatus.FAILED,
+          finishedAt: finished,
+          error: String(err?.message ?? err).slice(0, 1000),
+        },
       });
       throw err;
     } finally {
       clearInterval(hb);
       await this.prisma.job.updateMany({
         where: { id: job.id, status: JobStatus.RUNNING },
-        data: { status: JobStatus.FAILED, finishedAt: new Date(), error: "Process terminated without finalization" },
+        data: {
+          status: JobStatus.FAILED,
+          finishedAt: new Date(),
+          error: "Process terminated without finalization",
+        },
       });
     }
   }

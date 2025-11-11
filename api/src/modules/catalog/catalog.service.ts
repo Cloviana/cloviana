@@ -32,7 +32,7 @@ export class CatalogService {
   async listAllProducts(
     shop: string,
     token: string,
-    opts?: { query?: string; first?: number }
+    opts?: { query?: string; first?: number },
   ): Promise<Product[]> {
     const client = await this.shopify.getAdminClient(shop, token);
     const first = opts?.first ?? 250;
@@ -43,13 +43,13 @@ export class CatalogService {
         () =>
           client.request<ProductsQuery, ProductsQueryVariables>(
             ProductsDocument,
-            { first, after: after ?? undefined, query: opts?.query }
+            { first, after: after ?? undefined, query: opts?.query },
           ),
-        { retries: 5, factor: 2, minTimeout: 2000, maxTimeout: 4000 }
+        { retries: 5, factor: 2, minTimeout: 2000, maxTimeout: 4000 },
       );
       all.push(...(data.products.nodes as Product[]));
       after = data.products.pageInfo.hasNextPage
-        ? data.products.pageInfo.endCursor ?? null
+        ? (data.products.pageInfo.endCursor ?? null)
         : null;
     } while (after);
     return all;
@@ -58,7 +58,7 @@ export class CatalogService {
   async listAllCollections(
     shop: string,
     token: string,
-    opts?: { query?: string; first?: number }
+    opts?: { query?: string; first?: number },
   ): Promise<Collection[]> {
     const client = await this.shopify.getAdminClient(shop, token);
     const first = opts?.first ?? 250;
@@ -69,13 +69,13 @@ export class CatalogService {
         () =>
           client.request<CollectionsQuery, CollectionsQueryVariables>(
             CollectionsDocument,
-            { first, after: after ?? undefined, query: opts?.query }
+            { first, after: after ?? undefined, query: opts?.query },
           ),
-        { retries: 5, factor: 2, minTimeout: 500, maxTimeout: 4000 }
+        { retries: 5, factor: 2, minTimeout: 500, maxTimeout: 4000 },
       );
       all.push(...(data.collections.nodes as Collection[]));
       after = data.collections.pageInfo.hasNextPage
-        ? data.collections.pageInfo.endCursor ?? null
+        ? (data.collections.pageInfo.endCursor ?? null)
         : null;
     } while (after);
     return all;
@@ -84,7 +84,7 @@ export class CatalogService {
   async listAllArticles(
     shop: string,
     token: string,
-    opts?: { query?: string; first?: number }
+    opts?: { query?: string; first?: number },
   ): Promise<Article[]> {
     const client = await this.shopify.getAdminClient(shop, token);
     const first = opts?.first ?? 250;
@@ -95,13 +95,13 @@ export class CatalogService {
         () =>
           client.request<ArticlesQuery, ArticlesQueryVariables>(
             ArticlesDocument,
-            { first, after: after ?? undefined, query: opts?.query }
+            { first, after: after ?? undefined, query: opts?.query },
           ),
-        { retries: 5, factor: 2, minTimeout: 500, maxTimeout: 4000 }
+        { retries: 5, factor: 2, minTimeout: 500, maxTimeout: 4000 },
       );
       all.push(...(data.articles.nodes as Article[]));
       after = data.articles.pageInfo.hasNextPage
-        ? data.articles.pageInfo.endCursor ?? null
+        ? (data.articles.pageInfo.endCursor ?? null)
         : null;
     } while (after);
     return all;
@@ -112,7 +112,7 @@ export class CatalogService {
     token: string,
     id: string,
     article: ArticleUpdateInput,
-    blog?: ArticleBlogInput
+    blog?: ArticleBlogInput,
   ): Promise<Article> {
     const client = await this.shopify.getAdminClient(shop, token);
 
@@ -120,9 +120,9 @@ export class CatalogService {
       () =>
         client.request<UpdateArticleMutation, UpdateArticleMutationVariables>(
           UpdateArticleDocument,
-          { id, article, blog }
+          { id, article, blog },
         ),
-      { retries: 5, factor: 2, minTimeout: 500, maxTimeout: 4000 }
+      { retries: 5, factor: 2, minTimeout: 500, maxTimeout: 4000 },
     );
 
     const result = data.articleUpdate;
@@ -143,7 +143,7 @@ export class CatalogService {
     shop: string,
     token: string,
     article: ArticleCreateInput,
-    blog?: ArticleBlogInput
+    blog?: ArticleBlogInput,
   ): Promise<Article> {
     const client = await this.shopify.getAdminClient(shop, token);
 
@@ -151,9 +151,9 @@ export class CatalogService {
       () =>
         client.request<CreateArticleMutation, CreateArticleMutationVariables>(
           CreateArticleDocument,
-          { article, blog }
+          { article, blog },
         ),
-      { retries: 5, factor: 2, minTimeout: 500, maxTimeout: 4000 }
+      { retries: 5, factor: 2, minTimeout: 500, maxTimeout: 4000 },
     );
 
     const result = data.articleCreate;

@@ -1,17 +1,31 @@
-mutation UpdateArticle($id: ID!, $article: ArticleUpdateInput!, $blog: ArticleBlogInput) {
+mutation UpdateArticle(
+  $id: ID!
+  $article: ArticleUpdateInput!
+  $blog: ArticleBlogInput
+) {
   articleUpdate(id: $id, article: $article, blog: $blog) {
     article {
       id
       title
       handle
-      image { altText originalSrc }
+      image {
+        altText
+        originalSrc
+      }
       summary
       tags
       publishedAt
       createdAt
       updatedAt
-      blog { id title handle }
+      blog {
+        id
+        title
+        handle
+      }
     }
-    userErrors { field message }
+    userErrors {
+      field
+      message
+    }
   }
 }
