@@ -14,6 +14,7 @@ import { StoresProducer } from "@/modules/messaging/producers/stores.producer";
 import { resolveFavicon } from "@/utils/resolve-favicon.util";
 import { CACHE_MANAGER, Cache } from "@nestjs/cache-manager";
 import { BadRequestException, Inject, Injectable } from "@nestjs/common";
+import { StoreStatus } from "@prisma/client";
 
 type InstallStateCache = {
   uid: string | null;
@@ -316,7 +317,9 @@ export class AuthService {
         data: { config: { offlineAccessToken } },
       });
 
-      await this.storesProducer.init({ storeId: store.id });
+      if (store.status === StoreStatus.ACTIVE || store.status === StoreStatus.INITIALIZING) {
+  await this.storesProducer.init({ storeId: store.id });
+}
 
       const owner = await this.prisma.profile.findUniqueOrThrow({
         where: { id: store.ownerId },
