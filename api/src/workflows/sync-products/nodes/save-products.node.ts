@@ -1,6 +1,6 @@
 import { RunnableConfig } from "@langchain/core/runnables";
-import { StateAnnotation } from "../sync-products.state";
 import { PrismaClient, ProductStatus } from "@prisma/client";
+import { StateAnnotation } from "../sync-products.state";
 
 export async function saveProducts(
   state: typeof StateAnnotation.State,

@@ -1,6 +1,6 @@
+import { StoreOwnerGuard } from "@/guards/store-owner.guard";
 import { Controller, Get, Param, Post, UseGuards } from "@nestjs/common";
 import { ProductsService } from "./services/products.service";
-import { StoreOwnerGuard } from "@/guards/store-owner.guard";
 
 @Controller("stores/:storeId/products")
 @UseGuards(StoreOwnerGuard)

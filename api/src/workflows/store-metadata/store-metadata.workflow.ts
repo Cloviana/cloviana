@@ -1,9 +1,9 @@
-import { Injectable } from "@nestjs/common";
-import { graph } from "./store-metadata.graph";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { ShopifyService } from "@/clients/shopify/shopify.service";
-import { JobStatus, JobType } from "@prisma/client";
 import { CatalogService } from "@/modules/catalog/catalog.service";
+import { Injectable } from "@nestjs/common";
+import { JobStatus, JobType } from "@prisma/client";
+import { graph } from "./store-metadata.graph";
 
 const STALE_MS = 10 * 60 * 1000;
 

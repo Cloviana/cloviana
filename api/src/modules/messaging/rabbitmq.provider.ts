@@ -1,9 +1,3 @@
-import { Provider } from "@nestjs/common";
-import {
-  ClientProxyFactory,
-  Transport,
-  ClientProxy,
-} from "@nestjs/microservices";
 import { AppConfiguration } from "@/config/app.configuration";
 import {
   BLOGS_CLIENT,
@@ -19,6 +13,12 @@ import {
   STORES_QUEUE,
   STORES_QUEUE_OPTS,
 } from "@/constants/rabbitmq.constants";
+import { Provider } from "@nestjs/common";
+import {
+  ClientProxy,
+  ClientProxyFactory,
+  Transport,
+} from "@nestjs/microservices";
 
 export const RabbitMqProviders: Provider[] = [
   {

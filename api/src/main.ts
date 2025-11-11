@@ -1,3 +1,4 @@
+import fastifyCookie from "@fastify/cookie";
 import { Logger, ValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { RmqOptions, Transport } from "@nestjs/microservices";
@@ -5,7 +6,6 @@ import {
   FastifyAdapter,
   NestFastifyApplication,
 } from "@nestjs/platform-fastify";
-import fastifyCookie from "@fastify/cookie";
 
 import { AppModule } from "@/app.module";
 import { AppConfiguration } from "@/common/config/app.configuration";

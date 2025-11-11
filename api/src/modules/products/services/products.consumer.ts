@@ -1,7 +1,7 @@
-import { Controller, Logger } from "@nestjs/common";
-import { EventPattern, Payload } from "@nestjs/microservices";
 import { SYNC_PRODUCTS_EVENT } from "@/constants/rabbitmq.constants";
 import { SyncProductsWorkflow } from "@/workflows/sync-products/sync-products.workflow";
+import { Controller, Logger } from "@nestjs/common";
+import { EventPattern, Payload } from "@nestjs/microservices";
 
 interface GenerateBlogsEvent {
   storeId: string;

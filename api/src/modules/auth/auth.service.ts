@@ -1,19 +1,19 @@
-import { Injectable, Inject, BadRequestException } from "@nestjs/common";
-import { CACHE_MANAGER, Cache } from "@nestjs/cache-manager";
+import { createHmac, randomBytes, randomUUID, timingSafeEqual } from "crypto";
 import { PrismaService } from "@/clients/prisma/prisma.service";
-import { AppConfiguration } from "@/config/app.configuration";
-import { ShopifyService } from "@/clients/shopify/shopify.service";
 import {
   GetShopInfoDocument,
   GetShopInfoQuery,
   GetShopInfoQueryVariables,
 } from "@/clients/shopify/generated";
-import { ShopifyCallbackDto } from "@/modules/auth/dtos/shopify-callback.dto";
-import { createHmac, timingSafeEqual, randomUUID, randomBytes } from "crypto";
+import { ShopifyService } from "@/clients/shopify/shopify.service";
+import { Smtp2GoClient } from "@/clients/smtp/services/smtp2go.service";
 import { SupabaseService } from "@/clients/supabase/supabase.service";
+import { AppConfiguration } from "@/config/app.configuration";
+import { ShopifyCallbackDto } from "@/modules/auth/dtos/shopify-callback.dto";
 import { StoresProducer } from "@/modules/messaging/producers/stores.producer";
 import { resolveFavicon } from "@/utils/resolve-favicon.util";
-import { Smtp2GoClient } from "@/clients/smtp/services/smtp2go.service";
+import { CACHE_MANAGER, Cache } from "@nestjs/cache-manager";
+import { BadRequestException, Inject, Injectable } from "@nestjs/common";
 
 type InstallStateCache = {
   uid: string | null;
@@ -46,7 +46,7 @@ export class AuthService {
     private readonly supabase: SupabaseService,
     private readonly storesProducer: StoresProducer,
     private readonly mailer: Smtp2GoClient,
-    @Inject(CACHE_MANAGER) private readonly cache: Cache
+    @Inject(CACHE_MANAGER) private readonly cache: Cache,
   ) {}
 
   async verifyOwnership(userId: string, storeId: string): Promise<boolean> {
@@ -95,7 +95,7 @@ export class AuthService {
     await this.cache.set(
       this.stateKey(id),
       JSON.stringify(value),
-      STATE_TTL_MS
+      STATE_TTL_MS,
     );
     const sig = this.sign(id);
     return `${id}.${sig}`;
@@ -121,7 +121,7 @@ export class AuthService {
     await this.cache.set(
       this.ticketKey(id),
       JSON.stringify(payload),
-      TICKET_TTL_MS
+      TICKET_TTL_MS,
     );
     return id;
   }
@@ -140,7 +140,7 @@ export class AuthService {
     url.searchParams.set("client_id", this.config.shopifyApiKey);
     url.searchParams.set(
       "redirect_uri",
-      `${this.config.apiUrl}/auth/shopify/callback`
+      `${this.config.apiUrl}/auth/shopify/callback`,
     );
     url.searchParams.set(
       "state",
@@ -150,7 +150,7 @@ export class AuthService {
           storeId: null,
           shop,
           src: "shopify",
-        }))
+        })),
     );
     return url.toString();
   }
@@ -218,43 +218,60 @@ export class AuthService {
   async handleShopifyCallback(data: ShopifyCallbackDto): Promise<string> {
     // --- Integrity: verify our anti-CSRF state ---
     const ctx = await this.consumeCachedState(String(data.state));
-    if (!ctx) throw new BadRequestException('Invalid state');
+    if (!ctx) throw new BadRequestException("Invalid state");
 
     // --- OAuth token exchange (offline access token) ---
-    const tokenResp = await fetch(`https://${data.shop}/admin/oauth/access_token`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        client_id: this.config.shopifyApiKey,
-        client_secret: this.config.shopifyApiSecret,
-        code: data.code,
-      }),
-    });
+    const tokenResp = await fetch(
+      `https://${data.shop}/admin/oauth/access_token`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          client_id: this.config.shopifyApiKey,
+          client_secret: this.config.shopifyApiSecret,
+          code: data.code,
+        }),
+      },
+    );
     const tokenBody = await tokenResp.json();
     const offlineAccessToken = tokenBody.access_token;
     if (!tokenResp.ok || !offlineAccessToken) {
-      throw new BadRequestException(`Token exchange failed: ${tokenResp.status} ${JSON.stringify(tokenBody)}`);
+      throw new BadRequestException(
+        `Token exchange failed: ${tokenResp.status} ${JSON.stringify(tokenBody)}`,
+      );
     }
 
     // --- Early check: does a channel for this shop already exist? ---
-    const existingChannel = await this.prisma.channel.findUnique({ where: { shop: data.shop } });
+    const existingChannel = await this.prisma.channel.findUnique({
+      where: { shop: data.shop },
+    });
 
     // --- Read shop info (email/name) for marketplace linking paths ---
-    const shopifyAdminClient = await this.shopify.getAdminClient(data.shop, offlineAccessToken);
+    const shopifyAdminClient = await this.shopify.getAdminClient(
+      data.shop,
+      offlineAccessToken,
+    );
     const {
       shop: { email: shopEmail, name: shopName },
-    } = await shopifyAdminClient.request<GetShopInfoQuery, GetShopInfoQueryVariables>(GetShopInfoDocument, {});
+    } = await shopifyAdminClient.request<
+      GetShopInfoQuery,
+      GetShopInfoQueryVariables
+    >(GetShopInfoDocument, {});
     const profileUrl = await resolveFavicon(`https://${data.shop}`);
 
     // ===== CASE A: App-initiated install — user selected a specific store in your app =====
     // Bind the Shopify shop to that store; enforce ownership by ctx.uid; ignore Shopify email for ownership.
     if (ctx.storeId) {
-      const store = await this.prisma.store.findUniqueOrThrow({ where: { id: ctx.storeId } });
-      if (store.ownerId !== ctx.uid) throw new BadRequestException('Forbidden');
+      const store = await this.prisma.store.findUniqueOrThrow({
+        where: { id: ctx.storeId },
+      });
+      if (store.ownerId !== ctx.uid) throw new BadRequestException("Forbidden");
 
       // Prevent connecting the same Shopify shop to a different store.
       if (existingChannel && existingChannel.storeId !== store.id) {
-        throw new BadRequestException('This Shopify store is already connected to another store');
+        throw new BadRequestException(
+          "This Shopify store is already connected to another store",
+        );
       }
 
       const channel = await this.prisma.channel.upsert({
@@ -290,7 +307,9 @@ export class AuthService {
     // ===== CASE B: Re-install / already-connected shop (marketplace flow without ctx.storeId) =====
     // If channel exists, refresh token, init store, and sign in that store's owner.
     if (existingChannel) {
-      const store = await this.prisma.store.findUniqueOrThrow({ where: { id: existingChannel.storeId } });
+      const store = await this.prisma.store.findUniqueOrThrow({
+        where: { id: existingChannel.storeId },
+      });
 
       await this.prisma.channel.update({
         where: { shop: data.shop },
@@ -318,7 +337,9 @@ export class AuthService {
 
     // ===== CASE C: Marketplace install — profile with the Shopify shop email already exists =====
     // Create a new store under that profile and connect the Shopify channel.
-    const profile = await this.prisma.profile.findUnique({ where: { email: shopEmail } });
+    const profile = await this.prisma.profile.findUnique({
+      where: { email: shopEmail },
+    });
 
     if (profile) {
       const s = await this.prisma.$transaction(async (tx) => {
@@ -410,5 +431,4 @@ export class AuthService {
 
     return `${this.config.appUrl}/api/auth/complete?ticket=${ticket}`;
   }
-
 }

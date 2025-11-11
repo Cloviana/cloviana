@@ -1,9 +1,9 @@
-import { Module, Global } from "@nestjs/common";
-import { RabbitMqProviders } from "./rabbitmq.provider";
-import { KeywordsProducer } from "./producers/keywords.producer";
+import { Global, Module } from "@nestjs/common";
 import { BlogsProducer } from "./producers/blogs.producer";
-import { StoresProducer } from "./producers/stores.producer";
+import { KeywordsProducer } from "./producers/keywords.producer";
 import { ProductsProducer } from "./producers/products.producer";
+import { StoresProducer } from "./producers/stores.producer";
+import { RabbitMqProviders } from "./rabbitmq.provider";
 
 @Global()
 @Module({

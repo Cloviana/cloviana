@@ -1,11 +1,11 @@
+import { PrismaService } from "@/clients/prisma/prisma.service";
+import { AuthUser } from "@/interfaces/auth-user.interface";
 import {
   CanActivate,
   ExecutionContext,
   Injectable,
   NotFoundException,
 } from "@nestjs/common";
-import { PrismaService } from "@/clients/prisma/prisma.service";
-import { AuthUser } from "@/interfaces/auth-user.interface";
 
 @Injectable()
 export class StoreOwnerGuard implements CanActivate {
