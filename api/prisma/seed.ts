@@ -12,20 +12,28 @@ async function main() {
     rows: [{ count: userCount }],
   } = await client.query(`select count(*)::int as count from auth.users`);
 
-  const res = await client.query(`
-with to_insert as (
-  select u.id
-  from auth.users u
-  left join public.profiles p on p.id = u.id
-  where p.id is null
-)
-insert into public.profiles (id,"createdAt","updatedAt")
-select id, now(), now()
-from to_insert
-returning id
+  await client.query(`
+    update public."profiles" p
+    set "email" = au.email,
+        "contactEmail" = coalesce(au.raw_user_meta_data->>'contactEmail', au.email),
+        "updatedAt" = now()
+    from auth.users au
+    where p.id = au.id and p."email" is null
   `);
 
-  console.log(JSON.stringify({ users: userCount, inserted: res.rowCount }));
+  const resInsert = await client.query(`
+    with to_insert as (
+      select u.id, u.email, coalesce(u.raw_user_meta_data->>'contactEmail', u.email) as contact_email
+      from auth.users u
+      left join public."profiles" p on p.id = u.id
+      where p.id is null
+    )
+    insert into public."profiles" (id, "email", "contactEmail", "createdAt", "updatedAt")
+    select id, email, contact_email, now(), now() from to_insert
+    returning id
+  `);
+
+  console.log(JSON.stringify({ users: userCount, inserted: resInsert.rowCount }));
   await client.end();
 }
 

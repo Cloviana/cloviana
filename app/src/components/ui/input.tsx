@@ -14,9 +14,9 @@ const inputVariants = cva(
           'bg-white text-foreground border-input placeholder:text-foreground-lighter/70',
       },
       size: {
-        default: 'h-9',
-        sm: 'h-7 text-xs',
-        xs: 'h-6 text-xs',
+        default: 'h-9 focus-visible:ring-[3px]',
+        sm: 'h-7 text-xs focus-visible:ring-[3px]',
+        xs: 'h-6 text-xs focus-visible:ring-[3px]',
         lg: 'h-10 focus-visible:ring-[3.5px]',
       },
     },

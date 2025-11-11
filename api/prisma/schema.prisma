@@ -74,35 +74,32 @@ enum AccessStage {
   REJECTED
 }
 
-/*
-enum SubscriptionPlan {
-  FREE
-  PRO
-}
-
-enum SubscriptionStatus {
-  TRIALING
-  ACTIVE
-  PAST_DUE
-  CANCELED
-}
-
-model Subscription {
-  id          String              @id @default(uuid()) @db.Uuid
-  storeId     String              @unique
-  store       Store               @relation(fields: [storeId], references: [id], onDelete: Cascade)
-  plan        SubscriptionPlan
-  status      SubscriptionStatus
-  trialEndsAt DateTime?
-  currentPeriodEnd DateTime?
-  stripeCustomerId String?
-  stripeSubId      String?
-  createdAt   DateTime            @default(now())
-  updatedAt   DateTime            @updatedAt
-
-  @@map("subscriptions")
-}
-*/
+/**
+ * enum SubscriptionPlan {
+ * FREE
+ * PRO
+ * }
+ * enum SubscriptionStatus {
+ * TRIALING
+ * ACTIVE
+ * PAST_DUE
+ * CANCELED
+ * }
+ * model Subscription {
+ * id          String              @id @default(uuid()) @db.Uuid
+ * storeId     String              @unique
+ * store       Store               @relation(fields: [storeId], references: [id], onDelete: Cascade)
+ * plan        SubscriptionPlan
+ * status      SubscriptionStatus
+ * trialEndsAt DateTime?
+ * currentPeriodEnd DateTime?
+ * stripeCustomerId String?
+ * stripeSubId      String?
+ * createdAt   DateTime            @default(now())
+ * updatedAt   DateTime            @updatedAt
+ * @@map("subscriptions")
+ * }
+ */
 
 model Job {
   id              String    @id @default(uuid()) @db.Uuid
@@ -149,7 +146,7 @@ model Product {
   updatedAt             DateTime      @updatedAt
 
   store Store  @relation(fields: [storeId], references: [id], onDelete: Cascade)
-  blogs   Blog[]
+  blogs Blog[]
 
   @@unique([storeId, handle])
   @@unique([storeId, shopifyId])
@@ -159,6 +156,8 @@ model Product {
 
 model Profile {
   id        String   @id @default(uuid()) @db.Uuid
+  email        String   @unique @db.Citext        
+  contactEmail String?  @db.Citext
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -179,12 +178,7 @@ model Store {
   createdAt        DateTime    @default(now())
   updatedAt        DateTime    @updatedAt
 
-  stage         AccessStage  @default(WAITLISTED)
-  betaUntil     DateTime?
-  acceptedAt    DateTime?
-
-
-  owner    Profile   @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  owner    Profile      @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
   blogs    Blog[]
   jobs     Job[]
   products Product[]

@@ -8,7 +8,15 @@ export const BLOG_SUMMARY_SELECT: Prisma.BlogSelect = {
   status: true,
   createdAt: true,
   updatedAt: true,
-  job: { select: { id: true, status: true, startedAt: true, finishedAt: true, error: true } },
+  job: {
+    select: {
+      id: true,
+      status: true,
+      startedAt: true,
+      finishedAt: true,
+      error: true,
+    },
+  },
 };
 
 export const BLOG_DETAIL_SELECT: Prisma.BlogSelect = {
@@ -25,11 +33,25 @@ export const BLOG_DETAIL_SELECT: Prisma.BlogSelect = {
   status: true,
   storeId: true,
   jobId: true,
-  thumbnail: { select: { blobPath: true, altText: true} },
-  job: { select: { id: true, status: true, startedAt: true, finishedAt: true, error: true } },
+  thumbnail: { select: { blobPath: true, altText: true } },
+  job: {
+    select: {
+      id: true,
+      status: true,
+      startedAt: true,
+      finishedAt: true,
+      error: true,
+    },
+  },
   nodes: {
     orderBy: [{ sortOrder: "asc" }, { parentKey: "asc" }],
-    select: { key: true, parentKey: true, sortOrder: true, type: true, payload: true },
+    select: {
+      key: true,
+      parentKey: true,
+      sortOrder: true,
+      type: true,
+      payload: true,
+    },
   },
   products: {
     select: {

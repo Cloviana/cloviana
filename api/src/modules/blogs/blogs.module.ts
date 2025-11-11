@@ -9,8 +9,6 @@ import { CatalogModule } from "@/modules/catalog/catalog.module";
 @Module({
   imports: [BlogGenerationModule, CatalogModule],
   controllers: [BlogsController, BlogsConsumer],
-  providers: [
-    BlogsService,
-  ],
+  providers: [BlogsService],
 })
 export class BlogsModule {}
