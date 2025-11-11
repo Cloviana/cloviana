@@ -1,6 +1,10 @@
 import { StateAnnotation } from "../blog-generation.state";
 import { z } from "zod";
-import { OutlineSchema, PlanSchema, ThumbnailSchema } from "../schemas/outline.schemas";
+import {
+  OutlineSchema,
+  PlanSchema,
+  ThumbnailSchema,
+} from "../schemas/outline.schemas";
 import path from "path";
 import { loadPromptHbs } from "../utils/load-prompt-hbs.util";
 import pRetry from "p-retry";
@@ -16,14 +20,13 @@ export async function outline(
 
   const groq = new Groq();
 
-  const baseDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../prompts");
+  const baseDir = path.resolve(
+    path.dirname(fileURLToPath(import.meta.url)),
+    "../prompts",
+  );
   console.debug("[outline] prompts baseDir:", baseDir);
 
-  const mainPrompt = await loadPromptHbs(
-    "outline.prompt",
-    {},
-    { baseDir },
-  );
+  const mainPrompt = await loadPromptHbs("outline.prompt", {}, { baseDir });
 
   console.debug("[outline] prompt length:", mainPrompt?.length ?? 0);
 
@@ -63,7 +66,11 @@ export async function outline(
       const raw = JSON.parse(response.choices[0].message.content || "{}");
       const parsed = PlanSchema.parse(raw);
 
-      console.info("[outline] LLM invocation done in", Date.now() - invokeStart, "ms");
+      console.info(
+        "[outline] LLM invocation done in",
+        Date.now() - invokeStart,
+        "ms",
+      );
       return parsed;
     },
     {
@@ -83,6 +90,6 @@ export async function outline(
   console.info("[outline] success");
 
   return {
-    _plan
+    _plan,
   };
 }

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import { verifyWebhook } from '@/features/shopify/utils/verify-webhook';
+import { verifyWebhook } from '@/lib/shopify/verify-webhook';
 
 export const runtime = 'nodejs';
 

@@ -32,8 +32,11 @@ function renderSection(parentKey: string, map: Record<string, Node[]>): string {
         break;
       }
       case "LIST": {
-        const lt = (node.payload as any)["listType"] as "bullet" | "number" | undefined;
-        const tag = lt === "number" ? "ol" : "ul"
+        const lt = (node.payload as any)["listType"] as
+          | "bullet"
+          | "number"
+          | undefined;
+        const tag = lt === "number" ? "ol" : "ul";
         html += `<${tag}>${renderSection(node.key, map)}</${tag}>`;
         break;
       }
@@ -42,7 +45,7 @@ function renderSection(parentKey: string, map: Record<string, Node[]>): string {
         break;
       }
       case "LINK": {
-        const url = (node.payload as any)["url"] ?? "#"
+        const url = (node.payload as any)["url"] ?? "#";
         html += `<a href="${url}" target="_blank" rel="noopener noreferrer">${renderSection(node.key, map)}</a>`;
         break;
       }

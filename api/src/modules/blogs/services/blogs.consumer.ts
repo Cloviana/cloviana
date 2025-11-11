@@ -14,12 +14,15 @@ export class BlogsConsumer {
   private readonly logger = new Logger(BlogsConsumer.name);
   constructor(
     private readonly prisma: PrismaService,
-    private readonly blogGenerationWorkflow: BlogGenerationWorkflow
+    private readonly blogGenerationWorkflow: BlogGenerationWorkflow,
   ) {}
 
   @EventPattern(GENERATE_BLOG_EVENT)
   async handleGenerateBlog(@Payload() { blogId }: GenerateBlogsEvent) {
-    const blog = await this.prisma.blog.findUnique({ where: { id: blogId }, select: { id: true } });
+    const blog = await this.prisma.blog.findUnique({
+      where: { id: blogId },
+      select: { id: true },
+    });
     if (!blog) {
       this.logger.warn(`Blog ${blogId} not found`);
       return;
@@ -28,7 +31,9 @@ export class BlogsConsumer {
       const res = await this.blogGenerationWorkflow.run(blogId);
       this.logger.log(`Blog ${blogId} job ${res.id} ${res.status}`);
     } catch (err) {
-      this.logger.error(`Blog generation failed for ${blogId}: ${String((err as any)?.message ?? err)}`);
+      this.logger.error(
+        `Blog generation failed for ${blogId}: ${String((err as any)?.message ?? err)}`,
+      );
     }
   }
 }

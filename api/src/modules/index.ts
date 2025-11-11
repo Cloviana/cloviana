@@ -2,12 +2,10 @@ export * from "./stores/stores.module";
 export * from "./products/products.module";
 export * from "./catalog/catalog.module";
 export * from "./blogs/blogs.module";
-export * from "./suggestions/suggestions.module"
+export * from "./suggestions/suggestions.module";
 export * from "./auth/auth.module";
 export * from "./storage/storage.module";
 export * from "./health/health.module";
 export * from "./jobs/jobs.module";
 export * from "./messaging/messaging.module";
 export * from "./seranking/seranking.module";
-export * from "./channels/channels.module";
-export * from "./beta/beta.module"

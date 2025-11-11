@@ -31,13 +31,13 @@ export class UpdateBlogDto {
   primaryKeyword?: string;
 
   @IsOptional()
-@IsArray()
-@IsString({ each: true })
-secondaryKeywords?: string[];
+  @IsArray()
+  @IsString({ each: true })
+  secondaryKeywords?: string[];
 
   @IsOptional()
   @IsArray()
-  @IsUUID('4', { each: true })
+  @IsUUID("4", { each: true })
   productIds?: string[];
 
   @IsEnum(BlogSetupStep)

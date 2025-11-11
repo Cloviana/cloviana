@@ -1,12 +1,6 @@
 import { CurrentUser } from "@/decorators/current-user.decorator";
 import type { AuthUser } from "@/interfaces/auth-user.interface";
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  Post,
-} from "@nestjs/common";
+import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { CreateStoreDto } from "./dto/create-store.dto";
 import { StoresService } from "./services/stores.service";
 

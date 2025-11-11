@@ -1,23 +1,40 @@
-import { BadRequestException, Injectable } from "@nestjs/common";
-import pRetry from "p-retry";
+import { Injectable, Inject, BadRequestException } from "@nestjs/common";
+import { CACHE_MANAGER, Cache } from "@nestjs/cache-manager";
+import { PrismaService } from "@/clients/prisma/prisma.service";
 import { AppConfiguration } from "@/config/app.configuration";
 import { ShopifyService } from "@/clients/shopify/shopify.service";
-import { SupabaseService } from "@/clients/supabase/supabase.service";
-import { PrismaService } from "@/clients/prisma/prisma.service";
 import {
   GetShopInfoDocument,
   GetShopInfoQuery,
   GetShopInfoQueryVariables,
 } from "@/clients/shopify/generated";
-import { resolveFavicon } from "@/utils/resolve-favicon.util";
+import { ShopifyCallbackDto } from "@/modules/auth/dtos/shopify-callback.dto";
+import { createHmac, timingSafeEqual, randomUUID, randomBytes } from "crypto";
+import { SupabaseService } from "@/clients/supabase/supabase.service";
 import { StoresProducer } from "@/modules/messaging/producers/stores.producer";
+import { resolveFavicon } from "@/utils/resolve-favicon.util";
+import { Smtp2GoClient } from "@/clients/smtp/services/smtp2go.service";
 
-type SessionOut = {
+type InstallStateCache = {
+  uid: string | null;
+  storeId: string | null;
+  shop: string;
+  src: "app" | "shopify";
+};
+
+const STATE_TTL_MS = 24 * 60 * 60 * 1000;
+const STATE_NS = "shopify:state";
+
+// --- Ticket constants ---
+const TICKET_NS = "shopify:ticket";
+const TICKET_TTL_MS = 5 * 60 * 1000; // 5 minutes
+
+type TicketPayload = {
+  access_token: string;
+  refresh_token: string;
+  expires_in: number;
   user_id: string;
-  access_token: string | null;
-  refresh_token: string | null;
-  expires_in: number | null;
-  created_user: boolean;
+  store_id: string;
 };
 
 @Injectable()
@@ -25,112 +42,140 @@ export class AuthService {
   constructor(
     private readonly config: AppConfiguration,
     private readonly shopify: ShopifyService,
-    private readonly supabase: SupabaseService,
     private readonly prisma: PrismaService,
+    private readonly supabase: SupabaseService,
     private readonly storesProducer: StoresProducer,
+    private readonly mailer: Smtp2GoClient,
+    @Inject(CACHE_MANAGER) private readonly cache: Cache
   ) {}
 
-  async exchangeAndIssueSession(input: {
+  async verifyOwnership(userId: string, storeId: string): Promise<boolean> {
+    const store = await this.prisma.store.findUnique({
+      where: { id: storeId, ownerId: userId },
+    });
+    return !!store;
+  }
+
+  // ---- STATE (anti-CSRF) helpers ----
+  private stateKey(id: string) {
+    return `${STATE_NS}:${id}`;
+  }
+
+  private sign(id: string) {
+    // reuse existing secret; ideally use a dedicated secret in config
+    return createHmac("sha256", this.config.supabaseJwtSecret)
+      .update(id)
+      .digest("base64url");
+  }
+
+  private verifySignedState(state: string): string | null {
+    const parts = state.split(".");
+    if (parts.length !== 2) return null;
+    const [id, sig] = parts;
+    const expSig = this.sign(id);
+    const a = Buffer.from(expSig, "utf8");
+    const b = Buffer.from(sig, "utf8");
+    if (a.length !== b.length || !timingSafeEqual(a, b)) return null;
+    return id;
+  }
+
+  async createCachedState(input: {
+    uid: string | null;
+    storeId: string | null;
     shop: string;
-    code: string;
-    state: string;
+    src: "app" | "shopify";
   }) {
-    const { shop, code, state } = input;
-    if (!shop || !code || !state)
-      throw new BadRequestException("Missing parameters");
-
-    const offlineAccessToken = await this.exchangeCode(shop, code);
-    const { email, name, myshopifyDomain } = await this.getShopInfo(
-      shop,
-      offlineAccessToken,
+    const id = randomUUID();
+    const value: InstallStateCache = {
+      uid: input.uid,
+      storeId: input.storeId,
+      shop: input.shop,
+      src: input.src,
+    };
+    await this.cache.set(
+      this.stateKey(id),
+      JSON.stringify(value),
+      STATE_TTL_MS
     );
-    if (!email)
-      throw new BadRequestException(`Shop ${shop} has no contact email`);
-
-    const { user_id, access_token, refresh_token, expires_in, created_user } =
-      await this.createOrSignInUser(email, {
-        shop_domain: myshopifyDomain,
-        shop_name: name,
-      });
-
-    const { storeId, channelId, link_status } =
-      await this.ensureStoreAndChannel({
-        ownerId: user_id,
-        shopName: name,
-        domain: myshopifyDomain,
-        offlineAccessToken,
-      });
-
-    return {
-      access_token,
-      refresh_token,
-      expires_in,
-      user_id,
-      shop_domain: myshopifyDomain,
-      shop_name: name,
-      store_id: storeId,
-      channel_id: channelId,
-      created_user,
-      link_status,
-    };
+    const sig = this.sign(id);
+    return `${id}.${sig}`;
   }
 
-  private async createOrSignInUser(
-    email: string,
-    metadata: Record<string, any>,
-  ): Promise<SessionOut> {
-    const admin = this.supabase.getAdminClient();
-    const created = await admin.auth.admin.createUser({
-      email,
-      email_confirm: true,
-      user_metadata: metadata,
-    });
-
-    if (!created.error) {
-      const { access_token, refresh_token, expires_in, user_id } =
-        await this.signInViaLink("magiclink", email);
-      return {
-        user_id,
-        access_token,
-        refresh_token,
-        expires_in,
-        created_user: true,
-      };
-    }
-
-    const exists =
-      (created.error as any).code === "email_exists" ||
-      /already\s+been?\s+registered/i.test(created.error.message || "");
-    if (!exists) throw created.error;
-
-    const link = await admin.auth.admin.generateLink({
-      type: "recovery",
-      email,
-      options: { redirectTo: this.config.appUrl },
-    });
-    const user = link.data?.user;
-    if (!user) throw new BadRequestException("User lookup failed");
-
-    const providers = (user.identities || []).map((i) => i.provider);
-    const hasEmail = providers.includes("email");
-    const hasOauthOnly =
-      !hasEmail && providers.some((p) => p === "google" || p === "apple");
-    if (hasOauthOnly)
-      throw new BadRequestException(
-        "This email is registered via Google/Apple. Sign in with that provider.",
-      );
-
-    const { access_token, refresh_token, expires_in, user_id } =
-      await this.signInViaLink("recovery", email);
-    return {
-      user_id,
-      access_token,
-      refresh_token,
-      expires_in,
-      created_user: false,
-    };
+  async consumeCachedState(state: string): Promise<InstallStateCache | null> {
+    const id = this.verifySignedState(state);
+    if (!id) return null;
+    const key = this.stateKey(id);
+    const raw = await this.cache.get<string>(key);
+    if (!raw) return null;
+    await this.cache.del(key); // single-use
+    return JSON.parse(raw) as InstallStateCache;
   }
 
+  // ---- TICKET (one-time login) helpers ----
+  private ticketKey(id: string) {
+    return `${TICKET_NS}:${id}`;
+  }
+
+  async createLoginTicket(payload: TicketPayload) {
+    const id = randomUUID(); // opaque, random
+    await this.cache.set(
+      this.ticketKey(id),
+      JSON.stringify(payload),
+      TICKET_TTL_MS
+    );
+    return id;
+  }
+
+  async consumeLoginTicket(id: string): Promise<TicketPayload | null> {
+    const key = this.ticketKey(id);
+    const raw = await this.cache.get<string>(key);
+    if (!raw) return null;
+    await this.cache.del(key); // single-use
+    return JSON.parse(raw) as TicketPayload;
+  }
+
+  // ---- Shopify helpers ----
+  async buildShopifyAuthUrl(shop: string, state?: string): Promise<string> {
+    const url = new URL(`https://${shop}/admin/oauth/authorize`);
+    url.searchParams.set("client_id", this.config.shopifyApiKey);
+    url.searchParams.set(
+      "redirect_uri",
+      `${this.config.apiUrl}/auth/shopify/callback`
+    );
+    url.searchParams.set(
+      "state",
+      state ??
+        (await this.createCachedState({
+          uid: null,
+          storeId: null,
+          shop,
+          src: "shopify",
+        }))
+    );
+    return url.toString();
+  }
+
+  verifyShopifyHmac(rawUrl: string, providedHmac: string) {
+    // Verify HMAC according to Shopify docs (exclude hmac/signature, sort query)
+    const qs = rawUrl.split("?")[1] || "";
+    const params = new URLSearchParams(qs);
+    params.delete("hmac");
+    params.delete("signature");
+    const pairs = Array.from(params.entries())
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([k, v]) => `${k}=${v}`)
+      .join("&");
+    const digestHex = createHmac("sha256", this.config.shopifyApiSecret)
+      .update(pairs)
+      .digest("hex");
+    const a = Buffer.from(digestHex, "hex");
+    const b = Buffer.from(String(providedHmac).toLowerCase(), "hex");
+    if (a.length !== b.length || !timingSafeEqual(a, b))
+      throw new Error("Invalid HMAC");
+  }
+
+  // Create a Supabase session *server-side* without emailing a link
+  // by generating a link and verifying its hashed token immediately.
   private async signInViaLink(type: "magiclink" | "recovery", email: string) {
     const admin = this.supabase.getAdminClient();
     const gen = await admin.auth.admin.generateLink({
@@ -156,89 +201,214 @@ export class AuthService {
     };
   }
 
-  private async ensureStoreAndChannel(args: {
-  ownerId: string;
-  shopName: string;
-  domain: string;
-  offlineAccessToken: string;
-}) {
-  const { ownerId, shopName, domain, offlineAccessToken } = args;
-
-  return this.prisma.$transaction(async (tx) => {
-    let store = await tx.store.findFirst({ where: { ownerId } });
-    if (!store) {
-      const profileUrl = await resolveFavicon(domain);
-      store = await tx.store.create({
-        data: { ownerId, name: shopName, domainUrl: domain, profileUrl },
-      });
-    } else if (!store.domainUrl) {
-      store = await tx.store.update({
-        where: { id: store.id },
-        data: { domainUrl: domain },
-      });
-    }
-
-    const byShop = await tx.channel.findUnique({ where: { shop: domain } });
-    if (byShop && byShop.storeId !== store.id) {
-      throw new BadRequestException("Shop already linked to another store");
-    }
-
-    const existedByStore = await tx.channel.findUnique({
-      where: { storeId: store.id,
-      },
-    });
-
-    const channel = await tx.channel.upsert({
-      where: { storeId: store.id },
-      create: {
-        shop: domain,
-        storeId: store.id,
-        config: { offlineAccessToken },
-      },
-      update: {
-        shop: domain,
-        config: { offlineAccessToken },
-      },
-    });
-
-    if (!existedByStore) {
-      await this.storesProducer.init({ storeId: store.id });
-    }
-
-    return {
-      storeId: store.id,
-      channelId: channel.id,
-      link_status: existedByStore ? "UPDATED" : "CREATED",
-    };
-  });
-}
-
-
-  private async getShopInfo(shop: string, token: string) {
-    const client = await this.shopify.getAdminClient(shop, token);
-    const { shop: s } = await pRetry(
-      () =>
-        client.request<GetShopInfoQuery, GetShopInfoQueryVariables>(
-          GetShopInfoDocument,
-        ),
-      { retries: 5, factor: 2, minTimeout: 2000, maxTimeout: 4000 },
-    );
-    return { email: s.email, name: s.name, myshopifyDomain: s.myshopifyDomain };
+  private generatePassword(length = 16): string {
+    return randomBytes(length)
+      .toString("base64")
+      .replace(/[^a-zA-Z0-9]/g, "")
+      .slice(0, length);
   }
 
-  private async exchangeCode(shop: string, code: string): Promise<string> {
-    const res = await fetch(`https://${shop}/admin/oauth/access_token`, {
+  // 1) Verify integrity + CSRF state, then exchange code for token, then read shop info.
+  // 2) Branch by origin:
+  //    A. App-initiated install (ctx.storeId present): bind this Shopify shop to that store; ignore Shopify email for ownership.
+  //    B. Re-install or already-connected shop (existingChannel present): refresh token and sign in the store owner.
+  //    C. Marketplace install where Shopify email already exists in your app: create a store for that owner and connect the channel.
+  //    D. Brand-new user from marketplace: create user + store + channel, send welcome, and sign in.
+
+  async handleShopifyCallback(data: ShopifyCallbackDto): Promise<string> {
+    // --- Integrity: verify our anti-CSRF state ---
+    const ctx = await this.consumeCachedState(String(data.state));
+    if (!ctx) throw new BadRequestException('Invalid state');
+
+    // --- OAuth token exchange (offline access token) ---
+    const tokenResp = await fetch(`https://${data.shop}/admin/oauth/access_token`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         client_id: this.config.shopifyApiKey,
         client_secret: this.config.shopifyApiSecret,
-        code,
+        code: data.code,
       }),
     });
-    const data = await res.json();
-    if (!res.ok || !data?.access_token)
-      throw new BadRequestException(`Token exchange failed: ${res.status}`);
-    return data.access_token as string;
+    const tokenBody = await tokenResp.json();
+    const offlineAccessToken = tokenBody.access_token;
+    if (!tokenResp.ok || !offlineAccessToken) {
+      throw new BadRequestException(`Token exchange failed: ${tokenResp.status} ${JSON.stringify(tokenBody)}`);
+    }
+
+    // --- Early check: does a channel for this shop already exist? ---
+    const existingChannel = await this.prisma.channel.findUnique({ where: { shop: data.shop } });
+
+    // --- Read shop info (email/name) for marketplace linking paths ---
+    const shopifyAdminClient = await this.shopify.getAdminClient(data.shop, offlineAccessToken);
+    const {
+      shop: { email: shopEmail, name: shopName },
+    } = await shopifyAdminClient.request<GetShopInfoQuery, GetShopInfoQueryVariables>(GetShopInfoDocument, {});
+    const profileUrl = await resolveFavicon(`https://${data.shop}`);
+
+    // ===== CASE A: App-initiated install — user selected a specific store in your app =====
+    // Bind the Shopify shop to that store; enforce ownership by ctx.uid; ignore Shopify email for ownership.
+    if (ctx.storeId) {
+      const store = await this.prisma.store.findUniqueOrThrow({ where: { id: ctx.storeId } });
+      if (store.ownerId !== ctx.uid) throw new BadRequestException('Forbidden');
+
+      // Prevent connecting the same Shopify shop to a different store.
+      if (existingChannel && existingChannel.storeId !== store.id) {
+        throw new BadRequestException('This Shopify store is already connected to another store');
+      }
+
+      const channel = await this.prisma.channel.upsert({
+        where: { shop: data.shop },
+        create: {
+          shop: data.shop,
+          store: { connect: { id: store.id } },
+          config: { offlineAccessToken },
+        },
+        update: { storeId: store.id, config: { offlineAccessToken } },
+      });
+
+      await this.storesProducer.init({ storeId: channel.storeId });
+
+      // Sign in the existing store owner (bypass email mismatch issues).
+      const owner = await this.prisma.profile.findUniqueOrThrow({
+        where: { id: store.ownerId },
+        select: { email: true },
+      });
+      const session = await this.signInViaLink("recovery", owner.email);
+
+      const ticket = await this.createLoginTicket({
+        access_token: session.access_token,
+        refresh_token: session.refresh_token,
+        expires_in: session.expires_in,
+        user_id: session.user_id,
+        store_id: store.id,
+      });
+
+      return `${this.config.appUrl}/api/auth/complete?ticket=${ticket}`;
+    }
+
+    // ===== CASE B: Re-install / already-connected shop (marketplace flow without ctx.storeId) =====
+    // If channel exists, refresh token, init store, and sign in that store's owner.
+    if (existingChannel) {
+      const store = await this.prisma.store.findUniqueOrThrow({ where: { id: existingChannel.storeId } });
+
+      await this.prisma.channel.update({
+        where: { shop: data.shop },
+        data: { config: { offlineAccessToken } },
+      });
+
+      await this.storesProducer.init({ storeId: store.id });
+
+      const owner = await this.prisma.profile.findUniqueOrThrow({
+        where: { id: store.ownerId },
+        select: { email: true },
+      });
+      const session = await this.signInViaLink("recovery", owner.email);
+
+      const ticket = await this.createLoginTicket({
+        access_token: session.access_token,
+        refresh_token: session.refresh_token,
+        expires_in: session.expires_in,
+        user_id: session.user_id,
+        store_id: store.id,
+      });
+
+      return `${this.config.appUrl}/api/auth/complete?ticket=${ticket}`;
+    }
+
+    // ===== CASE C: Marketplace install — profile with the Shopify shop email already exists =====
+    // Create a new store under that profile and connect the Shopify channel.
+    const profile = await this.prisma.profile.findUnique({ where: { email: shopEmail } });
+
+    if (profile) {
+      const s = await this.prisma.$transaction(async (tx) => {
+        const store = await tx.store.create({
+          data: {
+            owner: { connect: { id: profile.id } },
+            name: shopName,
+            domainUrl: data.shop,
+            profileUrl,
+          },
+        });
+        await tx.channel.create({
+          data: {
+            shop: data.shop,
+            storeId: store.id,
+            config: { offlineAccessToken },
+          },
+        });
+        return store;
+      });
+
+      await this.storesProducer.init({ storeId: s.id });
+
+      const session = await this.signInViaLink("recovery", shopEmail);
+
+      const ticket = await this.createLoginTicket({
+        access_token: session.access_token,
+        refresh_token: session.refresh_token,
+        expires_in: session.expires_in,
+        user_id: session.user_id,
+        store_id: s.id,
+      });
+
+      return `${this.config.appUrl}/api/auth/complete?ticket=${ticket}`;
+    }
+
+    // ===== CASE D: Marketplace install — brand-new user =====
+    // Create user, create store, connect channel, send welcome, and sign in.
+    const supabaseAdmin = this.supabase.getAdminClient();
+    const password = this.generatePassword(16);
+    const created = await supabaseAdmin.auth.admin.createUser({
+      email: shopEmail,
+      email_confirm: true,
+      password,
+      user_metadata: { contactEmail: shopEmail },
+    });
+
+    const newStore = await this.prisma.$transaction(async (tx) => {
+      const store = await tx.store.create({
+        data: {
+          owner: { connect: { id: created.data.user?.id } },
+          name: shopName,
+          domainUrl: data.shop,
+          profileUrl,
+        },
+      });
+      await tx.channel.create({
+        data: {
+          shop: data.shop,
+          storeId: store.id,
+          config: { offlineAccessToken },
+        },
+      });
+      return store;
+    });
+
+    await this.storesProducer.init({ storeId: newStore.id });
+
+    await this.mailer.sendMail({
+      to: shopEmail,
+      subject: "Your Cloviana account",
+      text: `Welcome to Cloviana.\n\nEmail: ${shopEmail}\nPassword: ${password}\n\nYou can change your password in your account settings.`,
+      html: `
+        <p>Welcome to <strong>Cloviana</strong>.</p>
+        <p><strong>Email:</strong> ${shopEmail}<br/><strong>Password:</strong> ${password}</p>
+        <p>You can change your password in your account settings.</p>
+      `,
+    });
+
+    const session = await this.signInViaLink("recovery", shopEmail);
+
+    const ticket = await this.createLoginTicket({
+      access_token: session.access_token,
+      refresh_token: session.refresh_token,
+      expires_in: session.expires_in,
+      user_id: session.user_id,
+      store_id: newStore.id,
+    });
+
+    return `${this.config.appUrl}/api/auth/complete?ticket=${ticket}`;
   }
+
 }

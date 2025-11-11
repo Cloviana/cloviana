@@ -23,7 +23,7 @@ export async function initialize(
         url: product?.onlineStoreUrl ?? product?.onlineStorePreviewUrl,
         title: product.title!,
         description: product.description!,
-      })), 
+      })),
       additionalInstruction: blog.additionalInstruction,
       brandVoice: blog.brandVoice,
 
