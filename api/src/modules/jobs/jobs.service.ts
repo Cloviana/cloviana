@@ -1,5 +1,5 @@
-import { Injectable } from "@nestjs/common";
 import { PrismaService } from "@/clients/prisma/prisma.service";
+import { Injectable } from "@nestjs/common";
 import { JobStatus, JobType } from "@prisma/client";
 import { JOB_SUMMARY_SELECT } from "./constants/selects.constants";
 

@@ -1,7 +1,7 @@
-import { Controller, Get, Param, Query, UseGuards } from "@nestjs/common";
-import { JobsService } from "./jobs.service";
 import { StoreOwnerGuard } from "@/guards/store-owner.guard";
+import { Controller, Get, Param, Query, UseGuards } from "@nestjs/common";
 import { JobType } from "@prisma/client";
+import { JobsService } from "./jobs.service";
 
 @Controller("stores/:storeId/jobs")
 @UseGuards(StoreOwnerGuard)

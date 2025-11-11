@@ -2,8 +2,8 @@ import { Injectable } from "@nestjs/common";
 
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { AuthUser } from "@/interfaces/auth-user.interface";
-import { CreateStoreDto } from "../dto/create-store.dto";
 import { resolveFavicon } from "@/utils/resolve-favicon.util";
+import { CreateStoreDto } from "../dto/create-store.dto";
 
 @Injectable()
 export class StoresService {

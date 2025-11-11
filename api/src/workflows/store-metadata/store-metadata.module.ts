@@ -1,6 +1,6 @@
+import { CatalogModule } from "@/modules/catalog/catalog.module";
 import { Module } from "@nestjs/common";
 import { StoreMetadataWorkflow } from "./store-metadata.workflow";
-import { CatalogModule } from "@/modules/catalog/catalog.module";
 
 @Module({
   imports: [CatalogModule],

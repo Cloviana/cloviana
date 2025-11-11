@@ -1,4 +1,4 @@
-import { Prisma, NodeType } from "@prisma/client";
+import { NodeType, Prisma } from "@prisma/client";
 
 export type NodeInput = Omit<
   Prisma.NodeCreateManyInput,

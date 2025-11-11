@@ -4,11 +4,11 @@ import { SerankingClient } from "../seranking.client";
 import {
   ExportKeywordsMetricsInput,
   KeywordMetrics,
-  SimilarRelatedParams,
-  QuestionsParams,
   LongtailParams,
-  SimilarRelatedItem,
   PagedResult,
+  QuestionsParams,
+  SimilarRelatedItem,
+  SimilarRelatedParams,
 } from "../seranking.types";
 
 @Injectable()

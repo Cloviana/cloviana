@@ -1,9 +1,9 @@
-import { Injectable } from "@nestjs/common";
-import { graph } from "./blog-generation.graph";
 import { PrismaService } from "@/clients/prisma/prisma.service";
-import { JobStatus, JobType } from "@prisma/client";
-import { makeDedupeKey } from "@/utils/job.util";
 import { StorageService } from "@/modules/storage/storage.service";
+import { makeDedupeKey } from "@/utils/job.util";
+import { Injectable } from "@nestjs/common";
+import { JobStatus, JobType } from "@prisma/client";
+import { graph } from "./blog-generation.graph";
 
 const STALE_MS = 10 * 60 * 1000;
 

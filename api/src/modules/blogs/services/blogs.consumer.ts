@@ -1,8 +1,8 @@
-import { Controller, Logger } from "@nestjs/common";
-import { EventPattern, Payload } from "@nestjs/microservices";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { GENERATE_BLOG_EVENT } from "@/constants/rabbitmq.constants";
 import { BlogGenerationWorkflow } from "@/workflows/blog-generation/blog-generation.workflow";
+import { Controller, Logger } from "@nestjs/common";
+import { EventPattern, Payload } from "@nestjs/microservices";
 
 interface GenerateBlogsEvent {
   blogId: string;
