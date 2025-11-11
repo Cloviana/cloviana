@@ -317,7 +317,7 @@ export class AuthService {
         data: { config: { offlineAccessToken } },
       });
 
-      if (store.status === StoreStatus.ACTIVE || store.status === StoreStatus.INITIALIZING) {
+if (store.status !== StoreStatus.ACTIVE && store.status !== StoreStatus.INITIALIZING) {
   await this.storesProducer.init({ storeId: store.id });
 }
 
