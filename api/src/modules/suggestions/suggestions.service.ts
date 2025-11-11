@@ -38,7 +38,7 @@ export class SuggestionsService {
   constructor(
     @Inject(CACHE_MANAGER) private cache: Cache,
     private readonly metrics: SerankingMetricsService,
-    private readonly prisma: PrismaService
+    private readonly prisma: PrismaService,
   ) {}
 
   // Stable short hash for cache keys / signatures
@@ -106,11 +106,11 @@ export class SuggestionsService {
       });
 
       const topics = Array.from(
-        new Set(res.topics.map((t) => t.trim()))
+        new Set(res.topics.map((t) => t.trim())),
       ).filter(Boolean);
       if (topics.length !== 5) {
         this.logger.warn(
-          `topics invalid len=${topics.length} store=${storeId}`
+          `topics invalid len=${topics.length} store=${storeId}`,
         );
         throw new Error("invalid topics length");
       }
@@ -121,7 +121,7 @@ export class SuggestionsService {
     } catch (e: any) {
       this.logger.error(
         `topics error store=${storeId}: ${e?.message}`,
-        e?.stack
+        e?.stack,
       );
       throw e;
     }
@@ -161,10 +161,10 @@ export class SuggestionsService {
       }));
 
       const prodSig = this.shortHash(
-        products.map((p) => [p.id, p.title, p.category, p.tags])
+        products.map((p) => [p.id, p.title, p.category, p.tags]),
       );
       const key = `${CACHE_NS}:${CACHE_V}:primary:${blogId}:${this.shortHash(
-        topic
+        topic,
       )}:${prodSig}`;
 
       const cached = await this.cache.get<KeywordSuggestion[]>(key);
@@ -256,7 +256,7 @@ export class SuggestionsService {
     } catch (e: any) {
       this.logger.error(
         `primary error blog=${blogId}: ${e?.message}`,
-        e?.stack
+        e?.stack,
       );
       throw e;
     }
@@ -285,7 +285,7 @@ export class SuggestionsService {
 
     if (!topic || !primaryKeyword) {
       this.logger.warn(
-        `secondary missing inputs blog=${blogId} topic="${topic}" primary="${primaryKeyword}"`
+        `secondary missing inputs blog=${blogId} topic="${topic}" primary="${primaryKeyword}"`,
       );
       throw new Error("topic and primaryKeyword must be set on blog");
     }
@@ -299,10 +299,10 @@ export class SuggestionsService {
     }));
 
     const prodSig = this.shortHash(
-      products.map((p) => [p.id, p.title, p.category, p.tags])
+      products.map((p) => [p.id, p.title, p.category, p.tags]),
     );
     const key = `${CACHE_NS}:${CACHE_V}:secondary:${blogId}:${this.shortHash(
-      topic
+      topic,
     )}:${this.shortHash(primaryKeyword)}:${prodSig}`;
 
     try {
@@ -332,7 +332,7 @@ export class SuggestionsService {
 
       if (!candidates.length) {
         this.logger.warn(
-          `secondary no candidates blog=${blogId} primary="${primaryKeyword}"`
+          `secondary no candidates blog=${blogId} primary="${primaryKeyword}"`,
         );
         return [];
       }
@@ -380,16 +380,14 @@ export class SuggestionsService {
     } catch (e: any) {
       this.logger.error(
         `secondary error blog=${blogId}: ${e?.message}`,
-        e?.stack
+        e?.stack,
       );
       throw e;
     }
   }
 
   // Picks up to 3 recommended products for the topic from the blog's store catalog.
-  async suggestProduct(
-    blogId: string
-  ): Promise<
+  async suggestProduct(blogId: string): Promise<
     Array<{
       id: string;
       title: string;
@@ -426,26 +424,27 @@ export class SuggestionsService {
 
       if (!products.length) {
         this.logger.warn(
-          `product no catalog blog=${blogId} store=${blog.storeId}`
+          `product no catalog blog=${blogId} store=${blog.storeId}`,
         );
         return [];
       }
 
       const catalogSig = this.shortHash(
-        products.map((p) => [p.id, p.title, p.category, p.tags])
+        products.map((p) => [p.id, p.title, p.category, p.tags]),
       );
       const key = `${CACHE_NS}:${CACHE_V}:product:${blogId}:${this.shortHash(
-        topic
+        topic,
       )}:${catalogSig}`;
 
-      const cached = await this.cache.get<
-        Array<{
-          id: string;
-          title: string;
-          imageUrl: string | null;
-          recommended: boolean;
-        }>
-      >(key);
+      const cached =
+        await this.cache.get<
+          Array<{
+            id: string;
+            title: string;
+            imageUrl: string | null;
+            recommended: boolean;
+          }>
+        >(key);
       if (cached?.length) {
         this.logger.debug(`product hit blog=${blogId}`);
         return cached;
@@ -488,7 +487,7 @@ export class SuggestionsService {
     } catch (e: any) {
       this.logger.error(
         `product error blog=${blogId}: ${e?.message}`,
-        e?.stack
+        e?.stack,
       );
       throw e;
     }

@@ -56,6 +56,10 @@ export class StoresService {
       where: { id: storeId, ownerId },
       select: { id: true, status: true, updatedAt: true },
     });
-    return { storeId: store.id, status: store.status, lastUpdated: store.updatedAt };
+    return {
+      storeId: store.id,
+      status: store.status,
+      lastUpdated: store.updatedAt,
+    };
   }
 }

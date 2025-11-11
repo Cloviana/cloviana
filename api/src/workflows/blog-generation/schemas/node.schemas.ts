@@ -2,11 +2,26 @@ import { z } from "zod";
 
 type TextFormat = "bold" | "italic" | "underline";
 
-export type TextNode = { type: "TEXT"; text: string; format: TextFormat[] | null };
+export type TextNode = {
+  type: "TEXT";
+  text: string;
+  format: TextFormat[] | null;
+};
 export type ParagraphNode = { type: "PARAGRAPH"; children: Node[] };
-export type HeadingNode = { type: "HEADING"; tag: "h2" | "h3"; children: Node[] };
-export type ListItemNode = { type: "LIST_ITEM"; children: (ParagraphNode | ListNode)[] };
-export type ListNode = { type: "LIST"; listType: "bullet" | "number"; children: ListItemNode[] };
+export type HeadingNode = {
+  type: "HEADING";
+  tag: "h2" | "h3";
+  children: Node[];
+};
+export type ListItemNode = {
+  type: "LIST_ITEM";
+  children: (ParagraphNode | ListNode)[];
+};
+export type ListNode = {
+  type: "LIST";
+  listType: "bullet" | "number";
+  children: ListItemNode[];
+};
 export type QuoteNode = { type: "QUOTE"; children: Node[] };
 export type ImageNode = { type: "IMAGE"; src: string; altText: string };
 export type LinkNode = { type: "LINK"; url: string; children: TextNode[] };

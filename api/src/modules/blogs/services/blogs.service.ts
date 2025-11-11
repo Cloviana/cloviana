@@ -30,7 +30,7 @@ export class BlogsService {
     private readonly prisma: PrismaService,
     private readonly blogsProducer: BlogsProducer,
     private readonly storage: StorageService,
-    private readonly catalog: CatalogService
+    private readonly catalog: CatalogService,
   ) {}
 
   async getBlogs(storeId: string) {
@@ -181,13 +181,13 @@ export class BlogsService {
 
   private async getDefaultShopifyBlogId(
     shop: string,
-    token: string
+    token: string,
   ): Promise<string> {
     const client = await this.catalog["shopify"].getAdminClient(shop, token);
     const res = await client.request<{ blogs: { nodes: { id: string }[] } }>(
       `
         query { blogs(first: 1) { nodes { id } } }
-      `
+      `,
     );
     const id = res.blogs?.nodes?.[0]?.id;
     if (!id) throw new Error("No Shopify blog found");
@@ -242,7 +242,7 @@ export class BlogsService {
         shop,
         offlineAccessToken,
         blog.shopifyArticleId,
-        payload
+        payload,
       );
 
       await this.prisma.blog.update({
@@ -254,7 +254,7 @@ export class BlogsService {
     } else {
       const targetBlogId = await this.getDefaultShopifyBlogId(
         shop,
-        offlineAccessToken
+        offlineAccessToken,
       );
 
       const payload: ArticleCreateInput = {
@@ -271,7 +271,7 @@ export class BlogsService {
       const created = await this.catalog.createArticle(
         shop,
         offlineAccessToken,
-        payload
+        payload,
       );
 
       await this.prisma.blog.update({

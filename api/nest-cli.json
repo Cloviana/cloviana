@@ -5,10 +5,7 @@
     "builder": "swc",
     "deleteOutDir": true,
     "manualRestart": false,
-    "assets": [
-      { "include": "**/*.prompt.hbs" },
-      { "include": "**/*.hbs" }
-    ],
+    "assets": [{ "include": "**/*.prompt.hbs" }, { "include": "**/*.hbs" }],
     "watchAssets": true
   },
   "generateOptions": {

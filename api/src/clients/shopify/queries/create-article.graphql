@@ -4,14 +4,24 @@ mutation CreateArticle($article: ArticleCreateInput!, $blog: ArticleBlogInput) {
       id
       title
       handle
-      image { altText originalSrc }
+      image {
+        altText
+        originalSrc
+      }
       summary
       tags
       publishedAt
       createdAt
       updatedAt
-      blog { id title handle }
+      blog {
+        id
+        title
+        handle
+      }
     }
-    userErrors { field message }
+    userErrors {
+      field
+      message
+    }
   }
 }

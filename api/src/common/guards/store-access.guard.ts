@@ -39,9 +39,7 @@ export class StoreAccessGuard implements CanActivate {
     const inBetaWindow = !store.betaUntil || new Date(store.betaUntil) > now;
 
     const hasBetaAccess =
-      store.stage === AccessStage.BETA &&
-      !!store.acceptedAt &&
-      inBetaWindow;
+      store.stage === AccessStage.BETA && !!store.acceptedAt && inBetaWindow;
 
     const hasActiveAccess = store.stage === AccessStage.ACTIVE;
 

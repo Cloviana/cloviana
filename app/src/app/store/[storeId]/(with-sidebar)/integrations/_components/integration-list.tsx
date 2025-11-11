@@ -1,9 +1,11 @@
 'use client';
 
+import { zodResolver } from '@hookform/resolvers/zod';
 import { ChevronRight, CircleCheck } from 'lucide-react';
 import Image from 'next/image';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import z from 'zod';
 
 import { useGetStore } from '@/api/stores/get-store';
 import { Badge } from '@/components/ui/badge';
@@ -24,6 +26,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
+import {
+  getShopifyOauthUrl,
+  shopifyStartSchema,
+} from '@/features/auth/api/get-shopify-oauth-url';
 import { cn } from '@/utils/cn';
 
 function IntegrationRow({
@@ -66,24 +72,27 @@ function IntegrationRow({
   );
 }
 
-type FormValues = { shop: string };
-
 function ShopifyRow() {
   const { storeId } = useParams<{ storeId: string }>();
   const { data: store } = useGetStore(storeId);
   const connected = Boolean(store?.channel);
 
+  const formSchema = shopifyStartSchema.pick({ shop: true });
+
+  type FormValues = z.infer<typeof formSchema>;
+
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting, isValid },
-  } = useForm<FormValues>({ defaultValues: { shop: store?.channel?.shop } });
-
-  const { push } = useRouter();
+  } = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: { shop: store?.channel?.shop },
+  });
 
   const onSubmit: SubmitHandler<FormValues> = async ({ shop }) => {
-    const q = new URLSearchParams({ shop }).toString();
-    push(`/api/auth/shopify?${q}`);
+    const url = await getShopifyOauthUrl({ shop, storeId });
+    window.location.href = url;
   };
 
   return (
