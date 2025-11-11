@@ -1,5 +1,4 @@
 import { END, START, StateGraph } from "@langchain/langgraph";
-import { StateAnnotation } from "./store-metadata.state";
 import {
   createMetadata,
   fetchArticles,
@@ -7,6 +6,7 @@ import {
   fetchProducts,
   initialize,
 } from "./nodes";
+import { StateAnnotation } from "./store-metadata.state";
 
 export const graph = new StateGraph(StateAnnotation)
   .addNode("initialize", initialize)

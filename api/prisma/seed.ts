@@ -33,7 +33,9 @@ async function main() {
     returning id
   `);
 
-  console.log(JSON.stringify({ users: userCount, inserted: resInsert.rowCount }));
+  console.log(
+    JSON.stringify({ users: userCount, inserted: resInsert.rowCount }),
+  );
   await client.end();
 }
 

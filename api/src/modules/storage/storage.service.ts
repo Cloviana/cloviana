@@ -1,7 +1,7 @@
-import { Injectable, OnModuleInit, Inject } from "@nestjs/common";
-import { BlobServiceClient } from "@azure/storage-blob";
 import { Readable } from "stream";
 import { AppConfiguration } from "@/config/app.configuration";
+import { BlobServiceClient } from "@azure/storage-blob";
+import { Inject, Injectable, OnModuleInit } from "@nestjs/common";
 
 @Injectable()
 export class StorageService implements OnModuleInit {

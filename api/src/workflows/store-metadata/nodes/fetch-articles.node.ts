@@ -1,6 +1,6 @@
+import { CatalogService } from "@/modules/catalog/catalog.service";
 import { RunnableConfig } from "@langchain/core/runnables";
 import { StateAnnotation } from "../store-metadata.state";
-import { CatalogService } from "@/modules/catalog/catalog.service";
 
 export async function fetchArticles(
   state: typeof StateAnnotation.State,

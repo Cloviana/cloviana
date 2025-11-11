@@ -1,11 +1,11 @@
 import {
-  SimilarRelatedParams,
-  SimilarRelatedResponse,
-  QuestionsParams,
-  QuestionsResponse,
+  CommonFilters,
   LongtailParams,
   LongtailResponse,
-  CommonFilters,
+  QuestionsParams,
+  QuestionsResponse,
+  SimilarRelatedParams,
+  SimilarRelatedResponse,
 } from "./seranking.types";
 
 type Range = { from?: number; to?: number };

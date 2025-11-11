@@ -1,10 +1,10 @@
 import { Module } from "@nestjs/common";
 
-import { BlogsController } from "./blogs.controller";
-import { BlogsService } from "./services/blogs.service";
-import { BlogsConsumer } from "./services/blogs.consumer";
-import { BlogGenerationModule } from "@/workflows";
 import { CatalogModule } from "@/modules/catalog/catalog.module";
+import { BlogGenerationModule } from "@/workflows";
+import { BlogsController } from "./blogs.controller";
+import { BlogsConsumer } from "./services/blogs.consumer";
+import { BlogsService } from "./services/blogs.service";
 
 @Module({
   imports: [BlogGenerationModule, CatalogModule],

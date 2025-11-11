@@ -1,5 +1,5 @@
-import { Module } from "@nestjs/common";
 import { ShopifyModule } from "@/clients/shopify/shopify.module";
+import { Module } from "@nestjs/common";
 import { CatalogService } from "./catalog.service";
 
 @Module({

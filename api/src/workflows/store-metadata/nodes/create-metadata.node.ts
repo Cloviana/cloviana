@@ -1,9 +1,9 @@
 import { RunnableConfig } from "@langchain/core/runnables";
-import { StateAnnotation } from "../store-metadata.state";
-import { PrismaClient } from "@prisma/client";
-import z from "zod";
-import pRetry from "p-retry";
 import { ChatOpenAI } from "@langchain/openai";
+import { PrismaClient } from "@prisma/client";
+import pRetry from "p-retry";
+import z from "zod";
+import { StateAnnotation } from "../store-metadata.state";
 
 const ResponseSchema = z.object({
   brandDescription: z

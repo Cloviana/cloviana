@@ -1,6 +1,6 @@
+import { CatalogModule } from "@/modules/catalog/catalog.module";
 import { Module } from "@nestjs/common";
 import { SyncProductsWorkflow } from "./sync-products.workflow";
-import { CatalogModule } from "@/modules/catalog/catalog.module";
 
 @Module({
   imports: [CatalogModule],

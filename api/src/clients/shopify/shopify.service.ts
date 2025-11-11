@@ -12,7 +12,7 @@ export class ShopifyService {
   async getAdminClient(
     shopDomain: string,
     accessToken: string,
-    apiVersion = "2025-07"
+    apiVersion = "2025-07",
   ) {
     const adminUrl = `https://${this.normalizeDomain(shopDomain)}/admin/api/${apiVersion}/graphql.json`;
     const client = new GraphQLClient(adminUrl);
