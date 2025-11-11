@@ -1,6 +1,6 @@
+import { AppConfiguration } from "@/config/app.configuration";
 import { BlobServiceClient } from "@azure/storage-blob";
 import { Global, Module } from "@nestjs/common";
-import { AppConfiguration } from "@/config/app.configuration";
 import { StorageService } from "./storage.service";
 
 @Global()

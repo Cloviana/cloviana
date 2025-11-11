@@ -1,3 +1,5 @@
+import { StoreOwnerGuard } from "@/guards/store-owner.guard";
+import { SyncLexicalDto } from "@/modules/blogs/dtos/sync-nodes.dto";
 import {
   Body,
   Controller,
@@ -10,10 +12,8 @@ import {
   Put,
   UseGuards,
 } from "@nestjs/common";
-import { BlogsService } from "./services/blogs.service";
 import { UpdateBlogDto } from "./dtos/update-blog.dto";
-import { SyncLexicalDto } from "@/modules/blogs/dtos/sync-nodes.dto";
-import { StoreOwnerGuard } from "@/guards/store-owner.guard";
+import { BlogsService } from "./services/blogs.service";
 
 @Controller("stores/:storeId/blogs")
 export class BlogsController {

@@ -1,28 +1,28 @@
-import { Injectable } from "@nestjs/common";
-import { ShopifyService } from "@/clients/shopify/shopify.service";
 import {
-  ProductsDocument,
-  ProductsQuery,
-  ProductsQueryVariables,
-  Product,
+  Article,
+  ArticleBlogInput,
+  ArticleCreateInput,
+  ArticleUpdateInput,
+  ArticlesDocument,
+  ArticlesQuery,
+  ArticlesQueryVariables,
+  Collection,
   CollectionsDocument,
   CollectionsQuery,
   CollectionsQueryVariables,
-  Collection,
-  ArticlesQuery,
-  ArticlesDocument,
-  ArticlesQueryVariables,
-  Article,
-  ArticleCreateInput,
-  ArticleBlogInput,
+  CreateArticleDocument,
   CreateArticleMutation,
   CreateArticleMutationVariables,
-  CreateArticleDocument,
-  ArticleUpdateInput,
+  Product,
+  ProductsDocument,
+  ProductsQuery,
+  ProductsQueryVariables,
+  UpdateArticleDocument,
   UpdateArticleMutation,
   UpdateArticleMutationVariables,
-  UpdateArticleDocument,
 } from "@/clients/shopify/generated";
+import { ShopifyService } from "@/clients/shopify/shopify.service";
+import { Injectable } from "@nestjs/common";
 import pRetry from "p-retry";
 
 @Injectable()

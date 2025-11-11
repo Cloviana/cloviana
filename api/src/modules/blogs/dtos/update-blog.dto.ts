@@ -1,5 +1,5 @@
-import { IsString, IsOptional, IsEnum, IsArray, IsUUID } from "class-validator";
 import { BlogSetupStep } from "@prisma/client";
+import { IsArray, IsEnum, IsOptional, IsString, IsUUID } from "class-validator";
 
 export class UpdateBlogDto {
   @IsString()

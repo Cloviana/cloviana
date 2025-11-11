@@ -1,6 +1,6 @@
 import { END, START, StateGraph } from "@langchain/langgraph";
-import { StateAnnotation } from "./sync-products.state";
 import { fetchProducts, initialize, saveProducts } from "./nodes";
+import { StateAnnotation } from "./sync-products.state";
 
 export const graph = new StateGraph(StateAnnotation)
   .addNode("initialize", initialize)

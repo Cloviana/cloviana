@@ -1,10 +1,10 @@
+import { PrismaService } from "@/clients/prisma/prisma.service";
+import { INIT_STORES_EVENT } from "@/constants/rabbitmq.constants";
+import { StoreMetadataWorkflow } from "@/workflows/store-metadata/store-metadata.workflow";
+import { SyncProductsWorkflow } from "@/workflows/sync-products/sync-products.workflow";
 import { Controller, Logger } from "@nestjs/common";
 import { EventPattern, Payload } from "@nestjs/microservices";
-import { PrismaService } from "@/clients/prisma/prisma.service";
 import { StoreStatus } from "@prisma/client";
-import { INIT_STORES_EVENT } from "@/constants/rabbitmq.constants";
-import { SyncProductsWorkflow } from "@/workflows/sync-products/sync-products.workflow";
-import { StoreMetadataWorkflow } from "@/workflows/store-metadata/store-metadata.workflow";
 
 interface GenerateBlogsEvent {
   storeId: string;

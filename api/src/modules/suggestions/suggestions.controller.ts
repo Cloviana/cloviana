@@ -1,3 +1,4 @@
+import { BlogOwnerGuard } from "@/guards/blog-owner.guard";
 import {
   Controller,
   Get,
@@ -8,7 +9,6 @@ import {
   UseGuards,
 } from "@nestjs/common";
 import { SuggestionsService } from "./suggestions.service";
-import { BlogOwnerGuard } from "@/guards/blog-owner.guard";
 
 @Controller("blogs/:blogId/suggestions")
 @UseGuards(BlogOwnerGuard)

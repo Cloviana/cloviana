@@ -1,25 +1,25 @@
+import { CurrentUser } from "@/decorators/current-user.decorator";
+import { Public } from "@/decorators/public.decorator";
+import type { AuthUser } from "@/interfaces/auth-user.interface";
+import { TicketExchangeDto } from "@/modules/auth/dtos/ticket-exchange.dto";
 import {
+  Body,
   Controller,
   Get,
+  HttpException,
+  HttpStatus,
   Post,
-  Body,
   Query,
+  Req,
   Res,
   UsePipes,
   ValidationPipe,
-  HttpException,
-  HttpStatus,
-  Req,
 } from "@nestjs/common";
 import type { FastifyReply, FastifyRequest } from "fastify";
-import { Public } from "@/decorators/public.decorator";
 import { AuthService } from "./auth.service";
-import { ShopifyStartDto } from "./dtos/shopify-start.dto";
 import { ShopifyCallbackDto } from "./dtos/shopify-callback.dto";
 import { ShopifyInstallDto } from "./dtos/shopify-install.dto";
-import type { AuthUser } from "@/interfaces/auth-user.interface";
-import { CurrentUser } from "@/decorators/current-user.decorator";
-import { TicketExchangeDto } from "@/modules/auth/dtos/ticket-exchange.dto";
+import { ShopifyStartDto } from "./dtos/shopify-start.dto";
 
 @Controller("auth")
 @UsePipes(
@@ -27,7 +27,7 @@ import { TicketExchangeDto } from "@/modules/auth/dtos/ticket-exchange.dto";
     transform: true,
     whitelist: true,
     forbidNonWhitelisted: false,
-  })
+  }),
 )
 export class AuthController {
   constructor(private readonly auth: AuthService) {}
@@ -36,13 +36,13 @@ export class AuthController {
   async startFromPublic(
     @Query() dto: ShopifyInstallDto,
     @CurrentUser() user: AuthUser,
-    @Res() res: FastifyReply
+    @Res() res: FastifyReply,
   ) {
     const ok = await this.auth.verifyOwnership(user.sub, dto.storeId as string);
     if (!ok)
       throw new HttpException(
         "You do not own this store",
-        HttpStatus.FORBIDDEN
+        HttpStatus.FORBIDDEN,
       );
     const state = await this.auth.createCachedState({
       uid: user.sub,
@@ -59,7 +59,7 @@ export class AuthController {
   async startShopifyOAuth(
     @Query() dto: ShopifyStartDto,
     @Req() req: FastifyRequest,
-    @Res() res: FastifyReply
+    @Res() res: FastifyReply,
   ) {
     if (dto.hmac) this.auth.verifyShopifyHmac(req.raw.url || "", dto.hmac);
     const url = await this.auth.buildShopifyAuthUrl(dto.shop);
@@ -71,7 +71,7 @@ export class AuthController {
   async shopifyCallback(
     @Query() dto: ShopifyCallbackDto,
     @Req() req: FastifyRequest,
-    @Res() res: FastifyReply
+    @Res() res: FastifyReply,
   ) {
     try {
       this.auth.verifyShopifyHmac(req.raw.url || "", dto.hmac);
@@ -132,11 +132,11 @@ export class AuthController {
   @Post("shopify/callback/complete")
   async shopifyCallbackComplete(
     @Body() dto: ShopifyCallbackDto,
-    @Req() req: FastifyRequest
+    @Req() req: FastifyRequest,
   ) {
     this.auth.verifyShopifyHmac(
       `?${new URLSearchParams(dto as any).toString()}`,
-      dto.hmac
+      dto.hmac,
     );
     const redirectUrl = await this.auth.handleShopifyCallback(dto);
     return { redirectUrl };
@@ -150,7 +150,7 @@ export class AuthController {
     if (!data)
       throw new HttpException(
         "Invalid or expired ticket",
-        HttpStatus.BAD_REQUEST
+        HttpStatus.BAD_REQUEST,
       );
     // Return raw tokens; frontend (same-origin app) will set HttpOnly cookies
     return data;

@@ -2,27 +2,27 @@ import { Injectable } from "@nestjs/common";
 
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import {
+  ArticleCreateInput,
+  ArticleUpdateInput,
+} from "@/clients/shopify/generated";
+import { lexicalJsonToNodes } from "@/modules/blogs/utils/lexical-json-to-nodes";
+import { CatalogService } from "@/modules/catalog/catalog.service";
+import { BlogsProducer } from "@/modules/messaging/producers/blogs.producer";
+import { StorageService } from "@/modules/storage/storage.service";
+import { makeDedupeKey } from "@/utils/job.util";
+import {
   BlogSetupStep,
   BlogStatus,
   JobStatus,
   JobType,
   Prisma,
 } from "@prisma/client";
-import { UpdateBlogDto } from "../dtos/update-blog.dto";
-import { StorageService } from "@/modules/storage/storage.service";
-import { fromNodes } from "../utils/from-nodes";
 import {
   BLOG_DETAIL_SELECT,
   BLOG_SUMMARY_SELECT,
 } from "../constants/selects.constants";
-import { BlogsProducer } from "@/modules/messaging/producers/blogs.producer";
-import { makeDedupeKey } from "@/utils/job.util";
-import { CatalogService } from "@/modules/catalog/catalog.service";
-import {
-  ArticleCreateInput,
-  ArticleUpdateInput,
-} from "@/clients/shopify/generated";
-import { lexicalJsonToNodes } from "@/modules/blogs/utils/lexical-json-to-nodes";
+import { UpdateBlogDto } from "../dtos/update-blog.dto";
+import { fromNodes } from "../utils/from-nodes";
 
 @Injectable()
 export class BlogsService {

@@ -1,27 +1,27 @@
-import { Cache, CACHE_MANAGER } from "@nestjs/cache-manager";
-import { Inject, Injectable, Logger } from "@nestjs/common";
 import { createHash } from "crypto";
+import { CACHE_MANAGER, Cache } from "@nestjs/cache-manager";
+import { Inject, Injectable, Logger } from "@nestjs/common";
 import { z } from "zod";
 
-import { PrismaService } from "@/clients/prisma/prisma.service";
 import { GroqClient } from "@/clients/groq/groq.client";
-import { SerankingMetricsService } from "@/modules/seranking/services/seranking.metrics.service";
+import { PrismaService } from "@/clients/prisma/prisma.service";
 import { SerpIntent } from "@/modules/seranking/seranking.types";
+import { SerankingMetricsService } from "@/modules/seranking/services/seranking.metrics.service";
 
 import {
-  SYSTEM_PRODUCTS,
   SYSTEM_PRIMARY,
-  SYSTEM_SEED,
+  SYSTEM_PRODUCTS,
   SYSTEM_SECONDARY,
+  SYSTEM_SEED,
   SYSTEM_TOPICS,
 } from "./prompts";
 
 import {
-  TopicsSchema,
-  SeedSchema,
   PrimaryKeywordsSchema,
-  SecondaryKeywordsSchema,
   ProductsSchema,
+  SecondaryKeywordsSchema,
+  SeedSchema,
+  TopicsSchema,
 } from "./schemas";
 
 import { type KeywordSuggestion } from "@/modules/suggestions/suggestions.types";

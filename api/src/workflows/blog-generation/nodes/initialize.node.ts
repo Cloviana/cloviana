@@ -1,6 +1,6 @@
 import { RunnableConfig } from "@langchain/core/runnables";
-import { StateAnnotation } from "../blog-generation.state";
 import { PrismaClient } from "@prisma/client";
+import { StateAnnotation } from "../blog-generation.state";
 
 export async function initialize(
   state: typeof StateAnnotation.State,
