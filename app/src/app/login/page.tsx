@@ -1,6 +1,7 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -11,7 +12,6 @@ import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -20,14 +20,17 @@ import {
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { paths } from '@/config/paths';
+import { googleSignIn } from '@/features/auth/actions/google-sign-in';
 import { signInWithEmail } from '@/features/auth/actions/sign-in-with-email';
 
 const formSchema = z.object({
   email: z.string().email({ message: 'Enter a valid email.' }),
-  password: z.string(),
+  password: z
+    .string()
+    .min(12, { message: 'Password must be at least 12 characters.' }),
 });
 
-export default function SignUpPage() {
+export default function LoginPage() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     mode: 'onSubmit',
@@ -40,33 +43,45 @@ export default function SignUpPage() {
     form.clearErrors('root');
     const result = await signInWithEmail(values.email, values.password);
     if (!result.success) {
-      form.setError('root', { type: 'server', message: result.message });
+      form.setError('password', { type: 'server', message: result.message });
       return;
     }
     push(paths.store.getHref());
   }
 
   return (
-    <div role="main">
-      <div className="mx-auto mt-20 flex w-full max-w-lg flex-col gap-12">
+    <div
+      role="main"
+      className="h-screen w-screen overflow-y-auto px-7 pt-20 pb-12"
+    >
+      <div className="mx-auto flex w-full max-w-lg flex-col gap-12">
         <div className="flex items-center gap-8">
-          <img src="/logo-full.png" className="w-[90px]" alt="Cloviana Logo" />
+          <Image
+            src="/logo-icon.png"
+            width={125}
+            height={125}
+            alt="Cloviana Logo"
+            className="size-[25px]"
+          />
         </div>
 
         <div className="w-full space-y-6">
           <div className="space-y-1.5">
-            <h1 className="text-[20px] font-medium">Log in</h1>
+            <h1 className="text-[20px] font-medium">
+              Welcome back to Cloviana
+            </h1>
             <p className="text-foreground-light text-sm">
-              Log in to use Cloviana
+              Log in to use Cloviana.
             </p>
           </div>
 
           <div className="space-y-6">
             <Button
               type="button"
-              className="w-full"
+              className="w-full bg-white"
               variant="outline"
-              onClick={() => (window.location.href = '/auth/google')}
+              size={'lg'}
+              onClick={googleSignIn}
             >
               <div className="flex items-center gap-2">
                 <Image
@@ -99,12 +114,12 @@ export default function SignUpPage() {
                       <FormControl>
                         <Input
                           type="email"
-                          placeholder="you@example.com"
-                          variant="white"
+                          placeholder="example@company.com"
+                          size={'lg'}
                           {...field}
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-destructive text-[13px] font-medium" />
                     </FormItem>
                   )}
                 />
@@ -115,16 +130,15 @@ export default function SignUpPage() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Password</FormLabel>
-                      <FormDescription />
                       <FormControl>
                         <Input
                           type="password"
-                          placeholder="••••••••"
-                          variant="white"
+                          placeholder="New password"
+                          size={'lg'}
                           {...field}
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-destructive text-[13px] font-medium" />
                     </FormItem>
                   )}
                 />
@@ -132,40 +146,21 @@ export default function SignUpPage() {
                 <Button
                   type="submit"
                   className="w-full"
-                  loading={form.formState.isSubmitting}
+                  variant={'primary'}
+                  size={'lg'}
                   disabled={form.formState.isSubmitting}
                 >
                   Continue
+                  <ChevronRight className="size-3.5" strokeWidth={2.5} />
                 </Button>
               </form>
             </Form>
 
             <p className="text-foreground-lighter text-[13px]">
-              By creating an account, you agree to our{' '}
-              <Link
-                href={paths.regulations.termsOfService.getHref()}
-                className="text-foreground-lighter/80 hover:text-primary underline"
-              >
-                Terms of Service
-              </Link>{' '}
-              and{' '}
-              <Link
-                href={paths.regulations.privacyPolicy.getHref()}
-                className="text-foreground-lighter/80 hover:text-primary underline"
-              >
-                Privacy Policy
-              </Link>
-              .
-            </p>
-
-            <p className="text-foreground-lighter text-[13px]">
               Don't have an account?{' '}
-              <Link
-                href={paths.auth.signup.getHref()}
-                className="text-foreground-lighter/80 hover:text-primary underline"
-              >
-                Create account
-              </Link>
+              <Button variant={'link'}>
+                <Link href={paths.auth.signup.getHref()}>Create account</Link>
+              </Button>
             </p>
           </div>
         </div>
