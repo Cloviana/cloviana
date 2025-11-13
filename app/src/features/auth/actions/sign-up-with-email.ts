@@ -7,7 +7,8 @@ interface AuthResponse {
   message: string;
 }
 
-const GENERIC_ERROR_MSG = 'Something went wrong, please try again later.';
+const GENERIC_ERROR_MSG =
+  'The email address must be a valid email address and must not be in use by another user.';
 
 export async function signUpWithEmail(
   email: string,
@@ -22,23 +23,6 @@ export async function signUpWithEmail(
     });
 
     if (error) {
-      if (
-        error.message.toLowerCase().includes('already') ||
-        error.message.toLowerCase().includes('registered')
-      ) {
-        return {
-          success: false,
-          message: 'An account already exists with this email.',
-        };
-      }
-
-      if (error.message.toLowerCase().includes('invalid')) {
-        return {
-          success: false,
-          message: 'Please provide a valid email address.',
-        };
-      }
-
       return {
         success: false,
         message: GENERIC_ERROR_MSG,
