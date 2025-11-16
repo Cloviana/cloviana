@@ -15,6 +15,7 @@ RUN pnpm build
 
 FROM builder AS dev
 ENV NODE_ENV=development
+ENV ENVIRONMENT=development
 WORKDIR /app
 EXPOSE 5000
 CMD ["pnpm", "start:debug"]
@@ -25,6 +26,7 @@ RUN pnpm prune --prod
 FROM node:20-alpine AS runner
 RUN apk add --no-cache openssl
 ENV NODE_ENV=production
+ENV ENVIRONMENT=production
 WORKDIR /app
 COPY --from=pruned /app/package.json .  
 COPY --from=pruned /app/node_modules ./node_modules

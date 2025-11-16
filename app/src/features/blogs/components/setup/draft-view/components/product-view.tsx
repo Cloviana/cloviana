@@ -5,6 +5,13 @@ import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 
+import {
+  Page,
+  PageContent,
+  PageHeader,
+  PageParagraph,
+  PageTitle,
+} from '@/components/deprecated/ui/page';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -14,13 +21,6 @@ import {
   DropdownMenuItem,
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
-import {
-  Page,
-  PageContent,
-  PageHeader,
-  PageParagraph,
-  PageTitle,
-} from '@/components/ui/page';
 import { useGetBlog } from '@/features/blogs/api/get-blog';
 import { useGetProductSuggestions } from '@/features/blogs/api/get-product-suggestions';
 import { useUpdateBlog } from '@/features/blogs/api/update-blog';
@@ -225,7 +225,7 @@ export const ProductView = () => {
                       className={cn(
                         'grid size-5 place-items-center rounded-sm border',
                         selected
-                          ? 'bg-primary text-background border-0'
+                          ? 'bg-secondary text-background border-0'
                           : 'border-input bg-background',
                       )}
                       aria-hidden

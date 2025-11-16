@@ -2,15 +2,15 @@ import { ListFilter, Sparkles, X } from 'lucide-react';
 import { useParams } from 'next/navigation';
 import * as React from 'react';
 
-import { Badge } from '@/components/ui/badge';
-import { Checkbox } from '@/components/ui/checkbox';
 import {
   Page,
   PageContent,
   PageHeader,
   PageParagraph,
   PageTitle,
-} from '@/components/ui/page';
+} from '@/components/deprecated/ui/page';
+import { Badge } from '@/components/ui/badge';
+import { Checkbox } from '@/components/ui/checkbox';
 import {
   Table,
   TableBody,

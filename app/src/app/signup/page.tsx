@@ -1,6 +1,7 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -20,6 +21,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { paths } from '@/config/paths';
+import { googleSignIn } from '@/features/auth/actions/google-sign-in';
 import { signUpWithEmail } from '@/features/auth/actions/sign-up-with-email';
 
 const formSchema = z.object({
@@ -42,17 +44,26 @@ export default function SignUpPage() {
     form.clearErrors('root');
     const result = await signUpWithEmail(values.email, values.password);
     if (!result.success) {
-      form.setError('root', { type: 'server', message: result.message });
+      form.setError('password', { type: 'server', message: result.message });
       return;
     }
     push(paths.store.getHref());
   }
 
   return (
-    <div role="main">
-      <div className="mx-auto mt-20 flex w-full max-w-lg flex-col gap-12">
+    <div
+      role="main"
+      className="bg-background h-screen w-screen overflow-y-auto px-7 pt-20 pb-12"
+    >
+      <div className="mx-auto flex w-full max-w-lg flex-col gap-12">
         <div className="flex items-center gap-8">
-          <img src="/logo-full.png" className="w-[90px]" alt="Cloviana Logo" />
+          <Image
+            src="/logo-icon.png"
+            width={125}
+            height={125}
+            alt="Cloviana Logo"
+            className="size-[25px]"
+          />
         </div>
 
         <div className="w-full space-y-6">
@@ -66,9 +77,10 @@ export default function SignUpPage() {
           <div className="space-y-6">
             <Button
               type="button"
-              className="w-full"
+              className="w-full bg-white"
               variant="outline"
-              onClick={() => (window.location.href = '/auth/google')}
+              size={'lg'}
+              onClick={googleSignIn}
             >
               <div className="flex items-center gap-2">
                 <Image
@@ -101,12 +113,12 @@ export default function SignUpPage() {
                       <FormControl>
                         <Input
                           type="email"
-                          placeholder="you@example.com"
-                          variant="white"
+                          placeholder="example@company.com"
+                          size={'lg'}
                           {...field}
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-destructive text-[13px] font-medium" />
                     </FormItem>
                   )}
                 />
@@ -123,12 +135,12 @@ export default function SignUpPage() {
                       <FormControl>
                         <Input
                           type="password"
-                          placeholder="••••••••"
-                          variant="white"
+                          placeholder="New password"
+                          size={'lg'}
                           {...field}
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-destructive text-[13px] font-medium" />
                     </FormItem>
                   )}
                 />
@@ -136,40 +148,37 @@ export default function SignUpPage() {
                 <Button
                   type="submit"
                   className="w-full"
+                  variant={'primary'}
+                  size={'lg'}
                   loading={form.formState.isSubmitting}
-                  disabled={form.formState.isSubmitting}
                 >
                   Continue
+                  <ChevronRight className="size-3.5" strokeWidth={2.5} />
                 </Button>
               </form>
             </Form>
 
             <p className="text-foreground-lighter text-[13px]">
               By creating an account, you agree to our{' '}
-              <Link
-                href={paths.regulations.termsOfService.getHref()}
-                className="text-foreground-lighter/80 hover:text-primary underline"
-              >
-                Terms of Service
-              </Link>{' '}
+              <Button variant={'link'}>
+                <Link href={paths.regulations.termsOfService.getHref()}>
+                  Terms of Service
+                </Link>
+              </Button>{' '}
               and{' '}
-              <Link
-                href={paths.regulations.privacyPolicy.getHref()}
-                className="text-foreground-lighter/80 hover:text-primary underline"
-              >
-                Privacy Policy
-              </Link>
+              <Button variant={'link'}>
+                <Link href={paths.regulations.privacyPolicy.getHref()}>
+                  Privacy Policy
+                </Link>
+              </Button>
               .
             </p>
 
             <p className="text-foreground-lighter text-[13px]">
               Already have an account?{' '}
-              <Link
-                href={paths.auth.login.getHref()}
-                className="text-foreground-lighter/80 hover:text-primary underline"
-              >
-                Sign in
-              </Link>
+              <Button variant={'link'}>
+                <Link href={paths.auth.login.getHref()}>Sign in</Link>
+              </Button>
             </p>
           </div>
         </div>

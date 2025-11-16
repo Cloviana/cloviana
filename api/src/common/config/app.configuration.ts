@@ -40,8 +40,8 @@ export class AppConfiguration {
   readonly supabaseUrl!: string;
 
   @IsString()
-  @Value("STRIPE_SECRET_KEY")
-  readonly stripeSecretKey!: string;
+  @Value("STRIPE_API_KEY")
+  readonly stripeApiKey!: string;
 
   @IsString()
   @Value("STRIPE_WEBHOOK_SECRET")

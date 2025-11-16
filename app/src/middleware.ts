@@ -36,15 +36,9 @@ export async function middleware(request: NextRequest) {
   const isAuthRoute =
     pathname.startsWith('/login') || pathname.startsWith('/signup');
 
-  if (user && pathname === '/') {
-    const url = request.nextUrl.clone();
-    url.pathname = '/store';
-    return NextResponse.redirect(url);
-  }
-
   if (user && isAuthRoute) {
     const url = request.nextUrl.clone();
-    url.pathname = '/store';
+    url.pathname = '/';
     return NextResponse.redirect(url);
   }
 

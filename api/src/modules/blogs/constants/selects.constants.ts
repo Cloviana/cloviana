@@ -2,12 +2,12 @@ import { Prisma } from "@prisma/client";
 
 export const BLOG_SUMMARY_SELECT: Prisma.BlogSelect = {
   id: true,
-  title: true,
   topic: true,
   primaryKeyword: true,
   status: true,
   createdAt: true,
   updatedAt: true,
+  thumbnail: { select: { blobPath: true, altText: true } },
   job: {
     select: {
       id: true,
@@ -15,6 +15,11 @@ export const BLOG_SUMMARY_SELECT: Prisma.BlogSelect = {
       startedAt: true,
       finishedAt: true,
       error: true,
+    },
+  },
+  _count: {
+    select: {
+      products: true,
     },
   },
 };
