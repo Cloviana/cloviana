@@ -24,7 +24,12 @@ export const EditorHeader = () => {
           </span>
         </div>
         <div className="flex items-center">
-          <Button size={'xs'} onClick={handlePublish} loading={isPending}>
+          <Button
+            size={'xs'}
+            variant={'secondary'}
+            onClick={handlePublish}
+            disabled={isPending}
+          >
             Publish
           </Button>
         </div>

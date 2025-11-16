@@ -36,59 +36,33 @@ jobs:
             echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io --username samuelito22 --password-stdin
 
             cat > .env <<'EOF'
-            # --------------------------------------------------
-            # Database
-            # --------------------------------------------------
             DATABASE_URL=${{ secrets.DATABASE_URL }}
             DIRECT_URL=${{ secrets.DIRECT_URL }}
 
-            # --------------------------------------------------
-            # Supabase
-            # --------------------------------------------------
             SUPABASE_URL=${{ vars.SUPABASE_URL }}
             SUPABASE_ANON_KEY=${{ vars.SUPABASE_ANON_KEY }}
             SUPABASE_JWT_SECRET=${{ secrets.SUPABASE_JWT_SECRET }}
             SUPABASE_SERVICE_ROLE_KEY=${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
 
-            # --------------------------------------------------
-            # OpenAI
-            # --------------------------------------------------
             OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
-            ANTHROPIC_API_KEY=${{ secrets.ANTHROPIC_API_KEY }}
             GROQ_API_KEY=${{ secrets.GROQ_API_KEY }}
 
-            # --------------------------------------------------
-            # Stripe
-            # --------------------------------------------------
+            STRIPE_API_KEY=${{ secrets.STRIPE_API_KEY }}
             STRIPE_WEBHOOK_SECRET=${{ secrets.STRIPE_WEBHOOK_SECRET }}
-            STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }}
 
-            # --------------------------------------------------
-            # Marketing / SEO APIs
-            # --------------------------------------------------
             SERANKING_API_KEY=${{ secrets.SERANKING_API_KEY }}
             GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }}
-            WEB_GA4_ID=${{ vars.WEB_GA4_ID }}
-            APP_GA4_ID=${{ vars.APP_GA4_ID }}
-            GA4_API_SECRET=${{ secrets.GA4_API_SECRET }}
             GOOGLE_CX=${{ vars.GOOGLE_CX }}
             IDEOGRAM_API_KEY=${{ secrets.IDEOGRAM_API_KEY }}
 
-            # --------------------------------------------------
-            # Email
-            # --------------------------------------------------
+            GA4_API_SECRET=${{ secrets.GA4_API_SECRET }}
+
             SMTP2GO_API_KEY=${{ secrets.SMTP2GO_API_KEY }}
             SMTP2GO_DEFAULT_FROM=${{ vars.SMTP2GO_DEFAULT_FROM }}
 
-            # --------------------------------------------------
-            # Storage / CDN
-            # --------------------------------------------------
             AZURE_STORAGE_CONNECTION_STRING=${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
             AZURE_CDN_ENDPOINT=${{ vars.AZURE_CDN_ENDPOINT }}
 
-            # --------------------------------------------------
-            # Shopify
-            # --------------------------------------------------
             SHOPIFY_API_KEY=${{ secrets.SHOPIFY_API_KEY }}
             SHOPIFY_API_SECRET=${{ secrets.SHOPIFY_API_SECRET }}
             SHOPIFY_HOST=${{ vars.SHOPIFY_HOST }}
@@ -108,4 +82,3 @@ jobs:
             docker compose -f compose-core.yaml -f compose-prod.yaml restart nginx
 
             docker system prune -af --volumes
-            

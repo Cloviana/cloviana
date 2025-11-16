@@ -1,11 +1,10 @@
 import path from "path";
 import { fileURLToPath } from "url";
 import { StateAnnotation } from "@/workflows/blog-generation/blog-generation.state";
-import { EditorStateSchema } from "@/workflows/blog-generation/schemas/node.schemas";
 import { loadPromptHbs } from "@/workflows/blog-generation/utils/load-prompt-hbs.util";
+import { markdownToEditorState } from "@/workflows/blog-generation/utils/markdown-to-editor-state";
 import Groq from "groq-sdk";
 import pRetry from "p-retry";
-import { zodToJsonSchema } from "zod-to-json-schema";
 
 export async function content(
   state: typeof StateAnnotation.State,
@@ -21,10 +20,9 @@ export async function content(
   );
   console.debug("[content] prompts baseDir:", baseDir);
 
-  const [editorStateSysPrompt, mainPrompt] = await Promise.all([
-    loadPromptHbs("editor-state-system.prompt", undefined, { baseDir }),
-    loadPromptHbs("content.prompt", undefined, { baseDir }),
-  ]);
+  const mainPrompt = await loadPromptHbs("content.prompt", undefined, {
+    baseDir,
+  });
 
   console.debug("[content] prompt length:", mainPrompt?.length ?? 0);
 
@@ -52,7 +50,7 @@ export async function content(
         messages: [
           {
             role: "system",
-            content: [editorStateSysPrompt, mainPrompt].join("\n"),
+            content: mainPrompt,
           },
           {
             role: "user",
@@ -60,24 +58,17 @@ export async function content(
           },
         ],
         reasoning_effort: "medium",
-        response_format: {
-          type: "json_schema",
-          json_schema: {
-            name: "editorial_schema",
-            schema: zodToJsonSchema(EditorStateSchema, "editorial_schema"),
-          },
-        },
       });
 
-      const rawResult = JSON.parse(response.choices[0].message.content || "{}");
-      const result = EditorStateSchema.parse(rawResult);
+      const markdown = response.choices[0]?.message?.content ?? "";
+      const editorState = markdownToEditorState(markdown);
 
       console.info(
         "[content] LLM invocation done in",
         Date.now() - invokeStart,
         "ms",
       );
-      return result;
+      return editorState;
     },
     {
       retries: 3,
