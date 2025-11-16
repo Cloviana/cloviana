@@ -45,14 +45,7 @@ export const paths = {
   },
 
   onboarding: {
-    companyDetail: {
-      getHref: (query?: Record<string, any>) =>
-        buildPath('/onboarding/company-detail', query),
-    },
-    trial: {
-      getHref: (query?: Record<string, any>) =>
-        buildPath('/onboarding/trial', query),
-    },
+    getHref: (query?: Record<string, any>) => buildPath('/onboarding', query),
   },
 
   regulations: {

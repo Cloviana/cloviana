@@ -47,7 +47,7 @@ export default function SignUpPage() {
       form.setError('password', { type: 'server', message: result.message });
       return;
     }
-    push(paths.store.getHref());
+    push(paths.onboarding.getHref());
   }
 
   return (
