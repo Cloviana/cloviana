@@ -28,7 +28,7 @@ export default async function Layout({ children, params }: LayoutProps) {
   const activeStores = stores?.filter((s) => s.status !== 'DRAFT') ?? [];
 
   if (activeStores.length === 0) {
-    redirect(paths.onboarding.companyDetail.getHref());
+    redirect(paths.onboarding.getHref());
   } else if (activeStores.length && !store) {
     redirect(paths.store.blogs.getHref(activeStores[0].id));
   }

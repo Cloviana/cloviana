@@ -36,12 +36,18 @@ const blogColumns: ColumnDef<Blog>[] = [
       return (
         <div className="flex min-w-40 items-center gap-2">
           <Avatar className="bg-muted/60 hidden size-8 rounded-md md:block">
-            <AvatarImage
-              src={thumbnail?.srcUrl}
-              alt={thumbnail?.altText || 'thumbnail'}
-              className="rounded-md object-cover object-center"
-            />
-            <AvatarFallback className="bg-muted rounded-md border">
+            {thumbnail?.srcUrl ? (
+              <AvatarImage
+                src={thumbnail.srcUrl}
+                alt={thumbnail.altText || 'thumbnail'}
+                className="rounded-md object-cover object-center"
+                fetchPriority="high"
+              />
+            ) : null}
+            <AvatarFallback
+              delayMs={200}
+              className="bg-muted rounded-md border"
+            >
               <Image className="text-muted-foreground size-4" />
             </AvatarFallback>
           </Avatar>

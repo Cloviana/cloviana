@@ -1,9 +1,9 @@
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
+import { AppHeader } from '@/app/_components/header';
 import { ErrorFallback } from '@/components/fallbacks/error-fallback';
 import { LoadingFallback } from '@/components/fallbacks/loading-fallback';
-import * as AppHeader from '@/components/layouts/app-header';
 import {
   DraftSidebar,
   DraftSidebarToggleButton,
@@ -23,22 +23,9 @@ export default async function DraftSetupPage({
   return (
     <DrafterProvider blogId={blogId} storeId={storeId}>
       <div className="bg-background flex h-screen w-full flex-col overflow-hidden">
-        <AppHeader.Root>
-          <AppHeader.Row>
-            <AppHeader.Start>
-              <AppHeader.Logo />
-              <AppHeader.AccountChip />
-            </AppHeader.Start>
-          </AppHeader.Row>
-
-          <AppHeader.Row className="overflow-x-auto">
-            <AppHeader.Start>
-              <DraftSidebarToggleButton className="-ml-1 md:hidden" />
-              <AppHeader.StoreChip />
-              <AppHeader.StoreStatusBadges />
-            </AppHeader.Start>
-          </AppHeader.Row>
-        </AppHeader.Root>
+        <header className="border-b">
+          <AppHeader sidebarTrigger={<DraftSidebarToggleButton />} />
+        </header>
 
         <div className="relative flex min-h-0 flex-1">
           <DraftSidebar />
