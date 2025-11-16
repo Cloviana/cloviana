@@ -2,7 +2,7 @@ import "dotenv/config";
 import { Client } from "pg";
 
 async function main() {
-  const conn = process.env.SUPABASE_DB_URL ?? process.env.DATABASE_URL;
+  const conn = process.env.DATABASE_URL;
   if (!conn) throw new Error("Missing DATABASE_URL");
 
   const client = new Client({ connectionString: conn });
@@ -33,9 +33,66 @@ async function main() {
     returning id
   `);
 
+  const env = process.env.ENVIRONMENT ?? "development";
+
+  const plans = [
+    {
+      name: "STARTER",
+      prices: {
+        production: "#",
+        development: "price_1STVpcIN5ime0XaQqiMArmxe",
+      },
+    },
+  ] as const;
+
+  const planResults: { name: string; priceId: string }[] = [];
+
+  for (const plan of plans) {
+    const priceId =
+      plan.prices[env as keyof typeof plan.prices] ?? plan.prices.development;
+
+    const existing = await client.query<{ id: string }>(
+      `
+      select id
+      from public."plans"
+      where "name" = $1::"PlanName"
+      limit 1
+    `,
+      [plan.name],
+    );
+
+    if (existing.rowCount === 0) {
+      await client.query(
+        `
+        insert into public."plans" ("id", "name", "stripePriceId", "createdAt", "updatedAt")
+        values (gen_random_uuid(), $1::"PlanName", $2, now(), now())
+      `,
+        [plan.name, priceId],
+      );
+    } else {
+      await client.query(
+        `
+        update public."plans"
+        set "stripePriceId" = $1,
+            "updatedAt" = now()
+        where id = $2
+      `,
+        [priceId, existing.rows[0].id],
+      );
+    }
+
+    planResults.push({ name: plan.name, priceId });
+  }
+
   console.log(
-    JSON.stringify({ users: userCount, inserted: resInsert.rowCount }),
+    JSON.stringify({
+      users: userCount,
+      insertedProfiles: resInsert.rowCount,
+      env,
+      plans: planResults,
+    }),
   );
+
   await client.end();
 }
 

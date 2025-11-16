@@ -137,9 +137,6 @@ const StoreStatusBadges = ({ className }: { className?: string }) => {
           Active
         </Badge>
       )}
-      <Badge variant="outline" className="whitespace-nowrap">
-        Free plan
-      </Badge>
     </div>
   );
 };

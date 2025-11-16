@@ -1,8 +1,9 @@
-import { Injectable } from "@nestjs/common";
+import { BadRequestException, Injectable } from "@nestjs/common";
 
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { AuthUser } from "@/interfaces/auth-user.interface";
 import { resolveFavicon } from "@/utils/resolve-favicon.util";
+import { PlanName, SubscriptionStatus } from "@prisma/client";
 import { CreateStoreDto } from "../dto/create-store.dto";
 
 @Injectable()
@@ -21,6 +22,18 @@ export class StoresService {
     return this.prisma.store.findFirst({
       where: { id: storeId, ownerId },
       include: {
+        subscription: {
+          select: {
+            status: true,
+            trialEndsAt: true,
+            plan: {
+              select: {
+                name: true,
+                stripePriceId: true,
+              },
+            },
+          },
+        },
         channel: {
           select: {
             id: true,
@@ -38,12 +51,29 @@ export class StoresService {
     const { sub: ownerId } = user;
     const profileUrl = await resolveFavicon(domainUrl);
 
+    const trialEndsAt = new Date();
+    trialEndsAt.setDate(trialEndsAt.getDate() + 7);
+
+    const starterPlan = await this.prisma.plan.findFirst({
+      where: { name: PlanName.STARTER },
+    });
+    if (!starterPlan) {
+      throw new BadRequestException("Starter plan is not configured");
+    }
+
     const store = await this.prisma.store.create({
       data: {
         ownerId,
         name,
         domainUrl,
         profileUrl,
+        subscription: {
+          create: {
+            status: SubscriptionStatus.TRIALLING,
+            trialEndsAt,
+            plan: { connect: { id: starterPlan.id } },
+          },
+        },
       },
     });
 

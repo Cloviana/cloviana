@@ -60,17 +60,15 @@ export const ViewActions = ({
             size="lg"
             onClick={handlePrev}
             disabled={loading === 'prev'}
-            loading={loading === 'prev'}
           >
             Back
           </Button>
         )}
         <Button
-          variant="brand-secondary"
+          variant="secondary"
           size="lg"
           onClick={handleNext}
           disabled={!!isNextDisabled || loading === 'next'}
-          loading={loading === 'next'}
         >
           Continue
         </Button>

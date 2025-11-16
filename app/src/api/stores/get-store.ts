@@ -20,6 +20,7 @@ export const getStoreQueryOptions = (id: string) =>
   queryOptions({
     queryKey: storeKeys.detail(id),
     queryFn: () => getStore(id),
+    enabled: Boolean(id),
   });
 
 type UseGetStoreOptions = {

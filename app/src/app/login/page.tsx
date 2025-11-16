@@ -52,7 +52,7 @@ export default function LoginPage() {
   return (
     <div
       role="main"
-      className="h-screen w-screen overflow-y-auto px-7 pt-20 pb-12"
+      className="bg-background h-screen w-screen overflow-y-auto px-7 pt-20 pb-12"
     >
       <div className="mx-auto flex w-full max-w-lg flex-col gap-12">
         <div className="flex items-center gap-8">
@@ -148,7 +148,7 @@ export default function LoginPage() {
                   className="w-full"
                   variant={'primary'}
                   size={'lg'}
-                  disabled={form.formState.isSubmitting}
+                  loading={form.formState.isSubmitting}
                 >
                   Continue
                   <ChevronRight className="size-3.5" strokeWidth={2.5} />

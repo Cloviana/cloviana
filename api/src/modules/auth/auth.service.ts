@@ -14,7 +14,7 @@ import { StoresProducer } from "@/modules/messaging/producers/stores.producer";
 import { resolveFavicon } from "@/utils/resolve-favicon.util";
 import { CACHE_MANAGER, Cache } from "@nestjs/cache-manager";
 import { BadRequestException, Inject, Injectable } from "@nestjs/common";
-import { StoreStatus } from "@prisma/client";
+import { PlanName, StoreStatus, SubscriptionStatus } from "@prisma/client";
 
 type InstallStateCache = {
   uid: string | null;
@@ -209,6 +209,18 @@ export class AuthService {
       .slice(0, length);
   }
 
+  private async getStarterPlan() {
+    const plan = await this.prisma.plan.findFirst({
+      where: { name: PlanName.STARTER },
+    });
+    if (!plan) throw new BadRequestException("Starter plan is not configured");
+    return plan;
+  }
+
+  private isStoreInitialized(status: StoreStatus): boolean {
+    return status === StoreStatus.ACTIVE || status === StoreStatus.INITIALIZING;
+  }
+
   // 1) Verify integrity + CSRF state, then exchange code for token, then read shop info.
   // 2) Branch by origin:
   //    A. App-initiated install (ctx.storeId present): bind this Shopify shop to that store; ignore Shopify email for ownership.
@@ -238,7 +250,9 @@ export class AuthService {
     const offlineAccessToken = tokenBody.access_token;
     if (!tokenResp.ok || !offlineAccessToken) {
       throw new BadRequestException(
-        `Token exchange failed: ${tokenResp.status} ${JSON.stringify(tokenBody)}`,
+        `Token exchange failed: ${tokenResp.status} ${JSON.stringify(
+          tokenBody,
+        )}`,
       );
     }
 
@@ -275,7 +289,7 @@ export class AuthService {
         );
       }
 
-      const channel = await this.prisma.channel.upsert({
+      await this.prisma.channel.upsert({
         where: { shop: data.shop },
         create: {
           shop: data.shop,
@@ -285,9 +299,12 @@ export class AuthService {
         update: { storeId: store.id, config: { offlineAccessToken } },
       });
 
-      await this.storesProducer.init({ storeId: channel.storeId });
+      const shouldInit = !this.isStoreInitialized(store.status);
 
-      // Sign in the existing store owner (bypass email mismatch issues).
+      if (shouldInit) {
+        await this.storesProducer.init({ storeId: store.id });
+      }
+
       const owner = await this.prisma.profile.findUniqueOrThrow({
         where: { id: store.ownerId },
         select: { email: true },
@@ -317,9 +334,11 @@ export class AuthService {
         data: { config: { offlineAccessToken } },
       });
 
-if (store.status !== StoreStatus.ACTIVE && store.status !== StoreStatus.INITIALIZING) {
-  await this.storesProducer.init({ storeId: store.id });
-}
+      const shouldInit = !this.isStoreInitialized(store.status);
+
+      if (shouldInit) {
+        await this.storesProducer.init({ storeId: store.id });
+      }
 
       const owner = await this.prisma.profile.findUniqueOrThrow({
         where: { id: store.ownerId },
@@ -345,26 +364,32 @@ if (store.status !== StoreStatus.ACTIVE && store.status !== StoreStatus.INITIALI
     });
 
     if (profile) {
-      const s = await this.prisma.$transaction(async (tx) => {
-        const store = await tx.store.create({
-          data: {
-            owner: { connect: { id: profile.id } },
-            name: shopName,
-            domainUrl: data.shop,
-            profileUrl,
+      const starterPlan = await this.getStarterPlan();
+      const trialEndsAt = new Date();
+      trialEndsAt.setDate(trialEndsAt.getDate() + 7);
+      const store = await this.prisma.store.create({
+        data: {
+          owner: { connect: { id: profile.id } },
+          name: shopName,
+          domainUrl: data.shop,
+          profileUrl,
+          subscription: {
+            create: {
+              status: SubscriptionStatus.TRIALLING,
+              trialEndsAt,
+              plan: { connect: { id: starterPlan.id } },
+            },
           },
-        });
-        await tx.channel.create({
-          data: {
-            shop: data.shop,
-            storeId: store.id,
-            config: { offlineAccessToken },
+          channel: {
+            create: {
+              shop: data.shop,
+              config: { offlineAccessToken },
+            },
           },
-        });
-        return store;
+        },
       });
 
-      await this.storesProducer.init({ storeId: s.id });
+      await this.storesProducer.init({ storeId: store.id });
 
       const session = await this.signInViaLink("recovery", shopEmail);
 
@@ -373,7 +398,7 @@ if (store.status !== StoreStatus.ACTIVE && store.status !== StoreStatus.INITIALI
         refresh_token: session.refresh_token,
         expires_in: session.expires_in,
         user_id: session.user_id,
-        store_id: s.id,
+        store_id: store.id,
       });
 
       return `${this.config.appUrl}/api/auth/complete?ticket=${ticket}`;
@@ -390,13 +415,25 @@ if (store.status !== StoreStatus.ACTIVE && store.status !== StoreStatus.INITIALI
       user_metadata: { contactEmail: shopEmail },
     });
 
+    const starterPlan = await this.getStarterPlan();
+
     const newStore = await this.prisma.$transaction(async (tx) => {
+      const trialEndsAt = new Date();
+      trialEndsAt.setDate(trialEndsAt.getDate() + 7);
+
       const store = await tx.store.create({
         data: {
           owner: { connect: { id: created.data.user?.id } },
           name: shopName,
           domainUrl: data.shop,
           profileUrl,
+          subscription: {
+            create: {
+              status: SubscriptionStatus.TRIALLING,
+              trialEndsAt,
+              plan: { connect: { id: starterPlan.id } },
+            },
+          },
         },
       });
       await tx.channel.create({

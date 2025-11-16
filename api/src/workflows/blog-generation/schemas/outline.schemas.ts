@@ -105,10 +105,8 @@ export const PlanSchema = z.object({
     ),
   description: z
     .string()
-    .min(50)
-    .max(180)
     .describe(
-      "The meta description — a short, persuasive summary (around 150–160 characters) that clearly conveys what the page is about and encourages clicks from search results.",
+      "The meta description — a short, persuasive summary (around 150–160 characters) that clearly conveys what the page is about and encourages clicks from search results. Hard limit: description must be 180 characters or fewer. If you write a longer draft, shorten it before returning the JSON.",
     ),
 });
 

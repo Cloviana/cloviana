@@ -1,15 +1,15 @@
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import {
   Page,
   PageContent,
   PageHeader,
   PageParagraph,
   PageTitle,
-} from '@/components/ui/page';
+} from '@/components/deprecated/ui/page';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { useGetBlog } from '@/features/blogs/api/get-blog';
 import { useGetTopicSuggestions } from '@/features/blogs/api/get-topic-suggestions';
 import { useUpdateBlog } from '@/features/blogs/api/update-blog';

@@ -11,8 +11,8 @@ const Page = ({
   return (
     <div
       className={cn(
-        'mx-auto w-full flex-1 px-6 py-9 sm:px-11',
-        !fullWidth && 'max-w-5xl',
+        'mx-auto w-full flex-1 px-7 py-9',
+        !fullWidth && 'max-w-[1200px]',
         className,
       )}
       {...props}
@@ -28,7 +28,7 @@ const PageHeader = ({
   ...props
 }: React.ComponentProps<'div'>) => {
   return (
-    <div className={cn('mb-5 space-y-[3px]', className)} {...props}>
+    <div className={cn('mb-5', className)} {...props}>
       {children}
     </div>
   );
@@ -41,7 +41,7 @@ const PageTitle = ({
 }: React.ComponentProps<'h1'>) => {
   return (
     <h1
-      className={cn('text-base font-semibold tracking-tight', className)}
+      className={cn('text-lg font-medium tracking-tight', className)}
       {...props}
     >
       {children}
@@ -49,16 +49,13 @@ const PageTitle = ({
   );
 };
 
-const PageParagraph = ({
+const PageDescription = ({
   className,
   children,
   ...props
 }: React.ComponentProps<'p'>) => {
   return (
-    <p
-      className={cn('text-foreground-light text-[13px]', className)}
-      {...props}
-    >
+    <p className={cn('text-foreground-lighter text-xs', className)} {...props}>
       {children}
     </p>
   );
@@ -76,4 +73,4 @@ const PageContent = ({
   );
 };
 
-export { Page, PageHeader, PageTitle, PageParagraph, PageContent };
+export { Page, PageHeader, PageTitle, PageDescription, PageContent };

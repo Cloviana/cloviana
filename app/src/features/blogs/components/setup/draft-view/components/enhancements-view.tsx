@@ -1,14 +1,14 @@
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { Label } from '@/components/ui/label';
 import {
   Page,
   PageContent,
   PageHeader,
   PageParagraph,
   PageTitle,
-} from '@/components/ui/page';
+} from '@/components/deprecated/ui/page';
+import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { paths } from '@/config/paths';
 import { useGenerateBlog } from '@/features/blogs/api/generate-blog';
