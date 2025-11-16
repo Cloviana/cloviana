@@ -43,5 +43,5 @@ export async function GET(req: NextRequest) {
   }
 
   // Success — route the user to the store dashboard
-  return NextResponse.redirect(new URL(`/store/${store_id}`, env.APP_URL));
+  return NextResponse.redirect(new URL(`/${store_id}/blogs`, env.APP_URL));
 }

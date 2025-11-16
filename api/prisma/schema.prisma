@@ -66,40 +66,52 @@ enum JobStatus {
   FAILED
 }
 
-enum AccessStage {
-  WAITLISTED
-  INVITED
-  BETA
-  ACTIVE
-  REJECTED
+enum PlanName {
+  STARTER
+  PRO
+  GROWTH
 }
 
-/**
- * enum SubscriptionPlan {
- * FREE
- * PRO
- * }
- * enum SubscriptionStatus {
- * TRIALING
- * ACTIVE
- * PAST_DUE
- * CANCELED
- * }
- * model Subscription {
- * id          String              @id @default(uuid()) @db.Uuid
- * storeId     String              @unique
- * store       Store               @relation(fields: [storeId], references: [id], onDelete: Cascade)
- * plan        SubscriptionPlan
- * status      SubscriptionStatus
- * trialEndsAt DateTime?
- * currentPeriodEnd DateTime?
- * stripeCustomerId String?
- * stripeSubId      String?
- * createdAt   DateTime            @default(now())
- * updatedAt   DateTime            @updatedAt
- * @@map("subscriptions")
- * }
- */
+enum SubscriptionStatus {
+  ACTIVE
+  PAST_DUE
+  CANCELED
+  INCOMPLETE
+  TRIALLING
+}
+
+model Plan {
+  id             String    @id @default(uuid()) @db.Uuid
+  name           PlanName 
+  stripePriceId  String @unique
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  subscriptions  Subscription[]
+
+  @@map("plans")
+}
+
+model Subscription {
+  id String @id @default(uuid()) @db.Uuid
+
+  status SubscriptionStatus @default(ACTIVE)
+
+  stripeSubscriptionId String? @unique
+
+  trialEndsAt DateTime?
+  storeId     String    @unique
+
+  planId String  @db.Uuid
+  plan   Plan    @relation(fields: [planId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  store Store @relation(fields: [storeId], references: [id])
+
+  @@map("subscriptions")
+}
 
 model Job {
   id              String    @id @default(uuid()) @db.Uuid
@@ -155,11 +167,11 @@ model Product {
 }
 
 model Profile {
-  id        String   @id @default(uuid()) @db.Uuid
-  email        String   @unique @db.Citext        
+  id           String   @id @default(uuid()) @db.Uuid
+  email        String   @unique @db.Citext
   contactEmail String?  @db.Citext
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 
   storesOwned Store[] @relation("StoreOwner")
 
@@ -178,11 +190,12 @@ model Store {
   createdAt        DateTime    @default(now())
   updatedAt        DateTime    @updatedAt
 
-  owner    Profile      @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  subscription Subscription?
+
+  owner    Profile   @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
   blogs    Blog[]
   jobs     Job[]
   products Product[]
-  invites  BetaInvite[]
   channel  Channel?
 
   @@index([ownerId])
@@ -258,20 +271,4 @@ model Thumbnail {
   blog Blog @relation(fields: [blogId], references: [id], onDelete: Cascade)
 
   @@map("thumbnails")
-}
-
-model BetaInvite {
-  id           String    @id @default(uuid()) @db.Uuid
-  storeId      String
-  store        Store     @relation(fields: [storeId], references: [id], onDelete: Cascade)
-  token        String    @unique
-  durationDays Int
-  invitedAt    DateTime  @default(now())
-  acceptedAt   DateTime?
-  revokedAt    DateTime?
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
-
-  @@index([storeId, invitedAt])
-  @@map("beta_invites")
 }

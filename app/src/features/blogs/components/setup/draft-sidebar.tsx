@@ -40,7 +40,7 @@ export const StepButton = React.forwardRef<HTMLButtonElement, StepButtonProps>(
         <div
           className={cn(
             'flex size-4 items-center justify-center rounded-full text-white',
-            isDone ? 'bg-primary' : 'border bg-neutral-50',
+            isDone ? 'bg-secondary' : 'border bg-neutral-50',
           )}
         >
           {isDone && <Check className="size-2" strokeWidth={3} />}

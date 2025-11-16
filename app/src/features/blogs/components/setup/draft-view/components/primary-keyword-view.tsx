@@ -2,17 +2,17 @@ import { ListFilter, Sparkles } from 'lucide-react';
 import { useParams } from 'next/navigation';
 import * as React from 'react';
 
-import { Badge } from '@/components/ui/badge';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import {
   Page,
   PageContent,
   PageHeader,
   PageParagraph,
   PageTitle,
-} from '@/components/ui/page';
+} from '@/components/deprecated/ui/page';
+import { Badge } from '@/components/ui/badge';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import {
   Table,
   TableBody,
@@ -268,7 +268,6 @@ export const PrimaryKeywordView = () => {
               id="primaryKeyword"
               type="text"
               size="lg"
-              variant="white"
               placeholder="Enter the main keyword"
               value={value}
               onChange={(e) => setValue(e.target.value)}

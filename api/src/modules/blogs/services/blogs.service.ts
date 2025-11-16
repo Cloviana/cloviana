@@ -34,7 +34,7 @@ export class BlogsService {
   ) {}
 
   async getBlogs(storeId: string) {
-    return this.prisma.blog.findMany({
+    const blogs = await this.prisma.blog.findMany({
       where: {
         storeId,
         currentStep: {
@@ -44,8 +44,16 @@ export class BlogsService {
       select: BLOG_SUMMARY_SELECT,
       orderBy: { createdAt: "desc" },
     });
-  }
 
+    return blogs.map((b) => ({
+      ...b,
+      productsCount: b._count.products,
+      thumbnail: b.thumbnail && {
+        ...b.thumbnail,
+        srcUrl: this.storage.getCdnUrl(b.thumbnail.blobPath),
+      },
+    }));
+  }
   async getBlog(blogId: string) {
     const blog = await this.prisma.blog.findUniqueOrThrow({
       where: { id: blogId },

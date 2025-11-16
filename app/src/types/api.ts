@@ -1,6 +1,14 @@
 export type ID = string;
 export type ISODate = string;
 
+export type SubscriptionStatus =
+  | 'ACTIVE'
+  | 'PAST_DUE'
+  | 'CANCELED'
+  | 'INCOMPLETE'
+  | 'TRIALLING';
+export type PlanName = 'STARTER' | 'GROWTH' | 'PRO';
+
 export type JobType =
   | 'PRODUCT_SYNC'
   | 'BLOG_GENERATION'
@@ -35,13 +43,6 @@ export type NodeType =
   | 'LINK'
   | 'TEXT'
   | 'LINEBREAK';
-
-export type AccessStage =
-  | 'WAITLISTED'
-  | 'INVITED'
-  | 'BETA'
-  | 'ACTIVE'
-  | 'REJECTED';
 
 export type Link = {
   href: string;
@@ -87,7 +88,14 @@ export type Store = Entity<{
   domainUrl: string;
   profileUrl?: string;
   status: StoreStatus;
-  stage: AccessStage;
+  subscription?: {
+    status: SubscriptionStatus;
+    trialEndsAt: ISODate;
+    plan: {
+      name: PlanName;
+      stripePriceId: string;
+    };
+  };
 }>;
 
 export type Channel = Entity<{
@@ -104,9 +112,12 @@ export type Blog = Entity<{
   title?: string;
   topic?: string;
   status: BlogStatus;
+  primaryKeyword?: string | null;
+  thumbnail?: Thumbnail | null;
+  productsCount: number;
 }>;
 
-export type BlogDetail = Blog & {
+export type BlogDetail = {
   storeId: ID;
   jobId?: ID | null;
   productId?: ID | null;
@@ -118,6 +129,9 @@ export type BlogDetail = Blog & {
   primaryKeyword?: string | null;
   secondaryKeywords?: string[];
   additionalInstruction?: string | null;
+  title?: string;
+  topic?: string;
+  status: BlogStatus;
   nodes: Node[];
   job?: Job | null;
   thumbnail?: Thumbnail | null;

@@ -162,7 +162,8 @@
 
     --primary-foreground: hsl(0 0% 98%);
 
-    --secondary: hsl(214.7 100% 45.42%);
+    --secondary: hsl(209 96% 49%);
+    /* --secondary: hsl(214.7 100% 45.42%);*/
     --secondary-foreground: hsl(0 0% 9%);
 
     --accent: hsl(0 0% 96.1%);
@@ -206,7 +207,7 @@
   }
 
   body {
-    @apply bg-background font-inter text-foreground;
+    @apply font-inter text-foreground bg-white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
