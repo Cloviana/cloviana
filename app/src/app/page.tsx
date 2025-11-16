@@ -10,7 +10,7 @@ export default async function HomePage() {
   const activeStores = stores?.filter((s) => s.status !== 'DRAFT') ?? [];
 
   if (activeStores.length === 0) {
-    redirect(paths.onboarding.companyDetail.getHref());
+    redirect(paths.onboarding.getHref());
   }
 
   redirect(paths.store.blogs.getHref(activeStores[0].id));
