@@ -7,6 +7,7 @@ import { redirect } from 'next/navigation';
 import { ReactNode } from 'react';
 
 import { getStoresQueryOptions } from '@/api/stores/get-stores';
+import { OnboardingHeader } from '@/app/_components/header';
 import { paths } from '@/config/paths';
 
 interface LayoutProps {
@@ -23,6 +24,13 @@ export default async function Layout({ children }: LayoutProps) {
   }
 
   return (
-    <HydrationBoundary state={dehydrate(qc)}>{children}</HydrationBoundary>
+    <HydrationBoundary state={dehydrate(qc)}>
+      <div className="flex min-h-screen flex-col bg-white">
+        <OnboardingHeader />
+        <main className="bg-background flex flex-1 overflow-y-auto rounded-t-2xl border">
+          {children}
+        </main>
+      </div>
+    </HydrationBoundary>
   );
 }

@@ -25,7 +25,7 @@ const inputVariants = cva(
   },
 );
 
-type InputProps = Omit<React.ComponentProps<'input'>, 'size'> &
+export type InputProps = Omit<React.ComponentProps<'input'>, 'size'> &
   VariantProps<typeof inputVariants>;
 
 export function Input({
