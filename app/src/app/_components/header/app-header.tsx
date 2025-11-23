@@ -6,10 +6,9 @@ import { useParams } from 'next/navigation';
 import { ReactNode } from 'react';
 
 import { paths } from '@/config/paths';
+import { AccountChip } from '@/features/auth/components/account-chip';
+import { StoreChip } from '@/features/stores/components/store-chip';
 import { useIsMobile } from '@/hooks/use-mobile';
-
-import { AccountChip } from './components/account-chip';
-import { StoreChip } from './components/store-chip';
 
 export const AppHeader = ({
   sidebarTrigger,
