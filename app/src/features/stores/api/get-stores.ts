@@ -1,11 +1,9 @@
 import { queryOptions, useQuery } from '@tanstack/react-query';
 
 import { api } from '@/lib/api-client';
-import { QueryConfig } from '@/lib/react-query';
+import { QueryConfig, storeKeys } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
 import { Store } from '@/types/api';
-
-import { storeKeys } from '../keys';
 
 export const getStores = async (): Promise<Store[]> => {
   const accessToken = await fetchAccessToken();

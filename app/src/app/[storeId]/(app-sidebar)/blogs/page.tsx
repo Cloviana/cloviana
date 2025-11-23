@@ -3,7 +3,6 @@
 import { Wand2 } from 'lucide-react';
 import { useParams, useRouter } from 'next/navigation';
 
-import { useGetStore } from '@/api/stores/get-store';
 import { Button } from '@/components/ui/button';
 import {
   Page,
@@ -14,6 +13,7 @@ import {
 } from '@/components/ui/page';
 import { paths } from '@/config/paths';
 import { useCreateBlog } from '@/features/blogs/api/create-blog';
+import { useGetStore } from '@/features/stores/api/get-store';
 
 import { BlogsTable } from './_components/blogs-table';
 import { ShopifyButton } from './_components/shopify-button';

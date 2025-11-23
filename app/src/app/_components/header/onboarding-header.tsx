@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import { OnboardingAccountChip } from './components/onboarding-account-chip';
+import { OnboardingAccountChip } from '@/features/auth/components/onboarding-account-chip';
 
 export const OnboardingHeader = () => {
   return (

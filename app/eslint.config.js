@@ -1,17 +1,24 @@
-import js from '@eslint/js'
-import tsParser from '@typescript-eslint/parser'
-import ts from '@typescript-eslint/eslint-plugin'
-import { FlatCompat } from '@eslint/eslintrc'
-import checkFile from 'eslint-plugin-check-file'
-import reactHooks from 'eslint-plugin-react-hooks'
+import js from '@eslint/js';
+import tsParser from '@typescript-eslint/parser';
+import ts from '@typescript-eslint/eslint-plugin';
+import { FlatCompat } from '@eslint/eslintrc';
+import checkFile from 'eslint-plugin-check-file';
+import reactHooks from 'eslint-plugin-react-hooks';
 
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
-  recommendedConfig: js.configs.recommended
-})
+  recommendedConfig: js.configs.recommended,
+});
 
 export default [
-  { ignores: ['node_modules/*', 'public/mockServiceWorker.js', 'generators/*'] },
+  {
+    ignores: [
+      'node_modules/*',
+      'public/mockServiceWorker.js',
+      'generators/*',
+      'src/features/blogs/components/editor/**/*',
+    ],
+  },
 
   js.configs.recommended,
 
@@ -26,24 +33,23 @@ export default [
     'plugin:prettier/recommended',
     'plugin:testing-library/react',
     'plugin:jest-dom/recommended',
-    'plugin:vitest/legacy-recommended'
+    'plugin:vitest/legacy-recommended',
   ),
 
-  // 🔹 Default TypeScript + React config
   {
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
       parser: tsParser,
       ecmaVersion: 'latest',
-      sourceType: 'module'
+      sourceType: 'module',
     },
     plugins: {
       'check-file': checkFile,
-      'react-hooks': reactHooks
+      'react-hooks': reactHooks,
     },
     settings: {
       react: { version: 'detect' },
-      'import/resolver': { typescript: {} }
+      'import/resolver': { typescript: {} },
     },
     rules: {
       '@next/next/no-img-element': 'off',
@@ -52,24 +58,32 @@ export default [
         'error',
         {
           zones: [
-            { target: './src/features/auth', from: './src/features', except: ['./auth'] },
-            { target: './src/features/comments', from: './src/features', except: ['./comments'] },
-            { target: './src/features/discussions', from: './src/features', except: ['./discussions'] },
-            { target: './src/features/teams', from: './src/features', except: ['./teams'] },
-            { target: './src/features/users', from: './src/features', except: ['./users'] },
-            { target: './src/features', from: './src/app' },
+            {
+              target: './src/features/blogs',
+              from: './src/features',
+              except: ['./blogs', './auth', './stores'],
+            },
+            {
+              target: './src/features/billing',
+              from: './src/features',
+              except: ['./billing', './auth', './stores'],
+            },
+            {
+              target: './src/features',
+              from: './src/app',
+            },
             {
               target: [
                 './src/components',
                 './src/hooks',
                 './src/lib',
                 './src/types',
-                './src/utils'
+                './src/utils',
               ],
-              from: ['./src/features', './src/app']
-            }
-          ]
-        }
+              from: ['./src/features', './src/app'],
+            },
+          ],
+        },
       ],
       'import/no-cycle': 'error',
       'linebreak-style': ['error', 'unix'],
@@ -77,10 +91,18 @@ export default [
       'import/order': [
         'error',
         {
-          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object'],
+          groups: [
+            'builtin',
+            'external',
+            'internal',
+            'parent',
+            'sibling',
+            'index',
+            'object',
+          ],
           'newlines-between': 'always',
-          alphabetize: { order: 'asc', caseInsensitive: true }
-        }
+          alphabetize: { order: 'asc', caseInsensitive: true },
+        },
       ],
       'import/default': 'off',
       'import/no-named-as-default-member': 'off',
@@ -94,33 +116,38 @@ export default [
       '@typescript-eslint/no-empty-function': ['off'],
       '@typescript-eslint/no-explicit-any': ['off'],
       'prettier/prettier': ['error', {}, { usePrettierrc: true }],
-      'react/no-unescaped-entities': 'off'
-    }
+      'react/no-unescaped-entities': 'off',
+    },
   },
 
-  // 🔹 File and folder naming convention rules
   {
     files: ['src/**/*'],
-    plugins: { 'check-file': checkFile, '@typescript-eslint': ts, 'react-hooks': reactHooks },
+    plugins: {
+      'check-file': checkFile,
+      '@typescript-eslint': ts,
+      'react-hooks': reactHooks,
+    },
     rules: {
       'check-file/filename-naming-convention': [
         'error',
         { '**/*.{ts,tsx}': 'KEBAB_CASE' },
-        { ignoreMiddleExtensions: true }
+        { ignoreMiddleExtensions: true },
       ],
       'check-file/folder-naming-convention': [
         'error',
-        { '!(src/app)/**/*': 'KEBAB_CASE', '!(**/__tests__)/**/*': 'KEBAB_CASE' }
+        {
+          '!(src/app)/**/*': 'KEBAB_CASE',
+          '!(**/__tests__)/**/*': 'KEBAB_CASE',
+        },
       ],
-      '@typescript-eslint/no-unused-vars': ['error']
-    }
+      '@typescript-eslint/no-unused-vars': ['error'],
+    },
   },
 
-  // 🔹 IGNORE unused-vars for Lexical editor nodes
   {
     files: ['src/components/editor/**/*.{ts,tsx}'],
     rules: {
-      '@typescript-eslint/no-unused-vars': 'off'
-    }
-  }
-]
+      '@typescript-eslint/no-unused-vars': 'off',
+    },
+  },
+];

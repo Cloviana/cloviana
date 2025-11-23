@@ -1,10 +1,11 @@
 import { ChevronsUpDown } from 'lucide-react';
 import { useParams } from 'next/navigation';
 
-import { useGetStore } from '@/api/stores/get-store';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/utils/cn';
+
+import { useGetStore } from '../api/get-store';
 
 export const StoreChip = ({ className }: { className?: string }) => {
   const { storeId } = useParams() as { storeId: string };

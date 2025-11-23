@@ -2,11 +2,9 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import z from 'zod';
 
 import { api } from '@/lib/api-client';
-import { MutationConfig } from '@/lib/react-query';
+import { MutationConfig, storeKeys } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
 import type { Store } from '@/types/api';
-
-import { storeKeys } from '../keys';
 
 export const createStoreSchema = z.object({
   name: z.string().min(1, 'Store name is required').max(120),
