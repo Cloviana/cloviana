@@ -1,7 +1,7 @@
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { INIT_STORES_EVENT } from "@/constants/rabbitmq.constants";
 import { StoreMetadataWorkflow } from "@/workflows/store-metadata/store-metadata.workflow";
-import { SyncProductsWorkflow } from "@/workflows/sync-products/sync-products.workflow";
+import { SyncCatalogWorkflow } from "@/workflows/sync-catalog/sync-catalog.workflow";
 import { Controller, Logger } from "@nestjs/common";
 import { EventPattern, Payload } from "@nestjs/microservices";
 import { StoreStatus } from "@prisma/client";
@@ -16,7 +16,7 @@ export class StoresConsumer {
 
   constructor(
     private readonly prisma: PrismaService,
-    private readonly syncProducts: SyncProductsWorkflow,
+    private readonly syncCatalog: SyncCatalogWorkflow,
     private readonly storeMetadata: StoreMetadataWorkflow,
   ) {}
 
@@ -37,7 +37,7 @@ export class StoresConsumer {
       );
 
       await Promise.all([
-        this.syncProducts.run(storeId),
+        this.syncCatalog.run(storeId),
         this.storeMetadata.run(storeId),
       ]);
 

@@ -6,11 +6,11 @@ import {
   GetShopInfoQueryVariables,
 } from "@/clients/shopify/generated";
 import { ShopifyService } from "@/clients/shopify/shopify.service";
-import { Smtp2GoClient } from "@/clients/smtp/services/smtp2go.service";
+import { SmtpService } from "@/clients/smtp/smtp.service";
 import { SupabaseService } from "@/clients/supabase/supabase.service";
 import { AppConfiguration } from "@/config/app.configuration";
 import { ShopifyCallbackDto } from "@/modules/auth/dtos/shopify-callback.dto";
-import { StoresProducer } from "@/modules/messaging/producers/stores.producer";
+import { StoresProducer } from "@/infrastructure/messaging/producers/stores.producer";
 import { resolveFavicon } from "@/utils/resolve-favicon.util";
 import { CACHE_MANAGER, Cache } from "@nestjs/cache-manager";
 import { BadRequestException, Inject, Injectable } from "@nestjs/common";
@@ -46,7 +46,7 @@ export class AuthService {
     private readonly prisma: PrismaService,
     private readonly supabase: SupabaseService,
     private readonly storesProducer: StoresProducer,
-    private readonly mailer: Smtp2GoClient,
+    private readonly mailer: SmtpService,
     @Inject(CACHE_MANAGER) private readonly cache: Cache,
   ) {}
 

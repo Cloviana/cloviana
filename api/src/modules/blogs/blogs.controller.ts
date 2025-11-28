@@ -7,11 +7,16 @@ import {
   HttpCode,
   HttpStatus,
   Param,
+  ParseIntPipe,
   Patch,
   Post,
   Put,
+  Query,
   UseGuards,
+  DefaultValuePipe,
+  ParseEnumPipe,
 } from "@nestjs/common";
+import { BlogStatus } from "@prisma/client";
 import { UpdateBlogDto } from "./dtos/update-blog.dto";
 import { BlogsService } from "./services/blogs.service";
 
@@ -20,8 +25,20 @@ export class BlogsController {
   constructor(private readonly blogs: BlogsService) {}
 
   @Get()
-  async listBlogs(@Param("storeId") storeId: string) {
-    return this.blogs.getBlogs(storeId);
+  async listBlogs(
+    @Param("storeId") storeId: string,
+    @Query("page", new DefaultValuePipe(1), ParseIntPipe) page: number,
+    @Query("limit", new DefaultValuePipe(20), ParseIntPipe) limit: number,
+    @Query("search") search?: string,
+    @Query('status', new ParseEnumPipe(BlogStatus, { optional: true })) status?: BlogStatus
+  ) {
+
+    return this.blogs.getBlogs(storeId, {
+      page,
+      limit,
+      search,
+      status,
+    });
   }
 
   @Post()

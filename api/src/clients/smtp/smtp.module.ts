@@ -1,9 +1,9 @@
 import { Global, Module } from "@nestjs/common";
-import { Smtp2GoClient } from "./services/smtp2go.service";
+import { SmtpService } from "./smtp.service";
 
 @Global()
 @Module({
-  providers: [Smtp2GoClient],
-  exports: [Smtp2GoClient],
+  providers: [SmtpService],
+  exports: [SmtpService],
 })
 export class SmtpModule {}

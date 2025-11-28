@@ -16,12 +16,14 @@ type LayoutProps = {
 export default function Layout({ children }: LayoutProps) {
   return (
     <SidebarProvider>
-      <div className="flex h-screen w-screen flex-col bg-white">
-        <AppHeader sidebarTrigger={<SidebarTrigger />} />
-        <div className="bg-background relative flex flex-1 overflow-hidden rounded-t-2xl border">
+      <div className="bg-background flex h-screen w-screen flex-col">
+        <header className="border-b">
+          <AppHeader sidebarTrigger={<SidebarTrigger />} />
+        </header>
+        <div className="relative flex flex-1 overflow-hidden">
           <AppSidebar className="absolute h-full border-r" />
 
-          <ScrollArea className="flex-1">
+          <ScrollArea className="relative flex-1">
             <Suspense fallback={<LoadingFallback />}>
               <ErrorBoundary fallback={<ErrorFallback />}>
                 {children}

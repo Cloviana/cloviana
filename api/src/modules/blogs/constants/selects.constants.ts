@@ -63,7 +63,7 @@ export const BLOG_DETAIL_SELECT: Prisma.BlogSelect = {
       id: true,
       title: true,
       imageUrl: true,
-      onlineStoreUrl: true,
+      url: true,
     },
   },
 };

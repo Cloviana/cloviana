@@ -1,4 +1,4 @@
-import { DM_Sans, Inter } from 'next/font/google';
+import { DM_Sans, Geist, Inter } from 'next/font/google';
 import localFont from 'next/font/local';
 
 export const dmSans = DM_Sans({
@@ -109,6 +109,13 @@ export const interDisplay = localFont({
 export const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  preload: false,
+});
+
+export const geist = Geist({
+  subsets: ['latin'],
+  variable: '--font-geist',
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   preload: false,
 });

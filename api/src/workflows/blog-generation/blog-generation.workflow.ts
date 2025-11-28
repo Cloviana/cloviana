@@ -1,5 +1,5 @@
 import { PrismaService } from "@/clients/prisma/prisma.service";
-import { StorageService } from "@/modules/storage/storage.service";
+import { StorageService } from "@/infrastructure/storage/storage.service";
 import { makeDedupeKey } from "@/utils/job.util";
 import { Injectable } from "@nestjs/common";
 import { JobStatus, JobType } from "@prisma/client";
