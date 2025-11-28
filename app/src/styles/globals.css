@@ -7,25 +7,28 @@
   --font-inter-display: var(--font-inter-display), sans-serif;
   --font-dm-sans: var(--font-dm-sans), sans-serif;
   --font-inter: var(--font-inter), sans-serif;
+  --font-geist: var(--font-geist), sans-serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-foreground-light: var(--foreground-light);
   --color-foreground-lighter: var(--foreground-lighter);
 
-  --color-border: var(--border);
+  --color-background-canvas: var(--background-canvas);
 
-  --color-surface-75: var(--surface-75);
-  --color-surface-100: var(--surface-100);
-  --color-surface-200: var(--surface-200);
-  --color-surface-300: var(--surface-300);
-  --color-surface-400: var(--surface-400);
+  --color-border: var(--border);
 
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
 
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-dark: var(--secondary-dark);
+  --color-secondary-500: var(--secondary-500);
+  --color-secondary-400: var(--secondary-400);
+  --color-secondary-300: var(--secondary-300);
+  --color-secondary-200: var(--secondary-200);
+  --color-secondary-100: var(--secondary-100);
 
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
@@ -64,6 +67,32 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+
+  --color-black-1000: var(--black-1000);
+  --color-black-950: var(--black-950);
+  --color-black-900: var(--black-900);
+  --color-black-800: var(--black-800);
+  --color-black-700: var(--black-700);
+  --color-black-600: var(--black-600);
+  --color-black-500: var(--black-500);
+  --color-black-400: var(--black-400);
+  --color-black-300: var(--black-300);
+  --color-black-200: var(--black-200);
+  --color-black-100: var(--black-100);
+  --color-black-50: var(--black-50);
+
+  --color-white-1000: var(--white-1000);
+  --color-white-950: var(--white-950);
+  --color-white-900: var(--white-900);
+  --color-white-800: var(--white-800);
+  --color-white-700: var(--white-700);
+  --color-white-600: var(--white-600);
+  --color-white-500: var(--white-500);
+  --color-white-400: var(--white-400);
+  --color-white-300: var(--white-300);
+  --color-white-200: var(--white-200);
+  --color-white-100: var(--white-100);
+  --color-white-50: var(--white-50);
 
   --animate-slide-up-and-fade: slideUpAndFade 200ms
     cubic-bezier(0.16, 1, 0.3, 1);
@@ -133,23 +162,15 @@
 @layer base {
   :root {
     --primary: hsl(240, 6%, 7%);
-    --primary2: hsl(209, 88%, 55%);
+    --primary-foreground: hsl(0 0% 98%);
 
-    --sand: hsl(60 11% 98%);
-    --mist: hsl(0 0% 94%);
-    --background: hsl(240 20% 99%);
+    --background: hsl(0, 0%, 100%);
 
-    --surface-400: hsl(0 0% 89.8%);
-    --surface-300: hsl(0 0% 92.9%);
-    --surface-200: hsl(0 0% 95.3%);
-    --surface-100: hsl(0 0% 98.8%);
-    --surface-75: hsl(0 0% 100%);
+    --foreground: var(--black-1000);
+    --foreground-light: var(--black-600);
+    --foreground-lighter: var(--black-500);
 
-    --foreground: hsl(0 0% 9%);
-    --foreground-light: hsl(0 0% 32.2%);
-    --foreground-lighter: hsl(0 0% 43.9%);
-
-    --border: hsl(0 0% 87%);
+    --border: hsl(300 7% 89%);
 
     --muted: hsl(0 0% 96.1%);
     --muted-foreground: hsl(0 0% 45.1%);
@@ -160,13 +181,17 @@
     --popover: hsl(0 0% 100%);
     --popover-foreground: hsl(0 0% 3.9%);
 
-    --primary-foreground: hsl(0 0% 98%);
-
     --secondary: hsl(209 96% 49%);
-    /* --secondary: hsl(214.7 100% 45.42%);*/
-    --secondary-foreground: hsl(0 0% 9%);
+    --secondary-foreground: hsl(0, 0%, 100%);
 
-    --accent: hsl(0 0% 96.1%);
+    --secondary-dark: hsl(209 96% 40%);
+    --secondary-500: hsl(209 96% 49% / 56%);
+    --secondary-400: hsl(209 96% 49% / 32%);
+    --secondary-300: hsl(209 96% 49% / 20%);
+    --secondary-200: hsl(209 96% 49% / 11%);
+    --secondary-100: hsl(209 96% 49% / 5%);
+
+    --accent: var(--black-100);
     --accent-foreground: hsl(0 0% 9%);
 
     --destructive: hsl(345 70% 47%);
@@ -184,17 +209,45 @@
 
     --radius: 0.5rem;
 
-    --sidebar: hsl(0, 0%, 100%);
-    --sidebar-foreground: hsl(0 0% 44%);
-    --sidebar-primary: hsl(0 0% 93%);
-    --sidebar-primary-foreground: hsl(0 0% 9%);
-    --sidebar-accent: hsl(0, 0%, 96%);
-    --sidebar-accent-foreground: hsl(0 0% 9%);
-    --sidebar-border: hsl(0 0% 87%);
+    --sidebar: hsl(0 0% 100%);
+    --sidebar-foreground: var(--black-600);
+
+    --sidebar-accent: var(--black-100);
+    --sidebar-accent-foreground: var(--black-600);
+
+    --sidebar-primary: var(--black-100);
+    --sidebar-primary-foreground: var(--black-700);
+
+    --sidebar-border: var(--border);
     --sidebar-ring: hsl(217.2 91.2% 59.8%);
 
-    --tooltip: hsl(0, 0%, 24%);
-    --tooltip-foreground: hsl(0 0% 100%);
+    --background-canvas: hsl(210 20% 99%);
+
+    --black-1000: hsl(293 100% 7%);
+    --black-950: hsl(293 100% 7% / 98%);
+    --black-900: hsl(293 100% 7% / 95%);
+    --black-800: hsl(293 100% 7% / 89%);
+    --black-700: hsl(293 100% 7% / 80%);
+    --black-600: hsl(293 100% 7% / 68%);
+    --black-500: hsl(293 100% 7% / 56%);
+    --black-400: hsl(293 100% 7% / 32%);
+    --black-300: hsl(293 100% 7% / 20%);
+    --black-200: hsl(293 100% 7% / 11%);
+    --black-100: hsl(293 100% 7% / 5%);
+    --black-50: hsl(293 100% 7% / 2%);
+
+    --white-1000: hsl(0 0% 100%);
+    --white-950: hsl(0 0% 100% / 98%);
+    --white-900: hsl(0 0% 100% / 95%);
+    --white-800: hsl(0 0% 100% / 89%);
+    --white-700: hsl(0 0% 100% / 80%);
+    --white-600: hsl(0 0% 100% / 68%);
+    --white-500: hsl(0 0% 100% / 56%);
+    --white-400: hsl(0 0% 100% / 32%);
+    --white-300: hsl(0 0% 100% / 20%);
+    --white-200: hsl(0 0% 100% / 11%);
+    --white-100: hsl(0 0% 100% / 5%);
+    --white-50: hsl(0 0% 100% / 2%);
   }
 
   *,
@@ -207,7 +260,7 @@
   }
 
   body {
-    @apply font-inter text-foreground bg-white;
+    @apply font-inter text-black-1000 bg-white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -218,7 +271,7 @@
   h4,
   h5,
   h6 {
-    @apply font-inter text-foreground;
+    @apply font-inter text-black-1000;
   }
 
   input:-webkit-autofill,

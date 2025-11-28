@@ -5,7 +5,6 @@ import { useParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import z from 'zod';
 
-import { useGetStore } from '@/api/stores/get-store';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -26,6 +25,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { getShopifyOauthUrl } from '@/features/auth/api/get-shopify-oauth-url';
+import { useGetStore } from '@/features/stores/api/get-store';
 
 const shopifySchema = z.object({
   shop: z
@@ -62,7 +62,7 @@ export const ShopifyButton = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" size="sm">
+        <Button variant="outline" size="default">
           <img src="/icons/shopify.svg" alt="shopify" className="size-5" />
           {connected ? 'Shopify Connected' : 'Connect Shopify'}
         </Button>

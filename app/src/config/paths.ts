@@ -38,9 +38,9 @@ export const paths = {
       },
     },
 
-    integrations: {
+    catalog: {
       getHref: (storeId: string, query?: Record<string, any>) =>
-        buildPath(`/${storeId}/integrations`, query),
+        buildPath(`/${storeId}/catalog`, query),
     },
   },
 

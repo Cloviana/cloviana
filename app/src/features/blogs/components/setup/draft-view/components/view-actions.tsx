@@ -68,7 +68,8 @@ export const ViewActions = ({
           variant="secondary"
           size="lg"
           onClick={handleNext}
-          disabled={!!isNextDisabled || loading === 'next'}
+          disabled={!!isNextDisabled}
+          loading={loading === 'next'}
         >
           Continue
         </Button>

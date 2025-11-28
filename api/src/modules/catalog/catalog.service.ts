@@ -1,172 +1,80 @@
-import {
-  Article,
-  ArticleBlogInput,
-  ArticleCreateInput,
-  ArticleUpdateInput,
-  ArticlesDocument,
-  ArticlesQuery,
-  ArticlesQueryVariables,
-  Collection,
-  CollectionsDocument,
-  CollectionsQuery,
-  CollectionsQueryVariables,
-  CreateArticleDocument,
-  CreateArticleMutation,
-  CreateArticleMutationVariables,
-  Product,
-  ProductsDocument,
-  ProductsQuery,
-  ProductsQueryVariables,
-  UpdateArticleDocument,
-  UpdateArticleMutation,
-  UpdateArticleMutationVariables,
-} from "@/clients/shopify/generated";
-import { ShopifyService } from "@/clients/shopify/shopify.service";
+import { PrismaService } from "@/clients/prisma/prisma.service";
+import { PaginatedResult, PaginationParams } from "@/modules/catalog/catalog.types";
 import { Injectable } from "@nestjs/common";
-import pRetry from "p-retry";
+import { Collection, Product, Prisma } from "@prisma/client";
 
 @Injectable()
 export class CatalogService {
-  constructor(private readonly shopify: ShopifyService) {}
+  constructor(private readonly prisma: PrismaService) {}
 
-  async listAllProducts(
-    shop: string,
-    token: string,
-    opts?: { query?: string; first?: number },
-  ): Promise<Product[]> {
-    const client = await this.shopify.getAdminClient(shop, token);
-    const first = opts?.first ?? 250;
-    let after: string | null = null;
-    const all: Product[] = [];
-    do {
-      const data = await pRetry(
-        () =>
-          client.request<ProductsQuery, ProductsQueryVariables>(
-            ProductsDocument,
-            { first, after: after ?? undefined, query: opts?.query },
-          ),
-        { retries: 5, factor: 2, minTimeout: 2000, maxTimeout: 4000 },
-      );
-      all.push(...(data.products.nodes as Product[]));
-      after = data.products.pageInfo.hasNextPage
-        ? (data.products.pageInfo.endCursor ?? null)
-        : null;
-    } while (after);
-    return all;
+  async getProducts(
+    storeId: string,
+    params: PaginationParams
+  ): Promise<PaginatedResult<Product>> {
+    const page = Number(params.page) || 1;
+    const limit = Number(params.limit) || 20;
+    const skip = (page - 1) * limit;
+
+    const [data, total] = await this.prisma.$transaction([
+      this.prisma.product.findMany({
+        where: { storeId },
+        take: limit,
+        skip,
+        orderBy: { createdAt: "desc" },
+        include: {
+          collections: {
+            select: {
+              id: true,
+              title: true,
+            },
+          },
+        },
+      }),
+      this.prisma.product.count({ where: { storeId } }),
+    ]);
+
+    return {
+      data,
+      meta: {
+        total,
+        page,
+        limit,
+        totalPages: Math.ceil(total / limit),
+      },
+    };
   }
 
-  async listAllCollections(
-    shop: string,
-    token: string,
-    opts?: { query?: string; first?: number },
-  ): Promise<Collection[]> {
-    const client = await this.shopify.getAdminClient(shop, token);
-    const first = opts?.first ?? 250;
-    let after: string | null = null;
-    const all: Collection[] = [];
-    do {
-      const data = await pRetry(
-        () =>
-          client.request<CollectionsQuery, CollectionsQueryVariables>(
-            CollectionsDocument,
-            { first, after: after ?? undefined, query: opts?.query },
-          ),
-        { retries: 5, factor: 2, minTimeout: 500, maxTimeout: 4000 },
-      );
-      all.push(...(data.collections.nodes as Collection[]));
-      after = data.collections.pageInfo.hasNextPage
-        ? (data.collections.pageInfo.endCursor ?? null)
-        : null;
-    } while (after);
-    return all;
-  }
+  async getCollections(
+    storeId: string,
+    params: PaginationParams
+  ): Promise<PaginatedResult<Collection>> {
+    const page = Number(params.page) || 1;
+    const limit = Number(params.limit) || 20;
+    const skip = (page - 1) * limit;
 
-  async listAllArticles(
-    shop: string,
-    token: string,
-    opts?: { query?: string; first?: number },
-  ): Promise<Article[]> {
-    const client = await this.shopify.getAdminClient(shop, token);
-    const first = opts?.first ?? 250;
-    let after: string | null = null;
-    const all: Article[] = [];
-    do {
-      const data = await pRetry(
-        () =>
-          client.request<ArticlesQuery, ArticlesQueryVariables>(
-            ArticlesDocument,
-            { first, after: after ?? undefined, query: opts?.query },
-          ),
-        { retries: 5, factor: 2, minTimeout: 500, maxTimeout: 4000 },
-      );
-      all.push(...(data.articles.nodes as Article[]));
-      after = data.articles.pageInfo.hasNextPage
-        ? (data.articles.pageInfo.endCursor ?? null)
-        : null;
-    } while (after);
-    return all;
-  }
+    const [data, total] = await this.prisma.$transaction([
+      this.prisma.collection.findMany({
+        where: { storeId },
+        take: limit,
+        skip,
+        orderBy: { title: "asc" },
+        include: {
+          _count: {
+            select: { products: true },
+          },
+        },
+      }),
+      this.prisma.collection.count({ where: { storeId } }),
+    ]);
 
-  async updateArticle(
-    shop: string,
-    token: string,
-    id: string,
-    article: ArticleUpdateInput,
-    blog?: ArticleBlogInput,
-  ): Promise<Article> {
-    const client = await this.shopify.getAdminClient(shop, token);
-
-    const data = await pRetry(
-      () =>
-        client.request<UpdateArticleMutation, UpdateArticleMutationVariables>(
-          UpdateArticleDocument,
-          { id, article, blog },
-        ),
-      { retries: 5, factor: 2, minTimeout: 500, maxTimeout: 4000 },
-    );
-
-    const result = data.articleUpdate;
-    if (!result) throw new Error("No response from Shopify articleUpdate");
-
-    if (result.userErrors?.length) {
-      throw new Error(result.userErrors.map((e) => e.message).join("; "));
-    }
-
-    if (!result.article) {
-      throw new Error("Article not returned after update");
-    }
-
-    return result.article as Article;
-  }
-
-  async createArticle(
-    shop: string,
-    token: string,
-    article: ArticleCreateInput,
-    blog?: ArticleBlogInput,
-  ): Promise<Article> {
-    const client = await this.shopify.getAdminClient(shop, token);
-
-    const data = await pRetry(
-      () =>
-        client.request<CreateArticleMutation, CreateArticleMutationVariables>(
-          CreateArticleDocument,
-          { article, blog },
-        ),
-      { retries: 5, factor: 2, minTimeout: 500, maxTimeout: 4000 },
-    );
-
-    const result = data.articleCreate;
-    if (!result) throw new Error("No response from Shopify articleCreate");
-
-    if (result.userErrors?.length) {
-      throw new Error(result.userErrors.map((e) => e.message).join("; "));
-    }
-
-    if (!result.article) {
-      throw new Error("Article not returned after create");
-    }
-
-    return result.article as Article;
+    return {
+      data,
+      meta: {
+        total,
+        page,
+        limit,
+        totalPages: Math.ceil(total / limit),
+      },
+    };
   }
 }
