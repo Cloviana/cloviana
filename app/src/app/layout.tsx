@@ -10,7 +10,7 @@ import { AppProvider } from '@/app/provider';
 import '@/styles/globals.css';
 import { env } from '@/config/env';
 import { MATERIAL_SYMBOLS_STYLESHEET } from '@/config/material-symbols';
-import { dmSans, inter, interDisplay } from '@/lib/fonts';
+import { dmSans, geist, inter, interDisplay } from '@/lib/fonts';
 import { cn } from '@/utils/cn';
 
 export const metadata = {
@@ -24,7 +24,12 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
   return (
     <html
       lang="en"
-      className={cn(interDisplay.variable, dmSans.variable, inter.variable)}
+      className={cn(
+        interDisplay.variable,
+        dmSans.variable,
+        inter.variable,
+        geist.variable,
+      )}
     >
       <head>
         <Script

@@ -7,7 +7,6 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import { useCreateStore } from '@/api/stores/create-store';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -20,6 +19,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { paths } from '@/config/paths';
+import { useCreateStore } from '@/features/stores/api/create-store';
 import { useUser } from '@/hooks/use-user';
 import { createClient } from '@/lib/supabase/client';
 

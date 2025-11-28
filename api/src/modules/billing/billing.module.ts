@@ -1,6 +1,6 @@
 import { Module } from "@nestjs/common";
-import { BillingWebhookController } from "./billing-webhook.controller";
-import { BillingController } from "./billing.controller";
+import { BillingWebhookController } from "./controllers/billing-webhook.controller";
+import { BillingController } from "./controllers/billing.controller";
 import { BillingService } from "./services/billing.service";
 import { StripeService } from "./services/stripe.service";
 

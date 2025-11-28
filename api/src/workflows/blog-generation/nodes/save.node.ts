@@ -1,4 +1,4 @@
-import { StorageService } from "@/modules/storage/storage.service";
+import { StorageService } from "@/infrastructure/storage/storage.service";
 import { RunnableConfig } from "@langchain/core/runnables";
 import { NodeType as DbNodeType, NodeType, PrismaClient } from "@prisma/client";
 import axios from "axios";

@@ -4,12 +4,12 @@ import { Check, X } from 'lucide-react';
 import { useParams } from 'next/navigation';
 import { ReactNode, useState } from 'react';
 
-import { useGetStore } from '@/api/stores/get-store';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { env } from '@/config/env';
 import { useCreateCheckoutSession } from '@/features/billing/api/create-checkout-session';
 import { useCreatePortalSession } from '@/features/billing/api/create-portal-session';
+import { useGetStore } from '@/features/stores/api/get-store';
 import { useSubscriptionModal } from '@/stores/subscription-modal';
 import { cn } from '@/utils/cn';
 

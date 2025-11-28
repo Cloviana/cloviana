@@ -1,8 +1,8 @@
 import { QueryClient } from '@tanstack/react-query';
 import { redirect } from 'next/navigation';
 
-import { getStoresQueryOptions } from '@/api/stores/get-stores';
 import { paths } from '@/config/paths';
+import { getStoresQueryOptions } from '@/features/stores/api/get-stores';
 
 export default async function HomePage() {
   const qc = new QueryClient();
