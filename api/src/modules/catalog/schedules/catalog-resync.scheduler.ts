@@ -12,7 +12,7 @@ export class CatalogResyncScheduler {
     private readonly syncCatalogWorkflow: SyncCatalogWorkflow,
   ) {}
 
-  @Cron(CronExpression.EVERY_30_MINUTES)
+  @Cron(CronExpression.EVERY_2_HOURS)
   async handle() {
     const channels = await this.prisma.channel.findMany({
       select: { storeId: true },
