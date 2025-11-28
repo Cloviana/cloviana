@@ -62,7 +62,7 @@ export const ShopifyButton = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" size="sm">
+        <Button variant="outline" size="default">
           <img src="/icons/shopify.svg" alt="shopify" className="size-5" />
           {connected ? 'Shopify Connected' : 'Connect Shopify'}
         </Button>

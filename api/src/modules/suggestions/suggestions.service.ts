@@ -5,8 +5,8 @@ import { z } from "zod";
 
 import { GroqClient } from "@/clients/groq/groq.client";
 import { PrismaService } from "@/clients/prisma/prisma.service";
-import { SerpIntent } from "@/modules/seranking/seranking.types";
-import { SerankingMetricsService } from "@/modules/seranking/services/seranking.metrics.service";
+import { SerpIntent } from "@/integrations/seranking/seranking.types";
+import { SerankingMetricsService } from "@/integrations/seranking/services/seranking.metrics.service";
 
 import {
   SYSTEM_PRIMARY,
@@ -138,8 +138,6 @@ export class SuggestionsService {
             select: {
               id: true,
               title: true,
-              tags: true,
-              category: true,
               description: true,
             },
           },
@@ -155,13 +153,11 @@ export class SuggestionsService {
       const products = (blog.products ?? []).map((p) => ({
         id: p.id,
         title: p.title,
-        tags: p.tags ?? [],
-        category: p.category ?? null,
         description: (p.description ?? "").slice(0, 500),
       }));
 
       const prodSig = this.shortHash(
-        products.map((p) => [p.id, p.title, p.category, p.tags]),
+        products.map((p) => [p.id, p.title]),
       );
       const key = `${CACHE_NS}:${CACHE_V}:primary:${blogId}:${this.shortHash(
         topic,
@@ -272,8 +268,6 @@ export class SuggestionsService {
           select: {
             id: true,
             title: true,
-            tags: true,
-            category: true,
             description: true,
           },
         },
@@ -293,13 +287,11 @@ export class SuggestionsService {
     const products = (blog.products ?? []).map((p) => ({
       id: p.id,
       title: p.title,
-      tags: p.tags ?? [],
-      category: p.category ?? null,
       description: (p.description ?? "").slice(0, 500),
     }));
 
     const prodSig = this.shortHash(
-      products.map((p) => [p.id, p.title, p.category, p.tags]),
+      products.map((p) => [p.id, p.title]),
     );
     const key = `${CACHE_NS}:${CACHE_V}:secondary:${blogId}:${this.shortHash(
       topic,
@@ -413,8 +405,6 @@ export class SuggestionsService {
           id: true,
           title: true,
           description: true,
-          tags: true,
-          category: true,
           imageUrl: true,
           createdAt: true,
         },
@@ -430,7 +420,7 @@ export class SuggestionsService {
       }
 
       const catalogSig = this.shortHash(
-        products.map((p) => [p.id, p.title, p.category, p.tags]),
+        products.map((p) => [p.id, p.title]),
       );
       const key = `${CACHE_NS}:${CACHE_V}:product:${blogId}:${this.shortHash(
         topic,
@@ -464,8 +454,7 @@ export class SuggestionsService {
                 id: p.id,
                 title: p.title,
                 description: p.description ?? "",
-                tags: p.tags ?? [],
-                category: p.category ?? "",
+    
               })),
             }),
           },

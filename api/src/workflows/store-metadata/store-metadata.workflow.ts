@@ -4,6 +4,7 @@ import { CatalogService } from "@/modules/catalog/catalog.service";
 import { Injectable } from "@nestjs/common";
 import { JobStatus, JobType } from "@prisma/client";
 import { graph } from "./store-metadata.graph";
+import { ShopifyCatalogService } from "@/integrations/shopify/shopify-catalog.service";
 
 const STALE_MS = 10 * 60 * 1000;
 
@@ -12,7 +13,7 @@ export class StoreMetadataWorkflow {
   constructor(
     private readonly prisma: PrismaService,
     private readonly shopify: ShopifyService,
-    private readonly catalog: CatalogService,
+    private readonly catalog: ShopifyCatalogService,
   ) {}
 
   async run(storeId: string) {

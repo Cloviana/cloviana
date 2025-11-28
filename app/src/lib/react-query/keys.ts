@@ -1,6 +1,26 @@
 export const blogKeys = {
   all: ['blog'] as const,
+  list: (storeId: string, params?: Record<string, unknown>) =>
+    [...blogKeys.all, 'list', storeId, params ?? {}] as const,
   detail: (blogId: string) => [...blogKeys.all, blogId] as const,
+};
+
+export const catalogKeys = {
+  all: ['catalog'] as const,
+  products: (storeId: string, params?: { page?: number; limit?: number }) =>
+    [
+      ...catalogKeys.all,
+      'products',
+      storeId,
+      ...(params ? [params] : []),
+    ] as const,
+  collections: (storeId: string, params?: { page?: number; limit?: number }) =>
+    [
+      ...catalogKeys.all,
+      'collections',
+      storeId,
+      ...(params ? [params] : []),
+    ] as const,
 };
 
 export const suggestionsKeys = {

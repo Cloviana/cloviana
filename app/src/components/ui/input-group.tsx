@@ -4,35 +4,59 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 
 import { Button } from '@/components/ui/button';
-import { Input, InputProps } from '@/components/ui/input';
+import { Input, inputVariants, type InputProps } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { cn } from '@/utils/cn';
 
-function InputGroup({ className, ...props }: React.ComponentProps<'div'>) {
+type InputGroupProps = React.ComponentProps<'div'> &
+  VariantProps<typeof inputVariants> & {
+    disabled?: boolean;
+  };
+
+function getControlProps(children: React.ReactNode) {
+  for (const child of React.Children.toArray(children)) {
+    if (!React.isValidElement(child)) continue;
+    if (child.type === InputGroupInput) return child.props as InputProps;
+  }
+  return {};
+}
+
+function InputGroup({
+  className,
+  children,
+  variant,
+  size,
+  disabled,
+  ...props
+}: InputGroupProps) {
+  const controlProps = getControlProps(children);
+
+  const v = variant ?? controlProps.variant;
+  const s = size ?? controlProps.size;
+  const isDisabled = disabled ?? controlProps.disabled ?? false;
+
   return (
     <div
       data-slot="input-group"
+      data-disabled={isDisabled ? 'true' : 'false'}
       role="group"
       className={cn(
-        'group/input-group border-input dark:bg-input/30 relative flex w-full items-center rounded-md border shadow-xs transition-[color,box-shadow] outline-none',
-        'h-9 min-w-0 has-[>textarea]:h-auto',
-
-        // Variants based on alignment.
-        'has-[>[data-align=inline-start]]:[&>input]:pl-2',
-        'has-[>[data-align=inline-end]]:[&>input]:pr-2',
-        'has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>[data-align=block-start]]:[&>input]:pb-3',
-        'has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-end]]:[&>input]:pt-3',
-
-        // Focus state.
-        'has-[[data-slot=input-group-control]:focus-visible]:border-ring has-[[data-slot=input-group-control]:focus-visible]:ring-ring/50 has-[[data-slot=input-group-control]:focus-visible]:ring-[3px]',
-
-        // Error state.
-        'has-[[data-slot][aria-invalid=true]]:ring-destructive/20 has-[[data-slot][aria-invalid=true]]:border-destructive dark:has-[[data-slot][aria-invalid=true]]:ring-destructive/40',
-
+        inputVariants({ variant: v, size: s }),
+        'relative flex w-full min-w-0 items-center p-0',
+        'has-[>textarea]:h-auto',
+        'has-[>[data-align=inline-start]]:[&>[data-slot=input-group-control]]:pl-2',
+        'has-[>[data-align=inline-end]]:[&>[data-slot=input-group-control]]:pr-2',
+        'has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>[data-align=block-start]]:[&>[data-slot=input-group-control]]:pb-3',
+        'has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-end]]:[&>[data-slot=input-group-control]]:pt-3',
+        'has-[[data-slot=input-group-control]:focus-visible]:bg-secondary/10 has-[[data-slot=input-group-control]:focus-visible]:border-secondary has-[[data-slot=input-group-control]:focus-visible]:ring-ring/50 has-[[data-slot=input-group-control]:focus-visible]:ring-[3px]',
+        'has-[[data-slot=input-group-control][aria-invalid=true]]:bg-destructive/5 has-[[data-slot=input-group-control][aria-invalid=true]]:ring-destructive/20 has-[[data-slot=input-group-control][aria-invalid=true]]:border-destructive',
+        isDisabled ? 'pointer-events-none opacity-50' : '',
         className,
       )}
       {...props}
-    />
+    >
+      {children}
+    </div>
   );
 }
 
@@ -70,10 +94,10 @@ function InputGroupAddon({
       tabIndex={0}
       className={cn(inputGroupAddonVariants({ align }), className)}
       onClick={(e) => {
-        if ((e.target as HTMLElement).closest('button')) {
-          return;
-        }
-        e.currentTarget.parentElement?.querySelector('input')?.focus();
+        if ((e.target as HTMLElement).closest('button')) return;
+        e.currentTarget.parentElement
+          ?.querySelector<HTMLElement>('[data-slot=input-group-control]')
+          ?.focus();
       }}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -98,9 +122,7 @@ const inputGroupButtonVariants = cva(
         'icon-sm': 'size-8 p-0 has-[>svg]:p-0',
       },
     },
-    defaultVariants: {
-      size: 'xs',
-    },
+    defaultVariants: { size: 'xs' },
   },
 );
 
@@ -140,7 +162,7 @@ function InputGroupInput({ className, ...props }: InputProps) {
     <Input
       data-slot="input-group-control"
       className={cn(
-        'flex-1 rounded-none border-0 bg-transparent shadow-none focus-visible:ring-0',
+        'flex-1 rounded-none border-0 bg-transparent shadow-none focus-visible:border-0 focus-visible:bg-transparent focus-visible:ring-0 aria-invalid:border-0 aria-invalid:bg-transparent aria-invalid:ring-0',
         className,
       )}
       {...props}

@@ -143,12 +143,32 @@ export type StoreDetail = Store & {
 };
 
 export type Product = Entity<{
-  handle?: string | null;
+  id: string;
+  storeId: string;
+  externalId: string;
   title: string;
+  slug: string | null;
   status: ProductStatus;
   description: string | null;
   imageUrl: string | null;
-  onlineStoreUrl: string | null;
+  url: string | null;
+  metadata: Record<string, any> | null;
+  createdAt: string;
+  updatedAt: string;
+}>;
+
+export type Collection = Entity<{
+  id: string;
+  storeId: string;
+  externalId: string;
+  title: string;
+  slug: string | null;
+  description: string | null;
+  imageUrl: string | null;
+  url: string | null;
+  metadata: Record<string, any> | null;
+  createdAt: string;
+  updatedAt: string;
 }>;
 
 export type Job = {
@@ -166,3 +186,15 @@ export type Job = {
   createdAt: ISODate;
   updatedAt: ISODate;
 };
+
+export interface PaginationMeta {
+  total: number;
+  page: number;
+  limit: number;
+  totalPages: number;
+}
+
+export interface PaginatedResponse<T> {
+  data: T[];
+  meta: PaginationMeta;
+}

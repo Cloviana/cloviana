@@ -20,7 +20,7 @@ export async function initialize(
       primaryKeyword: blog.primaryKeyword!,
       secondaryKeywords: blog.secondaryKeywords!,
       products: blog.products.map((product) => ({
-        url: product?.onlineStoreUrl ?? product?.onlineStorePreviewUrl,
+        url: product?.url!,
         title: product.title!,
         description: product.description!,
       })),

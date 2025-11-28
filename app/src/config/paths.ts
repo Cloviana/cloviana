@@ -38,14 +38,9 @@ export const paths = {
       },
     },
 
-    products: {
+    catalog: {
       getHref: (storeId: string, query?: Record<string, any>) =>
-        buildPath(`/${storeId}/products`, query),
-
-      collections: {
-        getHref: (storeId: string, query?: Record<string, any>) =>
-          buildPath(`/${storeId}/products/collections`, query),
-      },
+        buildPath(`/${storeId}/catalog`, query),
     },
   },
 

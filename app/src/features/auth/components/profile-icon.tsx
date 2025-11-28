@@ -13,12 +13,14 @@ export const ProfileIcon = ({
   return (
     <div
       className={cn(
-        'flex size-8 items-center justify-center rounded-full border border-red-100 bg-red-50 text-red-600 ring-gray-100 hover:ring-3',
+        'border-secondary-100 bg-secondary-200 text-secondary-dark flex size-8 items-center justify-center rounded-full ring-gray-100 hover:ring-3',
         isLoading && 'animate-pulse',
       )}
     >
       {user ? (
-        <span className="text-sm">{user.email![0].toUpperCase()}</span>
+        <span className="text-sm font-medium">
+          {user.email!.slice(0, 1).toUpperCase()}
+        </span>
       ) : !isLoading ? (
         <IUser className="size-3.5" />
       ) : null}

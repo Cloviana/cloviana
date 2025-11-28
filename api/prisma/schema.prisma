@@ -8,12 +8,21 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+// --- ENUMS ---
+
 enum StoreStatus {
   DRAFT
   ACTIVE
   LOCKED
   INITIALIZING
   FAILED
+}
+
+enum Platform {
+  SHOPIFY
+  WOOCOMMERCE
+  BIGCOMMERCE
+  CUSTOM
 }
 
 enum NodeType {
@@ -53,6 +62,7 @@ enum ProductStatus {
 
 enum JobType {
   PRODUCT_SYNC
+  CATALOG_SYNC
   BLOG_GENERATION
   SITEMAP_BUILD
   KEYWORD_DISCOVERY
@@ -80,14 +90,16 @@ enum SubscriptionStatus {
   TRIALLING
 }
 
-model Plan {
-  id             String    @id @default(uuid()) @db.Uuid
-  name           PlanName 
-  stripePriceId  String @unique
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
+// --- BILLING MODELS ---
 
-  subscriptions  Subscription[]
+model Plan {
+  id            String   @id @default(uuid()) @db.Uuid
+  name          PlanName
+  stripePriceId String   @unique
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  subscriptions Subscription[]
 
   @@map("plans")
 }
@@ -102,68 +114,62 @@ model Subscription {
   trialEndsAt DateTime?
   storeId     String    @unique
 
-  planId String  @db.Uuid
-  plan   Plan    @relation(fields: [planId], references: [id])
+  planId String @db.Uuid
+  plan   Plan   @relation(fields: [planId], references: [id]) // No Cascade here (don't delete subs if plan deleted)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  store Store @relation(fields: [storeId], references: [id])
+  // UPDATED: Added onDelete: Cascade
+  store Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
 
   @@map("subscriptions")
 }
 
-model Job {
-  id              String    @id @default(uuid()) @db.Uuid
-  type            JobType
-  storeId         String?
-  status          JobStatus @default(PENDING)
-  priority        Int       @default(0)
-  attempts        Int       @default(0)
-  scheduledAt     DateTime?
-  startedAt       DateTime?
-  finishedAt      DateTime?
-  lastHeartbeatAt DateTime?
-  payload         Json?     @db.JsonB
-  result          Json?     @db.JsonB
-  error           String?
-  dedupeKey       String?
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
+// --- CORE MODELS ---
 
-  store Store? @relation(fields: [storeId], references: [id], onDelete: Cascade)
-  blogs Blog[]
+model Store {
+  id               String      @id @default(cuid())
+  ownerId          String      @db.Uuid
+  stripeCustomerId String?
+  name             String
+  domainUrl        String
+  profileUrl       String?
+  description      String?
+  status           StoreStatus @default(LOCKED)
 
-  @@unique([type, storeId, dedupeKey])
-  @@index([type, status, priority, scheduledAt])
-  @@index([storeId, type, status])
-  @@map("jobs")
+  platform Platform @default(SHOPIFY)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  subscription Subscription?
+
+  owner       Profile      @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  blogs       Blog[]
+  jobs        Job[]
+  products    Product[]
+  collections Collection[]
+  channel     Channel?
+
+  @@index([ownerId])
+  @@map("stores")
 }
 
-model Product {
-  id                    String        @id @default(uuid()) @db.Uuid
-  storeId               String
-  shopifyId             String
-  handle                String?       @db.Citext
-  title                 String
-  status                ProductStatus
-  description           String?
-  tags                  String[]      @default([])
-  category              String?
-  imageUrl              String?
-  onlineStoreUrl        String?
-  onlineStorePreviewUrl String
-  syncedAt              DateTime?
-  createdAt             DateTime      @default(now())
-  updatedAt             DateTime      @updatedAt
+model Channel {
+  id String @id @default(uuid()) @db.Uuid
 
-  store Store  @relation(fields: [storeId], references: [id], onDelete: Cascade)
-  blogs Blog[]
+  shop String @unique @db.Citext
 
-  @@unique([storeId, handle])
-  @@unique([storeId, shopifyId])
-  @@index([storeId, status])
-  @@map("products")
+  config Json
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  storeId String @unique
+  store   Store  @relation(fields: [storeId], references: [id], onDelete: Cascade)
+
+  @@map("channels")
 }
 
 model Profile {
@@ -178,42 +184,65 @@ model Profile {
   @@map("profiles")
 }
 
-model Store {
-  id               String      @id @default(cuid())
-  ownerId          String      @db.Uuid
-  stripeCustomerId String?
-  name             String
-  domainUrl        String
-  profileUrl       String?
-  description      String?
-  status           StoreStatus @default(LOCKED)
-  createdAt        DateTime    @default(now())
-  updatedAt        DateTime    @updatedAt
+model Product {
+  id      String @id @default(uuid()) @db.Uuid
+  storeId String
 
-  subscription Subscription?
+  externalId String
 
-  owner    Profile   @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
-  blogs    Blog[]
-  jobs     Job[]
-  products Product[]
-  channel  Channel?
+  title       String
+  slug        String?       @db.Citext
+  status      ProductStatus
+  description String?
 
-  @@index([ownerId])
-  @@map("stores")
-}
+  collections Collection[]
 
-model Channel {
-  id        String   @id @default(uuid()) @db.Uuid
-  shop      String   @unique @db.Citext
-  config    Json
+  imageUrl String?
+
+  url String?
+
+  metadata Json? @db.JsonB
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  storeId String @unique
-  store   Store  @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  store Store  @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  blogs Blog[]
 
-  @@map("channels")
+  @@unique([storeId, externalId])
+  @@unique([storeId, slug])
+  @@index([storeId, status])
+  @@map("products")
 }
+
+model Collection {
+  id      String @id @default(uuid()) @db.Uuid
+  storeId String
+
+  externalId String
+
+  title       String
+  slug        String? @db.Citext
+  description String?
+  imageUrl    String?
+
+  url String?
+
+  metadata Json? @db.JsonB
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  store    Store     @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  products Product[]
+  blogs    Blog[]
+
+  @@unique([storeId, externalId])
+  @@unique([storeId, slug])
+  @@map("collections")
+}
+
+// --- CONTENT MODELS ---
 
 model Blog {
   id                    String        @id @default(uuid()) @db.Uuid
@@ -228,16 +257,23 @@ model Blog {
   status                BlogStatus    @default(DRAFT)
   currentStep           BlogSetupStep @default(TOPIC)
   storeId               String
-  shopifyArticleId      String?
-  jobId                 String?       @db.Uuid
-  createdAt             DateTime      @default(now())
-  updatedAt             DateTime      @updatedAt
 
-  store     Store      @relation(fields: [storeId], references: [id], onDelete: Cascade)
-  job       Job?       @relation(fields: [jobId], references: [id], onDelete: Cascade)
-  products  Product[]
-  nodes     Node[]
-  thumbnail Thumbnail?
+  externalId String?
+
+  jobId     String?  @db.Uuid
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  store Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  
+  // UPDATED: Changed from Cascade to SetNull. 
+  // If you delete a Job (e.g. cleanup logs), the Blog should NOT be deleted.
+  job   Job?  @relation(fields: [jobId], references: [id], onDelete: SetNull) 
+
+  products    Product[]
+  collections Collection[]
+  nodes       Node[]
+  thumbnail   Thumbnail?
 
   @@index([storeId])
   @@map("blogs")
@@ -271,4 +307,31 @@ model Thumbnail {
   blog Blog @relation(fields: [blogId], references: [id], onDelete: Cascade)
 
   @@map("thumbnails")
+}
+
+model Job {
+  id              String    @id @default(uuid()) @db.Uuid
+  type            JobType
+  storeId         String?
+  status          JobStatus @default(PENDING)
+  priority        Int       @default(0)
+  attempts        Int       @default(0)
+  scheduledAt     DateTime?
+  startedAt       DateTime?
+  finishedAt      DateTime?
+  lastHeartbeatAt DateTime?
+  payload         Json?     @db.JsonB
+  result          Json?     @db.JsonB
+  error           String?
+  dedupeKey       String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  store Store? @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  blogs Blog[]
+
+  @@unique([type, storeId, dedupeKey])
+  @@index([type, status, priority, scheduledAt])
+  @@index([storeId, type, status])
+  @@map("jobs")
 }

@@ -1,21 +1,15 @@
 'use client';
 
-import { Wand2 } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import { useParams, useRouter } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
-import {
-  Page,
-  PageContent,
-  PageDescription,
-  PageHeader,
-  PageTitle,
-} from '@/components/ui/page';
+import { Page, PageContent, PageHeader, PageTitle } from '@/components/ui/page';
 import { paths } from '@/config/paths';
 import { useCreateBlog } from '@/features/blogs/api/create-blog';
+import { BlogsTable } from '@/features/blogs/components/blogs-table';
 import { useGetStore } from '@/features/stores/api/get-store';
 
-import { BlogsTable } from './_components/blogs-table';
 import { ShopifyButton } from './_components/shopify-button';
 
 export default function BlogsPage() {
@@ -35,26 +29,22 @@ export default function BlogsPage() {
   };
 
   return (
-    <Page>
-      <PageHeader className="flex flex-col justify-between gap-5 md:flex-row md:items-center">
-        <div className="space-y-1">
-          <PageTitle>Blog Posts</PageTitle>
-          <PageDescription>
-            Create SEO-optimized content that drives real traffic and makes your
-            products the answer to customer searches.
-          </PageDescription>
-        </div>
-        <div className="flex items-center gap-3.5">
-          <ShopifyButton />
-          <Button
-            variant={'secondary'}
-            size={'sm'}
-            loading={isCreating}
-            onClick={handleCreateBlog}
-          >
-            <Wand2 />
-            Create new
-          </Button>
+    <Page fullWidth>
+      <PageHeader>
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <PageTitle>Content</PageTitle>
+          <div className="flex w-full flex-1 flex-col items-stretch justify-end gap-3.5 sm:flex-row sm:items-center">
+            <ShopifyButton />
+            <Button
+              size={'default'}
+              variant={'secondary'}
+              disabled={isCreating}
+              onClick={handleCreateBlog}
+            >
+              <Plus />
+              Create new
+            </Button>
+          </div>
         </div>
       </PageHeader>
       <PageContent>

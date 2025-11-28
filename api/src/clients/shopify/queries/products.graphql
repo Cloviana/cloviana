@@ -23,6 +23,11 @@ query Products($first: Int!, $after: String, $query: String) {
           }
         }
       }
+      collections(first: 50) { 
+        nodes {
+          id
+        }
+      }
     }
   }
 }

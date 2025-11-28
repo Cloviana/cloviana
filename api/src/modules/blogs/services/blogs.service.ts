@@ -6,9 +6,8 @@ import {
   ArticleUpdateInput,
 } from "@/clients/shopify/generated";
 import { lexicalJsonToNodes } from "@/modules/blogs/utils/lexical-json-to-nodes";
-import { CatalogService } from "@/modules/catalog/catalog.service";
-import { BlogsProducer } from "@/modules/messaging/producers/blogs.producer";
-import { StorageService } from "@/modules/storage/storage.service";
+import { BlogsProducer } from "@/infrastructure/messaging/producers/blogs.producer";
+import { StorageService } from "@/infrastructure/storage/storage.service";
 import { makeDedupeKey } from "@/utils/job.util";
 import {
   BlogSetupStep,
@@ -23,6 +22,7 @@ import {
 } from "../constants/selects.constants";
 import { UpdateBlogDto } from "../dtos/update-blog.dto";
 import { fromNodes } from "../utils/from-nodes";
+import { ShopifyCatalogService } from "@/integrations/shopify/shopify-catalog.service";
 
 @Injectable()
 export class BlogsService {
@@ -30,29 +30,62 @@ export class BlogsService {
     private readonly prisma: PrismaService,
     private readonly blogsProducer: BlogsProducer,
     private readonly storage: StorageService,
-    private readonly catalog: CatalogService,
+    private readonly catalog: ShopifyCatalogService,
   ) {}
 
-  async getBlogs(storeId: string) {
-    const blogs = await this.prisma.blog.findMany({
-      where: {
-        storeId,
-        currentStep: {
-          equals: BlogSetupStep.COMPLETED,
-        },
-      },
-      select: BLOG_SUMMARY_SELECT,
-      orderBy: { createdAt: "desc" },
-    });
+  async getBlogs(
+    storeId: string,
+    params: { page?: number; limit?: number; search?: string; status?: BlogStatus },
+  ) {
+    const page = Number(params.page) || 1;
+    const limit = Number(params.limit) || 20;
+    const skip = (page - 1) * limit;
 
-    return blogs.map((b) => ({
-      ...b,
-      productsCount: b._count.products,
-      thumbnail: b.thumbnail && {
-        ...b.thumbnail,
-        srcUrl: this.storage.getCdnUrl(b.thumbnail.blobPath),
+    const where: Prisma.BlogWhereInput = {
+      storeId,
+      currentStep: {
+        equals: BlogSetupStep.COMPLETED,
       },
-    }));
+    };
+
+    if (params.status) {
+      where.status = params.status;
+    }
+
+    const search = params.search?.trim();
+    if (search) {
+      where.OR = [
+        { topic: { contains: search, mode: "insensitive" } },
+      ];
+    }
+
+    const [blogs, total] = await this.prisma.$transaction([
+      this.prisma.blog.findMany({
+        where,
+        select: BLOG_SUMMARY_SELECT,
+        orderBy: { createdAt: "desc" },
+        take: limit,
+        skip,
+      }),
+      this.prisma.blog.count({ where }),
+    ]);
+
+    return {
+      data: blogs.map((b) => ({
+        ...b,
+        productsCount: b._count.products,
+        thumbnail: b.thumbnail && {
+          ...b.thumbnail,
+          srcUrl: this.storage.getCdnUrl(b.thumbnail.blobPath),
+        },
+      })),
+      meta: {
+        total,
+        page,
+        limit,
+        totalPages: Math.ceil(total / limit),
+      },
+    };
   }
   async getBlog(blogId: string) {
     const blog = await this.prisma.blog.findUniqueOrThrow({
@@ -235,7 +268,7 @@ export class BlogsService {
         : undefined,
     };
 
-    if (blog.shopifyArticleId) {
+    if (blog.externalId) {
       const payload: ArticleUpdateInput = {
         title: basePayload.title,
         body: basePayload.body,
@@ -249,7 +282,7 @@ export class BlogsService {
       const updated = await this.catalog.updateArticle(
         shop,
         offlineAccessToken,
-        blog.shopifyArticleId,
+        blog.externalId,
         payload,
       );
 
@@ -285,7 +318,7 @@ export class BlogsService {
       await this.prisma.blog.update({
         where: { id: blogId },
         data: {
-          shopifyArticleId: created.id,
+          externalId: created.id,
           status: BlogStatus.PUBLISHED,
         },
       });
