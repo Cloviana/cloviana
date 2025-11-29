@@ -8,6 +8,7 @@ import { ErrorFallback } from '@/components/fallbacks/error-fallback';
 import { LoadingFallback } from '@/components/fallbacks/loading-fallback';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
+import { ShopifyConnectionGate } from '@/features/stores/guards/shopify-connection-gate';
 
 type LayoutProps = {
   children: ReactNode;
@@ -21,15 +22,17 @@ export default function Layout({ children }: LayoutProps) {
           <AppHeader sidebarTrigger={<SidebarTrigger />} />
         </header>
         <div className="relative flex flex-1 overflow-hidden">
-          <AppSidebar className="absolute h-full border-r" />
+          <ShopifyConnectionGate>
+            <AppSidebar className="absolute h-full border-r" />
 
-          <ScrollArea className="relative flex-1">
-            <Suspense fallback={<LoadingFallback />}>
-              <ErrorBoundary fallback={<ErrorFallback />}>
-                {children}
-              </ErrorBoundary>
-            </Suspense>
-          </ScrollArea>
+            <ScrollArea className="relative flex-1">
+              <Suspense fallback={<LoadingFallback />}>
+                <ErrorBoundary fallback={<ErrorFallback />}>
+                  {children}
+                </ErrorBoundary>
+              </Suspense>
+            </ScrollArea>
+          </ShopifyConnectionGate>
         </div>
       </div>
     </SidebarProvider>
