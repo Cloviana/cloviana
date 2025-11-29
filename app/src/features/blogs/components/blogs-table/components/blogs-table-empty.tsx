@@ -42,7 +42,7 @@ export const BlogTableEmpty = () => {
   const { data: store } = useGetStore(storeId);
 
   const handleCreateBlog = async () => {
-    if (!store?.channel?.shop) return;
+    if (store?.status !== 'ACTIVE') return;
 
     const { id } = await createBlog({
       data: { storeId },

@@ -10,8 +10,6 @@ import { useCreateBlog } from '@/features/blogs/api/create-blog';
 import { BlogsTable } from '@/features/blogs/components/blogs-table';
 import { useGetStore } from '@/features/stores/api/get-store';
 
-import { ShopifyButton } from './_components/shopify-button';
-
 export default function BlogsPage() {
   const { storeId } = useParams<{ storeId: string }>();
   const { mutateAsync: createBlog, isPending: isCreating } = useCreateBlog();
@@ -20,7 +18,7 @@ export default function BlogsPage() {
   const { push } = useRouter();
 
   const handleCreateBlog = async () => {
-    if (!store?.channel?.shop) return;
+    if (store?.status !== 'ACTIVE') return;
 
     const { id } = await createBlog({
       data: { storeId },
@@ -34,7 +32,6 @@ export default function BlogsPage() {
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <PageTitle>Content</PageTitle>
           <div className="flex w-full flex-1 flex-col items-stretch justify-end gap-3.5 sm:flex-row sm:items-center">
-            <ShopifyButton />
             <Button
               size={'default'}
               variant={'secondary'}
