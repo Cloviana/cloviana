@@ -1,10 +1,16 @@
-import { Loader2Icon } from 'lucide-react';
+import { Loader2Icon, LoaderIcon } from 'lucide-react';
 
 import { cn } from '@/utils/cn';
 
-function Spinner({ className, ...props }: React.ComponentProps<'svg'>) {
+type SpinnerProps = React.ComponentProps<'svg'> & {
+  variant?: '1' | '2';
+};
+
+function Spinner({ className, variant = '2', ...props }: SpinnerProps) {
+  const Icon = variant === '1' ? LoaderIcon : Loader2Icon;
+
   return (
-    <Loader2Icon
+    <Icon
       role="status"
       aria-label="Loading"
       strokeWidth={3.5}

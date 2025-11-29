@@ -1,7 +1,6 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ChevronRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
@@ -18,6 +17,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { Spinner } from '@/components/ui/spinner';
 import { paths } from '@/config/paths';
 import { useCreateStore } from '@/features/stores/api/create-store';
 import { useUser } from '@/hooks/use-user';
@@ -113,8 +113,8 @@ export default function OnboardingPage() {
 
   if (fetchingUser) {
     return (
-      <div className="flex flex-1 items-center justify-center">
-        <span className="loading loading-spinner loading-sm text-foreground-light" />
+      <div className="absolute inset-0 flex items-center justify-center p-20">
+        <Spinner className="text-black-600 size-5" />
       </div>
     );
   }
@@ -126,7 +126,7 @@ export default function OnboardingPage() {
           <h1 className="text-[20px] font-medium">
             Create your profile and organization
           </h1>
-          <p className="text-foreground-lighter text-sm">
+          <p className="text-foreground-light text-sm">
             Let&apos;s get you set up. You&apos;ll enter your details and create
             your first store.
           </p>
@@ -219,12 +219,11 @@ export default function OnboardingPage() {
             <Button
               type="submit"
               className="w-full"
-              variant="primary"
+              variant="secondary"
               size="lg"
               loading={form.formState.isSubmitting}
             >
               Continue
-              <ChevronRight className="size-3.5" strokeWidth={2.5} />
             </Button>
           </form>
         </Form>
