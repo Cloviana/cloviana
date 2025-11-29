@@ -97,7 +97,7 @@ function FormLabel({
     <Label
       data-slot="form-label"
       data-error={!!error}
-      className={cn('text-foreground/70 text-sm', className)}
+      className={cn('text-foreground text-sm', className)}
       htmlFor={formItemId}
       {...props}
     />
@@ -130,7 +130,7 @@ function FormDescription({ className, ...props }: React.ComponentProps<'p'>) {
     <p
       data-slot="form-description"
       id={formDescriptionId}
-      className={cn('text-foreground-lighter/75 text-[13px]', className)}
+      className={cn('text-foreground-lighter text-[13px]', className)}
       {...props}
     />
   );
