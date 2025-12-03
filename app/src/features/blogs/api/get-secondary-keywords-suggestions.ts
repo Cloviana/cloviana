@@ -1,51 +1,46 @@
 import { queryOptions, useQuery } from '@tanstack/react-query';
 
-import { SerpIntent } from '@/features/blogs/types';
 import { api } from '@/lib/api-client';
-import { QueryConfig, suggestionsKeys } from '@/lib/react-query';
+import { QueryConfig, suggestionKeys } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
-
-export type SecondaryKeywordSuggestion = {
-  keyword: string;
-  volume?: number;
-  difficulty?: number;
-  intent?: SerpIntent;
-  recommended: boolean;
-};
+import { SuggestedKeyword } from '@/types/api';
 
 export const getSecondaryKeywordSuggestions = async (
+  storeId: string,
   blogId: string,
-): Promise<SecondaryKeywordSuggestion[]> => {
+): Promise<SuggestedKeyword[]> => {
   const token = await fetchAccessToken();
-  if (!token) {
-    throw new Error('Access token is not available');
-  }
-  const response = await api.get<SecondaryKeywordSuggestion[]>(
-    `/blogs/${blogId}/suggestions/secondary-keywords`,
-    {
-      headers: { Authorization: `Bearer ${token}` },
-    },
-  );
-  return response;
+  if (!token) throw new Error('Access token is not available');
+
+  const url = `/stores/${storeId}/blogs/${blogId}/suggestions/secondary-keywords`;
+
+  return api.get<SuggestedKeyword[]>(url, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
 };
 
-export const getSecondaryKeywordSuggestionsQueryOptions = (blogId: string) =>
+export const getSecondaryKeywordSuggestionsQueryOptions = (
+  storeId: string,
+  blogId: string,
+) =>
   queryOptions({
-    queryKey: suggestionsKeys.secondary(blogId),
-    queryFn: () => getSecondaryKeywordSuggestions(blogId),
-    enabled: Boolean(blogId),
+    queryKey: suggestionKeys.secondaryKeywords(storeId, blogId),
+    queryFn: () => getSecondaryKeywordSuggestions(storeId, blogId),
+    enabled: Boolean(storeId && blogId),
   });
 
 type UseGetSecondaryKeywordSuggestionsOptions = {
+  storeId: string;
   blogId: string;
   queryConfig?: QueryConfig<typeof getSecondaryKeywordSuggestionsQueryOptions>;
 };
 
 export const useGetSecondaryKeywordSuggestions = ({
+  storeId,
   blogId,
   queryConfig,
 }: UseGetSecondaryKeywordSuggestionsOptions) =>
   useQuery({
-    ...getSecondaryKeywordSuggestionsQueryOptions(blogId),
+    ...getSecondaryKeywordSuggestionsQueryOptions(storeId, blogId),
     ...queryConfig,
   });

@@ -11,7 +11,13 @@ export type BlogMetadata = {
     title: string;
     description: string;
   }[];
-  additionalInstruction?: string | null;
+  collections: {
+    url: string;
+    title: string;
+    description: string;
+  }[];
+  targetPersona: string;
+  searchIntent: string;
   brandVoice?: string | null;
 
   brandName: string;

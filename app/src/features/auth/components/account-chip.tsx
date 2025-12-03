@@ -51,9 +51,11 @@ export const AccountChip = () => {
               <span className="text-[13px]">{user && user.email}</span>
             </DropdownMenuItem>
           </DropdownMenuGroup>
-          <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            <DropdownMenuItem onClick={openSubscriptionModal}>
+            <DropdownMenuItem
+              className="hidden"
+              onClick={openSubscriptionModal}
+            >
               <CreditCard />
               Subscription
             </DropdownMenuItem>

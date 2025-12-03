@@ -111,29 +111,54 @@ export class BlogsService {
     });
   }
 
-  async updateBlog(blogId: string, dto: UpdateBlogDto) {
-    const { productIds, ...rest } = dto;
+ async updateBlog(blogId: string, dto: UpdateBlogDto) {
+  const { productIds, collectionIds, ...rest } = dto;
+  
+  const current = await this.prisma.blog.findUnique({
+    where: { id: blogId },
+    select: {
+      products: { select: { id: true } },
+      collections: { select: { id: true } },
+    },
+  });
 
-    const updated = await this.prisma.blog.update({
-      where: { id: blogId },
-      data: {
-        ...rest,
-        products:
-          productIds !== undefined
-            ? { set: productIds.map((id) => ({ id })) }
-            : undefined,
-      },
-      select: BLOG_DETAIL_SELECT,
-    });
+  if (!current) throw new Error('Blog not found');
 
-    return {
-      ...updated,
-      thumbnail: updated.thumbnail && {
-        ...updated.thumbnail,
-        srcUrl: this.storage.getCdnUrl(updated.thumbnail.blobPath),
+  const currentProductIds = current.products.map((p) => p.id);
+  const currentCollectionIds = current.collections.map((c) => c.id);
+
+  const productsToConnect = productIds
+    ? productIds.filter((id) => !currentProductIds.includes(id))
+    : [];
+  const productsToDisconnect = productIds
+    ? currentProductIds.filter((id) => !productIds.includes(id))
+    : [];
+
+  const collectionsToConnect = collectionIds
+    ? collectionIds.filter((id) => !currentCollectionIds.includes(id))
+    : [];
+  const collectionsToDisconnect = collectionIds
+    ? currentCollectionIds.filter((id) => !collectionIds.includes(id))
+    : [];
+
+  const updated = await this.prisma.blog.update({
+    where: { id: blogId },
+    data: {
+      ...rest,
+      products: {
+        connect: productsToConnect.map((id) => ({ id })),
+        disconnect: productsToDisconnect.map((id) => ({ id })),
       },
-    };
-  }
+      collections: {
+        connect: collectionsToConnect.map((id) => ({ id })),
+        disconnect: collectionsToDisconnect.map((id) => ({ id })),
+      },
+    },
+    select: { id: true, updatedAt: true },
+  });
+
+  return updated;
+}
 
   async startGeneration(blogId: string) {
     const res = await this.prisma.$transaction(async (tx) => {
@@ -145,6 +170,8 @@ export class BlogsService {
       if (
         !b.topic ||
         !b.primaryKeyword ||
+        !b.targetPersona ||
+        !b.searchIntent ||
         !b.secondaryKeywords?.length ||
         b.currentStep !== "COMPLETED"
       ) {

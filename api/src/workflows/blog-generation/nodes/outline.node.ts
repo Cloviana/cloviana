@@ -2,13 +2,10 @@ import path from "path";
 import { fileURLToPath } from "url";
 import Groq from "groq-sdk";
 import pRetry from "p-retry";
-import { z } from "zod";
 import { zodToJsonSchema } from "zod-to-json-schema";
 import { StateAnnotation } from "../blog-generation.state";
 import {
-  OutlineSchema,
   PlanSchema,
-  ThumbnailSchema,
 } from "../schemas/outline.schemas";
 import { loadPromptHbs } from "../utils/load-prompt-hbs.util";
 
@@ -26,10 +23,6 @@ export async function outline(
   );
   console.debug("[outline] prompts baseDir:", baseDir);
 
-  const mainPrompt = await loadPromptHbs("outline.prompt", {}, { baseDir });
-
-  console.debug("[outline] prompt length:", mainPrompt?.length ?? 0);
-
   const payload = {
     metadata: state._metadata,
   };
@@ -39,6 +32,11 @@ export async function outline(
     "[outline] payload size (bytes):",
     Buffer.byteLength(payloadStr, "utf8"),
   );
+
+  const mainPrompt = await loadPromptHbs("outline.prompt", payload, { baseDir });
+  console.log(mainPrompt)
+  console.debug("[outline] prompt length:", mainPrompt?.length ?? 0);
+
 
   const t0 = Date.now();
 
