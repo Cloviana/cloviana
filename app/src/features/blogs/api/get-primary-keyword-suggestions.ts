@@ -1,51 +1,46 @@
 import { queryOptions, useQuery } from '@tanstack/react-query';
 
-import { SerpIntent } from '@/features/blogs/types';
 import { api } from '@/lib/api-client';
-import { QueryConfig, suggestionsKeys } from '@/lib/react-query';
+import { QueryConfig, suggestionKeys } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
-
-export type PrimaryKeywordSuggestion = {
-  keyword: string;
-  volume?: number;
-  difficulty?: number;
-  intent?: SerpIntent;
-  recommended: boolean;
-};
+import { SuggestedKeyword } from '@/types/api';
 
 export const getPrimaryKeywordSuggestions = async (
+  storeId: string,
   blogId: string,
-): Promise<PrimaryKeywordSuggestion[]> => {
+): Promise<SuggestedKeyword[]> => {
   const token = await fetchAccessToken();
-  if (!token) {
-    throw new Error('Access token is not available');
-  }
-  const response = await api.get<PrimaryKeywordSuggestion[]>(
-    `/blogs/${blogId}/suggestions/primary-keyword`,
-    {
-      headers: { Authorization: `Bearer ${token}` },
-    },
-  );
-  return response;
+  if (!token) throw new Error('Access token is not available');
+
+  const url = `/stores/${storeId}/blogs/${blogId}/suggestions/primary-keyword`;
+
+  return api.get<SuggestedKeyword[]>(url, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
 };
 
-export const getPrimaryKeywordSuggestionsQueryOptions = (blogId: string) =>
+export const getPrimaryKeywordSuggestionsQueryOptions = (
+  storeId: string,
+  blogId: string,
+) =>
   queryOptions({
-    queryKey: suggestionsKeys.primary(blogId),
-    queryFn: () => getPrimaryKeywordSuggestions(blogId),
-    enabled: Boolean(blogId),
+    queryKey: suggestionKeys.primaryKeyword(storeId, blogId),
+    queryFn: () => getPrimaryKeywordSuggestions(storeId, blogId),
+    enabled: Boolean(storeId && blogId),
   });
 
 type UseGetPrimaryKeywordSuggestionsOptions = {
+  storeId: string;
   blogId: string;
   queryConfig?: QueryConfig<typeof getPrimaryKeywordSuggestionsQueryOptions>;
 };
 
 export const useGetPrimaryKeywordSuggestions = ({
+  storeId,
   blogId,
   queryConfig,
 }: UseGetPrimaryKeywordSuggestionsOptions) =>
   useQuery({
-    ...getPrimaryKeywordSuggestionsQueryOptions(blogId),
+    ...getPrimaryKeywordSuggestionsQueryOptions(storeId, blogId),
     ...queryConfig,
   });

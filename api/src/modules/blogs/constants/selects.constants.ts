@@ -58,7 +58,17 @@ export const BLOG_DETAIL_SELECT: Prisma.BlogSelect = {
       payload: true,
     },
   },
+  targetPersona: true,
+  searchIntent: true,
   products: {
+    select: {
+      id: true,
+      title: true,
+      imageUrl: true,
+      url: true,
+    },
+  },
+  collections: {
     select: {
       id: true,
       title: true,
