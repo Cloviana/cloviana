@@ -25,10 +25,10 @@ export type BlogStatus = 'DRAFT' | 'PUBLISHED' | 'ARCHIVED' | 'UNPUBLISHED';
 export type BlogSetupStep =
   | 'TOPIC'
   | 'PRIMARY_KEYWORD'
-  | 'TITLE'
+  | 'AUDIENCE_INTENT'
   | 'SECONDARY_KEYWORDS'
   | 'PRODUCT'
-  | 'ENHANCEMENTS'
+  | 'GUIDELINES'
   | 'COMPLETED';
 export type ProductStatus = 'ACTIVE' | 'DRAFT' | 'ARCHIVED';
 
@@ -43,6 +43,13 @@ export type NodeType =
   | 'LINK'
   | 'TEXT'
   | 'LINEBREAK';
+
+export type SearchIntent =
+  | 'INFORMATIONAL'
+  | 'NAVIGATIONAL'
+  | 'COMMERCIAL'
+  | 'TRANSACTIONAL';
+export type WordCountPreset = 'SHORT' | 'MEDIUM' | 'LONG';
 
 export type Link = {
   href: string;
@@ -126,6 +133,9 @@ export type BlogDetail = {
   slug?: string;
   description?: string | null;
   brandVoice?: string | null;
+  wordCount?: WordCountPreset | null;
+  searchIntent?: SearchIntent | null;
+  targetPersona?: string | null;
   primaryKeyword?: string | null;
   secondaryKeywords?: string[];
   additionalInstruction?: string | null;
@@ -136,6 +146,7 @@ export type BlogDetail = {
   job?: Job | null;
   thumbnail?: Thumbnail | null;
   products: Product[];
+  collections: Collection[];
 };
 
 export type StoreDetail = Store & {
@@ -198,3 +209,20 @@ export interface PaginatedResponse<T> {
   data: T[];
   meta: PaginationMeta;
 }
+
+export type SearchCatalogResponse = {
+  products: { id: string; title: string; imageUrl: string }[];
+  collections: { id: string; title: string; imageUrl: string }[];
+};
+
+export type KeywordCandidate = {
+  id: number;
+  keyword: string;
+  volume: number;
+  difficulty: number | null;
+  intent: string | null;
+};
+
+export type SuggestedKeyword = KeywordCandidate & {
+  recommended: boolean;
+};

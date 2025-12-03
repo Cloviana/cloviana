@@ -21,18 +21,36 @@ export const catalogKeys = {
       storeId,
       ...(params ? [params] : []),
     ] as const,
+  search: (storeId: string, params?: { q?: string; limit?: number }) =>
+    [
+      ...catalogKeys.all,
+      'search',
+      storeId,
+      ...(params ? [params] : []),
+    ] as const,
 };
 
-export const suggestionsKeys = {
-  all: ['suggestions'] as const,
-  topics: (blogId: string) =>
-    [...suggestionsKeys.all, 'topics', blogId] as const,
-  primary: (blogId: string) =>
-    [...suggestionsKeys.all, 'primary-keyword', blogId] as const,
-  secondary: (blogId: string) =>
-    [...suggestionsKeys.all, 'secondary-keywords', blogId] as const,
-  product: (blogId: string) =>
-    [...suggestionsKeys.all, 'product', blogId] as const,
+export const suggestionKeys = {
+  topic: (storeId: string, blogId: string) =>
+    ['stores', storeId, 'blogs', blogId, 'suggestions', 'topic'] as const,
+  primaryKeyword: (storeId: string, blogId: string) =>
+    [
+      'stores',
+      storeId,
+      'blogs',
+      blogId,
+      'suggestions',
+      'primary-keyword',
+    ] as const,
+  secondaryKeywords: (storeId: string, blogId: string) =>
+    [
+      'stores',
+      storeId,
+      'blogs',
+      blogId,
+      'suggestions',
+      'secondary-keywords',
+    ] as const,
 };
 
 export const storeKeys = {

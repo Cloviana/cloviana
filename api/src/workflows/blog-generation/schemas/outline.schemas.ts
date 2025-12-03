@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 const SubSectionSchema = z.object({
-  heading: z.string().min(1).describe("The heading of the sub-section"),
+  heading: z.string().min(1).describe("The heading of the sub-section (H3)"),
   keyPoints: z
     .array(z.string())
     .nullable()
@@ -13,11 +13,37 @@ const SubSectionSchema = z.object({
     .describe("The suggested word count for this sub-section"),
 });
 
-const SectionSchema = z.object({
-  type: z
-    .enum(["INTRODUCTION", "SECTION", "CONCLUSION"])
-    .describe("The type of section"),
-  heading: z.string().min(1).describe("The heading of the section"),
+// 1. Introduction Schema: Heading is explicitly null
+const IntroductionSectionSchema = z.object({
+  type: z.literal("INTRODUCTION"),
+  heading: z
+    .null()
+    .describe(
+      "The introduction does not have a heading (H2); it follows immediately after the blog title (H1).",
+    ),
+  keyPoints: z
+    .array(z.string())
+    .min(1)
+    .describe("Key points to hook the reader in the introduction"),
+  wordBudget: z
+    .number()
+    .int()
+    .positive()
+    .describe("The suggested word count for the introduction (usually short)"),
+  subSections: z
+    .null()
+    .describe("Introductions typically do not have sub-sections"),
+});
+
+// 2. Body Section Schema: Heading is required
+const BodySectionSchema = z.object({
+  type: z.literal("SECTION"),
+  heading: z
+    .string()
+    .min(1)
+    .describe(
+      "The H2 heading for this section. Must include Primary or Secondary keywords where natural.",
+    ),
   keyPoints: z
     .array(z.string())
     .min(1)
@@ -31,9 +57,35 @@ const SectionSchema = z.object({
     .array(SubSectionSchema)
     .nullable()
     .describe(
-      "Optional sub-sections for this section. Add 1–3 when they provide helpful structure or clarity; otherwise set to null.",
+      "Optional sub-sections (H3) for this section. Add 1–3 when helpful; otherwise null.",
     ),
 });
+
+// 3. Conclusion Schema: Heading is required
+const ConclusionSectionSchema = z.object({
+  type: z.literal("CONCLUSION"),
+  heading: z
+    .string()
+    .min(1)
+    .describe("The heading for the conclusion (e.g., 'Final Thoughts')"),
+  keyPoints: z
+    .array(z.string())
+    .min(1)
+    .describe("Key takeaways to summarize"),
+  wordBudget: z
+    .number()
+    .int()
+    .positive()
+    .describe("The suggested word count for the conclusion"),
+  subSections: z.null().describe("Conclusions do not have sub-sections"),
+});
+
+// Combine them using a discriminated union based on 'type'
+const SectionSchema = z.discriminatedUnion("type", [
+  IntroductionSectionSchema,
+  BodySectionSchema,
+  ConclusionSectionSchema,
+]);
 
 export const OutlineSchema = z
   .object({
@@ -48,7 +100,7 @@ export const OutlineSchema = z
         "news",
       ])
       .describe(
-        "Choose the most suitable blog type based on the topic and title: use 'comparison' for X vs Y, 'review' for evaluative product coverage, 'guide' for comprehensive orientation without strict steps, 'how-to' for procedural step-by-step tasks, 'listicle' only when the content naturally enumerates items or benefits, 'story' for narrative case studies/user journeys, and 'news' for timely announcements.",
+        "Choose the most suitable blog type based on the topic and title.",
       ),
     sections: z
       .array(SectionSchema)
@@ -56,6 +108,7 @@ export const OutlineSchema = z
       .describe("The sections that make up the blog outline"),
   })
   .superRefine((val, ctx) => {
+    // 1. First section must be INTRODUCTION
     if (val.sections[0]?.type !== "INTRODUCTION") {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
@@ -63,6 +116,8 @@ export const OutlineSchema = z
         message: "First section must be INTRODUCTION",
       });
     }
+
+    // 2. Last section must be CONCLUSION
     if (val.sections[val.sections.length - 1]?.type !== "CONCLUSION") {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
@@ -70,6 +125,8 @@ export const OutlineSchema = z
         message: "Last section must be CONCLUSION",
       });
     }
+
+    // 3. Must have at least one SECTION in the middle
     const hasMiddleSection = val.sections
       .slice(1, -1)
       .some((s) => s.type === "SECTION");

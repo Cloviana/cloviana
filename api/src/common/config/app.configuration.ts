@@ -60,8 +60,12 @@ export class AppConfiguration {
   readonly redisUrl!: string;
 
   @IsString()
-  @Value("SERANKING_API_KEY")
-  readonly serankingApiKey!: string;
+  @Value("DATA_FOR_SEO_BASE64_CREDENTIALS")
+  readonly dataForSeoBase64Credentials!: string;
+
+  @IsString()
+  @Value("GEMINI_API_KEY")
+  readonly geminiApiKey!: string;
 
   @IsString()
   @Value("SMTP2GO_API_KEY")
