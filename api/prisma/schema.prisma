@@ -47,10 +47,10 @@ enum BlogStatus {
 enum BlogSetupStep {
   TOPIC
   PRIMARY_KEYWORD
-  TITLE
   SECONDARY_KEYWORDS
   PRODUCT
-  ENHANCEMENTS
+  AUDIENCE_INTENT
+  GUIDELINES
   COMPLETED
 }
 
@@ -90,6 +90,19 @@ enum SubscriptionStatus {
   TRIALLING
 }
 
+enum SearchIntent {
+  INFORMATIONAL
+  NAVIGATIONAL
+  COMMERCIAL
+  TRANSACTIONAL
+}
+
+enum WordCountPreset {
+  SHORT
+  MEDIUM
+  LONG
+}
+
 // --- BILLING MODELS ---
 
 model Plan {
@@ -120,7 +133,6 @@ model Subscription {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  // UPDATED: Added onDelete: Cascade
   store Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
 
   @@map("subscriptions")
@@ -250,12 +262,15 @@ model Blog {
   title                 String?
   slug                  String?
   description           String?
-  brandVoice            String?
+  targetPersona         String?
+  brandVoice         String?
+  searchIntent          SearchIntent?
+  wordCount             WordCountPreset?
   primaryKeyword        String?
   secondaryKeywords     String[]      @default([])
   additionalInstruction String?
   status                BlogStatus    @default(DRAFT)
-  currentStep           BlogSetupStep @default(TOPIC)
+  currentStep           BlogSetupStep @default(PRODUCT)
   storeId               String
 
   externalId String?
@@ -265,11 +280,7 @@ model Blog {
   updatedAt DateTime @updatedAt
 
   store Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
-  
-  // UPDATED: Changed from Cascade to SetNull. 
-  // If you delete a Job (e.g. cleanup logs), the Blog should NOT be deleted.
   job   Job?  @relation(fields: [jobId], references: [id], onDelete: SetNull) 
-
   products    Product[]
   collections Collection[]
   nodes       Node[]

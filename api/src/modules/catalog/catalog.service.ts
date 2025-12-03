@@ -77,4 +77,44 @@ export class CatalogService {
       },
     };
   }
+
+  async searchCatalog(storeId: string, query: string, limit: number) {
+    const [products, collections] = await Promise.all([
+      this.prisma.product.findMany({
+        where: {
+          storeId,
+          OR: [
+            { title: { contains: query, mode: "insensitive" } },
+           
+          ],
+        },
+        take: limit,
+        select: {
+          id: true,
+          title: true,
+          imageUrl: true
+        },
+        orderBy: { title: "asc" },
+      }),
+
+      this.prisma.collection.findMany({
+        where: {
+          storeId,
+          title: { contains: query, mode: "insensitive" },
+        },
+        take: limit,
+        select: {
+          id: true,
+          title: true,
+          imageUrl: true
+        },
+        orderBy: { title: "asc" },
+      }),
+    ]);
+
+    return {
+      products,
+      collections,
+    };
+  }
 }

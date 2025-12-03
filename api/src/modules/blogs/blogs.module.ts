@@ -1,14 +1,16 @@
 import { Module } from "@nestjs/common";
 
 import { BlogGenerationModule } from "@/workflows";
-import { BlogsController } from "./blogs.controller";
+import { BlogsController } from "./controllers/blogs.controller";
 import { BlogsConsumer } from "./services/blogs.consumer";
 import { BlogsService } from "./services/blogs.service";
-import { ShopifyCatalogModule } from "@/integrations";
+import { DataForSeoModule, ShopifyCatalogModule } from "@/integrations";
+import { SuggestionsController } from "@/modules/blogs/controllers/suggestions.controller";
+import { SuggestionsService } from "@/modules/blogs/services/suggestions.service";
 
 @Module({
-  imports: [BlogGenerationModule, ShopifyCatalogModule],
-  controllers: [BlogsController, BlogsConsumer],
-  providers: [BlogsService],
+  imports: [BlogGenerationModule, ShopifyCatalogModule, DataForSeoModule],
+  controllers: [BlogsController, BlogsConsumer, SuggestionsController],
+  providers: [BlogsService, SuggestionsService],
 })
 export class BlogsModule {}

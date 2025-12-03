@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { z } from 'zod';
 
 import { api } from '@/lib/api-client';
-import { MutationConfig, blogKeys, suggestionsKeys } from '@/lib/react-query';
+import { MutationConfig, blogKeys, suggestionKeys } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
 import { BlogDetail } from '@/types/api';
 
@@ -16,18 +16,26 @@ export const updateBlogInputSchema = z.object({
   title: str.min(1).optional(),
   description: z.string().optional(),
   brandVoice: str.min(1).optional(),
+
+  targetPersona: str.min(1).optional(),
+  searchIntent: z
+    .enum(['INFORMATIONAL', 'NAVIGATIONAL', 'COMMERCIAL', 'TRANSACTIONAL'])
+    .optional(),
+  wordCount: z.enum(['SHORT', 'MEDIUM', 'LONG']).optional(),
+
   primaryKeyword: str.min(1).optional(),
   secondaryKeywords: z.array(str.min(1)).optional(),
   additionalInstruction: z.string().optional(),
-  productIds: z.array(z.string().uuid()).optional(),
+  productIds: z.array(z.string()).optional(),
+  collectionIds: z.array(z.string()).optional(),
   currentStep: z
     .enum([
       'TOPIC',
       'PRIMARY_KEYWORD',
-      'TITLE',
+      'AUDIENCE_INTENT',
       'SECONDARY_KEYWORDS',
       'PRODUCT',
-      'ENHANCEMENTS',
+      'GUIDELINES',
       'COMPLETED',
     ])
     .optional(),
@@ -64,41 +72,33 @@ export const useUpdateBlog = ({
     onSuccess: async (data, variables, context) => {
       const { blogId, ...updates } = variables;
 
-      qc.setQueryData<BlogDetail>(blogKeys.detail(blogId), (old) => ({
-        ...old!,
-        ...updates,
-      }));
+      qc.setQueryData<BlogDetail>(blogKeys.detail(blogId), (old) => {
+        if (!old) return old;
 
-      const changed = new Set(Object.keys(updates));
+        return {
+          ...old,
+          ...updates,
+        };
+      });
 
-      const invalidations: Array<Promise<unknown>> = [
+      await Promise.all([
         qc.invalidateQueries({ queryKey: blogKeys.detail(blogId) }),
-      ];
-
-      if (changed.has('topic')) {
-        invalidations.push(
-          qc.invalidateQueries({ queryKey: suggestionsKeys.topics(blogId) }),
-          qc.invalidateQueries({ queryKey: suggestionsKeys.primary(blogId) }),
-          qc.invalidateQueries({ queryKey: suggestionsKeys.secondary(blogId) }),
-          qc.invalidateQueries({ queryKey: suggestionsKeys.product(blogId) }),
-        );
-      }
-
-      if (changed.has('productIds')) {
-        invalidations.push(
-          qc.invalidateQueries({ queryKey: suggestionsKeys.product(blogId) }),
-          qc.invalidateQueries({ queryKey: suggestionsKeys.primary(blogId) }),
-          qc.invalidateQueries({ queryKey: suggestionsKeys.secondary(blogId) }),
-        );
-      }
-
-      if (changed.has('primaryKeyword')) {
-        invalidations.push(
-          qc.invalidateQueries({ queryKey: suggestionsKeys.secondary(blogId) }),
-        );
-      }
-
-      await Promise.all(invalidations);
+        qc.invalidateQueries({
+          queryKey: suggestionKeys.topic(variables.storeId, variables.blogId),
+        }),
+        qc.invalidateQueries({
+          queryKey: suggestionKeys.primaryKeyword(
+            variables.storeId,
+            variables.blogId,
+          ),
+        }),
+        qc.invalidateQueries({
+          queryKey: suggestionKeys.secondaryKeywords(
+            variables.storeId,
+            variables.blogId,
+          ),
+        }),
+      ]);
 
       onSuccess?.(data, variables, context);
     },

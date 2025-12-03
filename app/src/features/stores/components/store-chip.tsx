@@ -15,7 +15,7 @@ export const StoreChip = ({ className }: { className?: string }) => {
   return (
     <div
       className={cn(
-        'text-foreground-light flex cursor-not-allowed items-center gap-2 rounded-md px-1.5 py-1',
+        'text-foreground flex cursor-not-allowed items-center gap-2 rounded-md px-1.5 py-1',
         className,
       )}
     >
