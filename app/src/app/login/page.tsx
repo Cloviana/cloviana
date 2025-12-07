@@ -52,7 +52,7 @@ export default function LoginPage() {
   return (
     <div
       role="main"
-      className="bg-background h-screen w-screen overflow-y-auto px-7 pt-20 pb-12"
+      className="bg-studio h-screen w-screen overflow-y-auto px-7 pt-20 pb-12"
     >
       <div className="mx-auto flex w-full max-w-lg flex-col gap-12">
         <div className="flex items-center gap-8">

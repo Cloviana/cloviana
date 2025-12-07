@@ -16,6 +16,7 @@ export default [
       'node_modules/*',
       'public/mockServiceWorker.js',
       'generators/*',
+      'src/components/editor/**/*',
       'src/features/blogs/components/editor/**/*',
     ],
   },

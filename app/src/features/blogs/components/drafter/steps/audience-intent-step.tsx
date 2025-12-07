@@ -44,19 +44,9 @@ const INTENT_OPTIONS: {
     description: 'Readers researching a topic or question.',
   },
   {
-    value: 'NAVIGATIONAL',
-    title: 'Navigational',
-    description: 'Readers looking for a specific brand, page, or place.',
-  },
-  {
     value: 'COMMERCIAL',
     title: 'Commercial',
     description: 'Readers comparing options before deciding what to buy.',
-  },
-  {
-    value: 'TRANSACTIONAL',
-    title: 'Transactional',
-    description: 'Readers ready to buy or complete a key action.',
   },
 ];
 
@@ -146,10 +136,6 @@ export const AudienceIntentStep = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Search intent</FormLabel>
-                <FormDescription>
-                  Select the main reason someone would search and find this
-                  article.
-                </FormDescription>
                 <FormControl>
                   <RadioGroup
                     onValueChange={field.onChange}

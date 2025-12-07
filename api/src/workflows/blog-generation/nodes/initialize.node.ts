@@ -1,6 +1,7 @@
 import { RunnableConfig } from "@langchain/core/runnables";
 import { PrismaClient } from "@prisma/client";
 import { StateAnnotation } from "../blog-generation.state";
+import { Context } from "../schemas/context.schema"; 
 
 export async function initialize(
   state: typeof StateAnnotation.State,
@@ -14,31 +15,44 @@ export async function initialize(
     include: { store: true, products: true, collections: true },
   });
 
-  return {
-    _metadata: {
+  const _context: Context = {
+    core: {
       topic: blog.topic!,
-      primaryKeyword: blog.primaryKeyword!,
-      secondaryKeywords: blog.secondaryKeywords!,
-      products: blog.products.map((product) => ({
-        url: product?.url!,
-        title: product.title!,
-        description: product.description!,
-      })),
-      collections: blog.collections.map((collection) => ({
-        url: collection?.url!,
-        title: collection.title!,
-        description: collection.description!,
-      })),
-      brandVoice: blog.brandVoice,
-      targetPersona: blog.targetPersona!,
       searchIntent: blog.searchIntent!,
-
-      brandName: blog.store.name,
-      brandDescription: blog.store.description!,
-      blogLength: {
-        min: 500,
+      wordCountRange: {
+        min: 600,
         max: 800,
       },
     },
+    seo: {
+      primaryKeyword: blog.primaryKeyword!,
+      secondaryKeywords: blog.secondaryKeywords || [],
+    },
+    brand: {
+      name: blog.store.name,
+      description: blog.store.description!,
+      voice: blog.brandVoice!,
+    },
+    audience: {
+      persona: blog.targetPersona!,
+    },
+    referenceMaterial: {
+      products: blog.products.map((p) => ({
+        title: p.title!,
+        description: p.description!,
+        url: p.url!,
+        imageUrl: p.imageUrl || undefined,
+      })),
+      collections: blog.collections.map((c) => ({
+        title: c.title!,
+        description: c.description!,
+        url: c.url!,
+        imageUrl: c.imageUrl || undefined,
+      })),
+    },
+  };
+
+  return {
+    _context,
   };
 }

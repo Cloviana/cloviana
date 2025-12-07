@@ -29,6 +29,7 @@
     "gql:gen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.71.2",
     "@azure/storage-blob": "^12.27.0",
     "@fastify/cookie": "^10.0.1",
     "@google/genai": "^1.30.0",
@@ -85,7 +86,7 @@
     "stripe": "^18.2.1",
     "tsx": "^4.20.4",
     "unified": "^11.0.5",
-    "zod": "^3.25.67",
+    "zod": "^4.1.13",
     "zod-to-json-schema": "^3.24.6"
   },
   "devDependencies": {

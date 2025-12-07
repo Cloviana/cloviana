@@ -10,7 +10,6 @@ import { Button } from '@/components/ui/button';
 import { paths } from '@/config/paths';
 import { SUPPORT_EMAIL } from '@/constants/emails';
 import { AccountChip } from '@/features/auth/components/account-chip';
-import { StoreChip } from '@/features/stores/components/store-chip';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 export const AppHeader = ({
@@ -28,9 +27,6 @@ export const AppHeader = ({
         <div className="flex items-center justify-between px-5 py-2">
           <div className="flex shrink-0 items-center gap-x-4">
             {sidebarTrigger}
-            <div className="-ml-1.5 flex items-center gap-x-2">
-              <StoreChip />
-            </div>
           </div>
           <div className="flex items-center gap-x-2">
             <Button asChild variant="ghost" size="sm">
@@ -84,9 +80,6 @@ if (isMobile) {
               className="size-[18px]"
             />
           </Link>
-          <div className="flex items-center gap-x-2">
-            <StoreChip />
-          </div>
         </div>
         <div className="flex items-center gap-3">
           <Button asChild variant="ghost" size="sm">

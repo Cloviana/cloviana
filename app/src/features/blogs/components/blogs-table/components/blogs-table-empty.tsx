@@ -1,36 +1,21 @@
 'use client';
 
-import { Container, LucideIcon, Plus, Search } from 'lucide-react';
+import { Container, Plus, Search } from 'lucide-react';
 import { useParams, useRouter } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from '@/components/ui/empty';
 import { paths } from '@/config/paths';
 import { useCreateBlog } from '@/features/blogs/api/create-blog';
 import { useBlogsTableQuery } from '@/features/blogs/components/blogs-table/hooks/use-blogs-table-query';
 import { useGetStore } from '@/features/stores/api/get-store';
-
-interface EmptyStateProps {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  action: React.ReactNode;
-}
-
-const EmptyState = ({
-  icon: Icon,
-  title,
-  description,
-  action,
-}: EmptyStateProps) => (
-  <div className="border-black-200 bg-black-50 flex h-[300px] w-full items-center justify-center rounded-lg border">
-    <div className="flex max-w-xl flex-col items-center gap-3 text-center">
-      <Icon className="text-black-800 size-6" strokeWidth={2.5} />
-      <h2 className="text-xl font-medium">{title}</h2>
-      <p className="text-foreground-lighter text-sm">{description}</p>
-      {action}
-    </div>
-  </div>
-);
 
 export const BlogTableEmpty = () => {
   const { storeId } = useParams<{ storeId: string }>();
@@ -52,35 +37,52 @@ export const BlogTableEmpty = () => {
 
   if (hasActiveFilters) {
     return (
-      <EmptyState
-        icon={Search}
-        title="No results found"
-        description="Adjust your filters or clear your search and try again."
-        action={
+      <Empty className="h-[300px]">
+        <EmptyMedia variant="icon">
+          <Search strokeWidth={2.4} />
+        </EmptyMedia>
+
+        <EmptyHeader>
+          <EmptyTitle>No results found</EmptyTitle>
+          <EmptyDescription>
+            Adjust your filters or clear your search and try again.
+          </EmptyDescription>
+        </EmptyHeader>
+
+        <EmptyContent>
           <Button size="default" variant="outline" onClick={clearFilters}>
             Clear Search
           </Button>
-        }
-      />
+        </EmptyContent>
+      </Empty>
     );
   }
 
   return (
-    <EmptyState
-      icon={Container}
-      title="You haven't created a Blog yet"
-      description="You've started up and it's time to start selling! Create a pipeline to manage your sales process."
-      action={
+    <Empty className="h-[300px]">
+      <EmptyMedia variant="default">
+        <Container strokeWidth={2.4} />
+      </EmptyMedia>
+
+      <EmptyHeader>
+        <EmptyTitle>You haven't created a Blog yet</EmptyTitle>
+        <EmptyDescription>
+          You've started up and it's time to start selling! Create a pipeline to
+          manage your sales process.
+        </EmptyDescription>
+      </EmptyHeader>
+
+      <EmptyContent>
         <Button
           size="default"
-          variant="outline"
+          variant="secondary"
           disabled={isCreating}
           onClick={handleCreateBlog}
         >
           <Plus className="mr-2 size-4" />
           Create new
         </Button>
-      }
-    />
+      </EmptyContent>
+    </Empty>
   );
 };
