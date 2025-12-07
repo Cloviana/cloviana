@@ -1,32 +1,7 @@
 import { Annotation } from "@langchain/langgraph";
 import { Node } from "./schemas/node.schemas";
-import { Plan } from "./schemas/outline.schemas";
-
-export type BlogMetadata = {
-  topic: string;
-  primaryKeyword: string;
-  secondaryKeywords: string[];
-  products: {
-    url: string;
-    title: string;
-    description: string;
-  }[];
-  collections: {
-    url: string;
-    title: string;
-    description: string;
-  }[];
-  targetPersona: string;
-  searchIntent: string;
-  brandVoice?: string | null;
-
-  brandName: string;
-  brandDescription?: string | null;
-  blogLength: {
-    min: number;
-    max: number;
-  };
-};
+import { Outline } from "./schemas/outline.schemas";
+import { Context } from "./schemas/context.schema";
 
 export type Image = {
   url: string;
@@ -36,8 +11,9 @@ export type Image = {
 export const StateAnnotation = Annotation.Root({
   _storeId: Annotation<string>(),
   _blogId: Annotation<string>(),
-  _metadata: Annotation<BlogMetadata>(),
-  _plan: Annotation<Plan>(),
+
+  _context: Annotation<Context>(),
+  _outline: Annotation<Outline>(),
 
   _image: Annotation<Image>(),
   _nodes: Annotation<Node[]>(),

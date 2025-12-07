@@ -1,6 +1,8 @@
 'use client';
 
-import { BookCopy, Tags } from 'lucide-react';
+import { Feather, MessageCircleQuestionMark } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { useParams, usePathname } from 'next/navigation';
 import * as React from 'react';
 
@@ -8,11 +10,15 @@ import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
+  SidebarHeader,
 } from '@/components/ui/sidebar';
 import { paths } from '@/config/paths';
 import { SUPPORT_EMAIL } from '@/constants/emails';
+import { AccountChip } from '@/features/auth/components/account-chip';
+import { StoreChip } from '@/features/stores/components/store-chip';
 
 import { NavMain } from './components/nav-main';
+import { NavSecondary } from './components/nav-secondary';
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { storeId } = useParams<{ storeId: string }>();
@@ -22,22 +28,39 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     {
       title: 'Content',
       url: paths.store.blogs.getHref(storeId),
-      icon: BookCopy,
+      icon: Feather,
       isActive: pathname.startsWith(paths.store.blogs.getHref(storeId)),
     },
+  ];
+
+  const navSecondary = [
     {
-      title: 'Catalog',
-      url: paths.store.catalog.getHref(storeId),
-      isActive: pathname.startsWith(paths.store.catalog.getHref(storeId)),
-      icon: Tags,
-      disabled: true,
+      title: 'Ask for help',
+      url: `mailto:${SUPPORT_EMAIL}`,
+      icon: MessageCircleQuestionMark,
     },
   ];
 
   return (
     <Sidebar variant="inset" {...props}>
+      <SidebarHeader>
+        <div className="flex shrink-0 items-center gap-x-2">
+          <Link href={paths.store.getHref(storeId)}>
+            <Image
+              src="/logo-icon.png"
+              width={125}
+              height={125}
+              alt="Cloviana Logo"
+              className="size-[18px]"
+            />
+          </Link>
+          <StoreChip className="flex-1" />
+          <AccountChip />
+        </div>
+      </SidebarHeader>
       <SidebarContent>
         <NavMain items={navMain} />
+        <NavSecondary items={navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
         <div className="text-foreground-light text-center text-[11px]">

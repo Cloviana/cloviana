@@ -21,6 +21,7 @@ import { UpdateBlogDto } from "../dtos/update-blog.dto";
 import { BlogsService } from "../services/blogs.service";
 
 @Controller("stores/:storeId/blogs")
+@UseGuards(StoreOwnerGuard)
 export class BlogsController {
   constructor(private readonly blogs: BlogsService) {}
 

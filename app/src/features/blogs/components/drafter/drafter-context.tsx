@@ -1,7 +1,6 @@
 'use client';
 
 import { useParams } from 'next/navigation';
-import { useQueryState, parseAsString } from 'nuqs';
 import { createContext, useContext, useMemo, useState } from 'react';
 
 import { useGetBlog } from '@/features/blogs/api/get-blog';
@@ -46,23 +45,18 @@ export const DrafterProvider = ({
 
   const { data: blog } = useGetBlog({ storeId, blogId });
 
-  const defaultKey = useMemo(() => {
+  const [currentKey, setCurrentKey] = useState<DrafterKey>(() => {
     if (!blog) return STEPS_CONFIG[0].key;
     const dbStep = blog.currentStep as DrafterDbEnum;
     return DB_ENUM_TO_KEY.get(dbStep) ?? STEPS_CONFIG[0].key;
-  }, [blog]);
-
-  const [currentKey, setCurrentKey] = useQueryState(
-    'view',
-    parseAsString.withDefault(defaultKey),
-  );
+  });
 
   const isMobile = useIsMobile();
   const [openMobile, setOpenMobile] = useState(false);
 
   const maxAllowedIndex = useMemo(() => {
     if (!blog) return 0;
-    if (blog.currentStep === 'COMPLETED') return STEPS_CONFIG.length;
+    if (blog.currentStep === 'COMPLETED') return STEPS_CONFIG.length - 1;
     return DB_ENUM_TO_INDEX.get(blog.currentStep as DrafterDbEnum) ?? 0;
   }, [blog]);
 
@@ -70,11 +64,14 @@ export const DrafterProvider = ({
     return KEY_TO_INDEX.get(currentKey as DrafterKey) ?? 0;
   }, [currentKey]);
 
+  const canGoTo = (key: DrafterKey) => {
+    const index = KEY_TO_INDEX.get(key) ?? 0;
+    return index <= maxAllowedIndex;
+  };
+
   const goTo = (key: DrafterKey) => {
-    const targetIndex = KEY_TO_INDEX.get(key) ?? 0;
-    if (targetIndex <= maxAllowedIndex) {
-      setCurrentKey(key);
-    }
+    if (!canGoTo(key)) return;
+    setCurrentKey(key);
   };
 
   const goNext = () => {
@@ -91,15 +88,10 @@ export const DrafterProvider = ({
     }
   };
 
-  const canGoTo = (key: DrafterKey) => {
-    const index = KEY_TO_INDEX.get(key) ?? 0;
-    return index <= maxAllowedIndex;
-  };
-
   const isStepCompleted = (key: DrafterKey) => {
-    const index = KEY_TO_INDEX.get(key) ?? 0;
     if (!blog) return false;
     if (blog.currentStep === 'COMPLETED') return true;
+    const index = KEY_TO_INDEX.get(key) ?? 0;
     return index < maxAllowedIndex;
   };
 
@@ -108,7 +100,7 @@ export const DrafterProvider = ({
       value={{
         storeId,
         blogId,
-        currentKey: currentKey as DrafterKey,
+        currentKey,
         steps: STEPS_CONFIG,
         isMobile,
         setOpenMobile,

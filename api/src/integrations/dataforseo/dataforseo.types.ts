@@ -204,3 +204,50 @@ export interface KeywordIdeaItem {
   keyword_info_normalized_with_bing?: NormalizedKeywordInfo;
   keyword_info_normalized_with_clickstream?: NormalizedKeywordInfo;
 }
+
+export interface KeywordSuggestionsTask {
+  keyword: string;
+  location_name?: string;
+  location_code?: number;
+  language_name?: string;
+  language_code?: string;
+  include_seed_keyword?: boolean;
+  include_serp_info?: boolean;
+  include_clickstream_data?: boolean;
+  exact_match?: boolean;
+  ignore_synonyms?: boolean;
+  filters?: unknown[];
+  order_by?: string[];
+  limit?: number;
+  offset?: number;
+  offset_token?: string;
+  tag?: string;
+}
+
+export interface KeywordSuggestionsResult {
+  se_type: string;
+  seed_keyword: string;
+  seed_keyword_data?: KeywordSuggestionItem;
+  location_code: number;
+  language_code: string;
+  total_count: number;
+  items_count: number;
+  offset: number;
+  offset_token?: string;
+  items: KeywordSuggestionItem[];
+}
+
+export interface KeywordSuggestionItem {
+  se_type: string;
+  keyword: string;
+  location_code: number;
+  language_code: string;
+  keyword_info?: KeywordInfo;
+  clickstream_keyword_info?: ClickstreamKeywordInfo;
+  keyword_properties?: KeywordProperties;
+  serp_info?: SerpInfo | null;
+  avg_backlinks_info?: AvgBacklinksInfo;
+  search_intent_info?: SearchIntentInfo;
+  keyword_info_normalized_with_bing?: NormalizedKeywordInfo;
+  keyword_info_normalized_with_clickstream?: NormalizedKeywordInfo;
+}

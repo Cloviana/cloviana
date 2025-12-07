@@ -136,6 +136,7 @@ export class BlogGenerationWorkflow {
           error: String(err?.message ?? err).slice(0, 1000),
         },
       });
+      console.error(err)
       throw err;
     } finally {
       clearInterval(hb);

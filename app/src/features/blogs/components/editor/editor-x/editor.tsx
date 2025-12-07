@@ -34,7 +34,7 @@ export function Editor({
   onSerializedChange?: (editorSerializedState: SerializedEditorState) => void;
 }) {
   return (
-    <div className="bg-background flex h-full min-h-0 flex-col overflow-hidden">
+    <div className="bg-studio flex h-full min-h-0 flex-col overflow-hidden">
       <LexicalComposer
         initialConfig={{
           ...editorConfig,

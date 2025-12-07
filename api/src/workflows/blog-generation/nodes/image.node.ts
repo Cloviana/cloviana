@@ -1,64 +1,84 @@
-import axios from "axios";
-import FormData from "form-data";
+import { GoogleGenAI } from "@google/genai";
 import { StateAnnotation } from "../blog-generation.state";
+import axios from "axios";
 
 export async function image(
   state: typeof StateAnnotation.State,
 ): Promise<Partial<typeof StateAnnotation.State>> {
   console.info("[image] start");
 
-  if (!state._plan?.thumbnail?.prompt) {
+  if (!state._outline?.thumbnail?.prompt) {
     console.error("[image] missing thumbnail prompt in state._outline");
     throw new Error(
       "No thumbnail prompt available in state._outline.thumbnail.prompt",
     );
   }
 
-  const form = new FormData();
-  const prompt = [
-    "Images must be photorealistic, with realistic lighting, texture, and tone.",
-    state._plan.thumbnail.prompt,
-  ].join("\n\n");
+  const ai = new GoogleGenAI({});
 
-  form.append("prompt", prompt);
-  form.append("rendering_speed", "QUALITY");
-  form.append("resolution", "1344x768");
-  form.append("style_type", "REALISTIC");
+  const contents: any[] = [{ text: state._outline.thumbnail.prompt }];
 
-  console.debug("[image] payload built", {
-    promptPreview: prompt.slice(0, 80) + (prompt.length > 80 ? "..." : ""),
-    resolution: "1344x768",
-    style: "REALISTIC",
-    rendering_speed: "QUALITY",
-  });
+  if (state._outline.thumbnail.assets && state._outline.thumbnail.assets.length > 0) {
+    console.info(`[image] Adding ${state._outline.thumbnail.assets.length} reference images`);
+    
+    for (const asset of state._outline.thumbnail.assets) {
+      if (asset.imageUrl) {
+        try {
+          const response = await axios.get(asset.imageUrl, {
+            responseType: "arraybuffer",
+          });
+          const base64Image = Buffer.from(response.data).toString("base64");
+          
+          const mimeType = asset.imageUrl.match(/\.(png|jpg|jpeg|webp)$/i)?.[1] || "jpeg";
+          const fullMimeType = `image/${mimeType === "jpg" ? "jpeg" : mimeType}`;
+          
+          contents.push({
+            inlineData: {
+              mimeType: fullMimeType,
+              data: base64Image,
+            },
+          });
+        } catch (err: any) {
+          console.warn(`[image] Failed to fetch reference image ${asset.imageUrl}:`, err?.message);
+        }
+      }
+    }
+  }
 
-  const t0 = Date.now();
-  let data;
+  let response;
   try {
-    const res = await axios.post(
-      "https://api.ideogram.ai/v1/ideogram-v3/generate",
-      form,
-      {
-        headers: {
-          ...form.getHeaders(),
-          "Api-Key": process.env.IDEOGRAM_API_KEY!,
+    response = await ai.models.generateContent({
+      model: "gemini-3-pro-image-preview",
+      contents,
+      config: {
+        responseModalities: ['IMAGE'],
+        imageConfig: {
+          aspectRatio: "16:9",
+          imageSize: "2K",
         },
       },
-    );
-    data = res.data;
-    console.info("[image] API call completed in", Date.now() - t0, "ms");
+    });
   } catch (err: any) {
     console.error("[image] API request failed:", err?.message ?? err);
     throw err;
   }
 
-  const url = (data as { data: { url: string }[] })?.data?.[0]?.url;
-  if (!url) {
-    console.error("[image] API response missing url field:", data);
-    throw new Error("Image API did not return a valid URL");
+  let imageData: string | undefined;
+  for (const part of response.candidates[0].content.parts) {
+    if (part.inlineData) {
+      imageData = part.inlineData.data;
+      break;
+    }
   }
 
-  console.info("[image] success. URL:", url);
+  if (!imageData) {
+    console.error("[image] API response missing image data:", response);
+    throw new Error("Image API did not return valid image data");
+  }
 
-  return { _image: { url, alt: state._plan.thumbnail.altText } };
+  const url = `data:image/png;base64,${imageData}`;
+
+  console.info("[image] success. Generated 2K 16:9 image with reference assets");
+
+  return { _image: { url, alt: state._outline.thumbnail.altText } };
 }

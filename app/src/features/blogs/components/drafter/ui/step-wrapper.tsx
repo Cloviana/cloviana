@@ -30,20 +30,29 @@ export const StepWrapper = ({
   return (
     <div
       className={cn(
-        'flex h-full min-h-0 flex-col gap-6 px-6 py-9 sm:px-11',
+        // CHANGED: Removed px-6 py-9 sm:px-11 and gap-6 from here.
+        // We want the container to be full width so the internal scrollbar is at the edge.
+        'flex h-full min-h-0 flex-col',
         className,
       )}
     >
       <div className="min-h-0 flex-1">
-        <div className="no-scrollbar h-full overflow-y-auto">
+        <div
+          // CHANGED: Moved padding (px-6 py-9) HERE.
+          // This allows the "ring" to bleed into the padding area without getting clipped by the scroll view.
+          className="no-scrollbar h-full overflow-y-auto px-6 py-9 sm:px-11"
+        >
           <div className="mb-4 space-y-px">
             <h1 className="text-lg font-semibold">{title}</h1>
             <p className="text-foreground-light text-sm">{description}</p>
           </div>
-          <div className="relative">{children}</div>
+          {/* Optional: Add p-1 to be extra safe for large rings, but usually not needed with the padding move */}
+          <div className="relative -m-1 p-1">{children}</div>
         </div>
       </div>
-      <div className="flex items-center justify-end gap-2">
+
+      {/* CHANGED: Added padding to the Footer so it aligns visually with the content above */}
+      <div className="flex items-center justify-end gap-2 px-6 pt-4 pb-9 sm:px-11">
         {canGoBack && (
           <Button size="lg" variant="ghost" onClick={onBack}>
             Back

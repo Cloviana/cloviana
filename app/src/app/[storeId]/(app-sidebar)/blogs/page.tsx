@@ -1,10 +1,9 @@
 'use client';
 
-import { Plus } from 'lucide-react';
+import { Feather, Plus } from 'lucide-react';
 import { useParams, useRouter } from 'next/navigation';
 
-import { Button } from '@/components/ui/button';
-import { Page, PageContent, PageHeader, PageTitle } from '@/components/ui/page';
+import { Page, PageContent, PageHeader } from '@/components/ui/page';
 import { paths } from '@/config/paths';
 import { useCreateBlog } from '@/features/blogs/api/create-blog';
 import { BlogsTable } from '@/features/blogs/components/blogs-table';
@@ -28,22 +27,21 @@ export default function BlogsPage() {
 
   return (
     <Page fullWidth>
-      <PageHeader>
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <PageTitle>Content</PageTitle>
-          <div className="flex w-full flex-1 flex-col items-stretch justify-end gap-3.5 sm:flex-row sm:items-center">
-            <Button
-              size={'default'}
-              variant={'secondary'}
-              disabled={isCreating}
-              onClick={handleCreateBlog}
-            >
+      <PageHeader
+        heading={{ title: 'Content', icon: Feather }}
+        primaryAction={{
+          size: 'default',
+          variant: 'secondary',
+          disabled: isCreating,
+          onClick: handleCreateBlog,
+          children: (
+            <>
               <Plus />
               Create new
-            </Button>
-          </div>
-        </div>
-      </PageHeader>
+            </>
+          ),
+        }}
+      />
       <PageContent>
         <BlogsTable />
       </PageContent>
