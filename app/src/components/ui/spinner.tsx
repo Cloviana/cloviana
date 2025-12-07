@@ -13,8 +13,8 @@ function Spinner({ className, variant = '2', ...props }: SpinnerProps) {
     <Icon
       role="status"
       aria-label="Loading"
-      strokeWidth={3.5}
-      className={cn('size-4 animate-spin', className)}
+      strokeWidth={2.4}
+      className={cn('size-4.5 animate-spin', className)}
       {...props}
     />
   );

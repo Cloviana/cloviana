@@ -7,7 +7,6 @@ import { useForm } from 'react-hook-form';
 import z from 'zod';
 
 import { Button } from '@/components/ui/button';
-import { FlipWords } from '@/components/ui/flip-words';
 import {
   Form,
   FormControl,
@@ -78,21 +77,11 @@ export const ShopifyConnectionGate = ({
   if (isInitializing) {
     return (
       <>
-        <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center gap-2 bg-white/30 backdrop-blur-sm">
-          <Spinner className="text-black-600 size-4.5" variant="1" />
-          <FlipWords
-            words={[
-              'Connecting to your store',
-              'Syncing your product catalog',
-              'Verifying store configuration',
-              'Preparing your workspace',
-              'Optimizing initial setup',
-              'Securing your integration',
-              'Final checks before launch',
-            ]}
-            duration={2500}
-            className="text-foreground-light text-sm font-medium"
-          />
+        <div className="absolute inset-0 z-[9999] flex flex-col items-center justify-center gap-2 bg-white/30 backdrop-blur-sm">
+          <Spinner />
+          <span className="text-foreground-light text-xs font-medium">
+            Cloviana is setting up your store
+          </span>
         </div>
         {children}
       </>
@@ -102,7 +91,7 @@ export const ShopifyConnectionGate = ({
   if (shopifyConnected) return <>{children}</>;
 
   return (
-    <div className="bg-background flex h-full w-full items-center justify-center overflow-y-auto">
+    <div className="absolute inset-0 flex h-full w-full items-center justify-center overflow-y-auto">
       <div className="w-full max-w-lg px-6 py-10">
         <h1 className="text-xl font-semibold">Connect Shopify</h1>
         <p className="text-foreground-light mt-1 text-sm">

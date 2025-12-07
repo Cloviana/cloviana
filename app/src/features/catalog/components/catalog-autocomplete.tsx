@@ -118,7 +118,7 @@ export function CatalogAutocomplete({
           aria-expanded={open}
           aria-controls="catalog-listbox"
           tabIndex={0}
-          className="border-input bg-background flex min-h-[40px] w-full flex-wrap items-center gap-2 rounded-md border px-3 py-2 text-sm"
+          className="border-input bg-studio flex min-h-[40px] w-full flex-wrap items-center gap-2 rounded-md border px-3 py-2 text-sm"
           onClick={() => inputRef.current?.focus()}
           onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
@@ -131,7 +131,7 @@ export function CatalogAutocomplete({
           {value.map((item) => (
             <Badge
               key={item.id}
-              variant="secondary"
+              variant="muted"
               className="gap-1 py-1 pr-0.5 pl-1"
             >
               <Avatar className="h-4 w-4">
@@ -150,7 +150,7 @@ export function CatalogAutocomplete({
               <span className="max-w-[150px] truncate">{item.title}</span>
               <button
                 type="button"
-                className="hover:bg-secondary-200 ml-1 rounded-full p-0.5"
+                className="hover:bg-accent ml-1 rounded-full p-0.5"
                 onClick={(e) => {
                   e.stopPropagation();
                   handleRemove(item.id);

@@ -132,15 +132,11 @@ export const GuidelinesStep = () => {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="SHORT">
-                      Short (400–800 words) — Quick updates & highlights
-                    </SelectItem>
+                    <SelectItem value="SHORT">Short (400–800 words)</SelectItem>
                     <SelectItem value="MEDIUM">
-                      Medium (800–1,500 words) — Standard guides & educational
+                      Medium (800–1,500 words)
                     </SelectItem>
-                    <SelectItem value="LONG">
-                      Long (1,500+ words) — Deep dives & pillars
-                    </SelectItem>
+                    <SelectItem value="LONG">Long (1,500+ words)</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -155,7 +151,7 @@ export const GuidelinesStep = () => {
               <FormItem>
                 <FormLabel>
                   Brand Voice & Tone{' '}
-                  <span className="text-muted-foreground font-normal">
+                  <span className="text-muted-foreground text-xs font-normal">
                     (Optional)
                   </span>
                 </FormLabel>

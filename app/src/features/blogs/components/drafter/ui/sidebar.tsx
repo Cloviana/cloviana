@@ -25,14 +25,14 @@ const StepButton = ({ step }: { step: (typeof STEPS_CONFIG)[number] }) => {
       onClick={() => goTo(step.key)}
       className={cn(
         'flex h-10 w-full items-center gap-3 rounded-lg border px-3.5',
-        isCurrent ? 'bg-black-100' : 'bg-black-50/60 hover:bg-black-100',
+        isCurrent ? 'bg-accent' : 'hover:bg-accent bg-zinc-50/60',
         !canGoTo(step.key) && 'pointer-events-none opacity-65',
       )}
     >
       <div
         className={cn(
           'flex size-3.5 items-center justify-center rounded-full text-white',
-          isCompleted ? 'bg-black-700' : 'border bg-white',
+          isCompleted ? 'bg-secondary' : 'border bg-white',
         )}
       >
         {isCompleted && <Check className="size-2" strokeWidth={3} />}

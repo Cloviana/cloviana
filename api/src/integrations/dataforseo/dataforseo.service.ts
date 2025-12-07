@@ -7,6 +7,8 @@ import {
   DataForSeoResponse,
   KeywordIdeasResult,
   KeywordIdeasTask,
+  KeywordSuggestionsResult,
+  KeywordSuggestionsTask,
   RelatedKeywordsResult,
   RelatedKeywordsTask,
 } from './dataforseo.types';
@@ -73,6 +75,51 @@ export class DataForSeoService {
       try {
         const { data } = await firstValueFrom(
           this.http.post<DataForSeoResponse<KeywordIdeasResult>>(
+            url,
+            [task],
+            {
+              headers: {
+                Authorization: authHeader,
+                'Content-Type': 'application/json',
+              },
+            },
+          ),
+        );
+        return data;
+      } catch (err: any) {
+        const status: number | undefined = err?.response?.status;
+
+        if (status && status >= 400 && status < 500 && status !== 429) {
+          throw new AbortError(err);
+        }
+
+        throw err;
+      }
+    };
+
+    return pRetry(exec, {
+      retries: 5,
+      minTimeout: 1000,
+      maxTimeout: 5000,
+      factor: 2,
+      randomize: true,
+    });
+  }
+
+  async getKeywordSuggestions(
+    task: KeywordSuggestionsTask,
+  ): Promise<DataForSeoResponse<KeywordSuggestionsResult>> {
+    const url =
+      'https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_suggestions/live';
+
+    const authHeader = `Basic ${this.config.dataForSeoBase64Credentials}`;
+
+    const exec = async (): Promise<
+      DataForSeoResponse<KeywordSuggestionsResult>
+    > => {
+      try {
+        const { data } = await firstValueFrom(
+          this.http.post<DataForSeoResponse<KeywordSuggestionsResult>>(
             url,
             [task],
             {

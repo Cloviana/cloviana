@@ -12,9 +12,9 @@ const buttonVariants = cva(
       variant: {
         primary: 'bg-primary text-white hover:opacity-90',
         secondary: 'bg-secondary text-white hover:opacity-90',
-        outline: 'border bg-white hover:bg-[#ebeaea]',
-        dashed: 'border border-dashed bg-background hover:bg-[#ebeaea]',
-        ghost: 'bg-background/30 backdrop-blur hover:bg-[#ebeaea]',
+        outline: 'border bg-white hover:bg-accent',
+        dashed: 'border border-dashed bg-background hover:bg-accent',
+        ghost: 'bg-background/30 backdrop-blur hover:bg-accent',
         link: 'text-secondary hover:underline',
       },
       size: {
@@ -30,7 +30,7 @@ const buttonVariants = cva(
   },
 );
 
-type ButtonProps = React.ComponentProps<'button'> &
+export type ButtonProps = React.ComponentProps<'button'> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
     loading?: boolean;
@@ -69,6 +69,7 @@ function Button({
     >
       {loading && (
         <Spinner
+          strokeWidth={3.5}
           className={
             ['xs', 'sm', 'default'].includes(size as string)
               ? 'size-3.5'

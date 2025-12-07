@@ -64,8 +64,8 @@ export class AppConfiguration {
   readonly dataForSeoBase64Credentials!: string;
 
   @IsString()
-  @Value("GEMINI_API_KEY")
-  readonly geminiApiKey!: string;
+  @Value("ANTHROPIC_API_KEY")
+  readonly anthropicApiKey!: string;
 
   @IsString()
   @Value("SMTP2GO_API_KEY")
@@ -80,20 +80,12 @@ export class AppConfiguration {
   readonly googleApiKey!: string;
 
   @IsString()
-  @Value("GOOGLE_CX")
-  readonly googleCx!: string;
-
-  @IsString()
   @Value("AZURE_CDN_ENDPOINT")
   readonly azureCdnEndpoint!: string;
 
   @IsString()
   @Value("AZURE_STORAGE_CONNECTION_STRING")
   readonly azureStorageConnectionString!: string;
-
-  @IsString()
-  @Value("IDEOGRAM_API_KEY")
-  readonly ideogramApiKey!: string;
 
   @IsString()
   @Value("SHOPIFY_API_KEY")

@@ -8,7 +8,7 @@ const onlySrc = files =>
 
 const buildEslint = files => {
   const list = onlySrc(files)
-  return list ? `eslint --fix --max-warnings=0 ${list}` : 'echo "no src files"'
+  return list ? `eslint --fix --max-warnings=0 --no-warn-ignored ${list}` : 'echo "no src files"'
 }
 
 const buildPrettier = files => {

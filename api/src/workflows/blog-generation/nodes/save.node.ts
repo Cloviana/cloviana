@@ -1,7 +1,6 @@
 import { StorageService } from "@/infrastructure/storage/storage.service";
 import { RunnableConfig } from "@langchain/core/runnables";
 import { NodeType as DbNodeType, NodeType, PrismaClient } from "@prisma/client";
-import axios from "axios";
 import cuid from "cuid";
 import { StateAnnotation } from "../blog-generation.state";
 import { Node } from "../schemas/node.schemas";
@@ -74,18 +73,16 @@ export async function save(
   if (!Array.isArray(nodes) || nodes.length === 0)
     throw new Error("No nodes to save");
 
-  const rows = toRows(blogId, nodes.slice(1) as Node[], null);
+  const rows = toRows(blogId, nodes as Node[], null);
 
-  const slug = state._plan.title
+  const slug = state._outline.title
     .trim()
     .toLowerCase()
     .replace(/\s+/g, "-")
     .replace(/[^a-z0-9\-]/g, "");
 
-  const { data: arrayBuf } = await axios.get<ArrayBuffer>(state._image.url, {
-    responseType: "arraybuffer",
-  });
-  const data = Buffer.from(arrayBuf);
+  const base64Data = state._image.url.replace(/^data:image\/\w+;base64,/, "");
+  const data = Buffer.from(base64Data, "base64");
   const blobPath = `thumbnails/${blogId}/thumbnail.png`;
 
   await prisma.$transaction(
@@ -96,25 +93,28 @@ export async function save(
         where: { id: blogId },
         data: {
           slug,
-          description: state._plan.description,
-          title: state._plan.title,
+          description: state._outline.metaData.description,
+          title: state._outline.title,
         },
       });
+      
       await tx.thumbnail.upsert({
         where: { blogId },
         update: { altText: state._image.alt, blobPath },
         create: { blogId, altText: state._image.alt, blobPath },
       });
+      
     },
     { timeout: 60_000, maxWait: 20_000 },
   );
 
+  
   try {
     await storage.upload(blobPath, data, "image/png");
   } catch (e) {
     await prisma.thumbnail.delete({ where: { blogId } }).catch(() => {});
     throw e;
   }
-
+  
   return {};
 }

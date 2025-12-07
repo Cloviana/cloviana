@@ -2,7 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -55,6 +55,7 @@ export default function OnboardingPage() {
   const { user, isLoading: fetchingUser } = useUser();
   const { mutateAsync: createStore } = useCreateStore();
   const { push } = useRouter();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -78,6 +79,7 @@ export default function OnboardingPage() {
   }, [user, form]);
 
   async function onSubmit(values: FormValues) {
+    setIsSubmitting(true);
     form.clearErrors();
 
     const { error: profileError } = await supabase.auth.updateUser({
@@ -93,6 +95,7 @@ export default function OnboardingPage() {
         message:
           'Something went wrong updating your profile. Please try again.',
       });
+      setIsSubmitting(false);
       return;
     }
 
@@ -108,6 +111,7 @@ export default function OnboardingPage() {
         type: 'server',
         message: error?.message || 'Unable to create store. Please try again.',
       });
+      setIsSubmitting(false);
     }
   }
 
@@ -219,9 +223,9 @@ export default function OnboardingPage() {
             <Button
               type="submit"
               className="w-full"
-              variant="secondary"
+              variant="primary"
               size="lg"
-              loading={form.formState.isSubmitting}
+              loading={isSubmitting}
             >
               Continue
             </Button>
