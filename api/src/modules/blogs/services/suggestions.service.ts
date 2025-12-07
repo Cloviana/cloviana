@@ -13,7 +13,7 @@ import { fileURLToPath } from "url";
 import { DataForSeoService } from "@/integrations/dataforseo/dataforseo.service";
 import {
   KeywordIdeasTask,
-  RelatedKeywordsTask,
+  KeywordSuggestionsTask,
 } from "@/integrations/dataforseo/dataforseo.types";
 import type {
   KeywordCandidate,
@@ -156,7 +156,7 @@ export class SuggestionsService {
     }
   }
 
-    async suggestPrimaryKeyword(blogId: string): Promise<SuggestedKeyword[]> {
+  async suggestPrimaryKeyword(blogId: string): Promise<SuggestedKeyword[]> {
     try {
       const blog = await this.prisma.blog.findUniqueOrThrow({
         where: { id: blogId },
@@ -190,7 +190,7 @@ export class SuggestionsService {
       });
 
       this.logger.debug(
-        `primary-keyword blog=${blogId} store=${blog.store.name} topic="${blog.topic}" intent=${blog.searchIntent} persona=${blog.targetPersona} products=${blog.products.length} collections=${blog.collections.length}`,
+        `primary-keyword blog=${blogId} store=${blog.store.name} topic="${blog.topic}" intent=${blog.searchIntent} persona=${blog.targetPersona} products=${blog.products.length} collections=${blog.collections.length}`
       );
 
       const sig = this.shortHash([
@@ -208,7 +208,7 @@ export class SuggestionsService {
       const cached = await this.cache.get<SuggestedKeyword[]>(key);
       if (cached?.length) {
         this.logger.debug(
-          `primary-keyword hit blog=${blogId} sig=${sig} suggested_len=${cached.length}`,
+          `primary-keyword hit blog=${blogId} sig=${sig} suggested_len=${cached.length}`
         );
         return cached;
       }
@@ -234,7 +234,7 @@ export class SuggestionsService {
         })),
       };
 
-      const { seed } = await this.groq.chatJson<z.infer<typeof SeedSchema>>({
+      const { seeds } = await this.groq.chatJson<z.infer<typeof SeedSchema>>({
         name: "seed",
         schema: SeedSchema,
         messages: [
@@ -242,158 +242,73 @@ export class SuggestionsService {
           { role: "user", content: JSON.stringify(payload) },
         ],
         temperature: 0.7,
+        reasoningEffort: 'low'
       });
 
       this.logger.debug(
-        `primary-keyword seed blog=${blogId} topic="${blog.topic}" seed="${seed}"`,
+        `primary-keyword seed blog=${blogId} topic="${blog.topic}" seeds="${seeds}"`
       );
 
-      const baseTask: RelatedKeywordsTask = {
+      const suggestionTasks: KeywordSuggestionsTask[] = seeds.map((seed) => ({
         keyword: seed,
         language_name: "English",
         location_code: 2840,
+        exact_match: false,
+        ignore_synonyms: false,
         filters: [
           [
-            ["keyword_data.keyword_info.search_volume", ">=", 20],
+            ["keyword_info.search_volume", ">=", 50],
             "and",
-            ["keyword_data.keyword_properties.keyword_difficulty", "<=", 70],
+            ["keyword_info.search_volume", "<=", 3000],
+            "and",
+            ["keyword_properties.keyword_difficulty", "<=", 60],
+            "and",
+            ["search_intent_info.main_intent", "<>", "transactional"],
+            "and",
+            ["search_intent_info.main_intent", "<>", "navigational"],
           ],
         ],
         order_by: [
-          "keyword_data.keyword_info.search_volume,desc",
-          "keyword_data.keyword_properties.keyword_difficulty,asc",
+          "keyword_info.search_volume,desc",
+          "keyword_properties.keyword_difficulty,asc",
         ],
-        limit: 100,
-        depth: 2,
-      };
+        limit: 50,
+      }));
 
-      const normalizeVolume = (v: number | undefined | null, bumpZero: boolean) => {
-        const value = v ?? 0;
-        if (bumpZero && value === 0) return 10;
-        return value;
-      };
-
-      let relatedKeywords: KeywordCandidate[] | null = null;
-      let phase: 1 | 2 | 3 | null = null;
-
-      const phase1Response = await this.dataForSeo.getRelatedKeywords(baseTask);
-      const phase1Task = phase1Response.tasks?.[0] ?? null;
-      const phase1Result = phase1Task?.result?.[0] ?? null;
-      const phase1Items = phase1Result?.items ?? [];
-      this.logger.debug(
-        `primary-keyword dfseo phase=1 blog=${blogId} seed="${seed}" tasks_len=${phase1Response.tasks?.length ?? 0} items_len=${phase1Items.length}`,
+      const responses = await Promise.all(
+        suggestionTasks.map((task) =>
+          this.dataForSeo.getKeywordSuggestions(task)
+        )
       );
 
-      if (phase1Items.length > 0) {
-        relatedKeywords = phase1Items.map((i, idx) => ({
-          id: idx,
-          keyword: i.keyword_data.keyword,
-          volume: normalizeVolume(
-            i.keyword_data.keyword_info?.search_volume,
-            false,
-          ),
-          difficulty:
-            i.keyword_data.keyword_properties?.keyword_difficulty ?? null,
-          intent: i.keyword_data.search_intent_info?.main_intent ?? null,
-        }));
-        phase = 1;
-      } else {
-        this.logger.warn(
-          `primary-keyword phase=1 empty blog=${blogId} seed="${seed}" relaxing filters`,
-        );
+      const allItems =
+        responses.flatMap((res) => res.tasks?.[0]?.result?.[0]?.items ?? []) ??
+        [];
 
-        const relaxedTask: RelatedKeywordsTask = {
-          ...baseTask,
-          filters: [
-            [
-              [
-                "keyword_data.keyword_properties.keyword_difficulty",
-                "<=",
-                80,
-              ],
-            ],
-          ],
-        };
+      const seen = new Set<string>();
+      const rawKeywords = allItems.filter((item) => {
+        const k = item.keyword.toLowerCase();
+        if (seen.has(k)) return false;
+        seen.add(k);
+        return true;
+      });
 
-        const phase2Response =
-          await this.dataForSeo.getRelatedKeywords(relaxedTask);
-        const phase2Task = phase2Response.tasks?.[0] ?? null;
-        const phase2Result = phase2Task?.result?.[0] ?? null;
-        const phase2Items = phase2Result?.items ?? [];
-        this.logger.debug(
-          `primary-keyword dfseo phase=2 blog=${blogId} seed="${seed}" tasks_len=${phase2Response.tasks?.length ?? 0} items_len=${phase2Items.length}`,
-        );
-
-        if (phase2Items.length > 0) {
-          relatedKeywords = phase2Items.map((i, idx) => ({
-            id: idx,
-            keyword: i.keyword_data.keyword,
-            volume: normalizeVolume(
-              i.keyword_data.keyword_info?.search_volume,
-              true,
-            ),
-            difficulty:
-              i.keyword_data.keyword_properties?.keyword_difficulty ?? null,
-            intent: i.keyword_data.search_intent_info?.main_intent ?? null,
-          }));
-          phase = 2;
-        } else {
-          this.logger.warn(
-            `primary-keyword phase=2 empty blog=${blogId} seed="${seed}" falling back to keyword_ideas`,
-          );
-
-          const ideasTask: KeywordIdeasTask = {
-            keywords: [seed],
-            language_name: "English",
-            location_code: 2840,
-            filters: [
-              [
-                ["keyword_info.search_volume", ">=", 0],
-                "and",
-                ["keyword_properties.keyword_difficulty", "<=", 80],
-              ],
-            ],
-            order_by: [
-              "relevance,desc",
-              "keyword_info.search_volume,desc",
-            ],
-            limit: 100,
-          };
-
-          const ideasResponse =
-            await this.dataForSeo.getKeywordIdeas(ideasTask);
-          const ideasTask0 = ideasResponse.tasks?.[0] ?? null;
-          const ideasResult = ideasTask0?.result?.[0] ?? null;
-          const ideasItems = ideasResult?.items ?? [];
-          this.logger.debug(
-            `primary-keyword dfseo phase=3 blog=${blogId} seed="${seed}" tasks_len=${ideasResponse.tasks?.length ?? 0} items_len=${ideasItems.length}`,
-          );
-
-          if (ideasItems.length > 0) {
-            relatedKeywords = ideasItems.map((i, idx) => ({
-              id: idx,
-              keyword: i.keyword,
-              volume: normalizeVolume(
-                i.keyword_info?.search_volume,
-                true,
-              ),
-              difficulty:
-                i.keyword_properties?.keyword_difficulty ?? null,
-              intent: i.search_intent_info?.main_intent ?? null,
-            }));
-            phase = 3;
-          }
-        }
+      if (!rawKeywords.length) {
+        throw new Error("no keywords returned from keyword_suggestions");
       }
 
-      if (!relatedKeywords || relatedKeywords.length === 0 || phase === null) {
-        throw new Error(
-          "no keywords returned from related_keywords or keyword_ideas",
-        );
-      }
+      const keywordCandidates: KeywordCandidate[] = rawKeywords.map(
+        (item, index) => ({
+          id: index + 1,
+          keyword: item.keyword,
+          volume: item.keyword_info?.search_volume ?? 10,
+          difficulty: item.keyword_properties?.keyword_difficulty ?? null,
+          intent: item.search_intent_info?.main_intent ?? null,
+        })
+      );
 
       this.logger.debug(
-        `primary-keyword related blog=${blogId} seed="${seed}" phase=${phase} related_len=${relatedKeywords.length}`,
+        `primary-keyword suggested blog=${blogId} seeds="${seeds}" related_len=${keywordCandidates.length}`
       );
 
       const primaryRes = await this.groq.chatJson<
@@ -407,19 +322,20 @@ export class SuggestionsService {
             role: "user",
             content: JSON.stringify({
               ...payload,
-              relatedKeywords,
+              keywordCandidates,
             }),
           },
         ],
         temperature: 0.3,
+        reasoningEffort: 'low'
       });
 
       this.logger.debug(
-        `primary-keyword llm-items blog=${blogId} seed="${seed}" llm_items_len=${primaryRes.items.length}`,
+        `primary-keyword llm-items blog=${blogId} seeds="${seeds}" llm_items_len=${primaryRes.items.length}`
       );
 
       const byId = new Map<number, KeywordCandidate>();
-      for (const kw of relatedKeywords) {
+      for (const kw of keywordCandidates) {
         byId.set(kw.id, kw);
       }
 
@@ -428,7 +344,7 @@ export class SuggestionsService {
           const base = byId.get(id);
           if (!base) {
             this.logger.debug(
-              `primary-keyword missing-id blog=${blogId} id=${id}`,
+              `primary-keyword missing-id blog=${blogId} id=${id}`
             );
             return null;
           }
@@ -440,7 +356,7 @@ export class SuggestionsService {
         .filter((x): x is SuggestedKeyword => x !== null);
 
       this.logger.debug(
-        `primary-keyword suggested blog=${blogId} seed="${seed}" phase=${phase} suggested_len=${suggestedKeywords.length}`,
+        `primary-keyword suggested blog=${blogId} seeds="${seeds}"suggested_len=${suggestedKeywords.length}`
       );
 
       await this.cache.set(key, suggestedKeywords, TWO_DAYS_MS);
@@ -450,14 +366,13 @@ export class SuggestionsService {
     } catch (e: any) {
       this.logger.error(
         `primary-keyword error blog=${blogId}: ${e?.message}`,
-        e?.stack,
+        e?.stack
       );
       throw e;
     }
   }
 
-
-    async suggestSecondaryKeywords(blogId: string): Promise<SuggestedKeyword[]> {
+  async suggestSecondaryKeywords(blogId: string): Promise<SuggestedKeyword[]> {
     try {
       const blog = await this.prisma.blog.findUniqueOrThrow({
         where: { id: blogId },
@@ -492,7 +407,7 @@ export class SuggestionsService {
       });
 
       this.logger.debug(
-        `secondary-keywords blog=${blogId} store=${blog.store.name} topic="${blog.topic}" primary="${blog.primaryKeyword}" intent=${blog.searchIntent} persona=${blog.targetPersona} products=${blog.products.length} collections=${blog.collections.length}`,
+        `secondary-keywords blog=${blogId} store=${blog.store.name} topic="${blog.topic}" primary="${blog.primaryKeyword}" intent=${blog.searchIntent} persona=${blog.targetPersona} products=${blog.products.length} collections=${blog.collections.length}`
       );
 
       const sig = this.shortHash([
@@ -511,7 +426,7 @@ export class SuggestionsService {
       const cached = await this.cache.get<SuggestedKeyword[]>(key);
       if (cached?.length) {
         this.logger.debug(
-          `secondary-keywords hit blog=${blogId} sig=${sig} suggested_len=${cached.length}`,
+          `secondary-keywords hit blog=${blogId} sig=${sig} suggested_len=${cached.length}`
         );
         return cached;
       }
@@ -538,178 +453,59 @@ export class SuggestionsService {
         })),
       };
 
-      const seedPayload = {
-        store: payload.store,
-        blog: {
-          targetPersona: blog.targetPersona,
-          searchIntent: "INFORMATIONAL",
-          topic: blog.topic,
-          primaryKeyword: blog.primaryKeyword,
-        },
-        products: payload.products,
-        collections: payload.collections,
-      };
-
-      const { seed } = await this.groq.chatJson<z.infer<typeof SeedSchema>>({
-        name: "seed_secondary",
-        schema: SeedSchema,
-        messages: [
-          { role: "system", content: this.loadPrompt("seed.md") },
-          { role: "user", content: JSON.stringify(seedPayload) },
-        ],
-        temperature: 0.7,
-      });
-
-      this.logger.debug(
-        `secondary-keywords seed blog=${blogId} topic="${blog.topic}" primary="${blog.primaryKeyword}" seed="${seed}" forced_intent=INFORMATIONAL`,
-      );
-
-      const baseTask: RelatedKeywordsTask = {
-        keyword: seed,
+      const task: KeywordIdeasTask = {
+        keywords: [blog.primaryKeyword!],
         language_name: "English",
         location_code: 2840,
+        ignore_synonyms: false,
+        closely_variants: false,
         filters: [
           [
-            ["keyword_data.keyword_info.search_volume", ">=", 10],
+            ["keyword_info.search_volume", ">=", 50],
             "and",
-            ["keyword_data.keyword_properties.keyword_difficulty", "<=", 80],
+            ["keyword_info.search_volume", "<=", 5000],
+            "and",
+            ["keyword_properties.keyword_difficulty", "<=", 60],
+            "and",
+            ["search_intent_info.main_intent", "<>", "transactional"],
+            "and",
+            ["search_intent_info.main_intent", "<>", "navigational"],
           ],
         ],
         order_by: [
-          "keyword_data.keyword_info.search_volume,desc",
-          "keyword_data.keyword_properties.keyword_difficulty,asc",
+          "keyword_info.search_volume,desc",
+          "keyword_properties.keyword_difficulty,asc",
         ],
-        limit: 200,
-        depth: 2,
+        limit: 300,
       };
 
-      const normalizeVolume = (v: number | undefined | null, bumpZero: boolean) => {
-        const value = v ?? 0;
-        if (bumpZero && value === 0) return 10;
-        return value;
-      };
+      const response = await this.dataForSeo.getKeywordIdeas(task)
+      const items = response.tasks?.[0]?.result?.[0]?.items ?? []
 
-      let relatedKeywords: KeywordCandidate[] | null = null;
-      let phase: 1 | 2 | 3 | null = null;
+      const seen = new Set<string>();
+      const rawKeywords = items.filter((item) => {
+        const k = item.keyword.toLowerCase();
+        if (seen.has(k)) return false;
+        seen.add(k);
+        return true;
+      });
 
-      const phase1Response = await this.dataForSeo.getRelatedKeywords(baseTask);
-      const phase1Task = phase1Response.tasks?.[0] ?? null;
-      const phase1Result = phase1Task?.result?.[0] ?? null;
-      const phase1Items = phase1Result?.items ?? [];
-      this.logger.debug(
-        `secondary-keywords dfseo phase=1 blog=${blogId} seed="${seed}" tasks_len=${phase1Response.tasks?.length ?? 0} items_len=${phase1Items.length}`,
+      if (!rawKeywords.length) {
+        throw new Error("no keywords returned from keyword_suggestions");
+      }
+
+      const keywordCandidates: KeywordCandidate[] = rawKeywords.map(
+        (item, index) => ({
+          id: index + 1,
+          keyword: item.keyword,
+          volume: item.keyword_info?.search_volume ?? 10,
+          difficulty: item.keyword_properties?.keyword_difficulty ?? null,
+          intent: item.search_intent_info?.main_intent ?? null,
+        })
       );
 
-      if (phase1Items.length > 0) {
-        relatedKeywords = phase1Items.map((i, idx) => ({
-          id: idx,
-          keyword: i.keyword_data.keyword,
-          volume: normalizeVolume(
-            i.keyword_data.keyword_info?.search_volume,
-            false,
-          ),
-          difficulty:
-            i.keyword_data.keyword_properties?.keyword_difficulty ?? null,
-          intent: i.keyword_data.search_intent_info?.main_intent ?? null,
-        }));
-        phase = 1;
-      } else {
-        this.logger.warn(
-          `secondary-keywords phase=1 empty blog=${blogId} seed="${seed}" relaxing filters`,
-        );
-
-        const relaxedTask: RelatedKeywordsTask = {
-          ...baseTask,
-          filters: [
-            [
-              [
-                "keyword_data.keyword_properties.keyword_difficulty",
-                "<=",
-                80,
-              ],
-            ],
-          ],
-        };
-
-        const phase2Response =
-          await this.dataForSeo.getRelatedKeywords(relaxedTask);
-        const phase2Task = phase2Response.tasks?.[0] ?? null;
-        const phase2Result = phase2Task?.result?.[0] ?? null;
-        const phase2Items = phase2Result?.items ?? [];
-        this.logger.debug(
-          `secondary-keywords dfseo phase=2 blog=${blogId} seed="${seed}" tasks_len=${phase2Response.tasks?.length ?? 0} items_len=${phase2Items.length}`,
-        );
-
-        if (phase2Items.length > 0) {
-          relatedKeywords = phase2Items.map((i, idx) => ({
-            id: idx,
-            keyword: i.keyword_data.keyword,
-            volume: normalizeVolume(
-              i.keyword_data.keyword_info?.search_volume,
-              true,
-            ),
-            difficulty:
-              i.keyword_data.keyword_properties?.keyword_difficulty ?? null,
-            intent: i.keyword_data.search_intent_info?.main_intent ?? null,
-          }));
-          phase = 2;
-        } else {
-          this.logger.warn(
-            `secondary-keywords phase=2 empty blog=${blogId} seed="${seed}" falling back to keyword_ideas`,
-          );
-
-          const ideasTask: KeywordIdeasTask = {
-            keywords: [seed],
-            language_name: "English",
-            location_code: 2840,
-            filters: [
-              [
-                ["keyword_info.search_volume", ">=", 0],
-                "and",
-                ["keyword_properties.keyword_difficulty", "<=", 80],
-              ],
-            ],
-            order_by: [
-              "relevance,desc",
-              "keyword_info.search_volume,desc",
-            ],
-            limit: 200,
-          };
-
-          const ideasResponse =
-            await this.dataForSeo.getKeywordIdeas(ideasTask);
-          const ideasTask0 = ideasResponse.tasks?.[0] ?? null;
-          const ideasResult = ideasTask0?.result?.[0] ?? null;
-          const ideasItems = ideasResult?.items ?? [];
-          this.logger.debug(
-            `secondary-keywords dfseo phase=3 blog=${blogId} seed="${seed}" tasks_len=${ideasResponse.tasks?.length ?? 0} items_len=${ideasItems.length}`,
-          );
-
-          if (ideasItems.length > 0) {
-            relatedKeywords = ideasItems.map((i, idx) => ({
-              id: idx,
-              keyword: i.keyword,
-              volume: normalizeVolume(
-                i.keyword_info?.search_volume,
-                true,
-              ),
-              difficulty:
-                i.keyword_properties?.keyword_difficulty ?? null,
-              intent: i.search_intent_info?.main_intent ?? null,
-            }));
-            phase = 3;
-          }
-        }
-      }
-
-      if (!relatedKeywords || relatedKeywords.length === 0 || phase === null) {
-        throw new Error(
-          "no keywords returned from related_keywords or keyword_ideas",
-        );
-      }
-
       this.logger.debug(
-        `secondary-keywords related blog=${blogId} seed="${seed}" phase=${phase} related_len=${relatedKeywords.length}`,
+        `secondary-keyword suggested blog=${blogId} seed="${blog.primaryKeyword}" related_len=${keywordCandidates.length}`
       );
 
       const secondaryRes = await this.groq.chatJson<
@@ -723,19 +519,20 @@ export class SuggestionsService {
             role: "user",
             content: JSON.stringify({
               ...payload,
-              relatedKeywords,
+              keywordCandidates,
             }),
           },
         ],
         temperature: 0.3,
+        reasoningEffort: 'low'
       });
 
       this.logger.debug(
-        `secondary-keywords llm-items blog=${blogId} seed="${seed}" phase=${phase} llm_items_len=${secondaryRes.items.length}`,
+        `secondary-keyword llm-items blog=${blogId} seed="${blog.primaryKeyword}" llm_items_len=${secondaryRes.items.length}`
       );
 
       const byId = new Map<number, KeywordCandidate>();
-      for (const kw of relatedKeywords) {
+      for (const kw of keywordCandidates) {
         byId.set(kw.id, kw);
       }
 
@@ -744,7 +541,7 @@ export class SuggestionsService {
           const base = byId.get(id);
           if (!base) {
             this.logger.debug(
-              `secondary-keywords missing-id blog=${blogId} id=${id}`,
+              `secondary-keyword missing-id blog=${blogId} id=${id}`
             );
             return null;
           }
@@ -756,20 +553,19 @@ export class SuggestionsService {
         .filter((x): x is SuggestedKeyword => x !== null);
 
       this.logger.debug(
-        `secondary-keywords suggested blog=${blogId} seed="${seed}" phase=${phase} suggested_len=${suggestedKeywords.length}`,
+        `secondary-keyword suggested blog=${blogId} seed="${blog.primaryKeyword}"suggested_len=${suggestedKeywords.length}`
       );
 
       await this.cache.set(key, suggestedKeywords, TWO_DAYS_MS);
-      this.logger.debug(`secondary-keywords cached blog=${blogId} sig=${sig}`);
+      this.logger.debug(`secondary-keyword cached blog=${blogId} sig=${sig}`);
 
       return suggestedKeywords;
     } catch (e: any) {
       this.logger.error(
         `secondary-keywords error blog=${blogId}: ${e?.message}`,
-        e?.stack,
+        e?.stack
       );
       throw e;
     }
   }
-
 }

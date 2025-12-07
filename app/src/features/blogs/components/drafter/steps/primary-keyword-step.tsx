@@ -119,6 +119,8 @@ export const PrimaryKeywordStep = () => {
                   <FormControl>
                     <Input
                       {...field}
+                      size={'lg'}
+                      variant={'default'}
                       placeholder="Choose or type a primary keyword"
                     />
                   </FormControl>

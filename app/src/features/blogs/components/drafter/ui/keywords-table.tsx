@@ -38,11 +38,6 @@ function formatK(n?: number | null) {
   return n.toString();
 }
 
-function formatIntent(intent?: string | null) {
-  if (!intent) return '–';
-  return intent.charAt(0).toUpperCase() + intent.slice(1);
-}
-
 export function KeywordsTable({
   keywords,
   selected,
@@ -78,7 +73,6 @@ export function KeywordsTable({
             )}
           </TableHead>
           <TableHead className="text-sm font-medium">Suggestion</TableHead>
-          <TableHead className="w-40 text-sm font-medium">Intent</TableHead>
           <TableHead className="w-28 text-right text-sm font-medium">
             <button
               type="button"
@@ -121,9 +115,6 @@ export function KeywordsTable({
                     AI recommended
                   </Badge>
                 )}
-              </TableCell>
-              <TableCell className="text-sm">
-                {formatIntent(r.intent)}
               </TableCell>
               <TableCell className="text-right text-sm font-medium tabular-nums">
                 {formatK(r.volume)}

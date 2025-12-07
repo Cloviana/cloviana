@@ -33,7 +33,7 @@ export const DrafterContainer = ({
     <div className={cn('flex h-full min-h-0', className)} {...props}>
       <Sidebar className="border-r" />
 
-      <main className="min-h-0 flex-1 overflow-hidden">
+      <main className="min-h-0 flex-1">
         <div className="h-full min-h-0">
           <CurrentStepComponent />
         </div>
