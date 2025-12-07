@@ -57,7 +57,7 @@ export class GroqClient {
         );
       }
 
-      return result.data;
+      return result.data as T;
     };
 
     return pRetry(run, { retries });
