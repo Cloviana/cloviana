@@ -30,11 +30,11 @@ export const updateBlogInputSchema = z.object({
   collectionIds: z.array(z.string()).optional(),
   currentStep: z
     .enum([
+      'PRODUCT',
+      'AUDIENCE_INTENT',
       'TOPIC',
       'PRIMARY_KEYWORD',
-      'AUDIENCE_INTENT',
       'SECONDARY_KEYWORDS',
-      'PRODUCT',
       'GUIDELINES',
       'COMPLETED',
     ])
@@ -42,6 +42,39 @@ export const updateBlogInputSchema = z.object({
 });
 
 export type UpdateBlogInput = z.infer<typeof updateBlogInputSchema>;
+
+// Step order configuration
+const STEP_ORDER = [
+  'PRODUCT',
+  'AUDIENCE_INTENT',
+  'TOPIC',
+  'PRIMARY_KEYWORD',
+  'SECONDARY_KEYWORDS',
+  'GUIDELINES',
+  'COMPLETED',
+] as const;
+
+// Map steps to their suggestion invalidation functions
+const STEP_SUGGESTION_INVALIDATORS = {
+  TOPIC: (storeId: string, blogId: string) => [
+    suggestionKeys.topic(storeId, blogId),
+  ],
+  PRIMARY_KEYWORD: (storeId: string, blogId: string) => [
+    suggestionKeys.primaryKeyword(storeId, blogId),
+  ],
+  SECONDARY_KEYWORDS: (storeId: string, blogId: string) => [
+    suggestionKeys.secondaryKeywords(storeId, blogId),
+  ],
+} as const;
+
+// Get all steps that should have their suggestions invalidated
+const getStepsToInvalidate = (currentStep: (typeof STEP_ORDER)[number]) => {
+  const currentIndex = STEP_ORDER.indexOf(currentStep);
+  return STEP_ORDER.slice(currentIndex + 1).filter(
+    (step): step is keyof typeof STEP_SUGGESTION_INVALIDATORS =>
+      step in STEP_SUGGESTION_INVALIDATORS,
+  );
+};
 
 export const updateBlog = async (
   data: UpdateBlogInput,
@@ -70,7 +103,7 @@ export const useUpdateBlog = ({
   return useMutation({
     mutationFn: updateBlog,
     onSuccess: async (data, variables, context) => {
-      const { blogId, ...updates } = variables;
+      const { blogId, currentStep, storeId, ...updates } = variables;
 
       qc.setQueryData<BlogDetail>(blogKeys.detail(blogId), (old) => {
         if (!old) return old;
@@ -81,24 +114,37 @@ export const useUpdateBlog = ({
         };
       });
 
-      await Promise.all([
+      // Always invalidate the blog detail
+      const invalidations = [
         qc.invalidateQueries({ queryKey: blogKeys.detail(blogId) }),
-        qc.invalidateQueries({
-          queryKey: suggestionKeys.topic(variables.storeId, variables.blogId),
-        }),
-        qc.invalidateQueries({
-          queryKey: suggestionKeys.primaryKeyword(
-            variables.storeId,
-            variables.blogId,
-          ),
-        }),
-        qc.invalidateQueries({
-          queryKey: suggestionKeys.secondaryKeywords(
-            variables.storeId,
-            variables.blogId,
-          ),
-        }),
-      ]);
+      ];
+
+      // If currentStep is provided, invalidate only downstream suggestions
+      if (currentStep) {
+        const stepsToInvalidate = getStepsToInvalidate(currentStep);
+
+        stepsToInvalidate.forEach((step) => {
+          const queryKeys = STEP_SUGGESTION_INVALIDATORS[step](storeId, blogId);
+          queryKeys.forEach((queryKey) => {
+            invalidations.push(qc.invalidateQueries({ queryKey }));
+          });
+        });
+      } else {
+        // If no currentStep, invalidate all suggestions (legacy behavior)
+        invalidations.push(
+          qc.invalidateQueries({
+            queryKey: suggestionKeys.topic(storeId, blogId),
+          }),
+          qc.invalidateQueries({
+            queryKey: suggestionKeys.primaryKeyword(storeId, blogId),
+          }),
+          qc.invalidateQueries({
+            queryKey: suggestionKeys.secondaryKeywords(storeId, blogId),
+          }),
+        );
+      }
+
+      await Promise.all(invalidations);
 
       onSuccess?.(data, variables, context);
     },
