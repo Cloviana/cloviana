@@ -1,5 +1,7 @@
 'use client';
 
+import { useMemo } from 'react';
+
 import { useDrafter } from '@/features/blogs/components/drafter/drafter-context';
 import { DrafterKey } from '@/features/blogs/components/drafter/drafter.config';
 import {
@@ -27,7 +29,11 @@ export const DrafterContainer = ({
   ...props
 }: React.ComponentProps<'div'>) => {
   const { currentKey } = useDrafter();
-  const CurrentStepComponent = STEP_COMPONENTS[currentKey] ?? ProductStep;
+
+  const CurrentStepComponent = useMemo(
+    () => STEP_COMPONENTS[currentKey] ?? ProductStep,
+    [currentKey],
+  );
 
   return (
     <div className={cn('flex h-full min-h-0', className)} {...props}>

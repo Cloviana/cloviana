@@ -76,7 +76,7 @@ export class ClaudeClient {
       return this.extractText(completion);
     };
 
-    return pRetry(run, { retries });
+    return pRetry(run, { retries, minTimeout: 10000, maxTimeout: 60000, factor: 2 });
   }
 
   async chatJson<T>({
@@ -127,6 +127,6 @@ export class ClaudeClient {
       return schema.parse(parsed) as T;
     };
 
-    return pRetry(run, { retries });
+    return pRetry(run, { retries, minTimeout: 10000, maxTimeout: 60000, factor: 2 });
   }
 }
