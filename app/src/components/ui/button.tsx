@@ -6,7 +6,7 @@ import { Spinner } from '@/components/ui/spinner';
 import { cn } from '@/utils/cn';
 
 const buttonVariants = cva(
-  "focus-visible:border-ring flex items-center gap-1.5 transition-opacity focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 cursor-pointer items-center justify-center gap-1.5 whitespace-nowrap rounded-md font-medium outline-none transition-colors focus-visible:ring disabled:pointer-events-none disabled:opacity-60 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0 relative",
+  "focus-visible:border-ring transition-opacity focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 cursor-pointer items-center justify-center gap-1.5 whitespace-nowrap rounded-md font-medium outline-none transition-colors focus-visible:ring disabled:pointer-events-none disabled:opacity-60 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0 relative",
   {
     variants: {
       variant: {
@@ -68,16 +68,20 @@ function Button({
       {...props}
     >
       {loading && (
-        <Spinner
-          strokeWidth={3.5}
-          className={
-            ['xs', 'sm', 'default'].includes(size as string)
-              ? 'size-3.5'
-              : 'size-4'
-          }
-        />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Spinner
+            strokeWidth={3.3}
+            className={
+              ['xs', 'sm', 'default'].includes(size as string)
+                ? 'size-3.5'
+                : 'size-4'
+            }
+          />
+        </div>
       )}
-      {children}
+      <div className={cn('flex items-center gap-1.5', loading && 'opacity-0')}>
+        {children}
+      </div>
     </button>
   );
 }
