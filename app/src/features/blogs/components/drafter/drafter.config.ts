@@ -1,11 +1,4 @@
-import {
-  Feather,
-  Package,
-  KeyRound,
-  Tags,
-  Sliders,
-  Target,
-} from 'lucide-react';
+import { Feather, Package, KeyRound, Tags, Sliders } from 'lucide-react';
 
 export const STEPS_CONFIG = [
   {
@@ -15,13 +8,6 @@ export const STEPS_CONFIG = [
     description:
       'Choose the specific inventory items or collections to promote.',
     icon: Package,
-  },
-  {
-    key: 'audience-intent',
-    dbEnum: 'AUDIENCE_INTENT',
-    title: 'Audience & Search Intent',
-    description: 'Define who you’re writing for and what they’re looking for.',
-    icon: Target,
   },
   {
     key: 'topic',

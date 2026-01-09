@@ -11,7 +11,7 @@ const STALE_MS = 10 * 60 * 1000;
 export class BlogGenerationWorkflow {
   constructor(
     private readonly prisma: PrismaService,
-    private readonly storage: StorageService,
+    private readonly storage: StorageService
   ) {}
 
   async run(blogId: string) {
@@ -40,7 +40,7 @@ export class BlogGenerationWorkflow {
         });
         job = null;
       } else if (job.status === JobStatus.PENDING) {
-        await this.prisma.job.update({
+        job = await this.prisma.job.update({
           where: { id: job.id },
           data: {
             status: JobStatus.RUNNING,
@@ -101,6 +101,12 @@ export class BlogGenerationWorkflow {
         .catch(() => {});
     }, 15000);
 
+    console.info("[BlogGenerationWorkflow] START", {
+      blogId,
+      jobId: job.id,
+      storeId: blog.storeId,
+      startedAt: job.startedAt,
+    });
     try {
       const { _nodes, _image } = await graph.invoke(
         { _blogId: blogId, _storeId: blog.storeId },
@@ -110,13 +116,21 @@ export class BlogGenerationWorkflow {
             jobId: job.id,
             storage: this.storage,
           },
-        },
+          recursionLimit: 250
+        }
       );
 
       const finished = new Date();
       await this.prisma.job.update({
         where: { id: job.id },
         data: { status: JobStatus.SUCCESS, finishedAt: finished },
+      });
+
+      console.info("[BlogGenerationWorkflow] END_SUCCESS", {
+        blogId,
+        jobId: job.id,
+        finishedAt: finished,
+        durationMs: finished.getTime() - job.startedAt!.getTime(),
       });
 
       return {
@@ -136,7 +150,13 @@ export class BlogGenerationWorkflow {
           error: String(err?.message ?? err).slice(0, 1000),
         },
       });
-      console.error(err)
+      console.error("[BlogGenerationWorkflow] END_FAILED", {
+        blogId,
+        jobId: job.id,
+        finishedAt: finished,
+        error: err?.message ?? err,
+      });
+
       throw err;
     } finally {
       clearInterval(hb);

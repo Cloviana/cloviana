@@ -12,13 +12,6 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { paths } from '@/config/paths';
 import { useGenerateBlog } from '@/features/blogs/api/generate-blog';
@@ -28,7 +21,6 @@ import { useDrafter } from '@/features/blogs/components/drafter/drafter-context'
 import { StepWrapper } from '@/features/blogs/components/drafter/ui/step-wrapper';
 
 const formSchema = z.object({
-  wordCount: z.enum(['SHORT', 'MEDIUM', 'LONG']),
   brandVoice: z.string().optional(),
 });
 
@@ -51,32 +43,27 @@ export const GuidelinesStep = () => {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      wordCount: 'SHORT',
       brandVoice: '',
     },
   });
 
-  const { watch, handleSubmit, reset } = form;
+  const { handleSubmit, reset } = form;
 
   useEffect(() => {
     if (blog) {
       reset({
-        wordCount: blog.wordCount || 'SHORT',
         brandVoice: blog.brandVoice || '',
       });
     }
   }, [blog, reset]);
 
   const onSubmit = async (values: FormValues) => {
-    const hasChanges =
-      values.wordCount !== blog?.wordCount ||
-      values.brandVoice !== blog?.brandVoice;
+    const hasChanges = values.brandVoice !== blog?.brandVoice;
 
     if (hasChanges) {
       await updateBlog({
         storeId,
         blogId,
-        wordCount: values.wordCount,
         brandVoice: values.brandVoice || undefined,
         currentStep: 'COMPLETED',
       });
@@ -92,8 +79,7 @@ export const GuidelinesStep = () => {
     handleSubmit(onSubmit)();
   };
 
-  const watchedValues = watch();
-  const isFormValid = !!watchedValues.wordCount;
+  const isFormValid = true;
   const isPending = isUpdating || isGenerating;
 
   if (isBlogLoading) return null;
@@ -115,35 +101,6 @@ export const GuidelinesStep = () => {
           }}
           className="space-y-6"
         >
-          <FormField
-            control={form.control}
-            name="wordCount"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Word Budget</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                  value={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a length" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="SHORT">Short (400–800 words)</SelectItem>
-                    <SelectItem value="MEDIUM">
-                      Medium (800–1,500 words)
-                    </SelectItem>
-                    <SelectItem value="LONG">Long (1,500+ words)</SelectItem>
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
           <FormField
             control={form.control}
             name="brandVoice"
