@@ -5,7 +5,6 @@ import { useMemo } from 'react';
 import { useDrafter } from '@/features/blogs/components/drafter/drafter-context';
 import { DrafterKey } from '@/features/blogs/components/drafter/drafter.config';
 import {
-  AudienceIntentStep,
   GuidelinesStep,
   PrimaryKeywordStep,
   ProductStep,
@@ -17,7 +16,6 @@ import { cn } from '@/utils/cn';
 
 const STEP_COMPONENTS: Record<DrafterKey, React.ComponentType> = {
   product: ProductStep,
-  'audience-intent': AudienceIntentStep,
   topic: TopicStep,
   'primary-keyword': PrimaryKeywordStep,
   'secondary-keywords': SecondaryKeywordsStep,
