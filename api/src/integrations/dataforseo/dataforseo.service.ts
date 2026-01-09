@@ -7,6 +7,8 @@ import {
   DataForSeoResponse,
   KeywordIdeasResult,
   KeywordIdeasTask,
+  KeywordOverviewResult,
+  KeywordOverviewTask,
   KeywordSuggestionsResult,
   KeywordSuggestionsTask,
   RelatedKeywordsResult,
@@ -150,4 +152,47 @@ export class DataForSeoService {
       randomize: true,
     });
   }
+
+  async getKeywordOverview(
+  task: KeywordOverviewTask,
+): Promise<DataForSeoResponse<KeywordOverviewResult>> {
+  const url =
+    'https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_overview/live';
+
+  const authHeader = `Basic ${this.config.dataForSeoBase64Credentials}`;
+
+  const exec = async (): Promise<DataForSeoResponse<KeywordOverviewResult>> => {
+    try {
+      const { data } = await firstValueFrom(
+        this.http.post<DataForSeoResponse<KeywordOverviewResult>>(
+          url,
+          [task],
+          {
+            headers: {
+              Authorization: authHeader,
+              'Content-Type': 'application/json',
+            },
+          },
+        ),
+      );
+      return data;
+    } catch (err: any) {
+      const status: number | undefined = err?.response?.status;
+
+      if (status && status >= 400 && status < 500 && status !== 429) {
+        throw new AbortError(err);
+      }
+
+      throw err;
+    }
+  };
+
+  return pRetry(exec, {
+    retries: 5,
+    minTimeout: 1000,
+    maxTimeout: 5000,
+    factor: 2,
+    randomize: true,
+  });
+}
 }

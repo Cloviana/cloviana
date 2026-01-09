@@ -47,6 +47,12 @@ function convertInline(
           children: textChildren,
         });
       }
+    } else if (node.type === "image") {
+      result.push({
+        type: "IMAGE",
+        src: node.url || "",
+        altText: node.alt || "",
+      });
     }
   }
 

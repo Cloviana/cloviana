@@ -57,6 +57,15 @@ function renderSection(parentKey: string, map: Record<string, Node[]>): string {
         html += `<br/>`;
         break;
       }
+      case "IMAGE": {
+        if (!node.payload) break;
+        const payload = node.payload as any;
+        const src = payload["src"];
+        if (!src) break;
+        const alt = payload["altText"] ?? "";
+        html += `<img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}"/>`;
+        break;
+      }
       default: {
         break;
       }

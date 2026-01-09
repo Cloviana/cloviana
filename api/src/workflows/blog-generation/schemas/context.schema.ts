@@ -4,13 +4,13 @@ export const AssetSchema = z.object({
   title: z.string(),
   description: z.string(),
   url: z.string(),
+  id: z.string(),
   imageUrl: z.string().optional(),
 });
 
 export const ContextSchema = z.object({
   core: z.object({
     topic: z.string(),
-    searchIntent: z.string(),
     wordCountRange: z.object({
       min: z.number(),
       max: z.number(),
@@ -24,9 +24,6 @@ export const ContextSchema = z.object({
     name: z.string(),
     description: z.string(),
     voice: z.string(),
-  }),
-  audience: z.object({
-    persona: z.string(),
   }),
   referenceMaterial: z.object({
     products: z.array(AssetSchema),

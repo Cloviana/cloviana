@@ -6,7 +6,11 @@ import { z } from "zod";
 import { GroqClient } from "@/clients/groq/groq.client";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 
-import { TopicsSchema, SeedSchema, KeywordsSchema } from "../schemas";
+import {
+  TopicsSchema,
+  SelectedKeywordsSchema,
+  SeedSchema,
+} from "../schemas";
 import { readFileSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
@@ -24,8 +28,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const TWO_DAYS_MS = 1000 * 60 * 60 * 24 * 2;
+const ONE_DAY_MS = 1000 * 60 * 60 * 24;
 const CACHE_NS = "suggestions";
-const CACHE_V = "v1";
+const CACHE_V = "v2";
+
+const DATAFORSEO_LOCATION = 2840;
+const DATAFORSEO_LANGUAGE = "en";
 
 @Injectable()
 export class SuggestionsService {
@@ -42,11 +50,50 @@ export class SuggestionsService {
     return readFileSync(join(__dirname, "..", "prompts", filename), "utf8");
   }
 
-  private shortHash(input: unknown) {
+  private shortHash(input: unknown): string {
     return createHash("sha256")
       .update(typeof input === "string" ? input : JSON.stringify(input))
       .digest("hex")
       .slice(0, 10);
+  }
+
+  private async getCached<T>(key: string): Promise<T | null | undefined> {
+    return await this.cache.get<T>(key);
+  }
+
+  private async setCached<T>(
+    key: string,
+    value: T,
+    ttl: number
+  ): Promise<void> {
+    await this.cache.set(key, value, ttl);
+  }
+
+  private buildBlogPayload(blog: {
+    store: { name: string; description: string | null };
+    topic?: string | null;
+    primaryKeyword?: string | null;
+    products: Array<{ title: string; description: string | null }>;
+    collections: Array<{ title: string; description: string | null }>;
+  }) {
+    return {
+      store: {
+        name: blog.store.name,
+        description: blog.store.description ?? "",
+      },
+      blog: {
+        ...(blog.topic && { topic: blog.topic }),
+        ...(blog.primaryKeyword && { primaryKeyword: blog.primaryKeyword }),
+      },
+      products: blog.products.map((p) => ({
+        name: p.title,
+        description: p.description ?? "",
+      })),
+      collections: blog.collections.map((c) => ({
+        name: c.title,
+        description: c.description ?? "",
+      })),
+    };
   }
 
   async suggestTopic(blogId: string): Promise<string[]> {
@@ -55,8 +102,6 @@ export class SuggestionsService {
         where: { id: blogId },
         select: {
           id: true,
-          searchIntent: true,
-          targetPersona: true,
           products: {
             select: {
               id: true,
@@ -81,48 +126,21 @@ export class SuggestionsService {
         },
       });
 
-      this.logger.debug(
-        `topics blog=${blogId} store=${blog.store.name} intent=${blog.searchIntent} persona=${blog.targetPersona} products=${blog.products.length} collections=${blog.collections.length}`
-      );
-
       const sig = this.shortHash([
         blog.store.name,
         blog.store.description,
-        blog.targetPersona,
-        blog.searchIntent,
         blog.products.map((p) => p.id),
         blog.collections.map((c) => c.id),
       ]);
 
       const key = `${CACHE_NS}:${CACHE_V}:topics:${blog.store.id}:${sig}`;
+      const cached = await this.getCached<string[]>(key);
 
-      const cached = await this.cache.get<string[]>(key);
       if (cached?.length) {
-        this.logger.debug(
-          `topics hit blog=${blogId} sig=${sig} topics_len=${cached.length}`
-        );
         return cached;
       }
-      this.logger.debug(`topics miss blog=${blogId} sig=${sig}`);
 
-      const payload = {
-        store: {
-          name: blog.store.name,
-          description: blog.store.description,
-        },
-        blog: {
-          targetPersona: blog.targetPersona,
-          searchIntent: blog.searchIntent,
-        },
-        products: blog.products.map((p) => ({
-          name: p.title,
-          description: p.description,
-        })),
-        collections: blog.collections.map((c) => ({
-          name: c.title,
-          description: c.description,
-        })),
-      };
+      const payload = this.buildBlogPayload(blog);
 
       const res = await this.groq.chatJson<z.infer<typeof TopicsSchema>>({
         name: "topics",
@@ -138,20 +156,17 @@ export class SuggestionsService {
         new Set(res.topics.map((t) => t.trim()))
       ).filter(Boolean);
 
-      this.logger.debug(
-        `topics generated blog=${blogId} raw_len=${res.topics.length} dedup_len=${topics.length}`
-      );
-
       if (topics.length !== 5) {
-        this.logger.warn(`topics invalid len=${topics.length} blog=${blogId}`);
-        throw new Error("invalid topics length");
+        throw new Error(`Expected 5 topics, got ${topics.length}`);
       }
 
-      await this.cache.set(key, topics, TWO_DAYS_MS);
-      this.logger.debug(`topics cached blog=${blogId} sig=${sig}`);
+      await this.setCached(key, topics, TWO_DAYS_MS);
       return topics;
     } catch (e: any) {
-      this.logger.error(`topics error blog=${blogId}: ${e?.message}`, e?.stack);
+      this.logger.error(
+        `topics failed blog=${blogId}: ${e?.message}`,
+        e?.stack
+      );
       throw e;
     }
   }
@@ -162,8 +177,6 @@ export class SuggestionsService {
         where: { id: blogId },
         select: {
           id: true,
-          searchIntent: true,
-          targetPersona: true,
           topic: true,
           products: {
             select: {
@@ -189,133 +202,93 @@ export class SuggestionsService {
         },
       });
 
-      this.logger.debug(
-        `primary-keyword blog=${blogId} store=${blog.store.name} topic="${blog.topic}" intent=${blog.searchIntent} persona=${blog.targetPersona} products=${blog.products.length} collections=${blog.collections.length}`
-      );
-
       const sig = this.shortHash([
         blog.store.name,
         blog.store.description,
         blog.topic,
-        blog.targetPersona,
-        blog.searchIntent,
         blog.products.map((p) => p.id),
         blog.collections.map((c) => c.id),
       ]);
 
       const key = `${CACHE_NS}:${CACHE_V}:primary-keyword:${blog.store.id}:${sig}`;
+      const cached = await this.getCached<SuggestedKeyword[]>(key);
 
-      const cached = await this.cache.get<SuggestedKeyword[]>(key);
       if (cached?.length) {
-        this.logger.debug(
-          `primary-keyword hit blog=${blogId} sig=${sig} suggested_len=${cached.length}`
-        );
         return cached;
       }
-      this.logger.debug(`primary-keyword miss blog=${blogId} sig=${sig}`);
 
-      const payload = {
-        store: {
-          name: blog.store.name,
-          description: blog.store.description,
-        },
-        blog: {
-          targetPersona: blog.targetPersona,
-          searchIntent: blog.searchIntent,
-          topic: blog.topic,
-        },
-        products: blog.products.map((p) => ({
-          name: p.title,
-          description: p.description,
-        })),
-        collections: blog.collections.map((c) => ({
-          name: c.title,
-          description: c.description,
-        })),
-      };
+      const payload = this.buildBlogPayload(blog);
 
       const { seeds } = await this.groq.chatJson<z.infer<typeof SeedSchema>>({
-        name: "seed",
+        name: "seeds",
         schema: SeedSchema,
         messages: [
           { role: "system", content: this.loadPrompt("seed.md") },
           { role: "user", content: JSON.stringify(payload) },
         ],
         temperature: 0.7,
-        reasoningEffort: 'low'
       });
 
-      this.logger.debug(
-        `primary-keyword seed blog=${blogId} topic="${blog.topic}" seeds="${seeds}"`
-      );
-
-      const suggestionTasks: KeywordSuggestionsTask[] = seeds.map((seed) => ({
-        keyword: seed,
-        language_name: "English",
-        location_code: 2840,
-        exact_match: false,
-        ignore_synonyms: false,
-        filters: [
-          [
-            ["keyword_info.search_volume", ">=", 50],
-            "and",
-            ["keyword_info.search_volume", "<=", 3000],
-            "and",
-            ["keyword_properties.keyword_difficulty", "<=", 60],
-            "and",
-            ["search_intent_info.main_intent", "<>", "transactional"],
-            "and",
-            ["search_intent_info.main_intent", "<>", "navigational"],
+      const suggestionTasks = seeds.map(async (seed) => {
+        const task: KeywordSuggestionsTask = {
+          keyword: seed,
+          language_code: DATAFORSEO_LANGUAGE,
+          location_code: DATAFORSEO_LOCATION,
+          filters: [
+            [
+              ["keyword_info.search_volume", ">=", 40],
+              "and",
+              ["keyword_properties.keyword_difficulty", "<=", 50],
+              "and",
+              ["search_intent_info.main_intent", "<>", "navigational"],
+            ],
           ],
-        ],
-        order_by: [
-          "keyword_info.search_volume,desc",
-          "keyword_properties.keyword_difficulty,asc",
-        ],
-        limit: 50,
-      }));
+          order_by: [
+            "keyword_info.search_volume,desc",
+            "keyword_properties.keyword_difficulty,asc",
+          ],
+          limit: 50,
+        };
 
-      const responses = await Promise.all(
-        suggestionTasks.map((task) =>
-          this.dataForSeo.getKeywordSuggestions(task)
-        )
-      );
+        const response = await this.dataForSeo.getKeywordSuggestions(task);
+        const items = response.tasks?.[0]?.result?.[0]?.items ?? [];
 
-      const allItems =
-        responses.flatMap((res) => res.tasks?.[0]?.result?.[0]?.items ?? []) ??
-        [];
-
-      const seen = new Set<string>();
-      const rawKeywords = allItems.filter((item) => {
-        const k = item.keyword.toLowerCase();
-        if (seen.has(k)) return false;
-        seen.add(k);
-        return true;
-      });
-
-      if (!rawKeywords.length) {
-        throw new Error("no keywords returned from keyword_suggestions");
-      }
-
-      const keywordCandidates: KeywordCandidate[] = rawKeywords.map(
-        (item, index) => ({
-          id: index + 1,
+        return items.map((item) => ({
           keyword: item.keyword,
           volume: item.keyword_info?.search_volume ?? 10,
           difficulty: item.keyword_properties?.keyword_difficulty ?? null,
           intent: item.search_intent_info?.main_intent ?? null,
+        }));
+      });
+
+      const allKeywords = (await Promise.all(suggestionTasks)).flat();
+
+      if (!allKeywords.length) {
+        throw new Error(
+          `No keyword suggestions returned for seeds: ${seeds.join(", ")}`
+        );
+      }
+
+      const seen = new Set<string>();
+      const uniqueKeywords = allKeywords.filter((kw) => {
+        const normalized = kw.keyword.toLowerCase();
+        if (seen.has(normalized)) return false;
+        seen.add(normalized);
+        return true;
+      });
+
+      const keywordCandidates: KeywordCandidate[] = uniqueKeywords.map(
+        (kw, index) => ({
+          id: index + 1,
+          ...kw,
         })
       );
 
-      this.logger.debug(
-        `primary-keyword suggested blog=${blogId} seeds="${seeds}" related_len=${keywordCandidates.length}`
-      );
-
       const primaryRes = await this.groq.chatJson<
-        z.infer<typeof KeywordsSchema>
+        z.infer<typeof SelectedKeywordsSchema>
       >({
-        name: "primary_keywords",
-        schema: KeywordsSchema,
+        name: "primary_keyword_selection",
+        schema: SelectedKeywordsSchema,
         messages: [
           { role: "system", content: this.loadPrompt("primary-keywords.md") },
           {
@@ -327,45 +300,30 @@ export class SuggestionsService {
           },
         ],
         temperature: 0.3,
-        reasoningEffort: 'low'
+        reasoningEffort: "low",
       });
 
-      this.logger.debug(
-        `primary-keyword llm-items blog=${blogId} seeds="${seeds}" llm_items_len=${primaryRes.items.length}`
-      );
+      const byId = new Map(keywordCandidates.map((kw) => [kw.id, kw]));
 
-      const byId = new Map<number, KeywordCandidate>();
-      for (const kw of keywordCandidates) {
-        byId.set(kw.id, kw);
-      }
-
-      const suggestedKeywords: SuggestedKeyword[] = primaryRes.items
+      const keywords: SuggestedKeyword[] = primaryRes.items
         .map(({ id, recommended }) => {
           const base = byId.get(id);
           if (!base) {
-            this.logger.debug(
-              `primary-keyword missing-id blog=${blogId} id=${id}`
+            this.logger.warn(
+              `primary-keyword missing_id blog=${blogId} id=${id}`
             );
             return null;
           }
-          return {
-            ...base,
-            recommended,
-          };
+          return { ...base, recommended };
         })
         .filter((x): x is SuggestedKeyword => x !== null);
 
-      this.logger.debug(
-        `primary-keyword suggested blog=${blogId} seeds="${seeds}"suggested_len=${suggestedKeywords.length}`
-      );
+      await this.setCached(key, keywords, ONE_DAY_MS);
 
-      await this.cache.set(key, suggestedKeywords, TWO_DAYS_MS);
-      this.logger.debug(`primary-keyword cached blog=${blogId} sig=${sig}`);
-
-      return suggestedKeywords;
+      return keywords;
     } catch (e: any) {
       this.logger.error(
-        `primary-keyword error blog=${blogId}: ${e?.message}`,
+        `primary-keyword failed blog=${blogId}: ${e?.message}`,
         e?.stack
       );
       throw e;
@@ -378,8 +336,6 @@ export class SuggestionsService {
         where: { id: blogId },
         select: {
           id: true,
-          searchIntent: true,
-          targetPersona: true,
           primaryKeyword: true,
           topic: true,
           products: {
@@ -406,68 +362,33 @@ export class SuggestionsService {
         },
       });
 
-      this.logger.debug(
-        `secondary-keywords blog=${blogId} store=${blog.store.name} topic="${blog.topic}" primary="${blog.primaryKeyword}" intent=${blog.searchIntent} persona=${blog.targetPersona} products=${blog.products.length} collections=${blog.collections.length}`
-      );
-
       const sig = this.shortHash([
         blog.store.name,
         blog.store.description,
         blog.topic,
         blog.primaryKeyword,
-        blog.targetPersona,
-        blog.searchIntent,
         blog.products.map((p) => p.id),
         blog.collections.map((c) => c.id),
       ]);
 
       const key = `${CACHE_NS}:${CACHE_V}:secondary-keywords:${blog.store.id}:${sig}`;
+      const cached = await this.getCached<SuggestedKeyword[]>(key);
 
-      const cached = await this.cache.get<SuggestedKeyword[]>(key);
       if (cached?.length) {
-        this.logger.debug(
-          `secondary-keywords hit blog=${blogId} sig=${sig} suggested_len=${cached.length}`
-        );
         return cached;
       }
-      this.logger.debug(`secondary-keywords miss blog=${blogId} sig=${sig}`);
-
-      const payload = {
-        store: {
-          name: blog.store.name,
-          description: blog.store.description,
-        },
-        blog: {
-          targetPersona: blog.targetPersona,
-          searchIntent: blog.searchIntent,
-          topic: blog.topic,
-          primaryKeyword: blog.primaryKeyword,
-        },
-        products: blog.products.map((p) => ({
-          name: p.title,
-          description: p.description,
-        })),
-        collections: blog.collections.map((c) => ({
-          name: c.title,
-          description: c.description,
-        })),
-      };
 
       const task: KeywordIdeasTask = {
         keywords: [blog.primaryKeyword!],
-        language_name: "English",
-        location_code: 2840,
+        language_code: DATAFORSEO_LANGUAGE,
+        location_code: DATAFORSEO_LOCATION,
         ignore_synonyms: false,
         closely_variants: false,
         filters: [
           [
-            ["keyword_info.search_volume", ">=", 50],
+            ["keyword_info.search_volume", ">=", 10],
             "and",
-            ["keyword_info.search_volume", "<=", 5000],
-            "and",
-            ["keyword_properties.keyword_difficulty", "<=", 60],
-            "and",
-            ["search_intent_info.main_intent", "<>", "transactional"],
+            ["keyword_properties.keyword_difficulty", "<=", 50],
             "and",
             ["search_intent_info.main_intent", "<>", "navigational"],
           ],
@@ -476,25 +397,27 @@ export class SuggestionsService {
           "keyword_info.search_volume,desc",
           "keyword_properties.keyword_difficulty,asc",
         ],
-        limit: 300,
+        limit: 500,
       };
 
-      const response = await this.dataForSeo.getKeywordIdeas(task)
-      const items = response.tasks?.[0]?.result?.[0]?.items ?? []
+      const response = await this.dataForSeo.getKeywordIdeas(task);
+      const items = response.tasks?.[0]?.result?.[0]?.items ?? [];
+
+      if (!items.length) {
+        throw new Error(
+          `No keyword ideas returned for primary keyword: ${blog.primaryKeyword}`
+        );
+      }
 
       const seen = new Set<string>();
-      const rawKeywords = items.filter((item) => {
-        const k = item.keyword.toLowerCase();
-        if (seen.has(k)) return false;
-        seen.add(k);
+      const uniqueItems = items.filter((item) => {
+        const normalized = item.keyword.toLowerCase();
+        if (seen.has(normalized)) return false;
+        seen.add(normalized);
         return true;
       });
 
-      if (!rawKeywords.length) {
-        throw new Error("no keywords returned from keyword_suggestions");
-      }
-
-      const keywordCandidates: KeywordCandidate[] = rawKeywords.map(
+      const keywordCandidates: KeywordCandidate[] = uniqueItems.map(
         (item, index) => ({
           id: index + 1,
           keyword: item.keyword,
@@ -504,15 +427,13 @@ export class SuggestionsService {
         })
       );
 
-      this.logger.debug(
-        `secondary-keyword suggested blog=${blogId} seed="${blog.primaryKeyword}" related_len=${keywordCandidates.length}`
-      );
+      const payload = this.buildBlogPayload(blog);
 
       const secondaryRes = await this.groq.chatJson<
-        z.infer<typeof KeywordsSchema>
+        z.infer<typeof SelectedKeywordsSchema>
       >({
-        name: "secondary_keywords",
-        schema: KeywordsSchema,
+        name: "secondary_keyword_selection",
+        schema: SelectedKeywordsSchema,
         messages: [
           { role: "system", content: this.loadPrompt("secondary-keywords.md") },
           {
@@ -524,45 +445,30 @@ export class SuggestionsService {
           },
         ],
         temperature: 0.3,
-        reasoningEffort: 'low'
+        reasoningEffort: "low",
       });
 
-      this.logger.debug(
-        `secondary-keyword llm-items blog=${blogId} seed="${blog.primaryKeyword}" llm_items_len=${secondaryRes.items.length}`
-      );
-
-      const byId = new Map<number, KeywordCandidate>();
-      for (const kw of keywordCandidates) {
-        byId.set(kw.id, kw);
-      }
+      const byId = new Map(keywordCandidates.map((kw) => [kw.id, kw]));
 
       const suggestedKeywords: SuggestedKeyword[] = secondaryRes.items
         .map(({ id, recommended }) => {
           const base = byId.get(id);
           if (!base) {
-            this.logger.debug(
-              `secondary-keyword missing-id blog=${blogId} id=${id}`
+            this.logger.warn(
+              `secondary-keywords missing_id blog=${blogId} id=${id}`
             );
             return null;
           }
-          return {
-            ...base,
-            recommended,
-          };
+          return { ...base, recommended };
         })
         .filter((x): x is SuggestedKeyword => x !== null);
 
-      this.logger.debug(
-        `secondary-keyword suggested blog=${blogId} seed="${blog.primaryKeyword}"suggested_len=${suggestedKeywords.length}`
-      );
-
-      await this.cache.set(key, suggestedKeywords, TWO_DAYS_MS);
-      this.logger.debug(`secondary-keyword cached blog=${blogId} sig=${sig}`);
+      await this.setCached(key, suggestedKeywords, TWO_DAYS_MS);
 
       return suggestedKeywords;
     } catch (e: any) {
       this.logger.error(
-        `secondary-keywords error blog=${blogId}: ${e?.message}`,
+        `secondary-keywords failed blog=${blogId}: ${e?.message}`,
         e?.stack
       );
       throw e;

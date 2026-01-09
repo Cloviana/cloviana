@@ -6,4 +6,4 @@ import { ClaudeClient } from "./claude.client";
   providers: [ClaudeClient],
   exports: [ClaudeClient],
 })
-export class GroqModule {}
+export class ClaudeModule {}
