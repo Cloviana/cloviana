@@ -83,6 +83,7 @@ type PayloadByType = {
   LINK: { href: string; title?: string };
   QUOTE: Record<string, never>;
   LINEBREAK: Record<string, never>;
+  IMAGE: { src: string; altText: string };
 };
 
 export type Node = {

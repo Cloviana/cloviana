@@ -251,3 +251,38 @@ export interface KeywordSuggestionItem {
   keyword_info_normalized_with_bing?: NormalizedKeywordInfo;
   keyword_info_normalized_with_clickstream?: NormalizedKeywordInfo;
 }
+
+export interface KeywordOverviewTask {
+  keywords: string[];
+  location_name?: string;
+  location_code?: number;
+  language_name?: string;
+  language_code?: string;
+  include_serp_info?: boolean;
+  include_clickstream_data?: boolean;
+  tag?: string;
+}
+
+export interface KeywordOverviewResult {
+  se_type: string;
+  location_code: number;
+  language_code: string;
+  items_count: number;
+  items: KeywordOverviewItem[];
+}
+
+export interface KeywordOverviewItem {
+  se_type: string;
+  keyword: string;
+  location_code: number;
+  language_code: string;
+  search_partners?: boolean;
+  keyword_info?: KeywordInfo;
+  clickstream_keyword_info?: ClickstreamKeywordInfo;
+  keyword_properties?: KeywordProperties;
+  serp_info?: SerpInfo | null;
+  avg_backlinks_info?: AvgBacklinksInfo;
+  search_intent_info?: SearchIntentInfo;
+  keyword_info_normalized_with_bing?: NormalizedKeywordInfo;
+  keyword_info_normalized_with_clickstream?: NormalizedKeywordInfo;
+}

@@ -101,6 +101,7 @@ export const NodeSchema = z.discriminatedUnion("type", [
   ListNodeSchema,
   ListItemNodeSchema,
   RootNodeSchema,
+  ImageNodeSchema,
   LinkNodeSchema,
   QuoteNodeSchema,
   LineBreakNodeSchema,

@@ -1,12 +1,9 @@
 import { z } from "zod";
 
 export const KeywordsSchema = z.object({
-  items: z
+  keywords: z
     .array(
-      z.object({
-        id: z.number(),
-        recommended: z.boolean(),
-      }),
-    )
+      z.string()
+    ).length(50)
 });
-export type PrimaryKeywords = z.infer<typeof KeywordsSchema>;
+export type Keywords = z.infer<typeof KeywordsSchema>;

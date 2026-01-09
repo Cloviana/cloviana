@@ -65,12 +65,7 @@ export class ClaudeClient {
         system,
         messages: chatMessages,
         temperature,
-        ...(reasoningEffort &&
-        reasoningEffort !== "default" &&
-        reasoningEffort !== "none" &&
-        model.includes("opus-4-5")
-          ? { effort: reasoningEffort }
-          : {}),
+        effort: reasoningEffort
       } as any);
 
       return this.extractText(completion);

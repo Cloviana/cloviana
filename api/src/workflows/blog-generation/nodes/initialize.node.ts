@@ -18,7 +18,6 @@ export async function initialize(
   const _context: Context = {
     core: {
       topic: blog.topic!,
-      searchIntent: blog.searchIntent!,
       wordCountRange: {
         min: 600,
         max: 800,
@@ -33,24 +32,25 @@ export async function initialize(
       description: blog.store.description!,
       voice: blog.brandVoice!,
     },
-    audience: {
-      persona: blog.targetPersona!,
-    },
     referenceMaterial: {
       products: blog.products.map((p) => ({
         title: p.title!,
         description: p.description!,
         url: p.url!,
         imageUrl: p.imageUrl || undefined,
+        id: p.id
       })),
       collections: blog.collections.map((c) => ({
         title: c.title!,
         description: c.description!,
         url: c.url!,
         imageUrl: c.imageUrl || undefined,
+        id: c.id
       })),
     },
   };
+
+  console.log(JSON.stringify(_context));
 
   return {
     _context,

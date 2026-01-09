@@ -170,8 +170,6 @@ export class BlogsService {
       if (
         !b.topic ||
         !b.primaryKeyword ||
-        !b.targetPersona ||
-        !b.searchIntent ||
         !b.secondaryKeywords?.length ||
         b.currentStep !== "COMPLETED"
       ) {
