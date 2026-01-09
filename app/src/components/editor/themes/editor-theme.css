@@ -89,3 +89,10 @@
 .Collapsible__container[open] > .Collapsible__title {
   list-style-type: disclosure-open;
 }
+
+.editor-image img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+}

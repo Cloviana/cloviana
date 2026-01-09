@@ -4,3 +4,5 @@ export * from "./prisma/prisma.module";
 export * from "./smtp/smtp.module";
 export * from "./supabase/supabase.module";
 export * from "./groq/groq.module";
+export * from "./openai/openai.module";
+export * from "./claude/claude.module";

@@ -41,7 +41,12 @@ export const ProductStep = () => {
 
   const { mutateAsync: updateBlog, isPending } = useUpdateBlog();
 
-  const hasSelection = linkedItems.length > 0;
+  const productCount = useMemo(
+    () => linkedItems.filter((i) => i.type === 'PRODUCT').length,
+    [linkedItems],
+  );
+
+  const hasValidSelection = productCount >= 1 && productCount <= 3;
 
   const hasChanges = useMemo(() => {
     if (!blog) return false;
@@ -57,7 +62,7 @@ export const ProductStep = () => {
   }, [blog, linkedItems]);
 
   const handleNext = async () => {
-    if (!hasSelection) return;
+    if (!hasValidSelection) return;
 
     if (hasChanges) {
       await updateBlog({
@@ -75,19 +80,38 @@ export const ProductStep = () => {
     goNext();
   };
 
+  const handleSelect = (items: CatalogSelection[]) => {
+    let productSeen = 0;
+
+    const next: CatalogSelection[] = [];
+
+    for (const item of items) {
+      if (item.type === 'PRODUCT') {
+        if (productSeen < 3) {
+          next.push(item);
+          productSeen += 1;
+        }
+      } else {
+        next.push(item);
+      }
+    }
+
+    setLinkedItems(next);
+  };
+
   return (
     <StepWrapper
       title={step.title}
       description={step.description}
       onNext={handleNext}
       onBack={goPrev}
-      isNextDisabled={!hasSelection}
+      isNextDisabled={!hasValidSelection}
       isNextLoading={isPending}
     >
       <CatalogAutocomplete
         storeId={storeId}
         value={linkedItems}
-        onSelect={setLinkedItems}
+        onSelect={handleSelect}
       />
     </StepWrapper>
   );

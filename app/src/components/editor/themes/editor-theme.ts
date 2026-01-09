@@ -54,9 +54,11 @@ export const editorTheme: EditorThemeClasses = {
     underline: 'underline',
     underlineStrikethrough: 'underline line-through',
   },
-  image: 'relative inline-block user-select-none cursor-default editor-image',
+  image:
+    'relative inline-block w-full user-select-none cursor-default editor-image',
   inlineImage:
     'relative inline-block user-select-none cursor-default inline-editor-image',
+
   keyword: 'text-purple-900 font-bold',
   code: 'EditorTheme__code',
   codeHighlight: {

@@ -71,9 +71,33 @@ type LexicalNode =
       version: 1;
     }
   | {
+      type: 'image';
+      src: string;
+      altText: string;
+      width: number;
+      height: number;
+      maxWidth: number;
+      showCaption: boolean;
+      caption: {
+        editorState: SerializedEditorState;
+      };
+      version: 1;
+    }
+  | {
       type: 'linebreak';
       version: 1;
     };
+
+const emptyEditorState = (): SerializedEditorState => ({
+  root: {
+    children: [],
+    direction: 'ltr',
+    format: '',
+    indent: 0,
+    type: 'root',
+    version: 1,
+  },
+});
 
 export function nodesToLexicalState(nodes: Node[]): SerializedEditorState {
   const byParent: Record<string, Node[]> = {};
@@ -179,6 +203,18 @@ export function nodesToLexicalState(nodes: Node[]): SerializedEditorState {
           direction: 'ltr',
           format: '',
           indent: 0,
+          version: 1,
+        };
+      } else if (k.type === 'IMAGE') {
+        node = {
+          type: 'image',
+          src: k.payload?.src ?? '',
+          altText: k.payload?.altText ?? '',
+          width: 0,
+          height: 0,
+          maxWidth: 500,
+          showCaption: false,
+          caption: { editorState: emptyEditorState() },
           version: 1,
         };
       } else if (k.type === 'LINEBREAK') {
