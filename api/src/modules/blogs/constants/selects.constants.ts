@@ -28,7 +28,6 @@ export const BLOG_DETAIL_SELECT: Prisma.BlogSelect = {
   id: true,
   title: true,
   topic: true,
-  additionalInstruction: true,
   primaryKeyword: true,
   secondaryKeywords: true,
   currentStep: true,
@@ -58,17 +57,8 @@ export const BLOG_DETAIL_SELECT: Prisma.BlogSelect = {
       payload: true,
     },
   },
-  targetPersona: true,
-  searchIntent: true,
+  contentType: true,
   products: {
-    select: {
-      id: true,
-      title: true,
-      imageUrl: true,
-      url: true,
-    },
-  },
-  collections: {
     select: {
       id: true,
       title: true,

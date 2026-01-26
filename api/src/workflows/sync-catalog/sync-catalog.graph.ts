@@ -1,5 +1,10 @@
 import { END, START, StateGraph } from "@langchain/langgraph";
-import { fetchCollections, fetchProducts, initialize, saveCatalog } from "./nodes";
+import {
+  fetchCollections,
+  fetchProducts,
+  initialize,
+  saveCatalog,
+} from "./nodes";
 import { StateAnnotation } from "./sync-catalog.state";
 
 export const graph = new StateGraph(StateAnnotation)

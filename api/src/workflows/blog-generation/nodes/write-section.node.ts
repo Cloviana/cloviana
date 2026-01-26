@@ -1,76 +1,111 @@
-import pRetry from "p-retry";
 import path from "path";
 import { fileURLToPath } from "url";
-import { HumanMessage, SystemMessage } from "langchain";
-import { ChatGroq } from "@langchain/groq";
-import { StateAnnotation } from "../blog-generation.state";
-import { loadPromptHbs } from "@/workflows/blog-generation/utils/load-prompt-hbs.util";
-import { WRITER_PROMPT_MAP } from "@/workflows/blog-generation/constants/writer-prompt";
 
-const toText = (content: unknown) => {
-  if (typeof content === "string") return content;
-  if (Array.isArray(content)) {
-    return content
-      .map((p: any) => (typeof p === "string" ? p : p?.text ?? ""))
-      .join("");
-  }
-  return String(content ?? "");
-};
+import { GroqClient } from "@/clients/groq/groq.client";
+import { loadPromptHbs } from "@/common/utils/load-prompt-hbs.util";
+import { JobsService } from "@/modules/jobs/jobs.service";
+import { computePercent } from "@/workflows/blog-generation/utils/compute-percent.util";
+import { requiredFeaturedLinks } from "@/workflows/blog-generation/utils/required-featured-links.util";
+import { RunnableConfig } from "@langchain/core/runnables";
+import { StateAnnotation } from "../blog-generation.state";
 
 export async function writeSection(
-  state: typeof StateAnnotation.State
+  state: typeof StateAnnotation.State,
+  { configurable }: RunnableConfig,
 ): Promise<Partial<typeof StateAnnotation.State>> {
+  const jobs = configurable?.jobs as JobsService | undefined;
+  const jobId = configurable?.jobId as string | undefined;
+  if (!jobs) throw new Error("jobs service not provided");
+  if (!jobId) throw new Error("jobId not provided");
+
   const baseDir = path.resolve(
     path.dirname(fileURLToPath(import.meta.url)),
-    "../prompts"
+    "../prompts",
   );
-  const partialsDir = path.join(baseDir, "partials");
 
   const sectionId = state._currentSectionId;
-  if (!sectionId) {
-    throw new Error("writeSection: _currentSectionId is null");
-  }
+  if (!sectionId) throw new Error("writeSection: _currentSectionId is null");
 
-  const section =
-    state._outline?.sections?.find((s) => s.sectionId === sectionId) ?? null;
+  const section = state._outline?.sections?.find(
+    (s) => s.sectionId === sectionId,
+  );
+  if (!section)
+    throw new Error(`writeSection: section not found sectionId=${sectionId}`);
 
-  if (!section) {
-    throw new Error(`writeSection: section not found for sectionId=${sectionId}`);
-  }
+  const totalSections = state._sectionOrder?.length ?? 0;
+  const completedSections = Object.values(state._sectionDrafts ?? {}).filter(
+    (v) => typeof v === "string" && v.trim().length > 0,
+  ).length;
 
-  const role = section.role as keyof typeof WRITER_PROMPT_MAP;
-        
-    const prompt = await loadPromptHbs(WRITER_PROMPT_MAP[role], {}, { baseDir, partialsDir });
-  
-
-  const llm = new ChatGroq({
-    model: "openai/gpt-oss-120b",
-    temperature: 0.4,
+  const percent = computePercent({
+    phase: "writing",
+    prevPercent: state._progressPercent ?? 0,
+    totalSections,
+    completedSections,
   });
 
-  const msg = await pRetry(
-    async () => {
-      return await llm.invoke([
-        new SystemMessage(prompt),
-        new HumanMessage(
-          JSON.stringify({
-            context: state._context,
-            strategy: state._strategy,
-            section,
-            draftSoFar: {
-              sectionIdsInOrder: state._sectionOrder ?? [],
-              sectionDrafts: state._sectionDrafts ?? {},
-            },
-          })
-        ),
-      ]);
+  await jobs.setRuntime(jobId, {
+    title: "Writing sections",
+    percent,
+  });
+
+  const prompt = await loadPromptHbs(
+    "nodes/write-section",
+    {
+      metadata: {
+        contentType: state._context.core.contentType,
+        section: { role: section.role },
+      },
     },
-    { retries: 2, minTimeout: 8000, maxTimeout: 60000 }
+    {
+      baseDir,
+      partialsDir: baseDir,
+      helpers: { concat: (...args: any[]) => args.slice(0, -1).join("") },
+    },
   );
 
-  const markdown = toText(msg.content).trim();
+  const requiredLinks = requiredFeaturedLinks(section, state._context);
+  const requiredKeywords = section.keywords ?? [];
 
-  console.log(`Generated draft for sectionId=${sectionId}:\n${markdown}`);
+  const payload = {
+    context: state._context,
+    strategy: state._strategy,
+    section,
+    draftSoFar: {
+      sections: state._sectionDrafts ?? {},
+    },
+    invariants: {
+      requiredLinks,
+      requiredKeywords,
+    },
+  };
+
+  const start = Date.now();
+
+  const groq = new GroqClient();
+
+  const text = await groq.chat({
+    model: "openai/gpt-oss-120b",
+    temperature: 0.28,
+    topP: 0.92,
+    reasoningEffort: "low",
+    messages: [
+      { role: "system", content: prompt },
+      { role: "user", content: JSON.stringify(payload) },
+    ],
+  });
+
+  const markdown = text.trim();
+
+  const durationMs = Date.now() - start;
+
+  console.debug("[writeSection] drafted", {
+    blogId: state._blogId,
+    sectionId,
+    role: section.role,
+    durationMs,
+    preview: markdown.slice(0, 200),
+  });
 
   return {
     _sectionDrafts: {

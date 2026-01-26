@@ -1,181 +1,134 @@
 import { z } from "zod";
+import {
+  ComparisonRole,
+  ProblemSolutionRole,
+  ROLE,
+} from "../constants/roles.constants";
 
-export const CritiqueSeveritySchema = z.enum(["low", "medium", "high"]);
+const Bool = z.boolean();
 
 export const CritiqueRuleIdSchema = z.enum([
-  "heading_rules",
   "no_meta_language",
-  "bullet_list_limits",
-  "no_labeled_subsections",
-  "role_product_link_rules",
-  "product_first_link",
-  "link_count_conclusion",
-  "no_products_in_disallowed_roles",
-  "no_repetition_vs_draft_so_far",
-  "no_new_claims",
+  "claims_defensibility",
   "no_medical_certainty",
-  "grade_level_style",
-  "talking_points_coverage",
-  "goal_fulfillment",
-  "keyword_intent_satisfaction",
-  "defensibility_no_undefensible_lines",
-  "word_budget_section"
+  "no_generic_filler",
+  "markdown_only",
+
+  "word_budget_section",
+  "blocks_contract",
+
+  "keywords_appear",
+
+  "featured_assets_all_linked",
+  "no_standalone_product_links",
+
+  "baseline_consistency",
+  "decision_hinge_is_choice_framework",
+  "segment_clarity_no_overlap",
 ]);
 
 export const CritiqueIssueSchema = z.object({
-  severity: CritiqueSeveritySchema,
   ruleId: CritiqueRuleIdSchema,
-  sectionId: z.string(),
-  location: z.object({
-    kind: z.enum(["heading", "paragraph", "sentence", "link", "throughout"]),
-    index: z.number().int().min(0).nullable(),
-  }),
   evidence: z.string().min(1),
   fix: z.string().min(1),
 });
 
 const ReviewChecklistBaseSchema = z.object({
-  no_meta_language: z.boolean(),
-  bullet_list_limits: z.boolean(),
-  no_labeled_subsections: z.boolean(),
-  no_repetition_vs_draft_so_far: z.boolean(),
-  no_new_claims: z.boolean(),
-  no_medical_certainty: z.boolean(),
-  grade_level_style: z.boolean(),
-  talking_points_coverage: z.boolean(),
-  goal_fulfillment: z.boolean(),
-  keyword_intent_satisfaction: z.boolean(),
-  defensibility_no_undefensible_lines: z.boolean(),
-  word_budget_section: z.boolean(),
+  no_meta_language: Bool,
+  claims_defensibility: Bool,
+  no_medical_certainty: Bool,
+  no_generic_filler: Bool,
+
+  word_budget_section: Bool,
+  blocks_contract: Bool,
+
+  keywords_appear: Bool,
+  markdown_only: Bool,
 });
 
-const ReviewChecklistIntroSchema = ReviewChecklistBaseSchema.extend({
-  heading_rules: z.boolean(),
-  no_products_in_disallowed_roles: z.boolean(),
-});
+type Role = ProblemSolutionRole | ComparisonRole;
 
-const ReviewChecklistProblemSchema = ReviewChecklistBaseSchema.extend({
-  heading_rules: z.boolean(),
-  no_products_in_disallowed_roles: z.boolean(),
-});
+const roleExtras = {
+  [ROLE.INTRO]: {},
 
-const ReviewChecklistSolutionFrameworkSchema = ReviewChecklistBaseSchema.extend({
-  heading_rules: z.boolean(),
-  no_products_in_disallowed_roles: z.boolean(),
-});
+  [ROLE.PROBLEM]: {},
+  [ROLE.SOLUTION_FRAMEWORK]: {},
 
-const ReviewChecklistProductRecommendationSchema = ReviewChecklistBaseSchema.extend({
-  heading_rules: z.boolean(),
-  role_product_link_rules: z.boolean(),
-  product_first_link: z.boolean(),
-});
+  [ROLE.PRODUCT_RECOMMENDATION]: {
+    featured_assets_all_linked: Bool,
+    no_standalone_product_links: Bool,
+  },
 
-const ReviewChecklistObjectionsSchema = ReviewChecklistBaseSchema.extend({
-  heading_rules: z.boolean(),
-  role_product_link_rules: z.boolean(),
-  no_products_in_disallowed_roles: z.boolean(),
-});
+  [ROLE.OBJECTIONS]: {
+    featured_assets_all_linked: Bool,
+    no_standalone_product_links: Bool,
+  },
 
-const ReviewChecklistConclusionCtaSchema = ReviewChecklistBaseSchema.extend({
-  heading_rules: z.boolean(),
-  role_product_link_rules: z.boolean(),
-  product_first_link: z.boolean(),
-  link_count_conclusion: z.boolean(),
-});
+  [ROLE.CONCLUSION_CTA]: {
+    featured_assets_all_linked: Bool,
+    no_standalone_product_links: Bool,
+  },
 
-const ReviewSectionBaseFields = {
-  pass: z.boolean(),
-  role: z.enum([
-    "intro",
-    "problem",
-    "solution_framework",
-    "product_recommendation",
-    "objections",
-    "conclusion_cta",
-  ]),
-  sectionId: z.string(),
-  summary: z.string().min(1),
-  missingTalkingPoints: z.array(z.string()),
-  issues: z.array(CritiqueIssueSchema),
-};
+  [ROLE.SHARED_BASELINE]: {
+    baseline_consistency: Bool,
+  },
 
-const ReviewSectionIntroSchema = z
-  .object({
-    ...ReviewSectionBaseFields,
-    role: z.literal("intro"),
-    checklist: ReviewChecklistIntroSchema,
-  })
-  .superRefine(passInvariant);
+  [ROLE.OPTION_A_ANALYSIS]: {
+    baseline_consistency: Bool,
+  },
 
-const ReviewSectionProblemSchema = z
-  .object({
-    ...ReviewSectionBaseFields,
-    role: z.literal("problem"),
-    checklist: ReviewChecklistProblemSchema,
-  })
-  .superRefine(passInvariant);
+  [ROLE.OPTION_B_ANALYSIS]: {
+    baseline_consistency: Bool,
+  },
 
-const ReviewSectionSolutionFrameworkSchema = z
-  .object({
-    ...ReviewSectionBaseFields,
-    role: z.literal("solution_framework"),
-    checklist: ReviewChecklistSolutionFrameworkSchema,
-  })
-  .superRefine(passInvariant);
+  [ROLE.WHO_SHOULD_CHOOSE]: {
+    segment_clarity_no_overlap: Bool,
+  },
 
-const ReviewSectionProductRecommendationSchema = z
-  .object({
-    ...ReviewSectionBaseFields,
-    role: z.literal("product_recommendation"),
-    checklist: ReviewChecklistProductRecommendationSchema,
-  })
-  .superRefine(passInvariant);
+  [ROLE.DECISION_AND_RECOMMENDATION]: {
+    featured_assets_all_linked: Bool,
+    no_standalone_product_links: Bool,
+  },
+} as const;
 
-const ReviewSectionObjectionsSchema = z
-  .object({
-    ...ReviewSectionBaseFields,
-    role: z.literal("objections"),
-    checklist: ReviewChecklistObjectionsSchema,
-  })
-  .superRefine(passInvariant);
+function checklistForRole(role: Role) {
+  const extras = (roleExtras as Record<string, z.ZodRawShape>)[role] ?? {};
+  return ReviewChecklistBaseSchema.extend({
+    role: z.literal(role),
+    ...extras,
+  });
+}
 
-const ReviewSectionConclusionCtaSchema = z
-  .object({
-    ...ReviewSectionBaseFields,
-    role: z.literal("conclusion_cta"),
-    checklist: ReviewChecklistConclusionCtaSchema,
-  })
-  .superRefine(passInvariant);
+export const ReviewChecklistSchema = z.discriminatedUnion("role", [
+  checklistForRole(ROLE.INTRO),
 
-export const ReviewSectionSchema = z.discriminatedUnion("role", [
-  ReviewSectionIntroSchema,
-  ReviewSectionProblemSchema,
-  ReviewSectionSolutionFrameworkSchema,
-  ReviewSectionProductRecommendationSchema,
-  ReviewSectionObjectionsSchema,
-  ReviewSectionConclusionCtaSchema,
+  checklistForRole(ROLE.PROBLEM),
+  checklistForRole(ROLE.SOLUTION_FRAMEWORK),
+
+  checklistForRole(ROLE.PRODUCT_RECOMMENDATION),
+  checklistForRole(ROLE.OBJECTIONS),
+  checklistForRole(ROLE.CONCLUSION_CTA),
+
+  checklistForRole(ROLE.SHARED_BASELINE),
+
+  checklistForRole(ROLE.OPTION_A_ANALYSIS),
+  checklistForRole(ROLE.OPTION_B_ANALYSIS),
+
+  checklistForRole(ROLE.WHO_SHOULD_CHOOSE),
+  checklistForRole(ROLE.DECISION_AND_RECOMMENDATION),
 ]);
 
-export type ReviewSection = z.infer<typeof ReviewSectionSchema>;
+export type ReviewChecklist = z.infer<typeof ReviewChecklistSchema>;
 
-export function getReviewSchemaForRole(role: ReviewSection["role"]) {
-  switch (role) {
-    case "intro":
-      return ReviewSectionIntroSchema;
-    case "problem":
-      return ReviewSectionProblemSchema;
-    case "solution_framework":
-      return ReviewSectionSolutionFrameworkSchema;
-    case "product_recommendation":
-      return ReviewSectionProductRecommendationSchema;
-    case "objections":
-      return ReviewSectionObjectionsSchema;
-    case "conclusion_cta":
-      return ReviewSectionConclusionCtaSchema;
-    default:
-      return ReviewSectionSchema;
-  }
-}
+export const ReviewSectionSchema = z
+  .object({
+    pass: Bool,
+    checklist: ReviewChecklistSchema,
+    issues: z.array(CritiqueIssueSchema),
+  })
+  .superRefine(passInvariant);
+
+export type ReviewSection = z.infer<typeof ReviewSectionSchema>;
 
 function passInvariant(val: any, ctx: z.RefinementCtx) {
   if (!val.pass) return;
@@ -184,16 +137,12 @@ function passInvariant(val: any, ctx: z.RefinementCtx) {
     ctx.addIssue({ code: "custom", message: "pass=true requires issues=[]" });
   }
 
-  if (val.missingTalkingPoints.length !== 0) {
-    ctx.addIssue({
-      code: "custom",
-      message: "pass=true requires missingTalkingPoints=[]",
-    });
-  }
+  const checklist = val.checklist ?? {};
+  const statuses = Object.entries(checklist)
+    .filter(([k]) => k !== "role")
+    .map(([, v]) => v) as boolean[];
 
-  const statuses = Object.values(val.checklist) as Boolean[];
-  const hasFail = statuses.some((s) => s === false);
-  if (hasFail) {
+  if (statuses.some((s) => s === false)) {
     ctx.addIssue({
       code: "custom",
       message: 'pass=true requires no checklist item to be "fail"',

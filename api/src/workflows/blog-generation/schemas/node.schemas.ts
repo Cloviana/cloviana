@@ -15,7 +15,7 @@ export type HeadingNode = {
 };
 export type ListItemNode = {
   type: "LIST_ITEM";
-  children: (ParagraphNode | ListNode)[];
+  children: Node[];
 };
 export type ListNode = {
   type: "LIST";
@@ -59,7 +59,7 @@ export const HeadingNodeSchema = z.object({
 
 export const ListItemNodeSchema = z.object({
   type: z.literal("LIST_ITEM"),
-  children: z.array(z.lazy(() => TextNodeSchema)),
+  children: z.array(z.lazy(() => NodeSchema)),
 });
 
 export const ListNodeSchema = z.object({

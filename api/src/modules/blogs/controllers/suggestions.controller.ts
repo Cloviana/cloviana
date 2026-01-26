@@ -1,3 +1,4 @@
+import { StoreOwnerGuard } from "@/guards/store-owner.guard";
 import {
   Controller,
   Get,
@@ -7,8 +8,7 @@ import {
   Req,
   UseGuards,
 } from "@nestjs/common";
-import { SuggestionsService } from "../services/suggestions.service"
-import { StoreOwnerGuard } from "@/guards/store-owner.guard";
+import { SuggestionsService } from "../services/suggestions.service";
 
 @Controller("stores/:storeId/blogs/:blogId/suggestions")
 @UseGuards(StoreOwnerGuard)
@@ -33,4 +33,3 @@ export class SuggestionsController {
     return this.suggestions.suggestSecondaryKeywords(blogId);
   }
 }
-

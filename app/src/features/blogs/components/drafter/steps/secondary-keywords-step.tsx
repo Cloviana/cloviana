@@ -1,6 +1,9 @@
 import { X } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 
+import { paths } from '@/config/paths';
+import { useGenerateBlog } from '@/features/blogs/api/generate-blog';
 import { useGetBlog } from '@/features/blogs/api/get-blog';
 import { useGetSecondaryKeywordSuggestions } from '@/features/blogs/api/get-secondary-keywords-suggestions';
 import { useUpdateBlog } from '@/features/blogs/api/update-blog';
@@ -64,6 +67,7 @@ function SelectedKeywordsChips({
 }
 
 export const SecondaryKeywordsStep = () => {
+  const { push } = useRouter();
   const { steps, currentIndex, storeId, blogId, goNext, goPrev } = useDrafter();
   const step = steps[currentIndex];
 
@@ -81,7 +85,9 @@ export const SecondaryKeywordsStep = () => {
     blogId,
   });
 
-  const { mutateAsync: updateBlog, isPending } = useUpdateBlog();
+  const { mutateAsync: updateBlog, isPending: isUpdating } = useUpdateBlog();
+  const { mutateAsync: generateBlog, isPending: isGenerating } =
+    useGenerateBlog();
 
   const [selected, setSelected] = useState<string[]>([]);
 
@@ -136,22 +142,30 @@ export const SecondaryKeywordsStep = () => {
       storeId,
       blogId,
       secondaryKeywords: selected,
-      currentStep: steps[currentIndex + 1].dbEnum,
+      currentStep: 'COMPLETED',
     });
+
+    await generateBlog({ data: { storeId, blogId } });
+
+    push(paths.store.blogs.editor.getHref(storeId, blogId));
 
     goNext();
   };
 
   const handleToggle = (keyword: string) => {
     const set = new Set(selected);
-    if (set.has(keyword)) set.delete(keyword);
-    else set.add(keyword);
+    if (set.has(keyword)) {
+      set.delete(keyword);
+    } else {
+      if (set.size >= 5) return;
+      set.add(keyword);
+    }
     setSelected(Array.from(set));
   };
 
   const handleSelectAll = (shouldSelect: boolean) => {
     if (shouldSelect) {
-      setSelected(mergedRows.map((r) => r.keyword));
+      setSelected(mergedRows.slice(0, 5).map((r) => r.keyword));
     } else {
       setSelected([]);
     }
@@ -166,7 +180,7 @@ export const SecondaryKeywordsStep = () => {
       onNext={handleNext}
       onBack={goPrev}
       isNextDisabled={!isFormValid}
-      isNextLoading={isPending}
+      isNextLoading={isUpdating || isGenerating}
     >
       <div className="space-y-6">
         <SelectedKeywordsChips
@@ -174,7 +188,7 @@ export const SecondaryKeywordsStep = () => {
           value={selected}
           onRemove={(k) => setSelected(selected.filter((x) => x !== k))}
           onClear={() => setSelected([])}
-          limit={30}
+          limit={5}
         />
 
         {showSuggestionsLoading && (

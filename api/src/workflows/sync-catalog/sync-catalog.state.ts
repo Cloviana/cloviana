@@ -1,4 +1,4 @@
-import { Product, Collection } from "@/clients/shopify/generated";
+import { Collection, Product } from "@/clients/shopify/generated";
 import { Annotation } from "@langchain/langgraph";
 
 export const StateAnnotation = Annotation.Root({

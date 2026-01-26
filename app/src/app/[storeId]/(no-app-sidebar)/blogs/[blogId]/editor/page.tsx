@@ -5,52 +5,83 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { Anchor } from '@/components/ui/anchor';
+import { AppHeader } from '@/app/_components/header';
+import { Field, FieldLabel } from '@/components/ui/field';
+import { Progress } from '@/components/ui/progress';
+import { Spinner } from '@/components/ui/spinner';
 import { paths } from '@/config/paths';
+import { useGetBlog } from '@/features/blogs/api/get-blog';
 import { EditorHeader } from '@/features/blogs/components/editor/editor-header';
 import { EditorMobileNotice } from '@/features/blogs/components/editor/editor-mobile-notice';
 import { EditorSidebar } from '@/features/blogs/components/editor/editor-sidebar';
 import { Editor } from '@/features/blogs/components/editor/editor-x/editor';
-import { useBlogGeneration } from '@/features/blogs/hooks/use-blog-generation';
 import { nodesToLexicalState } from '@/features/blogs/utils/nodes-to-lexical-json';
+import { useJobWatcher } from '@/features/jobs/hooks/use-job-watcher';
 
 export default function EditorPage() {
+  const { blogId, storeId } = useParams<{ blogId: string; storeId: string }>();
+
   const [editorState, setEditorState] = useState<SerializedEditorState | null>(
     null,
   );
-  const { blogId, storeId } = useParams() as {
-    blogId: string;
-    storeId: string;
-  };
-  const { blog, isSuccess } = useBlogGeneration(blogId, storeId);
+
+  const { data: blog, refetch: refetchBlog } = useGetBlog({ blogId, storeId });
+
+  const isGenerating =
+    blog?.job?.status === 'PENDING' || blog?.job?.status === 'RUNNING';
+
+  const { data: jobWithRuntime } = useJobWatcher({
+    storeId: blog?.storeId,
+    jobId: blog?.jobId,
+    initialStatus: blog?.job?.status,
+    onSuccess: async () => {
+      await refetchBlog();
+    },
+    enabled: isGenerating,
+  });
 
   useEffect(() => {
     if (!editorState && blog?.nodes && blog.nodes.length > 0) {
-      console.log(nodesToLexicalState(blog.nodes));
       setEditorState(nodesToLexicalState(blog.nodes));
     }
   }, [blog?.nodes, editorState]);
 
-  if (!isSuccess && (!blog?.nodes || blog.nodes.length === 0)) {
+  if (isGenerating && !jobWithRuntime) {
     return (
-      <div className="flex h-screen w-screen items-center justify-center">
-        <div className="flex max-w-sm flex-col items-center gap-2">
-          <div className="flex items-center justify-center gap-2">
-            <span className="loading loading-spinner loading-xs text-secondary"></span>
-            <span className="text-sm font-medium">Generating blog</span>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <Spinner
+          className="text-foreground-light size-7"
+          strokeWidth={3.4}
+          variant="2"
+        />
+      </div>
+    );
+  }
+
+  if (isGenerating && jobWithRuntime) {
+    const percent = jobWithRuntime.runtime?.percent ?? 0;
+
+    return (
+      <div className="bg-studio flex h-screen w-full flex-col overflow-hidden">
+        <header className="border-b">
+          <AppHeader />
+        </header>
+
+        <main className="bg-background flex flex-1 items-center justify-center p-4">
+          <div className="w-full max-w-sm space-y-2">
+            <Field className="w-full max-w-sm">
+              <FieldLabel htmlFor="progress-upload" className="font-medium">
+                <span>{jobWithRuntime.runtime?.title ?? 'Initializing'}</span>
+                <span className="ml-auto">{percent}%</span>
+              </FieldLabel>
+              <Progress
+                value={percent}
+                id="progress-upload"
+                className="transition-all"
+              />
+            </Field>
           </div>
-          <p className="text-foreground-light text-center text-sm">
-            It may take a few minutes to generate, you will get an email once
-            your blog is ready.
-          </p>
-          <Anchor
-            className="text-foreground-light w-fit text-center text-sm"
-            href={paths.store.blogs.getHref(storeId)}
-            variant="subtle"
-          >
-            Return back to your store?
-          </Anchor>
-        </div>
+        </main>
       </div>
     );
   }

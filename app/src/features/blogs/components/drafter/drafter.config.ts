@@ -1,20 +1,28 @@
-import { Feather, Package, KeyRound, Tags, Sliders } from 'lucide-react';
+import { Feather, Package, KeyRound, Tags, LayoutList } from 'lucide-react';
 
 export const STEPS_CONFIG = [
   {
+    key: 'content-type',
+    dbEnum: 'CONTENT_TYPE',
+    title: 'Content Type',
+    description:
+      'Defines the structural framework the article will follow. This determines how information is organised and how the reader is guided through the piece.',
+    icon: LayoutList,
+  },
+  {
     key: 'product',
     dbEnum: 'PRODUCT',
-    title: 'Select Products',
+    title: 'Select your products',
     description:
-      'Choose the specific inventory items or collections to promote.',
+      'Establishes the products or collections the article will reference. These selections influence examples, recommendations, and overall commercial alignment.',
     icon: Package,
   },
   {
     key: 'topic',
     dbEnum: 'TOPIC',
-    title: 'Blog Topic',
+    title: 'Topic',
     description:
-      'Establish the core subject matter distinct from the specific headline.',
+      'Sets the core subject the article will address at a conceptual level. It provides direction while remaining distinct from the final headline.',
     icon: Feather,
   },
   {
@@ -22,23 +30,16 @@ export const STEPS_CONFIG = [
     dbEnum: 'PRIMARY_KEYWORD',
     title: 'Primary Keyword',
     description:
-      'The single most important search term for search engine ranking.',
+      'Identifies the main search query the article is built around. This anchors the content to a clear intent and guides structure and emphasis.',
     icon: KeyRound,
   },
   {
     key: 'secondary-keywords',
     dbEnum: 'SECONDARY_KEYWORDS',
     title: 'Secondary Keywords',
-    description: 'Additional phrases to broaden reach and provide context.',
-    icon: Tags,
-  },
-  {
-    key: 'guidelines',
-    dbEnum: 'GUIDELINES',
-    title: 'Writing Guidelines',
     description:
-      'Configure the tone of voice, call to action, and article length.',
-    icon: Sliders,
+      'Adds related terms that expand topical coverage. These help reinforce relevance and context without diluting focus.',
+    icon: Tags,
   },
 ] as const;
 

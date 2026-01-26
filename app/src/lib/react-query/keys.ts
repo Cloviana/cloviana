@@ -59,3 +59,10 @@ export const storeKeys = {
   detail: (storeId: string) => [...storeKeys.base, 'detail', storeId] as const,
   status: (storeId: string) => [...storeKeys.base, 'status', storeId] as const,
 };
+
+export const jobKeys = {
+  base: ['jobs'] as const,
+  list: () => [...jobKeys.base, 'list'] as const,
+  detail: (jobId: string) => [...jobKeys.base, 'detail', jobId] as const,
+  status: (jobId: string) => [...jobKeys.base, 'status', jobId] as const,
+};

@@ -3,18 +3,18 @@ import { SyncLexicalDto } from "@/modules/blogs/dtos/sync-nodes.dto";
 import {
   Body,
   Controller,
+  DefaultValuePipe,
   Get,
   HttpCode,
   HttpStatus,
   Param,
+  ParseEnumPipe,
   ParseIntPipe,
   Patch,
   Post,
   Put,
   Query,
   UseGuards,
-  DefaultValuePipe,
-  ParseEnumPipe,
 } from "@nestjs/common";
 import { BlogStatus } from "@prisma/client";
 import { UpdateBlogDto } from "../dtos/update-blog.dto";
@@ -31,9 +31,9 @@ export class BlogsController {
     @Query("page", new DefaultValuePipe(1), ParseIntPipe) page: number,
     @Query("limit", new DefaultValuePipe(20), ParseIntPipe) limit: number,
     @Query("search") search?: string,
-    @Query('status', new ParseEnumPipe(BlogStatus, { optional: true })) status?: BlogStatus
+    @Query("status", new ParseEnumPipe(BlogStatus, { optional: true }))
+    status?: BlogStatus,
   ) {
-
     return this.blogs.getBlogs(storeId, {
       page,
       limit,

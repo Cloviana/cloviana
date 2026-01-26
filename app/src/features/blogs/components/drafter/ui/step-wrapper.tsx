@@ -1,3 +1,5 @@
+import { ChevronRight } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 import { useDrafter } from '@/features/blogs/components/drafter/drafter-context';
 import { cn } from '@/utils/cn';
@@ -18,8 +20,8 @@ export const StepWrapper = ({
   children,
   title,
   description,
-  onNext,
   onBack,
+  onNext,
   isNextDisabled,
   isNextLoading,
 }: StepWrapperProps) => {
@@ -29,45 +31,41 @@ export const StepWrapper = ({
 
   return (
     <div
-      className={cn(
-        // CHANGED: Removed px-6 py-9 sm:px-11 and gap-6 from here.
-        // We want the container to be full width so the internal scrollbar is at the edge.
-        'flex h-full min-h-0 flex-col',
-        className,
-      )}
+      className={cn('mx-auto flex w-full max-w-6xl flex-col gap-2', className)}
     >
-      <div className="min-h-0 flex-1">
-        <div
-          // CHANGED: Moved padding (px-6 py-9) HERE.
-          // This allows the "ring" to bleed into the padding area without getting clipped by the scroll view.
-          className="no-scrollbar h-full overflow-y-auto px-6 py-9 sm:px-11"
-        >
-          <div className="mb-4 space-y-px">
-            <h1 className="text-lg font-semibold">{title}</h1>
-            <p className="text-foreground-light text-sm">{description}</p>
+      <div className="bg-background sticky top-0 z-10">
+        <div className="flex flex-col justify-between gap-4 pt-8 pb-3 md:flex-row md:items-center">
+          <div className="space-y-1">
+            <h1 className="text-xl font-semibold">{title}</h1>
+            <p className="text-foreground-lighter max-w-[90ch] text-sm">
+              {description}
+            </p>
           </div>
-          {/* Optional: Add p-1 to be extra safe for large rings, but usually not needed with the padding move */}
-          <div className="relative -m-1 p-1">{children}</div>
+
+          <div className="flex gap-3">
+            <Button
+              size="default"
+              variant="outline"
+              onClick={onBack}
+              disabled={!canGoBack}
+            >
+              Previous
+            </Button>
+            <Button
+              size="default"
+              variant="secondary"
+              onClick={onNext}
+              disabled={isNextDisabled}
+              loading={isNextLoading}
+            >
+              Next
+              <ChevronRight />
+            </Button>
+          </div>
         </div>
       </div>
 
-      {/* CHANGED: Added padding to the Footer so it aligns visually with the content above */}
-      <div className="flex items-center justify-end gap-2 px-6 pt-4 pb-9 sm:px-11">
-        {canGoBack && (
-          <Button size="lg" variant="ghost" onClick={onBack}>
-            Back
-          </Button>
-        )}
-        <Button
-          size="lg"
-          variant="secondary"
-          onClick={onNext}
-          disabled={isNextDisabled}
-          loading={isNextLoading}
-        >
-          Continue
-        </Button>
-      </div>
+      <div className="relative pb-8">{children}</div>
     </div>
   );
 };

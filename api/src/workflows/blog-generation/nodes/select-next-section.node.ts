@@ -1,7 +1,7 @@
 import { StateAnnotation } from "../blog-generation.state";
 
 export async function selectNextSection(
-  state: typeof StateAnnotation.State
+  state: typeof StateAnnotation.State,
 ): Promise<Partial<typeof StateAnnotation.State>> {
   const sections = state._outline?.sections ?? [];
 
@@ -10,7 +10,9 @@ export async function selectNextSection(
       ? state._sectionOrder!
       : sections
           .map((s) => s.sectionId)
-          .filter((id): id is string => typeof id === "string" && id.length > 0);
+          .filter(
+            (id): id is string => typeof id === "string" && id.length > 0,
+          );
 
   const drafts = state._sectionDrafts ?? {};
 
