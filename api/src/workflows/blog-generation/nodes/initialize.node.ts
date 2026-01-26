@@ -1,7 +1,10 @@
+import { JobsService } from "@/modules/jobs/jobs.service";
+import { computePercent } from "@/workflows/blog-generation/utils/compute-percent.util";
 import { RunnableConfig } from "@langchain/core/runnables";
+import { Cache } from "@nestjs/cache-manager";
 import { PrismaClient } from "@prisma/client";
 import { StateAnnotation } from "../blog-generation.state";
-import { Context } from "../schemas/context.schema"; 
+import { Context } from "../schemas/context.schema";
 
 export async function initialize(
   state: typeof StateAnnotation.State,
@@ -10,18 +13,34 @@ export async function initialize(
   const prisma = configurable?.prisma as PrismaClient;
   if (!prisma) throw new Error("Prisma client not provided");
 
+  const jobs = configurable?.jobs as JobsService | undefined;
+  const jobId = configurable?.jobId as string | undefined;
+  if (!jobs) throw new Error("jobs service not provided");
+  if (!jobId) throw new Error("jobId not provided");
+
+  const percent = computePercent({
+    phase: "initialize",
+    prevPercent: state._progressPercent ?? 0,
+  });
+
+  await jobs.setRuntime(jobId, {
+    percent,
+    title: "Initializing",
+  });
+
   const blog = await prisma.blog.findUniqueOrThrow({
     where: { id: state._blogId },
-    include: { store: true, products: true, collections: true },
+    include: { store: true, products: true },
   });
 
   const _context: Context = {
     core: {
       topic: blog.topic!,
-      wordCountRange: {
-        min: 600,
-        max: 800,
-      },
+      contentType:
+        blog.contentType! === "PROBLEM_SOLUTION"
+          ? "problem-solution"
+          : "comparison",
+      wordCount: 800,
     },
     seo: {
       primaryKeyword: blog.primaryKeyword!,
@@ -38,21 +57,23 @@ export async function initialize(
         description: p.description!,
         url: p.url!,
         imageUrl: p.imageUrl || undefined,
-        id: p.id
-      })),
-      collections: blog.collections.map((c) => ({
-        title: c.title!,
-        description: c.description!,
-        url: c.url!,
-        imageUrl: c.imageUrl || undefined,
-        id: c.id
+        id: p.id,
       })),
     },
   };
 
-  console.log(JSON.stringify(_context));
+  console.debug("[initialize] context loaded", {
+    blogId: state._blogId,
+    templateId: _context.core.contentType,
+    preview: {
+      topic: _context.core.topic,
+      primaryKeyword: _context.seo.primaryKeyword,
+      products: _context.referenceMaterial.products.length,
+    },
+  });
 
   return {
     _context,
+    _progressPercent: percent,
   };
 }

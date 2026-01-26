@@ -65,13 +65,18 @@ export class ClaudeClient {
         system,
         messages: chatMessages,
         temperature,
-        effort: reasoningEffort
+        effort: reasoningEffort,
       } as any);
 
       return this.extractText(completion);
     };
 
-    return pRetry(run, { retries, minTimeout: 10000, maxTimeout: 60000, factor: 2 });
+    return pRetry(run, {
+      retries,
+      minTimeout: 10000,
+      maxTimeout: 60000,
+      factor: 2,
+    });
   }
 
   async chatJson<T>({
@@ -122,6 +127,11 @@ export class ClaudeClient {
       return schema.parse(parsed) as T;
     };
 
-    return pRetry(run, { retries, minTimeout: 10000, maxTimeout: 60000, factor: 2 });
+    return pRetry(run, {
+      retries,
+      minTimeout: 10000,
+      maxTimeout: 60000,
+      factor: 2,
+    });
   }
 }

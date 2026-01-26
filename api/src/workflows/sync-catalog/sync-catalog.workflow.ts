@@ -1,9 +1,9 @@
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { ShopifyService } from "@/clients/shopify/shopify.service";
+import { ShopifyCatalogService } from "@/integrations/shopify/shopify-catalog.service";
 import { Injectable } from "@nestjs/common";
 import { JobStatus, JobType } from "@prisma/client";
 import { graph } from "./sync-catalog.graph";
-import { ShopifyCatalogService } from "@/integrations/shopify/shopify-catalog.service";
 
 const STALE_MS = 10 * 60 * 1000;
 
@@ -101,7 +101,7 @@ export class SyncCatalogWorkflow {
           error: String(err?.message ?? err).slice(0, 1000),
         },
       });
-      console.error(err)
+      console.error(err);
       throw err;
     } finally {
       clearInterval(hb);

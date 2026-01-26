@@ -5,9 +5,10 @@ import {
   ArticleCreateInput,
   ArticleUpdateInput,
 } from "@/clients/shopify/generated";
-import { lexicalJsonToNodes } from "@/modules/blogs/utils/lexical-json-to-nodes";
 import { BlogsProducer } from "@/infrastructure/messaging/producers/blogs.producer";
 import { StorageService } from "@/infrastructure/storage/storage.service";
+import { ShopifyCatalogService } from "@/integrations/shopify/shopify-catalog.service";
+import { lexicalJsonToNodes } from "@/modules/blogs/utils/lexical-json-to-nodes";
 import { makeDedupeKey } from "@/utils/job.util";
 import {
   BlogSetupStep,
@@ -22,7 +23,6 @@ import {
 } from "../constants/selects.constants";
 import { UpdateBlogDto } from "../dtos/update-blog.dto";
 import { fromNodes } from "../utils/from-nodes";
-import { ShopifyCatalogService } from "@/integrations/shopify/shopify-catalog.service";
 
 @Injectable()
 export class BlogsService {
@@ -35,7 +35,12 @@ export class BlogsService {
 
   async getBlogs(
     storeId: string,
-    params: { page?: number; limit?: number; search?: string; status?: BlogStatus },
+    params: {
+      page?: number;
+      limit?: number;
+      search?: string;
+      status?: BlogStatus;
+    },
   ) {
     const page = Number(params.page) || 1;
     const limit = Number(params.limit) || 20;
@@ -54,9 +59,7 @@ export class BlogsService {
 
     const search = params.search?.trim();
     if (search) {
-      where.OR = [
-        { topic: { contains: search, mode: "insensitive" } },
-      ];
+      where.OR = [{ topic: { contains: search, mode: "insensitive" } }];
     }
 
     const [blogs, total] = await this.prisma.$transaction([
@@ -106,59 +109,54 @@ export class BlogsService {
     return this.prisma.blog.create({
       data: {
         storeId,
+        currentStep: "CONTENT_TYPE",
       },
       select: BLOG_DETAIL_SELECT,
     });
   }
 
- async updateBlog(blogId: string, dto: UpdateBlogDto) {
-  const { productIds, collectionIds, ...rest } = dto;
-  
-  const current = await this.prisma.blog.findUnique({
-    where: { id: blogId },
-    select: {
-      products: { select: { id: true } },
-      collections: { select: { id: true } },
-    },
-  });
+  async updateBlog(blogId: string, dto: UpdateBlogDto) {
+    const { productIds, ...rest } = dto;
 
-  if (!current) throw new Error('Blog not found');
-
-  const currentProductIds = current.products.map((p) => p.id);
-  const currentCollectionIds = current.collections.map((c) => c.id);
-
-  const productsToConnect = productIds
-    ? productIds.filter((id) => !currentProductIds.includes(id))
-    : [];
-  const productsToDisconnect = productIds
-    ? currentProductIds.filter((id) => !productIds.includes(id))
-    : [];
-
-  const collectionsToConnect = collectionIds
-    ? collectionIds.filter((id) => !currentCollectionIds.includes(id))
-    : [];
-  const collectionsToDisconnect = collectionIds
-    ? currentCollectionIds.filter((id) => !collectionIds.includes(id))
-    : [];
-
-  const updated = await this.prisma.blog.update({
-    where: { id: blogId },
-    data: {
-      ...rest,
-      products: {
-        connect: productsToConnect.map((id) => ({ id })),
-        disconnect: productsToDisconnect.map((id) => ({ id })),
+    const current = await this.prisma.blog.findUnique({
+      where: { id: blogId },
+      select: {
+        products: { select: { id: true } },
+        collections: { select: { id: true } },
       },
-      collections: {
-        connect: collectionsToConnect.map((id) => ({ id })),
-        disconnect: collectionsToDisconnect.map((id) => ({ id })),
-      },
-    },
-    select: { id: true, updatedAt: true },
-  });
+    });
 
-  return updated;
-}
+    if (!current) throw new Error("Blog not found");
+
+    const currentProductIds = current.products.map((p) => p.id);
+
+    const productsToConnect = productIds
+      ? productIds.filter((id) => !currentProductIds.includes(id))
+      : [];
+    const productsToDisconnect = productIds
+      ? currentProductIds.filter((id) => !productIds.includes(id))
+      : [];
+
+    const updated = await this.prisma.blog.update({
+      where: { id: blogId },
+      data: {
+        ...rest,
+        products: {
+          connect: productsToConnect.map((id) => ({ id })),
+          disconnect: productsToDisconnect.map((id) => ({ id })),
+        },
+      },
+      select: BLOG_DETAIL_SELECT,
+    });
+
+    return {
+      ...updated,
+      thumbnail: updated.thumbnail && {
+        ...updated.thumbnail,
+        srcUrl: this.storage.getCdnUrl(updated.thumbnail.blobPath),
+      },
+    };
+  }
 
   async startGeneration(blogId: string) {
     const res = await this.prisma.$transaction(async (tx) => {

@@ -18,7 +18,9 @@ export class CatalogResyncScheduler {
       select: { storeId: true },
     });
 
-    this.logger.log(`Starting daily catalog resync for ${channels.length} store(s)`);
+    this.logger.log(
+      `Starting daily catalog resync for ${channels.length} store(s)`,
+    );
 
     for (const { storeId } of channels) {
       if (!storeId) continue;

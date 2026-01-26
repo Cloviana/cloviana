@@ -1,6 +1,6 @@
+import { ShopifyCatalogModule } from "@/integrations/shopify/shopify-catalog.module";
 import { Module } from "@nestjs/common";
 import { SyncCatalogWorkflow } from "./sync-catalog.workflow";
-import { ShopifyCatalogModule } from "@/integrations/shopify/shopify-catalog.module";
 
 @Module({
   imports: [ShopifyCatalogModule],
