@@ -3,6 +3,7 @@ import {
   HydrationBoundary,
   QueryClient,
 } from '@tanstack/react-query';
+import { notFound } from 'next/navigation';
 
 import { getBlogQueryOptions } from '@/features/blogs/api/get-blog';
 
@@ -20,7 +21,11 @@ export default async function Layout({
 
   const { blogId, storeId } = await params;
 
-  await qc.prefetchQuery(getBlogQueryOptions(storeId, blogId));
+  const blog = await qc.ensureQueryData(getBlogQueryOptions(storeId, blogId));
+
+  if (!blog) {
+    notFound();
+  }
 
   return (
     <HydrationBoundary state={dehydrate(qc)}>{children}</HydrationBoundary>

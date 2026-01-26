@@ -1,17 +1,17 @@
-import { queryOptions, useQuery } from '@tanstack/react-query';
+import { useInfiniteQuery } from '@tanstack/react-query';
 
 import { api } from '@/lib/api-client';
-import { QueryConfig } from '@/lib/react-query';
 import { catalogKeys } from '@/lib/react-query/keys';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
-import { PaginatedResponse, Product } from '@/types/api';
+import { CursorPaginatedResponse, Product } from '@/types/api';
 
 type GetProductsParams = {
-  page?: number;
   limit?: number;
+  q?: string;
+  cursor?: string;
 };
 
-type ProductsResponse = PaginatedResponse<Product[]>;
+type ProductsResponse = CursorPaginatedResponse<Product>;
 
 export const getProducts = async (
   storeId: string,
@@ -30,28 +30,27 @@ export const getProducts = async (
   return response;
 };
 
-export const getProductsQueryOptions = (
-  storeId: string,
-  params?: GetProductsParams,
-) =>
-  queryOptions({
-    queryKey: catalogKeys.products(storeId, params),
-    queryFn: () => getProducts(storeId, params),
-  });
-
 type UseGetProductsOptions = {
   storeId: string;
-  params?: GetProductsParams;
-  queryConfig?: QueryConfig<typeof getProductsQueryOptions>;
+  params?: Omit<GetProductsParams, 'cursor'>;
+  enabled?: boolean;
 };
 
 export const useGetProducts = ({
   storeId,
   params,
-  queryConfig,
+  enabled,
 }: UseGetProductsOptions) => {
-  return useQuery({
-    ...getProductsQueryOptions(storeId, params),
-    ...queryConfig,
+  return useInfiniteQuery({
+    queryKey: catalogKeys.products(storeId, params),
+    queryFn: ({ pageParam }) =>
+      getProducts(storeId, {
+        ...params,
+        cursor: pageParam as string | undefined,
+      }),
+    initialPageParam: undefined as string | undefined,
+    getNextPageParam: (lastPage) =>
+      lastPage.meta.hasMore ? lastPage.meta.nextCursor : undefined,
+    enabled,
   });
 };

@@ -1,6 +1,6 @@
+import { ShopifyCatalogService } from "@/integrations/shopify/shopify-catalog.service";
 import { RunnableConfig } from "@langchain/core/runnables";
 import { StateAnnotation } from "../store-metadata.state";
-import { ShopifyCatalogService } from "@/integrations/shopify/shopify-catalog.service";
 
 export async function fetchArticles(
   state: typeof StateAnnotation.State,

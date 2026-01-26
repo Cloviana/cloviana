@@ -5,10 +5,7 @@
     "builder": "swc",
     "deleteOutDir": true,
     "manualRestart": false,
-    "assets": [
-      { "include": "**/*.hbs" },
-      { "include": "**/*.md" }
-    ],
+    "assets": [{ "include": "**/*.hbs" }, { "include": "**/*.md" }],
     "watchAssets": true
   },
   "generateOptions": {

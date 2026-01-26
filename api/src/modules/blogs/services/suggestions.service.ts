@@ -6,14 +6,10 @@ import { z } from "zod";
 import { GroqClient } from "@/clients/groq/groq.client";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 
-import {
-  TopicsSchema,
-  SelectedKeywordsSchema,
-  SeedSchema,
-} from "../schemas";
 import { readFileSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
+import { loadPromptHbs } from "@/common/utils/load-prompt-hbs.util";
 import { DataForSeoService } from "@/integrations/dataforseo/dataforseo.service";
 import {
   KeywordIdeasTask,
@@ -23,6 +19,7 @@ import type {
   KeywordCandidate,
   SuggestedKeyword,
 } from "@/modules/blogs/types/suggestions.types";
+import { SeedSchema, SelectedKeywordsSchema, TopicsSchema } from "../schemas";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -43,12 +40,8 @@ export class SuggestionsService {
   constructor(
     @Inject(CACHE_MANAGER) private cache: Cache,
     private readonly prisma: PrismaService,
-    private readonly dataForSeo: DataForSeoService
+    private readonly dataForSeo: DataForSeoService,
   ) {}
-
-  private loadPrompt(filename: string): string {
-    return readFileSync(join(__dirname, "..", "prompts", filename), "utf8");
-  }
 
   private shortHash(input: unknown): string {
     return createHash("sha256")
@@ -61,39 +54,30 @@ export class SuggestionsService {
     return await this.cache.get<T>(key);
   }
 
+  private normalizeKeyword(raw: string): string {
+    return raw.normalize("NFKC").toLowerCase().replace(/\s+/g, " ").trim();
+  }
+
+  private dedupeByKeyword<T extends { keyword: string }>(items: T[]): T[] {
+    const seen = new Set<string>();
+    const result: T[] = [];
+
+    for (const item of items) {
+      const normalized = this.normalizeKeyword(item.keyword);
+      if (!normalized || seen.has(normalized)) continue;
+      seen.add(normalized);
+      result.push(item);
+    }
+
+    return result;
+  }
+
   private async setCached<T>(
     key: string,
     value: T,
-    ttl: number
+    ttl: number,
   ): Promise<void> {
     await this.cache.set(key, value, ttl);
-  }
-
-  private buildBlogPayload(blog: {
-    store: { name: string; description: string | null };
-    topic?: string | null;
-    primaryKeyword?: string | null;
-    products: Array<{ title: string; description: string | null }>;
-    collections: Array<{ title: string; description: string | null }>;
-  }) {
-    return {
-      store: {
-        name: blog.store.name,
-        description: blog.store.description ?? "",
-      },
-      blog: {
-        ...(blog.topic && { topic: blog.topic }),
-        ...(blog.primaryKeyword && { primaryKeyword: blog.primaryKeyword }),
-      },
-      products: blog.products.map((p) => ({
-        name: p.title,
-        description: p.description ?? "",
-      })),
-      collections: blog.collections.map((c) => ({
-        name: c.title,
-        description: c.description ?? "",
-      })),
-    };
   }
 
   async suggestTopic(blogId: string): Promise<string[]> {
@@ -102,14 +86,8 @@ export class SuggestionsService {
         where: { id: blogId },
         select: {
           id: true,
+          contentType: true,
           products: {
-            select: {
-              id: true,
-              title: true,
-              description: true,
-            },
-          },
-          collections: {
             select: {
               id: true,
               title: true,
@@ -119,41 +97,50 @@ export class SuggestionsService {
           store: {
             select: {
               id: true,
-              name: true,
-              description: true,
             },
           },
         },
       });
 
       const sig = this.shortHash([
-        blog.store.name,
-        blog.store.description,
+        blog.contentType,
         blog.products.map((p) => p.id),
-        blog.collections.map((c) => c.id),
       ]);
 
       const key = `${CACHE_NS}:${CACHE_V}:topics:${blog.store.id}:${sig}`;
       const cached = await this.getCached<string[]>(key);
+      if (cached?.length) return cached;
 
-      if (cached?.length) {
-        return cached;
-      }
-
-      const payload = this.buildBlogPayload(blog);
+      const systemPrompt = await loadPromptHbs(
+        "topics",
+        {
+          blog: { contentType: blog.contentType },
+        },
+        {
+          baseDir: join(__dirname, "..", "prompts"),
+          ext: ".hbs",
+          helpers: {
+            eq: (a: any, b: any) => a === b,
+          },
+        },
+      );
 
       const res = await this.groq.chatJson<z.infer<typeof TopicsSchema>>({
         name: "topics",
+        model: "openai/gpt-oss-20b",
         schema: TopicsSchema,
         messages: [
-          { role: "system", content: this.loadPrompt("topics.md") },
-          { role: "user", content: JSON.stringify(payload) },
+          { role: "system", content: systemPrompt },
+          {
+            role: "user",
+            content: JSON.stringify({ products: blog.products }),
+          },
         ],
         temperature: 0.7,
       });
 
       const topics = Array.from(
-        new Set(res.topics.map((t) => t.trim()))
+        new Set(res.topics.map((t) => t.trim())),
       ).filter(Boolean);
 
       if (topics.length !== 5) {
@@ -165,7 +152,7 @@ export class SuggestionsService {
     } catch (e: any) {
       this.logger.error(
         `topics failed blog=${blogId}: ${e?.message}`,
-        e?.stack
+        e?.stack,
       );
       throw e;
     }
@@ -177,15 +164,9 @@ export class SuggestionsService {
         where: { id: blogId },
         select: {
           id: true,
+          contentType: true,
           topic: true,
           products: {
-            select: {
-              id: true,
-              title: true,
-              description: true,
-            },
-          },
-          collections: {
             select: {
               id: true,
               title: true,
@@ -203,28 +184,49 @@ export class SuggestionsService {
       });
 
       const sig = this.shortHash([
+        blog.contentType,
+        blog.topic,
         blog.store.name,
         blog.store.description,
-        blog.topic,
         blog.products.map((p) => p.id),
-        blog.collections.map((c) => c.id),
       ]);
 
       const key = `${CACHE_NS}:${CACHE_V}:primary-keyword:${blog.store.id}:${sig}`;
       const cached = await this.getCached<SuggestedKeyword[]>(key);
+      if (cached?.length) return cached;
 
-      if (cached?.length) {
-        return cached;
-      }
+      const seedPrompt = await loadPromptHbs(
+        "seed",
+        { blog: { contentType: blog.contentType } },
+        {
+          baseDir: join(__dirname, "..", "prompts"),
+          ext: ".hbs",
+          helpers: { eq: (a: any, b: any) => a === b },
+        },
+      );
 
-      const payload = this.buildBlogPayload(blog);
+      const seedInput = {
+        store: {
+          name: blog.store.name,
+          description: blog.store.description ?? "",
+        },
+        blog: {
+          contentType: blog.contentType,
+          topic: blog.topic ?? null,
+        },
+        products: blog.products.map((p) => ({
+          title: p.title,
+          description: p.description ?? "",
+        })),
+      };
 
       const { seeds } = await this.groq.chatJson<z.infer<typeof SeedSchema>>({
         name: "seeds",
         schema: SeedSchema,
+        model: "openai/gpt-oss-20b",
         messages: [
-          { role: "system", content: this.loadPrompt("seed.md") },
-          { role: "user", content: JSON.stringify(payload) },
+          { role: "system", content: seedPrompt },
+          { role: "user", content: JSON.stringify(seedInput) },
         ],
         temperature: 0.7,
       });
@@ -262,42 +264,47 @@ export class SuggestionsService {
       });
 
       const allKeywords = (await Promise.all(suggestionTasks)).flat();
-
       if (!allKeywords.length) {
         throw new Error(
-          `No keyword suggestions returned for seeds: ${seeds.join(", ")}`
+          `No keyword suggestions returned for seeds: ${seeds.join(", ")}`,
         );
       }
 
-      const seen = new Set<string>();
-      const uniqueKeywords = allKeywords.filter((kw) => {
-        const normalized = kw.keyword.toLowerCase();
-        if (seen.has(normalized)) return false;
-        seen.add(normalized);
-        return true;
-      });
+      const uniqueKeywords = this.dedupeByKeyword(allKeywords);
 
       const keywordCandidates: KeywordCandidate[] = uniqueKeywords.map(
         (kw, index) => ({
           id: index + 1,
           ...kw,
-        })
+        }),
       );
+
+      const primaryPrompt = await loadPromptHbs(
+        "primary-keywords",
+        { blog: { contentType: blog.contentType } },
+        {
+          baseDir: join(__dirname, "..", "prompts"),
+          ext: ".hbs",
+          helpers: { eq: (a: any, b: any) => a === b },
+        },
+      );
+
+      const primaryInput = {
+        store: seedInput.store,
+        blog: seedInput.blog,
+        products: seedInput.products,
+        keywordCandidates,
+      };
 
       const primaryRes = await this.groq.chatJson<
         z.infer<typeof SelectedKeywordsSchema>
       >({
         name: "primary_keyword_selection",
         schema: SelectedKeywordsSchema,
+        model: "openai/gpt-oss-20b",
         messages: [
-          { role: "system", content: this.loadPrompt("primary-keywords.md") },
-          {
-            role: "user",
-            content: JSON.stringify({
-              ...payload,
-              keywordCandidates,
-            }),
-          },
+          { role: "system", content: primaryPrompt },
+          { role: "user", content: JSON.stringify(primaryInput) },
         ],
         temperature: 0.3,
         reasoningEffort: "low",
@@ -310,7 +317,7 @@ export class SuggestionsService {
           const base = byId.get(id);
           if (!base) {
             this.logger.warn(
-              `primary-keyword missing_id blog=${blogId} id=${id}`
+              `primary-keyword missing_id blog=${blogId} id=${id}`,
             );
             return null;
           }
@@ -319,12 +326,11 @@ export class SuggestionsService {
         .filter((x): x is SuggestedKeyword => x !== null);
 
       await this.setCached(key, keywords, ONE_DAY_MS);
-
       return keywords;
     } catch (e: any) {
       this.logger.error(
         `primary-keyword failed blog=${blogId}: ${e?.message}`,
-        e?.stack
+        e?.stack,
       );
       throw e;
     }
@@ -336,16 +342,9 @@ export class SuggestionsService {
         where: { id: blogId },
         select: {
           id: true,
-          primaryKeyword: true,
           topic: true,
+          primaryKeyword: true,
           products: {
-            select: {
-              id: true,
-              title: true,
-              description: true,
-            },
-          },
-          collections: {
             select: {
               id: true,
               title: true,
@@ -362,24 +361,24 @@ export class SuggestionsService {
         },
       });
 
+      if (!blog.primaryKeyword) {
+        throw new Error(`Primary keyword is missing for blog: ${blogId}`);
+      }
+
       const sig = this.shortHash([
         blog.store.name,
         blog.store.description,
         blog.topic,
         blog.primaryKeyword,
         blog.products.map((p) => p.id),
-        blog.collections.map((c) => c.id),
       ]);
 
       const key = `${CACHE_NS}:${CACHE_V}:secondary-keywords:${blog.store.id}:${sig}`;
       const cached = await this.getCached<SuggestedKeyword[]>(key);
-
-      if (cached?.length) {
-        return cached;
-      }
+      if (cached?.length) return cached;
 
       const task: KeywordIdeasTask = {
-        keywords: [blog.primaryKeyword!],
+        keywords: [blog.primaryKeyword],
         language_code: DATAFORSEO_LANGUAGE,
         location_code: DATAFORSEO_LOCATION,
         ignore_synonyms: false,
@@ -402,47 +401,58 @@ export class SuggestionsService {
 
       const response = await this.dataForSeo.getKeywordIdeas(task);
       const items = response.tasks?.[0]?.result?.[0]?.items ?? [];
-
       if (!items.length) {
         throw new Error(
-          `No keyword ideas returned for primary keyword: ${blog.primaryKeyword}`
+          `No keyword ideas returned for primary keyword: ${blog.primaryKeyword}`,
         );
       }
 
-      const seen = new Set<string>();
-      const uniqueItems = items.filter((item) => {
-        const normalized = item.keyword.toLowerCase();
-        if (seen.has(normalized)) return false;
-        seen.add(normalized);
-        return true;
-      });
+      const dedupedItems = this.dedupeByKeyword(items);
 
-      const keywordCandidates: KeywordCandidate[] = uniqueItems.map(
+      const keywordCandidates: KeywordCandidate[] = dedupedItems.map(
         (item, index) => ({
           id: index + 1,
           keyword: item.keyword,
           volume: item.keyword_info?.search_volume ?? 10,
           difficulty: item.keyword_properties?.keyword_difficulty ?? null,
           intent: item.search_intent_info?.main_intent ?? null,
-        })
+        }),
       );
 
-      const payload = this.buildBlogPayload(blog);
+      const secondaryPrompt = await loadPromptHbs(
+        "secondary-keywords",
+        {},
+        {
+          baseDir: join(__dirname, "..", "prompts"),
+          ext: ".hbs",
+        },
+      );
+
+      const secondaryInput = {
+        store: {
+          name: blog.store.name,
+          description: blog.store.description ?? "",
+        },
+        blog: {
+          topic: blog.topic ?? null,
+          primaryKeyword: blog.primaryKeyword,
+        },
+        products: blog.products.map((p) => ({
+          title: p.title,
+          description: p.description ?? "",
+        })),
+        keywordCandidates,
+      };
 
       const secondaryRes = await this.groq.chatJson<
         z.infer<typeof SelectedKeywordsSchema>
       >({
         name: "secondary_keyword_selection",
         schema: SelectedKeywordsSchema,
+        model: "openai/gpt-oss-20b",
         messages: [
-          { role: "system", content: this.loadPrompt("secondary-keywords.md") },
-          {
-            role: "user",
-            content: JSON.stringify({
-              ...payload,
-              keywordCandidates,
-            }),
-          },
+          { role: "system", content: secondaryPrompt },
+          { role: "user", content: JSON.stringify(secondaryInput) },
         ],
         temperature: 0.3,
         reasoningEffort: "low",
@@ -455,7 +465,7 @@ export class SuggestionsService {
           const base = byId.get(id);
           if (!base) {
             this.logger.warn(
-              `secondary-keywords missing_id blog=${blogId} id=${id}`
+              `secondary-keywords missing_id blog=${blogId} id=${id}`,
             );
             return null;
           }
@@ -464,12 +474,11 @@ export class SuggestionsService {
         .filter((x): x is SuggestedKeyword => x !== null);
 
       await this.setCached(key, suggestedKeywords, TWO_DAYS_MS);
-
       return suggestedKeywords;
     } catch (e: any) {
       this.logger.error(
         `secondary-keywords failed blog=${blogId}: ${e?.message}`,
-        e?.stack
+        e?.stack,
       );
       throw e;
     }

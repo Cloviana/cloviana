@@ -1,7 +1,7 @@
-import { RunnableConfig } from "@langchain/core/runnables";
-import { PrismaClient, Prisma, ProductStatus } from "@prisma/client";
-import { StateAnnotation } from "../sync-catalog.state";
 import { Collection, Product } from "@/clients/shopify/generated";
+import { RunnableConfig } from "@langchain/core/runnables";
+import { Prisma, PrismaClient, ProductStatus } from "@prisma/client";
+import { StateAnnotation } from "../sync-catalog.state";
 
 const UPSERT_BATCH_SIZE = 50;
 
@@ -16,7 +16,7 @@ function chunk<T>(items: T[], size: number): T[][] {
 const mapCollectionToUpsert = (
   c: Collection,
   storeId: string,
-  shop: string
+  shop: string,
 ): Prisma.CollectionUpsertArgs => {
   const data = {
     title: c.title,
@@ -50,7 +50,7 @@ const mapCollectionToUpsert = (
 const mapProductToUpsert = (
   p: Product,
   storeId: string,
-  shop: string
+  shop: string,
 ): Prisma.ProductUpsertArgs => {
   const collectionConnections =
     p.collections?.nodes?.map((c: any) => ({
@@ -113,16 +113,16 @@ export async function saveCatalog(
   for (const batch of chunk(collections, UPSERT_BATCH_SIZE)) {
     await prisma.$transaction(
       batch.map((c) =>
-        prisma.collection.upsert(mapCollectionToUpsert(c, storeId, shop))
-      )
+        prisma.collection.upsert(mapCollectionToUpsert(c, storeId, shop)),
+      ),
     );
   }
 
   for (const batch of chunk(products, UPSERT_BATCH_SIZE)) {
     await prisma.$transaction(
       batch.map((p) =>
-        prisma.product.upsert(mapProductToUpsert(p, storeId, shop))
-      )
+        prisma.product.upsert(mapProductToUpsert(p, storeId, shop)),
+      ),
     );
   }
 

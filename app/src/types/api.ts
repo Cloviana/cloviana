@@ -25,11 +25,11 @@ export type BlogStatus = 'DRAFT' | 'PUBLISHED' | 'ARCHIVED' | 'UNPUBLISHED';
 export type BlogSetupStep =
   | 'TOPIC'
   | 'PRIMARY_KEYWORD'
-  | 'AUDIENCE_INTENT'
   | 'SECONDARY_KEYWORDS'
   | 'PRODUCT'
   | 'GUIDELINES'
   | 'COMPLETED';
+export type BlogContentType = 'PROBLEM_SOLUTION' | 'COMPARISON';
 export type ProductStatus = 'ACTIVE' | 'DRAFT' | 'ARCHIVED';
 
 export type NodeType =
@@ -49,7 +49,6 @@ export type SearchIntent =
   | 'NAVIGATIONAL'
   | 'COMMERCIAL'
   | 'TRANSACTIONAL';
-export type WordCountPreset = 'SHORT' | 'MEDIUM' | 'LONG';
 
 export type Link = {
   href: string;
@@ -128,23 +127,23 @@ export type Blog = Entity<{
 export type BlogDetail = {
   storeId: ID;
   jobId?: ID | null;
-  productId?: ID | null;
   shopifyArticleId?: string | null;
   currentStep: BlogSetupStep;
   slug?: string;
   description?: string | null;
   brandVoice?: string | null;
-  wordCount?: WordCountPreset | null;
+  contentType?: BlogContentType | null;
   searchIntent?: SearchIntent | null;
-  targetPersona?: string | null;
   primaryKeyword?: string | null;
   secondaryKeywords?: string[];
-  additionalInstruction?: string | null;
   title?: string;
   topic?: string;
   status: BlogStatus;
   nodes: Node[];
-  job?: Job | null;
+  job?: Pick<
+    Job,
+    'id' | 'status' | 'startedAt' | 'finishedAt' | 'error'
+  > | null;
   thumbnail?: Thumbnail | null;
   products: Product[];
   collections: Collection[];
@@ -199,6 +198,15 @@ export type Job = {
   updatedAt: ISODate;
 };
 
+export type JobRuntime = {
+  status: JobStatus;
+  percent: number | null;
+  step: string | null;
+  title: string;
+  updatedAt: string;
+  meta?: Record<string, unknown>;
+};
+
 export interface PaginationMeta {
   total: number;
   page: number;
@@ -209,6 +217,17 @@ export interface PaginationMeta {
 export interface PaginatedResponse<T> {
   data: T[];
   meta: PaginationMeta;
+}
+
+export interface CursorPaginationMeta {
+  limit: number;
+  nextCursor: string | null;
+  hasMore: boolean;
+}
+
+export interface CursorPaginatedResponse<T> {
+  data: T[];
+  meta: CursorPaginationMeta;
 }
 
 export type SearchCatalogResponse = {

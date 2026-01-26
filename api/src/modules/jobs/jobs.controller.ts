@@ -1,5 +1,14 @@
 import { StoreOwnerGuard } from "@/guards/store-owner.guard";
-import { Controller, Get, Param, Query, UseGuards } from "@nestjs/common";
+import {
+  Controller,
+  DefaultValuePipe,
+  Get,
+  Param,
+  ParseEnumPipe,
+  ParseIntPipe,
+  Query,
+} from "@nestjs/common";
+import { UseGuards } from "@nestjs/common";
 import { JobType } from "@prisma/client";
 import { JobsService } from "./jobs.service";
 
@@ -9,32 +18,17 @@ export class JobsController {
   constructor(private readonly jobs: JobsService) {}
 
   @Get()
-  async list(
+  list(
     @Param("storeId") storeId: string,
-    @Query("type") type?: JobType,
-    @Query("limit") limit?: string,
+    @Query("type", new ParseEnumPipe(JobType, { optional: true }))
+    type?: JobType,
+    @Query("limit", new DefaultValuePipe(20), ParseIntPipe) limit?: number,
   ) {
-    return this.jobs.list(storeId, type, limit ? Number(limit) : undefined);
-  }
-
-  @Get("latest")
-  async latest(
-    @Param("storeId") storeId: string,
-    @Query("type") type: JobType,
-  ) {
-    return this.jobs.latest(storeId, type);
-  }
-
-  @Get("latest/status")
-  async latestStatus(
-    @Param("storeId") storeId: string,
-    @Query("type") type: JobType,
-  ) {
-    return this.jobs.latestStatus(storeId, type);
+    return this.jobs.list(storeId, type, limit);
   }
 
   @Get(":jobId")
   async get(@Param("storeId") storeId: string, @Param("jobId") jobId: string) {
-    return this.jobs.getById(storeId, jobId);
+    return this.jobs.getStatus(storeId, jobId);
   }
 }

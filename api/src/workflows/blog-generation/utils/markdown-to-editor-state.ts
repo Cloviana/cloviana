@@ -88,20 +88,28 @@ function convertBlock(node: MdNode): any | null {
 
   if (node.type === "list") {
     const listType = node.ordered ? "number" : "bullet";
+
     const items = (node.children || []).map((item: MdNode) => {
-      const text = extractTextFromMd(item);
+      const inlineNodes: MdNode[] = [];
+
+      for (const child of item.children || []) {
+        if (child.type === "paragraph") {
+          inlineNodes.push(...(child.children || []));
+        } else {
+          inlineNodes.push(child);
+        }
+      }
+
+      const children = convertInline(inlineNodes);
+
       return {
         type: "LIST_ITEM",
-        children: [
-          {
-            type: "TEXT",
-            text,
-            format: null,
-          },
-        ],
+        children,
       };
     });
+
     if (!items.length) return null;
+
     return {
       type: "LIST",
       listType,

@@ -49,9 +49,13 @@ enum BlogSetupStep {
   PRIMARY_KEYWORD
   SECONDARY_KEYWORDS
   PRODUCT
-  AUDIENCE_INTENT
-  GUIDELINES
+  CONTENT_TYPE
   COMPLETED
+}
+
+enum BlogContentType {
+  PROBLEM_SOLUTION
+  COMPARISON
 }
 
 enum ProductStatus {
@@ -95,12 +99,6 @@ enum SearchIntent {
   NAVIGATIONAL
   COMMERCIAL
   TRANSACTIONAL
-}
-
-enum WordCountPreset {
-  SHORT
-  MEDIUM
-  LONG
 }
 
 // --- BILLING MODELS ---
@@ -257,21 +255,18 @@ model Collection {
 // --- CONTENT MODELS ---
 
 model Blog {
-  id                    String        @id @default(uuid()) @db.Uuid
-  topic                 String?
-  title                 String?
-  slug                  String?
-  description           String?
-  targetPersona         String?
-  brandVoice         String?
-  searchIntent          SearchIntent?
-  wordCount             WordCountPreset?
-  primaryKeyword        String?
-  secondaryKeywords     String[]      @default([])
-  additionalInstruction String?
-  status                BlogStatus    @default(DRAFT)
-  currentStep           BlogSetupStep @default(PRODUCT)
-  storeId               String
+  id                String           @id @default(uuid()) @db.Uuid
+  topic             String?
+  title             String?
+  slug              String?
+  description       String?
+  contentType       BlogContentType?
+  brandVoice        String?
+  primaryKeyword    String?
+  secondaryKeywords String[]         @default([])
+  status            BlogStatus       @default(DRAFT)
+  currentStep       BlogSetupStep    @default(CONTENT_TYPE)
+  storeId           String
 
   externalId String?
 
@@ -279,8 +274,8 @@ model Blog {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  store Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
-  job   Job?  @relation(fields: [jobId], references: [id], onDelete: SetNull) 
+  store       Store        @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  job         Job?         @relation(fields: [jobId], references: [id], onDelete: SetNull)
   products    Product[]
   collections Collection[]
   nodes       Node[]

@@ -1,6 +1,14 @@
-import { Controller, Get, Query, ParseIntPipe, DefaultValuePipe, UseGuards, Param } from "@nestjs/common";
-import { CatalogService } from "../catalog.service";
 import { StoreOwnerGuard } from "@/guards/store-owner.guard";
+import {
+  Controller,
+  DefaultValuePipe,
+  Get,
+  Param,
+  ParseIntPipe,
+  Query,
+  UseGuards,
+} from "@nestjs/common";
+import { CatalogService } from "../catalog.service";
 
 @Controller("stores/:storeId/catalog/products")
 @UseGuards(StoreOwnerGuard)
@@ -10,9 +18,10 @@ export class ProductsController {
   @Get()
   async findAll(
     @Param("storeId") storeId: string,
-    @Query("page", new DefaultValuePipe(1), ParseIntPipe) page: number,
     @Query("limit", new DefaultValuePipe(20), ParseIntPipe) limit: number,
+    @Query("cursor") cursor?: string,
+    @Query("q") q?: string,
   ) {
-    return this.catalog.getProducts(storeId, { page, limit });
+    return this.catalog.getProducts(storeId, { limit, cursor, q });
   }
 }

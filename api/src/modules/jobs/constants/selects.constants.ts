@@ -1,17 +1,13 @@
 import { Prisma } from "@prisma/client";
 
-export const JOB_SUMMARY_SELECT: Prisma.JobSelect = {
+export const JOB_SUMMARY_SELECT = {
   id: true,
   type: true,
-  storeId: true,
   status: true,
-  priority: true,
+  error: true,
   attempts: true,
-  scheduledAt: true,
+  createdAt: true,
   startedAt: true,
   finishedAt: true,
   lastHeartbeatAt: true,
-  error: true,
-  createdAt: true,
-  updatedAt: true,
-};
+} satisfies Prisma.JobSelect;

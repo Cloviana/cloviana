@@ -1,10 +1,12 @@
 import { StorageService } from "@/infrastructure/storage/storage.service";
+import { JobsService } from "@/modules/jobs/jobs.service";
+import { computePercent } from "@/workflows/blog-generation/utils/compute-percent.util";
+import { markdownToEditorState } from "@/workflows/blog-generation/utils/markdown-to-editor-state";
 import { RunnableConfig } from "@langchain/core/runnables";
 import { NodeType, PrismaClient } from "@prisma/client";
 import cuid from "cuid";
 import { StateAnnotation } from "../blog-generation.state";
 import { Node } from "../schemas/node.schemas";
-import { markdownToEditorState } from "@/workflows/blog-generation/utils/markdown-to-editor-state";
 
 type TextFormat = "bold" | "italic" | "underline";
 
@@ -118,6 +120,21 @@ export async function save(
   const blogId = state._blogId;
   if (!blogId) throw new Error("blogId missing in state");
 
+  const jobs = configurable?.jobs as JobsService | undefined;
+  const jobId = configurable?.jobId as string | undefined;
+  if (!jobs) throw new Error("jobs service not provided");
+  if (!jobId) throw new Error("jobId not provided");
+
+  const percent = computePercent({
+    phase: "assemble",
+    prevPercent: state._progressPercent ?? 0,
+  });
+
+  await jobs.setRuntime(jobId, {
+    title: "Assembling sections",
+    percent,
+  });
+
   const nodes = markdownToEditorState(state._draft).root.children;
   if (!Array.isArray(nodes) || nodes.length === 0)
     throw new Error("No nodes to save");
@@ -130,8 +147,12 @@ export async function save(
     .replace(/\s+/g, "-")
     .replace(/[^a-z0-9\-]/g, "");
 
-  const thumbUrl = (state._outline as any)?.thumbnail?.url as string | undefined;
-  const thumbAlt = (state._outline as any)?.thumbnail?.altText as string | undefined;
+  const thumbUrl = (state._outline as any)?.thumbnail?.url as
+    | string
+    | undefined;
+  const thumbAlt = (state._outline as any)?.thumbnail?.altText as
+    | string
+    | undefined;
 
   const thumbBlobPath =
     thumbUrl && !thumbUrl.startsWith("data:")
@@ -162,6 +183,12 @@ export async function save(
     },
     { timeout: 60_000, maxWait: 20_000 },
   );
+
+  console.debug("[save] persisted blog", {
+    blogId,
+    slug,
+    nodeCount: rows.length,
+  });
 
   return {};
 }
