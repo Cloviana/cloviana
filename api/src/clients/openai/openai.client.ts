@@ -1,7 +1,7 @@
 import OpenAI from "openai";
+import { zodResponseFormat } from "openai/helpers/zod";
 import pRetry from "p-retry";
 import { z } from "zod";
-import { zodResponseFormat } from "openai/helpers/zod";
 
 type Message = OpenAI.ChatCompletionMessageParam;
 
@@ -32,22 +32,30 @@ export class OpenAIClient {
       const completion = await this.openai.chat.completions.parse({
         model,
         messages,
-        reasoning_effort: reasoningEffort === "default" ? undefined : reasoningEffort,
-        response_format: zodResponseFormat(schema, name)
+        reasoning_effort:
+          reasoningEffort === "default" ? undefined : reasoningEffort,
+        response_format: zodResponseFormat(schema, name),
       });
-      console.log(completion)
-      const content = completion.choices[0].message.parsed
-      console.log(content)
+      console.log(completion);
+      const content = completion.choices[0].message.parsed;
+      console.log(content);
       const result = schema.safeParse(content);
 
       if (!result.success) {
-        throw new Error(`[${name}] Response failed schema validation: ${result.error.message}`);
+        throw new Error(
+          `[${name}] Response failed schema validation: ${result.error.message}`,
+        );
       }
 
       return result.data as T;
     };
 
-    return pRetry(run, { retries, minTimeout: 10000, maxTimeout: 60000, factor: 2 });
+    return pRetry(run, {
+      retries,
+      minTimeout: 10000,
+      maxTimeout: 60000,
+      factor: 2,
+    });
   }
 
   async chat({
@@ -66,12 +74,18 @@ export class OpenAIClient {
       const completion = await this.openai.chat.completions.create({
         model,
         messages,
-        reasoning_effort: reasoningEffort === "default" ? undefined : reasoningEffort,
+        reasoning_effort:
+          reasoningEffort === "default" ? undefined : reasoningEffort,
       });
 
       return completion.choices?.[0]?.message?.content ?? "";
     };
 
-    return pRetry(run, { retries, minTimeout: 10000, maxTimeout: 60000, factor: 2 });
+    return pRetry(run, {
+      retries,
+      minTimeout: 10000,
+      maxTimeout: 60000,
+      factor: 2,
+    });
   }
 }

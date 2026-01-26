@@ -77,7 +77,7 @@ export interface KeywordInfo {
   se_type: string;
   last_updated_time: string;
   competition: number;
-  competition_level: 'LOW' | 'MEDIUM' | 'HIGH' | null;
+  competition_level: "LOW" | "MEDIUM" | "HIGH" | null;
   cpc: number;
   search_volume: number;
   low_top_of_page_bid: number;
@@ -107,11 +107,11 @@ export interface ClickstreamKeywordInfo {
     male?: number;
   };
   age_distribution?: {
-    '18-24'?: number;
-    '25-34'?: number;
-    '35-44'?: number;
-    '45-54'?: number;
-    '55-64'?: number;
+    "18-24"?: number;
+    "25-34"?: number;
+    "35-44"?: number;
+    "45-54"?: number;
+    "55-64"?: number;
   };
   monthly_searches?: MonthlySearch[];
 }
@@ -119,7 +119,7 @@ export interface ClickstreamKeywordInfo {
 export interface KeywordProperties {
   se_type: string;
   core_keyword: string | null;
-  synonym_clustering_algorithm: 'keyword_metrics' | 'text_processing' | null;
+  synonym_clustering_algorithm: "keyword_metrics" | "text_processing" | null;
   keyword_difficulty?: number;
   detected_language?: string;
   is_another_language?: boolean;
@@ -147,9 +147,18 @@ export interface AvgBacklinksInfo {
 }
 
 export interface SearchIntentInfo {
-  se_type: 'google';
-  main_intent: 'informational' | 'navigational' | 'commercial' | 'transactional';
-  foreign_intent: ('informational' | 'navigational' | 'commercial' | 'transactional')[];
+  se_type: "google";
+  main_intent:
+    | "informational"
+    | "navigational"
+    | "commercial"
+    | "transactional";
+  foreign_intent: (
+    | "informational"
+    | "navigational"
+    | "commercial"
+    | "transactional"
+  )[];
   last_updated_time: string;
 }
 

@@ -62,7 +62,12 @@ export default [
             {
               target: './src/features/blogs',
               from: './src/features',
-              except: ['./blogs', './auth', './stores', './catalog'],
+              except: ['./blogs', './auth', './stores', './catalog', './jobs'],
+            },
+            {
+              target: './src/features/jobs',
+              from: './src/features',
+              except: ['./jobs'],
             },
             {
               target: './src/features/billing',

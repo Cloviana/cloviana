@@ -11,10 +11,8 @@ export const AssetSchema = z.object({
 export const ContextSchema = z.object({
   core: z.object({
     topic: z.string(),
-    wordCountRange: z.object({
-      min: z.number(),
-      max: z.number(),
-    }),
+    contentType: z.enum(["problem-solution", "comparison"]),
+    wordCount: z.number(),
   }),
   seo: z.object({
     primaryKeyword: z.string(),
@@ -27,7 +25,6 @@ export const ContextSchema = z.object({
   }),
   referenceMaterial: z.object({
     products: z.array(AssetSchema),
-    collections: z.array(AssetSchema),
   }),
 });
 

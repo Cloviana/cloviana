@@ -166,7 +166,7 @@
     --primary: hsl(240, 6%, 7%);
     --primary-foreground: hsl(0 0% 98%);
 
-    --background: hsl(240 20% 98%);
+    --background: hsl(240 20% 99%);
     --studio: hsl(0 0% 100%);
 
     --foreground: hsl(270 100% 5.098%);
@@ -249,6 +249,9 @@
     --white-200: hsl(0 0% 100% / 11%);
     --white-100: hsl(0 0% 100% / 5%);
     --white-50: hsl(0 0% 100% / 2%);
+
+    --tooltip: hsl(0 0% 24%);
+    --tooltip-foreground: hsl(0 0% 100%);
   }
 
   *,

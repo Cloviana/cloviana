@@ -1,10 +1,11 @@
-import pRetry from "p-retry";
 import path from "path";
 import { fileURLToPath } from "url";
-import { HumanMessage, SystemMessage } from "@langchain/core/messages";
+import { GroqClient } from "@/clients/groq/groq.client";
+import { loadPromptHbs } from "@/common/utils/load-prompt-hbs.util";
+import { JobsService } from "@/modules/jobs/jobs.service";
+import { computePercent } from "@/workflows/blog-generation/utils/compute-percent.util";
+import { RunnableConfig } from "@langchain/core/runnables";
 import { StateAnnotation } from "../blog-generation.state";
-import { loadPromptHbs } from "@/workflows/blog-generation/utils/load-prompt-hbs.util";
-import { ChatAnthropic } from "@langchain/anthropic";
 
 function normalizeDashes(input: string): string {
   return input.replace(/\u2014/g, ", ");
@@ -25,46 +26,64 @@ function stitchSectionsInOrder(state: typeof StateAnnotation.State): string {
 }
 
 export async function assembleDraft(
-  state: typeof StateAnnotation.State
+  state: typeof StateAnnotation.State,
+  { configurable }: RunnableConfig,
 ): Promise<Partial<typeof StateAnnotation.State>> {
+  const jobs = configurable?.jobs as JobsService | undefined;
+  const jobId = configurable?.jobId as string | undefined;
+  if (!jobs) throw new Error("jobs service not provided");
+  if (!jobId) throw new Error("jobId not provided");
+
+  const percent = computePercent({
+    phase: "assemble",
+    prevPercent: state._progressPercent ?? 0,
+  });
+
+  await jobs.setRuntime(jobId, {
+    title: "Assembling sections",
+    percent,
+  });
+
   const baseDir = path.resolve(
     path.dirname(fileURLToPath(import.meta.url)),
-    "../prompts"
+    "../prompts",
   );
-  const partialsDir = path.join(baseDir, "partials");
 
-  const prompt = await loadPromptHbs("assemble", {}, { baseDir, partialsDir });
+  const prompt = await loadPromptHbs("nodes/assemble", {}, { baseDir });
 
   const stitched = stitchSectionsInOrder(state);
   if (!stitched.trim()) throw new Error("assemble: no section drafts found");
 
-  const llm = new ChatAnthropic({
-    model: "claude-4-sonnet-20250514",
-    temperature: 0.2,
+  const start = Date.now();
+
+  const groq = new GroqClient();
+
+  const text = await groq.chat({
+    model: "openai/gpt-oss-120b",
+    temperature: 0,
+    reasoningEffort: "low",
+    messages: [
+      { role: "system", content: prompt },
+      {
+        role: "user",
+        content: JSON.stringify({
+          context: state._context,
+          draft: stitched,
+        }),
+      },
+    ],
   });
 
-  const assembled = await pRetry(
-    async () => {
-      const res = await llm.invoke([
-        new SystemMessage(prompt),
-        new HumanMessage(
-          JSON.stringify({
-            context: state._context,
-            draft: stitched,
-          })
-        ),
-      ]);
+  const cleaned = normalizeDashes(text);
 
-      const text = typeof res.content === "string" ? res.content : String(res.content ?? "");
-      if (!text.trim()) throw new Error("assemble: empty model output");
-      return text;
-    },
-    { retries: 2, minTimeout: 8000, maxTimeout: 60000, factor: 2 }
-  );
+  const durationMs = Date.now() - start;
 
-  const cleaned = normalizeDashes(assembled);
-
-  console.log(cleaned)
+  console.debug("[assemble] draft assembled", {
+    blogId: state._blogId,
+    durationMs,
+    length: cleaned.length,
+    preview: cleaned.slice(0, 300),
+  });
 
   return {
     _draft: cleaned,

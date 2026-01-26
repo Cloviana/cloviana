@@ -1,14 +1,9 @@
-import { Annotation } from "@langchain/langgraph";
-import { Node } from "./schemas/node.schemas";
-import { Outline } from "./schemas/outline.schemas";
-import { Context } from "./schemas/context.schema";
-import { ContentStrategy } from "./schemas/strategy.schema";
 import { ReviewSection } from "@/workflows/blog-generation/schemas/review-section.schema";
-
-export type Image = {
-  url: string;
-  alt: string;
-};
+import { Annotation } from "@langchain/langgraph";
+import { Context } from "./schemas/context.schema";
+import { Node } from "./schemas/node.schemas";
+import { Outline } from "./schemas/outline";
+import { ContentStrategy } from "./schemas/strategy.schema";
 
 export const StateAnnotation = Annotation.Root({
   _storeId: Annotation<string>(),
@@ -21,7 +16,6 @@ export const StateAnnotation = Annotation.Root({
 
   _draft: Annotation<string>(),
 
-  _image: Annotation<Image>(),
   _nodes: Annotation<Node[]>(),
 
   _sectionOrder: Annotation<string[]>(),
@@ -31,4 +25,6 @@ export const StateAnnotation = Annotation.Root({
   _sectionDrafts: Annotation<Record<string, string>>(),
   _sectionRewriteIters: Annotation<Record<string, number>>(),
   _sectionCritique: Annotation<ReviewSection>(),
+
+  _progressPercent: Annotation<number>(),
 });

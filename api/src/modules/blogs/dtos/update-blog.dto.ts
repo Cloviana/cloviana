@@ -1,4 +1,9 @@
-import { BlogSetupStep, SearchIntent, WordCountPreset } from "@prisma/client";
+import {
+  BlogContentType,
+  BlogSetupStep,
+  SearchIntent,
+  WordCountPreset,
+} from "@prisma/client";
 import { IsArray, IsEnum, IsOptional, IsString, IsUUID } from "class-validator";
 
 export class UpdateBlogDto {
@@ -22,21 +27,9 @@ export class UpdateBlogDto {
   @IsOptional()
   brandVoice?: string;
 
-  @IsString()
+  @IsEnum(BlogContentType)
   @IsOptional()
-  additionalInstruction?: string;
-
-  @IsString()
-  @IsOptional()
-  targetPersona?: string;
-
-  @IsEnum(WordCountPreset)
-  @IsOptional()
-  wordCount?: WordCountPreset;
-
-  @IsEnum(SearchIntent)
-  @IsOptional()
-  searchIntent?: SearchIntent;
+  contentType?: BlogContentType;
 
   @IsString()
   @IsOptional()
@@ -51,11 +44,6 @@ export class UpdateBlogDto {
   @IsArray()
   @IsUUID("4", { each: true })
   productIds?: string[];
-
-  @IsOptional()
-  @IsArray()
-  @IsUUID("4", { each: true })
-  collectionIds?: string[];
 
   @IsEnum(BlogSetupStep)
   @IsOptional()

@@ -1,10 +1,10 @@
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { ShopifyService } from "@/clients/shopify/shopify.service";
+import { ShopifyCatalogService } from "@/integrations/shopify/shopify-catalog.service";
 import { CatalogService } from "@/modules/catalog/catalog.service";
 import { Injectable } from "@nestjs/common";
 import { JobStatus, JobType } from "@prisma/client";
 import { graph } from "./store-metadata.graph";
-import { ShopifyCatalogService } from "@/integrations/shopify/shopify-catalog.service";
 
 const STALE_MS = 10 * 60 * 1000;
 
