@@ -4,3 +4,4 @@ export * from "./blogs/blogs.module";
 export * from "./billing/billing.module";
 export * from "./auth/auth.module";
 export * from "./jobs/jobs.module";
+export * from "./autopilot/autopilot.module";

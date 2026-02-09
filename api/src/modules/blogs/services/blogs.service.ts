@@ -36,15 +36,13 @@ export class BlogsService {
   async getBlogs(
     storeId: string,
     params: {
-      page?: number;
       limit?: number;
-      search?: string;
+      cursor?: string;
+      q?: string;
       status?: BlogStatus;
     },
   ) {
-    const page = Number(params.page) || 1;
     const limit = Number(params.limit) || 20;
-    const skip = (page - 1) * limit;
 
     const where: Prisma.BlogWhereInput = {
       storeId,
@@ -57,36 +55,40 @@ export class BlogsService {
       where.status = params.status;
     }
 
-    const search = params.search?.trim();
-    if (search) {
-      where.OR = [{ topic: { contains: search, mode: "insensitive" } }];
+    const q = params.q?.trim();
+    if (q) {
+      where.OR = [{ topic: { contains: q, mode: "insensitive" } }];
     }
 
-    const [blogs, total] = await this.prisma.$transaction([
-      this.prisma.blog.findMany({
-        where,
-        select: BLOG_SUMMARY_SELECT,
-        orderBy: { createdAt: "desc" },
-        take: limit,
-        skip,
-      }),
-      this.prisma.blog.count({ where }),
-    ]);
+    const blogs = await this.prisma.blog.findMany({
+      where,
+      select: BLOG_SUMMARY_SELECT,
+      orderBy: { createdAt: "desc" },
+      take: limit + 1,
+      ...(params.cursor
+        ? {
+            cursor: { id: params.cursor },
+            skip: 1,
+          }
+        : {}),
+    });
+
+    const hasMore = blogs.length > limit;
+    const data = hasMore ? blogs.slice(0, limit) : blogs;
+    const nextCursor = hasMore ? (data[data.length - 1]?.id ?? null) : null;
 
     return {
-      data: blogs.map((b) => ({
+      data: data.map((b) => ({
         ...b,
-        productsCount: b._count.products,
         thumbnail: b.thumbnail && {
           ...b.thumbnail,
           srcUrl: this.storage.getCdnUrl(b.thumbnail.blobPath),
         },
       })),
       meta: {
-        total,
-        page,
         limit,
-        totalPages: Math.ceil(total / limit),
+        nextCursor,
+        hasMore,
       },
     };
   }

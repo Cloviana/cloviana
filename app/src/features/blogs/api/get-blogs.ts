@@ -1,62 +1,46 @@
-import { queryOptions, useQuery } from '@tanstack/react-query';
+import { useInfiniteQuery } from '@tanstack/react-query';
 
 import { api } from '@/lib/api-client';
-import { blogKeys, QueryConfig } from '@/lib/react-query';
+import { blogKeys } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
-import { Blog, BlogStatus, PaginatedResponse } from '@/types/api';
+import { Blog, BlogStatus, CursorPaginatedResponse } from '@/types/api';
 
 export type GetBlogsParams = {
-  page?: number;
   limit?: number;
-  search?: string;
+  cursor?: string;
+  q?: string;
   status?: BlogStatus;
 };
 
 export const getBlogs = async (
   storeId: string,
-  params: GetBlogsParams,
-): Promise<PaginatedResponse<Blog>> => {
+  params?: GetBlogsParams,
+): Promise<CursorPaginatedResponse<Blog>> => {
   const token = await fetchAccessToken();
   if (!token) throw new Error('Access token is not available');
 
-  const query = new URLSearchParams();
-  if (params.page) query.set('page', String(params.page));
-  if (params.limit) query.set('limit', String(params.limit));
-  if (params.search) query.set('search', params.search);
-  if (params.status) query.set('status', params.status);
-
-  const queryString = query.toString();
-  const url = queryString
-    ? `/stores/${storeId}/blogs?${queryString}`
-    : `/stores/${storeId}/blogs`;
-
-  return api.get<PaginatedResponse<Blog>>(url, {
+  return api.get<CursorPaginatedResponse<Blog>>(`/stores/${storeId}/blogs`, {
     headers: { Authorization: `Bearer ${token}` },
+    params,
   });
 };
-
-export const getBlogsQueryOptions = (
-  storeId: string,
-  params: GetBlogsParams = {},
-) =>
-  queryOptions({
-    queryKey: blogKeys.list(storeId, params),
-    queryFn: () => getBlogs(storeId, params),
-    staleTime: 1000 * 60 * 5,
-    gcTime: 1000 * 60 * 30,
-    enabled: Boolean(storeId),
-  });
 
 type UseGetBlogsOptions = {
-  config?: QueryConfig<typeof getBlogsQueryOptions>;
-  params?: GetBlogsParams;
+  storeId: string;
+  params?: Omit<GetBlogsParams, 'cursor'>;
+  enabled?: boolean;
 };
 
-export const useGetBlogs = (
-  storeId: string,
-  { config, params = {} }: UseGetBlogsOptions,
-) =>
-  useQuery({
-    ...getBlogsQueryOptions(storeId, params),
-    ...config,
+export const useGetBlogs = ({ storeId, params, enabled }: UseGetBlogsOptions) =>
+  useInfiniteQuery({
+    queryKey: blogKeys.list(storeId, params),
+    queryFn: ({ pageParam }) =>
+      getBlogs(storeId, {
+        ...params,
+        cursor: pageParam as string | undefined,
+      }),
+    initialPageParam: undefined as string | undefined,
+    getNextPageParam: (lastPage) =>
+      lastPage.meta.hasMore ? lastPage.meta.nextCursor : undefined,
+    enabled: Boolean(storeId) && enabled !== false,
   });

@@ -30,6 +30,12 @@ export const catalogKeys = {
     ] as const,
 };
 
+export const autopilotKeys = {
+  base: ['autopilot'] as const,
+  settings: (storeId: string) =>
+    [...autopilotKeys.base, 'settings', storeId] as const,
+};
+
 export const suggestionKeys = {
   topic: (storeId: string, blogId: string) =>
     ['stores', storeId, 'blogs', blogId, 'suggestions', 'topic'] as const,

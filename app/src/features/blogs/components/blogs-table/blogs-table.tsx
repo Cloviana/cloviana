@@ -30,12 +30,17 @@ export const BlogsTable = () => {
   const router = useRouter();
   const { storeId } = useParams<{ storeId: string }>();
 
-  const { queryParams } = useBlogsTableQuery();
+  const { limit, search, status } = useBlogsTableQuery();
 
-  const { data, isLoading, isFetching } = useGetBlogs(storeId, {
-    params: queryParams,
+  const { data, isLoading, isFetching } = useGetBlogs({
+    storeId,
+    params: {
+      limit,
+      q: search,
+      status,
+    },
   });
-  const blogs = data?.data ?? [];
+  const blogs = data?.pages.flatMap((page) => page.data) ?? [];
 
   const table = useReactTable({
     data: blogs,
