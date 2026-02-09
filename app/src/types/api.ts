@@ -49,6 +49,11 @@ export type SearchIntent =
   | 'NAVIGATIONAL'
   | 'COMMERCIAL'
   | 'TRANSACTIONAL';
+export type DayOfWeek = 'MON' | 'TUE' | 'WED' | 'THU' | 'FRI' | 'SAT' | 'SUN';
+export type AutopilotContentMix =
+  | 'BALANCED'
+  | 'PROBLEM_SOLUTION'
+  | 'COMPARISON';
 
 export type Link = {
   href: string;
@@ -116,12 +121,16 @@ export type Thumbnail = {
 };
 
 export type Blog = Entity<{
-  title?: string;
   topic?: string;
   status: BlogStatus;
+  storeId: ID;
   primaryKeyword?: string | null;
   thumbnail?: Thumbnail | null;
   productsCount: number;
+  job?: Pick<
+    Job,
+    'id' | 'status' | 'startedAt' | 'finishedAt' | 'error'
+  > | null;
 }>;
 
 export type BlogDetail = {
@@ -147,6 +156,18 @@ export type BlogDetail = {
   thumbnail?: Thumbnail | null;
   products: Product[];
   collections: Collection[];
+};
+
+export type AutopilotBlogSettings = {
+  collectionIds: string[];
+  contentMix: AutopilotContentMix;
+  publishDays: DayOfWeek[];
+  autoPublish: boolean;
+};
+
+export type AutopilotSettings = {
+  enabled: boolean;
+  blog: AutopilotBlogSettings | null;
 };
 
 export type StoreDetail = Store & {
@@ -180,6 +201,7 @@ export type Collection = Entity<{
   metadata: Record<string, any> | null;
   createdAt: string;
   updatedAt: string;
+  productsCount?: number;
 }>;
 
 export type Job = {

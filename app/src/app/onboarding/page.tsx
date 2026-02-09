@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+import { LoadingFallback } from '@/components/fallbacks/loading-fallback';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -17,7 +18,6 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Spinner } from '@/components/ui/spinner';
 import { paths } from '@/config/paths';
 import { useCreateStore } from '@/features/stores/api/create-store';
 import { useUser } from '@/hooks/use-user';
@@ -116,18 +116,14 @@ export default function OnboardingPage() {
   }
 
   if (fetchingUser) {
-    return (
-      <div className="absolute inset-0 flex items-center justify-center p-20">
-        <Spinner className="text-black-600 size-5" />
-      </div>
-    );
+    return <LoadingFallback />;
   }
 
   return (
-    <div className="mx-auto px-4 pt-16 pb-8">
-      <div className="mx-auto flex w-full max-w-lg flex-col gap-12">
+    <div className="mx-auto px-4 pt-24 pb-8">
+      <div className="mx-auto flex w-full max-w-md flex-col gap-12">
         <div className="space-y-1">
-          <h1 className="text-[20px] font-medium">
+          <h1 className="text-xl font-medium">
             Create your profile and organization
           </h1>
           <p className="text-foreground-light text-sm">
@@ -174,14 +170,15 @@ export default function OnboardingPage() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Store name</FormLabel>
-                  <FormDescription className="-mt-1 mb-1">
-                    This is the public name of your store that customers
-                    recognize.
-                  </FormDescription>
+
                   <FormControl>
                     <Input placeholder="Your store name" size="lg" {...field} />
                   </FormControl>
                   <FormMessage />
+                  <FormDescription>
+                    This is the public name of your store that customers
+                    recognize.
+                  </FormDescription>
                 </FormItem>
               )}
             />
@@ -192,10 +189,6 @@ export default function OnboardingPage() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Domain</FormLabel>
-                  <FormDescription className="-mt-1 mb-1">
-                    Enter your primary brand domain such as cloviana.com. Avoid
-                    using your Shopify myshopify.com URL.
-                  </FormDescription>
 
                   <div className="relative">
                     <span className="text-foreground-lighter pointer-events-none absolute inset-y-0 left-3 flex items-center text-sm">
@@ -214,8 +207,11 @@ export default function OnboardingPage() {
                       />
                     </FormControl>
                   </div>
-
                   <FormMessage />
+                  <FormDescription>
+                    Enter your primary brand domain such as cloviana.com. Avoid
+                    using your Shopify myshopify.com URL.
+                  </FormDescription>
                 </FormItem>
               )}
             />
@@ -223,7 +219,7 @@ export default function OnboardingPage() {
             <Button
               type="submit"
               className="w-full"
-              variant="primary"
+              variant="secondary"
               size="lg"
               loading={isSubmitting}
             >

@@ -28,16 +28,16 @@ export class BlogsController {
   @Get()
   async listBlogs(
     @Param("storeId") storeId: string,
-    @Query("page", new DefaultValuePipe(1), ParseIntPipe) page: number,
     @Query("limit", new DefaultValuePipe(20), ParseIntPipe) limit: number,
-    @Query("search") search?: string,
+    @Query("cursor") cursor?: string,
+    @Query("q") q?: string,
     @Query("status", new ParseEnumPipe(BlogStatus, { optional: true }))
     status?: BlogStatus,
   ) {
     return this.blogs.getBlogs(storeId, {
-      page,
       limit,
-      search,
+      cursor,
+      q,
       status,
     });
   }

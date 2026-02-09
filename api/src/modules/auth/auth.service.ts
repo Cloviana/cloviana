@@ -14,7 +14,12 @@ import { ShopifyCallbackDto } from "@/modules/auth/dtos/shopify-callback.dto";
 import { resolveFavicon } from "@/utils/resolve-favicon.util";
 import { CACHE_MANAGER, Cache } from "@nestjs/cache-manager";
 import { BadRequestException, Inject, Injectable } from "@nestjs/common";
-import { PlanName, StoreStatus, SubscriptionStatus } from "@prisma/client";
+import {
+  DayOfWeek,
+  PlanName,
+  StoreStatus,
+  SubscriptionStatus,
+} from "@prisma/client";
 
 type InstallStateCache = {
   uid: string | null;
@@ -37,6 +42,22 @@ type TicketPayload = {
   user_id: string;
   store_id: string;
 };
+
+const DOW: DayOfWeek[] = [
+  DayOfWeek.SUN,
+  DayOfWeek.MON,
+  DayOfWeek.TUE,
+  DayOfWeek.WED,
+  DayOfWeek.THU,
+  DayOfWeek.FRI,
+  DayOfWeek.SAT,
+];
+
+function tomorrowDayOfWeek(date = new Date()): DayOfWeek {
+  const d = new Date(date);
+  d.setDate(d.getDate() + 1);
+  return DOW[d.getDay()];
+}
 
 @Injectable()
 export class AuthService {
@@ -386,6 +407,15 @@ export class AuthService {
               config: { offlineAccessToken },
             },
           },
+          autopilotSettings: {
+            create: {
+              blog: {
+                create: {
+                  publishDays: [tomorrowDayOfWeek(trialEndsAt)],
+                },
+              },
+            },
+          },
         },
       });
 
@@ -432,6 +462,15 @@ export class AuthService {
               status: SubscriptionStatus.TRIALLING,
               trialEndsAt,
               plan: { connect: { id: starterPlan.id } },
+            },
+          },
+          autopilotSettings: {
+            create: {
+              blog: {
+                create: {
+                  publishDays: [tomorrowDayOfWeek(trialEndsAt)],
+                },
+              },
             },
           },
         },

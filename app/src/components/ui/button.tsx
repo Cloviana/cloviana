@@ -10,18 +10,20 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-primary text-white hover:opacity-90',
-        secondary: 'bg-secondary text-white hover:opacity-90',
+        primary:
+          'bg-primary text-white hover:opacity-90 disabled:bg-muted disabled:text-muted-foreground disabled:opacity-100',
+        secondary:
+          'bg-secondary text-white hover:opacity-90 disabled:bg-muted disabled:text-muted-foreground disabled:opacity-100',
         outline: 'border bg-white hover:bg-accent',
         dashed: 'border border-dashed bg-background hover:bg-accent',
-        ghost: 'bg-background/30 backdrop-blur hover:bg-accent',
+        ghost: 'bg-transparent backdrop-blur hover:bg-accent',
         link: 'text-secondary hover:underline',
       },
       size: {
         default: 'h-8 px-4 py-2 has-[>svg]:px-3 text-sm',
         sm: 'h-7 text-xs px-3 has-[>svg]:px-2.5',
         xs: 'h-6 px-2 has-[>svg]:px-2 text-xs',
-        lg: 'h-10 px-6 has-[>svg]:px-4 text-sm',
+        lg: 'h-9 px-6 has-[>svg]:px-4 text-sm',
         icon: 'size-9',
         'icon-sm': 'size-7',
         'icon-lg': 'size-10',
@@ -63,12 +65,27 @@ function Button({
   return (
     <button
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(
+        buttonVariants({ variant, size, className }),
+        // 1. !text-transparent: We use !important to override the 'disabled:text-muted-foreground' color
+        loading && '!text-transparent',
+        // 2. Hide icons/children: This makes direct children invisible but keeps their layout space
+        loading && '[&>*:not(.absolute)]:invisible',
+      )}
       disabled={disabled || loading}
       {...props}
     >
       {loading && (
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div
+          className={cn(
+            'absolute inset-0 z-10 flex items-center justify-center',
+            // If primary/secondary, the button turns gray (muted), so spinner must be dark (muted-foreground)
+            // Otherwise, we use the foreground color.
+            variant === 'primary' || variant === 'secondary'
+              ? 'text-muted-foreground'
+              : 'text-foreground',
+          )}
+        >
           <Spinner
             strokeWidth={3.3}
             className={
@@ -79,9 +96,7 @@ function Button({
           />
         </div>
       )}
-      <div className={cn('flex items-center gap-1.5', loading && 'opacity-0')}>
-        {children}
-      </div>
+      {children}
     </button>
   );
 }

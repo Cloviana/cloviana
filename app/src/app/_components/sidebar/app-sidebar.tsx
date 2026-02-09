@@ -1,8 +1,6 @@
 'use client';
 
-import { Feather, MessageCircleQuestionMark } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Globe, MessageCircleQuestionMark, Settings } from 'lucide-react';
 import { useParams, usePathname } from 'next/navigation';
 import * as React from 'react';
 
@@ -14,7 +12,6 @@ import {
 } from '@/components/ui/sidebar';
 import { paths } from '@/config/paths';
 import { SUPPORT_EMAIL } from '@/constants/emails';
-import { AccountChip } from '@/features/auth/components/account-chip';
 import { StoreChip } from '@/features/stores/components/store-chip';
 
 import { NavMain } from './components/nav-main';
@@ -26,49 +23,60 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   const navMain = [
     {
-      title: 'Content',
+      title: 'Blog posts',
       url: paths.store.blogs.getHref(storeId),
-      icon: Feather,
+      icon: Globe,
       isActive: pathname.startsWith(paths.store.blogs.getHref(storeId)),
     },
   ];
 
   const navSecondary = [
     {
+      title: 'Settings',
+      url: paths.store.settings.getHref(storeId),
+      isActive: pathname.startsWith(paths.store.settings.getHref(storeId)),
+      icon: Settings,
+      items: [
+        {
+          title: 'Integrations',
+          url: paths.store.settings.integrations.getHref(storeId),
+          isActive: pathname.startsWith(
+            paths.store.settings.integrations.getHref(storeId),
+          ),
+        },
+        {
+          title: 'Autopilot',
+          url: paths.store.settings.autopilot.getHref(storeId),
+          isActive: pathname.startsWith(
+            paths.store.settings.autopilot.getHref(storeId),
+          ),
+        },
+      ],
+    },
+    {
       title: 'Ask for help',
       url: `mailto:${SUPPORT_EMAIL}`,
       icon: MessageCircleQuestionMark,
+      isActive: false,
     },
   ];
 
   return (
     <Sidebar variant="inset" {...props}>
       <SidebarHeader>
-        <div className="flex shrink-0 items-center gap-x-2">
-          <Link href={paths.store.getHref(storeId)}>
-            <Image
-              src="/logo-icon.png"
-              width={125}
-              height={125}
-              alt="Cloviana Logo"
-              className="size-[18px]"
-            />
-          </Link>
-          <StoreChip className="flex-1" />
-          <AccountChip />
-        </div>
+        <StoreChip />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={navMain} />
         <NavSecondary items={navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
-        <div className="text-foreground-light text-center text-[11px]">
+        <div className="text-foreground-light text-left text-[11px]">
           <p>
             We&apos;re moving quickly to deliver value during the pilot. Please
             contact{' '}
             <a
-              className="text-foreground font-medium underline hover:opacity-80"
+              className="text-secondary font-medium underline hover:opacity-80"
               href={`mailto:${SUPPORT_EMAIL}`}
             >
               {SUPPORT_EMAIL}
