@@ -101,6 +101,22 @@ enum SearchIntent {
   TRANSACTIONAL
 }
 
+enum DayOfWeek {
+  MON
+  TUE
+  WED
+  THU
+  FRI
+  SAT
+  SUN
+}
+
+enum AutopilotContentMix {
+  BALANCED
+  PROBLEM_SOLUTION
+  COMPARISON
+}
+
 // --- BILLING MODELS ---
 
 model Plan {
@@ -138,6 +154,41 @@ model Subscription {
 
 // --- CORE MODELS ---
 
+model AutopilotSettings {
+  id String @id @default(uuid()) @db.Uuid
+
+  storeId String @unique
+  store   Store  @relation(fields: [storeId], references: [id], onDelete: Cascade)
+
+  enabled Boolean @default(true)
+
+  blog AutopilotBlogSettings?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("autopilot_settings")
+}
+
+model AutopilotBlogSettings {
+  id String @id @default(uuid()) @db.Uuid
+
+  autopilotSettingsId String            @unique @db.Uuid
+  autopilotSettings   AutopilotSettings @relation(fields: [autopilotSettingsId], references: [id], onDelete: Cascade)
+
+  publishDays DayOfWeek[]         @default([MON])
+  contentMix  AutopilotContentMix @default(BALANCED)
+  autoPublish Boolean             @default(false)
+  lastRunAt   DateTime?
+
+  collections Collection[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("autopilot_blog_settings")
+}
+
 model Store {
   id               String      @id @default(cuid())
   ownerId          String      @db.Uuid
@@ -155,12 +206,13 @@ model Store {
 
   subscription Subscription?
 
-  owner       Profile      @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
-  blogs       Blog[]
-  jobs        Job[]
-  products    Product[]
-  collections Collection[]
-  channel     Channel?
+  owner             Profile            @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  blogs             Blog[]
+  jobs              Job[]
+  products          Product[]
+  collections       Collection[]
+  channel           Channel?
+  autopilotSettings AutopilotSettings?
 
   @@index([ownerId])
   @@map("stores")
@@ -243,9 +295,10 @@ model Collection {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  store    Store     @relation(fields: [storeId], references: [id], onDelete: Cascade)
-  products Product[]
-  blogs    Blog[]
+  store                 Store                   @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  products              Product[]
+  blogs                 Blog[]
+  autopilotBlogSettings AutopilotBlogSettings[]
 
   @@unique([storeId, externalId])
   @@unique([storeId, slug])

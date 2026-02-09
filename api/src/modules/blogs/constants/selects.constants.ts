@@ -7,6 +7,7 @@ export const BLOG_SUMMARY_SELECT: Prisma.BlogSelect = {
   status: true,
   createdAt: true,
   updatedAt: true,
+  storeId: true,
   thumbnail: { select: { blobPath: true, altText: true } },
   job: {
     select: {
@@ -15,11 +16,6 @@ export const BLOG_SUMMARY_SELECT: Prisma.BlogSelect = {
       startedAt: true,
       finishedAt: true,
       error: true,
-    },
-  },
-  _count: {
-    select: {
-      products: true,
     },
   },
 };

@@ -1,12 +1,12 @@
 'use client';
 
-import { Feather, Plus } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import { useParams, useRouter } from 'next/navigation';
 
 import { Page, PageContent, PageHeader } from '@/components/ui/page';
 import { paths } from '@/config/paths';
 import { useCreateBlog } from '@/features/blogs/api/create-blog';
-import { BlogsTable } from '@/features/blogs/components/blogs-table';
+import { BlogsList } from '@/features/blogs/components/blogs-list';
 import { useGetStore } from '@/features/stores/api/get-store';
 
 export default function BlogsPage() {
@@ -26,13 +26,13 @@ export default function BlogsPage() {
   };
 
   return (
-    <Page fullWidth>
+    <Page>
       <PageHeader
-        heading={{ title: 'Content', icon: Feather }}
+        title="Blog posts"
         primaryAction={{
           size: 'default',
           variant: 'secondary',
-          disabled: isCreating,
+          loading: isCreating,
           onClick: handleCreateBlog,
           children: (
             <>
@@ -43,7 +43,7 @@ export default function BlogsPage() {
         }}
       />
       <PageContent>
-        <BlogsTable />
+        <BlogsList />
       </PageContent>
     </Page>
   );

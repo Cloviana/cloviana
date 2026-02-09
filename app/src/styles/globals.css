@@ -166,12 +166,12 @@
     --primary: hsl(240, 6%, 7%);
     --primary-foreground: hsl(0 0% 98%);
 
-    --background: hsl(240 20% 99%);
+    --background: hsl(0 0% 98%);
     --studio: hsl(0 0% 100%);
 
     --foreground: hsl(270 100% 5.098%);
-    --foreground-light: hsl(270 100% 5.098% / 70%);
-    --foreground-lighter: hsl(270 100% 5.098% / 60%);
+    --foreground-light: hsl(37.5 3.306% 47.45%);
+    --foreground-lighter: hsl(37.5 4.082% 61.57%);
 
     --border: hsl(260 6% 90%);
 
@@ -184,7 +184,7 @@
     --popover: hsl(0 0% 100%);
     --popover-foreground: hsl(0 0% 3.9%);
 
-    --secondary: hsl(209 96% 49%);
+    --secondary: hsl(209, 88%, 55%);
     --secondary-foreground: hsl(0, 0%, 100%);
 
     --secondary-dark: hsl(209 96% 40%);
@@ -194,7 +194,7 @@
     --secondary-200: hsl(209 96% 49% / 11%);
     --secondary-100: hsl(209 96% 49% / 5%);
 
-    --accent: hsl(300 4% 95%);
+    --accent: hsl(300 4% 97%);
     --accent-foreground: var(--foreground);
 
     --destructive: hsl(345 70% 47%);
@@ -212,7 +212,7 @@
 
     --radius: 0.5rem;
 
-    --sidebar: var(--background);
+    --sidebar: var(--studio);
     --sidebar-foreground: var(--foreground);
 
     --sidebar-accent: var(--accent);

@@ -27,7 +27,7 @@ export default async function Layout({ children }: LayoutProps) {
   return (
     <HydrationBoundary state={dehydrate(qc)}>
       <div className="bg-studio flex min-h-screen flex-col">
-        <header className="border-b">
+        <header>
           <OnboardingHeader />
         </header>
         <ScrollArea className="relative flex-1">{children}</ScrollArea>

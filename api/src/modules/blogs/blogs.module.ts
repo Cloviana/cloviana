@@ -12,5 +12,6 @@ import { BlogsService } from "./services/blogs.service";
   imports: [BlogGenerationModule, ShopifyCatalogModule, DataForSeoModule],
   controllers: [BlogsController, BlogsConsumer, SuggestionsController],
   providers: [BlogsService, SuggestionsService],
+  exports: [BlogsService, SuggestionsService],
 })
 export class BlogsModule {}

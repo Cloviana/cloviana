@@ -2,11 +2,15 @@ import type { ReactNode } from 'react';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
+import { AppHeader } from '@/app/_components/header';
 import { AppSidebar } from '@/app/_components/sidebar';
 import { ErrorFallback } from '@/components/fallbacks/error-fallback';
 import { LoadingFallback } from '@/components/fallbacks/loading-fallback';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from '@/components/ui/sidebar';
 import { ShopifyConnectionGate } from '@/features/stores/guards/shopify-connection-gate';
 
 type LayoutProps = {
@@ -16,23 +20,25 @@ type LayoutProps = {
 export default function Layout({ children }: LayoutProps) {
   return (
     <SidebarProvider
-      style={
-        {
-          '--sidebar-width': '18rem',
-        } as React.CSSProperties
-      }
+      className="h-svh overflow-hidden"
+      style={{ '--sidebar-width': '18rem' } as React.CSSProperties}
     >
-      <AppSidebar />
+      <div className="flex h-full min-h-0 w-full flex-col">
+        <AppHeader sidebarTrigger={<SidebarTrigger />} />
 
-      <SidebarInset>
-        <ScrollArea className="h-full flex-1">
-          <Suspense fallback={<LoadingFallback />}>
-            <ErrorBoundary fallback={<ErrorFallback />}>
-              <ShopifyConnectionGate>{children}</ShopifyConnectionGate>
-            </ErrorBoundary>
-          </Suspense>
-        </ScrollArea>
-      </SidebarInset>
+        <div className="relative flex min-h-0 flex-1">
+          <AppSidebar />
+          <SidebarInset>
+            <div className="min-h-0 flex-1 overflow-y-auto">
+              <Suspense fallback={<LoadingFallback />}>
+                <ErrorBoundary fallback={<ErrorFallback />}>
+                  <ShopifyConnectionGate>{children}</ShopifyConnectionGate>
+                </ErrorBoundary>
+              </Suspense>
+            </div>
+          </SidebarInset>
+        </div>
+      </div>
     </SidebarProvider>
   );
 }
