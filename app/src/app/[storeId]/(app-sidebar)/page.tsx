@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation';
 
 import { paths } from '@/config/paths';
 
-export default async function Page({
+export default async function RootPage({
   params,
 }: {
   params: Promise<{ storeId: string }>;

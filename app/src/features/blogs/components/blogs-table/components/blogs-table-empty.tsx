@@ -67,8 +67,7 @@ export const BlogTableEmpty = () => {
       <EmptyHeader>
         <EmptyTitle>You haven't created a Blog yet</EmptyTitle>
         <EmptyDescription>
-          You've started up and it's time to start selling! Create a pipeline to
-          manage your sales process.
+          Generate your first blog and start publishing.
         </EmptyDescription>
       </EmptyHeader>
 
@@ -76,7 +75,7 @@ export const BlogTableEmpty = () => {
         <Button
           size="default"
           variant="secondary"
-          disabled={isCreating}
+          loading={isCreating}
           onClick={handleCreateBlog}
         >
           <Plus className="mr-2 size-4" />

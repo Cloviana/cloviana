@@ -38,9 +38,19 @@ export const paths = {
       },
     },
 
-    catalog: {
+    settings: {
       getHref: (storeId: string, query?: Record<string, any>) =>
-        buildPath(`/${storeId}/catalog`, query),
+        buildPath(`/${storeId}/settings`, query),
+
+      integrations: {
+        getHref: (storeId: string, query?: Record<string, any>) =>
+          buildPath(`/${storeId}/settings/integrations`, query),
+      },
+
+      autopilot: {
+        getHref: (storeId: string, query?: Record<string, any>) =>
+          buildPath(`/${storeId}/settings/autopilot`, query),
+      },
     },
   },
 

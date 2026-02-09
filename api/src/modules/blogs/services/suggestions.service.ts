@@ -263,11 +263,44 @@ export class SuggestionsService {
         }));
       });
 
-      const allKeywords = (await Promise.all(suggestionTasks)).flat();
+      let allKeywords = (await Promise.all(suggestionTasks)).flat();
       if (!allKeywords.length) {
-        throw new Error(
-          `No keyword suggestions returned for seeds: ${seeds.join(", ")}`,
-        );
+        const task: KeywordIdeasTask = {
+          keywords: seeds,
+          language_code: DATAFORSEO_LANGUAGE,
+          location_code: DATAFORSEO_LOCATION,
+          ignore_synonyms: false,
+          closely_variants: false,
+          filters: [
+            [
+              ["keyword_info.search_volume", ">=", 20],
+              "and",
+              ["keyword_properties.keyword_difficulty", "<=", 50],
+              "and",
+              ["search_intent_info.main_intent", "<>", "navigational"],
+            ],
+          ],
+          order_by: [
+            "keyword_info.search_volume,desc",
+            "keyword_properties.keyword_difficulty,asc",
+          ],
+          limit: 200,
+        };
+
+        const response = await this.dataForSeo.getKeywordIdeas(task);
+        const items = response.tasks?.[0]?.result?.[0]?.items ?? [];
+        if (!items.length) {
+          throw new Error(
+            `No keyword ideas returned for seeds: ${seeds.join(", ")}`,
+          );
+        }
+
+        allKeywords = items.map((item) => ({
+          keyword: item.keyword,
+          volume: item.keyword_info?.search_volume ?? 10,
+          difficulty: item.keyword_properties?.keyword_difficulty ?? null,
+          intent: item.search_intent_info?.main_intent ?? null,
+        }));
       }
 
       const uniqueKeywords = this.dedupeByKeyword(allKeywords);

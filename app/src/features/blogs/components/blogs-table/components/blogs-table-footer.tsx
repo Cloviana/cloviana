@@ -12,7 +12,6 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { useGetBlogs } from '@/features/blogs/api/get-blogs';
-import type { Blog, PaginatedResponse } from '@/types/api';
 import { cn } from '@/utils/cn';
 
 import { useBlogsTableQuery } from '../hooks/use-blogs-table-query';
@@ -21,32 +20,32 @@ const LIMIT_OPTIONS = [25, 50, 100] as const;
 type LimitOption = (typeof LIMIT_OPTIONS)[number];
 
 export const BlogsTableFooter = () => {
-  const { storeId, page, limit, queryParams, setQueryParams } =
+  const { storeId, limit, search, status, setQueryParams } =
     useBlogsTableQuery();
-  const { data, isLoading } = useGetBlogs(storeId, { params: queryParams });
+  const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useGetBlogs({
+      storeId,
+      params: {
+        limit,
+        q: search,
+        status,
+      },
+    });
 
-  const typed = data as PaginatedResponse<Blog> | undefined;
+  const { start, end, total } = useMemo(() => {
+    const loaded = data?.pages.reduce((acc, page) => acc + page.data.length, 0);
+    const safeTotal = Math.max(loaded ?? 0, 0);
 
-  const { start, end, total, totalPages } = useMemo(() => {
-    const rawTotal = typed?.meta?.total;
-    const rawTotalPages = typed?.meta?.totalPages;
-    const safeTotal = Math.max(rawTotal ?? 1, 1);
-    const safeTotalPages = Math.max(rawTotalPages ?? 1, 1);
-
-    if (!typed?.meta) {
-      return { start: 1, end: 1, total: 1, totalPages: 1 };
+    if (!loaded) {
+      return { start: 0, end: 0, total: 0 };
     }
 
-    const startValue = Math.min((page - 1) * limit + 1, safeTotal);
-    const endValue = Math.min(page * limit, safeTotal);
-
     return {
-      start: startValue,
-      end: endValue,
+      start: 1,
+      end: safeTotal,
       total: safeTotal,
-      totalPages: safeTotalPages,
     };
-  }, [typed?.meta, page, limit]);
+  }, [data?.pages]);
 
   const onLimitChange = (value: string) => {
     const nextLimit = Number(value);
@@ -55,16 +54,6 @@ export const BlogsTableFooter = () => {
 
     setQueryParams({ limit: nextLimit, page: 1 });
   };
-
-  const goToPage = (nextPage: number) => {
-    const bounded = Math.min(Math.max(nextPage, 1), totalPages);
-    if (bounded === page) return;
-
-    setQueryParams({ page: bounded });
-  };
-
-  const canPrev = page > 1;
-  const canNext = page < totalPages;
 
   const selectedLimit = LIMIT_OPTIONS.includes(limit as LimitOption)
     ? String(limit)
@@ -79,20 +68,15 @@ export const BlogsTableFooter = () => {
         of {total}
       </div>
       <div className="flex items-center gap-2">
-        <div className={cn('flex items-center gap-2', total === 1 && 'hidden')}>
-          <Button
-            variant="outline"
-            size="icon"
-            disabled={!canPrev || isLoading}
-            onClick={() => goToPage(page - 1)}
-          >
+        <div className={cn('flex items-center gap-2', total === 0 && 'hidden')}>
+          <Button variant="outline" size="icon" disabled>
             <ChevronLeft />
           </Button>
           <Button
             variant="outline"
             size="icon"
-            disabled={!canNext || isLoading}
-            onClick={() => goToPage(page + 1)}
+            disabled={!hasNextPage || isLoading || isFetchingNextPage}
+            onClick={() => fetchNextPage()}
           >
             <ChevronRight />
           </Button>

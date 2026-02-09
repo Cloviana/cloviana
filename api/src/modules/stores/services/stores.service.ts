@@ -3,8 +3,24 @@ import { BadRequestException, Injectable } from "@nestjs/common";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { AuthUser } from "@/interfaces/auth-user.interface";
 import { resolveFavicon } from "@/utils/resolve-favicon.util";
-import { PlanName, SubscriptionStatus } from "@prisma/client";
+import { DayOfWeek, PlanName, SubscriptionStatus } from "@prisma/client";
 import { CreateStoreDto } from "../dto/create-store.dto";
+
+const DOW: DayOfWeek[] = [
+  DayOfWeek.SUN,
+  DayOfWeek.MON,
+  DayOfWeek.TUE,
+  DayOfWeek.WED,
+  DayOfWeek.THU,
+  DayOfWeek.FRI,
+  DayOfWeek.SAT,
+];
+
+function tomorrowDayOfWeek(date = new Date()): DayOfWeek {
+  const d = new Date(date);
+  d.setDate(d.getDate() + 1);
+  return DOW[d.getDay()];
+}
 
 @Injectable()
 export class StoresService {
@@ -72,6 +88,15 @@ export class StoresService {
             status: SubscriptionStatus.TRIALLING,
             trialEndsAt,
             plan: { connect: { id: starterPlan.id } },
+          },
+        },
+        autopilotSettings: {
+          create: {
+            blog: {
+              create: {
+                publishDays: [tomorrowDayOfWeek(trialEndsAt)],
+              },
+            },
           },
         },
       },

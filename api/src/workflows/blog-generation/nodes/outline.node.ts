@@ -280,6 +280,7 @@ export async function outline(
         const url = await generateImage({
           prompt: imagePrompt,
           referencedImageUrls,
+          quality: "low",
           destination: {
             storage,
             path: `blogs/${state._blogId}/sections/${section.sectionId}.png`,
@@ -305,7 +306,7 @@ export async function outline(
         const url = await generateImage({
           prompt: imagePrompt,
           referencedImageUrls,
-          quality: "high",
+          quality: "medium",
           destination: {
             storage,
             path: `blogs/${state._blogId}/thumbnail.png`,
