@@ -51,6 +51,11 @@ export const paths = {
         getHref: (storeId: string, query?: Record<string, any>) =>
           buildPath(`/${storeId}/settings/automation`, query),
       },
+
+      subscription: {
+        getHref: (storeId: string, query?: Record<string, any>) =>
+          buildPath(`/${storeId}/settings/subscription`, query),
+      },
     },
   },
 

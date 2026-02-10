@@ -1,5 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { CreditCard, LogOut } from 'lucide-react';
+import { LogOut } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
@@ -14,7 +14,6 @@ import {
 import { paths } from '@/config/paths';
 import { signOut } from '@/features/auth/actions/sign-out';
 import { useUser } from '@/hooks/use-user';
-import { useSubscriptionModal } from '@/stores/subscription-modal';
 
 import { ProfileIcon } from './profile-icon';
 
@@ -22,7 +21,6 @@ export const AccountChip = () => {
   const [signingOut, setSigningOut] = useState(false);
 
   const { user, isLoading } = useUser();
-  const { open: openSubscriptionModal } = useSubscriptionModal();
   const { push } = useRouter();
   const qc = useQueryClient();
 
@@ -49,15 +47,6 @@ export const AccountChip = () => {
             <DropdownMenuItem className="pointer-events-none flex items-center gap-3">
               <ProfileIcon user={user} isLoading={isLoading} />
               <span className="text-[13px]">{user && user.email}</span>
-            </DropdownMenuItem>
-          </DropdownMenuGroup>
-          <DropdownMenuGroup>
-            <DropdownMenuItem
-              className="hidden"
-              onClick={openSubscriptionModal}
-            >
-              <CreditCard />
-              Subscription
             </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />

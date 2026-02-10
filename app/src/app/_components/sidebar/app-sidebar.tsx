@@ -51,6 +51,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             paths.store.settings.automation.getHref(storeId),
           ),
         },
+        {
+          title: 'Subscription',
+          url: paths.store.settings.subscription.getHref(storeId),
+          isActive: pathname.startsWith(
+            paths.store.settings.subscription.getHref(storeId),
+          ),
+        },
       ],
     },
     {
