@@ -45,10 +45,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           ),
         },
         {
-          title: 'Autopilot',
-          url: paths.store.settings.autopilot.getHref(storeId),
+          title: 'Automation',
+          url: paths.store.settings.automation.getHref(storeId),
           isActive: pathname.startsWith(
-            paths.store.settings.autopilot.getHref(storeId),
+            paths.store.settings.automation.getHref(storeId),
           ),
         },
       ],

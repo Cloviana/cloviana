@@ -47,9 +47,9 @@ export const paths = {
           buildPath(`/${storeId}/settings/integrations`, query),
       },
 
-      autopilot: {
+      automation: {
         getHref: (storeId: string, query?: Record<string, any>) =>
-          buildPath(`/${storeId}/settings/autopilot`, query),
+          buildPath(`/${storeId}/settings/automation`, query),
       },
     },
   },

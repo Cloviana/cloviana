@@ -43,7 +43,7 @@ type FormValues = {
   selectedCollectionIds: string[];
 };
 
-export default function AutopilotPage() {
+export default function AutomationPage() {
   const { storeId } = useParams<{ storeId: string }>();
 
   const [isCollectionsOpen, setIsCollectionsOpen] = useState(false);
@@ -126,7 +126,7 @@ export default function AutopilotPage() {
   return (
     <Page>
       <PageHeader
-        title="Autopilot"
+        title="Automation"
         description="Turn automation on or off, and control how Cloviana runs in the background—starting with your blog cadence and content rules."
       />
       <PageContent className="mt-8 max-w-2xl space-y-8">
