@@ -7,10 +7,10 @@ export default function SubscriptionPage() {
   return (
     <Page>
       <PageHeader
-        title="Current Plan"
+        title="Subscription"
         description="Review your store's current plan, billing cycle, and included usage. Upgrade, downgrade, or cancel anytime."
       />
-      <PageContent className="max-w-6xl">
+      <PageContent>
         <Plans />
       </PageContent>
     </Page>

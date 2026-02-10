@@ -160,7 +160,7 @@ const PlanAction = ({
     <div className={cn('mt-1 mb-8', className)} {...props}>
       <Button
         className="w-full"
-        variant={'primary'}
+        variant={'secondary'}
         size={'default'}
         disabled={disabled || isLoading}
         onClick={() => {
@@ -186,7 +186,7 @@ const PlanFeatures = ({
     <ul className={cn('flex flex-col gap-3', className)} {...props}>
       {features.map((feature, idx) => (
         <li key={idx} className="flex flex-row gap-2">
-          <Check className="text-primary size-3" />
+          <Check className="text-foreground-light size-3" />
           <div className="text-foreground-light text-xs">{feature}</div>
         </li>
       ))}
@@ -229,7 +229,7 @@ export const Plans = () => {
   const hasActiveSubscription = subscription?.status === 'ACTIVE';
 
   return (
-    <div className="relative">
+    <div className="relative max-w-5xl">
       <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5">
         {plans.map((plan) => {
           const samePlan = subscription?.plan.stripePriceId === plan.priceId;
