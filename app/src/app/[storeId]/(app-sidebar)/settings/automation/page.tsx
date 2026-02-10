@@ -4,6 +4,7 @@ import { ChevronRight } from 'lucide-react';
 import { useParams } from 'next/navigation';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -43,7 +44,7 @@ type FormValues = {
   selectedCollectionIds: string[];
 };
 
-export default function AutopilotPage() {
+export default function AutomationPage() {
   const { storeId } = useParams<{ storeId: string }>();
 
   const [isCollectionsOpen, setIsCollectionsOpen] = useState(false);
@@ -120,13 +121,14 @@ export default function AutopilotPage() {
       },
     });
 
+    toast.success('Your changes have been saved', { position: 'top-right' });
     form.reset(values);
   };
 
   return (
     <Page>
       <PageHeader
-        title="Autopilot"
+        title="Automation"
         description="Turn automation on or off, and control how Cloviana runs in the background—starting with your blog cadence and content rules."
       />
       <PageContent className="mt-8 max-w-2xl space-y-8">
@@ -275,7 +277,7 @@ export default function AutopilotPage() {
                 </section>
               </FieldGroup>
 
-              <div className="flex justify-end pt-6">
+              <div className="flex justify-start pt-8">
                 <Button
                   type="submit"
                   variant="secondary"
@@ -283,7 +285,7 @@ export default function AutopilotPage() {
                   disabled={!form.formState.isDirty || isSaving || isFetching}
                   loading={isSaving}
                 >
-                  Save
+                  Save Changes
                 </Button>
               </div>
             </form>

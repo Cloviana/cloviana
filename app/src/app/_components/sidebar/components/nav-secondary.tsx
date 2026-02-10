@@ -61,7 +61,9 @@ export function NavSecondary({
             return (
               <Collapsible
                 key={item.title}
-                defaultOpen={item.isActive}
+                defaultOpen={
+                  item.title.toLocaleLowerCase() === 'settings' || item.isActive
+                }
                 className="group/collapsible"
               >
                 <SidebarMenuItem>

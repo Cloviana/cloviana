@@ -7,10 +7,8 @@ import { redirect } from 'next/navigation';
 import { ReactNode } from 'react';
 
 import { paths } from '@/config/paths';
-import { SubscriptionModal } from '@/features/billing/components/subscription-modal';
 import { getStoreQueryOptions } from '@/features/stores/api/get-store';
 import { getStoresQueryOptions } from '@/features/stores/api/get-stores';
-import { SubscriptionModalProvider } from '@/stores/subscription-modal';
 
 interface LayoutProps {
   children: ReactNode;
@@ -34,11 +32,6 @@ export default async function Layout({ children, params }: LayoutProps) {
   }
 
   return (
-    <HydrationBoundary state={dehydrate(qc)}>
-      <SubscriptionModalProvider>
-        {children}
-        <SubscriptionModal />
-      </SubscriptionModalProvider>
-    </HydrationBoundary>
+    <HydrationBoundary state={dehydrate(qc)}>{children}</HydrationBoundary>
   );
 }

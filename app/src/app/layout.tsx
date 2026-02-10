@@ -3,6 +3,7 @@ import React, { ReactNode } from 'react';
 
 import { AppProvider } from '@/app/provider';
 import '@/styles/globals.css';
+import { Toaster } from '@/components/ui/sonner';
 import { env } from '@/config/env';
 import { MATERIAL_SYMBOLS_STYLESHEET } from '@/config/material-symbols';
 import { dmSans, geist, inter, interDisplay } from '@/lib/fonts';
@@ -97,6 +98,7 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body>
+        <Toaster />
         <AppProvider>{children}</AppProvider>
       </body>
     </html>
