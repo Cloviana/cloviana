@@ -4,6 +4,7 @@ import { ChevronRight } from 'lucide-react';
 import { useParams } from 'next/navigation';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -120,6 +121,7 @@ export default function AutomationPage() {
       },
     });
 
+    toast.success('Your changes have been saved', { position: 'top-right' });
     form.reset(values);
   };
 
@@ -275,7 +277,7 @@ export default function AutomationPage() {
                 </section>
               </FieldGroup>
 
-              <div className="flex justify-end pt-6">
+              <div className="flex justify-start pt-8">
                 <Button
                   type="submit"
                   variant="secondary"
@@ -283,7 +285,7 @@ export default function AutomationPage() {
                   disabled={!form.formState.isDirty || isSaving || isFetching}
                   loading={isSaving}
                 >
-                  Save
+                  Save Changes
                 </Button>
               </div>
             </form>
