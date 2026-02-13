@@ -119,6 +119,7 @@ services:
       NEXT_PUBLIC_WEB_URL: ${WEB_URL}
       NEXT_PUBLIC_GA4_ID: G-VSMD7B6WN1
       GA4_API_SECRET: ${GA4_API_SECRET}
+      SHADCNBLOCKS_API_KEY: ${SHADCNBLOCKS_API_KEY}
     image: ghcr.io/cloviana/web:latest
     container_name: web
     restart: always
