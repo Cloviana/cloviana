@@ -72,10 +72,10 @@ const Faq = ({
   className,
 }: FaqProps) => {
   return (
-    <section className={cn('py-32', className)}>
-      <div className="container space-y-16">
+    <section className={cn('padding-global', className)}>
+      <div className="padding-section-medium container">
         <div className="mx-auto flex max-w-3xl flex-col text-left md:text-center">
-          <h2 className="mb-3 text-3xl font-semibold md:mb-4 lg:mb-6 lg:text-4xl">
+          <h2 className="mb-3 text-2xl font-medium md:mb-4 md:text-3xl lg:mb-6 lg:text-4xl">
             {heading}
           </h2>
           <p className="text-muted-foreground lg:text-lg">{description}</p>

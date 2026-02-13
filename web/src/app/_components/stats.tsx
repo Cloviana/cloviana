@@ -12,7 +12,7 @@ export const Stats = ({ className }: Stats11Props) => {
           <div className="absolute right-0 -left-px -z-20 h-full w-full bg-[linear-gradient(90deg,var(--muted-foreground)_1px,transparent_1px)] [mask-image:linear-gradient(transparent_25%,black_25%,black_75%,transparent_75%)] [background-size:calc(100%/16)_100%] [mask-size:100%_16px] opacity-20 [-webkit-mask-image:linear-gradient(transparent_25%,black_25%,black_75%,transparent_75%)] [-webkit-mask-size:100%_16px]" />
 
           <div>
-            <h2 className="mb-16 max-w-3xl text-3xl leading-10 font-semibold sm:mb-24 md:mx-10">
+            <h2 className="mb-16 max-w-3xl text-xl font-medium sm:mb-24 md:mx-10 md:text-2xl lg:text-3xl/10">
               SEO that runs while you run your business.
               <span className="text-muted-foreground/90 font-medium">
                 {' '}
