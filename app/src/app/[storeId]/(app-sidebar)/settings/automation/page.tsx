@@ -121,7 +121,7 @@ export default function AutomationPage() {
       },
     });
 
-    toast.success('Your changes have been saved', { position: 'top-right' });
+    toast.success('Your changes have been saved', { position: 'bottom-right' });
     form.reset(values);
   };
 

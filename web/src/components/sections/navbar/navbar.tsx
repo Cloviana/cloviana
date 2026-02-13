@@ -7,12 +7,16 @@ import { FC, useState } from 'react';
 
 import { GIcon } from '@/components/icons';
 import { Button } from '@/components/ui/button';
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from '@/components/ui/navigation-menu';
 import { links } from '@/config/links';
 import { paths } from '@/config/paths';
 import { gaEvent } from '@/lib/ga/client';
 import { cn } from '@/utils/cn';
-
-import { NavItem } from './components/nav-item';
 
 interface NavbarProps {
   className?: string;
@@ -31,48 +35,73 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
     <div className="relative">
       <motion.nav
         className={cn(
-          'padding-global py-2.5 backdrop-blur transition-colors duration-300',
-          showBorder
-            ? 'border-b bg-[#f9f9f9]/60'
-            : 'border-b border-transparent bg-white',
+          'padding-global bg-white/90 py-2.5 backdrop-blur transition-colors duration-300',
+          showBorder ? 'border-b' : 'border-b border-transparent',
           className,
         )}
       >
-        <div className="relative container flex items-center gap-8 px-0">
+        <div className="relative container mx-auto flex items-center gap-4 px-0">
           <div className="flex shrink-0">
             <Link href={paths.home.getHref()}>
-              <img src="/logo-full.png" alt="Logo" className="w-19" />
+              <img src="/logo-full.png" alt="Logo" className="h-5" />
             </Link>
           </div>
+
           <div className="flex flex-1 items-center justify-between">
+            {/* Desktop nav (shadcn NavigationMenu) */}
             <div className="hidden items-center md:flex">
-              <NavItem type="link" href={paths.home.getHref()}>
-                Home
-              </NavItem>
-              <NavItem type="link" href={paths.home.getHref()}>
-                Case Studies
-              </NavItem>
-              <NavItem type="link" href={paths.home.getHref()}>
-                Blog
-              </NavItem>
-              <NavItem type="link" href={paths.home.getHref()}>
-                Support
-              </NavItem>
+              <NavigationMenu viewport={false}>
+                <NavigationMenuList className="gap-1">
+                  <NavigationMenuItem>
+                    <NavigationMenuLink asChild>
+                      <Link href="#" className="px-4 py-2 text-sm font-medium">
+                        Home
+                      </Link>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+
+                  <NavigationMenuItem>
+                    <NavigationMenuLink asChild>
+                      <Link href="#" className="px-4 py-2 text-sm font-medium">
+                        Case Studies
+                      </Link>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+
+                  <NavigationMenuItem>
+                    <NavigationMenuLink asChild>
+                      <Link href="#" className="px-4 py-2 text-sm font-medium">
+                        Blog
+                      </Link>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+
+                  <NavigationMenuItem>
+                    <NavigationMenuLink asChild>
+                      <Link href="#" className="px-4 py-2 text-sm font-medium">
+                        Support
+                      </Link>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
             </div>
 
+            {/* Desktop CTAs */}
             <div className="hidden items-center gap-2 md:flex">
               <Button
                 asChild
                 variant="ghost"
-                className="font-normal"
-                onClick={() => gaEvent('book_demo')}
+                size={'lg'}
+                onClick={() => gaEvent('book_demo', { location: 'navbar' })}
               >
                 <Link href={links.demo}>Book demo</Link>
               </Button>
               <Button
                 asChild
-                className="group"
-                onClick={() => gaEvent('sign_up')}
+                size={'lg'}
+                className="group rounded-full"
+                onClick={() => gaEvent('sign_up', { location: 'navbar' })}
               >
                 <a
                   href={paths.auth.signup.getHref()}
@@ -88,8 +117,14 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
               </Button>
             </div>
 
+            {/* Mobile */}
             <div className="flex flex-1 items-center justify-end gap-2.5 md:hidden">
-              <Button asChild onClick={() => gaEvent('sign_up')}>
+              <Button
+                asChild
+                onClick={() =>
+                  gaEvent('sign_up', { location: 'navbar_mobile' })
+                }
+              >
                 <Link href={paths.auth.signup.getHref()}>Get started</Link>
               </Button>
               <Button
@@ -112,24 +147,27 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
         <div className={'border-b bg-white py-5 md:hidden'}>
           <div className={'padding-global container flex flex-col gap-6 px-0'}>
             <div className="flex flex-col gap-3">
-              <NavItem as="mobile" type="link" href={paths.home.getHref()}>
+              <Link href={paths.home.getHref()} className="text-sm font-medium">
                 Home
-              </NavItem>
-              <NavItem as="mobile" type="link" href={paths.home.getHref()}>
+              </Link>
+              <Link href={paths.home.getHref()} className="text-sm font-medium">
                 Case Studies
-              </NavItem>
-              <NavItem as="mobile" type="link" href={paths.home.getHref()}>
+              </Link>
+              <Link href={paths.home.getHref()} className="text-sm font-medium">
                 Blog
-              </NavItem>
-              <NavItem as="mobile" type="link" href={paths.home.getHref()}>
+              </Link>
+              <Link href={paths.home.getHref()} className="text-sm font-medium">
                 Support
-              </NavItem>
+              </Link>
             </div>
+
             <div className="flex flex-col gap-3">
               <Button
                 asChild
                 variant="outline"
-                onClick={() => gaEvent('book_demo')}
+                onClick={() =>
+                  gaEvent('book_demo', { location: 'navbar_mobile' })
+                }
               >
                 <a href={links.demo} target="_blank" rel="noopener noreferrer">
                   Request a demo

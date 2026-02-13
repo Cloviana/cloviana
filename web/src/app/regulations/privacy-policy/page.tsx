@@ -3,8 +3,14 @@ import path from 'path';
 
 import { marked } from 'marked';
 
-import FooterSection from '@/components/sections/footer/default';
+import { Footer } from '@/components/sections/footer/default';
 import { Navbar } from '@/components/sections/navbar';
+
+export const metadata = {
+  title: 'Privacy Policy — Cloviana',
+  description: 'Read how Cloviana collects, uses, and protects your data.',
+  robots: { index: false },
+};
 
 export default async function PrivacyPolicyPage() {
   const filePath = path.join(
@@ -27,7 +33,7 @@ export default async function PrivacyPolicyPage() {
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </main>
-      <FooterSection />
+      <Footer />
     </div>
   );
 }

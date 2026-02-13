@@ -30,28 +30,28 @@ export const FinalCTA: FC<FinalCTAProps> = ({ className }) => {
           />
 
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center">
-            <h2 className="font-switzer mb-6 text-3xl font-medium text-white md:text-4xl lg:text-6xl">
-              Try Cloviana now.
+            <h2 className="font-outfit mb-6 max-w-2xl text-xl font-medium text-white md:text-4xl">
+              Your next customer is already searching. Make sure they find you.
             </h2>
             <div className="flex flex-row items-center justify-center gap-4">
               <Button
                 asChild
                 variant="ghost"
+                size={'lg'}
                 className="text-foreground bg-white"
-                onClick={() => gaEvent('sign_up')}
+                onClick={() => gaEvent('sign_up', { location: 'final_cta' })}
               >
-                <Link href={paths.auth.signup.getHref()}>
-                  Get started for free
-                </Link>
+                <Link href={paths.auth.signup.getHref()}>Start free trial</Link>
               </Button>
               <Button
                 asChild
                 variant="ghost_a"
+                size={'lg'}
                 className="group text-white"
-                onClick={() => gaEvent('book_demo')}
+                onClick={() => gaEvent('book_demo', { location: 'final_cta' })}
               >
                 <a href={links.demo} target="_blank" rel="noopener noreferrer">
-                  Request a demo
+                  Book a demo
                   <GIcon
                     name="arrow_forward"
                     className="transition-transform group-hover:translate-x-0.5"
