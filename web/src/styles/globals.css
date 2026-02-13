@@ -3,23 +3,36 @@
 
 @theme {
   --font-switzer: var(--font-switzer);
-  --font-gambarino: var(--font-gambarino);
+  --font-satoshi: var(--font-satoshi);
+  --font-call-sans: var(--font-cal-sans);
+  --font-outfit: var(--font-outfit);
 
   --color-background: var(--background);
+  --color-studio: var(--studio);
+
+  --color-surface: var(--surface);
+
   --color-foreground: var(--foreground);
   --color-foreground-light: var(--foreground-light);
   --color-foreground-lighter: var(--foreground-lighter);
 
-  --color-border: var(--border);
+  --color-background-canvas: var(--background-canvas);
 
+  --color-border: var(--border);
+  
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-500: var(--primary-500);
+  --color-primary-400: var(--primary-400);
+  --color-primary-300: var(--primary-300);
+  --color-primary-200: var(--primary-200);
+  --color-primary-100: var(--primary-100);
 
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+
+  --color-link: var(--link);
 
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
@@ -35,6 +48,15 @@
 
   --color-input: var(--input);
   --color-ring: var(--ring);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 
   --color-tooltip: var(--tooltip);
   --color-tooltip-foreground: var(--tooltip-foreground);
@@ -55,18 +77,19 @@
 
 @layer base {
   :root {
-    --primary: hsl(209, 88%, 55%);
-
     --background: hsl(0, 0%, 100%);
+    --studio: hsl(0 0% 100%);
 
-    --foreground: hsl(0 0% 9%);
-    --foreground-light: hsl(0 0% 32.2%);
-    --foreground-lighter: hsl(0 0% 43.9%);
+    --foreground: hsl(0 0% 5.098%);
+    --foreground-light: hsl(0 0% 36%);
+    --foreground-lighter: hsl(0 0% 56%);
 
-    --border: hsl(0 0% 87%);
+    --border: hsl(260 6% 90%);
 
     --muted: hsl(0 0% 96.1%);
     --muted-foreground: hsl(0 0% 45.1%);
+
+    --surface: hsl(210, 20%, 97%);
 
     --card: hsl(0 0% 100%);
     --card-foreground: hsl(0 0% 3.9%);
@@ -74,18 +97,24 @@
     --popover: hsl(0 0% 100%);
     --popover-foreground: hsl(0 0% 3.9%);
 
-    --primary-foreground: hsl(0 0% 98%);
+    --primary: hsl(209, 88%, 55%);
+    --primary-foreground: hsl(0, 0%, 100%);
 
-    --secondary: hsl(0 0% 96.1%);
-    --secondary-foreground: hsl(0 0% 9%);
+    --primary-dark: hsl(209 96% 40%);
+    --primary-500: hsl(209 96% 49% / 56%);
+    --primary-400: hsl(209 96% 49% / 32%);
+    --primary-300: hsl(209 96% 49% / 20%);
+    --primary-200: hsl(209 96% 49% / 11%);
+    --primary-100: hsl(209 96% 49% / 5%);
 
-    --accent: hsl(0 0% 96.1%);
-    --accent-foreground: hsl(0 0% 9%);
+    --accent: hsl(300 4% 97%);
+    --accent-foreground: var(--foreground);
 
-    --destructive: hsl(0 84.2% 60.2%);
+    --destructive: hsl(345 70% 47%);
     --destructive-foreground: hsl(0 0% 98%);
 
-    --input: hsl(0 0% 89.8%);
+    --input: hsl(217 12% 87%);
+
     --ring: hsl(205, 63%, 84%);
 
     --chart-1: hsl(12 76% 61%);
@@ -96,7 +125,19 @@
 
     --radius: 0.5rem;
 
-    --tooltip: hsl(0, 0%, 24%);
+    --sidebar: var(--studio);
+    --sidebar-foreground: var(--foreground);
+
+    --sidebar-accent: var(--accent);
+    --sidebar-accent-foreground: var(--foreground);
+
+    --sidebar-primary: hsl(260 8% 93%);
+    --sidebar-primary-foreground: var(--foreground);
+
+    --sidebar-border: var(--border);
+    --sidebar-ring: hsl(217.2 91.2% 59.8%);
+
+    --tooltip: hsl(0 0% 24%);
     --tooltip-foreground: hsl(0 0% 100%);
   }
 
@@ -121,7 +162,7 @@
   h4,
   h5,
   h6 {
-    @apply font-gambarino text-foreground;
+    @apply font-outfit text-foreground;
   }
 
   svg {
