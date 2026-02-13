@@ -1,111 +1,147 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import React from 'react';
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
-import { Separator } from '@/components/ui/separator';
-import { paths } from '@/config/paths';
+import { cn } from '@/utils/cn';
 
-const footerLinks = [
+interface FooterProps {
+  logo?: {
+    url: string;
+    src: string;
+    alt: string;
+    title: string;
+  };
+  className?: string;
+  sections?: Array<{
+    title: string;
+    links: Array<{ name: string; href: string }>;
+  }>;
+  description?: string;
+  socialLinks?: Array<{
+    icon: React.ReactElement;
+    href: string;
+    label: string;
+  }>;
+  copyright?: string;
+  legalLinks?: Array<{
+    name: string;
+    href: string;
+  }>;
+}
+
+const defaultSections = [
   {
-    title: 'Overview',
-    href: '#',
+    title: 'Product',
+    links: [
+      { name: 'Overview', href: '#' },
+      { name: 'Pricing', href: '#' },
+      { name: 'Marketplace', href: '#' },
+      { name: 'Features', href: '#' },
+    ],
   },
   {
-    title: 'Features',
-    href: '#',
+    title: 'Company',
+    links: [
+      { name: 'About', href: '#' },
+      { name: 'Team', href: '#' },
+      { name: 'Blog', href: '#' },
+      { name: 'Careers', href: '#' },
+    ],
   },
   {
-    title: 'Pricing',
-    href: '#',
-  },
-  {
-    title: 'Careers',
-    href: '#',
-  },
-  {
-    title: 'Help',
-    href: '#',
-  },
-  {
-    title: 'Privacy',
-    href: '#',
+    title: 'Resources',
+    links: [
+      { name: 'Help', href: '#' },
+      { name: 'Sales', href: '#' },
+      { name: 'Advertise', href: '#' },
+      { name: 'Privacy', href: '#' },
+    ],
   },
 ];
 
-const Footer = () => {
-  return (
-    <footer className="bg-background mt-8">
-      <div className="mx-auto max-w-(--breakpoint-xl)">
-        <div className="flex flex-col items-start justify-between gap-x-8 gap-y-10 px-6 py-10 sm:flex-row xl:px-0">
-          <div>
-            {/* Logo */}
-            <Link href={paths.home.getHref()}>
-              <img src="/logo-full.png" alt="Logo" className="w-21" />
-            </Link>
+const defaultSocialLinks = [
+  { icon: <FaInstagram className="size-5" />, href: '#', label: 'Instagram' },
+  { icon: <FaFacebook className="size-5" />, href: '#', label: 'Facebook' },
+  { icon: <FaTwitter className="size-5" />, href: '#', label: 'Twitter' },
+  { icon: <FaLinkedin className="size-5" />, href: '#', label: 'LinkedIn' },
+];
 
-            <ul className="mt-6 flex flex-wrap items-center gap-4">
-              {footerLinks.map(({ title, href }) => (
-                <li key={title}>
-                  <Link href={href} className="text-foreground hover:underline">
-                    {title}
-                  </Link>
+const defaultLegalLinks = [
+  { name: 'Terms and Conditions', href: '#' },
+  { name: 'Privacy Policy', href: '/regulations/privacy-policy' },
+];
+
+const Footer = ({
+  logo = {
+    url: '/',
+    src: '/logo-full.png',
+    alt: 'Cloviana',
+    title: '',
+  },
+  sections = defaultSections,
+  description = 'Automated SEO content for Shopify brands. Turn your catalog into product-led blog posts that rank in Google and AI search — without an agency.',
+  socialLinks = defaultSocialLinks,
+  copyright = `© ${new Date().getFullYear()} Cloviana. All rights reserved.`,
+  legalLinks = defaultLegalLinks,
+  className,
+}: FooterProps) => {
+  return (
+    <section className={cn('py-32', className)}>
+      <div className="container">
+        <div className="flex w-full flex-col justify-between gap-10 lg:flex-row lg:items-start lg:text-left">
+          <div className="flex w-full flex-col justify-between gap-6 lg:items-start">
+            {/* Logo */}
+            <div className="flex items-center gap-2 lg:justify-start">
+              <a href={logo.url}>
+                <img src={logo.src} alt={logo.alt} className="h-5" />
+              </a>
+              {logo.title && (
+                <h2 className="text-xl font-semibold">{logo.title}</h2>
+              )}
+            </div>
+            <p className="text-muted-foreground max-w-[70%] text-sm">
+              {description}
+            </p>
+            <ul className="text-muted-foreground flex items-center space-x-6">
+              {socialLinks.map((social, idx) => (
+                <li key={idx} className="hover:text-primary font-medium">
+                  <a href={social.href} aria-label={social.label}>
+                    {social.icon}
+                  </a>
                 </li>
               ))}
             </ul>
           </div>
-        </div>
-        <Separator />
-        <div className="flex flex-col-reverse items-center justify-between gap-x-2 gap-y-5 px-6 py-10 sm:flex-row xl:px-0">
-          {/* Copyright */}
-          <span className="text-foreground">
-            &copy;{' '}
-            <Link href="/" target="_blank">
-              Cloviana Inc.
-            </Link>{' '}
-            {new Date().getFullYear()}
-          </span>
-
-          <div className="text-foreground flex items-center gap-5">
-            <Link target="_blank" href={'#'}>
-              <Image
-                width={22}
-                height={22}
-                alt="linkedin"
-                src={'/icons/linkedin.png'}
-                className="opacity-75 transition-opacity hover:opacity-100"
-              />
-            </Link>
-            <Link href="#" target="_blank">
-              <Image
-                width={22}
-                height={22}
-                alt="twitter"
-                src={'/icons/twitter.png'}
-                className="opacity-75 transition-opacity hover:opacity-100"
-              />
-            </Link>
-            <Link href="#" target="_blank">
-              <Image
-                width={22}
-                height={22}
-                alt="instagram"
-                src={'/icons/instagram.png'}
-                className="opacity-75 transition-opacity hover:opacity-100"
-              />
-            </Link>
-            <Link href="#" target="_blank">
-              <Image
-                width={22}
-                height={22}
-                alt="youtube"
-                src={'/icons/youtube.png'}
-                className="opacity-75 transition-opacity hover:opacity-100"
-              />
-            </Link>
+          <div className="grid w-full gap-6 md:grid-cols-3 lg:gap-20">
+            {sections.map((section, sectionIdx) => (
+              <div key={sectionIdx}>
+                <h3 className="mb-4 font-bold">{section.title}</h3>
+                <ul className="text-muted-foreground space-y-3 text-sm">
+                  {section.links.map((link, linkIdx) => (
+                    <li
+                      key={linkIdx}
+                      className="hover:text-primary font-medium"
+                    >
+                      <a href={link.href}>{link.name}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
+        <div className="text-muted-foreground mt-8 flex flex-col justify-between gap-4 border-t py-8 text-xs font-medium md:flex-row md:items-center md:text-left">
+          <p className="order-2 lg:order-1">{copyright}</p>
+          <ul className="order-1 flex flex-col gap-2 md:order-2 md:flex-row">
+            {legalLinks.map((link, idx) => (
+              <li key={idx} className="hover:text-primary">
+                <a href={link.href}> {link.name}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </footer>
+    </section>
   );
 };
 
-export default Footer;
+export { Footer };

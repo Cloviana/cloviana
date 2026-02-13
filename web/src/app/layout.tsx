@@ -4,13 +4,13 @@ import React, { ReactNode } from 'react';
 import '@/styles/globals.css';
 import { env } from '@/config/env';
 import { MATERIAL_SYMBOLS_STYLESHEET } from '@/config/material-symbols';
-import { gambarino, switzer } from '@/lib/fonts';
+import { calSans, outfit, switzer } from '@/lib/fonts';
 import { cn } from '@/utils/cn';
 
 export const metadata = {
-  title: 'Cloviana | Your Always-On AI Teammate for Organic Growth',
+  title: 'Cloviana — Rank, Traffic, Revenue. On Autopilot.',
   description:
-    'Cloviana helps Shopify brands grow organically by turning products into product-led content that shows up where buyers are already searching — no agencies, no freelancers.',
+    'Cloviana turns your product catalog into SEO-optimized content that ranks on Google and AI search — automatically. No agencies, no writers, no SEO experience needed.',
   keywords: [
     'Shopify organic growth',
     'Shopify SEO automation',
@@ -22,7 +22,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     url: 'https://cloviana.com',
-    title: 'Cloviana | Your Always-On AI Teammate for Organic Growth',
+    title: 'Cloviana — Rank, Traffic, Revenue. On Autopilot.',
     description:
       'Cloviana turns your Shopify products into SEO-ready content that helps you show up where buyers are already searching — without hiring an SEO team.',
     siteName: 'Cloviana',
@@ -39,7 +39,7 @@ export const metadata = {
     card: 'summary_large_image',
     site: '@cloviana',
     creator: '@cloviana',
-    title: 'Cloviana | Your Always-On AI Teammate for Organic Growth',
+    title: 'Cloviana — Rank, Traffic, Revenue. On Autopilot.',
     description:
       'Grow your Shopify brand organically. Cloviana creates product-led content that attracts real buyers — no agencies required.',
     images: ['https://cloviana.com/og-image.png'],
@@ -55,8 +55,26 @@ export const metadata = {
 
 const RootLayout = async ({ children }: { children: ReactNode }) => {
   return (
-    <html lang="en" className={cn(switzer.variable, gambarino.variable)}>
+    <html
+      lang="en"
+      className={cn(calSans.variable, outfit.variable, switzer.variable)}
+    >
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Cloviana',
+              url: 'https://cloviana.com',
+              logo: 'https://cloviana.com/logo-full.png',
+              sameAs: ['https://twitter.com/cloviana'],
+              description:
+                'Cloviana is an automated SEO content engine for Shopify brands. It turns product catalogs into high-intent blog posts that rank in Google and AI search.',
+            }),
+          }}
+        />
         <Script
           src="https://app.guideflow.com/assets/opt.js"
           data-iframe-id="0p0y33obvk"
@@ -76,6 +94,28 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
               gtag('config', '${env.GA4_ID}', { page_path: window.location.pathname });
             `,
           }}
+        />
+        <Script
+          id="crisp-chat"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.$crisp=[];
+              window.CRISP_WEBSITE_ID="60f1d13f-4bdc-4146-a861-4b9d66513f06";
+              (function(){
+                d=document;
+                s=d.createElement("script");
+                s.src="https://client.crisp.chat/l.js";
+                s.async=1;
+                d.getElementsByTagName("head")[0].appendChild(s);
+              })();
+            `,
+          }}
+        />
+        <Script
+          src="https://app.guideflow.com/assets/opt.js"
+          data-iframe-id="zklvm36fjr"
+          strategy="afterInteractive"
         />
         <link
           href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/components/loading.css,npm/daisyui@5/components/mockup.css"
@@ -120,4 +160,3 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
 };
 
 export default RootLayout;
-export const dynamic = 'force-dynamic';
