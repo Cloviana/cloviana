@@ -25,7 +25,7 @@ type InstallStateCache = {
   uid: string | null;
   storeId: string | null;
   shop: string;
-  src: "app" | "shopify";
+  src: "app" | "shopify" | "onboarding";
 };
 
 const STATE_TTL_MS = 24 * 60 * 60 * 1000;
@@ -105,7 +105,7 @@ export class AuthService {
     uid: string | null;
     storeId: string | null;
     shop: string;
-    src: "app" | "shopify";
+    src: "app" | "shopify" | "onboarding";
   }) {
     const id = randomUUID();
     const value: InstallStateCache = {
@@ -288,12 +288,13 @@ export class AuthService {
       offlineAccessToken,
     );
     const {
-      shop: { email: shopEmail, name: shopName },
+      shop: { email: shopEmail, name: shopName, primaryDomain },
     } = await shopifyAdminClient.request<
       GetShopInfoQuery,
       GetShopInfoQueryVariables
     >(GetShopInfoDocument, {});
-    const profileUrl = await resolveFavicon(`https://${data.shop}`);
+    const shopDomainUrl = primaryDomain?.host || data.shop;
+    const profileUrl = await resolveFavicon(`https://${shopDomainUrl}`);
 
     // ===== CASE A: App-initiated install — user selected a specific store in your app =====
     // Bind the Shopify shop to that store; enforce ownership by ctx.uid; ignore Shopify email for ownership.
@@ -328,6 +329,69 @@ export class AuthService {
 
       const owner = await this.prisma.profile.findUniqueOrThrow({
         where: { id: store.ownerId },
+        select: { email: true },
+      });
+      const session = await this.signInViaLink("recovery", owner.email);
+
+      const ticket = await this.createLoginTicket({
+        access_token: session.access_token,
+        refresh_token: session.refresh_token,
+        expires_in: session.expires_in,
+        user_id: session.user_id,
+        store_id: store.id,
+      });
+
+      return `${this.config.appUrl}/api/auth/complete?ticket=${ticket}`;
+    }
+
+    // ===== CASE E: Onboarding flow — authenticated user, no store yet =====
+    // Create store from Shopify data + connect channel in one step.
+    if (ctx.src === "onboarding" && ctx.uid) {
+      if (existingChannel) {
+        throw new BadRequestException(
+          "This Shopify store is already connected to another store",
+        );
+      }
+
+      const starterPlan = await this.getStarterPlan();
+      const trialEndsAt = new Date();
+      trialEndsAt.setDate(trialEndsAt.getDate() + 7);
+
+      const store = await this.prisma.store.create({
+        data: {
+          owner: { connect: { id: ctx.uid } },
+          name: shopName,
+          domainUrl: shopDomainUrl,
+          profileUrl,
+          subscription: {
+            create: {
+              status: SubscriptionStatus.TRIALLING,
+              trialEndsAt,
+              plan: { connect: { id: starterPlan.id } },
+            },
+          },
+          channel: {
+            create: {
+              shop: data.shop,
+              config: { offlineAccessToken },
+            },
+          },
+          autopilotSettings: {
+            create: {
+              blog: {
+                create: {
+                  publishDays: [tomorrowDayOfWeek(trialEndsAt)],
+                },
+              },
+            },
+          },
+        },
+      });
+
+      await this.storesProducer.init({ storeId: store.id });
+
+      const owner = await this.prisma.profile.findUniqueOrThrow({
+        where: { id: ctx.uid },
         select: { email: true },
       });
       const session = await this.signInViaLink("recovery", owner.email);

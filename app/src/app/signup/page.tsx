@@ -55,7 +55,7 @@ export default function SignUpPage() {
       role="main"
       className="bg-studio h-screen w-screen overflow-y-auto px-7 pt-20 pb-12"
     >
-      <div className="mx-auto flex w-full max-w-lg flex-col gap-12">
+      <div className="mx-auto flex w-full max-w-md flex-col gap-12">
         <div className="flex items-center gap-8">
           <Image
             src="/logo-icon.png"
@@ -129,9 +129,7 @@ export default function SignUpPage() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Password</FormLabel>
-                      <FormDescription className="-mt-1 mb-1">
-                        Must be at least 12 characters in length
-                      </FormDescription>
+
                       <FormControl>
                         <Input
                           type="password"
@@ -140,6 +138,9 @@ export default function SignUpPage() {
                           {...field}
                         />
                       </FormControl>
+                      <FormDescription>
+                        Must be at least 12 characters in length
+                      </FormDescription>
                       <FormMessage className="text-destructive text-[13px] font-medium" />
                     </FormItem>
                   )}
@@ -148,7 +149,7 @@ export default function SignUpPage() {
                 <Button
                   type="submit"
                   className="w-full"
-                  variant={'primary'}
+                  variant={'secondary'}
                   size={'lg'}
                   loading={form.formState.isSubmitting}
                 >
@@ -159,7 +160,7 @@ export default function SignUpPage() {
             </Form>
 
             <p className="text-foreground-lighter text-[13px]">
-              By creating an account, you agree to our{' '}
+              By continuing, you agree to Cloviana's{' '}
               <Button variant={'link'}>
                 <Link href={paths.regulations.termsOfService.getHref()}>
                   Terms of Service
@@ -171,7 +172,7 @@ export default function SignUpPage() {
                   Privacy Policy
                 </Link>
               </Button>
-              .
+              , and to receive periodic emails with updates.
             </p>
 
             <p className="text-foreground-lighter text-[13px]">
