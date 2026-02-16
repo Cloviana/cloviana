@@ -1,6 +1,6 @@
 'use client';
 
-import { OnboardingHeader } from '@/app/_components/header';
+import { MinimalHeader } from '@/app/_components/header';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
   Dialog,
@@ -23,7 +23,7 @@ export default function OnboardingPage() {
   return (
     <main className="bg-studio flex min-h-screen flex-col">
       <header>
-        <OnboardingHeader />
+        <MinimalHeader />
       </header>
       <ScrollArea className="relative flex flex-1 items-center justify-center px-4 py-8 sm:px-6">
         <div className="mx-auto flex min-h-[500px] max-w-md flex-col gap-16">
@@ -42,7 +42,7 @@ export default function OnboardingPage() {
                   <ItemMedia>
                     <Avatar className="size-10">
                       <AvatarImage src="/icons/shopify.svg" />
-                      <AvatarFallback>S</AvatarFallback>
+                      <AvatarFallback delayMs={500}>S</AvatarFallback>
                     </Avatar>
                   </ItemMedia>
                   <ItemContent>

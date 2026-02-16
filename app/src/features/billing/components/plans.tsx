@@ -29,55 +29,22 @@ export const plans: IPlan[] = [
   {
     name: 'STARTER',
     priceId:
-      env.ENVIRONMENT === 'development' ? 'price_1STVpcIN5ime0XaQqiMArmxe' : '',
+      env.ENVIRONMENT === 'development'
+        ? 'price_1STVpcIN5ime0XaQqiMArmxe'
+        : 'price_1T1JdCIby4xu0zVbC7GmFPBI',
     popular: true,
-    price: 1900,
-    description: '10 AI-generated product-focused blog posts per month.',
+    price: 3900,
+    description: 'Your automated SEO agency for $39/month',
     features: [
-      '10 AI-generated product-focused blog posts per month',
-      'Product sync from Shopify',
-      'Automatic product linking in blogs',
-      'One-click publish to Shopify blog',
-      'AI finds customer search terms (basic)',
-      'Basic traffic analytics',
-      'Shopify dashboard analytics integration (basic)',
-      'Editorial approval workflow',
-    ],
-  },
-  {
-    name: 'GROWTH',
-    priceId: '',
-    popular: false,
-    price: 7900,
-    description:
-      'Unlimited blogs with enhanced AI, analytics, and workflow tools.',
-    features: [
-      'Everything in Starter',
-      'Unlimited AI-generated product-focused blog posts',
-      'Internal linking optimization',
-      'Content calendar & seasonal topics',
-      'Shopify dashboard analytics integration (enhanced)',
-      'AI engine visibility tracking (Google, ChatGPT, Perplexity)',
-      'Brand voice learning (after 5 posts)',
-      'Competitor tracking (track 3 competitors)',
-    ],
-  },
-  {
-    name: 'PRO',
-    priceId: '',
-    popular: false,
-    price: 14900,
-    description:
-      'Unlimited blogs with advanced AI, multilingual content, SEO, analytics, AEO/GEO tracking, and revenue reporting.',
-    features: [
-      'Everything in Growth',
-      'Multi-language blog creation (up to 3 languages)',
-      'Shopify dashboard analytics integration (advanced, with revenue tracking)',
-      'AI engine visibility tracking (real-time, includes ChatGPT Shopping)',
-      'Brand voice learning (after 3 posts)',
-      'Schema markup for rich SEO snippets',
-      'Competitor tracking (track 10 competitors)',
-      'Revenue attribution dashboard (advanced)',
+      'Unlimited SEO blogs published on schedule',
+      'Real-time Google ranking tracking & optimization',
+      'Unlimited keyword research with search volume data',
+      'Custom images generated for every post',
+      'Automatic product linking & internal SEO',
+      'Unlimited catalog syncs from Shopify',
+      'Smart editor with AI writing assistance',
+      'Intelligent content suggestions',
+      'Live chat support',
     ],
   },
 ];
@@ -145,6 +112,7 @@ const PlanAction = ({
   priceId,
   onCheckout,
   isLoading,
+  trialEligible,
   className,
   ...props
 }: {
@@ -153,8 +121,15 @@ const PlanAction = ({
   priceId: string;
   onCheckout?: (priceId: string) => void;
   isLoading?: boolean;
+  trialEligible?: boolean;
 } & React.ComponentProps<'div'>) => {
   const disabled = active || !priceId || isLoading;
+
+  const buttonLabel = active
+    ? 'Your current plan'
+    : trialEligible
+      ? 'Start your 14-day free trial'
+      : `Upgrade to ${capitalize(name)}`;
 
   return (
     <div className={cn('mt-1 mb-8', className)} {...props}>
@@ -168,8 +143,9 @@ const PlanAction = ({
             onCheckout?.(priceId);
           }
         }}
+        loading={isLoading}
       >
-        {active ? 'Your current plan' : `Upgrade to ${capitalize(name)}`}
+        {buttonLabel}
       </Button>
     </div>
   );
@@ -227,10 +203,11 @@ export const Plans = () => {
   };
 
   const hasActiveSubscription = subscription?.status === 'ACTIVE';
+  const trialEligible = !subscription;
 
   return (
     <div className="relative max-w-5xl">
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5">
+      <div className="flex flex-wrap gap-5">
         {plans.map((plan) => {
           const samePlan = subscription?.plan.stripePriceId === plan.priceId;
           const inTrial =
@@ -244,7 +221,7 @@ export const Plans = () => {
           return (
             <PlanWrapper
               key={plan.name}
-              className="rounded-md border shadow-xs"
+              className="max-w-[320px] min-w-[280px] flex-1 rounded-md border shadow-xs"
             >
               <div className="flex grow flex-col">
                 <PlanHeader
@@ -259,6 +236,7 @@ export const Plans = () => {
                   active={active}
                   onCheckout={handleCheckout}
                   isLoading={isLoading}
+                  trialEligible={trialEligible}
                 />
                 <PlanFeatures features={plan.features} />
               </div>

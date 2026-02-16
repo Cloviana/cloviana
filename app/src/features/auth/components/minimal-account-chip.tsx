@@ -17,7 +17,7 @@ import { useUser } from '@/hooks/use-user';
 
 import { ProfileIcon } from './profile-icon';
 
-export const OnboardingAccountChip = () => {
+export const MinimalAccountChip = () => {
   const [signingOut, setSigningOut] = useState(false);
   const { user, isLoading } = useUser();
   const { push } = useRouter();

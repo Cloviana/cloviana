@@ -4,9 +4,9 @@ import Link from 'next/link';
 
 import { Badge } from '@/components/ui/badge';
 import { paths } from '@/config/paths';
-import { OnboardingAccountChip } from '@/features/auth/components/onboarding-account-chip';
+import { MinimalAccountChip } from '@/features/auth/components/minimal-account-chip';
 
-export const OnboardingHeader = () => {
+export const MinimalHeader = () => {
   return (
     <nav className="flex flex-col">
       <div className="flex items-center justify-between px-5 py-2">
@@ -21,7 +21,7 @@ export const OnboardingHeader = () => {
           <Badge variant={'secondary'}>Beta</Badge>
         </div>
         <div className="flex items-center gap-3">
-          <OnboardingAccountChip />
+          <MinimalAccountChip />
         </div>
       </div>
     </nav>

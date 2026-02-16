@@ -14,12 +14,7 @@ import { ShopifyCallbackDto } from "@/modules/auth/dtos/shopify-callback.dto";
 import { resolveFavicon } from "@/utils/resolve-favicon.util";
 import { CACHE_MANAGER, Cache } from "@nestjs/cache-manager";
 import { BadRequestException, Inject, Injectable } from "@nestjs/common";
-import {
-  DayOfWeek,
-  PlanName,
-  StoreStatus,
-  SubscriptionStatus,
-} from "@prisma/client";
+import { DayOfWeek, StoreStatus } from "@prisma/client";
 
 type InstallStateCache = {
   uid: string | null;
@@ -230,14 +225,6 @@ export class AuthService {
       .slice(0, length);
   }
 
-  private async getStarterPlan() {
-    const plan = await this.prisma.plan.findFirst({
-      where: { name: PlanName.STARTER },
-    });
-    if (!plan) throw new BadRequestException("Starter plan is not configured");
-    return plan;
-  }
-
   private isStoreInitialized(status: StoreStatus): boolean {
     return status === StoreStatus.ACTIVE || status === StoreStatus.INITIALIZING;
   }
@@ -353,23 +340,12 @@ export class AuthService {
         );
       }
 
-      const starterPlan = await this.getStarterPlan();
-      const trialEndsAt = new Date();
-      trialEndsAt.setDate(trialEndsAt.getDate() + 7);
-
       const store = await this.prisma.store.create({
         data: {
           owner: { connect: { id: ctx.uid } },
           name: shopName,
           domainUrl: shopDomainUrl,
           profileUrl,
-          subscription: {
-            create: {
-              status: SubscriptionStatus.TRIALLING,
-              trialEndsAt,
-              plan: { connect: { id: starterPlan.id } },
-            },
-          },
           channel: {
             create: {
               shop: data.shop,
@@ -380,7 +356,7 @@ export class AuthService {
             create: {
               blog: {
                 create: {
-                  publishDays: [tomorrowDayOfWeek(trialEndsAt)],
+                  publishDays: [tomorrowDayOfWeek()],
                 },
               },
             },
@@ -449,22 +425,12 @@ export class AuthService {
     });
 
     if (profile) {
-      const starterPlan = await this.getStarterPlan();
-      const trialEndsAt = new Date();
-      trialEndsAt.setDate(trialEndsAt.getDate() + 7);
       const store = await this.prisma.store.create({
         data: {
           owner: { connect: { id: profile.id } },
           name: shopName,
           domainUrl: data.shop,
           profileUrl,
-          subscription: {
-            create: {
-              status: SubscriptionStatus.TRIALLING,
-              trialEndsAt,
-              plan: { connect: { id: starterPlan.id } },
-            },
-          },
           channel: {
             create: {
               shop: data.shop,
@@ -475,7 +441,7 @@ export class AuthService {
             create: {
               blog: {
                 create: {
-                  publishDays: [tomorrowDayOfWeek(trialEndsAt)],
+                  publishDays: [tomorrowDayOfWeek()],
                 },
               },
             },
@@ -509,30 +475,18 @@ export class AuthService {
       user_metadata: { contactEmail: shopEmail },
     });
 
-    const starterPlan = await this.getStarterPlan();
-
     const newStore = await this.prisma.$transaction(async (tx) => {
-      const trialEndsAt = new Date();
-      trialEndsAt.setDate(trialEndsAt.getDate() + 7);
-
       const store = await tx.store.create({
         data: {
           owner: { connect: { id: created.data.user?.id } },
           name: shopName,
           domainUrl: data.shop,
           profileUrl,
-          subscription: {
-            create: {
-              status: SubscriptionStatus.TRIALLING,
-              trialEndsAt,
-              plan: { connect: { id: starterPlan.id } },
-            },
-          },
           autopilotSettings: {
             create: {
               blog: {
                 create: {
-                  publishDays: [tomorrowDayOfWeek(trialEndsAt)],
+                  publishDays: [tomorrowDayOfWeek()],
                 },
               },
             },
