@@ -90,12 +90,14 @@ export default function AutomationPage() {
     });
   };
 
+  /*
   useEffect(() => {
     (window as any).$crisp?.push(['do', 'chat:hide']);
     return () => {
       (window as any).$crisp?.push(['do', 'chat:show']);
     };
   }, []);
+  */
 
   useEffect(() => {
     if (!settings) return;
