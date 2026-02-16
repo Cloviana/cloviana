@@ -6,8 +6,6 @@ import {
 import { redirect } from 'next/navigation';
 import { ReactNode } from 'react';
 
-import { OnboardingHeader } from '@/app/_components/header';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { paths } from '@/config/paths';
 import { getStoresQueryOptions } from '@/features/stores/api/get-stores';
 
@@ -25,13 +23,6 @@ export default async function Layout({ children }: LayoutProps) {
   }
 
   return (
-    <HydrationBoundary state={dehydrate(qc)}>
-      <div className="bg-studio flex min-h-screen flex-col">
-        <header>
-          <OnboardingHeader />
-        </header>
-        <ScrollArea className="relative flex-1">{children}</ScrollArea>
-      </div>
-    </HydrationBoundary>
+    <HydrationBoundary state={dehydrate(qc)}>{children}</HydrationBoundary>
   );
 }

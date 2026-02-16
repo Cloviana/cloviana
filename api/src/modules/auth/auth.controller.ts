@@ -19,6 +19,7 @@ import type { FastifyReply, FastifyRequest } from "fastify";
 import { AuthService } from "./auth.service";
 import { ShopifyCallbackDto } from "./dtos/shopify-callback.dto";
 import { ShopifyInstallDto } from "./dtos/shopify-install.dto";
+import { ShopifyOnboardDto } from "./dtos/shopify-onboard.dto";
 import { ShopifyStartDto } from "./dtos/shopify-start.dto";
 
 @Controller("auth")
@@ -49,6 +50,22 @@ export class AuthController {
       storeId: dto.storeId,
       shop: dto.shop,
       src: "app",
+    });
+    const url = await this.auth.buildShopifyAuthUrl(dto.shop, state);
+    return res.send({ url });
+  }
+
+  @Get("shopify/onboard")
+  async startFromOnboarding(
+    @Query() dto: ShopifyOnboardDto,
+    @CurrentUser() user: AuthUser,
+    @Res() res: FastifyReply,
+  ) {
+    const state = await this.auth.createCachedState({
+      uid: user.sub,
+      storeId: null,
+      shop: dto.shop,
+      src: "onboarding",
     });
     const url = await this.auth.buildShopifyAuthUrl(dto.shop, state);
     return res.send({ url });

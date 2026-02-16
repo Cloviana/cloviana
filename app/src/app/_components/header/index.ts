@@ -1,2 +1,2 @@
 export * from './app-header';
-export * from './onboarding-header';
+export * from './minimal-header';

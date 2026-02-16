@@ -1,9 +1,9 @@
-import { BadRequestException, Injectable } from "@nestjs/common";
+import { Injectable } from "@nestjs/common";
 
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { AuthUser } from "@/interfaces/auth-user.interface";
 import { resolveFavicon } from "@/utils/resolve-favicon.util";
-import { DayOfWeek, PlanName, SubscriptionStatus } from "@prisma/client";
+import { DayOfWeek } from "@prisma/client";
 import { CreateStoreDto } from "../dto/create-store.dto";
 
 const DOW: DayOfWeek[] = [
@@ -67,34 +67,17 @@ export class StoresService {
     const { sub: ownerId } = user;
     const profileUrl = await resolveFavicon(domainUrl);
 
-    const trialEndsAt = new Date();
-    trialEndsAt.setDate(trialEndsAt.getDate() + 7);
-
-    const starterPlan = await this.prisma.plan.findFirst({
-      where: { name: PlanName.STARTER },
-    });
-    if (!starterPlan) {
-      throw new BadRequestException("Starter plan is not configured");
-    }
-
     const store = await this.prisma.store.create({
       data: {
         ownerId,
         name,
         domainUrl,
         profileUrl,
-        subscription: {
-          create: {
-            status: SubscriptionStatus.TRIALLING,
-            trialEndsAt,
-            plan: { connect: { id: starterPlan.id } },
-          },
-        },
         autopilotSettings: {
           create: {
             blog: {
               create: {
-                publishDays: [tomorrowDayOfWeek(trialEndsAt)],
+                publishDays: [tomorrowDayOfWeek()],
               },
             },
           },
