@@ -58,19 +58,46 @@ export class BillingWebhookController {
       throw new BadRequestException("Invalid Stripe signature");
     }
 
-    switch (event.type) {
-      case "checkout.session.completed":
-        await this.billing.handleCheckoutSessionCompleted(
-          event.data.object as Stripe.Checkout.Session,
-        );
-        break;
-      case "customer.subscription.deleted":
-        await this.billing.handleCustomerSubscriptionDeleted(
-          event.data.object as Stripe.Subscription,
-        );
-        break;
-      default:
-        this.logger.debug(`Unhandled Stripe event ${event.type}`);
+    this.logger.log(
+      `Received Stripe event: ${event.type} (id: ${event.id})`,
+    );
+
+    try {
+      switch (event.type) {
+        case "checkout.session.completed":
+          await this.billing.handleCheckoutSessionCompleted(
+            event.data.object as Stripe.Checkout.Session,
+          );
+          break;
+        case "customer.subscription.created":
+          await this.billing.handleSubscriptionCreated(
+            event.data.object as Stripe.Subscription,
+          );
+          break;
+        case "customer.subscription.updated":
+          await this.billing.handleSubscriptionUpdated(
+            event.data.object as Stripe.Subscription,
+          );
+          break;
+        case "customer.subscription.deleted":
+          await this.billing.handleCustomerSubscriptionDeleted(
+            event.data.object as Stripe.Subscription,
+          );
+          break;
+        case "invoice.payment_failed":
+          await this.billing.handleInvoicePaymentFailed(
+            event.data.object as Stripe.Invoice,
+          );
+          break;
+        default:
+          this.logger.debug(`Unhandled Stripe event ${event.type}`);
+      }
+    } catch (error) {
+      this.logger.error(
+        `Failed to handle Stripe event ${event.type} (id: ${event.id})`,
+        error instanceof Error ? error.stack : String(error),
+      );
+      throw error;
     }
 
     return { received: true };

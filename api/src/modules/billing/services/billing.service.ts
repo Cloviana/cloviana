@@ -2,7 +2,7 @@ import { PrismaService } from "@/clients/prisma/prisma.service";
 import { AppConfiguration } from "@/config/app.configuration";
 import { AuthUser } from "@/interfaces/auth-user.interface";
 import { BadRequestException, Injectable, Logger } from "@nestjs/common";
-import { Prisma, SubscriptionStatus } from "@prisma/client";
+import { SubscriptionStatus } from "@prisma/client";
 import Stripe from "stripe";
 import { StripeService } from "./stripe.service";
 
@@ -27,9 +27,11 @@ export class BillingService {
         id: true,
         name: true,
         stripeCustomerId: true,
+        subscription: { select: { id: true } },
       },
     });
 
+    const hasHadSubscription = !!store.subscription;
     let { stripeCustomerId } = store;
     if (!stripeCustomerId) {
       const customer = await this.stripe.createCustomer(user.email, store.name);
@@ -38,9 +40,6 @@ export class BillingService {
         where: { id: store.id },
         data: { stripeCustomerId },
       });
-      this.logger.log(
-        `Created Stripe customer ${stripeCustomerId} for store ${storeId}`,
-      );
     }
 
     const baseAppUrl = this.normalizeAppUrl();
@@ -52,6 +51,7 @@ export class BillingService {
       line_items: [{ price: priceId, quantity: 1 }],
       metadata: { storeId, priceId },
       subscription_data: {
+        ...(hasHadSubscription ? {} : { trial_period_days: 14 }),
         metadata: { storeId },
       },
     });
@@ -91,50 +91,75 @@ export class BillingService {
     return this.config.appUrl.replace(/\/$/, "");
   }
 
+  /**
+   * Handles checkout.session.completed — upserts the subscription record
+   * using metadata from both the session and the full Stripe subscription.
+   */
   async handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) {
     const storeId = session.metadata?.storeId;
-    const priceId = session.metadata?.priceId;
     const sub = session.subscription;
 
-    if (!storeId || !priceId || !sub) {
-      console.log(storeId, priceId, sub);
+    if (!storeId || !sub) {
       this.logger.error(
-        `Missing required billing data for session ${session.id}`,
+        `checkout.session.completed → MISSING DATA: storeId=${storeId}, subscription=${sub}`,
       );
       return;
     }
 
     const subscriptionId = typeof sub === "string" ? sub : sub.id;
+    const stripeSub = await this.stripe.retrieveSubscription(subscriptionId);
 
-    const plan = await this.prisma.plan.findUniqueOrThrow({
-      where: { stripePriceId: priceId },
-    });
+    await this.upsertSubscriptionFromStripe(storeId, stripeSub);
+  }
 
-    await this.prisma.subscription.upsert({
-      where: { storeId },
-      create: {
-        status: SubscriptionStatus.ACTIVE,
-        stripeSubscriptionId: subscriptionId,
-        trialEndsAt: null,
-        storeId,
-        planId: plan.id,
-      },
-      update: {
-        status: SubscriptionStatus.ACTIVE,
-        stripeSubscriptionId: subscriptionId,
-        trialEndsAt: null,
-        planId: plan.id,
-      },
-    });
+  /**
+   * Handles customer.subscription.created — self-sufficient handler that
+   * resolves storeId from subscription metadata and plan from line items.
+   * Does NOT depend on checkout.session.completed having fired first.
+   */
+  async handleSubscriptionCreated(subscription: Stripe.Subscription) {
+    const storeId = subscription.metadata?.storeId;
+    if (!storeId) {
+      this.logger.error(
+        `customer.subscription.created → NO storeId in metadata! Full metadata: ${JSON.stringify(subscription.metadata)}`,
+      );
+      return;
+    }
+
+    await this.upsertSubscriptionFromStripe(storeId, subscription);
+  }
+
+  /**
+   * Handles customer.subscription.updated — updates an existing record,
+   * or upserts if the record doesn't exist yet (idempotent).
+   */
+  async handleSubscriptionUpdated(subscription: Stripe.Subscription) {
+    const storeId =
+      subscription.metadata?.storeId ??
+      (
+        await this.prisma.subscription.findUnique({
+          where: { stripeSubscriptionId: subscription.id },
+          select: { storeId: true },
+        })
+      )?.storeId;
+
+    if (!storeId) {
+      this.logger.warn(
+        `customer.subscription.updated: cannot resolve storeId for ${subscription.id}`,
+      );
+      return;
+    }
+
+    await this.upsertSubscriptionFromStripe(storeId, subscription);
   }
 
   async handleCustomerSubscriptionDeleted(subscription: Stripe.Subscription) {
-    const existingSubscription = await this.prisma.subscription.findFirst({
+    const existing = await this.prisma.subscription.findUnique({
       where: { stripeSubscriptionId: subscription.id },
     });
-    if (!existingSubscription) {
+    if (!existing) {
       this.logger.warn(
-        `No subscription record found when handling subscription deletion`,
+        `customer.subscription.deleted: no record for ${subscription.id}`,
       );
       return;
     }
@@ -143,8 +168,107 @@ export class BillingService {
       where: { stripeSubscriptionId: subscription.id },
       data: { status: SubscriptionStatus.CANCELED },
     });
-    this.logger.log(
-      `Subscription for store ${existingSubscription.storeId} marked as canceled (Stripe subscription ${existingSubscription.stripeSubscriptionId})`,
-    );
+  }
+
+  async handleInvoicePaymentFailed(invoice: Stripe.Invoice) {
+    const sub = invoice.parent?.subscription_details?.subscription;
+    if (!sub) return;
+
+    const subscriptionId = typeof sub === "string" ? sub : sub.id;
+    const existing = await this.prisma.subscription.findUnique({
+      where: { stripeSubscriptionId: subscriptionId },
+    });
+    if (!existing) {
+      this.logger.warn(
+        `No subscription record for failed invoice ${invoice.id}`,
+      );
+      return;
+    }
+
+    await this.prisma.subscription.update({
+      where: { stripeSubscriptionId: subscriptionId },
+      data: { status: SubscriptionStatus.PAST_DUE },
+    });
+  }
+
+  /**
+   * Resolves the plan from the subscription's line items price ID.
+   * This is the canonical way to determine the plan — it reads from Stripe's
+   * subscription object rather than relying on checkout session metadata.
+   */
+  private async resolvePlanFromSubscription(subscription: Stripe.Subscription) {
+    const priceId = subscription.items.data[0]?.price?.id;
+
+    if (!priceId) {
+      this.logger.error(
+        `resolvePlan → NO price in line items! items.data: ${JSON.stringify(subscription.items.data)}`,
+      );
+      throw new BadRequestException(
+        `Stripe subscription ${subscription.id} has no price in line items`,
+      );
+    }
+
+    const plan = await this.prisma.plan.findUnique({
+      where: { stripePriceId: priceId },
+    });
+
+    if (!plan) {
+      this.logger.error(
+        `resolvePlan → NO plan found in DB for stripePriceId=${priceId}. Check your plans table.`,
+      );
+      throw new BadRequestException(
+        `No plan found for Stripe price ${priceId}`,
+      );
+    }
+    return plan;
+  }
+
+  /**
+   * Single idempotent write path for all subscription webhook handlers.
+   * Upserts by storeId so duplicate events are harmless.
+   */
+  private async upsertSubscriptionFromStripe(
+    storeId: string,
+    subscription: Stripe.Subscription,
+  ) {
+    const plan = await this.resolvePlanFromSubscription(subscription);
+    const status = this.mapStripeStatus(subscription.status);
+    const trialEndsAt = subscription.trial_end
+      ? new Date(subscription.trial_end * 1000)
+      : null;
+    await this.prisma.subscription.upsert({
+      where: { storeId },
+      create: {
+        status,
+        stripeSubscriptionId: subscription.id,
+        trialEndsAt,
+        storeId,
+        planId: plan.id,
+      },
+      update: {
+        status,
+        stripeSubscriptionId: subscription.id,
+        trialEndsAt,
+        planId: plan.id,
+      },
+    });
+  }
+
+  private mapStripeStatus(status: string): SubscriptionStatus {
+    switch (status) {
+      case "trialing":
+        return SubscriptionStatus.TRIALLING;
+      case "active":
+        return SubscriptionStatus.ACTIVE;
+      case "past_due":
+        return SubscriptionStatus.PAST_DUE;
+      case "canceled":
+        return SubscriptionStatus.CANCELED;
+      case "incomplete":
+      case "incomplete_expired":
+        return SubscriptionStatus.INCOMPLETE;
+      default:
+        return SubscriptionStatus.ACTIVE;
+    }
   }
 }

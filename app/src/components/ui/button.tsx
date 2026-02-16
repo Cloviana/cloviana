@@ -17,13 +17,13 @@ const buttonVariants = cva(
         outline: 'border bg-white hover:bg-accent',
         dashed: 'border border-dashed bg-background hover:bg-accent',
         ghost: 'bg-transparent backdrop-blur hover:bg-accent',
-        link: 'text-secondary hover:underline',
+        link: 'underline hover:text-secondary opacity-80 hover:opacity-100 [font-weight:inherit]',
       },
       size: {
         default: 'h-8 px-4 py-2 has-[>svg]:px-3 text-sm',
         sm: 'h-7 text-xs px-3 has-[>svg]:px-2.5',
         xs: 'h-6 px-2 has-[>svg]:px-2 text-xs',
-        lg: 'h-9 px-6 has-[>svg]:px-4 text-sm',
+        lg: 'h-10 px-6 has-[>svg]:px-4 text-sm',
         icon: 'size-9',
         'icon-sm': 'size-7',
         'icon-lg': 'size-10',
@@ -49,14 +49,17 @@ function Button({
   ...props
 }: ButtonProps) {
   const Comp = asChild ? Slot : 'button';
+  const resolvedVariant = variant ?? 'primary';
+  const resolvedSize =
+    resolvedVariant === 'link' ? undefined : (size ?? 'default');
+  const buttonClassName = cn(
+    buttonVariants({ variant: resolvedVariant, size: resolvedSize }),
+    className,
+  );
 
   if (asChild) {
     return (
-      <Comp
-        data-slot="button"
-        className={cn(buttonVariants({ variant, size, className }))}
-        {...props}
-      >
+      <Comp data-slot="button" className={buttonClassName} {...props}>
         {children}
       </Comp>
     );
@@ -66,10 +69,8 @@ function Button({
     <button
       data-slot="button"
       className={cn(
-        buttonVariants({ variant, size, className }),
-        // 1. !text-transparent: We use !important to override the 'disabled:text-muted-foreground' color
+        buttonClassName,
         loading && '!text-transparent',
-        // 2. Hide icons/children: This makes direct children invisible but keeps their layout space
         loading && '[&>*:not(.absolute)]:invisible',
       )}
       disabled={disabled || loading}
@@ -79,9 +80,7 @@ function Button({
         <div
           className={cn(
             'absolute inset-0 z-10 flex items-center justify-center',
-            // If primary/secondary, the button turns gray (muted), so spinner must be dark (muted-foreground)
-            // Otherwise, we use the foreground color.
-            variant === 'primary' || variant === 'secondary'
+            resolvedVariant === 'primary' || resolvedVariant === 'secondary'
               ? 'text-muted-foreground'
               : 'text-foreground',
           )}
@@ -89,7 +88,7 @@ function Button({
           <Spinner
             strokeWidth={3.3}
             className={
-              ['xs', 'sm', 'default'].includes(size as string)
+              ['xs', 'sm', 'default'].includes(resolvedSize as string)
                 ? 'size-3.5'
                 : 'size-4'
             }

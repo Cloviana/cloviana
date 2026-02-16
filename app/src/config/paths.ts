@@ -38,6 +38,11 @@ export const paths = {
       },
     },
 
+    trial: {
+      getHref: (storeId: string, query?: Record<string, any>) =>
+        buildPath(`/${storeId}/trial`, query),
+    },
+
     settings: {
       getHref: (storeId: string, query?: Record<string, any>) =>
         buildPath(`/${storeId}/settings`, query),
