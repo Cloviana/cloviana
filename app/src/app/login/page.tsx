@@ -54,7 +54,7 @@ export default function LoginPage() {
       role="main"
       className="bg-studio h-screen w-screen overflow-y-auto px-7 pt-20 pb-12"
     >
-      <div className="mx-auto flex w-full max-w-lg flex-col gap-12">
+      <div className="mx-auto flex w-full max-w-md flex-col gap-12">
         <div className="flex items-center gap-8">
           <Image
             src="/logo-icon.png"
@@ -146,7 +146,7 @@ export default function LoginPage() {
                 <Button
                   type="submit"
                   className="w-full"
-                  variant={'primary'}
+                  variant={'secondary'}
                   size={'lg'}
                   loading={form.formState.isSubmitting}
                 >
@@ -155,6 +155,22 @@ export default function LoginPage() {
                 </Button>
               </form>
             </Form>
+
+            <p className="text-foreground-lighter text-[13px]">
+              By continuing, you agree to Cloviana's{' '}
+              <Button variant={'link'}>
+                <Link href={paths.regulations.termsOfService.getHref()}>
+                  Terms of Service
+                </Link>
+              </Button>{' '}
+              and{' '}
+              <Button variant={'link'}>
+                <Link href={paths.regulations.privacyPolicy.getHref()}>
+                  Privacy Policy
+                </Link>
+              </Button>
+              , and to receive periodic emails with updates.
+            </p>
 
             <p className="text-foreground-lighter text-[13px]">
               Don't have an account?{' '}
