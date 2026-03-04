@@ -49,7 +49,12 @@ export const Hero: FC<HeroProps> = ({ className }) => {
         </div>
       </div>
       <div className="container">
-        <div className="bg-wine flex h-[30rem] items-start justify-center overflow-clip rounded-2xl border-t bg-[url(/images/wallpaper-hero.jpg)] bg-cover bg-top p-4">
+        <div
+          className="bg-wine flex h-[30rem] items-start justify-center overflow-clip rounded-2xl border-t bg-cover bg-top p-4"
+          style={{
+            backgroundImage: `url(/images/wallpaper-hero.jpg), url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAECAYAAACzzX7wAAAAkElEQVR4AQCEAHv/Ajgimf9PVcD/P0mr/095uf9La7X/Pkir/09Wwf84JJ3/Avbu/gDp1NgACwcOAP3gBAD+5wUADAgPAOnT2AD26/sAAgkJJwD25wUA5cfRAO/U1gDy29gA5cfQAPfnBQAKCigAAggGEQAMCyoABP4nAPPiCADz4ggAA/0nAAsLKgAKCBAAAAAA//9eT78rAAAABklEQVQDADveNjnARhWJAAAAAElFTkSuQmCC)`,
+          }}
+        >
           <div className="flex h-full w-full items-center justify-center gap-4">
             <AISearchResultCycler />
           </div>
