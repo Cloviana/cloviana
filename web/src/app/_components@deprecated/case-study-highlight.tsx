@@ -10,46 +10,44 @@ export const CaseStudyHighlight: FC<CaseStudyHighlightProps> = ({
   className,
 }) => {
   return (
-    <section className={cn('pb-8 bg-white', className)}>
+    <section className={cn('bg-white pb-8', className)}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="border border-gray-200 rounded-sm bg-gray-50 p-8 sm:p-10">
+        <div className="mx-auto max-w-4xl">
+          <div className="rounded-sm border border-gray-200 bg-gray-50 p-8 sm:p-10">
             <div className="mb-6">
-              <p className="text-sm text-gray-500 font-mono mb-4">
+              <p className="mb-4 font-mono text-sm text-gray-500">
                 / Case Study
               </p>
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight mb-4">
+              <h3 className="mb-4 text-2xl leading-tight font-bold text-gray-900 sm:text-3xl">
                 How a B2B SaaS company 6x&apos;d trials from AI recommendations
               </h3>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="leading-relaxed text-gray-700">
                 Through targeted AEO implementation, we transformed their
                 presence from occasional mentions to consistent top
                 recommendations across ChatGPT, Claude, and Perplexity.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 mb-8 pt-6 border-t border-gray-200">
+            <div className="mb-8 grid grid-cols-2 gap-6 border-t border-gray-200 pt-6 sm:grid-cols-3">
               <div>
                 <p className="text-3xl font-bold text-gray-900">6x</p>
-                <p className="text-sm text-gray-600 mt-1">
+                <p className="mt-1 text-sm text-gray-600">
                   AI-referred trial growth
                 </p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-gray-900">
-                  575 → 3,500+
-                </p>
-                <p className="text-sm text-gray-600 mt-1">Trials in 7 weeks</p>
+                <p className="text-3xl font-bold text-gray-900">575 → 3,500+</p>
+                <p className="mt-1 text-sm text-gray-600">Trials in 7 weeks</p>
               </div>
               <div>
                 <p className="text-3xl font-bold text-gray-900">600%</p>
-                <p className="text-sm text-gray-600 mt-1">Citation uplift</p>
+                <p className="mt-1 text-sm text-gray-600">Citation uplift</p>
               </div>
             </div>
 
             <a
               href="/case-studies/b2b-saas-4x-ai-referred-trials-aeo-strategy"
-              className="inline-flex items-center gap-2 font-mono rounded-sm border px-4 py-2 transition-all duration-200 cursor-pointer bg-white border-gray-300 hover:bg-orange-500 hover:text-white hover:border-orange-500 text-gray-900 text-xs uppercase tracking-wide shadow-sm hover:shadow-lg hover:-translate-y-0.5"
+              className="inline-flex cursor-pointer items-center gap-2 rounded-sm border border-gray-300 bg-white px-4 py-2 font-mono text-xs tracking-wide text-gray-900 uppercase shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-orange-500 hover:bg-orange-500 hover:text-white hover:shadow-lg"
             >
               <span>Read Case Study</span>
               <svg

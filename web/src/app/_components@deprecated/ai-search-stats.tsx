@@ -41,10 +41,10 @@ export const AISearchStats: FC<AISearchStatsProps> = ({ className }) => {
   return (
     <section
       aria-labelledby="ai-search-heading"
-      className={cn('py-12 sm:py-24 bg-white', className)}
+      className={cn('bg-white py-12 sm:py-24', className)}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-sm border border-gray-200 shadow-sm overflow-hidden">
+        <div className="relative overflow-hidden rounded-sm border border-gray-200 shadow-sm">
           <div
             className="absolute inset-0 opacity-50"
             style={{
@@ -55,38 +55,37 @@ export const AISearchStats: FC<AISearchStatsProps> = ({ className }) => {
             }}
           />
           <div className="relative p-8 lg:p-12">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
               {/* Left: text + stats */}
               <div>
                 <div className="mb-8">
-                  <span className="inline-block px-3 py-1 rounded-sm text-xs font-medium font-mono bg-white text-gray-700 border border-gray-200">
+                  <span className="inline-block rounded-sm border border-gray-200 bg-white px-3 py-1 font-mono text-xs font-medium text-gray-700">
                     Organic growth partner
                   </span>
                 </div>
                 <h2
                   id="ai-search-heading"
-                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6"
+                  className="mb-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl"
                 >
-                  Trusted by $10m - $50m ARR companies to improve organic
-                  growth
+                  Trusted by $10m - $50m ARR companies to improve organic growth
                 </h2>
-                <p className="text-lg sm:text-xl text-gray-600 mb-12">
-                  Discovery has changed and AI answers are the new sales rep.
-                  If you&apos;re missing from the answers, you&apos;re not in
-                  the shortlist. We engineer the content and proof that gets you
+                <p className="mb-12 text-lg text-gray-600 sm:text-xl">
+                  Discovery has changed and AI answers are the new sales rep. If
+                  you&apos;re missing from the answers, you&apos;re not in the
+                  shortlist. We engineer the content and proof that gets you
                   cited and chosen.
                 </p>
 
                 <div
-                  className="flex flex-col sm:flex-row items-stretch gap-6 sm:gap-10 mb-12"
+                  className="mb-12 flex flex-col items-stretch gap-6 sm:flex-row sm:gap-10"
                   role="list"
                   aria-label="AI search statistics"
                 >
                   <div className="flex-1" role="listitem">
-                    <p className="text-2xl font-semibold text-gray-900 mb-2">
+                    <p className="mb-2 text-2xl font-semibold text-gray-900">
                       48%
                     </p>
-                    <p className="text-xs text-gray-600 mb-2">
+                    <p className="mb-2 text-xs text-gray-600">
                       of B2B buyers use AI for vendor research
                     </p>
                     <p className="text-xs text-gray-400">
@@ -94,21 +93,21 @@ export const AISearchStats: FC<AISearchStatsProps> = ({ className }) => {
                         href="https://blog.hubspot.com/marketing/state-of-ai-report"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-gray-500 transition-colors"
+                        className="transition-colors hover:text-gray-500"
                       >
                         HubSpot State of AI
                       </a>
                     </p>
                   </div>
                   <div
-                    className="hidden sm:block w-px bg-gray-200 self-stretch"
+                    className="hidden w-px self-stretch bg-gray-200 sm:block"
                     aria-hidden="true"
                   />
                   <div className="flex-1" role="listitem">
-                    <p className="text-2xl font-semibold text-gray-900 mb-2">
+                    <p className="mb-2 text-2xl font-semibold text-gray-900">
                       2.4x
                     </p>
-                    <p className="text-xs text-gray-600 mb-2">
+                    <p className="mb-2 text-xs text-gray-600">
                       higher conversion from AI-sourced traffic
                     </p>
                     <p className="text-xs text-gray-400">
@@ -116,21 +115,21 @@ export const AISearchStats: FC<AISearchStatsProps> = ({ className }) => {
                         href="https://ahrefs.com/blog/ai-search-traffic-conversions-ahrefs/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-gray-500 transition-colors"
+                        className="transition-colors hover:text-gray-500"
                       >
                         Ahrefs AI Study
                       </a>
                     </p>
                   </div>
                   <div
-                    className="hidden sm:block w-px bg-gray-200 self-stretch"
+                    className="hidden w-px self-stretch bg-gray-200 sm:block"
                     aria-hidden="true"
                   />
                   <div className="flex-1" role="listitem">
-                    <p className="text-2xl font-semibold text-gray-900 mb-2">
+                    <p className="mb-2 text-2xl font-semibold text-gray-900">
                       Only 12%
                     </p>
-                    <p className="text-xs text-gray-600 mb-2">
+                    <p className="mb-2 text-xs text-gray-600">
                       overlap between SEO rankings and AI citations
                     </p>
                     <p className="text-xs text-gray-400">
@@ -138,7 +137,7 @@ export const AISearchStats: FC<AISearchStatsProps> = ({ className }) => {
                         href="https://ahrefs.com/blog/ai-search-overlap/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-gray-500 transition-colors"
+                        className="transition-colors hover:text-gray-500"
                       >
                         Ahrefs SERP Analysis
                       </a>
@@ -149,15 +148,15 @@ export const AISearchStats: FC<AISearchStatsProps> = ({ className }) => {
 
               {/* Right: image carousel */}
               <div className="relative w-full">
-                <div className="relative aspect-[4/3] rounded-sm border border-gray-200/50 overflow-hidden bg-white shadow-sm group">
+                <div className="group relative aspect-[4/3] overflow-hidden rounded-sm border border-gray-200/50 bg-white shadow-sm">
                   <img
                     alt={SLIDES[currentSlide].alt}
-                    className="object-contain p-4 transition-all duration-300 ease-in-out absolute inset-0 w-full h-full"
+                    className="absolute inset-0 h-full w-full object-contain p-4 transition-all duration-300 ease-in-out"
                     src={SLIDES[currentSlide].src}
                   />
                   <button
                     onClick={prev}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 rounded-full p-2 shadow-md transition-all opacity-0 group-hover:opacity-100"
+                    className="absolute top-1/2 left-2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-gray-700 opacity-0 shadow-md transition-all group-hover:opacity-100 hover:bg-white"
                     aria-label="Previous image"
                   >
                     <svg
@@ -176,7 +175,7 @@ export const AISearchStats: FC<AISearchStatsProps> = ({ className }) => {
                   </button>
                   <button
                     onClick={next}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 rounded-full p-2 shadow-md transition-all opacity-0 group-hover:opacity-100"
+                    className="absolute top-1/2 right-2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-gray-700 opacity-0 shadow-md transition-all group-hover:opacity-100 hover:bg-white"
                     aria-label="Next image"
                   >
                     <svg
@@ -193,7 +192,7 @@ export const AISearchStats: FC<AISearchStatsProps> = ({ className }) => {
                       <path d="m9 18 6-6-6-6" />
                     </svg>
                   </button>
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                  <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
                     {SLIDES.map((_, i) => (
                       <button
                         key={i}

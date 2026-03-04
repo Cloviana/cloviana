@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
+import { links } from '@/config/links';
 import { cn } from '@/utils/cn';
 
 interface FooterProps {
@@ -62,7 +63,11 @@ const defaultSocialLinks = [
   { icon: <FaInstagram className="size-5" />, href: '#', label: 'Instagram' },
   { icon: <FaFacebook className="size-5" />, href: '#', label: 'Facebook' },
   { icon: <FaTwitter className="size-5" />, href: '#', label: 'Twitter' },
-  { icon: <FaLinkedin className="size-5" />, href: '#', label: 'LinkedIn' },
+  {
+    icon: <FaLinkedin className="size-5" />,
+    href: links.linkedin,
+    label: 'LinkedIn',
+  },
 ];
 
 const defaultLegalLinks = [
@@ -78,7 +83,7 @@ const Footer = ({
     title: '',
   },
   sections = defaultSections,
-  description = 'Automated SEO content for Shopify brands. Turn your catalog into product-led blog posts that rank in Google and AI search — without an agency.',
+  description = 'Autonomous GEO agent for B2B SaaS. Cloviana continuously optimizes your presence across all AI search engines so buyers hear your name first — no developers, no agency required.',
   socialLinks = defaultSocialLinks,
   copyright = `© ${new Date().getFullYear()} Cloviana. All rights reserved.`,
   legalLinks = defaultLegalLinks,

@@ -73,17 +73,15 @@ export const OutcomesComparison: FC<OutcomesComparisonProps> = ({
   className,
 }) => {
   return (
-    <section
-      className={cn('py-12 sm:py-24 md:py-32 bg-white', className)}
-    >
+    <section className={cn('bg-white py-12 sm:py-24 md:py-32', className)}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16 px-4">
-          <h2 className="text-gray-900 text-balance text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 leading-tight tracking-tight">
-            Managed outcomes by a team that understands demand generation and
-            AI models
+        <div className="mb-12 px-4 text-center sm:mb-16">
+          <h2 className="mb-6 text-3xl leading-tight font-bold tracking-tight text-balance text-gray-900 sm:mb-8 sm:text-4xl lg:text-5xl">
+            Managed outcomes by a team that understands demand generation and AI
+            models
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="mx-auto max-w-3xl text-base leading-relaxed text-gray-600 sm:text-lg">
             We combine internally developed software and senior human expertise
             to fully manage outcomes, rather than give you a new expense and
             more headaches.
@@ -91,9 +89,9 @@ export const OutcomesComparison: FC<OutcomesComparisonProps> = ({
         </div>
 
         {/* 3-column comparison */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-16 sm:mb-24">
+        <div className="mb-16 grid grid-cols-1 gap-4 sm:mb-24 lg:grid-cols-3">
           {/* Discovered Labs */}
-          <div className="relative p-6 md:p-8 md:min-h-[600px] border-2 bg-white border-orange-500 shadow-lg rounded-sm overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="relative overflow-hidden rounded-sm border-2 border-orange-500 bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:min-h-[600px] md:p-8">
             <div
               className="absolute inset-0 opacity-30"
               style={{
@@ -103,10 +101,10 @@ export const OutcomesComparison: FC<OutcomesComparisonProps> = ({
               }}
             />
             <div className="relative z-10">
-              <h4 className="text-2xl lg:text-3xl font-bold mb-4 tracking-tight text-orange-500">
+              <h4 className="mb-4 text-2xl font-bold tracking-tight text-orange-500 lg:text-3xl">
                 Discovered Labs
               </h4>
-              <p className="text-base lg:text-lg mb-8 leading-relaxed text-gray-600">
+              <p className="mb-8 text-base leading-relaxed text-gray-600 lg:text-lg">
                 Done-for-you AEO and SEO that drives pipeline.
               </p>
               <ul className="space-y-3">
@@ -123,7 +121,7 @@ export const OutcomesComparison: FC<OutcomesComparisonProps> = ({
           </div>
 
           {/* SaaS tools */}
-          <div className="relative p-6 md:p-8 md:min-h-[600px] border-2 bg-white border-gray-200 rounded-sm overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="relative overflow-hidden rounded-sm border-2 border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:min-h-[600px] md:p-8">
             <div
               className="absolute inset-0 opacity-30"
               style={{
@@ -133,10 +131,10 @@ export const OutcomesComparison: FC<OutcomesComparisonProps> = ({
               }}
             />
             <div className="relative z-10">
-              <h4 className="text-2xl lg:text-3xl font-bold mb-4 tracking-tight text-gray-900">
+              <h4 className="mb-4 text-2xl font-bold tracking-tight text-gray-900 lg:text-3xl">
                 SaaS tools
               </h4>
-              <p className="text-base lg:text-lg mb-8 leading-relaxed text-gray-600">
+              <p className="mb-8 text-base leading-relaxed text-gray-600 lg:text-lg">
                 DIY tools that show you problems but don&apos;t solve them.
               </p>
               <ul className="space-y-3">
@@ -153,7 +151,7 @@ export const OutcomesComparison: FC<OutcomesComparisonProps> = ({
           </div>
 
           {/* Content Agency */}
-          <div className="relative p-6 md:p-8 md:min-h-[600px] border-2 bg-white border-gray-200 rounded-sm overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div className="relative overflow-hidden rounded-sm border-2 border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:min-h-[600px] md:p-8">
             <div
               className="absolute inset-0 opacity-30"
               style={{
@@ -163,10 +161,10 @@ export const OutcomesComparison: FC<OutcomesComparisonProps> = ({
               }}
             />
             <div className="relative z-10">
-              <h4 className="text-2xl lg:text-3xl font-bold mb-4 tracking-tight text-gray-900">
+              <h4 className="mb-4 text-2xl font-bold tracking-tight text-gray-900 lg:text-3xl">
                 Content Agency
               </h4>
-              <p className="text-base lg:text-lg mb-8 leading-relaxed text-gray-600">
+              <p className="mb-8 text-base leading-relaxed text-gray-600 lg:text-lg">
                 Expensive retainers for blog posts that don&apos;t move the
                 needle.
               </p>
@@ -186,22 +184,22 @@ export const OutcomesComparison: FC<OutcomesComparisonProps> = ({
 
         {/* First 30 days */}
         <div>
-          <div className="text-center mb-12">
-            <p className="text-sm sm:text-base text-gray-600 mb-4">
+          <div className="mb-12 text-center">
+            <p className="mb-4 text-sm text-gray-600 sm:text-base">
               We think 4 week &ldquo;onboarding&rdquo; periods are crazy.
             </p>
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 max-w-2xl mx-auto leading-tight">
+            <h3 className="mx-auto max-w-2xl text-2xl leading-tight font-bold text-gray-900 sm:text-3xl lg:text-4xl">
               Here&apos;s what you can expect in your first 30 days with
               Discovered Labs.
             </h3>
           </div>
 
-          <div className="max-w-5xl mx-auto">
+          <div className="mx-auto max-w-5xl">
             {/* Desktop milestone labels */}
-            <div className="hidden lg:grid grid-cols-3 mb-8 px-8">
+            <div className="mb-8 hidden grid-cols-3 px-8 lg:grid">
               {THIRTY_DAYS.map((phase) => (
                 <div key={phase.milestone} className="flex justify-start">
-                  <span className="text-sm font-medium text-gray-700 px-3 py-1.5 rounded-sm border border-gray-300 bg-white">
+                  <span className="rounded-sm border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700">
                     {phase.milestone}
                   </span>
                 </div>
@@ -209,18 +207,18 @@ export const OutcomesComparison: FC<OutcomesComparisonProps> = ({
             </div>
 
             {/* Phase cards */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
               {THIRTY_DAYS.map((phase) => (
                 <div
                   key={phase.milestone}
-                  className="border border-gray-200 rounded-sm p-6 bg-white"
+                  className="rounded-sm border border-gray-200 bg-white p-6"
                 >
-                  <div className="lg:hidden mb-3">
-                    <span className="text-sm font-medium text-gray-700 px-3 py-1.5 rounded-sm border border-gray-300 bg-white inline-block">
+                  <div className="mb-3 lg:hidden">
+                    <span className="inline-block rounded-sm border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700">
                       {phase.milestone}
                     </span>
                   </div>
-                  <h4 className="font-bold text-gray-900 mb-4 text-lg">
+                  <h4 className="mb-4 text-lg font-bold text-gray-900">
                     {phase.title}
                   </h4>
                   <ul className="space-y-2">
@@ -229,7 +227,7 @@ export const OutcomesComparison: FC<OutcomesComparisonProps> = ({
                         key={item}
                         className="flex items-start gap-2 text-sm text-gray-600"
                       >
-                        <span className="text-orange-500 mt-0.5">→</span>
+                        <span className="mt-0.5 text-orange-500">→</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -244,7 +242,7 @@ export const OutcomesComparison: FC<OutcomesComparisonProps> = ({
                 href="https://calendly.com/liam-discoveredlabs/introduction"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative font-mono rounded-sm border px-6 sm:px-8 py-3 sm:py-4 inline-block transition-all duration-200 cursor-pointer bg-white border-gray-300 hover:bg-orange-500 hover:text-white hover:border-orange-500 text-gray-900 text-xs sm:text-sm uppercase tracking-wide shadow-sm hover:shadow-lg hover:-translate-y-0.5"
+                className="group relative inline-block cursor-pointer rounded-sm border border-gray-300 bg-white px-6 py-3 font-mono text-xs tracking-wide text-gray-900 uppercase shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-orange-500 hover:bg-orange-500 hover:text-white hover:shadow-lg sm:px-8 sm:py-4 sm:text-sm"
               >
                 Speak with team
               </a>
