@@ -5,7 +5,7 @@
   --font-switzer: var(--font-switzer);
   --font-satoshi: var(--font-satoshi);
   --font-call-sans: var(--font-cal-sans);
-  --font-outfit: var(--font-outfit);
+  --font-gambarino: var(--font-gambarino);
 
   --color-background: var(--background);
   --color-studio: var(--studio);
@@ -97,7 +97,7 @@
     --popover: hsl(0 0% 100%);
     --popover-foreground: hsl(0 0% 3.9%);
 
-    --primary: hsl(209, 88%, 55%);
+    --primary: hsl(0, 3%, 13%);
     --primary-foreground: hsl(0, 0%, 100%);
 
     --primary-dark: hsl(209 96% 40%);
@@ -162,7 +162,7 @@
   h4,
   h5,
   h6 {
-    @apply font-outfit text-foreground;
+    @apply font-gambarino text-foreground;
   }
 
   svg {
