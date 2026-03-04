@@ -1,5 +1,16 @@
-import { Outfit } from 'next/font/google';
 import localFont from 'next/font/local';
+
+export const gambarino = localFont({
+  src: [
+    {
+      path: '../../public/fonts/gambarino/WEB/fonts/Gambarino-Regular.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-gambarino',
+  preload: true,
+});
 
 export const calSans = localFont({
   src: [
@@ -10,12 +21,6 @@ export const calSans = localFont({
     },
   ],
   variable: '--font-cal-sans',
-  preload: false,
-});
-
-export const outfit = Outfit({
-  subsets: ['latin'],
-  variable: '--font-outfit',
   preload: false,
 });
 

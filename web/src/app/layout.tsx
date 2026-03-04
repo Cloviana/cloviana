@@ -4,7 +4,7 @@ import React, { ReactNode } from 'react';
 import '@/styles/globals.css';
 import { env } from '@/config/env';
 import { MATERIAL_SYMBOLS_STYLESHEET } from '@/config/material-symbols';
-import { calSans, outfit, switzer } from '@/lib/fonts';
+import { calSans, gambarino, switzer } from '@/lib/fonts';
 import { cn } from '@/utils/cn';
 
 export const metadata = {
@@ -57,7 +57,7 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
   return (
     <html
       lang="en"
-      className={cn(calSans.variable, outfit.variable, switzer.variable)}
+      className={cn(calSans.variable, gambarino.variable, switzer.variable)}
     >
       <head>
         <script

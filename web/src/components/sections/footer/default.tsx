@@ -85,7 +85,7 @@ const Footer = ({
   className,
 }: FooterProps) => {
   return (
-    <section className={cn('py-32', className)}>
+    <section className={cn(className)}>
       <div className="container">
         <div className="flex w-full flex-col justify-between gap-10 lg:flex-row lg:items-start lg:text-left">
           <div className="flex w-full flex-col justify-between gap-6 lg:items-start">
@@ -111,10 +111,10 @@ const Footer = ({
               ))}
             </ul>
           </div>
-          <div className="grid w-full gap-6 md:grid-cols-3 lg:gap-20">
+          <div className="grid w-full grid-cols-2 gap-6 md:grid-cols-3 lg:gap-20">
             {sections.map((section, sectionIdx) => (
               <div key={sectionIdx}>
-                <h3 className="mb-4 font-bold">{section.title}</h3>
+                <h3 className="mb-4">{section.title}</h3>
                 <ul className="text-muted-foreground space-y-3 text-sm">
                   {section.links.map((link, linkIdx) => (
                     <li

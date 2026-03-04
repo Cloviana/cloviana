@@ -1,19 +1,8 @@
-import Script from 'next/script';
-
-import { SectionTracker } from '@/components/analytics/section-tracker';
 import { Footer } from '@/components/sections/footer';
 import { Navbar } from '@/components/sections/navbar';
 import { Faq } from '@/components/ui/faq';
 
-import {
-  FinalCTA,
-  Hero,
-  Comparison,
-  HowItWorks,
-  Examples,
-  Stats,
-  Testimonial,
-} from './_components';
+import { Hero } from './_components';
 
 const faqItems = [
   {
@@ -56,66 +45,18 @@ const faqItems = [
 
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen bg-white">
       <header className="sticky top-0 right-0 left-0 z-50">
         <Navbar />
       </header>
 
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: faqItems.map((item) => ({
-              '@type': 'Question',
-              name: item.question,
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text: item.answer,
-              },
-            })),
-          }),
-        }}
-      />
-      <main className="bg-background">
-        <div className="relative">
-          <SectionTracker section="hero" />
-          <Hero />
-        </div>
-        <div className="relative">
-          <SectionTracker section="examples" />
-          <Examples />
-        </div>
-        <div className="relative">
-          <SectionTracker section="how_it_works" />
-          <HowItWorks />
-        </div>
-        <div className="relative">
-          <SectionTracker section="stats" />
-          <Stats />
-        </div>
-        <div className="relative">
-          <SectionTracker section="comparison" />
-          <Comparison />
-        </div>
-        <div className="relative">
-          <SectionTracker section="testimonial" />
-          <Testimonial />
-        </div>
-        <div className="relative">
-          <SectionTracker section="faq" />
-        </div>
+      <main className="space-y-0">
+        <Hero />
         <Faq
           items={faqItems}
           heading="Frequently asked questions"
           description="Everything you need to know about Cloviana. Can't find the answer you're looking for? Reach out to our team."
         />
-        <div className="relative">
-          <SectionTracker section="final_cta" />
-          <FinalCTA />
-        </div>
       </main>
 
       <Footer />
