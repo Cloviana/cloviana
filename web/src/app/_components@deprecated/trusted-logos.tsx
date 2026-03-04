@@ -9,52 +9,52 @@ interface TrustedLogosProps {
 export const TrustedLogos: FC<TrustedLogosProps> = ({ className }) => {
   return (
     <section className={cn('relative bg-white', className)}>
-      <div className="w-full flex justify-center">
-        <div className="max-w-7xl w-full relative">
-          <div className="px-2 sm:px-6 relative">
-            <div className="hidden lg:block absolute left-0 top-[52px] bottom-0 w-px bg-gray-200" />
-            <div className="hidden lg:block absolute right-0 top-[52px] bottom-0 w-px bg-gray-200" />
+      <div className="flex w-full justify-center">
+        <div className="relative w-full max-w-7xl">
+          <div className="relative px-2 sm:px-6">
+            <div className="absolute top-[52px] bottom-0 left-0 hidden w-px bg-gray-200 lg:block" />
+            <div className="absolute top-[52px] right-0 bottom-0 hidden w-px bg-gray-200 lg:block" />
 
-            <p className="text-sm text-gray-500 text-center py-4">
+            <p className="py-4 text-center text-sm text-gray-500">
               Trusted by hypergrowth startups
             </p>
 
             <div className="relative">
-              <div className="hidden lg:block absolute -left-2 sm:-left-6 -right-2 sm:-right-6 top-0 h-px bg-gray-200" />
-              <div className="hidden lg:block absolute -left-2 sm:-left-6 -right-2 sm:-right-6 bottom-0 h-px bg-gray-200" />
+              <div className="absolute top-0 -right-2 -left-2 hidden h-px bg-gray-200 sm:-right-6 sm:-left-6 lg:block" />
+              <div className="absolute -right-2 bottom-0 -left-2 hidden h-px bg-gray-200 sm:-right-6 sm:-left-6 lg:block" />
 
               <div className="grid grid-cols-3">
                 {/* Instantly */}
-                <div className="relative flex items-center justify-center py-6 border-r border-gray-200">
+                <div className="relative flex items-center justify-center border-r border-gray-200 py-6">
                   <div className="group relative flex items-center gap-2">
                     <div className="relative h-6 w-20 sm:w-24">
                       <img
                         alt="Instantly logo"
                         loading="lazy"
-                        className="object-contain object-center opacity-80 absolute inset-0 w-full h-full"
+                        className="absolute inset-0 h-full w-full object-contain object-center opacity-80"
                         src="https://glimps-marketing.lon1.cdn.digitaloceanspaces.com/blog-images/instantly-logo.svg"
                       />
                     </div>
-                    <div className="bg-gray-200 text-gray-700 text-[9px] font-medium px-1.5 py-0.5 rounded-sm cursor-pointer hover:bg-gray-300 transition-colors whitespace-nowrap">
+                    <div className="cursor-pointer rounded-sm bg-gray-200 px-1.5 py-0.5 text-[9px] font-medium whitespace-nowrap text-gray-700 transition-colors hover:bg-gray-300">
                       Review
                     </div>
                     {/* Tooltip */}
-                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                      <div className="relative bg-gray-900 text-white rounded-lg p-5 shadow-xl">
+                    <div className="invisible absolute top-full left-1/2 z-50 mt-3 w-72 -translate-x-1/2 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                      <div className="relative rounded-lg bg-gray-900 p-5 text-white shadow-xl">
                         <div className="mb-4">
                           <img
                             src="https://cdn.prod.website-files.com/61477f2c24a826836f969afe/69543b5ded6bbdf3beed1a00_quote.svg"
                             alt=""
-                            className="w-5 h-5 opacity-60"
+                            className="h-5 w-5 opacity-60"
                           />
                         </div>
-                        <p className="text-[13px] text-gray-300 leading-relaxed">
+                        <p className="text-[13px] leading-relaxed text-gray-300">
                           We&apos;re working with Discovered Labs and have
                           achieved excellent results. Highly recommend the teams
-                          delivery - they consistently put out a higher volume of
-                          content than the norm.
+                          delivery - they consistently put out a higher volume
+                          of content than the norm.
                         </p>
-                        <div className="border-t border-dotted border-gray-600 my-4" />
+                        <div className="my-4 border-t border-dotted border-gray-600" />
                         <div className="flex items-center gap-3">
                           <img
                             alt="Liam Collins"
@@ -79,12 +79,12 @@ export const TrustedLogos: FC<TrustedLogosProps> = ({ className }) => {
                 </div>
 
                 {/* incident.io */}
-                <div className="relative flex items-center justify-center py-6 border-r border-gray-200">
+                <div className="relative flex items-center justify-center border-r border-gray-200 py-6">
                   <div className="relative h-6 w-3/4">
                     <img
                       alt="incident.io logo"
                       loading="lazy"
-                      className="object-contain object-center opacity-80 absolute inset-0 w-full h-full"
+                      className="absolute inset-0 h-full w-full object-contain object-center opacity-80"
                       src="https://glimps-marketing.lon1.cdn.digitaloceanspaces.com/blog-images/wordmark-colour-dark.svg"
                     />
                   </div>
@@ -96,7 +96,7 @@ export const TrustedLogos: FC<TrustedLogosProps> = ({ className }) => {
                     <img
                       alt="Passion.io logo"
                       loading="lazy"
-                      className="object-contain object-center opacity-80 absolute inset-0 w-full h-full"
+                      className="absolute inset-0 h-full w-full object-contain object-center opacity-80"
                       src="https://glimps-marketing.lon1.cdn.digitaloceanspaces.com/blog-images/62260092822c4015dfc0a3b8_Passion.io%20Logo%20White%20text%201.svg"
                     />
                   </div>
