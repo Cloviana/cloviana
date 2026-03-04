@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
+import { links } from '@/config/links';
 import { cn } from '@/utils/cn';
 
 interface FooterProps {
@@ -62,7 +63,11 @@ const defaultSocialLinks = [
   { icon: <FaInstagram className="size-5" />, href: '#', label: 'Instagram' },
   { icon: <FaFacebook className="size-5" />, href: '#', label: 'Facebook' },
   { icon: <FaTwitter className="size-5" />, href: '#', label: 'Twitter' },
-  { icon: <FaLinkedin className="size-5" />, href: '#', label: 'LinkedIn' },
+  {
+    icon: <FaLinkedin className="size-5" />,
+    href: links.linkedin,
+    label: 'LinkedIn',
+  },
 ];
 
 const defaultLegalLinks = [
@@ -78,14 +83,14 @@ const Footer = ({
     title: '',
   },
   sections = defaultSections,
-  description = 'Automated SEO content for Shopify brands. Turn your catalog into product-led blog posts that rank in Google and AI search — without an agency.',
+  description = 'Autonomous GEO agent for B2B SaaS. Cloviana continuously optimizes your presence across all AI search engines so buyers hear your name first — no developers, no agency required.',
   socialLinks = defaultSocialLinks,
   copyright = `© ${new Date().getFullYear()} Cloviana. All rights reserved.`,
   legalLinks = defaultLegalLinks,
   className,
 }: FooterProps) => {
   return (
-    <section className={cn('py-32', className)}>
+    <section className={cn(className)}>
       <div className="container">
         <div className="flex w-full flex-col justify-between gap-10 lg:flex-row lg:items-start lg:text-left">
           <div className="flex w-full flex-col justify-between gap-6 lg:items-start">
@@ -111,10 +116,10 @@ const Footer = ({
               ))}
             </ul>
           </div>
-          <div className="grid w-full gap-6 md:grid-cols-3 lg:gap-20">
+          <div className="grid w-full grid-cols-2 gap-6 md:grid-cols-3 lg:gap-20">
             {sections.map((section, sectionIdx) => (
               <div key={sectionIdx}>
-                <h3 className="mb-4 font-bold">{section.title}</h3>
+                <h3 className="mb-4">{section.title}</h3>
                 <ul className="text-muted-foreground space-y-3 text-sm">
                   {section.links.map((link, linkIdx) => (
                     <li

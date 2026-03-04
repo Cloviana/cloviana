@@ -5,7 +5,6 @@ import { X, Menu } from 'lucide-react';
 import Link from 'next/link';
 import { FC, useState } from 'react';
 
-import { GIcon } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import {
   NavigationMenu,
@@ -91,29 +90,18 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
             <div className="hidden items-center gap-2 md:flex">
               <Button
                 asChild
-                variant="ghost"
                 size={'lg'}
+                variant="primary"
+                className="group rounded-full"
                 onClick={() => gaEvent('book_demo', { location: 'navbar' })}
               >
-                <Link href={links.demo}>Book demo</Link>
-              </Button>
-              <Button
-                asChild
-                size={'lg'}
-                className="group rounded-full"
-                onClick={() => gaEvent('sign_up', { location: 'navbar' })}
-              >
-                <a
-                  href={paths.auth.signup.getHref()}
+                <Link
+                  href={links.demo}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Get started
-                  <GIcon
-                    name="arrow_forward"
-                    className="transition-transform group-hover:translate-x-0.5"
-                  />
-                </a>
+                  Request demo
+                </Link>
               </Button>
             </div>
 
@@ -164,13 +152,13 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
             <div className="flex flex-col gap-3">
               <Button
                 asChild
-                variant="outline"
+                variant="primary"
                 onClick={() =>
                   gaEvent('book_demo', { location: 'navbar_mobile' })
                 }
               >
                 <a href={links.demo} target="_blank" rel="noopener noreferrer">
-                  Request a demo
+                  Book a demo
                 </a>
               </Button>
             </div>

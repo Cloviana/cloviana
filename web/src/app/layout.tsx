@@ -4,34 +4,36 @@ import React, { ReactNode } from 'react';
 import '@/styles/globals.css';
 import { env } from '@/config/env';
 import { MATERIAL_SYMBOLS_STYLESHEET } from '@/config/material-symbols';
-import { calSans, outfit, switzer } from '@/lib/fonts';
+import { calSans, gambarino, switzer } from '@/lib/fonts';
 import { cn } from '@/utils/cn';
 
 export const metadata = {
-  title: 'Cloviana — Rank, Traffic, Revenue. On Autopilot.',
+  title: 'Cloviana — Be the Answer Every B2B Buyer Gets',
   description:
-    'Cloviana turns your product catalog into SEO-optimized content that ranks on Google and AI search — automatically. No agencies, no writers, no SEO experience needed.',
+    'Cloviana is an autonomous GEO agent that continuously optimizes your AI search presence across ChatGPT, Perplexity, Gemini, and beyond — no developers, no agency, no dashboards.',
   keywords: [
-    'Shopify organic growth',
-    'Shopify SEO automation',
-    'AI content for Shopify',
-    'product-led content',
-    'Shopify marketing automation',
-    'AI Shopify apps',
+    'generative engine optimization',
+    'GEO for B2B SaaS',
+    'AI search optimization',
+    'B2B AI visibility',
+    'ChatGPT SEO',
+    'Perplexity optimization',
+    'AI search ranking',
+    'B2B SaaS growth marketing',
   ],
   openGraph: {
     type: 'website',
     url: 'https://cloviana.com',
-    title: 'Cloviana — Rank, Traffic, Revenue. On Autopilot.',
+    title: 'Cloviana — Be the Answer Every B2B Buyer Gets',
     description:
-      'Cloviana turns your Shopify products into SEO-ready content that helps you show up where buyers are already searching — without hiring an SEO team.',
+      'Autonomous GEO that makes your B2B SaaS the #1 AI-recommended solution in your category. Zero developer lift. Continuous optimization.',
     siteName: 'Cloviana',
     images: [
       {
         url: 'https://cloviana.com/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Cloviana organic growth platform preview',
+        alt: 'Cloviana — Autonomous GEO for B2B SaaS',
       },
     ],
   },
@@ -39,9 +41,9 @@ export const metadata = {
     card: 'summary_large_image',
     site: '@cloviana',
     creator: '@cloviana',
-    title: 'Cloviana — Rank, Traffic, Revenue. On Autopilot.',
+    title: 'Cloviana — Be the Answer Every B2B Buyer Gets',
     description:
-      'Grow your Shopify brand organically. Cloviana creates product-led content that attracts real buyers — no agencies required.',
+      '94% of B2B buyers ask AI before talking to sales. Cloviana makes sure they hear your name first.',
     images: ['https://cloviana.com/og-image.png'],
   },
   icons: {
@@ -57,7 +59,7 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
   return (
     <html
       lang="en"
-      className={cn(calSans.variable, outfit.variable, switzer.variable)}
+      className={cn(calSans.variable, gambarino.variable, switzer.variable)}
     >
       <head>
         <script
