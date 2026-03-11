@@ -34,7 +34,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
     <div className="relative">
       <motion.nav
         className={cn(
-          'padding-global bg-white/90 py-2.5 backdrop-blur transition-colors duration-300',
+          'padding-global bg-background/90 py-2.5 backdrop-blur transition-colors duration-300',
           showBorder ? 'border-b' : 'border-b border-transparent',
           className,
         )}
@@ -132,7 +132,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
       </motion.nav>
 
       {menuOpened && (
-        <div className={'border-b bg-white py-5 md:hidden'}>
+        <div className={'bg-background border-b py-5 md:hidden'}>
           <div className={'padding-global container flex flex-col gap-6 px-0'}>
             <div className="flex flex-col gap-3">
               <Link href={paths.home.getHref()} className="text-sm font-medium">
