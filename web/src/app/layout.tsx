@@ -67,13 +67,31 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'Organization',
-              name: 'Cloviana',
-              url: 'https://cloviana.com',
-              logo: 'https://cloviana.com/logo-full.png',
-              sameAs: ['https://twitter.com/cloviana'],
-              description:
-                'Cloviana is an automated SEO content engine for Shopify brands. It turns product catalogs into high-intent blog posts that rank in Google and AI search.',
+              '@graph': [
+                {
+                  '@type': 'Organization',
+                  '@id': 'https://cloviana.com/#organization',
+                  name: 'Cloviana',
+                  url: 'https://cloviana.com',
+                  logo: {
+                    '@type': 'ImageObject',
+                    url: 'https://cloviana.com/logo-full.png',
+                  },
+                  sameAs: [
+                    'https://twitter.com/cloviana',
+                    'https://www.linkedin.com/company/cloviana',
+                  ],
+                  description:
+                    'Cloviana is an autonomous GEO agent that continuously optimizes your AI search presence across ChatGPT, Perplexity, Gemini, and beyond — no developers, no agency, no dashboards.',
+                },
+                {
+                  '@type': 'WebSite',
+                  '@id': 'https://cloviana.com/#website',
+                  name: 'Cloviana',
+                  url: 'https://cloviana.com',
+                  publisher: { '@id': 'https://cloviana.com/#organization' },
+                },
+              ],
             }),
           }}
         />
@@ -118,6 +136,13 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
           src="https://app.guideflow.com/assets/opt.js"
           data-iframe-id="zklvm36fjr"
           strategy="afterInteractive"
+        />
+        <Script
+          id="apollo-tracker"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"69aa340501890d000d99316d"})},document.head.appendChild(o)}initApollo();`,
+          }}
         />
         <link
           href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/components/loading.css,npm/daisyui@5/components/mockup.css"

@@ -191,7 +191,7 @@ const buildWords = (segments: Segment[]): Word[] => {
 
 const Cite = ({ num }: { num: number }) => (
   <sup
-    className="ml-px inline-flex size-[14px] items-center justify-center rounded-[4px] bg-white/[0.12] font-sans text-[9px] leading-none font-bold text-white/50"
+    className="ml-px inline-flex size-[14px] items-center justify-center rounded-[4px] bg-stone-200 font-sans text-[9px] leading-none font-bold text-stone-500"
     style={{ verticalAlign: 'super' }}
   >
     {num}
@@ -239,28 +239,29 @@ function AISearchResult({
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, []);
+  }, [onComplete, words.length]);
 
   return (
     <motion.div
       layout
       transition={{ layout: { duration: 0.3, ease: 'easeInOut' } }}
-      className="w-full max-w-[620px] overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.04] shadow-[0_32px_64px_rgba(0,0,0,0.5)] backdrop-blur-xl"
+      className="w-full max-w-[620px] overflow-hidden rounded-2xl border border-stone-200 bg-stone-50 shadow-[0_4px_20px_rgba(100,80,60,0.06)]"
     >
       {/* Search bar */}
-      <div className="flex items-center gap-2.5 border-b border-white/[0.06] bg-white/[0.02] px-[18px] py-[14px]">
+      <div className="flex items-center gap-2.5 border-b border-stone-200 bg-stone-100/50 px-[18px] py-[14px]">
         <svg
           width="14"
           height="14"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="rgba(255,255,255,0.3)"
+          stroke="currentColor"
           strokeWidth="2.5"
+          className="text-stone-400"
         >
           <circle cx="11" cy="11" r="8" />
           <path d="m21 21-4.35-4.35" />
         </svg>
-        <span className="text-[13px] font-normal text-white/55">{QUERY}</span>
+        <span className="text-[13px] font-normal text-stone-600">{QUERY}</span>
       </div>
 
       <div className="px-5 py-[18px]">
@@ -275,17 +276,17 @@ function AISearchResult({
               (e.target as HTMLImageElement).style.display = 'none';
             }}
           />
-          <span className="text-[11px] font-semibold tracking-[0.06em] text-white/35 uppercase">
+          <span className="text-[11px] font-semibold tracking-[0.06em] text-stone-400 uppercase">
             Answer
           </span>
         </div>
 
         {/* Streaming answer */}
-        <p className="m-0 text-[14px] leading-7 font-normal text-white/75">
+        <p className="m-0 text-[14px] leading-7 font-normal text-stone-600">
           {words.slice(0, count).map((w, i) => (
             <span key={i}>
               {w.highlight ? (
-                <span className="font-semibold text-white">{w.text}</span>
+                <span className="font-semibold text-stone-900">{w.text}</span>
               ) : (
                 w.text
               )}
@@ -295,7 +296,7 @@ function AISearchResult({
           {!isDone && (
             <span
               className={cn(
-                'ml-0.5 inline-block h-3.5 w-0.5 rounded-[1px] bg-white/60 align-middle transition-opacity duration-100',
+                'ml-0.5 inline-block h-3.5 w-0.5 rounded-[1px] bg-stone-400 align-middle transition-opacity duration-100',
                 cursor ? 'opacity-100' : 'opacity-0',
               )}
             />
@@ -314,9 +315,9 @@ function AISearchResult({
           {sources.map((s) => (
             <div
               key={s.num}
-              className="flex cursor-default items-center gap-1.5 rounded-lg border border-white/[0.08] bg-white/[0.05] px-2.5 py-[5px]"
+              className="flex cursor-default items-center gap-1.5 rounded-lg border border-stone-200 bg-stone-100 px-2.5 py-[5px]"
             >
-              <span className="min-w-[10px] text-[9px] font-bold text-white/30">
+              <span className="min-w-[10px] text-[9px] font-bold text-stone-400">
                 {s.num}
               </span>
               <img
@@ -329,7 +330,7 @@ function AISearchResult({
                   (e.target as HTMLImageElement).style.display = 'none';
                 }}
               />
-              <span className="text-[11px] font-medium text-white/45">
+              <span className="text-[11px] font-medium text-stone-500">
                 {s.domain}
               </span>
             </div>

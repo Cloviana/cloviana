@@ -1,2 +1,3 @@
 export * from './hero';
-export * from './problem';
+export * from './callout';
+export * from './how-it-works';
