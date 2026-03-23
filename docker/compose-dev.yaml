@@ -8,8 +8,8 @@ services:
       target: dev
     image: ghcr.io/cloviana/api:dev
     volumes:
-      - ../api:/app:cached
-      - api_node_modules:/app/node_modules
+      - ../api/src:/app/src:cached
+      - ../api/prisma:/app/prisma:cached
     container_name: api
 
   app:
@@ -19,8 +19,8 @@ services:
       target: dev
     image: ghcr.io/cloviana/app:dev
     volumes:
-      - ../app:/app:cached
-      - app_node_modules:/app/node_modules
+      - ../app/src:/app/src:cached
+      - ../app/public:/app/public:cached
     container_name: app
 
   web:
@@ -30,8 +30,8 @@ services:
       target: dev
     image: ghcr.io/cloviana/web:dev
     volumes:
-      - ../web:/app:cached
-      - web_node_modules:/app/node_modules
+      - ../web/src:/app/src:cached
+      - ../web/public:/app/public:cached
     container_name: web
 
   nginx:
@@ -51,11 +51,6 @@ services:
           - api.localhost
           - app.localhost
           - localhost
-
-volumes:
-  api_node_modules:
-  app_node_modules:
-  web_node_modules:
 
 networks:
   appnet:

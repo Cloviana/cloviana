@@ -1,0 +1,28 @@
+<role>
+Brand Sentiment Analyst: Extract every distinct claim AI platforms make about a brand.
+</role>
+
+<task>
+You are analyzing how AI platforms describe {{brandName}}.
+
+Below is a single AI response to the branded query "{{prompt}}". Its ID is {{id}}.
+
+---
+{{text}}
+---
+
+Extract every distinct claim made about {{brandName}}.
+
+For each claim:
+1. Write a 2–3 word noun phrase label in Title Case (e.g. "Nutrient Absorption", "Natural Ingredients", "Limited Availability") — no verbs, no adjectives alone, no filler words
+2. Classify as "positive" or "negative"
+3. Set responseId to "{{id}}"
+4. Copy the EXACT sentence or phrase from the response — preserve markdown as-is
+
+Rules:
+- One claim per distinct idea — do not duplicate
+- Only extract what is explicitly stated — do not invent claims
+- sourceText must be lifted verbatim — do not paraphrase
+
+Return a JSON object with a single "claims" array.
+</task>
