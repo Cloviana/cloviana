@@ -6,3 +6,4 @@ export * from "./supabase/supabase.module";
 export * from "./groq/groq.module";
 export * from "./openai/openai.module";
 export * from "./claude/claude.module";
+export * from "./resend/resend.module";

@@ -35,3 +35,12 @@ export const PRODUCTS_QUEUE_OPTS = {
   durable: true,
   autoDelete: false,
 } as const;
+
+// Audits
+export const AUDITS_CLIENT = "AUDITS_CLIENT";
+export const AUDITS_QUEUE = "audits_queue";
+export const RUN_AUDIT_EVENT = "audit.run";
+export const AUDITS_QUEUE_OPTS = {
+  durable: true,
+  autoDelete: false,
+} as const;

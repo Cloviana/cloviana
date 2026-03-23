@@ -295,3 +295,213 @@ export interface KeywordOverviewItem {
   keyword_info_normalized_with_bing?: NormalizedKeywordInfo;
   keyword_info_normalized_with_clickstream?: NormalizedKeywordInfo;
 }
+
+// --- Google SERP AI Overview ---
+
+export interface GoogleSerpAiOverviewTask {
+  keyword: string;
+  location_code?: number;
+  language_code?: string;
+  load_async_ai_overview?: boolean;
+  expand_ai_overview?: boolean;
+}
+
+export interface AiOverviewReference {
+  type: string;
+  position: number;
+  source: string;
+  domain: string;
+  url: string;
+  title: string;
+  text: string;
+}
+
+export interface AiOverviewElement {
+  type: string;
+  title?: string;
+  text?: string;
+  markdown?: string;
+  links?: string[];
+  references?: AiOverviewReference[];
+}
+
+export interface AiOverviewItem {
+  type: "ai_overview";
+  rank_group: number;
+  rank_absolute: number;
+  position: string;
+  asynchronous_ai_overview: boolean;
+  markdown?: string;
+  items?: AiOverviewElement[];
+  references?: AiOverviewReference[];
+}
+
+export interface GoogleSerpResult {
+  keyword: string;
+  type: string;
+  se_domain: string;
+  location_code: number;
+  language_code: string;
+  check_url: string;
+  datetime: string;
+  item_types: string[];
+  items_count: number;
+  items: Array<AiOverviewItem | Record<string, unknown>>;
+}
+
+// --- ChatGPT LLM Responses ---
+
+export interface ChatGptLlmTask {
+  user_prompt: string;
+  model_name: string;
+  max_output_tokens?: number;
+  web_search?: boolean;
+  force_web_search?: boolean;
+  web_search_country_iso_code?: string;
+  system_message?: string;
+  tag?: string;
+}
+
+export interface ChatGptLlmAnnotation {
+  title: string;
+  url: string;
+}
+
+export interface ChatGptLlmSection {
+  type: string;
+  text?: string;
+  annotations?: ChatGptLlmAnnotation[];
+}
+
+export interface ChatGptLlmItem {
+  type: string;
+  sections?: ChatGptLlmSection[];
+}
+
+export interface ChatGptLlmResult {
+  model_name?: string;
+  input_tokens?: number;
+  output_tokens?: number;
+  web_search?: boolean;
+  datetime?: string;
+  items?: ChatGptLlmItem[];
+  fan_out_queries?: string[];
+}
+
+// --- Perplexity LLM Responses ---
+
+export interface PerplexityTask {
+  user_prompt: string;
+  model_name?: string;
+  max_output_tokens?: number;
+  temperature?: number;
+  top_p?: number;
+  web_search_country_iso_code?: string;
+  system_message?: string;
+  tag?: string;
+}
+
+export interface PerplexityAnnotation {
+  title: string;
+  url: string;
+}
+
+export interface PerplexitySection {
+  text: string;
+  annotations?: PerplexityAnnotation[];
+}
+
+export interface PerplexityResponseItem {
+  type: string;
+  sections: PerplexitySection[];
+}
+
+export interface PerplexityResult {
+  model_name: string;
+  web_search: boolean;
+  input_tokens: number;
+  output_tokens: number;
+  money_spent: number;
+  items: PerplexityResponseItem[];
+}
+
+// --- Competitors Domain ---
+
+export interface CompetitorsDomainTask {
+  target: string;
+  location_name?: string;
+  location_code?: number;
+  language_name?: string;
+  language_code?: string;
+  item_types?: Array<"organic" | "paid" | "featured_snippet" | "local_pack">;
+  include_clickstream_data?: boolean;
+  filters?: unknown[];
+  order_by?: string[];
+  limit?: number;
+  offset?: number;
+  max_rank_group?: number;
+  exclude_top_domains?: boolean;
+  exclude_domains?: string[];
+  intersecting_domains?: string[];
+  ignore_synonyms?: boolean;
+  tag?: string;
+}
+
+export interface CompetitorDomainMetrics {
+  pos_1: number;
+  pos_2_3: number;
+  pos_4_10: number;
+  pos_11_20: number;
+  pos_21_30: number;
+  pos_31_40: number;
+  pos_41_50: number;
+  pos_51_60: number;
+  pos_61_70: number;
+  pos_71_80: number;
+  pos_81_90: number;
+  pos_91_100: number;
+  etv: number;
+  count: number;
+  estimated_paid_traffic_cost: number;
+  is_new: number;
+  is_up: number;
+  is_down: number;
+  is_lost: number;
+  clickstream_etv?: number;
+  clickstream_gender_distribution?: { female: number; male: number };
+  clickstream_age_distribution?: {
+    "18-24": number;
+    "25-34": number;
+    "35-44": number;
+    "45-54": number;
+    "55-64": number;
+  };
+}
+
+export interface CompetitorDomainFullMetrics {
+  organic?: CompetitorDomainMetrics;
+  paid?: CompetitorDomainMetrics;
+  local_pack?: CompetitorDomainMetrics;
+  featured_snippet?: CompetitorDomainMetrics;
+}
+
+export interface CompetitorDomainItem {
+  se_type: string;
+  domain: string;
+  avg_position: number;
+  sum_position: number;
+  intersections: number;
+  full_domain_metrics: CompetitorDomainFullMetrics;
+  metrics: CompetitorDomainFullMetrics;
+  competitor_metrics: CompetitorDomainFullMetrics;
+}
+
+export interface CompetitorsDomainResult {
+  se_type: string;
+  target: string;
+  location_code: number;
+  language_code: string;
+  total_count: number;
+  items_count: number;
+  items: CompetitorDomainItem[];
+}
