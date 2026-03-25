@@ -70,6 +70,8 @@ async function bootstrap() {
   app.useGlobalFilters(new AllExceptionsFilter());
   app.enableCors({
     origin: [
+      "https://cloviana.com",
+      "https://www.cloviana.com",
       "https://app.cloviana.com",
       "http://localhost:3000",
       "http://app.localhost",
