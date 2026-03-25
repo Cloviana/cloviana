@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Footer } from '@/components/sections/footer/default';
@@ -76,7 +76,7 @@ function AuditForm({ onSubmit }: { onSubmit: (domain: string) => void }) {
   );
 }
 
-export default function CreateAuditPage() {
+function CreateAuditPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [dialogOpen, setDialogOpen] = useState(
@@ -89,11 +89,7 @@ export default function CreateAuditPage() {
   };
 
   return (
-    <div className="bg-background relative flex min-h-screen flex-col">
-      <header className="sticky top-0 right-0 left-0 z-50">
-        <Navbar />
-      </header>
-
+    <>
       <main className="relative flex-1">
         <section className="padding-global">
           <div className="padding-section-medium container">
@@ -125,6 +121,19 @@ export default function CreateAuditPage() {
         </section>
       </main>
       <AuditRequestDialog open={dialogOpen} onOpenChange={setDialogOpen} />
+    </>
+  );
+}
+
+export default function CreateAuditPage() {
+  return (
+    <div className="bg-background relative flex min-h-screen flex-col">
+      <header className="sticky top-0 right-0 left-0 z-50">
+        <Navbar />
+      </header>
+      <Suspense>
+        <CreateAuditPageContent />
+      </Suspense>
       <Footer />
     </div>
   );
