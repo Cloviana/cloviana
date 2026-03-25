@@ -39,7 +39,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
           className,
         )}
       >
-        <div className="relative container mx-auto flex items-center gap-4 px-0">
+        <div className="relative container flex items-center gap-4">
           <div className="flex shrink-0">
             <Link href={paths.home.getHref()}>
               <img src="/logo-full.png" alt="Logo" className="h-5" />
@@ -132,8 +132,8 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
       </motion.nav>
 
       {menuOpened && (
-        <div className={'bg-background border-b py-5 md:hidden'}>
-          <div className={'padding-global container flex flex-col gap-6 px-0'}>
+        <div className={'padding-global bg-background border-b py-5 md:hidden'}>
+          <div className={'container flex flex-col gap-6'}>
             <div className="flex flex-col gap-3">
               <Link href={paths.home.getHref()} className="text-sm font-medium">
                 Home

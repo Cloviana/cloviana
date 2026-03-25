@@ -1,4 +1,5 @@
 import { Global, Module } from "@nestjs/common";
+import { AuditsProducer } from "./producers/audits.producer";
 import { BlogsProducer } from "./producers/blogs.producer";
 import { KeywordsProducer } from "./producers/keywords.producer";
 import { ProductsProducer } from "./producers/products.producer";
@@ -13,7 +14,8 @@ import { RabbitMqProviders } from "./rabbitmq.provider";
     BlogsProducer,
     StoresProducer,
     ProductsProducer,
+    AuditsProducer,
   ],
-  exports: [KeywordsProducer, BlogsProducer, StoresProducer, ProductsProducer],
+  exports: [KeywordsProducer, BlogsProducer, StoresProducer, ProductsProducer, AuditsProducer],
 })
 export class MessagingModule {}

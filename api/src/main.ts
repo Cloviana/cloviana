@@ -11,6 +11,8 @@ import { AppModule } from "@/app.module";
 import { AppConfiguration } from "@/common/config/app.configuration";
 import { AllExceptionsFilter } from "@/common/filters/all-exceptions.filter";
 import {
+  AUDITS_QUEUE,
+  AUDITS_QUEUE_OPTS,
   BLOGS_QUEUE,
   BLOGS_QUEUE_OPTS,
   KEYWORDS_QUEUE,
@@ -44,6 +46,7 @@ async function bootstrap() {
     { name: BLOGS_QUEUE, opts: BLOGS_QUEUE_OPTS },
     { name: STORES_QUEUE, opts: STORES_QUEUE_OPTS },
     { name: PRODUCTS_QUEUE, opts: PRODUCTS_QUEUE_OPTS },
+    { name: AUDITS_QUEUE, opts: AUDITS_QUEUE_OPTS },
   ];
 
   for (const { name, opts } of queues) {
@@ -70,6 +73,7 @@ async function bootstrap() {
       "https://app.cloviana.com",
       "http://localhost:3000",
       "http://app.localhost",
+      "http://localhost",
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     credentials: true,
