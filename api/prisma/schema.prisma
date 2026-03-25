@@ -71,6 +71,7 @@ enum JobType {
   SITEMAP_BUILD
   KEYWORD_DISCOVERY
   STORE_METADATA
+  SITE_AUDIT
 }
 
 enum JobStatus {
@@ -386,11 +387,38 @@ model Job {
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
 
-  store Store? @relation(fields: [storeId], references: [id], onDelete: Cascade)
-  blogs Blog[]
+  store  Store?  @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  blogs  Blog[]
+  audits Audit[]
 
   @@unique([type, storeId, dedupeKey])
   @@index([type, status, priority, scheduledAt])
   @@index([storeId, type, status])
   @@map("jobs")
+}
+
+// --- AUDIT MODELS ---
+
+model Audit {
+  id        String   @id @default(uuid()) @db.Uuid
+  email     String   @db.Citext
+  domain    String
+  country   String   @default("US")
+  brandName String?
+  jobId     String?  @db.Uuid
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Report data (JSON blobs, populated by build-report node)
+  visibilityLeaderboard Json? // MentionedBrand[]  — top 6 (+target if outside top 6)
+  citationLeaderboard   Json? // CitedDomain[]     — top 6 (+target if outside top 6)
+  sentiment             Json? // SentimentResult   — { positivePercent, negativePercent, claims[], responses[] }
+  topPages              Json? // CitedPage[]       — top 3
+  contentSuggestions    Json? // ContentIdea[]     — 4 items
+  brandVisibility       Json? // BrandVisibility   — { google_aio, chatgpt, perplexity, overall } mention rates for target brand
+
+  job    Job?         @relation(fields: [jobId], references: [id], onDelete: SetNull)
+
+  @@index([email])
+  @@map("audits")
 }

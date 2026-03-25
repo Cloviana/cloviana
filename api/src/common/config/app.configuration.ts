@@ -98,4 +98,12 @@ export class AppConfiguration {
   @IsFQDN({ require_tld: false })
   @Value("SHOPIFY_HOST")
   readonly shopifyHost!: string;
+
+  @IsString()
+  @Value("RESEND_API_KEY")
+  readonly resendApiKey!: string;
+
+  @IsString()
+  @Value("EXA_API_KEY")
+  readonly exaApiKey!: string;
 }

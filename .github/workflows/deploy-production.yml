@@ -53,6 +53,7 @@ jobs:
             DATA_FOR_SEO_BASE64_CREDENTIALS=${{ secrets.DATA_FOR_SEO_BASE64_CREDENTIALS }}
             ANTHROPIC_API_KEY=${{ secrets.ANTHROPIC_API_KEY }}
             GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }}
+            EXA_API_KEY=${{ secrets.EXA_API_KEY }}
 
             GA4_API_SECRET=${{ secrets.GA4_API_SECRET }}
 
