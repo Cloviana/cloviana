@@ -33,6 +33,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
+    "canvas-confetti": "^1.9.4",
     "cobe": "^0.6.5",
     "country-data-list": "^1.6.0",
     "date-fns": "^4.1.0",
@@ -70,6 +71,7 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
+    "@types/canvas-confetti": "^1.9.0",
     "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^20.12.7",
     "@types/react": "^18.3.1",
