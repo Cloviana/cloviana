@@ -51,7 +51,7 @@ export async function executeGoogleAio(
 
           const sources: EngineSource[] = (aiOverview?.references ?? [])
             .filter((r: any) => r.url)
-            .map((r: any) => ({ title: r.title ?? "", url: r.url }));
+            .map((r: any) => ({ title: r.title ?? "", url: r.url, description: r.text ?? "" }));
 
           const text = aiOverview?.markdown ?? "";
           const mentions = await extractMentions(text, brands);

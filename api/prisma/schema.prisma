@@ -410,11 +410,12 @@ model Audit {
   updatedAt DateTime @updatedAt
 
   // Report data (JSON blobs, populated by build-report node)
-  visibilityLeaderboard Json? // MentionedBrand[] — top 6 (+target if outside top 6)
-  citationLeaderboard   Json? // CitedDomain[]    — top 6 (+target if outside top 6)
-  sentiment             Json? // SentimentResult  — { positivePercent, negativePercent, claims[], responses[] }
-  topPages              Json? // CitedPage[]      — top 3
-  contentSuggestions    Json? // ContentIdea[]    — 4 items
+  visibilityLeaderboard Json? // MentionedBrand[]  — top 6 (+target if outside top 6)
+  citationLeaderboard   Json? // CitedDomain[]     — top 6 (+target if outside top 6)
+  sentiment             Json? // SentimentResult   — { positivePercent, negativePercent, claims[], responses[] }
+  topPages              Json? // CitedPage[]       — top 3
+  contentSuggestions    Json? // ContentIdea[]     — 4 items
+  brandVisibility       Json? // BrandVisibility   — { google_aio, chatgpt, perplexity, overall } mention rates for target brand
 
   job    Job?         @relation(fields: [jobId], references: [id], onDelete: SetNull)
 

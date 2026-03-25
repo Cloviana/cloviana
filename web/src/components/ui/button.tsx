@@ -6,7 +6,7 @@ import { Spinner } from '@/components/ui/spinner';
 import { cn } from '@/utils/cn';
 
 const buttonVariants = cva(
-  "focus-visible:border-ring transition-opacity focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 cursor-pointer items-center justify-center gap-1.5 whitespace-nowrap rounded-full font-medium outline-none transition-colors focus-visible:ring disabled:pointer-events-none disabled:opacity-60 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0 relative",
+  "focus-visible:border-ring transition-opacity focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 cursor-pointer items-center justify-center gap-1.5 whitespace-nowrap rounded-full font-medium outline-none transition-colors focus-visible:ring disabled:pointer-events-none disabled:opacity-60 [&_svg:not([class*='size-'])]:size-3.5 [&_svg]:pointer-events-none [&_svg]:shrink-0 relative",
   {
     variants: {
       variant: {
@@ -17,9 +17,7 @@ const buttonVariants = cva(
         outline: 'border bg-white hover:bg-accent',
         dashed: 'border border-dashed bg-background hover:bg-accent',
         ghost: 'bg-transparent backdrop-blur hover:bg-accent',
-        ghost_a: 'bg-background/30 backdrop-blur hover:opacity-85',
-
-        link: 'text-secondary hover:underline',
+        link: 'underline hover:text-secondary opacity-80 hover:opacity-100 [font-weight:inherit]',
       },
       size: {
         default: 'h-8 px-4 py-2 has-[>svg]:px-3 text-sm',
@@ -30,10 +28,6 @@ const buttonVariants = cva(
         'icon-sm': 'size-7',
         'icon-lg': 'size-10',
       },
-    },
-    defaultVariants: {
-      variant: 'primary',
-      size: 'default',
     },
   },
 );
@@ -55,14 +49,17 @@ function Button({
   ...props
 }: ButtonProps) {
   const Comp = asChild ? Slot : 'button';
+  const resolvedVariant = variant ?? 'primary';
+  const resolvedSize =
+    resolvedVariant === 'link' ? undefined : (size ?? 'default');
+  const buttonClassName = cn(
+    buttonVariants({ variant: resolvedVariant, size: resolvedSize }),
+    className,
+  );
 
   if (asChild) {
     return (
-      <Comp
-        data-slot="button"
-        className={cn(buttonVariants({ variant, size, className }))}
-        {...props}
-      >
+      <Comp data-slot="button" className={buttonClassName} {...props}>
         {children}
       </Comp>
     );
@@ -72,10 +69,8 @@ function Button({
     <button
       data-slot="button"
       className={cn(
-        buttonVariants({ variant, size, className }),
-        // 1. !text-transparent: We use !important to override the 'disabled:text-muted-foreground' color
+        buttonClassName,
         loading && '!text-transparent',
-        // 2. Hide icons/children: This makes direct children invisible but keeps their layout space
         loading && '[&>*:not(.absolute)]:invisible',
       )}
       disabled={disabled || loading}
@@ -85,9 +80,7 @@ function Button({
         <div
           className={cn(
             'absolute inset-0 z-10 flex items-center justify-center',
-            // If primary/secondary, the button turns gray (muted), so spinner must be dark (muted-foreground)
-            // Otherwise, we use the foreground color.
-            variant === 'primary' || variant === 'secondary'
+            resolvedVariant === 'primary' || resolvedVariant === 'secondary'
               ? 'text-muted-foreground'
               : 'text-foreground',
           )}
@@ -95,7 +88,7 @@ function Button({
           <Spinner
             strokeWidth={3.3}
             className={
-              ['xs', 'sm', 'default'].includes(size as string)
+              ['xs', 'sm', 'default'].includes(resolvedSize as string)
                 ? 'size-3.5'
                 : 'size-4'
             }

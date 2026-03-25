@@ -96,11 +96,11 @@ export async function executeSentiment(
 
           const taskResult = response.tasks?.[0]?.result?.[0];
           const messageItem = taskResult?.items?.find((i) => i.type === "message");
-          const textSection = messageItem?.sections?.find((s) => s.type === "text");
-          const text = textSection?.text ?? "";
+          const textSections = messageItem?.sections?.filter((s) => s.type === "text") ?? [];
+          const text = textSections.map((s) => s.text ?? "").join("\n\n");
 
           logger?.debug(`[sentiment] [${id}] chatgpt → ${text.length} chars`);
-          return { id, prompt, text };
+          return { id, prompt, text, platform: 'chatgpt' as const };
         } else {
           const response = await dataForSeo.getGoogleSerpAiOverview({
             keyword: prompt,
@@ -115,11 +115,11 @@ export async function executeSentiment(
           const text = aiOverview?.markdown ?? "";
 
           logger?.debug(`[sentiment] [${id}] google_aio → ${text.length} chars`);
-          return { id, prompt, text };
+          return { id, prompt, text, platform: 'google_aio' as const };
         }
       } catch (err) {
         logger?.debug(`[sentiment] [${id}] error: ${err}`);
-        return { id, prompt, text: "" };
+        return { id, prompt, text: "", platform };
       }
     }),
   );

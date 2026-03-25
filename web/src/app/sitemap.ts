@@ -9,6 +9,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: 'https://cloviana.com/audits',
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
       url: 'https://cloviana.com/regulations/privacy-policy',
       lastModified: new Date(),
       changeFrequency: 'yearly',

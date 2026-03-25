@@ -5,19 +5,15 @@ import {
   DomainMetrics,
   EngineResult,
   ProductContext,
-  SelectedUrls,
   SentimentResult,
-  Topic,
 } from "./audit.types";
 
 export const StateAnnotation = Annotation.Root({
   _auditId: Annotation<string>(),
+  _email: Annotation<string>(),
   _domain: Annotation<string>(),
   _country: Annotation<string>(),
   _brandName: Annotation<string>(),
-  _sitemapUrls: Annotation<string[]>(),
-  _selectedUrls: Annotation<SelectedUrls>(),
-  _topics: Annotation<Topic[]>(),
   _prompts: Annotation<string[]>(),
   _engineResults: Annotation<EngineResult[]>({
     reducer: (a, b) => [...a, ...b],

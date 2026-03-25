@@ -46,6 +46,12 @@
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
 
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+
   --color-input: var(--input);
   --color-ring: var(--ring);
 
@@ -113,15 +119,21 @@
     --destructive: hsl(345 70% 47%);
     --destructive-foreground: hsl(0 0% 98%);
 
+    --success: hsl(142 71% 38%);
+    --success-foreground: hsl(0 0% 98%);
+
+    --warning: hsl(38 92% 50%);
+    --warning-foreground: hsl(0 0% 98%);
+
     --input: hsl(217 12% 87%);
 
     --ring: hsl(205, 63%, 84%);
 
-    --chart-1: hsl(12 76% 61%);
-    --chart-2: hsl(173 58% 39%);
-    --chart-3: hsl(197 37% 24%);
-    --chart-4: hsl(43 74% 66%);
-    --chart-5: hsl(27 87% 67%);
+    --chart-1: hsl(227, 76%, 41%);
+    --chart-2: hsl(223, 82%, 50%);
+    --chart-3: hsl(219, 88%, 59%);
+    --chart-4: hsl(214, 94%, 69%);
+    --chart-5: hsl(210, 100%, 78%);
 
     --radius: 0.5rem;
 

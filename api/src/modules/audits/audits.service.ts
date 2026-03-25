@@ -120,9 +120,7 @@ export class AuditsService {
   async getAudit(auditId: string) {
     const audit = await this.prisma.audit.findUnique({
       where: { id: auditId },
-      include: {
-        job: { select: { status: true, error: true } },
-      },
+      
     });
 
     if (!audit) {

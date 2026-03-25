@@ -21,11 +21,11 @@ export async function fetchCompetitors(
   const { summary, icp, category } = state._product;
 
   logger?.debug(`Fetching competitors for domain: ${state._domain}`);
-
+/*
   if (process.env.NODE_ENV === "development") {
     logger?.debug(`[DEV] Using placeholder competitors`);
     return { _competitors: PLACEHOLDER };
-  }
+  }*/
 
   const competitors = await exa.findCompetitors(
     state._domain,

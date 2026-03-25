@@ -46,7 +46,7 @@ export async function executePerplexity(
           const section = taskResult.items?.[0]?.sections?.[0];
           const sources: EngineSource[] = (section?.annotations ?? [])
             .filter((a: any) => a.url)
-            .map((a: any) => ({ title: a.title ?? "", url: a.url }));
+            .map((a: any) => ({ title: a.title ?? "", url: a.url, description: "" }));
 
           const text = section?.text ?? "";
           const mentions = await extractMentions(text, brands);

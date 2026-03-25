@@ -50,7 +50,7 @@ export async function executeChatgpt(
           const text = textSection?.text ?? "";
           const sources: EngineSource[] = (textSection?.annotations ?? [])
             .filter((a) => a.url)
-            .map((a) => ({ title: a.title ?? "", url: a.url }));
+            .map((a) => ({ title: a.title ?? "", url: a.url, description: "" }));
 
           const mentions = await extractMentions(text, brands);
 

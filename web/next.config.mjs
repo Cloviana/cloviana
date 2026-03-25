@@ -13,6 +13,11 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'google.com',
         port: ''
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.google.com',
+        port: ''
       }
     ]
   },
