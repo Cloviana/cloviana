@@ -29,6 +29,13 @@ export const ContentIdeaSchema = z.object({
   overview: z.string(),
 });
 
+export const BrandVisibilitySchema = z.object({
+  google_aio: z.number(),
+  chatgpt: z.number(),
+  perplexity: z.number(),
+  overall: z.number(),
+});
+
 export const SentimentClaimSchema = z.object({
   label: z.string(),
   sentiment: z.enum(["positive", "negative"]),
@@ -40,6 +47,7 @@ export const SentimentResponseSchema = z.object({
   id: z.string(),
   prompt: z.string(),
   text: z.string(),
+  platform: z.enum(['chatgpt', 'google_aio']),
 });
 
 export const SentimentResultSchema = z.object({
@@ -49,6 +57,7 @@ export const SentimentResultSchema = z.object({
   responses: z.array(SentimentResponseSchema),
 });
 
+export type BrandVisibility = z.infer<typeof BrandVisibilitySchema>;
 export type CitedPage = z.infer<typeof CitedPageSchema>;
 export type CitedDomain = z.infer<typeof CitedDomainSchema>;
 export type MentionedBrand = z.infer<typeof MentionedBrandSchema>;

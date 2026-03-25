@@ -1,9 +1,13 @@
 {
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
+    "@types/canvas-confetti": "^1.9.0",
     "husky": "^9.1.7"
   },
   "scripts": {
     "prepare": "husky"
+  },
+  "dependencies": {
+    "canvas-confetti": "^1.9.4"
   }
 }

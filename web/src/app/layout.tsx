@@ -2,13 +2,15 @@ import Script from 'next/script';
 import React, { ReactNode } from 'react';
 
 import '@/styles/globals.css';
+import { AppProvider } from '@/app/provider';
+import { Toaster } from '@/components/ui/sonner';
 import { env } from '@/config/env';
 import { MATERIAL_SYMBOLS_STYLESHEET } from '@/config/material-symbols';
 import { calSans, gambarino, switzer } from '@/lib/fonts';
 import { cn } from '@/utils/cn';
 
 export const metadata = {
-  title: 'Cloviana — Be the Answer Every B2B Buyer Gets',
+  title: 'Cloviana | Be the Answer Every B2B Buyer Gets',
   description:
     'Cloviana is an autonomous GEO agent that continuously optimizes your AI search presence across ChatGPT, Perplexity, Gemini, and beyond — no developers, no agency, no dashboards.',
   keywords: [
@@ -24,7 +26,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     url: 'https://cloviana.com',
-    title: 'Cloviana — Be the Answer Every B2B Buyer Gets',
+    title: 'Cloviana | Be the Answer Every B2B Buyer Gets',
     description:
       'Autonomous GEO that makes your B2B SaaS the #1 AI-recommended solution in your category. Zero developer lift. Continuous optimization.',
     siteName: 'Cloviana',
@@ -41,17 +43,14 @@ export const metadata = {
     card: 'summary_large_image',
     site: '@cloviana',
     creator: '@cloviana',
-    title: 'Cloviana — Be the Answer Every B2B Buyer Gets',
+    title: 'Cloviana | Be the Answer Every B2B Buyer Gets',
     description:
-      '94% of B2B buyers ask AI before talking to sales. Cloviana makes sure they hear your name first.',
+      'Cloviana is an autonomous GEO agent that continuously optimizes your AI search presence across ChatGPT, Perplexity, Gemini, and beyond — no developers, no agency, no dashboards.',
     images: ['https://cloviana.com/og-image.png'],
   },
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
-  },
-  alternates: {
-    canonical: 'https://cloviana.com',
   },
 };
 
@@ -96,10 +95,6 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
           }}
         />
         <Script
-          src="https://app.guideflow.com/assets/opt.js"
-          data-iframe-id="0p0y33obvk"
-        />
-        <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${env.GA4_ID}`}
           strategy="afterInteractive"
         />
@@ -115,11 +110,12 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
             `,
           }}
         />
-        <Script
-          id="crisp-chat"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
+        {process.env.NODE_ENV === 'production' && (
+          <Script
+            id="crisp-chat"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
               window.$crisp=[];
               window.CRISP_WEBSITE_ID="60f1d13f-4bdc-4146-a861-4b9d66513f06";
               (function(){
@@ -130,8 +126,9 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
                 d.getElementsByTagName("head")[0].appendChild(s);
               })();
             `,
-          }}
-        />
+            }}
+          />
+        )}
         <Script
           src="https://app.guideflow.com/assets/opt.js"
           data-iframe-id="zklvm36fjr"
@@ -181,7 +178,10 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
         />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body>{children}</body>
+      <body>
+        <Toaster />
+        <AppProvider>{children}</AppProvider>
+      </body>
     </html>
   );
 };

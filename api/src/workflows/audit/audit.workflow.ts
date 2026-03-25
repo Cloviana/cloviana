@@ -49,7 +49,7 @@ export class AuditWorkflow {
 
     try {
       const stream = graph.streamEvents(
-        { _auditId: auditId, _domain: audit.domain },
+        { _auditId: auditId, _email: audit.email, _domain: audit.domain },
         {
           version: "v2",
           configurable: {

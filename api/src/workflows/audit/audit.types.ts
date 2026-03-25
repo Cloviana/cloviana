@@ -22,6 +22,7 @@ export type EngineName = "google_aio" | "chatgpt" | "perplexity";
 export interface EngineSource {
   title: string;
   url: string;
+  description: string;
 }
 
 export interface EngineBrand {

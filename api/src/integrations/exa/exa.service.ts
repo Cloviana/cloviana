@@ -66,7 +66,7 @@ export class ExaService {
                 `what products do ${icp} use and evaluate`,
                 `top ${category} products well known in the market`,
               ],
-              systemPrompt: `You are finding the most well-known competitors for ${domain} in the "${category}" category. Return between 4 and 29 results.
+              systemPrompt: `You are finding the most well-known competitors for ${domain} in the "${category}" category. Return between 5 and 29 results.
 
 PRIORITY ORDER:
 1. Find products the ${icp} would immediately recognise by name

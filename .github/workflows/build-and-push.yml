@@ -70,6 +70,7 @@ jobs:
             ghcr.io/cloviana/web:${{ github.sha }}
             ghcr.io/cloviana/web:latest
           build-args: |
+            NEXT_PUBLIC_API_URL=${{ vars.API_URL }}
             NEXT_PUBLIC_APP_URL=${{ vars.APP_URL }}
             NEXT_PUBLIC_WEB_URL=${{ vars.WEB_URL }}
             NEXT_PUBLIC_GA4_ID=${{ vars.WEB_GA4_ID }}

@@ -65,12 +65,6 @@ const PAGE_SCHEMA = {
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Web',
       url: 'https://cloviana.com',
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'USD',
-        description: '14-day free trial, no credit card required.',
-      },
       description:
         'Autonomous GEO agent that makes your B2B SaaS the #1 AI-recommended solution in your category. Continuously optimizes your presence across ChatGPT, Perplexity, Gemini, and Claude.',
       publisher: { '@id': 'https://cloviana.com/#organization' },
