@@ -68,7 +68,15 @@ export const Leaderboard = ({
   header,
   className,
 }: LeaderboardProps) => {
-  const visible = items.slice(0, 6);
+  const target = targetDomain
+    ? items.find((item) => item.domain === targetDomain)
+    : undefined;
+  const targetIsOutside = target && target.position > 6;
+
+  const visible = targetIsOutside
+    ? [...items.slice(0, 5), target]
+    : items.slice(0, 6);
+
   const blurStartIndex = getBlurStartIndex(items, targetDomain, visible.length);
 
   return (
@@ -83,7 +91,9 @@ export const Leaderboard = ({
       )}
       {visible.map((item, i) => {
         const isTarget = item.domain === targetDomain;
-        const lvl = Math.min(Math.max(0, i - blurStartIndex + 1), 3);
+        const lvl = isTarget
+          ? 0
+          : Math.min(Math.max(0, i - blurStartIndex + 1), 3);
         return (
           <div
             key={item.domain}
