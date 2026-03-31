@@ -190,10 +190,7 @@ const buildWords = (segments: Segment[]): Word[] => {
 };
 
 const Cite = ({ num }: { num: number }) => (
-  <sup
-    className="ml-px inline-flex size-[14px] items-center justify-center rounded-[4px] bg-stone-200 font-sans text-[9px] leading-none font-bold text-stone-500"
-    style={{ verticalAlign: 'super' }}
-  >
+  <sup className="relative -top-1 ml-0.5 inline-flex h-[13px] w-[13px] shrink-0 items-center justify-center rounded-[3px] border border-stone-300/30 bg-stone-100/50 font-sans text-[9px] leading-none font-bold text-stone-500">
     {num}
   </sup>
 );
@@ -245,10 +242,10 @@ function AISearchResult({
     <motion.div
       layout
       transition={{ layout: { duration: 0.3, ease: 'easeInOut' } }}
-      className="w-full max-w-[620px] overflow-hidden rounded-2xl border border-stone-200 bg-stone-50 shadow-[0_4px_20px_rgba(100,80,60,0.06)]"
+      className="w-full max-w-[620px] overflow-hidden rounded-2xl border border-white/40 bg-white/90 shadow-[0_4px_20px_rgba(100,80,60,0.10)] backdrop-blur-md"
     >
       {/* Search bar */}
-      <div className="flex items-center gap-2.5 border-b border-stone-200 bg-stone-100/50 px-[18px] py-[14px]">
+      <div className="flex items-center gap-2.5 border-b border-stone-200/70 bg-transparent px-[18px] py-[14px]">
         <svg
           width="14"
           height="14"
@@ -315,7 +312,7 @@ function AISearchResult({
           {sources.map((s) => (
             <div
               key={s.num}
-              className="flex cursor-default items-center gap-1.5 rounded-lg border border-stone-200 bg-stone-100 px-2.5 py-[5px]"
+              className="flex cursor-default items-center gap-1.5 rounded-lg border border-stone-300/50 bg-white/50 px-2.5 py-[5px]"
             >
               <span className="min-w-[10px] text-[9px] font-bold text-stone-400">
                 {s.num}
