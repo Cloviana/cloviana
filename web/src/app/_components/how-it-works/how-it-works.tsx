@@ -59,7 +59,7 @@ export const HowItWorks: FC<{ className?: string }> = ({ className }) => {
     <section className={cn(className, 'padding-global')}>
       <div className="padding-section-medium container">
         {/* Header */}
-        <div className="mb-16 flex flex-col gap-x-8 gap-y-3 lg:flex-row lg:items-start lg:justify-between lg:gap-20">
+        <div className="mb-16 flex flex-col gap-x-8 gap-y-3 lg:flex-row lg:items-end lg:justify-between lg:gap-20">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -139,7 +139,7 @@ export const HowItWorks: FC<{ className?: string }> = ({ className }) => {
 
           {/* Right: visual with crossfade */}
           <div className="w-3/5">
-            <div className="bg-surface relative aspect-video w-full overflow-hidden rounded-2xl">
+            <div className="surface-panel relative aspect-video w-full overflow-hidden rounded-2xl">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
