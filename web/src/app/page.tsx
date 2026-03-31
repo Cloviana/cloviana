@@ -2,7 +2,7 @@ import { Footer } from '@/components/sections/footer';
 import { Navbar } from '@/components/sections/navbar';
 import { Faq } from '@/components/ui/faq';
 
-import { Hero, Callout, HowItWorks } from './_components';
+import { Hero, Problem, HowItWorks, AuditCta } from './_components';
 
 const faqItems = [
   {
@@ -122,8 +122,9 @@ export default function HomePage() {
 
       <main className="space-y-0">
         <Hero />
-        <Callout />
+        <Problem />
         <HowItWorks />
+        <AuditCta />
         <Faq
           items={faqItems}
           heading="Frequently asked questions"

@@ -5,7 +5,7 @@ import { FC } from 'react';
 
 import { cn } from '@/utils/cn';
 
-export const Callout: FC<{ className?: string }> = ({ className }) => {
+export const Problem: FC<{ className?: string }> = ({ className }) => {
   return (
     <section className={cn(className, 'padding-global')}>
       <div className="padding-section-medium container max-w-6xl">

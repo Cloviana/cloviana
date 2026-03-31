@@ -73,7 +73,13 @@ export const Hero: FC<HeroProps> = ({ className }) => {
             initial={{ opacity: 0, y: 28, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.75, ease: EASE, delay: 0.3 }}
-            className="bg-surface flex h-[30rem] items-start justify-center overflow-clip rounded-2xl bg-cover bg-top p-4"
+            style={{
+              backgroundImage: `
+    url('/images/371f310e-6265-43f3-b469-e230ed7e67b9.png'),
+    url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAECAYAAACzzX7wAAAAkElEQVR4AQCEAHv/AjlkNP9cdTv/qIxV/8uxj//Jy8X/0sLI/+Cjqv/FoZ//Avnc5AD/7uAA6PjSAMTk0ACf0OgApuHoAOYI6wAR/PEAAllgbQBKRlQA/wn/ANXbzQDgxYoAyMiaAI7UwQCm1rkAAhcpVAAGIE0A0fMdAMLO+gDa6BIA6PQZANzo9AC04eYAAAAA//+YZCf8AAAABklEQVQDAOt6R1OjIJldAAAAAElFTkSuQmCC')
+  `,
+            }}
+            className="flex h-[30rem] items-start justify-center overflow-clip rounded-2xl bg-cover bg-top p-4"
           >
             <div className="flex h-full w-full items-center justify-center gap-4">
               <AISearchResultCycler />
