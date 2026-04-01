@@ -122,9 +122,11 @@ export default function HomePage() {
 
       <main className="space-y-0">
         <Hero />
+
         <Problem />
-        <HowItWorks />
         <AuditCta />
+        <HowItWorks />
+
         <Faq
           items={faqItems}
           heading="Frequently asked questions"

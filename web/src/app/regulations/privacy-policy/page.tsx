@@ -20,7 +20,7 @@ export default async function PrivacyPolicyPage() {
     'privacy-policy.md',
   );
   const file = fs.readFileSync(filePath, 'utf8');
-  const html = marked(file);
+  const html = await marked(file);
 
   return (
     <div className="relative min-h-screen">
