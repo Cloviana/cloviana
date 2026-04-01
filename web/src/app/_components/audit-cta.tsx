@@ -1,8 +1,9 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Button } from '@/components/ui/button';
@@ -15,6 +16,50 @@ import {
 } from '@/components/ui/form';
 import { ShinyButton } from '@/components/ui/shiny-button';
 import { cn } from '@/utils/cn';
+
+const AI_LOGOS = [
+  { src: '/logos/chatgpt-icon.svg', alt: 'ChatGPT' },
+  { src: '/logos/perplexity-color.svg', alt: 'Perplexity' },
+  { src: '/logos/gemini-color.svg', alt: 'Gemini' },
+  { src: '/logos/copilot-color.svg', alt: 'Copilot' },
+];
+
+function CyclingLogo() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % AI_LOGOS.length);
+    }, 1500);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <span
+      className="relative mx-1 inline-flex items-center justify-center align-middle"
+      style={{ width: '1em', height: '1em', verticalAlign: 'middle' }}
+    >
+      <AnimatePresence>
+        <motion.span
+          key={index}
+          initial={{ opacity: 0, filter: 'blur(6px)', scale: 0.8 }}
+          animate={{ opacity: 1, filter: 'blur(0px)', scale: 1 }}
+          exit={{ opacity: 0, filter: 'blur(6px)', scale: 0.8 }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute inset-0 flex items-center justify-center"
+        >
+          <Image
+            src={AI_LOGOS[index].src}
+            alt={AI_LOGOS[index].alt}
+            width={22}
+            height={22}
+            className="h-full w-full object-contain"
+          />
+        </motion.span>
+      </AnimatePresence>
+    </span>
+  );
+}
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -38,17 +83,26 @@ export const AuditCta: FC<{ className?: string }> = ({ className }) => {
   };
 
   return (
-    <section className={cn(className, 'padding-global')}>
-      <div className="padding-section-medium container">
-        <div className="flex flex-col gap-x-8 gap-y-3 lg:flex-row lg:items-end lg:justify-between lg:gap-20">
+    <section
+      className={cn(
+        className,
+        'padding-global relative overflow-hidden border-t border-b',
+      )}
+    >
+      <div className="padding-section-medium relative container border-r border-l">
+        <div className="flex flex-col items-center gap-x-8 gap-y-3 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, ease: EASE }}
-            className="w-full text-3xl lg:w-1/2 lg:max-w-[22ch] lg:text-4xl"
+            className="flex w-full flex-wrap items-center justify-center gap-2.5 text-3xl md:text-4xl lg:w-1/2 lg:text-[40px]/12"
           >
-            Your competitors are already showing up. Are you?
+            See where you appear in{' '}
+            <span className="inline-flex items-center gap-2.5 whitespace-nowrap">
+              <CyclingLogo />
+              AI search
+            </span>
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -87,8 +141,8 @@ export const AuditCta: FC<{ className?: string }> = ({ className }) => {
                         </ShinyButton>
                       </div>
                       <FormMessage className="pt-1 pl-3" />
-                      <p className="text-muted-foreground hidden pt-2 pl-3 text-xs">
-                        Free. No signup. See your results in 60 seconds.
+                      <p className="pt-2 text-center text-xs">
+                        Free report · No credit card · Results in 60 seconds
                       </p>
                     </FormItem>
                   )}
