@@ -41,7 +41,7 @@ export class PromptResearchRunner {
             data: result.prompts.map((prompt) => ({
               businessId,
               text: prompt.prompt,
-              stage: prompt.awarenessStage,
+              awarenessStage: prompt.awarenessStage,
               status: prompt.active ? "ACTIVE" : "INACTIVE",
             })),
           }),
