@@ -14,7 +14,7 @@ import type { StateType } from "@/workflows/audits/audit.state";
 import { HttpService } from "@nestjs/axios";
 import axios from "axios";
 
-const DEFAULT_DOMAIN = "rexi.finance";
+const DEFAULT_DOMAIN = "velonpricing.com";
 const DEFAULT_COUNTRY = "US";
 const DEFAULT_EMAIL = "samuel@cloviana.com";
 
@@ -94,6 +94,7 @@ async function main() {
   });
   const profile = await businessResearch.enrichProfile(domain);
   const competitorDomains = await businessResearch.findCompetitors(domain, 30);
+
   const input: StateType = {
     auditId: audit.id,
     email,
