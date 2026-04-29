@@ -6,7 +6,7 @@ import { MutationConfig } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
 
 export const createCheckoutSessionInputSchema = z.object({
-  storeId: z.string().min(1, 'Store is required'),
+  businessId: z.string().min(1, 'Business is required'),
   priceId: z.string().min(1, 'Price is required'),
 });
 
@@ -27,7 +27,7 @@ export const createCheckoutSession = async ({
   }
 
   return api.post<CreateCheckoutSessionResponse>(
-    `/stores/${data.storeId}/billing/checkout`,
+    `/businesses/${data.businessId}/billing/checkout`,
     { priceId: data.priceId },
     {
       headers: { Authorization: `Bearer ${token}` },

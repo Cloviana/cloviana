@@ -10,68 +10,11 @@ datasource db {
 
 // --- ENUMS ---
 
-enum StoreStatus {
-  DRAFT
-  ACTIVE
-  LOCKED
-  INITIALIZING
-  FAILED
-}
-
-enum Platform {
-  SHOPIFY
-  WOOCOMMERCE
-  BIGCOMMERCE
-  CUSTOM
-}
-
-enum NodeType {
-  PARAGRAPH
-  HEADING
-  LIST
-  LIST_ITEM
-  CODE_BLOCK
-  QUOTE
-  IMAGE
-  LINK
-  TEXT
-  LINEBREAK
-}
-
-enum BlogStatus {
-  DRAFT
-  PUBLISHED
-  ARCHIVED
-}
-
-enum BlogSetupStep {
-  TOPIC
-  PRIMARY_KEYWORD
-  SECONDARY_KEYWORDS
-  PRODUCT
-  CONTENT_TYPE
-  COMPLETED
-}
-
-enum BlogContentType {
-  PROBLEM_SOLUTION
-  COMPARISON
-}
-
-enum ProductStatus {
-  ACTIVE
-  DRAFT
-  ARCHIVED
-}
-
 enum JobType {
-  PRODUCT_SYNC
-  CATALOG_SYNC
-  BLOG_GENERATION
-  SITEMAP_BUILD
-  KEYWORD_DISCOVERY
-  STORE_METADATA
   SITE_AUDIT
+  BUSINESS_INITIALIZATION
+  PROMPT_RESEARCH
+  MONITORING
 }
 
 enum JobStatus {
@@ -95,27 +38,68 @@ enum SubscriptionStatus {
   TRIALLING
 }
 
-enum SearchIntent {
-  INFORMATIONAL
-  NAVIGATIONAL
-  COMMERCIAL
-  TRANSACTIONAL
+enum BusinessMembershipRole {
+  OWNER
+  MEMBER
 }
 
-enum DayOfWeek {
-  MON
-  TUE
-  WED
-  THU
-  FRI
-  SAT
-  SUN
+enum BusinessInviteStatus {
+  PENDING
+  ACCEPTED
+  REVOKED
+  EXPIRED
 }
 
-enum AutopilotContentMix {
-  BALANCED
-  PROBLEM_SOLUTION
-  COMPARISON
+enum BusinessSetupStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+}
+
+enum BusinessSetupStep {
+  DOMAIN
+  PROFILE
+  LOCATION
+  COMPETITORS
+  ATTRIBUTION
+  COMPLETED
+}
+
+enum BusinessStatus {
+  LOCKED
+  PROCESSING
+  ACTIVE
+  FAILED
+}
+
+enum PromptStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum AiEngine {
+  CLAUDE
+  CHATGPT
+  PERPLEXITY
+  AI_OVERVIEWS
+}
+
+enum PromptRunStatus {
+  RUNNING
+  COMPLETED
+  FAILED
+}
+
+enum PromptResponseStatus {
+  PENDING
+  SUCCESS
+  FAILED
+}
+
+enum PromptAwarenessStage {
+  EXPLORE
+  EVALUATE
+  DECIDE
 }
 
 // --- BILLING MODELS ---
@@ -140,239 +124,131 @@ model Subscription {
   stripeSubscriptionId String? @unique
 
   trialEndsAt DateTime?
-  storeId     String    @unique
+  businessId  String    @unique
 
   planId String @db.Uuid
-  plan   Plan   @relation(fields: [planId], references: [id]) // No Cascade here (don't delete subs if plan deleted)
+  plan   Plan   @relation(fields: [planId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  store Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  business Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
 
   @@map("subscriptions")
 }
 
 // --- CORE MODELS ---
 
-model AutopilotSettings {
-  id String @id @default(uuid()) @db.Uuid
-
-  storeId String @unique
-  store   Store  @relation(fields: [storeId], references: [id], onDelete: Cascade)
-
-  enabled Boolean @default(true)
-
-  blog AutopilotBlogSettings?
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("autopilot_settings")
-}
-
-model AutopilotBlogSettings {
-  id String @id @default(uuid()) @db.Uuid
-
-  autopilotSettingsId String            @unique @db.Uuid
-  autopilotSettings   AutopilotSettings @relation(fields: [autopilotSettingsId], references: [id], onDelete: Cascade)
-
-  publishDays DayOfWeek[]         @default([MON])
-  contentMix  AutopilotContentMix @default(BALANCED)
-  autoPublish Boolean             @default(false)
-  lastRunAt   DateTime?
-
-  collections Collection[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("autopilot_blog_settings")
-}
-
-model Store {
-  id               String      @id @default(cuid())
-  ownerId          String      @db.Uuid
+model Business {
+  id               String              @id @default(cuid())
+  ownerId          String              @db.Uuid
   stripeCustomerId String?
   name             String
-  domainUrl        String
-  profileUrl       String?
+  domain           String
+  category         String?
   description      String?
-  status           StoreStatus @default(LOCKED)
-
-  platform Platform @default(SHOPIFY)
+  icp              String?
+  status           BusinessStatus      @default(LOCKED)
+  setupStatus      BusinessSetupStatus @default(NOT_STARTED)
+  setupStep        BusinessSetupStep   @default(DOMAIN)
+  setupCompletedAt DateTime?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   subscription Subscription?
 
-  owner             Profile            @relation("StoreOwner", fields: [ownerId], references: [id], onDelete: Cascade)
-  blogs             Blog[]
-  jobs              Job[]
-  products          Product[]
-  collections       Collection[]
-  channel           Channel?
-  autopilotSettings AutopilotSettings?
+  owner       Profile          @relation("BusinessOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  competitors Competitor[]
+  jobs        Job[]
+  prompts     Prompt[]
+  tags        Tag[]
+  members     BusinessMember[]
+  invites     BusinessInvite[]
+  metrics     BusinessMetric[]
 
   @@index([ownerId])
-  @@map("stores")
+  @@map("businesses")
 }
 
-model Channel {
-  id String @id @default(uuid()) @db.Uuid
+model Competitor {
+  id         String   @id @default(uuid()) @db.Uuid
+  businessId String
+  domain     String
+  name       String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 
-  shop String @unique @db.Citext
+  business        Business         @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  mentions        Mention[]
+  promptMetrics   PromptMetric[]
+  businessMetrics BusinessMetric[]
 
-  config Json
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  storeId String @unique
-  store   Store  @relation(fields: [storeId], references: [id], onDelete: Cascade)
-
-  @@map("channels")
+  @@unique([businessId, domain])
+  @@index([businessId])
+  @@map("competitors")
 }
 
 model Profile {
-  id           String   @id @default(uuid()) @db.Uuid
-  email        String   @unique @db.Citext
-  contactEmail String?  @db.Citext
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id                     String    @id @default(uuid()) @db.Uuid
+  email                  String    @unique @db.Citext
+  heardAboutUs           String?
+  heardAboutUsCapturedAt DateTime?
+  lastAccessedBusinessId String?
+  createdAt              DateTime  @default(now())
+  updatedAt              DateTime  @updatedAt
 
-  storesOwned Store[] @relation("StoreOwner")
+  businessesOwned Business[]       @relation("BusinessOwner")
+  memberships     BusinessMember[]
+  sentInvites     BusinessInvite[] @relation("BusinessInviteSentBy")
+  acceptedInvites BusinessInvite[] @relation("BusinessInviteAcceptedBy")
 
   @@map("profiles")
 }
 
-model Product {
-  id      String @id @default(uuid()) @db.Uuid
-  storeId String
+model BusinessMember {
+  id         String                 @id @default(uuid()) @db.Uuid
+  businessId String
+  profileId  String                 @db.Uuid
+  role       BusinessMembershipRole @default(MEMBER)
+  createdAt  DateTime               @default(now())
+  updatedAt  DateTime               @updatedAt
 
-  externalId String
+  business Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  profile  Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
 
-  title       String
-  slug        String?       @db.Citext
-  status      ProductStatus
-  description String?
-
-  collections Collection[]
-
-  imageUrl String?
-
-  url String?
-
-  metadata Json? @db.JsonB
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  store Store  @relation(fields: [storeId], references: [id], onDelete: Cascade)
-  blogs Blog[]
-
-  @@unique([storeId, externalId])
-  @@unique([storeId, slug])
-  @@index([storeId, status])
-  @@map("products")
+  @@unique([businessId, profileId])
+  @@index([profileId])
+  @@map("business_members")
 }
 
-model Collection {
-  id      String @id @default(uuid()) @db.Uuid
-  storeId String
+model BusinessInvite {
+  id           String                 @id @default(uuid()) @db.Uuid
+  businessId   String
+  email        String                 @db.Citext
+  role         BusinessMembershipRole @default(MEMBER)
+  status       BusinessInviteStatus   @default(PENDING)
+  invitedById  String                 @db.Uuid
+  acceptedById String?                @db.Uuid
+  expiresAt    DateTime?
+  acceptedAt   DateTime?
+  createdAt    DateTime               @default(now())
+  updatedAt    DateTime               @updatedAt
 
-  externalId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  invitedBy  Profile  @relation("BusinessInviteSentBy", fields: [invitedById], references: [id], onDelete: Cascade)
+  acceptedBy Profile? @relation("BusinessInviteAcceptedBy", fields: [acceptedById], references: [id], onDelete: SetNull)
 
-  title       String
-  slug        String? @db.Citext
-  description String?
-  imageUrl    String?
-
-  url String?
-
-  metadata Json? @db.JsonB
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  store                 Store                   @relation(fields: [storeId], references: [id], onDelete: Cascade)
-  products              Product[]
-  blogs                 Blog[]
-  autopilotBlogSettings AutopilotBlogSettings[]
-
-  @@unique([storeId, externalId])
-  @@unique([storeId, slug])
-  @@map("collections")
-}
-
-// --- CONTENT MODELS ---
-
-model Blog {
-  id                String           @id @default(uuid()) @db.Uuid
-  topic             String?
-  title             String?
-  slug              String?
-  description       String?
-  contentType       BlogContentType?
-  brandVoice        String?
-  primaryKeyword    String?
-  secondaryKeywords String[]         @default([])
-  status            BlogStatus       @default(DRAFT)
-  currentStep       BlogSetupStep    @default(CONTENT_TYPE)
-  storeId           String
-
-  externalId String?
-
-  jobId     String?  @db.Uuid
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  store       Store        @relation(fields: [storeId], references: [id], onDelete: Cascade)
-  job         Job?         @relation(fields: [jobId], references: [id], onDelete: SetNull)
-  products    Product[]
-  collections Collection[]
-  nodes       Node[]
-  thumbnail   Thumbnail?
-
-  @@index([storeId])
-  @@map("blogs")
-}
-
-model Node {
-  blogId    String   @db.Uuid
-  key       String   @default(cuid())
-  parentKey String?
-  type      NodeType
-  sortOrder Int
-  payload   Json     @db.JsonB
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  blog     Blog   @relation(fields: [blogId], references: [id], onDelete: Cascade)
-  parent   Node?  @relation("NodeChildren", fields: [blogId, parentKey], references: [blogId, key], onDelete: Cascade)
-  children Node[] @relation("NodeChildren")
-
-  @@id([blogId, key])
-  @@index([blogId, parentKey, sortOrder])
-  @@map("nodes")
-}
-
-model Thumbnail {
-  id       String @id @default(uuid()) @db.Uuid
-  blogId   String @unique @db.Uuid
-  altText  String
-  blobPath String
-
-  blog Blog @relation(fields: [blogId], references: [id], onDelete: Cascade)
-
-  @@map("thumbnails")
+  @@unique([businessId, email])
+  @@index([email, status, expiresAt])
+  @@index([invitedById])
+  @@map("business_invites")
 }
 
 model Job {
   id              String    @id @default(uuid()) @db.Uuid
   type            JobType
-  storeId         String?
+  businessId      String
   status          JobStatus @default(PENDING)
   priority        Int       @default(0)
   attempts        Int       @default(0)
@@ -387,14 +263,156 @@ model Job {
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
 
-  store  Store?  @relation(fields: [storeId], references: [id], onDelete: Cascade)
-  blogs  Blog[]
-  audits Audit[]
+  business Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  audits   Audit[]
 
-  @@unique([type, storeId, dedupeKey])
+  @@unique([type, businessId, dedupeKey])
   @@index([type, status, priority, scheduledAt])
-  @@index([storeId, type, status])
+  @@index([businessId, type, status])
   @@map("jobs")
+}
+
+model Prompt {
+  id             String               @id @default(uuid()) @db.Uuid
+  businessId     String
+  text           String
+  status         PromptStatus
+  awarenessStage PromptAwarenessStage
+  lastRunAt      DateTime?
+  createdAt      DateTime             @default(now())
+  updatedAt      DateTime             @updatedAt
+
+  business  Business         @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  tags      Tag[]
+  runs      PromptRun[]
+  responses PromptResponse[]
+  metrics   PromptMetric[]
+
+  @@unique([businessId, text])
+  @@index([businessId])
+  @@map("prompts")
+}
+
+model Tag {
+  id         String   @id @default(uuid()) @db.Uuid
+  businessId String
+  text       String
+  createdAt  DateTime @default(now())
+
+  business Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  prompts  Prompt[]
+
+  @@unique([businessId, text])
+  @@map("tags")
+}
+
+model PromptRun {
+  id          String          @id @default(uuid()) @db.Uuid
+  promptId    String          @db.Uuid
+  status      PromptRunStatus
+  completedAt DateTime?
+  createdAt   DateTime        @default(now())
+
+  prompt    Prompt           @relation(fields: [promptId], references: [id], onDelete: Cascade)
+  responses PromptResponse[]
+
+  @@map("prompt_runs")
+}
+
+model PromptResponse {
+  id          String               @id @default(uuid()) @db.Uuid
+  promptRunId String               @db.Uuid
+  promptId    String               @db.Uuid
+  engine      AiEngine
+  text        String?
+  status      PromptResponseStatus
+  error       String?
+  createdAt   DateTime             @default(now())
+
+  promptRun     PromptRun     @relation(fields: [promptRunId], references: [id], onDelete: Cascade)
+  prompt        Prompt        @relation(fields: [promptId], references: [id], onDelete: Cascade)
+  mentions      Mention[]
+  citations     Citation[]
+  fanOutQueries FanOutQuery[]
+
+  @@unique([promptRunId, engine])
+  @@index([promptId])
+  @@map("prompt_responses")
+}
+
+model Mention {
+  id               String   @id @default(uuid()) @db.Uuid
+  promptResponseId String   @db.Uuid
+  name             String
+  domain           String
+  position         Int
+  competitorId     String?  @db.Uuid
+  createdAt        DateTime @default(now())
+
+  promptResponse PromptResponse @relation(fields: [promptResponseId], references: [id], onDelete: Cascade)
+  competitor     Competitor?    @relation(fields: [competitorId], references: [id], onDelete: SetNull)
+
+  @@map("mentions")
+}
+
+model Citation {
+  id               String   @id @default(uuid()) @db.Uuid
+  promptResponseId String   @db.Uuid
+  url              String
+  domain           String
+  title            String?
+  position         Int
+  createdAt        DateTime @default(now())
+
+  promptResponse PromptResponse @relation(fields: [promptResponseId], references: [id], onDelete: Cascade)
+
+  @@map("citations")
+}
+
+model FanOutQuery {
+  id               String   @id @default(uuid()) @db.Uuid
+  promptResponseId String   @db.Uuid
+  query            String
+  createdAt        DateTime @default(now())
+
+  promptResponse PromptResponse @relation(fields: [promptResponseId], references: [id], onDelete: Cascade)
+
+  @@map("fan_out_queries")
+}
+
+model PromptMetric {
+  id            String   @id @default(uuid()) @db.Uuid
+  promptId      String   @db.Uuid
+  competitorId  String?  @db.Uuid
+  date          DateTime @db.Date
+  mentionRate   Float
+  citationShare Float
+  sov           Float
+  createdAt     DateTime @default(now())
+
+  prompt     Prompt      @relation(fields: [promptId], references: [id], onDelete: Cascade)
+  competitor Competitor? @relation(fields: [competitorId], references: [id], onDelete: SetNull)
+
+  @@unique([promptId, competitorId, date])
+  @@map("prompt_metrics")
+}
+
+model BusinessMetric {
+  id            String    @id @default(uuid()) @db.Uuid
+  businessId    String
+  competitorId  String?   @db.Uuid
+  engine        AiEngine?
+  date          DateTime  @db.Date
+  mentionRate   Float
+  citationShare Float
+  sov           Float
+  createdAt     DateTime  @default(now())
+
+  business   Business    @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  competitor Competitor? @relation(fields: [competitorId], references: [id], onDelete: SetNull)
+
+  @@index([businessId, competitorId, date, engine])
+  @@map("business_metrics")
 }
 
 // --- AUDIT MODELS ---
@@ -417,7 +435,7 @@ model Audit {
   contentSuggestions    Json? // ContentIdea[]     — 4 items
   brandVisibility       Json? // BrandVisibility   — { google_aio, chatgpt, perplexity, overall } mention rates for target brand
 
-  job    Job?         @relation(fields: [jobId], references: [id], onDelete: SetNull)
+  job Job? @relation(fields: [jobId], references: [id], onDelete: SetNull)
 
   @@index([email])
   @@map("audits")

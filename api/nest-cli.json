@@ -3,7 +3,7 @@
   "sourceRoot": "src",
   "compilerOptions": {
     "builder": "swc",
-    "deleteOutDir": true,
+    "deleteOutDir": false,
     "manualRestart": false,
     "assets": [{ "include": "**/*.hbs" }, { "include": "**/*.md" }],
     "watchAssets": true

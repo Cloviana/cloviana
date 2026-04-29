@@ -1,8 +1,8 @@
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { AppConfiguration } from "@/config/app.configuration";
-import { AuthUser } from "@/interfaces/auth-user.interface";
+import type { AuthUser } from "@/interfaces/auth-user.interface";
 import { BadRequestException, Injectable, Logger } from "@nestjs/common";
-import { SubscriptionStatus } from "@prisma/client";
+import { BusinessMembershipRole, SubscriptionStatus } from "@prisma/client";
 import Stripe from "stripe";
 import { StripeService } from "./stripe.service";
 
@@ -18,11 +18,24 @@ export class BillingService {
 
   async createCheckoutSession(
     user: AuthUser,
-    storeId: string,
+    businessId: string,
     priceId: string,
   ) {
-    const store = await this.prisma.store.findFirstOrThrow({
-      where: { id: storeId, ownerId: user.sub },
+    const business = await this.prisma.business.findFirstOrThrow({
+      where: {
+        id: businessId,
+        OR: [
+          { ownerId: user.sub },
+          {
+            members: {
+              some: {
+                profileId: user.sub,
+                role: BusinessMembershipRole.OWNER,
+              },
+            },
+          },
+        ],
+      },
       select: {
         id: true,
         name: true,
@@ -31,13 +44,16 @@ export class BillingService {
       },
     });
 
-    const hasHadSubscription = !!store.subscription;
-    let { stripeCustomerId } = store;
+    const hasHadSubscription = !!business.subscription;
+    let { stripeCustomerId } = business;
     if (!stripeCustomerId) {
-      const customer = await this.stripe.createCustomer(user.email, store.name);
+      const customer = await this.stripe.createCustomer(
+        user.email,
+        business.name,
+      );
       stripeCustomerId = customer.id;
-      await this.prisma.store.update({
-        where: { id: store.id },
+      await this.prisma.business.update({
+        where: { id: business.id },
         data: { stripeCustomerId },
       });
     }
@@ -46,13 +62,13 @@ export class BillingService {
     const session = await this.stripe.createCheckoutSession({
       mode: "subscription",
       customer: stripeCustomerId,
-      success_url: `${baseAppUrl}/${storeId}?status=success`,
-      cancel_url: `${baseAppUrl}/${storeId}?status=cancelled`,
+      success_url: `${baseAppUrl}/${businessId}?status=success`,
+      cancel_url: `${baseAppUrl}/${businessId}?status=cancelled`,
       line_items: [{ price: priceId, quantity: 1 }],
-      metadata: { storeId, priceId },
+      metadata: { businessId, priceId },
       subscription_data: {
         ...(hasHadSubscription ? {} : { trial_period_days: 14 }),
-        metadata: { storeId },
+        metadata: { businessId },
       },
     });
 
@@ -65,24 +81,37 @@ export class BillingService {
     return { url: session.url };
   }
 
-  async createPortalSession(user: AuthUser, storeId: string) {
-    const store = await this.prisma.store.findFirstOrThrow({
-      where: { id: storeId, ownerId: user.sub },
+  async createPortalSession(user: AuthUser, businessId: string) {
+    const business = await this.prisma.business.findFirstOrThrow({
+      where: {
+        id: businessId,
+        OR: [
+          { ownerId: user.sub },
+          {
+            members: {
+              some: {
+                profileId: user.sub,
+                role: BusinessMembershipRole.OWNER,
+              },
+            },
+          },
+        ],
+      },
       select: {
         stripeCustomerId: true,
       },
     });
 
-    if (!store.stripeCustomerId) {
+    if (!business.stripeCustomerId) {
       throw new BadRequestException(
-        "Store is not linked to a Stripe customer yet. Please start a checkout session first.",
+        "Business is not linked to a Stripe customer yet. Please start a checkout session first.",
       );
     }
 
     const baseAppUrl = this.normalizeAppUrl();
     const session = await this.stripe.createPortalSession({
-      customer: store.stripeCustomerId,
-      return_url: `${baseAppUrl}/${storeId}`,
+      customer: business.stripeCustomerId,
+      return_url: `${baseAppUrl}/${businessId}`,
     });
     return { url: session.url };
   }
@@ -96,12 +125,12 @@ export class BillingService {
    * using metadata from both the session and the full Stripe subscription.
    */
   async handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) {
-    const storeId = session.metadata?.storeId;
+    const businessId = session.metadata?.businessId;
     const sub = session.subscription;
 
-    if (!storeId || !sub) {
+    if (!businessId || !sub) {
       this.logger.error(
-        `checkout.session.completed → MISSING DATA: storeId=${storeId}, subscription=${sub}`,
+        `checkout.session.completed → MISSING DATA: businessId=${businessId}, subscription=${sub}`,
       );
       return;
     }
@@ -109,24 +138,24 @@ export class BillingService {
     const subscriptionId = typeof sub === "string" ? sub : sub.id;
     const stripeSub = await this.stripe.retrieveSubscription(subscriptionId);
 
-    await this.upsertSubscriptionFromStripe(storeId, stripeSub);
+    await this.upsertSubscriptionFromStripe(businessId, stripeSub);
   }
 
   /**
    * Handles customer.subscription.created — self-sufficient handler that
-   * resolves storeId from subscription metadata and plan from line items.
+   * resolves businessId from subscription metadata and plan from line items.
    * Does NOT depend on checkout.session.completed having fired first.
    */
   async handleSubscriptionCreated(subscription: Stripe.Subscription) {
-    const storeId = subscription.metadata?.storeId;
-    if (!storeId) {
+    const businessId = subscription.metadata?.businessId;
+    if (!businessId) {
       this.logger.error(
-        `customer.subscription.created → NO storeId in metadata! Full metadata: ${JSON.stringify(subscription.metadata)}`,
+        `customer.subscription.created → NO businessId in metadata! Full metadata: ${JSON.stringify(subscription.metadata)}`,
       );
       return;
     }
 
-    await this.upsertSubscriptionFromStripe(storeId, subscription);
+    await this.upsertSubscriptionFromStripe(businessId, subscription);
   }
 
   /**
@@ -134,23 +163,23 @@ export class BillingService {
    * or upserts if the record doesn't exist yet (idempotent).
    */
   async handleSubscriptionUpdated(subscription: Stripe.Subscription) {
-    const storeId =
-      subscription.metadata?.storeId ??
+    const businessId =
+      subscription.metadata?.businessId ??
       (
         await this.prisma.subscription.findUnique({
           where: { stripeSubscriptionId: subscription.id },
-          select: { storeId: true },
+          select: { businessId: true },
         })
-      )?.storeId;
+      )?.businessId;
 
-    if (!storeId) {
+    if (!businessId) {
       this.logger.warn(
-        `customer.subscription.updated: cannot resolve storeId for ${subscription.id}`,
+        `customer.subscription.updated: cannot resolve businessId for ${subscription.id}`,
       );
       return;
     }
 
-    await this.upsertSubscriptionFromStripe(storeId, subscription);
+    await this.upsertSubscriptionFromStripe(businessId, subscription);
   }
 
   async handleCustomerSubscriptionDeleted(subscription: Stripe.Subscription) {
@@ -225,10 +254,10 @@ export class BillingService {
 
   /**
    * Single idempotent write path for all subscription webhook handlers.
-   * Upserts by storeId so duplicate events are harmless.
+   * Upserts by businessId so duplicate events are harmless.
    */
   private async upsertSubscriptionFromStripe(
-    storeId: string,
+    businessId: string,
     subscription: Stripe.Subscription,
   ) {
     const plan = await this.resolvePlanFromSubscription(subscription);
@@ -237,12 +266,12 @@ export class BillingService {
       ? new Date(subscription.trial_end * 1000)
       : null;
     await this.prisma.subscription.upsert({
-      where: { storeId },
+      where: { businessId },
       create: {
         status,
         stripeSubscriptionId: subscription.id,
         trialEndsAt,
-        storeId,
+        businessId,
         planId: plan.id,
       },
       update: {

@@ -8,24 +8,24 @@ import { JobStatus, JobType } from '@/types/api';
 import { jobsKeys } from '../keys';
 
 export const getLatestJobStatus = async (
-  storeId: string,
+  businessId: string,
   type: JobType,
 ): Promise<{ status: JobStatus | null; jobId: string | null }> => {
   const token = await fetchAccessToken();
   if (!token) throw new Error('Access token is not available');
-  return api.get(`/stores/${storeId}/jobs/latest/status`, {
+  return api.get(`/businesses/${businessId}/jobs/latest/status`, {
     headers: { Authorization: `Bearer ${token}` },
     params: { type },
   });
 };
 
 export const getLatestJobStatusQueryOptions = (
-  storeId: string,
+  businessId: string,
   type: JobType,
 ) =>
   queryOptions({
-    queryKey: jobsKeys.latestStatus(storeId, type),
-    queryFn: () => getLatestJobStatus(storeId, type),
+    queryKey: jobsKeys.latestStatus(businessId, type),
+    queryFn: () => getLatestJobStatus(businessId, type),
     staleTime: 10_000,
   });
 
@@ -34,11 +34,11 @@ type UseGetLatestJobStatusOptions = {
 };
 
 export const useGetLatestJobStatus = (
-  storeId: string,
+  businessId: string,
   type: JobType,
   { queryConfig }: UseGetLatestJobStatusOptions = {},
 ) =>
   useQuery({
-    ...getLatestJobStatusQueryOptions(storeId, type),
+    ...getLatestJobStatusQueryOptions(businessId, type),
     ...queryConfig,
   });

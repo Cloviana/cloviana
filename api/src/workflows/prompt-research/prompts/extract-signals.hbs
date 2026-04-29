@@ -1,0 +1,31 @@
+Extract buyer signals from the document below.
+
+A buyer signal is a direct quote showing how a real person thinks, talks, or behaves when exploring, evaluating, or choosing between solutions. Only extract snippets that clearly reflect one or more of:
+
+- A real pain, frustration, or unmet need
+- A desired outcome or job to be done
+- An evaluation criterion or feature requirement
+- A comparison, alternative search, or shortlist signal
+- A buying constraint, objection, or trust concern
+- A decision driver: reviews, proof, risk reduction, or vendor preference
+
+Instructions:
+1. Extract only snippets relevant to the category and ICP in the business context.
+2. Skip: off-topic content, overly generic statements, setup guides, tutorials, troubleshooting steps, jokes, and casual conversation with no buying intent.
+3. Each snippet must capture one distinct signal. Do not extract overlapping snippets from the same passage unless they represent clearly different signals.
+4. Copy the snippet exactly as it appears. Do not rewrite, paraphrase, or summarize it.
+5. Keep enough surrounding text to preserve meaning — one or two sentences is usually enough.
+6. For each snippet, write a short insight: a plain, factual explanation of why the signal is commercially useful. Do not speculate. Do not repeat the snippet verbatim.
+7. Use the document URL exactly as provided.
+8. If the document contains no strong buyer signals, return an empty signals array.
+
+Output format:
+{
+  "signals": [
+    {
+      "snippet": "string",
+      "insight": "string",
+      "url": "string"
+    }
+  ]
+}

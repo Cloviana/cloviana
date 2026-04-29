@@ -1,0 +1,38 @@
+Score each search query from 0 to 100 based on how worth tracking it is for buyer research.
+
+Return exactly one score per promptId. Do not omit any. Do not add any.
+
+What makes a strong query (score higher):
+- Sounds like something a real buyer would type
+- Clearly fits one of the three buying stages below
+- Specific and commercially meaningful
+- Broad enough to matter over time
+
+What makes a weak query (score lower):
+- Reads like an internal, operational, or implementation search
+- Focused on setup, configuration, troubleshooting, or post-purchase usage
+- Vague, generic, or low-intent
+- A weaker restatement of another query in the list
+- Over-engineered — lists multiple dimensions, uses formal connector phrases, reads like an analyst report
+
+Stage guidance:
+- EXPLORE: strong if it describes a real, visible problem or frustration a buyer experiences before knowing any solution exists
+- EVALUATE: strong if it reflects shortlisting, comparison, alternatives, or requirement-checking for a solution category
+- DECIDE: strong if it reflects reviews, trust, validation, or final-choice confidence — not technical implementation details
+
+Scoring distribution:
+- 90–100: exceptional, must-track
+- 75–89: strong, likely worth tracking
+- 60–74: usable but not top priority
+- 40–59: weak, narrow, or redundant
+- 0–39: off-category, implementation-focused, or not worth tracking
+
+Scores above 85 should be rare. Most queries should score below 75. If multiple queries express the same intent, score only the strongest one highly.
+
+Output format:
+{
+  "scores": [
+    { "promptId": 0, "score": 82 },
+    { "promptId": 1, "score": 45 }
+  ]
+}

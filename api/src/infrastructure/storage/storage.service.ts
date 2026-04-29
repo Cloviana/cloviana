@@ -1,4 +1,4 @@
-import { Readable } from "stream";
+import { Readable } from "node:stream";
 import { AppConfiguration } from "@/config/app.configuration";
 import { BlobServiceClient } from "@azure/storage-blob";
 import { Inject, Injectable, OnModuleInit } from "@nestjs/common";

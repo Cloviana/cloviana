@@ -8,27 +8,27 @@ import { Job, JobType } from '@/types/api';
 import { jobsKeys } from '../keys';
 
 export const getJobs = async (
-  storeId: string,
+  businessId: string,
   type?: JobType,
   limit?: number,
 ): Promise<Job[]> => {
   const token = await fetchAccessToken();
   if (!token) throw new Error('Access token is not available');
 
-  return api.get<Job[]>(`/stores/${storeId}/jobs`, {
+  return api.get<Job[]>(`/businesses/${businessId}/jobs`, {
     headers: { Authorization: `Bearer ${token}` },
     params: { type, limit },
   });
 };
 
 export const getJobsQueryOptions = (
-  storeId: string,
+  businessId: string,
   type?: JobType,
   limit?: number,
 ) =>
   queryOptions({
-    queryKey: jobsKeys.list(storeId),
-    queryFn: () => getJobs(storeId, type, limit),
+    queryKey: jobsKeys.list(businessId),
+    queryFn: () => getJobs(businessId, type, limit),
     staleTime: 30_000,
   });
 
@@ -37,12 +37,12 @@ type UseGetJobsOptions = {
 };
 
 export const useGetJobs = (
-  storeId: string,
+  businessId: string,
   type?: JobType,
   limit?: number,
   { queryConfig }: UseGetJobsOptions = {},
 ) =>
   useQuery({
-    ...getJobsQueryOptions(storeId, type, limit),
+    ...getJobsQueryOptions(businessId, type, limit),
     ...queryConfig,
   });

@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { env } from '@/config/env';
 import { useCreateCheckoutSession } from '@/features/billing/api/create-checkout-session';
 import { useCreatePortalSession } from '@/features/billing/api/create-portal-session';
-import { useGetStore } from '@/features/stores/api/get-store';
+import { useGetBusiness } from '@/features/businesses/api/get-business';
 import { cn } from '@/utils/cn';
 
 export type IPlan = {
@@ -34,16 +34,12 @@ export const plans: IPlan[] = [
         : 'price_1T1JdCIby4xu0zVbC7GmFPBI',
     popular: true,
     price: 3900,
-    description: 'Your automated SEO agency for $39/month',
+    description: 'Your Cloviana workspace subscription for $39/month',
     features: [
-      'Unlimited SEO blogs published on schedule',
-      'Real-time Google ranking tracking & optimization',
-      'Unlimited keyword research with search volume data',
-      'Custom images generated for every post',
-      'Automatic product linking & internal SEO',
-      'Unlimited catalog syncs from Shopify',
-      'Smart editor with AI writing assistance',
-      'Intelligent content suggestions',
+      'Access to your Cloviana workspace',
+      'Subscription management and billing portal',
+      'Team support during the pilot',
+      'Ongoing product updates as new capabilities launch',
       'Live chat support',
     ],
   },
@@ -171,8 +167,8 @@ const PlanFeatures = ({
 };
 
 export const Plans = () => {
-  const { storeId } = useParams<{ storeId: string }>();
-  const { data: store } = useGetStore(storeId);
+  const { businessId } = useParams<{ businessId: string }>();
+  const { data: business } = useGetBusiness(businessId);
   const [checkoutPriceId, setCheckoutPriceId] = useState<string | null>(null);
 
   const { mutateAsync: startCheckout, isPending: isCreatingCheckout } =
@@ -180,16 +176,18 @@ export const Plans = () => {
   const { mutateAsync: createPortalSession, isPending: isCreatingPortal } =
     useCreatePortalSession();
 
-  if (!store) return null;
+  if (!business) return null;
 
-  const subscription = store.subscription;
+  const subscription = business.subscription;
   const now = new Date();
 
   const handleCheckout = async (priceId: string) => {
-    if (!storeId || !priceId) return;
+    if (!businessId || !priceId) return;
     setCheckoutPriceId(priceId);
     try {
-      const { url } = await startCheckout({ data: { storeId, priceId } });
+      const { url } = await startCheckout({
+        data: { businessId, priceId },
+      });
       window.location.href = url;
     } finally {
       setCheckoutPriceId(null);
@@ -197,8 +195,8 @@ export const Plans = () => {
   };
 
   const handleManageSubscription = async () => {
-    if (!storeId) return;
-    const { url } = await createPortalSession({ data: { storeId } });
+    if (!businessId) return;
+    const { url } = await createPortalSession({ data: { businessId } });
     window.location.href = url;
   };
 

@@ -1,6 +1,12 @@
-import { normalizeDomain } from "@/workflows/audit/utils/normalize-domain";
+import { normalizeDomain } from "@/common/utils/normalize-domain.util";
 import { Transform } from "class-transformer";
-import { IsEmail, IsISO31661Alpha2, IsNotEmpty, IsOptional, IsString } from "class-validator";
+import {
+  IsEmail,
+  IsISO31661Alpha2,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+} from "class-validator";
 
 export class RequestAuditDto {
   @Transform(({ value }) => normalizeDomain(value))
@@ -14,5 +20,5 @@ export class RequestAuditDto {
   @IsISO31661Alpha2()
   @IsOptional()
   @Transform(({ value }) => (value ?? "US").toUpperCase())
-  country: string = "US";
+  country = "US";
 }

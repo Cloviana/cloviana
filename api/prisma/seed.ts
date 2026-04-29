@@ -10,12 +10,11 @@ async function main() {
 
   const {
     rows: [{ count: userCount }],
-  } = await client.query(`select count(*)::int as count from auth.users`);
+  } = await client.query("select count(*)::int as count from auth.users");
 
   await client.query(`
     update public."profiles" p
     set "email" = au.email,
-        "contactEmail" = coalesce(au.raw_user_meta_data->>'contactEmail', au.email),
         "updatedAt" = now()
     from auth.users au
     where p.id = au.id and p."email" is null
@@ -23,13 +22,13 @@ async function main() {
 
   const resInsert = await client.query(`
     with to_insert as (
-      select u.id, u.email, coalesce(u.raw_user_meta_data->>'contactEmail', u.email) as contact_email
+      select u.id, u.email
       from auth.users u
       left join public."profiles" p on p.id = u.id
       where p.id is null
     )
-    insert into public."profiles" (id, "email", "contactEmail", "createdAt", "updatedAt")
-    select id, email, contact_email, now(), now() from to_insert
+    insert into public."profiles" (id, "email", "createdAt", "updatedAt")
+    select id, email, now(), now() from to_insert
     returning id
   `);
 

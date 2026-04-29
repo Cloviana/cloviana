@@ -1,9 +1,9 @@
 import { Global, Module } from "@nestjs/common";
-import { OpenAIClient } from "./openai.client";
+import { OpenAIService } from "./openai.service";
 
 @Global()
 @Module({
-  providers: [OpenAIClient],
-  exports: [OpenAIClient],
+  providers: [OpenAIService],
+  exports: [OpenAIService],
 })
 export class OpenAIModule {}

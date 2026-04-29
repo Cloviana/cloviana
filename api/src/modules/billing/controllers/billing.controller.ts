@@ -4,24 +4,24 @@ import { Body, Controller, Param, Post } from "@nestjs/common";
 import { CreateCheckoutSessionDto } from "../dto/create-checkout-session.dto";
 import { BillingService } from "../services/billing.service";
 
-@Controller("stores/:storeId/billing")
+@Controller("businesses/:businessId/billing")
 export class BillingController {
   constructor(private readonly billing: BillingService) {}
 
   @Post("checkout")
   createCheckoutSession(
-    @Param("storeId") storeId: string,
+    @Param("businessId") businessId: string,
     @Body() body: CreateCheckoutSessionDto,
     @CurrentUser() user: AuthUser,
   ) {
-    return this.billing.createCheckoutSession(user, storeId, body.priceId);
+    return this.billing.createCheckoutSession(user, businessId, body.priceId);
   }
 
   @Post("portal")
   createPortalSession(
-    @Param("storeId") storeId: string,
+    @Param("businessId") businessId: string,
     @CurrentUser() user: AuthUser,
   ) {
-    return this.billing.createPortalSession(user, storeId);
+    return this.billing.createPortalSession(user, businessId);
   }
 }

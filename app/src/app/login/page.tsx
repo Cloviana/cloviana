@@ -4,8 +4,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { z } from 'zod';
 
 import { Button } from '@/components/ui/button';
@@ -31,6 +33,7 @@ const formSchema = z.object({
 });
 
 export default function LoginPage() {
+  const searchParams = useSearchParams();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     mode: 'onSubmit',
@@ -38,15 +41,22 @@ export default function LoginPage() {
   });
 
   const { push } = useRouter();
+  const authError = searchParams.get('error');
+
+  useEffect(() => {
+    if (authError === 'invite_only') {
+      toast.error('Your email has not been invited to a workspace.');
+    }
+  }, [authError]);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     form.clearErrors('root');
     const result = await signInWithEmail(values.email, values.password);
     if (!result.success) {
-      form.setError('password', { type: 'server', message: result.message });
+      toast.error(result.message);
       return;
     }
-    push(paths.store.getHref());
+    push(paths.business.getHref());
   }
 
   return (
@@ -71,7 +81,7 @@ export default function LoginPage() {
               Welcome back to Cloviana
             </h1>
             <p className="text-foreground-light text-sm">
-              Log in to use Cloviana.
+              Log in to use Cloviana. Access is invite-only.
             </p>
           </div>
 
@@ -146,9 +156,14 @@ export default function LoginPage() {
                 <Button
                   type="submit"
                   className="w-full"
-                  variant={'secondary'}
+                  variant={'primary'}
                   size={'lg'}
                   loading={form.formState.isSubmitting}
+                  disabled={
+                    form.formState.isSubmitting ||
+                    !form.formState.isDirty ||
+                    !form.formState.isValid
+                  }
                 >
                   Continue
                   <ChevronRight className="size-3.5" strokeWidth={2.5} />

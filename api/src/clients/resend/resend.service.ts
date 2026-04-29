@@ -10,11 +10,7 @@ export class ResendService {
     this.resend = new Resend(config.resendApiKey);
   }
 
-  async sendVerificationEmail(
-    to: string,
-    code: number,
-    expiryMinutes: number,
-  ) {
+  async sendVerificationEmail(to: string, code: number, expiryMinutes: number) {
     const { error } = await this.resend.emails.send({
       to,
       template: {
@@ -38,7 +34,7 @@ export class ResendService {
         id: "e2e0e914-c96a-469a-8115-742dbde0d9bf",
         variables: {
           audit_id: auditId,
-          brand_name: brandName
+          brand_name: brandName,
         },
       },
     });

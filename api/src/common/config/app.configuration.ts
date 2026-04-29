@@ -1,5 +1,5 @@
 import { Configuration, Value } from "@itgorillaz/configify";
-import { IsFQDN, IsNumber, IsString } from "class-validator";
+import { IsNumber, IsString } from "class-validator";
 
 @Configuration()
 export class AppConfiguration {
@@ -68,16 +68,12 @@ export class AppConfiguration {
   readonly anthropicApiKey!: string;
 
   @IsString()
-  @Value("SMTP2GO_API_KEY")
-  readonly smtp2goApiKey!: string;
-
-  @IsString()
-  @Value("SMTP2GO_DEFAULT_FROM")
-  readonly smtp2goDefaultFrom!: string;
-
-  @IsString()
   @Value("GOOGLE_API_KEY")
   readonly googleApiKey!: string;
+
+  @IsString()
+  @Value("GROQ_API_KEY")
+  readonly groqApiKey!: string;
 
   @IsString()
   @Value("AZURE_CDN_ENDPOINT")
@@ -88,22 +84,18 @@ export class AppConfiguration {
   readonly azureStorageConnectionString!: string;
 
   @IsString()
-  @Value("SHOPIFY_API_KEY")
-  readonly shopifyApiKey!: string;
-
-  @IsString()
-  @Value("SHOPIFY_API_SECRET")
-  readonly shopifyApiSecret!: string;
-
-  @IsFQDN({ require_tld: false })
-  @Value("SHOPIFY_HOST")
-  readonly shopifyHost!: string;
-
-  @IsString()
   @Value("RESEND_API_KEY")
   readonly resendApiKey!: string;
 
   @IsString()
   @Value("EXA_API_KEY")
   readonly exaApiKey!: string;
+
+  @IsString()
+  @Value("OPENAI_API_KEY")
+  readonly openaiApiKey!: string;
+
+  @IsString()
+  @Value("PERPLEXITY_API_KEY")
+  readonly perplexityApiKey!: string;
 }

@@ -1,5 +1,5 @@
-import { promises as fs } from "fs";
-import path from "path";
+import { promises as fs } from "node:fs";
+import path from "node:path";
 import Handlebars from "handlebars";
 
 type LoadPromptOptions = {
@@ -40,14 +40,16 @@ export async function loadPromptHbs(
     }
   }
 
-  if (opts.partialsDir) {
-    const partialFiles = (await listFilesRecursive(opts.partialsDir)).filter(
-      (f) => f.endsWith(ext),
+  const { partialsDir } = opts;
+
+  if (partialsDir) {
+    const partialFiles = (await listFilesRecursive(partialsDir)).filter((f) =>
+      f.endsWith(ext),
     );
 
     await Promise.all(
       partialFiles.map(async (absPath) => {
-        const rel = path.relative(opts.partialsDir!, absPath);
+        const rel = path.relative(partialsDir, absPath);
         const id = rel.slice(0, -ext.length).split(path.sep).join("/");
         const src = await fs.readFile(absPath, "utf-8");
         Handlebars.registerPartial(id, src);

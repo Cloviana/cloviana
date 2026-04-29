@@ -1,0 +1,18 @@
+Extract a structured business profile from homepage text.
+
+Return strict JSON with `name`, `description`, `icp`, and `category`.
+
+Rules:
+1. `name` should be the actual displayed brand or product name used on the website, not the raw domain.
+2. If the site clearly brands itself as `Apollo`, return `Apollo`, not `Apollo.io`.
+3. Only include a domain suffix like `.io` or `.ai` when the website itself consistently uses that as the official brand name.
+4. `description` should be a concise 1-2 sentence summary of what the company does.
+5. `icp` should describe the most likely ideal customer profile in one sentence.
+6. `category` must be the most useful buyer-facing product category for finding competitors, written in clear market language.
+7. `category` should describe the kind of product someone would search for, not a generic industry label.
+8. A category can include a clear use-case or buyer qualifier when that makes it meaningfully more useful, for example `web search API for AI agents`, `no-code website builder for designers`, or `customer support software for SaaS`.
+9. Prefer the most discriminative category that still sounds like a real market category, not just a long description.
+10. Good categories: `no-code website builder`, `web search API for AI agents`, `product analytics`, `email marketing platform`, `customer support software`, `video editing software`.
+11. Bad categories: `Software Development`, `Technology`, `SaaS`, `Design`, `Business Tools`.
+12. Prefer the closest commonly understood product category, even if it is narrower than the company's industry.
+13. Do not invent details beyond what the homepage strongly supports.

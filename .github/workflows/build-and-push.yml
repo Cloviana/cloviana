@@ -74,6 +74,7 @@ jobs:
             NEXT_PUBLIC_APP_URL=${{ vars.APP_URL }}
             NEXT_PUBLIC_WEB_URL=${{ vars.WEB_URL }}
             NEXT_PUBLIC_GA4_ID=${{ vars.WEB_GA4_ID }}
+            NEXT_PUBLIC_CLARITY_PROJECT_ID=w8oqyeitz6
           cache-from: type=registry,ref=ghcr.io/cloviana/web:buildcache
           cache-to: type=registry,ref=ghcr.io/cloviana/web:buildcache,mode=max
           provenance: false
