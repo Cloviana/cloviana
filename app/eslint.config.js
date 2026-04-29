@@ -16,8 +16,6 @@ export default [
       'node_modules/*',
       'public/mockServiceWorker.js',
       'generators/*',
-      'src/components/editor/**/*',
-      'src/features/blogs/components/editor/**/*',
     ],
   },
 
@@ -60,11 +58,6 @@ export default [
         {
           zones: [
             {
-              target: './src/features/blogs',
-              from: './src/features',
-              except: ['./blogs', './auth', './stores', './catalog', './jobs'],
-            },
-            {
               target: './src/features/jobs',
               from: './src/features',
               except: ['./jobs'],
@@ -72,7 +65,7 @@ export default [
             {
               target: './src/features/billing',
               from: './src/features',
-              except: ['./billing', './auth', './stores'],
+              except: ['./billing', './auth', './stores', './businesses'],
             },
             {
               target: './src/features',
@@ -150,10 +143,4 @@ export default [
     },
   },
 
-  {
-    files: ['src/components/editor/**/*.{ts,tsx}'],
-    rules: {
-      '@typescript-eslint/no-unused-vars': 'off',
-    },
-  },
 ];

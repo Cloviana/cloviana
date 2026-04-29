@@ -6,7 +6,7 @@ import { MutationConfig } from '@/lib/react-query';
 import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
 
 export const createPortalSessionInputSchema = z.object({
-  storeId: z.string().min(1, 'Store is required'),
+  businessId: z.string().min(1, 'Business is required'),
 });
 
 export type CreatePortalSessionInput = z.infer<
@@ -26,7 +26,7 @@ export const createPortalSession = async ({
   }
 
   return api.post<CreatePortalSessionResponse>(
-    `/stores/${data.storeId}/billing/portal`,
+    `/businesses/${data.businessId}/billing/portal`,
     undefined,
     {
       headers: { Authorization: `Bearer ${token}` },

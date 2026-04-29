@@ -8,9 +8,9 @@ import {
   Param,
   Post,
 } from "@nestjs/common";
-import { AuditsService } from "./audits.service";
 import { RequestAuditDto } from "./dto/request-audit.dto";
 import { VerifyAuditDto } from "./dto/verify-audit.dto";
+import { AuditsService } from "./services/audits.service";
 
 @Controller("audits")
 export class AuditsController {

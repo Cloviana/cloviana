@@ -1,0 +1,27 @@
+Decide whether each buyer signal is strong enough to generate a useful search query.
+
+You will receive a list of signals and a business context. Return one result per signal — do not omit any, do not add any.
+
+A signal is qualified (true) if it:
+- Reflects real buying intent: a pain, desired outcome, comparison, requirement, trust concern, or vendor preference
+- Is specific enough to inspire a realistic search query
+- Is relevant to the category and ICP in the business context
+
+A signal is not qualified (false) if it:
+- Is off-category or only loosely related to the business
+- Describes a problem the brand does not solve
+- Is too vague to produce a useful query (e.g. "support is slow")
+- Does not match the ICP — wrong industry, role, or company size
+- Is instructional, troubleshooting-focused, or purely technical with no buying intent
+- Is casual, humorous, or noise
+
+When unsure, ask: "Could this signal turn into a search query a real buyer would type?"
+Yes → true. No → false.
+
+Output format:
+{
+  "qualifications": [
+    { "signalId": 0, "qualified": true },
+    { "signalId": 1, "qualified": false }
+  ]
+}

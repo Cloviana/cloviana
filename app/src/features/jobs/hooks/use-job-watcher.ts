@@ -7,7 +7,7 @@ import type { JobStatus } from '@/types/api';
 import { useGetJob } from '../api/get-job';
 
 type Options = {
-  storeId?: string | null;
+  businessId?: string | null;
   jobId?: string | null;
   initialStatus?: JobStatus;
   enabled?: boolean;
@@ -22,7 +22,7 @@ const FAILURE: ReadonlyArray<JobStatus> = ['FAILED'];
 const SUCCESS: JobStatus = 'SUCCESS';
 
 export function useJobWatcher({
-  storeId,
+  businessId,
   jobId,
   initialStatus,
   enabled = true,
@@ -31,9 +31,9 @@ export function useJobWatcher({
   onSuccess,
   onFailure,
 }: Options) {
-  const canStart = Boolean(storeId && jobId) && enabled;
+  const canStart = Boolean(businessId && jobId) && enabled;
 
-  const { data } = useGetJob(storeId ?? '', jobId ?? '', {
+  const { data } = useGetJob(businessId ?? '', jobId ?? '', {
     queryConfig: {
       enabled: canStart,
       staleTime: staleTimeMs,

@@ -94,28 +94,28 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
             }),
           }}
         />
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${env.GA4_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script
-          id="ga-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){ dataLayer.push(arguments); }
-              gtag('js', new Date());
-              gtag('config', '${env.GA4_ID}', { page_path: window.location.pathname });
-            `,
-          }}
-        />
         {process.env.NODE_ENV === 'production' && (
-          <Script
-            id="crisp-chat"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
+          <>
+            {env.CLARITY_PROJECT_ID && (
+              <Script
+                id="clarity-init"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                  __html: `
+                    (function(c,l,a,r,i,t,y){
+                      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                    })(window, document, "clarity", "script", "${env.CLARITY_PROJECT_ID}");
+                  `,
+                }}
+              />
+            )}
+            <Script
+              id="crisp-chat"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
               window.$crisp=[];
               window.CRISP_WEBSITE_ID="60f1d13f-4bdc-4146-a861-4b9d66513f06";
               (function(){
@@ -126,21 +126,39 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
                 d.getElementsByTagName("head")[0].appendChild(s);
               })();
             `,
-            }}
-          />
+              }}
+            />
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${env.GA4_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script
+              id="ga-init"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){ dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', '${env.GA4_ID}', { page_path: window.location.pathname });
+            `,
+              }}
+            />
+            <Script
+              src="https://app.guideflow.com/assets/opt.js"
+              data-iframe-id="zklvm36fjr"
+              strategy="afterInteractive"
+            />
+            <Script
+              id="apollo-tracker"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"69aa340501890d000d99316d"})},document.head.appendChild(o)}initApollo();`,
+              }}
+            />
+          </>
         )}
-        <Script
-          src="https://app.guideflow.com/assets/opt.js"
-          data-iframe-id="zklvm36fjr"
-          strategy="afterInteractive"
-        />
-        <Script
-          id="apollo-tracker"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"69aa340501890d000d99316d"})},document.head.appendChild(o)}initApollo();`,
-          }}
-        />
+
         <link
           href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/components/loading.css,npm/daisyui@5/components/mockup.css"
           rel="stylesheet"

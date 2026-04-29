@@ -1,0 +1,25 @@
+Extract competitor mentions from the AI-generated answer below.
+
+You will receive:
+- `text`: the full AI-generated answer
+- `brands`: a list of allowed competitor brands, each with:
+  - `id`
+  - `name`
+  - `domain`
+
+A competitor mention means the answer explicitly refers to one of the provided brands in the prose of the answer.
+
+Instructions:
+1. Only identify brands from the provided `brands` list.
+2. Match brands by the brand name used in the answer text, not by URL alone.
+3. Do not infer, guess, or add brands that are not clearly mentioned.
+4. Return only brands explicitly mentioned in the prose.
+5. If a brand is mentioned more than once, return it only once.
+6. Return the brand `id`, not the brand name or domain.
+7. Ignore citations, raw URLs, and domain references unless the brand is also clearly mentioned in the prose.
+8. If no provided brands are explicitly mentioned, return an empty array.
+
+Output format:
+{
+  "mentions": ["string"]
+}

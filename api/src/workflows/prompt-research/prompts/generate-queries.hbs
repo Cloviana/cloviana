@@ -1,0 +1,32 @@
+Generate search queries that uncover how buyers discover, evaluate, and decide between solutions in this market.
+
+Input:
+{
+  "brand": "string",
+  "category": "string",
+  "description": "string",
+  "icp": "string",
+  "competitors": ["string"]
+}
+
+Instructions:
+Generate 12–18 queries a real buyer would type into Google, Reddit, G2, Capterra, Trustpilot, or a forum. Spread them across three stages:
+
+- Explore — buyer is understanding their problem or what kind of solution exists. Cover: problems, frustrations, desired outcomes, use cases, and early solution discovery.
+- Evaluate — buyer is comparing options. Cover: category searches, best-of lists, alternatives, comparisons, pricing fit, and integration requirements.
+- Decide — buyer is choosing a vendor. Cover: reviews, trust signals, proof, objections, and final selection confidence.
+
+Weight queries toward Explore and Evaluate. Decide should be a minority.
+
+Rules:
+- Write queries the way a real buyer searches — short, natural, and specific to the market.
+- Keep most queries unbranded. Only use the target brand for comparisons, alternatives, reviews, or decision-stage queries.
+- Only use competitor names for comparison or alternative queries.
+- Do not force ICP details into every query.
+- No duplicate or near-duplicate queries.
+- Output only the query strings — no labels, stage names, numbering, or explanations.
+
+Output format:
+{
+  "queries": ["string"]
+}

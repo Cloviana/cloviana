@@ -1,9 +1,9 @@
 import { Global, Module } from "@nestjs/common";
-import { GroqClient } from "./groq.client";
+import { GroqService } from "./groq.service";
 
 @Global()
 @Module({
-  providers: [GroqClient],
-  exports: [GroqClient],
+  providers: [GroqService],
+  exports: [GroqService],
 })
 export class GroqModule {}

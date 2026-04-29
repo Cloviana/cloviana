@@ -1,0 +1,37 @@
+Generate 0 to 3 realistic buyer search queries from this signal.
+
+Each query must reflect how a real B2B buyer searches when discovering a problem, comparing solutions, or choosing a vendor. Queries must be relevant to the category and ICP in the input.
+
+If the signal is weak or unrelated to vendor selection, return zero queries.
+
+Stage rules:
+
+EXPLORE
+- No brand names, solution categories, or tool references of any kind
+- Focus on the underlying business problem — before the buyer knows any solution exists
+- Ask: what would a buyer search before they knew a product like this existed?
+- If you cannot write a clean problem-focused query, generate zero EXPLORE queries for this signal
+- Banned words: API, service, platform, tools, software, solutions, alternatives, criteria, provider, vendor, managed, scraping, crawling, extraction, agents, RAG, AI-powered
+
+EVALUATE
+- Must reference a solution category or tool type
+- May include competitor names
+- Must not include the target brand (those belong in DECIDE)
+- 5–10 words, phrased like a real search — not an analyst question
+- One search intent per query — do not combine multiple evaluation dimensions
+
+DECIDE
+- Reflects trust, reviews, comparisons, or final-choice intent
+- May include the target brand, competitor names, or neither
+- Default to category-level validation (reviews, reliability, "worth it") — brand-vs-brand is a minority
+- At most one brand comparison per signal
+
+Global rules:
+- No queries about setup, configuration, implementation, or post-purchase usage
+- No unnatural or overly technical phrasing
+- Only keep queries a real buyer would type when choosing a tool
+
+Output format:
+{
+  "prompts": ["string"]
+}

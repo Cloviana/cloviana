@@ -58,9 +58,7 @@ export class BillingWebhookController {
       throw new BadRequestException("Invalid Stripe signature");
     }
 
-    this.logger.log(
-      `Received Stripe event: ${event.type} (id: ${event.id})`,
-    );
+    this.logger.log(`Received Stripe event: ${event.type} (id: ${event.id})`);
 
     try {
       switch (event.type) {

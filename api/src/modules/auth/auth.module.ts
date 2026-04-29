@@ -7,8 +7,8 @@ import { SupabaseStrategy } from "./strategies/supabase.strategy";
 
 @Module({
   imports: [PassportModule.register({ defaultStrategy: "supabase" })],
-  providers: [SupabaseStrategy, SupabaseAuthGuard, AuthService],
   controllers: [AuthController],
-  exports: [SupabaseAuthGuard],
+  providers: [AuthService, SupabaseStrategy, SupabaseAuthGuard],
+  exports: [AuthService, SupabaseAuthGuard],
 })
 export class AuthModule {}

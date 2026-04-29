@@ -1,6 +1,10 @@
 'use client';
 
-import { Globe, MessageCircleQuestionMark, Settings } from 'lucide-react';
+import {
+  LayoutDashboard,
+  MessageCircleQuestionMark,
+  Settings,
+} from 'lucide-react';
 import { useParams, usePathname } from 'next/navigation';
 import * as React from 'react';
 
@@ -12,50 +16,38 @@ import {
 } from '@/components/ui/sidebar';
 import { paths } from '@/config/paths';
 import { SUPPORT_EMAIL } from '@/constants/emails';
-import { StoreChip } from '@/features/stores/components/store-chip';
+import { BusinessChip } from '@/features/businesses/components/business-chip';
 
 import { NavMain } from './components/nav-main';
 import { NavSecondary } from './components/nav-secondary';
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const { storeId } = useParams<{ storeId: string }>();
+  const { businessId } = useParams<{ businessId: string }>();
   const pathname = usePathname();
 
   const navMain = [
     {
-      title: 'Blog posts',
-      url: paths.store.blogs.getHref(storeId),
-      icon: Globe,
-      isActive: pathname.startsWith(paths.store.blogs.getHref(storeId)),
+      title: 'Dashboard',
+      url: paths.business.getHref(businessId),
+      icon: LayoutDashboard,
+      isActive: pathname === paths.business.getHref(businessId),
     },
   ];
 
   const navSecondary = [
     {
       title: 'Settings',
-      url: paths.store.settings.getHref(storeId),
-      isActive: pathname.startsWith(paths.store.settings.getHref(storeId)),
+      url: paths.business.settings.getHref(businessId),
+      isActive: pathname.startsWith(
+        paths.business.settings.getHref(businessId),
+      ),
       icon: Settings,
       items: [
         {
-          title: 'Integrations',
-          url: paths.store.settings.integrations.getHref(storeId),
-          isActive: pathname.startsWith(
-            paths.store.settings.integrations.getHref(storeId),
-          ),
-        },
-        {
-          title: 'Automation',
-          url: paths.store.settings.automation.getHref(storeId),
-          isActive: pathname.startsWith(
-            paths.store.settings.automation.getHref(storeId),
-          ),
-        },
-        {
           title: 'Subscription',
-          url: paths.store.settings.subscription.getHref(storeId),
+          url: paths.business.settings.subscription.getHref(businessId),
           isActive: pathname.startsWith(
-            paths.store.settings.subscription.getHref(storeId),
+            paths.business.settings.subscription.getHref(businessId),
           ),
         },
       ],
@@ -71,7 +63,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar variant="inset" {...props}>
       <SidebarHeader>
-        <StoreChip />
+        <BusinessChip />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={navMain} />

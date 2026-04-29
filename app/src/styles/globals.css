@@ -11,6 +11,7 @@
 
   --color-background: var(--background);
   --color-studio: var(--studio);
+  --color-surface: var(--surface);
 
   --color-foreground: var(--foreground);
   --color-foreground-light: var(--foreground-light);
@@ -69,32 +70,6 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-
-  --color-black-1000: var(--black-1000);
-  --color-black-950: var(--black-950);
-  --color-black-900: var(--black-900);
-  --color-black-800: var(--black-800);
-  --color-black-700: var(--black-700);
-  --color-black-600: var(--black-600);
-  --color-black-500: var(--black-500);
-  --color-black-400: var(--black-400);
-  --color-black-300: var(--black-300);
-  --color-black-200: var(--black-200);
-  --color-black-100: var(--black-100);
-  --color-black-50: var(--black-50);
-
-  --color-white-1000: var(--white-1000);
-  --color-white-950: var(--white-950);
-  --color-white-900: var(--white-900);
-  --color-white-800: var(--white-800);
-  --color-white-700: var(--white-700);
-  --color-white-600: var(--white-600);
-  --color-white-500: var(--white-500);
-  --color-white-400: var(--white-400);
-  --color-white-300: var(--white-300);
-  --color-white-200: var(--white-200);
-  --color-white-100: var(--white-100);
-  --color-white-50: var(--white-50);
 
   --animate-slide-up-and-fade: slideUpAndFade 200ms
     cubic-bezier(0.16, 1, 0.3, 1);
@@ -163,11 +138,12 @@
 
 @layer base {
   :root {
-    --primary: hsl(240, 6%, 7%);
+    --primary: hsl(0, 3%, 13%);
     --primary-foreground: hsl(0 0% 98%);
 
     --background: hsl(0 0% 98%);
     --studio: hsl(0 0% 100%);
+    --surface: hsl(0 0% 98%);
 
     --foreground: hsl(0 0% 5.098%);
     --foreground-light: hsl(0 0% 36%);
@@ -223,32 +199,6 @@
 
     --sidebar-border: var(--border);
     --sidebar-ring: hsl(217.2 91.2% 59.8%);
-
-    --black-1000: hsl(293 100% 7%);
-    --black-950: hsl(293 100% 7% / 98%);
-    --black-900: hsl(293 100% 7% / 95%);
-    --black-800: hsl(293 100% 7% / 89%);
-    --black-700: hsl(293 100% 7% / 80%);
-    --black-600: hsl(293 100% 7% / 68%);
-    --black-500: hsl(293 100% 7% / 56%);
-    --black-400: hsl(293 100% 7% / 32%);
-    --black-300: hsl(293 100% 7% / 20%);
-    --black-200: hsl(293 100% 7% / 11%);
-    --black-100: hsl(293 100% 7% / 5%);
-    --black-50: hsl(293 100% 7% / 2%);
-
-    --white-1000: hsl(0 0% 100%);
-    --white-950: hsl(0 0% 100% / 98%);
-    --white-900: hsl(0 0% 100% / 95%);
-    --white-800: hsl(0 0% 100% / 89%);
-    --white-700: hsl(0 0% 100% / 80%);
-    --white-600: hsl(0 0% 100% / 68%);
-    --white-500: hsl(0 0% 100% / 56%);
-    --white-400: hsl(0 0% 100% / 32%);
-    --white-300: hsl(0 0% 100% / 20%);
-    --white-200: hsl(0 0% 100% / 11%);
-    --white-100: hsl(0 0% 100% / 5%);
-    --white-50: hsl(0 0% 100% / 2%);
 
     --tooltip: hsl(0 0% 24%);
     --tooltip-foreground: hsl(0 0% 100%);

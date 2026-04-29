@@ -1,0 +1,35 @@
+Classify each search query into exactly one awareness stage: EXPLORE, EVALUATE, or DECIDE.
+
+Return one classification per query. Do not omit any. Do not add any.
+
+Stage definitions:
+
+EXPLORE — the buyer does not yet know what kind of solution exists
+- Describes a problem, pain, or desired outcome
+- No solution category, tool type, or brand names
+- No evaluation framing ("alternatives", "vs", "best X for Y")
+
+EVALUATE — the buyer knows the solution type and is comparing options
+- References a solution category or tool type
+- May include competitor names
+- Must not include the target brand — any query with the target brand is DECIDE
+
+DECIDE — the buyer is close to choosing and wants validation or a final comparison
+- Reflects reviews, trust, "worth it", "best option", or shortlist narrowing
+- May include the target brand, competitor names, or neither
+
+Classification rules (apply in order):
+1. Target brand present → always DECIDE
+2. Solution category or tool type present, no target brand → EVALUATE or DECIDE
+   - If it reflects trust, reviews, or final-choice intent → DECIDE
+   - Otherwise → EVALUATE
+3. No category, no brand, problem or outcome only → EXPLORE
+4. Tie between EVALUATE and DECIDE: brand present → DECIDE, otherwise → EVALUATE
+
+Output format:
+{
+  "classifications": [
+    { "promptId": 0, "stage": "EXPLORE" },
+    { "promptId": 1, "stage": "EVALUATE" }
+  ]
+}
