@@ -1,7 +1,6 @@
 import fastifyCookie from "@fastify/cookie";
 import { Logger, ValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
-import { RmqOptions, Transport } from "@nestjs/microservices";
 import {
   FastifyAdapter,
   NestFastifyApplication,
@@ -10,18 +9,6 @@ import {
 import { AppModule } from "@/app.module";
 import { AppConfiguration } from "@/common/config/app.configuration";
 import { AllExceptionsFilter } from "@/common/filters/all-exceptions.filter";
-import {
-  AUDITS_QUEUE,
-  AUDITS_QUEUE_OPTS,
-  BLOGS_QUEUE,
-  BLOGS_QUEUE_OPTS,
-  KEYWORDS_QUEUE,
-  KEYWORDS_QUEUE_OPTS,
-  PRODUCTS_QUEUE,
-  PRODUCTS_QUEUE_OPTS,
-  STORES_QUEUE,
-  STORES_QUEUE_OPTS,
-} from "@/constants/rabbitmq.constants";
 import { SupabaseAuthGuard } from "./modules/auth/guards/supabase-auth.guards";
 
 async function bootstrap() {
@@ -38,26 +25,7 @@ async function bootstrap() {
   app.useGlobalGuards(app.get(SupabaseAuthGuard));
 
   const logger = new Logger("NestApplication", { timestamp: true });
-  const { port, host, rabbitmqUri } = app.get(AppConfiguration);
-
-  // --- RabbitMQ Consumer Setup ---
-  const queues = [
-    { name: KEYWORDS_QUEUE, opts: KEYWORDS_QUEUE_OPTS },
-    { name: BLOGS_QUEUE, opts: BLOGS_QUEUE_OPTS },
-    { name: STORES_QUEUE, opts: STORES_QUEUE_OPTS },
-    { name: PRODUCTS_QUEUE, opts: PRODUCTS_QUEUE_OPTS },
-    { name: AUDITS_QUEUE, opts: AUDITS_QUEUE_OPTS },
-  ];
-
-  for (const { name, opts } of queues) {
-    app.connectMicroservice<RmqOptions>({
-      transport: Transport.RMQ,
-      options: { urls: [rabbitmqUri], queue: name, queueOptions: opts },
-    });
-  }
-
-  // Start the RMQ microservice (declares queue, binds handlers)
-  await app.startAllMicroservices();
+  const { port, host } = app.get(AppConfiguration);
 
   // --- HTTP Server Configuration ---
   app.useGlobalPipes(

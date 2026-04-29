@@ -3,11 +3,7 @@ import { NextResponse, type NextRequest } from 'next/server';
 
 import { paths } from '@/config/paths';
 
-const PUBLIC_ROUTES = [
-  '/api/auth/shopify',
-  '/api/auth/google',
-  '/api/webhooks',
-];
+const PUBLIC_ROUTES = ['/api/auth/google', '/api/webhooks'];
 
 export async function updateSession(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -58,14 +54,14 @@ export async function updateSession(request: NextRequest) {
   // If the user is authenticated and is trying to access the home page route, redirect to dashboard
   if (user && pathname === paths.home.getHref()) {
     const url = request.nextUrl.clone();
-    url.pathname = paths.store.getHref();
+    url.pathname = paths.business.getHref();
     return NextResponse.redirect(url);
   }
 
   // If the user is authenticated and is trying to access an auth route, redirect to dashboard
   if (user && isAuthRoute) {
     const url = request.nextUrl.clone();
-    url.pathname = paths.store.getHref();
+    url.pathname = paths.business.getHref();
     return NextResponse.redirect(url);
   }
 

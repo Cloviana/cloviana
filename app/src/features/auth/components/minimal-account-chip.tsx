@@ -43,8 +43,9 @@ export const MinimalAccountChip = () => {
         <DropdownMenuContent className="w-64" align="end" sideOffset={6}>
           <DropdownMenuGroup>
             <DropdownMenuItem className="pointer-events-none flex items-center gap-3">
-              <ProfileIcon user={user} isLoading={isLoading} />
-              <span className="text-[13px]">{user && user.email}</span>
+              <span className="text-[13px] font-medium">
+                {user && user.email}
+              </span>
             </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />

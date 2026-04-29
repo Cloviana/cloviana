@@ -1,7 +1,8 @@
+import type { RunAuditPayload } from "@/infrastructure/messaging/rabbitmq.contracts";
 import {
-  AUDITS_CLIENT,
+  AUDITS_QUEUE,
   RUN_AUDIT_EVENT,
-} from "@/constants/rabbitmq.constants";
+} from "@/infrastructure/messaging/rabbitmq.contracts";
 import { Inject, Injectable } from "@nestjs/common";
 import { ClientProxy } from "@nestjs/microservices";
 import { firstValueFrom } from "rxjs";
@@ -9,11 +10,11 @@ import { firstValueFrom } from "rxjs";
 @Injectable()
 export class AuditsProducer {
   constructor(
-    @Inject(AUDITS_CLIENT)
+    @Inject(AUDITS_QUEUE.clientToken)
     private readonly client: ClientProxy,
   ) {}
 
-  async run(payload: { auditId: string }): Promise<void> {
+  async runAudit(payload: RunAuditPayload): Promise<void> {
     await firstValueFrom(this.client.emit(RUN_AUDIT_EVENT, payload));
   }
 }

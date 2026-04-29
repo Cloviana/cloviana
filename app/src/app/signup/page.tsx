@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { z } from 'zod';
 
 import { Button } from '@/components/ui/button';
@@ -44,10 +45,10 @@ export default function SignUpPage() {
     form.clearErrors('root');
     const result = await signUpWithEmail(values.email, values.password);
     if (!result.success) {
-      form.setError('password', { type: 'server', message: result.message });
+      toast.error(result.message);
       return;
     }
-    push(paths.onboarding.getHref());
+    push(paths.home.getHref());
   }
 
   return (
@@ -70,7 +71,7 @@ export default function SignUpPage() {
           <div className="space-y-1.5">
             <h1 className="text-[20px] font-medium">Welcome to Cloviana</h1>
             <p className="text-foreground-light text-sm">
-              Sign up and activate your growth teammate in under 3 minutes.
+              Sign up with an invited email to join your workspace.
             </p>
           </div>
 
@@ -149,9 +150,14 @@ export default function SignUpPage() {
                 <Button
                   type="submit"
                   className="w-full"
-                  variant={'secondary'}
+                  variant={'primary'}
                   size={'lg'}
                   loading={form.formState.isSubmitting}
+                  disabled={
+                    form.formState.isSubmitting ||
+                    !form.formState.isDirty ||
+                    !form.formState.isValid
+                  }
                 >
                   Continue
                   <ChevronRight className="size-3.5" strokeWidth={2.5} />

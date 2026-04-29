@@ -1,5 +1,0 @@
-query ProductsCount($query: String, $limit: Int) {
-  productsCount(query: $query, limit: $limit) {
-    count
-  }
-}

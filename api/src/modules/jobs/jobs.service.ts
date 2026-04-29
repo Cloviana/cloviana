@@ -30,25 +30,25 @@ export class JobsService {
 
   /* ---------------- DB ---------------- */
 
-  getById(storeId: string, jobId: string) {
+  getById(businessId: string, jobId: string) {
     return this.prisma.job.findFirst({
-      where: { id: jobId, storeId },
+      where: { id: jobId, businessId },
       select: JOB_SUMMARY_SELECT,
     });
   }
 
-  list(storeId: string, type?: JobType, limit = 20) {
+  list(businessId: string, type?: JobType, limit = 20) {
     return this.prisma.job.findMany({
-      where: { storeId, ...(type ? { type } : {}) },
+      where: { businessId, ...(type ? { type } : {}) },
       select: JOB_SUMMARY_SELECT,
       orderBy: { createdAt: "desc" },
       take: Math.min(Math.max(limit, 1), 100),
     });
   }
 
-  latest(storeId: string, type: JobType) {
+  latest(businessId: string, type: JobType) {
     return this.prisma.job.findFirst({
-      where: { storeId, type },
+      where: { businessId, type },
       select: JOB_SUMMARY_SELECT,
       orderBy: { createdAt: "desc" },
     });
@@ -79,8 +79,8 @@ export class JobsService {
 
   /* ---------------- Combined ---------------- */
 
-  async getStatus(storeId: string, jobId: string) {
-    const job = await this.getById(storeId, jobId);
+  async getStatus(businessId: string, jobId: string) {
+    const job = await this.getById(businessId, jobId);
     if (!job) return null;
 
     const runtime = await this.getRuntime(jobId);

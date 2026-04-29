@@ -25,15 +25,13 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
       )}
     >
       <head>
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${env.GA4_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script
-          id="crisp-chat"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            <Script
+              id="crisp-chat"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
               window.$crisp=[];
               window.CRISP_WEBSITE_ID="60f1d13f-4bdc-4146-a861-4b9d66513f06";
               (function(){
@@ -44,20 +42,26 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
                 d.getElementsByTagName("head")[0].appendChild(s);
               })();
             `,
-          }}
-        />
-        <Script
-          id="ga-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
+              }}
+            />
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${env.GA4_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script
+              id="ga-init"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){ dataLayer.push(arguments); }
               gtag('js', new Date());
               gtag('config', '${env.GA4_ID}', { page_path: window.location.pathname });
             `,
-          }}
-        />
+              }}
+            />
+          </>
+        )}
 
         <link
           href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/components/loading.css"

@@ -43,12 +43,16 @@ const Toaster = ({ ...props }: ToasterProps) => {
       group/toast
       data-[type=success]:!border-green-600
       data-[type=success]:!bg-green-50
+      data-[type=error]:!border-red-600
+      data-[type=error]:!bg-red-50
     `,
           title: `
       group-data-[type=success]/toast:!text-green-800
+      group-data-[type=error]/toast:!text-red-800
     `,
           description: `
       group-data-[type=success]/toast:!text-green-800/90
+      group-data-[type=error]/toast:!text-red-800/90
     `,
         },
       }}
