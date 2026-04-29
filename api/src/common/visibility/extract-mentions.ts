@@ -9,11 +9,6 @@ const MentionsSchema = z.object({
 });
 
 export type Brand = { name: string; domain: string };
-type PromptBrand = Brand & { id: string };
-
-function buildBrandId(brand: Brand): string {
-  return `brand:${brand.domain.trim().toLowerCase()}`;
-}
 
 export async function extractMentions(
   groq: GroqService,
@@ -22,32 +17,32 @@ export async function extractMentions(
 ): Promise<string[]> {
   if (!text || brands.length === 0) return [];
 
-  const promptBrands: PromptBrand[] = brands.map((brand) => ({
-    ...brand,
-    id: buildBrandId(brand),
-  }));
-  const brandById = new Map(promptBrands.map((brand) => [brand.id, brand]));
   const baseDir = path.resolve(
     path.dirname(fileURLToPath(import.meta.url)),
     "prompts",
   );
+
   const prompt = await loadPromptHbs("extract-mentions", {}, { baseDir });
+
   const result = await groq.parse({
     name: "extract-mentions",
     schema: MentionsSchema,
-    model: "openai/gpt-oss-20b",
+    model: "openai/gpt-oss-120b",
     temperature: 0,
     messages: [
       { role: "system", content: prompt },
-      { role: "user", content: JSON.stringify({ text, brands: promptBrands }) },
+      {
+        role: "user",
+        content: JSON.stringify({
+          text,
+          brands: brands.map((b) => ({
+            name: b.name,
+            domain: b.domain,
+          })),
+        }),
+      },
     ],
   });
 
-  return Array.from(
-    new Set(
-      result.mentions
-        .map((id) => brandById.get(id)?.domain)
-        .filter((domain): domain is string => Boolean(domain)),
-    ),
-  );
+  return Array.from(new Set(result.mentions));
 }
