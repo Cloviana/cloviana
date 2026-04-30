@@ -72,8 +72,8 @@ export async function executeSentiment(
           if (platform === "chatgpt") {
             const result = await openai.create({
               model: "gpt-4o-mini",
-              messages: [{ role: "user", content: prompt }],
-              max_tokens: 2048,
+              input: [{ role: "user", content: prompt }],
+              max_output_tokens: 2048,
             });
 
             return { id, prompt, text: result.content, platform };

@@ -56,9 +56,9 @@ export async function executeChatgpt(
     })),
   );
 
-  let batchResults: Awaited<ReturnType<typeof openai.responsesBatch>>;
+  let batchResults: Awaited<ReturnType<typeof openai.batch>>;
   try {
-    batchResults = await openai.responsesBatch(requests);
+    batchResults = await openai.batch(requests);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     logger?.error(`Monitoring ChatGPT batch failed: ${message}`);
