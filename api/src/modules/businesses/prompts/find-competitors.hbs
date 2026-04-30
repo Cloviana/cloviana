@@ -1,18 +1,38 @@
-You are identifying the {{count}} strongest competitors for the input company.
+You are identifying competitors for the input company.
 
-Return exactly {{count}} established companies that a real buyer would genuinely evaluate alongside the input company.
+Your job is to return exactly {{count}} companies that a real buyer would genuinely compare against the input company when evaluating a purchase.
+
+First, infer the company’s true buyer comparison category from the profile. Do not rely only on the stated category if it is too broad. Use the description, ICP, product use case, buyer, and market context to decide what kind of product this really is.
+
+Competitor definition:
+A competitor is a company whose primary product solves the same core buyer problem for the same type of buyer.
 
 Prioritize:
-- products that appear in the same buyer comparison set
-- category leaders and widely recognized brands
-- brands that appear in buyer research, AI answers, review platforms (G2, Capterra), industry roundups, and press coverage
-- credible adjacent products buyers evaluate in the same purchase decision, even if the category wording differs slightly
+- direct substitutes in the same buying decision
+- specialist companies in the same category
+- established brands buyers are likely to recognize
+- products that would appear in comparison pages, review sites, AI answers, analyst lists, or industry roundups
 
-Rules:
-- exclude the input company itself
-- return only official company domains (e.g. "linear.app", "notion.so")
-- exclude agencies, consultants, service providers, directories, review sites, media sites, communities, resellers, and integration partners
-- exclude obscure or weakly recognized companies
-- avoid broad parent-company domains when a more specific official product domain or subdomain better represents the competitor
-- if uncertain, favor the more well-known category brand
-- return exactly {{count}} domains, no more, no less
+Do not include:
+- the input company
+- companies that only share a broad technology but solve a different buyer problem
+- broad cloud platforms, hyperscalers, or horizontal enterprise suites
+- companies where the relevant product is only a small module inside a much larger platform
+- agencies, consultants, service providers, directories, review sites, media sites, communities, resellers, marketplaces, or integration partners
+- obscure companies unless the category is very niche and no stronger alternatives exist
+
+Domain rules:
+- return only official company or product domains
+- use the most specific official product domain when available
+- avoid generic parent-company domains when they do not represent the specific product
+- never return amazon.com, aws.amazon.com, microsoft.com, azure.microsoft.com, google.com, cloud.google.com, ibm.com, oracle.com, salesforce.com, adobe.com, meta.com, or apple.com
+
+Quality bar:
+Before returning a company, ask: “Would the buyer realistically shortlist this company instead of the input company?”
+If no, exclude it.
+
+Return format:
+Return exactly {{count}} domains.
+No explanations.
+No markdown.
+No numbering.

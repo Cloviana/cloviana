@@ -8,11 +8,6 @@ import OpenAI, {
 } from "openai";
 import { zodTextFormat } from "openai/helpers/zod";
 import type {
-  ChatCompletion,
-  ChatCompletionCreateParamsNonStreaming,
-  ChatCompletionMessage,
-} from "openai/resources/chat/completions";
-import type {
   Response as OpenAIResponse,
   ResponseCreateParamsNonStreaming,
   ResponseOutputItem,
@@ -21,12 +16,6 @@ import { z } from "zod";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-export type OpenAIRawResult = {
-  content: string;
-  citations: string[];
-  raw: ChatCompletion;
-};
-
 export type OpenAIParseResult<TSchema extends z.ZodTypeAny> = {
   content: string;
   citations: string[];
@@ -34,42 +23,28 @@ export type OpenAIParseResult<TSchema extends z.ZodTypeAny> = {
   raw: OpenAIResponse;
 };
 
-export type OpenAIResponseResult = {
+export type OpenAICreateResult = {
   content: string;
   citations: string[];
   raw: OpenAIResponse;
 };
-
-type ChatArgs = ChatCompletionCreateParamsNonStreaming & { retries?: number };
 
 type ParseArgs<TSchema extends z.ZodTypeAny> = Omit<
   ResponseCreateParamsNonStreaming,
   "text"
 > & { name: string; schema: TSchema; retries?: number };
 
-type ResponseArgs = ResponseCreateParamsNonStreaming & {
+type CreateArgs = ResponseCreateParamsNonStreaming & {
   name?: string;
   retries?: number;
 };
 
 type BatchRequest = {
   custom_id: string;
-  body: ChatCompletionCreateParamsNonStreaming;
-};
-
-type ResponsesBatchRequest = {
-  custom_id: string;
   body: ResponseCreateParamsNonStreaming;
 };
 
 export type BatchResult = {
-  custom_id: string;
-  content: string | null;
-  citations: string[];
-  error: string | null;
-};
-
-export type ResponsesBatchResult = {
   custom_id: string;
   content: string | null;
   citations: string[];
@@ -129,22 +104,6 @@ async function withRetries<T>(
 }
 
 // ─── Citation Extractors ──────────────────────────────────────────────────────
-
-/**
- * Chat Completions API citations.
- *
- * Citations are only present when the `web_search_preview` tool is enabled.
- * They live at `message.annotations[]` with shape:
- *   { type: "url_citation", url_citation: { url, title, start_index, end_index } }
- */
-const extractCompletionCitations = (message: ChatCompletionMessage): string[] =>
-  (message.annotations ?? [])
-    .map((annotation) => {
-      if (annotation.type === "url_citation")
-        return annotation.url_citation.url;
-      return "";
-    })
-    .filter(Boolean);
 
 /**
  * Responses API citations.
@@ -216,30 +175,6 @@ export class OpenAIService {
   }
 
   /**
-   * Chat Completions wrapper.
-   * Enable web search by passing `tools: [{ type: "web_search_preview" }]`
-   * in the request — citations will be populated automatically.
-   */
-  async create({
-    retries = 3,
-    ...request
-  }: ChatArgs): Promise<OpenAIRawResult> {
-    return withRetries(
-      async () => {
-        const raw = await this.client.chat.completions.create(request);
-        const message = raw.choices[0]?.message;
-        return {
-          content: message?.content ?? "",
-          citations: message ? extractCompletionCitations(message) : [],
-          raw,
-        };
-      },
-      "openai-chat",
-      retries,
-    );
-  }
-
-  /**
    * Responses API structured-output wrapper.
    * Returns the parsed schema output alongside content, citations, and the raw
    * response so callers aren't forced to discard grounding metadata.
@@ -276,11 +211,11 @@ export class OpenAIService {
     );
   }
 
-  async responsesCreate({
+  async create({
     name = "openai-response",
     retries = 3,
     ...request
-  }: ResponseArgs): Promise<OpenAIResponseResult> {
+  }: CreateArgs): Promise<OpenAICreateResult> {
     return withRetries(
       async () => {
         const raw = await this.client.responses.create(request);
@@ -315,20 +250,15 @@ export class OpenAIService {
     );
   }
 
-  /**
-   * Batch wrapper for Chat Completions.
-   * If the individual requests include `tools: [{ type: "web_search_preview" }]`,
-   * citations will be extracted per result.
-   */
   async batch(
     requests: BatchRequest[],
     pollIntervalMs = 10_000,
   ): Promise<BatchResult[]> {
-    const file = await this.uploadChatBatchFile(requests);
+    const file = await this.uploadBatchFile(requests);
 
     const batch = await this.client.batches.create({
       input_file_id: file.id,
-      endpoint: "/v1/chat/completions",
+      endpoint: "/v1/responses",
       completion_window: "24h",
     });
 
@@ -343,48 +273,7 @@ export class OpenAIService {
     return this.parseBatchOutput(completed.output_file_id);
   }
 
-  async responsesBatch(
-    requests: ResponsesBatchRequest[],
-    pollIntervalMs = 10_000,
-  ): Promise<ResponsesBatchResult[]> {
-    const file = await this.uploadResponsesBatchFile(requests);
-
-    const batch = await this.client.batches.create({
-      input_file_id: file.id,
-      endpoint: "/v1/responses",
-      completion_window: "24h",
-    });
-
-    const completed = await this.pollUntilTerminal(batch.id, pollIntervalMs);
-
-    if (completed.status !== "completed" || !completed.output_file_id) {
-      throw new Error(
-        `[openai-responses-batch] Batch ended with status: ${completed.status}`,
-      );
-    }
-
-    return this.parseResponsesBatchOutput(completed.output_file_id);
-  }
-
-  private async uploadChatBatchFile(requests: BatchRequest[]) {
-    const jsonl = requests
-      .map((r) =>
-        JSON.stringify({
-          custom_id: r.custom_id,
-          method: "POST",
-          url: "/v1/chat/completions",
-          body: r.body,
-        }),
-      )
-      .join("\n");
-
-    return this.client.files.create({
-      file: new File([jsonl], "batch.jsonl", { type: "application/jsonl" }),
-      purpose: "batch",
-    });
-  }
-
-  private async uploadResponsesBatchFile(requests: ResponsesBatchRequest[]) {
+  private async uploadBatchFile(requests: BatchRequest[]) {
     const jsonl = requests
       .map((r) =>
         JSON.stringify({
@@ -397,7 +286,7 @@ export class OpenAIService {
       .join("\n");
 
     return this.client.files.create({
-      file: new File([jsonl], "responses-batch.jsonl", {
+      file: new File([jsonl], "batch.jsonl", {
         type: "application/jsonl",
       }),
       purpose: "batch",
@@ -417,28 +306,6 @@ export class OpenAIService {
   }
 
   private async parseBatchOutput(outputFileId: string): Promise<BatchResult[]> {
-    const fileContent = await this.client.files.content(outputFileId);
-    const text = await fileContent.text();
-
-    return text
-      .split("\n")
-      .filter(Boolean)
-      .map((line) => {
-        const row = JSON.parse(line);
-        const message: ChatCompletionMessage | undefined =
-          row.response?.body?.choices?.[0]?.message;
-        return {
-          custom_id: row.custom_id,
-          content: message?.content ?? null,
-          citations: message ? extractCompletionCitations(message) : [],
-          error: row.error?.message ?? null,
-        };
-      });
-  }
-
-  private async parseResponsesBatchOutput(
-    outputFileId: string,
-  ): Promise<ResponsesBatchResult[]> {
     const fileContent = await this.client.files.content(outputFileId);
     const text = await fileContent.text();
 

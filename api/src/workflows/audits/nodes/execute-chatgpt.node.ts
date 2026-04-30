@@ -22,7 +22,7 @@ export async function executeChatgpt(
 
   const engineResponses = await Promise.all(
     state.prompts.map(async (prompt): Promise<EngineResult | null> => {
-      const result = await openai.responsesCreate({
+      const result = await openai.create({
         name: "audit-chatgpt",
         model: "gpt-5.4-mini-2026-03-17",
         max_output_tokens: 4096,
