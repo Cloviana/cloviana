@@ -160,7 +160,7 @@ export class BusinessResearchService {
         return this.groq.parse({
           name: "business-profile",
           schema: BusinessProfileSchema,
-          model: "openai/gpt-oss-120b",
+          model: "openai/gpt-oss-20b",
           temperature: 0,
           messages: [
             { role: "system", content: systemPrompt },
