@@ -6,10 +6,13 @@ import { loadPromptHbs } from "@/common/utils/load-prompt-hbs.util";
 import { normalizeDomain } from "@/common/utils/normalize-domain.util";
 import { AppCacheService } from "@/infrastructure/cache/cache.service";
 import { ExaService } from "@/integrations/exa/exa.service";
-import { Injectable, Logger } from "@nestjs/common";
+import type { DeepOutputSchema } from "@/integrations/exa/exa.types";
+import { Injectable } from "@nestjs/common";
 import { z } from "zod";
 import type { BusinessProfileEnrichment } from "../business-research.types";
 import { scrapeHomepage } from "../utils/scrape-homepage";
+
+const MIN_HOMEPAGE_TEXT_LENGTH = 300;
 
 const notNull = (v: string) => v !== "null" && v !== "undefined";
 
@@ -24,6 +27,17 @@ const BusinessBrandNameSchema = z.object({
   name: z.string().trim().min(1).refine(notNull),
 });
 
+const BusinessProfileOutputSchema: DeepOutputSchema = {
+  type: "object",
+  required: ["name", "description", "icp", "category"],
+  properties: {
+    name: { type: "string" },
+    description: { type: "string" },
+    icp: { type: "string" },
+    category: { type: "string" },
+  },
+};
+
 const PROFILE_TTL_MS = 1000 * 60 * 60 * 24 * 7;
 const COMPETITOR_TTL_MS = 1000 * 60 * 60 * 24 * 3;
 const PROFILE_CACHE_VERSION = "v4";
@@ -32,7 +46,6 @@ const COMPETITORS_CACHE_VERSION = "v5";
 
 @Injectable()
 export class BusinessResearchService {
-  private readonly logger = new Logger(BusinessResearchService.name);
   private readonly promptsBaseDir = path.resolve(
     path.dirname(fileURLToPath(import.meta.url)),
     "../prompts",
@@ -102,12 +115,52 @@ export class BusinessResearchService {
             baseDir: this.promptsBaseDir,
           },
         );
-        const homepageText = await scrapeHomepage(normalizedDomain);
+        const homepageText = await scrapeHomepage(normalizedDomain).catch(
+          (error) => {
+            console.warn(
+              `[business-research] Homepage scrape failed for ${normalizedDomain}: ${
+                error instanceof Error ? error.message : String(error)
+              }`,
+            );
+
+            return "";
+          },
+        );
+
+        if (homepageText.length < MIN_HOMEPAGE_TEXT_LENGTH) {
+          const exaProfile = await this.exa
+            .search<never, BusinessProfileEnrichment>(
+              `Research the company, product, ideal customer profile, and buyer-facing category for ${normalizedDomain}.`,
+              {
+                type: "auto",
+                numResults: 5,
+                systemPrompt:
+                  "Create a concise business profile from public web sources. Prefer the official company website and official product pages when available. Return strict JSON with only name, description, icp, and category. The category must be buyer-facing market language useful for finding competitors.",
+                outputSchema: BusinessProfileOutputSchema,
+              },
+            )
+            .then((response) =>
+              BusinessProfileSchema.parse(response.output?.content),
+            )
+            .catch((error) => {
+              console.warn(
+                `[business-research] Exa profile fallback failed for ${normalizedDomain}: ${
+                  error instanceof Error ? error.message : String(error)
+                }`,
+              );
+
+              return null;
+            });
+
+          if (exaProfile) {
+            return exaProfile;
+          }
+        }
 
         return this.groq.parse({
           name: "business-profile",
           schema: BusinessProfileSchema,
-          model: "openai/gpt-oss-20b",
+          model: "openai/gpt-oss-120b",
           temperature: 0,
           messages: [
             { role: "system", content: systemPrompt },
