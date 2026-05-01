@@ -13,7 +13,7 @@ import {
 import { EngineResponse, StateType } from "../monitoring.state";
 import type { EngineFailure } from "../monitoring.types";
 
-const CONCURRENCY = 5;
+const CONCURRENCY = 3;
 
 export async function executeGoogleAio(
   state: StateType,

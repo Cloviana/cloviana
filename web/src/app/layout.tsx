@@ -9,6 +9,8 @@ import { MATERIAL_SYMBOLS_STYLESHEET } from '@/config/material-symbols';
 import { calSans, gambarino, switzer } from '@/lib/fonts';
 import { cn } from '@/utils/cn';
 
+const GTM_ID = 'GTM-M5NMLWGK';
+
 export const metadata = {
   title: 'Cloviana | Be the Answer Every B2B Buyer Gets',
   description:
@@ -61,6 +63,21 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
       className={cn(calSans.variable, gambarino.variable, switzer.variable)}
     >
       <head>
+        {process.env.NODE_ENV === 'production' && (
+          <Script
+            id="gtm-init"
+            strategy="beforeInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','${GTM_ID}');
+              `,
+            }}
+          />
+        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -197,6 +214,17 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body>
+        {process.env.NODE_ENV === 'production' && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+              title="Google Tag Manager"
+              height="0"
+              width="0"
+              style={{ display: 'none', visibility: 'hidden' }}
+            />
+          </noscript>
+        )}
         <Toaster />
         <AppProvider>{children}</AppProvider>
       </body>

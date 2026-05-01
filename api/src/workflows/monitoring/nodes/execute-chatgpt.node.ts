@@ -36,7 +36,7 @@ export async function executeChatgpt(
     Array.from({ length: RESPONSES_PER_PROMPT_PER_ENGINE }, (_, index) => ({
       custom_id: buildCustomId(prompt.promptId, index),
       body: {
-        model: "gpt-5.4-mini-2026-03-17",
+        model: "gpt-5.4-nano-2026-03-17",
         max_output_tokens: 4096,
         input: [{ role: "user" as const, content: prompt.text }],
         reasoning: { effort: "none" as const },

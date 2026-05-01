@@ -17,7 +17,7 @@ export async function executePerplexity(
   engineFailures: EngineFailure[];
 }> {
   const { perplexity, groq, logger } = requireMonitoringDependencies(config);
-  const limit = pLimit(5);
+  const limit = pLimit(3);
   const requestedCount = state.prompts.length * RESPONSES_PER_PROMPT_PER_ENGINE;
   const brands = [
     { name: state.profile.name, domain: state.profile.domain },
