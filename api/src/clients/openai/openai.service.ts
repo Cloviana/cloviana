@@ -59,7 +59,7 @@ const sleep = (ms: number) =>
 
 const backoffDelay = (
   attempt: number,
-  baseMs = 1_000,
+  baseMs = 2_000,
   maxMs = 60_000,
 ): number => {
   const cap = Math.min(maxMs, baseMs * 2 ** (attempt - 1));
