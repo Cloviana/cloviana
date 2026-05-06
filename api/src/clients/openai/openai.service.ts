@@ -119,7 +119,9 @@ async function withRetries<T>(
  *
  * Note: plain Responses API calls without tools return no annotations.
  */
-const extractResponseCitations = (output: ResponseOutputItem[]): string[] =>
+const extractResponseAnnotationCitations = (
+  output: ResponseOutputItem[],
+): string[] =>
   output
     .filter(
       (item): item is Extract<ResponseOutputItem, { type: "message" }> =>
@@ -142,6 +144,36 @@ const extractResponseCitations = (output: ResponseOutputItem[]): string[] =>
       }
     })
     .filter(Boolean);
+
+const extractResponseWebSearchSources = (
+  output: ResponseOutputItem[],
+): string[] =>
+  output
+    .filter((item) => item.type === "web_search_call")
+    .flatMap((item) => {
+      const action = item.action;
+
+      if (action.type === "search") {
+        return action.sources?.map((source) => source.url) ?? [];
+      }
+
+      if (action.type === "open_page" && action.url) {
+        return [action.url];
+      }
+
+      if (action.type === "find_in_page") {
+        return [action.url];
+      }
+
+      return [];
+    });
+
+const extractResponseCitations = (output: ResponseOutputItem[]): string[] => [
+  ...new Set([
+    ...extractResponseAnnotationCitations(output),
+    ...extractResponseWebSearchSources(output),
+  ]),
+];
 
 const extractResponseText = (output: ResponseOutputItem[]): string =>
   output
