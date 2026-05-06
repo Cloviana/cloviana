@@ -1,6 +1,5 @@
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { ManagedJobsService } from "@/modules/jobs/services/managed-jobs.service";
-import { PromptResearchRunner } from "@/workflows/prompt-research/prompt-research.runner";
 import { Injectable, Logger } from "@nestjs/common";
 import { JobType } from "@prisma/client";
 import { graph } from "./business-initialization.graph";
@@ -14,7 +13,6 @@ export class BusinessInitializationWorkflow {
   constructor(
     private readonly prisma: PrismaService,
     private readonly managedJobs: ManagedJobsService,
-    private readonly promptResearchRunner: PromptResearchRunner,
   ) {}
 
   async run(businessId: string) {
@@ -33,7 +31,6 @@ export class BusinessInitializationWorkflow {
           {
             version: "v2",
             configurable: {
-              promptResearchRunner: this.promptResearchRunner,
               logger: this.logger,
             },
           },
