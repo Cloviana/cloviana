@@ -24,7 +24,7 @@
     "lint:ci": "biome check .",
     "test": "node --import tsx --test $(find src -name '*.test.ts' -print)",
     "test:audit": "tsx scripts/run-audit.ts",
-    "test:prompt-research": "tsx scripts/run-prompt-research.ts",
+    "test:prompt-generation": "node --import tsx scripts/run-prompt-generation.ts",
     "test:monitoring": "tsx scripts/run-monitoring.ts",
     "db:generate": "prisma generate",
     "db:studio": "prisma studio",
