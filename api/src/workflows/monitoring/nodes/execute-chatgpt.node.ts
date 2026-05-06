@@ -37,20 +37,20 @@ export async function executeChatgpt(
       custom_id: buildCustomId(prompt.promptId, index),
       body: {
         model: "gpt-5.4-nano-2026-03-17",
-        max_output_tokens: 4096,
+        max_output_tokens: 1200,
         input: [{ role: "user" as const, content: prompt.text }],
         reasoning: { effort: "none" as const },
         tools: [
           {
-            type: "web_search_preview" as const,
-            search_context_size: "medium" as const,
+            type: "web_search" as const,
+            search_context_size: "low" as const,
             user_location: {
               type: "approximate" as const,
               country: "US",
             },
           },
         ],
-        tool_choice: { type: "web_search_preview" as const },
+        tool_choice: "required" as const,
         include: ["web_search_call.action.sources" as const],
       },
     })),
