@@ -1,0 +1,783 @@
+MEETING: Pomelo <> Rexi
+DATE: 2026-02-02
+ID: not_dfa7xG5vkx0z1f
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Sebastian <sebastian@rexi.finance>, Teo <teo@rexi.finance>, Lucas Cappello <lucas.cappello@pomelo.la>, Braian Diaz <braian.diaz@pomelo.la>, Gonzalo Esperidioni <gonzalo.esperidioni@pomelo.la>
+SCHEDULED: 2026-02-02T14:00:00-05:00 - 2026-02-02T15:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Buenas.
+[You]: Conta em lugar.
+[Remote]: ¿Qué onda? Mandando?
+[Remote]: Bien, todo bien, pues, suerte.
+[You]: Che, qué bueno, qué bueno volver a conectar. ¿Cómo fue ese fin de año? ¿Muy movido?
+[Remote]: Volvimos, volvimos. Sí, sí, aparte en el medio también fui a vacaciones, o sea,
+[Remote]: en enero me fui de vacaciones, así que entre fin de año, cierre anual, vacaciones,
+[Remote]: qué sé yo, estoy aterrizando. Sé que tengo un mail tuyo sin responder,
+[Remote]: un tipo muy ordenado, pero bueno.
+[You]: Nah, tranqui tranqui. Sé que
+[Remote]: Acá estamos.
+[You]: cuando no hay respuesta, además tuvimos mil charlas
+[You]: buenas, haciendo respuesta, dije, bueno, debe estar con otras cosas, fin de año, otras prioridades, y
+[You]: y al final eso,
+[You]: no se puede juzgar, ¿no? Cada uno tiene sus propias proyectos y prioridades, así que tranqui.
+[Remote]: Onda sea? ¿Qué hace, querido?
+[Remote]: Ya, tranquilo.
+[Remote]: Todo tranquilo, ahora del otro lado, no sé con quién, de qué, de qué lado hablo, me quedó la persona
+[Remote]: personalidad separada, boludo.
+[Remote]: Sí, sí, sí, tal cual, tal cual.
+[Remote]: ¿Cómo? Este personaje de acá,
+[Remote]: me hizo la vida imposible cuatro años sin pomelo.
+[Remote]: La vida, mirá que yo lo ayudé a, este, al periodo de unidad.
+[Remote]: Bueno, paren, nos nos acomodamos porque acá está
+[Remote]: Teo y Nacho, los presento a todos, o aprovecho que estoy ahí de
+[Remote]: de mediador. Gonza, Lucky les presento a Nachito Verardi, que es el CEO de Rexy.
+[Remote]: Y Teo es el COO,
+[Remote]: y CPO de Rexi, ¿ok? Así que, y del otro lado, chicos,
+[Remote]: tenemos a Esperidioni, junior developer de Pomelo,
+[Remote]: consagrado, por hace cuatro años. No, es un staff de de
+[Remote]: muy crack técnico de de pomelo. Y acá tenemos a Lucky,
+[Remote]: que es nuestro conector acá de de de Pome, bueno, ya creo que se habían conocido ustedes chicos, ¿no? Antes,
+[You]: Correcto.
+[Remote]: antes de antes de que yo entre a Rexy, ya habían hablado, y ahora, bueno, con Lucky, después
+[Remote]: del otro día hablamos un ratito por LinkedIn, nos contó un poco una problemática, y nada, estamos para escuchar, vemos necesita a Lucky, el equipo de operaciones. Creo que estaba ayudando,
+[Remote]: en un equipo también que ayuda mucho a operaciones. No sé si seguís ahí
+[Remote]: SP, así que por eso me imagino que te deben haber sumado. Sí, o sea, principalmente lo traje a Onza, porque también fue quien armó en su momento la experiencia de set,
+[Remote]: ¿no? Entonces,
+[Remote]: un poco es por eso que lo traje. Si quieren,
+[Remote]: armé después un slide y demás, pero si quieren como que les comento un poco, a ver, yo
+[Remote]: yo entro de Pomelo, hago lo que es facturación y cobranza, ¿sí? De todo lo que facturas,
+[Remote]: y por otro lado, de todo lo que es liquidación diaria hago la cobranza, ¿sí? Es decir, a mí,
+[Remote]: el equipo IT me me mastica toda la presentación y demás,
+[Remote]: genera la deuda que el cliente tiene que pagar. Yo toda esa parte no la veo, yo lo que hago es agarro esa deuda y se
+[Remote]: las hago a cobrar al cliente.
+[Remote]: ¿Cuál es el el tema que nos trae acá? Tenemos un flujo que claramente no escala,
+[Remote]: que depende, por un lado, de la buena fe del cliente, es decir, hoy nosotros cuando nos pagan le pedimos al cliente que
+[Remote]: nos informe el pago,
+[Remote]: ¿sí? Entonces, entran un de cosas, como error humano,
+[Remote]: buena fe del cliente, a su vez no tenés nada real time,
+[Remote]: ¿Y qué pasa? Es un flujo supersensible, porque nosotros es
+[Remote]: che, esto es diario, vos no me pagaste x hora, y estamos yendo a un esquema en el cual queremos cortar automática
+[Remote]: el servicio.
+[Remote]: Por lo cual, claramente, un corte automático de servicio no puede depender
+[Remote]: de que me informe el pago del cliente. ¿Por qué? Porque va a pasar
+[Remote]: pasar que va a haber pagado, que no me lo informó, y yo lo voy a cortar, me va a decir, flaco, me cortaste el servicio y te pagué.
+[Remote]: Entonces, ¿qué es lo que queremos hacer?
+[Remote]: En vez de
+[Remote]: depender de la buena fe del cliente para que informe el pago, o en algunos casos
+[Remote]: incluso, informamos nosotros al ver el dinero en bancos a los dos días, ¿sí?
+[Remote]: Queremos romper un poco ese proceso y conectar de alguna forma, digamos,
+[Remote]: nuestro back office, que es donde hoy se plasma la deuda y luego se van como
+[Remote]: restando en base a los pagos, es decir, queremos
+[Remote]: ir a buscar, queremos que, digamos, cuando entra dinero en nuestro banco,
+[Remote]: genere una novedad y se informe este pago, ¿sí? En back office.
+[Remote]: Eso es lo que queremos llegar, digamos,
+[Remote]: para que sea escalable esto, para que sea real time y demás, ¿sí?
+[Remote]: Después, bueno, hay como bastantes temas sobre la mesa, porque, por ejemplo, yo sé que en Colombia creo que el informe de pago va a tener que seguir existiendo, porque los bancos tienen como bastantes demoras,
+[Remote]: Entonces, ahí un poco lo jalábamos con CEBA era quizá empezar a explorar México, que es donde
+[Remote]: tenemos BBVA y entendemos que cuando un cliente paga esos
+[Remote]: se refleja automáticamente en nuestro banco. Pero bueno, esa es como la problemática que hoy tenemos.
+[Remote]: Paréntesis,
+[Remote]: yo, por ejemplo, no manejo los bancos, entonces, ahí es como que yo, digamos, gestiono la cobranza,
+[Remote]: y y consumo extractos bancarios que me baja el equipo de tesorería,
+[Remote]: Pero, bueno, a eso lo de menos, porque en la próxima mesa si hace falta sumamos a la persona de de finanzas,
+[Remote]: Pero bueno, eso es como un poco el por qué estamos acá.
+[Remote]: Me encanta. Ahí lo seteo y, Nachito, pues justo yo creo que había hablado un poco con vos
+[Remote]: Teo sobre esto, pero si se entendió la problemática. Básicamente,
+[Remote]: es parte, lo que pasa con Pomelo, que yo la viví, es esto de
+[Remote]: che, no podemos terminar de automatizar el proceso ni de esto
+[Remote]: de de, che, bajarte el servicio si no me pagas, y siempre hay una persona
+[Remote]: haciendo todo ese trabajo manual que te toma horas
+[Remote]: y son horas de deficiencia de esa persona que podía estar enfocada a otra cosa.
+[Remote]: No deja de ser algo totalmente manual, y ahí lo que le decía a Lucky es que,
+[Remote]: justamente Rexy viene a hacer eso. Nosotros lo que tenemos es
+[Remote]: toda una parte de integraciones dinámicas, que nos conectamos con
+[Remote]: los bancos, tenemos un integrador dinámico que
+[Remote]: bueno, o sea, de ahí para conectarse a cualquiera, nosotros lo usamos para conectar
+[Remote]: conectarnos a bases de datos, a APIs. En este caso, como son bancos,
+[Remote]: nosotros lo que deberíamos, si queremos automatizar eso, es
+[Remote]: tener las credenciales, o sea, del banco, o sea,
+[Remote]: ahí no sé si en México es BBVA,
+[Remote]: necesitamos tener acceso a esa API,
+[Remote]: corporativa de ustedes, o sea, tienen que ser el
+[Remote]: entre, o sea, tiene que estar Pomelo,
+[Remote]: BBVA,
+[Remote]: nosotros, que les pasen a ustedes la información y
+[Remote]: ustedes con sus credenciales nosotros ya podemos consumir esa esa API
+[Remote]: para después, cuando tenemos los movimientos, ustedes pueden conciliar
+[Remote]: o mandar una novedad, porque Rexy te permite conciliar dentro de la plataforma,
+[Remote]: o nosotros mandando novedades a ustedes que digan, che, se generó este movimiento, este movimiento, este movimiento,
+[Remote]: movimiento, y ustedes puedan escucharlo de algún de algún lugar, que puede ser el dashboard,
+[Remote]: ¿ok?
+[Remote]: O les puedes llegar incluso vía mail a ustedes, y de ahí
+[Remote]: disparar algún flujo de n ocho n o lo que quieran.
+[Remote]: O hasta cargar un file
+[You]: Una
+[You]: una pregunta, Lucky,
+[Remote]: Bien.
+[You]: ¿nos podrías mostrar exactamente cómo lo hacen hoy? Así nos podemos imaginar mejor
+[You]: qué sería una solución realmente superadora.
+[Remote]: Dale, o sea, ahí voy a dejar acá para que lo muestre
+[Remote]: Brian, aprovecho que entraste. Yo ahí igual creo,
+[Remote]: me quedó resonando esto de de dónde conciliar, creo que está bueno,
+[Remote]: porque qué te va a pasar también. Podés tener casos en donde el cliente ya te lo informó.
+[Remote]: Me parece que en mi cabeza, a ver,
+[Remote]: o sea, Seva, que oyes, vos
+[Remote]: cuando apenas pagas, se va a generar una novedad que debería reflejar un pago en back office.
+[Remote]: Y a la parte puede pasar que el cliente vaya y también te lo informe. Entonces,
+[Remote]: digo, tiene que existir algún estadio, y y esa conciliación yo creo que la pensaba McCoffee, pero era que me decís,
+[Remote]: si tenemos la posibilidad de conciliar antes, quizá
+[Remote]: tendríamos que hacer que viaje de back office al conciliador, del banco a conciliador, que
+[Remote]: ocupe el conciliador y me lo deje limpio en back office, ¿no? Bueno, vos si si querés chequear dos
+[Remote]: cosas, tipo como el informe del pago y el pago verdaderamente y conciliar eso,
+[Remote]: eso lo podés hacer directamente de Rexy, y es nosotros conectándonos con la base
+[Remote]: de informe de pago, o sea, esa sería la base de Pomelo,
+[Remote]: solo con esa, de manera read, para leer cuándo un cliente informa, y después manchar él,
+[Remote]: client ID o el, ¿viste? Que seguramente les hacen cargar algo del
+[Remote]: comprobante de pago, el ID o lo que sea, y machar eso con el número de transacción que nos llegue,
+[Remote]: o la información que llegue del movimiento del banco, ahí hay que ver qué nos llega a nosotros.
+[Remote]: Ok. O sea, ahí lo que, está bien, lo voy buscando en mi cabeza, para mí entonces,
+[Remote]: un input de de Rexy sería la API de bancos,
+[Remote]: otro input para mí sería back office,
+[Remote]: y luego de masticar eso,
+[Remote]: otra vez volver desde back office. Bueno, nosotros
+[Remote]: también Rexi lo que hace es tiene todo un módulo de output, entonces, toda la conciliación que vos hagas
+[Remote]: después la podés exportar o a una base de datos que quieras
+[Remote]: como quieras, o sea, full customizable, la tabla,
+[Remote]: la puedes armar, o puede ser un mail, o puede ser un archivo de SFTP,
+[Remote]: o puede ser lo que ustedes necesiten, un CSV, pueden entrar desde Rex y ver un dashboard de Rex Rexy creado, y te dice si está conciliado o no. También nos conectamos con Slack, que te llega todos los días un mail, esto concilió, son las que conciliaron, estas necesitan problema. Tenemos también un módulo de problem solver de todo lo que nos concilia, cómo resolverlo y cómo tenés que accionar que capaz que ustedes lo pueden dejar configurado en Rexy y después sí estar, no sé,
+[Remote]: otros chicos del equipo usando Rexy para ver dónde tiene el problema,
+[Remote]: pueden dejar, che, esto tenés que hablar con BBVA, esto tenés que ir a hablar con el cliente,
+[Remote]: entonces, como que podés dejar reglas Sí. Sobre cómo resolver.
+[Remote]: Ok, hay hay varias cosas que estoy pensando. Si querés, Brady,
+[Remote]: compartí y mostrá cómo lo hacemos hoy.
+[Remote]: Lo que creo que me gustaría, o sea, que el API de bancos entiendo
+[Remote]: que el campo de CUIT, ID fiscal, lo lo que sea, entiendo que es algo que el banco debe
+[Remote]: creo yo, escupir, o sea, cualquier transferencia que recibís, entiendo que ese campo lo tenés,
+[Remote]: y ahí nosotros ya hoy tenemos por cliente, en realidad por branches, Eva, tenemos,
+[Remote]: o sea, por la combinación de cliente país, ahí chicos, para bajárselo
+[Remote]: a, digamos, Pomelo, sea, una combinación de cliente más país es un brancho en Pomelo.
+[Remote]: Entonces, hoy Branch, con su ID fiscal,
+[Remote]: ya está en la base de datos. Bien.
+[Remote]: O sea, creo que tenemos bastante info que va a servir.
+[Remote]: Y también otro tema que creo que me parece está bueno, que yo pensaba cómo carajo lo vamos a hacer en
+[Remote]: back office, pero si lo hacemos en rex y creo que ahí lo solucionamos, es
+[Remote]: también el tema de flujo doméstico internacional,
+[Remote]: A ver. O sea, vos vos recibís un ingreso de dinero
+[Remote]: y hay clientes que tienen dos cajas, es decir, flujos internacional o flujo doméstico.
+[Remote]: Vamos a tener que que pensar un poco también
+[Remote]: no es que a mí me entra dinero y es de ese cliente y tiene un
+[Remote]: entendés? O sea, ese cliente tiene dos cajitas.
+[Remote]: Sí.
+[Remote]: ¿Se le cortó el algo? Entonces, nada, hay cosas
+[Remote]: que que hay que ir pensando, después lo voy lo voy ir bajando a tierra, pero si querés ahora, ahora y compartí cómo lo hacemos,
+[Remote]: y y lo vamos viendo.
+[Remote]: Sí, o sea, ahí
+[Remote]: Vale, sí, sí, señor, viene bárbaro. ¿Qué qué qué mostramos? ¿Cómo se configuran los pagos? Si querés, ¿cómo cargás el comprobante? ¿Cómo es el informe del pago? ¿Qué es lo que el cliente porque finalmente nosotros vamos a tener que ir a buscar la información de que ese, de lo que el cliente informa y se va a conciliar lo que llega del banco, el extracto bancario o el movimiento que se ejecuta. Ok, o sea, nosotros ahí le pregunto a Lucky, si nosotros
+[Remote]: yo tenía entendido de que
+[Remote]: podíamos
+[Remote]: o sea, prescindir de que el cliente confirme el pago.
+[Remote]: Creo que esa es la la idea sí, sí. Es la idea
+[Remote]: es la idea un poco lo que quiere lo que quiero ver ahí, mechito, me cogiste, es cómo funciona hoy.
+[Remote]: Digo, sí, sin duda que lo que queremos es que este botón de informar pago ni exista,
+[Remote]: pero, digo, creo que la idea es ver cómo funciona hoy,
+[Remote]: Si podemos mostrar eso, genial.
+[Remote]: Y ahí hay como hay como dos flujos distintos, o sea, un flujo es cuando el cliente informa,
+[Remote]: y nosotros hacemos la validación y la aprobamos, y otra vez directamente
+[Remote]: el momento cero en el cual informa al cliente, que quiero que eso es lo que lo que los chicos quieren ver, Bray,
+[Remote]: sea, haciendo de cuenta que vos sos un cliente y querés ir a informar, veo que tendrías que entrar desde Dash, en ese sentido.
+[Remote]: No desde back office,
+[Remote]: Mostremos eso y lo vamos viendo.
+[You]: Sí, eso, y también la experiencia de ustedes, ¿no?
+[You]: ¿Cómo cómo es realmente el día a día de ir, ver el informe, validar,
+[You]: aprobar, porque el profesional del producto viene a automatizar ese procesito, ¿no?
+[Remote]: Okay. Okay. So I
+[Remote]: y ahí para mí es claro, es el primer momento es Azure, Azure es cliente.
+[Remote]: Y Backoffice somos nosotros.
+[Remote]: Entonces, el cliente va en dashboard y lo informa, y nosotros vamos a back office y hacemos nuestra labura.
+[You]: Ese laburo, esa tarea, exactamente como es.
+[Remote]: ¿Sí? Perfecto.
+[Remote]: Bien. O sea, ahí lo que hacemos,
+[Remote]: nosotros
+[Remote]: es importante que entienda que nosotros confirmamos el pago sin ver el banco,
+[Remote]: en primera instancia, ¿sí? O sea, nosotros siempre nos manejamos de de
+[Remote]: menos uno, digamos. O sea, yo hoy estoy canciliando ayer,
+[Remote]: ¿sí?
+[Remote]: Entonces, ahora, por ejemplo, el cliente me informa un pago,
+[Remote]: que ahora lo vemos,
+[Remote]: éntrala a su dashboard,
+[Remote]: le doy a compartir,
+[You]: Estos son los pagos del cliente Apomelo de por por los fees.
+[You]: Por por las por los transaccionados?
+[Remote]: Por la las transacciones.
+[Remote]: ¿Sí? O sea, acá ahí tiene tiene deuda,
+[Remote]: pongamos doscientos treinta y dos millones,
+[Remote]: van acá a reportar transferencia,
+[Remote]: y acá le le figura, bueno, o sea, para las transacciones
+[Remote]: domésticas,
+[Remote]: bueno, este cliente está configurado que pagan pesos para las domésticas,
+[Remote]: en USD para las internacionales.
+[Remote]: ¿Sí?
+[Remote]: No sé si está muy chico,
+[Remote]: Allá.
+[Remote]: Le aparece el CDU donde tiene que transferir,
+[Remote]: y acá le dice, bueno, pagaste exactamente, o sea, estos doscientos treinta y dos millones,
+[Remote]: vos ponés que sí, si no ponés que no, que pagaste algo diferente,
+[Remote]: acá ponés lo que vos pagaste, doscientos cincuenta,
+[Remote]: trescientos o cien. ¿Srae? Te puedo preguntar ahí rápido qué porcentaje
+[Remote]: de las veces
+[Remote]: te ponen ahí que es diferente,
+[Remote]: qué porcentaje pagan el mismo?
+[Remote]: Y yo te diría que, obviamente, es mucho más el que pagan exacto,
+[Remote]: ¿sí? Salvo los viernes que pedimos prefondeo en algunos países,
+[Remote]: y ahí pagan un poco Igual, les digo algo,
+[Remote]: nosotros no conectamos con la Porque esto cada vez que lo mandan,
+[Remote]: eso se guarda una base de datos y es el dato que guardó el cliente como informe de pago.
+[Remote]: Si nosotros tenemos el monto que puso acá, che, yo te deposité doscientos cincuenta,
+[Remote]: Teo, después lo que hacemos es conciliar con el movimiento ese número, siempre vamos,
+[Remote]: y gestaríamos esto
+[Remote]: y y lo matarías con el banco.
+[Remote]: Para tomar dimensión de cuánto va a variar el el el monto.
+[Remote]: Si es el uno por ciento de los casos o la mitad de las veces no va a conseguir el monto.
+[Remote]: Claro, ahí está bueno lo que puso. Si va, como que el número teórico no no
+[Remote]: tenés que aparacar por este número que diga, si es el, o sea, va a ser el teórico si marca que depositó
+[Remote]: exactamente eso, no, Lucky.
+[Remote]: Claro. ¿Qué pasa? Acá muchas veces lo que pasan es que
+[Remote]: marcan como que pagaron exactamente lo que deben Y no es. ¿Sí?
+[Remote]: Y no es así. Entonces Bueno,
+[Remote]: lo mismo en Rexi, perdón, en en Rexi lo que podés hacer es tener una tolerancia,
+[Remote]: Vos podés ponerle, che, tengo cero coma cero cinco de tolerancia o cero cinco de tolerancia, o
+[Remote]: para decir,
+[Remote]: bueno, machea,
+[Remote]: no exactamente, entonces eso ustedes también lo pueden tener.
+[Remote]: Ok. Bueno, de hecho, o sea, cuando vamos a la conciliación pasa,
+[Remote]: esto en vez de noventa y ocho, es noventa y nueve,
+[Remote]: es noventa y siete, ¿sí? Claro, claro, claro, bien.
+[Remote]: Ahí depende, digamos, ellos acá nos suben el comprobante, le dan reportar,
+[Remote]: a nosotros después nos llega acá en el back office.
+[Remote]: Algo como esto.
+[Remote]: ¿Sí?
+[Remote]: Perfecto.
+[Remote]: Entonces, acá yo tengo un pago por confirmar.
+[Remote]: Nosotros vemos
+[Remote]: el monto del comprobante,
+[Remote]: este es otro cliente, ¿no? Pero
+[Remote]: y vemos el monto informado por el cliente,
+[Remote]: Bueno, coincide,
+[Remote]: y acá lo confirmamos la transferencia.
+[Remote]: ¿Sí?
+[Remote]: Ahora van a ver que les aparece confirmado.
+[Remote]: Esto lo que hace es generar
+[Remote]: que se salde la deuda.
+[Remote]: Del cliente.
+[Remote]: O sea, si yo voy de nuevo al dashboard,
+[Remote]: bueno, este es otro cliente.
+[You]: El chequeo comprobante contra el input del cliente lo hacen ustedes ahí mismo desde ahí.
+[You]: Leyendo el comprobante.
+[Remote]: Claro, el tema de nosotros todavía no vimos banco, yo voy a ver recién
+[Remote]: mañana voy a conciliar este pago.
+[Remote]: Y voy a saber si entra en banco o no.
+[Remote]: En ese momento, durante un día, Nachito,
+[Remote]: incluso puede ser hasta dos, estamos hablando siempre en hábiles, vos apelás a la buena fe del cliente,
+[Remote]: o sea, la validación que hacés del PDF, que dice de cliente a pomelo, y el monto,
+[Remote]: ¿bien? Si eso es un editado, te das cuenta los dos días cuando entra en el banco,
+[Remote]: O sea, ahí tenemos un gap de buena fe el cliente,
+[Remote]: y después está como el toda la otra parte del proceso que tenemos, la bajada de extractos bancarios, que
+[Remote]: eso
+[Remote]: es una interfaz que maneja finance, pero entiendo que hace interbanking con SAP,
+[Remote]: nosotros acabamos los movimientos de SAP, y ahí hacemos
+[Remote]: back office contra SAP.
+[Remote]: Sí.
+[You]: Carísimo.
+[You]: ¿Les les pasó el tuvieron mucho fraude de que le ponen un comprobante hecho en paint?
+[Remote]: No.
+[Remote]: No, no, tan tan así no, pero ha llegado comprobantes que, bueno,
+[Remote]: al final no no estaban en banco y lo ajustamos manual.
+[Remote]: Pero por ahí,
+[Remote]: nada, cuando lo ajustamos pasaron dos, tres días,
+[Remote]: y bueno, ya es como que el cliente ya está expuesto, digamos.
+[Remote]: Claro, para una consulta como
+[Remote]: funciona esto de los dos días? Porque si el banco tarda dos días en impactar la
+[Remote]: transacción, más allá de que nos comuniquemos vía API, va a tardar dos días.
+[Remote]: El la confirmación automatizada, digamos,
+[Remote]: de esto. Claro.
+[Remote]: En Colombia tenemos ahí un delay y en Perú
+[Remote]: también no es
+[Remote]: no es tan alevoso, pero en Colombia puede llegar a tardar veinticuatro horas
+[Remote]: ¿sí?
+[Remote]: Es por el el sistema bancario de Colombia, ¿no? Ah, ok, ok, pero es solo por Colombia. Entonces, el resto
+[Remote]: debería ser más real time.
+[Remote]: El resto debería ser real time, sí. Hoy se va, hay una realidad que nosotros la hacemos
+[Remote]: uno, porque al otro día nos bajan el extracto, nos lo mandan, etcétera. Si yo estaría con el informe
+[Remote]: pago y al lado con un con banking apretando f cinco, debería poder hacer el laburo que queremos hacer vía Apple.
+[Remote]: Sí, igual una cosa, si todo tu equipo está de vacaciones, ¿sotifiste un
+[Remote]: off-site con el equipo, todo ese d más uno, la verdad,
+[Remote]: porque no te detalle haciendo el botón. Exacto, hay mil cosas, hay diferencia horaria también, o sea,
+[Remote]: en México te pagan a las siete y media de acá, o sea, no, mil millones de cosas. Y volviendo a los errores que preguntaban, o sea, esto de fraude no hemos tenido, o sea, hoy el foco no tiene que estar ahí, los errores más, son más quizá un cero de más, un cero de menos, o no lo llamemos errores porque lo que dice Vray, quizá buena fe el cliente te informa el comprobante y se entera al otro día que le rebotaron el pago, porque puso mal el CBU, porque, no sé, errores del banco, lo que sea.
+[Remote]: Entonces, eso hoy lo estamos capturando d más uno barra d más dos cuando
+[Remote]: efectivamente no vemos el movimiento en bancos. Pero ¿qué nos suele pasar a veces? Como tenemos
+[Remote]: esto este este delay en la operación, en, por ejemplo, en Colombia y en Perú, que no
+[Remote]: tenemos de todo claro cuando aparece, o en el resto, que quizá
+[Remote]: tampoco sabemos que al otro día tiene que estar necesariamente todo,
+[Remote]: Quizás esperás un día más,
+[Remote]: y ya te te entérate tres días después que esa plata nunca entró.
+[Remote]: ¿Entendés? Por eso tenemos que ir a algo más real time, en la medida en la cual el banco esté real
+[Remote]: time, ¿no?
+[Remote]: Me encanta, me encanta. Sí, ahí lo que estuve viendo de de, o sea, vas
+[Remote]: lo que habría que hacer, digo, así, dicho por arriba, es
+[Remote]: conectarnos Lo más difícil va a ser conectarse al banco, ¿no? Encontrar estas APIs,
+[Remote]: que que que podamos consultar y traernos la información,
+[Remote]: ingestarla en y después conectarnos a la base que eso es una
+[Remote]: ya tenemos las insinuaciones, eso no pasa nada, a la de ustedes, la de informe de pagos,
+[Remote]: solo a esa tabla,
+[Remote]: como read, la traemos, conciliamos, y eso que después les llegue por Slack a ustedes, ponele podemos
+[Remote]: hacer unas pocas, ¿sí? Como para para ver, ok, ¿dispárese que
+[Remote]: automáticamente es donde ustedes hacen clic en el botón
+[Remote]: confirmar informe de pago, ponele, que se active directamente eso cuando se concilia,
+[Remote]: se dispara el webhook que que dispara las las confirmaciones de pago, porque concilió con
+[Remote]: lo que llega del banco. Eso sería como la, ¿la traba o el desafío
+[Remote]: acá es encontrar que los bancos tengan las APIs expuestas
+[Remote]: para que nosotros con sus credenciales podamos ir.
+[Remote]: Ahí, Lucky, vos me habías pasado, el listado de de de
+[Remote]: bancos.
+[Remote]: Correcto. Yo lo que sé
+[Remote]: ahí por las dos como plan e para tenerlo en mente, o sea, esto sería directo con banco,
+[Remote]: Yo yo ahí no no sé cómo funcionan los bancos con interbanking, creo que interbanking es como una
+[Remote]: especie de de agrupador de información de los bancos, ¿no? Puede ser que nosotros para cargar los extractos del equipo de finance, no va a cada banco, sino que hace interbanking SAP,
+[Remote]: Digo, como plan b, si con las APIs no te podés conectar a los bancos, interbanking es real time, sabemos eso.
+[Remote]: Ah, lo podemos averiguar. O sea, ¿ustedes no tienen, por ejemplo, con
+[Remote]: me mandaste cinco bancos, no tenés la cuenta con cinco bancos, sino vas todo por interbanking?
+[Remote]: No, la tengo la cuenta con los cinco bancos, pero sé que la carga de extracto
+[Remote]: la hacen como desde agrupador que que que entiendo que funciona como agrupador, que es interbanking.
+[Remote]: ¿Sí? O sea, creo que podemos explorar las dos opciones. Para mí, lo mejor sería ir a buscar la piel banco,
+[Remote]: Exacto. O sea, si nosotros tenemos las credenciales, sí.
+[You]: Apostaría que no hay que no es que no es real time, debe ser batched.
+[You]: Pero no por un tema de SAP, por un tema de los bancos.
+[Remote]: Sí, sí, sí, para mí
+[Remote]: no no está consumiendo ahí un foto del día, estoy de acuerdo, Así que me parece que tenemos que ir
+[Remote]: a por todo con con el banco.
+[Remote]: Bueno, ahí si quieren como primer step me llevo, o sea, entender las
+[Remote]: credenciales, no no sé, ahí Ahí, Lupi, yo te doy una mano,
+[Remote]: ahí, por ejemplo, no sé, en BBVA,
+[Remote]: que me pasaste el otro día, para empezar, hubo en México, igual justo vi BBVA, porque me dijiste
+[Remote]: y fui directo, pero habría que ver todo por las dudas, pero podemos ir a BVA hay un mail,
+[Remote]: para mandar corporativo, y podemos hacer un un un una reunión BBVA Pomelo, Rexi, para entender cómo hacer y por qué
+[Remote]: que pedir la documentación ustedes, nosotros lo integramos,
+[Remote]: la docu de ellos, y con sus credenciales ya podemos consumir
+[Remote]: directamente en sus cuentas para poder dar, ingestar la data.
+[Remote]: Entonces, habría que hacer esa reunión tripartita, y así con los bancos,
+[Remote]: entonces, nos vamos integrando cuando nos vayan dando y habilitando ese
+[Remote]: esa esa conexión.
+[Remote]: Ahí lo lo mandé, incluso ordenado por cómo para mí
+[Remote]: hay que atacarlo. O sea, fíjate que Colombia lo sé para el final, Perú ante último,
+[Remote]: Yo yo creo que México, por una combinación entre volumen más la seriedad del banco,
+[Remote]: me suena que va a ser la que el primer paso que podemos dar.
+[Remote]: Porque sé que Argentina, Colombia, no sé, no tengo muy buenas
+[Remote]: no sé qué funciona. Así que, bueno,
+[Remote]: ok, dale. Hagamos una cosa, Lucky, yo me llevo para mandarte a vos
+[Remote]: Tenemos, podemos armar un grupito de Slack, ¿no? Entre nosotros, ponmelo Rexy ahí, como tenemos chicos con con buen beat y todos los demás clientes,
+[Remote]: armemos uno con Pomelo y, Lucky, vamos siguiendo todo por ahí.
+[Remote]: Yo ahora te mando dónde habría que mandar mail, porque nosotros
+[Remote]: sumás a nosotros, pero habría que hacer las voz,
+[Remote]: como sos el mediador entre las dos partes, tendríamos que hacerlos con ellos,
+[Remote]: nosotros y gestionar una reunión con los bancos
+[Remote]: para que les den acceso a ustedes a ese consumo de
+[Remote]: de transacciones.
+[Remote]: ¿Bien?
+[Remote]: Bien, dale, perfecto. Igualmente,
+[Remote]: No, no, no, yo voy poniendo al tanto ADN,
+[Remote]: Sebas Adén, este, de finance como para que esté al tanto, porque ella es la que que la que tiene los contactos
+[Remote]: con los bancos, ahora sí que no, creo, está bueno, que vaya sabiendo.
+[Remote]: Me encanta, me encanta, Lucky, ahí también para hacer conexión con Den, que yo también le iba a hablar para
+[Remote]: che, a ver en qué podemos también ayudar ahí y y ver
+[Remote]: sea, si bien empezamos con esto, que todo el tema de integraciones es lo que nos ocupamos nosotros,
+[Remote]: es lo que te saca el verdadero tiempo, integrarte con los bancos,
+[Remote]: sacarte de todo, conseguir las credenciales, pero bueno, esa conexión de ustedes, ¿va?
+[Remote]: Y y ya podemos hablar con Dan también. Integrémosla al al al flujito este.
+[You]: Yo ahora armo el el el canal de Slack, pero dame un pasito atrás,
+[You]: tenía un par de preguntas, Lucas, para vos y para el equipo. Entonces,
+[You]: me me estoy adelantando un poco, pero para entender el
+[You]: varias cosas. Primero, el business case, tipo,
+[You]: cuánto tiempos, cuál es el impacto de esto,
+[You]: en el negocio, cuánto tiempo le dedican a esto,
+[You]: porque al final después una vez que empecemos a avanzar y demostrar valor,
+[You]: va va a haber que armarlo, entonces está bueno pensarlo de ahora también para guiar quizás la implementación hacia
+[You]: justamente ese impacto que estamos buscando. Entonces,
+[You]: hoy hoy hoy el impacto, más allá de de a veces de de plata,
+[You]: y de financiamiento, Porque al final ustedes si si no cobran y
+[You]: y siguen prendido, están como acumulando deuda,
+[You]: El proceso hoy es literalmente se meten y van chequeando
+[You]: por cliente o tienen algún tipo de sistemita.
+[Remote]: Y mira, o sea, recién lo que vimos
+[Remote]: o sea, es cómo informa el cliente y cómo confirmamos nosotros, ¿sí?
+[Remote]: Pero no no vimos la conciliación que después hacemos, porque después
+[Remote]: una manera, nosotros lo que hacemos es bajamos todos los informes de pago,
+[Remote]: ¿sí? Y lo cruzamos contra el banco,
+[You]: Sí.
+[You]: Ok.
+[Remote]: cruzamos contra el banco.
+[Remote]: ¿Sí? Y es ahí donde también
+[You]: ¿Cómo lo cruzan?
+[You]: ¿Cómo lo cruzan?
+[Remote]: ¿qué?
+[Remote]: Un archillito,
+[Remote]: que está hecho en el drive, ¿sí?
+[Remote]: Donde, bueno, nada, o sea, acá lo lo que hacemos, nos bajamos las cuentas bancarias de SAP,
+[Remote]: ¿sí? O sea, la las que son de settlement,
+[You]: Sí.
+[Remote]: y, bueno, todo esto se va llenando automáticamente, pero, bueno, acá tenemos la
+[Remote]: los informes de pago,
+[Remote]: O sea, hacemos dos dos cosas, uno, bajamos lo de SAP y bajamos todos los informes de pago.
+[Remote]: ¿Sí?
+[Remote]: Después lo que hacemos, acá están todos los informes de pago por países,
+[Remote]: se va llenando automáticamente, o sea, lo único que hacemos es actualizamos
+[Remote]: estados Solapa, ¿sí? Y acaban generando, digamos, nuevas nuevas líneas, ¿no? Este caso, por ejemplo, nos bajamos un informe de pago que dice que son ciento cincuenta y dos mil, digamos, ciento cincuenta y dos mil dólares, ¿sí? Entonces, esto lo que hace, te trae por un buscar b, si está, digamos, si está sin porte. ¿Sí? Y ahí vamos taggando, esto es lo que se llama taggando, que es identificando cada pago del banco, con cada cobro del cliente. ¿Sí? Y este es como el, o sea, el final, digamos. Pero esto todo o sea, es como que es todo siempre un día
+[You]: Okay.
+[Remote]: antes, un día atrasado, digamos. Sí, por cierto, chicos, de chapa,
+[Remote]: las resolvemos esta partecita también, ¿sí?
+[Remote]: Claro, bueno, o sea, imagínese que todos los equipos que estamos viendo
+[Remote]: bueno, estamos laborando un buen beat, con Tera, con un montón,
+[Remote]: tantos en la misma, tantos con estos Ah, eso te voy a decir, eso te voy a decir,
+[Remote]: tan mal estamos, creo que no estamos tan mal, ¿no? Están todos con Excel,
+[Remote]: O sea, el tema es que de lo que pasa con Excel es que te impide ir real time, es
+[Remote]: que de repente necesitas una persona que te cargue eso, que sea
+[Remote]: actualice y ese Excel que no se cague, y que no lo estén toqueteando todos al mismo tiempo,
+[Remote]: y es sacar esto, ponerlo en un sistema que automáticamente ingeste, que esté
+[Remote]: conectado con esa base de datos de SAP, y que te lo ingeste automáticamente
+[Remote]: y entre a la plataforma y vos puedas ir a ver un dashboard nada más, y que te
+[Remote]: sea, lo que buscamos con Rexy es que a vos te llegue el problema, y cuando no hay problema, no te enteres,
+[Remote]: o sea, no tengas que hacer nada. Simplemente que te llegue la notificación cuando tenés que hacer algo, un
+[Remote]: action item, ¿viste? Accionar. Está buena pregunta de Nacho, que quiso ver el flujo entero para
+[Remote]: che, dónde termina esta cadencia de data, porque esto también es algo que hay que
+[Remote]: automatizar, chicos.
+[Remote]: Sí, o sea, más uno que tiene que estar, yo ahí igual en la
+[Remote]: creo que es superválido el tema de los impactos, y me parece que es algo que va a ser difícil, porque
+[Remote]: vos si me decís, che, ¿por qué estamos acá?
+[Remote]: Me molesta tener un junior todo el día haciendo esto.
+[Remote]: O sea, el problema está en lo que no estamos viendo, ¿me entendés? Es que es como que hay una parte
+[Remote]: que, por ejemplo,
+[Remote]: el no poder cortar el servicio automáticamente, cuánta plata es sobre la mesa,
+[Remote]: y es un número que, la verdad, es infinito. O sea, por eso hay un desafío, sin duda se puede se
+[Remote]: puede poner un número y y lo vamos a armar,
+[Remote]: pero capaz lo más simple, es las manos de
+[Remote]: Junior, no es mi principal problema hoy, aunque igual
+[Remote]: ¿me entendés? Que igualmente va a estar esa disminución, ¿no?
+[You]: El impacto más grande para vos es justamente esto del servicio.
+[Remote]: Es que para mí, claro, o sea, el impacto más grande en realidad es que hoy
+[Remote]: yo no tengo nada real time, y de ahí empieza a desprenderse un montón de cosas.
+[Remote]: ¿Sí? Vos me decís, ¿estás perdiendo plata hoy por esto? No,
+[Remote]: o sea, es como que sé que es algo que no escala,
+[Remote]: y sé que es algo que me que me limita a hacer otras cosas.
+[Remote]: ¿Sí?
+[You]: A vos, Lucas, específicamente.
+[Remote]: ¿Se puede armar algo?
+[Remote]: O sea, para mí a nuestro equipo, por ejemplo, ahora nosotros estamos atravesando un track
+[Remote]: que es que nosotros queremos poner un límite operacional real time a los clientes,
+[Remote]: o sea, queremos ver su deuda, neta, obviamente, de pagos y demás,
+[Remote]: y compararla contra su seguro que tiene, que es lo que nosotros conocemos como colateral.
+[Remote]: Hoy hasta que un pago no vamos nosotros y le ponemos ok, no te disminuye la deuda.
+[Remote]: Entonces, estamos todo el tiempo con el riesgo de
+[Remote]: de que cortemos, realmente, tengamos un ingreso en bancos que no le estamos tomando.
+[Remote]: Y ahí es tan bastante un problema, porque, digo,
+[Remote]: nosotros hoy usamos ese A bajo la manga,
+[You]: El servicio, cortar el servicio a un cliente cuando no tendrías que haberle cortado el servicio.
+[Remote]: Exactamente, exactamente. O sea, obviamente que imagínate monetizar eso es
+[Remote]: o sea, es difícil, se puede, plata hay siempre,
+[Remote]: y y y lo que vemos es que hoy tenemos el as bajo la manga, donde le decimos, che, no me lo informaste
+[Remote]: entonces no te lo tomé, pero ese as bajo la manga, ¿viste? Se va como de a poco terminando, porque si a mí
+[Remote]: Santander, que firmamos, no me no me informa el pago, le corto el servicio,
+[Remote]: le digo, che, no me informaste el pago,
+[Remote]: me comén, en no panes.
+[Remote]: Entonces, claramente esto hacia adelante hay que cambiarlo.
+[Remote]: Monetizar, calcular, o sea, impactos, hay hay
+[Remote]: armarlo, no lo veo tan fácil, pero sin duda está, o sea, lo vamos a tener que armar.
+[Remote]: Lo que es una pregunta, cuando no te pagan, que vos ponentes, yo no me llegó el pago,
+[Remote]: y hacés tomar alguna acción, vos mandás un mail, me
+[Remote]: imagino, de avisando che paguen y y la situación como que
+[Remote]: todo esto de automatizarlo también te ayuda a disparar todos esos flujos automáticos, o sea, que no tengas
+[Remote]: una persona mandando el mail para que estabilicen la situación, no sé cómo se dice,
+[Remote]: pero para
+[Remote]: o sea, un poco, a ver, eso en cierto punto, hoy el dashboard lo hace,
+[Remote]: hoy nuestro back office cuando detecta que hay deuda que se parece a un TPV, le manda x
+[Remote]: plantilla de de mail, x template de mail. Ok.
+[Remote]: Eso lo fuimos armando de que yo entré. Ahora, el tema es
+[Remote]: esta última parte en donde la estocada final del corte de servicio, eso lo hace una
+[Remote]: persona,
+[Remote]: es algo muy sensible, con visibilidad a un montón de personas en Pomelo,
+[Remote]: y hoy en cierto punto lo estamos haciendo ciegos, y en la mitad de las veces
+[Remote]: que informamos un corte,
+[Remote]: te dicen, che, ya pagué ahí, te subo el comprobante.
+[Remote]: Como que todavía no nos estamos encontrando quizá con él del otro lado un
+[Remote]: che, flaco, te pagué,
+[Remote]: sea, es como que por ahora los clientes todavía dicen, mala mía, no te informé,
+[Remote]: creemos que por la naturaleza de los clientes con los que estamos haciendo ciertos deals,
+[Remote]: y con la evolución del del del proceso,
+[Remote]: no vamos a llegar a ningún lado con la buena fe. Aparte de que yo entré,
+[Remote]: un poco lo que fui hablando con los chicos, es todo aquel proceso que dependa de la buena fe del cliente,
+[Remote]: no nos funciona. O sea, y creo que ahí tenés como las dos puntas,
+[Remote]: o o o o depende de la buena fe y los clientes grandes no le dan ni pelota lo que les pedís,
+[Remote]: o los chicos que son un desastre no pueden ni con ellos mismos. Entonces, es como que entrás esas doce puntás todo lo que
+[Remote]: depende de los clientes, a la larga no va a funcionar.
+[Remote]: Ese soy el principal justificativo. Tenemos que correr al cliente,
+[Remote]: de de del flujo, ¿sí?
+[Remote]: Hoy yo no lo puedo correr, salvo que me ponga a apretar f cinco todo el tiempo y ponga un ejército
+[Remote]: personas a hacer todo esto, ¿está bien?
+[Remote]: Eso lo que estoy es atento a el pago informado del cliente,
+[Remote]: y a la conciliación que sucede de más uno.
+[You]: O sea, si le tienes que poner una carátula, el proceso
+[You]: proyecto, son dos cosas. Uno, evitar
+[You]: el costo financiero de que un cliente me informa un pago
+[You]: pero no se me hizo el pago, por ende, me debe mucha plata y yo le sigo operando
+[You]: esa cuenta, con lo cual lo estoy financiando, y b,
+[You]: evitar cortes de servicio innecesarios, donde hay una pérdida
+[You]: le corté el servicio por un tiempo que me podría haber generado, ¿no?
+[Remote]: Sí, sí, y y y después entra
+[Remote]: sea, dentro de esas dos tenés que encuadrar que pasás a una operación real time que hoy no existe. Obvio.
+[Remote]: Y sacás, eliminas el laburo manual de un operario Y liberás el laburo manual.
+[Remote]: Exactamente. Para mí son esas la operación, una parte de la operación que era manual.
+[Remote]: Sí, claro. La vida del cliente también,
+[Remote]: que ahora estamos teniendo algún algunos clientes grandes,
+[Remote]: que ya nos dijeron, che, no te vamos a informar más, bueno,
+[Remote]: dólar app no nos informa, por ejemplo,
+[Remote]: tenemos un flujo de ocho de de de
+[Remote]: que que nos informa el pago, digamos, por Slack y nosotros se lo cargamos manual.
+[Remote]: ¿Sí? Se armó alguna magia ahí, pero muy ad hoc, ¿viste? Muy casero,
+[Remote]: viste Union también es otro cliente,
+[Remote]: y y bueno, también le estamos cargando los pagos a mano.
+[Remote]: Entonces, también, digamos, los clientes más grandes
+[Remote]: es raro que informen pagos.
+[Remote]: ¿Sí? Perfecto, no se iban a poner así,
+[You]: Perfecto. Más de los días.
+[You]: Ahí el tema de la operatoria runtime
+[Remote]: me encanta.
+[You]: es que medio que depende de los bancos,
+[You]: si disponibilizan información real time, con lo cual, si no disponibilizan información real time,
+[You]: medio atado de manos con la parte de operar real time.
+[You]: Lo que sí podemos realmente evitar es, primero,
+[You]: cuadrar realmente informes contra pagos. Eso eso lo lo
+[You]: tiene que estar y tiene que estar con con la mayor granularidad posible. Si el banco nos puede permitir
+[You]: un archivo cada una hora, bueno, estarlocado una hora, no sé, eso vamos a depender de vuelta.
+[You]: De la disponibilidad de la información. Y también vamos a evitar cortes de servicio innecesario,
+[You]: porque en vez de machear solo con informes, vamos a también machear con
+[You]: entradas bancarias, en donde no se va a hacer el trigger
+[You]: de corte de servicio, porque la deuda superó ese límite que ustedes le ponen, ¿no?
+[You]: Y bueno, creo que son esas dos cosas,
+[You]: sin saber si tenemos información real time. Si tenemos información real time, bueno,
+[You]: ahí sí le ponemos carátula,
+[You]: al proyecto operación real time. Pero
+[You]: tengo miedo, me estoy adelantando un poco,
+[Remote]: Sí, capaz me llamaron a real time.
+[Remote]: Si no, estoy más uno, capaz es
+[Remote]: más rápido que podemos con la con los bancos que operamos hoy, en vez de real time, ¿no?
+[Remote]: Un poco largo para la literatura, pero conceptualmente podríamos decir eso,
+[Remote]: después quizá esto esto te lleva puesto y te hace cambiarte de banco.
+[Remote]: Porque esa también es otra otra parte de la película.
+[Remote]: Lo que, cien por ciento, ahí, Nacho, lo que podemos hacer es
+[Remote]: simular al real time, podemos ir a buscar la información, no sé. ¿Podrías
+[Remote]: cada quince minutos ir a buscar la data de última en una picola, entonces,
+[Remote]: casi real time o ni a real time, o por minuto, si nos permite lápiz del banco.
+[Remote]: Entonces, todos los minutos vas a ir yendo a buscar, entonces, simulás
+[Remote]: pasa. Al día al time tiene que haber un endpoint del banco que nosotros nos conectamos, se
+[Remote]: escuchamos y te manda novedades. Si eso el banco es Arcaico, cagamos, Lucky, o sea, eso no va a
+[Remote]: existir. Entonces, o lo podemos hackear y lo vamos a buscar manualmente nosotros,
+[Remote]: y y generamos ese near real time, entonces,
+[Remote]: la, a efectos del usuario, lo que hay que no lograr, logran el objetivo, ¿se entiende? Con la arquitectura que hay.
+[Remote]: Y si no, bueno, habría que ver. Creo que lo primero que haría es,
+[Remote]: si quieren, de todos los bancos que tenemos, cuál es el más fácil de integrar
+[Remote]: no importa la operación, para entender el flujo punto a punto de lo que queremos, armar algo Rápido, Porque También Le Queremos Mostrar Que El Integrador Funciona, Hacer Al Andar, A Ver, El Más Cerca Que Tengamos, Todos Van A Ser Difíciles, Igual, Pues Necesitamos Credenciales Corporativas Para El Banco. Pero Veamos En El Banco, Por Ejemplo, De BVA De México,
+[Remote]: ya tiene APIs, tienen cosas, capaz que podemos hacer un linko mucho más fácil ahí,
+[Remote]: Y una pregunta ahí, yo tengo, Lucky,
+[Remote]: ¿la conexión de la cuenta bancaria es de ustedes? O sea, ¿ustedes tienen una cuenta corporativa para
+[Remote]: hablarles y que les puedan hacer la gestión de esto o
+[Remote]: ese interbanking que tienen con SAP es solo para gestión, pero después ustedes tienen un
+[Remote]: me imagino, un agente de cuentas del banco, ¿bueno?
+[Remote]: Sí, o sea, yo no trato, lo acepté eso, por eso
+[Remote]: te digo que den es clave, pero yo creo que ahí, no, o sea, tenemos un contacto con el
+[Remote]: los bancos claramente, y después sé que está esto de interbanking, que lo que entiendo que hace
+[Remote]: es agrupar información de los bancos y lo utilizamos a los efectos de
+[Remote]: cargar todos los extractos de una y no ir a bajar banco por banco.
+[Remote]: Yo cuando salgo de acá, yo salgo acá, pongo al tanto ADN,
+[Remote]: le le digo que vamos a meter en el channel, y capaz que le saco un poquito más de info como para ir compartiendo,
+[Remote]: pero así es como funcionamos. Preguntales cómo
+[Remote]: si querés también con, bueno, podés meterla, digamos, en el chat ADN
+[Remote]: hablamos todos los tres de última por ahí, para entender cómo conectaron en Interbank,
+[Remote]: con el banco, que seguramente sea lo mismo, y y y podemos hacer la conexión
+[Remote]: ahí con cosas. Pero dale espectacular lo que sería el siguiente paso.
+[Remote]: Igual me llevo de mi, vos habla con Den, sacás toda la data,
+[Remote]: y yo de mi lado me llevo para entender cuál es un banco que esté más factible para arrancar,
+[Remote]: lo que vi del BBVA está bastante bien, pero sí necesitamos la conexión con ese agente de cuentas, o mandar un mail para que nos haga una meeting entre los tres, nos dé la documentación de las APIs, para ir a consultar, y nosotros podamos ver qué tenemos de opciones o no. Y ya las credenciales para poder consultar y pegarle a la API del banco. Vale, buenísimo, superclaro, o sea, de ahí también para sumar contexto de de por dónde viene esto, por un lado está las manos de nuestro equipo, que la verdad que, como te digo, yo siento que hoy es el menor de los males,
+[Remote]: tenés esto de que estás ciego, tenés esto de la potencial corte de servicio. Y la realidad es que esta reunión también salió por la semana
+[Remote]: pasada, me buscó Foncho, no sé si vos ya te conoceras Foncho, sea,
+[Remote]: es como el el nuevo capo de los CSM, que es un flaco que viene de Mastercard,
+[Remote]: Y y
+[Remote]: y su punto fue un poco este, de che, ¿no? Podemos depender de qué forma en pagos, porque
+[Remote]: Santander ni va a entrar al dashboard, o sea, a entrar al dashboard a ver las transacciones, ¿me entendés? Duras pena.
+[Remote]: Entonces, nada, es por ahí, es por ahí, o sea,
+[Remote]: lo que tiene bueno es que creo que lo estamos explorando en un momento en el cual no es que nos
+[Remote]: explotando por todos lados, medio como que su speech fue, che, tengámoslo,
+[Remote]: algún momento de este año sería ideal?
+[Remote]: Creo está bueno agarrarlo así ahora, ¿viste?
+[You]: Me diste pie justo para para esa pregunta. Yo te ya ya
+[Remote]: Me encanta.
+[You]: cerrar la charla más high level era preguntarte
+[You]: prioridad, qué qué tipo de prioridad de urgencia le están dando a esto,
+[You]: si es algo tipo, che, si lo tenemos en q uno,
+[You]: es un gol de media cancha para mí y para todo el equipo,
+[You]: pero la expectativa es tenerlo por ahí para mitad de año, no sé.
+[Remote]: Así.
+[Remote]: No, si si en q uno vas a tener un país,
+[Remote]: sería un gol.
+[Remote]: Eso creo que incapaces todos los cañones a a a uno
+[Remote]: pero bueno, también en cierto punto creo que está bueno tener un apunte
+[Remote]: del resto para entender si en algún momento va poder cascadear al resto.
+[Remote]: O tenemos que empezar a hacerles la las Pero porque te va a trabar hoy o mañana con
+[Remote]: cualquiera, si no tienen una API externa para poder pegarle y consumir,
+[Remote]: nunca vas a poder automatizar ese país.
+[Remote]: Tal cual, tal cual, y ahí después ya me pierdo, pero imagino
+[Remote]: que que se le dará la consulta al banco, capaz el banco te disponibiliza el API para que no los cambies,
+[Remote]: o sea, de este. No creo que no tengan lápiz, no creo, no creí
+[Remote]: yo creo que ya están todos, pero revisémoslo, Lucky, revisémoslo, no sé, capaz
+[Remote]: que que que que me dio raro ahí.
+[You]: Pero la conclusión es que entonces
+[You]: eso es una prioridad y y se quiere resolver con con cierta urgencia.
+[Remote]: Sí, o sea, te digo, la verdad, no tengo
+[Remote]: a nadie corriéndome atrás, o sea, si si si q uno te
+[Remote]: suena muy apresurado, te digo q dos. O sea, no tengo a nadie corriéndome, pero es algo que a nivel pomelo sabemos qué necesita
+[Remote]: necesitamos.
+[Remote]: ¿Sí?
+[Remote]: No tengo a ningún cliente diciéndome, no te quiero informar más pagos, porque en realidad los dos
+[Remote]: que tenemos se hizo un flujo con medio que se la dibujamos con mail Slack,
+[Remote]: se lo damos de alta. Pero la realidad es que, por ejemplo, lo que es corte de
+[Remote]: servicio automático,
+[Remote]: está apretando bastante, y uno de los grandes temas es este,
+[Remote]: que que un un informe, que dependés de que te informe el pago y que vos vayas y lo aceptes.
+[Remote]: Entonces Qué tal. Eso hay que correrlo, eso hay que correrlo del track.
+[You]: Perfect.
+[Remote]: Yo, igualmente, nada, ahora voy poner tanto ADN, y voy también empezar a tener ciertas
+[Remote]: charlas internas, y bueno, vamos hablando, ¿sí? Dale, Lucky, buenísimo.
+[You]: Para, y una última preguntita, además, esto de de prioridad y urgencia.
+[You]: Esto es un proyecto liderado por por vos y
+[You]: tu equipo y necesitamos aprueba lo que, o sea, aquí necesitamos de tipo
+[You]: onboard para que esto suceda realmente.
+[Remote]: No, la realidad es que lo lo encaro yo, como te digo, semana
+[Remote]: pasada vino el líder de los ISM y me dijo esto para la experiencia
+[Remote]: de clientes clave, por lo cual yo ahí tengo un primer punto.
+[Remote]: El segundo el segundo punto es que esto in house no no, o sea,
+[Remote]: la otra cuando hablé con Gonza, Seba me dijo, no me suena que en Pomelo nos metamos a hacer esto,
+[Remote]: creo que ahí ya tenés un, en house no la veo,
+[Remote]: El el día de experiencia con el cliente vino y te dijo que este punto es necesario,
+[Remote]: y el corte de servicio está escalado a nivel sí level, entonces,
+[Remote]: digo, ¿tengo que tener charlas? Sí,
+[Remote]: pero no no no, digamos, esto tendría que, tendríamos que poder hacerlo, de hecho.
+[You]: Por ejemplo, vamos por ahí que hagamos una piloto, vemos los resultados, y armamos ese deck de business case, implementemos reqsie. ¿A quién se lo presentás para tener luz verde?
+[Remote]: Sí, sí, sí.
+[Remote]: Y a mi jefe.
+[Remote]: Que es el director de operaciones.
+[You]: Okay.
+[Remote]: Que es Gilman.
+[You]: Ok.
+[Remote]: El director de operaciones reportaer, que es el COO,
+[Remote]: que es uno de los tres fundadores. Sí, sí, lo que no sé. De hecho, esto se lo podríamos mostrar a ver.
+[Remote]: También. Bueno, yo, nosotros tenemos que tener, justo ahora a ver si fue de vacaciones,
+[Remote]: justo yo había hablado antes de de que se vaya de vacaciones,
+[Remote]: porque esto para mí es clave para mí,
+[Remote]: Yo haré una POC, chicos, de para resolver esto. Lo que tiene Rexy es
+[Remote]: soluciona todas las todos los Excels que tiene, viene eso, básicamente, sacar todos los Excels,
+[Remote]: automatizar toda la operación,
+[Remote]: y y y podemos verlo, creo que lo que Nacho busca es
+[Remote]: ¿ya va ver cómo cómo cómo armamos el el, digamos, el caso de el business case
+[Remote]: para que permee bien y tenga impacto dentro de Pomelo, ¿no? Como lo que queremos
+[You]: Sí, sí, qué vuelta. Escuchamos esto
+[You]: Lucky? Y hacemos esto, estoy seguro que lo podemos resolver,
+[You]: Después es es ser inteligente, es en probar valor rápido con un scope limitado,
+[You]: darte a vos las herramientas para que internamente lo puedas empujar e implementar, es eso.
+[Remote]: Vale. Infecable. Buenísimo.
+[You]: Las preguntas.
+[You]: Armo el canal de Slack y lo llevamos por ahí.
+[Remote]: Vale.
+[Remote]: Genial. Chicos. Bueno, Lucky, Bray, gracias por
+[Remote]: qué lindo verlos, saludos, así que, nada, vayamos avanzando. Lucky, yo me llego de mi parte,
+[Remote]: Nachito, vamos a escalar la Slack, yo me llego a ver lo de los bancos, Lucky, hablá con Dan,
+[Remote]: y veamos eso qué conexión tenemos con el banco, empecemos por uno, si querés,
+[Remote]: y y veamos para hacer, haría lo que dijo Nacho,
+[Remote]: una pop chiquitita, mucho de que haré valor, automatizás esa parte y después vemos cómo seguimos.
+[Remote]: Vale, dale, dale, yo ya me ayudo a hablar con Den, pongo en sync también a Gil,
+[Remote]: y Granda, dale, dale. Y ahí, Lucky, agarremos las reuniones, seguramente,
+[Remote]: Deni y Gil, yo también me iba a juntar con ellos, con él,
+[Remote]: para mostrarles rex y y para verlo. También, arrimemos las reuniones
+[Remote]: que sean necesarias, que acá Teo también
+[Remote]: le mostramos la herramienta, la plataforma y toda la bola para que que que podamos saber
+[Remote]: dónde podemos ayudar.
+[Remote]: ¿Dale? Dale, dale, buenísimo. Yo ahí también le hago un
+[Remote]: un chatcito a ver, así que quedamos todos en sync, dale. Dale, querido. Bueno,
+[Remote]: gracias, chicos. Gracias.
+[You]: Placer, gracias,
+
+============================================================
+SUMMARY
+============================================================
+### Current Payment Process & Pain Points
+
+- Pomelo depends on client good faith for payment reporting
+  - Client reports payment in dashboard
+  - Pomelo validates and approves without seeing bank confirmation
+  - Gap of 1-2 days before bank verification (up to 24 hours in Colombia)
+- Manual reconciliation process
+  - Download payment reports and bank extracts from SAP via Interbanking
+  - Cross-reference using Excel spreadsheet with manual tagging
+  - Junior staff member handles daily operations
+- Risk of service cuts to paying clients
+  - “Half the time when we inform a cut, they say ‘hey, I already paid’”
+  - Cannot implement automatic service cuts due to payment confirmation delays
+  - Large clients (Santander, Dollar App, Union) don’t report payments at all
+
+### Proposed Rexi Solution
+
+- Direct bank API integration to eliminate client reporting dependency
+  - Connect to bank APIs with Pomelo’s corporate credentials
+  - Real-time payment ingestion and automatic reconciliation
+  - Tolerance settings for amount variations (0.05% flexibility)
+- Automated conciliation workflow
+  1. Bank movements feed into Rexi platform
+  2. Match against existing payment reports in Pomelo database
+  3. Generate notifications only when action required
+  4. Export results to Pomelo back office or send via Slack/email
+- Problem resolution module
+  - Configurable rules for handling discrepancies
+  - Dashboard for operations team to manage exceptions
+
+### Technical Implementation Plan
+
+- Bank integration priority by feasibility
+  1. Mexico (BBVA) - highest volume, most reliable banking system
+  2. Argentina
+  3. Peru
+  4. Colombia (lowest priority due to 24-hour delays)
+- Required connections
+  - Bank APIs for transaction data (primary approach)
+  - Pomelo payment reports database (read-only access)
+  - Back office system for automated confirmations
+- Fallback option: Interbanking integration if direct bank APIs unavailable
+
+### Business Impact & Justification
+
+- Project objectives
+  1. Eliminate financial cost of inadvertent client financing
+  2. Prevent unnecessary service cuts to paying clients
+  3. Enable real-time operations instead of T+1 processing
+- Priority level: Q2 target, not urgent but strategically necessary
+- Customer experience driver: Foncho (new CSM lead from Mastercard) emphasized large clients won’t use dashboard for payment reporting
+- Budget approval path: Lucas → Director of Operations (Gilmar) → COO
+
+### Next Steps
+
+- Lucas: Coordinate with Den (finance) on bank relationships and credentials
+- Ignacio: Research bank API documentation, starting with BBVA Mexico
+- Set up Slack channel for project coordination
+- Schedule tripartite meetings (Pomelo-Rexi-Bank) to obtain API access
+- Plan small POC with one country to demonstrate value before full rollout
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/3e1dc0b7-e037-4fc2-9880-1ce209b9d2b7](https://notes.granola.ai/t/3e1dc0b7-e037-4fc2-9880-1ce209b9d2b7)

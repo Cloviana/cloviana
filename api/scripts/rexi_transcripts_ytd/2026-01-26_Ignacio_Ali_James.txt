@@ -1,0 +1,839 @@
+MEETING: Ignacio <> Ali / James
+DATE: 2026-01-26
+ID: not_e1xmc0v8d7r2tr
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Ali Mahmoud <ali@glasswing.vc>, James Massaquoi <james@glasswing.vc>
+SCHEDULED: 2026-01-26T15:30:00-05:00 - 2026-01-26T16:15:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Where I was I had, like, a five minute break, and so I was like, oh, thank god.
+[Remote]: That's the only benefit.
+[Remote]: Mom, hey. How's it going?
+[You]: Venue.
+[Remote]: Good. Good. I one of my meetings ended early, and so I
+[Remote]: I played Madden for ten minutes.
+[Remote]: And it was we don't usually work from home, and so I was so excited, honestly.
+[Remote]: It was it was it's
+[You]: You guys based in New York as well?
+[Remote]: no. We're in Boston, but the weather is
+[Remote]: killing us. So
+[You]: Well, same here. I'm I'm not sure if it was worse here in Boston but,
+[Remote]: perfect.
+[You]: did get a big a decent amount of snow yet.
+[You]: Yesterday, and and yeah. Sunday mostly. Not today, but Sunday, we did get a
+[You]: decent dump. How about you guys?
+[Remote]: Yeah. Definitely did.
+[Remote]: I think we're probably close to 20 inches here.
+[You]: Oh, wow.
+[Remote]: Yeah. So I was out today. I
+[Remote]: today is my lucky day.
+[Remote]: Ignacio, this call is gonna go really well because I found a parking spot before.
+[Remote]: We hopped on. Otherwise, it was gonna be tremendously late. So
+[Remote]: found a parking spot, which means that I'm a lucky guy today.
+[You]: Good. Good. Good. Good.
+[You]: Did you could did your car get a lot of snow on on the roof and on the windshield or or not much?
+[Remote]: No. No. I
+[You]: Where it was under
+[Remote]: I put it in the garage last night when the the bulk of the snow came.
+[Remote]: Had to use it today to drive my girlfriend to work, and then just got back.
+[Remote]: And, yeah, everybody else's car is buried, but no mind.
+[You]: Great. Great news. Well, nice to meet you.
+[You]: I don't I don't recall how we got connected. I know it was, like,
+[You]: LinkedIn or someone introduced us.
+[Remote]: Yeah. That's a great question, honestly.
+[You]: Not
+[Remote]: But I probably just bugged you until you until you took the meeting. So it's probably a
+[Remote]: that's the usual
+[You]: Amazing.
+[Remote]: But, yeah, I mean, hey. I appreciate the last call.
+[Remote]: One dive a little deeper.
+[Remote]: I want I brought in Ali as well because well, I let him tell the story, but
+[Remote]: he's a recovering accountant.
+[Remote]: So I figured he'd have a lot of questions as well, but
+[Remote]: kinda wanted you to give him, like, quick redo on the on
+[Remote]: what you guys are doing, quick introduction on your end.
+[Remote]: Get an update on how things have gone since we last spoke. And then, I guess, from there, really, like, dive deeper into the
+[Remote]: product itself.
+[You]: Sure. I
+[Remote]: And then, of course, give space for questions on your end.
+[You]: Sure. I understand. So
+[Remote]: Yep.
+[You]: update on us and and and what we do for lung an intro. So ex fintech operators, the three of us,
+[You]: we dealt with the pain of reconciling much
+[You]: movements across different systems, different software layers, and different abstractions of ledgers.
+[You]: And we're now setting out to build a platform we wish we had
+[You]: before. Of course, leveraging a lot of AI technologies, machine learning algorithms,
+[You]: but mostly wanting to automate
+[You]: a process of workflow inside companies that is just hygiene. Right?
+[You]: Enabling and enabling these teams to just, like,
+[You]: get autonomy and independence from technical resources.
+[You]: So that companies can actually focus on what will
+[You]: set them apart. Right? That's sort of, like, the mission of what we're doing.
+[You]: The product vision at some point is
+[You]: almost like eliminating the the interface
+[You]: Right? This needs to feel as sort of
+[You]: a team of FinOps people that's doing the work
+[You]: for you and that you're just supervising, approving, and that have full traceability and control
+[You]: over what they're doing. Just because, again, this is a low leverage
+[You]: but at the same time, critical process. Right? And when I say critical,
+[You]: I think it applies to any financial
+[You]: workflow, the cost of a bug, the cost of a mistake.
+[You]: Means money. So there's a lot of guardrails we're building into the product
+[You]: to ensure that, it's safe, it's accurate, and
+[You]: it has the right level of human dilutive supervision.
+[You]: Avoid that happening. Other than that,
+[You]: we have live bank customers in production. Our customers today are a bit all over the place
+[You]: We have, neo banks, payment providers, pay facts,
+[You]: crypto wallets. We have we're
+[You]: starting to get our feet wet with insurance. We have traditional banking.
+[You]: But mostly focused in financial services.
+[You]: We're starting to explore other verticals as well. We have an OTA
+[You]: a big OTA in Latin America. We're we're experimenting with
+[You]: We have
+[You]: also,
+[You]: ecommerce platform. It's like the Shopify from Latin America as well. We're starting to
+[You]: explore something with them. Still,
+[You]: exploring what's our best ICP in terms of
+[You]: our like, which segment is our part of the best
+[You]: suited for, and which segment are are we most efficient at selling into?
+[Remote]: Yeah. That's something I wanna discuss a lot today as well.
+[You]: To then really scale that formula.
+[Remote]: Oh, sorry for interrupting, but that was an area. Have a lot of questions on leaving the first call.
+[You]: No. No worries. No worries.
+[Remote]: In a bad way. Just more like, hey. Where do you wanna start?
+[Remote]: We'll we'll talk about that later, but
+[You]: Sorry. Didn't get that last part. My my speaker is about to
+[Remote]: Is it me? Can you guys hear me okay?
+[You]: I can hear you. Yeah. Sorry. It was my speaker that's about to get
+[Remote]: I can hear you.
+[Remote]: Oh, that works.
+[You]: run out of battery and just went, like, flying for testing.
+[Remote]: Was just saying that that's an area I wanna talk to you about in more detail and especially since I was on the call.
+[Remote]: Maybe help provide either guidance or at least just talk about it in detail.
+[Remote]: But Yep.
+[Remote]: Pignassio, for your benefit,
+[Remote]: been at the firm about five years. So principal on on the investment team I've looked at,
+[Remote]: a lot of things that are tied to,
+[Remote]: I'll call it, like, financial workflows broadly. I started my career actually
+[Remote]: Ernst and Young was doing more of the accounting and and finance stuff, but also
+[Remote]: the lens of all my clients were were financed, mostly, like, large banks
+[Remote]: and stuff. So I learned way too much around, like, ACH and clearing and repo
+[Remote]: and all this other, like, plumbing. So
+[Remote]: anyway,
+[Remote]: that's the context that that I'm bringing to the table. And
+[Remote]: yeah, I think from from James' description of what you guys were up to at a high level,
+[Remote]: coupled with that intro right there. Yeah. I'd love to
+[Remote]: learn a little bit more about kind of the
+[Remote]: for whatever reason, have maybe it's the NBA and me too, like, the
+[Remote]: sort of two by two of, like, what vectors and use cases you are in
+[Remote]: and how deep you are on the stack.
+[Remote]: Maybe just get a little bit more color on that to start
+[Remote]: And, yeah, I know it's early, but, like, if
+[Remote]: anytime you can highlight examples of, like, customer or potential customer use cases, I love
+[Remote]: that. So
+[You]: Sure. A 100%. So where we sit at the stock? Where where data or the
+[You]: Right? And at some point, this, remounts me to
+[You]: our vision. Like, when when you think about why
+[You]: this become a pain in the industry, like reconciliation, these type of workflows, it's
+[You]: if you analyze, I think the history of any
+[You]: tech stack, it goes in these pendulums of
+[You]: modularization, aggregation, modularization, aggregation. Right? And so
+[You]: FinTech stack, particularly the last ten years, went into this incredible
+[You]: frenzy of modularization. Like today, FinTechs are just not
+[You]: any more than
+[You]: a patchwork of integrations. Right? The the the, like, the
+[You]: the actual core of what they do is more like customer relationships and distribution, and then they're just bad
+[You]: a lot of integrations a lot of these integrations in place to offer different products and services.
+[You]: Right? All the way from a sponsor bank to a remittance provider, card program,
+[You]: They have a banking as a service also to manage all these
+[You]: all these APIs in the bank. Like, there's there's just a patchwork of providers. And so that
+[You]: made data very, very fragmented. And that's when it's hard, like
+[You]: today and the synapse example is perfect evidence
+[You]: to say, today, it's very hard to track money across all these layers we've been creating, right, in the last ten years. So
+[You]: going forward, it's either gonna go one of two ways. Right? It's either gonna
+[You]: we're gonna fix the data issue, and that means everyone getting together and agreeing upon us
+[You]: set of standards on data formats, data sharing and reporting
+[You]: so that everyone can actually trace and see
+[You]: how money is moving across these layers. The other way to fix this is
+[You]: we create a layer, a centralized layer, a shared layer
+[You]: where everyone is dumping the data and this player is
+[You]: technologically the one responsible to parse everything into universal format.
+[You]: And then creating that standard that the fintech industry needs. Right?
+[You]: This may come in a couple of different ways. Maybe regulation can push
+[You]: this through the sponsor banks, maybe not. Maybe there's there's some of these, like,
+[You]: collaboration forums of, you know, like, fintech CEOs getting together
+[You]: trying to understand what's the best way to do this. Still, though,
+[You]: clear way forward, but what Rex is trying to build is that centralized layer.
+[You]: Right, and and slowly onboarding all the players in
+[You]: the stock so that everyone is dumping the data there, and then we are the shared tool
+[You]: providing that end to end visibility. Real case example
+[You]: today. So we're working, and this is where, like,
+[You]: it's our first paying customer, our first designed barn
+[You]: This is where I worked before and where I saw the paying firsthand. This fintech company called Camun based out of New York, is serving Latino immigrants in The US.
+[You]: With a very very simple value prop, you know, just like a digital bank account, debit
+[You]: card program, remittance product, and peer to peer transfers.
+[You]: And so I I like, when when I was there,
+[You]: I was chief of staff at a c stage company. As you might imagine, that's a very weird
+[You]: role. And so I was doing, stuff
+[You]: like, very random stuff. They didn't have a CFO, so I did
+[You]: concentrate my tasks on finance thing. The regulation was one of the things I ended up building
+[You]: when I was there. Because we were growing so fast, and it was one of those processes that
+[You]: when you're growing that fast, you cannot continue doing, like, manual
+[You]: checks at the end of the month. You need to start having, like, a daily
+[You]: process to monitor these money roof events.
+[You]: I, we started with Gumun as design partners. Now they're paying customer
+[You]: An example of how what what we're reconciling at Kamoon. Kamoon has a ledger.
+[You]: Outsourced by Galileo. Camun has two sponsor banks.
+[You]: And then Kungun has a couple of different products. Right? They have a a card program,
+[You]: They have a remittance product. Of course, do ACH.
+[You]: They used to do peer to peer with with Bazel, and now they're doing it, in
+[You]: They built CommunePay, which if it works, they're gonna start selling it
+[You]: as a white label solution for other fintechs.
+[You]: And what other products do you have?
+[You]: Think that's that's pretty much it. So
+[You]: basically, across these oh, and the cash in, cash out.
+[You]: So basically, cash deposits and cash withdrawals with vanilla direct.
+[You]: And so, basically, what we did is there's just three sources of truth, right, that need
+[You]: to show the same picture. You have the bank statement. You have the ledger.
+[You]: And then you have the transactional report that your
+[You]: provider is sending you. Right? They remit let's say they remitted to workflow.
+[You]: The we we were using Uniteller at that point. They send us
+[You]: a report of the transactions that settled on their end. We compared against the ledger, which is what we saw
+[You]: on our end, and then we compare it against the bank to ensure that money moved in the right direction and the right amounts.
+[You]: The first check is checking that the the the user money
+[You]: movements were correctly accounted for, and then the second check is
+[You]: did we receive the right amount of revenue out of these transactions? And and did we pay the right amount
+[You]: cost and fees to them? Because the the fee table
+[You]: was not as simple and trivial as just like, okay. This is 2% and it's it's like dependent on the
+[You]: on the country on the destination country and and
+[You]: so all those checks, like, that's that's a typical use case of what we do for Camune.
+[You]: Another example, Thera.
+[You]: Global payroll company. So they have pay ins coming in from Stripe ACH, ZAL, a lot of providers have money in,
+[You]: and then they have the MoneyOut providers, Y, D Local, and these other
+[You]: international payments companies. And so, again,
+[You]: they have a pay in against the ledger and against the bank.
+[You]: And then they have a payout against the ledger and against the bank.
+[You]: Those like multi source, multi currency, high transaction
+[You]: volume, that's where we like to play because that's where reconciliation
+[You]: actually actually becomes very complex. Right?
+[You]: And it's it's like series a fintech companies
+[You]: a good sale for us. Short sales cycle, easy to implement.
+[You]: Willing to experiment, they like using AI tools, and so on.
+[You]: But as we as we continue growing and onboarding these customers, we're also trying to hit our
+[You]: distribution efforts to the sponsor banks.
+[Remote]: Okay.
+[You]: For two main reasons. The first one is, they're the ones receiving all
+[You]: the regulatory pressure right now and the scrutiny after the synapse scandal.
+[You]: And even though we cannot account for any new regulation coming in on a trumpet
+[You]: they're all realizing after the synapsing, like, hey,
+[You]: How are we doing this? Should we do it better or not? Are we
+[You]: are we actually generating risk out of this operation or not? Right?
+[You]: That's the first one. There's lot of pool in the market. These companies, of course, are not your most tech savvy
+[You]: institutions. They don't have the right tech talent
+[You]: to build internal solutions. There's an interesting cell there.
+[You]: And the other reason why we wanna target the sponsor banks as well is because they have this
+[You]: leverage to push the solution towards the rest of the ecosystem. Right? And that's when
+[You]: we start creating some network effects on being a shared tool. Right? So
+[You]: let's say you're a sponsor bank, and I'm I'm a fintech, and you're
+[You]: a sponsor bank. I wanna work with you. You as a sponsor bank have the leverage to say,
+[You]: hey, you wanna operate with me, you need to be on Rexxi because it's gonna enable me to be compliant and
+[You]: gonna enable me to have full visibility of what you're doing on the other side. What products you offer,
+[You]: how are you offering these money flows, and making sure that at least me and you were aligned. They were never
+[You]: gonna end up at a synapse sort of scenario. Right?
+[You]: So that type of leverage is something we wanna look for in in distribution.
+[You]: And then at some point, once you gain some significant scale,
+[You]: that's when network effects just start kicking in. Right? Like like, let's say,
+[You]: you wanna enter like, on the other end, you're the fintech
+[You]: and you wanna integrate Unitella to do remittances. You have the leverage
+[You]: to tell Uniteller, you want to operate with me, you want to get this volume, you need to be on Rexy.
+[You]: Because it's it's it's how my bank is gonna have visibility, it's how I'm gonna have visibility, then
+[You]: it's how we are gonna have visibility on what we're operating together.
+[You]: If there's some difference at some point, which there are every single day, every single month,
+[You]: we have a shared tool to collaborate on those differences. That's always like
+[Remote]: Are there examples, Ignacio, or the I interrupted. Are there examples
+[Remote]: of I I think that's a really interesting point. Right? The network effects and can totally see
+[Remote]: especially if that's your ICP is, like, a high mix
+[Remote]: transactions. Right? Like,
+[Remote]: you sit in the middle of that. Oh, shit. You have access to it.
+[Remote]: In theory, lot of people. Are there examples of that?
+[Remote]: Like, precedence in the market for fintechs
+[Remote]: other institutions where, like,
+[Remote]: they've they've done that, traverse that network.
+[You]: Well,
+[Remote]: That you look to admire.
+[You]: we've we've we've studied a lot the the FICO example.
+[You]: And and and again, this is, like, conceptually
+[You]: speaking is if there's a benefit of having a shared tool,
+[You]: we should try to build it as an industry. Right? Of course, then there's
+[Remote]: Yeah.
+[You]: competitive forces which are gonna push us out, but and there's some incentives to push us out. But
+[You]: in terms of what's best for the industry, what's more efficient to solve this problem,
+[You]: Given we already modularized the whole stack,
+[You]: we need a centralized layer parsing the data. If not, it's gonna be
+[You]: very hard and there's gonna be a lot of resources wasted on internal teams building these workflows.
+[You]: And, again, this is also coming from our competitive research, like
+[You]: there's a lot of solutions out there in the market. No one is attacking this from a
+[You]: systemic standpoint, saying, we wanna be a shared tool because the industry needs this and because
+[You]: there's no regulation in fintech no one's going to do it if it's not like a private party providing these
+[Remote]: Yep.
+[You]: services because why isn't it a problem in banking? I mean it's hard to reconcile in banking
+[You]: but then banks have a data standard they need to abide to. They have data
+[You]: reporting. They have data sharing requirements. So at least there's just
+[You]: standardized way of operating and sharing data. In fintech,
+[You]: everyone is connecting with these providers the way they want, operating the way they want. Some of them are doing
+[You]: really are doing real time payments. Some of them are doing batch payments with specific
+[You]: time cuts. And so it's a mess. That's when it's
+[You]: starts becoming a mess. When you scale that into 10 plus
+[You]: providers and you're already operating a million transactions a month,
+[You]: and suddenly you need a fin ops team just doing reconciliation.
+[Remote]: Yeah.
+[Remote]: Okay.
+[You]: Then, again, as you said, like, us, the bigger vision is
+[You]: of course, reconciliation as a as a wedge.
+[You]: What other workflows can we build on top of that because we have access to the most
+[You]: important valuable data in financial services, which is the transactional data
+[You]: across the stack for every single player.
+[Remote]: Wait. Before you keep going, just in terms of
+[Remote]: on our end, the side of thinking about things from a data standpoint,
+[Remote]: if you wanna become, you know, for lack of better time, like, essentially the broker the tech broker between these these different connections or these notes,
+[Remote]: What, like, data fields do you need?
+[Remote]: And, like, what standards you need from each provider?
+[Remote]: To ensure that you're, like,
+[Remote]: able to be reliable?
+[Remote]: Mean, outside of, is there anything else outside of traditional docs or
+[Remote]: maybe just walk me through it because I'm I'm not as deep as built that you guys are for within the stack.
+[Remote]: Forgive me that's a dump
+[You]: So the first the first bottleneck, of course, is data integrations.
+[Remote]: Yeah.
+[You]: We need to be able to ingest the data. How can we actually tap into the data?
+[Remote]: Now I can empty thing.
+[You]: And that's a whole world and realm in and of itself.
+[You]: And everyone's struggling to actually get the data because
+[You]: in the nicer side of the world, it's APIs,
+[You]: In the other side, dark side of the world, it's
+[You]: SFTPs, manual transfers, logging in
+[You]: to portals to download CSVs, or picking up flat files from who knows where. So
+[You]: there's a whole world there that, of course, as technology continues
+[You]: progressing, we're gonna see more and more in APIs, but it's it we're a long way there. So
+[You]: there's a big bottleneck in terms of integrations,
+[You]: and then after we have the integrations,
+[You]: there's a learning curve, right, that we're accelerating with AI.
+[You]: In terms of parsing everything into a format that's easier to process, easier to match. Because, again,
+[You]: some of these matches are not trivial. It's not one to one matching. There's not a unique transaction I
+[Remote]: Yeah.
+[You]: identifier. So it's about how can we code all that business logic
+[You]: all that knowledge that these FinOps teams have,
+[You]: into our product, into our platform, in a conversational way
+[You]: in which we're acquiring that context and that knowledge.
+[You]: And codifying that into something that's processing transactions.
+[You]: And finding the matches. Right? There's a lot of nuance. There's a lot of like
+[You]: When you go into these reconciliation teams, there's
+[You]: of like there's a weird feeling which if you fire that person,
+[You]: the company is absolutely blind on how to
+[You]: operate. And it's typically concentrated in one or two people, and they know that.
+[You]: So that's also working sometimes against us because it's their leverage internally. But
+[You]: that shouldn't be that way.
+[You]: You know what I mean? Like, we should try to actually, like, get all that now because
+[You]: it's a hygiene thing. Right? It's repetitive tasks. Of course, it's very valuable
+[You]: knowledge but if we can codify that into bits
+[You]: with AI and into software it makes way more sense than having a team of
+[You]: five people just chasing these differences across the stack.
+[You]: And then the other thing people underestimate is
+[You]: the amount of money.
+[You]: That's being lost in these ledgers and these these systems. Like, it's
+[You]: it's crazy. There's a lot of fintechs doing
+[You]: recurrent monthly write offs of money they cannot reconcile.
+[You]: And we're talking like, we're we're talking with FinTech in Latin America and Mexico 20 to 30 k a month that they're writing off
+[You]: of money they cannot reconcile on, given they need to close the books and be safe on
+[You]: making sure those user funds are there. They're doing a balance sheet write off every single month.
+[Remote]: I would would I don't know if there if if
+[Remote]: if it's represented better on, like, a dollar basis or a
+[Remote]: percent of transactions basis. But, like, I guess, action but
+[Remote]: probably impossible given they can't reconcile it. But
+[Remote]: like,
+[Remote]: is that, like,
+[Remote]: point 1%, point o 1%?
+[You]: No. No. It's actually, like,
+[Remote]: Yeah.
+[You]: well, depends on the setup. Right? We've seen we've seen everything, but we've seen
+[You]: all the way to 2%, two and half percent, 3%.
+[Remote]: Yeah. Okay. Wow.
+[Remote]: Jesus. That's surprising.
+[You]: Yeah. And sometimes, like, they're also they're like,
+[You]: the integrations of all neck and then data
+[You]: data accuracy is also sometimes a big
+[You]: a big blocker for us. If the bank is publishing
+[You]: inaccurate data in their APIs or in their SFTP, it's like
+[You]: it's very hard, but we were adding a layer of intelligence to understand
+[You]: that and suddenly start knowing when the bank is reporting stuff that's inaccurate because there's patterns.
+[You]: Like, in these bugs. Right? And you typically can can flag them quickly. Like, okay.
+[You]: Were sending me transactions until 5PM each your time, and then suddenly on Thursday, you're
+[You]: started sending me
+[You]: a half an hour more, and that's overlapped the the following day.
+[You]: Like, these type of things, they're systems, they're structured data. Even though there's nuance,
+[You]: it tends to be something you can codify and that's what's
+[You]: knowledge transfer concentrated in the head of FinOps in these companies, you know?
+[Remote]: Yeah.
+[Remote]: So I guess
+[Remote]: technically,
+[Remote]: what are you doing in order to, like, bypass? You said I I understand that there's, like, a
+[Remote]: a context layer there.
+[Remote]: Is that in practice more of, like, a knowledge graph infrastructure
+[Remote]: that's giving you some, like, near, like, near neighbor, like, search capabilities? Or is it
+[Remote]: is it is it more robust than that? Is it less robust than that? How how should we think about it, like, at a high level
+[Remote]: terms of infrastructure?
+[You]: So,
+[You]: there's there's a lot of things. Right? There's like there's
+[You]: infrastructure we are building in terms of algorithms and intelligence
+[You]: to basically find patterns, detect, and anticipate things that are gonna
+[Remote]: Mhmm.
+[You]: break your your reconciliation workflow. And then there's what we call the policies.
+[You]: Right? For each one of our customers, we're starting to build what we call a policy, which is
+[You]: what are we doing when, we are
+[You]: identifying the manual transfer that comes in on the twenty ninth each month?
+[You]: Are we marking it as an exception or not? Because we're finding it as a difference.
+[You]: And it's a difference that doesn't add up to the balance. What are we doing with that? And so
+[You]: as the user starts approving these things on our platform, the system learns.
+[You]: And starts creating that policy. What are we doing when the
+[You]: transaction matching ratio goes below 95%?
+[You]: Are we selling an alarm? Are we creating a report? Who are we sending this
+[You]: report to? So it's basically like, because it's an incredibly nuanced workflow,
+[You]: our product needs to feel as as sort of you're building your
+[You]: own software for this workflow. It needs to like, in in the AI era,
+[You]: could be and and even work for financial workflows that are very nuanced.
+[You]: It's very hard to build a SaaS that's one size fits all.
+[You]: Because every single setup is different, every single requirement is different. So
+[Remote]: No.
+[You]: we're building a lot of
+[You]: configuration, a lot of flexibility into the platform.
+[You]: So that the user can control and build their own workflow for reconciliation. And so that what gives us also
+[You]: also is a business model in which we don't need to be having
+[You]: account executives and account managers and providing all that, post sales
+[You]: support. It's just like a tool that you're buying and that's enabling you to be way more
+[You]: efficient and safer on on the transaction monitoring side.
+[Remote]: Despite that, right, in the early and I get I know it's early, like,
+[Remote]: how much are your customers
+[Remote]: leaning on you, right, for the expertise and
+[Remote]: helping them sort of clean up the mess.
+[Remote]: Versus, like,
+[Remote]: oh my god. This is exactly the you know,
+[Remote]: stupid analogy, but, like, the vacuum that I needed to clean up my own mess, so to speak.
+[You]: We've seen everything. We've seen teams that really had a hold of it, and then they're just buying us
+[You]: to be more efficient and probably like or fire off
+[You]: the people doing this or just put them to other high leverage stuff.
+[Remote]: Yep.
+[You]: And they had a lot of knowledge until then we're just like codifying and automating the workflow.
+[You]: And then we've had teams that had, like, literally zero control and visibility
+[You]: over their money flows, and we just stepped in and built the whole reconciliation workflow for them.
+[You]: A lot of hand holding there
+[You]: but also a lot of value creation there. Like, they were absolutely blind and they just, like,
+[You]: leapfrogged to have an automated AI powered platform that's
+[You]: reconciling the money flows every single day. Right? They didn't go
+[You]: through that natural progression of
+[You]: try to build something internally, hire people, build a process, and then outsource.
+[Remote]: How how much data
+[You]: You know?
+[Remote]: transaction volume, whatever, do you need for the AI to be, like,
+[Remote]: self sufficient?
+[Remote]: Or at least let maybe let me split the question. What is, like, the threshold of, like, you being
+[Remote]: happy with the AI's performance?
+[Remote]: Then second, like, what do you need
+[Remote]: from a volume standpoint to get there?
+[You]: It's it's not so much about volume. It's about more like days operating and learning the policy.
+[You]: Because we don't care about like it it doesn't matter if it's like 10,000,000 transactions a month or 1,000,000 Like, at the end of the day, it's, like, we need to learn how these things match.
+[You]: And how the humaners how the human is operating the platform.
+[You]: To provide better and better suggestions. And then, of course, our engine is learning from
+[You]: our other customers. So there's a lot of things and a lot of learnings we can bring
+[You]: and leverage from other customers to their customer. Like, for example, Camun,
+[You]: we're reconciling against the Galileo ledger.
+[You]: There's a lot of knowledge in how these ledgers work, you know. And so when another customer comes in and they
+[You]: a Galileo ledger, there are a lot of things we can propose on that engine
+[You]: that's gonna enable that that workflow to be better for that customer.
+[You]: Of course, then there's, like, the 20% of Nuance that we need to learn and start building the policy.
+[You]: And that policy is built way more about days in
+[You]: operation than, like, volume of transactions.
+[Remote]: Got it.
+[You]: Because, again, everything is relative. It doesn't matter if
+[Remote]: Okay.
+[You]: 10,000,000 transaction. They are one we care about is about matching ratio. What we care about is what are you doing with exception
+[You]: How are you handling them? How are categorizing them?
+[You]: Tell me about the root cause.
+[You]: Interact with with our tool in terms of what type of dashboards you wanna
+[You]: build, what type of reports you wanna build. And then that's when we sort of get better and better. Right?
+[Remote]: K.
+[Remote]: So how does
+[Remote]: how does pricing evolve over time?
+[You]: Oh, that's a big one we're still experimenting with.
+[You]: So right now, we're offering three different models.
+[You]: We're going for a flat price. Because when you think about, like, first,
+[You]: the industry needs this. There's a huge pull in the market. Second,
+[Remote]: Yep.
+[You]: it's an incredible wedge to the most valuable data and financial services
+[You]: that's gonna give us a right to build a lot of stuff on top of it. And third,
+[You]: our thesis is centered centered around network effects,
+[You]: and so we need to create scale and create a lot of adoption at the beginning.
+[You]: Right now, pricing for us is how can we get a lot of people to use the platform.
+[You]: In this shared collaborative view and and multiple teams instead of
+[You]: same company and start creating that sort of centralized
+[You]: source of truth for these companies and between companies. Pricing is
+[You]: really aimed at at
+[You]: selling and lower the variance of entry. So we have three models. We have a flat one, which is
+[You]: really great for companies that like
+[You]: like, 100% certainty on what's gonna cost.
+[You]: And so we estimate the value we're gonna process for that year, we provided just a flat fee.
+[You]: We don't wanna be charging by seat because we actually
+[You]: wanna foster collaboration internally, and externally.
+[You]: Then we have a hybrid model, which has a fixed platform fee and a variable one.
+[You]: And then a fully variable one. When when we
+[You]: calculate the variable fee, it's it's about processing and storage.
+[You]: Which typically amounts to number of records
+[You]: and number of money flows you're reconciling on the platform. But having said that,
+[You]: it's it's it's a big it's it's a big, question mark yet for us.
+[You]: Pricing you like this, it's working, but
+[You]: think the future is gonna be different on this front. I would love for it to be value based.
+[You]: I just haven't had my head wrapped around how can we charge value based
+[You]: on this one. At some point, if this becomes like a reconciliation analyst,
+[You]: and there's no interface, we can, I don't know, charge by effort, by hour, by
+[You]: work done? But I feel like the industry has not yet,
+[You]: determined what's the best way forward for this, and all our customers are
+[You]: still very open to a SaaS product, which for us is great because it's recurring revenue,
+[You]: We can grow if it's on the hybrid model or on the variable model with them.
+[You]: And, again, we're gaining access to
+[You]: valuable data that enables us to build other workflows as we
+[You]: continue growing. So, those are the models
+[You]: ACVs, we're trying to go underpriced competitors.
+[You]: Because as I mentioned, for now,
+[You]: we're trying to target like, we we need scale. We want scale. That's what we're thirsty for.
+[Remote]: Yep.
+[You]: And and and once you're in, it's a very sticky product.
+[You]: Unless it becomes incredibly expensive or you're underperforming.
+[You]: So it's about how can we lower the barrier to entry as much as we can
+[You]: And that's also a difference with competitors like BlackLine, Artem, Duco, Ledge.
+[You]: They're a great product, but very
+[You]: just requires a lot of maintenance, a lot of implementation. And so
+[You]: there's a lot of professional services bolted into that SaaS product. And that's why it's very
+[You]: expensive. And when I say expensive, it's like,
+[You]: it's north of half 1,000,000, you know, for a recon SaaS.
+[You]: And that's like price excluding not even the mid and lower market, big
+[You]: companies that are not willing to pay half 1,000,000 for reconsass, you know, and that's just
+[You]: preferred to have like one or two people doing it via Excel or SQL.
+[You]: Which, again, it's not the best decision because it's not accurate
+[You]: and there's there's a risk involved in that, but there's no clear ROI
+[You]: So our ACVs are more around like $60.70, 80 ks,
+[You]: and there's a big ROI for that. A big like, it's it's a no brainer
+[You]: When we when we actually go with customers to build business cases, it's like,
+[You]: it's crazy. And they're like, you should be taking more.
+[You]: But for us, it's like traction, traction, traction, and and learning and iterating the product and generating that
+[You]: scale to start unlocking network effects. Right?
+[Remote]: Yeah.
+[Remote]: If you had the guess in terms of the policy
+[Remote]: no. In terms of policy config here.
+[Remote]: I I don't understand.
+[Remote]: How much of it like, a percentage of it? I I know it's hard to gauge, but
+[Remote]: do you think it's it's gonna be really rep replicable versus, like,
+[Remote]: very custom
+[Remote]: business specific knowledge.
+[Remote]: And and then, like, at scale, like, when do you think you'll start to see, a lot of the network effects in terms of, like,
+[Remote]: the the the policy?
+[You]: Policies are very nuanced. Very nuanced.
+[Remote]: Mhmm.
+[You]: It's it's it's a great question.
+[You]: That you're bringing up. To be honest, I don't think there's a clear answer yet.
+[You]: We're building the product in a way that's a 100% flexible. So
+[You]: that the policy is, like, incredibly nuanced on a per company basis.
+[You]: I'll I'll answer that question at the end of the year once we have, like,
+[You]: a bit more scale to understand okay we're seeing a lot of
+[You]: different patterns and policy configurations across these companies.
+[You]: But as of today, and and and what we've seen
+[You]: it's very nuanced. It's very nuanced.
+[You]: There's a lot on the setup, the providers,
+[You]: reporting requirements, what type of company, how big are
+[You]: they, where do they operate? Like, it's it's
+[You]: all over the place. That's why it's hard
+[Remote]: Yeah.
+[You]: workflow. Right?
+[Remote]: Yeah. Which makes sense. Might that's why there's so much value.
+[Remote]: You know, I feel like you could build seven or eight of these businesses
+[Remote]: focus on different ICPs, and
+[Remote]: if you can nail out
+[Remote]: the actual data standardization,
+[Remote]: that's an IPO business. So, like, you know, it's not gonna be an easy battle.
+[Remote]: It just it's just trying to get a sense of how you're thinking about things now.
+[You]: Yep.
+[Remote]: And and then I I think more importantly, like,
+[Remote]: you know,
+[Remote]: when you think about signals or
+[Remote]: repeatability and go to market,
+[Remote]: post this first customer,
+[Remote]: what's gonna give you signs that you guys are ready to go into multiple
+[Remote]: into multiple logos?
+[Remote]: It just nailing the first one?
+[Remote]: It onboarding becoming easier? Like, is it some tech improvements?
+[Remote]: Have a sense there?
+[You]: Well, we we have one multiple logos. We already have multiple paying customers live on on on the platform.
+[You]: Other than that, I think it's it's
+[You]: for me, it's about the ICP, like, what I'm most
+[You]: not worried, but focused right now is
+[You]: as you said I think it's about nailing
+[You]: either the payment vertical or the Neobank vertical or the
+[You]: Banks and Tech partnership vertical or the
+[You]: traditional banking. I don't know. Who knows? Like insurance,
+[You]: e commerce. Like today, we're seeing pull in many different verticals, but for me, it's
+[You]: really trying to crack this border.
+[You]: Which vertical are we best suited to serve?
+[You]: And that we can sell into most effectively because you might all know
+[You]: selling into financial services institutions is a long sales cycle.
+[You]: It's a wine and dine dynamic for a lot of months.
+[You]: Until we actually sell something and then you
+[You]: implement it in these archaic systems and there's a lot of bureaucracies, so it takes time.
+[You]: And so I'm trying to really get my head around
+[You]: what's the specific ICB we wanna be targeting, and just, like, really focus
+[You]: on nailing that one and scaling that one for the rest of your gear. And that's something we're gonna define
+[You]: this quarter. And and in terms of signal, I guess, is
+[You]: two things. And I like to measure everything. Right? How long does it take us
+[You]: for us to implement? Like, what's the time to value?
+[You]: If it's short, it's a signal that our product is really good.
+[You]: For their setups. If it's long,
+[You]: typically because we had to do a lot of ad hoc developments to onboard that customer.
+[You]: And typically, it means our product is a bit stretched in the direction
+[You]: that it was not initially designed for.
+[You]: And then the second one is the sales cycle.
+[You]: A combination of both. So very happy customers,
+[You]: that I sold into very fast, that signal for me to go there.
+[You]: Right? And and it's it's not one, it's not two, it's 10.
+[You]: Evidence that, hey, these type of customers are they're like,
+[You]: it was a life changing moment before and after when they implemented Rexy.
+[You]: And the sales cycle with them from the first discovery meeting until
+[You]: we actually sold something and we implemented something, less than two or three months.
+[You]: You know? If it's that, then it's okay. Let's let's go and nail that segment in The US market
+[You]: and only go after those companies.
+[Remote]: Okay.
+[You]: And then, I don't know, think with AI,
+[You]: like that's sort of like the conservative typical playbook of tech
+[You]: and I love it. We're on that conservative traditional side of things.
+[You]: But I think AI is rewriting a lot of these playbooks.
+[You]: Because it's it's at the end of the day, AI is a productivity enhancement tool.
+[You]: And so we could be doing
+[You]: multiple of these. Do we actually need to ultra focus? That's something
+[You]: I always go back and forth in this quarter as well.
+[You]: I don't know. Maybe we can do that, and we can also do, like,
+[You]: Palantir sort of model for banks where we
+[You]: develop the platform for them and then just leave and on a retainer
+[You]: to sell additional stuff later.
+[Remote]: Yeah.
+[You]: Can we do both? Ten years ago, maybe not. Today,
+[Remote]: Well,
+[You]: with the tools we have, maybe yes.
+[Remote]: Hey. And then I know this is kinda out of the blue, I didn't get
+[Remote]: information last time, and so I wanted
+[Remote]: dive a little deeper. In terms of your pre seed round,
+[Remote]: or the round you raised previously, can you could you walk us through what
+[Remote]: like, what the post was in that round and who participated?
+[You]: Sure. It was a 7,000,000 post money cap
+[You]: and our biggest investors were
+[You]: underscore. We're working closely with Chris Carter. I'm sure you know him. Boston Bay
+[Remote]: Oh, yeah. Chris is great.
+[Remote]: Yeah. Ollie and Chris are in place.
+[You]: Yeah.
+[You]: And then Flybridge, Jeff Bosbank.
+[You]: Busbank. I did HBS, so I knew him from there. And then after we cleared the
+[Remote]: Nice.
+[You]: conflict of interest of me being a student, he invested.
+[You]: And then we have
+[You]: a textbook, a fund here in based in New York.
+[You]: And then we have n f x and pair, which were small checks
+[You]: of pitch competitions I won, during
+[You]: I won the pair competition, and I won NFX fast.
+[Remote]: Yeah.
+[You]: And those were two those were uncapped safes, but, of course,
+[You]: as we added the cap later, they're gonna convert under that cap.
+[Remote]: Okay.
+[Remote]: That's helpful context. Super. This might be duplicative of what you
+[Remote]: covered with James last time, but what are you looking to raise next?
+[You]: I think this is same. I'm just
+[You]: same answer I did James last time.
+[You]: I'm on the I'm on the traditional side on this one, know, like, I've
+[You]: one of my brothers he has a busy fan called Animo Animo Ventures I don't know if you know them
+[Remote]: Oh, yeah. They were just at a deal.
+[Remote]: Saw, like, last week. Small world.
+[You]: Yeah. So Nico there. He's my brother. So
+[You]: and I did collaborate with him in many times. And so
+[You]: I've seen a lot of things go well
+[You]: at these stages. A lot of things go wrong. I'm more on the signal based side of things.
+[You]: Having the tech team based in Argentina enables us to have a really rogue
+[You]: really low burn rate. And so that gives us a lot of
+[You]: freedom and flexibility of actually fundraising when we crack
+[You]: something. You know? And as I mentioned, this quarter for me is cracking product,
+[You]: cracking distribution on a specific cement I can focus and scale.
+[You]: And once I have that enough conviction,
+[You]: on, hey, this is something we need to scale because we have
+[You]: x y z opportunities lined up that I need to serve, and I need to
+[You]: have a bigger team and move faster. That's when I'll fundraise.
+[You]: Having said that, I'm a very planned individual as well,
+[You]: structured. So I am planning to do it sometime q two, q three.
+[You]: If the signal is there and the conviction is there. And in terms of of round
+[Remote]: Yep.
+[You]: size, anywhere between three to
+[You]: eight. I don't know. Depends again, depends on the conviction and how many
+[You]: and and and what's the fund necessary to achieve that
+[You]: next level? I'm not gonna raise more out of hype. I'm gonna raise the right amount of need
+[You]: to prove something else. You know? For me, this is like a
+[You]: it's experimental. Everything is experimental. Like, we today, we have
+[You]: a hypothesis. We have an understanding of a situation.
+[You]: And how we think we can solve it. Let's demonstrate ourselves, and then the investment
+[You]: on on what's the evidence we're gathering and the signal we're gathering to fundraise the next round. So
+[You]: that's how we're taking it. I don't know if it's gonna be two, three a
+[You]: 10, 12, or when it's gonna be, hopefully this year. But
+[You]: step by step.
+[Remote]: Yeah.
+[Remote]: Very, very rational, very grounded.
+[Remote]: Okay.
+[Remote]: We we're friends with Derek at a company called Vardera.
+[Remote]: Which he teamed up with your brother. So
+[You]: Echo.
+[Remote]: yeah, small world. Anyway, that sounds good.
+[Remote]: That sounds good.
+[Remote]: Well, I guess in terms of, like, next steps, at least on our end,
+[Remote]: you know, I I think
+[Remote]: from
+[Remote]: our perspective, I really like what you're building, and then I've enjoyed the last few conversations a lot. Just
+[Remote]: way you think about things. And
+[Remote]: and a very messy but simple
+[Remote]: space in some ways. A lot of partners, but it's a really simple value prop
+[Remote]: which makes it a tricky to navigate.
+[Remote]: So, you know, I'd simple. Seemingly simple.
+[Remote]: I see It's just revenue wreck. It's super simple. Oh my god.
+[You]: It's a nightmare. Every time I describe people what I do,
+[Remote]: No.
+[Remote]: Yeah.
+[You]: and I and I simplify it, I'm like, what I just explained
+[You]: okay. 10 x to complexity. It's just for you to understand conceptually what I
+[Remote]: 100 x, man. Yeah. You're
+[You]: do, but but it gets messy.
+[Remote]: you're a SmoothTalker.
+[Remote]: You're a smooth talker. You make it sound really simple. I'm sure.
+[Remote]: And the cocktail party. You know? That's just rep rack. It's
+[Remote]: fine. We invested in a company that did, like, the engineering, autonomously.
+[Remote]: There's a lot of schema matching. And they tried touching this
+[Remote]: one of their users, and
+[Remote]: can guess how that went. So
+[Remote]: but yeah. I mean, I'd love to stay in touch and come to next steps.
+[You]: Sure. And if you're in New York or I'm in I think
+[You]: I might go to Boston. I'll let you know. We can grab coffee.
+[You]: For now building and selling. So so, again, thank you for the time. Great meeting.
+[You]: Of course, let's keep the conversation live and warm.
+[You]: And and and we'll take it from there.
+[You]: Maybe coffee next time in person will be great, either in New York or Boston.
+[Remote]: Yep.
+[Remote]: Sounds good.
+[You]: Awesome. Alright. Thank you for the time. Need to jump. Have a great rest of your day.
+[Remote]: Sounds good.
+[Remote]: Yeah.
+[Remote]: Great to meet you, Ignacio.
+[Remote]: Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Glasswing Background & Context
+
+-   Ali: Principal at Glasswing (5 years), former Ernst & Young accountant
+    -   Deep expertise in financial workflows, ACH, clearing, repo markets
+    -   Worked with large banks on accounting/finance systems
+-   James: Also at Glasswing, brought Ali for his financial operations expertise
+-   Weather discussion - Boston got ~20 inches of snow, parking challenges
+
+### Current Customer Base & Use Cases
+
+-   Live paying customers across multiple verticals:
+    -   Neo banks, payment providers, crypto wallets, traditional banking
+    -   Insurance companies (starting exploration)
+    -   OTA platform in Latin America
+    -   E-commerce platform (Latin America’s Shopify equivalent)
+-   Still defining optimal ICP - exploring which segment offers best product-market fit
+-   Primary focus: Series A fintechs with high transaction volume, multi-currency operations
+
+### Detailed Customer Examples
+
+-   Camun (Latino immigrant banking):
+    -   Ledger outsourced by Galileo, two sponsor banks
+    -   Products: card program, remittance, ACH, peer-to-peer, cash deposits/withdrawals
+    -   Three-way reconciliation: bank statements vs ledger vs provider reports
+-   Thera (global payroll):
+    -   Pay-ins: Stripe, ACH, Zelle multiple providers
+    -   Pay-outs: Wise, dLocal, international payment companies
+    -   Multi-source, multi-currency, high volume complexity
+
+### Technical Architecture & AI Capabilities
+
+-   Data integration challenges:
+    -   APIs on modern side, SFTPs/manual CSVs on legacy side
+    -   Parsing different formats into universal standard
+    -   No unique transaction identifiers - complex matching algorithms
+-   AI-powered policy engine:
+    -   Learns from days of operation (not transaction volume dependent)
+    -   Builds custom policies per company setup
+    -   Cross-customer knowledge transfer (e.g., Galileo ledger patterns)
+    -   Handles exceptions, matching ratios, reporting workflows
+-   Performance metrics: Seeks 95%+ transaction matching ratio
+
+### Market Problem & Financial Impact
+
+-   Industry pain points:
+    -   Fintech stack became patchwork of integrations over 10 years
+    -   Data fragmented across multiple providers/layers
+    -   Synapse collapse highlighted tracking difficulties
+-   Customer financial losses significant:
+    -   Write-offs ranging 0.1% to 3% of transaction volume
+    -   One Latin America fintech: $20-30K monthly write-offs
+    -   Teams of 5+ people just chasing reconciliation differences
+
+### Distribution Strategy & Network Effects
+
+-   Dual approach:
+    1.  Direct to Series A fintechs (short sales cycles, willing to experiment)
+    2.  Sponsor banks (regulatory pressure post-Synapse, leverage over ecosystem)
+-   Network effects vision:
+    -   Banks require fintechs to use Rexy for compliance/visibility
+    -   Fintechs require providers to use Rexy for collaboration
+    -   Shared tool becomes industry standard (referencing FICO model)
+
+### Pricing & Business Model
+
+-   Current models offered:
+    1.  Flat annual fee (100% cost certainty)
+    2.  Hybrid: fixed platform + variable processing
+    3.  Fully variable based on records/money flows processed
+-   ACVs: $60-80K (vs competitors at $500K+)
+-   Strategy: Underpriced for scale/adoption, not profit maximization
+-   No per-seat pricing to encourage internal/external collaboration
+
+### Fundraising & Investment Context
+
+-   Previous round: $7M post-money cap
+    -   Underscore VC (Chris Carter), Flybridge (Jeff Busbank)
+    -   Boston Bay, Textbook (NYC), NFX, Pair (pitch competition wins)
+-   Next round timing: Q2/Q3 if signals warrant
+    -   Size: $3-8M based on conviction/needs
+    -   Signal-based approach, not hype-driven
+    -   Low burn rate (Argentina-based tech team) provides flexibility
+
+### Go-to-Market Priorities
+
+-   Q1 focus: Define specific ICP vertical for concentrated scaling
+-   Success metrics for ICP validation:
+    1.  Implementation speed (time to value)
+    2.  Sales cycle length (<2-3 months target)
+-   Considering AI-enabled multi-vertical approach vs traditional ultra-focus
+-   Potential Palantir-style custom development model for larger banks
+
+### Next Steps
+
+-   Ignacio: Continue building/selling, define ICP this quarter
+-   Glasswing: Stay in touch, potential Boston/NYC coffee meeting
+-   Follow-up on progress toward ICP definition and scaling signals
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/e05fccdf-aa31-4441-9464-16daccde9cb4](https://notes.granola.ai/t/e05fccdf-aa31-4441-9464-16daccde9cb4)

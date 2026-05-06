@@ -1,0 +1,719 @@
+MEETING: Banco Galicia : Rexi
+DATE: 2026-04-28
+ID: not_M7KrDUicih6ozH
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Augusto Salvador Basile <augusto.basile@bancogalicia.com.ar>, Erico Ignacio Behmer <erico.behmer@bancogalicia.com.ar>
+SCHEDULED: 2026-04-28T10:30:00-04:00 - 2026-04-28T11:15:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Buenas.
+[You]: ¿Cómo estás, Érico?
+[Remote]: Hola, buenas Hola, Matías, ¿cómo estás? Vengo me vengo más cerca acá que
+[You]: Estás a gusto?
+[Remote]: Sí.
+[Remote]: Ah, yo estoy
+[You]: En
+[You]: en corrientes, supongo?
+[Remote]: Plaza, en Corrientes Y Leyva, que era el edificio nuestro.
+[You]: Mira, yo tuve
+[You]: yo yo antes trabajaba en Bain, hice un proyecto con Galicia, iba a la a la de Perón y reconquijiste
+[Remote]: Ah, sí, todo le decimos esa nosotros.
+[You]: La Torre Galicia, ¿no?, la famosa Torre Galicia.
+[Remote]: Sí, sí, sí, sí.
+[Remote]: Está está renovando a poco.
+[Remote]: Hace un tiempo atrás era bastante bien, ¿ahí qué? Ayer subí el catorce, yo yo sí pasaste,
+[Remote]: quedó buenísimo.
+[Remote]: No me vi todavía el catorce.
+[Remote]: Buenísimo. Che, nada, este,
+[Remote]: ya conversamos un poco, este, la idea ahora de la
+[Remote]: a Augusto, Augusto es el responsable de todo el equipo de desarrollo de delivery,
+[Remote]: él tiene a cargo
+[Remote]: las tribus de producto y los equipos de desarrollo con canales,
+[You]: Bonito.
+[Remote]: todo lo que es desarrollo de software y resolución tanto de de
+[Remote]: de necesidades hacia
+[Remote]: clientes,
+[Remote]: el lado producto o hacia el resto de la organización,
+[Remote]: con todos los equipos de
+[Remote]: de sistemas internos que están a cargo de él,
+[Remote]: Entonces, la idea era nada, nada, que podamos tener una charla, ustedes le cuenten un poco de
+[You]: Perfetto.
+[Remote]: Uno, yo les contaba que nosotros tenemos Symmetric,
+[Remote]: implementado en el equipo de contabilidad para conciliaciones, bueno, uno de esos equipos está a cargo de AUMs,
+[Remote]: Y nada, es si es un poco por challenge de eso o
+[Remote]: para entender dónde hay gap y dónde no hay gap y dónde hay la oportunidad,
+[Remote]: la idea era conversar
+[Remote]: y
+[Remote]: nada, ver a dónde nos lleva la chava, pero para dar un paso en esa dirección.
+[You]: Fantastico,
+[You]: Bueno, gracias por el espacio, y, la verdad, un gustazo conocerlos a ambos. Yo no
+[You]: sé, creo que la vez pasada, con Erico, Seba sí estaba, pero
+[You]: pero, si no, a gusto te presento a Seba. Seba es nuestro CTO, así que ideal que, este, debo ser la persona
+[You]: menos técnica del de la reunión, así que en algún momento seguramente la voy a pasar.
+[You]: Pero
+[You]: si querés, hago, voy a hacer una presentación un poco de Rexi, de quiénes somos, o si Augusto tiene todo el contexto,
+[You]: pero para setear un poquito el tono, creo que no
+[You]: nosotros, hoy,
+[You]: competimos en un problem space muy similar al de symmetric,
+[You]: resolvemos los mismos problemas conciliatorios, tanto la parte contable
+[You]: como la parte operativa y de flujos de dinero, pero tenemos un approach diferenciado.
+[You]: Y ahí es un poco
+[You]: presentar eso. Y creo que, para setear también el tono y el contexto,
+[You]: nosotros, típicamente, no no no queremos jugar un replacement play, al menos, el
+[You]: plazo, porque sabemos el esfuerzo que seguramente conllevó la implementación y el trabajo con Symmetric,
+[You]: pero sí sabemos que en en entidades como el Banco Galicia,
+[You]: hay un montón de procesos conciliatorios que seguramente quedaron por fuera de Symmetry, que todavía no no han
+[You]: implementados. Entonces, un poco, el el objetivo que yo veo de
+[You]: de esta charla, de esta colaboración, es por ahí encontrar algún caso de uso que quedó por fuera,
+[You]: que nos permitan mostrarlos, mostrarnos, ¿no?, mostrar el producto, mostrar la plataforma.
+[You]: Y después, con eso, ir viendo el norte, si jugamos un un camino hacia reemplazar
+[You]: symmetric, o si por ahí es una solución complementaria para otros flujos.
+[You]: Pero una vez adentro, habiendo probado valor.
+[You]: Sobre algún punto de dolor que todavía no queda resuelto por si
+[You]: Ese es un poquito el ángulo que yo le veo
+[You]: a esta conversación. Voy a compartir pantalla acá,
+[Remote]: Clavino, Nacho, una una cosa que es importante,
+[Remote]: este,
+[Remote]: digo, en este modelo de de de no competir,
+[Remote]: es, básicamente, que cuando uno lo evalúa de este lado,
+[Remote]: que pensar que nosotros tenemos el mismo costo
+[Remote]: este,
+[Remote]: por la plataforma,
+[Remote]: en función de los distintos
+[Remote]: este,
+[Remote]: de las distintas cuestiones que hoy ya conciliamos, digo,
+[Remote]: digo, porque si el modelo es
+[Remote]: no reemplazar,
+[Remote]: empieza a competir un poco el costo de de lo que vos traigas,
+[You]: Sí,
+[Remote]: se suma al costo que ya tenemos, ¿se entiende lo que digo?
+[Remote]: Nosotros no tenemos
+[Remote]: costo
+[Remote]: costo por cada uno de los flujos que implementamos, obviamente el costo está
+[Remote]: implementación del flujo.
+[Remote]: Y y ahí es donde
+[Remote]: donde
+[Remote]: hay que sortear ese ese obstáculo
+[Remote]: o
+[Remote]: tiene que ser un proceso de nuestro lado, de de
+[Remote]: vamos con esto, y y decidimos reemplazar
+[Remote]: directamente a Symmetric.
+[Remote]: Al final del camino.
+[You]: Cien por ciento.
+[You]: Creo que ese es el norte. Si me preguntás, me parece que deberían conseguir dos
+[Remote]: Al no querer estar acá diciendo, che, esto lo esto
+[Remote]: lo traje para reemplazarte mañana.
+[You]: No, claro, claro, o sea, cien por ciento, Yo creo que el norte es reemplazar Symmetric. Nosotros tenemos
+[Remote]: Ok.
+[You]: un, creo que diferenciado, mucho más productivo, mucho más eficiente,
+[You]: y que resuelve el problema de punta a punta. Ahora te voy a contar un poquito más
+[You]: pero creo que el norte es ese. Simplemente,
+[You]: creo que también para ser realistas y cómo logramos demostrar valor en el corto plazo
+[You]: con algún caso de uso, que te digo, porque esto también viene de la reunión pasada con Érico, donde
+[You]: nos comentó de que estaba implementado para algunos casos, pero había un montón de flujos que habían quedado por fuera.
+[Remote]: Sí.
+[You]: Entonces, ahí es donde por ahí, digo, che, entremos ahí a resolver esos flujos,
+[Remote]: Ya hay un Roma.
+[You]: en algo
+[You]: sea como un
+[Remote]: Hay en Roma, pero desde mi punto de vista va muy lento, el policía no sé.
+[You]: Exacto. Ahí,
+[You]: encontrar esos casos de uso que, por ahí, para usted sea bajo costo, bajo riesgo, y nos permita a nosotros mostrar
+[You]: en un ambiente productivo el poder
+[You]: el performance que tiene la plataforma, ¿no?
+[You]: Pero un poquito para
+[You]: contarles si nosotros es el equipo fundador, acá estamos dos de tres. Falta a Teo, que, bueno, no
+[You]: se pudo sumar, pero pero los tres venimos de servicio
+[You]: financiero, del mundo fintech. Seba fue el del equipo fundador de Naranja X, y luego de Pomelo. Tego estuvo en Mercado Pago, creando toda la vertical de seguros y también de cross border trade.
+[You]: Y, en mi caso, yo, por ahí, más del palo fin... Bueno, estuve en consultoría trabajando para
+[You]: para para Galicia, en algún momento, y también para otros bancos en la región,
+[You]: Y después, más foco en en en fintechs, en neobancos, y, bueno, y en Bicho, que es una billetera
+[You]: digital con con criptomonedas, ¿no? Y los tres vivimos el proceso de
+[You]: del otro lado, ¿no?, y vimos los dolores, el costo y la fricción que conllevan estos procesos, y
+[You]: y cómo también, no solamente es las conciliaciones operativas o o
+[You]: pero sino cómo Cascadea impacta otras áreas, operaciones, producto,
+[You]: etcétera. Un poquito también de nuestra historia, nosotros incubamos esta compañía en EMI Yo estaba gestionando en Harvard, hice una incubadora en MIT que terminamos ganando,
+[You]: luego ganamos dos competencias más también en en en Harvard y y en Columbia.
+[You]: Un poco por nuestra tecnología, un poco por nuestra tesis y un poco también por el equipo.
+[You]: Y, bueno, y con eso entraron nuestros primeros inversores, que son
+[You]: de Venture Capital De Estados Unidos. Yo, de hecho, estoy basado en Nueva York. Tengo también
+[You]: con el equipo Técnico Está En En Buenos Aires. Y hoy, un poco,
+[You]: estamos construyendo la compañía como global del día uno, pero con mucho foco en las Américas.
+[You]: América y Sudamérica, así que ya tenemos clientes en en ambos lados.
+[You]: El problema identificado, creo que lo conocen bien, no me voy a detener mucho acá, pero es como esa multiplicidad de fuentes
+[You]: información, que reflejan un mismo flujo de dinero, generan costo, riesgo y fricción, ¿no?, porque
+[You]: al final, las compañías, cuando empiezan a
+[You]: crecer, a escalar, a lanzar múltiples productos, empiezan a crear procesos alrededor de
+[You]: estas múltiples fuentes de información. Y eso
+[You]: no escala, porque te escala la operación y tenés que escalar el equipo, genera mucho riesgo, porque
+[You]: muchos procesos que están sujetos a error humano,
+[You]: y y la realidad es que el error en este tipo de workflows cuesta dinero o cuesta
+[You]: perder una licencia o pagar una multa con algún regulador, y genera mucha fricción en
+[You]: comentaba antes de de las otras áreas. Ahora,
+[You]: acá me quiero detener, porque, obviamente, creo que ustedes solamente lo quieren escuchar de hoy, cómo nos diferenciamos.
+[You]: Nosotros nos diferenciamos, quizás, de de de tres maneras.
+[You]: La primera, principal, es, obviamente, nosotros nacimos AI
+[You]: native, y eso quiere decir que nuestra arquitectura es mucho más flexible y configurable, siendo concilio
+[You]: es un un flujo que depende mucho de la necesidad puntual de cada cliente,
+[You]: Nuestra solución es es muy flexible y muy confortable a las necesidades que tienen
+[You]: ustedes. Y después, por esa arquitectura AI native, también el sistema aprende
+[You]: muchísimo de la operación de ustedes, del accionar de los usuarios y también de los archivos,
+[You]: y se vuelve casi como una sensación de que te construiste una solución
+[You]: o ad hoc a lo que necesita el banco, ¿no?, y cada uno de los equipos.
+[You]: Que por ahí sí, no es diferencia de compañías como Symmetry, que arrancaron antes y es distinto a usted
+[You]: siendo de tecnología, querer querer meterle
+[You]: AI a a algo que ya está armado, algo que ya tenés clientes muy grandes operando.
+[You]: Y una arquitectura que no fue pensada de esa manera. Eso es lo primero. Ahora bien sabemos todos
+[You]: en esta sala que eso no me va a llevar, no no es defensible en el tiempo,
+[You]: y no me va a llevar a construir el tamaño de compañía que
+[You]: construir, ¿no? Entonces, ahí me lleva a los otros dos puntos, que es
+[You]: cómo estamos pensando nosotros en en resolver las
+[You]: Creemos que las conciliaciones son un problema que tienen
+[You]: primero, un desafío muy grande de data engineering,
+[You]: que eso lo vamos a resolver con AI, pero, segundo, después, siempre estás a
+[You]: milla de la resolución de las diferencias, porque, si yo te resuelvo el data engineer de la comparación de los archivos de
+[You]: conectarme a las fuentes de información y y comparar los archivos,
+[You]: siempre queda ese rezago de uno por ciento,
+[You]: toca investigar, que toca llamar a algún proveedor,
+[You]: tengo que revisar mis bases internas,
+[You]: entender y explicar qué pasó con esa diferencia. Y creemos que esa última milla es la que más duele, la
+[You]: más costo, la que más fricción en la operación, y la única manera de resolverla
+[You]: es con una solución que sea colaborativa, tanto internamente
+[You]: que todos los equipos tengan acceso, contabilidad, operaciones, producto,
+[You]: y los equipos de finanzas
+[You]: en general.
+[You]: Y tanto con las contrapartes. Muchos de los flujos de dinero que ustedes operan, seguramente hay una
+[You]: que es un adquirente, que es un procesador de pagos, que es un, no sé, si tiene algún proveedor para alguno de los productos que operan, si tiene alguna o para los productos de inversión. Esa conciliación, siempre esa diferencia es típicamente, tengo que llamar a la contraparte o mandar un mail y decir, che, ¿dónde están estas diez transacciones que me faltan? Y, entonces, la gran visión que tiene Rexy ahí es cómo nos volvemos una solución interconectada, en donde
+[You]: todas las partes involucradas en un flujo de dinero están en Rexi.
+[You]: Eso quiere decir que están
+[You]: dumping la información en REXI, hace todo el paseo, toda la conciliación, y luego se vuelve una herramienta entre todas estas partes. Eso es lo que realmente resuelva el el el problema más grande con las conciliaciones, que yo no no veo que el problema más grande sea el desafío de data engineering, que sí, creo que hay un problema ahí, pero lo vamos a resolver con tecnología.
+[You]: El segundo es un problema de coordinación.
+[You]: Ahí es donde quiere atacar Rexy. Y la tercer parte, donde que que
+[You]: ahora más esta lámina, de cómo nos diferenciamos, es nuestro approach. Para nosotros, no las
+[You]: es es una puerta de entrada.
+[You]: Es una puerta de entrada para luego ayudar a compañías como
+[You]: como Galicia a a acelerar la adopción de AI, a agentes para procesos que hoy siguen siendo muy manuales,
+[You]: como todos los procesos que existen dentro de finanzas y operaciones. Ese back office
+[You]: que hoy, por ahí, está overstaffed, y no solamente overstaffed, sino, como dije antes,
+[You]: todos estos procesos están sujetos a errores humanos, esos errores humanos cuestan dinero.
+[You]: O pueden costar alguna licencia o alguna multa con un regulador.
+[You]: Entonces, no solamente hay un play de automatización y de eficiencia, sino también de
+[You]: de riesgo, ¿no?, con estos flujos. Entonces, si yo te digo,
+[You]: quiero deployar agentes para procesos de finanzas y operaciones,
+[You]: ¿sobre qué infra los deployo?
+[You]: Sobre qué base, la verdad. Y, entonces, ahí es cuando conciliaciones se vuelve un wedge
+[You]: interesante, porque es como construir esa
+[You]: capa que te está orquestando toda tu fuente de información, te está construyendo esa
+[You]: base conciliada, y, sobre esa base, deployamos agentes para
+[You]: tesorería, para contabilidad, para FP Y A, Para Strategic Finance, Para Todos Los Otros Procesos De Fin Ops Que Están Adyacentes A La Conciliación, También Siguen Siendo Muy Manuales, Muy Ineficientes Y Muy Sujetos A Error. Entonces, Te Diría Que Esas Son Las Las Tres Grandes Cosas. Después, Bueno, Acá Hay Un Poco Sobre Los Desarrollos Iniciales Que Hemos Logrado En La Parte De Conciliaciones, Que Creo Que Nos Están Generando Mucho Wow Effect Con Clientes Y En Demos. Pero No Me Quiero Detener Ahí. Algunos De Los Clientes Con Los Que Ya Estamos Trabajando Y El Impacto Con El Que Hemos Generado, En Argentina, particularmente, estamos en conversaciones con el banco industrial,
+[You]: con Superbiel, ya muy avanzados en una prueba piloto.
+[You]: Y con el banco Macro estamos por comenzar una una prueba piloto también.
+[You]: El foco nuestro, como te dije, está en en las Américas, En Argentina y Latinoamérica tenemos mucha atracción por
+[You]: por nuestras redes, porque es de donde venimos y conocemos mucha gente.
+[You]: Y estamos con mucho foco también de implementar acá en Estados Unidos con bancos ahí
+[You]: Bank, Darth Bank, PayLiance, una compañía de pagos.
+[You]: A Tera, que es una fintech de global payroll.
+[You]: Y el impacto, de vuelta, es automatización,
+[You]: es reducción de pérdidas. Estamos desarrollando un módulo muy
+[You]: interesante de revenue leakage, en donde también las compañías
+[You]: pueden chequear con proveedores externos si les están mandando el revenue correspondiente, o si están
+[You]: pagando la fees correspondiente, si estamos encontrando un montón de recupero de dinero ahí.
+[You]: Después el último tema, que es la reducción de riesgo, ¿no?
+[Remote]: Ahí ahí te sumo
+[You]: Las modalidades productivas,
+[Remote]: sumo, Nacho, o algo, no sé si se escucha porque hay ruido de fondo, no se escucha que no. Creo que una de las ventajas competitivas de Rexi es
+[Remote]: esta parte de integración, ¿no?
+[Remote]: Se armó totalmente sobre
+[Remote]: y se armó sobre AI, y todos estos tiempos de integración que tiene en otros
+[Remote]: players, que capaz que están un año para integrar el flujo,
+[Remote]: nosotros esos tiempos son absolutamente cortos,
+[Remote]: y nos integramos a los clientes, es más, trabajamos con los clientes
+[Remote]: y esto que decía Nacho al principio de generar impacto rápido con algún flujo, nosotros capaz que nos conectamos, y en un mes tenemos un flujo en producción andando para ver el valor de ¿ok? No importa la integración que ustedes tienen, qué es lo que más tardaban los players incumbentes de hoy, nosotros esas integraciones
+[Remote]: ya están hechas con un motor de AI, entonces no perdemos tiempo en las
+[Remote]: sino que nos concentramos mucho en el proceso de data engineering y siempre nos preocupamos más, no capaz que en la interacción, que es esta parte difícil
+[Remote]: de estos proyectos, lo que venía haciendo, sino la parte de, che, todo lo que no
+[Remote]: ¿qué hacemos?, ¿cómo lo hacemos?, y laboramos más en el equipo sobre esa parte,
+[You]: So that
+[Remote]: que es la que termina siendo importante.
+[Remote]: Sí, te hago una pregunta, digo, para bajar un toque más a tierra, digo,
+[Remote]: caso, ¿qué casos de uso concretos
+[Remote]: hoy tienen funcionando
+[Remote]: como yo te dijera, no sé, conciliación de la las
+[Remote]: ¿cómo se llama?, el el el el
+[Remote]: me sale como el resumen que mandan las tarjetas a lo
+[Remote]: al de la que te manda la procesadora al banco emisor.
+[Remote]: Flujos que ustedes conozcan que son
+[Remote]: que ya tienen funcionando, que que vos que vos vos sabés que el banco Alisa tiene, ¿no?, porque
+[Remote]: nosotros procesamos en prima y tenemos no sé cuánto, entonces, pues, si estos son
+[Remote]: Bueno, creo, el de la parte de emisor, ponele en todo lo que es tarjetas, vieron que una
+[Remote]: si vos tenés el procesador que ustedes tienen a Prisma, capaz que te manda la ISO. Nosotros, por ejemplo, con
+[Remote]: uno de nuestros clientes con despegar, procesamos, parciamos toda la ISO dentro de
+[Remote]: eso lo transforma a vistas que el equipo puede manejar. Entonces, vieron que
+[Remote]: la traducción de la ISO tiene, vos tenés que traducirla por cada por cada carácter,
+[Remote]: eso es una cadena de caracteres, vos tenés campos, las columnas.
+[Remote]: Eso se traduce dentro de y ellos procesan todas las transacciones que se hacen
+[Remote]: adentro de y después las concilian. Entonces, el equipo de operaciones
+[Remote]: no necesita un equipo técnico, y nuestro, ahí, agente de data ahí
+[Remote]: data agent procesa toda esa de caracteres de ISO,
+[Remote]: la está lista para usar, eso queda en en una tabla de transacciones de
+[Remote]: billions de transacciones, y después procesan y reconcilian con, no sé,
+[Remote]: lo que mandó, lo que ellos tienen en sus sistemas, por ejemplo.
+[Remote]: Entonces, consigna lo que tiene en sus sistemas versus lo que manda el procesador,
+[Remote]: y ahí está toda la gestión de unmatch, que después, cuando termina de correr la conciliación, que es un
+[Remote]: proceso automático, todo lo que no hay un problem solver agent,
+[Remote]: que revisa, che, todo esto no concilió porque le falta
+[Remote]: porque, che, te vinieron datos nuevos. Siempre hay problemas de data quality acá, ¿no?
+[Remote]: El procesador te empieza a mandar data que antes no te mandaba.
+[You]: Cambiare il formato.
+[Remote]: Listo, te empezó a fallar porque no tenías contemplado el flujo. Ese nuestro problem solver te lo resuelve,
+[Remote]: como nosotros tenemos toda la ingesta de la la data, siempre
+[Remote]: se ingesta automáticamente. Vos armás eso, y todos los días, por ejemplo, no sé,
+[Remote]: en el caso de presentaciones, en un procesador emisor, todos los días tenés el archivo de presentaciones que te cae y vos lo tenés que compensar y Bueno, eso ya cuando ajustás el el problema de data quality, ya todos los días ya quedó asegurado, entonces eso eso es gestión de unmatch. Que no pudiste conciliar, y de repente, che, pasé de tener un por ciento de un a diez por ciento por una anomalía, lo arreglás y eso vuelve a estar. Siempre se trata de mantener esos porcentajes, esos umbrales de un match resueltos, ¿no? Y te ayuda a eso. Nosotros, el caso específico, y le voy
+[Remote]: ser sincero, es
+[Remote]: muy, nosotros venimos por mail, yo vengo de procesador,
+[Remote]: estamos muy en el modelo de cuatro partes, ¿ok? O sea,
+[Remote]: en en todo lo que es procesador, adquirencia,
+[Remote]: Apuntamos mucho a banca tradicional y a fintech.
+[Remote]: Sea, ese es nuestro ICP, nuestro ideal customer, es donde está
+[Remote]: el quilombo de la información y siempre buscamos mucha transaccionalidad. No,
+[Remote]: no lo chico, porque lo chico se puede reprocesar
+[Remote]: capaz que con un Excel, ¿no? Entonces, cuando es mucho caos de información,
+[Remote]: y muchos muchos sources, se pierde mucha plata.
+[Remote]: ¿No? O sea, ahí, vos, a la marca Visa, Master,
+[Remote]: terminás pagando un montón de plata, porque hay cosas que no sabés conciliar y hay cosas que tenés que asumir.
+[Remote]: Toda la parte de chargebacks, bueno, nosotros como que nos encargamos mucho ahí
+[Remote]: de resolver toda la parte de contracargos. Para abrir un contracargo son
+[Remote]: dólares capaz que un proceso de mediación. Te conviene asumir el costo
+[Remote]: del proceso de contracargos antes de que arrancar un proceso de esos. Entonces, bueno, Rexi,
+[Remote]: es como que ayuda eso. Esto de revenue leakage, que estamos haciendo un módulo
+[Remote]: de dónde se fuga la plata, es como que nos queremos meter cien por ciento ahí, que
+[Remote]: Rexi no te ayude solo a conciliar,
+[Remote]: sino a resolver problemas de plata que tenga la empresa
+[Remote]: ¿no? De, tipo, que te ayude directamente a recuperar plata que estás perdiendo.
+[You]: Por dar ejemplos,
+[You]: tarjetas,
+[You]: todo lo que mencionó Seo recién, seguros,
+[You]: impuestos,
+[You]: control contable,
+[You]: y después la conciliación operativa de siempre algún sistema externo contra algún
+[You]: back office o un ledger propio. Digo, al final, es un orquestador de datos, técnicamente, entonces se pueden configurar comparaciones y macheos y lógicas de conciliación para para cualquier cosa, digamos. Como te digo, el de revenue leakage, lo que hace es, vos le tirás un contrato, el contrato que tenés con tu adquirente o con con el procesador de remesas, te genera una base should be y te la compara contra la que, efectivamente, te la te la te ejecutaron. Ahí te encuentra transacción por transacción, si te liquidaron bien el revenue, si pagaste bien los fees. Entonces, Alcal es un ajustador de datos.
+[Remote]: Si quieren, les mostramos dos minutos más.
+[Remote]: Nosotros estamos hoy
+[Remote]: utilizando, digamos,
+[Remote]: el el conciliador, porque
+[Remote]: nosotros estamos, más que nada, buscando las diferencias entre
+[Remote]: los sistemas
+[Remote]: hoy tengo como el control operativo de la contabilidad, algo que
+[Remote]: malísimo, pero imagino que pasa en todo, la
+[Remote]: Y lo que termina pasando es que
+[Remote]: lo usamos más que nada para una para un conciliador
+[Remote]: de diferencias
+[Remote]: contables, que no necesariamente siempre termina siendo un
+[Remote]: la parlia, digamos, ¿no? O sea,
+[Remote]: este, es para encontrar los pelotes que tenemos
+[Remote]: a tiempo y y
+[Remote]: y, a partir de ahí, reaccionar. Quedé pensando en si tenemos alguna oportunidad
+[Remote]: en en procesos que
+[Remote]: de pago, de de de salida de de cash.
+[Remote]: Le cuento le cuento un caso, por ejemplo, que que
+[Remote]: lo pasa a Totti, hoy es
+[Remote]: el Banco Galicia, como muchos bancos antiguos, tiene
+[Remote]: la contabilidad
+[Remote]: de cada sucursal
+[Remote]: es, o sea, la la contabilidad del banco es la sumatoria de la
+[Remote]: de cada sucursal. Cada sucursal tiene su propia contabilidad, digamos, antes
+[Remote]: cuando el mundo era totalmente asincrónico,
+[Remote]: este, se trataba acá a sucursal como si fuese, este, una una compañía propia.
+[Remote]: Con su con su contabilidad. El tesorero llevaba la contabilidad de la de la sucursal,
+[Remote]: y las operaciones de un cliente pasaban en su sucursal.
+[Remote]: El mundo evolucionó y los clientes pueden hacer operaciones en cualquier sucursal.
+[Remote]: Sin embargo, los movimientos contables
+[Remote]: o sea, de un cliente, digamos, vos, este, Ignacio, tenés cuenta
+[You]: Sí.
+[Remote]: en la sucursal de AROB,
+[Remote]: entonces, los movimientos contales tienen que estar asociados a la
+[Remote]: Pero sin embargo, vos podés hacer un un un pago
+[Remote]: este, o un retiro en un ATM en la sucursal de San Isidro.
+[Remote]: Este,
+[You]: Me pasó... Perdón, anecdota, cuando tuve que ir cerrar mi cuenta, me hicieron ir a la sucursal
+[Remote]: Bueno,
+[You]: que estaba a mi cuenta.
+[Remote]: todas todas esas cosas,
+[Remote]: te generan como desbalances contables todo el tiempo.
+[Remote]: Que es que lo nosotros llamamos la contabilidad entre casa. La contabilidad entre casas debe ser uno de los
+[Remote]: problemas más históricos que tiene el banco, y es un explote total, completo, siempre.
+[Remote]: Bueno,
+[Remote]: esta sincronización o conciliación de de de fuentes
+[Remote]: es lo que Rexi se encarga, ¿no? O sea, para mí, la parte difícil ahí es,
+[Remote]: cómo se carga la la información, que es ahí donde está el, che,
+[Remote]: cómo automatizás el proceso de que cada sucursal ponga toda su
+[Remote]: dentro de Rexi, porque después armás el proceso y eso queda automatizado.
+[Remote]: Para mí, Rex es un caso de
+[Remote]: de uso de es conciliar, termina haciendo eso, che, lo que dice la
+[Remote]: las sucursales versus lo que tiene el banco,
+[Remote]: y y y ver cuál es la fuente de verdad, y
+[Remote]: realmente entender de ese porcentaje que no macheó, poder ver qué qué
+[Remote]: cuáles son. Además, otra cosa creo que lo que Rexie aporta es mucha visibilidad, ¿no?, de todo lo que no machea, qué sucursal,
+[Remote]: es la que no machea, tantas, no sé, las transacciones que tiene, dónde falta la plata.
+[Remote]: Nada, es es un caso de uso normal de conciliaciones, me parece que
+[Remote]: aplica aplica literal.
+[Remote]: No sé si no sé si quieren ver
+[Remote]: un poco la plataforma por arriba, no sé si puedo compartir pantalla por
+[Remote]: para para para Sí, de hecho estás compartiendo en algún momento y y
+[Remote]: Yo no la veo. A ver, no sé, ¿están viendo ahí?
+[You]: Sí, sí.
+[Remote]: Sí, ahí sí.
+[Remote]: Sí. Perfecto. Bueno, esta es Rexy,
+[Remote]: no sé capaz que se ve un poquito mejor en en blanco o en cosa, pero la idea es que Rexi es
+[Remote]: es una plataforma full agéntica, se planteó así, se planeó así,
+[Remote]: Todo lo que vos hacés dentro de Rexi se puede hacer vía este chat,
+[Remote]: que es el y estamos nuestra nuestra visión
+[Remote]: va a terminar siendo que el agente de operaciones tenga su propio
+[Remote]: cloud code o ChatGPT para todo lo que es finanzas, ¿no? Nos dimos cuenta que
+[Remote]: toda esta parte de manual, que capaz que tiene Symmetric,
+[Remote]: de configurar los formularios, que tenés que hacer toda una integración media caótica,
+[Remote]: se resuelve muy rápido con AI. Obviamente, nosotros tenemos un montón de agentes y también nuestra visión es que cada operario de finanzas o de operaciones
+[Remote]: pueda crear sus propios agentes para resolver con su multa, para resolver cosas.
+[Remote]: Esta es es la home de Rexi, vos también tenés la parte de sourcing, que es uno de los módulos principales,
+[Remote]: Acá es donde cargarías, no sé, la la data de la sucursal a, la data de la sucursal b,
+[Remote]: vos tenés todas tus todas tus fuentes de origen,
+[Remote]: dentro de Rexi, y se cargan automáticamente. Acá la puede cargar, o
+[Remote]: de manera manual o automática.
+[Remote]: Después tenés todo el proceso de conciliaciones, que son estos procesos
+[Remote]: que quedan automatizados, y nosotros después
+[Remote]: no sé, lo dejás es que de un lado para que cada vez que se cargue la
+[Remote]: nueva vuelva a correr el proceso de reconciliaciones y vos puedas ver los porcentajes de macheo que tenés.
+[Remote]: Cuándo corren los los la las
+[Remote]: de de la las reconciliaciones, vos, lo que existe es un módulo de problem solver,
+[Remote]: que va a cada reconciliación que termina de correr y verifica qué pasó con lo no matcheado,
+[Remote]: si está healthy, la reconciliación, si no pasa nada, si no bajo del umbral que tenías detectado.
+[Remote]: Y, si querés, vos podés trabajar con tu equipo de finanzas y tenés, che,
+[Remote]: que hay mucho también resolución de esto, que capaz que tenés que hablar con Visa, con Mastercard, con la marca.
+[Remote]: Con otro proveedor, no es algo que podés resolver vos. Entonces, podés gestionar los tickets ahí,
+[Remote]: todas estas doscientas transacciones, por favor,
+[Remote]: x del equipo, míralo con... Entonces, vas manteniendo un poco de track record
+[Remote]: de lo que sucede con esas transacciones, si no las perdés,
+[Remote]: nuestra, a ver, nosotros también, nuestra
+[Remote]: es que todo sea auditable, no estamos laburando con data. Nosotros tocamos la data
+[Remote]: se transforma la data dentro de Rexi, y algunos
+[Remote]: clientes nuestros también exportan la data de vuelta a sus fuentes de, o sea, es como que usan Rexi como transformador, procesan toda la data y después vuelven a ingestarlas a a sus bases de datos para hacer cosas con experiencia del cliente, con la aplicación, o sea, más real time, ¿no? No sé, temas de contracargos, eso capaz que poder mandar a los usuarios, entonces conectan nuevamente con la base de datos. Bueno, y después tenemos toda una parte de dashboards y de y de reportes y que acá los equipos pueden manejar. Pero bueno, esto es un poquito ¿qué volúmenes manejan, este, para entender si si si no achea? O sea, Bill es, sí. Esa Bill,
+[Remote]: Billions. Billions en segundos, es más, le podemos mostrar tipo...
+[Remote]: Que es un B2B de data, o sea, es como que lo que
+[Remote]: está abajo, la arquitectura que armamos abajo es para manejar billion y trillions de transacciones, ¿ok? O sea, y esto lo que tiene nuestra plataforma
+[Remote]: de diferente a otras plataformas, es que la data se acumula,
+[Remote]: se acumula con el tiempo, porque lo no macheado no es algo que
+[Remote]: se mantiene, es como vas estirando todo, estirándolo, estirándolo, más el cliente,
+[Remote]: no es algo que siempre se mantiene en doscientos mil, doscientos mil, doscientos diez mil, y vas que
+[Remote]: creciendo orgánicamente, no. Es como doscientos, cuatrocientos, exponencial esto. Entonces,
+[Remote]: y toda la data va quedando. Sí tenemos mecanismos de cold storage
+[Remote]: que es como dejar la data más
+[Remote]: digamos, no tan hot como para poder usarla, porque si lo dejás hot también nos
+[Remote]: muchos recursos, y capaz que es data que ya no usás, y ya pasaron doce meses,
+[Remote]: no te interesa esa data, pero también se puede recuperar ahí, pero la verdad es que esta
+[Remote]: para bancar billions de transacciones, No no
+[Remote]: y y y hacer reconciliaciones en, no sé, un billion de transacciones, tenemos
+[Remote]: tipo, en minutos se resuelve la conciliación. No, no, no,
+[Remote]: justo armada para este caso de uso.
+[Remote]: Perfecto.
+[Remote]: Sí, para para imaginar un poco, digamos, a
+[Remote]: tiempo, digamos, cómo podríamos encontrar algún
+[Remote]: algún novio
+[Remote]: o novia
+[Remote]: Imagino,
+[Remote]: esto que, este,
+[Remote]: como una lista de ejemplos de de de cosas del mundo real que estén resolviendo. Yo te dijera,
+[Remote]: este, resolución de contracargos entre
+[Remote]: el procesador Prisma y
+[Remote]: el emisor
+[Remote]: que puede llegar ser cualquier banco local,
+[Remote]: no poner ningún nombre y no no no romper ninguna regla de de
+[Remote]: de confidencialidad, pero
+[Remote]: estos casos
+[Remote]: que son tipo autos de voz, ya los tenemos recontra resuelto, aprendimos
+[Remote]: durante la implementación, con lo cual
+[Remote]: este, entendemos cuál es la casística del negocio,
+[Remote]: este, de dónde salen los los los archivos, contra qué habla, contra qué procesos de un banco
+[Remote]: ustedes habla, como para poder imaginar realmente, digamos, dónde hace feed
+[Remote]: y
+[Remote]: y si se hace alguna prueba para entender
+[Remote]: este, qué qué resuelve
+[Remote]: también darnos vuelta internamente y entender en qué en qué nivel de madurez está ese proceso dentro de lo
+[Remote]: este Bien, me encanta. ¿Está bueno? Con los equipos y preguntarle al equipo de contabilidad,
+[Remote]: che, ¿cómo resolvés este problema?, ¿qué qué qué...?
+[Remote]: Qué pérdida tenés o cuánta gente te has asignaste a este proceso? Y entender dónde está la
+[Remote]: y
+[Remote]: ver si va
+[Remote]: a, digamos, cómo conectamos esas juntas.
+[You]: Boni...
+[Remote]: Dale, está bueno ahí, dale.
+[You]: Yo creo que hay
+[You]: los menciono ahora, pero después, si querés, también lo seguimos por correo. Medios de pago,
+[You]: creo que es el siempre es el foco de de mayor dolor.
+[You]: Que incluye tarjetas y los otros medios de pago.
+[You]: Seguros, suele ser un proceso doloroso también.
+[You]: Estuvimos trabajando también con otro banco en conciliación impositiva,
+[You]: si es un dolor también internamente en el banco. Y después, para todos los productos, algo que
+[You]: horizontal,
+[You]: es el control contable de cada uno de los productos, que es lo que vos mencionaste de las sucursales.
+[You]: Entonces, ese también es un dolor
+[You]: muy grande en lo que respecta a conciliaciones.
+[You]: Después, si querés, yo te dar muchos casos de uso con más detalle de cómo lo estamos trabajando y son los que
+[You]: más aprendimos, y encontramos también un feed ustedes en los que
+[You]: sigue siendo un dolor y no está resuelto y
+[You]: tratamos de buscar ahí un
+[Remote]: Sobre todo la, ¿viste?, la explicación del caso uso.
+[You]: un caso de uso.
+[Remote]: Porque en medios de pago es un aéreo, decís,
+[Remote]: en medio de pago tal caso, es
+[Remote]: el el banco a
+[Remote]: les quería resolver, este, la gestión del de de
+[Remote]: de las liquidaciones mensuales con la
+[Remote]: que suma los contracargos y blablablá, y
+[Remote]: este es el problema que que que tenían,
+[Remote]: lo lo resolvemos de esta manera. Como para poder entender cómo están
+[Remote]: cómo están los ahí estaría uno también entender, por ejemplo, nosotros podemos
+[Remote]: analizamos mucho el caso este de
+[Remote]: esto que presenta la marca, versus lo que vos procesaste, ¿no?
+[Remote]: Que es lo de lo transaccionado versus lo presentado.
+[Remote]: Eso es un continuo, porque una presentación te puede llegar hasta
+[Remote]: noventa días después de de lo que transaccionaste
+[Remote]: tenés que mantenerlo vivo.
+[Remote]: Nosotros, si quieren, podemos armar esos casos de uso, hasta ejemplos en una demo,
+[Remote]: de, che, esto es lo que llega, después van a ver que llegan más y se los podemos mostrar,
+[Remote]: También estaría bueno entender
+[Remote]: che, para dónde quieren que apuntemos la demo, para que vean el impacto real ustedes. No sé, capaz que tienen algo
+[Remote]: ir al equipo de de de finanzas, capaz de decir, che, ¿cuál es el problema más
+[Remote]: Y nosotros nos metemos directamente a armar un caso de uso específico de eso,
+[Remote]: eso es lo que mejor nos funciona. Nos sentamos con los equipos enfrente,
+[Remote]: nos cuentan un poco la problemática, y capaz que armar una demo para ver cómo se
+[Remote]: resolvería, y después conectamos. Es más,
+[Remote]: después la prueba piloto viene después, ¿no?, tipo más conectado, todo.
+[Remote]: Pero, o capaz que otra cosa que hacemos nosotros es
+[Remote]: nos dicen un caso de uso
+[Remote]: nos pasan data dummy, o sea, data igual como le llega a ellos,
+[Remote]: como la tienen ellos en el Excel o cosas que no tengan automatizadas,
+[Remote]: nos cambian toda la data para no tengamos problemas de empezar a ver la data con el equipo
+[Remote]: de seguridad y eso,
+[Remote]: lo ingestamos dentro de Recy, mostramos cómo funcionaría la parte automatizada,
+[Remote]: y eso también es un caso de uso que no funciona bastante bien para que
+[Remote]: los equipos vengan al impacto de
+[You]: Yo, la pregunta que tenía era,
+[Remote]: No lo pregunté, Seba, pero me lo imagino, me imagino algo de SaaS, ¿no? Es una solución SaaS.
+[Remote]: Tenemos, bueno, ahí creo que justo Nacho iba a contar eso, pero
+[Remote]: tenemos tres formas. O sea, es como
+[Remote]: Empezamos con Saa, si es la que preferimos, pero, ah, bueno, ahí, si querés, contála, Nacho, vos.
+[Remote]: Más fácil.
+[You]: Ahí no me deja.
+[Remote]: Porque con bancos nos pasó que pidieron otro modalidad, entonces es como que
+[Remote]: nos fuimos fuimos abriendo el abanico de de posibilidades.
+[You]: Sí, tenemos tres modalidades, el el más popular es SaaS, y es el que por ahí
+[You]: mejor resultados nos ha dado, porque, por por varios motivos, controlamos nosotros toda la
+[You]: de datos y toda la trazabilidad, y, obviamente, como sabrán,
+[You]: el producto está cambiando mes a mes y está
+[You]: adquiriendo módulos nuevos a una velocidad impresionante, entonces es mucho más
+[You]: fácil mantener
+[Remote]: ¿Dónde estás
+[You]: AWS.
+[Remote]: ¿En dónde? ¿Sabes?
+[Remote]: Perdón, no, perdón, ¿cómo...? No escuché por ahí
+[You]: Seba está en
+[Remote]: un taladro acá arriba. ¿En qué son de de de AWS Estamos en US East dos.
+[Remote]: Ok.
+[Remote]: Ok, igual somos multiregión también, o sea, tenemos también, pero
+[Remote]: no sé qué tienen problemas de región también ustedes. No, hay algunos temas que tenemos
+[Remote]: ahí de Me me imagino. Igual, ojo, nos pasa con todo.
+[Remote]: Los bancos que tienen su parte burocrática. Nosotros por eso
+[Remote]: siempre basamos estas pruebas muy con data dummy, para que ustedes realmente digan, che,
+[Remote]: esta es la plataforma que está buenísima y la queremos,
+[Remote]: después arrancan las conversaciones con los equipos de seguridad, el equipo de infra, si quieren el
+[Remote]: customer deploy, si lo quieren adentro de de sus sistemas o modelos SaaS,
+[Remote]: como que después esas conversaciones van por otro lado,
+[Remote]: el login, si es por single sign on, opta, por lo que tengan. Ok.
+[You]: Sí, ahí las tres que tenemos
+[You]: comentaba, cloud SaaS, tenemos el embedded solution, esto es típicamente para compañías de pagos que
+[You]: les interesa tener un módulo de conciliaciones dentro de su portal, y después está el customer deployed, que es
+[You]: para industrias más reguladas y con otro tipo de privacidad y seguridad
+[You]: donde nos dijeron, esto no puede estar hosteado en en el cloud de ustedes,
+[You]: estar sí o sí en nuestra infraestructura. Y, entonces, ahí
+[You]: se arma mucho más como un proyecto one off
+[You]: donde hay como un forward deployment muy grande el primer año, y después un retainer muy bajo de servicio
+[You]: y de soporte. Para ese tercer punto, la realidad
+[You]: tratamos de que haya unas una una razón muy fuerte
+[You]: para para que exista, porque, de vuelta, es más difícil de mantener,
+[You]: en el tiempo la relación se vuelve más más complicada,
+[You]: y tampoco nos permite a nosotros demostrar el valor de iteración constante
+[You]: con los módulos nuevos que estamos desarrollando y y las nuevas funcionalidades, porque se vuelve mucho más tedioso el
+[You]: el manejo de esas versiones.
+[Remote]: Sí, ahora sí quieren podemos ir dando otro
+[Remote]: pasito más así, digamos, entendiendo bien
+[Remote]: ¿no?, con algunos ejemplos para ver a a quién conectamos
+[Remote]: más allá de nosotros,
+[Remote]: O como se fuera a imaginar, digamos, por ahí
+[You]: La pregunta que tenía para ustedes era, visión top down, así, por ahí, de esta
+[You]: conversación y de
+[You]: cosas que se le fueron surgiendo en la cabeza.
+[You]: ¿Dónde queda en que está el mayor foco de dolor hoy?
+[You]: Con este tipo de procesos?
+[Remote]: Y tenemos de todo, porque como yo le decía, tenemos la la la
+[Remote]: No sé cuánto son la gente hoy, hoy, en el CDS. Ah, mira,
+[You]: O el más que me decís, quiero resolver este Q.
+[Remote]: No, no no es muy grande el equipo.
+[Remote]: Ahora, si vos me preguntás,
+[Remote]: lo lo lo difícil es invertir en un lugar
+[Remote]: donde ya hicimos todo el esfuerzo de de
+[Remote]: de quizás automatizar
+[Remote]: todo esto, ni siquiera con Symmetry, sino hasta con bots y cosas que
+[Remote]: hemos construido,
+[Remote]: que que ya hoy a las siete y media tenemos tenemos el resultado de ese proceso, ¿no?, que
+[Remote]: que
+[Remote]: posiblemente podría estar a la
+[Remote]: dos de la mañana o a las doce de la noche, qué sé yo, no sé. Seguramente tiene oportunidad de mejora,
+[Remote]: pero funciona,
+[Remote]: Obviamente, que toda la parte resolutora no no no es parte del proceso,
+[Remote]: te te te te arroja, digamos, los resultados, y a partir de ahí.
+[Remote]: Mí me parece que
+[Remote]: hay mucho por descubrir,
+[Remote]: en función, no sé, a mí se me prendió un poquito la lamparita Nacho ahí cuando
+[Remote]: hablaste de
+[Remote]: de la oportunidad de
+[Remote]: de conciliar cosas que hoy no conciliamos
+[Remote]: y que, posiblemente, por no controlar,
+[Remote]: estamos perdiendo plata, ¿no? Creo que ahí hay una
+[Remote]: hay, puede haber una oportunidad de cosas que ni siquiera
+[Remote]: este, pasan por un proceso de conciliación.
+[Remote]: No me animo a decirte cuál es, porque porque
+[Remote]: te estaría te estaría
+[Remote]: mintiendo, pero
+[Remote]: me vuelo a que a que debe haber algo ahí dando vuelta, este, con con
+[Remote]: con
+[Remote]: muy poco control en nuestra parte.
+[Remote]: No sé, pagos a la a la a las cruzadoras,
+[Remote]: este, y más cuestión, yo no tengo ni idea si si si esos controles lo hacemos por
+[Remote]: razonabilidad o realmente hay un control
+[Remote]: activo de
+[Remote]: de
+[Remote]: de cantidad de operaciones, y a partir de ahí sale un una tarifa.
+[Remote]: Me parece que ahí ahí es donde yo le encuentro un poco más
+[Remote]: Después, si vos vas a las áreas de contabilidad y demás,
+[Remote]: obviamente, no le decís, che, esto esto no concilia y,
+[Remote]: posiblemente, haya cosas.
+[Remote]: Pensé, vos me decís, ¿dónde le doy un revenue rápido? Y encontrar cosas? Pues, y lo controlamos. Este, básicamente.
+[You]: Y esa lista de cosas que no controlás... Bueno,
+[Remote]: No tengo idea cuáles son, no te no te no te quiero mentir, pero
+[You]: claro,
+[Remote]: pero la podemos averiguar.
+[You]: I I wanna think the two armar ahí un después un correo con distintos casos de uso que hacemos hoy, y y somos muy buenos haciendo,
+[Remote]: Podemos averiguar las
+[You]: y y yo creo que un próximo paso a partir de eso es
+[You]: sentarnos con con algún equipo, que ustedes vean, che, creo que hay una oportunidad,
+[You]: que hacés hasta ir hasta las oficinas, y
+[You]: una sesión de trabajo una hora, donde
+[You]: No, esto nos ha funcionado bien muy bien en otros bancos.
+[You]: Un poco nos presenten o nos derramen o nos compartan
+[You]: todos sus dolores, sea. De esas reuniones, típicamente, salen
+[You]: un montón de oportunidades, y dos o tres que son muy claras para el corto plazo.
+[Remote]: Por eso, pasaron los casos, y, en función de eso, veo los actores, porque hay actores que pueden ser
+[Remote]: contabilidad,
+[Remote]: o hay actores que pueden ser
+[Remote]: compras, qué sé yo, o pago a proveedores, yo lo sé. Este,
+[You]: Claro.
+[Remote]: hay que hay que entender bien cuáles son los casos que que quisiéramos aclarar,
+[Remote]: ver cómo también
+[Remote]: no no no desinstalamos algo que instalamos durante
+[Remote]: todo este tiempo,
+[Remote]: en los conciliadores que hoy están
+[Remote]: operando, le decía, vos me decís, che,
+[Remote]: agu, querés meter plata en en
+[Remote]: en la conciliación de la contabilidad nocturna? Y te digo, no,
+[Remote]: hoy
+[Remote]: claramente, es superador, este, seguramente, la plataforma, pero digo,
+[Remote]: antes que ir a reemplazar lo que hoy hicimos,
+[Remote]: que funciona, que ya nos da
+[Remote]: un
+[Remote]: un resultado diariamente,
+[Remote]: y preferiría atacar otros puntos que
+[You]: Totalmente de acuerdo.
+[Remote]: no están atacados, ¿no?
+[You]: Habiendo tanta oportunidad, vamos por todavía lo que es en Excel, a mano.
+[Remote]: Aparte,
+[You]: Un montón.
+[Remote]: viste que las compañías en general somos de esos de que
+[Remote]: che, vamos a a
+[Remote]: rehacer lo que ya hicimos.
+[Remote]: Y seguramente sea superador, pero digo, eso tiene todo un costo
+[Remote]: que, digo, mejor ataquemos cosas que no
+[You]: Totalmente de acuerdo contigo, vamos
+[Remote]: vayamos a dar.
+[Remote]: Que va haber un montón.
+[You]: en Excel, a mano, a ojo,
+[You]: y lleva muchas horas y genera mucha fricción y costo.
+[You]: Un montón de oportunidades. Por eso te digo, hagamos así, yo te hago el correo con los casos
+[You]: de uso, ahí después ustedes nos dirán qué equipo creen o tiene la hipótesis de que va a pena, y
+[Remote]: Dale.
+[You]: hacemos una sesión de trabajo con ellos para
+[You]: para identificar esos esos primeros casos de uso que son así,
+[You]: cosas que hoy no están resueltas, no vamos a reemplazar nada, vamos a
+[You]: justamente, reemplazar por ahí un proceso manual en Excel, algo que no escala, que
+[Remote]: Esatto.
+[You]: genera costo, riesgo y fricción,
+[You]: con un caso de negocio muy claro, del día uno, ¿viste?, ¿cuáles son los KPIs que estamos queriendo lograr con esta prueba de concepto?
+[You]: Ahorro de horas manuales, reducción de riesgo, recupero de revenue,
+[You]: recupero de de comisiones que están mal pagadas, y lo planteamos del día uno con un
+[You]: con un caso de negocio clarísimo.
+[Remote]: Dale, buenísimo. Listo, ahora vuelvo a arreglar, entonces.
+[You]: Bueno, muchas gracias a los dos por el tiempo y un gustazo conocerte, gusto.
+[You]: Chau, chau.
+[Remote]: Buen vender. Chicos. Chao, chao. Chao, chao.
+
+============================================================
+SUMMARY
+============================================================
+### Banco Galicia Context
+
+- Augusto Salvador Basile leads all product delivery and development — product tribes, software development, client-facing and internal systems
+- Erico Ignacio Behmer had introduced the meeting; Symmetric already implemented in the accounting team for reconciliations
+- Galicia’s current reconciliation setup is fairly resolved — results ready by 7am daily, built with bots and internal tooling over time
+- No resolution workflow for unmatched items — system surfaces differences, but the resolution process is manual from there
+
+### Key Pain Points Identified
+
+- “Contabilidad entre casas” flagged as a major, chronic problem
+  - Bank’s accounting = sum of each branch’s individual accounting (legacy of fully asynchronous, branch-based model)
+  - Clients can now transact at any branch, but accounting entries still need to map to the home branch → constant accounting imbalances
+- Augusto’s “lightbulb moment”: processes they’re *not* reconciling today, where they don’t know if they’re losing money
+  - Payments to card networks (e.g. Prisma) — unclear if controls are by reasonableness or active transaction-level verification
+  - Low visibility, little active control over these flows
+- Existing reconciliation won’t be replaced — preference is to attack unresolved, manual, Excel-based processes first
+
+### Deployment & Commercial Considerations
+
+- Augusto raised cost concern directly: if the model is “complement, not replace,” Rexi’s cost stacks on top of existing Symmetric fees
+  - Agreed framing: long-term north star is replacing Symmetric, but short-term entry point is unresolved flows
+- Three deployment modalities discussed: cloud SaaS (preferred), embedded solution, customer-deployed
+  - Hosted on AWS US-East-2; multi-region capable
+  - Galicia likely to raise data residency and security requirements — agreed to start with dummy data to sidestep this initially
+- Recommended approach: start with dummy data demo scoped to a specific use case, then engage security/infra teams separately
+
+### Potential Use Cases to Explore
+
+- Medios de pago (highest pain): card flows, chargebacks, presentaciones vs. transaccionado (can lag up to 90 days)
+- Seguros (insurance): typically a painful reconciliation process
+- Tax reconciliation (conciliación impositiva): validated pain point with other banks
+- Horizontal across all products: accounting control per product line — the “contabilidad entre casas” problem
+- Revenue leakage: contract-vs-actual fee/revenue validation with external providers
+
+### Next Steps
+
+- Ignacio Berardi
+  - Send email with concrete use case examples — format: problem, data sources involved, how Rexi solves it, impact achieved
+- Augusto Salvador Basile / Erico Ignacio Behmer
+  - Review use cases and identify which team (accounting, payments, finance ops) has the most relevant pain
+  - Investigate internally which flows currently have little or no reconciliation control (starting point for revenue leakage angle)
+- Both sides
+  - Arrange a working session with the relevant internal team at Galicia — team presents their pain points, Rexi scopes a specific POC
+  - Define POC success metrics from day one: manual hours saved, risk reduction, revenue/fee recovery
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/0bdcfd30-744c-4d3d-89c2-cde6bdf35e0a](https://notes.granola.ai/t/0bdcfd30-744c-4d3d-89c2-cde6bdf35e0a)

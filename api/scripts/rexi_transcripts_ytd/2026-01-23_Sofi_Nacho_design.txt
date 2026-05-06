@@ -1,0 +1,514 @@
+MEETING: Sofi <> Nacho: design
+DATE: 2026-01-23
+ID: not_d0MZNeuHtDGdQa
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Sofiascaramelli <sofiascaramelli@gmail.com>, Sebastian <sebastian@rexi.finance>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-01-23T11:00:00-05:00 - 2026-01-23T11:45:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Buenas.
+[Remote]: ¿Cómo on, man?
+[You]: Bien, todo bien.
+[You]: Le traje a todo el team.
+[Remote]: Completito hoy, muy bien.
+[Remote]: Ahí va. Un gusto, te digo, y se va. Gracias. ¿Cómo anda, Sophie?
+[Remote]: Bien, todo bien, ustedes.
+[You]: Muy bien, muy
+[Remote]: Todo tranquilo, venimos de una una reunión candente,
+[Remote]: Sí, sí, sí. Pero bueno, bueno.
+[You]: Te presento, Teo está más en en producto y en operaciones,
+[You]: va en tecnología, pero pero no lo encasilla en tecnología porque tiene
+[You]: aprecio por el diseño como si fuese un diseñador de moda. Así que
+[Remote]: De moda. No, de moda no, me encantaría igual, porque me servía para
+[Remote]: vestirme, pero de de trabajo hace muchos años en producto y, nada,
+[Remote]: ¿viste? El Pixel Perfect se se se se afina.
+[Remote]: Así que sí, sí. Bien, bien, bien.
+[You]: Yes,
+[Remote]: Bueno, me alegro.
+[Remote]: ¿Quieren que vayamos a grano? Les comparto.
+[You]: Yes,
+[You]: Vale.
+[Remote]: Dale. Bueno, primero para decirles,
+[Remote]: tomé el feedback que me dieron, armé algunos algunas propuestas en cuanto a
+[Remote]: la propuesta que está animada, que tiene el prototipo y demás, armé una,
+[Remote]: pero después todos los colores y demás, porque vi que dejaron colores
+[Remote]: feedback de colores, a ver si nos alineamos más a lo que está hoy en día y demás, eso se puede cambiar,
+[Remote]: Yo armé unas propuestas, pero no las tres están en prototipo.
+[Remote]: Así que nada, eso lo podemos ir viendo y después de última se ajusta.
+[Remote]: Le voy a compartir
+[Remote]: voy a
+[Remote]: Avísenme si ya están viendo, si no.
+[You]: Sí.
+[Remote]: Sí,
+[Remote]: Bien, genial. Bueno, les muestro directamente primero lo que es
+[Remote]: el diseño en sí era aplicación con las animaciones y todo, porque se entiende un poco más que cuando
+[Remote]: está todo estático ahí en el Figma. Así que la idea, bueno,
+[Remote]: lo que armé es como hacerlo un poquito más moderno con el gradiente de fondo y demás, no puedo llegar a
+[Remote]: del todo como las animaciones que pueden tener este gradiente, pero bueno, después
+[Remote]: eso te puede dejar una nota para que sea cuando se desarrolla,
+[Remote]: Así que acompañe poquito con la imaginación en algunas cositas, porque acá está medio limitado.
+[Remote]: Bien. Pero, bueno, el día es eso, es tener acá el menú,
+[Remote]: botón a la derecha que quede siempre fijo, o sea, el el header este que quede siempre fijo y te acompañe y que
+[Remote]: esté el botón para que se pueda bookear un una demo y demás.
+[Remote]: En este caso, subí lo que son los logos,
+[Remote]: pueden ver que están medios truchitos algunos, pero de de los
+[Remote]: las integraciones que tienen, que vi que muchas de las referencias que me pasaron estaban
+[Remote]: directamente arriba y como que es una marca de confianza, ya que el usuario entra y los ve a primera vista.
+[Remote]: Entonces, traté de subirlos, después vemos si si les cierra o no, pero bueno, la idea es que
+[Remote]: esté esta animación y que se vaya mostrando todos los logos.
+[Remote]: Y después, cuando bajas, sacarme esta animación de del video,
+[Remote]: van a tener, que en el caso de que no esté, se puede eliminar y se borra esa parte
+[Remote]: esta sección y listo, pero que cuando vos vayas haciendo scroll, se vaya agrandando un poco.
+[Remote]: Para meterle un poco de microinteracciones y demás, y que hacer un poco más moderna la la página.
+[Remote]: Entonces, es agrande y que después se puede tocar y se pone play y se ve el video,
+[Remote]: y cuando bajás tenés los beneficios
+[Remote]: de Resiensi, ¿no? Las conciliaciones, punto a punta, bueno, estos tres puntos en sí, y sumé acá las métricas que habíamos hablado en su momento con Nacho, destacarlas,
+[Remote]: que todo como relacionado a la parte de beneficios.
+[Remote]: Entonces, vos des un vistazo, ve como los tres puntos más fuertes y las medidas que van ayudando.
+[You]: Esas tres
+[Remote]: Y después cuando bajas,
+[You]: bueno, acá no te dejo, después después.
+[Remote]: sí,
+[Remote]: No, estas capaz la información hay que cambiarla, que siempre hablamos eso en
+[Remote]: Nacho, con Nacho, que lo podemos seguir cambiando y el texto
+[Remote]: final capaz no es este, pero bueno, para ver la estructura en sí,
+[Remote]: puse algunos de ejemplo que es inventado, básicamente.
+[Remote]: Bueno, sí, o cualquier cosa me frenan.
+[You]: Vale.
+[Remote]: Y después, acá abajo, puse lo de los cuatro pasos,
+[Remote]: para la integración, y armé, como está diciendo, que cuando vas haciendo scroll,
+[Remote]: lástima que no lo pueden hacer, pero yo voy a scrollando con el mouse,
+[Remote]: se va moviendo de costado y van apareciendo como los
+[Remote]: los cuatro pasos, ¿no? Y con cada estado scroll aparece,
+[Remote]: Obviamente, como les digo, cuando se da el desarrollo en sí, podemos ser que no tenga
+[Remote]: este fondo transparente, se me está complicando poco, pero bueno, la idea de la animación es que vaya a aparecer
+[Remote]: como de costado, pero también para darle un poquito más de onda.
+[Remote]: Y me quedan las imágenes, que también hablaba con Nacho, ver si me daban una mano para ver qué podíamos
+[Remote]: de cada uno de ustedes que saben más del producto. Pero también que no sean todas iguales, que
+[Remote]: capaz acá podemos tener dos, acá tenemos una grande, pueden ser videos,
+[Remote]: queremos agregar también como para que se entienda bien todos los pasos
+[Remote]: si quiere crecer en cada uno de ellos y demás.
+[Remote]: Y después, cuando acá bajamos, llegamos al cuarto, sigo haciendo scroll,
+[Remote]: y bajamos a las a las frases que van dejando, o sea, el feedback que van
+[Remote]: dejando cada interacción que hicieron, que pueden ir pasando. Acá no sé bien cuántas tenemos,
+[Remote]: obviamente se puede adaptar en base a eso, pero puse varias como que
+[Remote]: vayan pasando y generar esta animación, y después, bueno,
+[Remote]: lo del equipo, que también habíamos, esto no lo habían visto, esta
+[Remote]: bastante parecido a lo del mapa, que cuando vas tocando cada uno de de ustedes,
+[Remote]: se vaya moviendo en el mapa, dónde están ubicados,
+[Remote]: vaya agrandando y hay una descripción de cada uno.
+[Remote]: Y por último, tenemos los artículos acá, que también una grilla de tres, tenemos el tag de la categoría, el título, el día que se hizo y quién, el autor, y
+[Remote]: el acceso para entrar a ver más, y obviamente también las flechitas para que se vaya moviendo.
+[Remote]: Y por último, tenemos el footer final, que acá también estaría bueno como meter esa anima
+[Remote]: que ponemos en el header, como para que tenga una misma línea,
+[Remote]: y el acceso del call to action de vuelta para agendar la demo.
+[Remote]: Por un lado, ya que estoy y les muestre, después me dicen todo,
+[Remote]: el tema también del blog que habíamos armado,
+[Remote]: lo armé sin animación, pero si lo si está bien, lo armo con animación,
+[Remote]: que nada, no lo armé porque me lleva mucho tiempo y tampoco quiero pasarles y gastar tiempo en hacer esto cuando después
+[Remote]: capaz lo cambiamos. Pero bueno, si está bien, lo último lo hacemos después,
+[Remote]: pero siguiendo con la misma línea y armé este header
+[Remote]: con el mismo fondo, un título que tenga el blog, que después le podemos definir,
+[Remote]: que tenga un buscador para filtrar por fecha, por tema y por autores, que es a lo que habíamos hablado la última vez, y también la grilla de todas las noticias con la categoría, título y autor. Abajo tenemos el paginado para seguir pasando y el footer. Y cuando entrás aún Ah, lo lo armé en blanco porque estoy mezclando un poco como colores que habíamos hablado el bitma vez, de fondo oscuro y también fondo blanco, lo que le decía, Nacho, es que el fondo blanco ayuda mucho más a
+[Remote]: todo lo que es lectura en sí. Entonces, cuando se tiene que leer mucho, me parece
+[Remote]: bastante importante que esté así, y después las otras partes que son más para complementar,
+[Remote]: el fondo más que nada dark. Y esta sería como la vista del artículo,
+[Remote]: también tenemos el tag, el título, la fecha y el autor,
+[Remote]: imágenes, y bueno, obviamente todo texto que se puede poner título, se puede volver a poner
+[Remote]: con una imagen o destacar alguna frase que se quiera destacar.
+[Remote]: Y cuando termine el artículo, que te vuelva a recomendar otros artículos para leer.
+[Remote]: Leer. No mucho más, acá
+[Remote]: armé como otras opciones por si no queríamos poner el fondo dark
+[Remote]: darme como esta versión en light, siguiendo más o menos la misma estructura,
+[Remote]: y esta versión, que es más parecido a lo que tenemos actualmente, pero con algún gradiente
+[Remote]: al principio, pero con este fondo gris que hoy en día tienen, y
+[Remote]: el medio cremita que también vienen usando ahora.
+[Remote]: No sabía si querían destacar como estos colores que nosotros tenemos
+[Remote]: el de gradeste con algún color en especial que tenían, porque sé que son como más pasteles,
+[Remote]: pero bueno, todo esto de colores se puede ir ajustando.
+[Remote]: Ahora sí, creo que hablé bastante, los escucho.
+[Remote]: Voy ir, si quieren acá y me van diciendo subir, bajar o lo que quieran.
+[You]: A ver, entonces ya a grandes rasgos tenemos una presentación,
+[You]: cuando cliqueas en our solution te lleva el video.
+[Remote]: Sí, creo que me quedó un poquito bajo del video, pero la idea es que te lleve acá.
+[Remote]: Y si te llevás a how it works, que te redireccione también.
+[You]: Perfecto. Y después resources,
+[Remote]: Sí, también, al al blog.
+[Remote]: Acá no sé si tenemos que agregar más, porque, por ejemplo, en el menú no tenemos, bueno, el about
+[Remote]: fee, que es lo del team, no tenemos esto de los testimonios
+[Remote]: los clientes, que de última podemos agregar, si se quiere, el acceso también para que te lleve ahí abajo.
+[You]: Creo que se altere
+[You]: a Bouty Resources, ¿no? Por cómo quedó el orden.
+[Remote]: Ahora lo justo.
+[You]: Yo, a ver,
+[You]: no sé, primero a ver sobre la estructura, ¿qué piensan ustedes ese baiteo de de del contenido, el
+[You]: Parece que falta algo más. Tenemos video,
+[You]: tenemos como propuesta de valor, que son los tres puntos,
+[You]: y tenemos un poquito más de how it works con un orden
+[You]: de, básicamente, cómo sería la integración y cómo qué qué es lo que hacemos.
+[You]: Y después un about y y los artículos.
+[Remote]: Un poco lo que le decía a Nacho y a Teo. Yo siento que a nivel estructural
+[Remote]: está bien, a nivel contenido está bien. A mí me pasa que
+[Remote]: no no no veo identidad,
+[Remote]: acá, o sea, es como que que es un poco lo que le transmitía el otro día a Nacho,
+[Remote]: y a Teo, como que
+[Remote]: sí, imagínate, Sophie, que
+[Remote]: ahora con con ella ahí armar un SaaS o armar
+[Remote]: una página web o armar un blog, se convirtió
+[Remote]: básicamente en un commodity y y y
+[Remote]: este tipo de páginas webs, scrolleables, ahí ya no,
+[Remote]: no generan lo mismo que generaban antes, ¿viste? Entonces,
+[Remote]: siento que capaz que yo soy más igual de de de romper el
+[Remote]: esquema, ¿no? De romper la estructura, y y y que realmente Rex para la salida
+[Remote]: muestre como que, che, realmente estamos revolucionando
+[Remote]: la industria, esta industria, ¿no? Y y y
+[Remote]: y siento que que que más allá de los colores, ¿no? Y el contenido,
+[Remote]: no no no siento que esta
+[Remote]: esta esta huevo, este este esta esta estructura
+[Remote]: la lo represente eso. Por ejemplo, lo del video me gusta,
+[Remote]: video me parece es algo que está armando Nacho, habría que verlo, Nacho, cómo funciona, pero capaz que
+[Remote]: por decir algo, capaz que entras a la web de Rexy, si es un video,
+[Remote]: que está bueno y tiene buena buen diseño, puede ser pantalla completa y que el fondo sea el video,
+[Remote]: que pueda y tenga letra por delante, entonces, como que ahí ya
+[Remote]: estamos hablando de, o sea, es un video de fondo de pantalla con el de de background,
+[Remote]: o capaz que hacer una web horizontal y no vertical,
+[Remote]: jugar ahí un poco con la la la la font
+[Remote]: también de de de Rexi está buena. El gradiente me gusta, me parece que está bueno porque
+[Remote]: el el gradiente ese se usa mucho para AI ahora y nosotros medio que nos queremos
+[Remote]: mostrar de ese medio AI native, así que me parece que hay que jugar con gradientes,
+[Remote]: También me gusta lo de gradientes, entiendo lo que decís del fondo gradiente movible, que es un poco de uno de los que para mí está muy bueno ese estilo, El, este no, ¿no? Este FIFO no, pero sí. El que el que habías dejado de referencia, sí, sí. Es el efecto como que se mueve un, que tiene como un como un Gauchean blur, ¿viste? Blurreado y y
+[Remote]: y ese queda bueno, capaz que con colores de Rexy también queda bien, nos podemos apropiar de esa marca que tan
+[Remote]: tampoco vi en la industria, Fintech S, Entonces, nada, es como como como ir viéndolo por ahí, pero sí lo veo
+[Remote]: como como más, veo como claro, algo así, obviamente con negro,
+[Remote]: y y algo más de ese estilo, que vos entres a la web y digas,
+[Remote]: ok, esto es distinto, ¿entendés? O sea, vos entrás acá,
+[Remote]: ves los botones transparentes, que son muy medio glass, como tiene iOS,
+[Remote]: ahora con ese efecto glass, y es un poco a donde va también con la industria de
+[Remote]: de
+[Remote]: con el VR, ¿no? La realidad virtual que muestra todo más
+[Remote]: no sé, es cómo mostrarnos medio a tope de gama con la industria Sí, sí, celular, lo traté, o sea,
+[Remote]: sea, todo esto tiene como ese efecto.
+[Remote]: Perfecto. Mismo el feeder, todo.
+[Remote]: Es verdad, ahora que le decís, tiene el glass, capaz que esto del el background es lo que el background
+[Remote]: negro es lo que, me chocá, que le puede, viste que le suma un montón, capaz que hacer
+[Remote]: un background que estés así durante toda la página,
+[Remote]: parece que puede cargar, entiendo para que para efectos de prototipo
+[Remote]: es imposible o lo tiene que hacer con la llamada. Que le decía, pero igual lo puedo seguir investigando a ver
+[Remote]: si no
+[Remote]: si no con con con estático software, y para mí puede funcionar bien, ¿viste agarrás
+[Remote]: imagen, pero estática y como que le vas haciendo un efecto como que tenga
+[Remote]: el, incluso, hasta que puede cambiar de color. Yo me parece que
+[Remote]: hay que buscar eso, ese efecto, yo ahí también
+[Remote]: te dejé unas páginas de ejemplo que me gusta, que, por ejemplo, hay cosas que empiezan desde esta pantalla,
+[Remote]: y llegan hasta la final, ¿viste? Vas escroleando y tiene como un
+[Remote]: storyline de, no sé, por ejemplo, Pomelo usa la tarjeta. La misma tarjeta que está arriba
+[Remote]: llega hasta abajo. Nada, son esas cositas de identidad de marca con qué no queremos
+[Remote]: identificar, qué qué me parece que que que pueden estar buenas. Hoy estamos en ese proceso, ¿no? Que no
+[Remote]: nos conozcan y digan,
+[Remote]: estos esta esta empresa está haciendo las cosas distintas.
+[Remote]: Esto no me dice eso hoy,
+[Remote]: el el el la la la página esta.
+[Remote]: Ok.
+[Remote]: No sé, Teo, ahí, si ingresas
+[Remote]: No मेरे पास, o sea, मुझे complicate तू
+[Remote]: tu feedback, se va,
+[Remote]: no, sería por eso también.
+[You]: Choca, a ver,
+[You]: acá ni te tendría que cambiar el fondo,
+[You]: Este fondo
+[You]: no sé, parece McKinsey. Oigan McKinsey.
+[Remote]: No, o sea, la conozco, es la que te
+[You]: Consultora.
+[Remote]: audita para para, no es no es la que te audita, tipo Deloitte,
+[You]: No.
+[You]: Sí, pero consultoría estratégica, sí, sí. No, no es de auditoría,
+[Remote]: Consultaré consultarías la la que te hace la deuda, sí.
+[You]: pues.
+[You]: Me pregunto si
+[You]: estaría bueno meter
+[You]: algo más realista como esto,
+[You]: Haga unas fotos así,
+[Remote]: Fíjate,
+[Remote]: ¿habría ahí la de Parandi el que tiene un par de fotos realistas?
+[Remote]: Está muy buena.
+[You]: Claro.
+[Remote]: ¿Esa es la web de? No.
+[Remote]: Mirá la build.
+[Remote]: Abajo tiene cosas también, bajá un poquito,
+[Remote]: tiene cosas también de casos reales,
+[Remote]: nosotros podemos poner, no sé, bancos real o instituciones reales, no sé.
+[Remote]: Bueno, una cosa, yo nunca vi esta página, y para adelante lo estamos
+[Remote]: mencionando muchos. Este, capaz que SoFi es un buen caso de
+[Remote]: nosotros podemos ser parecidos, pero fijate que entras a la web,
+[Remote]: y
+[Remote]: y es rara, o sea, ya entra, no sé si se entiende el contenido ni si es bueno,
+[Remote]: ni cosas, pero pero justamente ese efecto
+[Remote]: ese efecto de distinto Sí. Sí, o sea, capaz
+[Remote]: entiendo que un poco, perdón, te corté, seguí, después te digo.
+[Remote]: No, no, Sofi, ese ese efecto de distrito, eso es lo que quiero para mí,
+[Remote]: lo que hay que lograr, y obviamente, sumado que el contenido se entienda, porque puede ser el distinto,
+[Remote]: no se entiende lo que dice tu web, pero fijate que tienen como una identidad
+[Remote]: capaz que con el principio, después ya es toda una página más básica, ¿viste? Como que no tiene tanto.
+[Remote]: Claro, eso es es lo que te había cortado para decir eso, como que creo que lo que están buscando es que se distingan
+[Remote]: arriba, en header, más que nada, en el giro, toda esta primer parte,
+[Remote]: sí. Abajo, como que las otras que me pasaron también de referencia las veo bastante normalonas y
+[Remote]: está, no estamos muy alejados de eso,
+[Remote]: Sí me vendría bien de su lado decir eso, bueno, queremos poner el video de fondo, como
+[Remote]: un feedback un poco más concreto, porque si no, me voy a volver loca, armar No, no. Casi que
+[Remote]: siento que ustedes ya saben lo que quieren, entonces como decir, bueno, o armar
+[Remote]: este degradeo, queremos imágenes más reales, que es esta imagen, o
+[Remote]: ustedes saben más que nada cuáles son las imágenes de referencia, mismo si queremos algo de su producto,
+[Remote]: Entonces, tipo, quiero mostrar esta imagen que va alineado con tal cosa.
+[Remote]: Ese feedback a mí, porque sino como que voy a seguir dando vueltas en mil cosas,
+[Remote]: y se va a tardar un montón. Sophí, Sophí, estoy super de acuerdo, tiene que ser más direccionado, porque si no,
+[Remote]: va ser un caos. Pero, por ejemplo, te, está bueno que veas
+[Remote]: así un poco en nuestra cabeza, por ejemplo, Stripe, tiene esta identidad de usar los gradientes, esto es medio multicolor, pero, o sea, dueño de este gradiente que está por encima de la letra y no sobre la letra, que está muy bueno. Bueno, ahí tiene lo de las marcas. Fíjate que después, nada, tiene este storyline, tiene animaciones, que esa después podemos ver cómo las podemos crear, pero storyline para mí va, ¿viste? Como como que tenga un sentido. Después esto es la que tienen todos, creo que está dentro, hay cuatro páginas web que tienen el mundito de este de Si no me equivoco, pomelo creo que también la tiene. Sí.
+[Remote]: Pero bueno, después es bastante cosa.
+[Remote]: Dale.
+[You]: Que tiene razón, o sea, Stripe no la veo muy distinta
+[You]: que estamos viendo de Sophie, O sea, no la veo una locura. La de Palantir, sí, la de Salo, sí.
+[You]: Pero esta
+[Remote]: No, yo creo yo creo que lo que dice Sophie es cierto.
+[You]: me parece muy normalona,
+[Remote]: Lo creo que lo que dice Sophie es cierto. Es el hero, ¿este es el hero? ¿Se diría
+[Remote]: es como lo que entrás, ese es el efecto show. Después, este es el efecto show,
+[Remote]: El otro puede acompañar, ¿entendés? Como que acompañes, si tienes estas animaciones lindas, bueno, vas
+[Remote]: va bajando y cosó. Pero yo creo que Nachito a mí creo que le pegó Sophie es para adelante y pasa lo mismo. Entrás un video ahí full
+[Remote]: AI o, no sé, full
+[You]: Sí. Para resumirlo, el feedback para resumirlo es hay que dar una vuelta en tuerca,
+[You]: al al hero que se llama, que es donde viene que ni venga es,
+[Remote]: sí, sí, sí. Eso ya lo entiendo.
+[You]: Eso esta esta tiene que ser usado, esto le tiene que
+[You]: pegar en la cara, una piña, una cachetada.
+[Remote]: Perfecto. Y mismo, tipo, sea novedosa en algún sentido, o esto que
+[Remote]: hablábamos del gradiente de fondo, o poner el video, o armar como algo novedoso
+[Remote]: ahí. Y y con efecto glass, quizás, softness El efecto glass
+[Remote]: lo podemos hacer, pero bueno, nada, por eso digo, como que no me siento tan mal, porque como
+[Remote]: que estamos alineados en algunas cosas. Verda. No, también si queremos poner
+[You]: Sí, lo de abajo, esto de abajo está perfecto acá.
+[You]: Esto de abajo está perfecto, acá por ahí el libro que le agregaría es que puedas cliquear en cada una de esas y se
+[You]: expanda un poquito más información, y abajo le ponemos gifts de la plataforma,
+[You]: pero lo, o sea, creo que lo de abajo y la estructura está bien.
+[Remote]: es un poco lo que te decía, si tienes ya imágenes o o el contenido, porque yo el contenido que tengo es este No, obvio. Che, va a haber más, me lo pasan y diseño en base a eso también de, che, tocás acá y se abre o o lo que sea. Mimos y todo este contenido, lo que hemos lo queremos poner a la izquierda y armar alguna animación en base a lo que quieran a la derecha,
+[Remote]: también se puede hacer. A mí me gusta más como, me parece que es
+[Remote]: más innovador y más llamativo y te lleva más el cuento,
+[Remote]: cuando cambian de estructura como las secciones de, bueno, acá tenés un video que se agranda, acá sí,
+[Remote]: no siempre que es scroll y así se mantiene lo de la izquierda y cambia,
+[Remote]: Estoy de acuerdo A mí también esto de que que se iba a salir a mencionar
+[Remote]: principio de que como que haga el scroll, pero el mes para abajo, para la derecha,
+[Remote]: eso me resulta raro a nivel navegación. Obvio, no, lo tiraba más
+[Remote]: por el efecto cachetazo, es como es lo distinto.
+[Remote]: Lo resumía eso, como que sea como un primer shock al principio de que
+[Remote]: llame la atención que sea novedoso, y abajo el último más tranqui, obvio que sea novedoso, pero
+[Remote]: más tranqui, más serio, mismo puede ser el fondo blanco o lo que sea.
+[Remote]: Sofi, y y otra cosa que estaría bueno, que creo
+[Remote]: que en esta etapa está bien, ¿viste? Estos ejemplos que te tiramos para Lántir, que
+[Remote]: es como sofisticado, elegante, pero al mismo tiempo re tecnológico y parece que están
+[Remote]: construyendo un cohete a la NASA, y y la letra, todo muy pixel perfect,
+[Remote]: y Stripe, yo creo que podemos robarnos,
+[Remote]: O sea, robemos las ideas, o sea, no reinventemos la rueda, o sea, robemos un componente de Stripe
+[Remote]: un componente de Palantir, un, o sea, a nivel visual después le ponemos nuestro nuestro
+[Remote]: nuestra visual, ¿entendés? O sea, nuestra nuestros colores, nuestra cosa, cambiamos
+[Remote]: detalles y hacemos una combinación de lo mejor de todos, ¿no? Ahí Sí, sí, ya más.
+[Remote]: Para no reinventar todo, o sea, no no reinventar el gradiente, no reinvente todo,
+[Remote]: y no es necesario que la hagas animada. Si hacemos algo fijo con el gradiente, que sabemos que eso se va a mover por atrás,
+[Remote]: olvidate, con eso ya está, que se vea bien el fijo,
+[Remote]: que es mucho más fácil laburarlo así, Sophie, que hacer todo el ingrediente, que eso después lo hacemos nosotros,
+[Remote]: Ya. Y y yo creo que con eso podemos
+[Remote]: muy bien. Me gusta negro y blanco, Pasar del negro al blanco, creo que se lee mejor el blanco,
+[Remote]: y cuando vimos el blog, me gustó mucho, como muy limpio.
+[Remote]: Y con la letra de de Rexi queda re lindo también, porque la letra de Rexi es una letra
+[Remote]: refina, elegante, y con el blanco para el blog, Nachito, me parece que
+[Remote]: quedaba lindo.
+[You]: Sí, de acuerdo, de acuerdo.
+[Remote]: Pero la el negro el negro quizás tiene el gradiente este,
+[Remote]: y el blanco es blanco. Entonces, todo lo que tenga negro, y no te preocupes, y capaz
+[Remote]: que no tienen que ser líneas así, Sofi, pueden ser así, pueden ser
+[Remote]: así, pueden caer tipo como qué, o pueden ser así, total nosotros después,
+[Remote]: capaz que el negro es lo que tiene el gradiente,
+[Remote]: blanco, negro de vuelta al gradiente que se mueve, y podemos jugar con eso.
+[Remote]: Genial, genial.
+[Remote]: Bueno, buenísimo, no, me queda mucho más claro
+[Remote]: Igualmente yo les comparto esto y si tienen, no sé, feedback puntual de esto,
+[Remote]: de che, esto no me gusta, démosle una vuelta, o esto sí, o esto no, o esto cambiamos,
+[Remote]: me sirve como para ir de a poquito, porque son como varias secciones que tienen distintas cosas,
+[Remote]: me sirve que que me lo dejen así, trabajo puntualmente en eso,
+[Remote]: Digo, bueno, esto, si ya queda así, ya no gusta, listo,
+[Remote]: sigo con eso. Sofi, ¿querés hacer una cosa, entonces, para no hacer todo? Ahí mostrar todo y que hayan mil challenge? ¿Por qué no hacemos el el hero y la estructura de background de la página de atrás? ¿Te te parece? Y y capaz que el footer, tipo, ¿cómo qué? Le hagas el giro de cómo entro y veo, y después el contenido adentro te ya te diste cuenta que nosotros nos quedamos embobados por parantes y no leímos nada? Capaz que decías Claro, sí, sí. Y tal cual, tal cual. No sé si está bien igual lo que estoy diciendo, pero creo que es el efecto wow que puede
+[Remote]: funcionar.
+[Remote]: No, perfecto, perfecto. Si quieren para, vemos eso para la semana que viene y
+[Remote]: podamos ir cerrando de a poquito. Y mismo eso, si ustedes dicen, che, esto va, va, esto denme una vuelta, yo lo
+[Remote]: trabajando en paralelo y le doy una vuelta en paralelo y ya está. Pero bueno, o sea, capaz
+[Remote]: como le decía, lo del blog, que es esto,
+[Remote]: es mucho más simple, y tiene lo del hero, como la animación esa, como
+[Remote]: y después lo de abajo es mega simple.
+[You]: Cien por cien.
+[Remote]: Bien. Otra otra cosa otra cosa, Sufi, capaz que volveme al
+[Remote]: a vos, Sophie, estas cosas. ¿Viste la barrita de arriba? Tipo,
+[Remote]: me, o sea, que no no, o sea, sí No tiene el fondo, no, no tiene el fondo,
+[Remote]: la, en la no pude, porque después cuando iba a la parte blanca se perdía, entonces lo puse, pero
+[Remote]: sería Sí, sí, un glas, algo flotante.
+[Remote]: Con el efecto del glass,
+[Remote]: Perfecto, todo glass, todo flotando bien Apple, bien tecnológico, o sea, si no te ganás
+[Remote]: Ya la ya la letra nos tira mil novecientos ochenta, pero la letra es red de identidad, o sea,
+[Remote]: entonces, hay que combinar la letra y hacerla moderna de vuelta. Perfecto.
+[Remote]: Una pregunta, por lo menos, para cerrar esto, o sea, los colores que sea tipo
+[Remote]: medio blanco, negro, con capaz, este, celestito de
+[Remote]: degrada en las letras. ¿Eso sí estamos de acuerdo?
+[Remote]: No sé, ahí, Nacho, y te digo que que el Celeste a mí ese, pero
+[You]: Sí.
+[Remote]: déjeme ver Rexy Finance, porque no no sé qué
+[Remote]: Este no lo tienen, o sea, algo que armamos como para
+[Remote]: comunicar esto de inteligencia artificial, que se usa mucho el de y todo.
+[Remote]: Sí, y, Sophie, intentar hacer con el gradiente, ¿viste? Que recién mostraste la página de gradiente,
+[Remote]: animado y tenía un color medio parecido a este, que era medio bordó o naranja, veo
+[Remote]: ladrillo. Capaz que probar con este un gradiente medio
+[Remote]: beige, no sé, como para probar algo distinto, un beige
+[Remote]: colores pasteles, ¿viste?
+[Remote]: Porque el azul el azul eléctrico en AI también está quemado.
+[Remote]: O sea, es como que que ya ya lo quemó. Pero estoy tirando sin saber,
+[Remote]: Capaz que pero le puedo armar, o sea, si nos enfocamos que en la próxima vemos lo de los
+[You]: अभी
+[Remote]: gradientes, les armo varias propuestas de eso. O capaz que el gradiente en blanco, si
+[Remote]: la parte negra, el gradiente en blanco, entonces, es un efecto en blanco y jugamos con otros colores.
+[Remote]: Dale, Nacho, perdón.
+[You]: Yo yo maté los pasteles, me parecen espantosos.
+[Remote]: Los paneles, bueno, no van los paneles, sorry. No no no, pues, vos no no habíamos hablado de eso, pero
+[Remote]: no sé, yo como así me gusta biólogo,
+[Remote]: como lo único que me pasa con esto, que la página es
+[Remote]: un caos de cosas, pero como que le veo identidad, ¿entendés? Como esto ya les
+[Remote]: suma un montón. Fijate Anthropic,
+[Remote]: Anthropic, no sé, esta es una que usamos los desarrolladores ahora,
+[Remote]: que tiene, es la misma letra que nosotros ves,
+[Remote]: como que usan esta letra y usan el color pastelito, entonces, como que están poniendo de moda,
+[Remote]: algo rey hay,
+[Remote]: algo rey de ochentoso. Entonces, justo, no sé, cuando yo se los pasé a los chicos de anterior empresa, me dijeron, chiburio, está buenísimo, es igual a Antropic, el diseño. Entonces, podemos jugar, porque podemos hacerlo distinto jugando con Bayes,
+[Remote]: haciendo moderno lo que no era moderno.
+[Remote]: ¿Se entiende? Y es un poco rexi, es agarrar teams financieros
+[Remote]: siempre están en la prehistoria y hacer y llevarlos a la modernidad
+[Remote]: podemos jugar con ese efecto de letra más
+[Remote]: no moderna, pero le ponemos gradientes, le ponemos animaciones,
+[Remote]: y lo hacemos moderno, ¿no?
+[Remote]: Vale. Bien. Bueno, yo me llego a ver eso, a probar si tienes alternativas para ahí,
+[Remote]: pruebo una con video de fondo, que agarro cualquier video y después de eso
+[Remote]: lo actualizaremos, alguna con imágenes, otras con este gradiente,
+[Remote]: como esas tres pruebas y los distintos colores del gradiente.
+[You]: Dale, yo apuntaría lo siguiente, si querés ahí los averigua SEO a la TV al canal de Slack,
+[Remote]: Impecable.
+[Remote]: Ah,
+[You]: Si nos podés mandar algo intermedio en el mientras, así te damos feedback,
+[Remote]: Ah, acordate que el Slack ya no lo puedo usar.
+[You]: Te acabo de mandar mil cosas por Slack.
+[Remote]: Pero si quieren armemos en
+[You]: Acabo cosa por
+[Remote]: armemos en WhatsApp, si quieren iba a decir que armemos un grupito de WhatsApp, y y
+[You]: Vale.
+[Remote]: los va pasando ahí, Sofi, y tipo feedback, ahí, cosas, acordate, no hagas animaciones, no hagas
+[Remote]: fijo. No, por eso, o sea, sirve dividirlo, porque si no, como que me estoy
+[Remote]: volviendo loca en todo y No, no, no, no, no hagas animaciones, hacelo en diseño,
+[Remote]: hero y footer y el background nada más. Y después,
+[Remote]: le metemos las partes de adentro que capaz que te, pero me gusta,
+[Remote]: negro con, que el negro tenga gradiente, la letra r
+[Remote]: esa ¿Cuál es la font de? Así también, Sophie, puede usar la
+[Remote]: Sí, la tengo, la tengo en cesta, A ver, ah, joya.
+[Remote]: Sí. La plan La la la puedo Sí.
+[You]: ¿Ese se asegura, Sofi?
+[Remote]: ¿Qué?
+[You]: ¿Es esa?
+[Remote]: Creo que es creo que es Merryweather,
+[You]: Maryweather o Inter.
+[Remote]: Ah, yo, lo que me pasaron estaban estas dos, Plantin y Factory Pro.
+[Remote]: Acá se ve, no sé si lo hicieron a ver, ¿cuál era? Sí, sí, sí.
+[You]: Puede ser que en la página web usemos otra que en las presentaciones.
+[Remote]: Igual, sería bueno usarme reweather,
+[Remote]: O sea, porque de Nacho las presentaciones tú ya quedan bomba, o sea, creo que está No sé si el atono se dice, Sophie, pero es más
+[Remote]: La busco. Todavía.
+[Remote]: Ok, la busco, la busco. Estas eran las que me habían pasado, pero lo actualizamos.
+[Remote]: Sin ningún problema.
+[Remote]: Genial, bueno, dale, entonces hagamos el grupo de WhatsApp, yo les voy mandando, como les
+[Remote]: alternativas para que vean, y bueno, vemos cómo seguimos.
+[You]: Vale.
+[Remote]: Ahora les comparto esto y el videíto que
+[Remote]: que les mostré recién del prototipo, y bueno,
+[Remote]: nada, igual si van pensando, si vienen, che, me gustó esta parte, esta
+[Remote]: sección, porque también si me mandan capaz la página completa, no sé en dónde fijarme, entonces
+[Remote]: lo último, si me mandan tipo, che, me gustó esta animación en tal parte y vamos probando.
+[Remote]: Bien. Acordate que nosotros
+[You]: Vale, yo apuntaría
+[Remote]: Dale, dale, gancho. Nosotros apuntamos equipos
+[You]: No, apuntaría como te dije en el
+[Remote]: Nosotros apuntamos a equipos estructurados
+[Remote]: y los vamos a desestructurar todos con tecnología. O sea, tiene que ser como
+[Remote]: una combineta de que nos miren y y se hagan modernos ellos,
+[Remote]: A ese, por eso Palantir creo que combina
+[Remote]: mucho cuadrado, pero con sofisticación, lindo, animaciones. Creo que viene por
+[Remote]: ahí nomás.
+[You]: Yo apuntaría
+[You]: a, si, si, mientras tanto, cuando tengas primeras versiones, nos mandes por
+[You]: por WhatsApp y te lo llenamos de comentarios, y si quieres vuelvo
+[You]: a agendar un espacio el viernes que viene para para ya avanzar.
+[Remote]: Dale, dale, genial. Justo el viernes me voy a vacaciones, pero el jueves puede
+[Remote]: ser o cualquier otro día de la semana.
+[You]: Vale, listo.
+[Remote]: ¿Sí?
+[Remote]: Voy solo ese día, o sea, me pido el día, no me voy de vacaciones.
+[You]: Perfecto, obvio.
+[Remote]: Traigan, Sophie, no pasa nada. Vale.
+[Remote]: Bueno, ahora les comparto. Si, Nacho, si creás ahí el grupo y me sumás, les
+[Remote]: mando todo para ahí más fácil. Creo.
+[You]: Should I take it out?
+[Remote]: Ah, espectacular.
+[Remote]: Perfecto. Bueno, chicos, gracias. Un gusto, Sophie. Gusto,
+[You]: I am so happy that's
+[Remote]: gusto,
+
+============================================================
+SUMMARY
+============================================================
+### Website Hero Section Redesign
+
+- Current design lacks identity and differentiation
+  - Appears too generic/commodity-like for a company revolutionizing the finance industry
+  - Missing “wow factor” that demonstrates innovation
+- Hero section needs complete overhaul
+  - Consider full-screen video background with text overlay
+  - Implement glass effect styling (iOS-inspired transparency)
+  - Add moving gradient background (AI-native aesthetic)
+  - Maintain black background with gradient, transition to white for content sections
+- Design references to incorporate:
+  - Palantir: sophisticated, elegant, highly technical aesthetic
+  - Stripe: gradient usage and clean animations
+  - Avoid reinventing components - adapt best elements from each
+
+### Content Structure & Visual Elements
+
+- Overall structure approved for lower sections
+  - Video section with expandable functionality works well
+  - Three-point value proposition maintains current approach
+  - Integration steps section needs clickable expansion with platform GIFs
+- Logo integration display
+  - Partner/client logos moved to top for immediate credibility
+  - Animated carousel showing all integration partners
+- Color scheme direction:
+  - Black backgrounds with moving gradients
+  - White sections for text-heavy content (blog, detailed info)
+  - Avoid pastels - focus on sophisticated black/white/gradient combination
+- Typography: Use Rexi’s existing font (Merriweather) consistently
+
+### Next Steps
+
+- Sophie to create hero section and footer prototypes only
+  - Three variations: video background, image-based, gradient-focused
+  - No animations in prototypes - static designs with development notes
+  - Focus on glass effect elements and modern aesthetic
+- WhatsApp group for iterative feedback
+  - Share work-in-progress versions for quick comments
+  - Target review meeting Thursday (before Sophie’s Friday off)
+- Content support needed:
+  - Nacho to provide specific platform screenshots/GIFs for integration steps
+  - Real client imagery to replace placeholder content
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/17e5ae07-c02c-4aad-8c24-526194ed4050](https://notes.granola.ai/t/17e5ae07-c02c-4aad-8c24-526194ed4050)

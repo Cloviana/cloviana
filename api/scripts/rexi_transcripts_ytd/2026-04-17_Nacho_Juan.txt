@@ -1,0 +1,309 @@
+MEETING: Nacho <> Juan
+DATE: 2026-04-17
+ID: not_JH11ue94Kjnpbp
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Jvarvello <jvarvello@gmail.com>, Juan Varvello <juan.varvello@devrev.ai>
+SCHEDULED: 2026-04-17T09:00:00-04:00 - 2026-04-17T09:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Juan Grillo.
+[You]: Hola, hola.
+[Remote]: Ahí está.
+[Remote]: Configurando el micrófono. ¿Está bien?
+[You]: ¿Medivos?
+[Remote]: Bien, bien. ¿Cómo andás?
+[You]: Muy bien, muy bien.
+[Remote]: ¿De nuevo?
+[You]: Tanto tiempo
+[Remote]: O con esa, ¿dónde andas?
+[You]: Ahora en Nueva York, me estoy yendo la semana que viene a San Francisco.
+[Remote]: Mira,
+[You]: ¿Vos comunics con todo?
+[Remote]: Todo bien, por suerte.
+[You]: ¿Contento?
+[Remote]: Contento.
+[You]: Contento le laburo.
+[Remote]: Sí, sí.
+[Remote]: Nada, sacan cosas nuevas, así que está divertido.
+[You]: Bueno,
+[Remote]: Voy ahora con Claude. Nada, estamos haciendo
+[Remote]: muchas más cosas, que antes dependía por ahí ingeniería para deployar y qué sé yo, pero ahora tipo lo podemos hacer nosotros, así que está está muy divertido.
+[You]: Bueno,
+[You]: bueno, bueno. Bueno, te tengo que ir a ayudar con algo muy puntual,
+[You]: que siento que vos, con tus habilidades, lo podrías sacar muy rápido,
+[You]: y muy urgente.
+[You]: Te cuento
+[Remote]: Ok.
+[You]: como siempre, en mi caso, y perdón por eso.
+[You]: Pero es que a veces arranco a hacer algo y digo, soy un choto, lo he visto a Juan, y y ya es mi
+[You]: gente, ya es medio tarde, ¿oíste? Pero bueno, la semana que viene voy a hacer Francisco y necesito
+[You]: llenarme la agenda de reuniones
+[Remote]: Okay.
+[You]: interesantes.
+[You]: ¿Sí?
+[You]: Dejame que te comparto pantalla acá.
+[You]: Vos no sé te acordás esta lista que armamos nosotros.
+[You]: Este Excel que se llama outbound list,
+[You]: que tiene, primero,
+[You]: acá, tipo, ves que dice, ese es roadshow, y todas las compañías que en algún momento dijimos que queríamos targetear,
+[You]: ¿sí?
+[You]: Déjame que
+[You]: Vamos a hacer la cosa, porque te llamé te hincharon las bolas. Bueno,
+[You]: Y después, vos, en algún momento, me hiciste el laburito de
+[You]: acá en ese project, contacts, la rojita, traerme
+[You]: con el buyer persona
+[You]: todas las personitas, ¿sí?
+[Remote]: Sí.
+[You]: Ok.
+[You]: A ver, los dos, silk blank. Bueno, hace un poquito así.
+[You]: Vamos a filtrar así.
+[You]: Entonces,
+[You]: Esto es lo seco que tiene el mail, los vamos a sacar, tac.
+[You]: Bueno, ¿qué necesito ayuda de hoy?
+[You]: Si vos te fijás, acá, cuando venís a ese que son las compañías,
+[You]: acá está el count de
+[You]: a ver, mil dos sesenta y siete,
+[You]: Acá está el count de cuántos contactos tenemos para esta compañía, ¿ves?
+[Remote]: Sí.
+[You]: Y esto es un validador que dice si es mayor o igual a tres.
+[You]: Con lo cual, el primer paso es
+[You]: buscar contactos para los que dicen falso, porque si vos acá filtrás por falso,
+[You]: das cuenta que hay menos de tres, ¿sí? Para algunas hay uno.
+[You]: O cero.
+[Remote]: Okay.
+[You]: Ahora, este contador
+[You]: está basado en que yo acá le estoy poniendo ceros y unos.
+[You]: Porque algunos contactan, no sé, mirá, vive el, ves, vive en Londres,
+[You]: vive en Singapur, che, he visto que iba en San Francisco.
+[You]: Ok?
+[Remote]: Okay.
+[Remote]: Sí, sí, sí.
+[You]: Con lo cual el primer paso es
+[You]: asegurar que todas las cuentas acá
+[You]: O sea, en realidad,
+[You]: si querés,
+[You]: sí, asegurar que todas las cuentas acá tengan
+[You]: tres o más.
+[You]: ¿Ok?
+[You]: Pasó uno.
+[You]: Vos seguís mirando seguís mirando nuestro Slack,
+[Remote]: Ok, sí.
+[Remote]: Lo lo tengo.
+[You]: Ok, mira, primer paso,
+[Remote]: Sea, si querés.
+[You]: que todas, que todos los leads
+[You]: todas las compañías
+[Remote]: Lo que sí puede pasar es que, ponele a esas que por ahí sean
+[Remote]: un poco más chicas o que no tengan tantos leads en en San Francisco.
+[Remote]: Pero
+[Remote]: no me acuerdo
+[You]: Para eso,
+[You]: Sí, o si no,
+[Remote]: A ver,
+[You]: Sí.
+[Remote]: voy a
+[You]: Tres o más
+[Remote]: por las dudas, porque me parece que eso ya pasó la vez pasada, y no no es que, tipo,
+[Remote]: Pero bueno, igual, chequeo porque ya pasó un tiempo, si capaz
+[You]: Mirá, ahí ahí te, para mí los filtros serían, viviendo en San Francisco,
+[You]: que trabajen en finanzas
+[You]: u operaciones. Te lo te la abro así.
+[Remote]: Dale.
+[You]: Ni siquiera buyer persona, así que traeme todos y también para vos es más fácil.
+[You]: ¿Sí?
+[Remote]: Dale.
+[You]: Paso dos,
+[You]: es, obviamente,
+[You]: vas a empezar a dar cuenta, después acá, bueno, no sé, si querés yo ya te saco los ceros de acá, ¿querés que te los saque?
+[You]: Los que para mí no van.
+[Remote]: Sí, dígame.
+[Remote]: O o dejalos por si llega a encontrar en la búsqueda para también
+[Remote]: incluirlos.
+[You]: Ok, te dejo los ceros. El segundo paso es conseguir el contacto.
+[Remote]: Dale.
+[You]: Conseguir el mail,
+[You]: Sigo teniendo créditos en en Bitscale,
+[Remote]: Sí, ahí.
+[You]: dejé de pagar, pero tengo ahí un remanente, con lo cual debería funcionar.
+[You]: Y el punto tres es
+[You]: redactar
+[You]: mail, mandar
+[You]: campaña HubSpot.
+[You]: El el mail
+[You]: lo haría simple y al pie,
+[You]: Simple, corto,
+[You]: que llame la atención, contadme de mí,
+[You]: y de Rexy,
+[You]: y darle Harvard, que levantamos ronda,
+[You]: que ya trabajamos con
+[You]: clientes enterprise
+[You]: Dale un pattern on.
+[Remote]: ¿Tenés un un draft del mail? O sea,
+[You]: ¿Te puedo tirar acá, te tiro acá
+[You]: puntos para el prompt.
+[Remote]: Ok.
+[Remote]: O sea, acá el el mail tenemos dos opciones, uno,
+[Remote]: o es tipo
+[Remote]: hacerlo personalizado, scrapeando la data de LinkedIn de la persona o algo así, que es como
+[Remote]: hicimos la otra vez,
+[Remote]: o la otra opción es armar como un template
+[Remote]: ponele, hay algunas, a veces lo hacemos, que es tipo, no sé,
+[Remote]: el nombre es el único que se cambia o se cambia el nombre de la empresa, el nombre de la
+[Remote]: pero como el el cuerpo del mail es igual y no necesitas nada de IA.
+[Remote]: Para para hacer, para armarlo.
+[You]: ¿Qué es lo que funciona mejor?
+[Remote]: Y
+[Remote]: la verdad que mail es un canal que
+[Remote]: no sé si vale la pena, si si me decís que por ahí
+[Remote]: por LinkedIn, bueno, por LinkedIn sí me bastaría un poco más en personalizarlo, pero si es por mail,
+[Remote]: usaría
+[Remote]: usaría un un template
+[Remote]: no gastaría créditos de ahí en eso.
+[You]: Che, ¿y para esto harías mail o LinkedIn? ¿Qué tiene mejor tasa?
+[Remote]: Y yo, como queda una semana, tiraría dos.
+[You]: La hot.
+[Remote]: Sí.
+[Remote]: O o agarré un bucket que vos digas, tipo, che, estos
+[Remote]: realmente quiero,
+[Remote]: y estos
+[Remote]: nada, lo les mando por
+[You]: Te muteaste.
+[You]: Te muteaste, no sé por qué.
+[Remote]: No, lo que decía era que, tipo, a veces cuando mandaste el mail, se hiper en la casilla o
+[Remote]: alguna cosa así,
+[Remote]: Y nada, si mandás los dos, te aseguras por lo menos de que
+[Remote]: van a contestar más rápido si querés tenerlos para la semana que viene.
+[Remote]: Pero bueno, por ahí por ahí podemos
+[Remote]: tipo, hacer unos por mail, otros por
+[Remote]: diez ideas ponele y ver, tipo,
+[Remote]: si da un reply reply rate más rápido y
+[Remote]: pero bueno.
+[Remote]: Muy ajusto de tiempo también, así que
+[You]: Okay.
+[You]: Bueno,
+[You]: es eso. Básicamente, que las compañías tengan tres o más contactos,
+[You]: viviendo en SEF y que trabajen en finanzas operaciones, conseguir el mail
+[You]: más LinkedIn,
+[You]: mandar invite,
+[Remote]: tienen tienen alguna tool de mail tipo Sendgrid o algo así?
+[You]: Hicimos la otra vez, acuerdas?
+[Remote]: Sí.
+[Remote]: Pensando si HubSpot tiene, porque si HubSpot tiene
+[Remote]: API support para mandar mails, por ahí se puede automatizar el mandado de mails,
+[Remote]: solamente hacer el
+[Remote]: el mandado de LinkedIn más personalizado.
+[Remote]: Me fijo, porque no, la verdad, yo no laburo mucho con Huffle, pero
+[You]: Bueno, después te diría, mandar hoy lo antes posible,
+[You]: y después sería follow up el lunes primera hora,
+[You]: o follow up lunes
+[You]: fin del día,
+[You]: y follow-up
+[You]: miércoles, fin del día.
+[You]: El objetivo
+[You]: es reunirme presencial
+[You]: y contarle de Rexy y evaluar fit,
+[You]: Voy a estar en ese toda la semana que viene.
+[You]: Del veinte al veinticuatro, inclusive.
+[You]: Llevo el lunes am, me voy
+[You]: viernes pm.
+[You]: ¿Alguna duda
+[You]: Yo ya traje muchos mails, te fijarás, entonces por eso
+[You]: la la gran parte del laburo ya la hice, pero después como que dije,
+[You]: acá me la voy a empezar a pegar.
+[You]: Mirá.
+[You]: Para casi todos estos
+[You]: todos los unos,
+[You]: ya tengo mails, ¿entendés?
+[You]: Entonces, simplemente los que faltan.
+[Remote]: Está bien.
+[You]: ¿Cómo la ves?
+[Remote]: No, no, bien, bien. Te aviso cuando
+[You]: Ahora una
+[You]: ¿Algo que te preocupe?
+[Remote]: cuando esté todo
+[You]: O sea,
+[Remote]: No, no, no.
+[You]: trataría de que el el primer contacto, el LinkedIn email, lanzarlo hoy,
+[You]: Porque esto es la semana que viene, boludo.
+[Remote]: Sí, sí, o sea, ahora ahora te busco los contactos
+[Remote]: de las cuentas esas que estaban en false,
+[Remote]: Ahí te aviso para ver si les querés poner el uno en el cero.
+[Remote]: Y nada, y crafteamos los mails, eso, o sea,
+[Remote]: los mails los podemos hacer
+[Remote]: o el mensaje lo podemos hacer personalizado o no personalizado.
+[Remote]: Eso depende de lo que vos quieras. Yo más que nada para
+[Remote]: para
+[You]: Sí, lo por más personalizado posible, ¿no?
+[Remote]: porque yo siendo
+[Remote]: Sí, pero
+[Remote]: o sea, si si la otra vez, ponle, que habíamos hecho los mails estos
+[Remote]: con ver play CT y eso, ¿viste?, algún algún cambio,
+[Remote]: Siento que a veces la gente por mail, tipo, no le da tanta bola a eso. Por LinkedIn puede ser, pero por mail no sé qué.
+[Remote]: Tanta bola le da.
+[Remote]: Igual probamos, o sea, lo hacemos.
+[Remote]: Ok.
+[You]: Yo lo haría personalizado, sí, lo más personalizado posible.
+[Remote]: Dale.
+[You]: Que haga
+[You]: research de marketing intelligence,
+[You]: personalización,
+[You]: Moray demanding towards Slack.
+[You]: Avisame cualquier duda y y, por lo primero que salga hoy, y después ya, si
+[You]: querés, déjalo configurado para
+[You]: follow ups lunes y miércoles. ¿Te parece?
+[Remote]: Dale.
+[You]: Bueno, Juan, querido,
+[You]: ya lo hace, como siempre.
+[Remote]: No cantes Victoria, pero sí, espero que sí, dale, hablamos.
+[You]: Dale, abrazo.
+[Remote]: Abrazo, chau chau.
+
+============================================================
+SUMMARY
+============================================================
+### Meeting Overview
+
+- Catch-up call with Juan Varvello (Revenue Operations at DevRev)
+- Requesting urgent help for San Francisco trip next week (April 20-24)
+- Need to fill agenda with prospect meetings
+
+### Current Outbound Campaign Status
+
+- Working from existing “outbound list” Excel with target companies
+- Current contact database has 1,267 companies total
+- Many companies lack sufficient contacts (need 3+ per company)
+- Existing contacts filtered by San Francisco location, finance/operations roles
+- Previous work already completed for companies marked with “1s”
+
+### Required Tasks for SF Trip
+
+- Contact research for companies marked “false” (less than 3 contacts)
+  - Target: Finance/operations professionals in San Francisco
+  - Use existing Bitscale credits for email discovery
+- Outreach strategy:
+  1. Email + LinkedIn outreach (launch today)
+  2. Follow-up Monday morning/evening
+  3. Follow-up Wednesday evening
+- Message personalization using marketing intelligence research
+- Goal: Schedule in-person meetings to discuss Rexi and evaluate fit
+
+### Outreach Approach Discussion
+
+- Debate between personalized vs template emails
+- Juan recommends dual approach (email + LinkedIn) for better response rates
+- Personalized messaging preferred despite higher effort
+- HubSpot integration for automated email campaigns explored
+- LinkedIn may have better engagement than email
+
+### Next Steps
+
+- Juan to find contacts for companies currently marked “false”
+- Craft personalized outreach messages
+- Launch initial outreach today
+- Configure follow-up sequences for Monday and Wednesday
+- Report back on progress via Slack
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/60d21ffd-af26-4faf-b787-362d323e0f43](https://notes.granola.ai/t/60d21ffd-af26-4faf-b787-362d323e0f43)

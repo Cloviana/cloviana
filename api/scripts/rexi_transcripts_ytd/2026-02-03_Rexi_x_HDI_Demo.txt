@@ -1,0 +1,714 @@
+MEETING: Rexi x HDI: Demo
+DATE: 2026-02-03
+ID: not_QDjUMDf7hTBDTX
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Angelica Quintero <angelica.quintero@hdiseguros.com.co>, Luz Quinonez <luz.quinonez@hdiseguros.com.co>, Maribel Giraldo <maribel.giraldo@hdiseguros.com.co>, Sebastian Nicholls <sebastian.nicholls@hdiseguros.com.co>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-02-03T12:00:00-05:00 - 2026-02-03T12:45:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Hola Ignacio, hola Teo, ¿cómo están?
+[Remote]: Hola, muy días, muy bien, ¿estás
+[Remote]: Buenos días.
+[You]: ¿Ustedes cómo están?
+[Remote]: Muy bien, muy bien, muchas gracias.
+[You]: Están en
+[You]: Bogotá o dónde están?
+[Remote]: Yo sí estoy en Bogotá, allí no, allí en próximas horas.
+[Remote]: En próximas horas, yo estoy en DC.
+[You]: Ah, mira.
+[Remote]: Sí, sí, sí, sí, estoy en DC, pero estoy
+[Remote]: justo en el aeropuerto ya para devolverme volumen.
+[You]: Perfect.
+[Remote]: De la operación.
+[Remote]: Nos vamos presentando mientras tanto para que sepan
+[Remote]: que en qué parte trabajamos cada uno. Entonces, bueno, yo yo soy Angélica Quintero, yo soy gerente
+[Remote]: de tesorería, manejo todo lo que es pagos, relaciones con bancos, etcétera, e inversiones,
+[Remote]: pues ya más de manejo de de portafolio.
+[You]: Buenísimo.
+[Remote]: Listo, yo soy Luz Alejandra, actualmente lidero
+[Remote]: la operación financiera,
+[Remote]: HD en Colombia,
+[Remote]: manejo todo el tema de cartera, de financiaciones, de comisiones,
+[Remote]: y
+[Remote]: Entonces, aprovecho y también
+[Remote]: me presento, mi nombre es Pedro Martín, hago parte del
+[Remote]: equipo de Rus Alejandro Quiñones, y aporto, pues, con el
+[Remote]: dentro de la coordinación de atención y control.
+[Remote]: Gestión y control de la de la gerencia de operaciones financieras.
+[Remote]: Que Maribel está esperando que le den acceso, si nos ayudan, por favor.
+[You]: A ver, perdón, muy concentrado escuchando las intros.
+[You]: Ahí está, Maribel.
+[Remote]: Listo, perfecto.
+[Remote]: Listo. Hola, Mary.
+[You]: Hola, Maribel, ¿cómo estás?
+[Remote]: Hola, buenos días, buenas tardes, bien, gracias, ¿cómo va?
+[You]: Muy bien, un gusto saludarte.
+[Remote]: Igualmente.
+[You]: ¿Maribel trabaja con Luz o con Angélica o
+[Remote]: No, Maribel es la gerente de operaciones desde la parte técnica, desde la emisión de las pólizas,
+[You]: o de otro área?
+[Remote]: y escuchándolos a ustedes nos pareció importante
+[Remote]: traerla aquí a a este demo, porque desde el área de ella también maneja
+[Remote]: temas de conciliaciones de bases de datos.
+[Remote]: Entonces, ahí es donde inicia todo nuestro proceso.
+[Remote]: En toda la emisión de la póliza y la conciliación técnica con nuestros
+[Remote]: sponsors o con nuestros intermediarios de seguros o nuestros brókers.
+[You]: Excelente. Bueno, voy a, si les parece, nos presentamos porque no sé
+[You]: si a muchos pudimos conocer la vez pasada. Te digo, yo somos los cofundadores de Rexy,
+[You]: estamos basados en Estados Unidos, pero tenemos presencia en Latinoamérica también.
+[You]: Trabajamos principalmente con bancos, aseguradoras, plataformas fintech,
+[You]: proveyendo una plataforma de conciliación automática.
+[You]: ¿Sí? Utilizamos inteligencia artificial y machine learning para
+[You]: justamente integrarnos a todas estas fuentes de información
+[You]: hacer todo el ese desorden, algo
+[You]: más legible, más ordenado, que se pueda comparar,
+[You]: y luego procesamos las transacciones para empezar a machear justamente
+[You]: una póliza contra una transacción bancaria y asegurarnos de que
+[You]: esos cobros y esas emisiones de pagos están
+[You]: bien trackeadas y confirmadas, ¿no? Siempre hay
+[You]: una base de datos que es la teórica, lo que debería haber sucedido,
+[You]: y después está lo que verdaderamente sucedió del lado bancario, con lo cual
+[You]: venimos a automatizar ese proceso, el valor agregado de una plataforma
+[You]: como la nuestra es, uno,
+[You]: reducción de tareas manuales, ¿sí? Hay mucho tiempo que seguramente
+[You]: se pasa en Excel, integrando bases de datos, investigando las diferencias,
+[You]: que nuestra plataforma viene a automatizar, ¿sí?
+[You]: Dos, la visibilidad que brinda
+[You]: tener una conciliación a nivel transaccional, ¿no? Porque como bien sabemos, estas cosas
+[You]: bien sabrán todos ustedes, nunca cuadran, con lo cual,
+[You]: ya luego tener esa visibilidad a nivel transacción de qué entró, qué no,
+[You]: y poder hacer ese seguimiento desde una plataforma central,
+[You]: brinda muchísimo valor a los equipos, ¿no? Porque, o sea, al final reduce riesgo,
+[You]: con con esa visibilidad uno puede
+[You]: trackear correctamente los flujos de dinero.
+[You]: Con lo cual, diría que
+[Remote]: Yo quiero tomar la palabra, Ignacio, digamos que nos
+[Remote]: nosotros en en la compañía llevamos algunos años,
+[Remote]: creo que se los mencioné, una plataforma
+[Remote]: que se llama Nine, donde nosotros
+[Remote]: pues nosotros no, Pedro, que es uno de los expertos en la programación de
+[Remote]: todos los nodos de esa herramienta, se ha automatizado
+[Remote]: bastante la operación
+[Remote]: de cruces de bases de datos. Entonces, ahí digamos que tenemos
+[Remote]: flujos muy robustos de cincuenta, setenta,
+[Remote]: hasta ochenta nodos, que eso, pues, nos ha ayudado a hacer esa
+[Remote]: conciliación entre bases de datos con una llave de información.
+[Remote]: Entonces, digamos que ya hemos
+[Remote]: tenido la implementación, ahorita ya estamos, es
+[Remote]: en la calendarización, nosotros estamos con el área de sistemas,
+[Remote]: agendando para que no tenga una persona que entrar y correr el flujo,
+[Remote]: sino un sistema, un servidor,
+[Remote]: corra todos los flujos, porque tenemos un poco más de cien flujos
+[Remote]: ya montados en esa plataforma.
+[Remote]: Entonces, quisiera entender ya con esto qué diferencia tendríamos con Rec. Aneja, Aneja, yo yo yo
+[Remote]: un poco porque también, digamos, aquí acá Maribel, yo entiendo que ustedes se dedican más a estrés
+[Remote]: abstractos y a temas como más
+[Remote]: financieros, pero ¿cuáles serían los alcances que ustedes le ven? Obviamente, esto está en construcción,
+[Remote]: ustedes nos lo decían bien la vez pasada, pero ¿cuál es el alcance? Y ahí ver dos
+[Remote]: lo que ustedes O sea, reunión busca,
+[Remote]: miremos dos o tres procesos y ustedes vean qué tan viables son esos dos o tres procesos, ¿verdad?
+[You]: Hey, sec.
+[Remote]: Para seguir adelante y para mirar si se puede trabajar como demo.
+[Remote]: Entonces, si quieren
+[Remote]: podemos poner cada una un flujo, si quieres, Aleja, pues ese puede ser el flujo que que
+[Remote]: que tú que tú ya nos ya nos preguntarás más a detalle,
+[Remote]: pero escuchar un poco cómo los alcances y las limitaciones
+[Remote]: también que tiene que tiene la la la plataforma.
+[You]: Perfecto, alcances, y ahí después nos encantaría meternos en los ustedes.
+[You]: Nosotros tenemos un alcance, dos alcances, ¿sí? Primero es el alcance operativo,
+[You]: de esa parte diaria de correr los flujos y machar transacciones contra pólizas
+[You]: las emisiones de pagos, para asegurar de que cada día
+[You]: los lo las transacciones se están moviendo en
+[You]: correcta y en cantidades correctas, o al menos tener una visibilidad de eso.
+[You]: Y luego tenemos lo que es el alcance
+[You]: de finanzas, tesorería, contabilidad,
+[You]: todo ese mundo, que es la conciliación de balances
+[You]: y de de los flujos a a fin de mes para cerrar los libros, ¿no?
+[You]: Nosotros tenemos integraciones con los principales CRPs para generar esos asientos contables,
+[You]: de las cuestiones que ya quedan conciliadas. Con lo cual el alcance, si
+[You]: si si me permiten decirlo, es end to end, tenemos la la operación
+[You]: hasta la generación del asiento contable, ¿sí? Luego, la plataforma
+[You]: ingesta, se transforma, se machea en las transacciones, y a todo un módulo
+[You]: donde ustedes pueden loguearse y ver
+[You]: y resolver las discrepancias, ¿sí? Ustedes seguramente sabrán, estas cosas nunca cuadran,
+[You]: con lo cual la mayor cantidad del tiempo se pasa en
+[You]: investigar las diferencias e intentar resolverlas rápidamente, ¿no?
+[You]: Entonces, estamos desarrollando todo un módulo donde esas diferencias ustedes las pueden ver a nivel transacción
+[You]: Se sugieren soluciones,
+[You]: pueden también hacer creación de macheos manuales,
+[You]: creación de entradas manuales, porque a veces algunas transacciones, pues, ya las reconocen
+[You]: porque son movimientos
+[You]: manuales de algún proveedor o de ustedes, entonces ya directamente la la marcan como
+[You]: conciliada. La idea es que todo el proceso viva dentro de Rexig, ¿sí? Ese es un poco el el alcance.
+[You]: Ahora, nos gustaría conocer más sobre alguno de los flujos,
+[You]: si nos quieren mostrar y después nosotros hacia el final de la llamada,
+[You]: podemos también hacerles un un mapeo de la de la herramienta.
+[Remote]: Yo yo ahí tengo una pregunta, nosotros
+[Remote]: yo me quedé en que la esposa habíamos dicho que no conectaba con él,
+[Remote]: con nuestro sistema contable, sino que era hasta antes del sistema contable.
+[You]: Tenemos la posibilidad, tenemos
+[You]: tenemos con los principios
+[You]: Hola, hola, ¿me escuchan?
+[Remote]: Sí, el micrófono tal vez, pero complemento lo
+[Remote]: estaba diciendo Nacho, nosotros nos conectamos a cualquier fuente de información que ustedes requieran,
+[Remote]: para hacer reconciliación, y también podemos
+[Remote]: generar los asientos contables para para automatizar ese proceso,
+[Remote]: cómo usar agentes contables para información contable de
+[Remote]: sistema contable para conciliar también? O sea, es de ambas maneras lo que podemos hacer en en en
+[Remote]: Ok, yo yo yo tengo ahí
+[Remote]: una cosita.
+[Remote]: Vamos a ver procesos para
+[Remote]: pensamos para el demo o vamos a ver procesos estructurales
+[Remote]: para ver si son factibles o no en un futuro?
+[You]: Que ustedes nos quieran mostrar, a ver, acá nosotros venimos a solucionar un punto de dolor. ¿Me escuchan bien ahí?
+[Remote]: Sim.
+[Remote]: Sí.
+[You]: Venimos a solucionar un punto de dolor. Entonces, idealmente para la demo es
+[You]: entender con esta herramienta que tiene en nine qué todavía queda por resolver, qué todavía duele
+[You]: mucho o lleva mucho tiempo o genera dolor en la operación o costos?
+[You]: Y quizás enfocar la demo en resolver eso. Ya después con la demo,
+[You]: o con la prueba de concepto o la prueba piloto, el título que le pongamos, después decidimos hacia dónde
+[You]: escalar.
+[You]: Pero acá venimos a solucionarles un problema a ustedes, así que
+[You]: encantados de que nos compartan hoy qué es lo que más les duele este proceso,
+[You]: y ver si con Rexi podemos armar una prueba piloto para solucionarlo.
+[Remote]: Alejandro, ¿sí te parece que mientras tú vas buscando el el el el
+[Remote]: el archivo para que les conté los de, voy a hacer son una introducción chiquita sobre
+[Remote]: como todas las empresas tenemos ingresos y salidas que no podemos conseguir,
+[Remote]: como todas las empresas personas en ustedes,
+[Remote]: y particularmente en el negocio de seguros, sobre todo las
+[Remote]: entradas de dinero son difíciles de muchas veces.
+[Remote]: Tenemos muchos ingresos muy chiquiticos, porque las pólizas, pues,
+[Remote]: hablando de pólizas uno a uno, que son
+[Remote]: digamos, que una parte importante de nuestro proceso, pero también hay otra parte importante, que es
+[Remote]: creo que les va a mostrar a Luz, Alejandra, que
+[Remote]: sobre los masivos, sobre los cuando un solo tomador
+[Remote]: toma muchas pólizas y luego hay que conciliar con porque te te sola
+[Remote]: un pago, y hay que conciliar detrás todos los datos que corresponde a un solo pago.
+[Remote]: Eso ahorita Alejandra ya nos lo, Alejandra o Pedro nos lo van a mostrar, pues, cómo se hace ahora con la
+[Remote]: herramienta que ella dice.
+[Remote]: Y digamos que sería una parte grande.
+[Remote]: De de proceso.
+[Remote]: No sé, María, ver si tengan su cabeza otro, porque la citamos así como imprevisto, de pronto no tenía,
+[Remote]: ningún proceso, pero, pues, con los que presentemos nosotras podemos irlo bien.
+[Remote]: Y yo tengo un proceso chiquito que a mí se me había ocurrido, chiquito
+[Remote]: en tiendas en volumen, pero obviamente está muy desordenado.
+[Remote]: Que es tarjetas de crédito.
+[Remote]: Las personas de de de talento humano dan tarjetas de crédito
+[Remote]: pues, bueno.
+[Remote]: Dan muchas tarjetas de crédito y son gastos chiquitos, pero se vuelve un complique de considerarlos,
+[Remote]: los bancos mandan un extracto en el que debitan automáticamente algo,
+[Remote]: y luego toca hacer cruces manuales de un PDF con un Excel,
+[Remote]: con una factura, con miles de cosas, y en este momento
+[Remote]: existe un proceso. Es alguien abriendo archivos y tratando de encontrar los valores que
+[Remote]: cuadren, básicamente.
+[Remote]: Ese se me ocurría para el demo, porque no tiene ninguna
+[Remote]: automatización como compleja ni nada hacia atrás, y no es algo de
+[Remote]: entendamos este archivo, cojamos los datos y demos una
+[Remote]: un un Excel o no no sé cómo lo muestran ustedes, porque no, pues creo que ya para un demo conectar
+[Remote]: al sistema es es bastante complicado, pero si algún una clase de de de impuesto
+[Remote]: así se me ocurría a mí, sobre todo como para el demo,
+[Remote]: para poder ver cómo funcionaría en este sentido.
+[Remote]: Pero si quieres dale, Aleja, querer dar el contexto, pues Otro otro proceso
+[Remote]: que yo había pensado que ese todavía no lo tenemos en Nine, es el de la conciliación de las partidas pendientes de bancos.
+[Remote]: ¿Sí? Que tenemos que coger una base muy grande
+[Remote]: que son partidas que están conciliatorias de el extracto,
+[Remote]: y tenemos que ir a cruzar
+[Remote]: con cartera y con varias fuentes, porque es una bolsa grande,
+[Remote]: como de dinero,
+[Remote]: donde entran muchas partidas
+[Remote]: y tenemos en algunos campos
+[Remote]: algunas referencias. Entonces, aquí también creo que entraría un poco también temas de
+[Remote]: de guía, de entrar y buscar por campo,
+[Remote]: que tenga que cruzar con varias fuentes. Entonces, la primera fuente que
+[Remote]: se va a cruzar es
+[Remote]: coa seguro, la siguiente, o sea, como
+[Remote]: por niveles,
+[Remote]: Primera fuente, coaseguro. Segunda fuente, cartera. Tercera fuente,
+[Remote]: reembolsos. Cuarta, ¿sí? Así, digamos que ese creo que
+[Remote]: ha sido también un dolor
+[Remote]: de de identificación
+[Remote]: de partidas.
+[Remote]: Entonces,
+[You]: Buenísimo.
+[Remote]: eso también podría ser
+[Remote]: como una de las
+[You]: Esto que mencionan es es algo que vemos
+[You]: recurrentemente en todos nuestros clientes, entonces es un poco lo que hacemos.
+[You]: No sé si, Luz, querés mostrarnos o querés que te mostremos nosotros un poquito
+[You]: cómo resolveríamos estos dolores que acabas de mencionar.
+[Remote]: Yo considero que
+[Remote]: si quieren nos lo muestran,
+[Remote]: y ya si si lo que nosotros tenemos, pues no aplica tanto para esto
+[Remote]: sino otros procesos, pues ahí sí Obvio. Les decimos.
+[You]: Yo me enfocaría, debo, en mostrar one too many,
+[Remote]: Obvio.
+[You]: que es esto de lo que mencionó Angélica, de que a veces tienen un pago, pero corresponde a muchas pólizas.
+[You]: Entonces eso sería interesante para ver. Y también si vemos el de múltiples fuentes, ¿no?
+[Remote]: Sí, qué pena.
+[You]: Que al final es como un extracto bancario que
+[Remote]: Qué pena, Ignacio. No leímos la palabra a Mari, y creo que Mari también tiene
+[Remote]: una operación fuerte en temas de
+[Remote]: bases de datos, de cruzar ella para poder subir
+[Remote]: una un proceso de emisión, creo que tiene que hacer también unos
+[Remote]: cruces, unas validaciones, que también podría ser
+[Remote]: Cruces, sí. Importante.
+[Remote]: La opinión de Mary. Gracias, Alex. Sí, no, era solo una pregunta,
+[Remote]: actualmente en todos esos procesos ustedes también tienen conexión a nuestros aplicativos? O sea, si
+[Remote]: temas de seguridad y demás se diera, se podría tener conexión y análisis en aplicativos propios
+[Remote]: o es solamente como una herramienta que yo ejecuto por fuera de?
+[You]: Ahí, buenísima la pregunta, Mari. Nosotros tenemos dos modalidades,
+[You]: tenemos un modelo software donde todo corre en nuestra infraestructura y nuestra nube,
+[You]: entonces nos tenemos que conectar a sus aplicativos para engestar la información,
+[You]: y tenemos un segundo modelo que le llamamos on premise,
+[You]: o client hosted, en donde nosotros desarrollamos
+[You]: toda la solución para ustedes, la implementamos en Rexy y la implantamos
+[You]: su infraestructura. Entonces, esto se vuelve un aplicativo de HDD.
+[You]: Después ya luego lo controlan y lo operan ustedes. Ahí resolvemos
+[You]: casi todo el tema de la sensibilidad de la información, más que nada,
+[You]: Y también les damos a ustedes un capability, ¿no? En lugar de alquilar
+[You]: el músculo de IA o de machine learning con un SaaS vendor,
+[You]: lo tienen internamente. Entonces, no está como que están adquiriendo una operatoria con inteligencia artificial,
+[You]: ¿no? Y creo que eso internamente puede tomar mucho vuelo, ¿no?
+[Remote]: Ok, clarísimo, sí, y un poco lo que se aleja, yo hoy recibo muchas bases en Excel.
+[Remote]: Y es de estar conciliando y estar haciendo cruces
+[Remote]: y y hoy muchas de la de la operación que ha vuelto macros.
+[Remote]: Entonces, es esta macro y bajé esta base de acá y ponga esta base
+[Remote]: y ahora cruce y la diferencia vaya y búsquela ya manual,
+[Remote]: Entonces, hoy sí hago muchos cruces manuales, pero esto todo esto lo hago
+[Remote]: desde el aplicativo emisor, que bajo ciertos reportes y con eso hago los cruces en Excel.
+[Remote]: Todo lo bajo en Excel y hago solo macros y cruces, que ahí es donde me gustaría un
+[Remote]: ver esos demos que nos van a a presentar, a ver esos cruces que se le podrían hacer.
+[You]: Sí. Nosotros
+[Remote]: Bueno,
+[You]: dale,
+[Remote]: arranco una una una una pequeña intro, todos los problemas que que nos mencionaron
+[Remote]: son básicamente los que estamos con Nacho hace dos años trabajando para crear una herramienta que los automatice.
+[Remote]: Descarga de información, estandarización, todos los cruces que acabás de
+[Remote]: mencionar, Maribel,
+[Remote]: nosotros los automatizamos
+[Remote]: es algo que ahora ahora les muestro un poquito.
+[Remote]: Obviamente, las reconciliaciones, que sea todo
+[Remote]: de manera de lo que decimos no code, que no necesita
+[Remote]: un programador o un conocimiento técnico, simplemente apretando algunas configuraciones acá que que son muy intuitivas, yo ahora les muestro, se generan todas estas automatizaciones para que ustedes se concentren solamente en ver qué es lo que realmente no está cuadrando o cuál está faltando. Acá, bueno, un poco lo mencionamos, yo les preparé cuatro bases de datos una para que vean cómo sería una automatización de una conciliación de collections, o sea, inbound, de primas, y la otra es claim payouts, todo lo que es outbound pero bueno, esto es solamente conceptual para que se lleven como cómo funciona la la plataforma. Entonces, básicamente, por ejemplo, acá tenemos todo lo que es Premium Collections. Primero, voy a
+[Remote]: comentar un poco
+[Remote]: que nosotros nos dedicamos a automatizar la ingesta.
+[Remote]: Entonces,
+[Remote]: la información nosotros la la traemos de manera automática,
+[Remote]: conectamos al al banco, nos conectamos a cualquier fuente de información, al sistema y demás, y la traemos
+[Remote]: de manera automática.
+[Remote]: Pero si en algún momento quieren hacer algún testeo, alguna prueba y demás,
+[Remote]: obviamente también se puede traer con con un CSV o con Excel, pueden cargar qué es lo que hice yo en este
+[Remote]: Por ejemplo,
+[Remote]: yo generé una base de dato Dami,
+[Remote]: y traje la información con un CSV.
+[Remote]: Y esto, por ejemplo, es la información de las primas. Esto es lo que debería haber sido,
+[Remote]: Entonces, tenés la prima, el el monto, por ejemplo, acá el monto,
+[Remote]: la fecha de la la
+[Remote]: fecha de la transacción, la moneda,
+[Remote]: el canal y y demás.
+[Remote]: ¿Qué hacemos nosotros?
+[Remote]: Cualquier estandarización de la información, porque el banco manda la información en un formato y
+[Remote]: tal vez su base de datos interna tiene otro formato. Entonces,
+[Remote]: todas estas acciones
+[Remote]: uno las hace una vez y después cuando se actualiza la la fuente de datos,
+[Remote]: se hacen de manera automática.
+[Remote]: Por ejemplo, los cruces,
+[Remote]: Entonces, por ejemplo, esto, el vlook, a veces buscar b, en Excel,
+[Remote]: que me me imagino
+[Remote]: Maribel, vos hacés muchos cruces de este tipo, ¿no?
+[Remote]: De acuerdo, Exacto. Bueno, esto
+[Remote]: básicamente, que hace es automatizar eso, simplemente
+[Remote]: trae la información
+[Remote]: automatiza los los cruces y genera las
+[Remote]: Entonces, obviamente, seleccionas cuál es la otra fuente de datos que querés
+[Remote]: traer la información, qué columna querés traerte,
+[Remote]: cuáles son el el el los match conditions y demás.
+[Remote]: Obviamente, pueden ser varios,
+[Remote]: demás. En este caso, igual, yo tengo solo cuatro bases de datos, no vamos a hacer ningún cruce,
+[Remote]: Pero solo para que vean,
+[Remote]: esto recontra intuitivo, se puede cambiar el formato de de la
+[Remote]: columna, si vino como texto, yo creo que sea un número,
+[Remote]: una fecha y demás,
+[Remote]: todo se hace
+[Remote]: manera automática.
+[Remote]: Después, si hay algún tipo de trabajo que hagan con una macro, algo así,
+[Remote]: que requiera una transformación un poco más compleja, nosotros tenemos este campo fórmula,
+[Remote]: básicamente lo que hace es replicar cualquier
+[Remote]: fórmula que necesitemos en Excel para generar una columna nueva o lo que sea.
+[Remote]: Pero, de todas maneras,
+[Remote]: con todos estos con todas estas opciones que tenemos, calculate the column, fórmula, group
+[Remote]: by, transform date, speed database group by,
+[Remote]: y VLOOKUP, hacemos todos los requerimientos que que
+[Remote]: todas las funcionalidades que tiene Excel de manera automática.
+[Remote]: Entonces, generemos rápido, no no quiero llamarme todo toda la
+[Remote]: toda la hora, pero quiero hacer rápido un cruce conciliatorio,
+[Remote]: para que lo vean. Por ejemplo,
+[Remote]: inbound,
+[Remote]: Una una pregunta, Teo, si cambian los
+[Remote]: la estructura de los inputs, hay que cambiar todo el robot.
+[Remote]: No, se se, o sea, se actualiza, tendríamos que dar hoy en qué qué cambiar.
+[Remote]: Pero nosotros básicamente detectamos todos los formatos
+[Remote]: Nos pasa mucho que una vez cada dos meses, tres meses, el banco de repente cambia algo,
+[Remote]: entonces nosotros adaptamos de vuelta la la conciliación, es decir, ahorita adaptar la regla.
+[Remote]: A conciliación.
+[Remote]: Esa sería la ventaja que tendríamos en el modelo uno, pero en el modelo no dos
+[Remote]: no, porque ya es de nosotros y ya ahí tocaría mirar cómo se le hace un arreglo
+[Remote]: por fuera.
+[Remote]: Ok.
+[Remote]: Ahí comentaron también que tenían algunos
+[Remote]: cruces que que requerían una misma fuente de datos que se conecte con bar,
+[Remote]: que que se cruce primero con con con una base de datos, después con otra
+[Remote]: con otra, básicamente eso se genera acá,
+[Remote]: primero generamos la rule base,
+[Remote]: le ponemos, por ejemplo, inbound
+[Remote]: y como comentamos, puede ser one to one, one to many,
+[Remote]: many to one o many to many. Básicamente, cuando seleccionamos, por ejemplo, many to one,
+[Remote]: se agrupa la información de las collections,
+[Remote]: y se compara con un solo bank statement,
+[Remote]: Acá le ponemos para motivos de reporting cuál es el value mapping,
+[Remote]: Entonces, como comentaron, tal vez hay
+[Remote]: muchas colecciones de de primas,
+[Remote]: que corresponden a un solo pago, a un solo pago que entra en Bancolombia,
+[Remote]: por ejemplo, o algo así,
+[Remote]: y demás. Y bueno, obviamente lo agruparíamos por
+[Remote]: el customer hash o o alguna métrica de esas.
+[Remote]: En este caso, yo, es la
+[Remote]: la información la preparé para que sea un mini un one to one,
+[Remote]: que se
+[Remote]: que se cruce por bank reference, entonces vamos a configurarlo,
+[Remote]: externa reference,
+[Remote]: en en premium collections, y bank reference en la base de datos del banco.
+[Remote]: Muchas veces no tenemos un ID único para hacer este cruce, entonces tal vez
+[Remote]: queremos hacer una segunda barrida que sea por monto y fecha,
+[Remote]: amount.
+[Remote]: Ejemplo, amount y fecha, y número de cliente, lo que sea,
+[Remote]: obviamente, que puede tener una tolerancia, tal vez, del cero coma uno por ciento,
+[Remote]: o los campos fecha
+[Remote]: que tienen que ser siempre cruzados con campo fecha,
+[Remote]: Pueden tener una tolerancia en días, horas, minutos o segundos.
+[Remote]: En este caso, es un cruce de bank reference.
+[Remote]: Obviamente, si se pueden hacer un montón de comparaciones, puede podemos comparar estatus, por ejemplo, queremos
+[Remote]: asegurarnos que el estatus sea settled,
+[Remote]: en este, y tal vez credit en este,
+[Remote]: o lo que sea, todo eso se hace acá
+[Remote]: en la comparación.
+[Remote]: Hay campos de equivalencia, por ejemplo, en alguna base de datos
+[Remote]: la moneda viene en minúscula,
+[Remote]: y en otras en mayúscula,
+[Remote]: entonces hacemos un grupo equivalente para comparar
+[Remote]: asegurarnos que esté siempre. Básicamente, podemos normalizar la información,
+[Remote]: sin tener que crear un script complejo en Python ni nada.
+[Remote]: Esto por el lado de comparaciones,
+[Remote]: después transformaciones, puede ser alguna cuenta o cálculo de fee y demás que quieran
+[Remote]: hacer solamente por motivos de reporting.
+[Remote]: Vamos a crear la regla y correrla rápido, porque ya no estoy
+[Remote]: llevando toda la hora.
+[Remote]: Pero pero voy a preguntar algo algo, ¿te
+[Remote]: No no quiero que suene feo, por favor. Pero, digamos, la diferencia entre esto y un
+[Remote]: código de de
+[Remote]: o sea, de de Python,
+[Remote]: o de programación, digamos, está, digamos, donde podemos ver nosotros
+[Remote]: el valor agregado en la recolección de los datos,
+[Remote]: como la flexibilidad de la recolección.
+[Remote]: A ver, el valor agregado de una herramienta como esta que tenés
+[Remote]: todas las todas las herramientas o o todos los los los servicios
+[Remote]: una herramienta personalizable,
+[Remote]: que no necesitás estar modificando el código para hacer la las conciliaciones.
+[Remote]: Simplemente las podemos hacer
+[Remote]: de manera manual y sin conocimientos Técnicos, Como Estuvimos Viendo Ahora. ¿A Eso Iba Tu Pregunta? Clarísimo, Sí, Sí, Sí, O Sea, Si Algo Cambia Necesitamos Algo Diferente, No Hay Que Escribir El Código De De, Si Decirle, Necesito Que Busques Esto En Vez De Esto, Y Ya, En En En Colombiano vas. Ves acá, ponés, Eric,
+[Remote]: y simplemente modificamos la
+[You]: Sí, agrego esto también.
+[Remote]: modificamos la la configuración.
+[You]: ¿Me escuchan?
+[Remote]: Y, obviamente, como dijimos, nosotros nos dedicamos a automatizar
+[Remote]: entonces no tenemos que estar todo el día entrando a correr, sino
+[Remote]: simplemente ponemos que corra todos los días a las cinco de la mañana,
+[Remote]: los lunes, martes, miércoles, jueves,
+[Remote]: y directamente nos metemos todos los días a dar
+[Remote]: las conciliaciones.
+[Remote]: Macho de esta transacción,
+[Remote]: y compararla con esta otra base de datos, y así vas configurando
+[Remote]: las reglas dependientes y todo el flujo conciliatorio
+[Remote]: de una manera muy intuitiva manual. O sea, ahí puedes ir
+[Remote]: haciendo como las fases, ¿sí? Exactamente. Primero hace un cruce con
+[Remote]: el la columna tal, la la
+[Remote]: mejor dicho, la base de datos uno, la columna
+[Remote]: k,
+[Remote]: que tiene La luz, o el monto,
+[Remote]: sí. El monto, entonces, vaya y crúcela con la base dos y eso, listo.
+[Remote]: Luego, otro otra cajita donde diga,
+[Remote]: lo que quedó sin conciliar,
+[Remote]: vaya, crúcelo con la base tres,
+[Remote]: pero la base tres, la el campo que tiene no dice mouse, sino dice
+[Remote]: la base tres se cruza por, no sé, monto lo dice en español, tal vez,
+[Remote]: y fecha de transacción o fecha de liquidación o, no sé,
+[Remote]: monto total. Creando como el mapa ahí, el mapa. Todo el mapa con
+[Remote]: conciliatorio y se automatiza, ¿viste? Que es es muy simple, muy
+[Remote]: nuestro objetivo, que sea muy fácil crear una una una conciliación
+[Remote]: automatizarla, que corra todos los días de manera automática,
+[Remote]: sin tener que estar ingestando la información, haciendo los cruces en Excel, normalizándola,
+[Remote]: haciendo toda la la la cadena.
+[Remote]: Básicamente, no nos ahorraría los
+[Remote]: los desarrolladores detrás de de hacer todas estas cosas, ese es como el plus de
+[Remote]: Exactamente. Ya, ya.
+[Remote]: Dame libertad a ustedes, si cambia un si cambia un contrato, si cambia un formato, algo,
+[Remote]: tener que estar dependiendo de programadores, sino que ustedes se meten acá y ponen
+[Remote]: y listo. Ya la la la pueden editar y y y
+[Remote]: y ya está.
+[Remote]: Ese edit sirve, entiendo que sirve para cruces, me queda
+[Remote]: claro, pero edit sirve para estructuras, por ejemplo. Todo, se puede editar todo.
+[Remote]: Si acá tenemos otra dependiente, que cruza con una tercer base de datos No,
+[Remote]: también la podemos editar, le podemos poner cuál es el hash, por ejemplo, customer hash,
+[Remote]: o sea, un customer cash, puede ser obviamente one to many, many to many, todas las mismas reglas
+[Remote]: que se hacen en la en la que vimos recién, en esta,
+[Remote]: pueden hacer en las reglas dependientes.
+[Remote]: Yo lo veo mucho para que Muchas gracias, Teona,
+[Remote]: ¿Sí? Alguien estaba hablando.
+[Remote]: Yo, yo, que lo lo veo mucho para el proceso de bancos,
+[Remote]: sin embargo, pues,
+[Remote]: conociendo cómo hemos
+[Remote]: venido haciendo las programaciones de Nine es muy similar, lo que pasa es que
+[Remote]: esas cajitas son unos nódulos, entonces este nódulo me hace mi primer cruce,
+[Remote]: el segundo nódulo y se también se va conectando.
+[Remote]: Ajá. No sé si ahorita Pedrito les muestra
+[Remote]: el que tenemos de todos los días. Nosotros, por ejemplo, tenemos una
+[Remote]: todos los días tenemos que tener un reporte de nuestra cartera, de nuestras cuentas por cobrar.
+[Remote]: Pero
+[Remote]: la que baja nuestra fuente original le faltan unos cambios.
+[Remote]: Entonces, ese proceso baja otras fuentes y la va adicionando.
+[Remote]: Enriquece, bueno, todo eso que estás comentando se puede hacer
+[Remote]: termina mostrada en dos minutos la plataforma y después nos pueden mostrar a ustedes cómo es el el proceso actual.
+[Remote]: ¿Les parece?
+[Remote]: Sí.
+[Remote]: Bueno A ver, ¿cómo se puede integrar con con esto?
+[Remote]: Perfecto. Bueno, acá,
+[Remote]: la información de las primas,
+[Remote]: interna y lo que nos viene del banco,
+[Remote]: cruzaron, cuánto no, total de transacciones por día,
+[Remote]: de estas cuántas macharon,
+[Remote]: y cuántas quedaron sin conciliar,
+[Remote]: lo mismo en montos, y esto aperturado por día, además
+[Remote]: obviamente, puede cambiar la la fecha, el el campo fecha y demás,
+[Remote]: Se puede exportar la información de manera muy configurable y fácil si
+[Remote]: ustedes quieren que se se exporte o se genere cuál
+[Remote]: cual reporte que ustedes prefieran con los campos que quieran,
+[Remote]: enriquecidos, es decir, trayendo información de
+[Remote]: un lado, del otro, con algún tipo de
+[Remote]: de columna calculada o un fill normalizer. Básicamente,
+[Remote]: generamos reportes completamente personalizables y automatizables, es decir,
+[Remote]: ustedes quieren que todos los días se se haga la sin geste,
+[Remote]: haga la conciliación y se genere este reporte, ustedes simplemente se meten a ver el reporte o a enviarlo,
+[Remote]: lo automatizamos todo de manera muy fácil y configurable.
+[Remote]: También, como comentó Nacho, automatizamos la generación de asientos contables,
+[Remote]: No sé si es un dolor para ustedes o tal vez para otro equipo en este momento, pero
+[Remote]: muchas compañías tienen
+[Remote]: un proceso muy manual de generación de asientos contables en base a la operatoria,
+[Remote]: nosotros la automatizamos,
+[Remote]: completamente,
+[Remote]: Tenemos también todo lo que es el módulo de de de gestión de de
+[Remote]: excepciones, básicamente, donde vemos de un lado
+[Remote]: todo lo que no reconcilió en la en la base de datos interna,
+[Remote]: otro lado, todo lo lo que no reconcilió en el banco,
+[Remote]: y tal vez hacemos una una búsqueda
+[Remote]: manual, por ejemplo, podemos pedir
+[Remote]: a esta
+[Remote]: que me busque opciones para ver con qué
+[Remote]: llegar a machar. Esta, por ejemplo, tiene ochenta y ocho mil novecientos pesos,
+[Remote]: Hay dos opciones de ochenta y ocho mil novecientos pesos. Entonces, bueno, decimos
+[Remote]: ah, claro, es con esta,
+[Remote]: y lo marcamos como reconciliado,
+[Remote]: Y listo, ahí nos vamos retirando
+[Remote]: También, obviamente, tenemos todo lo que es duplicados, que no sé si habré generado, por
+[Remote]: ejemplo, acá,
+[Remote]: uno es lo que acabamos de marcar, y la otra es esta, por ejemplo, tiene el mismo hash,
+[Remote]: entonces el sistema dice,
+[Remote]: ustedes me dijeron,
+[Remote]: era un one to one, o sea, uno a uno,
+[Remote]: y con este hash o este bank reference,
+[Remote]: tenemos dos opciones. Nosotros no lo no no podemos permitir ambigüedad porque
+[Remote]: es uno a uno, entonces simplemente lo lo flaggeamos.
+[Remote]: Y obviamente también se puede marcar con excepciones,
+[Remote]: y
+[Remote]: muchas veces hay movimientos que siempre vamos a saber que no van a estar del otro lado,
+[Remote]: y tal vez son movimientos manuales o lo que sea, entonces se puede configurar
+[Remote]: reglas de automatización de de excepciones. Entonces, estas ya no son más conciliaciones,
+[Remote]: sino que son movimientos que sabemos que nunca van a conciliar con otra base de datos,
+[Remote]: automatizame eso también. Entonces, siempre que venga
+[Remote]: por ejemplo, la información de acá,
+[Remote]: con cierta condición, por ejemplo, que
+[Remote]: tiene este patrón o que venga
+[Remote]: en este campo x descripción,
+[Remote]: marcamelo como excepción directamente.
+[Remote]: Y las últimas dos cosas rápido,
+[Remote]: son todo lo que es alarmas, obviamente mandamos alarmas por mail o o
+[Remote]: o por Slack o por el canal de comunicación que que ustedes quieran,
+[Remote]: generación de dashboards muy personalizables. Es decir, si ustedes tienen
+[Remote]: quieren un solo dashboard,
+[Remote]: tengan la información de todos los bancos, eso se hace de manera
+[Remote]: muy fácil, les les genera un un
+[Remote]: lo que llamamos widgets ahora, puede ser con cualquier tipo de métrica, con test demo, esto es solamente para que lo vean, y se va creando el dashboard, Obviamente, widgets se pueden organizar y y y estructurar de de la manera en que ustedes quieran, para tener toda la información en un solo dashboard muy fácil de usar, muy fácil de generar, De todas maneras, como como le dijo Nacho, nosotros hoy,
+[Remote]: este trabajo lo hacemos todo por ustedes y lo dejamos configurado y andando de tal manera que
+[Remote]: no tengan ningún problema para configurar.
+[Remote]: Tengo una pregunta,
+[Remote]: pensando en una necesidad puntual que nos va a abrir, y es, hace
+[Remote]: hacen robo también de
+[Remote]: facturas
+[Remote]: de facturas de diferentes ingresos.
+[Remote]: Nosotros consigamos cualquier información que
+[Remote]: ustedes necesiten conciliar. Básicamente, tenemos
+[Remote]: con cualquier tipo de cruce o lógica que ustedes requieran, nosotros
+[Remote]: la replicamos y la automatizamos.
+[Remote]: No, más eso obtener documentos, por ejemplo, en PDF.
+[Remote]: O documentos XLM,
+[Remote]: aquí en Colombia, facturación electrónica, hacer lectura de eso,
+[Remote]: y a ir armando bases de datos.
+[Remote]: Eso, a ver, nosotros,
+[Remote]: lo hemos visto en el pasado. Hoy no no estamos leyendo PDF, pero
+[Remote]: si me comparten uno uno de ejemplo,
+[Remote]: lo vemos con el equipo y hoy en día no no debería ser mucho problema. Imposible, sí.
+[Remote]: Listo. No, pues, eso es un poco para pensar en los siguientes pasos y en en en en
+[Remote]: dónde sería la los posibles de aplicaciones, en la necesidad inmediata.
+[Remote]: Porque yo creo que desmontar la Inés es una necesidad que no va a ser inmediata
+[Remote]: porque existe alguna plataforma, pero, por ejemplo, esto de facturas
+[Remote]: puede ser o lo que les contaba de tarjetas de crédito seguro es una opción
+[Remote]: más que de la necesidad inicial. Bancaria nada más necesitaríamos ya.
+[Remote]: Entonces, como
+[Remote]: como siguiente paso, ver cuáles son esas cosas y también presentarlo a Sebastián a
+[Remote]: Santiago, cuáles son esas cosas que se podrían aplicar en ella y qué qué
+[Remote]: funcionarían?
+[Remote]: Y entender, pues, a través de la demo cómo funcionaría.
+[You]: Esos dos procesos más inmediatos que ustedes ven son
+[Remote]: Buenísimo.
+[You]: conciliación de facturas, esto de los PDFs, y el proceso de tarjeta de crédito que no
+[You]: existe proceso hoy.
+[Remote]: Sí. Yo me iría inicialmente, Ignacio, con el de
+[Remote]: el el primero que comenté, que era la conciliación de las partidas pendientes de bancos.
+[You]: Partidas pendientes de bancos, esas que usan muchas fuentes, ¿no?
+[Remote]: Exacto. ¿Qué qué está la
+[You]: Es la que más duele hoy,
+[Remote]: fuente de bancos y que todos los días cambian, ¿no? Eso todos los días se va
+[Remote]: o van saliendo partidas o van ingresando partidas,
+[You]: Bueno, esa es una de las que más duele hoy.
+[Remote]: No sé, Angie, ¿cómo vea ese
+[Remote]: ese punto?
+[Remote]: Yo yo estaba pensando en el demo y estaba pensando en algo menos pesado para el demo, pues,
+[Remote]: probar cómo funcionaría. No sé si ustedes, Ignacio, tengo
+[Remote]: lo vean, yo estaba hablando, por eso en tarjetas de crédito no porque sea la más urgente,
+[Remote]: sino porque es para ver cómo funciona, ¿sí? Es es es algo mucho más
+[Remote]: Pero lo que pasa es que el otro sí es como se está doliendo más, entonces por eso es que
+[Remote]: Yo ahí, no sé, Nacho, obviamente me me encantaría saber tu opinión, pero
+[Remote]: a nosotros nos interesa agregarles valor y automatizarles.
+[Remote]: Si llegamos a avanzar en una propuesta comercial, nosotros vamos a automatizar
+[Remote]: usted nos diga, nos dedicamos a automatizar procesos conciliatorios
+[Remote]: entonces, si quieren que avancemos con uno o con otro, no no no sé, es indistinto.
+[You]: Yo fiel a mi estilo más ambicioso iría por lo que más duele.
+[You]: Y dado que ya ya está la oferta sobre la mesa de hacer una prueba de
+[You]: piloto gratis, aprovechemos a agregar valor en el
+[You]: que realmente importe, ¿no? Así después ya
+[You]: por lo menos, si después no trabajamos juntos, les dejamos algo andando que funcione,
+[You]: o les o les o o o les dimos visibilidad sobre algo,
+[You]: pero nosotros, de vuelta, también estamos en una etapa en donde
+[You]: queremos invertir ese tiempo y y queremos desarrollar esta relación, entonces
+[You]: en ese sentido, no tengan no tengan miedo, Angélica, de tirarnos de un proceso más pesado.
+[You]: Estamos súper abiertos.
+[Remote]: Perfecto, perfecto. Ahí ahí yo creo que entonces
+[Remote]: como también para siguientes pasos nos toquemos nos tocaría ya,
+[Remote]: uno, pues la reunión ya más específica de mostrarles el proceso, ya
+[Remote]: cómo de, ya podemos hacer, pues Traerce a la mesa a los dolientes.
+[Remote]: Pero antes de eso, pues, lo la las fases de datos,
+[Remote]: el equipo de datos, que era lo que mencionaba Santiago, y con el equipo de seguridad
+[Remote]: para firmar los lo que haya que firmar y
+[Remote]: hacer lo que haya que hacer, así sea una una demo, pues habrá que habrá que
+[Remote]: firmar varias cosas, y creo que sería eso primero, y luego le asentaba con el equipo doliente
+[Remote]: con con los datos.
+[Remote]: Sí, yo creo que ya con esta información, o sea, con esta, de
+[Remote]: que ustedes nos hicieron, ya junto con Angélica, con Mari, nos sentamos a a mirar cuál sería el siguiente paso, obviamente,
+[Remote]: sentar a Santiago y a Sebastián y decirles, mire, estos son los
+[Remote]: tres
+[Remote]: procesos, cuatro procesos que posiblemente podríamos llevar a una
+[Remote]: demo gratuita, y
+[Remote]: pues, sí, surtir las fases de confidencialidad, porque
+[Remote]: las bases que que que vamos a entregar tienen información sensible.
+[You]: Totalmente, totalmente. Bueno, ahí
+[You]: quieren yo les hago un seguimiento por por mail y la seguimos. Si nos ayudan ustedes,
+[Remote]: Claro.
+[You]: a empujar la parte legal y de datos,
+[You]: de coordinar la reunión con el equipo doliente, nosotros estamos para
+[Remote]: Mhmm.
+[You]: empezar mañana, así que ahí
+[Remote]: Nosotros nos vamos a demorar un poquito, igual, estamos en transición, no sé si les
+[Remote]: contaron, pero estamos en transición de Santiago a Sebastián, Sebastián presidente,
+[Remote]: Santiago entrando, entonces, nos vamos a mandar un poquito como presentarles la la propuesta,
+[You]: Listo, vale. Ahí lo llevo con ustedes dos, el
+[Remote]: pero pero estamos en eso.
+[Remote]: Sí,
+[You]: el proceso o o más con una que con otra.
+[Remote]: No, con las dos, puede ser con Ángel que conmigo.
+[You]: Vale, listo. Bueno,
+[You]: sé si quedó algo de nuestro lado, el lado de ustedes.
+[Remote]: Y les vamos juntando.
+[Remote]: No,
+[You]: Bueno, muchas gracias por el tiempo y nada, muy entusiasmados.
+[Remote]: No, usted es Ignacio, Teo, mil gracias. Angie, o en regreso.
+[Remote]: Gracias. Que estén bien.
+[Remote]: Bueno, muchas gracias. Menos, chao. Chao.
+
+============================================================
+SUMMARY
+============================================================
+### HDI Team Introductions and Current Operations
+
+- Angelica Quintero - Treasury Manager (payments and investments)
+- Luz Alejandra - Financial Operations Leader (portfolio, financing, commissions)
+- Pedro Martín - Works with Luz Alejandra (operations financial management)
+- Maribel Giraldo - Operations Manager (policy issuance, database reconciliation)
+- Current automation using “Nine” platform
+  - Pedro is expert in Nine programming
+  - Robust flows with up to 80 nodes
+  - Over 100 flows already mounted
+  - Scheduling implementation in progress for automated server execution
+
+### Key Pain Points Identified
+
+- One-to-many reconciliation challenges
+  - Single payment corresponds to multiple policies
+  - Comes from single vendor but needs individual policy breakdown
+- Credit card reconciliation (Angelica’s priority)
+  - Banks issue PDF statements
+  - Manual reconciliation between PDF files and Excel
+  - Currently no automated process - good pilot candidate
+- Bank pending items reconciliation (Luz’s major pain point)
+  - Multiple data sources required for cross-referencing
+  - Daily changes with new items entering/exiting
+  - Sequential matching process: coinsurance → portfolio → reimbursements
+- Manual Excel operations (Maribel’s concern)
+  - Heavy reliance on macros for data crossing
+  - Downloads from issuing system for Excel-based reconciliation
+  - Security concerns about application connectivity
+
+### Most Immediate Use Cases for Pilot
+
+1. Bank pending items reconciliation (multiple sources)
+2. Invoice reconciliation (PDFs)
+3. Credit card reconciliation (no current process)
+
+- Team prefers starting with most painful process (bank pending items)
+- Ignacio advocates for tackling highest-impact problem first
+- Free pilot offer accepted for most critical pain point
+
+### Next Steps
+
+- Legal and data team coordination required
+  - Confidentiality agreements needed for sensitive data sharing
+  - Security clearance for application connectivity
+- Meeting with decision makers
+  - Present to Santiago and Sebastián (leadership transition in progress)
+  - Include “suffering team” (operations staff) in detailed process review
+- Ignacio to follow up via email
+- HDI team (Angelica and Luz) to coordinate internal approvals and scheduling
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/71df5dd0-5b57-40b9-ad17-be77c831074b](https://notes.granola.ai/t/71df5dd0-5b57-40b9-ad17-be77c831074b)

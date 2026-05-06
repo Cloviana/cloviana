@@ -1,0 +1,655 @@
+MEETING: [1:1] Ignacio (Rexi) <> Sofia (Muuyal)
+DATE: 2026-04-29
+ID: not_VIbkM1RgT2aOBC
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Sofia Ramirez <sofia.ramirez@muuyal.co>
+SCHEDULED: 2026-04-29T09:30:00-04:00 - 2026-04-29T10:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Igualmente. ¿Cómo estás?
+[Remote]: ¿Está muy bien?
+[You]: ¿O tranquilo?
+[You]: ¿Dónde estás hoy?
+[You]: Oh, sí, en Texas, ¿ahí dónde vives?
+[Remote]: Austin.
+[Remote]: Sí, ajá.
+[You]: Bueno, buenísimo.
+[Remote]: ¿Tú vives en Nueva York?
+[You]: Yo estoy en Sí, correcto.
+[Remote]: Ok.
+[You]: Ya hace unos meses basado acá y y, bueno, acá es donde estamos
+[You]: construyendo digamos. Así que
+[You]: sí, nada, contento de estar aquí. ¿Venez seguido a New York o no tanto?
+[Remote]: Al menos una vez al año,
+[Remote]: Vivimos muchos años en Nueva York. Mi hija más grande es de Nueva York, entonces vamos más por razones, este, personales, y también viajamos a
+[Remote]: Europa, que mi esposo es Europa, y entonces casi siempre hacemos como una buena parada ahí.
+[Remote]: Pero, oye, muchas gracias por tu tiempo, este,
+[Remote]: Alison, entiendo que te conoció,
+[Remote]: este, que algo están haciendo juntos, y que pensó que
+[Remote]: podría ser una buena intro.
+[Remote]: ¿Por qué no me cuentas un poquito de lo que
+[Remote]: hacen, de de, este, en qué momento están, en qué les duele? Yo te platico
+[Remote]: igual de lo mío, y vemos que
+[Remote]: este, si hay algo en el que hay un buen
+[Remote]: un una buena alineación donde podamos, este, colaborar.
+[You]: Sì, total, buonissimo.
+[You]: Mirá, te cuento, no sé qué tanto, ¿sabes?,
+[You]: exactamente sobre lo que hacemos o no tanto?
+[Remote]: Estuve leyendo, este, lo que me compartiste,
+[You]: Sí.
+[Remote]: así que ese es el conocimiento que tengo. Pero, si quieres, platícame más.
+[You]: Ok.
+[You]: Bueno, mirá, Betsy es una compañía de
+[Remote]: Mhmm.
+[You]: infraestructura financiera, entonces, resolvemos un problema que está
+[You]: muy deep down
+[You]: under the hood,
+[You]: en
+[You]: en servicios financieros y más broader en también en otras verticales, ¿sí?
+[Remote]: Mhmm.
+[You]: El problema es el problema de reconciliaciones.
+[Remote]: Sí.
+[You]: Que se conciliar flujos de dinero, es decir,
+[You]: vos y yo operamos un flujo de dinero. En una transacción siempre hay dos partes,
+[You]: vos tenés una foto de lo que sucedió, yo tengo otra foto de lo que sucedió, y conciliari simplemente por
+[Remote]: Nada.
+[You]: de acuerdo en qué efectivamente sucedió.
+[You]: Porque vos decís que me mandaste diez pagos, pero yo recibí solo nueve.
+[You]: Entonces, esa es la conciliación. Y nosotros estamos en un sistema agéntico
+[You]: para automatizar todo ese proceso.
+[You]: Entonces, eso es un poquito lo que resolvemos hoy, y trabajamos con bancos, compañías de pagos,
+[You]: seguros,
+[You]: y estamos explorando mucho también el mundo de marketplaces, porque en realidad
+[You]: cualquier compañía que integre múltiples flujos de pagos y tenga una transaccionalidad alta,
+[You]: tiene un dolor con las conciliaciones, y ahí es donde entra nuestra plataforma
+[You]: en juego. Por lo cual es un poquito lo que hacemos, las tesis más
+[Remote]: Claro.
+[You]: largo plazo es cómo nos podemos
+[You]: cómo trascender conciliaciones. Conciliaciones es la puerta de entrada,
+[You]: y luego, sobre esa base fundacional,
+[You]: técnica, o sea, esa base de datos conciliada, deployar agentes para otro
+[You]: procesos adyacentes a la conciliación.
+[Remote]: Claro.
+[You]: Finops, treasury ops.
+[You]: Strategic finance, SP and A, accounting, todos estos procesos que están muy cercas,
+[You]: muy cerca, y al final están siendo impactados por una conciliación lenta
+[You]: imprecisa.
+[You]: Difícil de
+[Remote]: ¿Y cómo es que identificaron el
+[You]: de llevar a cabo, ¿no?
+[Remote]: el el el pain point?
+[You]: Los tres lo vivimos, los tres costados donde
+[Remote]: Trabajaron en finanzas,
+[You]: sí, los tres trabajamos en servicios financieros y vivimos el
+[You]: vivimos el el dolor.
+[Remote]: Ok. En Los Estados Unidos.
+[You]: Sí.
+[Remote]: Trabajaron en los Estados Unidos.
+[You]: Tragámosle, ver.
+[You]: Hoy tenemos clientes en Latinoamérica y en Estados Unidos,
+[You]: el foco es Estados Unidos. Los tres somos argentinos,
+[Remote]: Okay.
+[You]: y hemos tenido mucha atracción en Latinoamérica por nuestras redes,
+[Remote]: Sí.
+[You]: el foco es Estados Unidos.
+[Remote]: Ok.
+[Remote]: ¿Y ya tienen dientes?
+[Remote]: ¿Ya han logrado cerrar clientes en los Estados Unidos? Bancos... Digo, porque
+[You]: Bancos no,
+[You]: Tenemos tenemos
+[Remote]: Ok.
+[Remote]: ¿Qué tipo de...?
+[You]: en Estados Unidos tenemos Fintech y una compañía de pagos,
+[Remote]: De clientes?
+[You]: todavía tenemos que cerrar nuestro primer banco.
+[Remote]: Ik ik
+[Remote]: cómo ha sido el proceso de de de venta y de y de cierre?
+[You]: Y el proceso de venta, típicamente, es
+[You]: bueno, una reunión de discovery donde calificamos y donde entendemos bien
+[You]: cuál es el dolor, cuál es la urgencia y si hay un feed con nuestro producto.
+[You]: Luego, típicamente, hay una demo
+[You]: De una demo, pasamos a una prueba piloto y la prueba piloto se cierra el contrato, ese es típicamente el el flujo.
+[Remote]: Eso te
+[You]: Son ciclos de venta largos, ¿no?
+[Remote]: ese es mi argumento. Entonces, pero ¿cómo inicia?
+[Remote]: Este, cómo inicia esa charla? ¿Qué es el...? ¿Qué es lo que están haciendo hoy para abrir, este,
+[Remote]: puertas y iniciar conversaciones.
+[You]: ¿Cómo?
+[Remote]: Es lo que están haciendo hoy para tener esas conversaciones?
+[Remote]: O sea, para primero abrir la puerta, tener la conversación,
+[Remote]: porque del discovery al demo estás
+[Remote]: este, con bastantes pasos avanzados, ¿no? Este,
+[Remote]: llenar el funnel es lo complicado.
+[You]: Sí, totalmente de acuerdo contigo.
+[You]: Bueno, hacemos una mezcla de cosas, ¿no? Hacemos outbound,
+[You]: y hacemos inbound.
+[You]: Y después mucha intro, nos apoyamos mucho en nuestra red.
+[You]: Vamos mucho a conferencias también,
+[You]: y lo que hacemos de inbound es postear videos, postear LinkedIn, tenemos un blog,
+[You]: eso es un poquito lo que estamos haciendo hoy, diría.
+[Remote]: Okay.
+[Remote]: Van a eventos. ¿Cuánto tiempo llevan haciendo?
+[You]: Y lanzamos
+[You]: incorporamos la compañía el primero de enero de veinte veinticinco,
+[You]: y te diría que formalmente Auro Stealth
+[You]: enero
+[You]: febrero un par de meses.
+[Remote]: O sea, hace un par de meses comenzaron, en el veinte veintiséis.
+[You]: Sí, te diría que sí.
+[You]: Ahí es donde nos volvimos más públicos. Hicimos el lanzamiento de LinkedIn, en redes,
+[Remote]: Okay.
+[You]: hicimos un video ahí donde por ahí
+[Remote]: Bueno, te dieron
+[You]: empezamos a lograr un poquito más de
+[You]: visibilidad.
+[Remote]: tener un par de fintechs,
+[Remote]: en un par de meses está bien.
+[Remote]: Probablemente, son latinoamericanos, ¿no?, lo que dijiste,
+[Remote]: y conseguidos a través de su red.
+[Remote]: Ok.
+[Remote]: Pero en los Estados Unidos,
+[Remote]: hace rato que te preguntaron, ¿los Estados Unidos cerraron ya fintechs y compañías de pago?
+[Remote]: O o todavía son latinoamericanos?
+[You]: Sí cerramos en Estados Unidos.
+[Remote]: Ah, ok, ok.
+[Remote]: ¿Y cómo cómo ha sido el
+[Remote]: ¿La venta es fácil? O sea, una vez que tienes ese discovery call,
+[Remote]: les hace todo el sentido y, este, o le o te cuesta vender.
+[Remote]: ¿Cómo cómo estás encontrando, si bien todavía
+[Remote]: temprano, pero ¿cómo estás encontrando el el product market fit?
+[Remote]: Y cómo estás recibiendo feedback?
+[Remote]: Sistemáticamente, o o en el punto que puedan, y y lo
+[Remote]: y están mejor en el producto.
+[You]: Perdón, antes de que nos quitamos todas estas preguntas, me
+[You]: encantaría entender cuál es el approach acá, qué qué estamos, o sea,
+[You]: no no sé mucho sobre lo que vos hacés ni
+[You]: ni ni cuál sería la la la propuesta aquí. No sé si me querés comentar un poquito, porque si no creo que nos vamos
+[You]: a meter
+[You]: mucho en estas preguntas y y yo no entiendo bien hacia dónde va la conversación.
+[Remote]: Claro, no, te te hago las preguntas porque me ayuda a entender los
+[Remote]: patrones y en qué momento están, ¿no? O sea, el si es un producto
+[Remote]: que todavía cuesta vender o que no se está vendiendo muy fácilmente,
+[Remote]: me da un un un indicador de en qué momento
+[You]: Ah, sí, estamos en momento precede.
+[Remote]: y qué es lo que necesitan, ¿no?
+[You]: Entonces,
+[You]: el producto está, pero no es perfecto,
+[You]: ¿Y la marca no está?
+[Remote]: Mhmm.
+[You]: Y no tenemos buena visibilidad y posicionamiento.
+[You]: En un mundo donde importa mucho, nosotros vendemos infraestructura, ¿no? Entonces, la infraestructura
+[You]: juega mucho el
+[Remote]: La reputación y la credibilidad.
+[You]: Correcto, y no one
+[Remote]: Claro.
+[You]: getting fired for hiring IBM, right?
+[You]: Entonces, ese es el, por eso quiero invertir mucho en
+[You]: la marca, en el posicionamiento, porque al final eso va a importar muchísimo.
+[You]: El producto no me preocupa, va a ser un camino de iteración, pero va a estar ahí, hoy con AI, logrando algo muy, muy bueno y muy rápido. Lo que más me preocupa es cómo creamos esa marca y ese posicionamiento.
+[Remote]: Claro, en el proceso de crearlo, tus primeros clientes,
+[Remote]: felices son los que te ayudan a crear esa credibilidad y, pues,
+[Remote]: ¿no?, porque se convierten en tus primeros casos de éxito, que puedes hablar,
+[Remote]: que te pueden referir, ¿no? Entonces, desde ese ángulo product
+[Remote]: juega un rol bien importante siempre,
+[Remote]: para que puedas hacer esa construcción.
+[Remote]: Súper.
+[Remote]: Te platico un poquito de mí y de lo que hago en
+[Remote]: en en
+[Remote]: Entonces, Alex me platica un poquito, ¿no? Pero
+[Remote]: mi carrera ha estado enfocado en servicios financieros y en tecnología, ¿no?, por
+[You]: Sí.
+[Remote]: más de veinte años. Enfocado en marketing, desarrollo del producto,
+[Remote]: construcción de de marca, estrategia de marca,
+[Remote]: y, sobre todo, más recientemente, trabajando en fintech, en startups go to market, ¿no?
+[You]: Sí.
+[Remote]: Con presupuesto, sin presupuesto,
+[Remote]: pero, al final del día, los elementos y componentes son similar.
+[Remote]: ¿No? Necesitas un buen producto,
+[Remote]: un producto que cuente, que te ayude a contar una muy buena historia,
+[Remote]: que tengas, que estés resolviendo verdaderamente un
+[Remote]: problema importante y que lo estés haciendo de forma relevante y diferente a otros, ¿no?
+[Remote]: Y
+[Remote]: he tenido roles
+[Remote]: desde American Express por muchos años en Nueva York, ¿no?, muy familiarizada con
+[Remote]: con pagos, con, este, con tarjetas
+[Remote]: Después trabajé en BlackRock trabajando en asset management,
+[Remote]: construyendo reputación, credibilidad,
+[Remote]: desde un montón de contenido, ¿no? Contenido, llámale
+[Remote]: este, publicaciones, PR, estudios, etcétera, ¿no?, eventos.
+[Remote]: Pero después en tecnología trabajé en en Uber como head de estrategia para toda Latinoamérica, con data scientist, researchers y estrategas para
+[Remote]: desarrollar la adquisición, sobre todo, y después fui CMO, de, ahí fue un break de no finanzas, para una compañía argentina, en realidad, que se llama El Mundo, Para Expandir En Latinoamérica, no sé si los conoces.
+[Remote]: Y después, Nubank me contrató para lanzar Nubank en
+[Remote]: ¿no? Entonces, una experiencia profunda de
+[Remote]: desarrollo de producto, de de construir
+[Remote]: credibilidad y amor por un producto desde
+[Remote]: el buen servicio, ¿no?, y un producto y una historia y una narrativa
+[Remote]: que convence. Y después he sido
+[Remote]: también CMO para un para fintechs en Los Estados Unidos, en México también,
+[Remote]: desde micropayments a
+[Remote]: servicios financieros bancarios en general en Estados Unidos para
+[Remote]: un segmento más más joven, ¿no? Y desde hace un par de años,
+[Remote]: comencé muy alto en en el espíritu que ustedes también
+[Remote]: un punto de dolor, yo encontré un montón de puntos de dolores.
+[Remote]: Sobre todo en los startups
+[Remote]: in early stage de entre sí y a,
+[Remote]: donde generalmente van y contratan, tú sabes, un equipo de marketing o una
+[Remote]: persona muy senior de marketing, y la realidad es que
+[Remote]: muchas veces no lo necesitas, este, ese equipo
+[Remote]: de forma permanente, ¿no?, sino necesitas más
+[Remote]: alguien que te pueda ayudar at the risk decisions, the accelerate
+[Remote]: acelerar decisiones y que las cosas sucedan, sobre todo early stage.
+[Remote]: Ayer tenía la conversación con otro early stage founder,
+[Remote]: me decía que lo que he aprendido a golpes es que hay best practices,
+[Remote]: y que no los aplicaron,
+[Remote]: por correr,
+[Remote]: y termina eso aventándoles más, ¿no? Entonces, eso es de las cosas que yo ayudo a resolver.
+[Remote]: ¿No? Y tengo diferentes formatos,
+[Remote]: En un stage como el tuyo generalmente son
+[Remote]: soy advisor as founders, desde un ángulo de go to market
+[Remote]: este, y marketing, para ayudarles
+[Remote]: llegar a su destino de percepción de valor hacia inversionistas,
+[Remote]: pero también cómo hacer que su producto, su historia
+[Remote]: sea más relevante, y que su su sus
+[Remote]: acciones de go to market sean más efectivas.
+[Remote]: Pero realmente donde también le pongo mucho foco es de hacia arriba, es
+[Remote]: trabajo embedded in the in in the Teams, como parte de
+[Remote]: alguien que le reporta un CEO, y a veces agarro al equipo de marketing
+[Remote]: existente y ayudo a acelerar proyectos que tienen inicio y fin, o como
+[Remote]: agencia en consultoría, sino que tomamos un proyecto, lo aceleramos, los llevamos a su
+[Remote]: destino, y pueden ser diferentes proyectos. Generalmente, son de adquisición,
+[Remote]: de construcción, de, hace rato, las de marketplace para una compañía. Armamos un
+[Remote]: cero, ¿no?, hasta que lo dejamos andando, este, trajimos a un equipo,
+[Remote]: este, lo dejamos bien entrenado y y ahora la compañía puede correr solo, ¿no?
+[Remote]: Entonces, más o menos, lo que hacemos, a a clientes
+[Remote]: a, más o menos, en preside level, he tenido un par, y, realmente, lo que les ha ayudado a hacer, es mover de esta, de ese momento muy early stage, donde hay estrategia, pero no están verdaderamente listos para que esa estrategia cascaree, ¿no? Entonces, acelerar eso proceso, como te decía, the risk decision, clarificar cuál es el ICP, el value proposition, una muy buena narrativa que convence a tus clientes inversionistas.
+[Remote]: Y acelerar el el el, o sea,
+[Remote]: product decisions UI, comunicaciones,
+[Remote]: este, desde advice for a PR,
+[Remote]: asset development, etcétera. No es en guidance,
+[Remote]: Yo vi que tú estás buscando a alguien
+[Remote]: este, de go to market,
+[You]: ¿Tú crees que puede ser esa persona o o not really?
+[Remote]: Me imagino
+[Remote]: Not really. Y es más, ni siquiera esto
+[Remote]: segura que
+[Remote]: que lo que necesitas es esa persona. Cuando leí,
+[Remote]: el contenido, la pregunta. Por eso, incluso, por eso te hacía preguntas, ¿no?
+[Remote]: Yo creo, o sea, realmente, una fórmula que ha funcionado repetidamente,
+[Remote]: a otros founders, sobre todo en B2B, es
+[Remote]: a founder sales, ¿no? Y después, incluso, este founder marketing, que tiene sus procesos contra
+[Remote]: pero nadie
+[Remote]: va a
+[Remote]: a abrirte esas puertas como lo puedes hacer tú, y, al mismo tiempo,
+[Remote]: que te haga ventas, que te inicie el ciclo de ventas de inicio
+[Remote]: a fin, que te haga el contenido, o sea, la verdad, eso nos sucede en la realidad.
+[Remote]: Y puedes probarlo,
+[Remote]: en unos seis meses te vas a dar cuenta que ese
+[Remote]: perfil, es más, ni siquiera le da el tiempo, ¿no? Tengo, por ejemplo, otro cliente que
+[Remote]: en SaaS, y contratar una contratamos a una
+[Remote]: persona de marketing para hacer desde go go to market,
+[Remote]: más más como sales enablement y contenido y reputación y todo eso,
+[Remote]: y una persona que tenga esas dos habilidades fuertes para que lo pueda accionar,
+[Remote]: y también paid me decía, ¿no? Este, que lo pueda accionar
+[Remote]: todo bien, ¿no? Entonces, la verdad, eso no funcionó. Ahora vamos a tener dos individuos, uno
+[Remote]: enfocado en en en en en construcción de
+[Remote]: percepción de valor y contenido, porque lo que nos interesa es levantar capital, ¿no?
+[Remote]: Y
+[Remote]: te digo, otro cliente, este,
+[Remote]: y este de SaaS también, o sea, un vendedor,
+[Remote]: este, que traes nuevo,
+[Remote]: que te ayuda a hacerte, este, va a eventos,
+[Remote]: este,
+[Remote]: me quiero imaginar que quieres que también estable
+[Remote]: zca este outbound and inbound, sobre todo el outbound,
+[Remote]: un outbound framework
+[Remote]: para que te llene el top of the phonics y, aparte, tenga el discovery call y cierre, etcétera.
+[Remote]: Es, o sea, realmente es muy
+[Remote]: sea, no le da tiempo a un ser humano para que haga todo ese proceso,
+[Remote]: y lo más importante es que ustedes, como founders, dediquen ese tiempo
+[Remote]: completo a hacer ese
+[Remote]: acquisition process en un inicio, porque nadie va a vender el producto mejor que ustedes, ¿no?
+[Remote]: Tal vez necesitas elementos que te ayuden
+[Remote]: a hacer, que que te apoyen a construir ese top of the funnel, si quieres,
+[Remote]: hay quienes hacen experimentos con SDR, SDRs, por ejemplo, ¿no?
+[Remote]: Que te ayuden a acelerar y construir y armar estas reuniones.
+[Remote]: Me parece que el rol que tienes es muy aspiracional.
+[Remote]: Y, digo, a veces existen los milagros, encuentras a alguien excelente que lo va
+[Remote]: Generalmente, tiene que estar alguien con speaking the games, ¿no? En el que
+[You]: Obvio.
+[Remote]: que tenga una apuesta, que va a dejar la camiseta ahí por algo, ¿no?
+[You]: Sí, sí.
+[Remote]: Ahora tienes la ventaja que puedes tomar
+[Remote]: interns, ¿no?, que te pueden hacer partes del trabajo,
+[Remote]: porque hay tantas personas buscando oportunidades hoy,
+[Remote]: necesitas darle la guía, ¿no?, más o menos el coaching, en serio.
+[You]: O sea, tu advise es no contrates alguien full time, armate un
+[You]: equipo de SDRs that's gonna book you meetings.
+[Remote]: No te diría yo te diría, hace rato tenía, ayer tenía esa conversación.
+[You]: That's the advice.
+[Remote]: En este negocio,
+[Remote]: hay múltiples factores para adquirir, ¿no? Esto
+[Remote]: producto, es el mercado, es, este, el el problema que estás
+[Remote]: el apetito, la economía, etcétera, ¿no? Entonces, no hay receta perfecta,
+[Remote]: y es como en las finanzas, tienes que diversificar tus canales, ¿sí?
+[Remote]: Obviamente, te enfocas a esas puestos iniciales, etcétera,
+[Remote]: pero tienes que tratarlo como experimentos todo el tiempo.
+[You]: Oh, yeah.
+[Remote]: ¿No? En el que tienes una hipótesis, la quieres probar, este, hay quienes prueban
+[Remote]: tempranamente un SBA, ¿no? A veces
+[Remote]: fraccionar, ni siquiera contratarlo, ¿no? Este, hay quienes están en
+[Remote]: en las Filipinas, ¿no? Este, y y te contratas un SBA que te
+[Remote]: a hablar muy bien inglés y que te va a consejercitas, o alguien de indio, aquí está, por ejemplo, ¿no?
+[Remote]: Alguien que te está armando, este, automatizando
+[Remote]: tus proceso de outbound. Es un
+[Remote]: outbound is the games number, ¿no? Entonces, necesitas
+[Remote]: este, alguien que realmente esté corriendo esas campañas, automatizando
+[Remote]: contenido, etcétera. Y se y y, afortunadamente, con ella
+[Remote]: hay muchas cosas que se pueden, este, agilizar, no debería automatizar, pero agilizar, ¿no?
+[Remote]: Pero, en principio, me parece
+[Remote]: sí necesitas, a lo mejor, un recurso,
+[Remote]: si quieren crecer rápido. Mi argumento es,
+[Remote]: no pongas
+[Remote]: tantas expectativas en que esa persona, como tú dices, ¿no?, aquí,
+[Remote]: te abre, este, ¿qué es lo que dices?
+[Remote]: Que te abre esas puertas, ¿me entiendes?
+[Remote]: No no no sé si esa es una expectativa real.
+[Remote]: Pensando que no es un cofounder que no le estás
+[Remote]: que no tienes el mismo stake que tú tienes, ¿no?, porque lo estás contratando.
+[You]: O sea, entonces, el punto es que por ahí mi mi búsqueda es muy ambiciosa.
+[Remote]: O sea, la ambición no tiene nada de malo, lo que te estoy diciendo es
+[Remote]: muchos lo han tratado,
+[Remote]: y y, en la realidad,
+[Remote]: esos individuos, un individuo no tiene dos, este, skills,
+[Remote]: este, en en una sola persona, ¿no?
+[You]: Ah, sí, sí, obviamente, de hecho, sí,
+[Remote]: Es lo que te lo que te trato de decir.
+[You]: si te fijás, en la propuesta yo pongo un poco como que these are these are nice to haves,
+[You]: que más me importa al final del día es que, uno, seas muy AI
+[Remote]: Mhmm.
+[You]: y dos, that you're willing to grind and hustle and iterate quickly.
+[You]: Porque todo es experimental, como tú dices. Hoy no sabemos qué canal nos convierte mejor,
+[You]: cuál es el más eficiente, cuál es el
+[Remote]: Sí.
+[You]: el más productivo, si hacer webinars, si hacer in person events,
+[You]: si hacer una conferencia. Ayer escuché que una Pre Seat Company hizo una conferencia
+[You]: y le fue espectacular, y, de hecho, fue revenue positive, porque cobraban tickets por la conferencia.
+[You]: No lo sé.
+[You]: But I'm looking for a partner, porque
+[Remote]: Sí.
+[You]: hoy estoy yo solo en esto y we need to grow
+[You]: faster, y como decís vos, el tiempo es finito y pierdo mucho tiempo hoy en
+[You]: Como que sí, estoy buscando, a,
+[You]: network,
+[You]: where Latin Americans try to sell into The US banking
+[You]: system. That's a very tightly knit community.
+[Remote]: Sí.
+[You]: And network matters.
+[You]: Two,
+[You]: bandwidth, logo decías, multiplying my reach and my breadth,
+[You]: having someone that's solely focused on this while I can focus on
+[You]: because I have a lot of, tipo, just be a CEO. Entonces, I focus on all the admin stuff,
+[You]: que me saca tiempo,
+[Remote]: Sí.
+[You]: después I also focus on go to market distribution, sales, growth, whatever.
+[You]: Marketing.
+[You]: Y, entonces, como que no me dan tiempo. Entonces, necesito ese bandwidth, necesito ese multiplicador,
+[You]: Y tres, best practices, maybe higher... Like, I don't come from sales, I don't come from marketing, I come from growth.
+[You]: This is hiring someone that maybe did this in the past and has the best practices as
+[You]: more ideas on how to do this better, more more effectively, or has more tools
+[Remote]: Yeah.
+[You]: to experiment than I have.
+[You]: Nos puede sumar mucho al equipo. Pero lo que más busco es un partner,
+[You]: que esté dispuesto a experimentar conmigo, grind, hustle and figure it out, obvio.
+[Remote]: Sí.
+[Remote]: Sí, pero lo que hablabas, experimentos, etcétera, es una parte
+[Remote]: táctica, ¿no?
+[Remote]: But what you really are looking for is a salesperson.
+[Remote]: Right? Someone who opens doors and helps
+[Remote]: you to close those deals and accelerate the the the the pipeline. Right?
+[Remote]: And feel the the the pipeline. Is on
+[Remote]: skill different things.
+[Remote]: ¿Me entiendes? Otro reto que tienes es
+[Remote]: tu base salary es para alguien con menos experiencia,
+[Remote]: ¿no? MacJunior, si quieres, y sobre todo Nueva York.
+[Remote]: Probablemente lo quieres remoto, pero
+[Remote]: en una urbe donde te pueda ir y abrir esas puertas. Entonces,
+[Remote]: lo que
+[Remote]: Leo, que estás diciendo, me parece que necesitas recursos,
+[Remote]: te quite
+[Remote]: el el foco de las cositas.
+[Remote]: ¿No?, de las cositas operativas que estás haciendo hoy en día,
+[Remote]: para que tú seas la persona que esté vendiendo, que esté cerrando.
+[Remote]: Porque, realmente, imagínate que le pongas lo el el el elemento más
+[Remote]: importante del éxito del negocio en la responsabilidad de alguien más, ¿no?
+[Remote]: Ese partner te debe de quitar
+[Remote]: este, y y y remover, este, cosas para liberar
+[Remote]: tiempo y que te puedas enfocar en networking,
+[Remote]: en cerrar business, porque te vas a dar cuenta otra vez
+[Remote]: de los meses, y, como tú dices, el tiempo no es finito,
+[Remote]: no hay estrategia que funcione más que el direct sale.
+[Remote]: El que tú construyas tu network, que lo abras, que
+[You]: Cien por ciento.
+[Remote]: este, vendas a través de esto, ¿no? ¿Me entiendes?
+[Remote]: Y una persona de ese nivel, ¿no?,
+[Remote]: de sesenta, ochenta, generalmente va a ser alguien junior, a lo mejor alguien que estuvo haciendo ventas,
+[Remote]: ¿no? Ese ese va a ser tu mejor
+[Remote]: este, probablemente, tu mejor bet. Alguien
+[Remote]: que tal vez lleva un par de años haciendo ventas,
+[Remote]: en Fintech o en o o en en en SAD,
+[Remote]: y que se y que se enfoque en eso.
+[Remote]: Eso tal vez es un en HoldBank, versus que también te haga las otras cosas que
+[Remote]: como, tú sabes, contenido, este, eventos, webinars, etcétera.
+[Remote]: Probablemente, lo que te va a generar mayor tracción es una persona que te ayude
+[Remote]: a vender, ¿no?, y que sea un partner y que, a lo mejor, sea supercreativo para
+[Remote]: llenar su propio top up of funnel,
+[Remote]: eso es más realista.
+[You]: Yep.
+[You]: Y y, bueno, estos últimos cinco minutos me encantaría
+[You]: explorar cómo podemos trabajar juntos.
+[You]: Bajo esta recomendación que me hacés.
+[Remote]: Sí, te puedo dar mal algo, pero en en en principio,
+[Remote]: y muy basado en lo que he hecho con otros clientes en tu en tu área, es
+[Remote]: como tú dijiste, no eres experto en ventas ni en marketing, yo sí.
+[Remote]: Entonces, podemos tener una relación de
+[Remote]: Generalmente, lo que yo hago es acción, este,
+[Remote]: hago las que las cosas sucedan, ¿no?
+[Remote]: Pero eso realmente a lo mejor se te
+[Remote]: presupuesto, ¿no? Pero una relación de advisory, que es
+[Remote]: este, nos reunimos, este, semanalmente, dices, este,
+[Remote]: estos son mis objetivos, yo te ayudo a a
+[Remote]: transformar esos objetivos en en un plan, te doy, este,
+[Remote]: todos los points para desarrollar
+[Remote]: pues, todos los todos los elementos que necesitas
+[Remote]: para que tu plan de ventas y con tu marketing se realice, ¿no?
+[Remote]: Muchas veces yo ayudo a construir esa misma narrativa, por ejemplo, si se necesita,
+[Remote]: o, este, o ayudar a construir esos experimentos,
+[Remote]: este, y la plantación de objetivos, guiar a la persona de ventas, ¿no?
+[Remote]: Eso es lo que yo hago, pero al final del día lo que obtienes es
+[Remote]: aceleras tu capacidad de tomar decisiones en un
+[Remote]: espacio donde no tienes mucha experiencia, y the risk decisions
+[Remote]: porque esta película, pues, ya la vi un montón de veces y la sigo viendo con
+[Remote]: este, otros
+[Remote]: players en tu misma posición, ¿me entiendes?
+[You]: Buenísimo, buenísimo.
+[You]: Pero
+[You]: es es advisory, digo, en esta necesidad, o sea,
+[You]: porque el diagnóstico que vos me acabas de hacer es
+[You]: I think you just need need breadth,
+[You]: you need people booking meetings, and you continue to do the
+[You]: sales. Just stop losing time in those tiny prospecting tasks or those
+[You]: low value add outbound automation tasks, which
+[You]: they're automated, but it takes time to do those campaigns. Entonces, vos me decís,
+[You]: tipo, you should still lead those conversations. You
+[You]: need someone booking those meetings for you.
+[Remote]: Sí. Sí,
+[You]: En eso, ¿vos me podrías
+[Remote]: No, en en
+[Remote]: en en hacer esa labor, no eso, o sea,
+[Remote]: tengo mi mi propio equipo, ¿no?
+[Remote]: Podríamos, la verdad, no sé cuál es su presupuesto, como es PreSeed, me quiero
+[Remote]: que no es muy alto, ¿no? Te puedo hacer una propuesta, si quieres. Pero
+[You]: ¿Cuánto es un equipo de SDRs que hacen esto?
+[Remote]: no de no de SDR, pero puedo contratar gente.
+[Remote]: ¿No?
+[Remote]: No es tan fácil decir, vamos a tirar a un SDA, veamos qué es lo que
+[Remote]: mejor te va a funcionar, ¿no? Puede ser que SDR, si no es lo tuyo,
+[Remote]: si no es lo tuyo estar llamando en frío y decir, mira, este es el network, me fui a este evento, esto
+[Remote]: son los contactos que hice, les voy a llamar y voy a hacer una cita, si no es lo tuyo, si no es tu personalidad,
+[Remote]: lo mejor si necesitas alguien que lo que que lo haga, por
+[You]: No, es es mi personalidad, pero es un tema es un es es un tema de
+[Remote]: De tiempo.
+[You]: de tiempo, no me da la vida.
+[Remote]: Claro, claro.
+[Remote]: No, te puede ayudar a encontrar recursos, ¿no?, pero no, la verdad, no te es rentable
+[Remote]: lo haga yo o alguien en el equipo, pero te puedo ayudar a encontrar los ¿no?
+[Remote]: Va a funcionar muy bien si los recursos están fuera del de Los Estados Unidos, ¿no? En Los Estados Unidos,
+[Remote]: vas a encontrar alguien que te lo haga por
+[Remote]: no sé,
+[Remote]: solo ese rol, menos de cuarenta mil dólares al año.
+[Remote]: ¿No? Y necesitas otros roles allanar.
+[Remote]: Este, o más que roles, este, skills, ¿no?
+[Remote]: Que necesitas cerrar.
+[Remote]: Pero, al final del día, lo que me encantaría que te quedaras de esta conversación,
+[Remote]: no delegues esa responsabilidad a alguien más.
+[Remote]: Puede ser,
+[You]: ¿Cuál?
+[Remote]: el el que alguien venda, para que tú te enfoques en ser CEO,
+[Remote]: Tu rol como CEO va a ser el que tú vendas hasta
+[You]: No, eso es seguro. Yo ya yo yo lo único que necesito ahora es leverage.
+[Remote]: Exacto.
+[You]: Pero
+[You]: pero I'm still leading those meetings, I'm still leading those efforts, I'm still going to conferences, I'm still doing the
+[You]: whole pipeline process on the meetings, the demos, everything. O sea, so
+[You]: lo tengo clarísimo, and it's gonna continue to be that way for the next two years at least.
+[Remote]: Exacto.
+[You]: Entonces, eso lo tengo clarísimo. Simplemente, hoy estoy pensando
+[You]: cómo puedo adquirir, a, más y más leverage, y b, best
+[You]: practices. Someone that did this before and that can bring
+[You]: tools, experiments,
+[You]: y knowledge, que hoy yo estoy
+[Remote]: Yeah.
+[You]: experimentando, pero con menos knowledge. Entonces, hay mucho yield loss en lo que hago.
+[Remote]: Claro, claro. Y eso es lo que yo te puedo ayudar.
+[Remote]: ¿No? Y lo positivo,
+[Remote]: de este tipo de engagement es
+[Remote]: o sea, no es un compromiso a largo plazo, ¿no?
+[Remote]: Que sí adquieres cuando contratas a alguien, ¿no?
+[Remote]: Eso, o sea, mínimo empezamos con tres meses,
+[Remote]: este, si todo funciona bien, continuamos con ese advisory,
+[Remote]: y si de pronto empiezas a a a, este, a tener
+[Remote]: este, un buen nivel de revenue, podemos
+[Remote]: expandir eso a una a a mayor ejecución, ¿no? Sobre todo para
+[Remote]: de marzo cuando estés levantando capital.
+[You]: Sí. Yo quizás también
+[You]: para dejarte con un último comentario es, y y tengo que saltar,
+[You]: I'm not a huge fan of
+[You]: consulting slash advisory relationships.
+[You]: I'm not a fan, en general. Yo hice consultoría antes,
+[You]: y
+[Remote]: Pero ¿sabes cuál es la diferencia?
+[You]: y, bueno,
+[Remote]: Perdón que te interrumpa, porque sé que te tienes que ir. Yo no fui consultor,
+[Remote]: y no fui advisor, yo fui operadora, ¿no?
+[Remote]: Toda mi vida, hasta este momento, he sido
+[Remote]: y funciono así, y ese es el valor agregado que yo ofrezco, ¿no?
+[Remote]: En el que yo he estado en tus zapatos, yo he sido un C suite, yo he tenido la responsabilidad,
+[Remote]: y y con eso encaro los los engagement, ¿no?
+[You]: Sí.
+[Remote]: Es, para mí, eso es una gran diferencia.
+[You]: Totalmente, y de acuerdo. Pero no quiero que, entonces, hoy
+[You]: o sea, me encanta esa experiencia, creo que es un gran value add,
+[You]: pero sí la relación hoy va a ser advisory, just pointing you towards
+[You]: what you need to do,
+[You]: I'm not a fan of that.
+[You]: This is based
+[You]: on that, si querés, como próximos pasos, si me querés armar una propuesta
+[You]: de lo que pensás que sería mejor para mí en este momento, lo, feliz de explorarlos juntos, a ver.
+[You]: Me encanta tu experiencia, creo que puedo aprender muchísimo de vos.
+[You]: Creo que podés agregar muchísimo valor en Rexi, y me, honestamente, me encantaría explorarlo.
+[You]: Solo ese comentario, I'm not a fan of advisory relationships, I'm not a fan of
+[You]: consulting relationships where the output is just pointing me towards
+[You]: what I need to do. Hoy necesito manos, necesito leverage, necesito bandwidth, entonces,
+[You]: that's what I'm what I'm looking for.
+[Remote]: A whole person.
+[Remote]: Y estoy ahí contigo y yo haría lo mismo. Lo único con lo que te dejaría es
+[Remote]: el
+[Remote]: manos también son, y tiempo, el buscar ese
+[Remote]: conocimiento y experimentar, y tratar de aprender de ser.
+[Remote]: ¿No? Entonces, de cierta manera, este advisor no
+[Remote]: solo es diciéndote, ah, mira, vamos a tener una linda charla, te te sugiero que hagas esto,
+[Remote]: te estoy ahorrando el tiempo que pasarías
+[Remote]: tratando de
+[Remote]: ¿no? Y y y de acumular esos best practices. Entonces,
+[Remote]: si lo piensas desde ese ángulo,
+[Remote]: son un montón de manos y un montón de años que te ahorras,
+[Remote]: este, aprendiendo, ¿no?
+[Remote]: Vale, dale.
+[You]: Bueno, perdón, tengo que saltar, pero hagamos una cosa, pasamos la propuesta por mail,
+[You]: y si querés nos volvemos a juntar la semana que viene para para
+[Remote]: Hagamos eso, eso es lo que me gusta hacer, si quieres.
+[You]: hacer un
+[Remote]: Si quieres, pásame un par de, o, si tienes ahorita, dime qué día estás disponible. Ah,
+[Remote]: hago en tu calendario, le doy clic a tu Calendly, creo que tienes, y
+[You]: Pasame pasame primero la propuesta, después yo te paso un link y agendamos la semana que viene.
+[Remote]: Prefiero, me gusta hacerlo en el que lo hagamos
+[Remote]: lo platiquemos, lo revisemos juntos, si no te importa.
+[Remote]: Porque es el mejor uso del del tiempo, porque el email se queda ahí perdido y
+[Remote]: quedas con dudas y nos la resolvemos.
+[You]: Vale, bueno, con este link agéndame para la semana que viene y lo vemos.
+[Remote]: ¿Te late?
+[Remote]: Órale, buenísimo.
+[You]: Gracias, Sofía, un gusto, Azo.
+[Remote]: Hasta luego.
+[Remote]: Un gustazo, abrazo,
+
+============================================================
+SUMMARY
+============================================================
+### Sofia’s Background & Expertise
+
+- 20+ years in financial services and technology marketing
+- Key roles:
+  - American Express (payments/cards experience)
+  - BlackRock (asset management, content strategy)
+  - Uber (Head of Strategy, Latin America)
+  - Nubank (launched Mexico operations)
+  - Various fintech CMO roles in US/Mexico
+- Current focus: Advisory/consulting for early-stage startups
+  - Specializes in go-to-market strategy and marketing acceleration
+  - Works embedded with teams vs traditional consulting
+  - Helps with ICP clarification, value proposition, narrative development
+
+### Go-to-Market Strategy Discussion
+
+- Sofia’s assessment of Rexi’s hiring approach:
+  - Current job posting too ambitious for single person
+  - Recommends founder-led sales approach for next 2 years minimum
+  - Suggests hiring SDRs for meeting booking vs full marketing hire
+  - $60-80K salary range attracts junior talent, not experienced professionals
+- Channel diversification recommendations:
+  1. Experiment with offshore SDRs (Philippines/India)
+  2. Focus on outbound automation and campaign management
+  3. Continue founder networking and conference attendance
+  4. Test fractional resources before full-time hires
+- Key insight: Infrastructure sales requires reputation/credibility building
+  - “Nobody gets fired for hiring IBM” principle applies
+  - Early customers become crucial for case studies and referrals
+
+### Potential Collaboration Framework
+
+- Sofia’s typical engagement model:
+  - Weekly advisory sessions focused on execution acceleration
+  - Helps transform objectives into actionable plans
+  - Provides sales/marketing guidance and best practices
+  - Can assist with resource identification and hiring
+- Ignacio’s requirements:
+  - Needs hands-on execution support, not just advisory
+  - Looking for leverage and bandwidth multiplication
+  - Wants someone with proven best practices and tools
+  - Not interested in traditional consulting relationships
+- Next steps: Sofia to send proposal, follow-up meeting scheduled for next week
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/e0ee7d98-dc9c-47d5-8fb2-658f9ddcd7f3](https://notes.granola.ai/t/e0ee7d98-dc9c-47d5-8fb2-658f9ddcd7f3)

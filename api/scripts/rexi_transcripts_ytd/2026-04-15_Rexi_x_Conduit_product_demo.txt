@@ -1,0 +1,595 @@
+MEETING: Rexi x Conduit: product demo
+DATE: 2026-04-15
+ID: not_BfkpN7veFYwQof
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Mihai <mihai@conduit.financial>, Tien Nguyen <tien@conduit.financial>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-04-15T10:00:00-04:00 - 2026-04-15T10:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Yeah. Sorry for all the changes and all the back and forth. It's been
+[Remote]: Time.
+[You]: it's been some crazy weeks for us. So
+[You]: again, thank you for the flexibility.
+[You]: How are how how is stuff going on your side?
+[Remote]: I'm alright. I
+[Remote]: I've transitioned to the product team, from finance, but
+[Remote]: product we still have. Like, we're working on our our,
+[Remote]: our API, and reconciliation is something that our clients are
+[Remote]: constantly asking about. I'm very attuned to this need.
+[Remote]: I just shared the invitation with Ken, our VP of finance,
+[Remote]: who came back from maternity leave, and she took over the finance section.
+[Remote]: So I'd love for her to also,
+[Remote]: see what Rexy can do because she will be pretty much
+[Remote]: the your
+[Remote]: you know, target client or top or
+[Remote]: power user of of this product eventually.
+[Remote]: Since she's now overseeing all of our internal reconciliation needs.
+[You]: A 100%. I think, this demo is mostly focused on the internal part of
+[You]: but we do offer the flexibility of, some sort of partnership
+[You]: in which we can invent the product in your portal so that you can offer it to your
+[You]: And that can go all the way from a white label solution in which you guys control all the experience,
+[You]: or we can do some sort of reseller partnership
+[You]: in which there's a click through, so the experience is seamless for your
+[You]: but we own the relationship and the contract.
+[You]: For this,
+[You]: latter case, we've seen it work better because
+[You]: I don't know what you think about this, but many companies, particularly on the payment space,
+[You]: they're not able to charge additionally for another
+[You]: module. Right? Because, I don't know, it's a bit commoditized. There's a lot of comparison
+[You]: on your customers and so on. But if we do some sort of reseller partnership
+[You]: then you can participate on the upside with some sort of revenue share model.
+[You]: Without charging it directly. Right? And you know that that's
+[You]: that the click through and the seamless experience is also something
+[You]: that's great for your customers. But, again, something to explore more
+[You]: longer term. I think the first internal use case is a great
+[Remote]: Yep.
+[You]: segue and a great stepping stone before
+[You]: exploring that product opportunity. Before
+[You]: jumping into sharing my screen and showing a platform, I
+[You]: wanna do, like, a quick recap on what I learned last time to make
+[You]: sure I understood everything correctly. And then
+[You]: happy to do that that walk through. So
+[You]: 48 bank accounts across
+[You]: different
+[You]: 20 different banks.
+[You]: Most banks lack API feeds, so there's a lot of
+[You]: manual work of of feeding whatever tool you guys are currently using with the file.
+[You]: Downloading them, and putting them somewhere else?
+[You]: A lot of mine work in in
+[You]: transforming the formats and making sure they're ready to process.
+[You]: The on chain data is relatively clean.
+[You]: But merging both the on chain and the field data is the core challenge.
+[Remote]: Yep.
+[You]: Then there's an internal transaction tracker, which links the transaction
+[You]: hashes to clients
+[You]: bank payments, which acts sort sort of like the source of truth. That's a ledger.
+[You]: Probably, what we're talking about.
+[You]: There's a road map ahead
+[You]: of adding new bank relationships, which again
+[You]: has a lot of mental setup and additional reconciliation work.
+[You]: So there's a scalability thing with this process.
+[You]: Recognition today has done
+[You]: monthly, not even daily.
+[Remote]: Yep.
+[You]: So it does generate some pain at the end of the month when you find some big gaps, or if there's something going
+[You]: wrong going in the middle of the month, then that that might snowball
+[Remote]: Right.
+[You]: towards a bigger problem by the end of the month.
+[You]: And then you have some outsourced work
+[You]: during the manual processes. That must
+[You]: accrue a cost for you guys for this process as well. Now
+[You]: in terms of frustrations and pains that I have here noted down, we have
+[You]: 98% of the records are reconciled, and that's 10% of the time.
+[You]: Just grabbing the files, processing them. But then the remainder 90% of the time,
+[You]: is spent on those two to 5% of exceptions.
+[You]: That are sort of like a black hole.
+[You]: That requires investigation, resolution, and many
+[You]: you're not even able to
+[You]: explain all of them. So that might lead to some write offs
+[You]: or some losses by the end of the month.
+[Remote]: Yep.
+[You]: And then there's the audit show and and closing loop, right, on exceptions.
+[You]: Having having something which you can track the exceptions, nothing is falling through the cracks.
+[You]: And then whatever we're doing with those exceptions, there's a clear audit trail and traceability of
+[You]: explanations and so on. So
+[You]: did I get everything right? Did I miss anything that you think is is super critical
+[You]: for today's session?
+[Remote]: Nope. That's pretty much,
+[Remote]: spot on. So can't join
+[Remote]: She she we had a baby, so she she has some,
+[Remote]: some obligations there. Do you mind if I
+[Remote]: take notes, Gemini notes, or maybe you can share notes after this for
+[Remote]: for she can have an idea.
+[Remote]: I I understand, like, recording it might not be ideal since we haven't
+[You]: Let's record. I have no problem. Let's record. I'll start recording.
+[Remote]: signed the NDA.
+[Remote]: Okay.
+[Remote]: Okay. Perfect.
+[Remote]: I just wanna be mindful of, you know
+[You]: Yeah. I trust you guys.
+[You]: No worries. And and for me, it's better to have the most
+[You]: amount of people looking at my product and giving me feedback than
+[You]: being super conservative on on not showing it. So we're recording
+[You]: So let me start sharing my screen. Please stop me. Ask any questions.
+[Remote]: Yep.
+[You]: Or whatever you need in the meantime.
+[You]: And just let me start by saying our platform is is changing
+[You]: It's changing every single week. I mean, it's it's crazy the level of
+[You]: of progress and velocity we've been having.
+[You]: And regarding road map ahead, I'll just say one thing.
+[You]: We started building
+[You]: the whole reconciliation engine
+[You]: in an experience that felt like a SaaS experience,
+[You]: And over time, we're making it more and more authentic.
+[You]: And at some point, this is gonna be the only interface you're gonna be seeing.
+[You]: It's a 100 it's gonna be a 100% conversational in which you can build your own workflows,
+[You]: your own dashboards, your own reports, connect your own sources.
+[You]: Everything with something that feels like you have an analyst. Right?
+[You]: So that's where we're going towards. And and our vision after that is
+[You]: starting by reconciliation as sort of, like, the foundational layer
+[You]: in which have a reconciled system of records
+[You]: so that then you and and what's the name of of the VP of finance?
+[You]: Yan. Can build other agentic processes for other workflows. So
+[You]: that's sort of like the the road map ahead. But today, it's it's sort of like a hybrid
+[You]: of an authentic experience
+[You]: plus some sort of touching buttons here and there to configure the process. So
+[You]: I guess the first step here is this is your home screen in which you can just prompt
+[You]: anything. Give me a dashboard, give me a module, connect to source, whatever.
+[You]: But we'll walk you step by step, and then we could go back to generate your own home here.
+[You]: So the first step is setting up the sources. Right? I I have
+[You]: two synthetic sources here, but you can add any source
+[You]: here. Well, you can just do a file upload SFTP or look at our
+[You]: library of native integration, which you can connect using your own credentials.
+[You]: So today, I just did two CSVs here.
+[You]: This is where you can go into your sources to
+[You]: the cool thing about this is you create your source, and then it's
+[You]: automatically being updated as it ingests
+[You]: the new data on a daily basis. And you can create views
+[You]: So we also we always keep the default raw view for traceability.
+[You]: Reasons, but you can create a view and do whatever here. Right? Just like,
+[You]: create new columns. You can
+[You]: yeah. And and and you can
+[You]: here. Let's say I know. You can do whatever
+[You]: you want. You can filter. You can group by. You can
+[You]: let me look for let's create a formula. And you just
+[You]: type in, I know, change
+[You]: the date format of
+[You]: settlement
+[You]: date to
+[You]: year, month,
+[You]: a. And this, basically and this is
+[You]: a pretty simple one. But for some reconciliation, need, sometimes
+[You]: you need to concatenate to create a new rule, or sometimes you need to
+[You]: you know, do other stuff
+[You]: Where's the new one?
+[You]: Oh, yeah. And so
+[You]: it it's just some preprocessing capabilities where you can group by day,
+[You]: you can split the database, you can do some you can do some balanced running.
+[You]: So that you're comparing balances at the end of the month.
+[You]: You can compare deviation periods and so on.
+[You]: Once you do that, once you ingest your data sources and the
+[You]: connected via either
+[You]: API or SFTP, this runs automatically, and it starts updating every single day.
+[You]: Then you need to configure your reconciliation, which is, that's
+[You]: this is where you choose your sources. You pick a strategy, and you pick
+[You]: how how is it gonna run. Is it gonna run manually? Is it gonna run every single day at 8AM?
+[You]: Whatever you want.
+[You]: For example, this one I created here,
+[You]: Wait. Let me show you configure.
+[You]: It has the ledger. It has the bank statements. It has a rule.
+[You]: In which this is where you can figure out the rules. They're one to one, one to many, many to many.
+[You]: You wanted a current scanner to match duplicates or not.
+[You]: These are the transact the reconciliation keys.
+[You]: Basically, how am I gonna be joining transactions to both
+[You]: And you can do it by sweeps, because first, you wanna find matches based
+[You]: on, I don't know, a unique identifier, and then you wanna go and do some
+[You]: secondary and and and
+[You]: secondary sweeps, for example, by date or by amount,
+[You]: And then you do the comparison, which is comparing the amount, which is typically what you wanna reconcile. Right?
+[You]: Once you have this, you can configure it to run, I know,
+[You]: every single day.
+[You]: Or just a specific day.
+[You]: Or just run it manually every
+[You]: once you
+[You]: have all the, data ingested. Yeah. Go ahead.
+[Remote]: That's true.
+[Remote]: One question, and it's pretty
+[Remote]: foundational question I would ask. So I'd love for this to run, you know,
+[Remote]: every day or every
+[Remote]: second week. I I love the schedule and capability. Our main challenge was that, as I
+[Remote]: with that, as I said, is that we have all these banks that don't have API, that don't have
+[Remote]: you know, the only way to get the data is someone goes there export CSV.
+[Remote]: Do you have clients who are facing the same issue? Do you have any
+[Remote]: anything that makes that
+[Remote]: at least somehow simpler?
+[Remote]: Or, you know, someone needs to drop that CSVs in a
+[Remote]: or in a, you know, drive
+[Remote]: then this can run.
+[You]: That's something we would do in the implementation process. And to your question, yes.
+[You]: We do have customers that we need to fetch
+[You]: PDF files from emails, or we need to
+[You]: log it to a portal and download it.
+[You]: On CSV, in fact, it's
+[You]: it's a big portion of the world that works that way. So it's something that we do.
+[You]: And and that's just on a case by case basis for each one of our
+[You]: during the implementation process. Sometimes we create a cron job
+[You]: that basically
+[You]: ingests the data and drops it in their internal data lake
+[You]: because they want it as well, and then we just plug it to the data and ingest it ourselves.
+[You]: Or sometimes we just do that cron job to ingest directly to our platform.
+[You]: And then they they consume it via some sort of output, schema that we also have here.
+[Remote]: But
+[Remote]: like, I don't know. Do we need to create an access for a bot of yours?
+[Remote]: In every bank so that that can be downloaded daily? Or
+[Remote]: or if someone
+[Remote]: at us needs to at the end of the day, they know their job is to go in every bank portal
+[Remote]: that's not connected directly and download that CSV and drop it in the folder.
+[You]: No. It's a robot.
+[Remote]: Okay.
+[You]: We try to automate everything because if not, there's
+[You]: it's a robot, and, ideally, it's controlled by us so that every
+[You]: single point of failure is controlled by us. Because we all really wanna own the outcome here.
+[You]: So we don't wanna be
+[You]: depending on your, engineering team building stuff.
+[You]: Because that's when we create dependencies and we
+[You]: we can agree that competing in priority
+[You]: with engineering team is something we don't wanna do on the finance and operations team.
+[Remote]: So because right away,
+[Remote]: your robot having accesses to our bank
+[Remote]: and bank data, this raises flags of my infosec.
+[Remote]: Will act because that's there's PII there.
+[Remote]: How do you deal with that? Like, what do are your SOC clients comfortable with this?
+[Remote]: Have you had conversation about this?
+[You]: Of course. We have, SOC two type two certifications already. We are SOC
+[You]: one type two and p and ISO twenty seven twenty seven one ready in audit process.
+[You]: And then we have other encryption mechanisms in
+[You]: our other data security mechanisms, which whenever we ingest, we can automatically encrypt.
+[You]: Or hash
+[You]: And so that way, our system or our robot is never seeing the actual
+[You]: And we are working we're reconciling with hash data for some of our customers.
+[Remote]: Okay.
+[You]: So once you configure the reconciliation, which you can do
+[You]: all the ones you want, I mean, you can do ledger to bank, ledger to provider,
+[You]: you can do a three way, a three step reconciliation, whatever you wanna do here, you can do it.
+[You]: And so then it either runs automatically every single day,
+[You]: or it runs manually when you trigger it.
+[You]: That depends on on what you wanna do. And then
+[You]: of course, every single day, once you've configured all the data processing and all the reconciliations,
+[You]: think this is where most of your time is gonna be spent here and in the dashboards.
+[You]: The problem solver is an agent that basically takes a look
+[You]: at the recon results and then tries to
+[You]: first, you have a case management system.
+[You]: So that your team can collaborate on discrepancies and they can see
+[You]: the maturity of each one of their discrepancies.
+[You]: They can, assign owners. This creates notifications via email or here on the
+[You]: And this is where most time is spent. You can create discussions. There's activity here.
+[You]: And the most important part here is
+[You]: it's
+[You]: it's audible and it's traceable. This is sort of like, again,
+[You]: it works as a notion document or as a document where
+[You]: every single action of our users is and is traceable.
+[You]: And not only that, but the problem solver has
+[You]: a specific context window for
+[You]: conduit, and so it starts learning from all these
+[You]: and all these memos and all these discussions. And so that's when in optimization,
+[You]: you're gonna start to see some additional things you can
+[You]: add to the reconciliation logic. For example, if every single month or every single day,
+[You]: we're finding duplicates at the end of the
+[You]: day with some provider because it's a mistake on their end, then this shouldn't be here in the
+[You]: in the problem solver space. Right? This should be automatically detected on the reconciliation,
+[You]: And so that here, you're only spending time on actual
+[You]: money missing. Right?
+[You]: And then here's the reports where I created
+[You]: for example, a report, just a very simple report
+[You]: with recon results on on value
+[You]: and on transactions, which is typically the metrics we see with the customers. But you can just
+[You]: do whatever you want here. It's it's a 100% configurable.
+[You]: You can
+[You]: choose here.
+[You]: Which rule you wanna report about,
+[You]: You can choose whatever chart you want.
+[You]: You can do a pivot table if you want, and this is where
+[You]: you can do anything. Again, this is the part that still feel feels like SaaS.
+[You]: But
+[You]: this is gonna be a 100% agentic anytime soon.
+[You]: Again, this is a 100% configurable.
+[You]: And you can create different dashboards. For example, you can create one for ops,
+[You]: one for finance, one for accounting with different metrics.
+[You]: But the cool thing about that is that you have all the teams
+[You]: working on the same set of data and same set of results. So that siloed friction
+[You]: we see between finance operations and accounting is basically eliminated because everyone is here logged in to Rexie and and taking a look at the same
+[You]: data. And just a quick note there, we don't charge based on seats.
+[You]: So so that's a cool thing as well because then
+[You]: it becomes a an internal collaboration tool.
+[You]: And then the last part is the the reports.
+[You]: You can create whatever you report you want,
+[You]: in whatever format you want, and this can be either exported
+[You]: via CSV via PDF, or we can connect
+[You]: to your data breaks, your Snowflake, and every single day,
+[You]: drop there the reconciliation report of of whatever you want with the format you want.
+[You]: The also the the other part we have here is we connect to your ERP.
+[You]: And so we create the journal entries of
+[You]: everything that's
+[You]: already reconciled.
+[You]: In greater report here, let's say we do
+[You]: unmatched transactions breakdown.
+[You]: This does take some time, but
+[Remote]: For ERC, for ERP's example, I I'm sorry.
+[You]: then it's just
+[Remote]: You have a list of the ones you support natively? I mean, like,
+[Remote]: I I manage on NetSuite or QuickBooks or Xero.
+[You]: Exactly. Yeah. Yeah. We have the big ones.
+[You]: So we have NetSuite. We have QuickBooks. We have Odoo. We have SAP.
+[You]: We have we have all the big ones, but then again, we have
+[You]: an internal module that we call it our dynamic integrator,
+[You]: which basically enables us to connect to any new data source or API, both
+[You]: on the input side and on the output side in in in minutes. It's it's basically
+[You]: a team of agents that fetches it it works like Fibetran. You know, Fibetran?
+[You]: It basically it
+[You]: it's a team of agents that is constantly looking up API documents and
+[You]: the ingestion things, and it makes sure it makes sure they're updated and
+[Remote]: Okay.
+[You]: and up to date. But the cool thing about that is that
+[You]: we're going we're stepping away from that race
+[You]: to have a huge library of native integrations and going more towards on a case by case
+[You]: basis in which we build integrations specifically for our customers.
+[You]: But, of course, we started that way, and that's
+[You]: what we have today.
+[You]: This is your home.
+[You]: The idea for the home is for you to build it yourself. Do whatever you
+[You]: want with this room, and you can rebuild it. You can create different homes.
+[You]: And this is
+[You]: it didn't create the report.
+[You]: Turn in your report.
+[You]: And so, again,
+[Remote]: K.
+[You]: this at some point, it's gonna be everything merged into
+[You]: an analyst like sort of conversational platform where
+[You]: you just need to connect the data sources and the recon analyst is gonna be to
+[You]: doing everything. Sort of like how it feels today. Right? Teams
+[You]: like, today, we're talking with payments companies, banks,
+[You]: insurance companies that basically... Again, they have a team of analysts looking at the files, connecting the sources, and explaining the differences.
+[You]: So the idea is for you to you guys to replace that
+[You]: with Brexit, and not only that, but becoming more scalable
+[You]: over time. Because with it,
+[You]: team of humans, what happens is as soon as you start thinking about
+[You]: new products, new integrations, or growth in volumes, you need to hire more people.
+[You]: With this, it's very easy to just connect a new data source, configure a new week on workflow, and have it
+[You]: everything here.
+[You]: This is, for example, a report you can generate.
+[You]: Confirm.
+[You]: And so on. So
+[You]: out of this
+[You]: you can schedule this report.
+[You]: Whatever you want. Again, every
+[Remote]: Or
+[Remote]: like, in the case well, kind of related to this report scheduling, but also
+[Remote]: case management. In terms of notifications, do you guys support well,
+[Remote]: I guess, email, but Slack or
+[Remote]: it's it's agnostic same for your other integrations where we can just hook up an API and
+[Remote]: but
+[You]: Yeah. A 100%. We
+[Remote]: on the notifications.
+[You]: we have Slack and email today,
+[You]: We're in the process of integrating Teams, Microsoft Teams,
+[You]: because most of the banks work with Microsoft, so we're working with banks today.
+[Remote]: I was going to say you're going enterprise. That's, that's good.
+[You]: Yeah.
+[You]: Yeah. But it's it's again, it's the same thing as ERPs. There's
+[You]: four or five that are 90% of the world, so it's it's not that hard.
+[Remote]: Oh, look. I like
+[Remote]: I like the data ingestion piece. It looks like you do have a real solution there.
+[Remote]: Is definitely super useful. I like the API agnostic
+[Remote]: piece, which is also very useful. And I I imagine ourselves, we can
+[Remote]: hook up our ledger via API instead of, you know, exporting CSVs.
+[Remote]: On the ingestion side. Now
+[Remote]: you said you're not charging by seats, so I'd be curious.
+[Remote]: What do you charge by, and I'd be also curious to get the price for conduit.
+[Remote]: And then my last question, which
+[Remote]: I wanna be super honest with you. Like, we are in the last two months we became power users of Cloud Cowork.
+[Remote]: A lot of what I see there, the whole agentic piece, we don't have
+[Remote]: the case management. We don't have the UI.
+[Remote]: But
+[Remote]: a lot of it is now being done in cowork.
+[Remote]: Now this doesn't solve the data injection.
+[Remote]: At all.
+[Remote]: This doesn't solve the auditability. This doesn't solve the collaboration.
+[Remote]: This solves the nitty gritty of, you know, doing the
+[Remote]: ing between IDs, cleaning the data,
+[Remote]: PeerPoint learning. I
+[Remote]: have a strong hunch. It's pretty much what what you do on the back end.
+[Remote]: With the same API maybe probably, but
+[Remote]: look,
+[Remote]: what's your big like,
+[Remote]: I suspect you'd get this, probably from
+[Remote]: users, like more sophisticated users who actually use those
+[Remote]: alternative, like, do it yourself, solutions.
+[Remote]: What's your
+[Remote]: answer or argument to to this this piece? Like, basically,
+[Remote]: how is it better than me just using
+[You]: Okay. Let me start by by the former regarding pricing.
+[Remote]: Yep.
+[You]: We price is fixed.
+[You]: So we do an estimation based on
+[You]: volumes,
+[You]: connectors, and overall complexity of the recon workflow. And based on that, I
+[You]: give you a quote that's gonna be fixed for the duration of the contract.
+[You]: There's two reasons to doing it that way and and me taking on the cost
+[You]: the the the risk
+[You]: of you guys growing 10 x this year or hitting my AI, BI's
+[You]: too much and me going on a loss.
+[You]: There's two two reasons to taking that risk. First,
+[You]: I think the variable pricing on base
+[You]: on transaction amount doesn't work anymore. We've seen a lot of customers coming out of those solutions because
+[You]: as you guys grow, it's a tax on your growth, and so I think it doesn't work.
+[You]: And the second reason mostly about our vision is that for us,
+[You]: reconciliation is the wedge, as I said before.
+[You]: We wanna build a platform by which you and the finance team can build agents on top of these reconciles through a record. So for us, it's just the the entry point
+[You]: towards that bigger vision. And so if it does become at some point a loss,
+[You]: lever for me, I'm definitely okay with it because I wanna build
+[You]: these other workflows after recon.
+[You]: And to your to the second question for versus Claude, this is
+[You]: something we're getting every single day, and we're looking at it ourselves
+[You]: because, I mean, we're also using Cloud Cowork and Cloud Code for everything we do.
+[You]: There's a couple of things, as you mentioned, on our ingestion
+[You]: engine is is is really great, and that gives us some defensibility.
+[You]: The collaboration piece, the output piece as well.
+[You]: I think Claude is replacing all the processing side of it.
+[You]: And and and and that's fine.
+[You]: But then another thing to mention there's two things to mention there.
+[You]: This the first one regarding recon
+[You]: our approach to solving reconciliation
+[You]: is collaborative, not only internally,
+[You]: also externally. Because when you find gaps,
+[You]: next thing you guys will do is pick up the phone and call your ledger provider or call your bank,
+[You]: and ask where are these 10 transactions.
+[You]: So if we think about it from a job to be done perspective in which Conduit really wants to close
+[You]: the accounts and correctly account for money movements,
+[You]: we need to automate this end to end. Right? From the data ingestion to closing every
+[You]: single and explaining every single cent of the money flow. To be able to do that,
+[You]: I need all the players involved in the same platform, the bank, the ledger, conduit, and all its
+[You]: providers. The way what what this generates
+[You]: and that's it's something that clogged would never replace, it's the network effects that come from
+[You]: you having a shared collaboration tool with your external partners.
+[You]: To really audit and and and really explain
+[You]: all the money flowing, through those accounts.
+[You]: So that's the first one that I think Claude will never replace, which is how do we become a connect
+[You]: solution and create the network effects
+[You]: of that collaboration ecosystem?
+[You]: And the second part is more technical.
+[You]: I mean,
+[You]: whatever you're building cloud and and whatever agents you build are gonna be experts
+[You]: in the siloed ecosystem of conduit. And so reconciliation is all about edge.
+[You]: Cases.
+[You]: I mean and and these every every single finance and operations workflow is all about edge
+[You]: cases. And so your agent is gonna be great at understanding how Condoid operates.
+[You]: Our agents are trained across our
+[You]: portfolio of customers. That means we're trained across a wider set of edge cases than Nuance.
+[You]: And that we can like, every time something breaks because
+[You]: we we configurate this reconciliation workflow once, and it's not that we never touch it again.
+[You]: Constantly optimizing because your providers change the format,
+[You]: you change the way of operating, you change your fee here, you change your commission there.
+[You]: And so it's a constantly evolving ecosystem.
+[You]: That our agents can prevent
+[You]: and and tackle these edge cases better because we're seeing it across our providers. Right?
+[You]: Whereas whatever agent you're gonna be building internally is siloed
+[You]: learnings that come only from
+[You]: Conduit's ecosystem. Right? And it's sort of like, in that sense,
+[You]: the value of Rexi is we're bringing
+[You]: industry best practices. We're building work last
+[You]: reconciliation, workloads to conduit,
+[You]: which I think
+[You]: technically, you're never gonna be able to build because you don't have all the data and all the
+[You]: edge case realm that we have.
+[You]: By working with many customers on the same workflow. Right?
+[You]: So that's the technical explanation, and then there's the network effects
+[You]: explanation, as well. Regarding price
+[You]: for me to give you a quote, I need
+[You]: if you can answer some questions that I can shoot over
+[You]: email. Based it's gonna be, like,
+[You]: amount of connectors, expected volume expected monthly volume
+[You]: for for this year.
+[You]: How many reconciliation workflows are gonna are you gonna be building? By workflow, I mean,
+[You]: ledger against bank or ledger bank provider or, like, how many of those
+[You]: which is basically
+[You]: a reflection of our variable costs.
+[You]: And that way, I can give you a quote that
+[You]: that, again, that is fixed, that gives you price and cost
+[You]: previsibility. And and that way,
+[You]: we position ourselves as, again, as a reconciliation analyst which for you would be a fixed cost and not a variable cost and not like another SaaS
+[You]: tool that,
+[You]: basically represents a tax on your growth.
+[Remote]: Sounds good. Look.
+[Remote]: Let's let's submit the those questions, and we'll try to answer as
+[Remote]: as
+[Remote]: in the best way possible. By volume, I imagine you mean the volume of lines
+[Remote]: rather than monetary volume.
+[You]: Yeah. Transactions.
+[Remote]: Right?
+[Remote]: Okay.
+[Remote]: Okay. Okay. So let's
+[You]: Yep.
+[Remote]: look. We'll be happy to to share the info and see
+[Remote]: what you know, what's the
+[Remote]: the pricing look like. I'll discuss with Ken as well, and
+[Remote]: you know, I'd say we're already seeing the benefits of using an agentic solution for a
+[Remote]: if that
+[Remote]: becomes five x or 10 x better because it's,
+[Remote]: end to end solution instead of having still to do
+[Remote]: know, a bunch of manual work, it'd be
+[Remote]: I I feel like would be definitely interested. On
+[Remote]: as an aside, like, you know, I do a lot of calls with, design partners and with
+[Remote]: a bunch of fintechs. I'll keep in mind your solution, and I'll I'll definitely
+[Remote]: recommend you guys when,
+[Remote]: when there's questions about reconciliations, which
+[Remote]: it's it it happens more often than well, I mean, not that you would think. You're very
+[Remote]: aware of that, but then
+[Remote]: someone that's not as close to these issues would think.
+[You]: Yep. A 100%. All right. I'll pull up the email.
+[Remote]: Yep.
+[You]: For those questions. We need to give you a pricing quote, and then
+[You]: maybe as a next step would be great to have a meeting with with the VP of Finance to to dive in deeper. In terms of next steps, if if pricing seems
+[You]: okay, we're more than happy to do, like, a proof of concept or a pilot test with a symbolic cost.
+[You]: Can then be credited to a contract if you decide to move forward. But I think
+[You]: it will be a natural next step for you guys to actually see the value of the platform
+[You]: and operate it, like, in in production with your real workflows. But let's I I need to jump.
+[You]: Thank you for the time, and and I'll the email.
+[You]: Thank you.
+[Remote]: Bye.
+[You]: Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Conduit’s Reconciliation Challenges
+
+- 48 bank accounts across 20 different banks
+  - Most banks lack API feeds → manual file downloads/uploads required
+  - Significant manual work transforming formats for processing
+- On-chain data relatively clean, but merging with fiat data is core challenge
+- Internal transaction tracker links transaction hashes to client bank payments (acts as ledger/source of truth)
+- Roadmap includes adding new bank relationships → additional manual setup and reconciliation work
+- Current reconciliation done monthly (not daily)
+  - Creates pain at month-end when gaps discovered
+  - Mid-month issues can snowball into bigger problems
+- 98% of records reconciled in 10% of time, remaining 90% spent on 2-5% exceptions
+  - Exceptions require investigation, often unexplainable
+  - May lead to write-offs/losses by month-end
+- Outsourced work for manual processes creates additional costs
+- Need audit trail and tracking for exceptions to prevent items falling through cracks
+
+### Team Changes at Conduit
+
+- Tien transitioned from finance to product team
+- Ken (VP of Finance) returned from maternity leave, now oversees internal reconciliation
+  - Tien shared demo invitation with Ken as target user/power user
+- Product team working on API, clients constantly asking about reconciliation features
+- Considering partnership opportunities for offering reconciliation to Conduit’s clients
+
+### Rexi Platform Capabilities
+
+- Automated data ingestion from banks without APIs using robots/cron jobs
+  - SOC 2 Type II certified, SOC 1 Type II and ISO 27001 ready
+  - Can encrypt/hash data so robots never see actual PII
+- Dynamic integrator connects to any data source/API in minutes
+- Native ERP integrations: NetSuite, QuickBooks, Xero, SAP, Odoo
+- Fixed pricing model (not per-transaction or per-seat)
+  - Based on volumes, connectors, workflow complexity
+- Collaborative case management system for discrepancy resolution
+  - Email and Slack notifications (Microsoft Teams in development)
+  - Auditable and traceable activity logs
+- Configurable dashboards and reports
+  - Can export to CSV, PDF, or connect to data warehouses
+  - Automated journal entries to ERP systems
+
+### Next Steps
+
+- Ignacio to send pricing questionnaire via email
+  - Need: connector count, monthly transaction volumes, number of reconciliation workflows
+- Schedule follow-up meeting with Ken (VP of Finance) for deeper dive
+- If pricing acceptable, pilot/proof of concept with symbolic cost (credited toward contract if proceeding)
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/d65995a3-5862-4225-ade1-dcf890686fdc](https://notes.granola.ai/t/d65995a3-5862-4225-ade1-dcf890686fdc)

@@ -1,0 +1,656 @@
+MEETING: Rexi x Crossmint: intro
+DATE: 2026-02-19
+ID: not_JtyIs28RlFwu8O
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Filippos <filippos@crossmint.io>
+SCHEDULED: 2026-02-19T14:00:00-05:00 - 2026-02-19T14:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Hello. What's up, man? Sorry. I wasn't anything.
+[You]: No worries. How's it going?
+[You]: Doing good. Doing good.
+[Remote]: Good. How are you?
+[Remote]: Good to meet you.
+[You]: I actually
+[You]: was just thinking. I have the first year reunion in a couple of weeks. Did you go back?
+[Remote]: Nice.
+[Remote]: Yes. I went.
+[Remote]: It was fun.
+[Remote]: It was very fun.
+[Remote]: Definitely worth it.
+[You]: It feels like we only
+[Remote]: Yeah. Yeah. Yeah.
+[You]: graduated two days ago. I don't know if I wanna if I wanna go. I don't know.
+[You]: I'm thinking about it.
+[You]: And, also,
+[Remote]: It's
+[You]: no, and also, like,
+[Remote]: yeah. Yeah.
+[You]: half of my like, 80% of my friends are here in New York. I see them every week.
+[You]: And, like, I'm just gonna go there
+[You]: get back in Aldridge or some I don't know.
+[You]: I'm considering it. But you went back and and you you recommend
+[Remote]: Yeah. I mean, I felt
+[Remote]: similarly to you. I didn't feel like
+[Remote]: I needed to go or
+[Remote]: that, yeah, I missed it per se because I was what to your point, like,
+[Remote]: in my rhythm,
+[Remote]: in New York,
+[Remote]: But
+[Remote]: biggest reason was that a big chunk of folks that were in London were gonna come. Was like, I like the chance to see them.
+[Remote]: And, it was like, you know, you go you probably, like,
+[Remote]: you know, see if you we hadn't seen in a while, but that's
+[Remote]: not as
+[Remote]: know,
+[Remote]: valuable per se. And then, a, you'll spend the night with a good price
+[Remote]: friends or your group.
+[Remote]: You know, do some things. Like, it's a nice, you know, it's a nice throwback.
+[Remote]: I'd say go. You don't wanna regret it probably.
+[You]: It will cost, and it's close for us.
+[Remote]: You know?
+[Remote]: Yeah. Exactly.
+[You]: There's people flying from London, and I'm I'm considering not going. I'm in New York.
+[You]: Feel bad now.
+[Remote]: Excel.
+[You]: But
+[Remote]: So you graduated the year after
+[Remote]: we did. Right? Or two years.
+[You]: Yes.
+[You]: 2025, 2025. Yeah.
+[Remote]: I think.
+[You]: But I was already working on this
+[Remote]: Awesome.
+[You]: during my my EC year.
+[You]: So
+[You]: instead of, like,
+[You]: I think for many people, going back to work was
+[You]: the most awful experience ever.
+[You]: For me, was like nothing happened. Because on this and, like, on the ECR, was already sort of working full time.
+[You]: On this.
+[You]: Of course,
+[You]: still going to class, still living the MBA experience, but
+[You]: I don't know. The day I graduated, I just continued doing
+[You]: I just had more time to what I was already doing.
+[You]: So that there was not much of a
+[You]: of an awful transition
+[Remote]: Nice.
+[You]: Thankful.
+[You]: But, yeah, I
+[You]: thank you so much for taking the time. I was reading a bit about Crossmint,
+[You]: Incredible company, by the way. You're based here in New York. Right?
+[Remote]: Yeah. Yeah.
+[You]: Okay.
+[You]: And you were you worked there before or summer internship, or you joined right after your MBA?
+[Remote]: Gli hanno già mandato l'invia.
+[Remote]: Was always into, yeah, crypto basically
+[Remote]: recreationally and personally. And I think after HPS, was like, oh,
+[Remote]: I see kind of, yeah, finance,
+[Remote]: and technology intersecting and also authentic stuff.
+[Remote]: Moving on chain. So it made
+[Remote]: I was looking for, an infra company, and, like, I found Crossman and the rest, yeah, happened.
+[You]: And and Crossman basically sells, like,
+[You]: sort of like a stable coin as a service. You wanna integrate stable coins
+[You]: This is
+[You]: the box. You just plug it in, and it works.
+[Remote]: Yeah. You need, like,
+[Remote]: the the the focus has been bringing yeah. Companies, like,
+[Remote]: remittance companies, fintechs, payroll, all those guys that want to move money movement
+[Remote]: on chain and give them wallets to
+[Remote]: to for them to manage, like, in treasury type settings,
+[Remote]: but also for their users to receive money too. And then
+[Remote]: as part of that kind of wallet setup, you need also ways to send money between these wallets and do so in
+[Remote]: ways that are regulated.
+[Remote]: And finally, you want people to be able to
+[Remote]: kind of move money out of the blockchain
+[Remote]: to fiat and also let companies b to b on ramp money to to to
+[Remote]: to crypto. So, like, all that stack comes together, and, yeah, it's like
+[Remote]: pretty much a bunch of it stickies in API that would you do that.
+[You]: But, again, it
+[Remote]: Yeah,
+[You]: it's API. You're not sitting on top of a sponsor bank or managing any money.
+[Remote]: We we are non custodial, so you we don't manage money for people.
+[Remote]: It's purely, you know, you pick up a wallet, but that wallet you control, and you move money in
+[Remote]: into that wallet with our service or, like, you don't?
+[Remote]: Have cross financed money for you?
+[Remote]: It's basically yeah. Like, if you think about it, like, developer tools that a company
+[Remote]: needs to
+[Remote]: it's like Stripe.
+[Remote]: But for crypto to some degree, if that makes sense. Like, Stripe has, like, for example, we've really get paid
+[Remote]: Right? So we offer, like, a way for you to get paid, but, like,
+[Remote]: that happens with
+[Remote]: crypto rails in our case, not field rails.
+[You]: And everything is, like, on in the back
+[You]: end embedded, or or do you guys have a front end as well?
+[Remote]: So we have some, like,
+[Remote]: embedded and hosted front ends for people to implement
+[Remote]: kind of checkout experiences. So
+[Remote]: for example, like, in addition to our stable going suite, we have
+[Remote]: some
+[Remote]: we we have a lot of customers that
+[Remote]: basically wanna support the
+[Remote]: the purchase of
+[Remote]: crypto assets. So you may wanna, like,
+[Remote]: a stablecoin with your card.
+[Remote]: We offer, like, an embedded or hosted
+[Remote]: UI for that
+[Remote]: card entry flow to receive that later on your crypto.
+[Remote]: And we also, like, have flows where you can buy, you know, like NFTs and, like, other meme coins with our same UI. You can also build this without our UI if you want, but our UI makes
+[Remote]: it easier to get started.
+[You]: Got it. Okay. So
+[You]: most of the customers are not operating via
+[You]: a portal. They have their own portal, and everything is in the back end.
+[Remote]: We have a portal.
+[Remote]: Right, where they go in and, like, get their API key. They can track
+[Remote]: users use what stuff.
+[You]: But they don't spend time there.
+[Remote]: They they
+[Remote]: they use that portal as may basically, think about it by, like,
+[Remote]: an admin portal to assess
+[Remote]: the services kind of
+[Remote]: money movement volume, and kind of user adoption,
+[Remote]: but not to a point that
+[Remote]: you can do this also for your own. So think about it, like, MoneyGram.
+[Remote]: A customer. Right? So the MoneyGram, like,
+[Remote]: moves money across the world. They use our our wallets, for example.
+[Remote]: So
+[Remote]: they're gradually moving. They're running moving on chain.
+[Remote]: Now it doesn't happen on chain. So as they're moving on chain, they wanna see, okay. Like,
+[Remote]: what's the average transaction volume that
+[Remote]: maybe this user is now doing on chain versus not?
+[Remote]: So we offer, like, a way for you to look at this easily and say, okay. This wallet moved money.
+[Remote]: Out into this wallet.
+[Remote]: Of this amount at this
+[You]: It's like a monitoring dashboard.
+[Remote]: Yeah. It's, like, basically monitor the health of the integration.
+[You]: Got it. Perfect. Perfect.
+[You]: And and what stage are you guys in? Like, are you already have, like, a like,
+[You]: more than a 100 customers, like, ARR above 10,000,000? Like, how how what's
+[You]: series a, series b?
+[Remote]: Yeah. Yeah. Yeah. It's like series b
+[Remote]: yeah, above ten ten above 15,000,000.
+[Remote]: Customers,
+[Remote]: it's it's a customers is interesting because
+[Remote]: we've been kind of moving
+[Remote]: like, it's, yeah, hundreds of customers, but, like, it's of different types. Like, we have, like, a few
+[Remote]: big customers that do the stablecoin stuff, like MoneyGram, Western Union,
+[Remote]: some other, like, payroll like, some other emergency providers, like, Sika,
+[Remote]: if you know them, or Tala. Like, there's, like, some fintechs that are pretty big.
+[Remote]: But then we have, like, a bunch of long tail stuff too.
+[Remote]: And then we have a bunch of stuff also, like, the old products we
+[Remote]: used to go to market with.
+[Remote]: Three years ago. So
+[Remote]: any NFT checkout you see out in the market, we power.
+[Remote]: So for example,
+[Remote]: you go to buy an NFT or a meme coin in a
+[Remote]: consumer app or, like, in a marketplace with power that checkout.
+[Remote]: So, yeah, think about, hundreds of customers
+[Remote]: Our distribution is skewed to some you know, the volume is skewed to
+[Remote]: some big players and then a bunch of long tail developers as well.
+[You]: And and you're still targeting those big players like Western Union?
+[Remote]: Yeah. Basically, the focus of the company now is
+[Remote]: move, yeah, move the big kind of money movers.
+[Remote]: To use our stuff. These are in front. So
+[Remote]: yeah, it's like remittances like these guys. It's like payroll.
+[Remote]: Like,
+[Remote]: think about, like, deal and those guys or remote.com, those type of players that move money.
+[You]: Elocal.
+[Remote]: Yeah. You know? Do you know what you said?
+[You]: Yeah.
+[Remote]: Yeah. Do you what's, an integration partner we have for the on prem side? So, actually,
+[Remote]: maybe we'll do more stuff with them, but now we use them to make it easy for someone to take money out of our wallets.
+[Remote]: And deposit the fiat.
+[Remote]: We have
+[Remote]: and then, yeah, there's, a bunch of, like, neo banks, like, you know, fintechs.
+[Remote]: So that's, like, you know, apps like
+[Remote]: yeah, Dall I mentioned,
+[You]: ¿Hay algún común, here, in in New York?
+[Remote]: como un, actually, we
+[Remote]: so I don't know what the status of that is, but I I know the
+[Remote]: met the actually, it's funny. Like, I met the guy because he's friends with the
+[Remote]: of his best friends in New York the other day or, like, few months ago.
+[Remote]: And and they chatted with us. I know with what
+[Remote]: Quality provider they ended up landing. I need to check, but I don't think they're a customer yet. But we have talked
+[Remote]: what's that?
+[You]: They're using Uniteller. They're using Uniteller for remittances.
+[Remote]: Okay.
+[Remote]: You need tether.
+[Remote]: Ok.
+[Remote]: I don't know.
+[You]: I remember I I was there. I I worked there, and I remember when we were
+[Remote]: K.
+[You]: like, I come from crypto as well. I work for Bitso. So
+[Remote]: Okay. Nice. Nice. Nice.
+[You]: when I was there, like, I started double clicking on the on the remittance
+[You]: flow, and I was like, why aren't we doing this with crypto, especially for Latin America. Right?
+[You]: And
+[You]: and we went back to the drawing board, and when we actually
+[You]: like,
+[You]: estimated the unit cost,
+[You]: There was not that big of a of a benefit of doing it,
+[You]: with crypto. And so they're like,
+[You]: you already have your Unitaler. We might wanna build redundancy with this, but
+[You]: but not now.
+[You]: And it it there was no
+[You]: like, super obvious business case, which was interesting to me.
+[You]: But I don't know. Happy to happy to open up that conversation if you
+[You]: like. I I have very close relationships with them.
+[You]: And and we're actually trying to sell them Rexy as well.
+[Remote]: Okay.
+[You]: So going into
+[You]: how close are you to reconciliation processes at Crossvent?
+[Remote]: Tell me more.
+[Remote]: The answer is no, but, like, not very
+[Remote]: But tell me maybe details of what this looks like. I can tell you the angle by which I may be involved.
+[You]: So it's typically
+[You]: for a company like CrossFit, I'm trying to get my head around what are you currently reconcile
+[Remote]: Yep.
+[You]: But
+[You]: reconciling conceptually is
+[You]: comparing
+[You]: a should be
+[You]: against
+[You]: what actually happened.
+[You]: Right? So you're a ledger of what you guys are operating,
+[You]: and then you consume some sort of external database
+[You]: on what was actually settled, posted,
+[You]: or confirmed.
+[You]: And you're basically running this monitoring process
+[You]: in which you're double checking that
+[You]: ensure that money is moving in the right directions and in the right amounts.
+[You]: It's both
+[You]: checking on transactions and then double checking on fees
+[You]: revenue, making sure you're getting the right revenue that you you should be getting,
+[You]: and making sure you're paying the right fees, not overpaying, not underpaying.
+[You]: So these are, like, monitoring workflows that companies build out at
+[You]: some point in time to both, again,
+[You]: not lose money
+[You]: and make sure
+[You]: the system is operated. It's it's like a health check for the
+[You]: Right? Making sure that all the back end is working correctly,
+[You]: and that all the integrations you have with external parties are
+[You]: also being executed correctly.
+[You]: It's tricky on on on the crossman side because
+[You]: if you guys do everything on chain,
+[You]: I'm not sure if you guys even have
+[You]: ledger.
+[Remote]: So I'll tell you, but, like, help me understand a bit better, like, the
+[Remote]: like, maybe a use case where
+[Remote]: like, what is Rex exactly solved for? Like, this reconciliation piece, what's
+[Remote]: like, an example transaction and
+[Remote]: check you would do?
+[Remote]: With, like, a, say, simple company that is on chain.
+[You]: Let's say, let's say, común.
+[Remote]: Yep.
+[You]: Común has
+[You]: Común is a is a is a new bank. They have a
+[You]: digital bank account, a a debit card, a remittance product.
+[You]: Cash in, cash out product,
+[You]: and I think that's it. Well, Zelle, ACH, wire, whatever.
+[You]: So
+[You]: basically, let let's say one money movement. Let's say the
+[You]: card, which is with Visa.
+[You]: Visa is sending you the settlement report.
+[You]: You have your ledger, which is Galileo.
+[You]: And then you have your bank.
+[You]: These three parties are showing you the same money flow.
+[Remote]: Mhmm.
+[You]: They should be the same.
+[You]: They're never the same for some weird fucking reason. And so you're running recon to
+[You]: find those gaps quickly and close them quickly.
+[You]: Or try to understand them because it's not as simple as I just said. I mean,
+[You]: sometimes these are batch transactions because
+[You]: Visa is sending you just the the total amount for the day. On the bank, you're seeing the total amount
+[You]: for the day. And on the ledger, you're seeing everything on a transactional basis.
+[You]: Visa is not sending you the fee scheme at which it's
+[You]: charging interchange.
+[You]: The bank is also not showing you the fee scheme they're
+[You]: charging for every single money movement they're operating on your behalf.
+[You]: So so it starts to get a mess. Like and, basically, you're comparing
+[You]: three data sources that are illustrating the same
+[You]: money flow.
+[You]: And should be the same.
+[You]: And when you run these comparisons, you find gaps
+[You]: all the time,
+[You]: the time.
+[You]: So there's these fin ops teams that are just
+[You]: dragging themselves in Excel, SQL,
+[You]: Python, trying to understand these differences and try to close them.
+[You]: And most of the times, you need to wait a day, wait two days, and the transaction
+[You]: settles and it appears, and it's not
+[You]: it's reconciled.
+[You]: But we've seen cases in the past where a lot of money went missing.
+[You]: Like, at Común, we found a
+[You]: multimillion dollar gap
+[You]: My cofounder worked at Mercado Pago, which is, like, the fintech arm from Mercado Libre.
+[You]: They lost
+[You]: they lost
+[You]: They couldn't even recover, because at el común, we recovered it. But
+[You]: en Mercado Pago, they lost 27,000,000. It's on the public records. They were already a public company.
+[You]: So
+[You]: it's a risk mitigation thing,
+[You]: and it's like a monitoring workflow.
+[You]: Making sure that
+[You]: all the money movements you're operating with external parties are
+[You]: being executed in the right directions and the right amounts.
+[You]: It's a data orchestration platform.
+[Remote]: Mhmm. Okay.
+[You]: So Rexy basically connects to all these data sources and builds out the workflow to transform, process, investigate, solve discrepancies. And then you can build out dashboards, reports, plug into the ERP, to create the journal entries. So it typically falls within the finance or the operations stack. Typically, it falls from finance or operations managing this. That's why I was asking if you were close to this.
+[Remote]: Yeah. Yeah. No. I'm not really close to it.
+[Remote]: But it's good to understand more about that world.
+[Remote]: Basically, you're saying, let's say, Crossmin has
+[Remote]: let me think of a use case.
+[You]: MoneyGram is sending you fiat.
+[Remote]: But, yeah, but they're not really sending us Fiat. That's what I'm trying to, like,
+[You]: Where is that Fiat going?
+[Remote]: there's no so MoneyGram will, like, allow a user to
+[Remote]: on-rap money with us.
+[Remote]: Right? So, like, the user, like, sends us, you know, fiat
+[Remote]: We sell them stablecoins.
+[Remote]: That money from fiat comes to our Stripe account.
+[Remote]: Right? So the the the PSP receives the fiat, basically. We have some charge back there.
+[Remote]: Risk,
+[Remote]: Then, yeah, users consent stables anywhere between wallets and then, okay, if they want to ever off ramp,
+[You]: Oh, wait, wait. You're receiving you're receiving fiat. You're converting that to stablecoins, and
+[Remote]: they got
+[You]: then everything else is on the blockchain.
+[Remote]: Yeah. That particular use case, that's the case. Yeah. I mean, we wanna, like,
+[Remote]: we usually, like,
+[Remote]: help this bridge of, like, moving money on chain, and then from there, everything happens on chain.
+[You]: And that'll come
+[Remote]: So
+[You]: you receive the money in Stripe.
+[Remote]: the arm, yeah, we yeah. Stripe or Checkout have different, like, PSP. We orchestrate a
+[Remote]: according to the card you use and where you're from. And
+[You]: But Stripe Stripe is then
+[You]: depositing the money where? In in a bank account you guys have?
+[Remote]: Yes. Like, we have, like, a Strip account that receives money
+[Remote]: Right? And then Stripe lets us also convert that
+[Remote]: fiat to crypto if we want later on to, like, refill our
+[Remote]: treasury of stables that we then use to, you know,
+[Remote]: fund the user's wallet with when they pay us with with with the fiat. So
+[You]: Well, I'm sure there's a reconciliation on the pains.
+[Remote]: yeah.
+[You]: And I'm sure reconciliation on the payouts. I'm not sure in the middle
+[You]: If everything is blockchain and you guys are noncustodial, I don't think there's gonna be
+[You]: reconciliation there because that's what blockchain does.
+[Remote]: Yeah. So so on the on the
+[Remote]: fiat to crypto flow
+[Remote]: the recon I'm trying to understand the reconciliation value. So, like,
+[Remote]: at least, like, what we do is
+[Remote]: we, you know, we probably wanna check. We definitely check how have to check how we do it. But
+[Remote]: we definitely check
+[Remote]: you know,
+[Remote]: percent of transactions that
+[Remote]: were were charged back.
+[Remote]: As in, I don't know, like, the the user card was stolen. So, you know,
+[You]: Typically, we're we're downloading a transactional report from Stripe.
+[Remote]: yeah.
+[You]: Or from out from all these PSPs.
+[Remote]: Yep.
+[You]: And you are comparing it against an internal ledger and against your bank account.
+[You]: Which is where you're actually receiving the money.
+[Remote]: Yeah. So, like, the internal ledger, that's the the tool that I haven't used. So
+[Remote]: the internal ledger is
+[Remote]: recording settled transactions or expected to settle transactions, or what what's that
+[Remote]: what's the use of the ledger, I guess?
+[You]: The ledger is it it creates the event.
+[You]: Whenever
+[You]: I'm sure you're receiving some sort of webhook or API call from
+[You]: your customers saying, hey. I sent you a $100.
+[Remote]: Mhmm.
+[You]: That's in the ledger.
+[You]: And then you need to make sure that those $100 actually got to Stripe and then got to your bank.
+[Remote]: Yes. Okay. So the ledger receives
+[Remote]: events of things that haven't settled yet.
+[You]: Exactly. The ledger is the should be.
+[Remote]: Okay. Got it. Got it. Got it. It. Perfect. Okay. And then
+[Remote]: then you're saying, like, the bank eventually the our bank is the what
+[Remote]: actually happens. You can compare and say, okay. Like,
+[Remote]: end of month,
+[Remote]: we had these should be is that eventually didn't settle, so we need to go chase
+[You]: Because the risk for you is then your minting
+[Remote]: dispute
+[You]: stablecoins or you're already
+[You]: onboarding someone to the blockchain and giving them the stablecoins to operate in the blockchain.
+[You]: And you never received the US dollars.
+[Remote]: Yeah. So, like, that's the start by so how I'm describing. So okay. So you're saying there is
+[Remote]: in the scenario,
+[Remote]: so I'm sure there's some day that we check, okay, off
+[Remote]: x transactions happened this month, which one sell, which ones didn't. For sure, probably have that.
+[Remote]: So I guess your value there would be that
+[You]: Automated process.
+[Remote]: you would
+[Remote]: hopefully
+[Remote]: So, like, reconciliation
+[Remote]: today, you're saying perhaps in our company we're trying to check happens by someone going in and
+[Remote]: doing, like, the
+[Remote]: going to, like, the ledger, going to the bank, downloading both Excels, comparing the two what went through,
+[You]: Goes one or two ways. Or you have someone
+[You]: just checking this at the end of each week or at the end of the month and just
+[Remote]: Yep. Yep.
+[Remote]: Yep.
+[You]: like, checking the balances if they are
+[Remote]: Yeah.
+[You]: sort of the same, then it's fine.
+[Remote]: Yep. Yep.
+[You]: Or
+[You]: depending on the volume you guys operate, maybe you already have someone
+[You]: doing some sort of transactional analysis. And that means
+[You]: downloading the reports
+[You]: And then depending on the sophistication of this person, if they're doing it in Excel with VLOOKUPs,
+[You]: or with a sort of macro, or they're using SQL, or you're using some sort of Python script,
+[You]: whatever.
+[You]: And then what doesn't match
+[You]: they go ahead and investigate it every single day, every single like, it
+[You]: It just depends on how you I mean, I've seen everything. I've seen very
+[You]: cool stuff, and I've seen companies operate, like,
+[You]: just taking a look at the end of the month. And if there's no big difference, then
+[You]: whatever. They continue operating.
+[Remote]: Got it. Okay. Perfect. Okay. This is cool. So, yeah, so I guess
+[Remote]: so we definitely have
+[Remote]: you know, we definitely receive payments in fiat. Right? So we definitely have this challenge of
+[Remote]: chargeback, and I'm sure the reconciliation
+[Remote]: happening today probably manually.
+[Remote]: To
+[You]: And on the payout as well. Right? Like, the payout as well, but
+[Remote]: ¿Pues qué?
+[You]: the payout.
+[Remote]: Yeah. Yeah.
+[You]: How does the payout work?
+[You]: Money goes from your bank to the local, and the local does the disbursement internationally. Right?
+[Remote]: Yeah. So bad, you mean the off ramp, not the
+[Remote]: Yeah. So off ramp, yeah, happens off ramp is also probably challenged.
+[Remote]: Exactly. So there's definitely something I don't know. I think
+[Remote]: I think
+[You]: And that and in that sense, there's no risk for you
+[Remote]: the
+[You]: but there's probably some pain for the customers that say, hey, I didn't receive the money.
+[You]: Where's the money?
+[Remote]: Yeah. So all framping is interesting because
+[Remote]: basically,
+[Remote]: we receive the stables directly. So to your point, there's no risk for us there.
+[Remote]: And then
+[Remote]: we
+[Remote]: like, there's a few models of how our framping works today.
+[Remote]: One is where we tell the customer of ours, like, hey.
+[Remote]: Like, this user wants to off ramp $5.
+[Remote]: Five years to see.
+[Remote]: We're gonna take it from their wallet to our treasury wallet across
+[Remote]: We're gonna send that
+[Remote]: to your company's treasury wallet. And then from there,
+[Remote]: gonna have, like, a b to b off ramp flow that
+[Remote]: you know, they do every month, right, to potentially, like, reconcile, like, their
+[Remote]: fiat to fiat
+[Remote]: transfer they take care of. Like, basically, local. Like, the local, like, has the entities in different countries. They
+[Remote]: with a local, you know, user's account, and they settle with us after x
+[Remote]: So off ramp, I think, is a bit tricky too because, like, we have different providers. Like, sometimes
+[Remote]: for example, they have a different API for off ramping, so I need to look into that.
+[Remote]: So on off ramp, I think
+[Remote]: still
+[Remote]: on the exact architecture we're gonna, like,
+[Remote]: standardize slash
+[Remote]: offer
+[Remote]: But on on ramp,
+[Remote]: it's for sure a problem, also an off ramp.
+[Remote]: I'm trying to think also
+[You]: Typically, it's someone from finance or ops.
+[Remote]: yeah. Yeah. Yeah. No. No. It's it's clear. I I need to look at who
+[Remote]: internally manages that. We have, like, a finance team, ops,
+[Remote]: It's kind of a merge between ops and finance too. So I'll I'll ask
+[Remote]: the person and connect you.
+[Remote]: To talk to them about it.
+[Remote]: But this makes a lot of sense.
+[Remote]: There's also, yeah, like, other type of flows that could be interesting here where
+[Remote]: so, like, in some cases,
+[Remote]: we act like the merchant of record for some transactions.
+[Remote]: So, for example, you can buy with your stable corp.
+[Remote]: Stable coins something from Amazon today using Crosswind.
+[Remote]: And the way this works, like, you know, we receive stables from you,
+[Remote]: We have it in a, you know, in a treasury of ours, and then we have, like, a
+[Remote]: Amazon business account
+[Remote]: with Amazon, which is gonna buy with our credit cards.
+[Remote]: Amazon product, and send it to your address. So in that case,
+[Remote]: interesting reconciliation challenges with
+[Remote]: respect to, like, that order potentially getting canceled, right, by the shipper in which case, you know, we already, like,
+[Remote]: we're gonna go, like, request it
+[Remote]: you know, refund from Amazon and then have to go refund the user. So
+[Remote]: like, orchestrating that, I think, is interesting to automate because I'm sure today
+[Remote]: like, I think, you know, today, probably, like, there's someone
+[Remote]: going and checking every single, yeah, week and say, okay. Like,
+[Remote]: all the orders went through. We're good. But, like, oh, shit. Maybe this week, 50% didn't go through. We need to go
+[Remote]: challenge Amazon then.
+[Remote]: Our Mercury card is gonna get refunded.
+[Remote]: But then
+[Remote]: we need to go send from our treasury to the user's wallets, the stables.
+[Remote]: Which I'm sure today happens in a manual shitty way.
+[Remote]: Cool. Okay.
+[Remote]: I think I got the value prop, so thank you for for explaining.
+[Remote]: I'll I'll I I think I know who to talk to, so
+[Remote]: tell them about you, send them Rexy's website, and then tell them to
+[Remote]: set up time with you if they're if if they have time. I'm sure they will.
+[Remote]: So I assume I assume it's gonna happen, basically.
+[Remote]: And
+[Remote]: I guess, have you worked with crypto companies
+[You]: Yes.
+[Remote]: before?
+[Remote]: What's what's your yeah.
+[You]: We're working with a crypto exchange in in Argentina, actually, called Buenbit, just
+[You]: just got acquired by
+[Remote]: Yep.
+[You]: And, basically, yeah, we we reconcile all the fiat on ramps
+[You]: and off ramps.
+[You]: And then we're also integrated with the Fireblocks to reconcile whatever they're doing in crypto as
+[Remote]: Okay.
+[You]: well. Because they are
+[You]: custodials.
+[Remote]: Yeah. Yeah. Yeah.
+[You]: Custodians.
+[You]: And then we also have I mean, we're also working with Bitso. Which which is where I worked, and Comul, which is where I worked.
+[Remote]: Okay. Cool. Cool. Awesome.
+[Remote]: Mhmm.
+[You]: So Comun have crypto, by the But but, yeah,
+[Remote]: Awesome.
+[Remote]: Awesome.
+[Remote]: Cool, bro. This is really cool.
+[Remote]: I really like
+[You]: send, like, a blurb or something?
+[Remote]: yes.
+[Remote]: What you would want me to forward to the finance person. That and that's the easiest way for me to, like,
+[Remote]: expedite this.
+[You]: Okay. I'll send you an email right after this so you can forward, and
+[You]: and thank you very much. Great meeting. We should grab a beer or coffee at some point here in New York as well.
+[Remote]: Es?
+[Remote]: 100%. 100%. Where where do you live in the city where you're
+[Remote]: Or where are you guys at? Do have an office also? What's that setup?
+[You]: I'm in Williamsburg.
+[Remote]: Nice.
+[You]: Living
+[You]: but we are crashing an office in Bryant Park.
+[You]: Which they lent us. It's a
+[You]: humongous office.
+[Remote]: Nice.
+[You]: Which which is weird because nobody comes. It's just me and my
+[You]: founder. That's why they're probably lending this to us.
+[You]: But we could have 25 people here, and no one would notice. It's just crazy.
+[You]: But it's good to get away from my from my apartment, you know?
+[Remote]: No.
+[Remote]: Yes.
+[You]: Even though it's a bit far away, I I love coming here and just spending time here rather than my
+[You]: in my my bedroom.
+[You]: Working long hours. So so good. Where do you work out out of
+[Remote]: We're in Soho. I live in Tribeca, but we're in Soho.
+[You]: it's very convenient.
+[Remote]: I wanted to ask you. So what's what's your stage? Like, where you guys
+[Remote]: raise money? Are you, like like,
+[You]: We raised money last year right out of graduation.
+[Remote]: you looking to raise? Like, what's the situation?
+[You]: And we're about to fundraise in a couple months or seed raise.
+[You]: So still early, of course.
+[Remote]: Awesome, bro. Amazing.
+[Remote]: Amazing.
+[You]: But I think there's a good thing about that, which is
+[You]: we just go ahead and get in the mud with you guys. You know?
+[You]: Whatever we need to build out our doc to help you guys and
+[You]: and really deliver value, we're gonna do it at this stage. We're doing a bunch of stuff that doesn't scale. So
+[You]: so I guess that's that's good for you. And, also, the price tag is gonna show.
+[You]: So
+[Remote]: Yeah.
+[You]: Alright.
+[Remote]: Awesome, dude. This is awesome.
+[Remote]: Congrats on work so far. That's sick.
+[You]: Thank you. I'll I'll
+[You]: follow-up with the email and and we'll take it from there.
+[Remote]: Perfect. Alright, bro. Ciao.
+[You]: Thank you. Bye bye.
+
+============================================================
+SUMMARY
+============================================================
+### Their background
+
+- Filippos graduated from the same business school as the note-taker, but one year earlier (2024 vs 2025)
+- Works at Crossmint, a Series B crypto infrastructure company based in New York
+  - Company is above $15 million ARR with hundreds of customers
+  - Focuses on helping companies integrate blockchain money movement solutions
+- Personally interested in crypto recreationally before joining Crossmint
+- Previously attended the first-year MBA reunion and recommended it
+
+### Pain points and needs
+
+- Manual reconciliation processes currently in place
+  - “I’m sure today like, I think, you know, today, probably, like, there’s someone going and checking every single, yeah, week and say, okay. Like, all the orders went through. We’re good.”
+  - Finance/ops team likely handling reconciliation manually between Stripe, internal ledger, and bank accounts
+- Chargeback risk management challenges
+  - Need to monitor transactions for stolen cards and fraudulent payments
+  - Risk of minting stablecoins without receiving actual USD payments
+- Complex off-ramp reconciliation across multiple providers
+  - Different APIs for off-ramping create standardization challenges
+  - Multiple reconciliation points with various local settlement partners
+- Merchant of record complications
+  - Amazon purchase flow creates refund reconciliation challenges when orders are canceled
+  - Manual process for handling treasury refunds to user wallets: “Which I’m sure today happens in a manual shitty way”
+
+### Questions or concerns
+
+- Wanted to understand specific reconciliation use cases and transaction examples
+- Asked about Rexi’s experience with crypto companies
+- Inquired about the internal ledger concept and how it differs from settled transactions
+- Questioned the value proposition for blockchain-native companies where everything is on-chain
+
+### Budget and timeline
+
+- No specific budget or timeline information was discussed
+- Company stage (Series B, >$15M ARR) suggests potential budget availability
+- No urgency indicators mentioned
+
+### Next Steps
+
+- Filippos will connect the note-taker with their finance/ops team member who handles reconciliation
+- Note-taker will send follow-up email with company information for Filippos to forward internally
+- Finance team member expected to schedule time if interested
+- Potential future coffee/beer meeting in NYC mentioned
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/603b9db1-9521-423f-b963-6608cd67e4ea](https://notes.granola.ai/t/603b9db1-9521-423f-b963-6608cd67e4ea)

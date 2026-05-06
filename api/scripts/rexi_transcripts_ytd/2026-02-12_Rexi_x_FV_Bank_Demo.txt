@@ -1,0 +1,852 @@
+MEETING: Rexi x FV Bank: Demo
+DATE: 2026-02-12
+ID: not_gWqddReXuiuEwH
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Frank Serra <frank.serra@fvbank.us>, Nikhil Koul <nikhil.koul@fvbank.us>, Teo <teo@rexi.finance>, Juanc <juanc@fvbank.us>, Vijayprasanth Ms <vijayprasanth.ms@fvbank.us>, Sujeeth <sujeeth@fvbank.us>, Rahul Aggarwal, CSM <rahul@fvbank.us>, Sri Ram <sri.ram@fvbank.us>
+SCHEDULED: 2026-02-12T08:00:00-05:00 - 2026-02-12T08:45:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Management perspective.
+[Remote]: And
+[Remote]: and that's actually pretty much it.
+[Remote]: Yeah. From a
+[Remote]: this meeting. Yeah. So
+[Remote]: you guys wanna go next, and then we'll go around with the team.
+[You]: Of course, tell you, Dale.
+[Remote]: Yep. I'm Teo. I'm Ignacio's cofounder.
+[Remote]: I'm leading mostly product development at Brexit.
+[Remote]: And
+[Remote]: happy to be here.
+[You]: I'm I'm Ignacio, cofounder, CEO of Rexy, mostly leading
+[Remote]: Ah, nice.
+[You]: distribution
+[You]: sales, go to market. And, yeah, very happy to be here.
+[You]: I think we met with Frank and
+[You]: I know who else was on the other meeting, the previous meeting.
+[Remote]: I said it I think that we were most of the of the teams. You were
+[Remote]: also in the meeting with Carlos. So
+[Remote]: as you know, I am Frank. I am the CFO.
+[Remote]: So
+[Remote]: looking to forward to to test the product and see how we can
+[Remote]: interact.
+[You]: Of course. Of course. And then we have a couple of
+[You]: we have a notetaker, and then we have Vijay, Rahul, and Sujit.
+[Remote]: Yeah.
+[Remote]: Hi. I think we have met last time as well. So this is Rahul.
+[Remote]: I look after the project and the project management and the delivery side of the project.
+[Remote]: Hi. This is Sujayk.
+[Remote]: I mainly handle reconciliation of IP Bank.
+[Remote]: And I'll be the end user of your product.
+[You]: Let's go.
+[Remote]: So the key person the key person here is the
+[Remote]: because Judy is the one that had to deal with any any software application.
+[Remote]: So he he's happy. They're all happy. Everybody else is happy.
+[Remote]: That's right. That's pretty important.
+[You]: Where are you based, Egypt?
+[Remote]: I'm based in Bangalore.
+[Remote]: India.
+[You]: It's gonna be hard to get lunch then. We're a bit far away.
+[Remote]: Yeah.
+[You]: Well,
+[You]: thank you all for taking your time. Great meeting, the ones I hadn't met before.
+[You]: I'll just do a quick recap of what we learned last time
+[You]: just to make sure we're aligned. And then, of course, Tobey prepared an amazing demo. We can go over to
+[You]: show you a bit of how the platform works. So the the main pain points we
+[You]: we picked up last time
+[Remote]: Yeah.
+[Remote]: Can we record this session or get the notes?
+[You]: Yes.
+[Remote]: First. Let let me record. And and we also have Juan who has joined us.
+[Remote]: Yeah. Juan, do you wanna introduce yourself?
+[Remote]: Sure.
+[Remote]: Hi, guys. I'm Juan Carlos. I'm the controller for for the bank.
+[Remote]: I've been with the bank for the past year.
+[Remote]: So
+[Remote]: Fantastic.
+[You]: Amazing, man. Thank you, Juan. Well, I was saying, I just wanna do a
+[You]: short recap to make sure we're aligned.
+[You]: Going over the main pain points we we picked up from the previous
+[You]: which is, first and
+[You]: you guys are starting to operate with
+[You]: stablecoins and crypto, and there's, limiting fact
+[You]: with black line regarding decimal places. That was one that was mentioned.
+[You]: The second one was around data ingestion and transformation.
+[You]: BlackLine basically, forces you guys to
+[You]: dump the data in a certain format in a certain way. That
+[You]: requires a lot of work on your side of data preparation before actually using BlackLine.
+[You]: So there's a lot of work before. There's some pains around
+[You]: returns and reversals, each provider managing these returns and reversals with different logic.
+[You]: So it's hard to rec to, like, reconcile those things with a
+[You]: unified logic. Then
+[You]: there's some pain around creating the rules and maintaining those rules in black line.
+[You]: Because they break, you need to change, adapt,
+[You]: create new ones, and so on.
+[You]: Then there's the discrepancy management, which you
+[You]: mentioned. There's there's a lot of discrepancies that you're not able to cover with the rules,
+[You]: and there's a lot of manual investigation on those discrepancies.
+[You]: And then there's two additional things, which is when you need to match
+[You]: with no transaction ID, it is hard to match. It starts to get creative on how to match
+[You]: transactions without an ID. And then
+[You]: and, yeah, I think that's that's sort of it. I
+[You]: know if I missed anything or there's something key you wanna
+[You]: mention now, that I might have missed.
+[You]: On in terms of, like, the pain you're currently experiencing with with the reconciling transactions?
+[Remote]: Let me just add one more to that.
+[Remote]: I I think that's a pretty accurate list.
+[Remote]: But there's one more to that which is
+[Remote]: once it's matched,
+[Remote]: then it's tough to
+[Remote]: you know, the whole process of unmatching it,
+[Remote]: and then reloading stuff.
+[Remote]: That becomes a bit of a pain.
+[Remote]: Right? You're not able to like, the rules are not
+[Remote]: the rules are a little
+[Remote]: from a black line perspective that once match, you can modify stuff.
+[Remote]: Even if it is
+[Remote]: not so let's say let's say you're you're matching it based on a
+[Remote]: but you wanna update the description, you can do that.
+[Remote]: Gonna have to unmatch it.
+[Remote]: Reload it, then do it.
+[Remote]: The only way to do it is do, like, a a a data mod.
+[You]: So you said you have a match, and you wanna edit the description
+[Remote]: Yeah. Edit edit any part of that transaction.
+[Remote]: That is not
+[Remote]: not used in the matching per se.
+[You]: Okay. So it's it's it's a match that you wanna undo because it's not actually a match.
+[You]: Okay.
+[Remote]: So you'll have to, like, un you'll have to unmatch the entire goo rather than just for that transaction.
+[You]: Okay. Interesting. That that you
+[Remote]: Perfect.
+[You]: case that use case we had never heard before, but but interesting.
+[You]: So, yeah, basically, based on that, we prepared a demo that was gonna show you now, the just to go over
+[You]: the the product, the platform, and then get all your questions.
+[You]: And, hopefully, if this is something that you see value out of, we can figure out some sort of pilot test
+[You]: so that you can actually see the platform running in in real
+[You]: real scenarios.
+[Remote]: Frank, did you wanna add anything?
+[Remote]: No. No. I I just wanna add it in in the term.
+[Remote]: Day on match on match. It's it's like the process that black line runs
+[Remote]: that after too much, everything
+[Remote]: you wanna change anything because you will not properly know, or you want any
+[Remote]: or or something that is not properly, you basically have to
+[Remote]: unmatch everything
+[Remote]: all the transaction related to that date, and then
+[Remote]: fix whatever you're seeing that you need to fix, and then you match it up again. So
+[Remote]: it's it's more like a process that they handle.
+[Remote]: Perfect. Alright. I think we can we can custom
+[Remote]: this to whatever you need. It's it does not look like a
+[Remote]: free key use case. It's just
+[Remote]: allowing you to unmatch
+[Remote]: single transactions
+[Remote]: Perfect.
+[Remote]: That that that looks quite straightforward. So let me
+[Remote]: share screen for a second.
+[Remote]: Let's go over the platform.
+[Remote]: This is a generic demo. So this is what we
+[Remote]: tend to see that, one one of the cases of,
+[Remote]: banks reconciling, but
+[Remote]: don't focus on the actual data, but focus on
+[Remote]: on the platform and the way it works. Basically, what we do is we
+[Remote]: reconcile, same as, black line,
+[Remote]: The thing is we give way more flexibility
+[Remote]: the users
+[Remote]: to do anything. Basically, you ingest data from anywhere
+[Remote]: whatever format you need,
+[Remote]: and you standardize the data within the platform.
+[Remote]: You do it once,
+[Remote]: and then
+[Remote]: we automate that. Every time the data gets gets updated,
+[Remote]: that standardization gets done again. For example, let's go here
+[Remote]: the clearing settlement file. This is what you would get
+[Remote]: from any of your partners or or
+[Remote]: from the
+[Remote]: card network or whatever.
+[Remote]: And here is where you would standardize the data. Sometimes
+[Remote]: the date format comes I mean,
+[Remote]: seen things coming in extremely weird formats.
+[Remote]: We standardize that that.
+[Remote]: We can also create calculated columns.
+[Remote]: Do super complex formulas. This is this has given us
+[Remote]: a lot a lot of flexibility.
+[Remote]: If the date is I mean, I don't know. If the channel is card, then the fee is
+[Remote]: percent. But if not so, basically, here you have a lot of flexibility to
+[Remote]: prepare the data before you do the reconciliation with the other database.
+[Remote]: We like to think our world is solid. Built to last here, it it's
+[Remote]: actually very useful for structured data, not surprisingly.
+[Remote]: So it really helps speed up the process of of preparing it.
+[Remote]: Any format you wanna change,
+[Remote]: any aggregation, grouping, filtering,
+[Remote]: anything you need. Basically, any
+[Remote]: data transformation that you can do on Excel, you can do here, and it gets automated.
+[Remote]: This is, one of the sources
+[Remote]: Let's see the this would be the
+[Remote]: core ledger.
+[Remote]: And
+[Remote]: just a a bunch of dummy transactions that I I created.
+[Remote]: A lot of data comes in in
+[Remote]: within metadata.
+[Remote]: You can extract this
+[Remote]: and create new new columns based on this.
+[Remote]: So, yeah, basically, extremely flexible in this in this
+[Remote]: sense. We you would, of course, not have any issues with
+[Remote]: number of
+[Remote]: digits
+[Remote]: after
+[Remote]: after the point.
+[Remote]: Me add you something really quick.
+[Remote]: So in a work case, I would assume that the
+[Remote]: correlated will be our primary file, the fact that we have it in the bank.
+[Remote]: So
+[Remote]: then you don't have a leaning internal so
+[Remote]: we have seven providers. We can upload seven databases
+[Remote]: that will match it up with our core data system.
+[Remote]: Exactly. So you can you can you can upload I mean,
+[Remote]: we created folders here,
+[Remote]: because our customers were having, I don't know, a 100 It's you you can create as many as you want. This is just a
+[Remote]: a demo, but you can ingest from wherever you want.
+[Remote]: From any bank, any credit card, any any
+[Remote]: any database, basically.
+[Remote]: And you can create as many sources as you want.
+[Remote]: Then this one, for example, the core ledger,
+[Remote]: you can use in as many reconciliations as you want.
+[Remote]: So a transaction
+[Remote]: is matched
+[Remote]: maybe with the with this other database,
+[Remote]: maybe with another one, it it is not. So it it's super flexible in that sense.
+[Remote]: That you can see exactly what is going on
+[Remote]: what is where, and where, that transaction is missing.
+[Remote]: Okay.
+[Remote]: Sorry. We call that a MAT
+[Remote]: What do you guys call that?
+[Remote]: We call what?
+[Remote]: So if you're if you're if you're comparing two data sources and you don't wanna manage,
+[Remote]: so in black line, it's called a match set. Right?
+[Remote]: Write a math set and say, you know, here are the rules, here are the sources,
+[Remote]: So you take two sources, and you're matching on ID or data
+[Remote]: amount or whatever.
+[Remote]: Do you have a terminology for that here?
+[Remote]: Yeah. Let's let's do one one simple
+[Remote]: exercise. So you see it? That that would be for us a
+[Remote]: reconciliation
+[Remote]: Let's put
+[Remote]: core
+[Remote]: database versus ACH.
+[Remote]: Or
+[Remote]: not sure I would be interested in knowing which is the main use case you wanna
+[Remote]: you wanna do here.
+[Remote]: Let's go.
+[Remote]: Core
+[Remote]: versus ACH.
+[Remote]: And, of course, you can do
+[Remote]: one to one, one to many, many many to one, and many to many. So it's
+[Remote]: extremely flexible in terms of
+[Remote]: what you can reconcile and how.
+[Remote]: Let's
+[Remote]: select the
+[Remote]: So one reconciliation
+[Remote]: is composed of one or more rules.
+[Remote]: A rule
+[Remote]: is a simple reconciliation with within, two databases.
+[Remote]: And, of course, it can have extremely complex joint configurations.
+[Remote]: And then one reconciliation can have one that one one rule or more.
+[Remote]: So maybe whatever comes out from this, you wanna reconcile against another,
+[Remote]: database, a third one.
+[Remote]: And that would be a complex reconciliation with dependent rules.
+[Remote]: Let's Yeah. So we can have one based on
+[Remote]: unique number, and then the other one match it up between day
+[Remote]: time, and all all the stuff and amount.
+[Remote]: This is exactly what we're gonna do here. So
+[Remote]: as far as I know, you're right now
+[Remote]: reconciling based on ID, but you're not sure that's gonna be the case
+[Remote]: always.
+[Remote]: What we generally see is
+[Remote]: companies doing one one first reconciliation based on ID,
+[Remote]: and then doing what we call dependent mismatches. Whatever does not match here,
+[Remote]: we do a second run, maybe by account ID,
+[Remote]: and then, you can add currency.
+[Remote]: This is just to make sure that you're not
+[Remote]: reconciling the wrong
+[Remote]: direction.
+[Remote]: This is credit limit.
+[Remote]: And date,
+[Remote]: posting date,
+[Remote]: This is booking date. Of course,
+[Remote]: whenever it's either date or as
+[Remote]: string or a number,
+[Remote]: you're gonna add tolerance. In this case, if it's date, you're gonna add tolerance in days, hours, minutes, seconds,
+[Remote]: and if it's amount,
+[Remote]: You can add tolerance either in absolute values or in percentage.
+[Remote]: So this would do one first, reconciliation by ID,
+[Remote]: and one and one second try
+[Remote]: whatever did not match with all these key joints.
+[Remote]: After you do that, this basically
+[Remote]: matches transactions on an operational level.
+[Remote]: But then you might wanna do comparisons or checks. Maybe you wanna check that the
+[Remote]: maybe you wanna check that the the
+[Remote]: I don't know. The status is correct. It's approved on both both sides or
+[Remote]: or voided on both sides, etcetera. And those
+[Remote]: those fields are
+[Remote]: almost always not exactly the same. So here, you can normalize that.
+[Remote]: Example, maybe on one database, you wanna check that it's debit.
+[Remote]: And on the other one, you know, it's not on on caps.
+[Remote]: So here, you would normalize that, and you would make sure that it's
+[Remote]: the same on on both
+[Remote]: And then it's maybe you create another equivalence group to normalize it.
+[Remote]: USD and USD.
+[Remote]: Or maybe it's on different languages or whatever here is where you normalize.
+[Remote]: And you do those checks.
+[Remote]: If you mark that comparison as critical comparison,
+[Remote]: whatever does not pass this kind of check
+[Remote]: will not be marked as as reconciled.
+[Remote]: So this is an an additional layer
+[Remote]: where, first, you operationally
+[Remote]: make sure that the transaction exists and you know what that transaction is being compared to.
+[Remote]: And then you do a different kind of checks.
+[Remote]: You make sure that the date, they they
+[Remote]: they are settling is the correct one and and not later.
+[Remote]: Than than what the contract says or, that the amount or the fee or whatever
+[Remote]: And, of course, this can be conditional,
+[Remote]: Only check this if
+[Remote]: this field is, I don't know,
+[Remote]: ACH or whatever.
+[Remote]: And then, of course, you can do transformations. This is just for reporting. This will not prevent
+[Remote]: but maybe you wanna
+[Remote]: you wanna have a an an extra column with exactly the the the fee
+[Remote]: that you're being charged for everything and and just make sure it's it's correct.
+[Remote]: In this case, it's, quite a straightforward. We're gonna
+[Remote]: with a with two sweeps.
+[Remote]: We create the rule.
+[Remote]: And as I mentioned, this is one basic rule, but then you can add
+[Remote]: dependent rules and
+[Remote]: that that would run after the first one, and you can compare it with third data sources
+[Remote]: or whatever you need. So it it's extremely,
+[Remote]: it's extremely flexible in that sense.
+[Remote]: We're doing now, of course, is
+[Remote]: be automated. Basically, you can
+[Remote]: set up this reconciliation to run
+[Remote]: either every morning, I know, at 4AM or
+[Remote]: to run automatically once
+[Remote]: one of the two data sources gets updated, whichever you choose.
+[Remote]: In this case, we're just gonna save it.
+[Remote]: And run it manually, which is the third way you can run a reconciliation.
+[Remote]: And we execute it.
+[Remote]: This is gonna take
+[Remote]: just a few seconds, but I I would like to to ask what
+[Remote]: what would be the the main use case for you to
+[Remote]: to reconcile? Would it be ACH? Would it be card?
+[Remote]: Cards?
+[Remote]: We have all of them.
+[Remote]: Perfect. Alright. Yeah. We have ACH wire cards.
+[Remote]: Custody, stable coin deposits. You know, you you you name it and we have it.
+[Remote]: Fantastic.
+[Remote]: I think. Alright. That that that's gonna be interesting for us.
+[Remote]: So this is the the
+[Remote]: the standard reconciliation, results
+[Remote]: Basically, you see source a, source b,
+[Remote]: what percentage is reconciled against the other source.
+[Remote]: Total transaction. I don't know if you see here. Let me just zoom a little bit.
+[Remote]: Total again. Per day.
+[Remote]: Out of those for total transactions from, say, how many matched?
+[Remote]: Many were not matched, and then, of course, total amount that how much is that in
+[Remote]: in in dollars or whatever currency?
+[Remote]: And and
+[Remote]: of course, transactions and amounts.
+[Remote]: This is the standard reconciliation result, and I'm saying standard because
+[Remote]: many companies need to see
+[Remote]: this data in quite different formats. So that's why we created the
+[Remote]: dashboard section, which we're gonna see in a minute.
+[Remote]: Then, of course,
+[Remote]: we can automate the export of these results
+[Remote]: in whatever format and
+[Remote]: whatever destination you wanna do, you can, of course,
+[Remote]: select which of the columns you want to to export.
+[Remote]: You can enrich those columns. You can
+[Remote]: create direct columns. For example,
+[Remote]: map with the one extra and bridge this this
+[Remote]: this report with a third database or normalize or
+[Remote]: basically, whatever you reconcile, you can export
+[Remote]: in whatever format you want, and it's super easy to do it
+[Remote]: and no no technical knowledge needed.
+[Remote]: First, you can export it to or or whatever database you need.
+[Remote]: Okay.
+[Remote]: So this one is based on all of the transactionality. So how about
+[Remote]: how about the balance?
+[Remote]: So if if the system will have it, like,
+[Remote]: running balance that they have it, okay, the beginning balance was x,
+[Remote]: All the transactionality that happened get you to the
+[Remote]: end balance, and the following month, we'll move
+[Remote]: with the rolling balance. So how it work? Yes. That's a
+[Remote]: different kind of reconciliation. That's what we call the balance reconciliation. It's
+[Remote]: similar to a a group buy, but that you would do, basically, on sources.
+[Remote]: You create a a balance reconciliation, and we're gonna send you a video.
+[Remote]: Okay. Basically, you select which is the grouping criteria
+[Remote]: and which is the value criteria, which
+[Remote]: would be basically every movement. And you select
+[Remote]: either doing it by day or by month.
+[Remote]: And you and you select starting date. So
+[Remote]: say you select yesterday and then whatever movements
+[Remote]: happened today would be the final the ending balance.
+[Remote]: Then the starting balance from tomorrow. And that, you compare with
+[Remote]: the bank balance extract.
+[Remote]: Okay. The reason that I mentioned this one and and I asked about it is because
+[Remote]: in BlackLang is totally different.
+[Remote]: Basically, in black line, you have to upload the balance that you have it
+[Remote]: at the at the beginning, and they have it all the transactionality
+[Remote]: and then it will give you a balance.
+[Remote]: But in the following day, you have following one, you have to upload it again.
+[Remote]: So It doesn't use the balance already already obtained it to continue the
+[Remote]: So that's a little bit weird, but that's the way it work.
+[Remote]: No. No. That's a we we, of course, we
+[Remote]: create the balance based on every movement that you you
+[Remote]: you select.
+[Remote]: I know if we mentioned this, but for some
+[Remote]: of our customers, we automate the creation of, journal entries.
+[Remote]: That was a super manual
+[Remote]: process for many of them, and and we just automated that. I'm not sure
+[Remote]: that's a feature you would be interested, but it's good for you to know that that exists
+[Remote]: And, this is what we call the exception manager. We are
+[Remote]: completely redesigning and launching the new exception manager
+[Remote]: the following days. It's basically
+[Remote]: extremely
+[Remote]: AI native because we've noticed that
+[Remote]: LLMs are fantastic at understanding
+[Remote]: way faster than humans what's going on and what is missing and where.
+[Remote]: But just for you to know, you have whatever did not match
+[Remote]: on source a here,
+[Remote]: whatever did not match on source b here. You can manually mark them as matched.
+[Remote]: Or unmatch them
+[Remote]: You can look for differences. You can check
+[Remote]: if something is partially reconciled. You can check duplicates. This is where when there's
+[Remote]: well, not in this case, but when there's, ambiguity in in the rules,
+[Remote]: And, of course, you can mark as exception. Basically, when when something
+[Remote]: you know that it will never match because it was either a manual movement that we never had it
+[Remote]: counterparty on the other database, you mark it as a as a as exception.
+[Remote]: And this, if you notice that
+[Remote]: there's certain rule you can follow, you can create an exception rule,
+[Remote]: that will basically mark as exception, those transactions whenever
+[Remote]: criteria is met. For example,
+[Remote]: whenever
+[Remote]: transactions follow certain
+[Remote]: certain pattern or or date range or either a field is missing or whatever.
+[Remote]: So, basically, you're When you are doing this as a site,
+[Remote]: you notice that maybe
+[Remote]: there was one transaction that was, by any reason,
+[Remote]: was not outloaded in the database.
+[Remote]: This is there is a way that you can input that one manually in order
+[Remote]: match.
+[Remote]: Here, you could you can create a new transaction.
+[Remote]: In whichever database that you that you need.
+[Remote]: That's something some of our customers ask. You you create the the transaction,
+[Remote]: It must follow the same
+[Remote]: well, of course, it must follow the same
+[Remote]: database.
+[Remote]: And then once created, you can mark that as with with whatever whatever
+[Remote]: transaction you have on on the other side. You can
+[Remote]: just match it
+[Remote]: confirm the match.
+[Remote]: This is the exception manager, and then we've got Alan.
+[You]: Just one Sorry. Sorry. Can you go back to the the exception manager? Because they mentioned
+[You]: the pain of, can you go to the matched
+[You]: view?
+[Remote]: Yeah.
+[You]: This is where you could understand
+[You]: the different matches and and and
+[You]: I don't know if we have the ability to make edits here.
+[Remote]: Yeah.
+[Remote]: Yeah. You you can you can unmatch whatever you whatever you need.
+[Remote]: And you can also unmark whatever transaction
+[Remote]: you marked as exception
+[Remote]: maybe by mistake.
+[You]: Exactly.
+[Remote]: And then we've got the alarms.
+[Remote]: You can,
+[Remote]: you can create alarms. We send them via Slack or email
+[Remote]: Basically, either by trigger if something is off or
+[Remote]: if a reconciliation percentage is below x or etcetera.
+[Remote]: Or just daily. Hey. These are
+[Remote]: the five transactions that did not match yesterday, and you get that message via Slack.
+[Remote]: Every morning at 4AM, 5AM, and you you need to be
+[Remote]: logging into the platform and just checking, but you just
+[Remote]: you you you just check your alarms on on
+[Remote]: on Slack and see if everything is alright or if there's anything you need to address.
+[Remote]: So so it's it's it comes as a as a digest
+[Remote]: or every single alarm will generate a separate notification?
+[Remote]: For the moment, every reconciliation
+[Remote]: gets an independent alarm set if you want.
+[Remote]: But if you are interested in us developing one general alarm,
+[Remote]: for every reconciliation,
+[Remote]: Let's let's see how how that would work. We're happy to explore it.
+[Remote]: But we don't really like
+[Remote]: mixing up data from
+[Remote]: from many reconciliation. So so sorry. Sorry. Maybe I I missed both.
+[Remote]: What I meant to say is can you have multiple alarms, and can they come in one digest
+[Remote]: email?
+[Remote]: And say, you know, you've set these five alarms and everything went off,
+[Remote]: or, you know, three of the five that you set up went off yesterday.
+[Remote]: Yes.
+[Remote]: Exactly. That that's exactly what the way it works.
+[Remote]: That's how it works. Okay. Got it. Good.
+[Remote]: And, of course, you can send them via Slack email, or if you have any other
+[Remote]: communication channel, I know, Teams or whatever,
+[Remote]: we can set that up as well.
+[Remote]: Then we've got the dashboards. Basically,
+[Remote]: you end up having
+[Remote]: 20, 30, 40,
+[Remote]: reconciliations. Maybe you wanna have one centralized dashboard with the main metrics.
+[Remote]: You can create your own dashboard and organize your widgets
+[Remote]: the way you want. For example,
+[Remote]: this one, you can have, I don't know, the stack chart bar.
+[Remote]: Live demo, and
+[Remote]: you select the date range or whatever metrics you want.
+[Remote]: And, of course, this can be organized in,
+[Remote]: in whichever way you want. You can create another one. For example,
+[Remote]: let's create a KPI card.
+[Remote]: Demo,
+[Remote]: and you organize them the way you want. And
+[Remote]: so you have one centralized dashboard
+[Remote]: that you can share with the team and and just check everything.
+[Remote]: Especially with the more underwritteners.
+[Remote]: They wouldn't be like like they would like report like this one.
+[Remote]: Exactly. Exactly. So one centralized dashboard with every reconciliation
+[Remote]: that's what you can do here.
+[Remote]: And finally, reporting, I know if there's
+[Remote]: any kind of report you're doing daily or weekly or monthly.
+[You]: For a regulator or some compliance framework?
+[Remote]: Exactly.
+[Remote]: Here's where you automate that.
+[Remote]: It can be extremely flexible. You can do it with multiple sources.
+[Remote]: Or, just with one specific source.
+[Remote]: You can
+[Remote]: you can create
+[Remote]: as many columns as you want with all the data or
+[Remote]: formatted as you want. For example, if
+[Remote]: for
+[Remote]: ID is not null, then one is zero, and you just create the formula
+[Remote]: for the for the column name and then force.
+[Remote]: I preview and send it wherever
+[Remote]: you you want on a daily basis or weekly or monthly basis.
+[Remote]: We just automate that.
+[Remote]: So, basically you something about the full reconciliation on the styling process.
+[Remote]: Yes. It is something that need, like, the
+[Remote]: individual manner
+[Remote]: start of the process, or it could be everything set up that
+[Remote]: as soon as the file is available, it will dump it up right away
+[Remote]: and and we will also have an hour going and
+[Remote]: automatically, and they start the process.
+[Remote]: They really need that Sujit start the process in order to make it to
+[Remote]: to make the reconciliation.
+[You]: No. It could it could be done automatically and asynchronously. So we
+[Remote]: What do we
+[You]: it depends on when can we have an updated file. This depends on on
+[You]: each setup in each company. If we can have a new banking file or a new
+[You]: ledger file every single day or every two hours, the system can run every two hours.
+[Remote]: Hello?
+[You]: It it just depends on the latency.
+[Remote]: Reconciliations can be triggered
+[Remote]: in three forms.
+[Remote]: The first one is a schedule, which you can
+[Remote]: set up at whatever time of the day or as many times as you want actually
+[Remote]: on the day.
+[Remote]: The second one is you select one of the sources to be the trigger.
+[Remote]: So whenever source p gets updated, because you know that the bank sends it
+[Remote]: after
+[Remote]: or what the partner, the credit card partner, whatever sends it
+[Remote]: after, you know, 4AM. You set up that whenever that
+[Remote]: data source, gets updated or gets new transactions, that would trigger
+[Remote]: the reconciliation. And third one would be, just a manual trigger that
+[Remote]: which is exactly what we just did.
+[Remote]: Mhmm.
+[Remote]: Okay.
+[Remote]: Basically, let's go over
+[Remote]: very quickly. Basically, we automate ingestion.
+[Remote]: Allow users to
+[Remote]: standardize the data and prepare the data
+[Remote]: in an extremely flexible way.
+[Remote]: We do that automatically whenever those sources get updated.
+[Remote]: We automate reconciliations.
+[Remote]: We automate the create on creation of reports.
+[Remote]: Creation of journal entries,
+[Remote]: allow the users to manually match and match, and create new transactions.
+[Remote]: With code alarms and personales, dashboards
+[Remote]: and reporting for
+[Remote]: end users.
+[Remote]: I don't know if there is any questions.
+[Remote]: But
+[Remote]: I think we covered most of RXC
+[Remote]: with that.
+[You]: And, again, our platform is is
+[You]: improving and changing
+[You]: at lightning lightning speed. So if we do a demo this week and then do a demo next week, you're gonna
+[You]: see a lot of changes, a of improvements
+[You]: We're building a lot of intelligence layers to each part of the process. Right? Like, as you know,
+[You]: this is structured data we're working with, and and the objective here is to automate
+[You]: all the technical part, which is ingestion, transformation, processing,
+[You]: so that the teams only have to log in, look at the differences, and investigate and solve the
+[You]: the differences inside the platform. That's the only time that should be spent by people
+[You]: in the reconciliation process, actually. Right? Not not
+[You]: wasting time on the ingestion transformation and processing. That should be automated.
+[You]: And then how can we provide intelligent tools so that the time
+[You]: spent on the discrepancies is as low as possible. Right?
+[You]: And we try to maximize the matching ratio and make sure money is not getting lost.
+[You]: And then finally, of course, for specific bank setups,
+[You]: how do we also help you guys be compliant with these reporting requirements?
+[You]: Or regulatory frameworks, as part of the product as well.
+[Remote]: Did did you have any any
+[Remote]: special request that
+[Remote]: you don't have it right now with the black line, and you would like to see it that maybe
+[Remote]: this is Joel or or Ignacio.
+[Remote]: That you can consider.
+[You]: Is that a question for us?
+[Remote]: No. For Sujim, he has some someone's paid chat
+[Remote]: requirement that
+[Remote]: that will help the whole process.
+[Remote]: It's a it's a very interesting question for us, so we're more than happy to
+[Remote]: take those those kind of requirements because they help us
+[Remote]: make the platform, improve.
+[Remote]: So
+[Remote]: yeah. And the key and the key person is
+[Remote]: because he's the one that handling a day today.
+[Remote]: Any need that you see that you never saw it in black line,
+[Remote]: you would like to see it here,
+[Remote]: think that is good for for everybody. Right?
+[Remote]: What what we do in the
+[Remote]: pipeline now is we create the reconciliation template for
+[Remote]: each bank's recons, and we use the data sources to
+[Remote]: map map to those reconciliation and do the balance reconciliation by uploading the balances.
+[Remote]: Now
+[Remote]: we have to manually upload the balances and put the balances there
+[Remote]: and we do the we and we list the exception
+[Remote]: or reconciling items to match it.
+[Remote]: With the balances.
+[Remote]: So this need to be, like I guess, the balances
+[Remote]: as you said, it would come
+[Remote]: without uploading, and it's all with the data.
+[Remote]: What's in the I mean, text text
+[Remote]: useful. I mean, we would like to know that one. I mean, how it works.
+[Remote]: If
+[Remote]: if if we we can compare
+[Remote]: two data sources with the balances.
+[Remote]: Yes.
+[Remote]: Yep. We we I prepare a balance
+[Remote]: reconciliation demo, but we're more than happy to send you
+[Remote]: a video or some material afterwards.
+[Remote]: But, basically, it would work the the way I said. You
+[Remote]: create, what we call a view, balanced view on the sources
+[Remote]: based on whatever source you wanna check the the balance.
+[Remote]: And then you compare that with the actual balance, that
+[Remote]: whatever partner is sending you, and you you basically do a
+[Remote]: balance reconciliation.
+[Remote]: That gets done automatically.
+[Remote]: And we can save those as a reconciling
+[Remote]: and we we can
+[Remote]: save that as a reconciling for that month and close it.
+[Remote]: The approvals, reviewers, or Yes. Approvals.
+[Remote]: Yeah. Okay. That that's between that that's needed for the auditors and
+[Remote]: Perfect.
+[Remote]: Where we are coming out. And I think that also is a great tool to catch up is
+[Remote]: somebody book it up. Let's say, if they're not supposed to have it,
+[Remote]: happen, but if somebody book an ASOF transaction,
+[Remote]: then maybe it's hitting another day and you don't see it, at least
+[Remote]: disrupting your balance, this is the best scenario to catch it up. This is the best way to
+[Remote]: For more challenges with the custody,
+[Remote]: you know about the digits what we are
+[Remote]: Yeah. Uploading the data with the nine multiplying the numbers with nine function
+[Remote]: But right now, we will not need to do it because they can have handle the
+[Remote]: the additional digit to the side to the right side.
+[Remote]: So in this case, we will not have to multiply anything by line
+[Remote]: in order to get to the digit. It would be more more simple, that I prefer this way.
+[Remote]: Because So we're saying that I know how we handle
+[Remote]: it make the numbers so big because you have to multiply it.
+[Remote]: And and, basically, you are moving the digit to the left side in order to look seven. So
+[Remote]: it will be totally different. I think that Vijay have a question too. Yeah.
+[Remote]: Yeah. Vijay. Yeah.
+[Remote]: Go ahead, Hi.
+[Remote]: Yeah. Hi,
+[Remote]: This is Vijay. Sorry. Due to your mic issue, I can't able to introduce myself. Oh, this is Vijay.
+[Remote]: So I'm I'm around five plus years of experience after all of you. So
+[Remote]: I'm working as a back end developer
+[Remote]: So I'm mostly handling the development
+[Remote]: for this. So my question is
+[Remote]: example, we have the own data set. Okay? So we can example, we can call the
+[Remote]: So in the data source, we have the 10 columns.
+[Remote]: So this data source already have the data and already match match also.
+[Remote]: I want to add the new column
+[Remote]: can I able to do this? So
+[Remote]: in the black line, we need to unmatch the transaction
+[Remote]: We need to delete the existing transaction.
+[Remote]: Then only you can able to add the new call.
+[Remote]: No. That
+[Remote]: I mean, there is a way to solve it, and it
+[Remote]: it is enriching the source. Basically, any existing transaction
+[Remote]: that is already reconciled, we will not try to reconcile it again.
+[Remote]: But if it gets, updated,
+[Remote]: we can either enrich it
+[Remote]: via from the outside
+[Remote]: or update the the transaction. I would like to see the exact case
+[Remote]: but we we've got this enriching it's basically
+[Remote]: VLOOKUP formula that allows you to enrich existing transactions.
+[Remote]: So I I think the the answer is that they're able to do it.
+[Remote]: And this is out of the box. Right? It's it's not like you're not saying
+[Remote]: you'll add it to the backlog or anything. It's already existing functionality.
+[Remote]: Oh, yeah. Yeah. I would like to see exactly what your needs are and and
+[Remote]: where the I mean,
+[Remote]: where the format is, but you can reach any column
+[Remote]: any any transaction, no matter the status, at any point.
+[Remote]: Yeah. So what we're talking about is adding a to the data
+[Remote]: Let's say two data sources are matched already. We're not we're the intention is not
+[Remote]: to
+[Remote]: create any impact to the match that's you just end reaching it.
+[Remote]: You just add new column. That's it. New new columns. Yeah. Yeah. You you you can do that right now.
+[Remote]: Okay. Alright. I think that was my that that was his question. Yeah. Yeah. Yes.
+[Remote]: Okay. Thanks.
+[Remote]: This is the time. More questions or It's or is it that
+[Remote]: you think that would be better for us? So
+[Remote]: this is the time. We are happy to take any further questions as well via email if
+[Remote]: if they're not, right now
+[Remote]: top of mind, but maybe
+[Remote]: maybe this afternoon or tomorrow you you get those questions, we we we can also address them.
+[Remote]: This is a
+[Remote]: a process, and we're more than happy to do it.
+[Remote]: So so here's a question. So when we go to the showroom with
+[Remote]: check out a car, everything looks great and shiny.
+[Remote]: Right?
+[Remote]: When the rubber hits a row, that's when you're like, oh, the plates totally work that well.
+[Remote]: You know? So is there any way you can throw it as a sandbox so we can just
+[Remote]: get our hands dirty
+[Remote]: and see what works, what doesn't work, what are the challenges?
+[Remote]: Yes. The the way we need
+[Remote]: way we generally do
+[Remote]: is
+[Remote]: we do a, like, a pilot
+[Remote]: a pilot test with one reconciliation flow
+[Remote]: we help you we are completely hands on. We help you
+[Remote]: with the integrations. We help you set it up, and and we make sure
+[Remote]: running, as you said,
+[Remote]: well,
+[Remote]: before, you know,
+[Remote]: before handing handing it off, before doing a hands off.
+[Remote]: If you're interested, we are more than happy to explore
+[Remote]: one of those tests so you get to see the the platform working on firsthand.
+[You]: Yeah. We just timebox it and then align the different
+[You]: success criteria. Right? Just to make sure it's super aligned on
+[You]: what are we trying to test, what does success look like,
+[You]: and what happens when the pilot test is concluded, right? Just for us to justify the
+[You]: and understand if this is actually something you're looking
+[You]: to get in this quarter. Is this urge
+[You]: Is this something top priority for you right now?
+[You]: And so on.
+[Remote]: Right. And and and so when you say we can set it up, you you don't mean
+[Remote]: we'd be hands off. We're just say you're just saying everybody can be hands off.
+[You]: I mean, we are hands on. We just need you guys to unblock us.
+[Remote]: Yes. Right?
+[You]: We typically just set up a Slack channel or whatever communication channel we can have
+[You]: more on a daily basis. And then for that
+[You]: limited scope that we align on, we just need to, like,
+[You]: be able to integrate, get all the nuances from two gs,
+[You]: Rahul, and Vijay to configure all the logic and then leave it up and running
+[You]: for you to consume for a month or two months.
+[Remote]: Or Yeah. No. So I'm I'm just saying that, you know,
+[Remote]: know how you you go and see a demo at Costco or whatever the
+[Remote]: the guy there is doing a fantastic job. He it beautifully. Looks
+[Remote]: artistic. You take it home. You can't cut that wrap all of that. Right?
+[Remote]: Just saying that we we we want one of our developers to get their hands dirty.
+[Remote]: And see if they can set it up themselves as well.
+[You]: Okay.
+[Remote]: Not just oh, we watch you do it. We wanna do it.
+[You]: Yep.
+[Remote]: Perfect. Yep.
+[Remote]: Yeah. Okay. Alright.
+[Remote]: Alright. Yeah. We can align on on the on the scope and the success criteria.
+[Remote]: And and then move forward on that one.
+[You]: Okay. Great.
+[Remote]: Fantastic.
+[You]: So then, what do you think of next steps?
+[You]: Should I prepare this pilot proposal, or
+[You]: how do you wanna go about it?
+[Remote]: Think that makes sense to me, Frank.
+[Remote]: Agree? Yeah.
+[Remote]: Think that we have to do the NDA. We have to do the the test
+[Remote]: and go in that way and do the demo. I think that that would be the key.
+[You]: Trading. Right.
+[Remote]: Really here.
+[You]: I'll then prepare this this pilot proposal, get it over to you, and then
+[You]: we'll also send the NDA that we use, our template if you wanna use ours.
+[You]: If you have your template, you probably have your template. So just
+[You]: let me know what what data you what fields or data you need from us
+[Remote]: Okay.
+[You]: and we'll get that going as well.
+[Remote]: That's fine.
+[You]: Amazing. Thank you, everyone, for your
+[Remote]: Pleasure. You guys.
+[You]: and I'm happy to move forward with this.
+[Remote]: Thank you so much for your time.
+[You]: Bye bye.
+
+============================================================
+SUMMARY
+============================================================
+### Their background
+
+- FV Bank operates with stablecoins and cryptocurrency transactions
+- Currently uses BlackLine for reconciliation processes
+- Team structure includes:
+  - Frank Serra: CFO, focused on product testing and interaction
+  - Sujeeth: Key end user who handles day-to-day reconciliation operations in Bangalore, India (“The key person… because he’s the one that had to deal with any software application”)
+  - Juan Carlos: Controller, been with bank for past year
+  - Rahul Aggarwal: Project Delivery Manager handling project management and delivery
+  - Vijay: Backend developer with 5+ years experience, handles data ingestion and transformations
+- Operates with seven different payment providers requiring reconciliation against core banking system
+- Processes multiple transaction types: ACH, wire transfers, cards, custody, and stablecoin deposits
+
+### Pain points and needs
+
+- BlackLine decimal place limitations with stablecoins and crypto transactions
+- Complex data preparation requirements before using BlackLine
+  - “BlackLine basically forces you guys to dump the data in a certain format in a certain way. That requires a lot of work on your side of data preparation”
+- Returns and reversals management challenges
+  - Each provider manages returns/reversals with different logic, making unified reconciliation difficult
+- Rule creation and maintenance difficulties in BlackLine
+  - Rules break frequently and require constant updates and adaptations
+- High volume of unmatched discrepancies requiring manual investigation
+- Matching challenges when transaction IDs are unavailable
+- **Additional pain identified: BlackLine’s rigid unmatching process**
+  - “Once it’s matched, then it’s tough to… the whole process of unmatching it, and then reloading stuff”
+  - “You’ll have to unmatch the entire \[group\] rather than just for that transaction”
+  - When editing any part of a matched transaction, must unmatch all related transactions, fix issues, then re-match everything
+- **Balance reconciliation workflow issues**
+  - Currently must manually upload balances to BlackLine
+  - System doesn’t use previous day’s calculated balance as starting point for next day
+  - “You have to upload it again… It doesn’t use the balance already obtained to continue”
+- Need for approval workflows and audit trails for compliance
+- Custody reconciliation complications due to digit handling requirements
+
+### Questions or concerns
+
+- **Sandbox testing capability**: “Is there any way you can throw it as a sandbox so we can just get our hands dirty and see what works, what doesn’t work?”
+- **Hands-on setup requirements**: Want their developers to be able to configure the system independently, not just watch demonstrations
+- **Column addition flexibility**: Vijay specifically asked about ability to add new columns to existing matched data without unmatching transactions
+- **Automated processing capabilities**: Whether reconciliation can run automatically when files are available versus requiring manual initiation
+- **Alarm consolidation**: Interest in receiving multiple alerts in single digest format rather than separate notifications
+- **Balance reconciliation automation**: How system handles rolling balances without manual uploads
+
+### Budget and timeline
+
+- No specific budget figures discussed
+- Timeline urgency unclear - Ignacio asked: “Is this something top priority for you right now?”
+- Frank indicated willingness to proceed: “Think that makes sense to me”
+- Moving toward pilot testing phase rather than full implementation
+
+### Next Steps
+
+- Rexi to prepare pilot proposal with defined scope and success criteria
+- NDA execution required before pilot begins
+- **Balance reconciliation demo**: Rexi to send video demonstration of balance reconciliation functionality
+- Establish communication channel (Slack mentioned) for daily collaboration during pilot
+- Pilot scope to focus on one reconciliation flow initially
+- FV Bank development team (particularly Vijay) to get hands-on configuration experience during pilot
+- Success criteria and timeline to be defined in pilot proposal
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/c225550d-bd8f-4ca1-a842-381529b8dd13](https://notes.granola.ai/t/c225550d-bd8f-4ca1-a842-381529b8dd13)

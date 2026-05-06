@@ -1,0 +1,414 @@
+MEETING: Touchpoint | Website
+DATE: 2026-04-16
+ID: not_g9yOa7jqgR1fXN
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Sebastián García <sebastian@rexi.finance>, Ignacampos918 <ignacampos918@gmail.com>
+SCHEDULED: 2026-04-16T14:30:00-04:00 - 2026-04-16T15:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Ok. Pero pero bien. Ok, ok. No, bueno.
+[Remote]: Bien. Bueno, y esto
+[Remote]: es lo mismo, yo lo hablé con Nacho muy poquito por por texto, pero bueno, ahora que
+[Remote]: estás, Ignacio, yo, a lo que es la landing,
+[Remote]: esta está bien, o sea, no no no, o sea, la verdad que tiene todo lo que necesitamos,
+[Remote]: pero realmente a mí sí más animada, por ahí.
+[Remote]: Creo que sí, lo de la animación, yo creo que sí es un must, eso seguro,
+[Remote]: pero si yo entro a esta o entro a Symmetric,
+[Remote]: o sea, no no veo
+[Remote]: una diferencia entre lo que hacemos y realmente
+[Remote]: hay una diferencia, ¿no? Es más,
+[Remote]: creo que si entramos a Symmetrica ahora, la la podemos ver, pero no quiero ni siquiera entrar
+[Remote]: porque para mí tampoco tenemos que compararnos con ellos. Para mí tenemos que pensar en
+[Remote]: como producto, porque nos va a desenfocar de lo que va lo que tenemos que construir.
+[Remote]: Te cuento un poco, Nacho, lo que hacemos ahora. Dale. Rexy venía venía
+[Remote]: venía haciendo una plataforma del dos mil quince, o sea, de donde vos subís tu data y la la Ahora con esto con esta era de agentes,
+[Remote]: queremos que la gente, vos vos no sé, debés usar
+[Remote]: Bueno, ChatGPT hace cosas por vos, o para hacer este diseño seguramente usaste herramientas que te ayuden
+[Remote]: armar el diseño, mismo Figma AI, para poder armarlo
+[Remote]: bueno, lo mismo que hiciste vos con un agente que te ayudó y pudiste bajar un poco los
+[Remote]: conceptos y tala bola, es lo que estamos llevando nosotros al equipo de finanzas.
+[Remote]: Nosotros nuestra visión es que una persona de finanzas, que es un semicénior o un senior, tenga su propio equipo de agentes, ¿no?, personas que nunca iban a ser líderes
+[Remote]: de repente tienen cinco agentes abonando por ellos, y eso es lo que te permite Rexi.
+[Remote]: Un agente es, por favor, toda la todos los días a las ocho de la mañana,
+[Remote]: reconciliame esto y mandame un reporte por mail cuando termines.
+[Remote]: Entonces, ese agente queda como una persona que hace todos los días
+[Remote]: Ah, y después le va cambiando las cosas, blabla.
+[Remote]: Persona va a crear agentes,
+[Remote]: Rexi se va a poder manejar de manera géntica, también la visión es que
+[Remote]: la la UI acompaña, pero vos vas a estar haciendo todo vía chat,
+[Remote]: o sea, como un ChatGPT, y todo y y todo lo que no sepas
+[Remote]: cero, lo que no no entiendas o no lo que no puedas,
+[Remote]: lo va a hacer. Eso es algo que, por ejemplo, Symmetric no tiene. Symmetric tiene todo
+[Remote]: tiene toda la cantidad de features gigante, es la misma plataforma de reconsideración,
+[Remote]: pero no tiene su chat de AI, pero sí, pero es eso, es un chat de AI.
+[Remote]: Nosotros estamos haciendo algo que no necesites ni interactuar en la pantalla,
+[Remote]: porque lo hace todo el chat por vos, y en la pantalla solo ves resultados. ¿Ok?
+[Remote]: Dicho esto, te voy a mostrar, por ejemplo, el login para que veas
+[Remote]: lo que digo con experiencia agéntica.
+[Remote]: Esto es algo que sacamos ahora, Nacho no te lo va a haber mostrado, porque
+[Remote]: salió, nada, va, no sé Nacho, capaz que le mostraste un poco la
+[Remote]: la página nueva, la web nueva.
+[You]: No.
+[Remote]: Ok.
+[You]: Al produttore.
+[Remote]: El producto, eso. Mirá, Nachi, ¿estás viendo, Nacho? Nacho Perfecto, perfecto. Bien. Cuando entrás, este es el login. El login es esto, te dice, hey there, let's get you in, y es como si te estuviera hablando la gente, no es un formulario, no es nada. Yo acá pongo mi mail, pongo enter, me dice lo que está haciendo, ¿ok?, dice que encontró a Rexi, porque soy de Rexi, y me dice que chequee el inbox.
+[Remote]: Y cuando entro... Ah, bueno, voy a buscar mi email, pongo el código.
+[Remote]: Fíjate que hasta reformulamos
+[Remote]: lo que es un formulario, ¿ok? No es el típico login de usuario, contraseña, metete.
+[Remote]: Como tratás de hacer. Cuando a la home,
+[Remote]: esta, voy a rebuildarla,
+[Remote]: para que veas cómo es. Esto es lo primero que ves en Rexi, cuando entrás,
+[Remote]: lo primero es, este, tipo, entrás y dice, hello, Sebastián, your home built with the prompt.
+[Remote]: O sea, tu home la o sea, la construís con un prompt,
+[Remote]: Y vos acá podés decir, quiero ver, quiero ver...
+[Remote]: Un resumen de mis reconciliaciones, ¿no?
+[Remote]: Entonces, esto te empieza a generar código en vivo
+[Remote]: no estático, es código en vivo que te muestra un
+[Remote]: resumen de tus conciliaciones, fijate lo que, bueno, esta esta aplicación también se puede hacer en dark mode,
+[Remote]: o sea, te lo te lo apaga y te lo hace, pero fijate que un poco el estilo es como un sistema operativo.
+[Remote]: Abajo tenés el menú de opciones, arriba tenés la barrita de header, bla, bla.
+[Remote]: Bueno, acá tenemos
+[Remote]: acá me parece que voy a entrar una que sí tiene data, porque, si no, no va
+[Remote]: poder generar la información.
+[Remote]: Acá tenemos, por ejemplo, esta es otra de las pantallas, fijate que acá tenés
+[Remote]: tipo creación de sources, acá tenés cosas corriendo, bueno, acá
+[Remote]: este es un ambiente de prueba, así que ahí va a haber un montón de cositas así de prueba.
+[Remote]: Y después tenés toda una parte agéntica, cuando estás corriendo los procesos,
+[Remote]: que la gente te va hablando. Ahora está desactivado, pero acá hay un chat
+[Remote]: lo desactivamos porque justo hay un cliente ahora corriendo pruebas, entonces, no queremos que use el chat.
+[Remote]: Pero acá hay un agente, una un un un box que vos podés abrir,
+[Remote]: y vos le podés pedir cosas y te va a repercutir en la aplicación.
+[Remote]: ¿Ok? Entonces, vos le decís a la gente, en vez de construirme la
+[Remote]: acá y escribirlo desde acá o lo que sea, che, armame una que tenga esto y vos
+[Remote]: podés hacer, o lo mismo,
+[Remote]: querés crear un dashboard, le decís, che, armame un dashboard sobre esto,
+[Remote]: y el agente te lo construye y te lleva al dashboard que construyó para que lo puedas iterar.
+[Remote]: ¿Bien?
+[Remote]: Genial. Qué loco, qué loco. Bueno,
+[Remote]: eso eso ese qué loco que dijiste es lo que queremos que vea la
+[Remote]: gente cuando entra a la landing, o sea No, se me ocurren varias ideas,
+[Remote]: haber visto esto. Bueno, es eso, estamos haciendo algo
+[Remote]: nuevo. O sea, no hay una plataforma
+[Remote]: menos en nuestra industria que estás full, que nadie nadie viene a hacer cosas lindas, a
+[Remote]: a a finanzas, ¿entendés? Están reacostumbrados a usar, lo vemos
+[Remote]: excelente, sí.
+[Remote]: Estamos tan reacostumbrados a usar o Excel,
+[Remote]: o aplicaciones que Nacho a cada rato me manda screenshot de de
+[Remote]: de clientes que que percibe y le dice, Seba, están usando esto. Entonces,
+[Remote]: nosotros ya ganamos por el concepto, ¿entendés?, o
+[Remote]: usan herramientas de mil novecientos noventa y cinco a s,
+[Remote]: Sí, los bancos usan sistema operativo
+[Remote]: Olvidate. Entonces, nosotros estamos yendo a una propuesta diferente, no solo
+[Remote]: no es solamente UI, y no es solamente algo lindo, Nacho. Sí. Es
+[Remote]: es una experiencia nueva de cómo te involucras y cómo interactúas
+[Remote]: sobre flujos de finanzas. Entonces, está todo milimétricamente calculado
+[Remote]: para que realmente estés en esta era. Nosotros vuelvo a repetir y vuelvo a la visión,
+[Remote]: nosotros estamos convencidos de que una persona va a crear agentes trabajen por esa persona, pero sí, hoy estamos en
+[Remote]: una era donde AI todavía es probabilístico, entonces, vos necesitás esa persona
+[Remote]: haciendo clic en aplicar los cambios, que confirme la información,
+[Remote]: porque nosotros estamos en una industria
+[Remote]: determinística, ¿bien? Y porque pueden ser cualquier número y
+[Remote]: Puede tirar cualquier número y todo, bolá.
+[Remote]: Dicho todo esto, y ahora que viste un poquito el el frente
+[Remote]: más agéntico y toda la bola,
+[Remote]: lo que yo me imaginaba, íbamos a volver a entrar,
+[Remote]: antes de entrar a lo que yo me imaginaba, y ahora vamos a ver la web de vuelta, es
+[Remote]: ¿cuáles son tus skills, Nacho? O sea, ¿vos trabajás con Figma, ¿con qué trabajaste para hacer este diseño?, ¿trabajás con Illustrator?
+[Remote]: ¿Sabés hacer iconos?, ¿qué qué...? ¿Cuáles son tus skills
+[Remote]: de diseñador para que yo pueda entender
+[Remote]: por dónde podemos ir.
+[Remote]: Ok. Bueno, mirá, mi mis skills son
+[Remote]: Figma, obviamente. Este, obviamente, yo en OneCore, mi último tiempo,
+[Remote]: estuve utilizando las herramientas estas de Vercel para hacer los prototipos
+[Remote]: y validarlos más rápido, porque
+[Remote]: ya te digo, como se ocurrían proyectos nuevos a mí mismo, como productos que le veía a los clientes que le
+[Remote]: podíamos vender. Ok. Hacía los prototipos,
+[Remote]: los validábamos y después, e incluso yo le hacía el front, ni siquiera tocaba el Figma,
+[Remote]: Después, este, fue como mi último rol haciendo mucho
+[Remote]: curso, mucho copilot en en Visual Studio.
+[Remote]: Directamente haciéndolo front. Obviamente, yo no soy desarrollador, así que la guía después un desarrollo
+[Remote]: tiene que revisarlo porque
+[Remote]: te puede hacer cualquier cosa, pero sí me estaba tirando a hacer
+[Remote]: todos los códigos, prácticamente yo, haciéndolo
+[Remote]: prototipos a o vivo. No importa eso,
+[Remote]: desde el código, olvídate, porque la ejecución de código a la
+[Remote]: Pero la parte de diseño Para la parte esta de de que hice
+[Remote]: para Nacho, usé Figma porque, bueno, las herramientas
+[Remote]: este, no las
+[Remote]: no tengo tokens, entonces, no las pude utilizar para hacerlas en y demás. Entonces,
+[Remote]: me tiré a hacerlo a a lo vieja escuela, por así decirlo,
+[Remote]: Pero sí, ayudándome, obviamente, para los contenidos,
+[Remote]: y incluso,
+[Remote]: teóricamente, ¿viste?, Cloud te puede decir, bueno, puedes armar esta
+[Remote]: forma y hacerle tal cosa,
+[Remote]: y yo después, bueno, lo llevaba al diseño.
+[Remote]: Ok. Después, ¿qué más se ha utilizado así?, bueno, Illustrator,
+[Remote]: lo lo he utilizado mucho, Photoshop, obviamente, no
+[Remote]: bueno, no no es no es lo que lo que buscan. No, no, no, igual, ojo,
+[Remote]: porque para mí hay algo clave en esto que ya hay no es bueno todavía,
+[Remote]: es que la creación de
+[Remote]: o la creación de assets
+[Remote]: Sí, no, le falló. La creación de asset, que no se dé en cuenta, porque
+[Remote]: ¿qué pasa hoy en día con esto de esto de AI generative, o o sea, que
+[Remote]: puedas crear contenido tan rápido, vos vas a todas las webs nuevas Yo te igualé.
+[Remote]: Son iguales. Entonces, el skill de poder generar algo nuevo y
+[Remote]: y original,
+[Remote]: es es lo que necesitamos Rexy, Por eso te estaba preguntando justamente esos skills,
+[Remote]: son más de base de Illustrator, porque si los tenés,
+[Remote]: y decimos, che, le te voy a mostrar algo, por ejemplo, vamos a
+[Remote]: Sí, yo ponéle en one core que le dicen design system de de cero yo, este, después
+[Remote]: me me lo pude conectar al curso y le
+[Remote]: todo el design system en código para que lo desarrollara, después no tenía front, eran todos de back, entonces,
+[Remote]: se lo puede entrar más fácil. Bueno, pero, por ejemplo, mirá esto, en Pomelo, fijate que estas cards
+[Remote]: estos assets, esos son creados originalmente y son las cards de Pomelo. Esas
+[Remote]: cosas originales que, che, son mías estos,
+[Remote]: hace desde de de del branding es clave, ¿viste?, es como lo que te hace
+[Remote]: esto, mira, mirá estos iconos, o sea, todos estos iconos son custom, no es algo
+[Remote]: AI generative, ¿viste? Esto Maritran ellos, sí.
+[Remote]: Que tiene un coso... Esta
+[Remote]: Bueno, ese chat es el que no queremos.
+[Remote]: Esto, bueno, nada, para que te des una idea, esto es lo que lo que
+[Remote]: también está bueno, ¿ves? Por ejemplo, acá está un poco este de del pero fijate los assets,
+[Remote]: son de pomelo,
+[Remote]: ¿entendés? O sea, no no no es algo AI
+[Remote]: tiene, obviamente, está hecho todo con AI esto, pero finalmente termina siendo coso.
+[Remote]: Esta web, la verdad que está muy buena,
+[Remote]: lo que es, o sea, para para para lo que es está está está muy bien lograda,
+[Remote]: Yo creo que podemos ir más que esto.
+[Remote]: Porque lo que tiene Pome es que, el Pomelo es una empresa, yo te laburé en Pomelo,
+[Remote]: una empresa que está buena, pero Pomelo todavía no entró al modo
+[Remote]: ¿entendés? Y esto, ¿sabés por qué pasa? Porque hoy estamos en una era donde la
+[Remote]: tecnología tiene que estar muy metido en marketing, en cómo nos vendemos, pero
+[Remote]: se sigue vendiendo de la manera tradicional, de la capaz que el equipo de marketing
+[Remote]: no te sabe decir qué es un agente o cómo hace o las bondades de un agente y toda la bola. Sí.
+[Remote]: Tiene que ir a un modelo donde vos entres
+[Remote]: te des cuenta que
+[Remote]: hace mediaciones, o sea, hace lo mismo que Symmetric,
+[Remote]: hace y entiendas lo que hace, pero todo agéntico.
+[Remote]: Es una, y y mismo entender que cuando entrás a la web es la
+[Remote]: de cómo se hace una plataforma
+[Remote]: en esta era.
+[Remote]: ¿Ok? Está bueno, y el desafío desde la parte de UX,
+[Remote]: porque cambia mucho. Yo ahí
+[Remote]: lo que pude ver, este, hay cosas que
+[Remote]: por ejemplo, la barra de abajo que tenés con los iconos, que son totalmente nuevos, que por ahí un usuario
+[Remote]: o sea, tiene que pasar el mouse para que diga a ver qué significa,
+[Remote]: eso rompe con bastantes
+[Remote]: mapas mentales que tiene uno, ¿no? Siempre, sí,
+[Remote]: cien por ciento, cien por ciento, o sea, esas experiencias de
+[Remote]: olvídate, le le le dimos una vuelta al doggy toda la bola. Después lo que pasa en Rexy es que son
+[Remote]: cinco iconos y el usuario los aprende al toque. Es más, el otro día tuve que O sea, no es que tenés
+[Remote]: diez mil iconos y como entras a la plataforma, ahí No, pero digo,
+[Remote]: revolucioné hasta eso, eso es lo lo loco que lo que
+[Remote]: le decía a Nacho, me encanta lo que están haciendo, sin conocerlo, o sea, simplemente leyendo, este, lo lo
+[Remote]: que hacen,
+[Remote]: yo creo que que es el futuro, prácticamente. No, no, bueno, pero por eso
+[Remote]: creo, y yo se le digo a Nacho, siempre lo que estamos creando nosotros es un equipo
+[Remote]: que no se ve en otro lado, y y y tenemos que, la landing tiene que
+[Remote]: un poco eso también.
+[Remote]: ¿Ok? Otra cosa de la que estuve viendo, y les digo a los dos, ahí, Nachito también,
+[Remote]: creo que tenemos que ir, yo soy desarrollador y a mí me gusta el
+[Remote]: side of todo, pero creo que tenemos que ir a un modelo más blanco, o sea o sea, la la la siento por por cómo ayer Sí, con el, sí, con doble, pero me parece que la landing tiene que ser blanca y de repente negra capaz, pero que cuando entres, yo creo que tiene que tiene que entrar blanca la la la página. Me di cuenta ayer en el justo fui a ver eso. Fui a ver cuál elegiera, ayer justo tuvimos un entrenamiento y todos se iban al modo blanco. Entonces, es como que estaban como que también están acostumbrados, hay que tener esas bondades, y blanco no es malo, no es
+[You]: Y con el tope.
+[You]: Más luz.
+[Remote]: poco tradicional, pero tenemos que hacer un blanco Apple.
+[Remote]: ¿Ok? O sea, fijate que el el diseño que estamos usando en la
+[Remote]: Nacho, es de las morphines, que es la la la técnica que usa Apple,
+[Remote]: de esto que se está usando mucho en realidad virtual, que son estas cosas que
+[Remote]: que que pueden ser ponele. Ajá. La el transparente con glorreado gauciano,
+[Remote]: que se le pone a los componentes, para que que todo es flotante, porque justamente no
+[Remote]: necesitamos componentes
+[Remote]: que no que que se puedan poner flotantes, porque capaz que la gente te habla acá,
+[Remote]: o te habla acá o te habla acá. Entonces, necesitamos que
+[Remote]: escale nuestro design system a que eso suceda.
+[Remote]: Y es lo que hay que hacer en la landing.
+[Remote]: ¿Ok? La landing, más allá de, o sea, ahora,
+[Remote]: teniendo todo este contexto que te quería, te que que que pasamos,
+[Remote]: yo creo que está bueno, Nacho, que
+[Remote]: sobre un Figma, tipo, sobre
+[Remote]: uno nuevo, laburemos los dos sobre eso, y
+[Remote]: tiremos un canva grande, un canva gigante,
+[Remote]: sobre un poco las puntas y todo lo que hay que ir haciendo,
+[Remote]: la verdad, tengo un montón de cosas, pero está bueno tenerte ahí ayudando, sobre
+[Remote]: cómo bajar eso y cómo contar la historia, y que Nacho, no sé, este, Nacho Berardi nos nos esté ayudando
+[Remote]: contar la historia, porque la parte de Nacho es
+[Remote]: clave acá, o sea, que Nacho nos diga, che,
+[Remote]: tiene que entrar Nacho, pero bueno, la experiencia esta, agente y que toda la ola,
+[Remote]: hay que crearla, ¿ok? Sí, yo creo que
+[Remote]: podría llegar ahí, tipo, ¿viste?, el la el, ¿cómo es?, el login que hiciste,
+[Remote]: o la que te aparezca ahí una frasecita muy sutil,
+[Remote]: Ey, entrás y es una frase en grande como el login que te habla, pero te habla la gente. Claro.
+[Remote]: O contando, Rexi es esto, no sé, un decir. Y por ahí un chat,
+[You]: Vale, Chino.
+[You]: Sí. Yo entiendo eso.
+[You]: Pero no sé,
+[You]: pasémoslo, pasémoslo iterando, pero vaya,
+[You]: tengo miedo a que se meta el CFO de un banco y diga, ¿qué mierda es esto?, ¿entendés?
+[Remote]: También puede pasar eso.
+[You]: También entender a quién le hablamos.
+[Remote]: No va a pasar, va a funcionar muy bien.
+[Remote]: Hay que confiar y hay que arriesgar. Acá estamos estamos
+[Remote]: revolucionando la industria, el que no riega, no gana.
+[Remote]: Pero sí hay un efecto, esto del light mode, chego, yo no lo hubiera dicho, yo porque
+[Remote]: lo veo, también hay que ser conscientes, o sea, el light mode es lo que usa la gente,
+[Remote]: Entonces, a mí, más allá de que a me encanta el modo oscuro, es lo que el usuario quiere ver
+[Remote]: y no está mal, o sea, porque es una combinatoria,
+[Remote]: entre realmente arriesgarse y realmente hacer algo que ve al CFO diga, esto es lo que necesito.
+[Remote]: ¿Entendés? Entonces, cuando el CFO hoy esté buscando agentes o mi operación la puede automatizar, o le están diciendo, che, tenés mil monos, y ya ahí
+[Remote]: no necesitas mil monos para tu operación, necesita entrar a una web,
+[Remote]: que diga, che, ya no necesitás esto, ahora tenés agentes, y tener que explicarle y que le entre eso en la
+[Remote]: No es, vuelvo a repetir, no es una cuestión de animaciones ni nada, es contar bien la historia
+[Remote]: pero contar la historia de una manera
+[Remote]: revolucionaria, que la gente entra y diga, este equipo está haciendo algo diferente.
+[Remote]: ¿Ok?
+[Remote]: Bien. Yo me la jugaría en esta, O sea, hagamos un buen concepto
+[You]: ¿Qué queda de nuestro lado, ¿Tenemos que tenemos que iterar el contenido o con el doc?
+[Remote]: que mezcle tradicional
+[You]: Que tenemos, ¿está?
+[Remote]: Ese doc para mí es obvio, el doc el doc
+[You]: Es simplemente diseño.
+[Remote]: es lo que hay que plasmar, y para mí es únicamente UI
+[Remote]: es como, y y experiencia, ¿no? Es como, che, la experiencia de esta web.
+[Remote]: Que no se vaya de a la concha de la lora en experiencia, porque hay que hacerla entender al usuario
+[Remote]: muy bien lo que tiene que hacer, y esto que trae Nacho también está bueno, Campos
+[Remote]: Esto de, puede entrar un dinosaurio,
+[Remote]: nuestra web y puede entrar un pibe piola a nuestra web.
+[Remote]: Y el dinosaurio tiene que salir
+[Remote]: tan convencido de que, hubo, estos me van a llevar a mi equipo a revolucionarlo,
+[Remote]: ¿entendés?, y entender lo que hacemos.
+[Remote]: Hoy en día, creo que si ponemos... ¿Por qué traigo esto? Pues, si ponés la landing nuestra,
+[Remote]: la que la que estuvieron armando ustedes con la de Symmetric,
+[Remote]: creo que es Ana Symmetric. Ni la vi eso. No importa por ganar o no, Symmetric por por rogado. ¿Entendés?, por porque ya está iterada Ah, porque ya tienen años. Claro. Entonces, ¿cómo hacemos para ganar? Que no nos puedan comparar porque somos algo diferente? ¿Entendés? Entonces, jugás otra liga, ¿entendés? Entonces, cuando te compran con tres metros, y, tipo, yo somos distinto, no nos comparamos con porque somos otra cosa. Ellos hacen en un flujo de manera tradicional, nosotros hacemos las cosas como tienen que ser ahora. Algo así tiene que sonar, ¿bien? Entonces, yo, si querés, lo que te propongo, Nacho,
+[Remote]: a los dos nachos, es armemos un
+[Remote]: armemos un Figma nosotros, más con Campos, de de empezar a laburar y bajar el
+[Remote]: concepto muy bocetos, sin animaciones, sin nada, de qué queremos, cómo lo queremos ver,
+[Remote]: cómo queremos esa experiencia agéntica. Cuando llegás a los fax,
+[Remote]: o capaz que está el chat como ahora, tipo, que tenemos el cosito ahí abajo siempre,
+[Remote]: que esté siempre en la web, que te vaya mostrando cosas que podés preguntar,
+[Remote]: botones para setear una reunión, todo de manera agéntica y todo que
+[Remote]: se sienta agéntico
+[Remote]: Y primero entender el concepto,
+[Remote]: muy, muy, muy, muy basic, blanco y negro, wireframe,
+[Remote]: y después ir iterando eso hacia una realidad más
+[Remote]: efectos, más cuáles son los componentes y toda la bola.
+[Remote]: ¿Les parece?
+[You]: Dale,
+[Remote]: Perfecto.
+[You]: Ok, sí. Nada, creo que de ahí la clave es
+[You]: mover rápido, ir ir baleando cositas, en vez de tipo estar
+[You]: cinco días trabajando en algo sin validar nada, por ahí todos los días ir mandando cositas para que
+[You]: Seba y yo te vayamos pasando comentarios.
+[Remote]: Acá acá tenemos un deadline,
+[Remote]: fortísimo, el de la, nosotros vamos a hacer un lanzamiento,
+[Remote]: de la de la aplicación nueva. Esta aplicación que viste recién, Campos, es una aplicación que que que sacamos hace poquito, que es donde yo voy, ahora que salió la aplicación, yo voy a meterle mucho empuje a esta landing, y vamos a bajar un montón de conceptos, blablablá. Pero ahí no sé, Ignacio, tus tiempos, tu disponibilidad, tu trabajo,
+[Remote]: estás tomando, tenés otros cómo hacés, porque realmente esto
+[Remote]: lleva mucho tiempo, empuje, garra y corazón, o sea, es también
+[You]: Yo lo arreglo, yo lo arreglo con Nacho por separado, si querés, ese tema,
+[You]: Lo único que estoy pensando, Seba, es si además le queremos dar alguna herramienta de AI. Porque
+[You]: va, el contexto es, Nacho está sin laburo, entonces también, digo, no no
+[You]: no puede estar pagando esas herramientas de ahí, si van a ser parte fundamental del trabajo. Así que pensemos nosotros si
+[You]: es una cuenta de, no sé si de Claude o de creo que
+[You]: creo que Gemini lo tenemos gratis, Nano Banana, entonces, sé, ver ahí si alguna lo puede
+[You]: ayudar mucho y le damos acceso, no sé.
+[Remote]: Dale, me encanta, podemos darle, te podemos dar acción
+[Remote]: Nacho, a a esto. A mí lo que me gustaría, y voy a
+[Remote]: ser sincero y duro y a rajatabla, necesito, yo, ustedes laboraron juntos, yo necesito
+[Remote]: que ver hasta dónde llegás, porque para la web es nuestra cara visible.
+[Remote]: Y y necesitamos gente muy senior haciendo esa cara, ¿ok? Entonces, acá,
+[Remote]: con AI, cualquiera puede ser senior, pero acá hay un tema de creatividad que tiene que estar a la altura, ¿ok? Porque si termino, yo necesito a alguien que me ayude a a bajar y a plasmar, pero si si si esa no sos vos por x o o y, tenemos que hacer muy bien el switch, porque esto tiene que pasar para Rexi. Rexi va va a se apura, ¿no? Entonces,
+[Remote]: tengo que entender muy bien tus conocimientos, tu tu cómo lo bajás técnicamente,
+[Remote]: ahí, ¿va? Yo soy de tecnología, pero yo tengo ya quince
+[Remote]: años haciendo producto, entonces es como que yo laboré con diseñadores toda mi vida y Ya, ya, perdiste.
+[Remote]: Soy más pixel perfect de cualquier diseñador que se pueda pasar por acá. Bueno, la aplicación esta que viste,
+[Remote]: armé todo el design system yo. Entonces, tratemos de jugar a eso para para
+[Remote]: puedas aportar esa parte técnica, pero sí creo que que que que necesitamos ver
+[Remote]: esa creatividad por vos, Nacho. Entonces, yo lo que haría
+[Remote]: ver, Ardi. Yo sé que, no sé cómo vienen, porque ustedes hicieron como todo este trabajo,
+[Remote]: no sé cómo quieren hacer, pero yo haría quince días
+[Remote]: o sea, quince días ahora de testeos con Nacho o con Campos, acá trabajando a full, y a partir, y hacemos un
+[Remote]: checkpoint a fines de abril, si quieren, tipo, hacemos un checkpoint entre los tres,
+[Remote]: para ver cómo seguimos y hasta dónde pudimos llegar. Porque la otra que puede pasar, Campos, es que capaz
+[Remote]: necesitamos un tercerizar la web, y lo tercerizamos con una agencia y
+[Remote]: después de eso lo vemos con Berardi. O sea, ver hasta dónde tenemos que llegar.
+[Remote]: Pero por lo menos hagamos un checkpoint por quince días, laburemos juntos, veamos cómo avanzamos,
+[Remote]: y, a partir de eso, vemos cómo se llegó. Esto es, lo soy muy sincero y transparente, porque
+[Remote]: es lo que le digo a Nacho y nos lo decimos continuamente. Rexi va
+[Remote]: por arriba de todos nosotros o cualquiera de nosotros, ¿no? Entonces, es como, tiene que ir. Pero bueno,
+[Remote]: con AI, ahora campo se puede hacer todo, todo el técnico que no lo tenías lo tenés,
+[Remote]: podés crear asset, podés crear cosas y y bajar un poco un montón de conceptos
+[Remote]: así que create un Figma.
+[Remote]: Compartime el Figma, trabajemos en ese Figma,
+[Remote]: y vamos armando esto.
+[Remote]: El boceto, el contenido, vamos bajando, che, tiene que haber una
+[Remote]: sección de seguridad, una sección que muestra cómo funciona, una dirección. Vamos
+[Remote]: colapsando todo eso, y te quiero full creativo, y si no tienes creatividad,
+[Remote]: le preguntás a ChatGPT. ChatGPT no sabe, te vamos ahora a
+[Remote]: acceso a Claude y le preguntás a Claude, ¿dale? O sea, sé que tenés garra, empuje y actitud,
+[Remote]: pero acá también necesitamos
+[Remote]: tener a los mejores en el equipo, y eso es, por eso lo pongo sobre la mesa.
+[Remote]: Pero bueno, juguemos a este juego. Quince días,
+[Remote]: duro a la web, tengamos la mejor landing que podamos hacer,
+[Remote]: y hacemos un checkpoint con Nacho, vemos y capaz que sí necesitamos ayuda a una agencia,
+[Remote]: bueno, ahí tercerizamos directamente con la agencia. ¿Dale?
+[Remote]: Dale.
+[Remote]: Perfecto. Nacho, si querés hagamos eso, entonces,
+[Remote]: Creemos, create un Figma, compartímelo, laburemos juntos en ese Canva blanco,
+[Remote]: y, bueno, ahí hagamos ese tiempo de esta cosa. Después, si ustedes tienen que arreglar algo, no sé,
+[Remote]: tienen que arreglar, de lo que de cómo venían laburando, pero para cambiar la dinámica, Y a partir de ahora, Campos, te manejás conmigo, así, con Nacho, tipo, ya directamente la
+[Remote]: la dinámica, eso lo hacemos juntos. Dale, si querés, planeamos unas dailies
+[Remote]: o algo como para ir viendo más, con más con más contexto también y demás.
+[Remote]: Espectacular, si querés, es más, va, no sé, pero Erdi capaz que te te
+[Remote]: tengo libre, ¿vos tenés libre campo o te tenés que ir?
+[Remote]: No, hoy estoy libre.
+[Remote]: Si querés, andá, y yo sigo haciéndole, tipo, onboarding o empezamos
+[Remote]: hacer el firma un poco ahora, y ya seteo las dinámicas, Nachito, solo que tengas algún
+[You]: Vale.
+[You]: No, no, vale.
+[You]: Vale. Gracias a los dos.
+[Remote]: Listo. Nacho. Gracias.
+
+============================================================
+SUMMARY
+============================================================
+### Website Design Strategy & Vision
+
+- Current landing page lacks differentiation from competitors like Symmetric
+  - Needs animation and more engaging visual elements
+  - Should clearly communicate Rexi’s unique agentic approach vs traditional platforms
+- Rexi’s competitive advantage: AI agents for finance teams
+  - Users create agents that work autonomously (e.g., daily reconciliation at 8am)
+  - Chat-based interface eliminates need for traditional UI interaction
+  - Results displayed on screen while agents handle execution
+- Design approach requirements:
+  - Light mode preferred over dark (user testing showed preference)
+  - Apple-style morphism design with glassmorphism effects
+  - Floating components to support agentic interactions
+  - Revolutionary experience that positions Rexi as different category
+
+### Designer Evaluation & Skills Assessment
+
+- Ignacampos918’s background:
+  - Figma expertise with recent Vercel prototyping experience
+  - Front-end development using Copilot in Visual Studio
+  - Illustrator and Photoshop capabilities for custom asset creation
+- Sebastián emphasized need for original, custom assets vs AI-generated generic content
+  - Referenced Pomelo’s custom iconography as quality benchmark
+  - Stressed importance of senior-level creativity for company’s public face
+- 15-day trial period proposed to assess capabilities and creative output
+
+### Next Steps & Timeline
+
+- Create shared Figma workspace for collaborative design process
+  - Start with wireframes and basic concepts in black/white
+  - Focus on agentic experience elements (persistent chat, floating components)
+  - Include security section, functionality demos, and key differentiators
+- Provide AI tool access (Claude/Gemini) to support design process
+- Daily check-ins planned between Sebastián and Ignacampos918
+- Checkpoint meeting scheduled for end of April to evaluate progress
+  - Decision point: continue with current designer or outsource to agency
+- Ignacio Berardi to coordinate separate discussion about work arrangements
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/d04851b7-5989-4b8e-aefa-4ba91403a6bb](https://notes.granola.ai/t/d04851b7-5989-4b8e-aefa-4ba91403a6bb)

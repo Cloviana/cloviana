@@ -1,0 +1,682 @@
+MEETING: Rexi x AeroPay: product demo
+DATE: 2026-02-11
+ID: not_Cy7pVHiC5Rtdml
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Teo <teo@rexi.finance>, Kristina Bittorf <kristina.bittorf@aeropay.com>
+SCHEDULED: 2026-02-11T16:30:00-05:00 - 2026-02-11T17:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: A ver.
+[Remote]: Hi.
+[You]: Hey, hey, Cristina. How are you?
+[Remote]: Delay.
+[You]: No worries. No worries. How's it going?
+[Remote]: Good. You know?
+[Remote]: It's going.
+[You]: Intense?
+[Remote]: Yeah. Yeah.
+[Remote]: January, February is, like, always the busiest because, like, you have all of the year end
+[Remote]: and then
+[Remote]: it but you have to, like, really kick off a lot of different projects
+[Remote]: and initiatives, like, in q one. So there should
+[Remote]: there's always something going on.
+[You]: Well, hopefully, it it it stabilizes in a couple weeks. Right?
+[Remote]: Yeah. Right. For sure. I'm keeping my eye on the price
+[Remote]: in April.
+[Remote]: It's like, let the dust settle.
+[You]: Well, thank you for taking the time. I think,
+[You]: after our initial meeting, we saw a lot of fit.
+[You]: In terms of what we offer and how
+[You]: you mentioned you currently run these processes. I think
+[You]: if it makes sense for you,
+[Remote]: Ya.
+[You]: the idea of the meeting was just to go over a quick demo, a generic demo,
+[You]: to show you how the product works.
+[Remote]: For sure.
+[You]: And and address the the different pain points you mentioned you mentioned on the previous meeting. I just
+[You]: wanna go over these pain points to make sure we're
+[You]: we got everything
+[You]: correctly, and and we're aiming for the same value out here.
+[Remote]: Yeah.
+[You]: Basically, you guys are reconciling
+[You]: the should be revenue against what you're
+[Remote]: Yep.
+[You]: receiving. So you're trying to reconcile revenue. Right?
+[You]: And that and that
+[Remote]: I mean, there are other transactions there, but that's
+[Remote]: for me personally, top of mind.
+[You]: got it.
+[You]: That today is basically totals. You you do some calculations, and then you compare against the
+[Remote]: Mhmm.
+[You]: received. So then when there's differences, it's hard to understand where they come from.
+[Remote]: Exactly.
+[You]: Got it.
+[You]: Then there's your fragmented bank setup.
+[You]: Guys have five banks, soon to be six banks. Is that
+[You]: correct?
+[Remote]: Yes. Yeah. But, I mean,
+[Remote]: a lot of our transactions are happening within
+[You]: Four.
+[Remote]: four Yeah.
+[You]: And Cross River is one of them.
+[Remote]: Yeah. That's a big one for us.
+[You]: That's a big one. And and is there a specific reason why you wanted to
+[You]: see a Cross River reconciliation instead of the other ones?
+[Remote]: Just
+[You]: Is that one particularly
+[You]: hurting?
+[Remote]: yeah. Because Plus River has been so they give us access. They say, like, oh, you have full
+[Remote]: to your a p to our API. And so they're the ones that are really hard. Like, right now,
+[Remote]: now, I'm working with a couple members of our team.
+[Remote]: To try to, like, download, like, reports because that's not
+[Remote]: a feature that you can do in their, POS Explorer
+[Remote]: platform. Whereas, like, in all the other banks, you can do a date range and download
+[Remote]: an Excel file. They're like, well, we give you access to our API, so you should be able to, like,
+[Remote]: pull this yourself. So that
+[Remote]: like, an additional layer, and that's why CRB is, like, very unique
+[Remote]: in terms of, like, the you can't get your typical
+[Remote]: just off the shelf reports like you can with other banks.
+[You]: Got it. Okay.
+[You]: So then the pain is basically
+[You]: reconciling the revenue across
+[You]: a fragmented set of banks. There's many different
+[You]: ingestion sources, and you need one place where you can actually see, okay.
+[You]: This is the revenue we should receive
+[You]: for each one of the transactions, for each one of the banks.
+[You]: And then just
+[You]: match that against what you actually received in these banks. Either it's batched
+[You]: one to one, one to many,
+[You]: but having a centralized view where you can integrate all the banks
+[Remote]: Yep.
+[You]: and correctly reconcile the revenue. Right?
+[You]: Yeah. Alright. Great. So then, that's the idea of today.
+[You]: Has prepared
+[You]: Yep.
+[You]: Let's go over the platform.
+[You]: Let me share screen.
+[You]: So, basically,
+[You]: we do exactly what what
+[You]: you were describing that you need. We automate ingestion, mostly VA
+[You]: API.
+[You]: So we we would
+[You]: tap into your internal ledger or wherever you have your your
+[You]: if it's
+[You]: either or or or whatever you're doing.
+[You]: And then we tap into your
+[You]: cross river transactional data. We use the API.
+[You]: And ingest. And, basically, we automate that. We automate the standardization
+[You]: the data.
+[You]: And then we automate the reconciliation itself.
+[You]: Let's just have a quick look. This is what
+[You]: a standard
+[You]: API information would would look like.
+[You]: Of course,
+[You]: there's
+[You]: dozens of of of columns, and you can
+[You]: prepare the data in whichever you
+[You]: way you need. Of course, there's
+[You]: many features or formats, etcetera. I mean, all these
+[You]: banks send the data in very different formats. What we do here is we this
+[You]: so that it's ready to reconcile
+[You]: with what we have here, which is your
+[You]: internal ledger and what you would expect to see on the
+[You]: on the other
+[You]: the other database.
+[You]: So as you can see, there's
+[You]: no code needed. It's just
+[You]: end users, no not engineers that can
+[You]: do any transformation, any injection.
+[You]: Any new, what we call source,
+[You]: and any reconciliation. Let's do a small exercise. Basically,
+[You]: we create a new reconciliation, and we call it
+[You]: river
+[You]: divot versus
+[You]: internal
+[You]: letter.
+[You]: So one reconciliation can have either
+[You]: two or more. One rule is
+[You]: a reconciliation between two databases. And then out of that, you can do different
+[You]: depending dependent reconciliations
+[You]: In this case, we're gonna do a
+[You]: a basic one, cross river versus
+[You]: internal ledger. Of course,
+[You]: you can do an either
+[You]: what we call one to one, which is mostly transactional reconciliation,
+[You]: one to many, many to one, or many to many. In this case,
+[You]: it's a one to one, and we select
+[You]: the
+[You]: internal ledger.
+[You]: And the Prosperiver transactional data.
+[You]: As you can see, it's very intuitive. Now you select what is the the joint. How how can
+[You]: how can, the reconciliation engine know
+[You]: what reconciles with what?
+[You]: As you mentioned, you don't have an ID. Right?
+[You]: To identify?
+[Remote]: It's not a one to one. Yeah. It doesn't, like,
+[Remote]: crossover. And I think that's, like, the the biggest challenge.
+[You]: Of course. Well, I don't know exact
+[Remote]: Or maybe it can, but it's hard to find the data, like,
+[Remote]: again, to access the back end data that beyond what we're seeing in
+[Remote]: in the CRB dashboard identifies maybe there is an ID out there that we just
+[Remote]: don't know about.
+[You]: Yeah. Alright.
+[You]: This is super flexible. We're very used
+[You]: to seeing one to one, one to many, many to many.
+[You]: Or
+[You]: in this case,
+[You]: what would be a one to one where we don't have an ID in common,
+[You]: So, basically, we we do
+[You]: This is internal DB and amount
+[You]: and we can add
+[You]: transaction date,
+[You]: posting date,
+[You]: and we add counterparty
+[You]: purchase name,
+[You]: This is just for you to see that it's super intuitive. In our mind, the details, we go
+[You]: I don't know exactly what your data structure is.
+[You]: But, of course, you can have tolerance either in days, seconds, minutes,
+[You]: or you can add tolerance for amount, either in per
+[You]: or absolute value.
+[You]: And you can do different sweeps. So, basically, the first one tends to be very rigid.
+[You]: And maybe the second one with whatever did not match, we
+[You]: add one or two days of difference or 11% or
+[You]: percent difference in amount, etcetera. And then you can do comparisons. Basically,
+[You]: once these transactions are operationally reconciled, like, you know what
+[You]: matches with what,
+[You]: Then you check, for example, you wanna check that with fees, the current
+[You]: or the date is exactly the date that should be
+[You]: or the status if they are both approved on on one database.
+[You]: And, I don't know, processed on the other one.
+[You]: Here is where you would check that.
+[You]: As I mentioned, the
+[You]: tend to have very different wording.
+[You]: So here you would put, I don't know,
+[You]: maybe one is with cap's letter, debit,
+[You]: wanna check it's
+[You]: debit on the other one. And these are equivalent this is where
+[You]: we normalize the area.
+[You]: And we've got transformations. Basically, if you wanna check the fee or
+[You]: whatever,
+[You]: mathematical operation you wanna do,
+[You]: is where you do it.
+[You]: In this case, it's a quite straightforward reconciliation.
+[You]: Let's create the rule.
+[You]: And as I mentioned, once you have your
+[You]: independent reconciliation, you can add dependent reconciliations, but
+[You]: come after the the one we we just created.
+[You]: Of course,
+[You]: in this case, it's just a basic, one.
+[You]: These reservations can be either scheduled
+[You]: to run every morning at 4AM, 5AM, or
+[You]: they can run whenever one of the sources gets updated.
+[You]: It's up to you. And the third way, you can run these different situations.
+[You]: Is by
+[You]: manually executing them, which is exactly what we're gonna do.
+[You]: At least you're supposed to do only once, but
+[You]: our job is to automate those
+[You]: very, very manual processes.
+[You]: This is what we call the the run summary. Basically,
+[You]: what we just processed
+[You]: and then we've got the
+[You]: general metric summary.
+[You]: Is
+[You]: more broad broader picture of
+[You]: of what happened. So this is the internal letter. Expect
+[You]: actual data that we're seeing from
+[You]: This is total transactions.
+[You]: We've got
+[You]: 10 total transactions, then match transactions. It's nine and match one, and this is open
+[You]: day by day. Of course, in number of transactions and in total amount,
+[You]: And then
+[You]: the same
+[You]: goes here.
+[You]: For example, yesterday, we had nine transactions. They all matched, and we have nothing here.
+[You]: This is for you to have a, like, what is missing and when.
+[You]: And
+[You]: how much does that represent in in in values.
+[You]: We also automate reports
+[You]: Basically, any format or any
+[You]: daily report someone is doing based on reconciled data or whatever did not
+[You]: reconcile, we we automate that. It's super easy to use, super flexible.
+[You]: And you just set it up to run daily or or whatever and and and to be sent wherever you want.
+[You]: We've got well,
+[You]: I almost forgot. We also for some of our customers, we automate the
+[You]: creation of journal entries. So if you're interested I know if we
+[You]: spoke about this.
+[You]: I think so. No.
+[You]: Basically, just for you to know,
+[You]: this is also something that's super manual for some of our customers, so we automate that.
+[You]: And here's the exception manager
+[You]: where, basically, you check for differences, and and then you try to match
+[You]: whatever did not match on the first one. For example, this one.
+[You]: It's a transaction
+[You]: same day,
+[You]: but slightly different amount. It's probably $1 difference.
+[You]: Let's see if the
+[You]: merchant is the same.
+[You]: This is dummy data.
+[You]: But, basically, this is where you would you would see what happened. Yeah.
+[You]: Same same merchant thing.
+[You]: So this transaction
+[You]: goes with this one.
+[You]: And, basically,
+[You]: you mark them as match, and you
+[You]: make sure everything is up to date every day.
+[You]: Under control.
+[Remote]: How would it match if it's not the amounts are different?
+[You]: One
+[Remote]: If the amounts are different, then, like, they wouldn't
+[Remote]: like, then they don't match. Then they shouldn't be there.
+[You]: Yeah. In your case,
+[You]: in your case, it doesn't make sense, but for some cases,
+[You]: you try to look for the transaction, there's a cut, so you're gonna see different amounts on both sides.
+[You]: It depends on on on what you're comparing, and that's something you can configure it. But there's some setups in which
+[You]: you're looking for the same transaction ID, and you're marking them as matched even though the are different.
+[You]: I mean, yeah, it it it's
+[You]: totally it depends on on on the way your data is structured.
+[You]: I I would love to see and understand what your problem is.
+[You]: But just for you to know, this is where you would
+[You]: do that in the whatever did that match, this is where you would
+[You]: come in to see and try to make it match.
+[You]: In your case, you're reconciling revenues, so it doesn't make sense.
+[You]: To mark something as matched if the amounts are not the same.
+[Remote]: What do you guys I guess I
+[Remote]: I'm just not close enough to, like, the I haven't been able to look at
+[Remote]: the really, data all the way at the bottom level.
+[Remote]: But we do batching of our payments, and so, like, it'll come in, let's say,
+[Remote]: example but I guess, like, in it still has to have
+[Remote]: the detail. Like, to your point, if this is truly,
+[Remote]: an example of Cross River API data,
+[Remote]: even though we send two batches a day into Cross River,
+[Remote]: it's still what gets shown up in the API is at the transaction level.
+[Remote]: Right?
+[You]: If you have transaction level, then great. We can also do one too many.
+[You]: Meaning,
+[Remote]: Ahora sí.
+[You]: yeah.
+[You]: I'm pretty sure Cross River should be able to send you
+[You]: For sure. Transactional data. They're pretty good at at their data sharing standards.
+[You]: If not, we're working with
+[You]: banks that are way worse than Cross River.
+[You]: And that only do batch transactions. And so then we need to get create
+[You]: around matching
+[You]: many to one. Because on the ledger, we have 10 transactions that
+[You]: should match with one transaction on the bank side.
+[You]: And that's
+[You]: the different strategy that Teo mentioned that our platform can also
+[You]: The idea for this is for you to automate basically whatever you're doing in terms of
+[You]: pulling data, normalizing data, processing data,
+[You]: and you only focus on managing the differences, which is where you actually
+[You]: you know,
+[You]: add value and and and really investigate and solve the differences.
+[You]: Let let me just finish the the
+[You]: going through the platform, and then we can
+[You]: see if we can
+[You]: get a little bit more detail on on exactly what you need.
+[You]: This is where you create dashboards. Basically, the
+[You]: whatever you need to see
+[You]: daily, you you you probably have
+[You]: several reconciliations, and this is where you would have your own dashboard
+[You]: with exactly the KPIs or metrics that you want
+[You]: organized in
+[You]: only one place?
+[You]: Demo
+[You]: Let's create one. And, of course,
+[You]: you can create as many widgets as you want, organize them in the
+[You]: in the format and size that you want. It's super easy to use, and and and
+[You]: and super intuitive.
+[You]: And then we've got alarms.
+[You]: We let you know
+[You]: via Slack, email, etcetera, whenever something is off or
+[You]: basically, every morning. If you wanna see yesterday, we have
+[You]: I don't know,
+[You]: 400 transactions
+[You]: 395 were There's five that you should look into.
+[You]: This is where you would
+[You]: create those. And finally, we've got the reporting
+[You]: module where you create your own reports, and and we we can
+[You]: feed that into any database that you want or send them via email.
+[You]: So, basically, going over, what we do is we automate reconciliation
+[You]: We automate that injection.
+[You]: Automate
+[You]: exceptions, alarms, and we create reports and
+[You]: It's it's pretty configurable and flexible. I mean,
+[You]: and, of course, as you start using it, you're gonna start
+[You]: always doing the so what, so what, so what, and add more and more technology. I think this is a
+[You]: iteration path where we
+[You]: first automate the most obvious part, which is
+[You]: ingesting from multiple bank accounts, normalizing the data,
+[You]: configuring the matching logic, and having an
+[You]: automated way for you to only look at the differences
+[You]: And then we're gonna continue building our discrepancy management dashboard to add more and more intelligence there. Then it's
+[You]: quicker and quicker and quicker over time.
+[You]: To solve those differences. Right? Like,
+[You]: the least thing wanna do is calling the bank
+[You]: saying these transactions are missing and they aren't. You know? Like, you wanna be
+[You]: not losing time in that and not, you know,
+[You]: negatively affecting the relationship with your bank counterparty.
+[You]: So, you know, as we continue scaling, I'm sure there's gonna be then
+[You]: you're probably gonna
+[You]: see some use cases for the accounting team with the
+[You]: accounting module to to create journal entries.
+[You]: And so forth. But but the first step here, I think, is to unlock all the value
+[You]: from that manual
+[You]: that you're currently doing on
+[You]: data ingestion, transformations,
+[You]: and normalizations, mostly around
+[You]: not doing a transaction level matching. Right?
+[Remote]: Yeah.
+[Remote]: For sure. I guess, like and I
+[Remote]: and I know that there's, like, all of these other kind of pillars around, like, oh, you can create a
+[Remote]: boarding, visualizations, alarms,
+[Remote]: automating kind of, like, a
+[Remote]: generation
+[Remote]: But from the matching for the data normalization piece, I mean, we were talking about
+[Remote]: and I'm not I'm not trying to be, like, cross around it, but it it seems like it's like a it's it's
+[Remote]: it's like a really powerful macro that says, like,
+[Remote]: these are all if this if this has this word here, then
+[Remote]: flag it to be this.
+[You]: It's dynamic macro.
+[Remote]: Is that
+[Remote]: yeah.
+[You]: Yeah. I mean, it's it's a
+[You]: dynamic macro that can scale, basically, and cannot can can be done automatically.
+[You]: Every day. It ingests automatically. It creates the reports. It creates the reconciliations.
+[You]: To
+[You]: What
+[You]: what volume are we
+[You]: how many transactions are you reconciling monthly?
+[Remote]: We are let's say, for example,
+[Remote]: we got pull up.
+[Remote]: Because it's like there I there's, like, some overlaps for us right now because we use Metabase for all
+[Remote]: of our visualization and that that Metabase, like, ingest
+[Remote]: like, does this ingestion on the or, like,
+[Remote]: back end side. Right? We call it the admin portal.
+[Remote]: Which is what records every transaction whether it's, like, revenue and an
+[Remote]: our business, we have this concept of returns and collections. Like, we
+[Remote]: fund movement. And so even though we never hold
+[Remote]: merchants money, we say, like let's say, for example, something like
+[Remote]: fails out, but we approved it on our end, we carry that risk.
+[Remote]: And then our team goes after the collection piece
+[Remote]: let's say, you put in a $100, but then once we try to collect it,
+[Remote]: two hours from now. So you're you're processing it with one of our merchants,
+[Remote]: At that point in time, you had money in your account. We say we say approve.
+[Remote]: Two hours later, we process it as part of a batch.
+[Remote]: You're now at a $0 balance. We essentially that $100 that we
+[Remote]: was gonna be approved, and then we go after and do re
+[Remote]: tries after your bank gets replenished and all of the things. So we have, like,
+[Remote]: automated retries for that collection process. And so those are also
+[Remote]: the kind of transactions that we're trying to capture of, like, these are all
+[Remote]: the filled payments that we
+[Remote]: then had to to guarantee.
+[Remote]: These are all the collection activities. So there's outside of revenue, there are all these ins and outs
+[Remote]: that also are happening within those those accounts.
+[Remote]: So for example, if I'm looking at
+[Remote]: CRB
+[You]: But I guess to your point, like, it is a very powerful
+[You]: dynamic macro that you don't need to be constantly adapting because it's constantly break
+[You]: So it it it it adapt it's easier to adapt, easier to maintain.
+[You]: And then the second part is the volume threshold. I don't know how many transactions you guys are operating
+[You]: or trying to reconcile every single day or or week or month.
+[You]: Most of the teams we work with at some point need to graduate from macros just because Excel
+[You]: can't handle that volume.
+[You]: We I don't know. We have
+[You]: on the extreme, we have a customer that's
+[You]: processing with us 14,000,000 transactions a day.
+[You]: So then there's the the processing capabilities that these tools have.
+[Remote]: Yeah. I mean, like, from the just on the revenue side, this is not, like, with all the
+[Remote]: returns and the collection activity. Just on
+[Remote]: kind of the the the number of transactions for
+[Remote]: like, our pay ins and our payouts. Like, we're looking at about 2,000,000 a month.
+[You]: And and that's something you need to break down.
+[You]: Right, to be able to handle an Excel.
+[Remote]: Yeah. But then it's all split up between all the like, the four different banks.
+[You]: Oh, okay. Okay.
+[Remote]: Yeah. So that's all total. Yeah.
+[You]: Different Excel.
+[You]: For each bank.
+[You]: Okay.
+[Remote]: Yeah. Because, like, yeah, we're looking at, like these are all
+[Remote]: the things that we are are anticipating be yeah. These are all the transactions that we're
+[Remote]: this bank. This is a actual cash in, all the cash in, cash out,
+[Remote]: activity, and bridging that gap.
+[You]: How many hours would you say today you're dedicating
+[You]: to these excels, to this reconciliation process? A month?
+[Remote]: Probably a month. It's like a day. A day's work of going through all the banks to make sure that
+[Remote]: we we know why anything's not reconciling.
+[You]: So that's only on, like, investigating differences.
+[Remote]: Yeah. And also, like, to, like, to match because it's like it's
+[Remote]: like, the one on ones are very clear. Right?
+[You]: Yeah.
+[Remote]: So those are like, okay. That's, like,
+[Remote]: I I can pass that all all through.
+[Remote]: It's, like, it's all encompassing being, like, here are statements. Here is all this is this
+[Remote]: dataset, there's this dataset, and then try layering on top of like, if
+[Remote]: it's the same kind of thing. Like, if it has this these words in this description,
+[Remote]: these are all these are revenue. If it has this word and this negative amount, it's
+[You]: Yep.
+[Remote]: returns. Right?
+[You]: And
+[You]: yeah, and how do you see this evolving going forward?
+[You]: Taking into account you're probably adding another bank
+[You]: this quarter
+[You]: and then probably growing volume this year
+[Remote]: Like, the alternative is we built we're building this or building it ourselves.
+[You]: Is that you or, like,
+[Remote]: So, like yeah.
+[You]: the tech team?
+[Remote]: The tech team. Yeah. The engineering team, like, on our back end to be able to, like,
+[You]: Engineering team?
+[Remote]: do the walk and to do the match.
+[You]: Okay.
+[You]: Is this something you wanna build internally because of some sort of
+[You]: ROI or cost efficiency or because this is a core capability you guys think you should have?
+[Remote]: The latter. It should be a core capability.
+[Remote]: As a payments company to be able to to do the walk ourselves.
+[You]: Got it.
+[Remote]: Down the line.
+[You]: Although the question is,
+[You]: if it's a core capability you guys think you should have, we
+[You]: for these type of companies, we offer the on premise model.
+[You]: So we basically configured all the reconciliation
+[You]: implement it, and deployed in your infrastructure, and then leave.
+[You]: So it's it's a higher upfront investment, the same you would be doing as building internally.
+[You]: And then it's just it's a very low retainer
+[You]: to us
+[You]: so we can remain live
+[You]: on support SLAs and and
+[You]: license. I'm talking about, like,
+[You]: $500 a month for the low retainer.
+[You]: Once it's implemented and deployed.
+[You]: Would that be a model you guys would be interested?
+[Remote]: Maybe. I mean, I think the the question is, like,
+[Remote]: it's, like, tech that we want to own.
+[Remote]: Right? Like, it's not something that we want to, continuously have to
+[Remote]: to continue to pay for it. I think that's the the benefit of building it out ourselves.
+[Remote]: I think what the solution is like right now is, like,
+[Remote]: I need to be reconciling this, like, way more easily today. Right? And so
+[Remote]: because ultimately, like,
+[Remote]: we just need to mature our ledgering
+[Remote]: so that this become this is an easier
+[Remote]: this is an automatic
+[Remote]: type of process that happens as each transaction is
+[You]: Yep.
+[Remote]: is being incurred, ourselves.
+[Remote]: And so that's the only hiccup that I
+[Remote]: see, like, on the the latter part of, like, building it out on prem and then having to
+[Remote]: continue to pay for, like, an ongoing there's, like,
+[Remote]: small, but, like, ongoing costs and that it's not
+[Remote]: our own, like, code per se. You know what I mean?
+[Remote]: So that's the only thing that I can see as being
+[Remote]: a challenge on on that.
+[Remote]: On that end. I think what's more compelling is, like, for Dan to say,
+[Remote]: oh, Christina feels like
+[Remote]: there's something there for her today.
+[Remote]: Like, that's gonna be really quick to implement.
+[Remote]: I think what's a little bit Why I focus on CRV is because
+[Remote]: the API is, like, feels like a black hole, like, to me. Like,
+[Remote]: it's I have our one of our infrastructure guys, like,
+[Remote]: trying to pull reporting for me to look at, I think, next week. Like, every other week,
+[Remote]: to, like, pull something so then I can see what's actually
+[Remote]: like, actually back there because I have no visibility as a finance person.
+[You]: Yep.
+[Remote]: I know the data's there, but it's, like, very hard to
+[Remote]: access for me as a nonengineer.
+[You]: I feel you, Christina. I was there on the other side.
+[Remote]: Yeah.
+[You]: I I I feel the pain.
+[You]: If if you think you need something now,
+[You]: quick to implement,
+[You]: we're happy to do so. We're happy to help you out. Even though you're
+[You]: you're telling us that you wanna build this internally.
+[You]: I think after we implement it with you guys, you're gonna
+[You]: be convinced otherwise that you shouldn't be building it and just, taking our solution. But
+[Remote]: Yeah.
+[You]: let's start off small. You know what? If you need this today and this is something that's burning today, meaning
+[You]: need something
+[You]: on Monday running,
+[You]: because it burns and you're willing to pay for it.
+[You]: Let's figure out something.
+[You]: I don't know if you wanna do, like, a pilot test before that.
+[You]: Or you want me to build out a proposal.
+[You]: Or how do you wanna go about it? But
+[You]: let me know. I mean, we're we're ready to go.
+[You]: If you need value today, we can definitely move quicker.
+[Remote]: Yeah. This is super helpful. So at least this
+[You]: Quickly.
+[Remote]: see, like, what it like, how every
+[Remote]: I yeah. It's hard to envision, like, what the solution is. So I really appreciate
+[Remote]: you guys walking through it. I think the next step for me,
+[Remote]: is making sure that, like, seeing what
+[Remote]: what data is actually on the back end for me to be able to, like,
+[Remote]: am I able to create, like, these rules to even set something up? I don't
+[Remote]: I honestly don't know what the answer is to that question right now.
+[Remote]: So let me let let me circle back with Dan.
+[Remote]: If you guys are open, I mean, like, it's fairly, like,
+[Remote]: low risk. And if it's really as easy as, like, we hook everything up,
+[Remote]: and we can like, let's say, we test it out with with CRB.
+[Remote]: And be like you know, we dedicate a day or two to create these rules,
+[Remote]: see, like, what it act like, what it can do.
+[Remote]: That might be something that we're we're open to and say, like, hey. Yeah. This actually this
+[Remote]: like, a very easy to use, easy to manage tool between now and, like,
+[Remote]: you know, as we scale the things that we need to build on the back end,
+[Remote]: to be able to do this ourselves, you know, because realistically, it's like
+[You]: It's
+[Remote]: it's not gonna be in the next six months. Like, I know it's not that quick to, like, build that infrastructure.
+[You]: whatever you want
+[You]: Just bear in mind it's
+[You]: gonna be us taking
+[You]: almost all of the lift.
+[You]: So
+[You]: you know, plugging into sending out the reconciliations, it's us.
+[You]: And we would just need a little bit of guidance on your end
+[You]: just to be sure that what we're reconciling is
+[You]: okay. But we do
+[Remote]: Yeah.
+[You]: everything.
+[You]: Just log in and see
+[Remote]: Yeah.
+[You]: what's what's going on.
+[You]: And to your point, you're right.
+[You]: It's gonna take longer than expected. We've seen this at other companies that decide to build something internally,
+[Remote]: Yeah.
+[You]: This is a complex tool to build.
+[You]: That's why there's some companies like us only doing this.
+[You]: But I think you're thinking it the right way, meaning
+[You]: this internal solution is only gonna be available
+[You]: at best by the end of the year.
+[You]: Even
+[You]: if you have the necessary resources to invest on this.
+[You]: It's it's good for you to
+[You]: think about it that way in terms of let's get a short solution short term solution in place,
+[You]: to at least put out the fire
+[You]: these next few months and then see how it rolls.
+[Remote]: Yeah.
+[You]: Right?
+[You]: And, yeah,
+[You]: we can definitely do some light touch
+[You]: only CRB pilot
+[You]: like, for a month.
+[Remote]: Yeah. Just do it for yeah. Yeah.
+[You]: Or two.
+[You]: See how that goes.
+[You]: And then scale after that to prove the value.
+[You]: Given it's gonna
+[You]: require some effort on our side, it would be
+[You]: a paid pilot, but symbolic cost, something really low
+[You]: that
+[You]: enables you to gather more information before taking
+[You]: wider scope decision, and it also enables us to show value with a low
+[Remote]: Yeah. For sure.
+[You]: Right?
+[You]: So let me get over to you some sort of commercial proposal for that pilot, and then
+[You]: how it would follow afterwards.
+[You]: And you take it back with Dan, and we can circle back
+[You]: end of this week or next to to sync on next steps. Does that sound right?
+[Remote]: Yeah.
+[Remote]: Yeah. That sounds great.
+[You]: Awesome, Christina. Thank you so much for the time.
+[Remote]: Yeah. No. Likewise.
+[You]: Have a good one.
+[Remote]: Appreciate it. I'll talk to you soon. Alright.
+[You]: Bye bye.
+[You]: Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Their background
+
+- Kristina Bittorf works at AeroPay in a finance role
+- AeroPay is a payments company processing approximately 2 million transactions per month across pay-ins and payouts
+- Currently uses fragmented banking setup with 5 banks (soon to be 6), with 4 banks handling most transactions
+- Cross River Bank is one of their major banking partners and particularly challenging to work with
+- Uses Metabase for visualization and data ingestion through their admin portal
+- Has complex business model involving revenue, returns, and collections
+  - They fund payment movement and carry risk when payments fail after approval
+  - Automated retry system for collections when customer accounts get replenished
+
+### Pain points and needs
+
+- Manual reconciliation process consuming significant time and resources
+  - “Probably a month. It’s like a day. A day’s work of going through all the banks to make sure that we we know why anything’s not reconciling”
+- Cross River Bank API access issues creating major operational challenges
+  - “They give us access. They say, like, oh, you have full to your a p to our API. And so they’re the ones that are really hard”
+  - Cannot download standard reports like other banks: “you can’t get your typical just off the shelf reports like you can with other banks”
+  - Requires engineering resources to pull basic reporting data
+- Fragmented data across multiple banking partners complicates reconciliation
+- Need centralized view to reconcile expected revenue against actual received amounts
+- Difficulty identifying transaction-level matches due to lack of common IDs
+  - “It’s not a one to one. Yeah. It doesn’t, like, crossover. And I think that’s, like, the the biggest challenge”
+- Current Excel-based process struggling with volume (2 million monthly transactions)
+
+### Questions or concerns
+
+- Uncertainty about data structure and available fields in Cross River’s backend
+  - “I don’t I honestly don’t know what the answer is to that question right now”
+  - “I have no visibility as a finance person. I know the data’s there, but it’s, like, very hard to access for me as a nonengineer”
+- Questioned matching logic when amounts differ between systems
+- Concerns about ongoing costs and ownership of technology solution
+
+### Budget and timeline
+
+- No specific budget figures mentioned
+- Timeline considerations:
+  - Immediate need: “I need to be reconciling this, like, way more easily today”
+  - Internal build timeline: Realistic expectation that internal solution won’t be ready “in the next six months”
+  - Next week: Engineering team pulling Cross River reporting data for review
+
+### Next Steps
+
+- Kristina will circle back with Dan (likely decision maker) after reviewing backend data availability
+- Rexi to provide commercial proposal for Cross River pilot program
+  - Light-touch pilot focusing only on Cross River Bank
+  - Duration: 1-2 months
+  - Paid pilot with symbolic cost
+- Follow-up meeting scheduled for end of this week or next week to discuss proposal and next steps
+- Kristina needs to determine what data fields are available in Cross River’s backend to establish matching rules
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/fe386b34-3072-402b-bfa1-c274675af774](https://notes.granola.ai/t/fe386b34-3072-402b-bfa1-c274675af774)

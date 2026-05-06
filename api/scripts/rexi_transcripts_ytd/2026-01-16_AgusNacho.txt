@@ -1,0 +1,531 @@
+MEETING: Agus/Nacho
+DATE: 2026-01-16
+ID: not_P6uHsuoav0EyM0
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Avivas <avivas@arize.com>
+SCHEDULED: 2026-01-16T12:30:00-05:00 - 2026-01-16T13:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: José Vana,
+[Remote]: muchísimos, desde ingenieros que, no sé, yo laburo en Google,
+[Remote]: y y necesito algo para observar y evaluar, tipo,
+[Remote]: los modelos de machine learning o los agentes que estoy creando,
+[Remote]: tipo, la usan, y es gratis.
+[You]: Great.
+[Remote]: Y después, que realmente
+[Remote]: como tiene tanto, tanta atracción,
+[Remote]: nosotros podemos ver
+[Remote]: cuánta gente de cada empresa lo está usando, porque yo ahora
+[Remote]: tengo en vivo, que es mercado libre, tipo, hay
+[Remote]: mil ingenieros que la están usando,
+[Remote]: y
+[Remote]: veinte que se conectaron hoy.
+[Remote]: Entonces, ¿qué pasa? Yo con eso voy y le hablo al
+[Remote]: o sea, tengo que buscar al encargado de Mercado Libre,
+[Remote]: y decirle, che, me parece que ya con con este volumen,
+[Remote]: hay una clara necesidad
+[Remote]: y te muestro lo que la plataforma paga tiene.
+[Remote]: Y ahí es donde, tipo, te tienta y lo terminan cerrando. Por eso cierran, tipo,
+[Remote]: generalmente, el cliente de acá son empresas muy, muy grandes.
+[Remote]: Tipo el Gobierno De Estados Unidos, JP Morgan, Wells Fargo,
+[Remote]: no sé, Uber,
+[You]: Y la plataforma lo que hace es
+[Remote]: Es algo muy técnico para ingenieros o para
+[Remote]: para gente de producto o técnica, pero básicamente, vos cuando estás creando una
+[Remote]: un agente, creo que
+[Remote]: parte del proceso es el tracing, ¿no? Vos agarrás un chip y ponés
+[Remote]: los los inputs, los y los outputs, y ponés el prompt.
+[Remote]: ¿No? Que quiero que con este prompt, medir estos inputs y estos outputs.
+[Remote]: La parte de, bueno, hacés el workflow. Una vez que hacés el workflow,
+[Remote]: lo monitoreás, che, está alucinando, ¿dónde está alucinando?
+[Remote]: ¿Dónde se rompe? ¿Dónde tipo tarda mucho?
+[Remote]: ¿Cuál es el sentiment de la persona que le responden? O sea,
+[Remote]: no sé, yo chateo con chat GPT,
+[Remote]: le hago una pregunta y me tira un texto,
+[Remote]: y le hago otra pregunta como medio enojado, tipo, che, esto no era lo que
+[Remote]: quería, ponle un sentimiento de enojo ahí.
+[Remote]: Entonces,
+[Remote]: ahí es donde la los los ingenieros empiezan a a monitorear y a
+[Remote]: observar,
+[Remote]: y después está la parte evaluación. Che, bueno, esto nos está dando los rendimientos que queríamos,
+[Remote]: ¿no?
+[Remote]: Antes los equipos los de ingeniería armaban wikis para esto, ¿entendés?
+[Remote]: Ahora, bueno, ya esto es bastante nuevo, igual, ahí como estás
+[Remote]: plataformas donde podés hacer todo ahí,
+[Remote]: así los ingenieros no se tienen que conectar, no tienen que hablar, no tienen que hacer nada.
+[Remote]: Solamente es jugar ahí adentro.
+[You]: Entonces, ¿cómo es observabilidad y evaluación
+[You]: de la gente para la mejora continua, para que itere?
+[Remote]: Exactamente.
+[Remote]: Continuar mejorándolo y y como si fuese un data doc,
+[Remote]: de de las páginas webs o de los workflows o de los bugs,
+[Remote]: todo lo que tiene que ver con un modelo de machine learning y y agentes, o sea, LLMs.
+[You]: O sea, el el founding team son mega técnicos.
+[Remote]: Son megatécnicos, no sé lo que son. Son dos personas,
+[Remote]: supertécnicas, que no les importa nada la venta, están como totalmente afuera,
+[Remote]: Nunca había algo tipo así, que el que los founders no les importa aparecer en ningún lado,
+[Remote]: le le divierte más ir a workshops con siete nerds que no van a comprar,
+[Remote]: que ir a sentarse en un dinner con, tipo, el
+[Remote]: CTO de JPMorgan, eso, o sea. Claro,
+[You]: Ese, me, esa gente me encanta. O sea, esas compañías
+[You]: tel que, tipo, no tenés ni idea y
+[You]: son enormes, de repente me parecen tremendos.
+[You]: Igual, nada, en algún momento
+[You]: tienen que hacerla de ir a almorzar con el CTO de JP Morgan.
+[Remote]: Sí, yo, lo que hicieron estos pies es, justamente, contrataron a
+[Remote]: mi exjefe, que era el CRO de Terreb, contrataron como presidente de go to market o sales, si querés.
+[Remote]: Entonces,
+[Remote]: él está en el board con ellos, son ellos tres, y creo que
+[Remote]: cuatro externos más de las empresas que nos mandan plata,
+[Remote]: y lo que hacen, básicamente, es del
+[Remote]: darle toda esa parte a él, que echabón varios beginners, que echabón hace el networking, ¿viste? Es como
+[Remote]: vos encargaste de todo.
+[Remote]: Y lo posicionan así al vive.
+[You]: Y ahí tu jefe fue el que te trajo.
+[Remote]: Y ahí mi jefe fue el que me trajo.
+[You]: Bueno.
+[You]: Che, ¿y qué canales de?
+[You]: Obviamente que ya están en otro estadio, ¿no? Pero ¿qué canales de
+[You]: o qué esfuerzo de venta le les les brindieron mejores frutos?
+[You]: Igual le venden a a ingenieros, ¿no? Entonces, difícil, el tinto del
+[You]: el motion, pero hasta ahora
+[Remote]: É distinto ele muito.
+[Remote]: Y no, y tiene mucha atracción con inbound, Julio, gracias el tema. Como te digo,
+[Remote]: es como que
+[Remote]: pusieron el anzuelo con esta plataforma gratis,
+[Remote]: como que lo viralizaron como si fuesen las plataformas de
+[Remote]: tipo social media, ¿viste? Te doy algo gratis que a la gente le gusta,
+[Remote]: que lo usa,
+[Remote]: y después te digo, te cobro.
+[You]: Y luego rápidamente le pegas un paywall
+[Remote]: Entonces,
+[You]: y necesitas seguir usándola porque generaste una dependencia.
+[Remote]: Exactamente, hicieron eso, generaron eso, o sea,
+[Remote]: inbound, nos llueve el inbound por día un montón,
+[Remote]: y de vuelta para
+[You]: ¿Cómo empujan la cómo empujan la solución gratis?
+[You]: Claro, cómo generan inbound para la
+[Remote]: Para hacerse más conocida, decís,
+[You]: plataforma gratis. Después ellos convierten y son buenísimos convirtiendo, está claro, porque el producto es muy bueno, pero
+[You]: la pregunta es, ¿cómo hacen que mucha gente pruebe la versión gratis?
+[Remote]: una buena pregunta, yo creo que justo ahora están tratando de darle más
+[Remote]: más vuelo a eso, o sea, más vuelo a que más gente se siga descargando,
+[Remote]: pero es mucho a través de blogs,
+[Remote]: muy metido tipo todos los blogs técnicos,
+[Remote]: y y pensás que es la empresa pionera de esto,
+[Remote]: son tres las empresas que hay, BrainTrust,
+[Remote]: una llamada BrainTrust, una que se llama Langfuse y Arise, son las tres muy chicas,
+[Remote]: arise es la más grande de las tres,
+[Remote]: y es un mundo muy nuevo,
+[Remote]: literal, el de la observabilidad del LEMS es uno
+[Remote]: lo que sí hicieron bien es que la observabilidad del machine learning ya existe hace un par de años,
+[Remote]: ahí es donde entraron ellos. Entonces, básicamente, los ingenieros que antes
+[Remote]: observaban modelos,
+[Remote]: hoy observan el LMs, porque todos se están metiendo más
+[Remote]: o sea, más vuosa la canasta en todo lo que es el LMs, hay
+[Remote]: agentes y más, pero los equipos de ingeniería son los mismos,
+[Remote]: ¿entendés?
+[You]: Hello?
+[Remote]: Pero muchos blogs de educación, tienen muchos blogs de educación, son como muy conocidos,
+[Remote]: por blogs de educación, canales de Slack, o sea,
+[Remote]: todo ese mundo. Y después me imagino que mucho Pay Media también.
+[You]: Great.
+[You]: Interesante, sí, o sea, sin dudas tenemos que
+[You]: encontrar cuál es el canal donde nuestros buyers consumen más contenido y estar ahí.
+[Remote]: Sí.
+[You]: Y y después, nada, generar inbound también con ese contenido.
+[You]: Está interesante, chef, muy bueno. Y y
+[You]: muchos viajes te toca o o no tanto?
+[Remote]: Sí, sí, sí, sí.
+[Remote]: Arranco en, seguramente arranca en en marzo, abril,
+[Remote]: sea, ahora me voy
+[Remote]: me voy de chapa y paso por Miami unos días, pero
+[Remote]: no, en verdad agarran con en marzo, abril, y sí,
+[Remote]: creería que una vez cada cada mes y medio voy a estar por ahí.
+[You]: Para simplemente sync con el equipo, ¿no? O
+[Remote]: Cinco en el equipo de liderazgo, después eventos,
+[Remote]: o sea, mucha conferencia,
+[Remote]: Porque a mí me toca la TAM, o sea, expandir la TAM,
+[Remote]: pero muchos de los del, digamos, de las
+[Remote]: personas, están en conferencias allá, ¿viste? Están como
+[Remote]: no sé,
+[Remote]: el sitio de Loban está allá, el sitio de Mercado Livre y Viaja allá,
+[Remote]: seguido también, y como
+[Remote]: todos con los ojos puestos de Estados Unidos y allá.
+[Remote]: Voy a borrar el, voy a estar del dos al seis, Julio.
+[You]: Del dos al seis de febrero.
+[Remote]: K.
+[You]: Ah, ok. Porque no sé si lo tienen en el en el mapa de las conferencias
+[You]: está esa, fin de que américas, fin de marzo, yo voy a ir
+[You]: Van todos los de fin
+[Remote]: Mira,
+[You]: financieros de Latinoamérica. No sé si es un mundo que ustedes tratan de targetear,
+[You]: o van más a conferencias de DevTools y cosas así.
+[Remote]: No, re re, porque, de hecho, nuestro
+[Remote]: ahora, la industria que mejor le venimos pegando es a a a fintech, finanzas.
+[Remote]: Bancos,
+[You]: Yeah.
+[Remote]: Sí, eso lo lo aprendí ahora hace poco, pero parece que sí.
+[You]: Ahora yo voy.
+[Remote]: Sí, muy buena.
+[You]: Así que avisas si si vas y y nos vemos por ahí.
+[You]: Sí, te cuento un poco nosotros cómo venimos y y los esfuerzos
+[You]: que estoy priorizando para este año.
+[You]: ¿Outbound?
+[You]: Lo charlé con vos, pero llevé la conclusión de que
+[You]: conclusión que también charlando con otra gente, el outbound es el masivo automatizado con templates
+[You]: su juego suma cero, boludo. Siento que todo el mundo lo está haciendo,
+[Remote]: Sí.
+[You]: y después está la decisión de, ¿hay que hacerlo igual o no?
+[You]: Y ahí, obviamente, te lo van
+[You]: otra gente, igual vos lo tenés que probar y ver qué te sirve más, ¿no? Pero mucha gente me dijo que
+[You]: mucha gente no, prácticamente un founder me dijo, lo que pasa con eso
+[You]: que, a ver, hoy vos necesitás cien clientes y necesitás veinte.
+[You]: Necesitas mil clientes y necesitas veinte. Porque si necesitas veinte,
+[You]: la realidad es que
+[You]: si vos mandás mil mails por semana y la tasa de conversión, hay un costo muy grande, con eso que después si vos terminás conectando por otro lado, después la persona ve en su inbox o en su LinkedIn, ese template pedorro que le mandaste hace seis meses, ¿te qué más? Un toque. En LinkedIn,
+[Remote]: Sí, sí.
+[You]: no se pueden borrar mensajes, en en en el mail tampoco,
+[You]: Y la realidad me pasa a mí ahora también, no sé vos, pero yo recibo una cantidad
+[You]: de templates de Hubspot, no sé la gente cómo consigue mi mail y son una poronga, la verdad.
+[You]: Yo me me pongo del otro lado y digo, a mis potenciales clientes les llega ese mail
+[You]: quién me va a contestar, es un template
+[You]: pedorro, por más que esté armado con ella ahí, se nota,
+[You]: Entonces,
+[You]: estrategia de add one que voy a probar, por lo menos este Q es mucho más targeteado.
+[You]: Pero mucho más tarqueteado, tipo
+[You]: armar un hit list
+[Remote]: Yeah.
+[You]: dentro de ese hit list
+[You]: realmente quiénes son las personas que quiero targetear y escribirle a esas personas. Pero tipo nivel,
+[You]: no te digo manual, si lo puedo medio automatizar, lo automatizo, pero
+[You]: pero casi manual, o sea, me acepta, y por ahí el primer mensaje es
+[You]: casi Sau, feliz año.
+[You]: Y nada más, ¿entendés?
+[Remote]: Sí.
+[You]: Hola, feliz año para vos también, un gusto conectar y se arme una conversación donde se nota que del otro lado
+[You]: hay una persona, ¿me entendés?
+[Remote]: Totalmente, está bien.
+[Remote]: Lo que estás planteando. Yo creo que va hacia eso también.
+[You]: Más que nada, porque iba a ser un fútbol,
+[Remote]: Y más porque es verdad,
+[You]: es un juego suma cero, no me quiero quemar. Por ejemplo,
+[You]: si RedLink es un cliente que en algún momento quiero targetear,
+[You]: no los voy a mandar a diez personas, diez mails,
+[You]: AI generated con templates para quemarme. Prefiero cuando
+[You]: esté listo y me lo cruzo en una conferencia, decir, che, hablamos el lunes y te muestro, ¿entendés? Como que digo,
+[You]: yo voy a tener oportunidad de conectar con estas empresas en algún momento.
+[Remote]: Sí.
+[You]: Prefiero que se dé de manera orgánica o con inbound,
+[You]: que ese uno por ciento de
+[You]: conversion rate que tiene mandar mil quinientos mails por semana, ¿entonces?
+[Remote]: Porque vos decís, voy a conectar con esta persona,
+[Remote]: pero
+[Remote]: vos no no sabés quién es esta persona.
+[You]: No lo conozco, pero me fijo en LinkedInche
+[You]: más o menos, te puedo decir quién va a ser el usuario o el
+[You]: sponsor de mi producto, si arrancamos a hablar. Porque también esa es otra
+[You]: que a veces me pasa, entro por la persona equivocada, que
+[You]: lo tiene que girar internamente, hasta que conecto realmente con el equipo de operaciones,
+[You]: operaciones o de finanzas o de tesorería que realmente le le serviría a mi producto,
+[You]: por ahí son dos reuniones, tres semanas y todo eso me lo estira. Entonces,
+[Remote]: Sí.
+[You]: yo puedo buscar muy rápidamente, me decís, che,
+[You]: ¿quieres hablar con, no sé, RedLink, por ejemplo?
+[You]: Vos decís quién es a las dos, tres personas que que tengo que hablar.
+[Remote]: Ok, pero para Rating, que es una empresa por el
+[You]: Y esa lista sí me lo generó con ella ahí.
+[Remote]: Redlink es una empresa de, no sé, cinco mil personas o más.
+[You]: Y es grande, no sé cuándo siempre hago que tener problemas, son grandes, sí.
+[Remote]: A ver,
+[You]: Después, por ahora me equivoco, pero es una hipótesis, obviamente, por el título que aparece en LinkedIn.
+[Remote]: Sí, lo lo que yo veo que pasa ahí después es que
+[Remote]: entraste, ponele, no sé, ponele red link, es
+[Remote]: o ponele JPMorgan, le querés vender a JPMorgan, vamos poner más fácil.
+[Remote]: Es como que tenés
+[Remote]: vos decís, che, el el director de operaciones,
+[Remote]: hay diecisiete directores de operaciones, ¿entendés? Y
+[Remote]: y a veces lo que yo empecé a ver es
+[Remote]: como que por ahí el el más capo de todos no es el que toma la decisión, ¿entendés?
+[Remote]: Es el que toma, no sé, es el número dieciséis, por ende, motivo, la la toma es el número dieciséis. Entonces, siento que está está buenísimo la idea de tarquetear específicamente, pero cuando vas a buscar a estos clientes, que tienen que, es verdad lo que dicen, o sea, lo que dijiste recién, vos necesitas veinte clientes ahora para itinerar y probar, y y y validar Pero vas a tener que buscar diecisiete personas de cada una de estas cuentas, si son empresas grandes, Después, si son empresas más chicas, obviamente, se me es más fácil, pero yo estoy viendo eso, yendo a a través de cuentas grandes, y es como que no llegás más, porque
+[Remote]: le pegás al título correcto,
+[Remote]: final termina siendo que ese no es, y era el título que vos decías es,
+[Remote]: como que no sos.
+[Remote]: Pero no son, así que
+[You]: Sí. Está bueno, está bueno. Por ahí,
+[Remote]: ahí
+[Remote]: para considerarlo.
+[You]: tomo la, dice que si yo no empecé a grandes, por ahí hacer una lista un poquito más larga para
+[You]: aumentar el el reach. Después también esa lista depende de
+[You]: tengo conexiones en común, porque la intro es mucho más poderosa siempre.
+[Remote]: Siembre, obvio.
+[You]: Entonces, la lista de diecisiete, pero si hay dos o tres que
+[You]: enfoco sin número por de WhatsApp y agendar una reunión,
+[Remote]: Cien por ciento.
+[You]: por ahí centradas mucho mejor, ¿no? Pero nada, voy a hacer algo
+[You]: por ahí que va, me va a llevar más tiempo, pero este q voy a enfocar en eso
+[You]: de vuelta, hoy la prioridad es tener veinte, treinta, cuarenta clientes, sino mil,
+[You]: entonces prefiero hacerlo de esa manera. Eso en cuanto a outbound,
+[You]: después vamos a arrancar toda la
+[You]: todo el work stream de inbound, ¿no? Que tiene
+[You]: varias aristas. Una, vamos a arrancar un blog,
+[You]: para ¿Cómo se llama el SEO de LLM? ¿Qué nombre?
+[Remote]: Ay, sí.
+[You]: Que te levanten los LLMs, ¿viste?
+[Remote]: Sí.
+[You]: La clave para eso es tener tener mucho contenido, ¿viste? Entonces,
+[You]: a arrancar con un blog y con muchos artículos, ¿viste? Publicando un artículo por semana,
+[You]: cosas de la industria, noticia, presentación del equipo, blog features, etcétera,
+[You]: Vamos a arrancar a hacer más ruido LinkedIn,
+[You]: vamos a hacer un posteo de de la ronda, un posteo del equipo,
+[You]: etcétera, y estamos también trabajando para hacer Artículos De Prensa. Eso Para Empezar A Generar Más Inbound, Y Después, En Paralelo, Un Roadshow De Conferencias, Que Creo Que Voy A Ser Dos O Tres, No Más, Porque Después Lo Que Voy A Querer Hacer Es Un Roadshow Más Propio, ¿Viste? Armar Un Calendario Del Año Y Decir, Cuáles Son Las Cinco Ciudades De Estados Unidos que quiero ir a visitar.
+[Remote]: Okay.
+[You]: Y armarme una semana en cada una de esas ciudades, y llenármela de reuniones presenciales con
+[You]: bancos, payfax,
+[You]: etcétera.
+[You]: Voy a probar esa, porque también, de vuelta, todas las ventas que
+[You]: que fuimos cara a cara convierten mucho más, mucho más.
+[Remote]: Okay.
+[You]: Así que no sé, una
+[Remote]: Tiene sentido igual,
+[You]: una a San Francisco tengo que ir, por ejemplo, todavía desde Carranquin, no fui a San Francisco,
+[You]: tengo que hacer un brochure a San Francisco, ¿viste? Iría a hablar con
+[You]: las cinco fintechs que que están ahí medio metiéndole,
+[You]: con los community banks, hablar con los sponsor banks ahí. ¿Viste? Ir, conocer el fintech
+[You]: landscape en cada una de estas ciudades, Estados Unidos, cada una de estas megaciudades,
+[You]: es una economía por sí sola, es un mundo enorme.
+[You]: Me pasó de que justo en diciembre fui a Washington DC por dos, tres días,
+[You]: me traje cinco leads que iban a convertir, ¿entendés? De estar ahí.
+[You]: Y conseguí reuniones en dos días.
+[Remote]: Para, ¿y cómo las consigue las reuniones?
+[You]: Y ahí sí, por ahí,
+[You]: tengo que tener un laburito previo de armar el hit list,
+[You]: de compañías que sabés que tienen gente o tienen headquarters ahí,
+[You]: y mandar en un outreach más automático por
+[You]: por HubSpot. Che, voy a estar ahí para esta conferencia, me encantaría ExchangeNotes
+[You]: pum, así que contáte más.
+[Remote]: Okay.
+[Remote]: Pero fue fue, digamos, fue auto, no es que eran amigos de tu papá.
+[Remote]: O sea, o un
+[You]: No. No. I'll come. I'll come.
+[Remote]: familiar.
+[You]: Y también
+[Remote]: Esa es una gran estrategia, ubicar por ahí las conferencias más grandes,
+[Remote]: cerca de esa semana,
+[Remote]: ya ir mandando mensaje de Chuy, estar ahí, nos tomamos un café como la semana previa,
+[Remote]: en verdad por ahí ni hace falta ir a la conferencia, pero
+[Remote]: si los tenés, puede ir a la conferencia si es mucha guita, o sea, es un
+[Remote]: digamos, en un coso.
+[You]: Sí, cien por ciento.
+[Remote]: Esa estrategia más personalizada con eventos,
+[Remote]: en cada lugar, hacer un road show a cada lugar también es buena.
+[You]: Así que outbound, inbound, conferencias, el road show,
+[You]: y después nada, vamos a hacer unos ajustes ahí también
+[You]: a todo lo que sucede dentro del Fuggle, ¿no? Un año que ya estoy en
+[You]: discovery y ya estoy haciendo, ya estoy tratando de generar la venta,
+[You]: cómo puedo aumentar la conversión, y ahí estamos
+[You]: haciendo algunas cositas de producto, una de las cuales
+[You]: es este tipo Phoenix.
+[You]: Yo tengo muchas ganas de hacer una versión gratis de la plataforma, porque
+[You]: creo que al igual que Felix y Walker Rise, vez que la estás usando, generás una dependencia que después decís, che, no quiero volver a Excel o hacer como lo hacía antes. Entonces, si me decís que hay un caso de éxito con Arise, más todavía lo voy empujar en techo, ahora voy a mandar por Slack, che, lean este caso para armar lo de la free demo, creo que tiene mucho sentido. Eso uno después demo tooling. Me pasa que de repente vienen con demo complejas y dependo mucho del equipo técnico o de de Teo, y quiero tener algo algo para Sí, un ¿Cómo se llama? Un un ambiente fake
+[Remote]: Es brutal.
+[Remote]: Independiente.
+[Remote]: Sí.
+[You]: porque esa es la otra, tiene que ser fake, las demos, no pueden fallar. Ya no comimos varios pufos,
+[You]: en vivo, y nos falla el producto en vivo y no puede pasar
+[Remote]: Sí.
+[You]: así que estamos armando ahí un tooling más fake para armar.
+[Remote]: Ahora, ¿me la muestras rápido la plataforma? ¿La tenés ahí abierta?
+[Remote]: A ver, quiero ver, yo a que la vi.
+[You]: A ver,
+[You]: हमें क्या क्योंकि
+[You]: Dame un segundo que te abro acá.
+[Remote]: Perfecto.
+[You]: Esto es un video demo, pero
+[You]: básicamente conectás datasources, generás conciliaciones,
+[You]: o con tarjetas,
+[You]: Armas reglas, que son crucios básicos entre dos fuentes de datos.
+[You]: El cruce puede ser one to one, one to many, many to many.
+[You]: Esto es justo un ejemplo de Me puedes ponés, bueno,
+[Remote]: ¿Dónde dónde está la traba? Que vos decís, dependés mucho de los equipos técnicos para hacer una demo.
+[You]: En realidad, la traba viene
+[You]: por ahí más de la información que que
+[You]: que que nos dan ellos, que por ahí
+[You]: este, nos rompe algún formato, es más un tema de
+[You]: primero, configuración de la lógica,
+[You]: y eso tiene que ver un poco porque yo, tan enfocado en
+[You]: me me alejé un poquito de la parte técnica del desarrollo del producto,
+[You]: Entonces, hoy me pasa que me cuesta mucho a mí configurar una
+[You]: una conciliación en la plataforma. Entonces,
+[You]: nada, quiero armar un tooling para volver a yo poder armar
+[You]: sino depender ni de Teo ni de de del equipo, ¿no?
+[Remote]: Okay.
+[You]: Igual esta versión
+[Remote]: Sí,
+[Remote]: Y por el letín en el Ah, mirá, qué bueno esto.
+[Remote]: Además de de de
+[Remote]: la certeza, o sea, de de de que, digamos,
+[Remote]: no se te pierda plata. ¿Esto automatiza un poco el proceso de cada persona?
+[Remote]: ¿En cuánto tiempo, tipo tipo
+[Remote]: en horas hombre,
+[You]: Sí, mira, once
+[Remote]: alguno de esos datos,
+[You]: Ah, sí, tengo los datos,
+[You]: Sí.
+[Remote]: No, no, no, si tenés como algo algo en la cabeza, tipo, cuando tenés un pitche, es tipo,
+[Remote]: no te te digo porque
+[You]: Voici la la típica arma
+[You]: business que hice en el proceso de ventas, ¿no? Con impacto real.
+[Remote]: No. No. No. No.
+[Remote]: No, no, no, no, lo quiero entender
+[Remote]: justo hace poco me junté con un flaco,
+[Remote]: el de Astropei, ¿lo tienen a los de Astropei?
+[You]: Sí, lo tenemos.
+[Remote]: Siento que ese puede ser un buen lead para darte, no sé si ya hablaste por ahí, pero
+[You]: Yo conozco al a quién es quién es la persona que conoces ahí. Yo lo conozco a Mika,
+[You]: Liechtenstein, no sé si.
+[Remote]: No.
+[Remote]: Con Pili Maluzardi, que era la
+[Remote]: era la chief of staff de Mark. Mark es el el CEO de Astropedic. Y el chabón está enfermo con el AI, enfermo,
+[Remote]: enfermo con tipo
+[Remote]: automatizar y todo el tiempo quiere rajar gente, o sea, si es tipo
+[Remote]: pero fanático, enfermo de querer tipo
+[Remote]: pasar de ser trescientos a ser una 10 people business company que facture diez mil millones, o sea,
+[You]: Bueno, ese es el end state, como que el end state es que esto
+[You]: se sienta como un analista de conciliaciones que que esté conectado a todas tu fuente de información, haga todos los cruces, te llame la atención que necesitas revisar algo, que te genere reportes, que, obviamente, con mucho human supervision, no puede estar cien por ciento operado por un agente, pero
+[You]: hacia eso vamos de a poco, ¿no? Hoy por ahí
+[Remote]: Okay.
+[You]: se parece a un SaaS más estático, con una buena capa de inteligencia,
+[You]: para todo lo que es ingesta, transformación y
+[You]: el explainability y las diferencias, pero de a poco vamos
+[Remote]: Okay.
+[You]: a un modelo donde ya la gente puede hacer cosas de manera autónoma,
+[You]: y finalmente, yo me imagino un producto sin interfaz.
+[You]: Sea, a ese nivel.
+[Remote]: Okay.
+[You]: Algo que, no sé, puede estar integrado en tu mail o en tu Slack,
+[You]: y vos chateas o tenés un un widget acá en el desktop y
+[You]: te genera reportes, te muestra los resultados, te conecta a tus fuentes,
+[You]: y y literalmente es como que tenés a alguien hoy.
+[You]: Es exactamente Hoy lo que sucede es que tenés equipos de gente haciendo esto, entonces, sí,
+[You]: a veces tenemos esa sensibilidad de que estamos pichando algo que por ahí
+[You]: particularmente en bancos, de que, che, hay cinco personas sin esto que no no tiene que hacer
+[Remote]: K.
+[You]: Pero si me decís que el CEO está enfermo,
+[You]: le le escribo este MICA para conectar con él. No no no hablamos
+[You]: con AstroPay para un flujo de ventas propiamente dicho,
+[You]: porque este Mica en realidad ya no está más ahí,
+[You]: hablamos con d local, viste que AstroPay, porque es de d local.
+[You]: Ellos
+[You]: hicieron un spin up, una herramienta de conciliación.
+[Remote]: Ah, mirá.
+[You]: Con lo cual, voy a hablar, pero creo que el, este,
+[Remote]: Mira,
+[You]: usando esa herramienta interna.
+[Remote]: ¿Cómo se llama la
+[Remote]: herramienta? ¿La tiene un nombre o es tipo algo interno?
+[You]: No, tiene un nombre, ya te lo digo.
+[You]: No, no, porque ese es su spin out, lo están armando como
+[You]: Clearing se llama, mirá, ese está.
+[You]: Esta es de es de D local.
+[You]: Dijeron, che, vamos a competirle asimétrico, porque están pescando solos en el agua,
+[You]: y armémoslo, porque también es core para lo que hacemos.
+[You]: De ahí así es AI fair, si la está usando gastrope, ni idea. Pero vale la pena el tiro, si
+[You]: me decís,
+[You]: lo que me estás diciendo.
+[Remote]: Mira,
+[Remote]: No, vale la pena el tiro, Para mí,
+[Remote]: ahora te trato de conseguir el número de WhatsApp del pibe, así está, está en una entrada más.
+[You]: Vale, a fondo. Y bueno, de vuelta, creo que
+[You]: ahora si estoy un poquito más estructurado que la vez que hablamos, ya te entiendo, o sea, puedo correr varias
+[You]: experimentos paralelo,
+[You]: y después este mundo es test and learn, ¿viste? Hasta que, como arise, hasta que
+[You]: encontraron esta, la de convertir a través de un freemium model,
+[You]: tenían aprobado diez mil millones de cosas. Entonces, es un test talón hasta encontrar algo que
+[Remote]: Yeah.
+[You]: que realmente sea escalable, que por ahora
+[You]: nada de lo que hacemos es escalable.
+[You]: Bueno, es natural en la etapa a la que estamos, ¿no?
+[Remote]: No, y pensalo para para todo lo que es si vas a construir como este producto gratis o
+[Remote]: en verdad, el lo que más importante tenían ellos era como el ecosistema de
+[Remote]: del machine learning, ¿viste? La gente que se dedicaba a hacer machine learning en iba a Rise, y no por usar Phoenix o no, lo pero sino que todos los documentos, la gente hablando, equipos técnicos en YouTube, ¿viste? Es como que le
+[Remote]: creaba una sensación de que
+[Remote]: este era el lugar donde ibas a aprender, ¿entendés?
+[Remote]: O donde ibas a buscar ayuda para tu laburo del del día a día,
+[Remote]: Siento que estás en el mundo de conciliaciones, si vos me decís que hay
+[Remote]: todas las empresas tienen tantos equipos de conciliaciones,
+[Remote]: algo muy importante y algo muy seguro. Nada, siento que le puedes dar una vuelta de tuerca,
+[Remote]: a eso. Estudiátela,
+[You]: Sí, cien por ciento. Ahí
+[You]: que los desarrolladores son mucho más de nicho y de comunidades y de
+[You]: Discord y Telegram y GitHub y estos lugares donde por ahí vas,
+[You]: son dos programadores,
+[You]: No sé si existe lo mismo para el mundo
+[You]: finanzas, operaciones. Capaz que sí, tengo que investigar un poquito más.
+[You]: ¿De dónde están todos ahí consumiendo data, viste?
+[Remote]: Sí, sí, sí, sí, total.
+[You]: Pero bueno,
+[You]: Nada, buen catch up. Sigamos ahí hablando, te voy contando cómo me va,
+[You]: contame vos también si si te puedo ayudar en algo y
+[You]: vamos ahí hablando.
+[You]: Gracias, querido.
+
+============================================================
+SUMMARY
+============================================================
+### Arize AI - Company Overview & Go-to-Market Strategy
+
+- AI observability platform for monitoring LLMs and ML models
+  - Technical focus: tracing, workflow monitoring, sentiment analysis, performance evaluation
+  - Used by engineers at Google, MercadoLibre (1k+ engineers, 20 daily active), JP Morgan, Wells Fargo, Uber, US Government
+- Freemium model driving viral adoption
+  - Free platform generates massive inbound leads
+  - Enterprise conversion when usage reaches critical mass
+  - Only 3 companies in LLM observability space: Arize (largest), BrainTrust, Langfuse
+- Founding team: Two highly technical founders who avoid sales activities
+  - Hired ex-Tecton CRO as President of Go-to-Market
+  - Focus on technical workshops over enterprise dinners
+- Distribution channels generating best results:
+  - Technical blogs and educational content
+  - Slack channels and developer communities
+  - Paid media campaigns
+  - Fintech/banking sector showing strongest traction
+
+### Outbound Strategy Discussion - Quality Over Volume Approach
+
+- Mass automated outbound templates creating negative brand impact
+  - Zero-sum game with everyone using same approach
+  - Risk of burning future opportunities with poor first impressions
+  - LinkedIn messages can’t be deleted, creating permanent damage
+- Recommended highly targeted approach:
+  - Build curated hit list of specific companies/contacts
+  - Research decision makers (17 directors of operations at JPMorgan example)
+  - Manual/semi-automated personal outreach
+  - Start with relationship building (“Happy New Year”) vs direct sales
+- Face-to-face meetings convert significantly higher
+  - Washington DC trip generated 5 convertible leads in 2-3 days
+  - Plan regional roadshows to major US cities (SF, etc.)
+  - Target 5 cities annually with week-long visit schedules
+
+### Product Strategy & Demo Optimization
+
+- Free platform version planned following Arize’s success model
+  - Create user dependency before monetization
+  - Reduce reliance on Excel/manual processes
+- Demo tooling improvements needed:
+  - Currently dependent on technical team for complex demos
+  - Building fake environment for reliable live demonstrations
+  - Several demo failures in live settings requiring solution
+- Platform capabilities:
+  - Connects multiple data sources for reconciliation
+  - One-to-one, one-to-many, many-to-many data matching
+  - AI-powered ingestion, transformation, explainability
+  - Long-term vision: Agent-based autonomous reconciliation with human oversight
+- AstroPay potential lead identified through Pili Maluzardi connection
+  - CEO obsessed with AI automation and workforce reduction
+  - Note: AstroPay spun out internal reconciliation tool called “Clearing” (D Local)
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/efdb1dbb-b92a-4b59-a002-f581e62767aa](https://notes.granola.ai/t/efdb1dbb-b92a-4b59-a002-f581e62767aa)

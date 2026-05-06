@@ -1,0 +1,714 @@
+MEETING: Rexi - GP | Reunión Producto
+DATE: 2026-02-23
+ID: not_TUMDlkmleAKj6j
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Mariela Ferrer <mariela.ferrer@globalprocessing.com.ar>, Nicolás Ezequiel Mobilia <nicolas.mobilia@globalprocessing.com.ar>, Producto Emisor <productoemisor@globalprocessing.com.ar>, Tatiana Cardoso <tatiana.cardoso@globalprocessing.com.ar>
+SCHEDULED: 2026-02-23T14:00:00-05:00 - 2026-02-23T14:50:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Sumarse, pero estamos con el equipo de producto.
+[Remote]: Producto emisión y producto adquirencia.
+[Remote]: Bueno, no sé si quieren presentarse como para para hacer la introducción.
+[Remote]: Dale, Nacho, creo que no está andando tu micrófono, te te vi tratando de hablar.
+[Remote]: Ah, sí, no se escucha,
+[You]: Escuché ahora.
+[Remote]: está.
+[You]: Perdón, estabas hablando solo.
+[You]: Bueno, dale,
+[You]: Comparto pantalla por acá.
+[You]: Para setear un poquito el
+[You]: el contexto, quiénes somos. ¿Ahí ve en mi pantalla?
+[Remote]: Sí. Sí, sí.
+[You]: Perfecto. Bueno, está está en inglés, pero un poquito, ¿quiénes somos? Bueno,
+[You]: te digo yo somos cofounders de Rexi. Carlos acaba de sumar, nos ayuda en en en cuestiones de growth
+[You]: marketing y ventas. Los tres venimos de de fintech, digamos,
+[You]: y un poco lo que hacemos es, resolvemos uno de los problemas
+[You]: back office
+[You]: en servicios financieros, que por ahí no muchos conocen, pero es un problema muy grande, es el problema de las conciliaciones. ¿Sí? Toda esa información transaccional, que viene de múltiples fuentes, nosotros la ingestamos desde Rexi, hacemos todo el trabajo de transformación,
+[You]: el procesamiento,
+[You]: después tenés una herramienta donde podés investigar y resolver discrepancias,
+[You]: y tener full visibilidad de tu flujo de dinero, ¿no?, en real time.
+[You]: Con lo cual,
+[You]: muy comprimido, eso es lo que hacemos de Rexy, nuestra plataforma, obviamente, usa
+[You]: muchas técnicas de machine learning e inteligencia artificial para, de vuelta,
+[You]: todo lo que es ingesta, transformación y procesamiento, y de esa manera lo que logramos es
+[You]: un montón de ahorros en tareas manuales, que de otra manera se hacen en Excel,
+[You]: SQL o Python, no sé si ya tienen algo armado,
+[You]: Hay una reducción de riesgo muy grande, porque, obviamente, al tener una plataforma que
+[You]: lo hace automáticamente
+[You]: a nivel diario y real time, ustedes ganan mucho
+[You]: visibilidad y control sobre su flujo de dinero, lo cual reduce mucho el riesgo de alguna pérdida
+[You]: un pago tarde o algún problema con algún regulador,
+[You]: Y por último, está
+[You]: la parte regulatoria, si existe algún tipo de necesidad de reporting
+[You]: o
+[You]: reglas que ustedes tienen que cumplir con cierto regulador por temas de pagos,
+[You]: la plataforma automatiza el proceso end to end,
+[You]: asegurándose que ustedes cuentan con esos reportes,
+[You]: poder presentar al regulador. Tenemos ahí varios frameworks y y tenemos la capacidad de desarrollar framework
+[You]: nuevos muy rápidos. Tuvimos una reunión la semana pasada,
+[You]: con otro equipo de de global processing, con el equipo más de finanzas y control,
+[You]: en donde mostramos un poquito el producto. No, no, perdón, no mostramos el producto
+[You]: charlamos un poquito de los desafíos,
+[You]: los dolores, cómo lo hacían actualmente y hacia dónde querían ir,
+[You]: y creo que la idea de la charla hoy es
+[You]: es la misma, descubrir un poco más cómo lo hacen actualmente,
+[You]: cuáles son los riesgos asociados, los dolores asociados,
+[You]: y evaluar a ver si hay fit con el
+[You]: con el producto de Rexi. Ahí,
+[You]: obviamente, creo que particularmente a esta charla, que
+[You]: es con el equipo de producto, tiene una relevancia la parte
+[You]: de cara al cliente, ¿no? No es solamente ese control operacional interno,
+[You]: donde se automatiza el proceso de conciliación interno, que por ahí es más con finanzas y con cleaning,
+[You]: sino más entender cómo
+[You]: los clientes de global processing
+[You]: están conciliando actualmente, posiblemente de una manera muy
+[You]: similar a ustedes, con sus archivos,
+[You]: y entonces cómo global processing puede mejorar su propuesta de valor de acá de los clientes,
+[You]: con una herramienta que se ofrece en bebida dentro del portal o con algún tipo de click through
+[You]: en donde hay una experiencia personalizada,
+[You]: mejor, un onboarding más simplest, donde los archivos ya estén ahí cargados y transformados,
+[You]: y de esa manera cualquier cliente que opera con global processing
+[You]: tiene
+[You]: puede contar con una herramienta que le permite conciliar todos sus flujos de dinero
+[You]: sus flujos de dinero de manera automática,
+[You]: y mismo desde una experiencia unificada.
+[You]: Así que eso es un poquito de nosotros. Acá hay algunos slides más,
+[You]: un poquito del equipo, acá estamos, bueno, te doy yo dos de los cofounders, hay un tercer cofounder que es
+[You]: el sitio que acá no está. Un poquito de nuestra
+[You]: propuesta de valor, de vuelta hay una orquestación
+[You]: con tecnología agéntica,
+[You]: los principales design principles, o cómo estamos construyendo y desarrollando el producto,
+[You]: es que sea fácil de implementar, que nos lleve meses
+[You]: de implementación, que sea fácil de usar, una herramienta que ustedes
+[You]: se vuelven operarios, responsables,
+[You]: la pueden configurar a su manera y sea fácil e intuitiva de operar y
+[You]: configurar y mantener. Sabemos que conciliaciones no es algo estático, que se construye solo una vez,
+[You]: y luego se automatiza, es algo que
+[You]: requiere su constante mantenimiento, porque los proveedores cambian,
+[You]: se lanzan nuevos productos, hay integraciones nuevas, etcétera, y lo de compliance que mencionaba antes.
+[You]: Un poquito cómo nos comparamos la competencia, a ver, porque es
+[You]: hay competencia en el mercado, ¿no?
+[You]: Siempre hay. Pero un poco, Rexi viene
+[You]: a solucionar si quieren tres.
+[You]: Patas importantes y están atadas a nuestra propuesta de valor.
+[You]: La primera relacionada a la implementación, ¿no? Nuestra implementación, un poco por cómo está
+[You]: el producto, es mucho más fácil de integrar, más rápido
+[You]: lo cual les permite a ustedes un time to value mucho más rápido, no es un proceso
+[You]: como un proyecto de tres, cuatro, cinco, seis meses,
+[You]: si se puede acceder a la información y podemos conectar la plataforma rápido,
+[You]: es muy configurable y muy fácil de
+[You]: de levantar, y no cobramos esa implementación. Hay un handholding con ustedes,
+[You]: los ayudamos, les enseñamos a usar la herramienta,
+[You]: luego la idea es que ustedes sean dueños y controlen este proceso internamente.
+[You]: Y no haya tampoco una dependencia con un vendor externo.
+[You]: Toda la parte de la corporabilidad es gracias a esta tecnología,
+[You]: Y después,
+[You]: bueno, un poco el el el modelo de negocios, esto es de
+[You]: es un producto, es una herramienta y no hay servicio
+[You]: profesionales asociados, ¿no? La idea es que la tecnología resuelva
+[You]: todo lo que por ahí nuestra competencia hace con servicios profesionales.
+[You]: Lo cual nos permite un modelo de negocio que somos más baratos. Así que, no sé, algunos resultados que vimos con algunos clientes, pero esto después se los puedo compartir, no sé si vale la pena solo ahora, y acá hay algunos casos de éxito con clientes actuales.
+[You]: Un poquito nuestro roadmap,
+[You]: acá lo interesante es el segundo punto donde habla de embedded solutions.
+[You]: Trabajando mucho para, de vuelta, para compañías como global processing, que ven esto como un beneficio para sus
+[You]: que se pueda
+[You]: conectar directamente vía API, después vemos cuál es la experiencia que queremos brindar,
+[You]: si es white label, si es dentro del portal,
+[You]: si es por ahí un click through pero el el cliente vive en la plataforma de Rexy,
+[You]: eso son cosas que se charlan con los equipos producto y venden la experiencia.
+[You]: Pero tener la capacidad a nivel arquitectura es algo de lo que estamos trabajando y ya explorando.
+[You]: No mucho más de mi lado,
+[You]: no sé si Teo o Caro quieren agregar algo, y si no, nos encantaría escucharlos a ustedes y conocerlos a ustedes.
+[Remote]: Ahí de mi lado lo que dijiste recién.
+[Remote]: Creo que lo lo que más nos queremos llevar acá es sus principales dolores actuales.
+[Remote]: ¿Cómo los están resolviendo?, ¿qué es lo que más les duele?, ¿qué es lo que más les está costando?, ¿o no están pudiendo implementar
+[Remote]: Hola, ¿qué tal? Buenas tardes, ¿cómo les va?
+[Remote]: Yo soy Antonio Aptuno, soy el product owner de adquirencia.
+[Remote]: Pero les voy a hablar de parte del lado de adquirencia.
+[Remote]: Hoy en día, bueno, ustedes ya hablaron
+[Remote]: respecto a que estuvieron conversando con el sector de
+[Remote]: con nuestro equipo de clearing, donde le habrán suministrado la información que ellos
+[Remote]: reciben en forma diaria y el balanceo que hace contra las marcas.
+[You]: Sí.
+[Remote]: En el lado,
+[Remote]: del lado de vista hacia nuestros clientes, nosotros
+[Remote]: trabajamos con agrupadores.
+[Remote]: Es adquirente y trabaja con agrupadores.
+[Remote]: Lo que hacemos es,
+[Remote]: a partir de la
+[Remote]: la la generación de archivos recibidos de la marca, que en realidad es uno solo,
+[Remote]: el settlement, lo que hacemos son
+[Remote]: generar información de a través de archivos,
+[Remote]: para cada uno de nuestros agrupadores.
+[Remote]: No para los subcomercios. Ok.
+[Remote]: Sino para nuestros agrupadores, porque quien está liquidando
+[Remote]: al subcomercio,
+[Remote]: es
+[Remote]: el agrupador. Entonces,
+[Remote]: supongamos, tenemos al agrupador a
+[Remote]: que en su haber tiene
+[Remote]: dos
+[Remote]: doscientos, trescientos, quinientos, dos mil, cinco mil subcomercios.
+[Remote]: Nosotros le liquidamos
+[Remote]: al agrupador, y el agrupador es quien liquida
+[Remote]: a cada uno de su su comercio. En realidad,
+[Remote]: el agrupador, generalmente, en el noventa y nueve por ciento,
+[Remote]: trabaja con su dashboard propio, y nosotros le hacemos entrega a ellos
+[Remote]: a través de transmisión de archivos, dependiendo el agrupador de tres, cuatro
+[Remote]: archivos de salida.
+[Remote]: Eso desde el lado de adquirencia.
+[You]: Perfecto.
+[Remote]: ¿Con cuántos...?
+[You]: O sea,
+[You]: ¿de cuántos agrupadores estamos hablando?
+[Remote]: Creo que hoy en día debemos tener unos
+[Remote]: veinte veinte agrupadores y tenés que estar hablando, o sea, aquí,
+[Remote]: mal no no no
+[Remote]: no recabé información la última vez, aproximadamente,
+[Remote]: mil doscientos, entre doscientos veinte y doscientos
+[Remote]: cincuenta mil, subcomercio trabajan con eso ya, prefabrín.
+[You]: Ok, perfecto. Y estos agrupadores, ustedes le mandan un archivo
+[Remote]: Ok.
+[You]: diario.
+[Remote]: Nosotros le mandamos archivo diario,
+[Remote]: y
+[Remote]: El proceso es el el el, digamos, el el proceso, bueno, ustedes ya lo deben conocer con
+[Remote]: otros clientes, es
+[Remote]: al final del día, nosotros enviamos
+[Remote]: la presentación
+[Remote]: hacia las marcas a través de el IPM, a través de para
+[Remote]: para Mastercard,
+[Remote]: y el CTF a través de Visa,
+[Remote]: Visa, a partir de ahí,
+[Remote]: genera los el el listado correspondiente
+[Remote]: que nosotros recibimos a la mañana, que es el el
+[Remote]: el el IPM entrante y el CTF entrante. A partir de ahí, en ese interín en ese interín, nosotros ya generamos las liquidaciones que van a los agrupadores,
+[Remote]: y al final, a la mañana, cuando recibamos
+[Remote]: los IP entrante, ahí es donde estamos generando
+[Remote]: el último de los archivos que recibe el agrupador,
+[Remote]: a través del cual va a proceder a liquidar a su subcomercios.
+[You]: O sea, la agrupación recibe el primer archivo de ustedes con las presentadas, el de Visa, y después el hay un tercero que es como lo que lo concilió de esos dos,
+[Remote]: Sí, nosotros
+[You]: Sì.
+[Remote]: escuchando,
+[Remote]: Sí, se escucha perfecto.
+[You]: Ahora no se escucha más.
+[You]: Creo que estás muteado.
+[Remote]: Sí, están justo cantando un un feliz cumpleaños y
+[Remote]: y hay un poco de de ruido. Quizás se mutió por eso, a ver.
+[Remote]: Pero perfecto, entonces tenemos el IPM que viene de Mastercard.
+[Remote]: Y el CTF, que vino de Visa Sí. Nosotros a la noche,
+[Remote]: cuando hacemos el cierre de operaciones, enviamos
+[Remote]: el IPM
+[Remote]: saliente y el que va a
+[Remote]: y el CTF que va hacia
+[Remote]: hacia Visa.
+[Remote]: Perfecto.
+[Remote]: En el interín, nosotros ahí
+[Remote]: justamente, ahora estamos introduciendo un cambio,
+[Remote]: a partir de la presentación, que es ese
+[Remote]: de presentación,
+[Remote]: Generamos
+[Remote]: generamos los archivos que van a recibir
+[Remote]: el agrupador, que es
+[Remote]: el ocho mil quinientos uno, dos, tres y cuatro, que es el fields
+[Remote]: reflejo de lo que van a haber
+[Remote]: en un resumen
+[Remote]: de pago hacia un comercio,
+[Remote]: donde tiene el encabezamiento, uno indica
+[Remote]: el encabezamiento, otro en la parte impositiva, otro el detalle de operaciones,
+[Remote]: otro lo total.
+[Remote]: El...
+[Remote]: T tres mil, que es el de el todas las operaciones que se presentaron,
+[Remote]: el ocho mil quinientos diez, que es una liquidación electrónica,
+[Remote]: y
+[Remote]: dependiendo el el agrupador, un archivo, que es el que
+[Remote]: se presenta a póliza, a través del cual van a recibir el pago.
+[Remote]: Para que puedan acreditar su subcomercio.
+[Remote]: Ahora,
+[Remote]: la parte impositiva, que ahí es donde hay que tener
+[Remote]: cuidado, en nuestro caso, es directamente hacia el agrupador.
+[Remote]: Entonces, está muy centralizado en lo que es la parte positiva.
+[Remote]: El agrupador, que es el que tiene
+[Remote]: el el el mayor desafío en esto, es
+[Remote]: acreditarle a cada uno de los subcomercios
+[Remote]: en la en la localidad que corresponde a mí.
+[Remote]: Y ahí es la parte impositiva, juega de mes.
+[Remote]: Tiene otra envergadura, que no pasa por nosotros, sino la de ellos,
+[Remote]: porque vos podés tener subcomercios
+[Remote]: que estén en todo el país, en
+[Remote]: el agrupador lo tenemos radicado acá en capital, a los subes provincia, bueno,
+[Remote]: Aires.
+[Remote]: Entonces, ahí el tema impositivo es
+[Remote]: Pero se les envía esos tres, cuatro archivos,
+[Remote]: el agrupador, a partir de ahí, el par recibir
+[Remote]: en su cuenta corriente aperturada en Banco Central Alta, a través de nuestro banco pagador,
+[Remote]: la plata correspondiente,
+[Remote]: la cual procederá a debitar y a pagar a cada uno de sus
+[Remote]: a cada uno de sus subcomercios.
+[Remote]: Es distinto a trabajar como
+[Remote]: adquirente propio
+[Remote]: o puro, como puede ser,
+[Remote]: por ejemplo, una entidad bancaria que
+[Remote]: cada uno de los comercios que tenga adherido los paga él.
+[Remote]: Nosotros tenemos dos clientes
+[Remote]: de comercios directo,
+[Remote]: pero el resto es todo, son todos agrupadores.
+[Remote]: O sea,
+[Remote]: los responsables de la acreditación en cada una de las cuentas
+[Remote]: de eso, su comercio, es el agrupador.
+[You]: Con lo cual,
+[Remote]: Nuestra obligación
+[Remote]: es la de pagar al agrupado y la y la liquidación es única,
+[You]: Perfecto.
+[Remote]: Una por agrupador acuerdo,
+[Remote]: de acuerdo a los subcomercios que, de acuerdo al
+[Remote]: a la cantidad de comercios que tenga abierto cada repagor.
+[Remote]: O sea, el agrupador, no obstante eso, puede tener
+[Remote]: en nuestra adquirencia aperturado
+[Remote]: dos, tres, cuatro,
+[Remote]: comercios, comercios de ellos, no agrupadores,
+[Remote]: ¿Por qué? Porque unos pueden estar destinados a compra de tarjeta presente y otro a
+[Remote]: a compra de tarjeta no presente. Algunos
+[Remote]: agrupadores pueden tener, bueno, presente, no presente,
+[Remote]: y
+[Remote]: pago de servicio en otro.
+[Remote]: Pero son todos en cabeza del agrupador,
+[Remote]: va a salir una liquidación por cada uno de esos subcomercios,
+[Remote]: las cuales van a estar metidas dentro de ese archivo único que van a recibir,
+[Remote]: donde van a estar distribuidos por número de liquidación y y nombre
+[Remote]: del comercio que tengan aperturado acá.
+[Remote]: Y ellos, en base a la información recibida,
+[Remote]: van a acreditar a cada uno de los
+[Remote]: subcommercial. Van a hacer lo mismo que haríamos nosotros,
+[Remote]: contra ellos, nada más que ellos contra cada uno de los
+[Remote]: subcomercios.
+[You]: Perfecto. ¿Ustedes concilian para ese pago a la
+[You]: ¿Consilgan algo?
+[Remote]: Sí,
+[Remote]: la conciliación es la que vos viste con nuestra área de cleaning.
+[You]: Ah, ¿o para ustedes de producto no hace ninguna conciliación?
+[Remote]: No, nada. O sea, nuestra área de cleaning
+[Remote]: ¿Por qué?
+[Remote]: Porque ante la marca,
+[Remote]: quien es el adquirente, es GP.
+[Remote]: Entonces, GP, a través de lo que presenta
+[Remote]: en cada una de las marcas, va a recibir
+[Remote]: una determinada cantidad de pesos.
+[Remote]: Esos pesos
+[Remote]: son balanceados por nuestra área de clearing en base a la información que
+[Remote]: de nuestros procesos,
+[Remote]: van a recibir dos archivos y un archivo que
+[Remote]: balancea contra lo que deberían estar recibiendo las marcas,
+[Remote]: y otro archivo, que es el que van a tener que distribuir a cada uno de los agrupadores.
+[Remote]: Clearing es aquel
+[You]: Clarísimo.
+[Remote]: quien lleva todo este tipo de gestión, ¿no?
+[You]: Perfecto. Ahora, entonces,
+[You]: los agrupadores,
+[You]: o sea, esto sería una propuesta, para el agrupador, para que pueda conciliar
+[You]: mejor el archivo que recibe contra su extracto bancario y después hacer los payout.
+[Remote]: Ah, claro, a eso apuntaba.
+[Remote]: En nuestra parte, quien va a obtener una propuesta de valor
+[Remote]: a partir de la integración que tengamos con ustedes,
+[Remote]: en nuestro sector de clearing.
+[Remote]: Pero el peso específico
+[Remote]: me da la impresión que va a ser también poder
+[Remote]: brindárselo a al agrupador.
+[You]: Y esto es algo que
+[Remote]: El tema, no nos olvide,
+[You]: Perdón, perdón.
+[Remote]: Ah, no nos olvidemos
+[Remote]: esto es a título de comentarios, que que seguramente
+[Remote]: cada uno de los agrupadores ya están trabajando con dashboard
+[Remote]: propio,
+[Remote]: para poder gestionar todo el tipo este de liquidaciones, ¿no?
+[You]: Sí.
+[Remote]: Antonio. Sí, decime.
+[Remote]: Te hago una pregunta, estos archivos, el ocho mil quinientos uno, ocho mil quinientos cuatro,
+[Remote]: el t tres mil, ocho mil quinientos diez, ¿qué son archivos que ustedes
+[Remote]: les envían a los agrupadores.
+[Remote]: Nosotros le enviamos a los a los agrupadores mediante
+[Remote]: transmisión, mediante SFTP.
+[Remote]: Perfecto. Esos archivos, el proceso de generación y constatación que
+[Remote]: estén ok,
+[Remote]: ¿cómo lo están haciendo hoy? No, es automático,
+[Remote]: a través de... ¿Cómo es?
+[Remote]: Del de de nuestro de nuestros procesos, ¿no?, de lo que tenemos
+[Remote]: en sistema.
+[Remote]: O sea, no se olvide que información.
+[Remote]: Te no no olvidemos que cuando vos generás, o sea,
+[Remote]: cuando yo genero una compra, o sea, con un comercio genero una compra,
+[Remote]: queda registrada en nuestra plataforma, en nuestras bases de datos,
+[Remote]: y, a partir de eso, sale en sale
+[Remote]: en función de lo que nosotros
+[Remote]: transmitimos, la marca en ese momento
+[Remote]: si hay datos que no, que en ese momento salen rechazados,
+[Remote]: saliendo informado en ese
+[Remote]: momento, en la transmisión, si hay un dato que está mal configurado y demás,
+[Remote]: y después de eso, a la mañana,
+[Remote]: cuando vos recibís
+[Remote]: la información, nuestro aplicativo,
+[Remote]: está diciendo que
+[Remote]: machea lo que se ha mandado para verificar que no se haya
+[Remote]: rechazado nada, ¿no? Y en función de eso,
+[Remote]: en que se envía la información.
+[Remote]: Clarísimo.
+[Remote]: Es muy difícil
+[Remote]: no no quisiera decir, ¿no?
+[Remote]: La diferencia es que se
+[Remote]: a veces se producen es porque se chipoteó algo,
+[Remote]: pero no hay, o
+[Remote]: se implementó algo nuevo y de repente
+[Remote]: estás trabajando con o estás redondeando donde
+[Remote]: o trabajas con más decimales de lo que viene la información,
+[You]: Sí.
+[Remote]: o viceversa.
+[Remote]: Pero
+[Remote]: y bueno, y después el peso mayor,
+[Remote]: lo tiene nuestra área de cleaning. ¿Por qué? Porque nosotros, o sea, el
+[Remote]: sistema le va a dar al área de cleaning
+[Remote]: un par de archivos,
+[Remote]: donde le va a decir,
+[Remote]: estos valores son los que estás, lo que debes
+[Remote]: de la marca,
+[Remote]: y, a partir de ahí, estas son las distribuciones que tenés que hacer
+[Remote]: con los distintos agrupadores.
+[You]: Carissimo.
+[Remote]: A men a men de que, bueno, después va a
+[Remote]: se generan activaciones para Coelsa,
+[Remote]: para que pueda depositar los fondos
+[Remote]: en nuestros bancos pagadores que esos bancos pagadores le paguen a los
+[Remote]: y para que después el agrupador pueda retirar esos fondos
+[Remote]: y distribuirlos
+[Remote]: y abonarles a los a los a los subcomercios.
+[Remote]: No, la la idea acá es tener, perdón,
+[You]: Clavicement.
+[Remote]: Ignacio, dos
+[Remote]: dos caminos. Uno es el servicio para el área interna de GPI,
+[Remote]: que es la reunión que tuvimos el viernes, y la idea ahora de esta reunión con producto es de cara
+[Remote]: a, justamente, generarle un valor agregado a nuestros clientes.
+[Remote]: Ya sea adquirentes o emisores, o sea, poder ofrecer este servicio para que los clientes puedan conciliar sus archivos con sus propios archivos internos o con sus sus sus cuestiones o... Entonces, es con la, como vos vos bien dijiste, Ignacio, esto es de cara al cliente, para generarle un valor agregado y que pueda adquirir este
+[Remote]: servicio. Entonces, la idea es que el equipo de producto les pueda contar
+[Remote]: justamente, los dolores que tienen y cómo
+[You]: El cliente acá sería el agrupador.
+[Remote]: imaginan el servicio y demás.
+[Remote]: Ahí
+[Remote]: El cliente es el agrupador O el comercio directo.
+[Remote]: En en adquirencia,
+[Remote]: el cliente sería nuestro agrupador,
+[Remote]: y los clientes directos que tenemos.
+[You]: Perfecto.
+[Remote]: Que son, en el caso nuestro, deben ser dos o tres que tenemos hoy día.
+[Remote]: Entonces, son más o menos eso, dos, en... ¿Cómo, cómo?
+[You]: ¿Esos dos o tres?
+[Remote]: No, que son más o menos veinte agrupadores y dos clientes directos.
+[Remote]: Hoy en día, creo que sí, tenemos más, pero todos están en en proceso de
+[Remote]: de
+[Remote]: ¿Cómo es?
+[Remote]: Después de base y demás, pero los que están trabajando,
+[Remote]: Sí, independientemente,
+[Remote]: de nuestros
+[Remote]: adquirentes puros, a los cuales nosotros le efectuamos
+[Remote]: el proceso, ¿no?
+[Remote]: Pero eso ya
+[Remote]: si son adquirentes tipo Galicia,
+[Remote]: tipo bancolación transporte, tipo
+[Remote]: empresas que tenemos en Uruguay, demás.
+[Remote]: Ahí estamos como procesadores de información.
+[Remote]: Ellos son adquirentes
+[Remote]: y, bueno,
+[Remote]: liquidan ellos
+[Remote]: a través de la información recibida y demás, ¿no?
+[You]: Yo tengo una pregunta, ¿y qué tanto conocen
+[You]: sobre el dolor
+[You]: de los clientes de ustedes con las conciliaciones específicamente? Y si nos pueden contar un poquito más de
+[You]: eso. No sé si con algún agrupador tengan una relación muy cercana, que todo el tiempo, todas las semanas o meses les esté diciendo
+[Remote]: No, te te te digo, no te
+[Remote]: por eso te comentaba, honestamente,
+[Remote]: si salen cosas son muy esporádicas,
+[Remote]: Porque por
+[Remote]: el nivel de, o sea, no no no tenemos fechazos.
+[Remote]: En en lo que es la parte de
+[Remote]: procesamiento y demás, y puede haber
+[Remote]: como ocurrió, iba a ocurrir y demás, es que
+[Remote]: o con nosotros o la marca, por ejemplo, les tiro un caso,
+[Remote]: hay un fee de riesgo, el fee de riesgo se utiliza
+[Remote]: en lo que es
+[Remote]: operaciones de
+[Remote]: de cuota.
+[Remote]: El fee de riesgo es una es
+[Remote]: un arancel, ponerle de una manera, que cobra el emisor,
+[Remote]: cuando operan cuotas, operan cuotas financiadas.
+[Remote]: Es, todo es en pesos, bueno.
+[Remote]: Hace diez días, Mastercard, eso fui collection,
+[Remote]: lo generó en dólares, en lugar de pesos.
+[Remote]: O sea, cuando me, nos descuentan a nosotros,
+[Remote]: para poder pagarle al emisor,
+[Remote]: y surge diferencia y salta en clearing,
+[Remote]: che, me estás cobrando diez dólares,
+[Remote]: y yo no tengo operaciones en dólares, las tengo en peso, y me están faltando
+[Remote]: no me lo estás me estás no me estás descontando estos mil quinientos pesos,
+[Remote]: en pesos.
+[Remote]: Tenemos que generar un un ticket hacia las marcas y decirle,
+[You]: Sí, sí, sí.
+[Remote]: che, mirá, y, bueno, y todavía lo están resolviendo, fue un error de ellos.
+[You]: Creo, sí,
+[Remote]: Perfecto.
+[You]: creo que acá,
+[Remote]: O sea, ¿qué qué?, digamos,
+[You]: o sea, no no sé,
+[Remote]: comprendo lo que me estás diciendo, Ignacio, es,
+[Remote]: no no tenemos, o sea,
+[Remote]: información de
+[Remote]: los clientes de, che, mirá, estoy teniendo quilombo siempre.
+[Remote]: Para el balanceo y demás, no, no.
+[Remote]: Pero justamente por lo que le estaba comentando,
+[Remote]: trabajan
+[Remote]: con dashboard propio,
+[Remote]: donde
+[Remote]: todo este tipo de información
+[Remote]: la sacan.
+[Remote]: A partir de los
+[Remote]: de la generación de archivos que nosotros enviamos.
+[Remote]: No trabajamos con archivos especiales
+[Remote]: demandados por el cliente,
+[Remote]: ¿ok?
+[Remote]: Tenemos estos cuatro o cinco archivos que lo ponemos al a un
+[Remote]: a disposición del cliente, y el cliente decide
+[Remote]: si trabaja con uno o trabaja con otro, si trabaja con todos.
+[Remote]: Por ejemplo,
+[Remote]: tenemos agrupador, que tenemos
+[Remote]: un un adquirente en Uruguay,
+[Remote]: que nosotros
+[Remote]: mandamos los cuatro o cinco archivos que recibió una un adquirente,
+[Remote]: y ellos realmente le dan y ellos realmente le dan póliza a
+[Remote]: uno solo, que es el ocho mil quinientos cuatro, que es
+[Remote]: fiel reflejo de lo que es una liquidación
+[Remote]: que va a tener que efectuarle a cada uno de sus comercios.
+[Remote]: Ese ese adquirente trabaja con comercio.
+[Remote]: Con comercio, porque ese adquirente puro trabaja con, no trabaja con agrupadores.
+[Remote]: Galicia,
+[Remote]: nave, por ejemplo, no no recibe el ocho mil quinientos diez.
+[Remote]: Trabaja con otro.
+[You]: Sí, sí.
+[Remote]: O sea, ¿por qué? Porque porque si
+[Remote]: no obstante de que vos le estés brindando la información que corresponda, él
+[Remote]: asume que con uno de lo que nosotros le mandamos, que
+[Remote]: tiene información y que puede llegar a balancear Sí.
+[You]: Sí, puede cruzar y, sí, lo lo puede hacer cuadrado.
+[Remote]: Exactamente, cruzar y y y y listo.
+[You]: Sí, sí.
+[Remote]: Dice, para, o sea, lo lo recibe porque es información adicional que
+[Remote]: tener ante cualquier circunstancia, pero lo resuelve por otro lado.
+[You]: Sí, sí, sí. Ahí,
+[You]: siendo consciente del tiempo de que nos quedan diez minutos, no sé si alguien
+[You]: nos nos quiere hablar un poco más del lado de misión, que calculo que por ahí será un poco distinto,
+[You]: la la necesidad conciliatoria de de los clientes,
+[Remote]: Quedó Sophie?
+[You]: o no
+[Remote]: Tony, ¿y sí tuvo que bajar? ¿Le puedes comentar a vos?
+[Remote]: Cómo es el lado de la misión?
+[Remote]: Bueno, ver la de misión, hace bastante que no estoy.
+[Remote]: Pero es la contraposición de lo que es
+[Remote]: es la contraposición de lo que es adquirencia.
+[Remote]: El tema es que, en este momento,
+[Remote]: no sé qué cantidad de clientes tenemos
+[Remote]: a los cuales
+[Remote]: funciona exactamente al revés.
+[Remote]: Vos vas a recibir
+[Remote]: El IPM. O el CTF de de de Visa o Master,
+[Remote]: a través del cual te están pidiendo transferirle
+[Remote]: fondos
+[Remote]: para que el adquirente
+[Remote]: mandarle al adquirente, y el adquirente pueda pagar a sus a sus comercios.
+[Remote]: Y hoy en día,
+[You]: Perfecto.
+[Remote]: cuando yo, hacia a Niares, estaba en emisión,
+[Remote]: También creo que es uno o dos clientes, uno o dos
+[Remote]: archivos que deben estar recibiendo, ya perdí la numeración y demás,
+[Remote]: que las dos verticales acá están separadas.
+[Remote]: Donde
+[Remote]: a través de la información recibida de la marca,
+[Remote]: vos, lo que hacés es es
+[Remote]: consumir el débito al cliente, porque previamente
+[Remote]: lo que hacés es es como retenerle fondos
+[Remote]: ese consumo, y cuando viene la presentación, de de
+[Remote]: del adquirente, y vos lo recibís a través de la marca,
+[Remote]: ejecutás el proceso de débito
+[Remote]: ahí en ese momento se hace de forma eficiente.
+[Remote]: Ya está retenido, pero es como que ya lo, y bueno, a partir de ahí generas
+[Remote]: los archivos que
+[Remote]: hay que enviarle acá al
+[Remote]: para que sepa lo que le está debitando
+[You]: El cliente ahí es
+[Remote]: Cuando te referís al cliente, ¿es qué?
+[You]: Claro, que sufre la conciliación. Acá no entiendo si es el adquirente
+[You]: al cual le estás mandando el dinero y le tenés
+[Remote]: No, acá acordate,
+[Remote]: No, acá es es aviso master, quien a mí me debita
+[Remote]: por todos los que nuestros emisores que pueden ser
+[Remote]: todos los que tenemos, Piza te dice,
+[Remote]: te débito
+[Remote]: cien mil pesos
+[Remote]: correspondiente a todos estos
+[Remote]: movimientos.
+[Remote]: Esos cien esos cien mil pesos
+[Remote]: Visa,
+[Remote]: los envía a cada uno de los adquirentes
+[Remote]: porque lo que hace Visa es
+[Remote]: concilia todos los
+[Remote]: IPMs y el jefe recibido de cada uno de los adquirentes,
+[Remote]: y envía a cada banco con la información correspondiente.
+[Remote]: De cada ICA a decir,
+[Remote]: me tenés que pagar diez, veinte, treinta, cien pesos, dos mil pesos importe que fuere,
+[Remote]: para que ellos puedan pagarle a
+[Remote]: adquirente correspondiente y que ese adquirente
+[Remote]: pueda pagarle al al comercio.
+[You]: ¿Y ustedes, como emisor, le generan un archivo? Al que está emitiendo esa tarjeta,
+[Remote]: Yo creo que está en...
+[Remote]: Sí.
+[Remote]: No, le generamos, sí,
+[Remote]: un archivo a quién a quién, a a a nuestro emisor, ¿no?
+[You]: Sí, exacto. Y el visor,
+[Remote]: A a al emisor que está pasando con con
+[You]: Claro, y y, entonces, el emisor
+[You]: tiene una necesidad conciliatoria con archivos de g p.
+[Remote]: Exactamente.
+[Remote]: Lo mismo que hacés del lado de agrupador, lo
+[Remote]: se le envían archivo, en estos momentos
+[Remote]: bueno, los chicos de misión, bueno, justo se tuvieron que bajar,
+[Remote]: son los que te pueden decir mirar.
+[Remote]: De, no es cada uno de nuestros emisores recibe uno o dos archivos.
+[You]: Okay.
+[Remote]: Que uno debe ser lo que recibe de presentación y otro debe ser
+[You]: Liquidación.
+[Remote]: la liquidación, la
+[You]: Sí, sí, sí, sí, sí. Bueno, entonces, clientes finales,
+[You]: que se verían beneficiados
+[You]: de que Global Processing tenga una herramienta de conciliación,
+[You]: que ofrece dentro de su portal o con algún tipo de acuerdo
+[You]: serían los agrupadores y las otras patas de adquirencia con algunos
+[Remote]: No, no, claro, de nuestro de nuestro lado es
+[You]: conexiones directas,
+[You]: Y los emisores,
+[Remote]: si el, claro, si el agrupador nuestro
+[Remote]: ojo, estamos hablando independientemente
+[Remote]: de que tengamos una herramienta en nuestro tipo de clearing,
+[You]: Sí, sí, no, esto es esto es producto a cero clientes.
+[Remote]: que ustedes ya hablaron, independientemente de eso,
+[Remote]: bueno, esta esta herramienta puede ser.
+[Remote]: Útil,
+[Remote]: para nuestros agrupadores,
+[You]: Correcto. Y los
+[Remote]: siempre y cuando no tengan o le encuentren mayor
+[Remote]: beneficio a la herramienta esta que están ofreciendo ustedes,
+[Remote]: de las que están actualmente en uso.
+[Remote]: Y
+[You]: Clarísimo, clarísimo.
+[Remote]: del lado de emisor a nuestros emisores.
+[Remote]: ¿Ok?
+[You]: Bueno, ahí
+[You]: creo que
+[You]: no sé, María la corregime, pero creo que queda un poquito de
+[You]: por hacer,
+[You]: con ya sea agrupadores o emisores,
+[You]: para meternos verdaderamente en el detalle, así como hicimos con finanzas y con cleaning la semana pasada,
+[You]: entender el dolor de ellos, y qué tanto dolor se atribuye a que global processing
+[You]: no le pasa a los archivos, no sé, que necesita o
+[You]: necesita información adicional, o o cómo es el dolor conciliatorio de esos clientes.
+[You]: Ese es el punto.
+[You]: Son todos distintos, entonces no sé si ahí
+[Remote]: Totalmente totalmente de acuerdo.
+[You]: ustedes tienen
+[You]: ustedes no sé si ahí tienen muy buena relación
+[You]: con algún agrupador,
+[You]: o con algún emisor en particular,
+[You]: donde se puede usar como sandbox
+[You]: para testear, o para por lo menos sentarnos y aprender y escuchar realmente los dolores,
+[You]: y ver si es es un buen fit para ese caso de uso,
+[You]: o no.
+[Remote]: Ahí, Mary, lo que hay que ver es
+[Remote]: en el área comercial de Sí, lo lo veo claro.
+[Remote]: Qué cliente de mejor contacto tengamos como para ver
+[Remote]: si efectivamente, che, podemos tener un approach
+[Remote]: y hacer una una conversación tripartita, como decir,
+[Remote]: qué tenés, cómo procesás, qué de qué acceso dejás de hacer,
+[Remote]: y ver si la herramienta de aquí le puede hacer.
+[Remote]: Sí, lo voy a charlar con Nico, a ver cómo quiere avanzar y y
+[Remote]: ver esta situación. Dale. La idea de esta reunión era un
+[Remote]: escucharlos a ustedes, bueno, desde adquirencia, emisión, justo se
+[Remote]: se tuvieron que bajar. No sé si iban a hacer alguna demo de la
+[Remote]: de la aplicación, pero bueno, igual ya ya no nos da el tiempo.
+[Remote]: Pero me llevo para ver esto con Nico y
+[Remote]: Ignacio, a ver si si hay posibilidad de ustedes
+[Remote]: quieren como escuchar directamente al cliente.
+[You]: Y nos encantaría, porque creo que
+[You]: también no entendemos muy bien sus necesidades conciliatorias,
+[You]: y ni cómo lo están haciendo hoy. Antonio mencionó que ya tienen dashboards, pero ahí ya tienen algo
+[You]: Entonces, creo que falta
+[You]: ir a a la trinchera a ver los clientes qué les está doliendo y ver
+[You]: y después volviendo con ese aprendizaje entender qué queremos estructurar juntos a nivel producto, ¿no?
+[Remote]: Mary, ¿ahí sería...? ¿Vos decís Nico o sería con David?
+[Remote]: Bueno, voy a hablar con Nico primero, es el sitio de
+[Remote]: Bien. Pero llegado manejar...
+[Remote]: El tema central. Sí, sí, llegado el caso de querer avanzar, sí,
+[Remote]: algún cliente, sí, es el área comercial, que es Exacto. David, el el head.
+[Remote]: Sí, sí.
+[Remote]: Bien, perfecto.
+[Remote]: Así que, bueno, lo lo veo con Nico y vuelvo
+[Remote]: vuelvo con ustedes para ver pasos a seguir.
+[You]: Vale, bueno, un gusto a todo el resto que
+[Remote]: Espectacular.
+[Remote]: Genial.
+[You]: hoy y y nada, encantado de seguir en la conversación.
+[Remote]: Bueno.
+[Remote]: Bueno, genial, estamos en contacto. Gente. Muchas gracias. Hasta luego. Hasta luego.
+[Remote]: Chao, Chao, chao.
+
+============================================================
+SUMMARY
+============================================================
+### Global Processing Adquirencia Overview
+
+- Antonio Tunno - Product Owner de Adquirencia
+- Works with agrupadores (aggregators), not direct merchants
+- 20 agrupadores managing approximately 250,000 sub-comercios
+- GP liquidates to agrupador, agrupador liquidates to each sub-comercio
+- Agrupadores work with their own proprietary dashboards
+
+### Daily Process Flow
+
+- End of day: GP sends presentations to card brands
+  - IPM to Mastercard
+  - CTF to Visa
+- During interim: Generate files for agrupadores
+  1. 8501 (2, 3, and 4) - payment summary files
+  2. P300 - presented transactions
+  3. 8510 - electronic liquidation
+  4. COELSA file for payment processing
+- Morning: Receive IPM/CTF responses from brands
+- Agrupador receives payment and distributes to sub-comercios
+- Only 2 direct merchant clients currently
+
+### Reconciliation Pain Points & Opportunities
+
+- “Si salen cosas, son muy esporádicas” - issues are sporadic
+- No significant processing rejections currently
+- Agrupador faces biggest challenge with tax complexity across different jurisdictions
+- Emisión side works in reverse: receives IPM/CTF and sends funds to acquirers
+- Potential value-add service for GP clients (both agrupadores and issuers)
+- Need direct client conversations to understand specific reconciliation pain points
+
+### Next Steps
+
+- Mariela to discuss with Nico about client approach possibilities
+- Explore tripartite conversations with agrupadores/issuers
+- Commercial team (David) involvement for client engagement
+- Understand current dashboard capabilities vs. potential Rexi integration
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/7d63d470-d07c-4057-b8e9-15c33da39614](https://notes.granola.ai/t/7d63d470-d07c-4057-b8e9-15c33da39614)

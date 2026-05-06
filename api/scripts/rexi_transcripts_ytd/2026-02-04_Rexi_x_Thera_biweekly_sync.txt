@@ -1,0 +1,380 @@
+MEETING: Rexi x Thera [biweekly sync]
+DATE: 2026-02-04
+ID: not_TwC00VHi0WdS7D
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Teo <teo@rexi.finance>, Aashish <aashish@getthera.com>, Akhil Reddy <akhil@getthera.com>
+SCHEDULED: 2026-02-04T11:00:00-05:00 - 2026-02-04T11:45:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: And I'm not taking it.
+[Remote]: Do do you mind
+[You]: How are you doing?
+[Remote]: do you mind if I record the
+[Remote]: the meeting? Because it it can get quite technical. I I wanna I wanna make sure
+[Remote]: that I get everything alright.
+[Remote]: Actually, on the technical side, like, changes are not live.
+[Remote]: So
+[Remote]: yesterday, like, we are doing some reconciliation on our side.
+[Remote]: So things didn't like I could I couldn't, like, get a review.
+[Remote]: And release yesterday.
+[Remote]: Alright. So we are doing some other stuff. So they have been, like,
+[Remote]: couple of team members which are on holiday.
+[Remote]: So things got delayed.
+[Remote]: Alright.
+[Remote]: I can share you the secret. I have that ready.
+[Remote]: And, also, what I'm gonna implement, I can show you
+[Remote]: in the ledger side also.
+[Remote]: So that is also
+[Remote]: done
+[Remote]: So right now, I believe we are capturing our invoice payment step one of two. Right?
+[Remote]: Four pains. Exactly.
+[Remote]: So in the metadata, you will be reading payment ID. Right?
+[Remote]: I believe.
+[Remote]: We are in the
+[Remote]: metadata, we are checking. Yes. Exactly.
+[Remote]: Payment ID. Right? Then you refer that payment ID into other Stripe or
+[Remote]: TP.
+[Remote]: Exactly.
+[Remote]: Yeah. So
+[Remote]: I I will I am sharing you the secret.
+[Remote]: To our
+[Remote]: our Skype revenue account.
+[Remote]: Mhmm.
+[Remote]: So from there, you will be able to, like, read the transactions on our
+[Remote]: Stripe account.
+[Remote]: Perfect.
+[Remote]: And just give me a moment. I will just DM in the DM it here.
+[Remote]: Just second.
+[Remote]: And
+[Remote]: I'm sharing it to the chat.
+[Remote]: I think you will be able you you will be able to print only ones.
+[Remote]: So make sure you copy, and I can resell it again to you.
+[Remote]: Perfect. I won't I won't reveal it yet.
+[Remote]: Okay.
+[Remote]: These are the credentials to log in the new account on Stripe. Right?
+[Remote]: Yeah.
+[Remote]: Yes. So, basically, NTP
+[Remote]: you get platform platform
+[Remote]: and, like, revenue.
+[Remote]: In the same dashboard, within the same account?
+[Remote]: But this type, we have, like, subaccounts.
+[Remote]: This this is the key for reading our
+[Remote]: platform fees or, like, a revenue fees.
+[Remote]: In in another Stripe account.
+[Remote]: Perfect. That you can read it.
+[Remote]: And let me share the structure.
+[Remote]: So right now,
+[Remote]: I believe Do you mind if I record the meeting now?
+[Remote]: That I can see the structure in the future?
+[Remote]: Yeah. Or I can, like,
+[Remote]: DM in the Slack as well. It's both are fine.
+[Remote]: Alright. That's it.
+[Remote]: Now now we're recording.
+[Remote]: Okay. So
+[Remote]: cool.
+[Remote]: So right now, I believe you are reading these metadata.
+[Remote]: You're not sharing screen yet.
+[Remote]: You able to see my screen?
+[Remote]: Yep.
+[Remote]: So I believe, like, you are getting this invoice payment step one of two. Right?
+[Remote]: Yes.
+[Remote]: So from there,
+[Remote]: you get the payment ID.
+[Remote]: And the main type.
+[Remote]: Exactly. Time.
+[Remote]: You are basically going to TP
+[Remote]: Exactly. Instrument ID. Right?
+[Remote]: Mhmm.
+[Remote]: So here, I will basically attach one or even new payment ID.
+[Remote]: And that will be, like, it will point to the another
+[Remote]: it will it's very simple.
+[Remote]: And
+[Remote]: so, basically, you need to sum
+[Remote]: both of these ASH IDs.
+[Remote]: And
+[Remote]: Perfect.
+[Remote]: And that's it again, like, total amount here. We will have 10 symbols.
+[Remote]: We have on metadata, we will have both
+[Remote]: the principal and the revenue. Right?
+[Remote]: Yeah. It's the payment ID and the revenue payment ID.
+[Remote]: So Revenue payment ID. Alright. Perfect.
+[Remote]: So then, basically,
+[Remote]: basically, I'll let what I implemented is
+[Remote]: so in our ledger,
+[Remote]: Mhmm.
+[Remote]: We have this
+[Remote]: so this is, like,
+[Remote]: invoice payment credit.
+[Remote]: Then we have these debits. So this is our platform fee.
+[Remote]: Perfect. And then this is our
+[Remote]: fixed fee, basically.
+[Remote]: So
+[Remote]: what we are doing right now
+[Remote]: are basically summing this 75 and five.
+[Remote]: Into one ECH.
+[Remote]: Charging it separate.
+[Remote]: And then this is our contractor payment.
+[Remote]: And that's what we are doing, but I will I think, like, this will be easier for you.
+[Remote]: If I just attach it here. Yeah. Yeah. That's gonna be easier.
+[Remote]: Yeah. And, Raj, like, have to read these debits as well.
+[Remote]: I think it will make your life, a bit tricky.
+[Remote]: Mhmm.
+[Remote]: Or you want it here, I can do both.
+[Remote]: Right now what I implemented,
+[Remote]: I implemented them here in the debits, but I think
+[Remote]: this will be a little bit harder for you, right, to read
+[Remote]: these transactions.
+[Remote]: Yeah. We are right now filtering out
+[Remote]: only step one for the source.
+[Remote]: So we can, yeah, keep it here.
+[Remote]: Yeah. So, basically, Mike was there. So he
+[Remote]: I mean, he left last week.
+[Remote]: Mhmm. So
+[Remote]: he's so, basically, he's state, like, to implement it in this way.
+[Remote]: It will be easier for you.
+[Remote]: Perfect. I think
+[Remote]: it will be easier for you to implement this way.
+[Remote]: So that is one thing.
+[Remote]: And on the metadata side, at the local, I'm able to, like, implement
+[Remote]: what are, like, initiated from our platform.
+[Remote]: But in wise,
+[Remote]: I don't see any way
+[Remote]: in the APIs.
+[Remote]: Which, like, I can pass any metadata.
+[Remote]: Alright.
+[Remote]: I don't think
+[Remote]: wise you we will be able to cover.
+[Remote]: Okay. And so what can we do on wise?
+[Remote]: But there there is, like, one way.
+[Remote]: So
+[Remote]: in contractor accounts,
+[Remote]: let's say,
+[Remote]: you are able to see. Right?
+[Remote]: Yep.
+[Remote]: So let's say
+[Remote]: So in the metadata of workers,
+[Remote]: you will have a, like,
+[Remote]: transfer device and transfer ID
+[Remote]: will be here.
+[Remote]: Okay.
+[Remote]: I think, like, for payouts are you doing type payouts. Right?
+[Remote]: Yep.
+[Remote]: So, basically, you need to filter.
+[Remote]: Transfer type wise Yeah. Transfer ID.
+[Remote]: Transfer ID. Alright. Perfect. Basically, we need transfer IDs in in our ledger.
+[Remote]: Yep. Perfect. We I mean, initiated for our our platform, Alex.
+[Remote]: Like, from our code.
+[Remote]: That will match the transaction wise.
+[Remote]: Yes. This transfer ID. Yes. It's Perfect. And what we had was
+[Remote]: a v
+[Remote]: manual payouts
+[Remote]: download wise? Off platform. Yes. Off platforms. Basically,
+[Remote]: these those those, like, this manual payouts won't be in the ledger.
+[Remote]: They won't be They won't be there. Perfect.
+[Remote]: Got it. Yes. So that's, like, thing that you can do.
+[Remote]: To match transactions and wise.
+[Remote]: Code d local.
+[Remote]: I think we also have this transfer type and
+[Remote]: quote ID.
+[Remote]: And that is also there.
+[Remote]: Yeah.
+[Remote]: So right now, how are you matching?
+[Remote]: I'm curious.
+[Remote]: For transactions and wise, how are you matching right now?
+[Remote]: Right now for Wise, let me open the reconciliation.
+[Remote]: More than like pointing the
+[Remote]: dashboard link? I I don't think I I got added. I was using mics. I'm just
+[Remote]: I'll show it now.
+[Remote]: Let me
+[Remote]: so, basically,
+[Remote]: let me share screen.
+[Remote]: I think I should stop.
+[Remote]: This is our
+[Remote]: voice
+[Remote]: and bond treasury ledger reconciliation.
+[Remote]: And Okay. We are using from the
+[Remote]: monetary account, we're using transfer ID.
+[Remote]: And
+[Remote]: from Wise, we're using just ID.
+[Remote]: I think, yes, that's the that's the thing you are already implemented.
+[Remote]: Perfect. Yeah. This is what we are doing right now.
+[Remote]: Yeah. So it's it's already there. I don't think you need to do anything here.
+[Remote]: Okay. Perfect. Actually, this is what the results are.
+[Remote]: I think you're getting the results daily on
+[Remote]: daily via
+[Remote]: Slack. Right?
+[Remote]: You you you do see those.
+[Remote]: Alright. That's correct. So here,
+[Remote]: most of the transactions on Wise are getting reconciled. This is total transactions
+[Remote]: match transactions. So yesterday, for example, we match a 100% of the transactions.
+[Remote]: And then match transactions, zero.
+[Remote]: Where we do sometimes see differences
+[Remote]: is on the y side,
+[Remote]: It's very manual. Right?
+[Remote]: Not very Those are the manual movements. Yes.
+[Remote]: It's curious. Like, I see
+[Remote]: 190 in one day. Right?
+[Remote]: Someday.
+[Remote]: One ninety five was not matched in my sites.
+[Remote]: Let me go back, in the right side.
+[Remote]: The right hand side.
+[Remote]: Can you go to one page? Yeah. What is this?
+[Remote]: Unmatched one ninety five.
+[Remote]: This is from actually, this is two days ago.
+[Remote]: And two days ago, there was
+[Remote]: something
+[Remote]: that happened
+[Remote]: that
+[Remote]: we had
+[Remote]: more or less the same number of transactions
+[Remote]: both on mall and treasury
+[Remote]: and on Wise.
+[Remote]: And half of those
+[Remote]: did not match. Do you know what might have happened?
+[Remote]: No. Actually, it's I've been
+[Remote]: that is pretty huge. Right?
+[Remote]: Yep.
+[Remote]: Tends to be, like,
+[Remote]: zero one or
+[Remote]: on the other side, three. And suddenly, on
+[Remote]: February 2, we had
+[Remote]: around half.
+[Remote]: Can you, like, send me this report? Possible to send it Yes. On my side.
+[Remote]: Yep. Only y Y site? Yes. I'll send you Yes.
+[Remote]: I'll send you these a hundred 95 that need did not match.
+[Remote]: Correct. Yes. That makes sense. Perfect. And, also, for the local, what are you doing, Rick?
+[Remote]: For the local,
+[Remote]: we
+[Remote]: let me open it.
+[Remote]: D local here.
+[Remote]: Edit.
+[Remote]: We've got a monetary ledger and the local.
+[Remote]: Amount
+[Remote]: And we are using the local
+[Remote]: cash out ID. Yes. This is I think this is all also set.
+[Remote]: You're need to do that. DLogal transaction ID.
+[Remote]: Yes. Correct.
+[Remote]: Perfect.
+[Remote]: This is good.
+[Remote]: Perfect.
+[Remote]: So I think why then the local
+[Remote]: like already set?
+[Remote]: I will just try to, like, release and get a review on this minor change.
+[Remote]: So
+[Remote]: yeah, for today, think you can just try to set up this account.
+[Remote]: I gave you.
+[Remote]: Yes.
+[Remote]: And then some rules there.
+[Remote]: For Stripe. I think I
+[Remote]: yeah, we are very close.
+[Remote]: I just need, like, a slam working on some things.
+[Remote]: Not on this task.
+[Remote]: But, yeah, I will try to release it.
+[Remote]: ASAP once, like, the the things are done.
+[Remote]: Perfect. Like, a little bit short on people could take in the last
+[Remote]: two, three days.
+[Remote]: Fantastic. And so
+[Remote]: basically, just to be sure,
+[Remote]: we'll have two accounts on Stripe.
+[Remote]: We have, like, around around three So that is, like, you are that that is, like, completely different.
+[Remote]: Vertical, you can say.
+[Remote]: Basically, our payrolls happens only on two like, this platform fee account and just the
+[Remote]: contractor pass through account, which you already have access to.
+[Remote]: Alright. And so we will
+[Remote]: be having more information
+[Remote]: on Stripe because we will now have two accounts.
+[Remote]: Right?
+[Remote]: Yes. So, basically, for transactional Stripe also,
+[Remote]: similarly, like, on the invoice payment one of one,
+[Remote]: in the metadata.
+[Remote]: You will find the revenue
+[Remote]: payment ID.
+[Remote]: If it's there,
+[Remote]: it means, like, it is speaking to two transactions.
+[Remote]: If it is, like, not there, just resume it is, like, only one.
+[Remote]: That is the only change that you need to do on your side. Perfect.
+[Remote]: Fantastic. In the metadata, if you have the revenue payment ID,
+[Remote]: so you have to, like, trace it. Otherwise,
+[Remote]: don't trace it.
+[Remote]: Like, only one transaction is there.
+[Remote]: Okay.
+[Remote]: Fantastic. So, basically, this
+[Remote]: option is, like, not enabled for all companies.
+[Remote]: It is, like, for few companies is enabled, like, separating revenue.
+[Remote]: Okay. So it's, like, a feature we have.
+[Remote]: Right now.
+[Remote]: Okay. Perfect.
+[Remote]: I think that is all.
+[Remote]: Anything else you want to discuss?
+[Remote]: No. For for the moment, we're we're all set. Thank you.
+[You]: That's just the line. I'll I'll I'll share the next steps on on our
+[Remote]: Okay. Cool.
+[You]: channel, and we can use Slack to to collaborate and coordinate on these.
+[Remote]: Yeah. I think, like, from a side, it's
+[You]: Blockers.
+[Remote]: like, minor change I need to release.
+[Remote]: But I will try to release ASAP.
+[Remote]: And we'll let you know once it is, like, live so you can
+[Remote]: basically reconcile on your end as well.
+[You]: Amazing, Ashish.
+[You]: Thank you so much.
+[Remote]: Yeah. Thank you.
+
+============================================================
+SUMMARY
+============================================================
+op
+
+### Stripe Account Access & Setup
+
+- New credentials provided for Rexi platform fees/revenue account
+  - Separate from existing contractor pass-through account
+  - Subaccounts within same Stripe dashboard
+  - Access restricted to platform fee transactions only
+- Revenue payment ID implementation
+  - Added to metadata when invoice splits into two payments
+  - Principal payment + platform fee charged separately
+  - If revenue payment ID present: sum both transactions
+  - If absent: single transaction only
+- Feature enabled selectively for specific companies
+
+### Payment Reconciliation Updates
+
+- Invoice payment structure changes
+  - Step 1 of 2 captures payment ID in metadata
+  - Payment ID references both Stripe and third-party processors
+  - New ledger structure combines $75 platform fee + $5 fixed fee
+- Metadata implementation
+  - Platform-initiated transactions trackable in ledger
+  - Wise API limitations prevent metadata passing
+  - Manual payouts excluded from ledger entirely
+
+### Wise Transaction Matching
+
+- Current system working effectively
+  - Using transfer ID from monetary account
+  - Matching with Wise transaction ID
+  - 100% match rate achieved yesterday
+- February 2nd anomaly: 195 unmatched transactions
+  - Unusual spike from typical 0-3 unmatched
+  - Report to be shared for investigation
+- Manual movements remain untrackable
+
+### D Local Integration Status
+
+- Existing setup functional
+  - Using D Local cash out ID for matching
+  - No changes required
+- Transfer type filtering implemented for platform-initiated payouts
+
+### Next Steps
+
+- Teo: Release minor ledger changes ASAP once team capacity allows
+- Teo: Share February 2nd unmatched transactions report
+- Aashish/Akhil: Set up new Stripe account access and test reconciliation
+- Team: Coordinate implementation via Slack channel
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/a683e595-852b-4b93-810c-2087820451fe](https://notes.granola.ai/t/a683e595-852b-4b93-810c-2087820451fe)

@@ -1,0 +1,537 @@
+MEETING: Rexi x RecargaPay: product demo (round 2)
+DATE: 2026-03-31
+ID: not_QtnBbox65bBJQX
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Julieta Valles <julieta.valles@recargapay.com>, Joaquin Otaño <joaquin.otano@recargapay.com>, Victoria Alonso <victoria.alonso@recargapay.com>, Teo <teo@rexi.finance>, Bruna Gusmao <bruna.gusmao@recargapay.com>
+SCHEDULED: 2026-03-31T16:00:00-04:00 - 2026-03-31T16:45:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Me encantó lo de HD. La verdad es que, por lo menos,
+[You]: el engagement habla de
+[You]: de que hay interés.
+[Remote]: Sí, yo después te pasaba. Bruno va a estar cinco minutos tarde.
+[Remote]: Bruno, hay una parte que no quiere hacer tarde, que es que es,
+[Remote]: con el equipo así como está no puede escalar, o sea, porque ella la la
+[Remote]: es la líder del equipo que lo hace.
+[Remote]: Desde ahí medio una pugna ahí política, yo tampoco la quería dejar
+[Remote]: la conversación para tenerla enganchada del principio.
+[Remote]: Pero
+[Remote]: los archivos fallan,
+[Remote]: o sea, uno de cada cinco días, y la gran mayoría de las veces
+[Remote]: es por tema de
+[Remote]: de
+[Remote]: no no falla la ingesta
+[Remote]: entera, falla
+[Remote]: algo en el formato
+[Remote]: y ni equals ni ni symmetric,
+[Remote]: sobre todo symmetric, porque los que más fallan no son los de la tarjeta de crédito, sino los proveedores internos,
+[Remote]: tiene la capacidad para corregirlo o para proponer una
+[Remote]: solución en el momento. O sea, yo me imagino,
+[Remote]: con AI, si te te sobra un espacio, te falta un espacio, tenés alguna columna
+[Remote]: corrida, te te la vuelve a a enganchar, esto si no, perfecto, no engancha.
+[You]: Total.
+[Remote]: Hola, buenas tardes.
+[Remote]: Amigo?
+[Remote]: ¿O te digo?
+[Remote]: Todo bien, por suerte.
+[Remote]: Bueno, arranquemos nosotros, Bruno, va a llegar cinco minutos tarde.
+[Remote]: Y Juli estaba volviendo de de
+[Remote]: de buscar a los chicos en el colegio y se iba a conectar
+[Remote]: un toque más tarde, pero no queríamos perder
+[Remote]: la continuación de la de la conversación de ayer. Miku, ¿por dónde querés por dónde querés que retomemos?
+[Remote]: Mire, bueno, no sé, hay...
+[Remote]: Igual, Bruna es como la más interesada
+[Remote]: Hay una cosa, chicos, que les quería consultar es, nosotros hoy utilizamos
+[Remote]: Bueno, acá tenemos un punto importante, que es esto que mencionábamos de
+[Remote]: de equals. Equals nosotros, el beneficio que tiene
+[Remote]: que nosotros no tenemos que hacer la integración, digamos, o conseguir la información
+[Remote]: para poder hacer la conciliación, ¿no? Y nosotros
+[Remote]: tenemos todo el volumen de tarjetas de crédito que pasa por ahí y y algún otros
+[Remote]: productos que quedaron dando vueltas, y
+[Remote]: digamos, es como más
+[Remote]: complejo eso.
+[Remote]: Y nosotros lo que tenemos a través de EQS también,
+[Remote]: que utilizamos equals para evidencia de auditoría. Hoy price
+[Remote]: nos pide evidencia de nuestra del de los revenue que
+[Remote]: y nos pide ingresar al sistema,
+[Remote]: hacer un print de alguna de las órdenes, obviamente, de las muestras que nos pide,
+[Remote]: y con ese print después se lo enviamos a ellos porque lo
+[Remote]: con la información de nuestra base de datos, ¿no? Entonces,
+[Remote]: mi pregunta es, ¿existe la posibilidad de
+[Remote]: armar o o de poder visualizar en el sistema
+[Remote]: de alguna manera que no sea en tabla la información, por ejemplo?
+[Remote]: ¿Qué sería no en tabla? Hoy, por ejemplo, nosotros
+[Remote]: entramos a aparece el order ID, le das como un doble clic,
+[Remote]: es como una llave de que en temas de conciliación, y te muestra como una ventana,
+[Remote]: donde dice todos los datos de esa orden, por ejemplo.
+[Remote]: O sea, detalle de una transacción.
+[Remote]: Exacto.
+[Remote]: Hoy lo tenemos a nivel
+[Remote]: tabla,
+[Remote]: Sí. Pero generar una vista. De la transacción lo hacemos en menos de un día. Si ustedes necesitan que cuando des la información de esa de esa transacción, tal vez en qué reconciliaciones participa, y el estatus de cada reconciliación, eso lo hacemos simplemente Porque básicamente ellos lo que quieren es un formato que no pueda ser alterado, ¿no? Básicamente, si yo Perfecto. Lo saco en un formato de Excel, cualquiera le pudo haber metido mano a ese archivo o a o a ese PDF. ¿Se le comparten...? Screenshots? Hoy, mirá, hoy lo que hicimos era, eso nos llevó a un montón de trabajo, porque
+[Remote]: como cuatrocientas, quinientas muestras por auditoría, entonces, y eso lo
+[Remote]: en contra aún también. Nosotros tenemos como un framework
+[Remote]: interno que que nos muestra toda la la información con una
+[Remote]: que nos muestra toda la información de nuestra base de datos. Entonces, lo que hacemos es
+[Remote]: pusimos un RPA que ingresa, busca la orden, hace un
+[Remote]: una captura de pantalla y lo
+[Remote]: en una carpeta que tiene acceso el auditor.
+[Remote]: Entonces, lo que hacemos es, automatizamos los papeles de trabajo.
+[Remote]: Entonces eso de base, ya te lo digo,
+[Remote]: hoy no lo tenemos,
+[Remote]: en el momento en que nos digan lo necesitamos, lo hacemos, es muy fácil.
+[Remote]: O sea, es una visualización de de información que ya tenemos.
+[Remote]: Ok. No, bueno, ese era un punto importante, porque
+[Remote]: con eso tuvimos un saving de muchas horas para el equipo durante las auditorías,
+[Remote]: tenemos otras otros puntos de auditoría que ya también tenemos automatizados,
+[Remote]: entonces es algo que no me gustaría perder y además por una
+[Remote]: cuestión de que lo necesitamos sí o sí.
+[Remote]: No te preocupes por eso, porque es muy muy muy simple. Ahí lo que tendríamos que ver
+[Remote]: Cuaco, es el tema de
+[Remote]: de cómo conseguimos esos archivos,
+[Remote]: Porque vamos a hacer, nosotros los que tengamos que ir a gestionar con Ahí, ¿qué
+[Remote]: ¿Cuáles son los proveedores con los que está integrado
+[Remote]: y cuál ¿Y cuál? ¿Integro Symmetric? Es Red Card,
+[Remote]: Deadnet,
+[Remote]: PAC seguro,
+[Remote]: Y no sé si me falta alguno, Joao, ¿vos recordás otro? Porque yo hace un tiempo
+[Remote]: a alguien, no me acuerdo. Sí. Nomás.
+[Remote]: Pero estaba, no no está más, pero y no va a volver.
+[Remote]: Y ahí empieza una pregunta.
+[Remote]: ¿A Symmetric le solicitaron esa integración y le dijeron que no?
+[Remote]: No, no, no, sí, el problema es que Symmetric
+[Remote]: es muy self-service.
+[Remote]: ¿No? Entonces, nosotros podíamos recibir los
+[Remote]: archivos, que ahora no recuerdo bien, pero ellos te lo fueron manda, podíamos hacer una prueba, acá está Bruna,
+[Remote]: Bru, estábamos hablando un poco del tema, hola, ¿cómo estás? Del tema de de los adquirientes,
+[Remote]: digamos, del tema de cómo integraríamos esa parte,
+[Remote]: y que, o sea, si nosotros tuviésemos archivos, lo podemos hacer, pero cuando nosotros
+[Remote]: lo vimos para hacer en Symmetric, y me acuerdo que lo revisamos con Denis, era como que era muy complicado, porque por el formato que ellos te mandaban el archivo,
+[Remote]: había mucho trabajo del lado nuestro para poder
+[Remote]: digamos, organizar la información de una manera en que después podamos conciliarla.
+[Remote]: Corregime si me equivoco, Perfecto.
+[Remote]: Não, é isso mesmo, e acho que
+[Remote]: atraso boa tarde. Mas acho que uma das das minhas
+[Remote]: principais dúvidas era justamente saber se vocês têm essa,
+[Remote]: experiência né com os diferentes, a gente hoje trabalha com rede, gate net,
+[Remote]: e devemos implementar em breve a Cielo.
+[Remote]: É assim, é Zira. Se vocês têm essa essa, esses enfim, experiência de implementação porque, justamente quando a a gente hoje utiliza que aí é padrão bem de mercado, bem de cliente né então eles já traduzem todo o pra gente nas diversas conciliações e visões, com o Simétricas a gente chegou a estudar uma migração, eles até enfim, ofereceram o projeto pra eles desenvolverem por lá, mas de fato a complexidade de tanto fazer a conciliação transacional e financeira ela é bastante grande. Então é entender pouco dessa visão como ficaria na na ferramenta hepsi. Perfecto. Nosotros trabajamos con Cielo,
+[Remote]: no vimos grandes complejidades
+[Remote]: la forma en que mandan la información,
+[Remote]: Me encantaría después, si ustedes Ok. Podemos hacer una
+[Remote]: sesión de trabajo o o ver exactamente qué es lo que les está doliendo
+[Remote]: de hacerlo con Symmetric,
+[Remote]: que no les duele con equals,
+[Remote]: porque nosotros, al menos en la experiencia que tuvimos hasta ahora, con Zero no no no hubo ningún
+[Remote]: ningún problema.
+[Remote]: Te digo. ¿No nos duele conicuas?
+[Remote]: Porque la parametrización la hace el agente de equals si no la hacemos nosotros. Esa es la que sea de tus archivos. La otra es, ellos tienen el contacto con el cliente, el cliente le manda la información a ellos, ellos la estructuran y la cruzan automáticamente con nuestra información. Perfecto. Clarísimo.
+[You]: No, o sea, digo,
+[You]: nivel conceptual,
+[You]: no es rocket science lo que está haciendo equals, por ahí, en su momento, sí lo era,
+[You]: pero ahí
+[You]: lo nuestro, hacer una arquitectura AI native, es muy flexible, es muy
+[You]: para entender cualquier lógica y cualquier parametrización que haya que hacer, ¿no?
+[You]: Justamente por eso, está construido de esa manera
+[You]: AI native, tenemos agentes que están entrenados para
+[You]: archivos de mi tarjeta de crédito, de adquirencia,
+[You]: Por ahí trabajamos con Cielo, pero no no con las otras, justo con PagSeguro estábamos en conversaciones,
+[You]: pero sí trabajamos con adquirentes y Procesadores Acá En Argentina y en Estados Unidos.
+[You]: Con lo cual
+[You]: obviamente, son a veces lógicas distintas,
+[You]: y parametrizaciones distintas, pero hay mucho
+[You]: patrón en común, y y la manera en la que operan estos profesores adquirentes suele
+[You]: suele ser bastante similar. Y, having said that, de igual manera,
+[You]: al ser AI native nos da la capacidad para atajar cualquier tipo de parametrización
+[You]: cualquier tipo de transformación, ¿no?, porque nuestros agentes encuentran patrones y son muy buenos para
+[You]: para hacer ese preprocesamiento, y después el procesamiento para
+[You]: para matchear transacciones. Después, lo que sí, por ahí, hay que revisar y entrar en detalle, y por ahí valga la
+[You]: hacer una sesión de trabajo.
+[You]: Es esa parte de Price que me que mencionaste, Vicky.
+[You]: ¿Cuál es eso que necesitan? Porque también me parece un punto dolor enorme, que ustedes tengan que mandar
+[You]: estar mandando captura de pantalla de cuatrocientas cosas. ¿Por qué no podemos configurar un reporte
+[You]: que sea price ready?, ¿no? Y les ahorra a ustedes un montón de
+[Remote]: No, obviamente, estamos abiertos a cualquier otra cosa.
+[Remote]: Lo que sí tenemos que validarlo es antes con los auditores. Bruna, yo le comentaba que hoy utilizamos
+[Remote]: por las muestras de auditoría de Price. Entonces,
+[Remote]: no es más que marcar una charla con el auditor, plantearle
+[Remote]: cuál sería el coso, si ellos nos dan el sign off con eso,
+[Remote]: algún desarrollo que no implique mucho trabajo, y que podamos emitir
+[Remote]: o sea, un reporte que salga directamente a ellos,
+[Remote]: con toda la información. El tema es que ellos ellos cuando nos piden la muestra, nos piden
+[Remote]: la de nuestro lado y la de los procesadores, como para asegurarse que es la misma y bachea.
+[You]: Obvio, bueno
+[Remote]: Entonces,
+[You]: Ahí es cuestión de que Price te manden un mail,
+[You]: texto, lenguaje natural,
+[You]: qué tipo de reporte necesita. Nosotros tenemos un agente, ahora te digo, te lo muestra,
+[You]: le pegás el reporte que necesitás y te lo crea automáticamente.
+[Remote]: Okay.
+[You]: Con la tabla en ambos lados, qué está conciliado, qué no,
+[You]: cómo se concilió, con qué regla, si se validó el monto, si se validó la fecha,
+[You]: Digo, esa trazabilidad es es algo de lo que hacemos,
+[You]: la ventaja al ser AI native es que, de vuelta, te digo, le pegás lenguaje natural
+[You]: y se automatiza el flujo entero.
+[Remote]: Perfecto.
+[You]: Pero ahí también, Juaco, y y te introduzco en esta charla, en esta parte es
+[You]: empiezan a surgir un montón de necesidades a la vez,
+[You]: y creo que está bueno empezar por un scope acotado, así también ustedes ven el valor
+[You]: prueban el valor, y después, si salimos a reemplazar equal, te
+[You]: pasa la symmetrica, es un paso dos, ¿no? No no no querer hacer de cero a cien de a una,
+[You]: de uno, porque de una, porque, obviamente, tiene un riesgo operativo esto, ¿no?
+[You]: Y sería un poco ambicioso pensar
+[Remote]: Hacer como una una demo
+[Remote]: con información, digamos, con, digamos, con información que hoy con Silvia agarrar un proveedor aunque sea chiquito o un día de un proveedor, obviamente firmando el
+[You]: No, más que eso, más que eso, yo lo que
+[Remote]: Entonces, para ver si llegamos a los mismos resultados, para ver
+[Remote]: la performance del sistema, para ver los
+[Remote]: cómo cómo operan y qué conclusiones traen,
+[Remote]: como para testearlo, digo, no sé, es una
+[You]: lo que pensaba hacer hoy es, primero, meternos en la plataforma, a ver qué qué quedó por mostrar, qué dudas,
+[Remote]: Aló.
+[You]: sobre, más que nada, los sistemas de que creo que generaron mucho interés,
+[You]: Y después, acá, con el grupo en conjunto, de qué sería una prueba de concepto a
+[You]: pero en un ambiente de producción, donde se pueda ver el valor real, ¿no?
+[Remote]: Ok.
+[Remote]: Eu acho que da as uma das dúvidas era pouco do que a gente
+[Remote]: já conversou aqui sobre e Colco que eu acho que adquirente é processo
+[Remote]: mais complexo do que as outras conciliações que hoje a gente tem.
+[Remote]: E outro ponto era explorar pouquinho mais essa parte
+[Remote]: da análise e o tratamento que a gente falou que sim era possível enfim, eu não sei se naqueles exemplos da demo tem alguma coisa mais profunda em termos de análise e tratamento de pendências.
+[Remote]: E entender pouco,
+[Remote]: Eu entendo que aqueles gráficos que vocês
+[Remote]: mostraram a gente pode configurar, mas o quanto a gente consegue por exemplo,
+[Remote]: criar bashes mas mais num formato tabela digamos,
+[Remote]: Hoje, a gente tem diversos produtos com distintas,
+[Remote]: a gente tem reporte mais ou menos padrão aqui
+[Remote]: de informar quando faltou base, quando alguma pendência
+[Remote]: pode ter impacto né a gente tira esse impacto,
+[Remote]: o que que a gente tem em aberto, além dos gráficos
+[Remote]: a gente também consegue fazer outras visões pra ter esse
+[Remote]: reportes e ir dando esse aqui quando necessário?
+[You]: A ver si entendí, entonces, son dos cosas. Uno, el manejo de las diferencias,
+[Remote]: Isso.
+[You]: ahora te voy mostrar un poquito más, y lo otro es
+[You]: cómo en esos dashboards, en lugar de hacer gráficos, podemos generar una tabla totalmente
+[You]: custom a lo que ustedes quieren ver.
+[Remote]: Listo. Creo que había unos
+[You]: Portugués.
+[Remote]: ¿Entró? Hablá mejor que que se o.
+[You]: Bueno, veámoslo.
+[Remote]: Muestro un poco, de todas maneras,
+[Remote]: eche esta información, Dami. Ahí
+[Remote]: ¿por qué lo pregunta Bruna? Porque hoy uno de los principales problemas que
+[Remote]: tiene el equipo
+[Remote]: o sea, donde también pierde tiempo, es en
+[Remote]: tengo las diferencias en symmetric,
+[Remote]: cómo hago para pasar esas diferencias, primero a los reportes que se pueden hacer,
+[Remote]: a los equipos de producto y a otros stakeholders mostrar
+[Remote]: mostrándolo, o sea, es como es un trabajo extra, además de hacer la conciliación,
+[Remote]: mostrar los resultados de esa conciliación para
+[Remote]: tener las las los planos de acción para cada una de las de las
+[Remote]: de de los problemas, digamos.
+[Remote]: ¿Se pueden asignar
+[Remote]: Por ejemplo, si yo sé que una orden
+[Remote]: hay ciertas órdenes que me exceden y que las tiene que ver
+[Remote]: producto. Yo puedo seleccionar y asignar esas órdenes para que ellos
+[Remote]: por ejemplo, ingresen la
+[Remote]: Eso lo vamos a tener más o menos en un mes. Estamos ahora, si ustedes
+[You]: Tenés ropa.
+[Remote]: siempre
+[Remote]: siempre es una lástima y decís, ojalá esta demo fuese en dos semanas,
+[Remote]: Estamos mirando a la plataforma, le es de pasar lo mismo ustedes.
+[Remote]: Estamos migrando la plataforma a la nueva plataforma más o menos en dos semanas,
+[Remote]: Dentro de esa nueva plataforma tenemos toda la parte colaborativa,
+[Remote]: tanto interna como externa, con los proveedores, y, obviamente, ahí sí
+[Remote]: está toda la parte de asignar task, asignar
+[Remote]: compañeros, dejarles comentarios y demás.
+[Remote]: Perfecto.
+[Remote]: Un poco lo que comentaron de del problem solver,
+[Remote]: este es información así que después, bueno, avanzamos para para una prueba con
+[Remote]: información real.
+[Remote]: Pero la idea es que te genere los casos
+[Remote]: identifique qué es lo que está sucediendo con cada uno, te dice,
+[Remote]: ejemplo, en este, estos nunca van a conciliar, porque simplemente son diferentes
+[Remote]: períodos de tiempo o lo que sea, y vos le ponés a aplicar, le aplicas a todos,
+[Remote]: y te genera las automatizaciones de de estatus
+[Remote]: ¿cómo se dice?, de estatus section o
+[Remote]: o lo que sea que haya decidido. Entonces, la idea es que
+[Remote]: cada una de estas manualidades o sugerencia que te va haciendo,
+[Remote]: va aprendiendo, si te gusta, si no te gusta, lo vas chateando con él,
+[Remote]: y las va aplicando para para el futuro. Eso por el lado de
+[Remote]: conciliación. Y después teníamos lo de lo del dashboard, ¿no?
+[You]: Sí, crea una tabla.
+[Remote]: Ahí ahí,
+[Remote]: Sí, ahí,
+[Remote]: quiser eu posso aqui demonstrar que eu tenho uma versão sem dados
+[Remote]: reais? Ah, agora?
+[Remote]: Algo que eu
+[Remote]: Aqui hoje é os os principais produtos
+[Remote]: que a gente concilia,
+[Remote]: pra ficar ai tu viu assim, pouco mais assim.
+[Remote]: E aqui a gente reporta basicamente se se as fontes chegar
+[Remote]: qual o volume de pendências como o farol.
+[Remote]: E aquilo a gente ainda não tem hoje mas é o percentual né de
+[Remote]: pendências sobre o t p v né então pra ver o o percentual e aqui a gente comenta,
+[Remote]: faz os comentários né então, hoje a gente
+[Remote]: consegue fazer uma visão mais agrupada como essa sem essa parte aqui,
+[Remote]: Mas a ideia seria por exemplo hoje eu reporto
+[Remote]: Pix mas se eu quiser eu consigo abrir nos meus Pix né?
+[Remote]: Aqui as adquirentes, se é s d w o, subiaquire enfim,
+[Remote]: fazer as aberturas mais analíticas,
+[Remote]: e também entender em mais detalhes, está bom, a fonte
+[Remote]: falhou mas é interna, é externa, qual o valor?
+[Remote]: Então a ideia é criar algo por exemplo as pendências em aberto
+[Remote]: que tem impacto em perda, em cliente, ainda está em análise, então cada uma das pendências a gente classifica, possa conseguir dar essa visibilidade quer dizer, eu tenho tendências aqui que são sem impacto, é uma tendência temporal no dia seguinte vai chegar o arquivo ok, não preciso. Essa daqui tem potencial perda então o time de produtos precisa atuar logo pra reverter essa operação e conseguir não gerar uma perda. Aqui precisa tratar porque o cliente está sendo impactado, ele foi cobrado e o produto não foi entregue. Então a gente vai classificando linha a linha do que a gente tem em aberto nessas categorias, a gente tem outros campos tá, a gente está,
+[Remote]: trabalhando com uma padronização de campos mas basicamente
+[Remote]: o tipo de divergência, qual que é a ação tomada, o status, a
+[Remote]: e tudo mais, então cada uma das linhas tem essas
+[Remote]: essas informações e aí no final eu algo
+[Remote]: consolidado pra apresentar, que hoje é desse jeito agrupadinho,
+[Remote]: mas que eu gostaria que dia fosse se você quiser abrir você vem
+[Remote]: dar e você sabe aonde está exatamente o problema então,
+[Remote]: pra tangibilizar pouquinho melhor seria algo mais nesse sentido.
+[Remote]: Perfecto. Esto me me encantaría trabajarlo con más tiempo.
+[Remote]: Me encantaría que que armemos, bueno, no sé, Nacho, ahí qué te parece, pero
+[Remote]: dentro de de la prueba con con información real, quedamos de ustedes,
+[Remote]: si nos pueden también también compartir algún tipo de archivo o reporte que que
+[Remote]: que necesitan que automaticemos,
+[Remote]: así lo lo hacemos nosotros dentro de Recy, ustedes ven cómo cómo quedaría. Ah, está bom.
+[You]: Sí, por eso, como que digo, la plataforma al ser AI native y agénticas
+[You]: sí.
+[You]: Puede resolver cualquier cosa. El punto es,
+[You]: vamos al caso real, a la necesidad real y lo mostramos.
+[You]: Ahí, para
+[You]: No sé si queda otra otra duda o consulta o algo que quieran ver de la plataforma, más de esos dos puntos que acabamos de ver.
+[Remote]: No, yo creo que, va, por mi lado ya estaba era esta
+[Remote]: de dúvidas e pontos acho que eram a mais esses mesmo aqui do meu lado.
+[You]: Buenísimo.
+[Remote]: Para mim aí na, penso nos next steps
+[Remote]: así los bosses me me parece parte de esto, poder ejecutarlo
+[Remote]: o sea, manteniendo manteniendo el flow y la y la dinámica es
+[Remote]: a mí me gustaría entender,
+[Remote]: o sea, para hacer esto te te estaríamos un NDA
+[Remote]: eso es fácil, nosotros mandamos un modelo y y y lo hacemos,
+[Remote]: necesitaría
+[Remote]: entender un poco la infraestructura, dónde, cómo
+[Remote]: cómo ustedes trabajan, ¿no?, son, si si es un SaaS,
+[Remote]: si es licenciado,
+[Remote]: dónde se hostea todo lo que se sube, porque es bastante
+[Remote]: información.
+[Remote]: Y después, obviamente,
+[Remote]: entender el modelo de el modelo de pricing como para no embarcarnos en una que después no podamos que después no podamos costear, Yo con ahí a Nacho le pasé los los costos que nosotros tenemos ahora,
+[Remote]: No sé si si
+[Remote]: De vuelta, nosotros sabemos
+[Remote]: que está caro,
+[Remote]: lo lo lo que
+[Remote]: lo que nosotros tenemos,
+[Remote]: bueno, fue es el acumulado de varios años de ir haciéndolo y nunca pateando el tablero y
+[Remote]: y y mejorándolo,
+[Remote]: con lo cual ahí
+[Remote]: yo entiendo que habría una ventaja competitiva del lado de ustedes,
+[Remote]: la hora de presentar un de presentar un proyecto,
+[Remote]: Así que, nada, es esos son los puntos que que deberíamos
+[Remote]: que deberíamos
+[Remote]: y
+[Remote]: obviamente, ahí después, ¿sí?, iría a una prueba conceptual
+[Remote]: eventualmente
+[Remote]: con
+[Remote]: unos datos de tarjeta de crédito y unos datos de un proveedor de
+[Remote]: de de producto, que sería un caso de uso para cada para cada lado, y y
+[Remote]: ver cómo
+[Remote]: cómo funciona, ¿no?
+[Remote]: Ahí te contesto la la pregunta que hiciste sobre
+[Remote]: la tecnología o o dónde está hosteado, todos son
+[Remote]: productos y y servicios de AWS,
+[Remote]: así que la información nunca sale del ecosistema AWS.
+[Remote]: Después todas todas las otras preguntas, creo que Nacho Y eso y eso, ¿Teo, va sobre una doble
+[Remote]: AWS,
+[Remote]: de ustedes o lo se se hostea
+[Remote]: en una doble v s del cliente, en este caso de RecargaPay?
+[Remote]: Ahí nosotros, por lo general, trabajamos en
+[Remote]: con cuenta o
+[Remote]: cuenta de AWS nuestra.
+[Remote]: Pero si están interesados ahí, Nacho, no sé qué qué te parece
+[Remote]: pero si están interesados en que trabajemos con una infraestructura,
+[Remote]: intermedia, es algo que estamos trabajando para otro cliente también, que es
+[Remote]: el modelo licencia.
+[Remote]: Ahí ya
+[Remote]: bastante el el el modelo, y es un proyecto tal vez un poco más
+[Remote]: complejo, obviamente, porque se levanta una infraestructura intermedia a nombre de
+[Remote]: del cliente,
+[You]: Tiene que haber una razón muy fuerte, eso es lo que decimos.
+[Remote]: Lo que
+[You]: En términos o privacidad de información y sensibilidad de la información, o
+[You]: de que es un core capability el negocio que ustedes quieren controlar. Es
+[You]: otro modelo de negocios
+[You]: nos, tiene tiene una carga operativa y de soporte distinta. También pensá que nosotros, al ser un startup, el producto está evolucionando a pasos agigantados, con lo también agrega fricción a la parte de las actualizaciones y los nuevos módulos que vayamos sacando, Entonces, como que, digo, siempre decimos, mejor hacer el modelo SaaS en nuestra
+[You]: Si existe una razón fuerte, lo consideramos, pero eso implica
+[You]: un costo mucho más alto el primer año,
+[You]: y otro modelo de negocio después del primer año, ¿no?, porque hay un desarrollo muy ad hoc que luego se se se se instala en la infraestructura esta intermedia que decía Teo.
+[Remote]: Perfecto.
+[You]: Bruna, no sé ahí
+[Remote]: Eu eu acho que tem ponto também interessante, não sei
+[Remote]: se vocês têm alguma experiência para compartilhar,
+[Remote]: é justamente desse tempo de projeto
+[Remote]: de migração, de novas configurações, porque pensa
+[Remote]: que hoje a gente já tem mais de sessenta processos de conciliação,
+[Remote]: rodando aqui de forma cem por cento automática então,
+[Remote]: imagino que a gente tem aí, não é como você disse né do zero ao
+[Remote]: né, não é de dia pronto que a gente consegue virar alguma experiência semelhante
+[Remote]: assim de clientes que migraram de outras plataformas pra vocês,
+[Remote]: em termos de duração de projeto, se essa
+[Remote]: é cem por cento de vocês ou é nossa,
+[Remote]: ou é híbrida enfim entender pouco também de modelo de projeto de vocês.
+[You]: Hemos hecho migraciones de tanto Symmetric
+[You]: como, en Estados Unidos, BlackLine, por ejemplo, un proveedor
+[You]: muy grande
+[You]: compañía pública en Estados Unidos, hemos hecho ese proceso de migración,
+[You]: Para no agregar riesgo operativo, hay cierto shadowing
+[You]: que logramos estar en producción con todos los testeos necesarios.
+[You]: La implementación corre cien por ciento de nuestro lado,
+[You]: simplemente necesitamos, del lado del cliente, un sponsor, un habilitador, nos desbloquee las puertas, como, por ejemplo, conectores de información. Siempre es un sponsor técnico para todo lo que es conectores y los flujos de información,
+[You]: un sponsor de operaciones, finanzas o responsable de
+[You]: conciliaciones,
+[You]: que nos ayude en todo lo que es la configuración de la lógica y las reglas de tolerancia, los reportes, todo esto que acabas de mostrar. Con esos dos sponsors, toda la implementación queda de nuestro lado, y no la cobramos. Que sí ponemos que es interesante es un incentivo para movernos rápido. Que no se dilate mucho. Entonces, por ejemplo, lo que hacemos es si el agreed price, monthly price, es cinco mil dólares,
+[You]: cobramos cinco mil dólares por por la implementación,
+[You]: y nos ponemos un plazo entre los dos muy agresivo, es decir,
+[You]: queremos estar live en producción en sesenta días,
+[You]: Si lo logramos,
+[You]: ese costo de implementación se les bonifica y se les devuelve el primer mes.
+[You]: Como que le ponemos un incentivo al cliente a que a a que esos dos
+[You]: realmente nos habiliten y nos abran las puertas de manera
+[You]: Porque nosotros sabemos que nosotros nos podemos mover rápido y que podemos prometer
+[You]: implementaciones en menos de treinta días, pero muchas veces nos chocamos con esa dependencia del otro lado,
+[You]: que dilata esa implementación, con lo cual
+[You]: para movernos rápido, ponemos ese incentivo.
+[Remote]: Eu posso devolver rápido tá, Nath?
+[You]: Es
+[You]: No, pero igual sí, o sea, creo que
+[You]: claramente, Brunna y y Vico tienen muchísimo conocimiento y
+[You]: y deben conocer estos archivos como las palmas de sus manos,
+[You]: con lo cual sería, de vuelta, que que ustedes actúen de de habilitadoras
+[You]: en en traspasarnos ese conocimiento y asegurarnos que quede todo en y después ustedes, que van a ser
+[You]: quienes operen la plataforma,
+[You]: sepan exactamente cómo se usa, cómo se opera, cómo se configuran cosas nuevas, cómo se
+[You]: reglas.
+[You]: Sí va a ser por ahí el mismo approach,
+[You]: de de que symmetric, no como el de equals, en el término que la la plataforma está diseñada para hacer el self-service,
+[You]: pero hemos recibido mucho comentario positivo de nuestros clientes, que es muy intuitiva, es muy fácil de
+[You]: usar.
+[You]: Y ante cualquier duda tenés el rexy agent on the side,
+[You]: que le puedes tipear lenguaje natural para cualquier pregunta, cualquier consulta de cómo
+[You]: salen las cosas, y te va diciendo, y hasta te
+[You]: te te configura las reglas, si querés, te arma los dashboards, digamos,
+[You]: Ahí es casi, se siente como tener un analista de conciliaciones.
+[You]: Por eso siempre decía la la conversación anterior,
+[You]: ojalá que puedan retirar esa esa búsqueda, esa vaga, ¿cómo se dice?, en
+[You]: del del mercado, y podamos probar con Rexy de que no hace falta
+[Remote]: No, aparte de que nos estaba pasando con Symmetric, que era que
+[Remote]: cualquier cosa nueva que vos querías, se empezaba a pagar aparte. Entonces, querés la
+[Remote]: automatización para descargar los archivos, te lo cobran aparte. Querés el AAgent, te lo cobran aparte. Llegó un momento que o sea, es, o sea, yo entiendo que es una herramienta para prevenir justamente, no perder dinero, pero ya era un dineral que lo habíamos visto. Entonces, bueno, nada, también era un poco, no, un cuestionamiento interno que teníamos.
+[You]: Buenísimo. Bueno,
+[You]: Cuaco, te busco, entonces, después por mail,
+[You]: para alinear tanto... Te hago un un
+[You]: quote de lo que pienso, de lo que escuchamos, de los volúmenes, de cómo sería el price
+[You]: de un proyecto integral, para que también comparen y ver si
+[You]: y no perder el tiempo, si estamos
+[You]: fuera de rango. De todas maneras, ya te voy a decir que
+[You]: que los números que me pasaste me me sorprenden y que y que vamos a hacer
+[You]: realmente
+[Remote]: Nosotros sabemos que nosotros sabemos que estamos mal.
+[You]: No, pero es importante, Porque, de vuelta, trabajamos con muchos clientes que hemos
+[Remote]: O sea,
+[You]: reemplazado
+[You]: y son los costos que observamos.
+[You]: Pero en ese sentido, solo anticiparte de que de que
+[Remote]: Okay.
+[You]: una propuesta que es muy superadora, porque así hemos estado trabajando con clientes. No solo en
+[You]: de eficiencia de costos, sino
+[You]: productividad. De vuelta, la herramienta viene a ahorrar horas manuales, a automatizar flujos y
+[You]: y y va a haber un ROI y un business case muy claro de
+[You]: trabajar con Rexy. Pero te lo hago para que también, de vuelta, estemos bien alineados en eso,
+[You]: y en el mismo correo, en esa cadena,
+[You]: empecemos a a estructurar juntos una prueba de concepto
+[You]: Típicamente, lo que hacemos nosotros es una prueba de concepto de
+[You]: seis o ocho semanas,
+[You]: de un flujo real en producción, acotado.
+[You]: ¿Sí? Es, como dijiste, tarjeta contra una base propia, que es
+[You]: un flujo muy cross o uno de los que más duele,
+[You]: conectamos la plataforma,
+[You]: y y que esté corriendo on the side,
+[You]: que ustedes puedan comparar ambos procesos y vean realmente el valor.
+[You]: En esas seis, ocho semanas que está el live conciliando,
+[You]: también alineamos criterios de éxito, tipo, cuáles son los KPIs con los que vamos a medirnos contra, simétrico, contra, y cuáles son los que estén haciendo hoy. Lo medimos esas ocho semanas, tal de que cuando termina,
+[You]: el business case sale muy natural, ¿no?
+[You]: Y ahí ya pensamos en, como decía Bruna, en, ok,
+[You]: sí armemos un plan de implementación,
+[You]: con estos incentivos que te contábamos, documentamos todos los flujos,
+[You]: y y armamos un plan de trabajo para
+[You]: para esa migración.
+[Remote]: Bien, dale, sigámoslo en cadena
+[Remote]: sigámoslo en la cadena de de de mails,
+[Remote]: yo voy a disparar el NDA, y por ahí te hago un par de preguntas técnicas que yo sé que el equipo de de cyber me va a estar me va a estar, este, digamos, pidiendo. Si ustedes ya tienen algún documento, porque me pasa sobre todo las las empresas más nuevas ya lo ya lo tienen armado, Si ya tienen algún documento de cyber que que ustedes ya entregan este, de forma consistente y demás, cruzamos ahí en... Ahí está, listo, pide, no nos viene hasta hasta el desayuno, no nos pide. Exacto. Con eso yo, si si lo cruzamos en el en el mismo
+[Remote]: en la misma cadena, ya con eso ya lo tengo
+[Remote]: lo tengo listo y mando a preanalizar todo, así ahorramos ahorramos tiempos.
+[You]: Dale, listo. Bueno, ahí lo lo lo seguimos por mail. Muchas gracias a
+[You]: a los tres por el tiempo y por el interés, y, bueno, ojalá ir construyendo pasito
+[You]: pasito algo que sea superador.
+[Remote]: Buenísimo, Nacho. Gracias, Teo, y lo seguimos,
+[Remote]: ahí por mí.
+[Remote]: A las tres.
+[Remote]: Chau. Chau.
+
+============================================================
+SUMMARY
+============================================================
+### RecargaPay Integration Requirements & Challenges
+
+- Current setup uses Equals for credit card reconciliation
+  - Equals handles integration complexity and parameterization
+  - Used for audit evidence - Price auditors require transaction screenshots
+  - Need 400-500 samples per audit, currently automated via RPA
+- Symmetric integration challenges
+  - Self-service model creates formatting complications
+  - Complex setup for transactional and financial reconciliation
+  - Studied migration but complexity too high
+- Current acquirer integrations: Red Card, Deadnet, PAC Seguro
+  - Planning Cielo implementation soon
+  - Symmetric integration was offered but deemed too complex
+
+### Rexi Platform Capabilities & Solutions
+
+- AI-native architecture handles various acquirer formats
+  - Experience with Cielo, PagSeguro discussions ongoing
+  - Agents trained for credit card and acquirer files
+  - Flexible parameterization and transformation capabilities
+- Audit compliance solutions
+  - Can create transaction detail views (non-table format) in <1 day
+  - Price-ready reports possible with auditor approval
+  - Full traceability: reconciliation status, rules applied, validation details
+- Dashboard customization
+  - Custom table views beyond standard charts
+  - Natural language report generation via AI agent
+  - Collaborative features coming in \~1 month (task assignment, comments)
+
+### Implementation Approach & Next Steps
+
+- Phased migration strategy recommended
+  - Start with limited scope to prove value
+  - Avoid operational risk of full replacement initially
+- Technical infrastructure
+  - AWS-hosted SaaS model preferred
+  - Client AWS infrastructure possible but higher cost/complexity
+- Implementation process
+  - 100% Rexi-managed with client sponsors (technical + operations)
+  - 60-day aggressive timeline with cost bonification incentive
+  - 6-8 week proof of concept on single real production flow
+- Joaquin to send:
+  1. NDA for data sharing
+  2. Cybersecurity documentation requirements
+  3. Current cost structure for pricing comparison
+- Rexi to provide comprehensive quote and POC structure via email
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/be1211fa-d90b-405a-94d1-fd6cd8c40f97](https://notes.granola.ai/t/be1211fa-d90b-405a-94d1-fd6cd8c40f97)

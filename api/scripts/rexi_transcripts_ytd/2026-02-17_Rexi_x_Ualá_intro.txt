@@ -1,0 +1,577 @@
+MEETING: Rexi x Ualá: intro
+DATE: 2026-02-17
+ID: not_5idO0uCmE5UJ5Q
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Julia Egan <julia.egan@uala.com.ar>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-02-17T16:00:00-05:00 - 2026-02-17T16:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Bien, todo bien.
+[You]: Hola, María Julia, ¿cómo estás?
+[Remote]: ¿Cómo va? ¿Todo bien?
+[You]: Muy bien, ¿y vos?
+[Remote]: Bien, todo bien, por suerte.
+[You]: Bueno, ahorita
+[You]: Mario, gracias por el tiempo, gracias por conectar. Nosotros ahí
+[You]: quizás como contexto, claro, conocemos mucha seque,
+[You]: a a Lede también. Lede le dicen, ¿no?
+[Remote]: Sí.
+[Remote]: Sí, sí.
+[You]: Tenemos mucha gente conocida ahí, en Hualá, muy, lo lo conocemos a Pierre,
+[Remote]: Con María.
+[You]: hablamos con Durán, en un momento, mucha
+[You]: Sí. Conversaciones en el tiempo. Bueno, soy muy amigo de Manu Frank, que está en corp dev, nos
+[You]: si te toca trabajar con él. Lo tengo acá en New York, un par de cuadras, hoy viene a comer, de hecho, a la noche.
+[Remote]: ¿Con quién, perdón?
+[You]: Manu Frank.
+[Remote]: Ah, sí, no, pero no, o sea, sí lo conozco,
+[Remote]: pero no nos toca en la, así como en la diaria, cruzarnos tanto.
+[You]: Claro.
+[You]: Nada, todo, me dijiste que hablamos varias veces con con con Wualá,
+[You]: nunca con vos, así que, si querés, nos presentamos un poquito, te digo, yo, como los cofound,
+[You]: ¿Qué es Rexi? Rexi es una plataforma de conciliación
+[You]: financiera y transaccional. Obviamente, te puedo hacer todo el speech de AI power, de AI native, pero pero bueno, arrancamos ese eso quiere decir que toda nuestra arquitectura y toda nuestra tecnología está mucho más orientada hacia una flexibilidad y una automatización que que que no vemos mucho en el mercado. Estamos en etapa temprana, con lo cual eso también nos da mucha flexibilidad y configurabilidad para armar cosas ad hoc para nuestros clientes en esta etapa, y más si es un cliente como Wualá, Con Wualá, como te digo, ya tenemos muchas conversaciones, nosotros
+[You]: tenemos mucha ganas de trabajar con Voila, sabemos el contexto
+[You]: también, sabemos que vienen usando Symmetric, sabemos que
+[You]: que el año pasado se decidió invertir recursos internos
+[You]: para construir una herramienta propia, interna,
+[You]: con el objetivo de sacarse de encima a Symmetric. Desde entonces, en que hemos hablado,
+[You]: creo que esa última conversación... Obviamente, yo conseguí que cruzo WhatsApp todo el tiempo, pero
+[You]: esa conversación más formal con Durán, con Mariano, se dio, creo que fue octubre, noviembre del año pasado,
+[You]: y no sé en qué estado están esas iniciativas internas. Me buscó el LED por WhatsApp,
+[You]: hace la semana pasada, y así se generó esta reunión.
+[You]: Yo intuyo dos cosas y me contarás más vos,
+[You]: No sé cómo viene ese proyecto interno, o dos,
+[You]: que por ahí la Operatoria De México, por temas regulatorios, está separada,
+[You]: de la operatoria argentina, del resto de Hualai, por donde ustedes tienen que tener sus propios
+[You]: procesos de conciliación, y por ahí me buscaron para ayuda por ese lado. No lo
+[You]: sé, pero contame un poco vos también
+[Remote]: No, dale ahí.
+[Remote]: Ahí te cuento. Bueno, nada, me presento, yo soy Julia, estoy a cargo de la Operación de México.
+[Remote]: Estuve en la operación de Argentina, hace Cinco Años Que Estoy En Golá, y ya hace
+[Remote]: este es el tercero que que estoy acá en México,
+[Remote]: así que conozco
+[Remote]: todo el proceso conciliatorio, tanto de Argentina como de Colombia, como de
+[Remote]: México. Y sí, como decís vos, son Operaciones Separadas Son Entidades, Normalmente, Como Dentro Del Mismo Grupo, Pero Son Entidades Separadas, En Argentina, los tres países al principio teníamos Symmetric,
+[Remote]: nosotros acá en México no lo habíamos llegado a implementar porque, nada,
+[Remote]: de cambios internos en la compañía y reestructuras de que
+[Remote]: los equipos pasaron a ser más locales que regionales,
+[Remote]: En México no no teníamos todavía
+[Remote]: ese know how para implementar Symmetric que sí tenían en Argentina.
+[Remote]: Entonces, la verdad es que la pateamos un poco y terminamos después
+[Remote]: haciendo toda la curva de aprendizaje de SQL, y hoy por hoy somos el único país de los tres que, felizmente, digo, por ahorro de costos y todo, ya logramos salir más de Symmetric, Nunca nos terminamos de subir del todo y no renovamos el contrato para el veinte veintiséis, y ya tenemos todos estos controles de nuestro lado, montados en BigQuery con ejecución automática en cronos, tableros de visualización, con lo cual estamos como en ese proyecto que te habían comentado Marian en su momento,
+[Remote]: que te habrá contado, no sé si te contó que era Wallimétrico, algo así, pero bueno.
+[Remote]: En ese
+[Remote]: intentar hacer algo in house, nosotros acá en México ya lo
+[Remote]: lo pudimos lograr, digamos. Colombia y Argentina todavía siguen con Symmetric, mientras
+[Remote]: migran y hacen toda la curva de aprendizaje para poder conciliar en BigQuery.
+[You]: Ok. Buenísimo.
+[Remote]: Así, nada, eso es más o menos el, sí, la verdad que lo cuento orgullosa
+[You]: No, tremendo lavoro.
+[Remote]: pero bueno, fue mucho trabajo, mucho estudio también.
+[Remote]: Sí, la verdad que sí. Pero bueno, lo tenemos bastante acomodado,
+[Remote]: no sé, si querés, contame un poco más vos el alcance o las versiones y lo y
+[Remote]: y el producto como tal, para ver si todavía hay algún área de oportunidad donde puedan
+[Remote]: como aportar o que nosotros podamos aprovechar de esta oferta de
+[Remote]: de valor que nos presentan.
+[You]: Bueno, te te hago un par de preguntitas antes sobre lo que montaron en
+[You]: en BigQuery para entender bien. Entonces, esto fue
+[You]: obviamente, un desarrollo interno, algún equipo interno de de ingeniería de sistemas que que se dedicó a montar todo, operaciones.
+[Remote]: No, operaciones.
+[Remote]: Operaciones, ahí.
+[Remote]: Puro esfuerzo y... Sí.
+[You]: ¿Y lo mantienen ustedes también?
+[Remote]: Sí, sí, porque en realidad
+[Remote]: son queries que armamos nosotros en base al entendimiento de la información, de la data y de los
+[Remote]: entonces, diseñamos el control, fuimos a buscar
+[Remote]: las fuentes, las que no estaban las pedimos que se suban en
+[Remote]: en BigQuery,
+[Remote]: y luego fue, nada, armar justamente las queries y luego automatizar la
+[Remote]: con Cronos. Entonces, todos los días, tipo, arrancamos con un tablero que ya nos dice,
+[Remote]: transaccionalidad total, estados ok, desvíos, y doble clic sobre el desvío y a
+[Remote]: y a gestionar eso. Que próximo paso estamos laborando en la automatización de la gestión de esos desvíos.
+[Remote]: Pero ahí estamos un poquito más verdes, como objetivo veinte a veintiséis.
+[You]: Dices, entonces, los desvíos.
+[Remote]: ¿Cómo?
+[You]: ¿Cómo es el objetivo veinte veintiséis, perdón?
+[Remote]: Automatización de la gestión del desvío.
+[Remote]: Que hoy por hoy implica una gestión manual, una corrección, un ajuste o lo que sea,
+[Remote]: y eso es como, bueno, entendiendo qué tipo de desvíos solemos tener, meter alguna inteligencia artificial,
+[Remote]: artificial o algún bot o lo que sea, la automatización posible,
+[Remote]: que aparecen herramientas todos los días, para que eso suceda en automático y tampoco requiera
+[Remote]: una gestión manual, al menos en el mayor volumen, ¿no?
+[You]: Ok, perfecto. Y y en cuanto al proceso de configuración e implementación,
+[You]: ya, digamos, eso ya está completado, lo tienen todo ya montado en en BigQuery.
+[Remote]: Sí, sí, sí. Hay un tema de migración a a otros
+[You]: ¿Y lo hicieron...?
+[Remote]: qué sé yo, pero es lo mismo, o sea, son las estructuras que ya están diseñadas
+[Remote]: y todas las mismas queries,
+[Remote]: no cambiaría demasiado.
+[You]: ¿Y lo hicieron todos ustedes el equipo de operaciones?
+[Remote]: Sí.
+[You]: Con lo cual, hoy, a nivel recurrente que le dedican al proceso, es simplemente meterse a ver los dash
+[You]: y analizar las diferencias.
+[Remote]: Exacto. Y, bueno, estamos terminando de
+[Remote]: porque, a ver, tenemos muchos productos, entonces empezamos con los
+[Remote]: tienen mayor volumen, tipo SPEI y
+[Remote]: controles también de onboarding y
+[Remote]: delivery de tarjetas, etcétera. Todo eso que tenía mayor volumen,
+[Remote]: y nos queda en un par de controles, pero es como subirlos a la misma lógica a un par de productos que
+[Remote]: todavía
+[Remote]: no los montamos ahí, pero estamos en eso, o sea,
+[Remote]: temas de que por ahí el owner de un producto la tenía un poco más clara que el owner de otro
+[Remote]: producto, y se están como ayudando internamente en el equipo.
+[Remote]: Promulgamos y promovemos mucho y apoyamos mucho
+[Remote]: esto de que adquieren el conocimiento, ¿viste?
+[Remote]: Como que costó, digamos, fue fue una apuesta,
+[Remote]: darles margen para tener toda esa curva de aprendizaje, pero la verdad es que nos dio buena fruto.
+[You]: Y de esto que armaron, ¿dónde ven los mayores
+[You]: puntos de falla o de riesgos vos?
+[Remote]: No, a ver, podemos llegar a tener como
+[Remote]: compañía, no tanto por los controles en sí,
+[Remote]: por ahí algo más que profundizar en temas de integridad de datos.
+[Remote]: Tipo
+[Remote]: un owner, tipo, si la tabla o la información que está subida a BigQuery es
+[Remote]: o o tiene algún tema de inconsistencias, te va a afectar en la salida del control.
+[Remote]: Que hoy por hoy lo detectamos. No sé si no está la tabla actualizada al principio del día, cuando
+[Remote]: arrancás el día con el dashboard tenés todos desvíos.
+[Remote]: Ninguna conciliada. Entonces, nada, temas de eso, como haría oportunidad de mejorar un poco
+[Remote]: por ahí esa parte previa de gestión de datos.
+[Remote]: Que igual también lo tiene como superen en road map el equipo de data.
+[You]: Ok, buenísimo, es carísimo. Y
+[Remote]: Y se me ocurre igual, como para ver si si
+[Remote]: nos queda alguna chance, digo, de de poderse vir con esta o con la idea de una colaboración,
+[Remote]: No sé, por ahí algún otro equipo, tipo,
+[Remote]: Pasa que las conciliaciones contables también las hace mi equipo, digamos.
+[Remote]: De la contabilidad operativa. Después lo que pasa es
+[Remote]: esa contabilidad operativa se migra a través de un proceso a
+[Remote]: al
+[Remote]: a la herramienta que genera el estado contable formal,
+[Remote]: pero todo ese control conciliatorio también lo tenemos de nuestro lado.
+[You]: Ok.
+[Remote]: Es contable, digamos.
+[You]: Ok, claro, si ya lo están montando operativamente,
+[You]: no hay por qué no no generar el flujito para contabilidad, ¿no? Al final es
+[You]: unas transformaciones o unas lógicas y ya está.
+[Remote]: Sí, totalmente. Lo que pasa es que tengo el equipo separado como en controles operativos, que es todo lo que
+[Remote]: es productos, transaccionalidad, etcétera, delivery de tarjetas, onboarding,
+[Remote]: y controles financieros, que ya te digo, es más lo que ataca la
+[You]: Okay.
+[Remote]: de la contabilidad operativa.
+[Remote]: Y por ahí ahí
+[Remote]: más todavía que refinar, o o está más en curso y no tan cocinado el tema de
+[Remote]: queries y dashboards, etcétera. Pero bueno, como te digo, son
+[Remote]: distintos perfiles que se van también como capacitando, y el de
+[Remote]: más consolidado le va dando apoyo.
+[Remote]: A estos otros
+[Remote]: equipos o referentes, si se quiere.
+[Remote]: Pero va en la misma línea.
+[You]: Estas lógicas de BigQuery la tiene a nivel
+[Remote]: No, todo transaccional.
+[You]: o es como totales netos?
+[You]: O sea, cuando hay diferencias, sabes exactamente qué transacciones te faltaron.
+[Remote]: Detalle.
+[Remote]: Sí,
+[Remote]: el dashboard nos trae, tipo, cantidades y el
+[Remote]: descargable del detalle de los desvíos, digamos.
+[You]: Exacto.
+[You]: Y ahí el proceso, ¿cómo sigue? Una vez que tienes BIOS.
+[Remote]: Y depende, una vez que tenemos desvíos,
+[Remote]: hay que entender qué está pasando ahí, si es un tema de, no sé,
+[Remote]: un incidente o
+[Remote]: algún tema de intermitencia en la comunicación de alguna de las
+[Remote]: partes intervinientes del flujo,
+[Remote]: depende, porque podés tener una transacción en un... Nosotros tenemos varios proveedores, digamos,
+[Remote]: o varias partes en el flujo, ¿viste? Sobre todo en que es más complejo, tenés el despachador,
+[Remote]: que todos los bancos lo tienen,
+[Remote]: y después tenés nuestro core bancario y nuestro administrador de consumos, que es Alilio, que hoy
+[Remote]: sigue como participando del flujo. Entonces, puede que la transacción
+[Remote]: no esté en Galileo, pero esté confirmada en el despachador y esté ok en t veinticuatro, que
+[Remote]: es
+[Remote]: entonces, hacés un ajuste crédito o débito según qué tipo de de SPEI se hace,
+[Remote]: o cash in, en O no sé,
+[Remote]: ves que en el core bancario y en el de
+[Remote]: no está, y en Daniel lo impactó, y corregís eso que no debió impactar.
+[Remote]: Pero principalmente, la gestión va más del, más allá de la
+[Remote]: salvar esa diferencia puntual en levantar la
+[Remote]: intentar la causa de esa incidencia
+[Remote]: si requiere la intervención de algún equipo técnico o de producto para que se corrija, etcétera,
+[Remote]: Pero no, básicamente son son esas cuestiones.
+[You]: ¿Y esa investigación se hace el mismo
+[You]: BigQuery, ustedes tienen ahí las herramientas para entender qué pasó, dónde falló.
+[Remote]: No, ponele, yo, o bien podemos verlo en BigQuery, y si nos quedamos cortos ahí, vamos
+[Remote]: los sistemas, tipo, me meto en el
+[Remote]: en la versión de t veinticuatro escritorio y miro una transacción, o me meto en
+[Remote]: la miro en Galileo,
+[Remote]: voy al equipo del middle office, que es la el back office de la tesorería, que también
+[Remote]: está mi equipo, y le pregunto, che, ¿cómo está esta transacción en el despachador?
+[Remote]: Hasta incluso, si es necesario, se llega hasta el punto a descargar el set de Banxico.
+[Remote]: Pero eso depende.
+[Remote]: De la complejidad del desvío y qué tan fácil sea, y si te das una idea de más de qué puede ser, porque también son
+[Remote]: cosas que a veces ya sabes por dónde viene.
+[You]: Claro, claro, claro. Y
+[You]: suelen tener...? O sea, este laburo de investigación de diferencias es algo
+[You]: como recurrente, diario, es muy catalán.
+[Remote]: No.
+[Remote]: No, sí, a ver, recurrente sí, diario, porque tenemos todos los días algún que otro desvío, pero la verdad es que venimos
+[Remote]: muy bien de índices de desvíos, o sea, justo con esto que les digo de los dashboard nos permite también
+[Remote]: como armar estos tableros de salud operativa, y tenemos
+[Remote]: menos de un uno por ciento de desvío en SPEI, que es el producto más masivo, tanto in como out, o sea,
+[Remote]: ni siquiera a un uno por ciento te llega el desvío en ese producto.
+[Remote]: Salvo, por supuesto, cuando hay un incidente, ¿no?, si si hay un incidente y se cayó el core, bueno,
+[Remote]: vas a tener un pico de desvíos, pero
+[Remote]: están atados a una incidencia. No es que naturalmente o habitualmente el vau de la presión tiene
+[Remote]: mucho desvío.
+[Remote]: Suena todo muy mágico lo que les estoy contando, Esto suma a mi evaluación de desempeño. Sí, no no es no es la red. Chiste,
+[You]: No, y lo es, quiero que lo sepa, nosotros
+[You]: No, no, cien por ciento, te digo,
+[You]: de lo que escuchamos, y hemos hablado un montón de fintechs en en
+[You]: en Latinoamérica y en Estados Unidos, impresionante lo que han armado.
+[Remote]: No, igual te cuento que, a ver, esto que te cuento hoy, que
+[Remote]: suena todo muy lindo y muy prolijo, es producto de dos años y medio de laburo fuerte,
+[Remote]: y ambicioso, ¿viste?
+[Remote]: Primero, porque es como entender si nos servía sumarnos a la lógica que traíamos o
+[Remote]: y hacer algo propio, apostarle a la capacitación, el equipo que también le pone
+[Remote]: esa impronta, el entendimiento profundo transaccional,
+[Remote]: es producto o consecuencia de muchísimo trabajo,
+[Remote]: un primer año de días
+[Remote]: domingo, domingo, o sea, básicamente. Pero bueno, nada, hoy ya lo logramos
+[Remote]: como estabilizar bastante. Sí, igual todo siempre tiene áreas de oportunidad, por supuesto, pero
+[Remote]: digo...
+[Remote]: Está bastante encaminado.
+[You]: Buonissimo, buonissimo. Sì, quizás ahí
+[You]: yo la la otra, ya lo tiene la transaccional, tiene los dashboards, tiene los cronos,
+[You]: tienen un para investigar discrepancias.
+[You]: Igual hay pocos desvíos y no es por el incidente,
+[You]: y y el riesgo a futuro que vos le ves es es mucho más integridad de la información.
+[You]: Si están conciliando con la información incorrecta, bueno, sí, están operando a ciegas, pero ahí ya no depende mucho de
+[You]: del proceso que vos armes de monitoreo, sino más asegurarte de que estás
+[You]: teniendo la la
+[Remote]: Sí, un proceso de
+[Remote]: de data, ponele, de la información de la compañía,
+[Remote]: Igual no tenemos muchos temas, y cuanto mucho si, ya te digo, vemos que hoy el desvío es
+[Remote]: el cien por ciento de las transacciones, es obvio que faltó la actualización de una tabla.
+[Remote]: Pero, digo, puede haber más
+[Remote]: margen de refinamiento ahí, si se quiere.
+[Remote]: Y después nada, lo mismo, porque cuando sale un un producto nuevo o con nuevos lanzamientos,
+[Remote]: lo mismo, o sea, la estructura en control siempre es la misma, vos sabés que
+[Remote]: tenés que entender quiénes participan del flujo
+[You]: Los códigos,
+[Remote]: que tener una un unívoco en todos lados que te permita
+[Remote]: de llave conciliatoria, y como operaciones participan esos
+[Remote]: siempre estamos como atentos de pedir eso.
+[Remote]: Y después lo mismo, no sé, ahí algún proveedor que no se conecte
+[Remote]: por algún FTP y te manda un archivo que te
+[Remote]: te mata un poco esta lógica, y te obliga a ingestarlo en una tabla propia,
+[Remote]: mientras que laburás con el proveedor para que te lo manden por un
+[Remote]: SFTP y esto pueda correr en automático.
+[You]: Claro, claro.
+[Remote]: Pero
+[You]: Yep.
+[Remote]: no, más o menos están como en esa.
+[You]: Y a futuro no prevés mucho trabajo de mantenimiento que te preocupes, es decir,
+[You]: lanzan nuevos productos o la operatoria hace diez x, vos ves se te armaron muy escalable, no te preocupa cómo sigue.
+[Remote]: Sí. No, la verdad que en cuanto a escaladriano,
+[Remote]: José, ojalá, sí, que tengamos un montón de problemas de que sea tanto que nos duela, pero
+[Remote]: no creo, porque digo, mientras que la capacidad a nivel data
+[Remote]: funcione,
+[Remote]: las queries no cambian por volumen, o sea, los dashboards tampoco.
+[Remote]: Gestión desvíos, ya te digo, esperemos que tampoco tengamos mucho
+[Remote]: incremento. Creería que no,
+[Remote]: No sé, después ponele ahí otros
+[Remote]: si migrás herramientas, si migrás decor,
+[Remote]: ver que nada se rompa, ver qué las tablas se generan, pero no, temas así más bien de
+[You]: Sí, es una solución estática, es una solución estática, ¿no?, como que cualquiera de
+[You]: proveedores te cambia algo y y se rompe y tiene que haber alguien ahí
+[You]: tocando la a y sabiendo qué tocar, ¿no? También creo que el equipo tuyo particularmente
+[Remote]: Bueno, exacto.
+[You]: el equipo tuyo particularmente debe tener hoy una concentración de know how
+[You]: de knowledge, que que son un activo muy importante para Bualá, la pregunta es, claro, cómo escala eso, ¿no? Digo, solo ustedes saben cómo funcionan esas queries y todas esas transacción, no sé si lo habrán documentado bien o
+[Remote]: No, incluso en términos de dependencia de del
+[Remote]: puntual, justamente por eso estamos trabajando como en un sandbox
+[Remote]: con todo en Cronos. Entonces, no es que hay alguien de mi equipo que viene y es
+[Remote]: ejecuta una query, que si esa persona mañana se enferma y no le ejecuta a otro, no la sabe hacer.
+[Remote]: El proceso va a correr en automático.
+[Remote]: El conocimiento de la gestión del desvío, o sea, sí, en última instancia me meto yo que
+[Remote]: como se imaginarán, me embarro hasta acá y no tengo problema, porque
+[Remote]: de otro modo no hubiéramos podido hacer todo este recorrido,
+[Remote]: pero pero no, incluso nos pasó con el proveedor
+[Remote]: con Galileo, que hizo un cambio en los
+[Remote]: TCV que mandaba, o iba a cambiar el formato, lo mandaba en TXT,
+[Remote]: y lo empezaba a mandar en CCB, y era como, che, ojo, que no nos rompan la data, que no nos rompan
+[Remote]: tipo, los procesos automáticos, y eso requirió bastante trabajo, pero más de data.
+[Remote]: No tanto nuestro.
+[Remote]: Sí, nosotros controlar que los layouts no cambien,
+[Remote]: ahí viste que te cambian el esquema de la información y te rompe la lógica de la
+[Remote]: Fenomenal.
+[You]: Sí.
+[Remote]: No no no, parece como, bueno, Juli, ¿para qué querías reunirte con nosotros? No, obvio, siempre
+[Remote]: está bueno escuchar y ver qué nos puede, qué, cómo nos podemos colaborar, pero
+[Remote]: no hay algo que me preocupe así, críticamente, hoy de
+[Remote]: del proceso, digamos.
+[You]: Clarísimo. No, clarísimo. Yo, o sea, lo lo único que le
+[You]: y soy honesto, y también decirte que realmente hemos hablado con con
+[You]: compañías fintechs de la región, líderes como Wala y lo que han armado es impresionante, así que felicitaciones.
+[Remote]: Gracias.
+[You]: Creo que hacia adelante ustedes armaron, o sea,
+[You]: el único riesgo que le veo es la escalabilidad en un contexto donde todo esto siempre cambia,
+[You]: y y requiere mantenimiento, ¿no?
+[You]: Tanto en la parte data, ustedes tienen una dependencia del equipo técnico de que les
+[You]: facilite esas tablas en
+[You]: de una manera robusta, que siempre esté que siempre esté
+[You]: actualizada, blablablá, y ustedes después construyeron toda la capa de
+[You]: que es impresionante, que les permite como automatizar el proceso y solo
+[You]: consumir para analizar las diferencias y cerrarlas y explicarlas, ¿no?
+[Remote]: Sí, tal cual. Incluso, ¿sabes qué?, en una instancia
+[You]: Creo que
+[You]: veo
+[Remote]: como en una instancia anterior de este momento bastante feliz,
+[Remote]: cuando hubo una una reestructuración y el equipo, había un
+[Remote]: equipo especializado,
+[Remote]: en Argentina, que daba servicio cross,
+[Remote]: países, y cuando se reestructuró eso, y nosotros quedamos como sin el apoyo de ese equipo,
+[Remote]: y Data también estaba en un momento de reorganización y tampoco nos prestaba servicio, además de
+[Remote]: tener reuniones intensas con mucha gente,
+[Remote]: que empezamos a lo lo máximo que logramos fue, bueno, capacitaciones,
+[Remote]: grabaciones, espacios con data que
+[Remote]: enseñara el uso de la herramienta, etcétera, y la verdad que ahí fue que mi equipo se
+[Remote]: se empoderó mucho por necesidad, porque no teníamos ese soporte. Entonces,
+[Remote]: ya le digo, fue una curva bastante
+[Remote]: intensa y acelerada y difícil, pero finalmente como que
+[You]: Sí.
+[Remote]: eso es lo que nos deja en esta instancia, que justo ya tuvimos esa dependencia
+[Remote]: y nos rompió todo, y hubo momentos donde no teníamos los controles y estábamos medio desesperados,
+[Remote]: y bueno, pero justo eso aceleró todo este desarrollo
+[Remote]: de conocimiento dentro del equipo.
+[You]: Sí, sigue una, sigue habiendo una
+[You]: parte que tengo que ustedes no controlan, que es la parte de bajar ese TXT del banco y poner
+[You]: en BigQuery en la forma que vos necesitás con la llave conciliatoria que vos necesitás.
+[Remote]: Claro, sí. Esos son más tareas que hoy por hoy están en el ámbito tech,
+[Remote]: data,
+[You]: Eso.
+[Remote]: que, sí, sí, sí. Que si te digo
+[Remote]: realmente, si atrás de eso hay una persona actualizando o hay un proceso
+[Remote]: automático corriendo, te miento, no, no.
+[You]: No, no creo que sea manual, pero ahí es donde
+[Remote]: No me metí hasta ahí, pero
+[You]: nosotros el, a ver, nos dedicamos a esto, entonces, los mayores dolores están en
+[You]: el acceso a la información y la transformación, archivos sabemos que vienen en
+[You]: SFTP, APIs, CSVs, Flat files, TXTs,
+[You]: algunos te tienen que meter en un portal a bajar tu TCV, algunos te viene un PDF por mail, algunos digo,
+[You]: ahí hay una una ensalada rusa tremenda, que además es siempre
+[You]: por eso después te rompe cualquier flujito que vos armes, ¿de?
+[You]: Transformación y procesamiento, se te rompe cuando cuando la data que
+[You]: entra es distinta, entonces, por eso es dinámico,
+[Remote]: Claro, sí, te cambian el layout y te arruinan.
+[You]: Veo, es esa es la la parte
+[You]: que que requiere mantenimiento, pero si me decís que ya lograron priorizar a
+[You]: internamente y te des alguien de data, que si en el momento que se te rompe en dos días te lo solucionaron, buenísimo.
+[Remote]: Sí.
+[You]: Y la segunda parte que que que para mí no escala es la parte de
+[You]: la investigación y resolución de discrepancias, lo que sigue requiriendo que vos te metas,
+[Remote]: Sí.
+[You]: investigues, ahí es donde nosotros estamos agregando muchísima inteligencia artificial para
+[You]: automatizarlo, y por más de que vamos a seguir queriendo,
+[You]: que vos revises, es mucho más meterte y a prove que meterte a
+[You]: que tuve que ir hasta la última base del core bancario para ver dónde estaba esa transacción.
+[Remote]: No, tal cual, y que aparte por ahí, si ya tenés una automática y tenés algunos parámetros de ese desvío que siempre se repiten, después habrá cosas que requieren mayor, pero digo, poder meter ahí un bot haciendo el ajuste que a vos te llevó el tiempo de ir y hacerlo. O sea, como te digo, ese es nuestro próximo paso también, lo tenemos en roadmap, y es como, bueno, acá es donde está el próximo nivel de valor, Nada, si tienen algo ahí, obvio. Abiertos a escucharlo, pero Ya me estoy instalando cloud y toda la historia, o sea,
+[You]: Nosotros de vuelta vemos el valor ahí. En en mantener todo lo que
+[You]: No, no, está buenísimo, y y pará.
+[You]: También soy honesto, si ya lograron lo que lograron, estoy seguro que
+[You]: lograr un montón de cosas más, así que también digo, lo van a poder armar, pero nosotros nos
+[You]: nos, digamos, donde vemos más valores, en ese mundo cambian
+[You]: de las fuentes de la información y los formatos,
+[You]: y en todo lo que es la la investigación y resolución de discrepancia.
+[You]: Acá estamos usando un montón de AI, machine learning, para que
+[You]: sea cada vez más productivo, y acá también estamos usando AI,
+[You]: learning, pero hay mucho más el laburo tech de mantener
+[You]: actualizadas eso, actualizados esos conectores de información para asegurar de que
+[You]: estamos siempre ingestando la tabla correcta con el formato correcto y entendiéndola bien.
+[You]: Porque es un mundo muy dinámico. Si están interesados,
+[Remote]: Sí.
+[You]: y también por la relación que hay con Seque y con el resto del team de podemos probar hacer una piloto de ayudarlos en esta última parte
+[You]: que vos mencionás, y me decís, che, mirá, veinte veintiséis el objetivo era meterle inteligencia a la investigación,
+[You]: y resolución de discrepancias, feliz de meternos a trabajar con ustedes,
+[You]: ¿viste?, side by side, nos nos convertimos en una extensión del equipo de ustedes,
+[You]: a ver qué les podemos armar. Ese es el beneficio de la
+[You]: del estadio en el que estamos nosotros ahora, estamos en una etapa seed
+[You]: en donde nosotros trabajar con equipo como Wallace sería impresionante y
+[You]: y y después, en I fit, no hay fit, pero estoy seguro que vamos a aprender mucho del proceso,
+[You]: pero sí soy honesto que hoy
+[You]: para reemplazar lo que hicieron en BigQuery, no veo mucho valor, porque armaron algo impresionante.
+[You]: Solo veo valor en si te preocupa el mantenimiento de los conectores,
+[You]: y si realmente ves mucho valor en la parte de investigación y resolución de discrepancia.
+[You]: Que hay encantados de de meternos más de
+[Remote]: Sí.
+[You]: no, con vos, porque la otra parte de los conectores es más con tech, me parece.
+[Remote]: Sí, sí, yo creo que puede estar bueno, incluso si a ustedes les sirve
+[Remote]: parte de desarrollo de producto, ponele tener esa colaboración y ese entendimiento,
+[Remote]: puede funcionar. Nosotros no tenemos medio verde, ya te digo, o sea, estamos en esta instancia de
+[Remote]: justo también consiguiendo las licencias de las nuevas herramientas que van saliendo en el mercado,
+[Remote]: viendo qué podemos hacer, qué no,
+[Remote]: Hay mucho conocimiento del
+[Remote]: qué hay que hacer,
+[Remote]: y del funcionamiento, o sea, hay mucho conocimiento transaccional en todo el equipo.
+[You]: Claro.
+[Remote]: De mí para para todo el resto del equipo igual, o
+[Remote]: algunos más, algunos menos, pero
+[Remote]: como te digo, en un primer momento era yo sentarme a entender
+[Remote]: quiénes participan, cómo cruzó esto con esto, o sea, y todo el equipo igual, lo
+[Remote]: como que lo pongo muy de bandera,
+[Remote]: el entendimiento de qué hay que hacer está, ahora hay que buscar la mejora
+[Remote]: alternativa de cómo evitamos que eso lo haga una persona. E incluso, a veces lo que hago,
+[Remote]: Nada, esto también por si le sirve el dato.
+[Remote]: Si hay un proceso muy largo, medio complejo, lo que sea, lo llevo a un proyecto de Jira que con un listado de subtareas, ordena y y como
+[Remote]: ya sincronizadas, es mucho más fácil concentrarte en cada tarea, a ver cómo la automatizar.
+[Remote]: Entonces, también estamos en eso, digo, proyectos que o procesos que no son conciliaciones,
+[Remote]: pero que tienen la intervención de un montón de áreas que hace
+[Remote]: meses era
+[Remote]: una mail con doscientos, o sea, una cadena de mail con doscientos mails, todo eso es un proyecto
+[Remote]: de Jira con tareas ordenadas, y ahí es, bueno, a ver, me pongo creativo
+[Remote]: cómo automatizo esta tarea. Pero bueno, ahí estamos justo en eso, en ver
+[Remote]: dónde está la oportunidad, cuál es la mejor herramienta, tener las licencias, que a veces eso también
+[Remote]: lleva un poco de remo. Y, bueno,
+[Remote]: pero nada, así puede ser, podemos ver algo de esa parte de
+[Remote]: de la gestión del desvío en una instancia de colaboración y entender si
+[Remote]: si a ustedes les sirve y a nosotros también nos puede aportar algo.
+[You]: Dale, dale. Felices, felices, la verdad que sería por ahí. Estoy pensando,
+[You]: conectarnos de alguna manera al flujo para analizar las diferencias y ver con si
+[You]: nuestro motor de de motor de machine learning o de o de AI,
+[You]: podemos encontrar productividad para explotar ahí, en
+[You]: Nosotros un poco lo que hacemos con las diferencias es el, hacemos clustering primero,
+[You]: entre agrupar las diferencias. También trabajamos con compañías que tienen mucho más
+[You]: uno por ciento de diferencias, capaz les pasan algunos productos, entonces por ahí es interesante,
+[You]: pero entonces hacemos un clustering y el AI sugiere resoluciones,
+[You]: porque porque también va aprendiendo en el tiempo a medida que vos hacés resoluciones manuales,
+[You]: ya empiezan a entender, ah, esto es una transacción manual que hizo el tesorería para cerrar
+[You]: o para prefundir una cuenta, ok, listo, la pone, la marcamos como excepción, no aparece más diferencias.
+[You]: Mesmo cuando vos haces un ajuste manual, de che, esta no va a cuadrar nunca,
+[You]: porque la primer remesa es gratis para los usuarios que sacaban de ahí una cuenta los primeros tres meses.
+[You]: Todas esas reglas que se van configurando, que te aparecen principio en diferencias,
+[You]: el sistema aprende y se vuelve cada vez más productivo, ¿no?, como que se retroalimenta.
+[You]: Si ves que hay colaboración ahí, felices de por ahí tener una próxima reunión para
+[You]: para aterrizarlo un poquito más de cómo sería y analizar un piloto donde vuelta nos
+[You]: nos conectamos a las diferencias diarias y empezamos a
+[You]: agregar productividad ahí con nuestra tecnología.
+[Remote]: Dale, dejame que
+[Remote]: revise internamente, o sea, del vamos,
+[Remote]: sí, obvio, cuenten con con esa comunicación al menos activa de
+[Remote]: buscar esa ese espacio, pero dejame ver porque justo como te
+[Remote]: decía, estamos en esto de
+[Remote]: tenemos licencias, no tenemos licencias, podemos probar
+[Remote]: esta versión o no de un de tal herramienta. Entonces,
+[Remote]: en ese entendimiento también, pero sí de una
+[Remote]: sigamos conversando y y veamos qué tan, o cuándo eso podría ser
+[Remote]: oportuno y agregar valor. Por ahí ahora que estamos en esto de ver por dónde y ver
+[Remote]: con qué, no sé si será el momento, pero después se me ocurre que en
+[Remote]: cambio en Argentina y en Colombia,
+[Remote]: a modo de de dato, a ventilaba esa, no importa.
+[Remote]: Pero en Argentina y en Colombia todavía están en este
+[Remote]: proceso de salir del proveedor conciliatorio
+[Remote]: con el que venían,
+[Remote]: durante todo el veintiséis, yo creo que van a seguir en ese proceso,
+[Remote]: migrándose al mismo modelo que tenemos nosotros, pero con el
+[Remote]: de un con el apoyo de un equipo de data.
+[You]: Okay.
+[Remote]: Entonces, no sé, ahí si querés,
+[Remote]: o si te hace sentido charlar con Marianne nuevamente para ver si
+[Remote]: consideran que hoy es oportuno,
+[Remote]: o
+[Remote]: tal vez no porque ya lo delegaron en data, ni idea, la verdad es que entiendo que están en ese proceso.
+[You]: Si vos tenés tu contacto en Colombia o tu contacto en Argentina,
+[You]: puedo ir directo a hablar con esa persona espectacular,
+[You]: Siendo honesto, creo que lo que
+[Remote]: La voy María Andurán,
+[Remote]: que vos me dijiste que habías hablado con Marian, ¿no?
+[You]: Sí, sí.
+[Remote]: Sí, bueno, hoy María está, creo que tiene bajo
+[Remote]: la órbita tanto el equipo de operaciones argentina,
+[Remote]: como este equipo, que era de operaciones este que te cuento que era Cross, y pasó a la órbita de data,
+[Remote]: que se está llevando un poco todo este relevamiento. Entonces,
+[Remote]: vez Marian pueda... Si querés, le pregunto y y le paso tu contacto.
+[You]: Bueno.
+[You]: Preguntale
+[You]: hablé con él, les puedo mandar un mail, pero preguntale vos primero a ver qué te dice y si vas la
+[You]: vale la pena conectar, conectamos, y si no hacemos perder el tiempo a nadie.
+[You]: Lo que intuyo es que ya con el caso de éxito de ustedes,
+[You]: solamente te hagan viajar a Colombia y Argentina a enseñarles cómo armarlo y
+[Remote]: Ah, yo encantada, yo ya estoy en esta de, chicos, denme todo que yo lo arreglo.
+[You]: Te va a pasar, así que calculo que van a
+[You]: tratar de seguir el caso de éxito. Pero preguntale a Marianne, y si
+[You]: ve balón volver a conectar para ayudar a los equipos de Colombia o Argentina? Felices de de meternos ahí también.
+[Remote]: Dale, dale, genial. Bueno, igual, lo mismo, yo quedo a disposición, si querés,
+[Remote]: mantengamos la comunicación ahí por
+[Remote]: por mail, en cuanto yo tenga un panorama
+[Remote]: poco más claro de que nos vamos a samurgir a entender estas automatizaciones de gestión de desvío,
+[Remote]: y alguna herramienta
+[Remote]: más concreta con la cual vamos a intentar ir por ahí,
+[Remote]: podemos retomar como la conversación y ver ahí si se pueden sumar, si a ustedes le
+[Remote]: sirve sumarse ahí también para
+[Remote]: para algún entendimiento y podemos hacer algo juntos.
+[You]: Dale, espectacular, María Julia, un gustazo conocerte y y mil gracias por el tiempo.
+[Remote]: Gracias a ustedes. Lo mismo digo, chicos, quedamos en contacto cualquier cosa.
+[Remote]: Chau, chau.
+
+============================================================
+SUMMARY
+============================================================
+### Ualá Mexico’s Current Reconciliation Setup
+
+- Mexico never implemented Simetrik (unlike Argentina/Colombia)
+  - Lacked the know-how when other countries had it
+  - Team decided to build internal solution instead
+- Built entire reconciliation process in SQL on BigQuery
+  - All controls now mounted in BigQuery with automated execution via Cronos
+  - Daily dashboards show total transactionality, OK statuses, and deviations
+  - Downloadable detail of deviations available
+- Operations team built and maintains everything internally
+  - Promotes knowledge acquisition across team members
+  - No dependency on external engineering support
+- Colombia and Argentina still using Simetrik while migrating to similar BigQuery model
+
+### Risk Assessment and Process Flow
+
+- Main risk identified: data integrity issues
+  - If BigQuery tables have inconsistencies, control outputs get affected
+  - Easy to detect when tables aren’t updated (all transactions show as deviations)
+- Multiple parties in transaction flow create complexity:
+  1. Despachador (dispatcher)
+  2. Core bancario (banking core)
+  3. Galileo (card processor)
+- Investigation process when deviations occur:
+  - First check in BigQuery
+  - If insufficient, access individual systems directly
+  - Escalate to middle office team if needed
+  - Can download Banxico dataset as final step
+- Deviation rates are excellent: less than 1% deviation in SPEI (main product)
+  - Spikes only occur during incidents, always tied to specific technical issues
+
+### Operational Performance and Scalability
+
+- Two and half years of intensive work to reach current state
+  - Initial year required working weekends consistently
+  - Now stabilized with minimal daily maintenance
+- Process scales well with volume
+  - Queries don’t change based on transaction volume
+  - New products follow same control structure logic
+- Team knowledge well-distributed to reduce single points of failure
+  - Automated processes reduce dependency on individual execution
+  - Documentation and cross-training implemented
+
+### Next Steps and Collaboration Opportunities
+
+- Julia will review internally regarding potential collaboration
+  - Currently evaluating various automation tools and licensing
+  - 2026 objective: automate deviation management and resolution
+- Potential pilot opportunity for AI-powered deviation investigation
+  - Rexi could integrate with existing BigQuery setup
+  - Focus on clustering deviations and suggesting resolutions
+- Argentina/Colombia migration possibilities
+  - Both countries still transitioning from Simetrik throughout 2026
+  - Julia will check with Mariano Durán about potential collaboration
+  - May leverage Mexico’s success model for other markets
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/ccad2cd7-bd85-4b75-9aef-094433f5d3e5](https://notes.granola.ai/t/ccad2cd7-bd85-4b75-9aef-094433f5d3e5)

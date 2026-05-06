@@ -1,0 +1,567 @@
+MEETING: Rexi x Winclap: discovery
+DATE: 2026-04-29
+ID: not_1zS3SEGMmx3DiC
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Cecilia López <cecilia.lopez@winclap.com>
+SCHEDULED: 2026-04-29T10:00:00-04:00 - 2026-04-29T10:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Sí, sí, sí, estoy en Mendoza.
+[You]: Fantástico. Bueno,
+[You]: se suma a nadie, no se lo yo no lo sumo solo bolsillo, usted es lo bolsillo, ¿no?
+[Remote]: No.
+[Remote]: No, no, solo nosotros, y si querés te cuento un poco
+[Remote]: por lo que vi ahí en la cadena de mails, ya estuviste con alguien del equipo,
+[Remote]: reunido, ¿puede ser?
+[You]: Sí,
+[Remote]: Sí.
+[You]: Ya te digo con quién charlé,
+[Remote]: Gabriela.
+[You]: que
+[You]: que Gabriela, que, honestamente,
+[You]: en realidad me ha dicho que hable con Mariano, ¿vos trabajas con Mariano?
+[You]: A ver,
+[Remote]: Mariano Sí, Mariana. Mariano...
+[You]: No, me gusta.
+[You]: Gabriela Abraham
+[Remote]: Sí.
+[You]: A ver, Gabriela me dijo que, Gabriela está en la parte de tesorería, ¿verdad?
+[Remote]: Sí.
+[You]: Y vos estás en la parte de
+[You]: contabilidad,
+[Remote]: Yo soy
+[Remote]: Sí, de finanzas. Yo soy líder de finanzas de todo el equipo, sí.
+[You]: Excelente. Bueno, entonces, dijo como que
+[You]: el dolor de conciliaciones está más en tu lado
+[You]: que a ella le vendría bárbaro todo el trabajo de consolidación de cuentas
+[You]: que sería como un byproduct de las conciliaciones. Pero a ver, si querés,
+[You]: hago un breve contexto, no sé qué tanto te contó Gabriela, pero te te hago una breve intro sobre los
+[You]: y qué hacemos, después me encantaría escucharte más a vos
+[Remote]: Dale, dale.
+[You]: y las consideraciones.
+[You]: Rexy, para ponerlo bien simple, es una plataforma
+[You]: agéntica para automatizar el proceso de conciliaciones, ¿sí? Entonces, es una plataforma que va
+[You]: básicamente se conecta a todas tus cuentas bancarias o fuentes de información transaccional
+[You]: por ahí te llega algún proveedor, alguna base de propia interna,
+[You]: algún procesador de pagos, algún gateway de pagos, no sé, o de
+[You]: de los influencers. Digo, hay múltiples fuentes de archivos transaccionales, nosotros ingestamos
+[You]: todo eso,
+[You]: y se configura dentro de todo un flujo de conciliación automático.
+[You]: Entonces, hacemos toda la transformación de los archivos y el parseo
+[You]: toda la lógica conciliatoria,
+[You]: se matchean las transacciones, que eso corre automáticamente donde background vos lo dejás corriendo
+[You]: que conectamos a la fuente de inversión, esto corre todos los días,
+[Remote]: Okay.
+[You]: y vos simplemente te metés en la plataforma para a,
+[You]: investigar y resolver las diferencias, que para eso también tenés
+[You]: un agente que te ayuda a resolver esa diferencia porque te encuentras duplicado, te encuentra
+[You]: transacciones manuales, te te deja marcar excepciones manualmente, te deja hacer voz machivos manuales,
+[You]: y el sistema aparte aprende con ese actioner tuyo, y se vuelve que es más autónomo
+[You]: y cada vez más automático, también propone mejoras a la lógica conciliatoria, etcétera.
+[You]: Te metes a resolver diferencias, te metes a ver un dashboard también con los resultados,
+[You]: y te podés generar cualquier tipo de reporte
+[You]: ya sea para mandarle al área de tesorería, para mandarle algún proveedor de
+[You]: externo, para mandarle algún regulador,
+[You]: para pegarle al... Nos conectamos también al ERP si necesitas generar entradas contables
+[You]: de las de de lo que concilia y de lo que no concilia.
+[You]: Entonces, toma un mecanismo de output también que queda automatizado.
+[You]: Y lo bueno es que te queda full auditable y full trazable desde la
+[You]: archivo crudo que llegó del banco
+[You]: hasta cómo lo procesaste, cómo generaste el output del reporte,
+[You]: y la entrada al ERP, para que si llega a haber cualquier tipo de auditoría,
+[You]: vos tenés trazabilidad completa sobre todos esos flujos.
+[You]: Esto es un poquito lo que hacemos. Honestamente, trabajamos por ahí
+[You]: un poquito más en servicios financieros, banca, pagos, seguros,
+[You]: es donde realmente hay dolores muy, muy grandes.
+[You]: Pero, bueno, estuve con... Ah, Mariano, es el CEO, Mariano Sciences,
+[Remote]: Claro, hay dos Marianos, Mariano es el
+[Remote]: y tenemos Mariano, el mánager de
+[Remote]: finanzas, que sería mi jefe, digamos, por eso te consultaba, no sabía bien con qué Mariano pero sí.
+[You]: Ahí está, bueno.
+[You]: Me confundí un Hablé con Moreno Acá, Nueva York, me lo escuché acá, me contó que habían varios dolores,
+[You]: habían hecho igual algunos laburos ya iniciales de automatización, que venían bien, pero no tenía ni idea.
+[You]: Ahí me pasó con Gabriela.
+[You]: Gabriela, honestamente,
+[You]: no estaba muy interesada, no sé si la agarré a fin de mes con
+[You]: con por ahí todo prendido fuego y
+[You]: y sí, muchas ganas de escuchar a un vendedor, un emprendedor que
+[You]: iba a decir que le iba a transformar la operación, pero me dijo, yo te derivo con el equipo de finanzas, que es al que más le duele, ustedes echar
+[You]: Y ahí es cuando me dijo Mariano, y y claramente, bueno, era el Mariano, que es el el mánager.
+[Remote]: Claro.
+[You]: Así que
+[Remote]: Sí, sí, sí, tal cual, tal como decís,
+[Remote]: las conciliaciones a partir de las conciliaciones
+[Remote]: cien por ciento bancarias pasaron al área de contabilidad,
+[Remote]: en el mes de enero veinte veintiséis. Ya un poco pasa a ser problema nuestro,
+[Remote]: digamos, y nosotros conciliamos y le pasamos al área de tesorería
+[Remote]: para que o registre los pagos o complete todas las diferencias de lo
+[Remote]: falte, digamos, registrar entradas y salidas de dinero, digamos.
+[Remote]: Eso para darte un poco de contexto.
+[You]: Del inicio,
+[Remote]: Si querés, voy desde el inicio,
+[Remote]: y te cuento un
+[You]: Paso a paso,
+[You]: ¿qué conciliás?, ¿cómo conciliás?,
+[You]: cuáles son los dolores del proceso?
+[Remote]: Dale, igual te cuento un poco de contexto de la empresa, por si no te lo
+[Remote]: han dado, Gabriela también es relativamente nueva dentro del equipo,
+[Remote]: bueno, es un equipo que se ha armado hace muy poco,
+[Remote]: Yo quizás soy un poco más vieja en la compañía porque
+[Remote]: estoy hace tres años en Wing Club, ya tres años y un poquito más,
+[Remote]: pero estaba en otra área. El año pasado se desarma por completo un área de contabilidad,
+[Remote]: y Mariano, tanto Mariano, que estaba en
+[Remote]: conmigo, los dos tomamos el área de
+[Remote]: porque teníamos que seguir operando. Entonces, en ese contexto,
+[Remote]: nosotros dos nos hacemos cargo del área y de
+[Remote]: sea, de completar el equipo a las personas que faltaban.
+[Remote]: En ese ida y vuelta nos damos cuenta de un montón de cosas, de que nunca hubo contabilidad,
+[Remote]: En veinte veinticinco, entonces, estábamos un poco más atrás, ¿no?, era que no
+[Remote]: conciliábamos, sino que ni siquiera teníamos las transacciones cargadas.
+[Remote]: Entonces, ahora hemos estado trabajando mucho en eso,
+[Remote]: en justamente hoy estamos cerrando el sexto país,
+[Remote]: el sexto balance que es Estados Unidos y es el último,
+[Remote]: pero esto, priorizando en un principio la registración de cosas.
+[Remote]: Imaginate, estamos en ese nivel muy primitivo.
+[Remote]: Segundo paso, obviamente, eso vino en sí con conciliaciones y
+[Remote]: todo, y ya estamos empezando como a ocuparnos de nuestros
+[Remote]: procesos para este veinte veintiséis. Ya arrancamos con conciliaciones manuales,
+[Remote]: ayudados por inteligencia artificial, por supuesto, en muchos casos de todos nuestros bancos,
+[Remote]: porque eso pasa al área de contabilidad en Enir. Entonces, nosotros estamos en ese proceso de ahora ver cómo se sería el circuito ideal. En ese circuito ideal, en una charla con Julián Richarddi,
+[Remote]: me dijo esto, me los mencionó, y dije, bueno,
+[Remote]: termino balance y me pongo con este tema, pero la verdad
+[Remote]: que, bueno, nada, adelantamos la reunión, no pasa nada, porque yo me estoy ocupando también de esto,
+[Remote]: entonces me interesaba escucharlos para ver cuál era la propuesta de ustedes,
+[Remote]: porque esto, estamos estamos en un proceso de
+[Remote]: de ver cómo serían nuestros circuitos ideales, cambios, mejoras,
+[Remote]: propuestas, y estamos como en esa dinámica de querer cambiar las cosas y hacer las cosas bien.
+[Remote]: Así que, dado ese contexto, te cuento cómo lo hacemos hoy en día. Hoy en día nosotros
+[Remote]: tenemos los países separados por personas dentro del área de contabilidad,
+[Remote]: por ejemplo, tenemos una persona a cargo de Brasil y Chile, otra
+[Remote]: a cargo de Colombia, otra persona a cargo de Argentina,
+[Remote]: y otra a cargo de Estados Unidos. Tenemos los países segregados
+[Remote]: de acuerdo a la a las funciones de cada uno.
+[Remote]: Como que cada uno se va especializando más en el país que le toca.
+[You]: Entonces, equipo contabilidad.
+[Remote]: Esto es el equipo de contabilidad, exacto.
+[You]: Perfecto.
+[Remote]: Cien por ciento.
+[You]: E vos marcaste a este tipo?
+[Remote]: No,
+[Remote]: lo manejamos a medias, digamos, con mi líder. Mi líder
+[Remote]: tiene como a dos personas más senior,
+[Remote]: así decirlo, y yo tengo dos analistas juniors.
+[You]: Okay.
+[Remote]: Entonces, como que tenemos un poco segregado y
+[Remote]: para que no sea mucha carga para uno, iniciamos de esta manera.
+[Remote]: Indirectamente yo estoy también sobre las otras dos personas,
+[You]: Perfecto.
+[Remote]: pero no soy su líder formal, por así decirlo.
+[Remote]: Así que eso tenemos dividido de esa manera.
+[Remote]: Sí, yo me encargo de consolidar los países, o sea,
+[Remote]: yo me me encargo como de la totalidad operativa después de la consolidación, de ver
+[Remote]: cómo están los resultados y todo eso, de todo el equipo. No es que me encargo solamente de las
+[Remote]: personas que lidero, sino que lo hago a nivel macro. Es como un tema de
+[Remote]: solamente más de formalidad, digamos.
+[You]: Sí, perfecto.
+[Remote]: Dicho esto,
+[Remote]: como nos agregamos las personas por países y cada una de las
+[Remote]: personas está tomando la conciliación por país.
+[Remote]: Es decir, el responsable del país estaría tomando la conciliación.
+[Remote]: Supermanual al principio, los perfiles que esto te tengo que distinguir dos cosas, los perfiles super junior, como le estábamos los estábamos introduciendo, la contabilidad no son contadores ni mucho menos, o sea, son chicas administrativas, y recién iniciábamos con este proceso, primero se las enseñamos a hacer manual para luego intentar avanzar un poquito con inteligencia artificial. Estábamos en ese proceso. Solamente hemos hecho tres conciliaciones, o sea, de enero, febrero y marzo, fueron devueltas a tesorería para los ajustes y todavía no reingresan con los ajustes. Que habíamos propuesto. En ese estadio actualmente. ¿Qué es lo que me interesa a mí? Ver un proceso que fluya, que sea más rápido y que no sea una carga laboral para nosotros el tema de las conciliaciones.
+[You]: Total. Y lo que concilian ahí siempre es un extracto bancario contra
+[Remote]: La
+[You]: un sistema interno.
+[Remote]: Sí, contra la contabilidad.
+[You]: Contabilidad interna.
+[Remote]: Nosotros
+[Remote]: NetSuite.
+[Remote]: Nuestro ERP.
+[You]: Pero y el ERP se genera a partir de un order book interno,
+[You]: por eso siempre, como que NetSuite es un
+[You]: lo que debería haber sucedido y el banco es lo que efectivamente sucedió, ¿no?
+[Remote]: Claro.
+[Remote]: O sea, nosotros sí, todos nos tiene que quedar de acuerdo a nuestro extracto bancario.
+[You]: Exacto. Y ahí, esa comparación, se bajan de
+[You]: un CSV, lo pasan a Excel, y el extracto lo trae en Excel y lo comparan en Excel.
+[You]: ¿O cómo lo hacen?
+[Remote]: ¿Directamente bajamos a Excel?
+[Remote]: Y ahí tenemos nuestros papeles de trabajo desde el Excel versus el extracto,
+[Remote]: Algunas cosas las tenemos más automáticas para
+[You]: Macro.
+[Remote]: y todo y hacer la comparativa, otras es
+[Remote]: lo que no no manual.
+[Remote]: Estamos en un proceso de, por ejemplo, te tiro un ejemplo,
+[Remote]: me encontré un asiento de sueldos que incluía
+[Remote]: un mes y medio de transferencias bancarias.
+[Remote]: Porque juntaban un mes y medio de transferencias que estuvieran haciendo bancarias,
+[Remote]: y me hicieron un globo por todo eso. Entonces, hay algunas partidas
+[Remote]: todavía no se están registrando correctamente en la fecha que
+[Remote]: por el importe y que me agrupan. Entonces, yo me tengo que filtrar todo lo que
+[Remote]: es transferencia de haberes, por ejemplo, y hacer el cruce como del globo.
+[Remote]: Entonces, estamos también en ese proceso de detectando inconsistencias
+[Remote]: para luego
+[Remote]: poder aplicar, digamos, algo más
+[Remote]: más automático, porque si yo le tiro a la inteligencia artificial eso,
+[Remote]: es como que hoy me dice, che, acá tenés una diferencia. Entonces, es como que, bueno, estamos en
+[Remote]: aprendizaje de ver cómo se registra y cómo debería ser el mejor caso.
+[Remote]: No sé si
+[You]: Total.
+[You]: Sí, sí, clarísimo, clarísimo, es un caso de
+[You]: muy típico que nosotros trabajamos, el de el el, es el control contable.
+[You]: Es comparar la contabilidad contra un extracto
+[You]: tener un un chequeo
+[You]: diario recurrente que escale
+[You]: y con mucha tecnología para que no para no tener gente dedicándole horas manuales a un proceso que honestamente
+[You]: contar por otros, o sea, es es muy tedioso.
+[Remote]: Sí, sí.
+[You]: Entonces,
+[Remote]: Burría.
+[You]: mirá, si querés,
+[You]: para que te te, para ponerle
+[You]: patas y cabeza a todo lo que te estoy contando, te
+[You]: comparto pantalla un poquito sobre cómo funciona el producto. Entonces,
+[You]: el producto se siente como, usás cloud, ¿verdad?
+[Remote]: Sí.
+[You]: Se siente como un Claude, pero para para que
+[You]: tipo de proceso. Entonces, abrís acá, y y y en la home ya es totalmente
+[You]: agéntica y conversacional, y le podés pedir cualquier cosa acá. Che, necesito
+[You]: conectar mis extractos bancarios.
+[You]: Y y arrancás así y te empieza a hacer todas preguntas. Ahora, si querés, después
+[You]: obviamente, tenemos las otras secciones donde lo configurás todo. Entonces, el primer paso, por ejemplo, es
+[You]: conectar las fuentes de información.
+[You]: Ahí me dijiste, seguramente cada país tiene sus bancos.
+[Remote]: Sí, cien por ciento. Por ejemplo, en Estados Unidos, creo que son trece cuentas.
+[You]: Pero ¿cuántos bancos?
+[Remote]: Una cosa así.
+[Remote]: Bancos deben ser
+[Remote]: seis, una cosa así.
+[You]: Seis bancos distintos.
+[Remote]: Creo.
+[Remote]: Me parece que sí.
+[You]: Bueno, ahí, de vuelta,
+[You]: nos conectamos a la fuente de información
+[You]: de cualquier manera.
+[You]: Podemos, si si ya lo están haciendo en CSV, le cargás el CSV,
+[You]: entonces, mirá, outsource,
+[You]: file upload y le y le cargas los CSVs, le cargas lo que vos quieras.
+[Remote]: ¿Te puedes de las maneras? O lo conecte
+[Remote]: directamente al banco o le voy cargando yo por mes el extracto.
+[You]: Exactamente. Lo que tratamos de hacer es
+[You]: conectarlo. Entonces, mira, Stripe transactions,
+[You]: acá si hay una API, lo conectas por API en dos segundos, y eso es es un golazo.
+[Remote]: Okay.
+[You]: Acá también, no sé, podés decirle qué qué con, qué cuenta,
+[You]: si es es un banco, pero después le configuras todas las cuentas,
+[You]: Entonces, el primer paso
+[You]: siempre es configurar tu fuente de información acá.
+[Remote]: Ok. Hay una
+[You]: Lo quieres hacer manual, todos los
+[Remote]: de alguna algún tipo de cuenta que no se pueda?
+[You]: No, no, y honestamente hacemos de todo, por eso te decía, en el mundo ideal hay APIs,
+[You]: Los bancos de Estados Unidos seguramente tengan APIs y sea más fácil. Vos y yo sabemos que
+[You]: el mundo no es ideal, es un mundo cruel,
+[You]: en donde no hay API para todo,
+[Remote]: En el peor de los casos tenemos el CSV igual, pero por eso la pregunta.
+[You]: y hay que
+[You]: Sí,
+[Remote]: Ok.
+[You]: el CSV la verdad que no escala, nosotros el objetivo, si trabajamos juntos,
+[You]: es construir un conector automático, porque, si no,
+[You]: si todos los días vas a estar bajando un CCB y no, la plataforma,
+[You]: es es una locura también, es un es un task muy menor que debería estar automatizado. Entonces, ahí es,
+[You]: API,
+[You]: el caso de no haya API, hacemos un SFTP,
+[You]: que ahí por ahí ustedes me decís, che, ¿cuál es el contacto en el banco?, y yo le escribo directo y el
+[You]: que nos habiliten un SFTP para la ingesta de sus archivos,
+[You]: o en el peor de los casos, también hemos hecho
+[You]: Chrome Jobs, para que entre un robot
+[You]: a meterse en el portal y bajar el CSV. Eso que vos hacés manualmente lo configuramos nosotros para que quede automático.
+[You]: O mismo levantar un PDF de mail. Con algunos clientes, levantamos PDFs de mails.
+[You]: Porque un proveedor de pago te manda el PDF todos los días por mail.
+[You]: Bueno, se lo levantamos ahí. Pero el punto es, siempre hay que tratar de
+[You]: construir el el la ponte de la información automáticamente.
+[You]: Después, vos venís acá y configurás la conciliación.
+[You]: En donde seguramente acá esté aperturado por país y solamente por cuenta.
+[You]: Entonces, acá van a confirmar solamente muchas conciliaciones.
+[You]: La conciliación básica simplemente es source a, source b y la estrategia.
+[You]: Acá ponés
+[You]: NetSuite, acá pones la cuenta bancaria que vas a conciliar contra NetSuite,
+[You]: y acá empezás con la estrategia.
+[You]: Bueno, pongámosle
+[You]: Vamos a otra, así te muestro un poco
+[You]: vamos a esta, mirá.
+[You]: Entonces,
+[You]: exacto bancario,
+[You]: base interna y la estrategia. La estrategia puede ser uno a uno,
+[You]: voy a voy a manejar una transacción, una transacción, puede ser muchas a uno,
+[Remote]: Gastos
+[You]: esto típicamente sucede cuando tenés batch transactions
+[You]: se te las agrupa,
+[Remote]: Sí.
+[You]: Many to one, que es lo mismo del otro lado, o many to many también, a veces te agrupan
+[You]: un lado, te agrupan del otro, y ahí se pone bastante interesante.
+[You]: Después acá, configurás las barridas, que es cómo uno
+[You]: Si es una uno, por ejemplo, hay un identificador único, o me tengo que poner creativo a por acá, identificador único, pero yo después te puedo agregar una segunda barrida que sea por fecha.
+[You]: Y te hago una tercer barrida que sea por monto.
+[Remote]: Ok.
+[You]: Y así va corriendo barridas, se te va hundiendo transacciones.
+[You]: El próximo paso sería decir,
+[You]: bueno, ahí chequea,
+[You]: El próximo paso sería decir, ¿hay una comparación que tengo que hacer una vez que yo hago el macheo?
+[You]: ¿Hay una comparación que tengo que hacer
+[You]: Acá están las comparaciones. ¿Y la comparación es crítica o no?
+[You]: O sea, por ejemplo, si yo encontré con un identificador único una transacción de cada lado,
+[You]: después tengo que chequear que las transacciones sean del mismo monto, ¿no? Esa es la comparación que hago, porque
+[You]: por ahí te hice el match, pero si no cuadra el monto, quiero que me lo digas, porque es una diferencia que tú
+[You]: investigar, ¿qué pasó acá? ¿Me me faltó revenue, me cobraron un fee de más?
+[Remote]: O lo mismo.
+[You]: O se hizo la transacción
+[Remote]: Cuando ponés, por ejemplo, que te busque por monto,
+[Remote]: debería traer si el proveedor es el mismo, porque no va a ser que sean dos
+[Remote]: transferencias de cien dólares y que sea diferente el proveedor, ¿puede ser?
+[You]: total o el estado también de la transacción.
+[You]: ¿Está liquidada, está presentada? Necesito hacer, porque por ahí me
+[You]: me encontraste el identificador, pero de un lado está presentada y del otro lado está liquidada.
+[You]: Típicamente, en el mundo pagos de tarjetas.
+[You]: Acá se configura todo, acá igual
+[You]: decirte que siempre está la parte agéntica, ¿no? Siempre vos podés volver
+[You]: a a decirle a la gente que te configure todo esto. Esto es solamente si vos lo entendés bien,
+[You]: y lo querés configurar vos a mano, pero siempre se puede hacer agentico. Y
+[You]: después, si esto lo querés correr manual o lo querés correr
+[You]: los lunes
+[You]: los jueves y los domingos a las ocho de la mañana? Porque es como te mandan los archivos, lo dejás configurado.
+[You]: ¿Sí? Una vez que configurate todas tus conciliaciones,
+[You]: esto corre automáticamente.
+[You]: El laburo pasa de
+[You]: traer los archivos, machear en Excel,
+[You]: solamente te metés todos los días a mirar el estado.
+[You]: Y a resolver las diferencias. Y acá tenemos dos cosas. Primero, acá te lista las
+[You]: y, como vienen,
+[You]: setenta y un por ciento, ochenta y cinco, y te y te abre issues.
+[You]: Che, mirá, hay una anomalía acá, hay anomalía allá,
+[Remote]: Ok.
+[You]: y después tenés a la gente que lo que te ayuda es a resolver esos issues.
+[You]: Bueno, justo está
+[You]: Bueno, y esto se arma como un case
+[You]: management system, porque, seguramente, de vuelta, van a estar las cuatro personas metidas acá.
+[You]: Acá lo interesante es que vos esto se lo como, no sé si usan Línea o Trello,
+[You]: y se lo asignás a la persona de Brasil para que lo mire, y esta persona de Brasil se mete
+[You]: mira, y puede decir, mirá,
+[You]: si le agregás un rango de tolerancia de uno por ciento al monto,
+[You]: aplicás la regla y la conciliación te mejora.
+[You]: Y acá vas haciendo toda esa gestión y queda la trazabilidad completa, de che, esta persona
+[You]: no sé, Estefanía, que es la que maneja Brasil, hizo esto
+[You]: en tal fecha y la consideración, y acá armas una discusión, y ella te puede dejar un comentario
+[You]: che, apliqué esta regla,
+[You]: que me llevó, bla, y queda todo cien por ciento habilitado.
+[You]: Y antes de hacer, también podés simular antes de apretar cosas.
+[You]: Y otra cosa adicional, hay permisos. Entonces, vos por ahí querés ser la admin
+[You]: y por ahí tu equipo simplemente tiene poder de review y de comentar, pero no puede ejecutar nada.
+[You]: Deja un voz todo listo para que vos ejecutes, para que revises y quede todo bien.
+[You]: Bien hecho. Y después está la parte de los dashboards, que de vuelta es cien por ciento configurable.
+[You]: Te creas el dashboard que vos quieras.
+[You]: Mirá, o sea, esta conciliación,
+[You]: y elegís querés un área chart, un pie chart,
+[You]: un KPI o una tabla dinámica. La tabla dinámica es muy poderosa.
+[Remote]: Sí.
+[You]: Porque es, realmente, lo mismo que en Excel, pero pero acá.
+[Remote]: Es la vieja confiable, esa está siempre.
+[You]: Sí. Y acá están los reportes.
+[You]: Quedé de vuelta.
+[You]: Te lo podés exportar a tu base de datos,
+[You]: si lo querés dejar en Snowflake o en BigQuery, no sé qué base usan,
+[You]: o te armás un reporte.
+[You]: Con las
+[You]: con las métricas que vos querés, cuándo querés que te lo mande, si te querés que te lo mande por mail, por Slack, lo configuras exactamente como vos querés y lo guardás. Y acá también, de vuelta, estos reportes, el por ahí te boss te generás un par, el equipo se genera otro par, y están todos colaborando desde la misma plataforma. Con lo cual, a ver, el valor es que esto después termina corriendo de manera totalmente automática, en el por detrás, y te ahorras muchísimo valor en la consolidación de la ingesta en el macheo de las transacciones, y lo uno que estás haciendo vos es manejando las diferencias, que es donde tiene valor que estés.
+[You]: Porque vos sos la que entiende
+[You]: verdaderamente
+[You]: cuando hay diferencias por qué existen, cómo las tenés que explicar en el sistema contable,
+[You]: etcétera. Ahí después me faltó mostrarte que esto después se conecta a NetSuite,
+[You]: y se arma todo el diccionario contable,
+[Remote]: Bien.
+[You]: para generar las entradas, ¿no? Entonces, ya después te quedan todos los ajustes en
+[You]: de
+[You]: de la verdad, de lo que efectivamente tenés en el banco,
+[You]: y las diferencias, pues generar una entrada que explique la diferencia. Esta diferencia
+[You]: es porque me la estas transacciones me van a entrar en temas
+[You]: cinco, pero en el sistema contable lo tengo que dejar como como un crédito por cobrar,
+[You]: en tema cinco, y después lo cancelás, ese estado transitorio,
+[You]: pasas a la cuenta correspondiente y todo eso lo hacés también desde acá.
+[Remote]: Bien, eso te iba a decir. Igual, en términos de ajuste,
+[Remote]: ejemplo, no sé, me faltaron cargar dos órdenes de pago, yo voy y las cargo en el sistema,
+[Remote]: y cuando se actualice la API con el sistema,
+[Remote]: correría solo ese, de nuevo la regla y listo, se soluciona.
+[You]: También lo puedes hacer directo acá, podés generar transacciones nuevas acá.
+[Remote]: ¿Pero acá podría generar una orden de pago que impacte en el sistema?
+[You]: Cien por ciento.
+[Remote]: Ok.
+[You]: También puedes matchear cosas manualmente.
+[Remote]: O sea, aplicarlas.
+[You]: Exacto.
+[Remote]: Bien, ¿han tenido alguna
+[Remote]: anterior con con NetSuite?
+[Remote]: Por casualidad?
+[You]: Sí, estamos integrados con Netflix, ya.
+[Remote]: Ah, ok, listo, eso me parece
+[Remote]: superimportante porque no, creo que es un poco
+[Remote]: da un poco de dolores de cabeza al principio.
+[You]: Cien por ciento, cien por ciento.
+[Remote]: Bueno, me encantó, creo que nos ahorraría muchísimo tiempo,
+[Remote]: y más que un poco lo que me pasa a mí con esto,
+[Remote]: yo voy viendo, por ejemplo, me junto con uno de los chicos, veo diferencias al mes siguiente como que
+[Remote]: vuelvo a ver otras diferencias y quizás me de lo del mes pasado.
+[Remote]: Si ya es un sistema que va guardando como esa memoria,
+[Remote]: de de cómo accionar ante tales casos, me sirve realmente, no te lo voy a negar,
+[Remote]: Me gustaría saber un poco tema costos, pricing.
+[You]: Sí. Nosotros
+[You]: Sorry, ¿quieres decir?
+[Remote]: No, eso que
+[Remote]: que en cuáles son las condiciones, en cuáles son los
+[Remote]: si me decís, no sé, tienen una tarifa por banco, una tarifa por
+[You]: La tarifa es fija,
+[Remote]: no sé, transacciones, etcétera.
+[Remote]: Ah, ok.
+[You]: y
+[You]: está basada en, o sea, es fija, literalmente, fija, no depende de las
+[You]: y no depende de los asientos, porque lo que yo más quiero es que esto sea
+[You]: un sistema colaborativo interno, entre finanzas, tesorería, operaciones,
+[You]: todos los equipos que le impacta la conciliación de de los flujos de dinero.
+[You]: ¿Cómo hago yo la estimación para pasarte una tarifa
+[You]: ¿La hago en función de la cantidad de conectores?
+[You]: ¿Sí?, que eso es un laburo de implementación,
+[Remote]: Ok.
+[You]: En la volumetría, obviamente, porque eso me impacta, esto corre en mi nube, en mi AWS, y eso, obviamente,
+[You]: me impacta porque es volumen de de procesamiento y de almacenamiento.
+[You]: Y tres, la complejidad, la complejidad de
+[You]: de la conciliación, de los reportes, de también, por ejemplo,
+[You]: algo que me impacta mucho es si me si tengo que hacer también la parte de del ERP,
+[You]: porque porque agrega también mucho costo de procesamiento a la plataforma. En base a esas tres cosas,
+[You]: yo te paso una tarifa fija y es un contrato de un año que vos sabés que va a valer eso,
+[You]: y no va a escalar. Si Wing Club crece
+[You]: tres x este año en transacciones o en equipos, sabés que esto sí es fijo.
+[You]: Y esto te lo cuento un poco porque es un poco nuestra visión, nuestra visión
+[Remote]: Ok.
+[You]: arranca por conciliaciones
+[You]: y yo quiero que esto después se vuelva una plataforma para que vos a gente para otros procesos.
+[You]: No solamente conciliación. Estoy seguro que dentro de finanzas y dentro de contabilidad,
+[You]: está lleno de procesos manuales
+[You]: que que son impactados por las conciliaciones, y entonces la visión de
+[You]: cómo después esto sube a una plataforma para que... Es como un cloud code para finanzas.
+[You]: Con templates, ¿no? Decís, che, proceso de treasury ops, por ejemplo, con Gabriela,
+[You]: que hace seguramente un montón de transacciones ajustes manuales. ¿Por qué no me pongo un agente a
+[You]: todas las diferencias, que me agrupe las transacciones, que me genere el archivo, que yo después si lo pongo en mi procesador de pagos,
+[You]: automáticamente. Ese tipo de agentes y workflows es lo que nosotros queremos resolver el día de mañana,
+[You]: y por eso también lo fijo hoy, porque yo quiero volverme un partner tecnológico de ustedes
+[You]: sino un vendor que si ustedes crecen diez x, me tengo que sentar con Julián a negociar, porque
+[You]: me dice, che, ya sos muy caro, o o te tengo que sacar encima o me tenés que bajar el costo.
+[Remote]: Ok. Me
+[You]: Así que eso es un poco
+[You]: nuestro esquema de pricing.
+[Remote]: Perdón que vuelva a hacer un tema, me gustaría hacerte una
+[Remote]: Ay, perdón, voy con delete, me parece que me anda mal mi mi Internet.
+[You]: Sí.
+[Remote]: A ver.
+[Remote]: ¿Me escuchás?
+[You]: Sí, sí.
+[Remote]: Ah, listo.
+[Remote]: Perdón que un poco sobre y que te cambie de tema,
+[Remote]: ¿tienen alguna integración con RAM de manera directa, que nosotros usamos ese
+[Remote]: sistema de tarjetas de crédito, por ejemplo, y nada,
+[Remote]: quería saber si lo tienen o qué posibilidades hay
+[Remote]: de llevar también tarjetas de crédito acá.
+[You]: Cien por ciento. Tenemos, o sea, RAM debe tener una API divina, y nosotros,
+[You]: API la podemos conectar en tres minutos. Tenemos un integrador dinámico que
+[You]: las compañías de tecnología son las más fáciles, honestamente.
+[You]: Así que, en ese sentido, te diría que
+[Remote]: Ok, sí, ya tenemos la API
+[You]: Sí, nos podemos integrar RAM perfectamente, y de hecho, la conciliación de tarjetas es nuestro producto estrella, porque es el que más duele y el que más trabajamos típicamente con con bancos, procesadores de pagos o o fintech. Billeteras digitales, así que sí, conocemos bien.
+[Remote]: Ok, perfecto. Bueno,
+[Remote]: me encantó. ¿Qué debería pasarte para...? ¿Me querés pasar por mail lo que debería
+[Remote]: info que debería brindarte, así podemos cotizarlo.
+[Remote]: Porque es una pata que que me interesa también, porque obvio se somete a una aprobación,
+[Remote]: interna y tengo que ver tema presupuesto.
+[You]: Totalmente. Dale, yo ahora te te mando un mail con un par de
+[You]: un par de preguntitas que necesito
+[You]: que me ayudes, y una vez que me conteste yo te puedo hacer una una propuesta más formal.
+[You]: También te agrego que, si querés hacer una demo,
+[You]: para ver el producto,
+[You]: cómo funcionaría con algún caso de uso real, lo podemos hacer.
+[You]: Si no, lo que yo seguramente te arme es, te voy a decir,
+[Remote]: Ah, genial.
+[You]: esta es la propuesta de un contrato de
+[You]: de un año
+[You]: y después te hago una propuesta de una prueba piloto.
+[You]: También, para que ustedes puedan verlo en un alcance limitado. Por ahí elegimos un país,
+[You]: y lo usamos durante un mes para un país,
+[You]: y después ahí ya, si ven, ok, che, esto sí nos cambia la vida, escalamos al
+[You]: contrato completo
+[You]: después de la prueba piloto, y el costo de la prueba piloto
+[You]: queda acreditado para el contrato.
+[Remote]: Perdón, te perdí. ¿Me escuchás?
+[You]: Yo te escucho, sí.
+[Remote]: Ahí está, te perdí en lo último que me
+[Remote]: contando, la prueba piloto.
+[You]: Sí, que hacemos una prueba piloto con un alcance limitado, por ejemplo, un país,
+[You]: y después, eso ya les da visibilidad a ustedes, de che, si me sirve mucho, lo escalamos a los otros países,
+[You]: y el costo de esa piloto, te lo acredito al contrato, ¿entendés?
+[Remote]: Ah, ok.
+[Remote]: Bueno, me interesa porque la verdad que para mí hoy
+[Remote]: es un problema el tema de las conciliaciones y nos lleva bastante tiempo,
+[Remote]: Si bien tenemos en cuatro países
+[Remote]: realmente muy poca, o sea, son transacciones que las
+[Remote]: en un ratito, tengo la operación más fuerte en lo que es Argentina y Estados Unidos,
+[Remote]: y y son al menos dos países que que me gustaría como
+[Remote]: esto, poder sacarlos más automático, y obvio, después lo llevamos el resto. Pero
+[Remote]: pero si te parece, pásame por por email
+[Remote]: que yo, la info que te debería dar, y empezamos.
+[You]: Dale, excelente, Cecilia, un gustazo y mil gracias por el tiempo. Estamos ahí en contacto por mail.
+[You]: Chao, chao.
+[Remote]: Muchas gracias, Ignacio. Nos vemos.
+[Remote]: Adiós. Chau chau.
+
+============================================================
+SUMMARY
+============================================================
+### Winclap’s Current Reconciliation Process
+
+- Team structure by country:
+  - One person handles Brazil and Chile
+  - One person handles Colombia
+  - One person handles Argentina
+  - One person handles US (13 accounts across \~6 banks)
+- Cecilia leads with two junior analysts; manager has two senior staff
+- Staff profile: junior administrative roles, not accountants
+  - Started with manual processes, now introducing AI assistance
+- Current status: only completed January, February, March reconciliations
+  - Sent to treasury for adjustments, still awaiting return
+- Process: Excel-based comparison of bank statements vs NetSuite (internal accounting)
+  - Download CSVs from both sources
+  - Manual comparison with some macro automation
+- Pain points:
+  - Grouped transactions (e.g., 1.5 months of salary transfers in single entry)
+  - Inconsistent recording dates and amounts
+  - Time-intensive manual work
+
+### Company Context & Challenges
+
+- Major accounting restructure in 2025: previous team disbanded, Cecilia and manager took over
+- No proper accounting in 2025 - starting from basic transaction recording
+- Currently closing 6th country balance (US) - final one
+- Reconciliation responsibility moved from treasury to accounting in January 2026
+- Looking to optimize processes for 2026 operations
+- Strongest operations in Argentina and US; lighter volume in other four countries
+
+### Next Steps
+
+- Ignacio to send email with information requirements for formal proposal
+- Proposal will include:
+  - Full annual contract option
+  - Pilot program option (single country, one month trial)
+  - Pilot costs credited toward full contract if proceeding
+- Integration considerations: NetSuite ERP connection, RAM credit card system API
+- Cecilia needs to review for internal approval and budget considerations
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/3a79ca53-f04a-4025-935c-9dc6e9625a0d](https://notes.granola.ai/t/3a79ca53-f04a-4025-935c-9dc6e9625a0d)

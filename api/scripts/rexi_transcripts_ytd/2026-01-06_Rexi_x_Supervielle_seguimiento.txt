@@ -1,0 +1,632 @@
+MEETING: Rexi x Supervielle: seguimiento
+DATE: 2026-01-06
+ID: not_ts3WZqzHUFEB0K
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Julio Arandia <julio.arandia@supervielle.com.ar>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-01-06T13:00:00-05:00 - 2026-01-06T13:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Bueno,
+[Remote]: ¿Me escuchan? Sí, perfecto.
+[Remote]: Pero ingresa con los efectos.
+[You]: Ah, los martes sí van a la oficina, ¿no? ¿Está entonces ahí?
+[Remote]: Venimos los lunes y los martes.
+[You]: Espectacular.
+[Remote]: Bueno, ¿nos ven bien?
+[You]: Perfecto.
+[Remote]: Perfecto.
+[Remote]: Se va, chicos, feliz año. A ver, la idea es que tuviéramos los tres,
+[Remote]: Hoy tuve reunión con con Edu,
+[Remote]: Antes de preguntar, me gustaría que
+[Remote]: me presentara a Nacho el presupuesto no del MVP, sino
+[Remote]: todo lo proyectado y prorrateado para el año, ¿sí?
+[Remote]: Cómo hicieron por el tema de volumen, la parte operativa,
+[Remote]: y cómo es.
+[Remote]: Dale.
+[You]: Presento acá.
+[You]: Esto fue lo que mandé la semana pasada,
+[Remote]: Sí, correcto.
+[You]: acá creo que esto es un poquito lo que
+[Remote]: Sí, sí, quiere
+[You]: lo que me estás preguntando.
+[Remote]: queremos, vayamos al slide anterior,
+[Remote]: para entender esto.
+[Remote]: Modelo de integración y modelo operativo, ¿dale?
+[You]: Dale. Bueno, básicamente, acá es un poquito separar, decir, mirá,
+[You]: nosotros cuando queremos
+[You]: configurar flujos, implementar flujos de conciliación en la plataforma,
+[You]: hay un trabajo, como bien sabrante,
+[You]: primero, configurar los data pipelines para que haya una ingesta automática y asincrónica,
+[You]: Hay una parte de configurar la lógica,
+[You]: de los de los cruces, de las comparaciones y de qué vamos a estar monitoreando y
+[You]: chequeando y conciliando,
+[You]: después está la parte de
+[You]: manejo de discrepancias y reporting. ¿Qué tipo de reportes necesitan ustedes?
+[You]: ¿Qué tipo de dashboards y visualización? Y también cómo van a manejar las discrepancias.
+[You]: Si la van a manejar en la
+[You]: directo en la plataforma para resolver y marcar excepciones, parqueo conciliado en la plataforma
+[You]: o si quieren hacer algún tipo de workflow por fuera, etcétera.
+[You]: Todo eso lleva un trabajo de implementación para cada flujo y suele ser específico para cada flujo,
+[You]: con lo cual el modelo de integración es el trabajo que se hace para implementar un flujo de conciliación, ¿sí? Nosotros ahí típicamente y lo lo lo que proponemos, para el caso de ustedes, lo que hemos escuchado, es ahí están las ciento veinte horas mes de, son dos ingenieros en realidad,
+[You]: ciento veinte horas, un teclead que trabaja con nuevos ingenieros y alguien de producto
+[You]: que supervisa la implementación general de de todo el flujo en ese mes,
+[You]: para asegurar el cumplimiento y que llegamos al al fin de las cuatro semanas con
+[You]: los requerimientos
+[You]: y los entregables listos.
+[You]: Ese es el modelo de integración. El modelo operativo, es decir, una vez que ya queda hagamos el caso de un flujo, que es un producto, queda queda totalmente integrado, implementado y todo configurado, y ya está corriendo, y ustedes ya lo están usando, y ya le está entregando valor. Ahí ese flujo de dinero pasa al modelo operativo. El modelo operativo es simplemente decir, mirá, estamos procesando tantos registros por mes, este es el costo de procesamiento, este es el costo de de almacenamiento, nuestra plataforma, son dos costos de la nube, ¿sí? Y entonces ese es el el el el modelo operativo, que como ven acá abajo,
+[You]: depende de, tiene un costo base,
+[You]: ¿sí? Que que no depende
+[You]: de la cantidad de flujos, pero, pues, cada flujo que nosotros vamos
+[You]: integrando va agregando mil dólares por flujo por mes,
+[You]: y después depende del volumen transaccional de cada uno de esos flujos, con bandas.
+[You]: Entonces, si se fijan acá, va
+[You]: disminuyendo, porque gran parte del costo que tenemos
+[You]: es más de procesamiento que de almacenamiento, en realidad. Por eso,
+[You]: lo abrimos de esa manera, ¿sí? Entonces, son los dos los dos modelos,
+[You]: Si querés, si simplifiquémoslo, Superviol solamente tiene
+[You]: un flujo de dinero a conciliar, bueno,
+[You]: el primer mes se cobra el modelo de integración,
+[You]: vez que se termina, pasa al modelo operativo, que el modelo operativo después ya es recurrente,
+[You]: y se basa en el uso.
+[You]: ¿Sí?
+[You]: Por eso acá está separado, arriba tenemos el modelo de integración, que acá
+[You]: pongo el flujo uno, que es el de la prueba de concepto, que es el que vamos a alinear para hacer estos primeros tres meses.
+[You]: Y ahí,
+[You]: sé si vieron, pero estamos bonificando bastante lo que sería el modelo de integración para esta prueba de concepto.
+[You]: ¿Sí? Ahora, el flujo uno,
+[You]: ya en abril queda operativo,
+[You]: ¿no?
+[You]: Entonces, aparece
+[You]: el platform free de cinco mil, más mil por flujo, ahí tenés seis mil, que esta es la parte fija, y acá el costo variable transaccional
+[You]: hicimos un estimado, hicimos un supuesto,
+[You]: Es decir, supongamos que ese primer flujo que nosotros integramos entre enero y
+[You]: y marzo,
+[You]: tiene
+[You]: quinientas mil transacciones por mes,
+[Remote]: Mhmm.
+[You]: bueno,
+[You]: agregan mil mil dólares más, ¿sí?
+[You]: Esto es el flujo uno, por eso acá pongo modelo operativo, el flujo uno, porque el flujo uno integramos acá y acá ya está en vivo. Ahora, si decidimos avanzar, vamos a hacer modelo de integración para los flujos dos y tres que nos propongamos. ¿Sí? Que los flujos dos y tres se integran de abril a fin de junio, y esto está mal, mira, acá hay acá hay un typo. Ah, no, flujos no están perfecto. En el sentido de que a fin de junio,
+[You]: los flujos que van a estar en vivo son el flujo uno,
+[You]: implementado acá, y los flujos dos y tres. Tres flujos en vivo, por eso estos ocho mil.
+[Remote]: Mhmm.
+[You]: Porque es cinco mil más tres mil, ¿sí? Y acá hay tres mil, porque asumimos que esto
+[You]: todos los los tres flujos
+[You]: del mismo tamaño. Esto lo asumimos nosotros, es un supuesto para dar un ejemplo ilustrativo.
+[You]: Y
+[You]: arranca
+[You]: el
+[You]: modelo de integración para los flujos cuatro y cinco.
+[You]: Y así va, o sea,
+[You]: pero en algún punto,
+[You]: no sé, ustedes creo que habían mencionado que tenían como diez flujos distintos a
+[You]: conciliar, diez productos a conciliar, y flujos de información a conciliar,
+[You]: En algún punto,
+[You]: se termina el modelo de integración, porque ya saben haber implementado todos esos flujos,
+[You]: y vamos a quedar solamente en el modelo operativo.
+[You]: Va a ser el consumo de la nube de esos diez flujos que se implementaron al horario del año.
+[You]: Ahora,
+[You]: lo otro a tener en cuenta de lo que nosotros proponemos acá es que el modelo de integración tiene
+[You]: este tamaño de equipo
+[Remote]: Mhmm.
+[You]: ¿sí?
+[You]: Y estamos asumiendo que es dos software engineers, un teclead y un product manager,
+[You]: con estas horas mes,
+[You]: y que pueden lograr hacer dos flujos por trimestre como ritmo
+[You]: estándar.
+[You]: Nosotros vamos a apuntar a hacer tres,
+[You]: porque
+[You]: nada, queremos over deliver y queremos hacerlo más rápido.
+[You]: Pero decimos dos, capaz tres, dependiendo de la complejidad.
+[You]: Con el mismo precio, con estas horas.
+[You]: ¿Sí? Ahora,
+[Remote]: Se le entre, no sé si te entrecorta un poco,
+[Remote]: Estás perdiendo un poquito, no sé si si estás un poco lejos de WiFi o
+[You]: ¿Ahora me escuchan?
+[Remote]: Sí, sí, sí, volviste. Sí, sí, por un momento se te va.
+[You]: Lo que quería decir es
+[You]: entonces, el ritmo estándar son dos flujos por mes,
+[You]: nosotros vamos a intentar hacer tres para ir acelerando,
+[You]: pero si vos agarrás julio y me decís, che,
+[You]: vamos más rápido.
+[You]: Hagamos cuatro por mes. Bueno, esto es lo que yo puse acá, velocidad adicional.
+[You]: Si se desea acelerar ritmo,
+[You]: se avisa el q anterior o en el mes anterior,
+[You]: nosotros preparar el equipo necesario para cubrir esa demanda,
+[You]: Y algo que vos dijiste, Julio, que es no aumenta linealmente, no es
+[You]: si yo
+[You]: estoy prometiendo dos flujos con este equipo,
+[You]: y me pasas a cuatro, no te duplico.
+[You]: El tamaño del equipo, porque obviamente hay
+[You]: ganancias de escala, digamos, aprendizajes de
+[You]: nosotros vamos aprendiendo cómo funcionan sus sistemas, los requerimientos, hay un montón de trabajo que vamos a hacer en el flujo uno que después
+[You]: a salir para los flujos tres y cuatro. Entonces, hay mucho aprendizaje. Entonces, acá yo lo que puse es
+[You]: es uno punto cuatro del estándar, en vez de ser por dos.
+[You]: ¿Entiendes? Son ciento setenta horas de software engineers, cuarenta y dos de team tech lead,
+[You]: y treinta y cuatro horas de EPM. Y este es el costo de hacer cuatro flujos por mes.
+[You]: Del modelo de integración.
+[Remote]: Ok, volvés y querés a donde está el presupuesto.
+[Remote]: La línea de tiempo del año.
+[Remote]: A ver,
+[Remote]: está clarísimo y está bien entendido,
+[Remote]: ¿sí? El punto es el siguiente.
+[Remote]: El modelo operativo,
+[Remote]: nosotros no tenemos diez flujos nada más, nosotros tenemos
+[Remote]: pensá que lo que nosotros automatizamos
+[Remote]: precariamente, ¿no?
+[Remote]: Y para el Banco Central,
+[Remote]: eran treinta flujos,
+[Remote]: tenemos muchos más flujos. El punto es
+[Remote]: el modelo operativo nos manda la mierda al presupuesto.
+[Remote]: Porque ya arrancás con cinco mil de base, más mil por cada uno de esos procesos, Pensás que tenés seis, me estás mareando, volvé el del presupuesto. Al de la hojita de acá. Es, pasamos, de nueve mil setecientos cincuenta dólares el MVP, ¿sí? Que fue lo que me decía compra, che, pero entendamos cuánto es esto, porque yo tengo que prorratarlo para el año. El MVP lo podríamos hacer perfecto. Cuando hacemos la cuenta para el año, esto es inviable el presupuesto para nosotros. ¿Por qué? Porque ya de base yo voy a tener cinco mil dólares del modelo operativo.
+[You]: Sí.
+[Remote]: Vas mil dólares por cada proceso que me lo vayas adquiriendo.
+[Remote]: Eso es un costo fijo. Si yo tendría
+[Remote]: veinte procesos fijos
+[Remote]: o ponerle los treinta que tengo hoy, que hicimos con
+[Remote]: conciliación automática con control m o con los DTF,
+[Remote]: ¿sí? Esos treinta pasarían a ser treinta y cinco mil dólares mensuales.
+[Remote]: De mantenimiento.
+[You]: TC,
+[Remote]: Sin hablar
+[You]: teníamos la idea de que eran solo diez, pero pero si hay treinta,
+[Remote]: sin hablar
+[Remote]: No, sin hablar de,
+[Remote]: sin hablar del costo variable.
+[Remote]: ¿Sí? Porque el costo variable, y Mariano estaba sacando una cuenta antes de
+[Remote]: de venir acá, decime los números.
+[Remote]: Sí, lo que pasa que depende de ponerle el el flujo de lo que sería movimiento
+[Remote]: diarios, movimientos presentados,
+[Remote]: que ese me da que tengo
+[Remote]: un millón
+[Remote]: ciento sesenta mil registros de máster y dos millones doscientos cuarenta
+[Remote]: mil de abril.
+[Remote]: Por mes.
+[Remote]: Y y, obviamente, eso después se me
+[Remote]: traspasa al de movimientos facturados,
+[Remote]: Voy a tener Los procesos siguen usando esa misma base.
+[Remote]: Sumar cobranzas, ajustes, o sea, si yo sumo el volumen
+[Remote]: el variable ese, no no voy a poder tener ni idea de cuánto va a ser.
+[You]: No, no, por eso. Entonces, nosotros no teníamos
+[You]: los estimados, por eso. Hagamos una cosa, igual yo acá
+[You]: una cosa que quiero mencionar es, acá puse costo marginal de creciente,
+[You]: que decir, costo por flujo es de mil entre el uno y el diez.
+[You]: A partir del once es de siete cincuenta, a partir del veintiuno es de quinientos. Con lo cual va cayendo ese costo, primero, y lo mismo el costo por transacción, ¿no? Arranca en cero coma cero cero dos, coma cero cero uno, y ya después de de veinte veinte millones de transacciones por mes, ya pasamos a cero coma cero cero cero cinco. ¿Ta? Ahora, hagamos una cosa, porque yo entiendo lo que pasó y acá creo que hubo una falta de entendimiento de los estimados de flujos y de volumen. Compártanos exactamente en un escenario ideal integral en el que se vuelve la plataforma de consideración para el Banco Superbiel,
+[You]: ¿Cuántos flujos de dinero vamos a estar conciliando?
+[You]: Y cuántas transacciones tiene cada uno de esos flujos.
+[You]: Y yo vuelvo con vos, Julio, con una b tres que haga un poquito más de sentido.
+[Remote]: Igual yo quiero que entiendas una cosa y mostrarme un segundo de vuelta a la presentación.
+[Remote]: Cuando nosotros pensamos
+[Remote]: en tener una herramienta,
+[Remote]: ¿sí?
+[Remote]: Siempre hablamos, che, ustedes nos dan la herramienta, nosotros la podemos customizar,
+[Remote]: Andá si querés a la parte del presupuesto anual.
+[Remote]: Vos me estás cobrando por el modelo operativo, me olvido de los flujos de integración.
+[Remote]: ¿Sí? El modelo operativo,
+[Remote]: está cobrando cinco mil de base, más cada proceso. Y eso lo voy a tener que pagar mantenimiento mensual. Más en nivel transaccional. Esto metiera a la mierda cualquier presupuesto que yo pueda tener para esto. Se me va de las manos, independientemente que me hagas una versión trece, no tengo forma de de pagar esto,
+[You]: Darren,
+[You]: ok. Entonces, charlemos cuánto sería un un presupuesto
+[You]: lo cual ustedes estarían dispuestos a trabajar y y les rinda la la inversión,
+[You]: y y y trabajamos en una propuesta en conjunto.
+[Remote]: ver,
+[Remote]: no no es
+[Remote]: a ver, no es que yo te tenga que decir
+[Remote]: che, Nacho, mirá, esto es lo que yo puedo pagar, es, nosotros partimos un MVP, ¿sí? Donde dijimos, che, vamos a elaborar un flujo, y creo que recién en esta presentación, por eso nos tomamos el tiempo de de analizarla y verla, y la y la charla de hoy es primero que nada, explíquenla, ver si lo que estamos entendiendo es correcto. Nunca hablamos de un costo mantenimiento fijo más un mantenimiento por flujo, y nunca hablamos de nivel de por transacción por escala. Porque ya sabíamos que la escala nuestra que nosotros manejamos es enorme, porque siempre manejamos los mismos volúmenes, pero en los distintos procesos los tengo
+[Remote]: cruzar de distintas formas, por lo cual, ese millón y pico se me termina haciendo diez millones.
+[Remote]: Los procesos que yo voy a correr. El de dos palo, por ahí son veinte,
+[Remote]: que seguís. Entonces, yo entiendo que vos me lo hagas un tema de escala. El punto es,
+[Remote]: che,
+[Remote]: mirá,
+[Remote]: y por ahí de las charlas, y por ahí fue un problema de interpretación y llega a este punto. Es,
+[Remote]: ustedes tienen una herramienta,
+[Remote]: desarrollan
+[You]: Right.
+[Remote]: el entregable para poder conciliarlo, ¿sí?
+[Remote]: Y después no sé, es como si me dijera, che, yo te cobro
+[Remote]: por el mantenimiento en la nube,
+[Remote]: tanto, y, como siempre lo dijimos, es
+[Remote]: la herramienta la van a poder customizar ustedes, no va ser necesario. Yo creo que les puse el ejemplo,
+[Remote]: no nos va a pasar como con TQ y Smart, que
+[Remote]: cada cosa que tenemos que hacerle tenemos que pedir a t q, y ustedes me dijeron, no, no,
+[Remote]: creo que fue Seba, dijo, ustedes lo pueden customizar, si necesitan, le cambian parametría, lo que fuera. Entonces, ya ir un de seis mil u ocho mil dólares por mantenimiento mensual, es inviable un presupuesto para que a mí me aprueben algo de esto. Eso es lo que me queda la mierda.
+[You]: Okay.
+[You]: Okay.
+[You]: Está bien. Hagamos una cosa,
+[You]: yo propongo lo siguiente, porque esto nosotros lo hicimos un poquito ciegos en
+[You]: el volumen de la operatoria. De hecho, teníamos el entendimiento que eran diez,
+[You]: vos me decís que ahora son son más como treinta, y la cantidad de transacciones
+[Remote]: ¿Vos vos imagíndez que hicimos hicimos treinta, que lo hicimos manual?
+[Remote]: Pero si tuviéramos una herramienta de esto, en vez de correr control m y
+[Remote]: DTF, lo tendríamos la herramienta.
+[You]: Total.
+[You]: Por eso,
+[Remote]: Y aparte de eso, ¿cuánto más tenemos previsto, César?
+[Remote]: Ahí, julio, agrego. Otros treinta más, chico.
+[Remote]: Projeante límite. El mayor laburo o la mayor carga, cuando se
+[Remote]: se se trabaja sobre un flujo nuevo es la integración.
+[Remote]: Sí. Hecha todas las integraciones, ahí ya no es lo mismo.
+[Remote]: Agregar un una conciliación nueva o o lo que sea.
+[Remote]: Creo que es importante aclarar eso.
+[Remote]: Pero, Teo, yo te la compro.
+[Remote]: Vos me decís,
+[Remote]: sí,
+[Remote]: tengo catorce mil, dólares, son cuarenta y dos mil dólares, ¿sí? Dos flujos, automatizar dos flujos de cuarenta y dos mil dólares es una fortuna cuando yo tengo que pensar que ya tengo treinta, y por ahí tengo otros treinta más. Es mucha guita. ¿Sí? Pero ponerle que consiga ser el cruce de fondos, que es el más complejo, algo que me diga, che, esto no lo pude hacer con el control m como lo tenía hoy. Entonces, me en eso, pero a eso se le suma el mantenimiento mensual. Entonces, los voy a decir que criollo yo me convierto soy cautivo de ustedes.
+[Remote]: Porque no es que
+[Remote]: ustedes me dieron la ramía y tiene un costo
+[Remote]: relativamente bajo
+[Remote]: de mantenimiento.
+[Remote]: Porque me estás cobrando cinco mil más mil dólares
+[Remote]: por cada flujo que me ponés en la herramienta. Entonces, esa herramienta me termina siendo un monstruo
+[Remote]: de mantenimiento, me come.
+[Remote]: Si yo tengo treinta, no lo puedo mantener. O sea, el esquema no me cierra, Cuando uno no me cierra, lo revisamos internamente y no cierra de ningún lado. No puedo pagar eso.
+[You]: O sea, para ver si entendí bien, ¿ustedes preferirían un modelo que
+[You]: O sea, olvídate de la integración, un modelo cien por ciento variable.
+[You]: Del mantenimiento, que sea simplemente por
+[You]: cantidad de flujo y volumen operado.
+[You]: Se les haría más sentido.
+[Remote]: A ver,
+[You]: Sin un fijo,
+[Remote]: pero ahí yo te yo ahí te pregunto,
+[Remote]: es
+[Remote]: me lo desarrollás?
+[Remote]: ¿Sí? Yo te dejo pagar mantenimiento, automáticamente perdí todo lo que tenga de
+[Remote]: conciliación con ustedes.
+[Remote]: Porque la herramienta de ustedes
+[Remote]: ¿Sí? Soy cautivo de ustedes,
+[Remote]: Entonces, hoy, ¿qué fue lo que me planteó
+[Remote]: creo que fui claro cuando hablé con el gerente de abastecimiento, me dijo, no te quedes con el MVP, hacés el rollout del año, para entender esto. Con este tipo de condiciones, es es un contrato faraónico, porque ustedes me dicen hoy mil dólares, el año que viene me decís, dos mil dólares, y yo no quiero perder, el flujo de conciliación automático que tengo con ustedes, y yo tengo que pagar los dos mil dólares o empezar de cero.
+[You]: Sí, yo ahí te pregunto,
+[You]: qué tipo de arreglo te dejaría tranquilo a vos de que no
+[You]: existe ese ese tipo de dinámica de cautiva. De que por ahí, sí, nosotros por haberlo implementado y por haberlo configurado, tenemos la capacidad de subir el precio y ustedes no nos pueden decir que no, porque pierden todo lo anterior, ¿Qué tipo de arreglo? Por eso estoy preguntando es un arreglo más de, ¿ustedes les gustaría firmar de antemano cuál va a ser el costo de todo el año, entonces ya tienen previsibilidad y saben que nosotros no vamos a aumentar los precios, o prefiere ir a un esquema y, o sea, esa es una opción, Otra opción es, nosotros tenemos tres modelos de pricing, tenemos
+[You]: este que les mostramos es un modelo híbrido, tiene la parte fija y tiene la parte variable. Con algunas como
+[You]: con los que operamos tenemos cien por ciento variable, con algunos clientes que operamos tenemos cien por ciento fijo.
+[You]: Ahora,
+[You]: nuestro lado, nosotros tenemos muchos costos de nube y más
+[You]: en una operación como la de ustedes, que que tiene un volumen de información, un volumen de datos,
+[You]: elevado,
+[You]: todos los mecanismos aparte de seguridad y de compliance, que le vamos a meter a a todos esos flujos de información,
+[You]: nosotros
+[You]: tenemos un costo ahí de de de nube, de procesamiento y almacenamiento que también tenemos que cubrir
+[You]: eso también de nuestro lado es entender
+[You]: qué es lo mejor para ustedes y entender si nosotros podemos ofrecer un esquema en donde
+[You]: haya un win win y ustedes
+[Remote]: Nacho, empezamos empezamos a tener
+[You]: vean valor.
+[Remote]: con ustedes porque ustedes tenían una herramienta que nos podía servir para conciliar.
+[Remote]: Las dos herramientas que vimos antes era, vos comprás la herramienta,
+[Remote]: con un precio fijo,
+[Remote]: ¿sí?
+[Remote]: El consultor te hace el desarrollo,
+[Remote]: ¿sí?
+[Remote]: Te la deja la herramienta y vos la customizás.
+[Remote]: Y tiene un mantenimiento.
+[Remote]: Cuando digo tiene un mantenimiento, tiene un mantenimiento base.
+[Remote]: Que te des una idea,
+[Remote]: la última que te llevemos,
+[Remote]: era de quinientos dólares mensual.
+[Remote]: ¿Sí? Y si yo tuviera que pedir un desarrollo, ese desarrollo
+[Remote]: sí tenía un costo. Es como funciona TQ hoy, por ejemplo, con SmartOpen.
+[Remote]: ¿Sí? Entonces,
+[Remote]: pero la los datos, la nube era era nuestra, todo el banco,
+[Remote]: lo cual ya estaban bebidos,
+[Remote]: ¿Cómo me estás poniendo
+[Remote]: todo un costo afuera del banco,
+[Remote]: esto
+[Remote]: ni pasa. O sea,
+[Remote]: se va totalmente
+[Remote]: pero ¿por qué es progresivo el aumento?
+[Remote]: A medida que yo haga más cosas con ustedes, más voy a pagar,
+[Remote]: y donde ustedes se
+[Remote]: año que viene me dicen, che, de mil pasé a dos mil,
+[Remote]: y yo quedo
+[Remote]: totalmente expuesto a decir,
+[You]: Entonces, lo que entiendo es que
+[Remote]: me bajo y perdí todo.
+[You]: a vos te gustaría mucho más un modelo con
+[You]: el fee mensual fijo?
+[You]: Y que cobremos las implementaciones y las
+[You]: integraciones que vayamos haciendo. Pero ¿te gustaría que sea fijo?
+[Remote]: Alright. No. No.
+[Remote]: Sé no sé si es lo que me gustaría, porque no sé los costos.
+[Remote]: Pero sí sé, y ahí y ahí sí te puedo decir, che,
+[Remote]: esto fue
+[Remote]: las dos herramientas que vimos antes que ustedes.
+[Remote]: ¿Sí?
+[Remote]: Y fueron descartadas porque no cubría las
+[Remote]: expectativas que nosotros estábamos viendo. Nunca habíamos llegado todavía
+[Remote]: a la fase final como ahora a un presupuesto.
+[Remote]: Ahora, nosotros hicimos un simulacro, nos pareció interesante,
+[Remote]: dijimos, hacemos un MVP,
+[Remote]: con buena lógica,
+[Remote]: el gerente de abastecimiento me dijo, ojo,
+[Remote]: antes de pensar en hacer algo,
+[Remote]: fijate, hace un dólar anual, a ver si esto cierra.
+[Remote]: Ya nosotros, cuando lo vimos, nos sorprendimos.
+[Remote]: Ya cuando los consulté con él, dijo,
+[Remote]: es inviable. ¿Pero qué es inviable? Porque
+[Remote]: te estás convirtiendo
+[Remote]: en cautivo de ellos y
+[Remote]: entonces, no va a ser aprobado una cosa así.
+[Remote]: Tenemos que rever
+[Remote]: el modelo, si quieren hacemos una versión tres, pero
+[Remote]: hoy,
+[Remote]: si te tendría dicho de entrada es si el muchacho
+[Remote]: de esto no prospera,
+[Remote]: Entonces,
+[Remote]: es
+[Remote]: pero que la buena onda, la buena relación y lo que está es
+[Remote]: miren, así no cierren con nosotros, esto por ahí sirve, utilícenlo como feedback,
+[Remote]: Esta propuesta, así como nos la presentaron,
+[Remote]: no le cierran ni el banco, no creo que le cierren ninguna otra empresa
+[Remote]: porque el costo va a ir aumentando así,
+[You]: No, no, eso está clarísimo, pero pero eso
+[You]: eso yo creo que es solucionable, digo,
+[You]: podemos encontrar un esquema de pricing donde
+[You]: esté ajustado el presupuesto de ustedes y tenga sentido para nosotros.
+[You]: Eso yo lo veo como en el mundo solucional, por eso yo estaba preguntando así,
+[You]: preferís ver más un esquema fijo, semifijo,
+[You]: o cien por ciento variable, y ahí entender qué les conviene más a ustedes. Ahora,
+[You]: lo que, y acá estoy estoy escuchando totalmente esto, lo que no veo muy
+[You]: solucionable es esta sensación de
+[You]: de cautivo, porque yo te escucho hablar, lo entiendo perfectamente, me pongo del otro lado, yo estuve del otro
+[You]: lado.
+[You]: Y entiendo perfectamente esa dinámica, pero la pregunta es cuál es la alternativa. Una alternativa es decir, seguimos operando como estamos operando, Otra alternativa, es decir, invertimos en desarrollar algo propio e interno, que va a tener una inversión, pero ustedes tienen control y no están cautivos de nadie, o contratan un un proveedor externo. Con cualquier proveedor externo, hay cierta dependencia. La verdad.
+[Remote]: अरे देखें देखेंगे किया वह.
+[Remote]: Nosotros terminamos un contrato el treinta y uno de diciembre,
+[Remote]: con una consultora local,
+[Remote]: ¿sí?
+[Remote]: Ellos fueron los que nos ofrecieron la primera herramienta de automatización,
+[Remote]: y no nos cerró.
+[Remote]: Entonces, hoy tenemos un presupuesto
+[Remote]: para la fase dos
+[Remote]: esta consultora para el veinte veintiséis,
+[Remote]: el presupuesto no está aprobado,
+[Remote]: ¿sí? No le renovamos, porque nosotros cambiamos de gerencia corporativa,
+[Remote]: entonces es
+[Remote]: che,
+[Remote]: ojo,
+[Remote]: vamos de vuelta a la consultora,
+[Remote]: buscamos un consultor
+[Remote]: ¿O con el presupuesto que teníamos para la fase dos del consultora?
+[Remote]: Hacemos el desarrollo en house.
+[Remote]: Porque si yo hago el desarrollo in house, me gasté
+[Remote]: los seiscientos palos que tenía este año de presupuesto, pero la herramienta me quedó
+[Remote]: donde no tengo que pagar por la nube, porque ya el banco ya lo tiene contemplado dentro de las
+[Remote]: transacciones de lo que hay, y ese costo fijo
+[Remote]: ya lo tengo. Entonces, tengo que buscar alguien que me dice ñe.
+[Remote]: In house, esta herramienta que necesito para conciliar.
+[You]: Lidazo.
+[Remote]: ¿Cómo estás, Julio? Ahí creo que volviste
+[Remote]: Ahí volvimos, ahí volvimos, ahí volvimos.
+[Remote]: Ahí estamos, nos caímos.
+[Remote]: ¿Me ven? ¿Me escuchan?
+[You]: Te escuchamos perfecto. Estabas diciendo el presupuesto, usá el presupuesto para construir algo propio.
+[Remote]: Ok.
+[Remote]: No sé no sé
+[Remote]: claro,
+[You]: No, no, está perfecto. O sea,
+[You]: por eso ahí yo, digo, se separo un poco,
+[You]: Una una cosa es decir, che, mirá, lo que me presentás
+[You]: no está acorde al valor que se va a generar,
+[You]: esa es una discusión y lo vamos para discutir del del valor que va a generar la herramienta en ahorros de
+[You]: de observaciones, ahorros de horas, ahorros de
+[You]: montón de impacto, a ver, vamos, lo dices que juntos, de cuánto vale
+[You]: el el
+[You]: el impacto de instalar una plataforma como Rexy, eso es una discusión. Otra discusión es, che, no tengo el presupuesto.
+[Remote]: De hecho, a ver, ¿puedo tener presupuesto para el veinte veintiséis?
+[Remote]: Pero yo tengo que pensar,
+[Remote]: que si yo me pongo a trabajar con ustedes,
+[Remote]: yo tengo que tener un presupuesto terno.
+[Remote]: Porque si yo no logro presupuesto para veinte veintisiete,
+[Remote]: lo que desarrollamos juntos, veinte veintiséis, me queda en la nada.
+[Remote]: Porque la herramienta de ustedes, ustedes tienen el espacio
+[Remote]: en la nube, ustedes me procesan,
+[Remote]: ¿entendés?
+[Remote]: Es el modelo que no me cierra.
+[You]: La única solución que yo debería a eso es que nosotros instalemos
+[You]: Rexy en la nube de ustedes, pero eso nosotros no lo hacemos, no lo ofrecemos.
+[You]: Por eso digo que
+[You]: hay una decisión estratégica
+[You]: en en en esta conversación, que es decir,
+[You]: para lo que es conciliaciones, lo queremos desarrollar in house
+[You]: o lo queremos contratar de afuera?
+[You]: Si la decisión es contratar de afuera,
+[You]: te va a pasar siempre.
+[You]: Esto de el presupuesto eterno.
+[You]: Porque ninguna herramienta de conciliación se va a instalar en tu nube.
+[You]: Salgo que contrates un software studio,
+[You]: o esta consultora que se meta con ustedes y les haga el desarrollo y después se vaya,
+[You]: igual después tenés una dependencia de eso.
+[Remote]: Ahí
+[You]: Ya sea con equipos propios de mantenimiento o cada vez que le querías hacer un
+[You]: tenés que hablar con ellos y te lo van a cobrar.
+[Remote]: Y, obviamente, nosotros
+[You]: Entonces,
+[Remote]: sí seguiríamos siempre con con el procesamiento, pero
+[Remote]: podemos llegar a modelo que, de hecho, otros clientes no lo piden, donde sí alimentamos su base de datos con el
+[Remote]: información conciliada.
+[Remote]: Entonces, el minuto que nosotros
+[Remote]: por x motivo, no trabajamos más juntos, ustedes tienen todo el trabajo hecho y todo lo conciliado,
+[Remote]: ya en su nube.
+[Remote]: Eso se haría diariamente.
+[Remote]: A ver, igual ahí enuncé
+[Remote]: cuál sería la respuesta al Banco Central, porque no lo estoy conciliando yo, me lo
+[Remote]: está conciliando en externo.
+[You]: Oh,
+[Remote]: Sí, pero, bueno,
+[You]: no pasa nada, o sea, nosotros se reserva un espacio en la nube, dentro de la
+[You]: cuentas, que es de ustedes, la información es de ustedes, digo,
+[You]: eso es como si fuese ustedes, ustedes están contando una herramienta para procesar la información nada
+[You]: ¿no?
+[You]: Y la usan ustedes y ustedes tienen control sobre el flujo y todo. Por eso,
+[Remote]: A ver.
+[You]: digo, mirá, Julio,
+[You]: quizás para resumir y y que no nos queda mucho tiempo,
+[You]: si si eso es tema de presupuesto, trabajamos en una
+[You]: una b tres,
+[You]: que les haga sentido a ustedes y nos haga sentido a nosotros. Y buscamos
+[You]: ese punto medio o ese precio,
+[You]: donde se justifique el business que es para ustedes y tenga sentido.
+[You]: De ahora en adelante,
+[Remote]: Está claro está está claro que ese no es el punto.
+[Remote]: Este es el punto que lo destapa.
+[Remote]: El punto
+[Remote]: mayor y el que tendríamos
+[Remote]: dar, si existe una imposibilidad, es
+[Remote]: la herramienta tiene que estar adentro,
+[Remote]: del banco
+[Remote]: ¿sí?
+[Remote]: Obviamente, vos me decís, reexi dentro de la nube del banco,
+[Remote]: voy a depender, es, yo tengo un presupuesto asegurado,
+[Remote]: no lo no lo tengo asegurado hoy por hoy,
+[Remote]: pero hace dos años que yo lo vengo consiguiendo,
+[Remote]: para este año.
+[Remote]: Entonces, si yo lo hago en un house,
+[Remote]: lo que logro de hacer
+[Remote]: está hundido, no no depende del presupuesto del veinte veintisiete para seguir.
+[Remote]: Si yo hoy
+[Remote]: la herramienta
+[Remote]: el servicio que ustedes me ofrecen así tal cual me lo ofrecieron,
+[Remote]: si yo no consigo presupuesto veinte veintisiete, yo pierdo pierdo todo lo que desarrollé este año.
+[You]: Totalmente de acuerdo. Déjame decirte igual que las
+[You]: compañías de qué trabajamos, que que hicieron desarrollos propios,
+[You]: pensaban igual que vos, de que es una inversión de un año y después ya está,
+[You]: y no es así.
+[You]: Estas herramientas son muy complejas, las necesidades cambian todo el tiempo,
+[You]: y vas a necesitar una inversión interna de mantenimiento y de cambios y de requerimientos
+[You]: nuevos y de reporting nuevos,
+[You]: es un monstruo vivo que vas a tener que seguir alimentando.
+[You]: Así como hoy lo alimentás con personas que lo hacen manualmente, vas a tener que alimentar una herramienta en el futuro.
+[You]: Eso te lo digo yo como aprendizaje de ahí compañías con las que trabajamos que dijeron, ¿sabes qué? Prefirmé vos desarrollarlo internamente.
+[Remote]: A ver,
+[You]: Y después nos vuelven a llamar al teléfono y dicen,
+[Remote]: es lo que hicimos para el treinta de noviembre para llegar
+[Remote]: al auditorío del Banco Central? Que hicimos treinta conciliaciones automáticas, ¿sí? De las cuales veinticuatro fueron con Control M y seis fueron con DTF.
+[Remote]: ¿Sí? Y quedaron,
+[Remote]: tenemos
+[Remote]: como dijeron Mariano, más de treinta más
+[Remote]: porque podemos hacer un montón más para hacer.
+[Remote]: Pero
+[Remote]: eso lo que hace es,
+[Remote]: me concilia
+[Remote]: de las fuentes, y lo que me queda sin conciliar
+[Remote]: me lo queda para revisar humanamente.
+[Remote]: ¿Sí? La herramienta de ustedes lo que hacía era
+[Remote]: me iba guardando todo lo que no conciliaba,
+[Remote]: y llegaba un momento que ese revolving me lo iba a conciliar.
+[Remote]: ¿Sí?
+[Remote]: ¿Es el es el mundo ideal? Sí, es el mundo ideal.
+[Remote]: Visto con con
+[Remote]: todo lo que
+[Remote]: hice para llegar acá, porque por ahí no se nota y y por ahí pensás que
+[Remote]: estoy pintando el globo, que es, che,
+[Remote]: fuimos con abastecimiento, es un proveedor que no está en el catálogo,
+[Remote]: factura afuera,
+[Remote]: bueno, la propuesta fue interesante, la peleamos, la vimos,
+[Remote]: Acepté el consejo, dijo, hacés el rollout. Vos imaginate si hubiésemos ido
+[Remote]: los nueve mil setecientos cincuenta y después nos encontramos con esto?
+[Remote]: Hubiésemos llegado a a fines de marzo, abril, hubiese dicho,
+[Remote]: la puta madre laburamos al pedo tres meses,
+[Remote]: cuando ustedes bonificaron un montón de guita, tiempo nuestro,
+[Remote]: para decir que este modelo no prospera.
+[Remote]: ¿Sí? Entonces, creo que
+[Remote]: si no hay posibilidad
+[Remote]: al modelo de darle vuelta
+[Remote]: y que no quede sujeto,
+[Remote]: no tengo forma de prosperar. Si dentro de todas las posibilidades que ustedes tienen,
+[Remote]: piensan que existe algo distinto
+[Remote]: que lo que ustedes desarrollan,
+[Remote]: ¿Me quede dentro del banco?
+[Remote]: Lo podemos dar la vuelta.
+[You]: Es, la la la única salida sería, básicamente, que trabajemos por un año y
+[You]: dejemos de trabajar.
+[You]: Que quede instalado en en en la nube de ustedes.
+[You]: O trabajemos a dock en desarrollos adicionales que vayan surgiendo.
+[You]: Formato consultora.
+[Remote]: ¿Y sobre qué herramienta?
+[You]: No, a una herramienta que nosotros desarrollamos, pero la dejamos
+[You]: en la nube de ustedes.
+[Remote]: Entonces, tendríamos que reformular y entender
+[You]: Pero esa es la única salida, estoy tratando de de
+[You]: de de de como
+[You]: digerir lo lo que nos acabas de decir y entender. La única salida
+[You]: que vos ves es
+[You]: una salida que no requiera presupuesto veinte veintisiete.
+[Remote]: Exactamente.
+[You]: Listo.
+[You]: Bueno, clarísimo.
+[Remote]: La vuelta de Anlosa si eso es viable y factible. Julio, Areo, es
+[Remote]: no requiera presupuesto veintisiete o que sea un costo de mantenimiento mínimo. A ver, idealmente, que no tenga costo. ¿Sí? Vos me decís, che, esta es la herramienta, construimos como consulto, junto con el banco, una herramienta para conciliar, queda dentro del banco, nos ayudan con los flujos, ¿sí? ¿Cómo subirlos? Y esto queda dentro del banco, y es por ahí cambiamos, los contratamos como consultores y no como la solución de la herramienta. Ustedes nos ayudan como consultores a construir esta herramienta. Y por ahí es reformular la forma de trabajar.
+[You]: Carition.
+[You]: Bueno, déjame que lo charlamos y volvemos contigo.
+[You]: Te voy a ser honesto, no no
+[You]: no es la modalidad que trabajamos, no, nosotros no no hacemos consultoría. Todo lo que propusimos en esta propuesta
+[You]: fue muy ad hoc para Superviel, porque nos interesa muchísimo trabajar con ustedes, y
+[You]: cosas específicas que haríamos para trabajar con ustedes. Pero
+[Remote]: Acho, por ahí vos me decís, no, no cierra.
+[You]: ya que en modelo recurrente sea formato consultoría,
+[Remote]: ¿Sí?
+[You]: dejame que lo charlemos internamente con el equipo, a ver a ver si
+[You]: decidimos hacer esa inversión.
+[You]: No es el modelo negocio que que
+[You]: con el que Rexy funciona. Entonces, me estira un poco la operatoria del modelo negocio y la
+[You]: que le trabajamos. Pero
+[You]: dejame que lo charlamos y volvemos con vos.
+[You]: ¿Listo?
+[Remote]: Dale, listo, ok chicos.
+[You]: Gracias, abrazo.
+[Remote]: Muchísimas gracias por el tiempo.
+[Remote]: Quetacular.
+
+============================================================
+SUMMARY
+============================================================
+### Pricing Model Discussion
+
+- Current Rexi proposal unviable for Supervielle
+  - Base operational cost: $5K/month + $1K per flow
+  - Variable transaction costs on top of fixed fees
+  - 30+ existing flows would cost $35K+ monthly maintenance alone
+  - Additional 30 flows projected, making total costs prohibitive
+- Volume scale concerns
+  - 1.16M master records + 2.24M detailed records per month
+  - Same base data crosses multiple processes, multiplying transaction costs
+  - Current manual processes handle 30 flows via Control M and DTF
+
+### Business Model Mismatch
+
+- Supervielle’s expectations vs. Rexi’s offering
+  - Expected tool purchase + customization capability (like previous vendors)
+  - Previous tools: $500/month maintenance with fixed development costs
+  - Rexi’s recurring SaaS model creates vendor lock-in concerns
+- Budget dependency issues
+  - 2026 budget available but 2027 approval uncertain
+  - If budget fails, all development work lost since hosted on Rexi’s cloud
+  - Supervielle prefers in-house development to avoid eternal budget dependency
+
+### Integration Requirements
+
+- Rexi’s standard model
+  - 120 hours/month: 2 engineers + tech lead + product manager
+  - 2 flows per quarter standard delivery
+  - Implementation: $9,750 discounted MVP, then operational costs
+- Supervielle’s complexity
+  - 30 current automated flows for Central Bank compliance
+  - 24 via Control M, 6 via DTF
+  - Additional 30+ flows identified for automation
+
+### Potential Solutions
+
+- Rexi considering alternative approaches
+  - On-premise installation in Supervielle’s cloud (not standard offering)
+  - Consultancy model instead of SaaS recurring fees
+  - One-year engagement with tool handover
+- Supervielle’s preferences
+  - Tool remains within bank infrastructure
+  - Minimal or no ongoing maintenance costs
+  - Consultant-based development vs. subscription service
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/7c9bae18-f378-4881-b4c3-c8f745991f7b](https://notes.granola.ai/t/7c9bae18-f378-4881-b4c3-c8f745991f7b)

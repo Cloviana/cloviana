@@ -1,0 +1,453 @@
+MEETING: Rexi x XTX Ventures
+DATE: 2026-02-13
+ID: not_KBmsAJeSE72bQy
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Zhen Shen <zhen.shen@xtxmarkets.com>
+SCHEDULED: 2026-02-13T09:30:00-05:00 - 2026-02-13T10:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Yeah. How about you?
+[Remote]: Good. Oh, good. You're based in New York. Right? So it's morning for you.
+[Remote]: In London. In London.
+[You]: Oh, very cool.
+[Remote]: But we have opposite
+[Remote]: in New York as well, so we're we're often there.
+[Remote]: I guess a couple times a couple times a year. So I guess next
+[Remote]: time I'm there, can, grab a coffee. We're in Hudson Yards.
+[You]: Oh, cool. Very cool. Yeah. I'm in I'm in I'm in Williamsburg, but,
+[You]: we're crashing an office in, like, Bryant Park.
+[You]: So happy to go over to your office, at some point if if when you're around.
+[Remote]: Nice. Cool. Cool. Cool. Would it make sense if I give you a bit of a quick intro?
+[Remote]: On on some XDX, XDX Ventures, a sort of reason for for sort of
+[Remote]: the call as well, if that's helpful.
+[You]: Yeah. Would love to.
+[Remote]: Cool. Have you heard about XDX in any capacity at all? Otherwise, I can start from the
+[You]: Not really, to be honest.
+[Remote]: from from from the top.
+[Remote]: Okay. Good.
+[Remote]: The that's the way we like it. We we we're pretty sort of under the radar type firm.
+[Remote]: But just to start, so I'm Zan, one of free investors here at XTX.
+[Remote]: So the parent company is a algorithmic market maker.
+[Remote]: We use machine learning, deep learning to trade across a variety of different sort of
+[Remote]: asset classes. We trade about 300,000,000,000 per day fully automated. We're the third largest liquidity provider for
+[Remote]: foreign exchange in the world. We also, have a pretty sizable
+[Remote]: cluster to run our machine learning models. So we have about 25,000 GPUs.
+[Remote]: That capacity should double or triple the next couple months.
+[Remote]: Because we're building our own data centers. And then just as a little
+[Remote]: fun side hobby, we build our own chips as well. So we're fully sort of integrated vertically
+[Remote]: quant shop. All in all, the company is about 250 people.
+[Remote]: Annual revenues of 3 to 4,000,000,000,
+[You]: Wow.
+[Remote]: So I invest off the company's balance sheet predominantly into early stage
+[Remote]: AI or AI enabling companies.
+[Remote]: Not strategic investors in majority of cases, although anything that does have
+[Remote]: slightly more of a data center, compute, or fintech angle could be
+[Remote]: for us. And, we know, you know, we pretty much trade with everyone, provide
+[Remote]: prices to most of the the buy side, you know, on the street as well and most of the banks too.
+[Remote]: So, you know, anything on sort of the the the fintechy side, think we like quite a lot.
+[Remote]: We predominantly do more sort of early stage stuff, so preset
+[Remote]: and series a, one to five meal tickets,
+[Remote]: can lead, can co lead. That's generally what we prefer, the
+[Remote]: rounder are a little bit bigger, we can follow as well. Tickets one to
+[Remote]: five mil as I said. Geoagnostic, so we invest
+[Remote]: quite a lot in sort of the SF area, UK and Europe as well.
+[Remote]: And, yeah, in the past, we've invested in, you know, the usual stuff
+[Remote]: suspects, Rockwave, TensTorrent, Mercury, these kinda guys.
+[Remote]: Tend to do about 10 investments, per year. So we're very selective with what's
+[Remote]: types of folks that,
+[Remote]: we work with. I find reconciliation
+[Remote]: mainly because so this is why I reached out. Right? So I was at JP for four years last
+[Remote]: and a half years was in our AI strategy investments team. So
+[Remote]: sat alongside the applied AI teams, and and they spent a shit ton of time doing manual
+[Remote]: trade reconciliation automation. So they were building machine learning models to
+[Remote]: to reconcile that, spent a lot of time with sort of the Smart
+[Remote]: Stream, re on our black lines of the world. Obviously, different use cases
+[Remote]: to what you guys are doing, but nevertheless, it was actually one of the first projects that that I worked on when I was in that team, found it quite interesting. So
+[Remote]: yeah, keen to to do understand a little bit more around
+[Remote]: sort of what flavor of reconciliation you're doing and and just to understand a little bit more
+[Remote]: around sort of some of the AI and and and and sort of the architecture that you're you're building.
+[You]: Yeah.
+[Remote]: So hopefully, that's helpful context.
+[You]: Thank you. Thank you so much for the intro, very helpful context. So
+[You]: you know, reconciliation, conceptually, it's
+[You]: it's sort of the same for any every single, use case. It's just
+[You]: making sense of disparate information. Right? You're adjusting different data sources, different
+[You]: transactional files in trying to make sense of them. So
+[You]: all of these players you mentioned at its core were all data orchestration platforms.
+[You]: That's what we are. We connect to the different data sources. We ingest them
+[Remote]: Yeah.
+[You]: We have some sort of parsing engine to to change the formats and the structures. So that's
+[You]: easier to process. And then we process them based on a specific logic
+[You]: that should be able to maximize the matching ratio.
+[Remote]: Yep.
+[You]: That's that's sort of essentially what we do. Now the
+[You]: a couple of things why this is an interesting time, for a
+[You]: and why we started this company. The first reason is sort of, like,
+[You]: the tech stack modularity. If you see, like,
+[You]: if you take a look at all these tech industries for the past
+[You]: fifty or a hundred years, they all go in these of
+[You]: aggregation, modernization, aggregation, modernization, and financial
+[You]: services, the past decade, has become incredibly modular, incredibly
+[You]: Like, there's there's been a lot of innovation on the application layer.
+[You]: Which has been great. But I think no one has been actually taking care of the infrastructure layer.
+[You]: One of them being reconciliation. Reconciliation for us
+[You]: should not be treated anymore as a back office problem, should be more treated as an infrastructure problem.
+[You]: Because today, we've been adding a lot of layers of
+[You]: abstraction on top of the banks, are the source of truth.
+[You]: And now it's incredibly hard to operate these fintech companies. And when you look at them,
+[You]: sort of like on a vertical picture of what these fintech companies are,
+[Remote]: Yep.
+[You]: It's just the batch work of integrations. Right? They have a ledger provider,
+[You]: They have a car program manager. They have a sponsor bank. They have a
+[You]: cash in cash out provider, they're connected to Zelle for peer to peer transfers, ACH, like,
+[Remote]: Yeah.
+[You]: it's just like connections. You know? And and all these abstractions have made it
+[You]: really hard or nearly impossible to actually
+[You]: track money across these abstractions. So thinking of it as an
+[You]: as an industry wide problem, the question is how are we gonna solve it going forward? Knowing that today,
+[You]: it has become a source of risk, and exhibit a of that is synapse.
+[You]: Synapse twenty twenty four is the perfect example of
+[You]: stuff that can happen if you're not reconciling correctly and you're not tracking money correctly across
+[You]: all these layers of abstractions. Some of these some people will say,
+[You]: Synapse was wrongdoing, and it probably was.
+[You]: At the end of the day, we if we had the right infrastructure and the right tools in place to monitor
+[Remote]: Yep.
+[You]: money movements, it would have never happened. That's also true. Right? So
+[Remote]: No.
+[You]: we've written a lot about this. I'm happy to share some articles we've researched about this. But that was sort of what
+[You]: pushed us to start this company back in in
+[You]: what we incorporated in 01/01/2025, but we started working on this
+[You]: earlier. So
+[You]: the the first part is our thesis to solve this problem. Right? Like,
+[You]: and this has, a short term implication and a longer term
+[You]: The short term implication is today, it's technically very hard to reconcile, as you said.
+[You]: As your personal experience, and there's a lot of value to be unlocked there with AI.
+[You]: Right? With these automated tools to basically just
+[You]: automate the workflow and make sure that you're not
+[Remote]: Yep.
+[You]: hiring teams of analysts or associates to match transaction
+[You]: There's a lot of value to be unlocked there. Now that's just
+[You]: streamlining the internal workflow of reconciling your data. Right?
+[You]: Now is it solving the reconciliation problem? No. Because at the end of the day,
+[Remote]: No. Yeah.
+[You]: it's not solving for the root cause, which is data fragmentation. So
+[You]: longer term, what we're thinking about at Rexy, and our our big thesis is
+[You]: the only way to solve reconciliation is to fix a coordination problem. Because
+[You]: if you think about it, reconciliation conceptually, it's just comparing my source of the truth against yours.
+[You]: And so the way to solve it is not
+[You]: you share my file, your file with me, I share my
+[You]: file with you, and then we're both, like, streamlining internal workflow. We should get together and negotiate on what
+[You]: the actual source of truth. Right? So to be able to do that, we need a
+[You]: centralized place, a shared place where everyone is dumping their data
+[You]: and there's a player that's taking care of all the parsing,
+[You]: and providing that unified source of truth for the whole stack.
+[Remote]: Sure.
+[You]: So the longer term vision for Rexy, and that's actually what's gonna make us defense
+[You]: defensible via network effects, is how can we build this
+[You]: centralized layer where every player in the stack, all the way from a sponsor
+[You]: bank, a BaaS provider, a fintech platform, and even payment providers are dumping their transaction
+[You]: data, and we are the ones taking care of all the parsing and providing
+[You]: centralized view for all these players to consume. So at that point,
+[You]: we are solving the reconciliation problem because we're solving full data fragmentation.
+[You]: And not only that, but we're also creating that centralized source of truth because
+[You]: we all know that reconciling is not just matching transactions. These things never match a 100%. So then the workflow becomes very time consuming and painful when you need to invest
+[You]: and close the discrepancies. Why? Because I have 10 discrepancies. You have
+[You]: 10 discrepancies, and they're different. And so it takes us weeks until we
+[Remote]: Yeah.
+[You]: make sense of what's actually going on and what's actually money missing, what's actually data missing. So
+[You]: what actually pushes that workflow forward is if we are
+[You]: with the same data, reconciling with the same logic, and then we have a shared tool to collaborate on discrepancies.
+[You]: Because as soon as we're working on the same data, it's very clear where
+[You]: either data is missing or money is missing. We don't have to be negotiating back and forth on
+[You]: what happened here. You know? It's just to send
+[Remote]: Yep.
+[You]: centralized view where every player in the stock is actually
+[You]: working over the same data and collaborating on discrepancies over a shared tool.
+[You]: So that's our longer term vision. Where we are today, we we raised the pre seed round back in July.
+[You]: We're a team of seven. Me and my cofounder are based here in New York.
+[You]: The CTO with the founding engineers are based in Argentina.
+[You]: Argentinians, actually.
+[You]: And ever since we've been building and selling, we have live customers in production paying
+[Remote]: Yep.
+[You]: We're building and selling. It's a hard product to build, technically.
+[You]: And then it's a hard product to sell. So really doing
+[You]: some progress there and hopefully raising a
+[You]: seed round in q two. That's sort of like the road map for us.
+[Remote]: And so I guess, like, because you guys are on phase one of
+[Remote]: the grander vision of building towards sort of that unified standardized layer,
+[Remote]: But for phase one, it's just the automation of
+[Remote]: currently, I guess, the status quo around, okay, you give me data, we give you data, like, how do we normalize this
+[Remote]: So in this early stage where you guys are are just
+[Remote]: automating or improving the current way things are done without sort of
+[Remote]: reinventing the wheel or getting folks into this new sort of
+[Remote]: obstruction there.
+[Remote]: I guess maybe the common questions are, like, sort of, how do you guys
+[Remote]: stack up versus maybe the incumbents? I I assume you guys are better than incumbents, but for all the other
+[Remote]: sort of AI enabling, AI sort of reconciliation type
+[Remote]: tools.
+[You]: Well, first is the incumbents that are not AI native.
+[You]: The our our whole architecture is built AI native, so there's a lot of things we can do better than competitors
+[You]: from the product side, from the performance side. Right? Like, we are better better
+[You]: at connecting to data sources, not only APIs, but SFTPs and picking up files
+[You]: CSVs from portals or PDFs from emails. We got we got a lot of technology there.
+[You]: We have great technology for parsing as well, to change the formats
+[You]: understand the structures, and make sure that we're comparing apples to apples.
+[You]: Then we also use AI to configure the recon launch.
+[You]: We build recon logics that push the matching ratio from 95 to 96% to 99 plus percent, which has a dramatic impact on
+[You]: the productivity of the team, because, again, the discrepancies are where most time is
+[You]: spent, actually. And then finally, on the discrepancy side of things,
+[You]: we also use AI and machine learning algorithms to provide additional matches, and that, like,
+[You]: has a retro limitation to
+[You]: to the configuration to the reconciliation logic so that it increases over time.
+[You]: We learn with our customer and we learn across our customers.
+[Remote]: Yeah.
+[You]: To understand better files, to part them better, and to match them better.
+[You]: But as you probably pointed out, that's not defensible over time. We're seeing a lot of our
+[You]: competitors also innovating technically there. And I think
+[You]: it applies to any software or any tech company going forward. I think
+[You]: tech differentiation is gonna be harder and harder. For us, it's way more about, okay.
+[You]: We have a really good product experience. It's it's a magical UX.
+[You]: And then the other part is that it's
+[You]: easier to connect, easier to implement. So these the time to value, it
+[Remote]: Yep.
+[You]: is cheaper and faster for the companies we work with, which
+[You]: basically changes the switching cost if you already have a solution
+[You]: or it really lowers the better if you're thinking of a solution to at least try it out for a couple months and see how it works.
+[Remote]: Claro.
+[You]: Works. But going forward, what's actually gonna make us defensible is
+[You]: the network effects of becoming that share of tool. Right? And
+[Remote]: Yep.
+[You]: for us, it's way more about distribution. How do we crack those things?
+[You]: In terms of creating network effects rather than the technology itself. But
+[You]: that said, there's a lot of value to be captured in the short term with this
+[Remote]: Yep.
+[You]: automation play with AI. And I think there's room for many players because when you
+[You]: really go into these meetings with banks, insurance companies, ledger companies,
+[You]: it's a mess. And they're nowhere near of
+[You]: capturing the value
+[You]: they could be capturing by automating this workflow.
+[Remote]: Yep. I mean, I don't I don't think they're ready yet.
+[Remote]: Honestly, for for for sort of this this this new sort of paradigm that you're building towards. Mean, it's
+[Remote]: it's very interesting. And
+[Remote]: guess my question there is, okay, maybe this is taking more of a banking view. Right? So
+[Remote]: when they had I mean, one common use case, and where it sort of
+[Remote]: even AI models break down, is block trades.
+[Remote]: Right? So it comes across as as one trade in the system, but then, you know, it's split out
+[Remote]: 10 different trades with 10 different trade IDs
+[Remote]: Some per person, unfortunately, in India's job is to
+[Remote]: call up the trading desks, ask them, okay. How does this
+[Remote]: match? Is this your trade? Is this part of the larger trade? This gets passed
+[Remote]: to some other sort of middle office function in in Bournemouth in in UK.
+[Remote]: Then it goes back into the system. And it's incredibly manual,
+[Remote]: and some parts of reconciliation, I I don't know. Do you ever believe we'll we'll
+[Remote]: be sort of fully automated? And so if you guys become
+[Remote]: sort of unified layer, right, and people are dumping data on you,
+[Remote]: is the expectation on you to solve these problems? Like, who owns
+[Remote]: these these types of issues when they arise? Who does the investigation?
+[You]: Yeah. So
+[You]: you pointed out correctly. Reconciliation is not not always
+[You]: nice in terms of, like, one to one with that unique transaction ID.
+[You]: We need to get creative around time stamps,
+[You]: amounts. But that's, again, that's where AI is really great at. Like, finding
+[You]: these combinations, these patterns, trying to understand and make a sense of this information.
+[You]: And on the other side, we're seeing we see a lot of one to many reconciliations.
+[You]: Where, like, the bank does just want transaction, and on the ledger, we have
+[You]: and we need to do that that matching. It's about configuring the logic and finding the patterns.
+[You]: And it's iterative. Right? And we find
+[You]: we try stuff until it actually makes sense. So
+[You]: we're building technology for that. And what was the second part of the question regarding the bank?
+[Remote]: I guess the the other part is, you I guess, to an extent, right, do you
+[Remote]: think
+[Remote]: I guess, like, what's the highest number that you think you can match? Right? Do we do you think we can get to a
+[Remote]: a space where, you know, this kind of manual sort of investigation just doesn't need to
+[Remote]: happen, like, you know, within the realms of what's possible with with AI that that that, you know,
+[Remote]: I think some of this like, I I maybe I'm a bit more cynical, I just think some of this
+[Remote]: more complicated stuff just requires, unfortunately, humans to investigate or
+[Remote]: involving, you know, calling, emailing, or maybe we have agents talk to each other about this kind of stuff. And and so does that sort of piece
+[Remote]: lie with you guys? I mean, who holds the responsibility when everyone's just like, oh, here's the data. We're
+[Remote]: assuming you you know, Rexy is gonna unify and and and and and and reconcile
+[You]: No. No. It needs to be human control and human led.
+[You]: Rexy's just gonna point towards the gaps and make sure that those gaps are the same across the stack.
+[Remote]: Yep.
+[You]: But then people from these companies need to be accountable for
+[You]: for either data missing or money missing. Like, if it's if it's money missing, it shut
+[Remote]: Yeah.
+[You]: someone should be accountable for it. Right? And if it's not money and
+[You]: data, then that person should be the one also accountable to
+[You]: updating the data source to make sure that everyone has that shared source of truth.
+[You]: But that's the power of thing about having a shared tool. That now there's
+[You]: an accountability towards the rest of the system. If you're the party
+[Remote]: Yeah.
+[You]: that are missing the 10 transactions, the sponsor
+[You]: is there, the fintech is there, the payment provider is there, and they're all waiting to see
+[You]: you need to give an explanation about this. Is money
+[Remote]: Yeah.
+[You]: missing or you need to update your ledger on what's going on with this? Because if it's money,
+[You]: we should have a conversation and we should catch this real time. So
+[Remote]: Yeah.
+[You]: and to your question, do I think this is gonna be a 100%
+[You]: Not today, not in the short term.
+[You]: But as we continue building, if you think about it, as Rick starts becoming that centralized and shared layer,
+[You]: essentially what we're becoming is a shared ledger.
+[You]: And so once we start
+[You]: going deeper and deeper into these institutions as a shared tool,
+[You]: at some point, this should become as a shared reconcile ledger, and we should be at a 100% That's what we're going towards. That's the mission. Like, when you think about it, it's
+[You]: going back to what I started the conversation about
+[You]: what the industry needs. The industry needs a shared ledger that's universal.
+[You]: Like, it's in banking. In banking,
+[Remote]: That's mainly due of the blockchain stuff. Right?
+[You]: it's it's always like blockchain, and a lot of people ask
+[You]: me, why aren't you using blockchain?
+[You]: Could be an interesting use case. It feels like killing a mosquito with a bazooka, but
+[You]: the cool the the interesting thing about this is
+[You]: the way to solve this problem is to get these parties to work together.
+[Remote]: Yeah.
+[You]: It's it's collaborative. It's a quick, like, reconciliation at its
+[You]: core. It's a coordination issue. So whatever we wanna be building
+[You]: to solve this problem system wide,
+[You]: it's a coordination mechanism. Even, like... Because, as I said,
+[Remote]: Yeah.
+[You]: there's a lot of value to be captured today on the technical side. The technical
+[You]: solution is is gonna add a lot of value. Yes. How much is that gonna last?
+[You]: Five years? Three years?
+[You]: Like, anyone's gonna be building the same technology we can be building in three, five years. What's gonna actually
+[Remote]: Yeah.
+[You]: scale and solve this problem conceptually? Coordination. Coordination mechanism.
+[Remote]: Yep.
+[You]: And and the only way to do that is we all need to agree
+[You]: and play ball over one central system. It's almost like FICO.
+[You]: Do you think are we gonna replace FICO's score soon? I don't think so. Because
+[You]: the powerful thing about FICO is that it's comparable, it's relative.
+[You]: We can compare your score against mine across any financial institution, and that allot
+[Remote]: No.
+[You]: a lot of value for everyone lending money.
+[You]: The same here. There's there's a lot of value, like,
+[You]: and another thing of why this is a coordination issue is
+[You]: a lot of people think about regulation as a negative thing, which I think
+[You]: in many cases it is. In other cases, regulation
+[You]: plays a coordination role. It's the rules of the game.
+[You]: This is how you should create data. This is how you should transfer money. This is how you should
+[Remote]: Yeah.
+[You]: share your data of what money you transferred, which is what happens in the bank.
+[You]: Industry. That's why in banking, money is not lost.
+[You]: Because the fed controls everything, and there's standards on how
+[Remote]: Yep.
+[You]: these banks should operate. Now in the fintech industry, which is not regulated,
+[You]: everyone is doing the what the hell they want. They're building these integrations, what the hell they want. They're operating the moving money.
+[You]: Batch real time, real time with some batches, like,
+[Remote]: Bien.
+[You]: everyone is the prefunded accounts. Everyone is doing, like, whatever was easier to time to market and
+[You]: to innovate on the application layer. Great. Now we need to set the standards.
+[You]: Because this has become a mess. And and and and it's just very risky today. Like,
+[You]: you would be I mean, if you would be working with me on some of the customers we're working with,
+[You]: you would be amazed at how these fintech companies operate their money movement. It's just
+[You]: crazy. I'm sure you know about this better than me, but
+[You]: it's just a low level of visibility and control. It's just, like,
+[You]: crazy. Really, really
+[Remote]: I I I yeah. And I think I think you're probably the most passionate
+[Remote]: person I've ever spoken to about reconciliation. I I
+[Remote]: I mean, I think I think anyone I don't think I've seen anyone get so passionate
+[Remote]: about reconciliation before, which is fantastic to hear. Right?
+[You]: I mean, to me, it's just crazy that with
+[You]: with the tools we have today and that we're in 2026,
+[You]: that money is still getting lost in this system, in a system that's
+[Remote]: Yeah.
+[You]: digital and tech enabled, why the hell is money getting lost?
+[You]: That's just mind blowing to me. And then there's there's a mission
+[You]: thing about these things. Like, when you when you take a look at
+[You]: who actually lost money with Synapse.
+[You]: Not you and me. Who has wallets and you know
+[Remote]: Yeah.
+[You]: and you know and you know and and these in these in these
+[You]: fintechs. It's the pace of the pyramid. So
+[You]: the pace of the pyramid had been the ones that have actually benefited the most, out of this
+[You]: application layer innovation
+[You]: sprint we've been going towards in the fintech industry. And these are the ones now operating
+[You]: all these products and all these funds, and it's just not safe.
+[You]: And we need to do something about it because we wanna continue innovating in that layer.
+[You]: But we first need to set the standards or set the coordination mechanisms to make sure that it
+[You]: safe and robust to continue scaling. Now I'll add one more thing.
+[You]: Which I'm I'm sure you're a believer of. Stablecoins are gonna grow a lot
+[You]: the next five to ten years, and this just only adds more and more complexity because now we're adding
+[You]: the the rail, right, the on ramp and the off ramp from crypto back to blockchain.
+[You]: Chain. So it's just gonna make it's it's another level of of
+[You]: abstraction. Like, we have ledgers, we have FinTechPad, we have payment writers,
+[Remote]: Yeah.
+[Remote]: Yep.
+[You]: now we're gonna have blockchain.
+[Remote]: That's true. That's true. Look. This is this is been a a a super insightful sort of
+[Remote]: conversation. I actually really like the energy, and I I like the space that you guys are building. And
+[Remote]: as as you said, sort of you guys are targeting sort of a a seat, sort of
+[Remote]: two type race. It would be good to, maybe, like, if there's an investor news
+[Remote]: to be signed up. Otherwise, you know, it'll be good to sort of reconnect
+[Remote]: before you guys start fundraising, again, just to sort of
+[Remote]: go over and dive a little bit deeper and also introduce you to Gabriel who runs, Ventures here at XTX. I think this could be one that would be pretty
+[Remote]: for us to to take a deeper look at.
+[You]: Sure. Of course.
+[You]: As I said, right now, we're building and selling, trying to gain momentum and and some speed.
+[Remote]: Or
+[You]: But when we start thinking about fundraising, I'll I'll I'll I'll make
+[You]: sure I'll I'll reach out and and reconnect. And if you're in the city, let's grab coffee.
+[Remote]: That's it. That's it. Cool. I'll let you know. Thanks a lot, Ignacio. Have a great rest of your day.
+[You]: Thank you. You too. Bye bye.
+[Remote]: Cheers.
+
+============================================================
+SUMMARY
+============================================================
+### XTX Ventures Overview
+
+- Zhen Shen, investor at XTX Ventures (parent: algorithmic market maker)
+- Company stats:
+  - $300B daily trading volume (fully automated)
+  - 3rd largest FX liquidity provider globally
+  - 25,000 GPUs (doubling/tripling in coming months)
+  - Building own data centers and chips
+  - 250 employees, $3-4B annual revenue
+- Investment focus:
+  - Early stage AI/AI-enabling companies (pre-seed to Series A)
+  - $1-5M tickets, can lead or co-lead
+  - Geographic: SF, UK, Europe
+  - \~10 investments per year
+  - Portfolio includes Rockwave, TensTorrent, Mercury
+- Zhen’s background: 4.5 years at JP Morgan AI strategy investments team
+  - Worked extensively on manual trade reconciliation automation
+  - Built ML models for reconciliation with Smart Stream, Reval, BlackLine
+
+### Rexi’s Reconciliation Vision
+
+- Two-phase approach to solving industry-wide reconciliation problem:
+  1. **Short-term**: AI-native automation of current workflows
+    - Better data source connections (APIs, SFTPs, CSVs, PDFs from emails)
+    - Advanced parsing technology for format standardization
+    - AI-configured recon logic pushing match rates from 95-96% to 99%+
+    - ML algorithms for additional matches with retroactive learning
+  2. **Long-term**: Centralized coordination layer
+    - Shared platform where all stack players dump transaction data
+    - Unified source of truth eliminating data fragmentation
+    - Collaborative discrepancy resolution tools
+    - Network effects through standardized coordination mechanism
+- Current status: 7-person team, live paying customers, planning Q2 seed round
+- Competitive advantage: magical UX, faster implementation, lower switching costs
+
+### Technical Challenges & Market Reality
+
+- Complex reconciliation scenarios (block trades split into multiple IDs)
+- Human oversight still required for investigation and accountability
+- Fintech industry lacks regulatory coordination (unlike banking)
+  - Everyone building custom integrations and money movement processes
+  - Low visibility and control creating systemic risk
+- Stablecoins adding another abstraction layer (on/off ramps)
+- Goal: become shared reconciliation ledger achieving 100% accuracy
+- Mission-driven: prevent Synapse-type failures affecting vulnerable populations
+
+### Next Steps
+
+- Zhen to introduce Ignacio to Gabriel (runs XTX Ventures)
+- Reconnect before seed fundraising begins
+- Coffee meeting when Zhen visits NYC (XTX has Hudson Yards office)
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/a4a5aeec-3559-41e9-b015-3ac09ee0ab6f](https://notes.granola.ai/t/a4a5aeec-3559-41e9-b015-3ac09ee0ab6f)

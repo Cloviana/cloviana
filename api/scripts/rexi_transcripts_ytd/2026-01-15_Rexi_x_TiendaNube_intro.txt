@@ -1,0 +1,461 @@
+MEETING: Rexi x TiendaNube: intro
+DATE: 2026-01-15
+ID: not_WQ0r82krFjTxcK
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Luz <luz.ameijeira@tiendanube.com>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-01-15T13:45:00-05:00 - 2026-01-15T14:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Why not?
+[You]: Jorge, I think
+[Remote]: Porque no hay luz,
+[You]: ¿preceptó, Y aparte,
+[Remote]: Sí, ¿verdad? Ya es más clientes.
+[You]: ah, vive en Argentina.
+[You]: Bueno, veamos.
+[You]: Che, estaba mirando ahí un poquito de pago nube, pago nube básicamente, replicaron un mercado pago.
+[Remote]: Literal.
+[You]: Deben ser un subaquirente, no creo que sean adquirente, ¿no?
+[Remote]: No, creo que estaban usando, de hecho, la infraestructura de y local.
+[You]: Y después vender como una wallet.
+[Remote]: Calculo que sí van a ser un
+[Remote]: no sé, boludo.
+[Remote]: Para cobrar
+[You]: Four
+[Remote]: haber cansado de cobrar a través de mercado pago, no sé.
+[You]: No. Sorry. Era era un
+[You]: una adyacencia muy obvia que tenían que desarrollar.
+[You]: ¿Ya tienen todo el flujo de pagos? ¿Por qué no van a morder en los pagos
+[You]: tampoco?
+[You]: Los cobros ingresan a la sección futuros ingresos dentro de pago en nube, según el plazo de liberación
+[You]: que hayas configurado, ese dinero pasa a saldo disponible. ¿Es mercado pago, literal?
+[You]: Puedes transferirlo a tu cuenta bancaria o CVV asociada.
+[You]: Como retiro el dinero de mis ventas.
+[You]: Podés vincular con la cuenta bancaria,
+[You]: puedo usar pago nube para pagar, por el momento pago
+[You]: solo está disponible para recibir cobros. Estamos trabajando para cobrar nuevas funcionarias
+[You]: como transferencias de terceros y pagos de servicios. Ahí se les va
+[You]: complicar heavy la conciliación, si además de cobrar pueden pagar.
+[Remote]: Sí.
+[You]: Ok, Cintera, por
+[Remote]: Pero por eso
+[Remote]: Sí. Pero
+[You]: La comisión de pago nube depende del medio pago utilizado y el plazo que elijas.
+[You]: ¿Qué significa costo por transacción bonificado?
+[You]: Ah, mirá, y te genera un incentivo para que cobres vía tienda nube.
+[You]: Mientras que cualquier, si no, ellos muerden, claro.
+[You]: Y tienen contra carros.
+[You]: Bueno,
+[Remote]: ¿quiere mandar los mails a la prueba esta?
+[Remote]: Por ahí está sin luz.
+[You]: पहले वाले. आप show लीजिए पर WhatsApp con esta luz.
+[Remote]: Creo que me era el club que deben tener luz.
+[Remote]: Generador.
+[Remote]: ¿Hola?
+[You]: Value.
+[Remote]: Buenas.
+[Remote]: ¿Qué tal, Ignacio? Teo, disculpe, en esta otra llamada y me demoré.
+[You]: No. I
+[Remote]: Pensamos que tal vez estaba sin luz.
+[You]: I
+[Remote]: Sí, no estuve sin luz, un ratito.
+[Remote]: Y ahora ya volvió con la gente. Sin sin luz.
+[Remote]: José, ¿dónde estás? En Palarmo.
+[Remote]: Ah, no, yo estoy en San Isidro y ya volvió hace
+[Remote]: veinte minutos.
+[You]: Buenísimo. Bueno, espectacular. Gracias por el tiempo.
+[You]: Y gracias por por estar abierta a a reunirte con nosotros.
+[You]: Si querés te hago una una breve intro nuestra, y
+[You]: nos encantaría escucharte un poco más sobre esta solución que estuvieron desarrollando y lanzando como
+[You]: pago nube. Estuve leyendo un poquito, nada, me parece espectacular, me parece
+[You]: una extensión una expansión muy obvia lo que ya estaban haciendo y estoy seguro que debe estar
+[You]: traccionando muy bien. Pero apenas cuentas muy lo hacen.
+[You]: Contestamos los los fundadores de Rexy. La arrancamos
+[You]: hace ya más de un año,
+[You]: Básicamente, somos una plataforma de conciliación financiera y transaccional,
+[You]: para automatizar todo ese flujo de comparación más
+[You]: creación de asientos contables, reporting y los dashboards de control, ¿no?
+[You]: Creo que a medida que que escala el negocio
+[You]: y lanzás nuevos flujos de pago, nuevos métodos de pago, nuevas integraciones,
+[You]: el proceso de conciliación se vuelve cada vez más complejo. Nosotros lo vivimos, te digo, mercado pago, yo en Beach, soy en común, y bueno, y dijimos acá hay algo para hacer y y y y en eso estamos. Construimos una plataforma que básicamente automatiza eso. Trabajamos con bancos, PCPs, procesadas de pagos, billeteras virtuales, exchanges de cripto, básicamente automatizando todo ese flujo. Así que es un poquito un mapeo general sobre lo que hacemos, Nosotros estamos basados en en Nueva York con Tego, equipo técnico está basado en Argentina, y hoy
+[You]: estamos atacando los dos mercados, Latinoamérica y Estados Unidos,
+[You]: Creo que justo el tema de conciliación es hacer una orquestación de información,
+[You]: es bastante genérico y no tenemos mucho costo de adaptación a cada
+[You]: geografía, con lo cual, por ser argentino, estamos tomando mucha oportunidad en LATAM,
+[You]: y después nosotros basados en New York estamos tomando también mucha oportunidad acá en en Estados Unidos.
+[You]: Pero nada, habiendo dicho eso, nos encantaría que nos cuentes un poquito más de pago nube,
+[You]: y un poco más obviamente el proceso
+[You]: de conciliaciones, cómo lo llevan hoy, es un dolor, no es un dolor y qué tipo de oportunidades hay para
+[You]: optimizar ahí.
+[Remote]: Bueno, dale, buenísimo.
+[Remote]: Tengo una tengo una pregunta antes, ¿ustedes, o sea, se conectan con el
+[Remote]: con su partner? No no están conectados con los medios de pago.
+[You]: Bueno, cuando podemos podemos hacer las dos cosas,
+[You]: con algunos clientes nos conectamos directo a sus data lakes,
+[You]: porque ellos ya ingestan toda esa información transaccional,
+[You]: con algunos clientes nos conectamos directo a la fuente de pago.
+[Remote]: Está bien, está bien, buenísimo.
+[Remote]: Bueno, te la encuesta, en realidad, yo
+[Remote]: de trabajar quince años en mercado pago, no sé, Teo, ¿vos dónde estabas? Yo estaba en el área de, tuve muchos años en operaciones,
+[Remote]: y los últimos cinco años estuve en el negocio de pagos online de
+[Remote]: Argentina.
+[Remote]: Tremendo.
+[Remote]: Ya estoy. En desarrollo de nuevos negocios, tuve
+[Remote]: primero en el marketplace y después se mergaba en Insurtech.
+[Remote]: Ah, mirá, qué bueno.
+[Remote]: ¿Trajaste con Lu o no o no? Lu era Argentina, Yo era core, pero trabajé bastante con ella.
+[Remote]: Ya, ok, buenísimo. So, trabajabas en la estructura de pago a Raleigh, ¿era?
+[Remote]: Bueno,
+[Remote]: les cuento de pago, o realidad el vertical Fintech
+[Remote]: de tienda Nube ya tiene Cinco Años. O Sea, Nosotros Estamos En Brasil hace cinco años con Nubén Pago, hace tres y medio,
+[Remote]: en en Argentina, con Pao Nui, hace un año en México, ¿bien?
+[Remote]: Yo estoy acá de Argentina y de México, tengo un par en Brasil.
+[Remote]: Y la verdad es que pago en Hugo, o sea, el, en realidad, el caso de negocios,
+[Remote]: o sea, todos los países vienen creciendo
+[Remote]: dentro de tienda nueva de manera muy acelerada, como que nosotros vemos que había una
+[Remote]: necesidad real de, digamos, nuestros vendedores, o sea, de
+[Remote]: clientes, de tener un medio de pago, una alternativa
+[Remote]: las que estaban ofrecidas en el mercado, integradas con tienda nube,
+[Remote]: que sea más
+[Remote]: integrada
+[Remote]: al panel donde pasa la gran mayoría de su tiempo, ¿sí? O sea, hoy están, vos pensás que todos estos
+[Remote]: emprendedores están
+[Remote]: todo el tiempo en su panel de ventas, poniendo que lo despacha, que no lo
+[Remote]: despacharon, en qué estado está la venta, si se cayó, si yo tengo que mandar un mail para recuperar
+[Remote]: ese carrito, etcétera, etcétera. Quería saber que
+[Remote]: había pasado con su plata, tenía que entrar a otra plataforma, ¿sí? O incluso quería saber
+[Remote]: estado de una venta, no no no siempre estaba linkeado y ya entró a otra plataforma. Entonces,
+[Remote]: nosotros le le ofrecemos con Pago nueve algo integral,
+[Remote]: tienen una solapa que dice PagoNue, pero casi no la necesitan, sea, nuestros filtros, que casi no la usen.
+[Remote]: ¿Sí? Que usen su administrador de ventas y que toda la información del pago
+[Remote]: esté adentro de esa venta.
+[Remote]: ¿Sí?
+[Remote]: Eso, la verdad,
+[Remote]: cambió mucho la forma de operar, o sea, realmente,
+[Remote]: es mucho más fácil y los clientes lo terminan eligiendo, ¿sí?
+[Remote]: Sumado que tenemos ofertas competitivas y, obviamente, que no cobran
+[Remote]: de transacción en tienda nueva por
+[Remote]: las ventas de pago nuevo, entonces eso también desde ese lado lo hace superatractivo.
+[Remote]: Así que nada, muy contentos en los tres países creciendo
+[Remote]: muy bien, muy muy bien, México superasambrados con
+[Remote]: con la adopción,
+[Remote]: Tan, o sea, llegamos en el primer año, o más o menos, que nos tomó un año y medio, doce
+[Remote]: en Argentina, y un año y medio en Brasil. Entonces, la verdad que en México, bueno, nada.
+[Remote]: Creciendo Muñoz.
+[Remote]: Todavía
+[Remote]: México es chiquito, tienda nube, pero, bueno, nuestro
+[Remote]: que sea nuestro segundo país.
+[Remote]: La salvedad, o sea, si querés, si quieren el punto principal,
+[Remote]: de de de fintech es que nosotros somos una y label solution, ¿sí?
+[Remote]: Nosotros estamos integrados con
+[Remote]: tres partners distintos dependiendo del país, los posts y el simple ne va,
+[Remote]: pagarme en Brasil, Stripe en México y local en Argentina,
+[Remote]: Entonces,
+[Remote]: yendo un poco al al fin de esta reunión,
+[Remote]: verdad es que hoy la conciliación de los de los medios de pago y los adquirentes lo va a ser ilocal.
+[Remote]: ¿Sí? Porque de local, Stripe y y Pagarme,
+[Remote]: nosotros hoy, en realidad, mostramos lo que localice en su
+[Remote]: de plataformas, o pagar, me dicen, su producto de plataforma, si es
+[Remote]: extrae lo mismo, ¿sí? Tenemos mil desafíos después en
+[Remote]: aseguramos que eso sea
+[Remote]: correcto. Este, pero digamos que la relación
+[Remote]: adquirente, OXXO,
+[Remote]: etcétera. Conciliación, conciliación, conciliación.
+[Remote]: La termina siendo, este,
+[Remote]: nuestros partners. Pero eso no va ser siempre así,
+[Remote]: O sea, nosotros estamos en un proceso de
+[Remote]: independizarnos de alguna manera de los tres en la medida en la que el negocio
+[Remote]: va creciendo. Ya empezamos en Brasil, vamos a hacer lo mismo
+[Remote]: en Argentina, este año. Entonces, sí, bueno,
+[Remote]: lo que ustedes me dicen veo mucho fit, porque en algún momento vamos a conectar
+[Remote]: a decir, PCP, nos vamos a conectar con en adquirentes y a donde hay que hacer todas
+[Remote]: esas conciliaciones.
+[Remote]: Es eso,
+[You]: Hoy, entonces,
+[You]: básicamente, el pago lo procesa, digamos, the local,
+[Remote]: Sí.
+[You]: por ejemplo, en Argentina, y ellos son los que concilian
+[You]: su fuente de información contra la fuente de información de ustedes.
+[You]: Lo que ustedes le están llevando.
+[Remote]: Ellos concilian con los medios de pago y a mí me muestran unos
+[Remote]: notificación
+[Remote]: a mí me me muestran un saldo merchant ni el estado de las órdenes.
+[You]: Ustedes nunca procesan pagos, claro.
+[Remote]: Yo no
+[Remote]: no procesaban los pagos.
+[Remote]: ¿No? Por ahora no,
+[Remote]: no los procesamos,
+[You]: Y pero
+[Remote]: procesa ahí,
+[You]: cuando un merchant tiene un tiene un tema con conciliaciones,
+[You]: ¿les se les queja a ustedes o va directo a de local?
+[Remote]: No, se nos queja a nosotros.
+[Remote]: No, en los merchants saben que operamos con DLocal, pero no,
+[Remote]: las merchants no hablan con DLocal.
+[Remote]: Operan con nosotros, nosotros tratamos de ser, bueno,
+[Remote]: de de intentar entender qué fue lo que pasó,
+[Remote]: o los saldos de los merchants,
+[Remote]: Y ahí, bueno, muchas veces también necesitamos de ellos,
+[Remote]: pero nosotros no, o sea, yo a Marcha no le doy la plata cuando estaba liquidada por el adquirente, la doy antes, en un modelo de agregador. O sea, CD local, por ejemplo, no sé, O su número de comercio que estén activos y los pagos se aprueban por alguna razón, que no sé qué es, y mandan todas las órdenes aprobadas, esa plata se le da a los merchants, después sí, local no cobra nada,
+[Remote]: ni me entero, probablemente me va a enterar, me lo va decir a mí, pero el merchants no le decimos nada.
+[You]: ¿Cómo me vuelta eso?
+[Remote]: O sea, la conciliación del adquirente
+[Remote]: es indistinta de lo que pasa con el merchant.
+[Remote]: ¿Sí? Porque nosotros somos un agregador, en merchant no mira ninguna liquidación ni nada, él solamente ve
+[Remote]: una venta aprobada por cien pesos en su cuenta, y ve cien pesos menos los fees.
+[Remote]: Y luego, ahora mismo informa venta aprobada por
+[Remote]: cien pesos, y en otra app, y me dice, el matching tiene cien menos
+[Remote]: Office.
+[Remote]: Ahora, si Visa, Prisma, no le paga ahí local,
+[You]: Yeah. Working it up.
+[Remote]: Eso es machado de afecta. Solamente
+[Remote]: porque no puedo, no tengo acceso a esas conciliaciones.
+[You]: Y y hoy tienen mucho tema de que el merchant se les queja a ustedes por
+[You]: una liquidación mal
+[You]: o sea, algo malconciliado o no no es un tema grande?
+[Remote]: Es un tema, pero no está relacionado con
+[Remote]: liquidación de los medios de pago, está relacionado con la forma en la que
+[Remote]: diloca alarma el ledger de saldo de los merchants.
+[You]: Perfecto.
+[Remote]: Marcha no se entera, o sea, si no le liquidan a tiempo, el el
+[Remote]: ni se entera.
+[Remote]: O sea, si Loca decide, por ejemplo, hacer cuota a cuota y
+[Remote]: cobrar los dos dieciocho meses todas las cuotas,
+[Remote]: se marcha en realidad en un boloreador, me dijo me dijo quiero la plata mañana, se la voy a dar mañana. Se la va dar de local mañana, pero después sí, sí, local no consigue, no hace nada, Bueno, el match no va a sufrir ese ese error de conciliación. Puede pasar que ahí, local, tenga un problema en la construcción del saldo que le muestra el merchant, no sé,
+[Remote]: chévere, tenía que mostrar cien cuatro y le mostró cien.
+[You]: Eso.
+[Remote]: Ok, hay casos, por eso es que estamos
+[Remote]: queriendo salir justamente de esas de esas arquitectura.
+[You]: Claro. El tema es ese, cuando ustedes muestran una
+[You]: información errónea, porque les viene erróneo de de d local,
+[You]: lo levanta el merchant y ahí se genera un flujo de soporte con DLocal, donde
+[You]: hasta resolverlo por ahí pasan unos días.
+[Remote]: Claro, y tampoco tengo mucha
+[Remote]: muchas cosas para ser yo, porque somos muy label, es como un espejo, entonces trato de inferir
+[Remote]: fue lo que pasó,
+[Remote]: Claro, pero no tengo acceso ahí, por ejemplo, ahora porque
+[Remote]: ejemplo, tenemos un, hay hay de ciertos issues en el en
+[Remote]: en el punto de la adquirencia, ¿no? Porque como el proceso está bastante desacoplado,
+[Remote]: que pasa con el merchan, por eso lo que le pasa con Adiloca con los adquirentes, no,
+[Remote]: pero, por ejemplo, transferencias bancarias,
+[Remote]: ahí sí, Diloca lo imputa el pago cuando termina su conciliación bancaria,
+[Remote]: en eso hay un delay.
+[Remote]: Pero pero yo no no puedo hacer nada con eso, porque no tengo acceso al banco, tengo que esperar.
+[Remote]: Que ellos le resuelvan.
+[You]: Okay.
+[Remote]: Porque no tengo acceso a los bancos, no tengo acceso a las liquidaciones de los
+[Remote]: clientes,
+[Remote]: menos a la liquidación final en los en los bancos. Entonces,
+[Remote]: en concreto, que ustedes hacen está buenísimo y creo que hay mucho fit con el
+[Remote]: futuro de fintech, que es cuando
+[Remote]: nosotros tengamos una esencia PSP y salgamos
+[Remote]: de ahí local. Entonces, empiezo a manejar los saldos,
+[Remote]: Bueno, para vos me empieza a manejar los saldos y nos empezarás
+[Remote]: a conectar. Adirectamente, como procesador, si querés, y quizá Prisma Mastercard, Pfizer, no sé, pago fácil rápido pago,
+[Remote]: etcétera. Lo que pasa es que eso no está pasando hoy.
+[You]: Clarísimo. ¿Y eso dijiste que va a
+[Remote]: ¿Sí?
+[You]: suceder primero en Brasil?
+[Remote]: Ya está sucediéndome así.
+[Remote]: Y va a suceder en Argentina, espero que a mitad del año.
+[You]: Y como
+[Remote]: No sé. A ver, empecemos a mitad de año.
+[You]: ¿Y ahí cómo te parece? O sea,
+[You]: sé cómo están pensando, cómo se están adelantando, previendo esos casos,
+[You]: y si vale la pena empezar a a charlar de un proyecto ahora,
+[You]: para adelantarnos y decir,
+[Remote]: Yeah.
+[Remote]: La verdad es que lo que estamos haciendo, creo que hay espacio para charlar,
+[Remote]: diciéndose en persona esta, en Brasil ya está
+[Remote]: ya está negociado y empezamos a trabajar con simétrica.
+[Remote]: Que supongo que
+[Remote]: concurrente de ustedes, ¿no? Sea más menos
+[You]: Sí, hacen lo mismo, tenemos un approach distinto
+[You]: pero pero sí hacen lo mismo.
+[Remote]: pero más menos es lo mismo. Todavía no empezamos, porque como
+[Remote]: estamos arrancando, recién está hecha la negociación y no sé si está firmado el contrato.
+[Remote]: Eso en Brasil, podemos
+[Remote]: podemos, nos puede unir con la persona que se ocupa de
+[Remote]: de esa relación o de esa negociación con Symmetric para hacer un espacio para
+[Remote]: para cambiar,
+[Remote]: y después sí,
+[You]: ¿Sabés si estás firmado o no?
+[Remote]: Tengo dudas de que esté ya firmado el contrato, te soy sincera.
+[Remote]: Creía ¿bajar año o para arrancar ahora en
+[Remote]: Brasil? Estaban, owen, pasando esto, empezando ya
+[Remote]: a probar qué hay, cómo se está yendo, o sea, recién algunos mal chance de testeo. Entonces,
+[Remote]: pero no está hecha ninguna integración.
+[Remote]: Pero si gusta que no lo ha firmado desde ya que, bueno, no se podría avanzar. Entonces, si quieren
+[Remote]: puedo averiguar
+[Remote]: el estado con Symmetric
+[Remote]: A ver si hay espacio para para charlar o no.
+[Remote]: Y en tal caso,
+[Remote]: que les propongo es que podamos seguir explorando
+[Remote]: la posibilidad de hacerlo en Argentina.
+[Remote]: Pero todavía la, estamos armando el roadmap de trabajo,
+[Remote]: estamos bastante verdes y empezamos los trámites de la licencia. Entonces,
+[Remote]: quizá se sentía avalar en tres meses o algo así, que vamos a estar bastante más avanzados.
+[You]: Dale, sí, la realidad es que si todavía no está firmado
+[You]: el contrato en lo que es Brasil, y hay espacio para
+[You]: meter una propuesta y de repente competir ahí,
+[You]: nos encantaría. Y si no, igual van la
+[You]: conectar para que nos cuenten un poquito cómo pensaron la licitación,
+[You]: qué factores priorizaron y cómo terminaron decidiendo.
+[You]: Nosotros ahí solo como contexto para que pagarlo circules internamente,
+[You]: estamos explorando distintos modelos que justamente vienen de
+[You]: aprendizajes nuestros con clientes que ya tenemos, y
+[You]: y clientes que vemos que están por ahí saliendo de modelos como el de Symmetric y priorizando una
+[You]: una una desarrollo propio. Partamos de la base que es desarrollar una
+[You]: de conciliaciones es es complejo, imagínate que nosotros es
+[You]: todo lo que hacemos, y Cimetic casi que también. Entonces,
+[You]: explica un poco la complejidad de estas herramientas y de estos flujos
+[You]: Entonces, compañías típicamente tienen dos shopas
+[You]: de esto, ¿no? O o desarrollan algo propio o contratan un un externo.
+[You]: Cuando contratan un externo siendo conciliación es algo tan
+[You]: core y tan sensible, termina dando cierta
+[You]: cautividad o una relación con un vendor en donde
+[You]: ellos, el vendor sabe que es un producto muy sticky
+[You]: muy difícil de reemplazar una vez que estás adentro y funcionando.
+[You]: Solo para que te des una idea de los de los montos y de los valores, pero
+[You]: mercado pago les llegó a pagar millones de dólares por año,
+[You]: así metric, por un software de conciliación, lo mismo,
+[You]: y fijate que mercado paga más que nada con la
+[You]: con el músculo de desarrollo que tienen y con la cultura que tienen,
+[You]: intentaron montar algo propio y siguen ahí medio shadowing en paralelo y todavía no logran
+[You]: pasarlo. Pero esto es todo para decir que estamos experimentando ahora con un modelo
+[You]: de como desarrollo a medida y de licencia
+[You]: en lugar de ser un SaaS, como Symmetry que te cobra por
+[You]: registro registro transaccionado, es decir,
+[You]: ¿ustedes no tienen sentido que prioricen un desarrollo interno?
+[You]: El bandwidth de tecnología que tienen y tienen otro tipo de prioridades,
+[You]: y a la vez es es el modelo SaaS
+[You]: tiene esto de cautividad y que los costos escalan, ustedes ya lo pueden ver, digo, llamar al
+[You]: ya pueden llamar a la gente de igual a la gente de mercado pago y te cuenten sus experiencias,
+[You]: Es una tremenda herramienta, pero creo que el modelo termina generando eso en donde
+[You]: cuando la factura es, estamos hablando de los millones de dólares,
+[You]: encontrás una situación tres a cinco años
+[You]: decís, pucha, tengo que contestar algo propio. Entonces, nosotros estamos experimentando ahora con un modelo en donde
+[You]: entramos, desarrollamos y nos vamos.
+[You]: Y después queda la plataforma viviendo en la infraestructura
+[You]: ustedes, y nosotros quedamos ahí
+[You]: para cualquier desarrollo adicional, upgrade o o cosa que haga falta.
+[You]: Entonces, un costo más one off, pero controlado y operado por ustedes.
+[Remote]: Bueno.
+[You]: Lo tiro
+[Remote]: ¿Y lo que queda también?
+[Remote]: Toda la seguridad de datos no sale de su sistema.
+[Remote]: Queda todo corriendo en su propio sistema, a diferencia de Symmetric,
+[Remote]: donde corre toda la nube de Symmetric y vuelve.
+[Remote]: Clara.
+[Remote]: Está bueno.
+[Remote]: Buenísima.
+[Remote]: No, no, yo hoy trabajaba, en el mercado pago cuando trabajaba en equipo de operaciones,
+[Remote]: Obvio.
+[Remote]: Las charlas con Silmenti que eran bravas, y recién empezaban
+[Remote]: O sea, imagínate que mis equipos sean los responsables de hacer todo lo que después sea
+[Remote]: Mirá,
+[Remote]: Durísimo.
+[Remote]: Todo.
+[You]: Conoces bien de lo que hablo.
+[Remote]: Conocés mucho el equipo, el problema de dios,
+[Remote]: Sí. Está bueno, está bueno, me gusta, me interesa saber el modelo.
+[Remote]: Pero bueno, por eso, si quieren, lo que yo hago es hablar ahora con la persona, entender, vean,
+[Remote]: creo que de vacaciones el lunes, así que quizá
+[Remote]: tenga que sepa dentro de dos semanas la la llamada,
+[Remote]: De nuevo, después si se encontró, está firmado o no firmado, pero igual me
+[Remote]: charla podemos hacer y entender ahí también el racional de él por el cual se decidió por
+[Remote]: por Simetix, para que le sirva o no, y después sí,
+[Remote]: hablemos, conectemos en tres meses, que ya vamos a tener un poco de
+[Remote]: experiencia ahí adentro y
+[Remote]: verdad que podríamos empezar por Argentina y después entender México,
+[Remote]: después obviamente si la experiencia de Brasil no funciona, también voltarlo,
+[Remote]: se puede volver atrás, aunque sale plata,
+[Remote]: y tiempo, pero bueno.
+[You]: Okay.
+[Remote]: Todo depende de lo que como
+[You]: Dale. ¿Qué necesitas de mí para facilitarte esa charla?
+[Remote]: No, nada, yo ahora me doy cuenta con con él, hablo y
+[Remote]: les contesto hoy,
+[Remote]: pero
+[Remote]: probablemente agendemos para una para dentro de dos semanas, porque está el cierre del año y él es el
+[Remote]: controller, entonces,
+[Remote]: creo que su agenda va a estar complicada ahora, y no sé
+[Remote]: nosotros
+[Remote]: en unos meses, si querés buscame y uno vas a charlar.
+[You]: Dale.
+[Remote]: Yo igual ahora una persona para que
+[Remote]: quizá participe de esa charla y digo, yo me sumo y podamos escuchar
+[Remote]: también y aprender para allá cuando empecemos con Argentina.
+[You]: Dale, espectacular. Si todavía no está firmado, hay una mínima
+[You]: chance, nosotros nos enfocamos cien por ciento y
+[You]: una demo mañana y una propuesta mañana, si hace falta. Así que eso
+[You]: eso sepan luego porque nos interesa mucho trabajar con ustedes. Así que
+[You]: nada, buenísimo. Mil gracias por el tiempo, placer conocerte y, nada, ojalá esto
+[Remote]: Ojalá
+[You]: se vaya madurando y transformando en algo en algo
+[You]: distante.
+[Remote]: Buenísimo, muy muy bueno lo que hacen, muy interesante ese
+[Remote]: nicho, está muy bueno.
+[Remote]: Bueno, vamos hablando, chicos, hoy
+[Remote]: les les contesto, mañana se me contesta, pero ya
+[Remote]: vamos viendo los next steps, y estamos conectados por WhatsApp.
+[You]: Dale, listo, millón de gracias.
+[Remote]: Buenísimo, Luz.
+[Remote]: Gracias, un placer, tchau tchau.
+
+============================================================
+SUMMARY
+============================================================
+### Tiendanube Payment Solution Overview
+
+- Vertical Fintech operation spans 5 years across 3 countries
+  - Brazil: 5 years with Nuben Pago
+  - Argentina: 3.5 years with Pago Nube
+  - Mexico: 1 year (fastest growth - exceeded Argentina and Brazil’s 1.5-year adoption timeline)
+- Core value proposition: integrated payment solution within merchant’s existing sales panel
+  - Merchants spend majority of time managing orders, shipments, and sales states
+  - Previously required separate platform access to check payment status
+  - Now all payment information appears directly in sales administrator
+  - Significantly changed operational workflow - clients consistently choose integrated solution
+- Competitive advantages
+  - No transaction fees charged by Tiendanube for Pago Nube sales
+  - Competitive fee structure compared to market alternatives
+
+### Current Technical Architecture & Future Plans
+
+- White label solution model with regional partners
+  1. Argentina: DLocal integration
+  2. Mexico: Stripe integration
+  3. Brazil: Pagarme integration
+- Reconciliation currently handled by payment partners
+  - Partners manage merchant-acquirer relationships and reconciliation
+  - Tiendanube shows information provided by partners’ platforms
+  - Limited visibility into underlying reconciliation processes
+- Independence roadmap in progress
+  - Brazil: Already transitioning to PSP license (working with Simetrik for reconciliation)
+  - Argentina: Planned transition mid-2026
+  - Mexico: Future timeline TBD
+- Current support model
+  - Merchants report issues to Tiendanube (not directly to DLocal/partners)
+  - Tiendanube operates as aggregator - provides immediate merchant payouts before partner settlement
+  - Limited access to partner reconciliation data creates support challenges
+
+### Next Steps & Opportunities
+
+- Brazil reconciliation status
+  - Simetrik negotiation completed but contract signing status unclear
+  - Currently in testing phase with no full integration yet
+  - Luz will verify contract status and explore competitive opportunity
+- Argentina planning phase
+  - PSP license application in process
+  - Roadmap development still early stage
+  - Timeline approximately 3 months for more concrete planning
+- Follow-up actions
+  - Luz to connect with Brazil team within 2 weeks (after year-end close)
+  - Discussion to include controller and relevant stakeholders
+  - Argentina opportunity to be explored based on Brazil learnings
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/a7d856cf-1fe5-46dd-b8e9-7bfba8e09946](https://notes.granola.ai/t/a7d856cf-1fe5-46dd-b8e9-7bfba8e09946)

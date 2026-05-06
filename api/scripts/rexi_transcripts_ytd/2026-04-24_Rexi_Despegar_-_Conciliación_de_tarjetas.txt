@@ -1,0 +1,687 @@
+MEETING: Rexi <> Despegar - Conciliación de tarjetas
+DATE: 2026-04-24
+ID: not_oAMxOCWEbpqc4f
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Carolina Tatone <carolina.tatone@despegar.com>, Sebastián García <sebastian@rexi.finance>, Teo <teo@rexi.finance>, Jean Castillo <jean.castillo@despegar.com>, Laura Paltanavicius <laura.paltanavicius@despegar.com>, Estefania Morales <estefania.morales@despegar.com>, Franco Rende <franco.rende@despegar.com>, Matias Troya <matias.troya@despegar.com>, AR-Parque Patricios-Piso 2-Sala Guayaquil (5) [Polycom, TV] <despegar.com_2d3636363638343336313939@resource.calendar.google.com>
+SCHEDULED: 2026-04-24T10:00:00-04:00 - 2026-04-24T11:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Buenas buenas, ¿cómo Buen día.
+[Remote]: Dale.
+[You]: ¿Todo bien?
+[Remote]: Hola, Lecho, ¿cómo estás?
+[Remote]: Buenas. Buenas.
+[Remote]: Ahí está. Bueno, la idea de esta de esta
+[Remote]: reunión era tener una una
+[Remote]: pequeña sesión de trabajo. Nosotros ya pudimos ingestar dentro de todos los
+[Remote]: los archivos DTC,
+[Remote]: y ya los pudimos parciar. Así que yo ayer le estuve mandando algunas preguntas a Franco, estuvimos haciendo las primeras pruebas de de conciliación.
+[Remote]: En esas pruebas,
+[Remote]: estuvimos viendo también
+[Remote]: las las referencias o o la o las reglas que usan ustedes
+[Remote]: Un segundo, que las tengo acá.
+[Remote]: La configuración de llaves,
+[Remote]: usan ustedes actualmente,
+[Remote]: primero, nos surgen algunas dudas que queríamos repasar
+[Remote]: con ustedes.
+[Remote]: Y después queríamos saber si nos podían compartir unos resultados esperados.
+[Remote]: Para tener la referencia
+[Remote]: porque estuvimos haciendo un montón de testeos, un montón de combinaciones,
+[Remote]: primero haciendo one to one strict, después haciendo agrupaciones de
+[Remote]: y demás, con la información que teníamos cargada hoy en el en el CSV,
+[Remote]: en el SFTP, no logramos números muy altos,
+[Remote]: Yo estuve trabajando principalmente sobre la conciliación de cielo,
+[Remote]: En la demo, cuando hicimos la demo en febrero,
+[Remote]: nos compartieron algunos meses,
+[Remote]: y
+[Remote]: uno de los meses nos dio una un porcentaje de de conciliación altísimo, noventa y pico por ciento,
+[Remote]: No estoy pudiendo replicar con la misma estrategia esos números dentro de la información del SFTP,
+[Remote]: Entonces, quería tener
+[Remote]: un rato con usted para primero repasar la estrategia
+[Remote]: conciliatoria
+[Remote]: que que usan hoy
+[Remote]: creo que son dos barridas por
+[Remote]: por adquirente,
+[Remote]: pero no me queda claro si son one to one o one to many.
+[Remote]: Y solo
+[Remote]: una
+[Remote]: tenemos otro arreglo.
+[Remote]: Ok.
+[Remote]: Perfecto. Bueno, eso aclara muchísimo.
+[Remote]: Entonces,
+[Remote]: me encantaría si podemos
+[Remote]: repasar los números de cielo
+[Remote]: cómo lo están haciendo hoy,
+[Remote]: y los números que están que están esperando de de resultado,
+[Remote]: porque hay un montón de complejidades
+[Remote]: algunos
+[Remote]: muchos recibos por un cupón, algunos tienen muchos cupones por un recibo,
+[Remote]: y algunos son muchos recibos y muchos cupones,
+[Remote]: Si ustedes hoy están haciendo one to one,
+[Remote]: solamente,
+[Remote]: quería entender también qué números están recibiendo con con ese one to one y cuál es el gap
+[Remote]: para ver, obviamente, nuestra idea es ajustarlo a la estrategia
+[Remote]: por así decirlo, perfecta, las diferentes barridas y tratar de ganar todo
+[Remote]: Para eso necesito en realidad el NN lo estamos haciendo de forma manual.
+[Remote]: Perfecto, podemos repasar también y después le subimos ahora que le
+[Remote]: pero hoy ahora que eso no lo soporta, entonces lo hacemos de forma manual por fuera.
+[Remote]: Perfecto. Podemos repasar ese proceso también
+[Remote]: es lo que hacen con el el many to many? Si si están
+[Remote]: extrayendo el número de cuota,
+[Remote]: porque quiero
+[Remote]: tener registro
+[Remote]: para implementarlo perfectamente dentro de Recy, ver si tenemos algún gap
+[Remote]: o algo que tengamos que hacer estas semanas para poder soportar esa y
+[Remote]: todos los casos de uso. A priori, nosotros
+[Remote]: tenemos one to one, one to many, many to one, y many to many,
+[Remote]: diferentes barridas. Entonces,
+[Remote]: quiero entender bien cómo les viene la información,
+[Remote]: cómo son estos estos casos de uso donde tenemos muchos recibos, un cupón, un cupón, muchos recibos,
+[Remote]: un recibo con diferentes cuotas. Es como que hay un montón de
+[Remote]: de de subcasos de uso que quiero mapear,
+[Remote]: así los implementamos bien dentro de
+[Remote]: Ok.
+[Remote]: Si querés, te comparto cómo hacemos principalmente al principio,
+[Remote]: qué es lo que hace Oracle,
+[Remote]: y después, si querés, te te muestro un poco lo que hacemos por ella hacia Andrea manualmente.
+[Remote]: Perfecto. Primero que nada, la lo que te dejé en el ese
+[Remote]: SFTP, con que son los archivos que traemos tal cual de ata, lo hacemos por
+[Remote]: hacemos un cruce contra el banco,
+[Remote]: lo formateamos para que nos nos traiga a través del código de Python.
+[Remote]: El formato estándar, que son los cupones Sí. Y estos cupones, por
+[Remote]: ejemplo, en este caso, son todos los cupones que tenemos en el mes de abril,
+[Remote]: nos va a hacer cruce contra todo el recibo pendiente que tenemos
+[Remote]: al treinta y uno de marzo, y también los los recibos que se fueron creando el mismo, este mismo mes. Actualmente, las llaves de Oracle, Antes de antes de pasar, una pregunta sobre eso. Ahora le entraron, por ejemplo, no sé, en el s tenemos cincuenta y un mil cupones de cielo. Sí. Esos cincuenta y un mil se comparan con todo el histórico pendiente de recibos. No, en el SFTP está todo el histórico pendiente de cupones y todo el histórico pendiente de Eso, en teoría, tendríamos que cruzarlo con entre entre ambos, tipo, recibos contra cupones, y, bueno, con lo los nuevos cobros que ingresaron este mes, que son nuevos cupones, también deberían hacerse ese cruce. Actualmente, con la con las los parámetros que tiene Oracle, que son
+[Remote]: del archivo que te mandé ayer, que son uno a uno, hace conciliación por merchan,
+[Remote]: cuota, monto, tenemos este porcentaje de conciliación.
+[Remote]: Un ochenta y ocho por ciento de los cupones, esto es solo cupones.
+[Remote]: En el mes de abril recibimos pagos por
+[Remote]: un total de pagos de ciento veinte mil
+[Remote]: ciento veinte mil líneas, nos conciliaron ciento cinco y nos quedaron cinco
+[Remote]: quince mil.
+[Remote]: Siempre hablando de cupones.
+[Remote]: Todo esto hizo el cruce con los los recibos pendientes que están en el SFTP,
+[Remote]: también los recibos que se fueron creando el mismo en abril.
+[Remote]: Perfecto, clarísimo. Y
+[Remote]: en ese caso, este ochenta y ocho por ciento cancelado es con la estrategia
+[Remote]: uno a uno, la que hacen ustedes con Oracle.
+[Remote]: Exactamente.
+[Remote]: Perfecto.
+[Remote]: Ok, clarísimo. Y más o menos, ¿qué qué cuántos
+[Remote]: cupones están teniendo? Nosotros tenemos cincuenta y un mil
+[Remote]: cargados en el SFTP, eso corresponde
+[Remote]: más o menos, al volumen de un mes de cielo,
+[Remote]: No, puede haber mucho más, va dependiendo, pero ya ponele
+[Remote]: ya en abril y todavía no terminó, mirá, ya tenemos ciento veinte mil niños.
+[Remote]: Creo que ahí falta Faltan. Las ligaciones de del mes de abril.
+[Remote]: Para que vos puedas quizás ahí aumentar tu porcentaje de corte? Solo del primer corte.
+[Remote]: O sea, del primer operativo de abril.
+[Remote]: Ok. Perfecto.
+[Remote]: En marzo fueron ciento cincuenta y tres mil.
+[Remote]: Ejemplo.
+[Remote]: Buenísimo. Entonces, bueno, iremos agregando más
+[Remote]: información Ya, claro. Siempre con mucho más.
+[Remote]: De lo que vos también.
+[Remote]: Por sí. Hablás, ¿no?
+[Remote]: Sí.
+[Remote]: Buenísimo. Bueno, eso ya ayuda un montón
+[Remote]: para lo que es No, un comentario por lo que decías para entender la lógica de por qué
+[Remote]: tenés casos n a uno o n n o cosas así raras.
+[Remote]: La mayoría de los casos tienen que ver
+[Remote]: con algo que quedó mal configurado, sobre todo de nuestro lado, ¿no?, porque por ahí
+[Remote]: por aquel
+[Remote]: le llegaron cotificados los cobros, y del otro lado me los pagan cotificados. Entonces,
+[Remote]: hasta que no recibo
+[Remote]: el cupón de la última cuota, me la podés conciliar
+[Remote]: uno a n.
+[Remote]: Tiene que ver con más con eso que
+[Remote]: con que siempre pase eso.
+[Remote]: Perfecto. Y ahí podemos hacer un repaso de
+[Remote]: de, nosotros tenemos por un lado los recibos y por otro lado los cupones,
+[Remote]: cuál de los dos puede tener cuotas y cuál no.
+[Remote]: Todos. No, Los dos deberían estar.
+[Remote]: En
+[Remote]: pero si si un recibo tiene cuotas,
+[Remote]: el cupón también tiene que tener cuotas?
+[Remote]: Claro.
+[Remote]: Debería.
+[Remote]: Ok.
+[Remote]: Entonces,
+[Remote]: pero, entonces, ¿cómo hacemos lo de one to one y one to many?
+[Remote]: Y many to many dentro de dentro de ese universo?
+[Remote]: Yo iría a one to one y en en
+[Remote]: Con las del medio, yo no sé si vale la pena, no sé qué cuál es usted
+[Remote]: Con n a n ya estás cubriendo la opción de uno a n a uno, entonces,
+[Remote]: iría directamente uno uno uno o en n.
+[Remote]: Pero que la primera sea un a un. O sea, poner una forma
+[Remote]: considerar con él es si el recibo tiene el número de recibo, la cuota tiene
+[Remote]: te dice número cuota dos,
+[Remote]: total de cuotas doce,
+[Remote]: El cupón en también debería decirte lo mismo,
+[Remote]: número de cuota dos,
+[Remote]: total de cuotas doce, y ahí, de esa forma, vos concilias eso, esas cuotas.
+[Remote]: ¿Y vos ahí estás conciliando todas las cuotas juntas o una cuota por cuota?
+[Remote]: Por cuota a medida que te va entrando.
+[Remote]: Perfecto.
+[Remote]: Ok.
+[Remote]: Entonces, la conciliación es a nivel cuota,
+[Remote]: no a nivel recibo, por así decirlo.
+[Remote]: Ya.
+[Remote]: Vos tenés que manchar cuota uno con cuota uno.
+[Remote]: Siempre.
+[Remote]: Cuota dos con dos.
+[Remote]: Importante. Ok, por eso se le agrega también la validación de monto, ¿no? Me sale
+[Remote]: dentro de la SAVE es muy importante el trato de la cuota, porque si no,
+[Remote]: bueno, a vos te están pagando la cuota dos y la con la seis, cuando te paguen la seis, no vas
+[Remote]: a tener el recibo pendiente para conciliar.
+[Remote]: Perfecto. Y si tenemos cuota uno y cuota dos,
+[Remote]: hacemos para identificar
+[Remote]: en cada lado
+[Remote]: es la cuota correspondiente del otro lado.
+[Remote]: Yo veo acá, por En los dos lados debería estar el dato,
+[Remote]: tanto de la cantidad y el número de la cuota.
+[Remote]: Está tanto, ponele, a ver acá, si tengo un ejemplo.
+[Remote]: Va, acá justo no no me aparece el ejemplo, pero a ver, te muestro una.
+[Remote]: Cielo.
+[Remote]: Ves, ponele, en el Merck, podés verlo, en el Merck que nos dice, ponele, la cuota ocho de diez,
+[Remote]: Esto estos son cupones, pero también debería haber un recibo con el mismo número de merchant,
+[Remote]: Si no te coincide con el merchant, en teoría debería
+[Remote]: coincidirte por la la el número de la cuota. Acá ves ocho de diez.
+[Remote]: Número de cuota es la cuota en sí que te están pagando y
+[Remote]: y cantidad de cuotas es la total.
+[Remote]: Y el lado de recibos y cupones tendrías que tener los dos campos como
+[Remote]: Claro, estos en cupones en recibo deberías tener lo mismo.
+[Remote]: Perfecto.
+[Remote]: Bueno, buenísimo, eso resuelve
+[Remote]: la la la las primeras dos barridas son clarísimas, hacemos
+[Remote]: Y, de hecho, para la demo habíamos hecho una tercera y cuarta
+[Remote]: si quieren, se la se las comparto y las revisamos, pero en la cuarta barrida
+[Remote]: habíamos encontrado un montón de de de matches nuevos, de one to one,
+[Remote]: Se las comparto después, Franco, si querés, después te las comparto por
+[Remote]: por Slack y las revisás, pero era eran unas barridas que que valían la pena.
+[Remote]: Podemos ahora repasar cómo sería el
+[Remote]: many to many
+[Remote]: un ejercicio, así nosotros registramos y vemos cómo lo replicamos dentro de
+[Remote]: cómo sería la la agrupación.
+[Remote]: Podríamos tomar la reserva.
+[Remote]: No, podríamos hacer,
+[Remote]: Si no nos concilia tanto ni por cuota ni por cantidad de cuota ni por merchant,
+[Remote]: lo que tenemos un dato en común tanto en
+[Remote]: recibos como en cupones, es el número de reserva.
+[Remote]: Es casi el número, es lo mismo que el número de Merchant, solo que sin las letras está acá y el número de cuota.
+[Remote]: Podríamos agrupar varias reservas,
+[Remote]: siempre y cuando
+[Remote]: en el caso de Cielo, que sean todas de venta,
+[Remote]: no puede haber una de cancelación en el medio. Comentario
+[Remote]: universo de cancelación por un lado, y ventas por otro.
+[Remote]: Sí, eso ya lo separamos.
+[Remote]: Lo que sí, el número de reserva es un dato que, por ejemplo, en cielo, treinta por ciento no tiene número de reserva. ¿Es correcto eso? So, ¿cupones o en recibos? En cupones. Dispuesto. Puede No sé. Puede pasar que tengamos que nos falte en función del lado de de los cobros de los cupones. Estamos estamos trabajando en eso para que no suceda más, pero puede llegar a pasar. En el caso de red, creo que no hay reserva, pero acá en cielo creo que ponele, en los cupones de abril poné, no hay ninguna que esté vacía. Bueno, ahí en el caso que vos
+[Remote]: que no te encuentres, no sé, de un lado que les falte la reserva, bueno, vamos a la siguiente, que vas
+[Remote]: ser la tarjeta, agrupás por tarjeta. No encontrás tarjeta, bueno, vas con
+[Remote]: el código de autorización.
+[Remote]: Como que ese serían las
+[Remote]: los tres puntos.
+[Remote]: Reserva, tarjeta y código.
+[Remote]: En ese orden, exacto. Y cuota.
+[Remote]: La cuota como el el el merchant sí es importante que siempre
+[Remote]: dentro de la llave tengas la cuota, por el toque de Amazon.
+[Remote]: Perfecto. Mira, acá, en lo que tenemos en el SFTP,
+[Remote]: cuarenta por ciento de los cupones cielo no tiene número de reserva.
+[Remote]: Por eso yo me acordaba me acordaba que había Puede ser número de
+[Remote]: Nada, debe ser muy viejo, pero lo nuevo en teoría debería venir todo con reserva.
+[Remote]: Ok, perfecto.
+[Remote]: Bueno, espectacular. Entonces, hacemos las primeras barridas
+[Remote]: one to one,
+[Remote]: y después hacemos agrupación
+[Remote]: por número de reserva primero,
+[Remote]: Sí. Alguna variable más en la primer barrida, Si es solo reserva, justo tenés que tener, o sea, o tomás el el campo merchant que tiene la cuota metida,
+[Remote]: pero si metés la reserva, tienes que dar la cuota sí o sí.
+[Remote]: Perfecto. Exacto. E importe, ¿no? El importe siempre tiene que estar en todas las llaves.
+[Remote]: Perfecto El importe bruto.
+[Remote]: El importe lo metemos en join o lo metemos en comparison.
+[Remote]: Porque son efectos diferentes.
+[Remote]: ¿Cuáles para...? Porque eso justo lo tengo No, con Paris, Eso me parece bien.
+[Remote]: Es la diferencia conceptual de usarlo de una forma o la otra? Conceptualmente es así.
+[Remote]: Vos lo metés en el join, es lo que te ayuda a identificar
+[Remote]: contra qué compararlo, ¿entendés? Si vos
+[Remote]: tenés
+[Remote]: el el monto metido adentro y hay diferente monto, nunca va a machar si
+[Remote]: simplemente
+[Remote]: no vas a tener esa relación, no no vas a no la vas a dar
+[Remote]: convertido en en un en una pareja o en un grupo. Ahora, si lo metés en comparison,
+[Remote]: el monto es irrelevante, vos encontrás del otro lado contra qué
+[Remote]: hablando, y después recién ahí comparás el monto.
+[Remote]: ¿Se entiende?
+[Remote]: Entonces, uno te sirve para identificar a nivel operativo que
+[Remote]: la transacción del otro lado,
+[Remote]: cuando lo metés dentro del Porque también el dice
+[Remote]: puedes poner tolerancia, tiene que coincidir exacto.
+[Remote]: Tiene, puede tener tolerancia también.
+[Remote]: Ok.
+[Remote]: Pero en es lo que te permite, por ejemplo,
+[Remote]: cuando no tenés ID, usás
+[Remote]: fecha y monto.
+[Remote]: Por ejemplo. Eso es cuando lo pones en el join.
+[Remote]: Ahora, cuando lo ponés en la en el en el comparison, no te sirve para
+[Remote]: de qué transacción estás hablando,
+[Remote]: porque usás otras que otra referencia, por ejemplo, nombre, número de tarjeta y demás,
+[Remote]: y simplemente hacés una comparación de monto al final
+[Remote]: una vez que ya las tenés localizadas. Cuando lo ponés dentro del join,
+[Remote]: es para localizar del otro lado, es porque es tan importante el dato que tenés que localizarlo de esa manera.
+[Remote]: Cuando lo ponés en el
+[Remote]: join. Si lo ponés en join, hace falta ponerlo entonces en comparison.
+[Remote]: Depende, podés ponerlo uno con terrassia y otro sin,
+[Remote]: lo final, serían el primero con tolerancia y el segundo sin.
+[Remote]: La la
+[Remote]: conceptualmente es, si estamos haciendo
+[Remote]: una agrupación
+[Remote]: ¿el monto nos sirve para identificar de qué transacciones estamos hablando?
+[Remote]: O es solo algo que queremos verificar una vez que ya la identificamos?
+[Remote]: Es que en realidad no, el monto lo
+[Remote]: verificamos una vez que nos coincida con el merchant y la cuota, ponele. Entonces, pareciera ser más una
+[Remote]: una comparación.
+[Remote]: Una comparación, ok. Probemos, en todo caso,
+[Remote]: eso de nuestro lado, en todo, son cosas que podemos probar, ponerlo de un lado y lo
+[Remote]: y ver cómo resulta.
+[Remote]: Perfecto. Entonces,
+[Remote]: a priori, la primero arriba,
+[Remote]: en el en el many to many es, lo agrupamos por número de reserva,
+[Remote]: Sí. Metemos todos los números de reserva en un mismo lugar, metemos
+[Remote]: con las mismas cuotas,
+[Remote]: entonces, tal vez tenemos ahí dos, tres, depende de la cantidad de cuotas,
+[Remote]: la cantidad de agrupaciones que tenemos,
+[Remote]: Pará, si es NAN, no podés poner el número de cuota
+[Remote]: porque lo que vos querés, justamente, es que te agrupes todas las cuotas que tenés de vuelta.
+[Remote]: Solo en el uno a uno, aunque sea la cuota.
+[Remote]: Perfecto. Entonces, la cuota la ponemos en el
+[Remote]: one to one,
+[Remote]: Sí. Y en en el many to many hacemos
+[Remote]: agrupación por número de reserva como primer barrida,
+[Remote]: esto del lado de reservas o de cupones.
+[Remote]: De los dos, en realidad, porque necesitás el número, tenés el número de reserva en los dos lados.
+[Remote]: Sea, ponele, juntás, acumulás estas dos reservas, hacés la sumatoria del importe de la
+[Remote]: reservas, que debería coincidir con la sumatoria de las reservas en los recibos.
+[Remote]: Listo. Entonces, la primer el primer money to money es bastante simple, es agrupás por número de reserva y
+[Remote]: verificás el importe.
+[Remote]: Ok. Vale.
+[Remote]: Y la segunda barrida para todos los que no tenemos número de reserva,
+[Remote]: Ahí tarjeta, código de autorización.
+[Remote]: Y luego la tercera opción, código de autorización.
+[Remote]: Tarjeta vendría a ser el BIN y last, ¿no?
+[Remote]: Sí, sí.
+[Remote]: Bin y last Ahí sería los primeros seis números.
+[Remote]: Esto de acá y los últimos cuatro.
+[Remote]: Porque del lado recibo vamos a tener
+[Remote]: no sé, creo que son ocho.
+[Remote]: Cantidad de dígitos. Sí, el BIN, a no y acá son seis.
+[Remote]: Eso lo lo extraemos en en la empresa, o sea, en el en el source.
+[Remote]: Hacemos una segunda barrida agrupando por bin last,
+[Remote]: y código de autorización, o sin código de autorización? Y podríamos ponerla como última opción, el código de autorización. En el estar. En las one to one no usamos código de autorización, por eso pregunto.
+[Remote]: En la, sí, también debería
+[Remote]: incluirlo el código más la cuota, en ese caso, si es uno a uno.
+[Remote]: Para las que son n a n, solo dejamos el código.
+[Remote]: ¿Ves? Acá, código de autorización no está cliqueado, por eso pregunto.
+[Remote]: Ya, porque acá es cuando tengo
+[Remote]: Me lo deja a solas Claro.
+[Remote]: ¿Cómo?
+[Remote]: Tenemos un limitante en en Oracle que nos deja poner solo
+[Remote]: opciones de llave. Si tuviéramos ok, ok. Sí, perfecto. Hubiéramos agregado.
+[Remote]: Le agregamos código de autorización, entonces.
+[Remote]: Sí.
+[Remote]: Entonces, segunda barrida, bind last
+[Remote]: código código de autorización y la sumatoria de importe
+[Remote]: lo ponemos como comparación. Si son varias, contra varias, sí.
+[Remote]: Sí, sumatoria e importe. Comparison.
+[Remote]: Ok.
+[Remote]: Perfecto. Con todos.
+[Remote]: Las las tolerancias tolerancia con tolerancias.
+[Remote]: Ok.
+[Remote]: Claro, no, acá está en doscientos, pero porque tenemos mal los importes.
+[Remote]: Por tema de datos, pero tenemos que dejar uno.
+[Remote]: En tolerancia de import debería ser uno, en la en los recibos se hace una fórmula,
+[Remote]: que te calcula un importe de recibo ok,
+[Remote]: que sería el importe de recibo más el el CCP.
+[Remote]: Ok Para hacer la comparación de importe.
+[Remote]: Eso no me quedó del todo claro. ¿Lo podemos poner por escrito?
+[Remote]: Sí, sí, sí, sí, sí. Hoy lo que pasa es que hay un
+[Remote]: algo hecho en Oracle que
+[Remote]: el importe de recibo, todo lo entra a filtros, puntualmente, ¿no? En Colombia no te va a pasar.
+[Remote]: Que el importe que te viene en los
+[Remote]: como importe recibo, no es el bruto, sino es el neto, porque está tocado el dato
+[Remote]: para Brasil. Lo que te dice Frank es para armar
+[Remote]: el dato del bruto con el que tenés que usar para conciliar,
+[Remote]: tenés que hacer la suma entre el importe de recibo y el importe de la columna de
+[Remote]: SSP.
+[Remote]: Entonces, ahí llegás al bruto y ese es el que usás para hacer la conciliación.
+[Remote]: Tanto en los como en eso.
+[Remote]: Eso eso perfecto lo podemos hacer dentro de las vistas,
+[Remote]: Claro, con una cosa. Duda que tengo es,
+[Remote]: la tolerancia. Me acuerdo que habíamos trabajado en una tolerancia doble, que es la que aparece ahí en el archivo,
+[Remote]: una en monto, que tenemos ahí doscientos, cien,
+[Remote]: depende depende del banco,
+[Remote]: depende la el adquirente y y el porcentaje.
+[Remote]: ¿Esas quieren que las mantengamos también en el many to many?
+[Remote]: Yo probaría, no sé qué qué le parece que le
+[Remote]: solo con importe más, aunque sea uno.
+[Remote]: Porque No, tolerancia solo uno, sí, un real.
+[Remote]: Ok.
+[Remote]: Perfecto.
+[Remote]: Me quedó clarísimo esto,
+[Remote]: Yo estuve haciendo
+[Remote]: bastantes pruebas sobre la información que teníamos en el en el
+[Remote]: en el SFTP, y los números
+[Remote]: haciendo
+[Remote]: mucha barridas, muchas agrupaciones y demás, no no están dando muy alto los números,
+[Remote]: Por eso quería saber
+[Remote]: obviamente, es un período de tiempo
+[Remote]: acotado el que tenemos ahí arriba,
+[Remote]: Quería saber si teníamos contra qué compararlo, porque yo quiero asegurarme de que Pero ¿en cuánto te digo?
+[Remote]: Depende depende mucho, pero
+[Remote]: de cupones me daba
+[Remote]: A ver, un segundo que lo agarro acá.
+[Remote]: Cupones me daba conciliados
+[Remote]: de cielo, dieciséis mil, me daba, me consideraba diecisiete mil,
+[Remote]: con mil, con diferencia, entonces, dieciséis mil,
+[Remote]: mil con diferencia al monto,
+[Remote]: de cincuenta y un mil.
+[Remote]: Pasa que está bien, porque es un universo completo.
+[Remote]: Sí. Tiene sentido que no te concilie mucho.
+[Remote]: Lo que debería pasar es,
+[Remote]: cuando tengamos nuevos coros
+[Remote]: de los recibos y de cupones, lo nuevo sí de la empieza con, perfecto.
+[Remote]: En lo viejo tenemos como mugre, que también es parte del otro lado,
+[Remote]: pero no, está bien que no te esté levantando tanto del lado de cupón.
+[Remote]: Eso también lo podemos trabajar, todo lo que llaman mugre de marcar como si
+[Remote]: para que no siga ensuciando las métricas. A futuro. Ok, bueno, me está quedando clarísimo, yo estoy, estos días me están dando bajo los números y estaba un poco preocupado, pero entiendo que va va a entrar
+[Remote]: Ok.
+[Remote]: Perfecto.
+[Remote]: De mi lado es eso.
+[Remote]: Ah, podemos aprovechar rápido
+[Remote]: tenemos unos minutos para revisar la primer
+[Remote]: que es la bancaria con con los archivos, porque Sí. Queremos verificar eso. También por lo que nos comentaron, puede ser que los
+[Remote]: no, los cupones
+[Remote]: se envíen erróneos y haya que borrarlos y volverlos a subir si el monto no coincide
+[Remote]: ¿puede ser?
+[Remote]: En realidad, el check es
+[Remote]: cruzás con banco la liquidación. Si cierra,
+[Remote]: las dejás pasar y que avance con la conciliación, pero si no,
+[Remote]: no no macheo con banco, no avanza la conciliación.
+[Remote]: Exacto.
+[Remote]: Eso quería verificar, porque quiero entender bien cómo lo implementamos a nivel proceso
+[Remote]: dentro de Rexy,
+[Remote]: Mirá, si querés, te muestro un ejemplo con él y con, justo hoy tenemos
+[Remote]: hacer estos cruces que hacemos tres veces al mes, ponele,
+[Remote]: para el adquirente cielo,
+[Remote]: Yo primero lo que hago es el el extracto bancario general que nos
+[Remote]: pasa a bancos, que también está subido,
+[Remote]: busco por, en sí, por la por el banco,
+[Remote]: y por la descripción,
+[Remote]: bueno, acá me me dejan aclarado qué es cielo, pero yo tengo que buscar las descripciones
+[Remote]: que que corresponden al adquirente Cielo, tipo de todas las líneas de banco.
+[Remote]: Todas estas líneas de banco me dan un total, que este total yo lo tengo que
+[Remote]: contra las liquidaciones que bajo de ata.
+[Remote]: Perfecto. Bueno, te dejé el instructivo ahí de cómo las
+[Remote]: modificaciones manuales que le hago,
+[Remote]: acá el instructivo de data,
+[Remote]: y en teoría, bueno,
+[Remote]: todo lo que tengo en el extracto,
+[Remote]: me debería coincidir con lo que tengo en lata. Si no me coincide alguna de estas fechas,
+[Remote]: yo de esta fecha, ponele, la el veinte y el cuatro,
+[Remote]: la borro, la saco del banco, no no la reporto, y también de acá del operativo
+[Remote]: Y en sí solo subo cupones por el el diecisiete, que son lo que me coincidió.
+[Remote]: Perfecto. El veinte queda pendiente hasta que averigüemos por qué nos está dando diferencia. Queda pendiente de los dos lados.
+[Remote]: ¿No? O sea, no imputás la parte de banco y tampoco subís la liquidación para la
+[Remote]: Buenísimo, clarísimo. Entonces, esto es uno de los archivos que está en el SF entonces,
+[Remote]: Sí, sí, sí, sí. Dejé Lo que no sé si está, es
+[Remote]: lógico y cuál es el banco y la dirección que tiene el entorno. Sí, sí, le puse en la Voy a entrar desde acá de la carpeta, no del STTP, pero es lo mismo.
+[Remote]: Para una misma pasarela y lo tener dividido en distintos bancos,
+[Remote]: eso no pasa.
+[Remote]: En otros países y en otros países.
+[Remote]: Y, entonces, hay una lógica atrás de
+[Remote]: cada cliente, qué bancos, es dónde tenés que buscar la acreditación y
+[Remote]: Pensé en el, te dejé subido, ponéle, en el extracto bancario tenemos
+[Remote]: ir a buscar las líneas del banco, ponele, sabemos que Cielo cobra en el banco ETG,
+[Remote]: y tiene estas descripciones. O sea, por esta descripción y, bueno, justo me dejan aclarado acá que
+[Remote]: Cielo, yo sé que estas líneas corresponden a Cielo dentro del banco.
+[Remote]: Ponele, me da la sumatoria de esto.
+[Remote]: Después lo lo que bajamos desde desde data, que son las liquidaciones en sí, Desde Monquitos te baja el comentario del cielo Sí, sí, sí. Sí, lo baja, justo para asilo lo baja. Bueno, después las liquidaciones, que son, bueno, toda la todos los cupones, hago la comparación, bueno, le tengo que hacer un combinado, le hago unas muy modificaciones manuales, que acá te dejé dicho todo, y hago el cruce contra banco. Perfecto. Bueno, en este caso, ponele, me me cerró, que yo puedo convertir todas las todas las liquidaciones que bajé de data va a pasar por el archivo de Python y va a transformarse en cupones que yo voy a subir ahora que
+[Remote]: Perfecto. O sea, las, o sea, algo que ayer me dijiste que la
+[Remote]: las liquidación y los cupones en sí son lo mismo, las liquidaciones en sí son como viene el archivo.
+[Remote]: Crudo de ATA, y después pasan a ser cupones, realidad. Se convierten en cupones por ustedes, perfecto.
+[Remote]: Claro, exactamente.
+[Remote]: Bueno, desde transformación a en formato estándar, y después, bueno, una vez que tenemos la
+[Remote]: archivo tal cual como lo lo quiere ahora que lo subimos y pasan a ser los cupones,
+[Remote]: Y estos cupones, una vez que ejecutamos las conciliaciones,
+[Remote]: bueno, concilian o no. Perfecto.
+[Remote]: Buenísimo.
+[Remote]: Nada, de de mi lado resto de los adquirentes también, te dije las líneas de banco,
+[Remote]: dónde estaba todo.
+[Remote]: Perfecto.
+[Remote]: Ponele, para redes también cobramos no solo en el, a veces caen
+[Remote]: pagos en el BTG y a veces caen en en el banco Itaú.
+[Remote]: Tienen como una descripción particular, no te dice si es de red,
+[Remote]: en el banco BTG sí,
+[Remote]: pero si te viene en el Itaú, tenés que ver, tipo, la
+[Remote]: que te dice, bueno, rede, y si corresponde a un anticipo, a un pago de caída natural.
+[Remote]: Te das cuenta por esas dos letritas que hay ahí, la a t, sería anticipo.
+[Remote]: Igual acá te deja claro.
+[Remote]: Para redes también vienen pagos normales, que acá en vez de decir AT, te dicen creo que es CD. Pero, bueno, vienen para el mismo banco. Y el cruce en sí es lo mismo, cruzás contra banco, bajás la las liquidaciones de data, más o menos lo todo lo Cada uno tiene su manualidad por ahí, su sacar determinada descripción, determinadas columnas, qué sé yo, pero bueno. Lo deja claro acá. Perfecto. Bueno, repaso un poquito los los next steps. Primero, sí lo tienen, esto es pedido solamente, si no lo tienen tan seguro el loco, pero si tienen números más o menos de referencia, cuánto nos debería dar con lo cargado, eso para nosotros sería muy útil, para al menos saber que estamos igual o por encima lo que está
+[Remote]: lo que están considerando actualmente.
+[Remote]: Paola,
+[Remote]: no es sobre lo que nosotros hoy
+[Remote]: tenemos un KPI que es
+[Remote]: con todos los cupones nuevos de un mes,
+[Remote]: cuánto de eso concilia, o sea, con los números que estábamos diciendo, no sé, en
+[Remote]: en marzo fueron ciento cincuenta y tres mil,
+[Remote]: nos canceló el ochenta y ciento, pero es sobre
+[Remote]: únicamente el universo de lo nuevo que subiste en el mes, no es sobre el universo
+[Remote]: completo acumulado, ¿entendés? Perfecto.
+[Remote]: Eso lo podemos, bueno, obviamente, podemos hacer verificaciones
+[Remote]: con cortes temporales,
+[Remote]: Dentro de
+[Remote]: el mes anterior también era ochenta y cinco,
+[Remote]: siempre como que estaba en ese nivel, pero sobre
+[Remote]: el únicamente el universo de
+[Remote]: lo nuevo que está subiendo cada mes y no sobre el acumulado.
+[Remote]: Perfecto. Ese particular no lo estábamos midiendo.
+[Remote]: Perfecto.
+[Remote]: Y después, cuando hacen las las agrupaciones,
+[Remote]: las las many to many manuales,
+[Remote]: cuánto suele subir estos números?
+[Remote]: No, no lo tenemos como No, porque ahí está menos
+[Remote]: sobre el universo acumulado, no es como
+[Remote]: no es comparable un porcentaje con el otro, no es que sobre el ochenta y cinco, que yo te digo,
+[Remote]: subo a a noventa y tres, decir cualquier cosa.
+[Remote]: Porque ahí sí trabajamos, como vos lo estás haciendo, sobre el total acumulado.
+[Remote]: Ok.
+[Remote]: Pero poné el total acumulado, vos cuando conciliás no conciliás una gran parte, conciliás poco.
+[Remote]: Sea, conciliás no sé,
+[Remote]: De cielo, tenemos cien mil pendientes, no sé,
+[Remote]: no conciliás todo cuando haces una, se concilia una parte. Una parte.
+[Remote]: Sí, sí, no no es que se concilia muy
+[Remote]: mucho de forma manual.
+[Remote]: Se concilia una
+[Remote]: Ok, perfecto.
+[Remote]: Segundo punto,
+[Remote]: ir incorporando las los datos nuevos de abril,
+[Remote]: eso no no hay ningún apuro, pero sí es parte de de las próximas semanas.
+[Remote]: Yo también me llego a implementar
+[Remote]: las loggias conciliatorias de las primeras barridas one to one, y las
+[Remote]: las mini to mini agrupadas, voy a hacer voy a estar haciendo
+[Remote]: pruebas de ese en ese sentido estos días.
+[Remote]: Capaz les vaya compartiendo algunos resultados con con algunos ejemplos para verificar que
+[Remote]: estamos ok.
+[Remote]: Le vamos a agregar el código de autorización a todas las conciliaciones,
+[Remote]: Yo no sé si eso va a ayudar a conciliar por quitar
+[Remote]: ambigüedad
+[Remote]: o va a ser más estricta la conciliación y va a
+[Remote]: ser contraproducente. La la verdad que podemos hacer pruebas es
+[Remote]: o tal vez no cambia nada,
+[Remote]: Les voy a compartir también las las barrías tres
+[Remote]: cuatro que implementamos para la demo, que habían servido sobre todo la cuarta,
+[Remote]: para conciliar one to one,
+[Remote]: Y voy a estar investigando también toda la parte de de implementación de
+[Remote]: de
+[Remote]: el gate bancario, por así decirlo, del de la la primer el primer paso de la conciliación,
+[Remote]: ese no lo tengo trabajado todavía.
+[Remote]: Y son esos puntos, nomás.
+[Remote]: Así que de de mi lado es eso, no sé si tienen alguno más, y si no, estamos.
+[Remote]: ¿Quieren aprovechar, Juan, algo de lo que ustedes van viendo o me lo me lo preguntan?
+[Remote]: No, te quería consultar si no, no sé, en un futuro se
+[Remote]: para ver las conciliaciones que hicimos con l.
+[Remote]: Para verificar dentro todo que estén macheando bien, ponele esta,
+[Remote]: Dentro todo está igual era de un accidente chico, concilió bastante.
+[Remote]: Pero no sé si se puede bajar alguna especie de... Ah, mirá, acá me apareció esto.
+[Remote]: No lo había visto. No, no, no, me me
+[Remote]: No, estamos estamos sin problema. Ver, pará, pasa acá, si si le
+[Remote]: Son bases, por lo general, bases pesadas, esta esta no es muy pesada,
+[Remote]: entonces No, esta no no pusimos para que corra en el background así,
+[Remote]: te quedas ahí esperando a que descargue. Solía mostrar esto Sí, sí, entonces, no buenísimo.
+[Remote]: Estamos implementando todo, ahí
+[Remote]: gracias, Franco y Matías, estuvimos hablando bastante
+[Remote]: Muchas gracias por el feedback.
+[Remote]: Arreglando absolutamente todo lo que les va surgiendo y agregando los features
+[Remote]: a medida que nos lo van declarando.
+[Remote]: Combinaciones, pero
+[Remote]: Hay
+[Remote]: ¿Se te descargó?
+[Remote]: Ahí está. Se te descargó.
+[Remote]: Perfecto, eso lo agregamos ahora estos días para que puedan verificar por fuera, si
+[Remote]: si necesitan.
+[Remote]: Ok, sí, sí, sí, está bueno para ver si se está haciendo bien y
+[Remote]: se esté comparando. Sí, sí, comparar, sí, sí.
+[Remote]: Perfecto. También vamos a estar implementando lo lo que nos pidieron del porcentaje de
+[Remote]: de la cart de afuera,
+[Remote]: que se pueda elegir si es sobre un source o sobre el otro y no la combinatoria,
+[Remote]: Por ejemplo, si ustedes acá quieren en esta
+[Remote]: solo se vea por fuera noventa y ocho coma dieciséis por ciento que dio de
+[Remote]: de la source b,
+[Remote]: se pueden quedar con ese con ese como el número principal.
+[Remote]: Ok.
+[Remote]: A ver, ¿qué más? Ah, bueno, ayer ayer subí archivos
+[Remote]: pesados, poné, subí adquirente
+[Remote]: casi cuatro gigas de de archivo, y traté de correr una Consi, que, bueno, hasta
+[Remote]: hoy a la mañana no me corrió, así que, bueno, la eliminé, pero ahí
+[Remote]: también ahí anda avisándome, por lo general, o sea,
+[Remote]: si algo, che, suele pasar, conciliaciones
+[Remote]: tiene algunas cosas como, por ejemplo,
+[Remote]: las tolerancias generan problemas cartesianos, por así decirlo,
+[Remote]: que que empiezan a ser combinaciones infinitas
+[Remote]: ahora le estamos agregando unas validaciones cuando
+[Remote]: cuando cuando, van a ver que cuando ponen next en rule,
+[Remote]: se carga algo, esa es una pequeña validación que está haciendo nuestro head de data,
+[Remote]: evitar esos problemas.
+[Remote]: Para evitar una conciliación que pruebe infinitas cosas que, obviamente, nunca nunca va a conciliar, no importa
+[Remote]: qué qué computadora tengas. Pero andá levantándome todos esos problemas y
+[Remote]: y nosotros los vamos trabajando.
+[Remote]: Dale, dale, buenísimo.
+[Remote]: Te hago una consulta. Estas sesiones que las vamos a tener semanalmente, nos
+[Remote]: nosotros, así el equipo te sé con ustedes,
+[Remote]: Idealmente idealmente sí. Yo justo hablé con con el otro día,
+[Remote]: El plan original era tener sesiones cada dos semanas,
+[Remote]: con todo el equipo. Obviamente, eso creo que no nos va a alcanzar a
+[Remote]: que si les parece bien,
+[Remote]: estaría bárbaro tener el viernes que viene esta misma hora
+[Remote]: un un checkpoint,
+[Remote]: Así así vamos viendo el el progreso semanalmente. Si les parece. Dale, sí, sí, sí. El jueves ahí, Ah, le ahora sí. Bueno, lo podemos hacer el jueves. Si quieren, ya me fijo yo. Jueves a esta misma hora puedo, si quieren ya ya lo dejamos agendado. Dale, agendado, Dale, más que nada porque
+[Remote]: ejemplo, ahora es que vimos Brasil, Colombia es muy distinto, o sea, no no
+[Remote]: no tiene llave, están lineales o
+[Remote]: tiene combinaciones que algunas son muy manuales,
+[Remote]: Pasa la próxima sesión podría traer algo armado como para revisar directamente eso.
+[Remote]: Y yo también, no, no, yo
+[Remote]: vamos a tomar Colombia antes del jueves que viene, no te preocupes.
+[Remote]: Es porque estuve trabajando principalmente sobre Brasil,
+[Remote]: porque era lo que tenía más a mano de de la de la demo anterior.
+[Remote]: Imregable, sí, sí, sin problema.
+[Remote]: Creo que no hay más, en eso.
+[Remote]: No, no, no, ir probando nada más y te vamos avisando.
+[Remote]: Porque nosotros la idea que queremos hacer ahora
+[Remote]: me acordé, ahora que podemos bajar los archivos es
+[Remote]: replicar lo que estamos haciendo en los operativos y tratar de que
+[Remote]: lo que se consigue en Rexy sea idéntico a lo que se está conciliando o no,
+[Remote]: Como mínimo. Claro, como mínimo. Y una vez que ya llegamos a ese
+[Remote]: a ese esa igualidad,
+[Remote]: avanzar con la parte manual que nosotros hacemos por fuera para ver
+[Remote]: cómo se le pasa. Las once manuales que llevamos
+[Remote]: Rexi,
+[Remote]: y si se le puede hacer un diferencial para que esa conci manual aumente.
+[Remote]: Dale, perfecto. Ahí todo ese feedback, la idea nuestra es que
+[Remote]: de base aumente, o sea, lo objetivo nuestro es que aumente, así que
+[Remote]: la todos esos requerimientos los vamos bajando y los vamos metiendo dentro del proyecto.
+[Remote]: Igual, ayer le habían pasado los porcentajes.
+[Remote]: De los últimos meses,
+[Remote]: de, yo te lo sé, no sé si eso te lo pasó a ustedes, si no, el no hay problema.
+[Remote]: Pero siempre como para que sepa cómo a ver tú lo que estás viendo vos,
+[Remote]: ser sobre el universo
+[Remote]: por mes de cupón, ¿entendés?, no sobre lo acumulado, sino ahí no
+[Remote]: no va no va a chequear una cosa con la otra. Perfecto. De todas maneras,
+[Remote]: lo que tenemos cargado hoy
+[Remote]: no debería dar esos números, ¿no?, porque no es mes cerrado, entonces va a dar menos
+[Remote]: si entendí bien.
+[Remote]: No sé, ¿de abril subieron algo?
+[Remote]: El primer corte.
+[Remote]: Ah, pero no subimos, subimos solo, tipo, las liquidaciones, tipo, de data, no no subimos cupones.
+[Remote]: Va, yo no subí cupones.
+[Remote]: ¿El recibo tampoco?
+[Remote]: No, recibos tampoco. Recibos de abril hasta el siete ocho, creo que fue. Ok. Compartimos En el ¿no? Sí. Les compartimos toda la info que tenemos hasta Nada, te hace un momento, tal que me lo marcás, te podemos hoy cuando terminemos. La cosa mentira, subir todo hasta hoy. Dale, impecable, buenísimo.
+[Remote]: Dale.
+[Remote]: Bueno, equipo, muchísimas gracias por el tiempo. ¿Entonces para el jueves?
+[Remote]: Dale, yo ahora les les mando la invitación, ¿dale? Dale, perfecto. Buenísimo. Gracias, chicos. Adiós. Gracias. ¿Me lo pueden compartir después? Vale, sí, sí, la grabación. Dale, gracias. En fin, chicos. Adiós, hasta luego.
+[You]: A trial?
+
+============================================================
+SUMMARY
+============================================================
+### Current Reconciliation Strategy at Despegar
+
+- Oracle handles card reconciliation with 88% success rate on new monthly coupons
+  - April: 120k lines processed, 105k reconciled, 15k pending
+  - March: 153k total coupons processed
+  - Uses one-to-one matching: merchant + installment + amount
+- Manual processes handle many-to-many cases outside Oracle
+  - Extract installment numbers from both sides
+  - Group by reservation number, card details, authorization codes
+  - Current system limitations prevent automated many-to-many
+
+### Reconciliation Logic Requirements
+
+- One-to-one matching (primary strategy):
+  - Merchant code + installment number + installment count + amount
+  - Must match installment-by-installment, not full receipt level
+  - Example: installment 8 of 10 matches only with installment 8 of 10
+- Many-to-many grouping (secondary strategy):
+  1. Group by reservation number (when available)
+    - 40% of Cielo coupons lack reservation numbers in current SFTP data
+    - Newer data should have complete reservation coverage
+  2. Group by BIN + last 4 digits + authorization code (fallback)
+  3. Group by authorization code only (final fallback)
+- Amount comparison vs. join logic:
+  - Use gross amount in comparison (not join) for grouping strategies
+  - Tolerance of 1 real for amount matching
+  - Receipts require formula: receipt amount + CCP to get gross amount
+
+### Banking Validation Process
+
+- Pre-reconciliation bank validation required before processing coupons
+- Cross-check liquidations against bank statements by:
+  - Bank + description matching (e.g., Cielo pays through BTG bank)
+  - Date-based validation of settlement amounts
+- Only upload coupons for dates that match bank settlements exactly
+  - Mismatched dates remain pending until resolved
+  - Both bank entries and liquidations held back for investigation
+
+### Next Steps
+
+- Rexi to implement one-to-one + many-to-many reconciliation logic
+- Add authorization codes to all reconciliation keys
+- Test with April data as it becomes available
+- Weekly checkpoint meetings scheduled (Thursdays, same time)
+- Despegar to provide:
+  - Reference KPI numbers for validation
+  - Complete April data upload
+  - Manual reconciliation process documentation for replication
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/70762402-42e6-4191-b89a-7ccaefe0f0c4](https://notes.granola.ai/t/70762402-42e6-4191-b89a-7ccaefe0f0c4)

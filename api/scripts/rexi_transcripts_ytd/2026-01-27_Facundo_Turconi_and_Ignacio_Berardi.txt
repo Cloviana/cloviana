@@ -1,0 +1,524 @@
+MEETING: Facundo Turconi and Ignacio Berardi
+DATE: 2026-01-27
+ID: not_XWvRt8TMfbfrde
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Jose <jose@moonflow.ai>, Facundo Turconi <facundo@moonflow.ai>
+SCHEDULED: 2026-01-27T12:30:00-05:00 - 2026-01-27T13:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Bien, bien, poco mal de la voz, pero el resto que
+[You]: Saludos, somos.
+[Remote]: Sí, sí, sí.
+[You]: Espectacular.
+[Remote]: Así. ¿Tú qué hacés, señor? Y ya ya hace tiempo, estás estudiando,
+[You]: Bueno, me vine a estudiar a Boston en
+[You]: realidad, en veinte veintitrés, y ya terminé en en
+[You]: mayo veinte veinticinco, y ahí me mudé acá a Nueva York a Arrancar Rexi. Que estamos pasados acá a alguno del equipo. Tenemos mitad del equipo, o sea,
+[You]: tenemos al equipo técnico en Buenos Aires, y después tenemos
+[Remote]: See.
+[You]: un cofounder y yo acá basados en Nueva York.
+[Remote]: Buenísimo, buenísimo, bueno, bien, buen lugar para estar.
+[You]: Sí, acá estoy, se mueve todo mucho.
+[Remote]: Se mueve mucho. Te cuento un poquito de nosotros, quiénes somos, qué hacemos,
+[Remote]: y ahí por qué contactamos. Nosotros hacemos software para gestión de cobranzas,
+[Remote]: suena aburrido, es un poco más divertido de lo que suena en realidad,
+[Remote]: Este,
+[Remote]: venimos operando desde dos mil veintitrés, somos relativamente jóvenes,
+[Remote]: Tenemos hoy alrededor de doscientos clientes en veintiséis países, y uno de los obviamente, digamos, trabajamos muchas cosas con IA, además,
+[Remote]: orquestación en el software, agentes, etcétera, etcétera, etcétera.
+[Remote]: Yo sigo de los fondos de la empresa, sigo a la empresa adelante, José, trabaja el producto.
+[Remote]: Uno de los, encontramos un montón de problemas en los procesos relacionados a gestión de cobros,
+[Remote]: y procesos de gestión de cobros que
+[Remote]: se van extendiendo incluso hacia otras funciones que tienen que ver con orden de cobros, facturación,
+[Remote]: reclamos, o sea, cuando uno va y se mete en un proceso,
+[Remote]: ¿viste? A veces quiere
+[Remote]: deslinché cobranzas, cobranzas, pero empieza a ver cómo
+[Remote]: cositas al costado,
+[Remote]: que condicionan que cobranza funcione bien.
+[Remote]: ¿Ok?
+[Remote]: Y uno de los
+[Remote]: de los
+[Remote]: factores comunes, sobre todo en el B2B, nuestra plataforma es para B2B, B2C,
+[Remote]: En B2C no hay tanta historia,
+[Remote]: Uno de las de las
+[Remote]: de los temas de incidente es con que nos venimos encontrando,
+[Remote]: es que, en el caso de B2B, de empresas que cobran empresas,
+[Remote]: tienen serios problemas
+[Remote]: en todo lo referido a, este,
+[Remote]: conciliación,
+[Remote]: ¿no? Es un proceso muy grande, nosotros no
+[Remote]: no pensamos abarcarlo,
+[Remote]: este,
+[Remote]: también hay
+[Remote]: hay bifurcaciones hacia otro lado, órdenes de compra, de facturación,
+[Remote]: tampoco
+[Remote]: queremos abarcarlo,
+[Remote]: pero para que la cobranza funcione bien,
+[Remote]: la reconciliación de cuentas o conciliación
+[Remote]: te pedía ser oportuna, no salgo a cobrar cosas que no tengo que cobrar.
+[Remote]: ¿Ok?
+[Remote]: Este, dicho todo eso,
+[Remote]: tuvimos un post en LinkedIn de uno de los chicos de comer o no sé si contestaste vos, o tú hiciste
+[Remote]: vos, y a ver el chico que me pagó mal estado,
+[Remote]: Ya, mirá,
+[Remote]: conciliación fuera de lo que es tal compañía, tal compañía,
+[Remote]: ver qué están haciendo, a ver si hay oportunidades de colaboración, a ver si
+[Remote]: procesos que ellos estén trabajando
+[Remote]: pueden ser, este, se se puedan operar en Munflo, sea, no tengo la menor idea, pero digo, ahí tenemos un problema para poder cobrar bien y no no lo estamos resolviendo ni ni entiendo que lo vamos a resolver porque es una compañía en sí misma. ¿Ok? Bueno, ya que estamos.
+[You]: Espectacular. Recordadme, no sé si la muchacha hace recién y se me escapó, pero ¿con qué
+[You]: tipo de compañías trabajan ustedes o es un poco de todo, Porque al final cuando
+[You]: desarrollan cobranzas puede ser una compañía de
+[Remote]: Lo que es B2B, lo que es B2B con compañías
+[Remote]: este, muchas multinacionales.
+[Remote]: O o regionales,
+[Remote]: no sé, el montado de trabajar con nosotros. O sea,
+[Remote]: hay compañías, muchas compañías de ese tipo, no Mountbabler,
+[Remote]: de manpower para abajo,
+[Remote]: manpower, roctoplas, este, Perufarma, empresas que tienen que conciliar dependiendo el tamaño, pero entre dos mil quinientos y veinte mil pagos todos los meses, veinticinco mil pagos todos los meses, cobros todos los meses. ¿Quieras verlo? Quieras verlo, este, y que, bueno, hoy caen en procesos completamente manuales para una vez se concilian, terminar este, enviando la información a a través de sincronizaciones que SFTP, SAS, o ASPI, lo que fuese, pero esa actualización de información es posterior al proceso de conciliación.
+[You]: Claro, claro.
+[You]: O sea, que esto viene de muchos clientes que trabajan con ustedes, que ustedes ven que están sufriendo las conciliaciones,
+[Remote]: Sí, correcto. Y nosotros sufriendo
+[Remote]: no es que soy bueno con mis clientes,
+[Remote]: sino que estamos sufriendo
+[Remote]: en las implementaciones o en el ongoing de la plataforma,
+[Remote]: es decir, che, ¿por qué apagás el sistema? No, no,
+[Remote]: que estoy teniendo problemas con la conciliación,
+[Remote]: llevan todo manual, llevan todo cruce de archivos, es un desastre.
+[Remote]: O no importa el cliente, pero en general es un desastre,
+[You]: Ellos están consiguiendo
+[Remote]: estoy hablando de compañías
+[You]: un archivo de moon flow contra un extracto bancario, contra
+[Remote]: No, no,
+[Remote]: no, no, no están conciliando la facturación contra su
+[Remote]: sus sus cobranzas.
+[Remote]: Que suceden las cobranzas en su cuenta, yo hasta ahí nominada.
+[Remote]: ¿Ok? Yo la facturación la veo porque tengo
+[Remote]: dada de alta en Munfro la cuenta por cobrar,
+[Remote]: o facturas
+[Remote]: a una empresa,
+[Remote]: subís de manera automática o sincronizamos el día de hoy donde estás a mufro, la
+[Remote]: por cobrar,
+[Remote]: Mufflow opera saliendo a cobrar todas esas cuentas, pero sucede que vos recibís un cobro. Si vos no sos muy oportuno, en conciliar ese cobro, yo no lo veo. En conciliar ese cobro Muffro sigue cobrando cuentas que están desactualizadas.
+[You]: A ustedes entonces lo que hacen es los ayudan a a cobrar.
+[Remote]: Nuestro software ayuda a que las empresas
+[Remote]: puedan cobrar.
+[You]: Pero no cobran, pero no cobran.
+[Remote]: Mucho mejor
+[Remote]: No, no, no, no. Tendemos software nada más.
+[You]: Claro, entonces, ellos les falta la parte de
+[You]: una quiz y el esfuerzo de de cobrar,
+[You]: efectivamente, cobré o no. Entonces, ahí es donde hay un mismatch entre
+[You]: el esfuerzo y lo que
+[Remote]: En que no no no consignan sus cuentas
+[You]: y
+[Remote]: de manera
+[Remote]: eficiente.
+[You]: Buenísimo. ¿Y ustedes cómo lo están pensando
+[You]: a nivel
+[Remote]: No, no tengo la menor idea, puede ser desde
+[Remote]: che, está buenísima tu solución, resuelve el problema de nuestros clientes,
+[Remote]: o te la compramos,
+[Remote]: o la o o o no te la compramos si la vendemos y se
+[Remote]: vendo a todos mis clientes, o no tengo idea de qué formato, pero
+[Remote]: si tu problema, si si si tu solución resuelve,
+[Remote]: el problema del
+[Remote]: treinta por ciento de mis clientes, treinta y cinco por ciento, porque el otro que no es B2B, no hay quilombos, pero no sé si lo resuelves tu sos, vaya, hay que ver, no sé. Pero digo, pensando en el B2B primero, ¿no? Después vemos el B2C. Pero digo, pensando en eso, si tu software resuelve nuestro el problema de nuestros clientes, vemos de qué manera hacemos de que nuestros clientes adopten tu software.
+[You]: Regular.
+[You]: Y a nivel estratégico, ¿ustedes se ven más como un
+[You]: reseller o están buscando algo de white labeling? ¿Cómo cómo lo están pensando?
+[Remote]: Nosotros tenemos hoy tenemos hoy un
+[Remote]: un tú con la estructura cuando pensamos un flow,
+[Remote]: es la mayoría de las empresas trata de hacer todo y hace todo mal.
+[Remote]: O sea, todo mal.
+[Remote]: Nosotros somos buenos en cobranzas,
+[Remote]: y solo hacemos cobranzas y solo desarrollamos cobranzas.
+[Remote]: Entonces, lo que tenemos es un marketplace,
+[Remote]: que ni te cuento el marketplace, pero eso es como anecdótico, digo, con
+[Remote]: conceptualmente tenemos un marketplace
+[Remote]: donde hoy nadie integra nada con nosotros, porque no somos nadie, con doscientos
+[Remote]: clientes,
+[Remote]: facturamos igual, no sé, ciento cincuenta lucas por mes recurrentes ya, ¿ok?
+[Remote]: Pero digo, igual no somos nadie, somos muy chiquititos,
+[Remote]: Pero bueno, vamos integrando algunas soluciones,
+[Remote]: para empujar a que el cliente las adopte. Hoy
+[Remote]: sobre todo, soluciones de integraciones con RPs, integraciones con sistema de
+[Remote]: con pasarelas de pago y demás.
+[Remote]: Pero al final del camino, ese marketplace lo que buscamos
+[Remote]: una especie, digamos, Shopify recontra mini,
+[Remote]: es che, Flaco, vos acá tenés que tener
+[Remote]: todas las herramientas integradas al software de que decís, che, compro esto,
+[Remote]: este, son tantos dólares más por mes o por transacción o lo que fuese,
+[Remote]: pum, se levanta la suscripción, el producto ya está preintegrado,
+[Remote]: se mete ahí o no sé cómo, o crece. Depende de cada integración, tiene complejidades distintas,
+[Remote]: que salgan a
+[Remote]: a a utilizarlo, eso en un estadio final, en un estadio inicial,
+[Remote]: no pretendemos que nadie haga todo ese trabajo, ni nosotros
+[Remote]: hacer ese trabajo para ver si funciona o no
+[Remote]: resuelve el problema o no de los clientes, ¿no?
+[You]: Está buenísimo. La verdad que nosotros
+[You]: en la estrategia de distribución, obviamente, tenemos un gran esfuerzo de venta directa y
+[You]: estamos explorando partnerships de de mucho tipo.
+[You]: Típicamente, los partnerships que estamos explorando nosotros hoy son por ahí con
+[You]: procesadoras de pagos que
+[You]: ven directamente la oportunidad de ofrecer este servicio dentro de sus plataformas, ¿no?
+[Remote]: Okay.
+[You]: Como un value prop enhancer. Entonces, es mucho más un
+[You]: un camino de embedding y de white labeling que de que de reseller.
+[You]: Habiendo dicho eso, yo soy un fanático
+[Remote]: Eso es interesante, eso es súper interesante,
+[You]: Sí, obviamente es más difícil
+[Remote]: si funciona es bárbaro.
+[You]: hacerla funcionar, tiene que estar muy validado, muy probado,
+[You]: tiene que estar muy ajustado el producto nuestro
+[You]: con la necesidad de ese cliente, sabiendo que justo para conciliaciones
+[You]: es un mundo muy variado y muy específico,
+[You]: por eso es un un producto difícil de construir.
+[You]: Entonces, es más difícil hacer funcionar. Ahora, habiendo dicho eso,
+[You]: y que es más difícil hacerlo funcionar y lleva más tiempo,
+[You]: Yo soy un fanático de los esquemas de reseller, porque creo que
+[You]: te dan ese feedback instantáneo, es señal instantánea, tipo,
+[You]: si ustedes ya tienen la relación y y ven que hay mucho valor ahí, integramos
+[You]: los los productos, pero hay una relación comercial conmigo y una relación comercial con ustedes,
+[You]: nos da mucho más señal y feedback instantáneo para
+[You]: después pensar si embedding es el camino o si seguimos de ese lado,
+[Remote]: So that
+[You]: o si pensamos en un white labeling o lo que sea. Hay hay hay un infinito de posibilidades ahí,
+[Remote]: 's
+[You]: Y acá lo que lo que para mí lo más importante es pensar en
+[You]: cuál es el dolor del cliente, así que una de las preguntas mías era,
+[You]: si me pasas un par de ejemplos de compañías con las que trabajan ustedes,
+[You]: grandes, que tengan realmente este quilombo y que
+[You]: tipo de compañía es para yo ubicarme un poquito en el mapa de la operatoria
+[You]: y después, en cuestión de eso, diseñar la experiencia que les va a solucionar
+[Remote]: k.
+[You]: a ellos a ver si somos nosotros o no, ¿no?
+[Remote]: Sí, la la la mejor experiencia contando
+[Remote]: las respondiente la segunda parte, pero no necesariamente es la experiencia inicial,
+[Remote]: es que para el cliente no tenga absolutamente ninguna
+[Remote]: fricción y siga haciendo todo desde una sola plataforma, ese es,
+[Remote]: es el ideal para el cliente, ¿no?
+[Remote]: Es el ideal para
+[Remote]: dos dos empresas que salen a
+[Remote]: ofrecer un
+[Remote]: un producto complementario con el otro, ¿no? Porque
+[Remote]: implica ponerse a trabajar en algo que no sabes si todavía sí funciona.
+[Remote]: Por más que lo validás
+[Remote]: de palabra, puede que ver en la cancha que funcione, ¿no?
+[You]: K.
+[Remote]: A nivel
+[Remote]: dolor de cliente es un poco el que te comentaba, sea, clientes son
+[Remote]: hablando del B2B, el B2C es otra historia,
+[Remote]: sé si vale la pena abordarlo o no, pero en el caso del B2B,
+[Remote]: es un cliente que
+[Remote]: emite
+[Remote]: una buena cantidad de facturas,
+[Remote]: esas facturas todas son pagadas
+[Remote]: en vías transferencias bancarias,
+[Remote]: en distintos lugares de Latinoamérica, México, Colombia, Perú,
+[Remote]: Argentina son los principales cuatro marcados en ese orden.
+[Remote]: Y
+[Remote]: la conciliación llega tarde, Mario, nunca,
+[Remote]: porque dependen de cruces de archive, cosas que yo no conozco, pero
+[Remote]: de lo que nos cuentan, ¿no? De cruces de archivo,
+[Remote]: de bajadas de estados de cuenta,
+[Remote]: ir, y, ajustar, que no robar,
+[Remote]: que la devolución, que el no sé qué, que el no sé cuánto, que la retención, nada cuadra con nada,
+[You]: Y eso a ustedes les afecta negativamente
+[Remote]: y la consideración que le va a salir
+[You]: porque dejan de usar Moonflow, cuando se encuentren esos kilómetros.
+[Remote]: No, no dejan usar, no dejan de usar mufflo, pero
+[Remote]: ¿viste? Como funciona de manera muy autónoma,
+[Remote]: o salís a cobrar
+[Remote]: y el cliente responde, che, Flaco, mirá, yo ya pagué no te debo esto, o no lo otro. Claro, vos esperás que todos los días te los saldos de las facturas. Entonces O todos los minutos, o todos los minutos.
+[Remote]: Entonces, la siguiente comunicación a ese cliente va a ser, bueno, ahora usted no debe mil, sino quinientos
+[Remote]: págamelo. Pero si aún no actualizás eso, le seguís reclamando mil,
+[Remote]: y quizás pago quinientos o quizás pago todo, y se produce un deck, seleccionas ver, se iba.
+[Remote]: Bueno, el el mundo que te cuenta Fauco es que
+[Remote]: cada banco, como vos sabrás, maneja archivos
+[Remote]: cada cada uno distinto del otro, por ahí hay una capa
+[Remote]: distinta donde no tenés por qué depender de ese, mirá, yo tengo la conexión directa con el banco,
+[Remote]: Entonces, al banco, miro esta cuenta, no necesito que nadie genere un archivo, que nadie
+[Remote]: manosee manualmente el archivo, porque lo que te pasa muchas veces es que
+[Remote]: el cliente te da un archivo que pasó por dos o tres etapas,
+[Remote]: le filtraron confidencialidad, quitaron no sé qué registro, le agrego una columna. Entonces,
+[Remote]: ahí tenés un manoseo manual también. Bueno, la cuestión es ver
+[Remote]: si si vos tenés un dato en un flow y podés ir a un dato de un banco,
+[Remote]: decir algo, ¿no? Por un ejemplo, porque también estoy hablando cansadas. Pero
+[Remote]: donde no hay tanto manoseo y tanta cuestión humana,
+[Remote]: sería sería un poco levantar la la el nivel.
+[You]: Perfecto. O sea, básicamente para ustedes esto les va a, o sea,
+[You]: tener esta información y una conciliación robusta, escalable y automática le va a permitir
+[You]: a Moon Flow, o sea, que sea un producto que performa mejor,
+[You]: simplemente, porque tenés mejor información. Si garbage in, garbage audio,
+[You]: ustedes no tienen la información de la conciliación, van a salir a reclamar facturas, porque ahí ya están pagadas,
+[You]: o vencidas o lo que sea. Entonces, es como es ayudar a
+[You]: al cliente para que Moonflo pueda funcionar mejor.
+[Remote]: Sí, sí, sí, por un lado, sí, por otro lado, le
+[Remote]: terminás de resolver un problema que tiene el cliente
+[Remote]: que nosotros no trabajamos en resolver, ¿no? Pero le sacás un trabajo manual porque
+[You]: It's like
+[Remote]: apareciendo y
+[Remote]: Sí.
+[You]: Perfecto. Bueno, ahí no sé cómo cómo le gustaría avanzar. Nosotros
+[Remote]: Contanos un poco bien qué están haciendo, cómo lo están haciendo,
+[Remote]: cómo les va a dónde estar,
+[You]: Dale, te cuento. Bueno, con Rexi arrancamos hace un poquito más de un
+[Remote]: y ahí
+[You]: un año. Yo estaba estudiando en Harvard, mi socio estaba en Colombia,
+[You]: nació a partir de una incubadora en MIT que yo participé,
+[You]: y y básicamente viene un poco de nuestras experiencias pasadas, ¿no?
+[You]: Los tres cofounders venimos de de Vicho, el exchange de cripto más grande de Latinoamérica,
+[You]: de Pomelo y de Mercado Pago, los tres viendo estos problemas
+[You]: desde ahí adentro, ¿no? Y de cómo todavía ninguna de estas tres compañías, no sé, ya son grandes y establecidas en la
+[You]: lo han resuelto de manera realmente escalable, automática,
+[You]: sin gastar una exorbitante cantidad de
+[You]: recursos en un proceso que es de higiene, ¿no? Nunca te va a separar, nunca te va a hacer operar mejor.
+[You]: Con lo cual nace a partir de esa experiencia
+[You]: y nace a partir también de pensar el problema
+[You]: de dónde viene y hacia dónde va. Digo, ¿por qué se volvió tan difícil conciliar?
+[You]: Si yo te picheaba usar las reconciliaciones hace cinco años, casi que no era un problema, o sea, o o no era tan grave como ahora. Y si vos mirás, o sea, explicación de eso es, los de tecnología en distintas industrias pasan por estos péndulos de muchísima modularización y después agregación. Modularización, agregación, También depende de los ciclos tecnológicos. El stack es fintech, particular
+[You]: los últimos diez años se han modularizado muchísimo. Esto lo habrán visto ustedes, digo,
+[You]: hoy la fintechs cuando hablamos de un neobanco no es más que un conjunto de integración
+[You]: O sea, después ellos
+[You]: son dueños de la experiencia del cliente y de llegar a ese cliente
+[You]: y de comunicarse con ese cliente. Todo el resto de los servicios están operados por
+[You]: o integrados con No están integrados con Pomail, no están integrados con
+[You]: alguien que le hace la parte de Calle Van Elco para lo que es Calleen Calleout, alguien le hace las remesas,
+[You]: alguien le hace todo, digamos. Entonces,
+[You]: eso lo que hizo es, el stack ahora está muy modularizado, vos tenés un provider para distintas cosas,
+[You]: entonces toda la información transaccional hoy se manosea o pasa
+[You]: por demasiadas entidades que generan sus propios reportes transaccionales.
+[You]: Entonces, es donde de repente se pone más borrosa la línea de
+[You]: che, ¿dónde está la plata?
+[You]: ¿Cuánto se movió? ¿Hacia dónde se movió? Y generan, y todas las
+[You]: compañías, entonces, están haciendo todos estos cruces de distintos proveedores,
+[You]: Vos imaginate que para un solo producto de remesas, por ejemplo, tenés que cruzar
+[You]: lo que te manda el proveedor con tu ledger interno y con lo que contra lo que ves en el banco.
+[You]: Eso multiplicalo por la cantidad de flujos de dinero que operás o la cantidad de proveedores que tenés, y de repente tenés
+[You]: tenemos compañías, clientes que tienen veintisiete flujos de conciliación,
+[You]: Entonces,
+[You]: sí, porque depende del proveedor, del flujo de dinero,
+[You]: y del producto. Cada producto también tiene su su especificación de cómo se concilia,
+[You]: Muchos estos archivos, ojalá fuese real time y tenés un un transaction ID,
+[Remote]: Sí.
+[You]: que lo encontrás en las tres bases. Bueno, ustedes saben mejor que yo, hay mucho
+[Remote]: Sí, sí, sí.
+[You]: archivo batch, tenés horarios de corte distintos entre los distintos proveedores,
+[You]: el ledger que no se adapta, entonces está
+[You]: haciendo todo real time, transacción por transacción, el banco que te liquida es por día,
+[You]: Hay muchas complicaciones de data, entonces, nace a partir de
+[You]: cómo podemos aplicar inteligencia artificial a este problema, que al final es data estructurada.
+[You]: Entonces, ¿cómo hacemos que este proceso de higiene
+[Remote]: See.
+[You]: no va a separar a ninguna compañía de otra?
+[You]: Esté automatizado por AI, porque creemos que es el futuro. Al final, en el futuro,
+[You]: todas las compañías van a tener agentes para lo que no es core de la compañía.
+[Remote]: Total means.
+[You]: Y van a tener humanos y personas creando contenido o valor orgánico
+[You]: lo que realmente lo va a hacer diferente desde al lado, ¿viste? Y esto no lo va a hacer diferente desde al lado. Entonces, que
+[You]: estamos construyendo para ese futuro, al arrancando con conciliaciones
+[You]: porque es un una entrada muy interesante a la información que más vale.
+[You]: Es la información transaccional. Y después de eso, ¿qué otros workflows podemos
+[You]: construir con tecnología genética para seguir automatizando todas
+[You]: funciones de finanzas y de operaciones que en diez años no no van a existir. Así que eso es un poquito la visión. Hoy trabajamos con clientes tanto de Latinoamérica como Estados Unidos,
+[You]: Yo y mi cofounder estamos acá en Estados Unidos, tenemos un tercer cofounder del equipo
+[You]: Técnico Basado En Buenos Aires,
+[You]: Todas las oportunidades que viene de Latinoamérica las tomamos un poquito más oportunísticas
+[You]: que vienen por nuestras redes,
+[You]: Los esfuerzos de distribución están más enfocados acá en Estados Unidos.
+[You]: Por un tema de que es donde nació la compañía, donde entendemos bien la tecnología del stack,
+[You]: los incentivos, es un mercado más grande, un exto pay más grande.
+[Remote]: Es más fácil, sí, esto resolverlo en Estados Unidos que en Latinoamérica, digo,
+[Remote]: cómo funcionan los bancos,
+[You]: No, a nivel técnico es muy parecido, te sorprenderías.
+[Remote]: información.
+[Remote]: O sea, no necesariamente, ¿sí?
+[You]: Te sorprenderías que los bancos de acá
+[You]: son igual de, pero es muy parecido a Latinoamérica, en ese sentido no,
+[You]: es simplemente un tema de
+[You]: al final, si yo estoy, yo estoy
+[You]: reemplazando un proceso que es de higiene y que si no me tenés a mí, tenés un equipo de cinco personas
+[You]: usando Excel. Si esas cinco personas en Colombia te valen mil dólares por mes,
+[You]: pero en Estados Unidos te valen doce lucas por mes, el willingness to pay
+[You]: aumenta automáticamente por cómo funciona el el business case. Y lo otro, también hay temas
+[Remote]: Yes.
+[You]: cultural. Por ahí, aunque haya un business case, tenemos
+[You]: compañías en Latinoamérica, te dicen
+[You]: prefiero tener esas cinco personas.
+[You]: Mientras que en Estados Unidos esa decisión la toman en un segundo. Si hay un error
+[You]: ROI de muy claro, no no les calienta, o sea, tienen una cultura
+[You]: de agregar SaaS, o sea, creo que la pyme promedio en Estados Unidos tiene en promedio catorce herramientas de software, catorce.
+[Remote]: Tú sabes que nos veníamos preguntando eso, Nacho, Dije, Tendríamos Que Ir A Estados Unidos, y tiene un montón de complejidad, y Estados Unidos nuestro
+[Remote]: producto está muy bueno,
+[Remote]: tiene un montón de de Unidos, pero la gente va a llegar a Taycom, que el software y
+[Remote]: las vueltas que sean en Latinoamérica antes de contratar estas cosas son, pero brutales.
+[You]: Es cultural.
+[You]: Es cultural, cultural. El el el latino prefiere tener cinco personas
+[You]: siente que no tiene más bajo control, siente que hay una persona que va a responder si algo sucede mal,
+[Remote]: Sí.
+[You]: Allá confían en el software y prefieren eso porque
+[You]: hay un tema de eficiencia y de costos que están dispuestos a maximizar,
+[You]: Y después lo tercero es, el mercado es enorme,
+[You]: Cualquier nicho de nicho de nicho de nicho de nicho,
+[Remote]: Sí, antes más grande que todo un país, claro.
+[You]: de billion. Entonces,
+[You]: también por eso estamos enfocados acá. Pero bueno, lo estamos en una etapa temprana,
+[You]: tenemos clientes en producción pagando clientes grandes, tenemos bancos, procesadoras de pagos,
+[You]: neobancos, billeteras de cripto,
+[You]: Eso es un poquito en el mundo que lo estamos poniendo hoy, servicios financieros más que nada, ¿por qué? Porque conciliaciones se vuelven realmente muy doloroso cuando tenés múltiples flujos de pago, múltiples flujos de dinero, y una transaccionalidad alta, ¿no? Porque si no, la realidad es que si tenés una persona medianamente técnica o hoy con Claude, te armo un SQL con un Python y más o menos escupe un dash
+[You]: dashboard que lo tengo bajo control. Ahora ya cuando tenés cinco flujos de dinero,
+[You]: y tenés un millón de transacciones por mes, ya no escala porque
+[You]: la la segunda derivada de esto es estos flujos nunca cuadran.
+[You]: Nunca cuadran. Entonces, el
+[You]: workflow se vuelve mucho más de investigación y resolución de discrepancias.
+[You]: Es es ahí donde se pierde el tiempo.
+[Remote]: Siempre vas a tener un embudo donde
+[Remote]: algo va a caer para revisión, y entonces el volumen hace que eso se hace gigante.
+[You]: Exacto, una cosa es revisar quinientas transacciones en lote cuadrado por mes, otra cosa
+[You]: revisar diez mil. Son las compañías que tienen que revisar diez mil y tienen una persona, ¿qué hacen?
+[You]: Arrancan de la más grande a la más chiquita, investigan las grandes, tratan de resolver las grandes,
+[You]: que en valor por ahí resuelven el ochenta por ciento del valor,
+[You]: el otro veinte por ciento de valor, que por ahí el ochenta por ciento de las transacciones,
+[You]: literalmente hacen write off, o sea, balance sheet write off.
+[You]: Llega el de tesorería o el de finanzas a fin de mes, dice que tiene que cerrar los libros,
+[You]: y cierran el GA. Entonces, eso
+[You]: no se imaginarán cómo suceden en el mundo fin de
+[You]: Con lo cual, ahí es donde nosotros operamos, con lo cual
+[You]: nos recontra interesa la oportunidad de de explorarlo,
+[You]: Creo que nos tenemos que dos cosas, si quieren ver una
+[You]: demo podemos agendar otra sesión para mostrarles un poquito lo que tenemos.
+[Remote]: Hi there. It's easy.
+[Remote]: Dale, hagamos eso.
+[You]: Y después, si si hay interés,
+[You]: creo que el el esquema de reseller nos permite testear
+[You]: rápido y con con bajo costo, con lo cual
+[You]: trataría de pensar uno, dos, tres clientes que ustedes saben que tienen este dolor,
+[You]: que nos hagan la intro, nosotros pensamos algún
+[You]: reseller agreement que tenga sentido para ambas partes. Para testearlo, voy
+[You]: medio una prueba de concepto con tres clientes. Si lo firmamos, no sé, ponemos tres meses de
+[You]: monitoreo y ahí, a partir de ahí, tomamos una decisión de si seguimos con ese agreement o están para
+[You]: explorar algo más de embedding o de white labeling.
+[Remote]: Ok. Hoy la plataforma que desarrollaron, Nacho, que están
+[Remote]: ¿no?
+[Remote]: ¿No?
+[Remote]: Le están pensando para embedding,
+[You]: Sí.
+[You]: Sí.
+[Remote]: Ok.
+[You]: Estamos apareciendo tres modelos, de hecho. Uno es el direct sale, como SaaS, que es como tenemos todos los clientes hoy. Estamos pensando embedding, nos desbloquea un montón de clientes y a un montón de flujos de conciliación, no sé, hablando con DLocal, con Cobre, estas compañías que realmente mueven mucha plata para muchos merch
+[Remote]: Okay.
+[You]: y quieren tener la funcionalidad adentro de su plataforma,
+[You]: Y eso es una funcionalidad compleja de construir, con lo cual nunca la van a priorizar.
+[You]: Y a nosotros nos desbloquea un mercado enorme de estas
+[You]: procesadoras de pagos. Y el tercer modelo que estamos explorando, que aplica mucho a
+[You]: servicios financieros más tradicionales, tipo bancos, aseguradoras, que tienen mucho
+[You]: celo con la información, es el modelo de on premise,
+[You]: digamos, deployamos el software en su infra,
+[Remote]: Okay.
+[You]: hay un hay hay un valor, hay un contrato muy grande el primer año de implementación
+[You]: y de deployment, y después queda un retainer muy bajo,
+[You]: para soporte
+[You]: Si quieren hacer un upgrade porque sacamos una función de no hace cotiza parte,
+[You]: y cualquier ayuda técnica se cotiza aparte.
+[You]: Lo estamos viendo mucho para servicios financieros muy tradicionales, eso.
+[You]: Pero lo estamos explorando también.
+[Remote]: Porque nosotros lo hicimos con premis nunca,
+[Remote]: no no lo ofrecemos, mira que tenemos clientes grandes, ¿VC?
+[Remote]: Banco Riple,
+[Remote]: algunos más, pero
+[Remote]: no lo hicimos.
+[Remote]: Pero bueno, interesante, interesante. Hagamos una cosa, agendemos
+[Remote]: para conocer un poco más el producto, explorar la oportunidad juntos,
+[Remote]: hacer cobre, cobre, cobre,
+[Remote]: nuestro, cobre es cliente nuestro, o sea, tenemos
+[Remote]: ahí de pronto hasta clientes comunes tal vez,
+[Remote]: este,
+[Remote]: o vamos a uno nuevo, no importa, está lo mismo,
+[Remote]: explorémoslo,
+[You]: Vale. ¿Cuánto les viene bien a hacer una demo? Así ya la porque el el calendario está descontrolado.
+[Remote]: nosotros queremos
+[Remote]: los dos,
+[You]: Como les va
+[You]: jueves, doce del mediodía, en dos días?
+[Remote]: Jueves doce no puedo.
+[You]: Jueves
+[Remote]: No puedo, espérate.
+[You]: de once a dos de la tarde, ¿no?
+[Remote]: Yo puedo a la una de la tarde, ¿vos, José?
+[Remote]: Vale, sí, me lo saludo. A la una de la tarde, Argentina, podemos, Nacho,
+[You]: El jueves.
+[Remote]: Sí.
+[You]: Dale, listo. Ahí ya les agendo y y también agrego mis cofounders, así los conocen también.
+[Remote]: Ya, ya, con gusto. Tal, tal. Yo por ahí sumo un par de personas también.
+[Remote]: Que nos
+[You]: Bueno, un gustazo, te voy saltar. Un gusto, gracias por el tiempo y ahí
+[Remote]: Bueno.
+[Remote]: Un abrazo.
+[Remote]: ¿Cuál le gusta?
+[You]: estamos al habla.
+[Remote]: Dale, igual cuídate, dale, exacto, chao.
+
+============================================================
+SUMMARY
+============================================================
+### Their background
+
+- Moonflow operates as a B2B/B2C collections management software company since 2023
+  - Currently serving \~200 clients across 26 countries
+  - Generating approximately $150k in monthly recurring revenue
+  - Primary markets: Mexico, Colombia, Peru, Argentina (in that order)
+- Facundo Turconi serves as CEO, with Jose handling product development
+- Target clients are multinational and regional companies processing 2,500-25,000 payments monthly
+  - Notable clients include Manpower, Roctoplas, Perufarma
+- Company philosophy focuses exclusively on collections rather than attempting to do everything
+  - “Most companies try to do everything and do everything badly. We are good at collections, and we only do collections”
+- Currently developing a marketplace concept (similar to “Shopify recontra mini”) for integrated solutions
+
+### Pain points and needs
+
+- Major reconciliation challenges affecting 30-35% of their B2B clients
+  - Manual file crossing processes causing delayed or incomplete reconciliation
+  - Clients receive payments but fail to update their accounts receivable promptly
+  - Moonflow continues collection efforts on outdated balances, creating customer friction
+- Current reconciliation issues impact Moonflow’s platform performance
+  - Clients complain: “Why did you turn off the system? No, I’m having problems with reconciliation”
+  - Manual processes involve “crossing files, downloading account statements, adjustments for returns, retention issues - nothing matches with anything”
+- Each bank uses different file formats, creating additional complexity
+  - Files often pass through 2-3 manual stages with confidentiality filtering and column modifications
+  - Manual manipulation introduces errors and inconsistencies
+- Implementation and ongoing platform issues stem from poor reconciliation data
+  - “We are suffering in implementations or in the ongoing of the platform”
+
+### Questions or concerns
+
+- Uncertainty about collaboration format and business model
+  - Considering options: purchasing solution, reselling to clients, or other partnership structures
+  - Need to validate if Rexi’s solution actually resolves their clients’ problems
+- Want to understand Rexi’s product capabilities through demonstration
+- Interested in exploring both reseller and potential white-label/embedding opportunities
+- Curious about on-premise deployment models given client sensitivity around financial data
+
+### Budget and timeline
+
+- No specific budget figures mentioned
+- Revenue context: $150k monthly recurring revenue provides scale reference
+- Client base of 200 companies suggests significant market opportunity
+- No specific implementation timelines discussed
+
+### Next Steps
+
+- Product demonstration scheduled for Thursday at 1:00 PM Argentina time (January 30th)
+  - Ignacio will include his co-founders in the meeting
+  - Facundo may include additional Moonflow team members
+- Explore reseller agreement structure as initial testing approach
+  - Identify 2-3 Moonflow clients experiencing reconciliation pain points
+  - Design proof of concept with 3-month monitoring period
+  - Use results to determine whether to continue reseller model or explore embedding/white-labeling
+- Potential client introductions to be discussed
+  - Cobre mentioned as mutual client opportunity
+  - Focus on companies processing high transaction volumes with multiple payment flows
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/03da1b91-3700-4fbe-9207-5d305633b1d1](https://notes.granola.ai/t/03da1b91-3700-4fbe-9207-5d305633b1d1)

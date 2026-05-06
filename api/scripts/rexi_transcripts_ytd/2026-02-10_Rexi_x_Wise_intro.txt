@@ -1,0 +1,579 @@
+MEETING: Rexi x Wise: intro
+DATE: 2026-02-10
+ID: not_CM7MKcuU04VOGb
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Ritu Kedia <ritu.kedia@wise.com>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-02-10T12:00:00-05:00 - 2026-02-10T12:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: No.
+[You]: High complexity, and high regulation.
+[You]: That's where we find the the sweet spot.
+[Remote]: Okay. And, how did you if I may ask, how did you land up on this
+[Remote]: product proposition, and why do you think it's a problem worth solving?
+[You]: That's
+[You]: natural. He was actually doing his during his MBA at
+[You]: HBS. He was doing his summer job in this
+[You]: fintech in in The US, called
+[You]: and he was
+[You]: well, one of the things he was doing there was reconciling. He was chief of staff,
+[Remote]: Okay.
+[You]: and he he landed on this problem, and he
+[You]: just couldn't believe there was no better way of doing it.
+[You]: After he started looking for providers and and
+[You]: basically trying to automate this this
+[You]: extremely manual and complex process.
+[You]: He immediately understood there was a pain.
+[You]: And that's when we basically started interviewing.
+[You]: We've done
+[You]: what, over 300 interviews with companies' fintechs
+[You]: and it's a pain. It's
+[You]: very rare for us
+[You]: to speak with someone from FinOps or operations or accounting.
+[You]: And them saying,
+[You]: this is not a problem, or this is not a pain, or this is something we
+[You]: already sold. Yeah. I think at the service
+[Remote]: Maybe enough yeah. Good.
+[You]: sorry. Just at the service level, it's it's a very
+[You]: technical problem because it's hard to ingest all these data sources, do the normalization,
+[You]: processing the files, etcetera.
+[You]: And then it's it's just very, very time consuming. So I think the first
+[You]: problem worth solving is automation. Right? There's a lot of
+[You]: human hours poured into this low leverage process that should be automated.
+[You]: And then the second part is related to risk.
+[You]: I think, if you look at fintech the past five to seven years, it has
+[You]: definitely
+[You]: gotten harder and harder over time to reconcile because of these layers of
+[You]: abstraction we're adding in the stack, and there's a lot of integrations touching the money.
+[You]: So
+[You]: if I would be pitching a a reconciliation start up
+[You]: five, seven years ago, it was not a problem worth solving. Today, it has become a real
+[You]: pain because of how the stack evolved. And I think going forward, this is just
+[You]: a mission critical thing that we need to fix as an industry.
+[You]: And so I don't know. That's why we think it's it's there's there's a huge opportunity. And
+[You]: and that's why we're building.
+[You]: That's mostly mostly on the pain side where most companies are not
+[You]: even reconciling on a transactional level.
+[You]: They just do a
+[You]: global balance. And as long as
+[You]: the difference does does not amount to more than x or y,
+[Remote]: Okay.
+[You]: doesn't get addressed.
+[You]: And it's not because they don't wanna reconcile on a transactional level. It's because
+[You]: these companies
+[You]: have so much volume and that that it's technically impossible for them to
+[You]: either do it on X-Zet or be taking
+[You]: technical
+[You]: talent.
+[You]: To build an internal solution. It's
+[You]: it's so it's a it's a clear
+[Remote]: Yeah.
+[You]: extremely painful problem.
+[You]: That it's not Yeah.
+[You]: Easy enough to solve by building an internal tool.
+[You]: That does not require a lot of technical talent.
+[Remote]: Yeah. Yeah. Yeah.
+[You]: Yeah. It
+[You]: I know.
+[Remote]: I'll I'll just describe you sort of in quick, like, five minutes. Like, essentially, I think
+[Remote]: we may be in the
+[Remote]: percentage of companies where you said we don't see this as a major problem, to be honest.
+[Remote]: I'll tell you sort of why
+[Remote]: And maybe because, you know, this was, like, the the
+[Remote]: heart of what Wise was doing because we were just moving money.
+[Remote]: Right? So this was, like, the first thing that, we built as a product.
+[Remote]: And, so I'll just give you a quick five minute, and then I think
+[Remote]: if we can open it up to whatever if you have any specific questions or if I have misunderstand
+[Remote]: sort of the space which you're working in. So, my understanding right now is, like, your
+[Remote]: the big the big part of the product proposition and which could be extended to other sort of areas is sort of a cash free
+[Remote]: is what we refer to it as internally. And
+[Remote]: it's, you know, any kind of money moment, you know, that's happening between one bank account to another bank account.
+[Remote]: You know? How do you kind of ensure that your internal
+[Remote]: ledgers or internal bookkeeping is a reconciled back
+[Remote]: to the external view of the money.
+[Remote]: If that's the problem that's based, you know, for us, it's kind of, you know, just
+[Remote]: how it works.
+[Remote]: If it's of, use, basically, we have, because as I said, like, the
+[Remote]: was the heart of the product that Wise initially built. Wise is called
+[Remote]: TransferWise. It was all about transferring money.
+[Remote]: And, you know, because we are in a cross currency and across country, space,
+[Remote]: we have bank accounts which I
+[Remote]: more than thousands, which are across the globe.
+[Remote]: So the first thing that we had to do we had these of course, customer level transactions.
+[Remote]: So we had to build the whole reconciliation, which is
+[Remote]: basically taking the, bank, and a lot of it is real time
+[Remote]: of it, maybe, you know, end of day because depends upon, know, what capabilities of each bank offers to us.
+[Remote]: But what our cash reconciliation frameworks does
+[Remote]: we either through sort of, you know, e direct API integrations
+[Remote]: or through bank scraping.
+[Remote]: We obtain we constantly obtain the transaction level details.
+[Remote]: The bank side. And, you know, on our side, you know, we
+[Remote]: we have our internal sort of various multiple ledgers. We have product ledgers. We have got the
+[Remote]: representation of the ledgers, which is across the products. We have the treasury representations.
+[Remote]: Has our front office risk management function. And across all of those ledgers, we are also managing
+[Remote]: our cash positions, and we are constantly
+[Remote]: at the transactional level, basically, we do it at the aggregate level as well.
+[Remote]: But at the transactional level, we so one is this whole scraping and
+[Remote]: bank transaction level information. Second bit is linking.
+[Remote]: We link each of those transactions internally to our,
+[Remote]: customer activities.
+[You]: Sorry.
+[Remote]: No worries. So I think, we basically have a combination, as I said, bank statement
+[Remote]: creeping, and second is linking.
+[Remote]: Linking. And that happens in real time, basic
+[Remote]: Constantly, we are basically putting all of that information, reconciling it with our books
+[Remote]: internally.
+[Remote]: And then we do end of day. We do end of week. We do end of month.
+[Remote]: So we have it at the periodic intervals as well.
+[Remote]: And, basically, we do it in different time zones. So, basically, we build a view of
+[Remote]: you know, what's the real world view, which is the view of the bank. We combine that with we basically we
+[Remote]: that with our product ledgers. We then reconcile that with our finance books. We reconcile that
+[Remote]: our treasury books. So we have multiple hops of reconciliations that we are currently doing.
+[You]: And everything is internal infrastructure.
+[Remote]: Is
+[You]: And
+[Remote]: This was the art of the product where it we started off transfer wise.
+[You]: yeah, yeah, for many companies that we speak with,
+[You]: we bump into the same situation where
+[You]: reconciliation sit sits at the core of what these companies do, and they're like, it's
+[Remote]: No.
+[You]: gonna be something internal. Right?
+[You]: But I'm very open
+[You]: and we would love to get your thoughts on
+[You]: the experience of building that infrastructure and maintaining it.
+[You]: And and how do you think that's gonna evolve with
+[You]: with AI and these new technologies?
+[Remote]: Think
+[Remote]: cost of maintaining it is essentially you know, it's like a
+[Remote]: told you we spend a lot of time really kind of kind of re refactoring it.
+[Remote]: I guess so.
+[Remote]: So we have different sort of you know, I would this into sort of different segments. Yes?
+[Remote]: Some segments are more volatile than the others. And what I mean by segments
+[Remote]: have the customer money moments
+[Remote]: That's one bucket. The second money moment is basically the treasury money moments.
+[Remote]: The third money moment is basically our corporate finance
+[Remote]: money moments, which is for our internal pay operational expenses and all of that.
+[Remote]: If you bucket it into these categories, some of these are more volatile than others in terms of the infrastructure
+[Remote]: Right? So the customer money moments, you know,
+[Remote]: and we all of course, you know, I think a large part of it is
+[Remote]: also have an operational team. So whatever falls off the cracks,
+[Remote]: is getting managed currently by the operational teams.
+[Remote]: Yeah. So I think there could be a case
+[You]: Yeah.
+[Remote]: terms of, okay, can you basically reduce the amount of
+[Remote]: what falls of the cracks? And, of course, this is where, you know, we basically are
+[Remote]: regular expressions. We apply some fuzzy logics and all of that to do all of this matching today.
+[Remote]: Some of this could become more and more intelligent as we apply more AI driven sort of
+[Remote]: methods to doing it.
+[Remote]: Rather than simple reg x.
+[Remote]: But, I think the thing is that, you know, because the end to end process works,
+[Remote]: right, even if I have to replace it with the regular expressions with something which is more intelligent,
+[Remote]: it doesn't require me to kind of change the whole end to end process. Right? I could just
+[Remote]: that bit, you know, making it more intelligent. And we have very granular
+[Remote]: in terms of tracking what percentage falls off the cracks.
+[Remote]: And we are constantly in our plannings. You know, we have to just
+[Remote]: why we think it's still sort of worth for us to automate some of this. So I think it can
+[Remote]: of goes into that cycle.
+[You]: Got it. Got it. And and and
+[You]: I'm keen to hear your thoughts on
+[You]: what happens when things don't reconcile.
+[You]: The ops teams steps in,
+[You]: and they start investigating, and they start communicating with third parties, right, to
+[You]: basically make a sense of the difference.
+[Remote]: Yeah. And so and see, it depends
+[Remote]: upon whether yes. So they somebody will have to do the triage, the root cause analysis.
+[Remote]: The root cause could be, you know, it is some setup on our side. You know?
+[Remote]: You have to think of what we are trying to reconcile. We are trying to reconcile what
+[Remote]: the external view that you the what's the bank's view of the money.
+[Remote]: What is our view of money. And our view of money also, it's like multiple hops
+[Remote]: What is the product ledger's view? What is the finance ledger view? What's the treasury ledger view? Right?
+[Remote]: Could be other ledgers as well.
+[Remote]: So then the, you know, the root cause could be that there is a
+[Remote]: in a configuration setting and say in finance or a configuration setting in or the root cause could be
+[Remote]: the bank did not we did not we did a double sort of import from the bank or could be anything. Right?
+[Remote]: So I think, yes, the initial sort of this root cause analysis sits
+[Remote]: with the operational teams.
+[Remote]: And once they identify, then the fix could be, you know, we already have tools. You know, they could just
+[Remote]: reap whatever they have the tools, you know, through which they could fix the issue. Yeah?
+[Remote]: Or it could be they could just simply write off
+[Remote]: write it off as a loss. They know that, okay, the money is accounted for.
+[Remote]: But we just need to kind of match our books so they could just write it off in the books so that we are
+[You]: Got it. Got it.
+[You]: And and do you have a sense of how much
+[You]: time or money is lost in that
+[You]: investigation and that triage you mentioned?
+[Remote]: I have to look at my POPs, the operational team costs.
+[Remote]: But, it's not significant enough for it to kind of surface
+[Remote]: as an issue that we would want to fix
+[Remote]: to be yeah.
+[You]: Okay.
+[Remote]: It's not significant enough. It might be big, but, you know,
+[Remote]: is it something that's
+[Remote]: significant? No.
+[You]: And and and with the current process,
+[You]: you have today at Wyze, what would you say are the
+[You]: remaining pain points you would want to improve going forward? What what's
+[You]: still hurting about the process?
+[Remote]: Think it's regular expression based, you know, matching
+[Remote]: the fuzzy match that we apply
+[Remote]: because, they have to constantly keep updating the regular
+[Remote]: especially on the, the treasury side. You know, we've dealing with the
+[Remote]: banking partners.
+[Remote]: You know, it's providing instructions to those banking partners, what
+[Remote]: we need to use, and then how do we match those references to our internal transactions.
+[Remote]: I think that, tends to be sort of a common pain point which we have to continuously through
+[You]: Providers change the expressions, and that breaks all the logic. Right?
+[Remote]: yeah.
+[You]: Reconciliation log
+[Remote]: Yeah.
+[You]: And how are you currently managing that process? You wait it's it's react
+[Remote]: Goes into your operational queue. Yeah. It goes into your operational queue, and they'll need to
+[Remote]: kind of they have tools from engineering where they can replay those transactions
+[Remote]: and it can then be matched once you fix the expressions.
+[Remote]: So I think that's an area which needs to be further optimized.
+[You]: interesting.
+[You]: Got it. And and and
+[You]: I like that at the beginning, you were asking a lot about why were we building in this
+[Remote]: Yeah.
+[You]: problem space.
+[You]: Would love to get your thoughts on on
+[You]: what are like, what do you think about this problem space? For us,
+[You]: the way we're seeing it is this is a fundamental critical
+[You]: problem that the fintech industry needs to solve, because I think
+[You]: there's not that many companies like Wise that have built internal infrastructure
+[You]: for this or that are doing it as good as you guys are doing it. And
+[You]: to be honest, you guys have invested a lot of money and time and and
+[You]: resources on building this infrastructure because, as you said, it it's
+[You]: at the core of what you do.
+[You]: But for most of the companies, it's not the case.
+[You]: Or they're looking to prioritize other stuff like time to market and growing quicker.
+[You]: And they don't take the time
+[You]: or the resources to build the infrastructure you guys have built. So
+[You]: going forward, I think
+[You]: the industry
+[You]: as we continue adding more and more
+[You]: abstractions, like you were just mentioning, there's
+[You]: four layers of abstraction wise. There's the
+[You]: product ledger, there's the finance ledger, there's the treasury ledger, and you go these
+[You]: you do these checks and these
+[You]: going forward, think we're gonna see more and more
+[You]: abstractions in fintech.
+[You]: Right, as we add more and more integrations, provide us not only the bank. It's
+[You]: your provider, it's your card provider, so on. So
+[You]: we see it as as
+[You]: a problem that's only gonna become worse and that companies will need
+[You]: some sort of solution. But
+[You]: I'm really open we're really open to getting your thoughts on
+[You]: on the problem space and how you think it's gonna evolve, particularly for companies
+[You]: not like Wise. Like, try to get your
+[You]: your Wise hat
+[You]: off and and think about it, like, as a fintech industry because I know you have an amazing career in in financial services.
+[Remote]: I think back in the bank, like, you know, see see, for example, like,
+[Remote]: Barclays and the pieces where I've seen, reconciliation used to be like a separate
+[Remote]: team and a platform in itself with you know, because they had to reconcile all
+[Remote]: of permutations and combinations of ops across systems.
+[Remote]: But
+[Remote]: you know, I think, companies, you know, these kind of bigger bigger institutions
+[Remote]: they tend to then sort of play around with the
+[Remote]: whatever is the new sort of tech
+[Remote]: innovation
+[Remote]: in the market. And so, essentially, in I remember, like, we were
+[Remote]: playing around the blockchain and sees, can we take away the need for
+[Remote]: back office reconciliation because we thought, you know, blockchain was an ideal space you
+[Remote]: where reconciliation could be kind of completely killed.
+[You]: An ice pick.
+[Remote]: And I spent a lot of my time sort of, you know, building blockchain based solutions
+[Remote]: This was back in 2016.
+[Remote]: And I soon realized, effectively, it's kind of a message queue with multiple hops again.
+[Remote]: You're never gonna have a single database, right, which is across
+[Remote]: offer. Unless so across companies, you're not gonna have a single database. So I think it's like a
+[Remote]: I think it's a bit like you will always need this, my sort of view on this.
+[Remote]: Will always need this kind of a reconciliation no matter where you are. I don't think blockchain or a particular
+[Remote]: tech solution is gonna help.
+[Remote]: I guess
+[Remote]: I have seen companies like Duco to know if they are in your competitor space.
+[You]: Yeah.
+[You]: They're they're focused in Europe. Right?
+[Remote]: They are.
+[Remote]: Actually, they are, but I remember back
+[Remote]: Barclays, we were looking at we had iMatch.
+[Remote]: Which was, an on prem solution.
+[Remote]: And we were looking at, Juco. I don't remember I don't know which way in the world they are based.
+[Remote]: It was like a reconciliation platform. And the important bit is that
+[You]: Yeah.
+[Remote]: you know, you would kind of disassociate
+[Remote]: the you would create a DSL, which is a domain specific language
+[Remote]: for the business users to use these platforms directly.
+[Remote]: And take away the engineering effort
+[Remote]: So if you could design a platform which could take away. So for me, Duopo would be a good example to
+[Remote]: emulate.
+[Remote]: And because it's a SaaS product, you know, it's
+[Remote]: kind and can you basically
+[Remote]: get to the level where you don't just necessarily look at bank accounts and the cash free corporate
+[Remote]: kind of look at any kind of reconciliation, building a generic solution, building your
+[Remote]: DSL, make your end user over here should be more of the nontech
+[Remote]: people because you're really kind of catering to business going and defining
+[Remote]: what are the things they want to reconcile.
+[Remote]: And removing engineers out of the loop. Right? And now with AI, I think that should be more of an
+[Remote]: direction in which companies should be moving rather than
+[Remote]: reliance on engineers. So I think that could be one direction to take.
+[Remote]: The that's from, like, a generic sort of from a traditional institution's perspective.
+[Remote]: The second direction, like, sort of from companies, like, even ours, like, fintechs.
+[Remote]: I think in general,
+[Remote]: not specifically this transactional level reconciliation because that's at the heart
+[Remote]: business. And if we don't reconcile that, essentially, we will fail our audits.
+[Remote]: But I think we have a bigger issue more in terms of
+[Remote]: overall access controls, access management,
+[Remote]: segregation of duties,
+[Remote]: and kind of reconciling the excess management aspect
+[Remote]: the external worlds and, you know, internal world.
+[Remote]: Because, generally, if you think, you know, these excess controls and all
+[Remote]: if you're working with a global sort of business with thousands of accounts across, you know,
+[Remote]: across the globe,
+[Remote]: There is no standardized way in which you're gonna control all of that. Right? And you want to see, okay.
+[Remote]: Is a person let me make a check a model. Right? Is a person who's creating the payment as
+[Remote]: same person who's approving the payment.
+[Remote]: Is allowed at what threshold policies to kind of do these approvals.
+[Remote]: And that, I think, is, like, I haven't seen sort of a
+[Remote]: product which basically kind of and you
+[Remote]: internally, every organization has their own sort of authentication and authorization models.
+[Remote]: So you have to combine sort of the company's internal auth and authorization
+[Remote]: models with what with what all the banks are
+[You]: With
+[Remote]: across the globe in different countries, different jurisdictions have,
+[Remote]: create this sort of a standardized layer which allows you to kind of match
+[Remote]: across all of that in a much easier way.
+[Remote]: Which is, you know, where a space where we are also
+[Remote]: kind of now looking at because typically, otherwise, you'll have to cobble up multiple
+[Remote]: different product offerings across this space.
+[You]: Okay.
+[Remote]: To get
+[Remote]: to get to that
+[Remote]: I have seen is a bigger issue right now for us.
+[You]: You said around excess controls?
+[Remote]: Yep. Basically,
+[You]: Do you mean by
+[You]: So
+[Remote]: so if, say, you know, I've got thousand different
+[You]: say
+[Remote]: I'm working with JPMorgan and across JPMorgan. Hong Kong is different from JPMorgan India.
+[Remote]: To JPMorgan US. Right?
+[Remote]: And, the way they are managing so I have opened up the bank
+[Remote]: in all of these here. They're the name of entity.
+[Remote]: Now the we have got, we've got a list of people who have access
+[Remote]: these accounts.
+[You]: Access controls.
+[Remote]: And
+[Remote]: yes, and those people have got different access controls. Right?
+[Remote]: Now that's what's JPMorgan's view or what we have
+[Remote]: those on the airport as
+[Remote]: We have our own internal view of what we think who has access
+[Remote]: to what.
+[Remote]: And now you have to basically, in real
+[You]: And now
+[Remote]: time,
+[Remote]: match all of this, right, and make sure that there is the joiner mover lever
+[Remote]: process, you know, is complete. Like, you know, you have taken off people from this because this becomes a huge
+[Remote]: risk.
+[You]: Interesting.
+[You]: And so for traditional institutions, it's it's way more about
+[You]: like, automating the process. Right?
+[You]: I
+[Remote]: Would say his
+[You]: think.
+[Remote]: I think for fintechs, you know, because this is our bread and butter, and this is where we started off our journeys,
+[Remote]: think the transactional level things I would imagine would be quite
+[Remote]: Otherwise, we'd feel our audits as well.
+[Remote]: I see this traditional institutions also have it. It's only thing
+[Remote]: they have a very batch oriented process.
+[Remote]: And they have, like, Chinese wall setups, etcetera, which kind of them.
+[Remote]: So the processes can be made more efficient.
+[Remote]: Our processes are kind of efficient, but, you know, like, they're efficient at this level where we
+[Remote]: where we have the
+[Remote]: options of having APIs. But play like,
+[Remote]: management is a good example because of the diversity and the nature of it.
+[Remote]: It becomes a very tricky thing for us to solve a
+[Remote]: all of these multitude of different parties across different countries having different
+[Remote]: IT and tech systems and to
+[Remote]: integrate that with ours
+[You]: Got it. Got it.
+[Remote]: at the nonprotection level.
+[You]: Interesting. And then one last question.
+[You]: Two last questions, actually. What do you think about these companies try to put build it internally? Because that's
+[You]: a blocker we've been getting.
+[Remote]: Which part?
+[You]: That some of these companies say, you know what? We're gonna give it a try to build something
+[You]: internally, some sort of tool internally.
+[Remote]: I mean, if I were to start my tech company, I would build it internally.
+[You]: You will not buy
+[Remote]: I would
+[You]: an external suit.
+[Remote]: no. I wouldn't because this is such such as it's it's at the heart of my product.
+[Remote]: And I will be audited on all of this unless
+[Remote]: you integrate yourself with some
+[Remote]: audited
+[Remote]: product where you kind of you tell me that you're going to reduce my audit load.
+[Remote]: Because one one of the big things with all of this is that, you know,
+[Remote]: this data needs to be super accurate. If I'm a publicly listed company,
+[Remote]: I need to get audited.
+[Remote]: So if you are part of an audited entity like an SAP or an and if you
+[Remote]: come and tell me that you're part of this audited entity, and I don't need to kinda go through this pain,
+[Remote]: maybe, yes, I will think I'll just move over to this product.
+[You]: Got it.
+[You]: Very clear. Interesting.
+[You]: Yep.
+[You]: The the audit part is is definitely
+[You]: interesting part. Well, other than that, I don't know if you have
+[You]: another question too. No?
+[You]: No.
+[You]: Thank you so much. This has been
+[You]: Extremely interesting.
+[You]: Extremely useful for us. A lot of learnings. And congrats on on the way you're
+[You]: like this. It's
+[You]: definitely not the rule
+[You]: or what we generally see every day.
+[You]: Way you solve this.
+[You]: So congrats on that. Just one last question because
+[You]: it's interesting this part of building internally because of the audit
+[You]: readiness and so on.
+[You]: Would an on premise model then
+[You]: make more sense in in the sense of
+[You]: we build the info we build the solution and deploy it in your infrastructure
+[You]: for you to control.
+[You]: Like a Palantir model.
+[You]: Would that make more sense then?
+[You]: Because then you are controlling it, you have it internally, but you don't have to spend the time and resources to build it out.
+[Remote]: I think honestly,
+[Remote]: right now, if I'm looking at the products, we are looking at all of the sales based off
+[Remote]: So I think this on prem
+[Remote]: this model will not survive even if I look at, like, the SAPs. Right?
+[Remote]: They're not pushing you towards using their cloud hosted info. They're saying move away from your own
+[Remote]: prem.
+[Remote]: So to me, that distinction is not material.
+[You]: So
+[You]: as well
+[Remote]: As long as you kind of, you know, take away yes. You have to take away that effort part of it for me.
+[Remote]: In fact, we don't do any on prem. So if you come and tell me this is on prem, I'm not gonna take this
+[You]: Not on prem, but I mean hosted in your cloud.
+[Remote]: solution.
+[You]: You know?
+[Remote]: In our cloud, yes. So we are using AWS. We don't use we don't have our own sort of
+[Remote]: you know, our own data center where we are basically our primary usage is AWS.
+[You]: No. No. For sure.
+[You]: The distinction if it's hosted in your cloud or in our cloud?
+[Remote]: Okay.
+[You]: Ok.
+[Remote]: May yeah. That may matter.
+[You]: Okay.
+[Remote]: I think, yeah, you'll have to get down into the specifics. I guess any solution you build at the solution level should
+[Remote]: should be immaterial. Right? If you're hosting on AWS, if your solution is ready for, say, AWS
+[Remote]: Azure or GCP, whatever. Right?
+[Remote]: Now whether it's hosted within our sort of, you know, VCP
+[Remote]: virtual private network, or whether it's kind of within
+[Remote]: or virtual private cloud VPC, whatever you call it. Like, you know, how does it really matter?
+[You]: I mean,
+[Remote]: You would offer both. Right?
+[You]: data security, vendor log in, there's some things we've been seeing that push us towards the
+[Remote]: Oh, okay. Okay. From that perspective, anyways, if you're a product
+[You]: customer Hope.
+[Remote]: I'd imagine you wouldn't want to build just for it. You would be
+[Remote]: cloud agnostic. Right? Whatever solution you build,
+[Remote]: should be because different companies will be on different cloud networks.
+[You]: Right now, we are. Gluta agnostic first.
+[Remote]: So
+[You]: The difference would be
+[You]: basically, who owns the account
+[You]: we are
+[You]: storing all the information? Is it is it you? Is it your account?
+[You]: Or is it our account
+[You]: most of the information?
+[Remote]: Got you. Got you. Got you. So the the the distinction between the data plane
+[Remote]: and the control plane. Right?
+[Remote]: Like, the data plane is which has our data
+[Remote]: and the control plane is kind of the administration layer for your software itself.
+[You]: Exactly.
+[Remote]: So, yes,
+[Remote]: So, yes, 100%. Yeah. That you'll have to have a distinction between the two.
+[Remote]: Because any SaaS product, if you have if
+[Remote]: if administrators, you know, from, say, your company, if you're building a product,
+[Remote]: has access to our data, that will not be acceptable as a solution.
+[You]: Of course. Interesting.
+[Remote]: 100%. I think all sides
+[You]: Yep.
+[Remote]: products, you know, they typically distinguish between the two.
+[Remote]: Planes.
+[You]: All right. I don't wanna I just wanna be conscious of time. Thank you so much, Ritu. This has been amazing for us.
+[You]: We might drop down some additional questions via email. Other than that,
+[You]: great meeting, and and thank you so much for your time, really.
+[Remote]: Yeah.
+[Remote]: I'm not sure I'll have the time to respond to questions.
+[Remote]: I will give you the best, but I wish all of you both of you the very best. I just thought
+[Remote]: you know, if I can add any value to your sort of initial phases of build out, you know, I'm happy to do so.
+[Remote]: Wish you all the best.
+[You]: Thank you. Have a great day. Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Wise’s Reconciliation Infrastructure
+
+- It was the heart of the product that Wise built as TransferWise
+  - Cross-currency, cross-country space with thousands of bank accounts globally
+  - Built comprehensive reconciliation framework from day one
+- Three types of money movements requiring reconciliation:
+  1. Customer money movements
+  2. Treasury money movements
+  3. Corporate finance money movements
+- Multi-layered reconciliation process:
+  - Real-time bank transaction scraping via APIs or bank scraping
+  - First: product reconciliation (product ledger)
+  - Then: finance reconciliation (finance ledger)
+  - Finally: treasury view (treasury ledger)
+  - Source of truth: bank statements
+- Current matching uses fuzzy logic and regular expressions
+  - Moving toward more intelligence rather than regular regex
+  - Operational teams handle exceptions that fall through cracks
+- Root cause analysis process:
+  - Someone has to do triage of root cause analysis
+  - Could be configuration issues, double imports, or bank errors
+  - Teams have tools to replay transactions and fix issues
+  - Can write off as loss if money accounted for but books need matching
+- Cost assessment: “It’s not significant enough to surface” as major issue
+
+### Industry Perspective and Pain Points
+
+- Biggest current pain point: constantly changing expressions for matching
+  - Provider changes an expression and breaks the reconciliation logic
+  - Goes into operational queue for manual fixing
+  - Need to continuously update regular expressions, especially treasury side
+- Ritu’s view: “You will always need this kind of reconciliation”
+  - Blockchain won’t solve the problem - still multiple databases across companies
+  - Experience at Barclays: used iMatch on-premise, evaluated DuCo
+- Traditional institutions vs fintechs:
+  - Traditional institutions: focus on automating batch-oriented processes
+  - Fintechs: “It’s our bread and butter” - transactional level must be solved or fail audits
+- Emerging bigger issue: access controls across global banking relationships
+  - Managing permissions across thousands of accounts globally
+  - Different banks (JPMorgan HK vs India vs US) have different systems
+  - Becomes huge fraud risk without proper joiner-mover-leaver processes
+
+### Build vs Buy Considerations
+
+- Ritu’s stance on building internally: “If I were to start my fintech company, I would build it internally”
+  - Reasoning: “It’s at the heart of the business, and this gets audited”
+  - Exception: would consider external solution if it’s audit-ready product
+  - Must integrate with audited entity like SAP to reduce audit load
+- Technical requirements for external solutions:
+  - Should create DSL (Domain Specific Language) to take away engineering effort
+  - Must be cloud agnostic (AWS, Azure, GCP)
+  - Critical distinction between data plane (customer’s data) and control plane (admin layer)
+  - Data must remain in customer’s environment - vendor admin access to data “not acceptable”
+- Deployment preferences:
+  - No on-premise solutions accepted
+  - Hosted in customer’s cloud (AWS VPC) vs vendor’s cloud matters for security
+  - Solution should be immaterial to hosting location if properly architected
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/db5d2b99-d1a2-4125-a336-039be8d4f672](https://notes.granola.ai/t/db5d2b99-d1a2-4125-a336-039be8d4f672)

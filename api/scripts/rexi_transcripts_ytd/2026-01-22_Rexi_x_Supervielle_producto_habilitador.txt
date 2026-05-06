@@ -1,0 +1,966 @@
+MEETING: Rexi x Supervielle: producto habilitador
+DATE: 2026-01-22
+ID: not_wxhJaFWyDNeJLu
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Sebastian <sebastian@rexi.finance>, Federico Sabatini <federico.sabatini@supervielle.com.ar>, Julio Arandia <julio.arandia@supervielle.com.ar>, Teo <teo@rexi.finance>, Mariano Riccillo <mariano.riccillo@supervielle.com.ar>
+SCHEDULED: 2026-01-22T14:00:00-05:00 - 2026-01-22T15:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Buenas.
+[You]: So what
+[Remote]: ¿Cómo va? Buenas. ¿Todavía?
+[Remote]: Buenas, ¿cómo le digo? ¿Cómo andan? Buenas, chicos, ¿cómo andan?
+[Remote]: Todo tranquilo, ¿entés?
+[Remote]: Bien, saliendo de otra reunión, reunión en reunión. Me imagino están igual.
+[Remote]: Ahí va. ¿Estamos todos o falta falta julio?
+[Remote]: Julio. Falta julio. Julio. Y Javi.
+[Remote]: Y Javi Caraballo.
+[Remote]: Y no sé si quedo a subir alguno de los de los
+[Remote]: otros chicos del producto habilitador del equipo de Sami, así que aguantemos un toque.
+[Remote]: Dale, genial. Acá no están sumados a la reunión igual por las dudas,
+[Remote]: La reenvió julio, me parece, Ah, genial, genial.
+[You]: Yeah. That's
+[You]: Sí, Mariano, mientras tanto, el el
+[Remote]: Perfecto.
+[You]: función de producto habilitador es un equipo que que desarrolla producto interno,
+[You]: ¿cómo es?
+[Remote]: Es un equipo de sistemas que desarrolla
+[Remote]: internamente
+[Remote]: y tiene el vínculo con proveedores.
+[You]: Excelente.
+[Remote]: El vínculo técnico, digamos, con los proveedores.
+[You]: O sea, en este caso sería
+[You]: nuestra contraparte, digamos, con la que más trabajaríamos.
+[Remote]: En realidad,
+[Remote]: con los que más trabajarían, tal vez sería con el equipo de de
+[Remote]: Fede, Santi o conmigo, para todo lo que es la definición de
+[Remote]: las conciliaciones en sí, pero en lo que es técnico,
+[Remote]: infraestructura, instalación y todo eso, tal vez
+[Remote]: sí trabajen con ellos, este, y y no sé si hay que hacer alters
+[Remote]: en en algunas tablas, bueno, algunas cosas medio
+[Remote]: medio relacionadas a eso, sí.
+[You]: Dale.
+[Remote]: Javi,
+[You]: En el Hola, Javi, ¿cómo estás?
+[Remote]: ¿Cómo estás?
+[Remote]: Buenas. Está faltando Julio.
+[You]: Un gusto.
+[Remote]: Sí.
+[Remote]: Un gusto. Buenas, ¿cómo están? ¿Qué tal, Franco?
+[Remote]: Hace, Javi? ¿Qué tal?
+[Remote]: Todo bien. Todo bien.
+[Remote]: Me alegro.
+[Remote]: Ahí no veo
+[Remote]: para leer.
+[Remote]: Le remier la cita aparte del equipo,
+[Remote]: a ver si se sube, pero
+[Remote]: ¿Y tal que te ayude con algo, Javi?
+[Remote]: No, no.
+[Remote]: No, le iba a decir a los chicos a ver si se subían
+[Remote]: y así ya arrancamos.
+[Remote]: Ahí está, Julio.
+[Remote]: ¿Qué hace Julio?
+[Remote]: No, no me están viendo, espérame. No, se ¿Te va para el viento, Julio?
+[Remote]: No, no, no, no me gaste, boludo. Hola. Digo, te voy a a usted.
+[Remote]: Ver si aparezco ahí.
+[Remote]: Ahí estoy, vamos.
+[Remote]: Ahí va. Primero que nada, discúlpeme, esta estaba en un arruño que se extendió más de la cuenta.
+[Remote]: Cuenta.
+[Remote]: Hay caras conocidas y hay caras que no son conocidas,
+[Remote]: ¿sí? Nacho, Teo y Sebas son de Rexi.
+[Remote]: ¿Sí?
+[Remote]: Bueno, Mariano y Aspede lo conocen, a Santi y yo no sé si lo llegaron a conocer
+[Remote]: los chicos de Rexi, Santi trabaja en equipo de control contable con
+[Remote]: con Fede,
+[Remote]: ¿sí? Y después tenemos acá
+[Remote]: al equipo de producto auditador, que está Javi Caraballo,
+[Remote]: David Traverso,
+[Remote]: y que yo tampoco lo conocía, así que bueno, ¿hola?
+[Remote]: A ver,
+[Remote]: ¿cuál es la idea y por qué, Nacho, te pedí esta reunión?
+[Remote]: Y Nobleza obliga tenía solamente treinta minutos Javi, así que aviso vos pusiste una hora, pero para para que sepas, Nacho,
+[Remote]: la idea es contarle,
+[Remote]: a grandes rasgos,
+[Remote]: cómo funciona el motor, cómo sería
+[Remote]: la interfaz con con producto habilitador,
+[Remote]: y entender para armar nuestro presupuesto,
+[Remote]: ¿sí? En forma integral,
+[Remote]: lo que necesitamos, aparte de los costos de ustedes,
+[Remote]: lo que necesitamos de de tecnología para desarrollar acá dentro del banco.
+[Remote]: Claro, ahí ahí gracias, Julito.
+[Remote]: Ahí, un poco, bueno, Julio y Mariano me contaron de de las reuniones, qué qué qué
+[Remote]: fueron teniendo. Lo que yo le decía es, buenísimo, armar una reunión
+[Remote]: como para entender
+[Remote]: No, no al detalle que sé que le hicieron una presentación a los chicos y todo,
+[Remote]: pero muy alto nivel,
+[Remote]: cómo funciona,
+[Remote]: ¿qué se necesitaría del banco? No sé si la infraestructura tiene que estar
+[Remote]: alojada en en banco, sé que había como dos alternativas,
+[Remote]: si es de que la infraestructura queda en el banco
+[Remote]: qué es lo que se necesite, qué van a necesitar de los si si hay
+[Remote]: se necesita además del know how y el entendimiento del
+[Remote]: esquema de tablas,
+[Remote]: se necesita que el equipo de desarrollo de tecnología haga algo,
+[Remote]: y lo que más me me interesa sería
+[Remote]: una vez que proyecto funcionando, se hacen
+[Remote]: cierta cantidad de procesos que entiendo que estuvieron mapeando y eso,
+[Remote]: por el buen, en el buen sentido le digo, ustedes se van
+[Remote]: qué nos queda a nosotros y y qué necesito tener adentro del equipo,
+[Remote]: para que esto siga evolucionando. O capaz me dicen, che, no, nada, esto
+[Remote]: todo,
+[Remote]: customizable, el equipo de julio lo puede hacer,
+[Remote]: y si algo se prende fuego,
+[Remote]: levantaremos el teléfono y lo llamamos. Un poco que tener ese panorama
+[Remote]: la la idea.
+[You]: Perfecto.
+[Remote]: Dale, espectacular.
+[Remote]: No sé, Nacho, ¿querés que arranque yo? ¿Vamos completando o querés arrancar vos?
+[You]: Si quieres, doy un paneo más
+[You]: high level de cómo imaginamos nosotros el bloqueamiento y la transición
+[You]: y después se va asister a uno que que te metas a dar un poquito más detalle de las cosas técnicas. Pero
+[You]: básicamente, un poco la propuesta que nosotros armamos es montar
+[You]: toda la operatoria del banco en nuestro modelo SaaS, y al finalizar
+[You]: en q cuatro la idea es instalar todo eso en la infraestructura
+[You]: ustedes, si ya les quedan dando.
+[You]: La herramienta está diseñada para
+[You]: para gente no técnica, para que la pueda usar gente no técnica. Entonces, Julio habla de re
+[You]: reparametrizar, configurar un flujo nuevo,
+[You]: cambiar algún reporte, editar el dash
+[You]: etcétera. Todas las funcionales que suceden de alto la plataforma debería ser muy flexible y configurable por
+[You]: Julio, Mariano, Federico y y Santiago.
+[You]: No no la gente de sistemas.
+[You]: Ahora, yendo hacia adelante, después van a suceder varias cositas, ¿no? Va a haber
+[You]: van a haber cuestiones de soporte,
+[You]: que ahí, obviamente, si si algo falla en la infra de
+[You]: banco, nosotros ya nos excede un poco, entonces, lo que sea
+[You]: parte de la estructura del banco, nosotros no podemos controlar. Por eso también la implementación
+[You]: infraestructura del banco va a ser mucho en coordinación con ustedes,
+[You]: nosotros brindando el soporte y la documentación necesaria, pero nosotros no podemos meter nada.
+[You]: Meter mano en esa infra. Y después,
+[You]: van a van a suceder dos cosas, van a ver fixes, que van a ser por back
+[You]: críticos, no críticos o cuestiones de seguridad, que de vuelta ahí nosotros vamos a estar muy metidos y hablando con ustedes
+[You]: y ayudándolos a desarrollar esos fixes.
+[You]: Y después está el mundo de upgrades. El mundo de upgrades es todo lo que nosotros llamamos
+[You]: funcionalidades adicionales, módulos nuevos,
+[You]: y avances de versiones que vamos a nosotros ir sacando de la plataforma.
+[You]: Ustedes se llevan al treinta y uno de diciembre la última versión, ya después veinte veintisiete cualquier upgrade se cotizaría por separado, tanto la documentación como la implementación. Lo que sí queda en veinte a veintisiete en adelante, queda ese soporte y queda todo lo que es fixes, eso siempre va a estar. Con lo cual es alto nivel, poco como como nosotros lo estamos planteando. Dicho esto, creo que hay mucha voluntad en ambas partes para para hacer que esto sea un caso de éxito, y realmente desbloquee mucho valor para el banco, tanto de nuestro lado como ustedes también, obviamente, Con lo cual, digo, hay hay una actitud y hay una voluntad de que
+[You]: por fuera de lo contractual hay un soporte con canal directo
+[You]: y vamos a estar ahí para ustedes para ayudarlos en cualquier cosa que haga falta.
+[You]: Dicho eso, se va a seguir métete más
+[You]: en lo técnico de contar un poco como tú estás imaginando vos.
+[You]: La implementación y la transición.
+[Remote]: Dale, genial. Bueno, ahí también sumé a Fran Panario, que es
+[Remote]: también de nuestro equipo de infra y de data, de
+[Remote]: Rexy, para que también todas las preguntas técnicas que tengamos lo vayamos
+[Remote]: resolviendo entre nosotros. Como dijo Nacho, nosotros venimos de un modelo SaaS,
+[Remote]: ¿ok? O sea, de Rexy hoy es una aplicación, todo corre en nuestra infra, todos los clientes
+[Remote]: que tenemos están corriendo a nuestra infra, pero la verdad que
+[Remote]: Julio, Marian, Fede, Santi nos propusieron este modelo de licencia
+[Remote]: le dimos una vuelta de rosca, nos dijeron que el banco no
+[Remote]: para SaaS, y nosotros empezamos a hacer un modelo que para nosotros es nuevo,
+[Remote]: pero dijimos, bueno, vamos a incursionarlo,
+[Remote]: Entonces, bueno, lo que armamos un poco es una estrategia donde
+[Remote]: Rexy, nosotros operamos en el modelo SaaS, porque hay que hacer varias
+[Remote]: desarrollos para SuperVille, entonces, tiempo, entonces, para ya tener impacto en el negocio,
+[Remote]: nosotros vayamos
+[Remote]: jugando SuperVille dentro del modelo SaaS, cuando terminamos de hacer todo el desarrollo que necesita SuperVille,
+[Remote]: la idea es
+[Remote]: paquetizar eso, ese y entregarlo al banco. ¿Qué significa esto?
+[Remote]: ¿Tendrían el código fuente? O sea, si ustedes quieren hacer las modificaciones que tienen que hacer,
+[Remote]: las podrían tomar, pero la idea es entregárselos
+[Remote]: y, para instalarlo, obviamente, nosotros vamos a necesitar
+[Remote]: el equipo de infraestructura y de bots. Vamos a tratar de hacer el enlatado lo más agnostico
+[Remote]: a nivel infra, sabemos igual que usan AWS,
+[Remote]: así que nosotros también, así que como primer cliente de modelo de licencia nos viene joya,
+[Remote]: para no tener, porque si sería otra infraestructura, estaríamos otra nube, estaríamos Está bien.
+[Remote]: Sería más complicado, pero por suerte compartimos nosotros, usamos dos componentes de AWS,
+[Remote]: así que si ustedes están en la misma también,
+[Remote]: Y la idea es armar
+[Remote]: ser un negocio que después nosotros podamos replicar a otros clientes, empezaríamos con ustedes,
+[Remote]: pero la idea es que esto sea
+[Remote]: lo estamos viendo como algo que ustedes
+[Remote]: se los pasamos, son imágenes de Docker que van a estar en la nube, y ustedes pueden descargarlas
+[Remote]: y que la instalación sea
+[Remote]: muy fácil de hacer, ¿ok? Que con un que en un par de scripts
+[Remote]: ustedes puedan instalar esto en su infraestructura, y bueno, creo que
+[Remote]: a tener que estar conectados los dos equipos, ¿no? Infraestructura de
+[Remote]: versus infraestructura del banco. Lo bueno de esto es
+[Remote]: que esto, Rexy, debería estar la misma plataforma, habría que levantar
+[Remote]: la base de datos, un postre que tiene Rexi para para
+[Remote]: todo lo que es datos, también tenemos calles que hay que levantar,
+[Remote]: pero cuando eso estaría todo funcionando, la plataforma de Rexy la pueden correr
+[Remote]: internamente, capaz que por local, no sé cómo ustedes manejan las aplicaciones internas del banco,
+[Remote]: por VPN, pero también había que hacer toda la parte de seguridad,
+[Remote]: para que esa data consúmale a ustedes,
+[Remote]: Y también estamos planeando todo lo que hagamos en el modelo SaaS
+[Remote]: estos meses, hacer la migración de todo lo que lograron,
+[Remote]: hacia la plataforma. Es decir, la plataforma, cuando ustedes la instalen en el banco,
+[Remote]: no esté en cero, sino tenga todo lo que hicimos
+[Remote]: hasta ese momento, que es lo único que sería es hacer una migración de base de datos
+[Remote]: agarrando toda la data que estuvo procesando SuperVille hasta la fecha,
+[Remote]: y cuando ustedes lo instalen en en su infraestructura,
+[Remote]: puedan tener esa data cargada y seguir el modelo de negocio, pero ya
+[Remote]: corriendo bajo la infraestructura de superbit.
+[Remote]: ¿Ok? Eso es a grandes rasgos lo que queremos armar como paquete.
+[Remote]: Nada, o sea, código fuente,
+[Remote]: nosotros también vamos a dar scripts de actualización de back
+[Remote]: y fixes, y algunos features que nosotros vayamos evolucionando a la plataforma,
+[Remote]: ¿qué significa esto? Si nosotros vamos a estar mandando
+[Remote]: actualizaciones de la plataforma, la idea es que su equipo, lo más rápido y
+[Remote]: fácil posible, es que pueda ejecutar unos scripts que actualizan las imágenes de Docker
+[Remote]: ¿ok? Que tienen con las nuevas actualizaciones, que generalmente
+[Remote]: vamos a decirle, van a ser retrocompatibles, es decir,
+[Remote]: no deberían romper nada de la operación ni tampoco Como es una herramienta que se usa más in house,
+[Remote]: para reconciliaciones, no hay un tema de uptime que esté corriendo, entonces puede estar un poco
+[Remote]: mientras actualiza la plataforma, no debería haber problema ahí. Pero bueno,
+[Remote]: como les decía, para nosotros esto lo estamos tomando realmente
+[Remote]: como un producto nuevo de Rexy, y queremos armarlo bien para
+[Remote]: no sea muy custom para SuperVille, sino que esto que armamos
+[Remote]: también nos pueda servir como como otra forma de consumir
+[Remote]: ¿no? Y y nos viene bien también esto de que ustedes mantengan la infraestructura,
+[Remote]: los costos de infraestructura ya los manejan ustedes y solo tienen lo de Rexy.
+[Remote]: Con respecto al desarrollo,
+[Remote]: del lado de SuperVin, la idea es que no tengan que hacer
+[Remote]: nada más que levantar la infraestructura. Debería estar todo como
+[Remote]: andando y dejar todo funcional para que no tengan que hacer nada.
+[Remote]: Lo único que podría venir de desarrollo del lado de Superville es que el equipo de julio y los chicos necesiten algún feature adicional
+[Remote]: que quieran ya directamente ustedes hacer como un spin off de Rexy,
+[Remote]: y eso ya vayan haciendo código in house, porque van a tener código para poder hacer
+[Remote]: eso. Entonces, capaz que hacen un módulo nuevo o lo que sea.
+[Remote]: Eso es lo único de desarrollo, pero a nivel instalación, la idea es que no tengan que hacer la
+[Remote]: Ok, eso eso sería así,
+[Remote]: el equipo de julio requiere algo especial, pero
+[Remote]: lo lo que yo pienso es,
+[Remote]: lo que llamamos buenísimo, son x cantidad de procesos,
+[Remote]: a levantar de acá al treinta y uno de diciembre de este año, como decías.
+[Remote]: Digamos, cualquier cosa, primero de enero veinte veintisiete,
+[Remote]: funcionando,
+[Remote]: damos la mano, buenísimo, todo bárbaro.
+[Remote]: Julio me llama el dos de enero y me dice, ¿sabes qué? Quiero un proceso nuevo.
+[Remote]: Me tiene que llamar a mí,
+[Remote]: o Julio va a tener todas las herramientas para hacerlo?
+[Remote]: Perdón, ahí, ¿qué tal, Teo? Dale, dale. No, que no no llegaste a ver una demo, pero la plataforma está hecha para que si ya están dando y demás cualquier flujo, cualquier o sea, es una plataforma de automatización de procesos. Hiperflexible. O sea, cualquier cosa que quieran automatizar de su lado lo pueden hacer, El único caso en el que te llamarían es si hay algo hiperespecífico que no está contemplada la plataforma, que no está contemplada dentro todo este año del proyecto, porque todo este año vamos a estar haciendo cosas Sí, haciendo feature que nos van a estar dando. Claro. No nos deberíamos sorprender dos de enero con algo que no no hay modo
+[Remote]: no oímos. Sí, no, es que va a inventar la rueda el dos de enero y me va a
+[Remote]: a pedir Me ponele que te Ok. De repente
+[Remote]: llegar a inventar la rueda, probablemente debería poder hacerlo
+[Remote]: dentro de la plataforma, y si no, ahí tienen dos opciones, y si estamos ya
+[Remote]: de este proyecto, fuera de este año, fuera de estos flujos que hablamos,
+[Remote]: y quieren hacer a lo que no está,
+[Remote]: o desarrollarlo ustedes porque ya son dueños del código, o podemos desarrollarlo
+[Remote]: nos llama a nosotros y nos dicen che, nos encantaría una mano con este proyecto,
+[Remote]: Perfecto.
+[Remote]: Ok.
+[You]: Es lo que más buscábamos? ¿No? El carácter de de del partner GP
+[You]: es justamente ese, digamos, seguir trabajando con ustedes en veinte veintisiete, en de estados de nuevos y etcétera.
+[Remote]: No. That's
+[Remote]: That's
+[You]: Pero sí,
+[Remote]: no, no, está clarísimo, que que quería entender también el
+[Remote]: el el mantenimiento de lo que puede llegar a tener, por lo que me están
+[Remote]: ¿va a ser un mantenimiento más de infra?
+[Remote]: Exactamente. Que que de que de código o o de cosas que pasen en
+[Remote]: el día a día, de che, no corrió tal proceso,
+[Remote]: no actualizó, métete y buceá y entendé lo que hace,
+[Remote]: Claro. No, acá lo mejor que nos podría pasar, Javi, y para mí es
+[Remote]: para nosotros sería caso de éxito, es que ustedes esto seguramente tienen como
+[Remote]: como muchas aplicaciones que ofrecen al
+[Remote]: los usuarios del banco interno de de cosas que Rex sí lo puedan ofrecer
+[Remote]: como nueva herramienta de conciliación, quizás arranca, siempre lo hablamos con con el equipo,
+[Remote]: de capaz que arrancan ellos, pero después hay un montón de procesos del banco que se pueden automatizar,
+[Remote]: y que ustedes puedan ofrecer esa herramienta a todo el banco y que sea reutilizable. Entonces,
+[Remote]: es algo que lo puede agarrar otro equipo, Rick, sí, es muy fácil de de usar
+[Remote]: y cualquiera pueda sumar procesos ahí,
+[Remote]: único que sí va a tener que hacer el banco es mantenimiento de la infraestructura.
+[Remote]: ¿Ok? Mantenimiento, ¿qué quiere decir esto? Que la infraestructura es escale,
+[Remote]: Obviamente, tenemos todo listo para que escale. Imagínese que nosotros es un B2B
+[Remote]: que sería imagino. Entonces, no creo que haya problemas de escalabilidad,
+[Remote]: pero, bueno, repetir, ahí también estamos nosotros para dar una mano y che
+[Remote]: chicos, no nos está escalando esto, y sumarnos, y es un poco
+[Remote]: lo que nosotros ofrecemos a nivel el modelo de licencia, ¿no? Che, estar ahí para dar soporte, Che, no nos está escalando, que puedan estar con nuestro equipo de infraestructura, y el de ustedes, y poder llevar, digamos, el producto y que siempre esté funcionando, ¿no? Bien. Perfecto. Bien, ahí no sé si si si tiene alguna otra pregunta o Nachito, ¿crees?
+[You]: me parece, sí,
+[You]: me voy a arrancar a repetir, no me quiero repetir, prefiero que nos cuenten ustedes cómo las
+[You]: están viendo, qué les preocupa en conversar esos
+[You]: puntos más de de de fricción que le están viendo.
+[Remote]: A ver, está bien, yo quiero que aproveches
+[Remote]: si vos te vas a sacar hasta ahí treinta
+[Remote]: para hacer todas las preguntas que quieres y nosotros Sí, no, no. Nuestro espacio.
+[Remote]: No, no, no, a ver, la verdad que un poco la duda es esa,
+[Remote]: después me gustaría si si podemos
+[Remote]: hacer una demo como para verlo, pero ya de chusma, no por
+[Remote]: nada, pero
+[Remote]: lo que me cuentan no le veo nada
+[Remote]: esto de de que yo te decía, Julio, el otro día que hablábamos,
+[Remote]: de buenísimo la herramienta, bárbaro, ¿ya la vieron ustedes? Funciona, hace lo que
+[Remote]: lo que charlamos
+[Remote]: pero esto es poder también entender en el área de
+[Remote]: Marce que voy a tener que reforzar el área, nos va a a llover, porque
+[Remote]: no nos pasa con otros sistemas que tenemos, decimos che, buenísimo, fueron sistemas que se
+[Remote]: instalaron en el dos mil dos mil, y el equipo la empieza a remar y a entender y y eso. Entonces,
+[Remote]: esa era un poco mi, una preocupación, pero entender che, cómo tengo que ir moviendo las piezas,
+[Remote]: como para decir a partir del veinte veintisiete me tengo que empezar a hacer cargo
+[Remote]: administrar una nueva plataforma que no conozco,
+[Remote]: que no sé dónde puede fallar, que no sé en qué tecnología está hecha,
+[Remote]: pero
+[Remote]: nada, entiendo que eso con un par de reuniones y, bueno,
+[Remote]: con
+[Remote]: revisándolo,
+[Remote]: y y y viendo la historia de banco, eso ya después, bueno, a quedar más
+[Remote]: más interno,
+[Remote]: pero no, por lo que está contando, no veo
+[Remote]: por la historia, repito, y por lo que nos ha pasado,
+[Remote]: que nosotros tomemos el control del código fuente y empezar a crear un Frankenstein, en buen sentido, pero no, te pasa, pero bueno, eso después lo lo veremos a nivel presupuestario y ahí como decían, hay voluntad de ambas partes, con lo cual eso no no va a ser un problema, pero sin no caer en el vicio de qué, lo hago yo, es tocar acá dos, tres líneas de código, donde no somos expertos. Donde ustedes deben tener un recorrido con ya un montón de clientes, y lo que me dicen, che, sacamos features, son los fix, se los damos, con lo cual, excepto que queramos, veamos que la plataforma plataformas tengo un potencial que ustedes no vieron y le queramos reinventar la rueda, como dije,
+[Remote]: no no no veo un problema.
+[Remote]: Estoy de acuerdo. Ahí creo que el valor agregado más.
+[Remote]: Fuerte de esto es que corren su infra.
+[Remote]: Eso está, creo que No, eso estamos súper
+[Remote]: Pero después tema features y eso, estoy de acuerdo que que que
+[Remote]: seguramente sería medio contraproducente que ustedes se metan a revisar código ajeno y esa cosa,
+[Remote]: pero eso parte de updates y eso lo único que quiero dejar claro que para
+[Remote]: nosotros, como este modelo es superimportante, queremos que funcione muy bien la parte de updates,
+[Remote]: la parte de instalación, que ustedes lo puedan instalar en su infraestructura
+[Remote]: muy fácil y muy rápido, no tengamos que tener tanto soporte
+[Remote]: del lado de ustedes. Pero, obviamente, sí vamos a tener que tener la contracara
+[Remote]: de un debox, algo de la Obvio. De de eso.
+[Remote]: Para para poder llevar a cabo la instalación con todo el soporte nuestro.
+[Remote]: Ah, eso eso no tengo duda. Se levantó la mano y se arrepintió.
+[Remote]: Sí, es párate, ¿qué tal? ¿Cómo están? Perdón que me conecté.
+[Remote]: Pero porque era la cuenta de Gmail y
+[Remote]: Lamentando lo que decía Javi también ahí, un poco pensando
+[Remote]: por lo que me aclaraste ya, Seba, que es un perfil de ops
+[Remote]: se va a requerir, digamos, como para acompañar,
+[Remote]: era eso, digamos, ¿qué perfiles necesitaríamos nosotros para acompañar esto?
+[Remote]: Digo, pero lo lo más
+[Remote]: probable que necesitemos es un perfil de de DevOps,
+[Remote]: un perfil de seguridad, también porque hay varias cositas de seguridad que vamos a tener que tocar.
+[Remote]: Para que la plataforma quede segurizada, ¿no? Como nosotros para que
+[Remote]: ustedes puedan hacer esa configuración, y después vamos a trabajar mucho con el equipo de Julio y el equipo
+[Remote]: de productos para setear todos los flujos. Con eso podemos dejar
+[Remote]: andando tranquilamente.
+[Remote]: Pero no crean que vamos a, no, la idea no es saber hacer que
+[Remote]: esa persona de DevOps o seguridad esté horas y horas trabajando en este
+[Remote]: proyecto o implementando incluso código. La idea es que sea plug and play.
+[Remote]: Sí, sí, sí. No, acá acá tengo una pregunta para equipo completo, ¿no?
+[Remote]: El motor en el veinte veintiséis un día se rompe,
+[Remote]: no tengo conciliación.
+[Remote]: ¿De quién es la responsabilidad acá en en esta cosa
+[Remote]: mixta en el veinte veintiséis, y cómo sería después en el veinte veintisiete, para entenderlo.
+[Remote]: Perdone ahí, Nachito, pero por esto por el tema
+[Remote]: CLEAs, pero la veinte veintiséis nosotros vamos a estar
+[Remote]: abocados a Supervil, el equipo va a estar nosotros, y la idea, mientras sea SaaS,
+[Remote]: rompe SaaS, obviamente Rexy es el que reacciona,
+[Remote]: Cuando tengamos el el, digamos, el producto de licencia
+[Remote]: andando en Supervil, ahí hay un tema.
+[Remote]: Primeras alertas que le van a llegar van a ser a ustedes, no a nosotros.
+[Remote]: Porque va a estar corriendo sobre su infraestructura. Entonces,
+[Remote]: pueden ser dos problemas. Una es un bug de la plataforma, que hay algo que no
+[Remote]: está andando bien y hay algo que se rompió, y eso es algo que tengamos que resolvernos
+[Remote]: nosotros con algún update que tengamos que hacer en la plataforma para que funcione,
+[Remote]: La idea es que no sucedan esas cosas, porque va a ser un una plataforma que no recibe código
+[Remote]: constantemente,
+[Remote]: Y el otro problema que puede haber es un problema de infradescalabilidad, algo que no
+[Remote]: escaló del lado de SuperVille, y ahí sí va ser el equipo de soporte, de
+[Remote]: Superville, che, no están dando esto, y seguramente sean temas de infra, que eso ya compete.
+[Remote]: Sin embargo,
+[Remote]: tenemos los SLAs del modelo de licencia también, Julio, si hay algún problema,
+[Remote]: levanta el teléfono a Rexy y nosotros estamos ayudando al equipo de infraestructura también.
+[Remote]: Ok. Es parte de de la licencia que se
+[Remote]: va a pagar después mensualmente, o sea, que forme parte de este soporte veinticuatro por siete.
+[You]: Got it.
+[You]: Vamos a ver herramientas de monitoreo, y si es de nuestro lado,
+[You]: un tipo de respuesta en el SLA, si es de la de ustedes
+[You]: podemos levantar con la misma herramienta de monitoreo y va haber un canal de comunicación
+[You]: con con Hobbie, posiblemente, con la persona de DevOps, tipo, Chase cayó por esto.
+[You]: Y ahí va a estar el war room con ustedes seguramente, pero
+[You]: nosotros no podemos poner a tocar infra de ustedes si lo que está fallando
+[You]: es un tema de de la infra de ustedes, es el tema.
+[Remote]: Ahí No, yo creo que ahí va a haber como
+[Remote]: nos pasa con otro con otros proveedores que dan dan soporte, obviamente nosotros tenemos nuestras alertas
+[Remote]: nuestro equipo de monitoreo veinticuatro siete de incidentes,
+[Remote]: hay una persona a cargo, llamarán a mí o algo al que sea,
+[Remote]: y y ustedes tendrán, no no sé cómo va a ser el contrato, no me voy a meter ahí,
+[Remote]: pero si hay un soporte veinticuatro siete, una persona de guardia o alguien al que podamos llamar y
+[Remote]: entender qué qué puede pasar. Después con la práctica y con los años,
+[Remote]: iremos conociendo la herramienta y y ya sabiendo, no, tocá acá, fijate, o lo que
+[Remote]: sea, y capaz no hace falta llamarlo.
+[Remote]: Pero
+[Remote]: Ahí
+[Remote]: lo que dijo Nacho es importante, nosotros vamos a empezar a configurar
+[Remote]: la lógica conciliatoria y empezar a operar técnicamente,
+[Remote]: dentro de nuestra infraestructura. Entonces,
+[Remote]: ahí ya, durante probablemente a la a la ruta de julio, que era dos mil veintiséis, y probablemente
+[Remote]: todo ese tipo de alarmas y todo ese tipo de problemas
+[Remote]: Al principio caiga cien por ciento sobre el lado de Rexy,
+[Remote]: salvo algo muy específico, y después cuando migremos, ahí ya empieza a ser más compartido.
+[Remote]: Ok.
+[Remote]: Otra cosa que nos preocupaba a nosotros internamente es
+[Remote]: no sé, ¿me escuchan? Sí, ¿no? Sí, sí, no, tenía, dije que tenía buena
+[Remote]: pregunta, pero capaz es la misma.
+[Remote]: Pero vale.
+[Remote]: No, pregunta a vos que vos tenés menos tiempo que yo, yo puedo esperar.
+[Remote]: Vale. No,
+[Remote]: el tema de la de los procesos y la conciliación,
+[Remote]: corre
+[Remote]: ¿ustedes están en lectura constante de la tabla de nuestro sistema core
+[Remote]: o hacen una réplica en esta base Progress que me decías?
+[Remote]: Con algún job de glue o algo que se
+[Remote]: lleve en la info, la masajean y
+[Remote]: Ahora lo lo que habría que hacer, lo primero que hay que hacer es integrar la base de datos de su
+[Remote]: SuperVille.
+[Remote]: Para poder consumir la data. Cuando tengamos, o sea, lo lo, acá hay hay
+[Remote]: algo que tenemos que definir en este proceso de dinámica y cómo vamos a hacer la parte de
+[Remote]: Rexisas versus Rexlicencia,
+[Remote]: la idea es que podamos conectarnos a sus bases
+[Remote]: y después la información se guarde segura dentro de
+[Remote]: Rexy para dejar los datos de las reconciliaciones, de cómo se concilian,
+[Remote]: y eso sí queda en nuestras bases. Entonces, consumir de esas bases de lectura de ustedes,
+[Remote]: poder ingestar esa data en Rexy para conciliarla,
+[Remote]: y después también se puede exportar, finalmente, desde la plataforma de Rexy, se puede
+[Remote]: exportar a bases de datos de superlink.
+[Remote]: Ok. Eso se puede hacer de una parte integrando o la otra parte, si
+[Remote]: si no queremos integrarnos con las bases de datos de superviel, podemos usar
+[Remote]: data dummy, o sea, que que no sea real de de
+[Remote]: de hoy en día, y hacer toda la parte de las interacciones de los
+[Remote]: treinta flujos sobre Rex y SaaS
+[Remote]: sobre eso, y después, cuando estén dando los flujos integrados, hacemos la integración real
+[Remote]: pero ya dentro de su infraestructura.
+[Remote]: No, no, no, perfecto. Sí, sí, ni duda más que nada,
+[Remote]: era ¿Cómo le queda para dos? Pero sí lo final, claro,
+[Remote]: si le pegan a la base, al transaccional, todo el tiempo con la
+[Remote]: lectura, escritura, o no, se llevan la data, ustedes la masajean,
+[Remote]: y después la vuelven a insertar, a deletrear o el
+[Remote]: sistema que
+[Remote]: entendí, perdón. Nosotros tenemos de Las reconciliaciones
+[Remote]: la vos armas los piojos de reconciliaciones y tiene de estar esqueduliados.
+[Remote]: Vos tenés, che, esto va a correr a las dos de la mañana. Cuando corra,
+[Remote]: nosotros vamos a buscar la última información del día, o sea, lo último que ocurrió en el día.
+[Remote]: Ahí sí vamos a hacer las lecturas a la base de datos, que sea para ir a extraer la información,
+[Remote]: Entonces, es un proceso batch que te va a correr una vez al día,
+[Remote]: acuerdo a la cantidad de flujo que tenga. O sea, capaz que este otro flujo
+[Remote]: consume otra base de datos, no, no, está perfecto.
+[Remote]: Pero vos te te llevás la te llevás la la info y la masajea después.
+[Remote]: Exactamente. No estás en un con en, no sé, cinco horas de lectura con
+[Remote]: constante en la tablet, en la base de datos. La agarrás
+[Remote]: la idea es que la consumas dentro de la base de datos de Rec
+[Remote]: que tiene todo todas las entidades de Rexy, todo lo que necesite,
+[Remote]: y después sí hay un proceso de bright
+[Remote]: depende de lo que definimos nosotros al code, o puedes exportar todo lo de derexito,
+[Remote]: a algo a otra base de datos, ¿no? A salir un poco de lo de Rexy.
+[Remote]: En su caso, dado que van a tener la de Rexy montada en ustedes,
+[Remote]: no creo que sea necesario porque la base de datos va a ser de ustedes. Entonces, dejándola en Rexy, ya es una base de ustedes.
+[Remote]: ¿Entiende? Entonces, no creo que usen ese modelo, pero muchos clientes nuestros SaaS
+[Remote]: ingestan en Red Sea, o sea, nos conectamos a la base de datos.
+[Remote]: Ingestamos y después se lo llevan a otra base, exportan toda la data y customizada como quieran.
+[Remote]: Ok. Sebas, una consulta, lo, porque acá me queda una duda a mí, perdón, que
+[Remote]: cuando vos tomás la información de las tablas de inicio y fin de Smart del del sistema nuestro, ¿sí?
+[Remote]: Una tabla donde tengo datos, tengo una tabla donde tengo los otros datos y concibio esos datos.
+[Remote]: En esas tablas que tengo yo en mi sistema core y que son transaccionales,
+[Remote]: vas a necesitar tirar el update para marcar como conciliado el registro
+[Remote]: o eso queda en otro lado? Eso queda del lado de REX,
+[Remote]: lo del conciliado, que es el registro del conciliado, entonces, cuando volvemos a consumir la data,
+[Remote]: nos queda tagueado a nosotros de que esa transferencia ya fue conciliada.
+[Remote]: Por eso no hacemos bright en sus bases, o sea, es un
+[Remote]: alterar ninguna estructura de nuestro lado, simplemente ustedes van a consumir
+[Remote]: solo lectura a lo que tienen,
+[Remote]: y y después sobre rex.
+[Remote]: Tal cual, hacemos un poco de redundancia de datos, o sea, porque estamos repitiendo un poco, pero la idea es
+[Remote]: es,
+[Remote]: tocar lo actual, ¿no? Porque ya es, nos metemos en otra complejidad. Rex si agarra,
+[Remote]: lee, consume, hace todo lo que tiene que hacer, es más, nos quedamos con mucha menos data,
+[Remote]: Y otra importante, esto para los equipos, es cuando ingestamos data, también se le
+[Remote]: lo que queremos ingestar, porque capaz que hay data sensibles que no se quieren ingestar en taxi,
+[Remote]: vuelvo a repetir ustedes cómo lo van a tener en su propia infra, no va a pasar nada, porque esto se mantiene dentro
+[Remote]: del de la seguridad de SuperVille, pero bueno, esto lo decimos mucho en los ads, porque, capaz, que
+[Remote]: para no ingestar data sensible, nosotros en Rexxi permitimos che esto, es necesario, no es necesario, esto es PII, no lo quiero, entonces lo ingestás con lo que querés, hacés, te dejé hacer y exportás. Te va, puedo hacer una pregunta antes que se vaya, Javi, que me imagino que se
+[Remote]: está por ahí. Sí, llámate por ahí, dale, dale. Yo lo que quiero entender
+[Remote]: porque eso me sirve a mí para armar el presupuesto integral,
+[Remote]: a lo largo del año si fuéramos como proyecto para presentarlo.
+[Remote]: ¿Cuánta cantidad de de gente y hora hombre necesitamos de
+[Remote]: equipo de operaciones y de producto habilitador
+[Remote]: para saber si necesita. Ellos lo pueden absorber con lo que tienen o necesitan tener
+[Remote]: algo adicional que tengo que poner en el presupuesto, eso lo que necesito saber.
+[Remote]: Dale, lo podemos armar si querés. Yo me imagino la integración
+[Remote]: esta declaración de instalar la infraestructura más de cara a q cuatro.
+[Remote]: O sea, va a ser más al final del proyecto para tener en
+[Remote]: listo, cuando tengamos listo, digamos, todo el producto, ahí vamos a tener recién las conversas
+[Remote]: de hecho, en Q cuatro, siento que vamos a estar instalando todo
+[Remote]: en la infraestructura de SuperVirk. Ok. Pero en los primeros, de acá septiembre,
+[Remote]: ¿sí? Sí.
+[Remote]: Del la parte del equipo de Javi, como producto habilitador Bueno, ¿qué vale? Necesitar info,
+[Remote]: creo que va a necesitar info de tablas, del esquema, o sea,
+[Remote]: una especie de Integrarnos, eso para consumir
+[Remote]: la data, si queremos ir por ese modelo, capaz que necesitamos esa
+[Remote]: información para hasta tal vez ahí por ahí, Julio,
+[Remote]: me pego un balazo, ¿no? Pero Qué raro, qué raro, el malate. Peor,
+[Remote]: de la parte rexi con con sistemas para, por ahí,
+[Remote]: no sacarle tiempo directamente al equipo de Javi, sino tratar de entender la necesidad
+[Remote]: traducirla y ir con la respuesta. Me me vuelvo un API, digamos.
+[Remote]: ¿Sí? Resumimos la info, filtramos un poco,
+[Remote]: ¿verdad? Sí.
+[Remote]: Tal cual. Pero lo veo bien. A vos, libero, gracias, infinita, no sé si
+[Remote]: crea que haga tu equipo. Gracias que a los chicos escuchando,
+[Remote]: Yo agradezco un gusto a todos.
+[Remote]: Dale, tengo una una preguntita,
+[Remote]: lleva una consultita, vos decías que te pegaste una vez por
+[Remote]: una vez en batch, digamos, para traerte toda info,
+[Remote]: Después dependiendo también puede depender del proceso que quieran Marian y, bueno, los chicos, este,
+[Remote]: y Julio, de de de que puedas esa esa ventana de actualización sea más frecuente durante
+[Remote]: el día, digamos, ¿no? Exactamente. ¿Es de acuerdo? ¿Través?
+[Remote]: Mira, generalmente todo lo que es conciliación es una vez al día
+[Remote]: es bastante bien, o sea, funciona, entonces, pero la lo que va a importar ahí
+[Remote]: lo tenemos que ver con ustedes también,
+[Remote]: esa es la parte que tenemos que ver del lado de ustedes de optimizarlo o no, capaz que ahí podemos llegar a ese
+[Remote]: necesitar, che, podemos llevar esto a otra tabla, que sea solo de read,
+[Remote]: y que consuma Rexy para poder tenerlo más optimizado y no esté rompiendo una base de datos,
+[Remote]: pero la cantidad de flujos de reconciliación
+[Remote]: ¿sí? Más más o menos estamos planteando que hay que construir treinta flujos de
+[Remote]: reconciliación, entonces es como que tenemos que ver, y es que dulear bien
+[Remote]: para que no se pisen, no se solapen, pero como estamos haciendo
+[Remote]: de ese día anterior nada más, no creo que haya mucho problema. Va, tenemos clientes grandes
+[Remote]: no está pasando nada raro. Pero bueno, eso estaría bueno ir viendo
+[Remote]: la estrategia de consumo
+[Remote]: de las bases de datos, para no para que no haya ningún problema ahí.
+[Remote]: Acá dijiste algo, Seba, me hizo un poco de ruido y y
+[Remote]: plantearlo a a nivel equipo para ver si me ayudan a entenderlo.
+[Remote]: Odi, Mariano te preguntó dónde va a quedar la marca de
+[Remote]: está conciliado o no está conciliado o dijiste en el sistema de Rex.
+[Remote]: ¿No? Ok,
+[Remote]: Cualquiera que haga conciliación va a tener que tener
+[Remote]: acceso al motor de para entender si esa partida fue conciliada o no, no hay otra forma.
+[Remote]: Julio, nosotros tenemos un módulo de export
+[Remote]: muy customizable y para usuarios no técnicos, donde también podemos impactar en la base de datos que quieran, la información que quieran conciliada, no conciliada y demás, apenas corren las conciliaciones. Entonces, si ustedes quisieran tener una tabla transaccional en su propia infra, que nosotros la impactemos diariamente con toda la información ya conciliada, también puede ser, o incluso para alimentar dashboards internos, lo que sea, nosotros tenemos módulo para exportar todo eso, no es que sí o sí queda dentro de Rexil,
+[Remote]: ustedes quieren que esto vuelva a su sistema, puede. Igual voy a decir una cosa,
+[Remote]: acuérdense que adentro de Rexy es adentro de Supervil, porque es de Supervil.
+[Remote]: O sea, no, no es que la base de datos es una base de datos de Superville, entonces, la base de datos de
+[Remote]: en realidad, son base de datos de SuperVille que ya se pueden consumir. Por eso decía que el módulo de export existe
+[Remote]: vos podés dejar Julio Che, vamos a dejar siempre para todo el mundo que quieran consumir de cualquier área,
+[Remote]: transacciones, si fueron conciliadas o no, eso se puede hacer con el módulo de export,
+[Remote]: y nosotros ahí permitimos conectarnos a cualquier base de datos de auto
+[Remote]: así que nada, lo podemos hacer muy también para ustedes.
+[Remote]: Ok.
+[Remote]: Otra de las consultas que
+[Remote]: solamente de hincha pelotas, que soy por la letra chica, porque como está,
+[Remote]: redactado un tema de wording, los upgrades, ¿sí?
+[Remote]: Siempre hablamos de de treinta procesos, que en realidad no sé si serían
+[Remote]: treinta procesos, porque fue lo que hicimos, tomamos el número y el ejemplo de
+[Remote]: lo que hicimos para Banco Central. Una vez que vamos veinte veintisiete,
+[Remote]: ¿sí?
+[Remote]: A mí se me ocurre como equipo, automático,
+[Remote]: otros treinta procesos más con las mismas reglas que yo tengo en
+[Remote]: motor, y ahora lo que quiero, no cambio absolutamente nada,
+[Remote]: eso no es un upgrade, eso es el bau de la herramienta, ¿verdad?
+[Remote]: Lo hacen ustedes, nosotros Unidos enteramos.
+[Remote]: Ok, perfecto. Entonces, ahí hay hay que hacer una modificación en el wording
+[Remote]: de de upgrade, porque está medio como que Pero ahí
+[Remote]: ahí es es como una, son releases, o sea, cuando vos lanzas
+[Remote]: un release nuevo, no me vas a cobrar,
+[Remote]: porque seguramente por ahí estás, este, encontraste un back o estás
+[Remote]: poniendo alguna mejora
+[Remote]: en en en los tiempos de proceso y cosas de esas.
+[Remote]: ¿En qué momento me cobrarías algo?
+[Remote]: Yo te pido un desarrollo? Nada más.
+[Remote]: ¿Sí? Si yo te pido customizarme algo,
+[Remote]: no está dentro de lo que es el motor y cómo está preparado Rexy Todo lo que se vaya
+[Remote]: fuera del scope del scope del opacador, todo lo que es y eso, el update
+[Remote]: y el upgrade va a venir, digamos, automáticamente, es el
+[Remote]: lo lo vamos a la lo vamos a transmitir. Ahora, si ustedes
+[Remote]: podemos cerrar, imagínense, vamos a poner la foto del primero de enero del dos mil veintisiete,
+[Remote]: tenemos funcionando la infraestructura de SuperVille con los treinta flujos que pactamos
+[Remote]: bueno, nosotros ahí, listo, chicos, terminamos el proyecto. ¿Ustedes capaz
+[Remote]: que en julio tienen sesenta flujos funcionando, ¿se entiende?
+[Remote]: Nosotros sin haber tenido interacción nuestra, porque siguieron armando flujos
+[Remote]: dentro de la plataforma. O sea, reutilizaron todos los features que tenían
+[Remote]: y pudieron armar muchos más flujos ustedes u otra área.
+[Remote]: O sea, Rexy después queda, y ahí lo único importante es
+[Remote]: escalar la infraestructura del banco para poder soportar esos procesos, ¿no?
+[Remote]: Ok, Gabi quería preguntar y lo que llamamos.
+[Remote]: Sí, no, una consulta por desconocimiento, ¿no? Aún no vimos la herramienta, al menos, de nuestra
+[Remote]: parte. Lo que comentaba Julio, ¿no? Del a partir de dos mil veintisiete,
+[Remote]: se decide tomar una x cantidad más de controles,
+[Remote]: Si estos controles
+[Remote]: requieren de información que hoy nos está
+[Remote]: La herramienta te permite que a nivel usuario
+[Remote]: decida y automatice
+[Remote]: levantamiento de información,
+[Remote]: Exactamente. O sea, si nosotros estamos conectados. Imagínense esto,
+[Remote]: conectados a una base de datos, una
+[Remote]: y eso lo vamos ingestando todos los días,
+[Remote]: si la otra base de datos es igual,
+[Remote]: podés consumirlo, configuras la nueva base de datos a consumir
+[Remote]: y lo hace en un usuario final con ayuda de algún equipo de
+[Remote]: que le dé la el nombre de la base de datos y la conexión con la base de datos.
+[Remote]: Ahora, si el connector, el source, o sea, tu fuente,
+[Remote]: es algo que no existe como el conector de Rexy,
+[Remote]: eso sí sería nuevo. Imagínense que ustedes empiezan a usar BigQuery, que no usan
+[Remote]: ponele por por una base de datos nueva,
+[Remote]: justo Rexy tiene esa integración, así que les va a venir a ustedes ya directamente, todas las
+[Remote]: interacciones que nosotros tenemos va a ser automático, pero cualquier usuario final por el front end
+[Remote]: va a poder configurar la nueva source.
+[Remote]: Ok.
+[Remote]: ¿Bien? Gaby, ahí, perdón, ahí vos te referís,
+[Remote]: supuesto que tenga más de un archivo nuevo de de la procesadora,
+[Remote]: Sí, alguno que no se consideró hoy, que no sé, es una fuente de datos, una tabla que hoy no estamos
+[Remote]: considerando dentro de los treinta, listo, lo queremos sumar, ¿qué hacemos?
+[Remote]: Es una fuente nueva dentro de la misma base, está claro, ¿no? Pero es
+[Remote]: un origen de datos que hoy nos está levantando
+[Remote]: para sería importar un TXT, decís vos en Rexit,
+[Remote]: para poder hacer la Claro, o sea, se ponele que haya de un nuevo archivo de de la
+[Remote]: procesadora y que lo de de que se necesite y que no sea necesario para el cobro de tarjeta, digamos.
+[Remote]: Digamos, ¿no? Sí, o que o que se haga una normativa del Banco Central o cómo le da,
+[Remote]: setenta y ocho, cincuenta y cinco, algo que te, que esto te viene
+[Remote]: distinto, te voy a generar un archivo y ese archivo lo tengo que impactar, lo tengo que cruzar.
+[Remote]: Todo eso, y acá está bueno que los digas, lo vamos a repetir,
+[Remote]: en la herramienta me va a dejar customizar, voy a poder ponerlo, tomarlo y conciliar
+[Remote]: lo que fuera.
+[Remote]: Entonces,
+[Remote]: bueno ahí, es importante. Si nosotros ese mes
+[Remote]: de conexión ya lo tenemos para uno de los treinta flujos, por ejemplo, vos ya tenés un flujo que levanta, un archivo de un SFTP o de o un TXT, eso ya está funcionando, bueno, vos podés conectar otro SFTP, o u otro TXT, porque ese método de integración ya existe dentro de la plataforma. Pero si viene algo nuevo, vos te querés conectar con alguna fuente de datos, que nunca usaste, por ejemplo, como tiré con el caso BigQuery, que es una base de datos específica, y no existe dentro de Rexy,
+[Remote]: ahí sí va a ver que hacer, como es algo totalmente nuevo, no conocemos esa fuente de origen, no, Rexy si no sabe cómo conectarse eso, hay que hacer esa integración.
+[Remote]: Pero eso ya va a venir, o sea, a venir un montón de integración
+[Remote]: con Las integraciones hoy, de todas maneras,
+[Remote]: no, para ingesta de datos no nos demoran nada, y para
+[Remote]: de dos mil veintiséis vamos a tener un repertorio de iteraciones que yo creo que
+[Remote]: al menos de a dos veces, vamos a tener todo, o sea,
+[Remote]: No, no veo un problema con esa parte.
+[Remote]: La verdad que no Sí, no, mi consulta, más que nada, era para un poco aclarar.
+[Remote]: Desde el punto de vista a nivel recurso, ¿no? A nivel operativo, quién lo va a manejar,
+[Remote]: si esa facilidad, más allá que es un repositorio ya conectado,
+[Remote]: sino el hecho de sumar,
+[Remote]: sumar datos, sumar tablas, lo estoy diciendo muy simplemente,
+[Remote]: a controles que hoy no se están haciendo, en una salida inicial,
+[Remote]: sí, usuario final, ¿no? Es que el mismo se va a hacer el control, es el mismo el que va a elegir
+[Remote]: fuentes de datos que hoy no no está utilizando.
+[Remote]: Va a pasar eso, es lo que solemos ver con otras
+[Remote]: nos contactan por cierto flujo que quieren automatizar y ven la herramienta, se
+[Remote]: familiarizan y dicen, che, tengo este otro proceso que, o no estoy haciendo, estoy haciendo manual,
+[Remote]: y y generar una lo que nosotros llamamos una source nueva,
+[Remote]: una fuente de datos nueva, una base de datos que ya estamos integrados, toma un minuto.
+[Remote]: Una tableros, una tabla nueva es un segundo.
+[Remote]: Tantivos, no sé si mal no esté bastante o quería preguntar. Sí,
+[Remote]: iba a preguntar algo parecido a a a lo que preguntó Gaby, sea, en el en sentido de que nosotros
+[Remote]: por ejemplo, hoy estamos abocados solo a la esquema de contable de Smart Out de de tarjeta de crédito,
+[Remote]: conciliamos solo en tarjeta de crédito. Poner que mañana quiero consumir
+[Remote]: conciliar refinanciaciones. O sea, esto de conectar
+[Remote]: otra herramienta que nosotros damos de alta, por ejemplo, en Band Total o en en otra aplicación,
+[Remote]: las los préstamos de las refinanciaciones, ¿eso sería sí sería un nuevo desarrollo o
+[Remote]: sería conectar
+[Remote]: otra tabla dentro del esquema? Eso es lo que me perdí.
+[Remote]: Si yo exporto esa información, la genero en un TQST, después la puedo importar
+[Remote]: en directamente desde TXT.
+[Remote]: Ok.
+[Remote]: Y y ya dejo armado un flujo que levante información en TXT, es ese
+[Remote]: ese tipo de motor de ingesta de datos ya va a estar listo, el día de mañana hay otro
+[Remote]: puedo ese motor de ingesta de datos.
+[Remote]: ¿Sí? Eso es lo que entendí, coréjame Exactamente, exactamente.
+[Remote]: Si nosotros tenemos hecha una integración a una base de datos,
+[Remote]: crear una nueva tabla o leer una nueva tabla
+[Remote]: un segundo, ya lo puede hacer el usuario final, no tiene que ser técnico, no tiene que saber nada
+[Remote]: Ok. Pero, a ver, está bueno lo que te ves, Santi,
+[Remote]: nosotros cuando hablábamos de los treinta,
+[Remote]: teníamos veintiún procesos de tarjeta de crédito, teníamos
+[Remote]: tres que eran de comercio y teníamos seis que eran de tarjeta de débito.
+[Remote]: ¿Sí? Y en tarjeta de débito,
+[Remote]: Se nos fue.
+[Remote]: Agarró el viento.
+[Remote]: Ok, bueno. Bueno, pero mi duda era esa,
+[Remote]: más que nada entender cuál era, dónde está la definición de de esto de lo nuevo,
+[Remote]: O sea, yo sí quisiera no solo conectar la base de datos de préstamos,
+[Remote]: las refinanciaciones, en caso de que yo quiera controlar, no sé, facturación,
+[Remote]: o
+[Remote]: saldos disponibles de en base al plan de de control de gestión,
+[Remote]: de las facturas de lo que me vino en comisiones, que me tiré una alerta,
+[Remote]: diga, che, mirá que ya estás consumiendo el presupuesto de
+[Remote]: eso sí sería algo nuevo, digamos, o sea, porque tenía que conectarse a otro lado y entender
+[Remote]: que cuál es el saldo disponible de esa orden de pago, de esa línea de
+[Remote]: Porque obviamente estos
+[Remote]: seguramente un montón de gente se va a querer sumar, entonces,
+[Remote]: entender hasta dónde podemos ofrecer o o con
+[Remote]: y decir, no, mirá, esto sí nos va a llevar más tiempo o menos tiempo,
+[Remote]: o sí, sumate con nosotros, no hay problema.
+[You]: No, sir.
+[Remote]: Va a depender dónde esté almacenada esa información. O sea, si esa información está almacenada
+[Remote]: en la misma base de datos donde nosotros ya estamos trabajando,
+[Remote]: pueden contarle todo lo que quieran, que pueden armarse sus propios flujos conciliatorios y
+[Remote]: lo pueden hacer de de de su
+[Remote]: de su lado sin ningún tipo de de conocimiento técnico. Ok. Ahora, hay que levantar información en algún proveedor que tal vez no estamos integrados, y que no está contemplado dentro de esto, bueno, tendríamos que nosotros analizar las APIs y y desarrollar esa integración, o incluso si ustedes quieren hacerlo ya código va ser suyo, quieren integrarse, lo lo van a poder hacer pero eso sería la única limitante, sino no es una base de datos, donde nosotros ya estamos integrados. Ok. Perdona, cosas, chicos. Te digo, cuando decís cuando estás integrados, porque es que tenés el, vamos a decir, así, simple, el conector, Conector y tenés que hacer la la UI y demás, de todas maneras,
+[Remote]: hoy en día, nosotros ya tenemos un repertorio de integraciones que las
+[Remote]: cada cada integración nueva que agregamos nos toma menos y menos tiempo, entonces,
+[Remote]: hoy ya esto no debería ni ser un blocker. Es muy fácil hacer esta
+[Remote]: integraciones para Panejeta.
+[Remote]: Y una cosa más intencional, el ejercicio, digamos, en el
+[Remote]: esquema nuestro, hoy podría ir a la base de Smart Open, que es un asequelo, podría ir a un total y traerme también
+[Remote]: la información. Sí, sí, sí, exactamente. Exacto. Y una cosa importante, acá lo
+[Remote]: importante es, no hay desarrollo si es el mismo motor de base de datos que se viene usando para otro flujo.
+[Remote]: O sea, si el motor es el mismo,
+[Remote]: podés usar las tablas, las bases, de lo que quieras. Rexy ya viene con un montón de
+[Remote]: integración y conectores a distintos motores de base de datos, pero bueno, ahora cuando hagas los tres
+[Remote]: treinta flujos seguramente vamos a tener todo
+[Remote]: Está sin Internet, Julio, así que a por ahí vuelvo. Por eso.
+[Remote]: Vemos. Bien, me quedé hablando solo y me di cuenta que nadie se movía
+[Remote]: dije algo pasó.
+[Remote]: No sé,
+[Remote]: hasta dónde hasta dónde llegué a explicarme. No, seguimos
+[Remote]: No, no sé.
+[Remote]: Ok. A ver, yo lo que decía es, de los treinta procesos que siempre hablamos, fueron los los que nosotros
+[Remote]: automatizamos de cara al Banco Central, de los cuales veintiuno,
+[Remote]: son de tarjeta de crédito, tres son de comercio,
+[Remote]: y seis son de tarjeta de débito. Los de tarjeta de débito
+[Remote]: vienen
+[Remote]: de la procesadora, pero tiene otro core
+[Remote]: que es el core bancario que es band total.
+[Remote]: ¿Sí? Entonces, antes dijeron de otros sistemas,
+[Remote]: ¿Ustedes siempre asumieron que los treinta eran del mismo Core?
+[Remote]: Y era de Smart Open? No, no, no, lo de las integraciones que hagan falta para eso
+[Remote]: sistemas, nosotros las las hacemos.
+[Remote]: Ok.
+[Remote]: Perfecto.
+[Remote]: Eso me quedó la duda, cuando Santi lo planteó, ya dije,
+[Remote]: che, siempre eran de treinta a treinta para que entender de de cómo era.
+[Remote]: Ok, esa era mi consulta.
+[Remote]: Algo que me preocupa, me ocupa para armar el presupuesto,
+[Remote]: es otra cosa.
+[Remote]: Es
+[Remote]: necesito entender desde el equipo de operaciones, ¿sí?
+[Remote]: Ya sea Mariano de operaciones pura o Fede y Santi, por el lado de control
+[Remote]: contable?
+[Remote]: ¿Cuánto tiempo nos va a requerir
+[Remote]: y en qué momento, ¿sí?
+[Remote]: Cuando empezamos a laburar, supónganse, en marzo.
+[Remote]: Cada proceso, me imagino que hay talleres de entendimiento, se entiende cuál es el
+[Remote]: cómo funciona, ¿sí?
+[Remote]: Y después empiezan a laburar ustedes a desarrollar.
+[Remote]: Pero necesito entender
+[Remote]: si esto a mí me va a implicar medio tipo un
+[Remote]: full,
+[Remote]: tengo que pensar, ok, si yo voy a sacar alguien de la diaria,
+[Remote]: para poner a alguien para reemplazar,
+[Remote]: ¿Se entiende a dónde voy? Necesito entender la forma de laburar para poder hacer ese
+[Remote]: cálculo. Estumale a eso, si se puede, es
+[Remote]: vez que tenés las tablas de origen y de destino, digamos, de datos, las condiciones de
+[Remote]: conciliación,
+[Remote]: cuánto tiempo piensan que
+[Remote]: lleva a configurar un flujo?
+[Remote]: Hay
+[Remote]: vamos por partes. Lo primero es, nosotros arrancamos con todo lo que es
+[Remote]: integraciones.
+[Remote]: Entonces, hacemos, si quieren, un orden de flujos
+[Remote]: en los que le gustaría que los ataquemos, vemos cuáles son las integraciones que deberíamos
+[Remote]: hacer,
+[Remote]: y arrancamos integrándonos con eso. Para la integración,
+[Remote]: tal vez necesitemos algún tipo de soporte, va a depender mucho de la de las APIs,
+[Remote]: Realmente, tengamos exactamente la lista de
+[Remote]: de las integraciones esas, nosotros podemos ver qué tan fácil o difícil va ser para nosotros
+[Remote]: integrarnos,
+[Remote]: con lo que dan hoy en día las APIs, si tienen la documentación
+[Remote]: no no no suele requerir mucho soporte, pero tal vez
+[Remote]: algún tipo de de tabla intermedia o no sé, algo puede requerir
+[Remote]: soporte de ese lado.
+[Remote]: Y después lo otro va a depender de la complejidad
+[Remote]: de esos flux conciliatorios. Si son
+[Remote]: conciliaciones como la demo que hicimos nosotros, donde ustedes nos dicen, son esta tabla y esta tabla,
+[Remote]: con estas tres llaves y queremos chequear este fee y esta fecha,
+[Remote]: eso no debería demorar mucho tiempo, siempre y cuando no haya mucha vuelta, Héctor, entonces,
+[Remote]: va a depender mucho de la la la calidad
+[Remote]: o o disponibilidad de la de la documentación de las APIs y de la
+[Remote]: complejidad de cada uno de los treinta flujos. Yo creo que algunos debe ser
+[Remote]: muy fácil un cruce
+[Remote]: casi directo, y
+[Remote]: tal vez alguno de estos treinta tenga algún alguna vuelta de tuerca que nosotros tengamos que darle.
+[Remote]: De vuelta, nosotros estamos
+[Remote]: cien por ciento
+[Remote]: enfocados en que este proyecto salga y que salga muy bien, que
+[Remote]: ustedes estén muy contentos de haber trabajado con nosotros. Nos vamos a a cargar todas las integraciones,
+[Remote]: todo lo que todo lo que sea los flujos
+[Remote]: de configuración de lo de las conciliaciones. Ahora,
+[Remote]: a veces hay dudas que surgen de nuestro lado,
+[Remote]: suelen ser dudas muy
+[Remote]: simples, cuál es la llave, nos dijeron que era esta llave, pero analizando la data era esta
+[Remote]: otra, nos pasa mucho,
+[Remote]: y y demás, y ahí va a depender mucho de la velocidad de respuesta de de su equipo.
+[You]: Sí.
+[You]: Agrego una cosa y esto también viene de experiencias pasadas en otras implementaciones.
+[You]: Lo que sí, y respondo tu pregunta, Julio,
+[You]: desde el día uno del proyecto,
+[You]: facilitaría mucho y haría todo mucho más eficiente,
+[You]: tener una persona que nos coordina
+[You]: cualquier cosa y lo ponemos a julio de vuelta, me parece. Pero tener una persona de su lado que actúe como de sponsor y de owner y coordine todo lo que
+[You]: falta y nos vaya desbloqueando.
+[You]: Ya sea
+[You]: cosas
+[You]: funcionales y de producto, que esto tiene que ver con los requerimientos de report,
+[You]: visualización, cómo cuadran las transacciones y qué tipo
+[You]: de cosas hacen con esa información,
+[You]: y técnico. Entonces, si nosotros podemos canalizar todo en una persona,
+[You]: y con esa persona hacemos O sea, ¿vos?
+[You]: O sea, digo, esa podemos hacer una reunión semanal con más personas
+[You]: pero hay una persona que después de esa reunión semanal del lado de banco se lleva
+[Remote]: Yeah.
+[You]: desbloquearnos con ciertas cosas y nos coordina eso internamente, porque si nosotros tenemos que salir a
+[You]: interactuar con cuatro, cinco, seis equipos dentro del banco,
+[You]: se complica mucho más. Entonces, yo propongo mucho
+[You]: esto, tener una persona después, si la dedicación es full time, no creo.
+[You]: No creo que sea full time, pero esta persona sí, una reunión semanal con nosotros,
+[You]: de update y de proceso y para desbloquear cosas, y esta persona después luego
+[You]: adentro del banco socializa y hace que las cosas sucedan.
+[You]: Para mí no es full time,
+[You]: y te diría que tampoco part time, pero bueno, si queremos ser muy conservadores,
+[You]: creo que part time sí, alguien del lado del Superbiel desbloqueándonos,
+[You]: nos va a ayudar mucho. Más que nada porque el rol me ha planteado Julio y María no,
+[You]: es bastante ambicioso. Son treinta flujos para fin de septiembre y usar q cuatro para
+[You]: treinta y uno de diciembre lo tienen andando. Para poderlo
+[You]: a esa velocidad, vamos a necesitar realmente alguien desbloqueándonos del otro lado.
+[Remote]: Ok, justo me caí, pero te seguías
+[Remote]: Nachito.
+[Remote]: Perdí la imagen, pero igual escuchaba.
+[Remote]: Tenía, además te tengo en el teléfono, tengo problemas con con Internet.
+[Remote]: Creo que nos queda, ya entendí,
+[Remote]: nos queda entender si verdaderamente vamos a ir por treinta procesos,
+[Remote]: ¿sí? Porque
+[Remote]: treinta procesos
+[Remote]: Porque
+[Remote]: es un tema presupuestario, por lo cual, sí o sí,
+[Remote]: puedo pensar en ir menos y
+[Remote]: y ya entender, como ustedes dijeron en un momento,
+[Remote]: por ello ya puedo ir avanzando con el tema de
+[Remote]: de ir aprendiendo con ustedes y empezar a hacer cosas, porque, de hecho, hoy nos urge
+[Remote]: de débito con ese este mismo equipo de de producto habilitador,
+[Remote]: y algo que ya habíamos hecho para
+[Remote]: la auditoría de Banco Central, que ustedes saben perfectamente, que fue lo que automatizamos in house,
+[Remote]: y por eso nos motivó
+[Remote]: a buscar herramientas, es que ya ellos mismos generaron
+[Remote]: otros procesos, ¿sí?
+[Remote]: A través de ETF para poder automatizar.
+[Remote]: Entonces, esto va a ser algo dinámico y nosotros no tenemos treinta
+[Remote]: vamos a tener muchísimos más.
+[Remote]: No sé si querés que logremos
+[Remote]: fuera de esta reunión, Nacho.
+[Remote]: Y y te soy más puntual con respecto a esto.
+[You]: Vale.
+[You]: Te muteado, perdón. Dale, sí, obvio, si querés llamame cuando quieras,
+[You]: WhatsApp o agendamos un espacio preparado y lo vemos.
+[Remote]: Ay, ya estoy mandando mensaje para que me tenga agendado a mí.
+[You]: Vale, genial.
+[Remote]: ¿Equipo
+[Remote]: alguna consulta?
+[Remote]: Para hacerlo a los chinados?
+[Remote]: Ya consulté, Julio, el tema de de la integración o de los nuevos desarrollos,
+[Remote]: el tema de controlar la facturación o controlar
+[Remote]: órdenes de compra, eso sí sería como el nuevo desarrollo, pero
+[Remote]: lo que sería Ok. A lo que estés por fuera de todo lo que es base de datos,
+[Remote]: sea conectarse con otro proveedor o conectarse con otra cosa,
+[Remote]: lo que entraría como un nuevo desarrollo en OXX.
+[Remote]: Si me se va así, corregime.
+[Remote]: Por las dudas, dentro de lo que esté en el scope definido, que todavía no definimos,
+[Remote]: y eso está en el scope, no es nuevo desarrollo, es el desarrollo que va entrar este año,
+[Remote]: así que depende lo que se Eso en caso del año que viene, sí. Y el año que viene,
+[Remote]: este otro mes.
+[Remote]: Exactamente.
+[Remote]: Ok, yo por mi lado no tengo más
+[Remote]: preguntas y y tengo bastante problema con Internet porque se me queda frisada
+[Remote]: momentos la la cámara y no sé si el audio me yo te dije que ibas a tener viento.
+[Remote]: O sea ¿Lo mandaste, Richilo? ¿Me lo mandaste vos?
+[Remote]: Ok. Pregunta, ya ya ya pudieron
+[Remote]: sesión de demo de de parametría y todo eso?
+[Remote]: No de la parametría en sí, sí hicimos algo de demos, estuvimos revisando
+[Remote]: algunas cositas, pero no sé si
+[Remote]: ustedes por por el lado de producto habilitado quieren ver la aplicación,
+[Remote]: con algún detalle, por ahí los chicos seguramente No, no, qué. Puedan hacer.
+[Remote]: Me, ya curiosidad, el tema de de cómo es la parametería si, este,
+[You]: Felices, Santi y Mar, escríbanos por
+[Remote]: Sí. Chicos, chicos, sorprender a
+[Remote]: a sus colegas de producto habilitadores, pueden hacer una demo y mostrarles, ¿no?
+[You]: está mi WhatsApp o por mail y escríbanos y agendamos el espacio, fíjate.
+[You]: Seguro.
+[Remote]: Genial. Nacho, yo te pasé mi, te mandé un mensaje para que agendes mi número
+[Remote]: por las dudas también, si necesitas algo y no ubicás a Julio. O Julio sale de vacaciones ahora
+[Remote]: en Me faltó un mes, Mario, no me falta un mes.
+[You]: Bueno, dejamos todo, entonces, dejamos
+[You]: andando antes que julio se vaya a vacaciones. Ya está, quedó así.
+[Remote]: Luego voy el trece de febrero,
+[Remote]: Mirá que esos
+[Remote]: ambicioso. Tengo tengo que convencer unos cuantos para el presupuesto, Necesito
+[Remote]: Así que, bueno que se me vacas las vacaciones, por ahí sí, este, algo, ojo.
+[Remote]: Señor, se te va en septiembre, así que muchacho,
+[Remote]: está debida estar a punto de pasarse al banco,
+[You]: Passo o passo, passo o passo.
+[Remote]: Podría ser un un un delito naciendo.
+[Remote]: Taekwán.
+[Remote]: Bueno, Nacho, ahí te mandé mensaje, te llamo en un rato, ¿te parece?
+[You]: Sale, Lito.
+[Remote]: Listo, bueno,
+
+============================================================
+SUMMARY
+============================================================
+### Implementation Model & Timeline
+
+- SaaS model through 2026, migrating to on-premise at Supervielle by year-end
+- Q4 2026: Install full infrastructure at bank with data migration
+- Platform designed for non-technical users (Julio, Mariano, Federico, Santiago)
+- All 30 reconciliation processes operational by Dec 31, 2026
+
+### Technical Architecture
+
+- **Infrastructure Setup**
+  - Docker images on AWS (shared cloud provider)
+  - PostgreSQL database for Rexi data
+  - Redis queues for processing
+  - Bank maintains their own infrastructure post-migration
+- **Data Integration**
+  - Read-only access to Supervielle’s databases
+  - Batch processing (daily runs, typically 2 AM)
+  - No writes to bank’s transactional tables
+  - Reconciliation status stored in Rexi system
+  - Export module available for custom reporting
+
+### Team Structure & Responsibilities
+
+- **Key Contacts**
+  - Federico Sabatini & Santiago Wilson: control contable team
+  - Javier Caraballo: producto habilitador (systems team for internal tools)
+  - Mariano Riccillo: Jefe Tarjetas de Crédito
+- **Required Bank Resources**
+  - DevOps profile for infrastructure
+  - Security profile for configuration
+  - Project coordinator (suggested: Julio) - part-time, not full-time
+  - Weekly sync meetings during implementation
+
+### Platform Capabilities & Scalability
+
+- Hyperflexible automation platform for any business process
+- User-friendly configuration for new flows without technical knowledge
+- Existing connectors for multiple database engines
+- New data sources configurable by end users if connector exists
+- Same-day setup for new tables within existing databases
+
+### Process Scope & Future Development
+
+- **Current Scope (30 processes)**
+  - 21 credit card processes
+  - 3 commerce processes
+  - 6 debit card processes
+- **Post-2027 Development**
+  - Additional processes: standard platform usage (no extra cost)
+  - New integrations/customizations: separate quotation
+  - Fixes & updates: included in ongoing support
+
+### Support & Maintenance Model
+
+- **2026 (SaaS Phase)**: Full Rexi responsibility
+- **2027+ (On-Premise)**
+  - Infrastructure issues: Bank responsibility with Rexi support
+  - Platform bugs: Rexi responsibility with SLA
+  - Updates via Docker image scripts (backwards compatible)
+  - 24/7 support channel with escalation procedures
+  - Monthly licensing fee includes ongoing support
+
+### Next Steps
+
+- Julio to schedule follow-up call with Nacho for detailed scope discussion
+- Demo session for producto habilitador team (contact via WhatsApp/email)
+- Budget considerations: Determine final process count vs. 30-process baseline
+- Integration planning: Define database connections and API requirements
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/ae08e70f-2a42-4170-b72d-3cf320844cfa](https://notes.granola.ai/t/ae08e70f-2a42-4170-b72d-3cf320844cfa)

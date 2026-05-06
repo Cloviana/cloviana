@@ -1,0 +1,446 @@
+MEETING: Rexi x Cashea: update
+DATE: 2026-01-12
+ID: not_nPFvaT5NPmII4K
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Nicole <nicole@cashea.app>, Teo <teo@rexi.finance>, Andresvalongo <andresvalongo@cashea.app>, Luissarmiento <luissarmiento@cashea.app>
+SCHEDULED: 2026-01-12T09:00:00-05:00 - 2026-01-12T09:45:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Bien, acá andamos. La verdad que arrancó el año
+[You]: intenso, con mucha oportunidad, así que así que muy, bueno, muy contentos de nuestro lado.
+[You]: Allá, ¿qué tal?
+[Remote]: Bien, la verdad es que viviendo la la locura de
+[Remote]: cambios en Venezuela, que son un poco impredecibles en este momento, pero
+[Remote]: pero bueno, contentos también. La verdad es que un comienzo de año
+[Remote]: bastante bastante
+[Remote]: sí, diferente, puede ser la palabra correcta. Este,
+[You]: ¿Están los tres en Caracas?
+[Remote]: no, Andrés está en en España, pero Lucho y yo sí estamos en Caracas.
+[You]: Bueno, bueno. Bueno, me alegro mucho y
+[You]: que hayan comenzado el año bien, y bueno, con estos cambios espero que estén
+[You]: estén tranquilos y seguros.
+[You]: Ahí, creo que la última vez que habíamos hablado fue hace ya
+[You]: un par de meses, ¿no? Dos o tres meses. No sé si llegamos a ver un product demo,
+[You]: y después como que ustedes estaban con mucho cambio, entiendo.
+[Remote]: No.
+[Remote]: Sí, justo en ese momento estábamos pasando como por un montón de planes
+[Remote]: reestructuraciones, cómo íbamos a organizar la compañía de acá en adelante, etcétera.
+[Remote]: Entonces, la verdad es que nunca llegamos al ProducTemo. Te Cuento Un Poco En Qué Quedamos. Quedamos Como Separados En Dos Empresas, Una Empresa Que Está Manejando Toda La Parte De Buy Pay Later, Es Lo Que Habíamos Conversado Inicialmente, Ellos Son Los Que Hacen Como Todas Las Conciliaciones De Las Operaciones Que Tenemos Hoy. Y Otra Parte Que Se Va A Encargar De Un Nuevo Producto Que Estamos Lanzando, Que Es Como Toda La Parte De Wallet De De Kaya, Incluye Como La Captación De Fondos De Usuarios, Y Más Adelante También La Parte Como De Acquiring Para Pagar A Comercios Etcétera. Entonces, Un Poco Modelo Mercado Libre Argentina,
+[Remote]: versión Venezuela. Entonces, la idea
+[Remote]: es que en los próximos meses vamos a estar lanzando
+[Remote]: los primeros features de wallet,
+[Remote]: y dentro de wallet todavía no tenemos como la estructura planificada de cómo vamos a
+[Remote]: ser la parte contable,
+[Remote]: lo que queremos es empezar de una forma como más organizada para que nosotros podamos enviar
+[Remote]: al sistema contable, vamos a utilizar el mismo en el que se llama UDU,
+[Remote]: la data como lo más preparada posible para que se puedan generar los asientos,
+[Remote]: Vamos a
+[Remote]: teóricamente, estar operando con dos bancos locales,
+[Remote]: toda la todos los movimientos, por lo menos por ahora, van a ser en bolívares,
+[Remote]: Entonces, toda la toda la conciliación y todo es
+[Remote]: es local. Pero, bueno, la idea es que haya, esperamos
+[Remote]: bastante
+[Remote]: captación de movimientos, tanto de pagos, o sea, money ins, money outs,
+[Remote]: todos los movimientos internos que incluyen pagos de cuotas
+[Remote]: del buy and out pay later, pagos entre usuarios, etcétera. Entonces, bueno,
+[Remote]: no teníamos data como sample de era para mandarles, porque la verdad es que la que tenemos
+[Remote]: por ahorita es la que tenemos en staking de de nuestro eso, pero no tenemos una contraparte de banco, porque
+[Remote]: es data en staging. Entonces, bueno, la idea era tener como
+[Remote]: la llamada un poco early stages, contarles más o menos por dónde están, por dónde van los tiros y
+[Remote]: conversar a ver cómo podríamos pensar en una forma de trabajar juntos, si en verdad
+[Remote]: algo en donde nos pudieran ayudar y cómo conocer un poquito más del producto, la última vez no tuvimos
+[Remote]: tanto chance de de verlo en detalle.
+[You]: Va, perfecto. Gracias por el contexto y exciting times.
+[You]: Este producto de wallet va a ser como una especie de cuenta bancaria que con una tarjeta de débito
+[You]: Y, por lo pronto,
+[Remote]: Sí.
+[You]: ¿solo tarjeta de débito, peer to peer transfers y algo más?
+[Remote]: Y probablemente pagos a comercios, o sea, tanto para pagar
+[Remote]: tus cuotas del buy now pay later, como eventualmente que puedas ir a comercios que nosotros les hagamos
+[Remote]: como acquiring para pagar.
+[You]: Eso sería como una transferencia interna entre ustedes, porque hacen el acquiring y también tienen
+[You]: al user.
+[Remote]: La idea es que funcione como una suerte de payback, pero que tenga como un de comercio
+[You]: Ok, perfecto.
+[Remote]: y un wallet de usuarios, básicamente.
+[You]: Y ahí la conciliación siempre va a ser algún ledger propio interno de ustedes,
+[You]: contra un extracto bancario.
+[Remote]: Sí.
+[You]: Va. Y ustedes lo que quieren es automatizar todo lo que es esa
+[You]: conciliación y luego la generación de asientos contables, todo lo que es relacionado a la wallet.
+[Remote]: Sí, justamente.
+[You]: Y
+[You]: al ERP que se llama ODU,
+[Remote]: Todo, sí. Sí.
+[You]: Va.
+[You]: Y y el timeline de esto, todavía me dijiste, están staging, todavía no están operando dinero real.
+[Remote]: No, todavía no.
+[Remote]: Estamos también en proceso de, necesitamos unas licencias para poder comenzar
+[Remote]: a operar, entonces, tentativamente el lanzamiento es para abril.
+[You]: Okay.
+[You]: Lanzamiento en abril. Perfecto, clarísimo.
+[You]: Bueno, mirá, te te hago un overview de de de de lo que hacemos nosotros, y después
+[You]: creo que estaría bueno, bueno, después ahora
+[You]: pero básicamente lo que hacemos nosotros es exactamente eso, ¿no? Nosotros tenemos una plataforma que
+[You]: se conecta
+[You]: ya sea una un data lake propio, no sé dónde tienen los extractos bancarios, ya lo tienen
+[You]: ingested a un data lake propio o nos tenemos que conectar directo al banco, pero en any case,
+[Remote]: So
+[You]: we connect directly to the source,
+[You]: ingestamos la información de manera asíncrona
+[You]: automática, y después se configura todo el flujo en Rexy. Cuando digo, todo el flujo es
+[You]: ingesta,
+[You]: transformaciones,
+[You]: enrichment processes, por ahí queremos agregar alguna base
+[You]: interna de callega que agrega más información
+[You]: al extracto bancario, y por ende es más fácil después machear y encontrar
+[You]: las conciliaciones.
+[You]: Las conciliaciones, propiamente dicha,
+[You]: que ahí es configurar las las reglas
+[You]: de matching, las comparaciones, digo, nuestra plataforma es muy robusta en ese sentido, podemos poner
+[You]: reglas independientes, reglas dependientes,
+[You]: se hacen rangos de tolerancia, comparaciones de estatus, de monto,
+[You]: etcétera, lo que, columnas calculadas, digo, la plataforma está muy bien armada, pero
+[You]: se configura todo una vez,
+[You]: y después ella corre de manera automática,
+[You]: diario, semanal, mensual, como lo quieran correr ustedes. Y después, la mayor parte del tiempo, va a ser
+[You]: loguearse a la plataforma para
+[You]: revisar diferencias,
+[You]: ¿sí?
+[You]: Ahí pueden hacer archivos manuales, pueden marcar algunas transacciones
+[You]: como excepciones, pueden dejar comentarios, para que quede todo bien auditable y trazable.
+[You]: Y el último paso sí es el output
+[You]: que ahí nos conectamos a la ERP para generar los asientos contables.
+[You]: El diccionario que ustedes nos pasen,
+[You]: de cómo agrupan transacciones, cuáles son las GLs, etcétera.
+[You]: Y también se pueden generar reportes
+[You]: tenemos un dashboard en la plataforma para ver los resultados también.
+[You]: Con lo cual, eso es un poquito lo que hacemos, automatizamos el proceso
+[You]: de conciliaciones end to end.
+[You]: Para compañías como. Tenemos clientes muy, muy similares a esta operación que nos mencionás.
+[You]: Ahí,
+[You]: obviamente, creo que estaría bueno mostrarles el producto,
+[You]: No sé
+[You]: qué tan fiable es esa data que tienen ya el staging como para hacer una demo.
+[Remote]: es que es que el problema es que no tenemos del lado del banco con quién conciliar.
+[Remote]: Porque los datos que estamos inyectándole al staging son
+[Remote]: son simulados, o sea, son hechos por nosotros, porque todavía no tenemos la otra parte.
+[Remote]: Por eso es que no tenemos nada. O sea, no tenemos ahorita, y una data como
+[You]: Tiene el bancario.
+[Remote]: dice demo Sí, no, o sea, no, no hay no hay data and sticking
+[Remote]: del banco, hay data como autogenerada de nosotros,
+[Remote]: porque justo estábamos en RFP para el el partner bancario,
+[Remote]: esta semana terminamos de definir el bancario,
+[Remote]: ya empezaremos a generar data con con las cuentas en de los bancos,
+[Remote]: pero por ahora lo que te daría es como un log de transacciones inventadas, va
+[Remote]: básicamente, que tampoco creo que sea muy útil. Sí.
+[You]: Bueno, ahí pienso, pues ahí las podemos generar con AI para una demo.
+[You]: Del lado bancario, porque nosotros últimos
+[You]: extractos bancarios todo el tiempo, y si nos pasan los bancos en Venezuela, quizás
+[You]: entendemos cómo funcionan y podemos
+[You]: generar
+[You]: archivos dummy para hacer una demo.
+[You]: Pero antes de eso, les quería preguntar, Nicole,
+[You]: no sé si nos contaron, pero un poco los roles de ustedes, cómo
+[You]: serían, alguien está en producto, hay en operaciones, hay en finanzas,
+[Remote]: Sí, o sea, tenemos
+[Remote]: un un equipo más grande que no no está toda cat, que tiene
+[Remote]: como un de de tecnología, una persona de producto o una persona de
+[Remote]: bueno, backfront, etcétera. Andrés y yo estamos llevando el el
+[Remote]: el el proyecto como desde la parte de negocio y estrategia,
+[Remote]: la idea es que nosotros estamos un poco definiendo cómo es lo que queremos lanzar y las
+[Remote]: relaciones tanto con los players locales como con los Reguladores. Lucho Es La Persona De Tecnología, Él Solía Trabajar Con Un Con Un Wallet Como Sitio De Un Wallet Local, Y Creo Como Muchos De Los Procesos De Ellos. Entonces, Entonces Él Nos Ayuda Un Poco A Tropicalizar Toda La Información Que Tenemos De Wallets Extranjeros A Cómo Se Ve Eso En Venezuela, y es como en la persona técnica que
+[Remote]: está acá en en la call. Igual les podemos presentar al resto del
+[Remote]: del team ahora, pero bueno, la idea era como muy alto nivel contarles, pero Andrés y yo somos los
+[Remote]: como los que estamos encargados de de gestionar el proyecto.
+[You]: Excelente, gracias por ese detalle. Y entonces les pregunto a ustedes,
+[You]: what are you trying to achieve? What does success look like con esto?
+[Remote]: La verdad es que dentro del buy now pay later, un poco como te había comentado,
+[Remote]: no lo hicimos desde el principio. Entonces, hoy en día tenemos un montón de cosas que
+[Remote]: hacen de forma manual, hay un montón de asientos que caen a una transitoria y luego se
+[Remote]: tienen que estar redireccionando, hay como muchas cosas que
+[Remote]: por más que el equipo está tratando de de hacerlo lo mejor posible,
+[Remote]: es supermanual. Nosotros, la verdad es que success para nosotros es
+[Remote]: no pasar por ese pane para llegar a un modelo como más automatizado,
+[Remote]: sino ya arrancar de una vez con con un sistema que
+[Remote]: esté siendo funcional, que hable entre nuestro
+[Remote]: nuestros procesos de conciliación internos y el y el sistema, el ERP,
+[Remote]: y que nos ayude justamente a lo que estás diciendo, como que levantar diferencias, crear reportes,
+[Remote]: o sea, cómo lo podemos hacer de una forma que que
+[Remote]: sea lo más simples posible y que y que aproveche la parte de tecnología de la mejor forma.
+[Remote]: La idea es conversar un poco con players tipo ustedes, que que
+[Remote]: bueno, que tienen la experiencia armando el el flow, el end to end
+[Remote]: de esto y y eso comenzar desde ahorita, porque es es lo que te digo,
+[Remote]: apenas estamos en proceso de tenemos la las primeras demos
+[Remote]: los los, ¿cómo se llama? Los primeros bancos,
+[Remote]: los tenemos conectados porque están conectados al buy now pay later, pero ahorita es que estamos terminando los términos
+[Remote]: financieros de cómo va a funcionar, entregando toda la documentación de regulación, etcétera,
+[Remote]: probablemente la tarjeta no salga hasta junio, o sea, estamos hablando como de algo que va va a ser q dos, q tres, como realmente estar tomando forma fully, pero quisiéramos que ya para el día uno que conecte el primer usuario tengamos un sistema que funcione a nivel de de conciliaciones.
+[You]: Amazing. No sé si Luis o Andrés que iban a decir algo.
+[Remote]: No, no, eso que acaba de decir Nicole, que es que no
+[Remote]: es vital que al salir en producción tengamos una conciliación diaria
+[Remote]: este, exacta, independientemente que, o sea, que haya ese reporte diariamente
+[Remote]: en donde yo pueda ver esa diferencia y que no tenga que
+[Remote]: este, estar revisando logs para poder
+[Remote]: saber dónde está el problema, que ese reporte me diga, mira,
+[Remote]: aquí hay una diferencia y saber, este, por qué es la diferencia inmediatamente.
+[Remote]: Tenemos que salir ya con eso, no solo porque los bancos
+[Remote]: trabajan de esa forma y necesitamos estar actualizado diariamente, sino
+[Remote]: que internamente en caché necesitamos, este, tener todo al día y que cuadre.
+[Remote]: Pues, estamos hablando de una billetera, todo tiene que cuadrar, no puede haber
+[Remote]: mira, eso lo vemos después, este, no sabemos de qué sucedió, no sabemos por qué
+[Remote]: pasó. Este, si nosotros hoy tenemos
+[Remote]: todas las transacciones identificadas, todos los los reportes de de
+[Remote]: digamos, del del origen, de la fuente,
+[Remote]: del banco, tenemos todas las transacciones del lado nuestro, no debería haber ningún
+[Remote]: tipo de transacción fantasma donde no sabemos de dónde salió.
+[Remote]: Entonces, eso es lo que buscamos. Yo tenía que
+[You]: Perfecto.
+[Remote]: aprovechar, tenía otra pregunta, este, por lo que tú estás diciendo del
+[Remote]: del sistema y la herramienta que ustedes tienen. Este, yo quería saber si esa herramienta le
+[Remote]: se instala en los data centers de nosotros, en nuestra
+[Remote]: plataforma, o eso es aparte en un cloud o un sistema
+[Remote]: sistema que tienen ustedes, y ustedes, entonces, tienen que buscar esa información. ¿Cómo funciona eso?
+[You]: Nosotros operamos hoy, es es un SaaS, es nuestra nube, es nuestra infra,
+[You]: simplemente ingestamos la información, la procesamos,
+[You]: y y, bueno, y volvemos a escupir los resultados
+[You]: ya sea un ERP o a un data lake de ustedes mismos con un cliente con el que trabajamos,
+[You]: imprimimos la base conciliada
+[You]: en su data lake, para que ellos después esos lo lo conecten a su herramienta de BI para hacer sus propios
+[You]: reportes y análisis con eso. Con lo cual, el processing y el y almacenamiento queda en
+[You]: lado. De todas maneras, nosotros tenemos SOC dos compliance tipo dos,
+[You]: para seguridad de información,
+[You]: también con algunos clientes trabajamos de manera hasheada.
+[You]: Entonces, nos vienen los datos y nosotros no tenemos
+[Remote]: Okay.
+[You]: acceso a la información. Simplemente,
+[You]: procesamos y transformamos información que ya viene encriptada y hasheada.
+[You]: Así que,
+[Remote]: Y nosotros enviaríamos
+[You]: si el tema viene
+[You]: el
+[Remote]: y nosotros enviaríamos la información, ustedes la vienen a buscar en unos
+[Remote]: repositores que nosotros tendríamos que habilitar para ustedes.
+[You]: La buscamos.
+[You]: Sea, en realidad, flexible a a cuál sea la mejor manera.
+[You]: Como te digo, con clientes con los que trabajamos,
+[You]: termina sucediendo siempre de dos maneras,
+[You]: o ellos ya ingestan todo a un data lake propio,
+[You]: Google, Microsoft, WBS o Snowflake o algo así, o BigQuery,
+[You]: nosotros nos conectamos ahí, ya están todas las tablas, ese es el mejor de los casos,
+[You]: o tenemos que desarrollar integraciones a cada una de las fuentes de datos, que también les puede llegar a servir a
+[You]: ustedes, ¿no? Nos conectamos al banco con sus credenciales,
+[You]: nos conectamos a ledger con sus
+[You]: credenciales, nos conectamos al procesador de pagos, y ingestamos todas las bases transaccionales de esa manera. Either way works for us.
+[Remote]: Sí, en verdad ambas son viables, o sea, nosotros igual hoy tenemos
+[Remote]: como un proceso bajo el que los bancos nos mandan como extractos diarios,
+[Remote]: y API, y nosotros los centralizamos, luego los agrupamos y
+[Remote]: hacemos cierres mensuales para el buy now pay later,
+[Remote]: Es la misma API que planeamos usar, entonces,
+[Remote]: o les pudiéramos dar acceso a ustedes o pueden pueden simplemente consumir de nuestro data link.
+[You]: Y nosotros también disponibilizamos una API, si ustedes usan
+[You]: Muy flexible ahí.
+[Remote]: Así te queremos mandar, perfecto. Ok.
+[You]: Sí.
+[You]: Ahí el objetivo es que sea robusto,
+[You]: que sea automático y asíncrono, ¿no?
+[You]: Que corra de manera
+[You]: diaria.
+[Remote]: Ignacio, y, bueno, una cosa, última cosa que quiero agregar
+[Remote]: qué se ve el éxito conectado con lo que han
+[Remote]: dicho Nicole y y y Luis, es que
+[Remote]: digamos, esta es la base. Ahorita nosotros estamos lanzando, pero es apenas
+[Remote]: como el primer nivel, digamos, de de todo, ¿no? Entonces,
+[Remote]: primera funcionalidad es el cliente, pero nosotros también ahorita vamos a salir con un banco.
+[Remote]: Esperamos en los próximos, en el próximo trimestre agregar un segundo banco,
+[Remote]: cosa que eso, a nivel de conciliación, ya eleva un poco más el nivel,
+[Remote]: ¿ok? Y a futuro no tan lejano,
+[Remote]: esta que ambas cosas funcionen como base
+[Remote]: para una potencial cuenta remunerada.
+[Remote]: ¿Ok? Entonces, claro, esto ya es como el tercer nivel de
+[Remote]: complejidad, de conciliación contable,
+[Remote]: etcétera, etcétera, etcétera. Entonces, para mí, él también un criterio de
+[Remote]: se ve el éxito es que de una vez armemos, digamos, la las bases
+[Remote]: para que ese
+[Remote]: ese scaling up de complejidad y el tipo de transacciones, etcétera, como que
+[Remote]: esté preparado ante eso, porque no es algo que está tan en el largo plazo
+[Remote]: que veámoslos a futuro, no, no, es es, está más
+[Remote]: está más presente, no no para lanzar, pero sí está más cercano a lo que
+[Remote]: de lo que se diría, ¿no? Porque nos gustaría hacerlo este año.
+[You]: Cien por ciento. Y déjenme hacerles un comentario. La verdad que
+[You]: pocos clientes nos pasa que tienen
+[You]: este espíritu preventivo que están teniendo ustedes, como decir, ya ya
+[You]: tuvimos este dolor, estamos lanzando un producto nuevo, tal vez lo queremos hacer bien. Entonces, eso está bueno porque
+[You]: arrancamos trabajando con las bases,
+[You]: y ya después el sistema escala. Nosotros típicamente entramos
+[You]: cuando conciliaciones duele. Cuando conciliaciones duele,
+[You]: cuando ya hay una transaccionalidad alta o ya hay muchos productos andando, ¿no? Entonces,
+[You]: justamente, la herramienta nuestra está hecha para armar muchos flujos,
+[You]: multi
+[You]: multi entidad, multimoneda,
+[You]: distintos productos, y y y realmente tener una
+[You]: plataforma automatizada que te pueda simplificar, simplificar algo que ya se volvió tan complejo
+[Remote]: Okay.
+[You]: ¿no? Así que,
+[You]: nada, cien por ciento, ahí
+[You]: alineados en ese sentido. Yo quizás lo lo que propongo
+[You]: como próximo paso,
+[You]: es tratemos de armar una demo, así les mostramos un poquito cómo
+[You]: funciona el producto. Nosotros podemos
+[You]: extractos bancarios y si nos pasan la dummy data de su ledger,
+[You]: armamos un flujo
+[You]: simple de cómo se vería y hacemos un walk through de la plataforma.
+[You]: Y la visión, esto que justo decías, Andrés, es
+[You]: o sea, nosotros tenemos ambos modelos, ¿no? Podemos ayudarlos en las implementaciones, en los
+[You]: los cambios y estar ahí para ustedes,
+[You]: un poco la visión es que sea una plataforma owned and operated by you guys, ¿no?
+[You]: Por ustedes.
+[You]: Lo cual a ustedes les da muchísima independencia y autonomía,
+[You]: y no dependen de nosotros para hacer cambios, para
+[You]: agregar un producto nuevo, para lanzar un nuevo banco,
+[You]: plataforma está construida de una manera no code para gente no técnica, para
+[You]: que ustedes puedan montar su flujo, crear los reportes que necesitan,
+[You]: y así escalar sin dependencia de un vendor y sin escalar dependencia de equipo técnico interno,
+[You]: ¿no? Que siempre hay una negociación ahí por
+[You]: por los recursos técnicos y por el equipo solamente de Luis, Así que eso es un poquito la visión. Yo propongo que haremos una demo,
+[You]: con info dummy, quizás la semana que viene, si tienen disponibilidad,
+[You]: Y después pensando en un timeline hacia abril,
+[You]: podamos armar como una prueba de concepto muy light
+[You]: para hacer esto preventivo que ustedes quieran hacer, conectarla ya de antemano, que
+[You]: esté corriendo, para que el momento donde haya una primer transacción real,
+[You]: ya estemos conectados up and running. Y nosotros felices ahí de estructurar algo que sea el light
+[You]: low cost, por lo menos para estos meses iniciales, para que
+[You]: puedan construir esa base y realmente lanzar
+[You]: ya con un sistema andando, ¿no?
+[Remote]: Ok. Sí, bueno, también basado en el hecho que nosotros sí
+[Remote]: tenemos un cronograma interno de deployments interno,
+[Remote]: también es una oportunidad para eso que mencionas del proof of concept de que
+[Remote]: cuando nosotros abramos, este, el las
+[Remote]: pruebas, los releases previos a una comunidad interna de callea, que pueden ser unas
+[Remote]: cincuenta, doscientas personas, y ahí estamos en grado de empezar a
+[Remote]: generar algún don deira que más más parecido a la realidad, digamos.
+[Remote]: Bueno, pero listo, buenísimo. No sé si de nuestro lado,
+[Remote]: hace falta para? O Nicky, no sé si tú lo tienes ya al cien por ciento claro de que él
+[Remote]: qué qué leads necesitan de nosotros para el demo.
+[Remote]: No, bueno, Lucho, le podemos mandar una data a mí de la que
+[Remote]: tenemos ahí en staging y que ellos generen una contraparte bancaria
+[Remote]: también y y capaz hacemos la demo con eso.
+[You]: Dale, hagamos eso. Y ahí, de vuelta, justamente,
+[You]: nos están buscando con un espíritu preventivo,
+[You]: before this
+[You]: actually hurts,
+[You]: Nosotros queremos
+[You]: plasmar esto no como un vendor, sino como un partner. Entonces, construyamos esto juntos
+[You]: con mucha iteración,
+[You]: Así llegamos a abril, mayo, con con algo realmente muy robusto, Taylor, el free
+[You]: you guys custom, que sabemos que ya funciona.
+[You]: Y y después quizás hacemos el business case para pasarlo a buy now pay later, ¿no? Que
+[You]: que vos me decís Nicole ya estaba ahí muy bueno.
+[Remote]: Yo creo que eso sería eso sería lo ideal, lo que pasa es
+[Remote]: bueno, ahorita hay un montón de cosas como ongoing y había como mucho
+[Remote]: proyectos al mismo tiempo, entonces las probabilidades de como que
+[Remote]: romper alguno de esos proyectos, que son más pandates,
+[Remote]: que soluciones reales, pero bueno, hay que hacerlas. Las probabilidades de
+[Remote]: romper uno de esos eran más bajas, si no teníamos como un success case,
+[Remote]: Entonces, yo también creo que si hacemos este bien,
+[Remote]: hay mucho más chance de que de que luego como que el full business pueda pasar por la plataforma,
+[Remote]: las integraciones van a ser las mismas, porque estamos operando bajo los mismos bancos, las mismas
+[Remote]: como premisas de cómo consumimos la data, los mismos rules, etcétera. Entonces,
+[Remote]: yo creo que una vez que esto estuviera hecho, funciona como un buen
+[Remote]: base line, obviamente con otras compleidades que tiene el negocio de buy now be later, porque
+[Remote]: es un negocio más grande, pero
+[Remote]: las bases van a van a funcionar para ambos. Entonces, yo creo que
+[Remote]: si hacemos este live version y funciona, se arma un
+[Remote]: más interesante para hacer el el broader case.
+[You]: Espectacular, ese ese ese
+[You]: involucramiento progresivo es el que buscamos. Bueno,
+[You]: ¿cómo les queda lunes que viene en la misma hora para hacer la demo?
+[Remote]: Ya te digo.
+[Remote]: Promix está bien.
+[Remote]: Pero no ¿De será que
+[Remote]: Hay que revisar el equipo completo, déjame revisar, ya, sí. Bueno, yo creo que Sandy Santi e Ivana nada más, o sea, no necesitamos que esté el sueldo, pero
+[Remote]: Ah, exacto, sí, sí, sí, sí, sí, ya. Sí, sí, déjame tantito. Todos
+[Remote]: es TNAM, ¿right? TNAM diecinueve.
+[Remote]: Ahora, Caracas. Sí, estamos todos.
+[You]: Dale, yo ahí estoy duplicando el invite. Si quieren agregar alguien más,
+[Remote]: Listo, nosotros hacemos.
+[Remote]: La data la requiere en un archivo plano, ¿no?
+[You]: Bueno,
+[You]: Como la tengan.
+[Remote]: Listo, perfecto.
+[You]: Solo una, sí, solo una preguntita de la data
+[Remote]: Bueno, Lucho, te encargamos a ti de mandar la data y listo.
+[You]: ¿El banco con el que ustedes operan opera las transacciones real time o son batched?
+[Remote]: No.
+[You]: ¿Saben eso?
+[Remote]: No, real time. O sea, la conciliación va a ser batch, pero
+[Remote]: pero la data como tal es real, pues, momento en línea.
+[You]: ¿Qué quiere decir?
+[Remote]: Sí, el tema ahí, igual vamos a estar jalando
+[Remote]: no vamos a estar jalando todo real time, probablemente, para conciliar, sino que a lo mejor vamos
+[Remote]: hacer un batch al cierre del día para las conciliaciones.
+[Remote]: Correcto. Las validaciones van a ser real time, la conciliación va a tener que
+[Remote]: ser batch.
+[You]: Sí, sí, pero me refiero a, en el extracto bancario son
+[You]: os hacemos, machemos one to one,
+[You]: no es tipo many to one.
+[Remote]: Debería ser one to one.
+[You]: Ok, porque algunos bancos
+[Remote]: Exacto. O sea, cada cada transacción debería tener un movimiento
+[Remote]: asociado. Lo que pudiera haber de Many to One es si hay alguna comisión
+[Remote]: a veces eso es lo que hay un split, que está la transacción inicial y luego la comisión como una línea se
+[Remote]: separada.
+[You]: Dale. Ok, nos anotamos, entonces, a mostrar las dos funcionalidades
+[You]: para que las puedan ver, porque si
+[You]: seguramente surja algo de eso. Listo. Bueno,
+[You]: millón de gracias por el tiempo, y esperamos la información, y nos vemos el lunes que viene.
+[Remote]: Listo, buenísimo. Mil gracias.
+[You]: Abrazo grande.
+
+============================================================
+SUMMARY
+============================================================
+### Company Split and Wallet Product Launch
+
+- Cashea restructured into two separate companies:
+  - BNPL (existing Buy Now Pay Later operations)
+  - Wallet division (new product focus)
+- Wallet product launching first features in coming months
+  - Similar to MercadoLibre Argentina model for Venezuela
+  - Includes fund capture, P2P transfers, and merchant acquiring
+  - Will operate with two local banks initially
+  - All transactions in bolívares (local currency)
+- Timeline challenges:
+  - April: Wallet launch (pending banking licenses)
+  - June: Debit card release
+  - H2 2026: Second bank integration planned
+  - 2027: Interest-bearing accounts (cuenta remunerada)
+
+### Current Pain Points and Success Criteria
+
+- BNPL legacy issues they want to avoid:
+  - Heavy manual processes throughout
+  - Transactions hitting temporary accounts requiring manual redirection
+  - Multiple manual journal entries
+  - No automated bank reconciliation system
+- Success definition: Launch with fully functional automated system from day one
+  - Daily reconciliation reports showing discrepancies immediately
+  - Direct integration between internal ledger and ODU ERP
+  - No phantom transactions or unidentified movements
+  - Scalable foundation for increasing complexity
+
+### Team Structure and Next Steps
+
+- Key personnel:
+  - Andrés Valongo & Nicole: Business and strategy (Andrés currently in Spain)
+  - Luis Sarmiento: Technology lead with local wallet experience in Venezuela
+- Immediate actions:
+  1. Demo scheduled for Monday same time (11 AM)
+  2. Luis to provide staging transaction data for demo preparation
+  3. Rexi to generate dummy bank statements using AI for realistic demo
+- Integration approach: Flexible between data lake connection or direct API access to banks and internal systems
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/6f1cbb05-76e6-4fd4-aa54-3dfbc3697f98](https://notes.granola.ai/t/6f1cbb05-76e6-4fd4-aa54-3dfbc3697f98)

@@ -1,0 +1,579 @@
+MEETING: Rexi x Mendel: demo
+DATE: 2026-02-17
+ID: not_fnJbnuwbruMyOQ
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Eduardo Maldonado Romero <eduardo.maldonado@mendel.com>, Teo <teo@rexi.finance>, Omar Spindola <omar.spindola@mendel.com>, Jose Suarez <jose.suarez@mendel.com>
+SCHEDULED: 2026-02-17T12:30:00-05:00 - 2026-02-17T13:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Buenas
+[Remote]: Buenas,
+[You]: Tranca.
+[Remote]: Buenas.
+[You]: ¿Qué dice Lalo?
+[Remote]: ¿Cómo están?
+[Remote]: Todo bien,
+[Remote]: Bien, bien, gracias.
+[Remote]: Este, ¿se va a sumar también José?
+[Remote]: Hola.
+[You]: Hola, José, ¿cómo estás?
+[Remote]: Muy bien, ¿y ustedes?
+[You]: Muy bien, un gusto saludarte.
+[Remote]: Igual.
+[You]: Ahí te hago intro, Teo y yo somos los cofounders de Rexi,
+[You]: Tuvimos una charla la la la vez pasada con Lalo y
+[You]: y la idea era mostrar un poquito la la plataforma hoy.
+[You]: Y luego evaluar cómo seguir.
+[You]: ¿Vos, José, estás en el equipo de finanzas con Ana María?
+[Remote]: Sí, estoy con Lalo.
+[Remote]: Sobre todo.
+[You]: Ah, va, ok.
+[You]: Excelente. ¿Esperamos alguien más o no?
+[Remote]: Este, no,
+[Remote]: se se va sumar también Omar, pero si quieren podemos ir, este,
+[Remote]: iniciando para también no, este,
+[Remote]: no no no desperdiciar el tiempo. Ah, miren, ya ya está, ya se subió Omar,
+[Remote]: Omar también está, este, en finanzas y él
+[Remote]: pues, más bien nosotros tres somos los que estaríamos como
+[Remote]: o vamos a estar como operando esta parte
+[Remote]: de Symmetric, somos los que tenemos, este, los procesos que queremos conciliar,
+[Remote]: y, pues, a los tres nos nos viene bien como ver el funcionamiento.
+[You]: Excelente. Bueno,
+[You]: un poquito de
+[You]: hago como un recap, para así estamos alineados un poco, lo escuchamos la vez
+[You]: pasada, después ya dijo que Teo muestre un poco del del producto
+[You]: Entonces, básicamente, esto es un dolor que
+[You]: que nunca lo lo lograron priorizar durante mucho tiempo, algo que
+[You]: que intentaron hacer, pero después, obviamente,
+[You]: las necesidades del negocio y otras prioridades fueron como pateándolo,
+[You]: Siempre fue un proceso manual, y entonces, por eso
+[You]: habían hablado con con con Symmetric en en el pasado, pero
+[You]: pero luego volvieron a retomar la conversación a fines del año pasado,
+[You]: y bueno, y recientemente ya firmaron y y a
+[You]: arrancaron la implementación con esa compañía que que implementa
+[You]: la plataforma de Symmetric. Pero lo lo los concerns que
+[You]: recolectamos la vez pasada, y eso es para alinear, para asegurar de que tenemos la foto completa y no nos olvidamos de nada,
+[You]: obviamente muchísimo proceso manual en Excel,
+[You]: tanto de traer la información, transformarla,
+[You]: y luego empezar a a compararla,
+[You]: Hay hay hay muchos flujos de consideración complejos
+[You]: vendel contra PROSA, vendel contra Pomelo, vendel contra SAD,
+[You]: tienen múltiples cuentas de bancos también, JP Morgan, algunos bancos grandes en México.
+[You]: Hay un tema de costo y escalabilidad también,
+[You]: que que que les preocupaba. Me acuerdo a María, no le gustó mucho el
+[You]: el la propuesta de implementación de Symmetric con esta compañía tercerizada,
+[You]: el costo upfront. Y luego, más allá de implementar un
+[You]: sistema automatizado de conciliaciones,
+[You]: elimine todas esas tareas manuales, también había una necesidad por tener alertas
+[You]: de monitoreo,
+[You]: detectar anomalías y poder tener algo resolver las discrepancias
+[You]: real time. Así que, nada, ahí
+[You]: no sé si me olvide de algo, era algo que que particularmente quieran ver ahora
+[You]: la demo, que te parezca superimportante sobre el proceso, o si no ya nos tiramos de cabeza.
+[Remote]: Pues no, o sea, no, si te, ahí te te mandé
+[Remote]: perdón también por eso, te te mandé la respuesta a tu correo,
+[Remote]: apenas el día de ayer, respecto a más o más cómo funciona
+[Remote]: pues, las principales fuentes de información o algunos casos de uso que queremos conciliar,
+[Remote]: este,
+[Remote]: pero, pues sí, yo creo que
+[Remote]: pues podemos ver la plataforma,
+[Remote]: Dale, perfecto, wow. ¿Quieren que también nosotros platiquemos algo respecto a
+[Remote]: a los procesos puntuales, también podemos hacerlo.
+[You]: Va, dale.
+[Remote]: Perfecto.
+[Remote]: Bueno, comparto pantalla,
+[Remote]: Yo ahí vi los mensajes que
+[Remote]: que nos mandaron, y preparé
+[Remote]: una demo para que, más o menos, vea cómo sería
+[Remote]: una conciliación entre la base de datos interna de
+[Remote]: de Mendel con la el el
+[Remote]: el reporte transaccional que se descargan de prosa
+[Remote]: Básicamente, al igual que Symmetric, nosotros nos dedicamos a automatizar procesos conciliatorios,
+[Remote]: es decir,
+[Remote]: automatizamos la ingesta, nos conectamos directo con Prosa, con Mendel y con donde sea que esté la
+[Remote]: información.
+[Remote]: Ingestamos esa información de manera diaria o con la recurrencia que que haga falta,
+[Remote]: estandarizamos la información,
+[Remote]: y armamos las conciliaciones y dashboards y reportes de manera también automática. Entonces,
+[Remote]: en este caso, esta es la una base a todo, Dummy, de de
+[Remote]: de Mendel, con
+[Remote]: la apertura a nivel transaccional, con, obviamente,
+[Remote]: la fecha de transacción, y, por ejemplo,
+[Remote]: acá el monto, nosotros acá lo lo marcamos como
+[Remote]: columna valor, como para después en los resultados ver cuánto transaccionó
+[Remote]: cuánto concilió a nivel
+[Remote]: transacciones y cuánto concilió a nivel valores
+[Remote]: nosotros definimos esta como la columna valor.
+[Remote]: Obviamente, acá tenemos, por ejemplo, diferentes merchants, que no sé
+[Remote]: quiénes serán sus sus reales merchants, pero
+[Remote]: serían tal vez algunos de sus clientes en en México.
+[Remote]: Tenemos, por un por un lado, la base de datos Mendel, y, por otro, lo que descargan de de
+[Remote]: con el settlement date,
+[Remote]: también a nivel transaccional, en merchant, y
+[Remote]: demás. Acá tenemos el
+[Remote]: processing fee, el amount y demás. Lo marcamos como
+[Remote]: columna valor. Cualquier modificación, agrupación,
+[Remote]: todo
+[Remote]: para que se me dé a cualquier
+[Remote]: gestión de la información que se pueda hacer en Excel,
+[Remote]: se se puede hacer también en Rexi y de manera automatizable, es decir, columnas calculadas, columnas con fórmula, group by, fechas, filtros, dividir la base a datos o agruparla. O extraer metadata con con un parse fields, o VLuca para enriquecer la con la información de otras bases de datos. Tenemos también para tener mayor flexibilidad columnas que pueden ser con fórmula, por ejemplo, si
+[Remote]: no es null,
+[Remote]: entonces uno, sí, no,
+[Remote]: cero, y obviamente acá te
+[Remote]: te propone las fuentes de, las
+[Remote]: las fórmulas, obviamente, para ayudarlos a a generar cualquier tipo de
+[Remote]: de
+[Remote]: de columna que sea compleja. Entonces, una vez que tenemos
+[Remote]: gestada la información y automatizada y estandarizada,
+[Remote]: vamos a hacer un pequeño ejercicio de conciliación.
+[Remote]: Que en cruce entre esto
+[Remote]: prosa, lo que ponemos acá,
+[Remote]: base de datos versus prosa,
+[Remote]: y generamos una nueva regla.
+[Remote]: Una regla es un cruce básico entre dos fuentes de datos, y la estrategia puede ser,
+[Remote]: one to one,
+[Remote]: one to many, many to one,
+[Remote]: y many to many. Entonces, podemos hacer con toda la flexibilidad posible
+[Remote]: de una conciliación entre estados cuenta de datos. En este caso, es un one to one, porque tenemos a
+[Remote]: aperturado a nivel transacción en ambos lados,
+[Remote]: entonces,
+[Remote]: ponemos la información transaccional del PROSA,
+[Remote]: la de Mender, amount transaction,
+[Remote]: lo mismo para
+[Remote]: todo lo que es reporting, ahora lo vamos a ver eso,
+[Remote]: y hacemos los joins. Ustedes nos comentaron que tienen
+[Remote]: authorization ID,
+[Remote]: como como criterio de de de
+[Remote]: para hacer el macheo,
+[Remote]: Obviamente, se puede agregar varios criterios,
+[Remote]: y se puede agregar segunda, tercera, cuarta barrida. Entonces, hacer
+[Remote]: vamos a hacer, en este caso, una primer barrida con authorization ID,
+[Remote]: y todo lo que no reconcilio le vamos a hacer una segunda por lo que me comentaron, que son los
+[Remote]: últimos cuatro dígitos
+[Remote]: de la tarjeta, que son estos estos de acá,
+[Remote]: Le vamos a agregar fecha,
+[Remote]: settlement date,
+[Remote]: transaction date. Obviamente, acá se le puede agregar tolerancia en días,
+[Remote]: minutos, horas, segundos y demás.
+[Remote]: Y le vamos a agregar
+[Remote]: monto,
+[Remote]: en pesos mexicanos,
+[Remote]: y se le puede agregar, obviamente, también tolerancia o en porcentaje o en valores absolutos.
+[Remote]: Esto también se le puede agregar comparaciones, por ejemplo, si quieren
+[Remote]: comparar que el estatus en una transacción esté aprobada.
+[Remote]: En ambos lados o el fee sea el correcto y demás, se hace acá,
+[Remote]: y si se marca como critical, significa que si falla esa comparación,
+[Remote]: no se marca como considerada la transacción.
+[Remote]: Y, obviamente, muchas veces estos estas nomenclaturas vienen en diferentes
+[Remote]: formatos y demás, entonces, acá se puede hacer
+[Remote]: Por ejemplo, si queremos revisar que esté en el mismo estatus en ambas en ambas bases de datos,
+[Remote]: pero en una dice aprobado y en otra approved,
+[Remote]: acá haríamos la estandarización, por ejemplo, quiero que sea débito, y debit quiero que sean tomado como equivalentes. Acá se normaliza la información para para las comparaciones y demás, o no sé, la la Currency, el Monte y demás. Y por último, transformaciones, hacer, bueno, motivo de reporting, alguna columna calculada, algún de fío, diferencia de monto y demás. Ahí alguien comentó algo. Sí, yo tengo una pregunta. Este, esa parte de los comparations este, ¿lo hace después de que hace los join? Claro, o sea, nosotros acá, en estas, en en en las join configurations, encontramos cuál es el, o sea, cuál es la la
+[Remote]: que corresponde a cada una.
+[Remote]: Pero eso no significa necesariamente que nosotros queremos que esa se
+[Remote]: marque como como reconciliada, porque tal vez
+[Remote]: algo erróneo. Por ejemplo, puede ser que el monto esté fuera
+[Remote]: o puede ser que la fecha de liquidación no la hayan liquidado un día más tarde o dos días más
+[Remote]: tarde, lo corrobora por contrato,
+[Remote]: o que el fino sea el correcto y demás. Entonces,
+[Remote]: esto identifica a nivel operativo cuál es la transacción que corresponde,
+[Remote]: y después podemos, si queremos, agregarle un un chequeo extra. Ok, ya la tengo identificada.
+[Remote]: Bueno, ahora verificame,
+[Remote]: si el monto es el correcto, si el sí es el correcto,
+[Remote]: si la fecha de liquidación fue la correcta,
+[Remote]: o el estatus es el es el correcto en ambas,
+[Remote]: Entonces,
+[Remote]: son dos niveles de de verificación que tenemos, y nosotros, en este caso, la dejamos solamente
+[Remote]: así,
+[Remote]: ya con que la identifica o no la identifica, va a ser reconciliada o no reconciliada.
+[Remote]: Pero tal vez le queremos salir a un siguiente nivel, un siguiente verificación, y eso se haría acá en las comparaciones.
+[Remote]: Una vez que identificamos cuál es la la par, cuál es la melliza,
+[Remote]: una transacción, tal vez queremos hacer diferentes verificaciones.
+[Remote]: Ok, sí, ya te sigo, está está muy bien.
+[Remote]: Perfecto. Entonces, acá creamos la la regla,
+[Remote]: y, obviamente,
+[Remote]: las conciliaciones pueden llegar a ser muy complejas, después le podemos agregar dependientes para
+[Remote]: comparar el resultado de esta transacción, de esta reconciliación con una tercera, cuarta, quinta base de datos
+[Remote]: así.
+[Remote]: Y, obviamente, como nosotros dijimos, nos dedicamos a automatizar,
+[Remote]: Entonces,
+[Remote]: una reconciliación puede ejecutarse de tres maneras.
+[Remote]: O con algún tipo de de de
+[Remote]: de calendario, por ejemplo, todos los días a las cuatro de la mañana,
+[Remote]: o cuando se actualiza un source, es decir, cuando
+[Remote]: entra en la información transaccional de prosa o de Mendel,
+[Remote]: todos los días a las cinco de la mañana, que que eso dispare la la conciliación.
+[Remote]: Y, obviamente, la tercera es la que vamos a hacer ahora, que es
+[Remote]: de manera manual,
+[Remote]: vamos a ejecutarla.
+[Remote]: Y ahora vamos a ver los resultados.
+[Remote]: Entonces, repasando, automatizamos la ingesta,
+[Remote]: automatizamos la estandarización de la información,
+[Remote]: y automatizamos hasta ahora todo lo que es
+[Remote]: resultados conciliatorios. Entonces,
+[Remote]: acá tenemos los resultados a nivel transaccional,
+[Remote]: En la primero, arriba,
+[Remote]: encontramos ciento doce transacciones,
+[Remote]: quedaron solo ocho en prosa,
+[Remote]: y
+[Remote]: solo cuatro en Mendel,
+[Remote]: pero hicimos una segunda barrida con los últimos cuatro dígitos,
+[Remote]: transaction date, amount date,
+[Remote]: y acá encontramos cuatro transacciones más.
+[Remote]: Entonces, quedaron
+[Remote]: las cuatro nuevas, y todas las transacciones de Mendel terminan
+[Remote]: y cuatro quedaron solamente en prosa, que habría que ahora investigar por qué tenemos
+[Remote]: cuatro transacciones matchadas.
+[Remote]: Y estos son los resultados que que vimos de la
+[Remote]: de las dos barridas,
+[Remote]: todo lo que es prosa,
+[Remote]: todo lo que es Mendel,
+[Remote]: KPI generales, y después aperturado por día, todo lo que es prosa,
+[Remote]: ejemplo, tuvimos ayer, diecisiete de febrero,
+[Remote]: doce transacciones,
+[Remote]: de las doce se matcharon todas,
+[Remote]: y quedaron sin matchear
+[Remote]: cero.
+[Remote]: Y en esto, lo mismo en valores, el campo valores, el que definimos al principio,
+[Remote]: ciento treinta y siete mil pesos, de eso, macharon ciento treinta y siete mil, y quedaron sin machar cero. Pero, por ejemplo, antes de ayer, no, ayer cinco mil sin que es una transacción. Y lo mismo con bueno, en este ejercicio marcaron todas. Esto es, obviamente, a nivel transacción y y en y a nivel valor, la información general. Obviamente, toda esta información se puede generar un a cualquier base de datos de ustedes que quieran, con con la masticación de la información que haga falta. Por ejemplo, si queremos generar un reporte con información, con columnas enriquecidas, o columnas derivadas, que pueden ser mapeos, normalizaciones y demás. Se puede generar
+[Remote]: el reporte y automatizar el reporte que ustedes quieran.
+[Remote]: Bueno, tenemos, obviamente, el módulo de el exception
+[Remote]: manager, donde cualquier cosa que queda sin, si es que, en este caso, son las cuatro transacciones que nos bachearon,
+[Remote]: acá se buscaría cuál cuál es la que corresponde, pero como bachearon todas, no hay ninguna,
+[Remote]: sin sin recocigar.
+[Remote]: Entonces, tal vez esto es
+[Remote]: una excepción.
+[Remote]: Entonces, lo marcamos como excepción, marcas exception,
+[Remote]: listo.
+[Remote]: Ahí
+[Remote]: se puede hacer de manera manual,
+[Remote]: o
+[Remote]: se puede hacer de manera automática,
+[Remote]: Ahora, yo
+[Remote]: voy acá y configuro las exception
+[Remote]: roots. Entonces, por ejemplo,
+[Remote]: tal vez siempre que
+[Remote]: la información de prosa viene sin ID, yo quiero que se marque como excepción automáticamente. Entonces,
+[Remote]: idea es que el trabajo manual al final
+[Remote]: sea el mínimo, el mínimo, mínimo posible, sea, haya regla de conciliación,
+[Remote]: regla de excepción,
+[Remote]: que no quede nada para gestionar de manera manual.
+[Remote]: Obviamente, tenemos todo lo que es alarma,
+[Remote]: se pueden mandar diariamente vía Slack,
+[Remote]: o vía email, no sé qué qué medio de comunicación utilizan ustedes interno.
+[Remote]: Slack. Perfecto. Entonces, le puede llegar todas las mañanas a las cinco de la mañana una notificación, total transacciones ayer, tantas, total conciliadas, tantas, tres sin conciliar para revisar y que directamente tengan que solamente entrar a ver esas tres. Y por último, dashboards, obviamente, no tenemos los resultados conciliatorios genéricos, pero muchas veces las empresas quieren ver información más personalizada y demás, entonces, o de muchas transacciones en un mismo dashboard y demás, acá tenemos todo lo que es el módulo de dashboard para armar estos reportes de... Yo acá preparé uno medio básico, pero como para que vean que que son completamente personalizables, pueden organizar, obviamente, cambiar el tamaño, toda la información, y
+[Remote]: generar todos los widgets que hagan falta, vamos a generar uno, por ejemplo, acá.
+[Remote]: Para que vean
+[Remote]: vamos a crear un pie chart con la información
+[Remote]: la de demo,
+[Remote]: results,
+[Remote]: y podemos agregar el la métrica que haga falta y demás, con con los
+[Remote]: rangos de fecha que querramos,
+[Remote]: generamos el widget nuevo. Esto lo vamos
+[Remote]: poner así. Esto es solo para que vean
+[Remote]: cómo quedaría un widget nuevo.
+[Remote]: Y tendrían el dashboard personalizado con todo el
+[Remote]: de todas las conciliaciones en uno, o aperturado, o con la información que
+[Remote]: que les haga falta.
+[Remote]: Y lo último que tenemos es el módulo de reporting. Esto
+[Remote]: es... Ah, tenemos dos dos cosas, perdón, que me olvidé mostrarles. Una, módulo de reporting, si quieren crear reportes
+[Remote]: en base a, por ejemplo, el pros asset management, esto les suele servir a muchas áreas, sobre todo las
+[Remote]: contables.
+[Remote]: Pueden generarlo con con la información que quieran.
+[Remote]: Agregar columnas manuales, obviamente,
+[Remote]: autorización.
+[Remote]: ID not null
+[Remote]: el cero, bueno,
+[Remote]: de la misma manera que generamos las fórmulas sugeridas,
+[Remote]: acá también le ayudamos a generar esos reportes automáticos
+[Remote]: en base a a la información transaccional.
+[Remote]: Y por último, no sé si lo charlamos esto la última vez, pero
+[Remote]: para alguno de nuestros clientes automatizamos la generación de asientos contables,
+[Remote]: en base a la información conciliada,
+[Remote]: No sé si si esto ustedes lo tienen resuelto, si tiene un equipo que los hace de manera manual,
+[Remote]: o si ya los automatizaron de alguna u otra manera,
+[Remote]: pero nosotros, básicamente, les permitimos automatizarlos de manera
+[Remote]: no-code y completamente
+[Remote]: asistido por nosotros.
+[Remote]: No, toda esa parte contable nosotros la tendríamos que subir a
+[Remote]: al ERP, que nosotros usamos NetSuite, entonces,
+[Remote]: este,
+[Remote]: pues sí, sea, esa información, si ustedes
+[Remote]: pueden y, este, integrarse con NetSuite, igual y
+[Remote]: ya estamos integrados con NetSuite.
+[Remote]: Para alguno de nuestros clientes les generamos los asientos contables automáticamente.
+[Remote]: Perfecto. Pues sí, estaría bueno eso explorar eso, porque
+[Remote]: este, no es algo que tengamos automatizado,
+[Remote]: pero sí es deseable.
+[Remote]: Pues, de de hecho, la verdad, no lo habíamos considerado
+[Remote]: como para este tema de
+[Remote]: de conciliaciones, a lo mejor nosotros lo habíamos visto solo como para
+[Remote]: tener la información conciliada y ya el proceso después de
+[Remote]: subir, este,
+[Remote]: al ERP o
+[Remote]: o reportar contablemente,
+[Remote]: verdad es que no lo habíamos, este, considerado.
+[Remote]: Perfecto, sí, nosotros notamos que muchos de nuestros clientes
+[Remote]: tenían un trabajo manual enorme en todo lo que es conciliaciones,
+[Remote]: y también, una vez que tenían esa conciliación hecha, la generación de los
+[Remote]: contables armaban un Excel,
+[Remote]: con los asientos y lo cargaban a NetSuite, entonces, nosotros directamente
+[Remote]: les permitimos configurar esa generación de asientos,
+[Remote]: y con un proceso de aprobación, revisión y aprobación, directamente
+[Remote]: impactar los los los journal entries.
+[Remote]: Súper. Respecto al tema de las integraciones,
+[Remote]: este, recién tuvimos una charla con con el equipo de Symmetric,
+[Remote]: y, este, creo que ahí hubo una confusión o algo así, porque
+[Remote]: final ellos nos nos comentaron que
+[Remote]: este, bueno, y la verdad es que se me me hace se me hace bastante lógico.
+[Remote]: Por ejemplo, para el tema de las integraciones con bancos,
+[Remote]: pues ellos realmente no es como que ellos se conecten al banco.
+[Remote]: Ellos no lo trabajan de esa forma, sino que ellos nada más
+[Remote]: de lo que nosotros hayamos charlado con el banco, y si el banco ya nos envía información,
+[Remote]: a algún
+[Remote]: ellos se conectan ya a ese repositorio.
+[Remote]: O sea, no es, literal, ellos nos dijeron, no es que nosotros vayamos a hablar con el banco, o sea,
+[Remote]: de lo que ustedes ya tengan pactado con el banco, nosotros vamos a alimentarnos de eso.
+[Remote]: Entonces,
+[Remote]: a mí me me sonó bastante lógico porque al final, pues sí, o sea, el
+[Remote]: ellos, este, no pueden contar ese nombre de un tercero, sino más bien, este,
+[Remote]: pues nosotros como interesados,
+[Remote]: somos los que requerimos la información, y ya nada más lo único que hacemos es darle a
+[Remote]: a Symmetry a esa información que ya requerimos. Entonces,
+[Remote]: si ustedes, me imagino que también es de esa misma forma.
+[Remote]: Mirá, lo, si ustedes ya están almacenando la información del banco,
+[Remote]: en algún repositorio,
+[Remote]: lo más rápido para todos va a ser que nosotros accedamos directo a ese repositorio donde ustedes lo están almacenando. Ahora, si ustedes no están haciendo eso y quieren que nosotros exploremos la posibilidad de una interacción directa con el banco, nosotros pedí de hacerlo, pero muchas veces los bancos ser nosotros terceros, sino el directo interesado, puede puede demorar más tiempo.
+[Remote]: Sí, sí, sí.
+[Remote]: Este igual, pero si ya lo están almacenando, obviamente es lo más rápido para todos.
+[Remote]: No, aquí nos tocaría a nosotros, este, explorar con el banco, porque
+[Remote]: todo lo hacemos muy rudimentario, o sea, literal, descargamos de por
+[Remote]: bancario los statements, los que se puedan en Excel, algunos
+[Remote]: otros en PDF o también del histórico, a lo mejor
+[Remote]: ya hay, este, cuentas que no podemos acceder, este, porque a lo ya las ya
+[Remote]: fueron cerradas, pero requerimos información histórica,
+[Remote]: O sea, ahora es muy manual, o sea, es Omar, que es el que se encarga como de la gestión de
+[Remote]: de la tesorería, pues él tiene que estar descargando los movimientos bancarios,
+[Remote]: y, pues, está ahí haciendo el tratamiento.
+[Remote]: Entonces, este,
+[Remote]: pues sí, creo que la idea también sería nosotros como generar ese
+[Remote]: que el banco nos ayude con esa con esa información para que ustedes también puedan
+[Remote]: este, aprovechar
+[Remote]: Perfecto.
+[Remote]: Ahí, respecto a
+[Remote]: a la demo, y ya que aprovecho que ustedes están también explorando con Symmetric,
+[Remote]: ¿hay algún alguna funcionalidad que les parezca muy clave que
+[Remote]: que tal vez no no hayamos visto?
+[Remote]: Algo que ustedes hayan visto en Symmetry que le les parece muy importante que tengamos,
+[Remote]: o algo de, incluso, nuestro lado, que tal vez Symmetric no tiene? ¿Cómo cuáles son sus
+[Remote]: sus sus sentimientos sobre sobre eso?
+[Remote]: Este, pues, de primera mano, me llamó mucho la atención
+[Remote]: por eso te preguntaba el tema del como que el segundo barrido,
+[Remote]: de, o sea, no es un segundo barrido por ese, sino más bien es
+[Remote]: como una recategorización de todo lo conciliado,
+[Remote]: como ponerles un, o sea, bueno, yo así más o menos lo lo interpreté, de poner algunas especies de banderas,
+[Remote]: para categorizar esos registros. Ya consideras eso
+[Remote]: pues, cuando exploramos que eso creo que no lo vi,
+[Remote]: pero, este Sí, creo que ellos no lo tienen, y es algo que nosotros
+[Remote]: encontramos muy, muy útil,
+[Remote]: Primero, hacer una una
+[Remote]: una un macheo o una conciliación operativa, y después permitir agregar
+[Remote]: financieras o o o diferentes verificaciones
+[Remote]: antes de marcar como conciliado a algo finalmente.
+[Remote]: Sí. Y otra cosa también, bueno, ellos, este, présume mucho
+[Remote]: tema de
+[Remote]: algo que le llaman de symmetric academy,
+[Remote]: que es como un repositorio de
+[Remote]: este, como mucho
+[Remote]: pues sí, vaya, al final muchos, este,
+[Remote]: como cursos, como entrenamientos,
+[Remote]: La verdad, ahí, este, pues, solo he tomado el entrenamiento como de administrador,
+[Remote]: pero uno del un un miembro del equipo me comentaba que no, este, alguno de los videos del del academy, como que no no se veían, entonces, sea, pero al final creo que es un buen, o sea, es bueno es bueno tener material para tu poder, este, pues, como autogestionar tu tu, este, tu aprendizaje dentro de la plataforma. Perfecto.
+[You]: ¿Alguna preguntita más o duda adicional que haya quedado? Ah, Omar, ahí tiene.
+[Remote]: Sí, hola, este, mucho gusto a ti, muchas gracias. Quedó clarísimo por
+[Remote]: la explicación. Creo que para el el tema
+[Remote]: digamos, principal, que es prosa,
+[Remote]: Mendel Database, pues está superentendido cómo se tiene que hacer.
+[Remote]: Solo para para los bancos a mí me surge una duda,
+[Remote]: Recuerdo que yo cuando cuando entré,
+[Remote]: a Mendel,
+[Remote]: de las primeras cosas que quise hacer, el tema de la conciliación de las cuentas.
+[Remote]: O más bien,
+[Remote]: que pudiéramos extraer información de los, como si descargáramos un extracto bancario
+[Remote]: casi de forma diaria o dos veces al día,
+[Remote]: y y me acerqué con con nuestros ejecutivos de bancos,
+[Remote]: me dijeron que
+[Remote]: necesitaba un formato MT novecientos treinta, novecientos cuarenta.
+[Remote]: Entonces,
+[Remote]: ese formato tenía un costo, ya dependiendo del
+[Remote]: como el
+[Remote]: la recurrencia de envío y demás, pero
+[Remote]: sí es, o sea,
+[Remote]: para entenderlo es,
+[Remote]: nuestra integración con el banco sería ese tipo de formatos,
+[Remote]: o ustedes ya tienen, digamos, una
+[Remote]: o sea, digo,
+[Remote]: alguna experiencia de trabajo, este, ¿cuál es como...? Porque, digo, me surge,
+[Remote]: la duda, y creo que ahorita, hasta ahorita la la resolvería,
+[Remote]: pero
+[Remote]: no sé si es a través de ese formato o a través de una integración diferente que ustedes manejan con los bancos.
+[Remote]: Va a depender de de cómo la dispone el banco. El banco puede o generar archivos
+[Remote]: y enviarnos vía SFTP,
+[Remote]: Esos archivos pueden ser CSV o Excel o o el formato que sea,
+[Remote]: o pueden enviarlos en m t nueve cuarenta,
+[Remote]: que, básicamente, nosotros los parcearíamos dentro de la plataforma.
+[Remote]: Cualquiera de los dos funciona hoy para para Rexi.
+[Remote]: Simplemente, si bien en en ese formato,
+[Remote]: que es básicamente una línea de de números y y letras,
+[Remote]: Nosotros directamente en Rexi, con con lo que la con
+[Remote]: el agente que genera las fórmulas, extraemos
+[Remote]: toda la información, generamos las columnas, la estandarizamos y y conciliamos después. Así que así que va a depender de de de de la tecnología que disponga el banco. Que que no sé cuál es, y el formato en lo que lo puede enviar. Ok. Recuerdo bien la, digo, lo busqué con BBVA, queda como con
+[Remote]: ejecutivo que venía y contacto más rápido, y sí era ese formato MT
+[Remote]: nueve cuarenta.
+[Remote]: Perfecto.
+[Remote]: Sí.
+[Remote]: Entonces, y nada más, digo, para para confirmar lo que estoy pensando.
+[Remote]: Ese costo, obviamente,
+[Remote]: lo asumimos nosotros para el envío con con los bancos, y ya ustedes
+[Remote]: toman la información. O sea, esa es una
+[Remote]: información, este, digamos, como personal de Méndez, ¿no?, o sea Sí, sí, sí.
+[Remote]: Por eso es responsabilidad de ese gasto.
+[Remote]: Exactamente. Esa es información, básicamente, ustedes, obviamente, nosotros
+[Remote]: no
+[Remote]: nos quedaríamos con todo el costo del procesamiento de esa información, queda de del lado de Rexi,
+[Remote]: pero el acceso a esa información sí es algo que queda del del lado de ustedes.
+[Remote]: Gracias. Entonces, yo yo ya aclaricé con eso.
+[Remote]: Perfecto.
+[You]: ¿José?
+[You]: Lalo, ¿qué piensan?
+[Remote]: Todo bien, la verdad es que
+[Remote]: pues,
+[Remote]: así de primer de primera mano,
+[Remote]: sea, veo mucha similitud con Symmetric,
+[Remote]: o sea, ambos tienen como ese, este,
+[Remote]: ambiente ya muy
+[Remote]: Desarrollando. Pues como amigable para procesar todo muy fácil, demás,
+[Remote]: Me gusta, la verdad es que me gustaron más los dashboards que que vimos aquí,
+[Remote]: pero, pues también la también otra realidad es que le
+[Remote]: generalmente, los dashboards
+[Remote]: pues, bueno, yo como usuario más operativo y
+[Remote]: este, de esa naturaleza, yo estaría más enfocado en el tema de
+[Remote]: ok, a mí dame todo lo que no concilió, lo voy a ver qué qué voy a hacer
+[Remote]: Ah, pero, a lo mejor, un usuario más del tipo de Ana o de
+[Remote]: este,
+[Remote]: mejor quiere un resumen y el dashboard, pues, le le viene mejor. Entonces,
+[Remote]: creo que para, como dice ambos, ese tipo, esos dos
+[Remote]: perfiles creo que nos funciona bien.
+[Remote]: Sí, la verdad es que sí sí, este,
+[Remote]: a mí sí me gustó.
+[You]: Va. Bueno, para resaltar un poquito la la la
+[Remote]: Y yo
+[You]: Oye, ¿interrumpí a alguien?
+[Remote]: No, no, perdón, si quieres, acaba tú y ahorita voy yo.
+[You]: No, no, dale, dale, tranquilo.
+[Remote]: Ah, bueno, yo que ya
+[Remote]: acabé la la como la escuela de Symmetric, y ahorita viendo lo de ustedes, se me ha
+[Remote]: se me hace que está mucho más fácil e intuitivo el cómo usar la plataforma,
+[Remote]: un poco más
+[Remote]: confuso, entonces, eso, pues, yo hago bastante bueno.
+[You]: Buenísimo. Bueno, me alegro.
+[Remote]: Bastante eso.
+[You]: No quiero quitarles mucho más tiempo, pero para resumir, creo que
+[You]: me gustaría resaltar tres cosas, ¿no? La primera es
+[You]: la implementación, nosotros no cobramos la implementación
+[You]: hacemos un equipo de trabajo así nosotros y nos metemos de lleno con
+[You]: ustedes a configurar cada uno de los flujos de información, ¿sí?
+[You]: Y, típicamente, cuando nos metemos así los founders lo logramos en semanas, ni siquiera meses.
+[You]: Obviamente, muchas veces dependemos de disponibilidad de
+[You]: y de conectores que ustedes nos tienen que desbloquear,
+[You]: pero si nos desbloquean, lo podemos lograr en en en semanas y no meses.
+[You]: Y no lo cobramos, nos metemos nosotros de lleno con ustedes.
+[You]: Creo que lo de capacidades ya lo
+[You]: mostró muy bien Teo, la automatización, la flexibilidad que tiene la plataforma para configurar
+[You]: distintas reglas, alertas, monitoreo, etcétera.
+[You]: Y lo tercero a a resaltar es,
+[You]: el modelo de costos, ¿no?, y el modelo de pricing, ahí nosotros no hacemos como por por un terabyte o eso. Tenemos tres modelos distintos, obviamente están basados en volumen, uno que es cien por ciento fijo, hacemos una estimación de del próximo año, arreglamos un precio fijo que a ustedes les les convenga. La segunda es un modelo híbrido que tiene una porción fija un platform fee fijo, es un variable por por volumen transaccionado, y luego tenemos uno cien por ciento variable, con lo cual ahí dejamos elegir ustedes, podemos hacer una propuesta y y los dejamos elegir. Pero eso escala y, obviamente, la parte variable tiene
+[You]: una curva de creciente, ¿sí? Cuanto ustedes más se escalan,
+[You]: el costo unitario, digamos, de ese volumen no es lineal, sino que va a
+[You]: lo cual permite que también la la factura no se vuelva incontrolable a largo plazo.
+[You]: Habiendo dicho todo eso,
+[You]: de vuelta a la implementación, la facilidad de uso y
+[You]: y la previsibilidad de costo serían las tres cosas que me gustaría que se lleven,
+[You]: Nosotros, si ven valor, proponemos armar una prueba piloto también.
+[You]: Como lo vean ustedes.
+[You]: No sé, me me acuerdo Ana María se habían llevado, Ana María se había llevado a ver las cláusulas del
+[You]: del contrato con Symmetric, a ver si había vuelta atrás o algún tipo de costo de cancelar el contrato, o cómo funcionaba eso. Pero nosotros, a disposición de quieren hacer otra demo real, hacemos otra demo real, y si no, ya meternos en una prueba piloto o tipo de implementación, ustedes nos dicen. Ahí seguramente tienen que volver a con Ana María y y ver qué hacen, ¿no?
+[Remote]: Sí, justo toca a nosotros
+[Remote]: hacer team back con con Ana, este,
+[Remote]: y, pues sí, también checar el tema, como bien dices, de
+[Remote]: de lo del contrato con Symmetric, pero, pues sí, o sea, nosotros le vamos a pasar nuestro nuestros insights a Ana,
+[Remote]: y, ya lo platicaremos, este, con ella y
+[Remote]: pues, regresaremos con ustedes para
+[Remote]: para ver, este,
+[Remote]: qué qué sigue.
+[You]: Va. Bueno, para que le lleves a Ana, no cobramos la implementación,
+[You]: Teo y yo y nuestro sitio metidos con ustedes implementándolo,
+[You]: y nuestro precio está treinta a cuarenta por ciento por debajo de de Symmetric,
+[You]: y y tenemos un esquema fijo en el que es cien por ciento fijo por la duración del contrato.
+[You]: Ya, bueno, después de eso, quedo atento a ver cómo cómo
+[You]: y si quieren volver a conectar la semana que viene para ver algo más, otra demo o lo que necesiten.
+[You]: Listo, Lalo,
+[Remote]: Vale, perfecto, me agrada.
+[You]: Muchas gracias, Omar y José, un gusto conocernos, estemos ahí en contacto.
+[Remote]: A ustedes. Mami Castroro.
+[You]: Abrazo.
+[Remote]: Chao. Igualmente.
+[Remote]: Muchas
+
+============================================================
+SUMMARY
+============================================================
+### Rexi Platform Demo
+
+- Automated reconciliation system for Mendel vs PROSA transactions
+  - Direct API connections to data sources (PROSA, Mendel, banks)
+  - Daily automated ingestion and standardization
+  - Flexible matching rules: one-to-one, one-to-many, many-to-many
+- Two-tier verification process
+  - Primary matching on authorization ID
+  - Secondary matching on last 4 card digits + settlement date + amount
+  - Additional comparisons layer for status, fees, dates with tolerance settings
+- Demo results: 112 transactions total, 8 unmatched in PROSA, 4 unmatched in Mendel after second pass
+- Exception management with automated rules and manual override capabilities
+- Real-time Slack alerts for daily reconciliation summaries
+- Custom dashboards and NetSuite integration for automated journal entries
+
+### Mendel’s Current Process & Requirements
+
+- Manual Excel-based reconciliation across multiple flows
+  - Mendel vs PROSA, Mendel vs Pomelo, Mendel vs SAD
+  - Multiple bank accounts: JP Morgan, major Mexican banks
+- Banking integration challenges
+  - Currently manual downloads from online banking
+  - BBVA requires MT940 format with associated costs
+  - Need to negotiate bank data feeds independently
+- Team structure: Eduardo, Omar, Jose handling operations with Ana María oversight
+- NetSuite ERP integration desired for automated accounting entries
+
+### Competitive Positioning vs Symmetric
+
+- Implementation approach
+  - Rexi: No implementation fees, founder-led setup in weeks
+  - Symmetric: Third-party implementation with upfront costs Ana María rejected
+- Pricing structure 30-40% below Symmetric
+  - Three models: 100% fixed, hybrid (fixed + variable), 100% variable
+  - Volume-based scaling with decreasing unit costs
+- Platform usability: Mendel team found Rexi more intuitive than Symmetric Academy training
+- Unique features: Second-tier verification system not available in Symmetric
+
+### Next Steps
+
+- Mendel team to brief Ana María on demo insights
+- Review Symmetric contract terms for cancellation options
+- Potential pilot program if Ana María approves moving forward
+- Follow-up meeting next week if additional demos needed
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/d09ea5c0-eb2c-425d-8c1b-3c551f9a9146](https://notes.granola.ai/t/d09ea5c0-eb2c-425d-8c1b-3c551f9a9146)

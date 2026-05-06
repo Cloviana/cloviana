@@ -1,0 +1,447 @@
+MEETING: Rexi x Sytrex: intro
+DATE: 2026-02-26
+ID: not_Vl4NfQX7cQuLdW
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, C <c@sytrex.io>
+SCHEDULED: 2026-02-25T19:00:00-05:00 - 2026-02-25T19:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Los insurance core systems, nos conectamos a los CRMs,
+[Remote]: creamos las oportunidades, procesamos las oportunidades,
+[Remote]: creamos documentos como cotizaciones y demás,
+[Remote]: y también creamos como los archivos de reportería.
+[Remote]: A los proveedores de capacidad. Entonces, sí, te diría que estamos como en ese workflow de poder correr como operaciones en automático,
+[Remote]: Tenemos clientes como en retail insurance,
+[Remote]: que son operaciones como de baja complejidad,
+[Remote]: tipo como la
+[Remote]: póliza de property de un edificio,
+[Remote]: Entonces, nada, eso es una regla de tres.
+[Remote]: Y el AI system puede incluso llegar a precio,
+[Remote]: y negociar el precio con el bróker.
+[Remote]: Como le damos unos parámetros.
+[Remote]: O también tenemos el otro, end of the
+[Remote]: que es como
+[Remote]: reaseguro facultativo, deals ya muy, muy, muy grandes,
+[Remote]: donde
+[Remote]: el underwriter usa mucho las funcionalidades de
+[Remote]: de el del AI system,
+[Remote]: para entender mejor el riesgo,
+[Remote]: tienes un chat que está conectado a un montón de
+[Remote]: de fuentes, entonces, por ejemplo, para
+[Remote]: Dano puedes jalar información de Moody's,
+[Remote]: o para para metrics puedes jalar información del clima,
+[Remote]: y ese tipo de cosas, y ahí puedes llegar como a ese
+[Remote]: underwriting rationale, que te permite ponerle precio a las oportunidades,
+[Remote]: y
+[Remote]: y, sí, hacerlo como mucho más rápido.
+[Remote]: Ese es como el
+[You]: Wow.
+[Remote]: como el quick overview.
+[You]: Wow.
+[You]: Bueno. Y
+[You]: creo que tengo tengo dos preguntas. Uno, tipo, ¿how are you pricing it?
+[You]: Es un SaaS, ¿cómo funciona? Y dos, tipo, ¿how are you selling it? Tipo,
+[You]: ¿cómo es tu tu go to market, digamos?
+[Remote]: This how are we pricing it? ¿Es como
+[Remote]: hacemos algo que se llama un análisis de volumetría,
+[Remote]: entonces, eso lo hacemos basado en el número de submissions,
+[Remote]: que que están llegando,
+[Remote]: basado en ese número de submissions,
+[Remote]: creamos y también en el tamaño de las submissions.
+[Remote]: Entonces cuántos archivos tienen, etcétera.
+[Remote]: Basado en eso,
+[Remote]: creamos un plan,
+[Remote]: un plan que debía ser suficiente para que esa compañía
+[Remote]: procese esos submissions,
+[Remote]: y nada, arrancamos
+[Remote]: con una o dos líneas de negocio para ellos,
+[Remote]: y en la medida que ellos van operando y van cogiendo confianza en el sistema,
+[Remote]: empujamos para expands en el resto de la organización.
+[Remote]: Y cuando ellos hacen el expand, empieza a haber más submissions,
+[Remote]: aumentamos el ticket promedio por usuario. Entonces,
+[Remote]: es como un típico SaaS,
+[Remote]: donde le apostamos como a
+[Remote]: land con un con una baja fricción,
+[Remote]: y luego, si
+[Remote]: expandirnos tan tan pronto como se pueda.
+[You]: Y es
+[Remote]: Ese
+[Remote]: ¿Es qué? No.
+[Remote]: No no cobramos por seat, es un pool gigante,
+[Remote]: y y, pues nada, las organizaciones que tienen más
+[Remote]: underwriters igual consumen más,
+[Remote]: pero no cobramos por
+[You]: Pero ¿y cómo llegas al número del pricing, entonces?
+[Remote]: Para el número de submissions.
+[Remote]: ¿Qué reciben?
+[You]: ¿Y cómo parecías cada submissions? ¿Cuánto tiempo le
+[You]: tomaría a esa persona y cuánto vale el tiempo a esa persona?
+[Remote]: Sí, o sea, es en función de
+[Remote]: submissions más como volumen de sus submissions.
+[Remote]: Para mí,
+[Remote]: eso, más quedarme mi costo,
+[Remote]: me da como el
+[Remote]: tiempo que se necesitaría para procesar eso.
+[Remote]: Y yo tengo un yo tengo un benchmark,
+[Remote]: de cuánto cuesta el tiempo de la gente,
+[Remote]: cuál es el costo de oportunidad en términos de hit rate.
+[Remote]: Entonces, lo que buscamos es como
+[Remote]: traducir todas esas variables a dinero,
+[Remote]: y nosotros cobramos aproximadamente un tercio de como del valor que es
+[You]: Está bueno.
+[You]: Y, o sea, con cada lead,
+[You]: hacés este análisis y se los presentás.
+[Remote]: Sí, o sea, ya está muy automatizado, entonces,
+[Remote]: ah, les mando un type form de cinco preguntas,
+[Remote]: y en una hora les puedo dar una propuesta económica.
+[You]: Y ese Typeform no tiene incentivo ellos a
+[You]: lower down.
+[Remote]: Aún si lo hacen lower down,
+[Remote]: está bien, porque está sujeto al número de submissions. Entonces, si empiezan a consumir más,
+[Remote]: pues igual les cobramos más.
+[You]: Ah, variable por número de subdivisions.
+[Remote]: Correcto. O sea, tenemos un plan que les cubre como hasta cierto punto,
+[Remote]: si se pasan un poquito, no no hacemos nada,
+[Remote]: pero si en verdad era el doble o cincuenta por ciento más, lo que sea,
+[Remote]: pues ahí les cobramos más.
+[You]: Muy bueno. La verdad es es straightforward, ¿no?, como que te evitas mucha
+[You]: en la charla de pricing.
+[Remote]: Mucho, y y creo que es crucial
+[Remote]: sobre todo, como en early stage,
+[Remote]: no tener cincuenta sabores.
+[Remote]: Tienes que tener como helado de vainilla, helado de fresa y ya está, o sea, como que no
+[Remote]: no
+[Remote]: no hacerlo tan difícil, porque
+[Remote]: pues, las aseguradoras son empresas muy formales, que tienen
+[Remote]: departamentos de costos, departamento legal, que tienen un montón de
+[Remote]: cosas, entonces, entre más fácil sea, pues mucho mejor.
+[You]: Muy bueno. Y y selling, ¿cómo cómo estás pensando selling? Porque a ver,
+[You]: es es es B2B, ¿no?
+[Remote]: Sí, cien por ciento.
+[Remote]: Nada, te diría que es una combinación de varios canales,
+[Remote]: Al principio, hicimos mucho como
+[Remote]: network de personas que ya conocíamos,
+[Remote]: eso nos desbloqueó como ese primer layer de
+[Remote]: clientes,
+[Remote]: luego se empezó a generar un snowball effect,
+[Remote]: en el que los clientes nos volvíamos parceiros,
+[Remote]: y ellos se ven con otros clientes, trabajan con otros brokers,
+[Remote]: trabajan con otros MGAs.
+[Remote]: Empezaron a recomendar
+[Remote]: como que ese NPS está bastante, bastante alto,
+[Remote]: Luego de eso empezamos con
+[Remote]: otro canal, que fue empezar a a trabajar con
+[Remote]: incubadoras de MGAs, que son nuestros clientes,
+[Remote]: Esa estrategia ha funcionado divino,
+[Remote]: Entonces, te diría que esas son como las tres,
+[Remote]: Ya hoy en día,
+[Remote]: estamos volteando la torta, o sea,
+[Remote]: en día nosotros somos
+[Remote]: la empresa de
+[Remote]: AI, workflows más grande de América Latina para insurance.
+[Remote]: Pues, como en, para reinsurance, perdón, en el sector de reinsurance,
+[Remote]: ya casi que todos nos conocen.
+[Remote]: Entonces, ya hay como un efecto de red muy, muy, muy fuerte,
+[Remote]: y y ahora el trabajo que estamos haciendo es
+[Remote]: expandirnos como en Middle East, Asia,
+[Remote]: Vamos para Dubai en dos meses,
+[Remote]: Londres es otro mercado que es muy atractivo para nosotros, donde también ya lo estamos tocando.
+[Remote]: Y, pues, Estados Unidos, obviamente, es prioridad número uno.
+[Remote]: Estamos como en ese en ese en esa labor de
+[Remote]: abrir estos otros mercados que nos interesan,
+[Remote]: pero creo que estuvo muy bueno consolidarnos en
+[Remote]: en LATAM primero, porque nos da como un
+[Remote]: como un ongoing revenue,
+[Remote]: te deja
+[Remote]: pudiendo usar el venture capital para experimentar, crecer,
+[Remote]: y no tanto como para pagar la nómina.
+[You]: Claro. Y y pregunta, ahí,
+[You]: no sé, por ejemplo, te vas a Middle East Asia,
+[You]: How do you start? Te parmás un hit list en vez de hacer un outreach,
+[You]: o, tipo, ¿cómo llegas a las compañías a las que les les querés vender?
+[You]: Conferencias.
+[Remote]: Mucho conferencias. Te diría que
+[Remote]: insurance es imposible,
+[Remote]: de crackear sin conferencias.
+[Remote]: Entonces,
+[Remote]: hay como cuatro o cinco que están buenas, está ITC,
+[You]: ¿Cuál es la la más importante para vos?
+[Remote]: connect,
+[Remote]: está ahoritica la Edwards,
+[You]: ITC.
+[Remote]: ITC, es en Vegas en octubre todos los años.
+[Remote]: Es un evento gigante, ochenta mil personas, pues, o sea,
+[You]: Y ahí quitar más
+[You]: también y tratás de buscar uno a uno con todas tus hitlist,
+[Remote]: Idealmente sí, lo bueno de ITC no es
+[Remote]: tanto la conferencia per se, sino como los site events que se generan.
+[Remote]: Entonces, o sea, al principio es muy difícil, porque uno no conoce a nadie,
+[Remote]: pero en la medida que vas conociendo gente, que cerrás tu primer cliente,
+[Remote]: ellos te invitan a que al dinner, que a otras cosas,
+[Remote]: y ya ahí vas conociendo gente de forma natural, y cada vez es más fácil.
+[Remote]: Cada vez te conocen más y así sucesivamente.
+[Remote]: Para para lo que tú me cuentas, que no es solo insurance,
+[Remote]: hay otra que se me viene a la mente,
+[Remote]: que es money 2020.
+[You]: Sí, fui el año pasado, muy buena.
+[Remote]: No no sé si viste, pero
+[Remote]: la gente de Symmetric estaba con todos los poderes allá dejándolo todo.
+[Remote]: De hecho,
+[You]: No los vi este último año, ¿vale?
+[Remote]: Dime.
+[You]: En Vegas.
+[You]: El último año en Vegas no los vi.
+[Remote]: Sí, estaba allá,
+[Remote]: con Santi,
+[Remote]: estaba Brian, que es el que es el
+[Remote]: de ventas que que contrataron para el mercado de US,
+[Remote]: De hecho, los presenté con un amigo que es el director de PayPal,
+[Remote]: de LATAM,
+[Remote]: y y hubo buen, o sea, hubo muy buen fit, digo,
+[Remote]: que ellos le están apostando durísimo a
+[Remote]: a eso, que creo que
+[Remote]: lo que me contaste es como el
+[Remote]: competidor más cercano que tiene.
+[You]: Sí, cien por ciento. ¿Vos sos amigo de de los founders?
+[Remote]: Los conozco, sí.
+[You]: Dal New York, penso, creo.
+[Remote]: Sí, Santi está en Nueva, Santi está en Miami y Alejo está en Nueva York.
+[You]: Sí, sí, sí, sí. Sí, soy nuestro competidor más directo. Nosotros estamos más US focused,
+[You]: y con un una propuesta de valor un poco diferenciada,
+[You]: yendo por otro target. Me parece que ellos están yendo por los enterprise deals tipo PayPal,
+[You]: Nosotros estamos yendo más, mid y lower market, con una
+[You]: lighter touch solution, que es más fácil de implementar y más fácil de mantener, y por ende, es más barata, ¿no?
+[You]: Ese es como nuestro play.
+[You]: Pero es el ese
+[Remote]: Sì sì sì.
+[You]: problem space, exactamente.
+[Remote]: De acuerdo, sí, yo yo antes de este tenía otro hasta ahora.
+[Remote]: Sufríamos mucho con el financial reconciliation,
+[Remote]: y en verdad que
+[Remote]: como que queríamos solucionarlo, solo que, pues, nada, Symmetric es
+[Remote]: era, pues, bastante bastante costoso, entonces no, como que no podíamos implementarlo.
+[Remote]: Pero pero sí, entiendo perfectamente el pain point.
+[You]: ¿Y y qué pensás del pain and insurance? ¿Hay un pain next to insurance? How big is it?
+[You]: ¿Cómo lo tienden a resolver?
+[Remote]: Yo creo que el pain está mucho más latente en fintech que en insurance.
+[Remote]: Porque en insurance hay muchas cosas muy
+[Remote]: Entonces, en insurance es muy straight forward, como que la gente
+[Remote]: tiene un proveedor de pagos,
+[Remote]: un gateway, un Stripe o
+[Remote]: cualquier cosa,
+[Remote]: que te reconcilia automáticamente.
+[Remote]: No se da tanto, o más bien, para mí,
+[Remote]: te voy a poner un ejemplo, nosotros teníamos una plataforma de inversión
+[Remote]: antes,
+[Remote]: que operaba en Latinoamérica,
+[Remote]: y y e invertíamos en assets
+[Remote]: que estaban en Estados Unidos.
+[Remote]: Y luego, esos assets rentaban
+[Remote]: nosotros dispersábamos como las rentas
+[Remote]: los diferentes inversionistas de todo el mundo.
+[Remote]: O sea, imagínate la reconciliación de eso.
+[You]: No.
+[Remote]: Era como
+[Remote]: tengo una cuenta en Argentina y luego una cuenta en
+[Remote]: en Colombia, y también recibíamos cripto, entonces, teníamos una wallet,
+[Remote]: y todo se iba para Estados Unidos,
+[Remote]: y luego ese activo dejó algo, entonces, tocaba llevarlo a otra wallet,
+[Remote]: y eso lo dispersábamos a los diferentes países
+[Remote]: a través de cripto y a través de fiat,
+[Remote]: puta, era durísimo. O sea, a mí todos los meses me faltaban mil
+[Remote]: como mil o dos mil dólares,
+[You]: Sí, sí, sí.
+[Remote]: era un igual a Roundup, entonces,
+[Remote]: ajá, lo lo lo pagábamos, pero
+[Remote]: pero era muy duro, era muy difícil, muy difícil.
+[You]: And insurance,
+[You]: iPayings está la parte de las suscripciones,
+[You]: ¿no?
+[You]: Que ahí ahí
+[You]: por ahí hay un pain, si hay multiple
+[You]: no sé cómo pagan, ¿no? Creo que todos paguen por un money flow específico. Habrá muchos métodos de pago distintos, ¿no?
+[Remote]: Claro, porque tienes tienes tienes varios momentos, en insurance.
+[Remote]: Está cuando haces el placement de una póliza,
+[Remote]: En ese momento, digamos que es muy straightforward,
+[Remote]: porque la gente tiene montada su operación,
+[Remote]: y en el momento que reciben el pago,
+[Remote]: ellos se emiten la póliza.
+[Remote]: ¿Sí? Entonces, ahí puedes tener, depende,
+[Remote]: si es una transacción más de retail o de commercial insurance,
+[Remote]: puedes tener un gateway o puedes tener un link de pagos,
+[Remote]: o puedes hacer wiring en lo más tradicional.
+[Remote]: Si es como reaseguro facultativo,
+[Remote]: three d,
+[Remote]: retrocesiones, todo eso?
+[Remote]: Ahí sí es cien por ciento wire,
+[Remote]: pero esos son deals muy grandes, donde tú sabes que te pagaron porque
+[Remote]: te entra un premium de doscientos cincuenta mil dólares.
+[You]: Claro.
+[Remote]: Entonces, no es como que haya un problema de reconciliación ahí.
+[Remote]: Entonces, nada, eso te entra, se emite la póliza o la retrocesión,
+[Remote]: o el reaseguro,
+[Remote]: y luego ya viene toda la parte de claims,
+[Remote]: donde, en la medida en que empieza a haber claims,
+[You]: No, pará, está está el monthly
+[Remote]: tú, por lo general,
+[You]: subscription también, ¿no?, que tienen que chequear que que el que el que la póliza sigue viva.
+[Remote]: Eso eso
+[Remote]: como que el mercado institucional no pasa.
+[Remote]: Eso es muy retail.
+[Remote]: Como la parte del monthly subscription.
+[Remote]: Digamos, eso eso pasa mucho como en
+[Remote]: auto, en property, en todo ese tipo de cosas,
+[Remote]: pero muy hacia el sector retail.
+[Remote]: Entonces,
+[Remote]: nada, en US tú tienes como varios flavors de eso,
+[Remote]: pero el Pareto del mercado lo tienen
+[Remote]: los Geico del mercado que ya automatizaron el end to end de ese problema.
+[Remote]: O sea, Geico
+[Remote]: nada, tú te estrellas, tomas cinco fotos,
+[Remote]: y automáticamente el
+[Remote]: ajustador inteligente de Geico
+[Remote]: te paga y reconcilia por detrás.
+[Remote]: Como que esos gigantes ya ya tienen mucha automatización ahí.
+[Remote]: Quizás, de pronto, como en cargo,
+[Remote]: pero también son pólizas muy grandes, entonces, como que
+[Remote]: ellos lo que hacen es pagarle al al third party
+[Remote]: al al ajustador,
+[Remote]: al third party
+[Remote]: se cómo se llama esto?
+[Remote]: Bueno, al ajustador,
+[Remote]: y ellos se encargan de eso también. Entonces,
+[Remote]: como que para
+[Remote]: para la aseguradora es muy straightforward, ellos pagan por un servicio que es eso,
+[Remote]: quizás el el cliente que podría llegar a
+[Remote]: ese problema es más el ajustador que la aseguradora.
+[You]: ¿Qué sería el ajustador?
+[Remote]: El ajustador es el que recibe los claims cuando suceden,
+[Remote]: y decide
+[Remote]: si se paga o no se paga, y cuánto se paga si se paga.
+[Remote]: Y por lo general son servicios tercerizados.
+[You]: ¿Y por qué habría una conciliación ahí?
+[Remote]: Porque tú tienes una póliza que tiene un premium,
+[Remote]: y luego eso tiene unas coberturas. Entonces,
+[Remote]: no sé, te pongo un ejemplo, si tú si yo tengo una póliza que me asegura
+[Remote]: celulares,
+[Remote]: yo soy como un distribuidor de celulares,
+[Remote]: y me robaron quince celulares,
+[Remote]: el ajustador entra a a revisar los límites, a revisar la cobertura, entra a revisar los deducibles, tiene que ver que las cosas cumplan, y tiene que ver qué aprueba y qué no aprueba. Puede ser que de los quince que tú me mandaste, yo diga, no, solo te pago doce, porque estos tres eran fraude, o lo que sea. Basado en el claim que se creó, luego viene el ajuste, basado en el ajuste, la aseguradora libera un pago.
+[Remote]: Pero siempre es un rollo.
+[Remote]: Por eso es que
+[You]: Pero ¿qué qué se era confiliando ahí?
+[Remote]: Estás conciliando como el veredicto del ajuste
+[Remote]: versus el pago de las reservas que tiene la aseguradora.
+[You]: Se considera el veredicto de la de las de del ajustador
+[Remote]: Ajá.
+[Remote]: Contra las reservas que tiene que liberar la aseguradora.
+[Remote]: O la reaseguradora, en el caso de reaseguro.
+[You]: Interesante.
+[You]: Bueno, perdón, te hice mil preguntas, pero pero acá tomé unas
+[You]: que que son oro para mí, así que muchas, muchas gracias por eso.
+[You]: No sé si vos tenías alguna pregunta para mí o o de qué manera podemos colaborar
+[You]: Si te sirve de algo, mi mi cofounder,
+[You]: construyó
+[You]: la vertical de seguros en Mercado Pago. Son resellers ellos,
+[You]: Así que, nada, por ahí, si te sirve de algo, igual en Latinoamérica calculo que vos ya
+[You]: estarás muy bien conectado, o o you can reach anyone anywhere
+[You]: Pero
+[Remote]: Oh, pero siempre siempre esas conversaciones suman mucho,
+[Remote]: pues nada, de nuestro lado, felices de ayudar,
+[Remote]: Creo que de eso se trata al final.
+[Remote]: Como ayudarnos todos y en verdad que
+[Remote]: lo hago con mucho gusto,
+[Remote]: Siempre que pueda, pues cuenta con eso y
+[Remote]: nada, si voy a Nueva York te escribo, más bien mándame tu WhatsApp por mail o algo,
+[Remote]: y, si venís a San Francisco, también. En en abril, pues, voy a estar acá,
+[Remote]: Solo, no estoy la última semana de abril, pero el resto voy a estar acá, entonces,
+[Remote]: nada, mándame mensaje y y le metemos.
+[You]: Va, buenísimo, Carlos. Bueno, un gustazo enorme, gracias por el tiempo, y ahora te
+[You]: WhatsApp y y estamos ahí
+[You]: ya conectados.
+[You]: Igualmente, gracias.
+[Remote]: Claro que sí, Ignacio, que estés muy bien.
+[Remote]: Bye bye.
+
+============================================================
+SUMMARY
+============================================================
+### Sytrex Business Model & Pricing
+
+- Análisis de volumetría approach
+  - Based on number of submissions received
+  - Considers size/complexity of submissions (number of files, etc.)
+- Creates plan covering 1-2 business lines initially
+  - Land with low friction, expand as clients gain confidence
+  - Ticket size increases as they expand to more organizational areas
+- Pricing methodology:
+  1. Calculate time needed to process submissions
+  2. Benchmark cost of people’s time
+  3. Factor in opportunity cost in terms of hit rate
+  4. Translate all variables to monetary value
+  5. Charge approximately one-third of total value created
+- Automated proposal process
+  - Sends 5-question Typeform
+  - Can deliver economic proposal within one hour
+- Variable pricing by number of submissions
+  - Plan covers up to certain threshold
+  - Additional charges if volume significantly exceeds (50%+ or double)
+
+### Go-to-Market Strategy
+
+- Multi-channel approach evolution:
+  1. Network of known contacts (first layer of clients)
+  2. Snowball effect with high NPS - clients refer to other clients, brokers, MGAs
+  3. Partnerships with MGA incubators
+- Conference-driven sales essential
+  - “Insurance impossible to crack without conferences”
+  - ITC in Vegas (October) - primary event with 80,000 attendees
+    - Creates hitlist for 1:1 meetings
+    - Side events more valuable than main conference
+    - Natural relationship building through client introductions to dinners/events
+- Geographic expansion strategy
+  - Consolidated LATAM first for ongoing revenue base
+  - Allows venture capital for experimentation vs. payroll
+  - Now expanding to Middle East, Asia (Dubai trip in 2 months)
+  - London market attractive
+  - US remains priority #1
+
+### Insurance Payment Reconciliation Landscape
+
+- Pain point less acute in insurance vs. fintech
+  - Insurance operations more straightforward with single payment providers
+- Payment moments in insurance:
+  1. **Placement phase** - receive payment, issue policy
+    - Retail: gateway, payment links, or traditional wiring
+    - Reinsurance (large deals): 100% wire transfers ($250k+ premiums)
+  2. **Monthly subscriptions** (retail-focused)
+    - Auto, property insurance
+    - Giants like Geico already automated end-to-end
+    - Market leaders have extensive automation
+  3. **Claims processing**
+    - Adjusters (third-party services) receive and evaluate claims
+    - Review limits, coverage, deductibles, approve/deny portions
+    - Reconciliation: adjuster verdict vs. insurer reserves to be released
+    - Example: 15 stolen phones claimed, adjuster approves 12 (3 deemed fraudulent)
+
+### Competitive Intelligence
+
+- Symmetric identified as closest competitor
+  - Founders: Santi (Miami), Alejo (New York)
+  - Targeting enterprise deals (PayPal-level)
+  - Expensive solution, prevented adoption for previous ventures
+- Rexi positioning differentiation:
+  - US-focused vs. LATAM focus
+  - Mid and lower market targeting
+  - Lighter touch solution - easier implementation and maintenance
+  - More cost-effective approach
+
+### Network & Collaboration Opportunities
+
+- C offered ongoing support and connections
+- Mutual contact sharing for geographic expansion
+- Potential meetups:
+  - C visiting New York
+  - Ignacio in San Francisco (April, except last week)
+- WhatsApp exchange for continued communication

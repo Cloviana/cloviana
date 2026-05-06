@@ -1,0 +1,611 @@
+MEETING: Rexi x Drgueria Del Sud S.A.: discovery
+DATE: 2026-03-30
+ID: not_uO4SD5MyV01iiO
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Luis Berardi <luis.berardi@delsud.com.ar>
+SCHEDULED: 2026-03-30T17:00:00-04:00 - 2026-03-30T17:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Hola,
+[You]: Alright.
+[You]: ¿Cómo estás?
+[Remote]: Hola, Ignacio, un gusto.
+[You]: Un gustazo, mismo apellido tenemos.
+[Remote]: Un apellido.
+[Remote]: Claramente, no somos familia, porque
+[Remote]: si no nos conoceríamos, pero
+[Remote]: pero bueno, mismo apellido raro, porque no hay tantos Berardi.
+[You]: Mi rama es verano di just.
+[Remote]: Ah, mirá, no, no.
+[You]: Vos, tus abuelos, ¿cómo era? Berardi más.
+[Remote]: No, mi
+[Remote]: mis abuelos son originarios del Piemonte,
+[Remote]: de
+[You]: Acá también.
+[Remote]: y, en realidad, mi bisabuelo.
+[Remote]: Mi abuelo ya había nacido acá,
+[Remote]: parece que es el origen de
+[You]: Total.
+[Remote]: de del apellido,
+[Remote]: esa zona.
+[Remote]: Pero bueno.
+[You]: Chico excelencia, total, no hay tantos.
+[Remote]: No,
+[You]: ¿Sí? Cuando hay, es como que, digo, siento que somos algo en en algún tipo de grado.
+[Remote]: Sí, sí.
+[Remote]: Contame, de
+[Remote]: contame un poco el el proyecto, ¿cómo es?, ¿qué es lo que están haciendo?
+[You]: Dale, dale, obvio. Haz un
+[You]: Me presento y también te cuento un poquito más de y de
+[You]: de lo que hacemos para, justamente, la reunión este, poquito presentarnos.
+[You]: Y entrar en detalle a ver cómo cómo solucionan ustedes estos procesos para evaluar si hay fit.
+[You]: ¿No? La el output de la reunión es ver si hay fit o no.
+[You]: Si no hay fit,
+[You]: te la hacemos perder el tiempo a nadie. Si hay fit, podemos explorar un siguiente paso a armar una demo.
+[You]: Para mostrarles un poquito cómo funciona y que ustedes vean a ver si les agregaría valor o no. Pero bueno,
+[You]: ver, voy a abrir acá una presentación para para guiarme un poquito más.
+[You]: Y para que ilustre un poco lo que voy lo que voy diciendo.
+[You]: Entonces, acá te te presento un poquito al equipo
+[You]: fundador, creo que vale la pena hacer una pausita y contarte un poquito quiénes somos.
+[You]: Más que nada para contarte que que venimos de
+[You]: de operar servicios financieros, ¿no? Más que nada, fintech,
+[You]: pero bueno, yo estuve trabajando en consultoría también con con Galicia con los grandes bancos,
+[You]: Y, de vuelta, Renzi nace a partir de experiencias personales.
+[You]: De estar del otro lado y
+[You]: y ver los dolores
+[You]: que existen en los equipos de back office, de operaciones y de finanzas particularmente,
+[You]: que, de vuelta, son última prioridad,
+[You]: pero si se hacen mal, se pierde dinero,
+[You]: o se puede llegar a perder una licencia o pagar una multa con algún regulador.
+[You]: Entonces, es como esta mezcla interesante entre
+[You]: algo muy back office, muy de nicho que nadie le da bola, pero a la vez es crítico, ¿no?
+[You]: Y justo,
+[You]: el problema que estamos resolviendo nosotros
+[You]: es técnicamente complicado. Pero, bueno, aquí hay algunas anécdotas de los tres que tuvimos en en nuestra
+[You]: experiencias pasadas de
+[You]: momentos o casos en donde
+[You]: estos procesos
+[You]: terminaron algún costo, en algún riesgo, en alguna fricción, ¿no?
+[You]: Yo encontré un agujero de seis millones de dólares en una fintech, estaba en Mercado Pago cuando
+[You]: sucedió lo del write off allá por dos mil doce, con dinero mail, donde se perdieron veintisiete millones de dólares, y y
+[You]: Seba García, su sitio web, que viene naranja, x y pomelo, te dice,
+[You]: son dos compañías muy tecnológicas, con muy buen talento técnico,
+[You]: y aún así tienen equipos enormes de operaciones y de finanzas
+[You]: trackeando transacciones en Excel, ¿no?
+[Remote]: Mhmm.
+[You]: Esto, un poquito, sobre nuestros inversores, la compañía la incubamos en MIT,
+[You]: una incubadora que se llama Fintech Ventures, que le llega un
+[You]: burú de Fintech que se llama Matt, Matt Roads. Esa incubadora la terminamos ganando en el demo day y después ganamos
+[You]: un par de competencias más y con eso arrancamos rexi.
+[You]: Con Teo. Ahí rápidamente se sumó Charlie,
+[You]: como Ángel, Charlie fue el jefe de el jefe de TEO, Mercado Pago, algún grupo que te había contado ese contexto.
+[You]: Y ya después, cuando Teo Y Yo Nos Recibimos, Levantamos Nuestra Primera Ronda De Capital, Armamos Un Equipo Y En Eso Estamos, Construyendo Y Vendiendo El Producto. La Verdad Que Viendo Muchos En El Mercado De Distintas Verticales, Lo Cual Sorprendente, No Solamente En Servicios Financieros, Porque, Básicamente, El Proceso De Conciliación Es Es Doloroso Para Cualquier Compañía Que Integra Múltiples Flujos De Pago Y Tiene Una Transaccionalidad Alta. ¿Sí? Esos Son Un Poquito Los Ejes Que Determinan La Complejidad Del Proceso Conciliatorio. Entonces, Los Inversores Que Participaron De La Ronda, Vas A Ver Que Son De Estados Unidos, tenemos solo uno en Latinoamérica,
+[You]: porque justamente todos y yo estamos basados en Estados Unidos y y es uno de nuestros mercados más importantes.
+[You]: A ver, el problema que identificamos es,
+[You]: hay una gran fragmentación de información.
+[You]: ¿Sí?
+[You]: Hay un sistema interno,
+[You]: hay un corp bancario, hay un procesador de pagos, hay un adquirente, hay un ledger, hay un sistema de back office, Todos registrando movimientos, registrando actividad, y mostrando la foto de lo que cada uno de sistemas registra. No están conectados, Todos, supuestamente, tienen la foto en un flujo, pero cuando los comparás, todos muestran una foto distinta, ¿no? Esta multiplicidad de fuentes en los últimos años fue aumentando a medida que vos tenés cada vez más productos, lanzás nuevos países, nuevos flujos de pago, nuevas integraciones. Solo empeora. Entonces, ¿cómo hacen las compañías para mantener ese riesgo controlado? Crean procesos. ¿Sí? Crean equipos y crean procesos con distintas herramientas, Excel,
+[You]: SQL,
+[You]: Python. A veces tienen consultores metidos haciendo esto,
+[You]: a veces hasta desarrollan algún tipo de herramienta interna.
+[You]: Pero el problema es que
+[You]: este tipo de proceso, lo único que hacen es aliviar los síntomas, no están atacando a la causa raíz, que es la fragmentación de información.
+[You]: Entonces, al final, son procesos que generan equipos dedicados
+[You]: lo cual no hay una eficiencia operativa.
+[You]: Esos equipos dedicados, obviamente, son humanos, entonces hay un riesgo de error humano en esto.
+[You]: A partir de la conciliación, que es un proceso muy de contar por otros,
+[You]: el error es muy propenso al error humano, y, de vuelta, en errores,
+[You]: perdí plata, ¿no? Estamos hablando de de plata acá. Entonces,
+[You]: el error es bien costoso, digamos. Después el riesgo regulatorio, esto por ahí no aplica tanto
+[You]: a ustedes, aplica más a bancos y procesadores.
+[You]: Y después la gran dependencia del sistema, no sé si ustedes tienen un equipo interno de tecnología que
+[You]: los ayuda con ciertas cosas o algún equipo externo, pero
+[You]: al final, los equipos de operaciones y de finanzas
+[You]: cuando compete con otras prioridades del negocio, nunca se les va a dar bola y se les va a dedicar un recurso técnico para algún tipo de herramienta o algún tipo de tecnología para estos procesos, con lo cual lo estamos metiendo exactamente ahí.
+[You]: Con una tesis de decir,
+[You]: acá lo que tenemos que limitar es la multiplicidad de fuentes, ¿no? Vamos a conectar a todos esos
+[You]: fuentes, pero lo primero que vamos a hacer es generar un
+[You]: un system of record, ¿sí?
+[You]: O sea, nos conectamos a todas las fuentes
+[You]: y las conciliamos, para entender lo que, cuál es la verdadera foto de lo que sucedió.
+[You]: Comparar
+[You]: lo que tendría que haber sucedido con lo que sucedió y crear esa foto conciliada, ¿sí?
+[You]: Porque de vuelta, cualquier tipo de implementación de inteligencia artificial
+[You]: si entra basura,
+[You]: sale basura. Lo primero que hay que hacer es limpiar esa información,
+[You]: y crear ese sistema of record.
+[You]: Entonces, para nosotros, las conciliaciones son un wedge inicial, son una puerta de entrada.
+[You]: Es construir esa base fundacional para luego
+[You]: seguir automatizando otros procesos de operaciones y de finanzas,
+[You]: con tecnología agéntica, ¿no? Ahí, de vuelta, hablo un poquito de inteligencia
+[You]: Creo que ya vimos un poco
+[You]: la primera hora de automatizaciones con lo que soporta el cliente,
+[You]: estos bots, ¿viste?, de chat
+[You]: y de voice AI, ahora está, por ahí llamás por teléfono y te entiendo un bot
+[Remote]: Sí.
+[You]: con Voice AI. Bueno, creo que la hora dos y tres se vienen los equipos de finanzas y de operaciones.
+[You]: Y eso es lo que queremos construir, ¿no?, una una plataforma, un ecosistema donde CFOs y COOs puedan construir flujos agénticos
+[You]: para automatizar mucho de sus funciones y ganar escalabilidad, ganar
+[You]: eficiencia
+[You]: y ganar precisión, porque, al final, muchos de estos procesos, de vuelta, hay mucho error humano, estos
+[You]: y cuando hay error humano en finanzas y operaciones se pierde plata.
+[You]: Con lo cual,
+[You]: eso es un poquito la la visión y el y el road map
+[You]: que sigue.
+[You]: Es una plataforma de conciliación financiera, ¿sí?
+[You]: Automatizamos el proceso
+[You]: de punta a punta.
+[You]: Nos conectamos a las fuentes,
+[You]: esas fuentes que te decía que te hacen, todas es una fuente, la verdad, distinta, una foto, la verdad, distinta,
+[You]: traducimos
+[You]: estas fuentes vienen con formatos distintos, nomenclaturas distintas,
+[You]: procesamos, que ahí está la lógica de matching, empezar a comparar transacciones, monto,
+[You]: fechas, toda esa lógica,
+[You]: Tenemos un módulo de investigación y resolución de diferencias,
+[You]: estos archivos nunca son iguales y nunca cien por ciento.
+[You]: Y, ende, donde no está la mayor pérdida de tiempo y de fricciones en la
+[You]: investigación y resolución de discrepancias, con lo cual tenemos un módulo de eso que
+[You]: es impresionante en los resultados que da
+[You]: estado generando con nuestros clientes. Y después la parte de reportería y output, ¿no? Es decir,
+[You]: armar un dashboard, armar un reporte específico para algún regulador o para un equipo interno,
+[You]: o si quieren que
+[You]: dejemos las bases conciliadas en
+[You]: en algún sistema interno de ustedes, porque lo usan para otra cosa también.
+[You]: Algunos desarrollos iniciales que vale la pena mencionar,
+[You]: el el integrador dinámico, que nos permite conectar esos conectores a las información de manera muy rápida en minutos. El data que
+[You]: sistema, por la tecnología agéntica que construimos,
+[You]: aprende
+[You]: los archivos estructurados que van gestando y también aprende el del del usuario.
+[You]: Vos, Luis, metés todos los días, vas resolviendo diferencias, bueno,
+[You]: esas acciones el sistema empieza a aprender.
+[You]: Y gana autonomía con el tiempo, ¿no? Y por último, el problem solver, creo que es el módulo que hoy más
+[You]: nos ha generado traction, porque es donde
+[You]: la el mayor ahorro de horas hombre en en tareas ¿no?
+[You]: Algunos de los clientes acá, para para repasar algunos
+[You]: casos concretos en la
+[You]: en Estados Unidos, mucho banco, procesador adquirente
+[You]: plataforma fintech marketplace, como despegar.
+[You]: Y los resultados que hemos generado, ¿no?
+[Remote]: ¿Con quién trabajan un...?
+[You]: Despegar estamos con Jean Carlos Castillo y con Leonardo Lins, con el equipo de contabilidad, finanzas, operaciones.
+[Remote]: Ah, contabilidad.
+[You]: Sí.
+[You]: Típicamente, alguien de contabilidad está,
+[You]: y después siempre tenemos alguien de payment up, de operaciones.
+[You]: Porque en conciliaciones es como que cae ahí medio huérfano, cae siempre en en el medio, ¿no?
+[Remote]: Sí, sí.
+[You]: La conciliación tiene la parte operativa,
+[You]: que es para tirar el flujo de dinero, después, a fin de mes, tiene que entrar el equipo de contabilidad a considerar los balances.
+[You]: Después, bueno,
+[You]: hay una entrada contable, que no sé si ustedes tienen, que se llama pérdidas irreconciliables.
+[You]: Es cuando no te cuadra
+[You]: lo que deberías haber recibido con lo que recibiste, por ende,
+[You]: tenés que contabilizar la pérdida.
+[You]: Eso lo hemos reducido en un noventa y cinco por ciento. Lo estamos tratando de llevar a cero
+[You]: hay muchas veces dependemos de un partner externo que no no podemos controlar, pero estamos
+[You]: producto para llevar eso a a cero, ¿no?
+[You]: Y después, bueno, el el riesgo regulatorio de compliance que te hablaba, que no sé si es el caso de ustedes.
+[You]: Fuera de eso, a ver,
+[You]: Ah, mirá, me me faltó acá
+[You]: compartirte un slide más, es un poquito como
+[You]: cómo trabajamos.
+[You]: Tenemos tres soluciones. Creo que en el caso de ustedes va a ser un SaaS
+[You]: hecho y derecho, no creo que exploremos las otras dos, pero simplemente para comentarte
+[You]: cómo funciona el pricing en el modelo SaaS es
+[You]: hacemos una estimación de volumen y de complejidad en función de la cantidad de conectores
+[You]: información, la cantidad de flujos a conciliar, la complejidad de esos flujos,
+[You]: y hacemos un quote
+[You]: fijo.
+[You]: ¿Sí? No queremos que esto escale con, no queremos ponerle un impuesto al crecimiento de
+[You]: de de ustedes. Entonces, es como que
+[You]: ponemos un precio fijo por workflow, porque al final lo que yo estoy haciendo es que estoy automatizando el flujo de conciliación.
+[You]: Que, igual, lo tendrías con un costo fijo con un equipo, no tendrías un costo variable para conciliar.
+[You]: Entonces, te te hago ese reemplazo de una manera mucho más eficiente,
+[You]: más escalable, más segura,
+[You]: pero quiero mantener el costo fijo, porque, de vuelta, nos creo
+[You]: posicionar como un partner tecnológico de largo plazo, que con nosotros sigas automatizando otros procesos con tecnología auténtica, porque, de vuelta, nosotros la la la es una puerta de entrada para crear esa base fundacional sobre la cual luego construimos otros otros workflows. Así que, habiendo dicho eso, eso es un poquito sobre lo hacemos. Después te puedo comentar un poquito de la seguridad de datos, pero no sé si es tan relevante para ustedes. Certificado SOP dos tipo dos, se pone más relevante para bancos y... Compañías con otro tipo de sensibilidad de información, pero creo que ahí Charly nos puso en contacto porque
+[You]: porque, como que ustedes tienen una transaccionalidad alta de vender
+[You]: varios flujos de de dinero,
+[You]: y y sabía que tenían ciertos dolores
+[You]: ahí en el equipo, con muchas tareas manuales, con cosas que no cuadran, que andan en
+[You]: y y creía que había una oportunidad. Pero contame vos un poco más
+[You]: sobre exactamente qué flujos y cómo lo hacen hoy.
+[Remote]: Mirá, nosotros hoy no tenemos un sistema de conciliación automática,
+[Remote]: ¿sí? Tenemos una serie de procesos
+[Remote]: manuales o relativamente manuales,
+[Remote]: o semiautomáticos, llamémoslo así,
+[Remote]: es un pain point
+[Remote]: que tenemos que resolver y que
+[Remote]: Pero antes de resolver un tema de conciliación, necesito irme tres pasos para atrás.
+[Remote]: Que resolver el proceso.
+[Remote]: Hoy, antes de
+[Remote]: embarcarme en en en la búsqueda de una herramienta,
+[Remote]: ¿sí?, lo que tengo que definir, o todavía estamos definiendo, es
+[Remote]: las causas.
+[Remote]: Del problema que tenemos,
+[Remote]: ¿sí?, que
+[Remote]: parto de la base que en en droería y en el grupo,
+[Remote]: una gran limitante que es no hay proceso escrito,
+[Remote]: no hay proceso definido,
+[Remote]: con lo cual tengo que reescribir todos los procesos desde cero.
+[Remote]: ¿Por qué esto es una complejidad? Digo,
+[Remote]: yo poner herramientas con o empezar a a, para mí,
+[You]: Que pena, te hago una pausa ahí. Nosotros
+[Remote]: un tema de
+[You]: cuando trabajamos con clientes, documentamos todo lo que hacemos,
+[Remote]: Sí, yo te entiendo, digo, y y es lógico lo que me planteas,
+[Remote]: no esperaría menos,
+[Remote]: pero esperaría que la gente que te pueda explicar no tengas
+[Remote]: siete interlocutores que te cuentan siete procesos distintos.
+[Remote]: Para un mismo proceso.
+[You]: tenés siete personas que te cuentan cómo lo hacen de manera distinta.
+[Remote]: Y yo te agarro yo te agarro y te te siento,
+[Remote]: con todo mi equipo de créditos y cobranzas, ¿sí?, que son veintitrés personas,
+[Remote]: yo ya llevo relevados diecisiete procesos distintos.
+[Remote]: Ves, hay un problema más grave
+[Remote]: que la conciliación, propiamente dicha.
+[Remote]: Que es el proceso.
+[Remote]: Y cómo se trabaja y
+[You]: ¿Y vos lo ves como un paso previo a buscar una herramienta?
+[Remote]: Por supuesto.
+[You]: Pero ¿por qué?
+[You]: ¿Qué te va dar el proceso para luego buscar una herramienta?
+[Remote]: No, no,
+[You]: Porque siento que después vamos a reemplazar el proceso.
+[Remote]: lo primero que me va a dar es una una armonización de trabajo
+[Remote]: Yo primero busco harmonizar el trabajo,
+[Remote]: ¿sí?, para tener
+[Remote]: algo que sobre el cual después poder construir
+[Remote]: y no encontrarme que en el medio, por ejemplo, una sucursal,
+[Remote]: hace
+[Remote]: un determinado proceso
+[Remote]: diametralmente opuesto que otra.
+[Remote]: Digo, hay un montón de realidades
+[Remote]: y que
+[Remote]: parece que
+[Remote]: o o, mejor dicho,
+[Remote]: voy ir de dos pasos para atrás.
+[Remote]: La compañía ha crecido y ha crecido de forma cabótica,
+[Remote]: en el buen sentido de de del caos, ¿no? Digo, no es una
+[Remote]: un crecimiento ordenado, es un crecimiento caótico y le ha servido.
+[Remote]: Para llegar hasta donde llegó.
+[Remote]: ¿Sí? Ahora, en ese crecimiento
+[Remote]: desordenado, caótico, bueno,
+[Remote]: sea la magnitud de la operación,
+[Remote]: implica
+[Remote]: que no se puede sostener de la misma forma que
+[Remote]: se venía sosteniendo, que esto era con manos.
+[Remote]: Con manos y gente y gente y gente.
+[Remote]: ¿Por qué? Porque los números no dan
+[Remote]: Dicho eso, es donde
+[Remote]: creo que parte del de lo que tenemos que hacer primero es
+[Remote]: reorganizar
+[Remote]: definir, simplificar, cuestionar qué es lo que se está
+[Remote]: haciendo y entender qué lo que se está haciendo
+[Remote]: primero, es absolutamente necesario y
+[Remote]: es absolutamente necesario, si se puede hacer de la forma más simple,
+[Remote]: eficiente posible. Y una vez que tengo una idea,
+[Remote]: de si realmente es absolutamente necesario y se puede hacer,
+[Remote]: hacer simple, buscar a alguien que me lo haga más simple a uno.
+[Remote]: ¿Me explico?
+[You]: Sí, sí.
+[Remote]: Yo todavía no puedo responder la primera pregunta.
+[Remote]: Si es absolutamente necesario.
+[You]: Esto, ¿por cómo funciona la operación voz
+[You]: todo es por sucursal y, entonces, cada sucursal te
+[You]: su propio proceso de créditos y cobranzas, por ejemplo.
+[Remote]: Por ejemplo, hoy tenés nueve nueve sucursales
+[Remote]: ¿sí?, cada sucursal tiene su equipo de créditos y cobranzas.
+[Remote]: ¿Ah? Que responden, además,
+[Remote]: en en el medio... A ver.
+[Remote]: Dicho
+[Remote]: en pocas palabras, el proceso debe tener un
+[Remote]: service center
+[Remote]: ¿sí?
+[Remote]: Que integró
+[Remote]: o que empiece a integrar la operación, si arrancó hace tres años.
+[Remote]: La idea
+[Remote]: hace un año y medio que está en ejecución.
+[Remote]: Pero antes de eso, cada sucursal era una empresa,
+[Remote]: o funcionaba como una empresa.
+[You]: Okay.
+[Remote]: Hasta tener gente que está haciendo
+[Remote]: transaccionando dentro del sistema,
+[Remote]: transacciones que
+[Remote]: no son uniformes,
+[You]: Esto es porque cada sucursal tiene una operatoria muy
+[Remote]: No.
+[You]: o simplemente porque crearon de cero procesos distintos?
+[Remote]: Porque cada uno ha creado
+[Remote]: procesos a su mejor saber y entender,
+[Remote]: y el equipo de, para mí, el equipo de IT viejo, ¿sí?, ante un requerimiento, desarrollaba y desarrollaban zetas, y tenemos hoy nueve mil zetas en SAP,
+[Remote]: para atender
+[Remote]: las cosas más ilógicas que se te ocurran,
+[Remote]: Cuando hay transacciones,
+[Remote]: puras,
+[Remote]: en SAP para, digo, no solo hay transacciones puras, hay bloqueos
+[Remote]: hay, digo, hay procesos que están hechos
+[Remote]: un z para bloquear algo que
+[Remote]: por definición, ya viene bloqueado.
+[Remote]: Tenés un un un box dentro de la tabla de, y es
+[Remote]: un checkbox que lo marcás y
+[Remote]: se acabó.
+[Remote]: Y acá hay
+[Remote]: z del z del z.
+[Remote]: Dentro de la foto que que me toca
+[Remote]: gestionar junto con la
+[Remote]: la transición a un nuevo SAP va a ser S4HANA,
+[Remote]: Obviamente, todo esto está dentro de la discusión. Si me voy a preguntar, che, Luis, ¿ti
+[Remote]: interesa tener algo que considere automático? Se me hace agua la boca.
+[Remote]: ¿Ah?
+[Remote]: Pero dios...
+[Remote]: Para llegar a ese momento, esto como decir,
+[Remote]: Cheli, ¿querés jugar en primera, en la primera...? ¿De de qué incluso, Cincha?
+[You]: The river.
+[Remote]: De River, listo. ¿Querés jugar en la primera de River? Obvio,
+[Remote]: me encantaría jugar en la primera de river. Si no hice inferiores, te doy en un problema.
+[Remote]: Y si no sé patear la pelota, mucho más problema.
+[Remote]: Y si encima no tengo
+[You]: ¿Cuál es el plan para crear esos
+[You]: Porque, digo, nosotros, mucho de lo que hacemos también, particularmente con con compañías
+[You]: como Drogería Del Sud, es
+[You]: volvernos como una extensión del equipo y meternos a cocrear con ellos. Entonces,
+[You]: si hay una iniciativa y una bajada de línea de che,
+[Remote]: Ahora hay un equipo de de de
+[Remote]: conceptual no. Estamos en un proceso de transformación
+[Remote]: que arrancó hace
+[Remote]: tres meses, cuatro meses,
+[Remote]: estamos todavía reformando el equipo, tenemos un
+[Remote]: un nuevo un nuevo líder de procesos
+[Remote]: estamos reviendo cada uno de los procesos de la compañía,
+[Remote]: y tratando de entender al mismo tiempo
+[Remote]: cuál es el circuito que tenemos que hacer en pos de
+[Remote]: llevar adelante los cambios a una transformación digital
+[Remote]: que terminen
+[Remote]: una compañía tecnológica.
+[Remote]: Y no en una compañía
+[Remote]: distribuidora.
+[Remote]: Ahora, en base a eso, hay
+[Remote]: tenemos a Sergio Fernández Mena, que nos
+[Remote]: está acompañando. Sergio Fernández Mena era el
+[Remote]: CTO de IPF,
+[Remote]: que nos está acompañando en este proceso.
+[Remote]: Que nos ayuda a definir
+[You]: Pero como constructor.
+[Remote]: sí, y nos ayuda a definir cuál es la criticidad
+[Remote]: trajimos un
+[Remote]: un gerente de procesos y de excelencia,
+[Remote]: que viene de Banco Industrial,
+[Remote]: viene del BIN,
+[Remote]: se llama Darío Roberto,
+[You]: Okay.
+[Remote]: Y ahí empezamos a caminar, a agarrar de a procesos
+[Remote]: y vamos avanzando.
+[Remote]: Todavía estamos
+[Remote]: verdes en todo esto.
+[You]: Okay.
+[Remote]: ¿Sí? ¿Por qué te lo digo así? Yo vengo de otro
+[Remote]: tipo de organización donde, digo, yo vengo de Bayer, de
+[Remote]: veintitrés años de Bayer, donde
+[Remote]: para mí estas cosas ni se discutían.
+[Remote]: Yo tenía un electronic bank statement enchufado
+[Remote]: directamente
+[Remote]: SAP contra Swiss,
+[Remote]: Directamente, todos los bancos mandaban Swiss afuera,
+[Remote]: y tocaba un botón a las siete de la mañana y tenía las cuentas conciliadas.
+[Remote]: Con lo cual,
+[Remote]: el desarrollo interno que tenía la compañía
+[Remote]: yo acá, yo siento que
+[Remote]: en este aspecto me bajé de una Ferrari, me subí a un Renault doce.
+[You]: Sure.
+[Remote]: ¿Por qué? Porque yo lo único que hace en la mañana, a ver, yo te digo,
+[Remote]: qué era lo que cuando estaba en Bayer tenía que hacer, eran
+[Remote]: tenía que sentar y negociar con los bancos el m t nueve cuarenta.
+[You]: K. Perfect.
+[Remote]: Todo lo que hacían.
+[You]: Sí, sí, sí.
+[Remote]: Yo todo mi trabajo con de cara al banco es, flaco,
+[Remote]: vos me tenés que asegurar, este, y que va a la dirección
+[Remote]: de de Bayer a nivel global.
+[Remote]: Dirección Swift, Bayer a nivel global. Bayer a nivel global ya tenía
+[Remote]: matcheado el el el SAP en la
+[Remote]: en la gran nube de la compañía,
+[Remote]: ¿sí?, entraba todo y yo a la mañana tenía todo conciliado.
+[Remote]: Y Reportería Derecha De Dónde Tenía Que Pelearme, Con Quién, Y Verificar Los Números. ¿Eso Existía? Sí. Ahora, No Estoy Más En Bayer. Digo, si vos me preguntás, estoy
+[Remote]: O conocí las dos orillas del río.
+[Remote]: ¿Está?
+[Remote]: Una que es
+[Remote]: toca un botón, ya está todo listo, que entiendo qué es lo que vos me estás ofreciendo,
+[You]: Sí.
+[Remote]: ¿sí?
+[Remote]: Y conozco la otra orilla.
+[Remote]: Hoy, que es
+[Remote]: No está, no hay nada de todo eso.
+[Remote]: Ahora, para poder empezar a cruzar,
+[You]: Sí, sí, yo solo estoy pensando cómo cómo, sí, estoy pensando cómo podemos acelerar ese
+[You]: proceso, digo, porque al final
+[Remote]: Por supuesto.
+[You]: el tiempo
+[You]: el tiempo es plata, ¿no? Entonces,
+[Remote]: Y lo vamos a tener que
+[You]: pensando de qué manera me puedo me puedo poner el servicio,
+[You]: de ese proceso, realmente, arremangándonos y sentándonos con los equipos a
+[You]: acelerar eso. Si a vos te parece un paso
+[You]: previo, fundamental, antes de cual
+[You]: con cualquier herramienta, hacer ese reordenamiento
+[You]: identificar, diseñar plan de trabajo y que nos llamen cuando estén listos,
+[You]: genial.
+[You]: Si te parece que por ahí podemos
+[You]: convertirnos en una extensión del equipo, acompañar y acelerar esa transición,
+[You]: también genial. Digo, al final estamos a disposición de de ayudarlo.
+[Remote]: gracias.
+[Remote]: Vamos, yo voy a estar bien claro en esto, digo,
+[Remote]: entiendo lo que el el planteo que me hacés,
+[Remote]: dejame pensarlo, voy a hablarlo también con
+[Remote]: con con mi CTO, a ver cuál es la mejor estrategia
+[Remote]: para esto y eventualmente ahí podemos empezar a
+[You]: Metio, sale el paréntesis, tenemos reunión
+[Remote]: Ok.
+[You]: mañana con IPF digital.
+[You]: Así que por ahí conoce bien la pata fintech de
+[You]: de IPF y los valores conciliatorios que tienen ahí.
+[You]: Pero sí, obviamente, charlar algo de Sergio, si querés que nos juntemos
+[You]: Sergio también para mostrarle
+[Remote]: Sergio no es mi CTO,
+[You]: Ah,
+[Remote]: Sergio es el que me acompaña, el
+[Remote]: que acompaña de droguería en todo lo que es transformación digital.
+[You]: tener su sitio interno, ok.
+[Remote]: Nosotros tenemos
+[Remote]: a Emiliano Landesman, que es nuestro CTO.
+[You]: Okay.
+[Remote]: ¿Sí? Y él está
+[Remote]: él es el que diseña junto a Sergio toda la estrategia.
+[Remote]: Yo vuelvo otra vez, digo, yo soy más
+[Remote]: de los que más demanda todo esto,
+[You]: Sí, pero
+[Remote]: no quiero prometer nada,
+[You]: negocia en las prioridades, otras prioridades. Una, la pregunta que quería hacer era esa,
+[Remote]: Exacto.
+[You]: en esa lista de prioridades, ¿cómo cae esto?, ¿cuánto cuesta este problema?
+[Remote]: Mirá, hoy los recursos, hoy
+[Remote]: Hola, hola.
+[You]: Hola.
+[Remote]: Porque te perdí.
+[Remote]: Hoy, como los recursos son finitos,
+[Remote]: todo lo todo el foco está puesto en
+[Remote]: migrar a Hana.
+[Remote]: Es el gran proyecto de la compañía,
+[Remote]: con lo cual cualquier cosa que nos
+[Remote]: saca por un momento de
+[Remote]: de Jana,
+[Remote]: es un problema.
+[Remote]: O cae en saco roto.
+[You]: Okay.
+[Remote]: Ahora,
+[You]: ¿Cuánto...? ¿Cómo viene el timeline de ese proyecto? ¿Cuándo
+[Remote]: para
+[You]: esperan tenerlo cerrado?
+[Remote]: No, recién ahora estamos arrancando, se firmó el contrato en
+[Remote]: ahora en junio arrancan las durante abril y mayo seleccionaremos a los implementadores y en junio arranca el proceso. Pero todo el tiempo está relevando, los equipos están relevando.
+[You]: Okay.
+[You]: ¿Y cuánto cuánto tiempo le vas llevar?
+[Remote]: Es es intenso.
+[Remote]: Calculado en dieciocho meses.
+[You]: Donde el único foco va a ser SAP HANA.
+[Remote]: El principal foco va a ser Hana.
+[Remote]: No va a ser el único.
+[You]: ¿Crees que en los próximos dieciocho meses un foco secundario? ¿Puede ser conciliaciones o lo lo ves como
+[You]: como un paso crítico previo
+[Remote]: Yo creo que el orden de prioridad
+[Remote]: va a estar dimensionado por el riesgo.
+[Remote]: No, hoy no estoy viendo
+[Remote]: qué conciliación es
+[Remote]: A ver.
+[Remote]: Sea un lugar donde tenemos un problema enorme,
+[Remote]: sí que tenemos mucha gente, y va ser un lugar donde me va a dar eficiencia
+[Remote]: enormes.
+[Remote]: ¿Me seguís?
+[You]: Cien por ciento.
+[You]: Y esas eficiencias. Yo, de vuelta, estoy como
+[You]: distintas preguntas para entender los supuestos y y los planes de trabajo y las prioridades.
+[You]: Pero esas eficiencias
+[You]: sirve tenerlas en en menos de dieciocho meses o o me decís
+[You]: no, no es foco hoy y prefiero dejarlo después.
+[Remote]: No te puedo dar esa respuesta.
+[You]: Ok.
+[You]: Ok.
+[You]: Qué necesitas en
+[Remote]: No te puedo dar el digo, necesito
+[Remote]: ver cómo avanza el un poco más cómodo,
+[You]: Ok, listo.
+[Remote]: tener un poco más de luz del proyecto Hana.
+[You]: ¿Qué qué te puedo mandar yo para darte más información y más contexto y lo puedas
+[You]: con tu CTO o el equipo? Puede ser un one pager, lo
+[You]: sé, lo que vos me digas o un blurb,
+[Remote]: Obvio, todo lo que puedas compartir conmigo
+[Remote]: y también dónde lo has implementado y
+[Remote]: experiencia de usuario o que me
+[Remote]: me pases contactos con con quién intercambiar,
+[Remote]: todo suma.
+[Remote]: Como para eventualmente
+[Remote]: traccionar esto.
+[You]: Listo.
+[Remote]: ¿Sí?
+[You]: Dale, no saco más tiempo, que estamos ahí fuera de hora, pero un gustazo.
+[Remote]: Ignacio, eso.
+[Remote]: Te soy bien claro, yo el miércoles me voy de vacaciones.
+[Remote]: Por quince días voy a estar de vacaciones, más que nada para manejar expectativas
+[Remote]: si no tenés respuesta.
+[You]: No, no, tranquilo, tranquilo.
+[Remote]: ¿Ok?
+[You]: Entiendo. Sí, si no hay, soy el primero que no quiere
+[You]: hacerle perder el tiempo a nadie.
+[You]: Así que ahora yo te mando, te dejo los materiales, se colgó huevos internamente y esperemos vamos atentos a ver
+[You]: si quieren avanzar en algún momento en el corto plazo o si lo quieren dejar para después.
+[Remote]: Perfecto, muchísimas gracias.
+[You]: Gracias, Luis. Abrazo.
+[Remote]: Hasta luego. Chao, chao.
+
+============================================================
+SUMMARY
+============================================================
+### Current Operational Challenges at Droguería Del Sud
+
+- 23 people in credits and collections department
+  - 17 different processes identified across teams
+  - Each person doing things differently despite same role
+- Company grew chaotically but successfully
+  - Cannot sustain current manual approach with headcount
+  - Numbers don’t support continued people-heavy operations
+- 9 branches operating independently
+  - Each branch has own credits and collections team
+  - Each branch historically functioned as separate company
+  - Shared service center process started 3 years ago
+    - Execution began 1.5 years ago
+    - Still transitioning from decentralized model
+- SAP system issues
+  - 9,000 custom Z-transactions (zetas) in current SAP
+  - Previous IT team created workarounds for illogical requests
+  - Custom solutions for things that should be standard functionality
+
+### Digital Transformation Initiative
+
+- New leadership team assembled
+  - Sergio Fernández Mena (ex-CTO of YPF) - advising on digital transformation strategy
+  - Darío Roberto (ex-Banco Industrial/BIN) - new manager of processes and excellence
+  - Emiliano Landesman - current CTO
+- Process review underway
+  - Started 3-4 months ago
+  - Reviewing every company process from scratch
+  - Defining criticality and change roadmap
+  - Goal: transform from distribution company to technology company
+- Luis’s background context
+  - 23 years at Bayer with fully automated reconciliation systems
+  - Had electronic bank statements directly integrated with SAP
+  - Push-button reconciliation at 7 AM daily
+  - Feels like downgrade from Ferrari to Renault 12
+
+### SAP HANA Migration Priority
+
+- Contract signed in December 2025
+- Implementation timeline
+  - April/May 2026: Select implementers
+  - June 2026: Process begins
+  - Duration: 18 months (through late 2027)
+- Resource allocation
+  - Primary focus on HANA migration
+  - Any distraction from HANA is problematic
+  - Secondary priorities determined by risk assessment
+- Reconciliation automation interest
+  - Luis acknowledges significant efficiency potential
+  - Cannot commit to timeline due to HANA priority
+  - Needs more visibility on HANA progress before deciding
+  - Wants materials and references to discuss with CTO team
+- Luis vacation note: Away for 15 days starting Wednesday
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/7370d409-1ed3-41d9-bc6d-a2990cc3eb95](https://notes.granola.ai/t/7370d409-1ed3-41d9-bc6d-a2990cc3eb95)

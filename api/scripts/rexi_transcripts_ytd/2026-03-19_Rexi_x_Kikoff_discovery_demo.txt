@@ -1,0 +1,915 @@
+MEETING: Rexi x Kikoff: discovery + demo
+DATE: 2026-03-19
+ID: not_eLflpun5jI8bKw
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Prabhbir <prabhbir@kikoff.com>, Teo <teo@rexi.finance>, Katy <katy@kikoff.com>, Nabil <nabil@kikoff.com>, Ryan Chen <ryan.chen@kikoff.com>
+SCHEDULED: 2026-03-19T16:00:00-04:00 - 2026-03-19T16:45:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Week can't believe, like, weeks are just flying by. You know? Suddenly, it's
+[You]: Thursday end of day.
+[Remote]: Yeah. Oh, yeah. You're eastern. Right?
+[You]: Yeah. And
+[You]: and and the backlog of stuff to do this week is still huge. I like it
+[You]: underwater right now. But but good things happening, aren't we?
+[You]: This is still my cofactor. Don't know if met him last time.
+[Remote]: Hi. Hi. Tio, nice to meet you. My name is Prab. Nice to meet you.
+[Remote]: Yeah. I was just, mentioning that the rest of the team will be joining in a few moments. They're just
+[You]: No worries.
+[Remote]: in office today.
+[Remote]: Of course. There we go.
+[You]: Hey, Nabil. Hi. Nice to meet you.
+[Remote]: Likewise, how's it going?
+[You]: Good. And you?
+[Remote]: Yeah. Not too bad.
+[You]: Just to present ourselves
+[You]: we're the cofounders of Rexy, more focused on product and operations. I'm
+[You]: I'm more focused on distribution, sales, marketing, and so on.
+[You]: We have one more cofounder that you'll probably meet at another meeting
+[You]: is our CTO. But
+[You]: I think for today, it's just gonna be us. Is anyone else joining in from your side?
+[Remote]: I believe we have one more person joining. So maybe just give it an extra minute.
+[You]: Alright. Maybe you can just do it, like,
+[You]: quick recap of what we learned
+[You]: last time and sort of where we wanted to focus. I know you sent a bunch of questions,
+[You]: I think the idea today was
+[You]: to do a bit more discovery on the current processes and the
+[You]: pain points you guys are experiencing with this process, and then maybe we can do a quick
+[You]: run through or walk through
+[You]: our platform to show you a bit more about
+[You]: the different functionalities and how we how we could attack
+[You]: each one of the pain points mentioned.
+[You]: Does that sound like a good use of time, or do you prefer to take it otherwise?
+[Remote]: I think that works to start. Yeah.
+[You]: Okay.
+[You]: So, just doing a quick recap of what we're here last time.
+[You]: You guys are currently managing and integrated to multiple payment processors, banks,
+[You]: You have a lot of internal datasets.
+[You]: You do have a really big and
+[You]: probably great engineering team. But, of course,
+[You]: there are other priorities rather than building something internally for reconciliation.
+[You]: And today, it's it's mostly manual, creating a lot of operation
+[You]: burden.
+[You]: Mainly because of just multiple data sources
+[You]: These are changing all the time as you guys scale, launch, and build new products.
+[You]: But one of the things that that Prab mentioned last time is
+[You]: some point when you start considering an external tool, it's like
+[You]: if if if if implementing that external tool is gonna take us
+[You]: effort and time, then it's gonna be compared against just building something internally. Right? And that's
+[Remote]: Right.
+[You]: definitely reasonable when thinking about, the business buy versus build solution.
+[You]: Question. So just to, like,
+[You]: talk a little bit more about the build versus buy, I think there's
+[You]: sharing a couple learnings we're seeing across
+[You]: similar customers
+[You]: and similar companies as as kickoff. The first one is, I think,
+[You]: hello, Ryan. Hello, Katie. How's it going?
+[You]: Thank you for the time. Once again, great meeting you.
+[Remote]: Hey, guys.
+[You]: So I was saying so the build versus buy, I think the first one is I think
+[You]: most of the customers we work with tend to the
+[You]: complexity of of building a reconciliation product. And I say this because we've been
+[You]: we we had some funny
+[You]: conversations with customers that initially we did a discovery process. We
+[You]: showed a demo, did a proof of concept. They ended up deciding to build something internally.
+[You]: And then three months later, they came back and saying, think we need help.
+[You]: And that's just because as soon as they start digging in, it's it's a very complex
+[You]: complex platform to build. And the the the initial
+[You]: one off investment to build it
+[You]: is tends to be underestimated. The second part I'll I'll say about that is
+[You]: the maintenance that comes afterwards. Right? Because reconciliation is not a
+[You]: static problem. It tends to be dynamic as all these sources change all the time, as you guys build and launch
+[You]: new products, as, I don't know, compliance requirements change,
+[You]: and the company continues growing and acquiring maturity and acquiring other process
+[You]: Right? So it's not only about that initial investment, but also the recurring investment
+[You]: of maintaining
+[You]: that internal tool. And at the end of day, it's about choosing your priorities. Right?
+[You]: And the second thing I'll say is
+[You]: on the technical front, which is
+[You]: our agents are trained with
+[You]: a wider set of edge cases, a wider set of breast
+[You]: practices because we are laser focused in reconciliation. So
+[You]: our agents our our experts in each one of the tasks involved
+[You]: when reconciling transactions. And so
+[You]: that's something you cannot replicate internally just because of the context window that we have
+[You]: proprietary because we work with a bunch of customers.
+[You]: And that an internal context window is just gonna be smaller and looking at
+[You]: a narrower set of edge cases and and best practices.
+[You]: Other than that, that's sort of like the recap in terms of of
+[You]: what we talked last time. There's no particular
+[You]: budget or or timeline for this. I don't know if you had the opportunity to
+[You]: discuss this further.
+[You]: But it's more like if if there's something that we can plug in next week that's gonna save
+[You]: time and money, then then you're
+[You]: really
+[You]: leaning towards doing it, but we need to prove value first for that to happen.
+[You]: Other than that, Prab and Katie, did I miss anything that is
+[You]: worth mentioning before we deep dive into the solution and talk more about
+[You]: how you guys would would
+[You]: find value out of it.
+[Remote]: No. I think we're fine. I think we can continue.
+[You]: Okay. Got it. Amazing.
+[You]: Then I don't know, though. If you wanna share your screen and start showing a bit of the platform,
+[You]: and then we can go over all of the questions you sent via email, Prab.
+[Remote]: Let's do a quick run through the platform.
+[Remote]: So
+[Remote]: what I did here is a
+[Remote]: a basic reconciliation so that you can have a look at at
+[Remote]: how the platform works in general. So, basically, what we do is
+[Remote]: as Natchez said, we automate reconciliation processes
+[Remote]: a data orchestrator as a whole.
+[Remote]: So we automate ingestion
+[Remote]: In in this case, it would be ingestion,
+[Remote]: from your data pay payments and, for example, from your NetSuite invoices.
+[Remote]: Oh, sorry. So pass. Pass. So
+[Remote]: don't want us to get too deep into, like, next week invoices because we actually do not invoice out of next week.
+[Remote]: We invoice out of our internal system, so, just from our application.
+[Remote]: We invoice the customer. Through application, we're, like, a beta
+[Remote]: c company. So the invoice, ingestion would be
+[Remote]: from
+[Remote]: our internal, like, set of data Perfect.
+[Remote]: Perfect. Yeah. Just this is just,
+[Remote]: conceptual
+[Remote]: invoice database. It can be either NetSuite. It can be your internal database.
+[Remote]: Whichever database you're using or we
+[Remote]: ever provider, whatever,
+[Remote]: database holds the transactions, we
+[Remote]: we make that integration for you.
+[Remote]: We automate the injection.
+[Remote]: So once we have the
+[Remote]: integration done, we have our
+[Remote]: data standardization platform, which is this one.
+[Remote]: Did you say
+[Remote]: Any questions?
+[You]: Yep.
+[Remote]: No? Alright.
+[Remote]: So, basically, once we ingest the data, it all
+[Remote]: stays virgin, so we don't modify the original data.
+[Remote]: And we work in views. So for example, if you wanna
+[Remote]: modify the format or you wanna modify
+[Remote]: the date format or the transaction or any
+[Remote]: any any data modification that you could actually do
+[Remote]: on Excel?
+[Remote]: Before doing a reconciliation?
+[Remote]: A grouping, filtering,
+[Remote]: sorting,
+[Remote]: parsing fields, transforming gate,
+[Remote]: even enriching the the database with
+[Remote]: with a third database or
+[Remote]: you know, cumulative balances views. Anything you you you can do
+[Remote]: on Excel, you can do here.
+[Remote]: On a very, very scalable way and on and
+[Remote]: and also allows you to automate that.
+[Remote]: Sorry. I'm getting.
+[Remote]: Cold.
+[Remote]: Just a quick question here. So
+[Remote]: maybe diving a little bit more deeply into how it operates
+[Remote]: So if you have, let's say, a settlement and maybe there's like a
+[Remote]: a set of
+[Remote]: events that took place on it. Let's say, initially, a product was purchased. It was
+[Remote]: refunded, or maybe later down charged by. Yeah.
+[Remote]: How would that kinda present itself here? And then kinda what would we need to do internal to this to
+[Remote]: kind of allow you to tie things together? Like, how would the data need to be marked in that sense?
+[Remote]: And the second question to that would be,
+[Remote]: we have to define a set of, like, hero six and logic within
+[Remote]: RXC itself to kind of handle that, or would it be be would we be preprocessing
+[Remote]: the data outside of the system?
+[Remote]: The so answering the first question, it depends on on the way
+[Remote]: your data is organized. So it it's a it's
+[Remote]: entirely depends on your internal process.
+[Remote]: But for example, if you have transactions that maybe
+[Remote]: change status, from one day to another or any other variable can change,
+[Remote]: you can define that whenever we, we ingest that data,
+[Remote]: we identify that transaction. And if it all already
+[Remote]: on Brexit,
+[Remote]: we can either define to keep
+[Remote]: the last one or keep the first one, the original one, or, keep both.
+[Remote]: It depends on on the way your platform operates, your operations,
+[Remote]: operate.
+[Remote]: And
+[Remote]: so, basically, you you you can you can set that up.
+[Remote]: And what what was the the second question?
+[Remote]: I guess it was more so on, like, the processing. So let's say, for example, you have a transaction
+[Remote]: That transaction could be tied to some sort of subscription. It could be tied to some sort of promotion.
+[Remote]: Or coupon, something of the sorts. It could be tied to maybe in the future a refund or a charge
+[Remote]: back.
+[Remote]: We simply just be able to dump our list of tables in with these
+[Remote]: like, data records and then
+[Remote]: define a set of heuristics to kind of
+[Remote]: I guess, recognize that appropriate revenue or
+[Remote]: tie it together, or would we need to kind of
+[Remote]: reprocess everything outside and then the external system
+[Remote]: The the idea of Rexy is that you could do everything, here.
+[Remote]: On Rexy. You you would need no preprocessing anything.
+[Remote]: Okay. So let's take that example. Right? So let's say there is a user
+[Remote]: The user has a subscription. They make a transaction. There might have been a discount, and then there might have been a
+[Remote]: tied to it. How would we let's say that's all within, four different tables. You know,
+[Remote]: four and keys are set up for each of the relevant tables. Once
+[Remote]: that is inputted, we've synced those tables into RXi. What would happen from there?
+[Remote]: I would need to see exactly
+[Remote]: the way the data is presented on those four tables, but you can you can automate
+[Remote]: either update the the original file
+[Remote]: you can enrich. Here you have the VLOOKUP
+[Remote]: formula. So for example, you have a
+[Remote]: a table with the transactions and a table with the
+[Remote]: example, promotions or
+[Remote]: discounts or chargebacks, etcetera. You you can
+[Remote]: you can reach
+[Remote]: the original transaction file
+[Remote]: with those other databases, or you can even create reconciliations
+[Remote]: with those. So let me
+[Remote]: go with the the
+[Remote]: the exercise
+[Remote]: Sure. So that you can you can have a look at at the way it works.
+[Remote]: So there's generally several ways in which you can solve the same problem.
+[Remote]: Maybe once we're done with the reconciliation, we can we can deep dive on that on that
+[Remote]: exercise.
+[Remote]: So, basically, once you have the the databases
+[Remote]: standardized and ready to reconcile,
+[Remote]: you create a basic reconciliation exercise. In this case, it's
+[Remote]: NetSuite versus Telapay, but it can be
+[Remote]: any database with any
+[Remote]: Of course, we
+[Remote]: allow for dependent reconciliations. In this case, it's just a a
+[Remote]: independent reconciliation, but you can you can get two, three, four,
+[Remote]: five, and ten ten money flows within only one reconciliation.
+[Remote]: We allow for one to one reconciliations, one to many, many to one, and many to any.
+[Remote]: And, of course, we have multiple sweeps
+[Remote]: and tolerances and multiple joint criteria.
+[Remote]: Once something has been you can do comparisons
+[Remote]: These are mostly for checking fees, checking status, or checking whatever.
+[Remote]: Your operation demands.
+[Remote]: And once it's done,
+[Remote]: you get to the reconciliation results.
+[Remote]: This is the
+[Remote]: granular transaction by transaction reconciliation result.
+[Remote]: And these are the
+[Remote]: reconciliation results metrics. Of course,
+[Remote]: these are general KPIs. It's,
+[Remote]: the user can define which is the
+[Remote]: date field and the amount field and so have a
+[Remote]: general sense on on what
+[Remote]: we have on the on the source a.
+[Remote]: What we have on source b.
+[Remote]: In this case, it's total total transactions on
+[Remote]: March,
+[Remote]: match transaction six, and match transaction zero. In this case, we have one here.
+[Remote]: Once
+[Remote]: once you have your reconciliation, every time
+[Remote]: we run a reconciliation that triggers our agents,
+[Remote]: and they analyze the the information, and they
+[Remote]: suggest improvements or help you understand what's going on.
+[Remote]: Sometimes our customers know exactly what's going on, sometimes they simply don't and they need help.
+[Remote]: In this case, for example, there's
+[Remote]: differences that account for 11 and match
+[Remote]: transactions. There is
+[Remote]: amount tolerance that we could could include if we
+[Remote]: included the
+[Remote]: the amount tolerance adjusted, it will increase our
+[Remote]: match rate for from 84 to 86.
+[Remote]: These kind of reports or analysis
+[Remote]: usually
+[Remote]: take humans hours.
+[Remote]: And it it takes just a few minutes for our agents to to review.
+[Remote]: Of course,
+[Remote]: we do keep our human in the loop before any
+[Remote]: modification to the original reconciliation is done.
+[Remote]: In this case, there is ambiguity,
+[Remote]: as well. If we modify this, it increases the reconciliation percentage
+[Remote]: from 84 to
+[Remote]: 86 as well.
+[You]: This is the part I was mentioning where our agents are trained among a larger set of edge case
+[You]: and nuances, and therefore,
+[You]: they're better prepared and better trained to propose
+[You]: additional patterns, find additional matches, new rules, etcetera.
+[You]: Like, at some point, what we're trying to do here is two things. The first one is
+[You]: optimize the reconciliation logic to maximize the matching ratio.
+[You]: And then whatever is not reconciled, try to fix everything related to actual data mistake.
+[You]: What's real money missing, that's when you just needed, like,
+[You]: grab do a report and send it to your bank or to your processor saying, hey. This is money that I'm not seeing on
+[You]: my end. What's going on here?
+[You]: But just make it way quicker so that the human is only reviewing and approving the discrepancies,
+[You]: then
+[You]: taking that last mile with an external provider to find out what happened with the differences. Right?
+[Remote]: Exactly.
+[Remote]: Of course, we do have the, exception manager in this module if there's
+[Remote]: anything that did not match and you wanna review it and and maybe
+[Remote]: manually mark it as exception or manually reconcile it, you can
+[Remote]: We do believe that it this is no longer gonna be the case.
+[Remote]: I do believe it's all gonna be agentic, and they're
+[Remote]: won't be humans doing this manually transaction per transaction anymore.
+[Remote]: We've got notifications. You can send notifications via email Slack,
+[Remote]: whenever the considerations run or whenever there's something
+[Remote]: different. For example, an ingestion fail or
+[Remote]: the reconciliation percentage
+[Remote]: dropped from 95% to 93%. For example, that depends on on whatever
+[Remote]: you want to do.
+[Remote]: And as I mentioned, the reconciliation results are general KPIs.
+[Remote]: But we do allow for users to create their own,
+[Remote]: These are entirely
+[Remote]: flexible and easy to use. You can read your own widgets.
+[Remote]: Example,
+[Remote]: on the reconcilition results, we we can you can create
+[Remote]: area charts, line charts, type charts, pivot tables,
+[Remote]: KPI cards, pie charts, etcetera. You can
+[Remote]: either do them manually or you can ask the, AI assistant to
+[Remote]: create the dashboard.
+[Remote]: Please
+[Remote]: reconciliation
+[Remote]: results.
+[Remote]: Dashboard.
+[Remote]: I will suggest, widgets, create them, organize them,
+[Remote]: modify them if you don't like them, etcetera.
+[Remote]: This
+[Remote]: might take a few seconds, but we can just have a look.
+[Remote]: Yes.
+[Remote]: While that's running, just a quick question. So once,
+[Remote]: like, let's say, a reconciliation has happened, what is the
+[Remote]: I guess, like, output artifact from running that? Are we able to output that into, like, a fall that is dumped into a
+[Remote]: three? Or what would the
+[Remote]: IKEA 600 interface look like beyond that point?
+[Remote]: So the output,
+[Remote]: can be either
+[Remote]: reviewed here on the reconciliation results, the table that we saw,
+[Remote]: or you can export it in whatever format you want.
+[Remote]: So for example, some of our customers
+[Remote]: first do some preprocessing and modify the format, and then
+[Remote]: we automate that
+[Remote]: reprocessed report.
+[Remote]: Into one of your databases. For example, BigQuery or
+[Remote]: whatever data, like, you're using.
+[Remote]: So for the, reconciliation, you just
+[Remote]: ran, can I see what the export would look like? Like, by default, would it
+[Remote]: would it show the list of transactions with their matching settlements that tie to it?
+[Remote]: Yes. Let me so here,
+[Remote]: So
+[Remote]: This is what the export would look like. We can
+[Remote]: now do an exercise, but you would have
+[Remote]: the columns made by made by us
+[Remote]: So status, is it match? Is it not match? Sweep,
+[Remote]: is did it match on the first sweep, second sweep, third sweep?
+[Remote]: Match hash? This this match hash is unique
+[Remote]: and it joins transactions in
+[Remote]: a unique way from different databases.
+[Remote]: And then you've got the
+[Remote]: NetSuite invoices columns,
+[Remote]: and you've got the
+[Remote]: TabaTabapay payments columns.
+[Remote]: You would have transactions that match all in one one row.
+[Remote]: Or if they didn't match,
+[Remote]: you would have them, on different rows. For example, these these transactions.
+[Remote]: That did did not match.
+[Remote]: And, of course,
+[Remote]: Go ahead.
+[Remote]: Oh, so if you wanna export either
+[Remote]: one of these sources or the reconciliation results, you just create an export here.
+[You]: You can configure it whatever you wanna export. That's the point here.
+[Remote]: Yep. We can either export a source
+[Remote]: a reconciliation. In this case, it's NetSuite.
+[Remote]: And the rule
+[Remote]: And you can, of course,
+[Remote]: create whatever
+[Remote]: export, query, SFTP, whatever
+[Remote]: you need.
+[Remote]: I see. So, maybe more so a question on, like, the
+[Remote]: process here. So let's say, for example, we
+[Remote]: do first attempt, let's say, 90% of the transactions match up.
+[Remote]: There's a remaining, like, 10% of transactions that have, like, missing settlements as part of it.
+[Remote]: In the future, if
+[Remote]: it doesn't sound like we're just doing, like, a onetime DB load. Right? It's
+[Remote]: constantly syncing based off of our our back end. Is that correct?
+[You]: Correct.
+[Remote]: Okay. So in that case,
+[Remote]: let's say there is no, new transactions, and, like, now we only want to run a base
+[Remote]: on those, like, 10% that are missing. Right? Can you maybe walk me through what the, like, retry logic looks
+[Remote]: like, and how do you guys ensure the, transaction that have kind of already been completed and, like, Mark does
+[Remote]: done,
+[Remote]: fall into the the next request.
+[Remote]: Yep. So, basically, whatever is marked as as match,
+[Remote]: we won't try to reconcile.
+[Remote]: Anymore. Once it's reconciled, that's done.
+[Remote]: And what we do, try to reconcile is whatever did that match.
+[Remote]: So say a transaction
+[Remote]: from today did not reconcile, we're gonna try to reconcile it
+[Remote]: tomorrow, the day after tomorrow until you either mark it as much or mark it as
+[Remote]: as an exception. Until you let us know,
+[Remote]: that that should not be reconciled anymore.
+[Remote]: We will try to reconcile it.
+[Remote]: I see.
+[Remote]: And then
+[You]: I think he was asking, like like,
+[You]: let's say you match 90%, the remaining 10%, can we run it again? Like,
+[You]: you're acting like a second sweep. Right?
+[Remote]: Well, I no. I think, Teo did an
+[Remote]: kinda what I was looking for. So I just wanted to make sure that,
+[Remote]: if there are additional changes, like, we kind of, like, lock off some portion of it, and then the remainder is kinda what gets
+[Remote]: looked at in subsequent runs and ensuring that it's not, like,
+[Remote]: I guess, like, each time we're not doing, a manual sync where, like, it does just as, like, a whole
+[Remote]: list of transaction retros.
+[You]: Yeah.
+[Remote]: Yep. Yep. Got it. I have a question. So let's
+[Remote]: what if there are multiple tab of page transactions?
+[Remote]: Matching to one invoice?
+[You]: One to many.
+[Remote]: Some
+[Remote]: Yeah.
+[Remote]: How does That will be what we did before.
+[Remote]: So
+[Remote]: in this case, this re reconciliation is is a one to one.
+[Remote]: But you can do one to many or many to one or many to many.
+[Remote]: Basically, if you do, for example, one to many,
+[Remote]: you would
+[Remote]: select which of the variables would be the grouping from the
+[Remote]: the many, side of the reconciliation.
+[Remote]: And then, of course, which fields are the aggregation fields.
+[Remote]: Okay. So because,
+[Remote]: what happens a lot is we will get, let's say, a
+[Remote]: tap to pay charge. It'll match to one invoice, and it'll reconcile. Right?
+[Remote]: And then maybe a month later,
+[Remote]: will be like, hey. There's a chargeback for that same invoice.
+[Remote]: So one is, you know, you already reconciled the
+[Remote]: our internal invoice. So
+[Remote]: how will the TAP of Pay chargeback apply to that invoice that you
+[Remote]: kinda
+[Remote]: reconcile. Because when you're like, oh, it's reconciled, you don't really pull that back into the pool to
+[Remote]: But then that chargeback is for that
+[Remote]: already employees. Right?
+[Remote]: Yes. We do work with ChargeBox.
+[Remote]: With many of our customers. It depends on the way your data, works.
+[Remote]: But, definitely, we we can we can set the the process whichever way you need.
+[Remote]: It's either a third database with the Chartpak
+[Remote]: information, or sometimes you get the chargebacks
+[Remote]: on the same database that you're working with
+[Remote]: on the on the same payments. So it depends on the way you're
+[Remote]: information is structured.
+[Remote]: But we we do we do work with with
+[Remote]: Yeah. So correct. So it'll be, like, chargeback.
+[Remote]: Like, representment. It'll be
+[Remote]: like, refunds, refunds reversal. So
+[Remote]: you work with, like, Stripe, you'll know that there's, like, a lot of different Yeah. Categories to it.
+[Remote]: And
+[Remote]: we did maybe see
+[Remote]: if you worked with any of your clients that work with Stripe data or Type of Pay data to
+[Remote]: see, like, what they've done too? Because you're we're looking at,
+[Remote]: majority of the time, like, 95% of the time, it will be one to one.
+[Remote]: But then that, like, remaining 5%, I think, would be, like,
+[Remote]: many to one. It'll be, like, many transactions to So
+[Remote]: that would be,
+[Remote]: different sweeps with different strategies. So you would in this
+[Remote]: case, for example, create a new rule,
+[Remote]: And instead of, using a source as data source,
+[Remote]: use use a rule result.
+[Remote]: So whatever did not match from here, for example, the 5% remaining you just mentioned,
+[Remote]: we can
+[Remote]: just be unmatched. And in in this case,
+[Remote]: do may maybe a many to one reconciliation, for example.
+[Remote]: And So if
+[Remote]: reconcile against the
+[Remote]: chargebacks, for example, or
+[Remote]: Well yeah. So I think, like, the the issue is, like, for our internal invoice,
+[Remote]: it will already be matched. Right?
+[Remote]: Let's say for let's say it's our invoice database
+[Remote]: to a Stripe database table. Mhmm. And then on, like, a one to one match,
+[Remote]: it will already have a match, a charge, and then it'll be
+[Remote]: our internal table will be And then when a month or two liter, the
+[Remote]: chargeback, refund, refund, reversal comes through. There'll be nothing too much.
+[Remote]: Too. So so the unmatched
+[Remote]: for Stripe will be like, well, what do you what do you do with that?
+[Remote]: You know? We we need to see the the way we do update
+[Remote]: the original source. For example, sometimes we what we do is an enrichment
+[Remote]: whenever we have the database with the
+[Remote]: with the, chargebacks,
+[Remote]: that gets enriched on the original transaction file. In that case, we we instead of
+[Remote]: considering all the unmatched, we consider everything.
+[Remote]: For example, match transactions. In that way, we make sure we account for everything.
+[Remote]: Okay. Okay.
+[Remote]: Alright. And that's fine.
+[Remote]: I mean, this is clearly the
+[Remote]: tricky part of setting up a configuration, making sure that every every
+[Remote]: dime is accounted for on
+[Remote]: whole process. Yeah. That's not something we just
+[Remote]: leave you guys up to. We we walk
+[Remote]: with you guys, and we set up everything, and we make sure that every
+[Remote]: you know, every Nuance or every every
+[Remote]: edge case is correctly accounted for. Yeah. Because I think, like, I think our issue
+[Remote]: is really not, like, the I think, like, internally, we're pretty we're actually pretty good at
+[Remote]: like, matching, like, the
+[Remote]: first time payment to our invoice. Right? It's really kinda like everything else after. Right? It's like the
+[Remote]: all the edge cases that we really need, like, additional kind of, like,
+[Remote]: support and expertise on. So I think, like,
+[Remote]: I think this will really need to
+[Remote]: powerful enough to accommodate all those edge cases.
+[Remote]: Because internally, I think we can, like, match, like, our charge to invoices. Like Yep.
+[Remote]: Yep. Definitely. I mean, our platform
+[Remote]: is flexible enough. We rarely see cases
+[Remote]: or edge cases that we cannot solve. Yeah. But if
+[Remote]: that were to happen, we we we just
+[Remote]: turn around and and work until we're sure that that that's working on the on the
+[Remote]: Okay. But, yeah, I think that's all the value add will be where, like, to accommodate all the edge cases.
+[Remote]: Yep.
+[Remote]: Definitely. I think just to collaborate on that a bit more,
+[Remote]: kinda ties into what I was asking, Barry. Because as you mentioned, you once you have, let's say, things
+[Remote]: reconsolved, you won't do a retry.
+[Remote]: Yeah. Like, put this off to, like, a later conversation or if you can give me, like, a
+[Remote]: technical diagram on, how that would be set up. But I'm interested in just understanding what that
+[Remote]: process would actually look like. And if you
+[Remote]: reconsolid, then how do you know
+[Remote]: not to, like, check that trend or, basically, if you reconcile transaction, they your logic
+[Remote]: is essentially to say, you're not going to try to look at it again or pull it in for a subsequent run.
+[Remote]: But then if a chargeback exists for that previously reconciled transaction,
+[Remote]: I'm interested to understand what logic your team
+[Remote]: would be leveraging to kind of ensure accuracy in those conditions and circumstances.
+[Remote]: Yeah. I mean, the the chargeback is
+[Remote]: generally a dependent reconciliation. So sometimes what we do is
+[Remote]: the first thing we do is we reconcile the database, for example, NetSuite database,
+[Remote]: against the Chargeback database.
+[Remote]: And so
+[Remote]: that's the first thing you you you do. So
+[Remote]: in in that case, you wouldn't you wouldn't have
+[Remote]: any
+[Remote]: transaction reconciled. It's just the pure transaction.
+[Remote]: You make sure that you first get the the chargebacks.
+[Remote]: And then from that, you get the dependent reconciliations.
+[Remote]: I mean, it it it does
+[Remote]: it does
+[Remote]: it does depend a lot on the way your information is structured.
+[Remote]: If
+[Remote]: you're interested and if this is a key
+[Remote]: point for your reconciliation, we're more than happy to make a demo on your
+[Remote]: actual
+[Remote]: data
+[Remote]: And so we set up the reconciliation with the chargebacks
+[Remote]: and show example show you an example or show you clearly
+[Remote]: the way it would work on Brexit.
+[Remote]: It doesn't need to be
+[Remote]: the exact data. We can use dummy data, but we do need the structure.
+[Remote]: You know, so so that we understand
+[Remote]: the way it works, the way, maybe a transaction
+[Remote]: was two months ago, and we get a a charge back
+[Remote]: today. What would happen in that case?
+[Remote]: I have a follow-up question on that. So
+[Remote]: let's say we introduce, like, a new source system, we need
+[Remote]: like, we add a new payment service provider. Like, at what point
+[Remote]: does the Brexit team kinda come in,
+[Remote]: and help out with the process? Like, would you be assisting us in, like,
+[Remote]: kinda creating this new set of structured data? Or
+[Remote]: we have to kinda set that up first and then import it into
+[Remote]: the system and then
+[Remote]: kind of or
+[Remote]: for integrations, we do assist you.
+[Remote]: We we build those integrations with whatever
+[Remote]: provider you you're working with.
+[Remote]: And then from reconciliations, we we would
+[Remote]: also assist you if you were to need it. I mean,
+[Remote]: the platform is generally
+[Remote]: very intuitive and easy to use. You will learn in in a matter of minutes
+[Remote]: how to use Rexy.
+[Remote]: But if you do need
+[Remote]: either
+[Remote]: a capability or a development or anything, just
+[Remote]: you would you would let us know, and we would work with you guys.
+[You]: So, I mean, it's it's built in a way that, ideally, you guys are
+[You]: building and owning the workflow.
+[You]: Very flexible, very easy to use, intuitive.
+[You]: If we need to build a new connector, then we will quickly prioritize it to make sure that you guys can operate
+[You]: when when you're launching that product. But that's only on the connector side.
+[Remote]: Okay.
+[Remote]: Excellent.
+[Remote]: Creating new
+[Remote]: this is the
+[Remote]: demo instance, but creating a new
+[Remote]: data source is very easy.
+[Remote]: You just
+[Remote]: type in whatever data source you're looking for, and
+[Remote]: and just
+[Remote]: log in to your account and and ingest
+[Remote]: And I know you didn't show it here, but then,
+[Remote]: we are looking at a
+[Remote]: almost like a four way match. Right?
+[Remote]: As by four different sources. Right? It'll be, from
+[Remote]: it'll be Tapapee.
+[Remote]: Will be so it'll be our internal invoices.
+[Remote]: Will be our
+[Remote]: ledger in this week, and it'll be the bank. So
+[Remote]: there's, like, four different sources that where we want all, like,
+[Remote]: the numbers to tie to each other.
+[Remote]: Yeah. I guess, like, how do you kind of accommodate, like,
+[Remote]: four different sources to make sure they all
+[Remote]: tie to each other.
+[Remote]: So the the way, Rexy works is
+[Remote]: reconciliations can accommodate as many
+[Remote]: as many rules as you as you want. So in your case,
+[Remote]: it would be one rule every two databases,
+[Remote]: Let's set it up here, for example, and then you would have
+[Remote]: NetSuite versus Tabapay, for example, and then
+[Remote]: would have Tabapay versus Thanks.
+[Remote]: Yeah. For example, that one, and then you would do every
+[Remote]: rule
+[Remote]: within one same reconciliation.
+[Remote]: And then you would get results.
+[Remote]: These transactions are on Tabapay but are not on NextSuite.
+[Remote]: These transactions are on
+[Remote]: Tabape but are not on this other database. And so you get exactly
+[Remote]: transactions are where and where those transactions are missing.
+[Remote]: Okay.
+[Remote]: Okay.
+[You]: Overall thoughts, feedback,
+[You]: this look back, it
+[You]: the pains you guys mentioned over
+[You]: last call around manual processes or not?
+[Remote]: I think we'll have to see the the,
+[Remote]: how it handles all the exceptions, like, across, like,
+[Remote]: the different platforms we have, like Stripe, Tappapay,
+[Remote]: and really how it
+[Remote]: you know, like, how good the matches are between,
+[Remote]: how it will match our internal database to the third party payment processor
+[Remote]: and our third party payment processor to the bank. I think those are
+[Remote]: the
+[Remote]: we kinda basically test it out.
+[You]: Yeah. We're more than if if if you guys
+[You]: see value and you're interested, we're more than happy to set up some sort of pilot test
+[You]: or proof of concept phase.
+[You]: Where we actually connect the platform to these we do the work. We do all the
+[You]: work.
+[You]: To connect the platform to these data sources, and then you get to use it. We set it up, and
+[You]: you get to use it for a couple of weeks.
+[You]: Compare it against your internal process, and seeing that
+[You]: value
+[You]: that real value. Right? Because
+[You]: if we stay at the demo phase, we're, of course, gonna be showing stuff with
+[You]: synthetic data that it's gonna work amazingly well, and you guys are always gonna feel like, okay. But what
+[You]: we actually plug it into our system, how is it gonna work? So that's why the the
+[You]: natural next step after showing a demo is is
+[You]: proposing
+[You]: some sort of pilot test or proof of concept phase. We can do something like eight weeks in which we use the first week to set it up to build the connectors.
+[You]: And then you guys have access for the remaining seven to test it out, play around, touch all the buttons,
+[You]: and see the value of the platform.
+[You]: Would you be interested in doing something like that?
+[Remote]: Yeah. I think so. The view,
+[Remote]: Brian, Brad,
+[Remote]: thoughts.
+[Remote]: I think for my side, I'm probably good to go
+[Remote]: and move forward with that as well.
+[Remote]: See I guess we'll probably get to the
+[Remote]: as a next step. But in terms of pricing, I was curious in terms of what your
+[Remote]: I guess, like, what is the quota based off of? Is it based on number of transactions, like, or
+[Remote]: the pipeline, number of reconciliations, and just getting a better understanding around,
+[Remote]: that component.
+[You]: Yeah. So pricing is based on
+[You]: the amount of connectors we're building, and the number of transactions.
+[You]: Because it impacts directly our our unit economics. Right? Like, in terms of storage,
+[Remote]: Right.
+[You]: and the processing of these files. Once we have an estimation of
+[You]: of those volumes for the rest of for the next twelve months, basically,
+[You]: we provide a flat quote for the next twelve months.
+[You]: So we don't want that price to be oscillating up and down. We
+[You]: think it's good for you guys to have
+[You]: price stability.
+[You]: But we need those estimations to be able to give you that quote.
+[You]: So maybe that's something we can figure out. But it it it ranges. I mean, it depends a lot. Right?
+[Remote]: Yeah. For sure.
+[You]: We're we have some companies paying us
+[You]: a thousand dollars a month, and we have some companies paying us
+[You]: 50 k a month.
+[You]: Because, again, it depends on the amount of connectors, the complexity,
+[You]: and and and the volume.
+[Remote]: Makes sense.
+[You]: And for the proof of concept phase, what we
+[You]: typically do is just a symbolic cost, something very low that's a no brainer for you guys.
+[You]: But we think that adding a cost to the proof of concept just adds a bit more commitment to make
+[You]: sure you guys
+[You]: of, like,
+[You]: dedicate the time and energy to making sure it works or to testing out.
+[You]: It's just like to create that commitment. So
+[You]: if there's
+[You]: if there's interest, I'm happy to share a quote for that proof of concept over email, and we
+[You]: figure out then
+[You]: when we could kick off this
+[You]: of pilot or proof of concept.
+[Remote]: Yep. I think so.
+[Remote]: We also go through perhaps email just so we're we're
+[Remote]: we know we're kinda covering our bases.
+[You]: Sorry. Come again?
+[Remote]: Oh, can we go through Pratt's email just so we know we're kinda covering
+[You]: Oh, to the the
+[Remote]: all of our bases.
+[You]: the the questions of the email?
+[You]: So the quest first question was, what specific data sources
+[You]: do you natively integrate with?
+[You]: We have a bunch of native integrations, but aside from the ones we showed today,
+[You]: we have a dynamic integrator in which
+[You]: if there's APIs on the other side, we can integrate in minutes, and it's really quickly.
+[You]: If not, we're more than happy to do
+[You]: to do
+[You]: those ad hoc integrations, either SFTPs or cron jobs. I mean,
+[You]: that's something we take ourselves in terms of implementations.
+[You]: The second question was around, do you guys handle multi entity
+[You]: subsidiary
+[You]: consolidation, or is it a single entity only?
+[You]: We do support multi entity.
+[Remote]: That
+[You]: And it's basically siloed per organization. So
+[You]: basically, each organization has its own sources, rules, reconciliations, teams.
+[You]: And and the different
+[You]: yeah.
+[You]: You're gonna say something?
+[Remote]: what
+[Remote]: yeah. That one same user
+[Remote]: example, a super user from from your organization can be part of
+[Remote]: of several different organizations within RXi.
+[You]: Yep.
+[You]: Third question was around, do you handle intercompany eliminations?
+[You]: We didn't quite catch that one. What does it mean?
+[Remote]: Yeah. That was less focus on revenue, sort of just looking at
+[Remote]: like, a a bank
+[Remote]: reconciliation. I guess, is that's a capability with Brexit?
+[You]: Yep.
+[Remote]: Like, really coming in with one and going
+[Remote]: out of another entity, would it be able to understand that logic there?
+[You]: A 100%. Yep.
+[Remote]: And and kind of, like, on the same, like,
+[Remote]: line of question, do you guys do,
+[Remote]: other
+[You]: Yes.
+[You]: We do have a currency converter embedded in the platform. Yep.
+[Remote]: And you have all the currencies or, like, is there any currencies you don't support?
+[You]: We have all of them. We also work with crypto.
+[You]: The next question was if we handle partial matches and tolerance threshold. I
+[You]: we showed that already. Right, though?
+[Remote]: Yeah. Push with that on the
+[Remote]: Yeah.
+[You]: Can auditors get read only access to reconciliation evidence? Yes.
+[You]: That's part of the output schema.
+[You]: How many customers are live in production? 10. We have between ten and fifteen paying
+[You]: and we're onboarding
+[You]: three the next month. And and we have a really hot pipeline coming in this
+[You]: this next month.
+[You]: Can you provide two, three references from companies that are staged complexity?
+[You]: We're working with Thera.
+[You]: YC backed company, Global Payroll,
+[You]: Again,
+[You]: a lot of cash ins, a lot of cash outs, and an internal ledger.
+[You]: Across all these abstraction layers, very complex reconciliation logic.
+[You]: We're working with cachea.
+[You]: Latin America. Cachia is the biggest buy now, pay later
+[You]: company in in in South America, in which
+[You]: it's interesting because they're not the ones actually lending the money.
+[You]: But they do all the ledgering and all the reconciliation for the merchants that are lending the money. So, again, a very complex
+[You]: reconciliation workflow there.
+[You]: And then we're working with PayLions, a payment company in The US doing, again, multibank, multi entity cash ins and cash outs.
+[You]: With a very interesting many to one logic that
+[You]: had to crack at the beginning, and it was an interesting
+[You]: work we did.
+[You]: The last the the next question was, what's your uptime SLA?
+[You]: Our platform runs in AWS ECS Fargate. We have a multilayer architecture.
+[You]: And cross region data replication. We target 99.9% uptime
+[You]: and we have automated monitoring, alerting,
+[You]: zero downtime deployments. But we're more than happy to
+[You]: discuss specific SLAs
+[You]: terms as part of the service service agreement if at some point we
+[You]: decide to move forward.
+[You]: In terms of minimum commitments, or can we pilot month to month? As I said,
+[You]: we do eight week pilots.
+[You]: With a minimum fee just to ensure commitment and time dedication.
+[You]: And then after that, our minimum commitment would be twelve months.
+[You]: We can do twelve, twenty four, thirty six.
+[You]: But at least for this pilot test, it's it's eight weeks.
+[You]: What is the coverage period of your current SOC two type two report?
+[You]: Covers we cover it until October 16. It it we we got it 10/16/2025.
+[You]: When the audit started. It
+[You]: it concluded 01/16/2026.
+[You]: So we have one more year covered by by that auditor.
+[You]: And the full report is available in in our NDA, or or you can request it at
+[You]: just send me over the request. I I'm more than happy to send it over. And we also have a
+[You]: a trust
+[You]: landing page that I'll share here for that.
+[Remote]: Sorry. Had a quick question that's kicking off.
+[Remote]: Regarding Massaki, you mentioned it was from September 16 to January 16.
+[You]: That's when we got the that that's when we had the three month audit period.
+[Remote]: Or October 6.
+[Remote]: Gotcha.
+[You]: So we got certified in January, we have
+[You]: and that covers one full year.
+[Remote]: I okay. Gotcha.
+[You]: And we have SOC one type two and and ISO 27,001 in progress. Hopefully, getting them
+[Remote]: Hello.
+[You]: by the second quarter of the year.
+[Remote]: In those companies elicit, are any of them currently public?
+[You]: We have one public company. Despegar
+[Remote]: Okay.
+[You]: Despegar is is
+[You]: a marketplace
+[You]: one of the biggest air
+[You]: I'm sharing a link right now.
+[You]: There you go.
+[Remote]: Thank you.
+[Remote]: And then also just follow-up question. When it comes to, like, tax
+[Remote]: reporting and stuff like that, does
+[Remote]: your system also provide any support and stuff like that?
+[You]: No.
+[Remote]: Yeah.
+[You]: Not yet.
+[You]: But I think there's the benefit
+[You]: of of working with us, which is, first,
+[You]: of course, direct contact with the founders. And second,
+[You]: all the learnings we get from our customers are are really pushed in the pipeline
+[You]: to get prioritized.
+[You]: Even more when we're hearing it across multiple clients at the same time.
+[You]: To be honest, this is the first time I heard about tax. I don't know if you heard tax in another conversation.
+[You]: We did hear a lot about accounting, which is something we're prioritizing right now.
+[You]: By connecting into the different ERPs and creating journal entries of stuff that's already reconciled.
+[You]: So that's definitely in the road map.
+[You]: Tax,
+[You]: to be honest, it's the first time we're hearing it.
+[Remote]: Gotcha. Okay.
+[Remote]: Cool. Thank you.
+[Remote]: Thank you.
+[You]: Alright.
+[You]: Is there any other question or topic or concern that you wanna cover?
+[Remote]: No. If you can send us, like, the quote,
+[Remote]: we'll kinda discuss internally, and get back to you. And
+[Remote]: hopefully, I guess, like, who do you need from our team to get
+[Remote]: started? Right? I just wanna make sure that we have, like, bandwidth.
+[Remote]: Might just be kind of maybe all of us
+[Remote]: on this call
+[You]: I mean,
+[You]: typically, what we do is is we
+[You]: try to have, like, one sponsor, which is gonna unblock us in terms of both
+[You]: the connectors and
+[You]: sharing the logic and the the
+[You]: business logic, yeah, and the requirements with us.
+[You]: And that person can then socialize internally with
+[You]: technical people, with ops people, refinance people. To unblock the rexy team.
+[You]: But it's it's important to have, one owner and one sponsor. I think that's better rather than having, like, multiple
+[You]: people involved. It's it's a way we're seeing it's more effective.
+[You]: We're also not draining
+[You]: everyone's agendas and everyone's time. Right?
+[Remote]: Okay. Yeah. Makes sense.
+[Remote]: Okay. Well,
+[Remote]: Bye bye.
+[You]: Alright. I'll follow-up the email. Thank you everyone for
+[Remote]: The person.
+[Remote]: Yep.
+[You]: the time. I think this was a very productive conversation.
+[You]: And given the questions, I I see there's there's a fit. There's at least
+[You]: the beginning of a fit. Now it's about proving value with the proof of concept. So
+[You]: so very excited. I'll catch up via email. We'll take it from there.
+[You]: Thank you. Bye.
+[Remote]: Bye.
+[Remote]: Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Kikoff Current Reconciliation Process
+
+- Manual reconciliation across multiple payment processors (Stripe, Tabapay), banks, internal databases
+- Strong engineering team but reconciliation not priority for internal build
+- Main pain points:
+  - Multiple changing data sources as company scales
+  - Heavy operational burden from manual processes
+  - Edge cases beyond initial payment-to-invoice matching
+- 95% of transactions are straightforward one-to-one matches
+- Remaining 5% involve complex scenarios:
+  - Chargebacks appearing months after original transaction already reconciled
+  - Refunds, refund reversals, representments
+  - Multiple Tabapay transactions matching single invoice
+
+### Platform Demo Key Features
+
+- Automated data ingestion from any source (APIs, SFTPs, databases)
+- Data standardization without modifying original data
+- Flexible reconciliation rules:
+  - One-to-one, one-to-many, many-to-one, many-to-many matching
+  - Multiple sweeps with different tolerance thresholds
+  - Dependent reconciliations for complex scenarios
+- AI agents analyze unmatched transactions, suggest improvements
+  - Trained on wider set of edge cases across customer base
+  - Propose new matching rules, patterns, tolerance adjustments
+- Export capabilities to various formats, automated reports to databases
+- Multi-entity support with currency conversion (including crypto)
+
+### Technical Requirements Discussion
+
+- Four-way reconciliation needed: internal invoices, Tabapay, ledger, bank
+- Chargeback handling for previously reconciled transactions
+  - Requires enrichment of original transaction files
+  - Dependent reconciliation strategies
+- New payment processor integration support
+- Read-only auditor access available
+- 99.9% uptime SLA, SOC 2 Type 2 certified (valid until January 2027)
+
+### Next Steps
+
+- Rexi to send proof of concept quote via Prab’s email
+- 8-week pilot structure:
+  - Week 1: Setup and connector building
+  - Weeks 2-8: Testing and evaluation
+- Kikoff team to discuss internally and designate single sponsor/owner
+- Pricing based on connector count and transaction volume
+- References available: Thera, Cachea, PayLions, Despegar (public company)
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/79985443-35c0-4c3d-ad9d-972aac2c82bc](https://notes.granola.ai/t/79985443-35c0-4c3d-ad9d-972aac2c82bc)

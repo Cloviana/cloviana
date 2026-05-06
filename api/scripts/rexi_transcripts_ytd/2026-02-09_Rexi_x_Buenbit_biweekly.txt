@@ -1,0 +1,263 @@
+MEETING: Rexi x Buenbit: biweekly
+DATE: 2026-02-09
+ID: not_yL2xzSEqYRVmtC
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Sofia Cilli <sofia.cilli@buenbit.com>, Sebastián García <sebastian@rexi.finance>, Agustin Rubinstein <agustin.rubinstein@buenbit.com>, Juan Dimodugno <juan.dimodugno@buenbit.com>, Rubí Bricka <rubi.bricka@buenbit.com>, Teo <teo@rexi.finance>, Nicola Romero <nicola.romero@buenbit.com>, Luis Radunsky <luis.radunsky@buenbit.com>, Jonathan Navarro <jonathan.navarro@buenbit.com>, Uriel <uriel@rexi.finance>
+SCHEDULED: 2026-02-09T14:00:00-05:00 - 2026-02-09T14:45:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Oh, ¿saben?
+[Remote]: Más vi que, so, que no,
+[Remote]: así que Matt no va a estar, pero no sé si se suma Johnny.
+[Remote]: ¿Johnny? Yo pine a Johnny hace un rato y
+[Remote]: todavía no me contestó, tuvimos un
+[Remote]: temito hoy a la mañana, así que capaz está con eso, así que
+[Remote]: eventualmente lo que surja de acá. Igual,
+[Remote]: creo que habían avanzado bastante durante más la semana pasada, incluso que habían
+[Remote]: descubierto este tema de los decimales,
+[Remote]: Ajá.
+[Remote]: Así que nada, capaz que en base al estatus que tengan ustedes de su lado y comentarios de Augus, surja algún accionable o alguna cuestión
+[Remote]: Dale, perfecto. Yo acá preparé una
+[Remote]: unas diapositivas para revisar con ustedes.
+[Remote]: Si quiere, la arrancamos, ¿no?, porque Sofi es la única Sofía, Sofía está de vacaciones, así que arranquemos
+[Remote]: no hay nadie más confirmado que
+[Remote]: que falte.
+[Remote]: Ok.
+[Remote]: Bueno, arrancamos.
+[Remote]: A ver si puedo presentar.
+[Remote]: Acá, pequeño repaso de... ¿Qué hacés, Seba?
+[Remote]: Pequeño repaso de estatus al
+[Remote]: hoy, nueve de febrero,
+[Remote]: tenemos ya la integración y la ingesta automática funcionando perfecto.
+[Remote]: Estuvimos probando las tablas nuevas, obviamente,
+[Remote]: las pudimos ingestar y todo ok.
+[Remote]: Agregamos las critical critical comparisons,
+[Remote]: y funcionaron. De hecho, con las critical comparisons fue como nos dimos cuenta que
+[Remote]: cuando comparábamos los montos, teníamos más o menos ochenta mil transacciones
+[Remote]: del lado de transactions, que estaban que estaba fallando la comparación de de monto,
+[Remote]: por por el tema de decimales,
+[Remote]: así que esto funcionando ok.
+[Remote]: Obviamente, ingestando, estandarizando y y toda la información existente.
+[Remote]: Y tenemos listo el módulo de export que le mostró Uri,
+[Remote]: para empezar a alimentar su data de BigQuery.
+[Remote]: Como next steps, básicamente, es empezar a conciliar
+[Remote]: de manera diaria y alimentar la base de datos que que acordamos,
+[Remote]: Acá bajé un poco de estatus por proveedor,
+[Remote]: para que veamos qué es lo que nos está bloqueando.
+[Remote]: Lo primero es Coinal, esto puse una línea de tiempo como para que tengan dimensión la tabla transactions y la tabla probation transactions tienen períodos de tiempo diferentes, Nosotros si les parece ok, podemos empezar a conciliar desde acá, para no estar gestionando toda esta información que nunca va a conciliar con la información del proveedor, Esto es decisión de negocio, pero creo que es un poco lo que habíamos charlado.
+[Remote]: A ver, ahí, comentario, nosotros, lo que subimos en provider transactions,
+[Remote]: Ahí voy a hacer dos, como dos secciones dentro de mi comentario. La primera es
+[Remote]: que arrancamos desde lo que está cargado para la la carpeta de diciembre,
+[Remote]: esto quiere decir que el primer file puede contener parte de noviembre, por ende,
+[Remote]: ese veintisiete de noviembre plausible,
+[Remote]: eso partea
+[Remote]: dentro de esta ventana de tiempo grande de provider transactions, por lo menos a la semana
+[Remote]: pasada, deberían tener completo lo que es s g o
+[Remote]: pero pueden llegar a tener y es
+[Remote]: casi seguro que van a tener un faltante de diez o doce días de
+[Remote]: lo que es el proveedor BIN. Sí, exactamente. Ok. Es A causa, sí. No, nada, quería que te dejo te dejo y después le muestro un poco lo que vimos. Ok. Esto es a causa de que en lo que es el el SVP o el drive donde nos cargan las cosas, está cargado hasta el veinte de enero, hasta el diecinueve, mejor dicho, fue cargado el veinte, y entiendo que es producto de unos cambios que hubo en buen veinte en cuanto a personal y demás, y capaz que esa tarea quedó acéfala y no la está llevando a cabo alguien, Entonces, eso es algo a realizar internamente, lo vi dos minutos antes de subir, porque me parecía raro que no
+[Remote]: estén eso a false.
+[Remote]: Ok. Dicho eso, en cuanto se obtengan esos files,
+[Remote]: se puede proceder con la carga,
+[Remote]: y entiendo que el último accionable de todo esto que
+[Remote]: venían trabajando con Johnny, que surgió a raíz de la última reunión en la que estuvo Matt,
+[Remote]: era que automaticemos nosotros la carga
+[Remote]: de lo que era
+[Remote]: para la ingesta de provided transactions.
+[Remote]: Por ejemplo, la tabla
+[Remote]: la información de BIN, perdón, de Coinal,
+[Remote]: está más actualizada, tenemos desde noviembre, pero llega solo hasta el dos,
+[Remote]: sea, si queremos empezar a a conciliar de de manera diaria,
+[Remote]: esto todavía no no está funcionando, hoy estamos a nueve y
+[Remote]: ya quedó desfasado.
+[Remote]: Entonces, bueno, el siguiente paso sería automatizar eso,
+[Remote]: Y por el lado de BIN, esto es solo para que
+[Remote]: veamos
+[Remote]: esta es la información de provider transactions,
+[Remote]: que comentabas recién,
+[Remote]: Tenemos información de enero, por ejemplo, esto, tenemos del dos,
+[Remote]: del cinco, del seis, del siete,
+[Remote]: y después tenemos del doce hasta el diecinueve.
+[Remote]: Entonces,
+[Remote]: no es que falta un par de días de BIN, sino que tenemos
+[Remote]: información de algunos días sí, de otros no.
+[Remote]: Como A
+[Remote]: ahí puede darse la situación de que el cinco incluya el tres y el cuatro, por ejemplo, el Por volumen a calidad. Ahí tenés como, que puede ser un fin de semana, por ejemplo, Claro. Soy el consecuente perdón, perdón, perdón, Juan, y de los fines de semana no
+[Remote]: salen con fecha de sábado y domingo,
+[Remote]: O sea, sale todo con fecha del lunes o del siguiente día hábil.
+[Remote]: Perfecto, porque, mirá, acá llega el nueve y de repente ahí al doce. Está perfecto.
+[Remote]: Ser eso. Esto es un tema que nos, la verdad que nos complica un montón, pero el BIN no hay manera eso que lo cambie, entonces, los días no hábiles los movimientos de esos días no hábiles salen al siguiente día hábil cien. Perfecto. Clarísimo eso, entonces. Entonces, es solamente que falta información a partir del diecinueve. De enero. Así es, y es producto de esto que comentaba, o sea, nosotros en nuestro drive que es donde se carga el todo lo del proveedor, No vemos los files, pero entiendo que es producto de alguna tarea que quedó ahí sin realizarse, así que eso, salgo a chequear internamente con y equipo, para ya regularizar la situación. Sí, ahí perdón, eso lo lo hacía Fabri, entiendo.
+[Remote]: No sé si eso lo lo tiene que tomar Ari, bueno, alguien ahí de IT. Pero bueno. Ok. Que disponibilizaba era Fabricio. Ok, entonces tenemos que que esa tarea por otro lado.
+[Remote]: Ok, perfecto. De mi lado tengo
+[Remote]: otra pregunta respecto a a la información.
+[Remote]: Estuvimos viendo la información conciliada de Coinal,
+[Remote]: Acá, como le dije, bueno, de las doscientas trescientas mil transacciones, del lado de transactions solo hay ciento noventa y ocho que no matearon, así que eso hace sentido, parece que como estamos conciliando ok. Pero sí estamos viendo días donde, del lado de transactions, o sea, del lado de hay muchas más transacciones que las que se corresponden con el lado de provided transactions. ¿Hay algún tipo de movimiento que esté entrando en esta tabla que no estemos contemplando y que no vaya a machear nunca con una transacción? De provided transactions, algún tipo de movimiento manual o o algo que no tenga un hash que machee,
+[Remote]: Es una buena pregunta, ahí creo que lo más prudente sería
+[Remote]: hacer doble clic sobre casos puntuales como para poder extrapolarlos.
+[Remote]: Perfecto. Me llego a compartirte algunos algunos casos
+[Remote]: porque estamos viendo
+[Remote]: más volumen diario en transactions que en provided transactions, por así decirlo.
+[Remote]: Entonces Ok.
+[Remote]: Así todo lo de provided transaction, maché a ok,
+[Remote]: pero hay mucho que está quedando del lado de transactions que no machea, entonces queremos asegurarnos de que estamos contemplando
+[Remote]: todos los casos.
+[Remote]: Ok, perfecto. O sea, nos queda tarea de
+[Remote]: nuestro lado cruzar eso?
+[Remote]: Dale, me llevo compartirles alguno algunos ejemplos,
+[Remote]: de su lado quedaría empezar a actualizar las
+[Remote]: las tablas de de proverb transactions de manera automática.
+[Remote]: Así es.
+[Remote]: Perfecto. Bueno, de de nuestro lado, eso
+[Remote]: es todo, ahí
+[Remote]: nada, yo sé que ustedes estuvieron ahora
+[Remote]: con un montón de cosas, pero le volvemos a
+[Remote]: a, tal vez, ofrecer o o sugerir,
+[Remote]: si llegan a querer en algún momento que nosotros alimentemos de nuestro lado de manera automática,
+[Remote]: las tablas, en vez de tener que ustedes tener hacer ese trabajo de
+[Remote]: de automatizar, nosotros lo lo hacemos.
+[Remote]: Es decir, integración directa con el BIN, integración directa
+[Remote]: con Coinal y con su base de datos interna.
+[Remote]: Que que quizás lo vea un poco más
+[Remote]: complejo eso de, más que nada por temas burocráticos y y de agilidad,
+[Remote]: ahora, capaz que el primer el primer mail
+[Remote]: milestone en términos de automatización de carga
+[Remote]: sería que nosotros tengamos el flujo como como está ahora,
+[Remote]: y ya con algo andando,
+[Remote]: ir por algo más robusto o más
+[Remote]: digamos, menos error prompts, porque, por ejemplo,
+[Remote]: como vemos ahora, si en un drive no cargan veinte files, ya nos estamos llevando puesto veinte días.
+[Remote]: Entonces, capaz que interactúan directo contra los proveedores,
+[Remote]: si ellos ofreciesen esa posibilidad,
+[Remote]: nos estaríamos cerrando bastantes bardos.
+[Remote]: Pero lo veo más inmaduro eso si nosotros no logramos
+[Remote]: nuestro lado, cargarlo y, por lo menos, estar
+[Remote]: algo
+[Remote]: para que el equipo acá pueda laburar.
+[Remote]: Ok.
+[You]: Sí, ahí, lo nosotros lo hicimos un poco justamente para
+[You]: para evitar esas fuentes de error, ¿no? Como que si, esas
+[You]: fases intermedias al final terminan generando estiida y vuelta, que a veces
+[You]: lo hace hace menos eficiente la colaboración. Lo hicimos, o sea,
+[You]: estamos de acuerdo en para este alcance llegamos al mile
+[You]: desbloqueándolo de esta manera,
+[You]: pero empecemos a pensar quizás
+[You]: segundo paso en algún momento si si decidimos escalar,
+[You]: que de nuestro lado pensamos que
+[You]: esta fase intermedia está agregando
+[You]: mucho ida y vuelta desde el punto de vista técnico, y quizás proponemos construir un conector directo. Así queda todo más de nuestro lado, ¿viste?, y y no estamos conectos idas y vueltas.
+[Remote]: Ahí adhiero
+[Remote]: quizá también el el tema a considerar en en esos términos es que
+[Remote]: nosotros, a través de todo este proceso que hacemos,
+[Remote]: ofuscamos y
+[Remote]: dejamos de compartir algunos datos que son sensibles,
+[Remote]: en pos de dejar solo lo transaccional,
+[Remote]: y el hecho de que del lado de ustedes se dé la integración directa podría, digamos,
+[Remote]: romper esa
+[Remote]: ahí, Wendy, nosotros podemos sofuscar la data y que ya entre en
+[Remote]: datos cacheados, sea, ustedes cargan las credenciales de la API Rexy ni tiene la data, solo usa hashes para ir para comprar y ustedes la pueden tener acá, o sea,
+[Remote]: ahí podemos hacer las dos cosas. Pero yo estoy de acuerdo con cumplir el milestone,
+[Remote]: o sea, vayamos viendo, ¿no? O sea, la idea es que ustedes ahora si hay una persona que antes cargaba los files y
+[Remote]: no la tienen,
+[Remote]: no sé si tiene que contratar una persona para que lo haga o lo tiene que hacerlo o algo, capaz que
+[Remote]: en vez de hacer eso, ya lo podemos hacer nosotros directamente.
+[Remote]: Pero completemos los milestones y los temas de seguridad ahí, Juandy,
+[Remote]: nos ponemos una sesión entre las dos partes y vemos lo que necesitamos tener
+[Remote]: nosotros, lo menos lo mínimo para poder hacer los matches,
+[Remote]: y yo creo que no no habría problema a nivel seguridad.
+[Remote]: De datos, digamos.
+[Remote]: Pero lo lo podemos ver.
+[Remote]: Hagamos lo siguiente, capaz, como para no desvirtuar,
+[Remote]: yo me llego a revisar con con Johnny de la automatización,
+[Remote]: más que nada que era el que
+[Remote]: el que más estaba encima de la parte técnica,
+[Remote]: Después internamente con Augus y con Ariel, que es la persona a cargo de IT,
+[Remote]: vemos el tema de de estos como para ya
+[Remote]: recomponer eso,
+[Remote]: y, a partir de eso, ya
+[Remote]: podemos seguir la comunicación vía Slack como para coordinar
+[Remote]: next steps.
+[Remote]: Por lo menos en cuanto a esto.
+[Remote]: Buenísimo, Juandi.
+[Remote]: Espectacular. Yo me llego también compartirte los casos
+[Remote]: puntuales para revisar la tabla de transactions, a ver si nos estamos trayendo algo de más.
+[Remote]: Perfecto.
+[Remote]: Espectacular. ¿Algo más?
+[You]: Espectacular.
+[You]: No, ahora hacemos seguimiento por Slack y y lo vamos llevando ahí
+[You]: Quizá para para que tengas todos contexto a vos también, a nosotros se nos terminaba el
+[You]: la prueba piloto ahora el diez, mañana, pero la verdad que lo lo charlamos internamente y creo que no vale la pena renovar por un mes más, creo que al revés, puede ser una un incentivo natural para los dos meterle y llegar bien al al milestone que nos habíamos prometido, sin otra renovación. Así que usamos estas dos semanas para realmente acelerar, llegar a ese
+[You]: estadio y después ver cómo seguimos. Pero renovar por un mes más siento que
+[You]: nos va a dejar en ese en ese estadio más relajados y vamos a seguir por ahí
+[You]: sin darle mucha prioridad al tema. Así que dejémoslo así, pero sí, de ambas partes me
+[You]: para estas dos semanas, por lo menos llegar a ese milestone, probar la plataforma, que la use
+[You]: en Ruby, vos, Sofy, y ahí empezar a también tener los
+[You]: requerimientos técnicos y ver cómo, funcionales y ver cómo seguimos, ¿no?
+[Remote]: Bien, bien, bien, clarísimo, clarísimo, clarísimo.
+[Remote]: Juandi, ¿vos crees que esta semana ustedes le pueden meter a a toda esta parte que que
+[Remote]: necesitamos? ¿Cómo cómo tienen ustedes ahí el roadmap y
+[Remote]: Sí que sí te soy sincero, no puedo saber ni siquiera qué voy a hacer hoy a la noche.
+[Remote]: Ok. Hablando de él pronto. O sea, estamos
+[Remote]: con poco músculo y atendiendo a veinte frentes al mismo tiempo, tendríamos que hacer una
+[Remote]: ahora, en estas horas, con Johnny como para ver
+[Remote]: qué tanto le podemos meter.
+[Remote]: No, o sea,
+[Remote]: Vale. Lo mejor es es esperar un estatus ahí por Slack, como para no generar expectativas ni ni correr en pos de fantasmas, porque puede ser que te diga, oye, che, mirá, no llegamos, pero se nos libera un huequito, le metemos tres horas de rush,
+[Remote]: y lo podemos taclear, pero no no estoy en posición de prometer hoy.
+[Remote]: Dale, dale. Esperamos, entonces, ahí lo voy a ver por Slack y y cualquier duda,
+[Remote]: consulta canalizamos todo por ahí.
+[You]: Vale, listo.
+[Remote]: Dale, chicos. Adiós.
+[Remote]: Gracias, chicos. Abrazo. Chao, chau. Gracias. Un abrazo.
+
+============================================================
+SUMMARY
+============================================================
+### Integration Status & Progress
+
+- Automatic integration and ingestion working perfectly
+- New tables tested and ingested successfully
+- Critical comparisons added and functioning
+  - Identified \~80,000 transactions failing amount comparison due to decimal issues
+  - Issue now resolved
+- Export module ready to feed BigQuery data
+- Ready to begin daily reconciliation
+
+### Provider Data Issues & Timeline
+
+- **Coinal**: Data available from November but only until February 2nd
+  - Need automation for daily reconciliation
+- **BIN**: Missing data from January 19th onward
+  - Files loaded in drive only until January 19th
+  - Issue caused by personnel changes at Buenbit - task became unassigned
+  - Weekend transactions appear on next business day (not actual transaction date)
+- Provider transactions table has different time periods than main transactions table
+- Recommendation: Start reconciling from current point forward rather than managing historical gaps
+
+### Data Reconciliation Concerns
+
+- 198 out of 300,000 Coinal transactions didn’t match (good success rate)
+- Concern: More daily volume in transactions table than provider transactions
+  - Some transactions in main table may never match with provider data
+  - Could be manual movements or transactions without matching hashes
+- Need to review specific cases to understand discrepancies
+
+### Automation Options
+
+- Rexi offered direct integration with BIN and Coinal APIs
+  - Would eliminate file loading dependencies
+  - Could include data obfuscation for security
+- Buenbit prefers completing current milestone first before considering direct integration
+- Security considerations around sensitive data sharing need review
+
+### Next Steps
+
+- **Buenbit**: Juan to check with Johnny on automation progress and with Ariel (IT) on missing file uploads
+- **Rexi**: Share specific transaction cases for review
+- Continue communication via Slack for coordination
+- Pilot ends February 10th - no renewal planned to maintain urgency
+- Target: Complete milestone and platform testing within 2 weeks for Ruby and Sofia to use
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/4c95b4ee-e12d-41f6-8927-b6acff81ab6a](https://notes.granola.ai/t/4c95b4ee-e12d-41f6-8927-b6acff81ab6a)

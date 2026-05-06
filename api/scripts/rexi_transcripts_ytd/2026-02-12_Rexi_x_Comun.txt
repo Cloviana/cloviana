@@ -1,0 +1,603 @@
+MEETING: Rexi x Comun
+DATE: 2026-02-12
+ID: not_bPbYwMGPU8bn7L
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Uriel <uriel@comun.app>, Teo <teo@rexi.finance>, Thomas <thomas@comun.app>, Sebastián García <sebastian@rexi.finance>
+SCHEDULED: 2026-02-12T16:30:00-05:00 - 2026-02-12T17:15:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Bien, ustedes
+[You]: los dos en en la oficina, pero en dos cubículos distintos?
+[Remote]: Sí.
+[Remote]: Después lo que nos pasa cuando estamos en la misma en misma sala que uno quiere estar muteado,
+[You]: ¿Están peleados?
+[You]: O o está todo bien?
+[Remote]: superincómodo para hablar.
+[Remote]: Estoy cansado de Uri. Que vine al cuarto, no quiso. Bien.
+[You]: Es una máquina de trabajar, Uri, ya te te hinchó las pelotas.
+[Remote]: Pesadísimo. No, no, no, porque sabe que si le que si nos
+[Remote]: al mismo cuarto, le empiezo a pedir cosas. Sí. Y me dice, hacelo con AI, hacelo con AI, me dice.
+[You]: Tevita,
+[You]: Bueno, no te escuchábamos el otro día. Fuimos a la oficina, estuvimos con Uri, y creo justo no estabas.
+[Remote]: Sí, estaba, vinieron, ¿cuándo vinieron?
+[Remote]: ¿El miércoles, jueves?
+[You]: Sí, no sé, algún día, la semana pasada.
+[Remote]: Sí, sí, estuve estuve de viaje, volví el lunes a la mañana.
+[You]: Ah, muy bien, muy bien.
+[Remote]: No, te da despedida de soltero a un amigo.
+[You]: ¿Por laburo o personal?
+[Remote]: Así que así que estuve recién
+[Remote]: recién terminado de recuperarme.
+[You]: Recién desocupeando las neuronas, muy bien.
+[Remote]: Exacto.
+[You]: Bueno,
+[Remote]: Que...
+[You]: no sé si ustedes traen un millón de preguntas solamente o quieren que
+[You]: un poco les contemos un poco cómo lo estamos pensando.
+[You]: Feliz de que lo llevemos como quieran ustedes.
+[Remote]: Creo que vamos a empezar. Tenemos unas preguntas puntuales.
+[You]: Dale.
+[Remote]: Particularmente, como nos mandaron las dos opciones, el rexy manage, el
+[Remote]: manage. Creo que la idea del customer manage, donde hay como un
+[Remote]: higher upfront investment, y luego, hay un service retainer que es un poco más pequeño, como
+[Remote]: looks a little more interesting, based on lo que discutimos la vez pasada.
+[Remote]: Queríamos entender un poquito como what's the hand off process
+[Remote]: como what does the customer manage one look like? Entonces, básicamente, you build it
+[Remote]: a custom solution for us that lives within our system, and it's basically managed by Común.
+[You]: Ahí se sumó nuestro sitio, Ouseva,
+[Remote]: So, ¿cómo funcionaría?
+[You]: se lo presento, justo, on
+[You]: on time para la pregunta.
+[Remote]: Perdón,
+[Remote]: hola, chicos, ¿cómo andan? Recién acá voy a llegar a mi casa, había un tráfico, ¿todo bien?
+[Remote]: ¿Cómo va? Español.
+[You]: Justo Uri preguntó.
+[You]: Sí, sí, español, español. Tomás es argentino, y Uri,
+[You]: Guatemala?
+[Remote]: Ajá. Ahí va.
+[You]: Ay, tenía mi
+[You]: bien.
+[You]: Justo, Uri nos preguntó, porque, contexto, Sebas, estuvimos, van a, venimos hablando con común,
+[You]: una primera propuesta de un modelo SaaS, le dijimos que estábamos
+[You]: con el modelo on premise y les interesó. Entonces, justo Uri preguntó,
+[You]: cómo funciona técnicamente
+[You]: y particularmente sobre el handoff, ¿no?
+[Remote]: Bueno, básicamente es un modelo que
+[Remote]: ahora estamos transicionando medio con un cliente,
+[Remote]: básicamente, lo que ustedes recibirían en el modelo de licencia
+[Remote]: es nuestra, o sea, sería un self-service con Docker,
+[Remote]: cosa de que ustedes reciben todas las imágenes de, digamos, de las aplicaciones de
+[Remote]: y medio que se autoinstala. La idea del modelo licencia es que, obviamente, modelo de licencia hace que la infraestructura la tenga que poner
+[Remote]: cliente, ¿ok? O sea, lo que damos es, che, la plataforma de Rec, ¿sí?, pero eso lo que va a asegurar el cliente es que todo lo que es infraestructura ustedes tienen que poner sus credenciales de todo lo que utiliza Rexy, es decir,
+[Remote]: puede ser AWS o GCP, eso es agnóstico, no hay problema, no sé qué usan ustedes a nivel
+[Remote]: pero la idea es que también, por ejemplo, todas las
+[Remote]: que usa Rexy, por ejemplo, los modelos de LLM, no sé
+[Remote]: estamos conectados con OpenAI, no sé si ustedes están usando algo de inteligencia artificial,
+[Remote]: pero deberían poner credenciales de ese. Hoy, por ejemplo, en toda la parte de AI,
+[Remote]: no tenemos como lo que es cloud, de que puedes usar AWS o
+[Remote]: o sea, habría que entender
+[Remote]: si tiene el mismo procesamiento y
+[Remote]: optimización si usás otro LLM, que no sea el que nosotros estamos
+[Remote]: acostumbrados y ya probamos y funciona bien.
+[Remote]: Pero, básicamente, esto está hecho para que seas el service.
+[Remote]: Ustedes, del lado de ustedes, lo único que necesitarían es
+[Remote]: un equipo de infraestructura, seguridad,
+[Remote]: para poder deployar esto. Nosotros, obviamente, ayudamos del lado de y va haber un
+[Remote]: equipo de ingeniería de integraciones haciendo o trabajando mano a mano con el equipo de ustedes,
+[Remote]: y que puedan conectar y hacer funcionar Regsy con modelo de licencia.
+[Remote]: ¿Qué significa el modelo de licencia? Que ustedes tienen, básicamente,
+[Remote]: el código de para hacer sus mejoras
+[Remote]: ¿ok?, pero al mismo tiempo nosotros
+[Remote]: damos una especie de updates, ¿ok? Imagínense como si fuera
+[Remote]: una un Windows, ¿ok?, que vas con updates, y ustedes
+[Remote]: recibirían todo lo que es, de acuerdo al modelo que ustedes elijan,
+[Remote]: reciben los updates, o sea, de la plataforma que nosotros vamos haciendo,
+[Remote]: puede ser bug fixing, o hay otros updates que no sé, hay
+[Remote]: hablaron con Nacho o con Teo, pero después tenés updates a nivel módulo,
+[Remote]: y esos módulos sí se cobran aparte, porque es como que son módulos que se
+[Remote]: básicamente el modelo de licencia está modularizado, y de acuerdo a lo que tenga es lo que vamos
+[Remote]: liberando para ustedes. Y venía por ahí la
+[You]: Exacto, o sea, si
+[You]: o sea, allí en scope, implementamos todo, we deploy,
+[You]: con SLEAS.
+[You]: On on on the scope we aligned,
+[You]: and the functionality we aligned.
+[You]: Cualquier update relacionado a bugs críticos y no críticos,
+[You]: cualquier update relacionado a seguridad, privacidad, ese tipo de cosas,
+[You]: that's for free.
+[You]: Any update or upgrade on
+[You]: nuevos módulos que nosotros desarrollemos, nuevas funcionalidades, etcétera,
+[You]: eso ya sí se, o sea, es es parte de también nuestra posibilidad de seguir generando revenue
+[You]: on communes account, ¿no?
+[You]: Eso sí,
+[You]: se quedaría por fuera y y se contrataría por separado.
+[Remote]: No me no me queda superclaro
+[Remote]: o sea,
+[Remote]: hablando también como en en términos
+[Remote]: lo menos técnico posible, o sea, ¿dónde dónde dónde sería dónde sería la reconciliación? ¿En qué sistema? O sea, ¿qué es es algo...? Algo de algo de común, algo? La reconciliación queda del lado de ustedes. O sea, nosotros no tenemos la información. Básicamente, vos lo que tenés Tomás, y muy criollo, no sé qué nivel técnico bajo, tipo de cosa, o sea,
+[Remote]: la plataforma y el código es de ustedes, es como la la app de común,
+[Remote]: Eso ustedes tienen que levantar a nivel infraestructura, la base de datos,
+[Remote]: maneja Rexy, todo de cómo lo tenemos gestionado
+[Remote]: que eso realmente debería ser dependiendo del cloud que tengan,
+[Remote]: medio self-service, eso es como una instalación. Pero la base de datos de ustedes
+[Remote]: los datos son de ustedes, el código de ustedes, toda la infra y el control de la infra es de ustedes,
+[Remote]: o sea, ustedes manejan los costos, pero también manejan la escalabilidad.
+[Remote]: Eso es a diferencia del modelo SaaS, nosotros nos aseguramos
+[Remote]: el la escalabilidad del sistema, que ustedes procesen la información,
+[Remote]: y que eso escale,
+[Remote]: O sea, imagínense que ustedes están procesando cierta información.
+[Remote]: A medida que pasan el negocio de reconciliaciones, pues vas acumulando data de información.
+[Remote]: Para eso, vos necesitás que tu infra también escale.
+[Remote]: Eso de que nosotros en el modelo SaaS nosotros lo aseguramos,
+[Remote]: en en en nuestra escala, por ejemplo, Scale, eso lo tendrían que ustedes
+[Remote]: ir ajustando y acelerando con su equipo de infraestructura in house
+[Remote]: y su equipo de seguridad, ¿ok?, todo lo que es
+[Remote]: mantenimiento y escalabilidad. Después de está todo el tipo de
+[Remote]: esto que mencionó Nacho, de bugs, bugs críticos, eso que nosotros damos, y, bueno,
+[You]: Aí
+[Remote]: los módulos aparte.
+[Remote]: Algo importante... Dale, dale, Teo.
+[You]: No, que
+[You]: ustedes habían comentado que
+[You]: estarían tal vez dispuestos a pagar cierto monto ahora, pero no saben si en, no
+[You]: par de meses y demás,
+[You]: Lo que tiene el modelo SaaS
+[You]: es que el principal costo que tenemos nosotros, sobre todo si ustedes escalan,
+[You]: es el procesamiento de almacenamiento.
+[You]: En el modelo de licencia, eso queda de su lado,
+[You]: y, simplemente, es un un fee mínimo que les pasó a Nacho, de mantenimiento, tax y demás.
+[You]: Entonces,
+[You]: pasa de de ser
+[You]: nosotros
+[You]: que no queremos firmar, tal vez algo que nos va a terminar dando pérdida por
+[You]: volumen y procesamiento,
+[You]: y queda cien por ciento de su lado y se se ajusta exactamente a lo que ustedes consuman.
+[Remote]: Y el el
+[Remote]: el el modelo en el cual es como es con licencia,
+[Remote]: es como fee mensual para mantenimiento y bugs,
+[Remote]: es más por si nosotros necesitamos
+[Remote]: ¿no?, o o o o o o, en algún sentido, puede ser que lo
+[Remote]: lo podamos correr nosotros solos, sin la necesidad de de
+[You]: Ahí se rompen los SLAs.
+[You]: Eso es lo que pasa, o sea, pero nosotros lo dejamos
+[You]: dejamos también porque vamos a seguir monitoreando, asegurando que funcione bien,
+[You]: viendo métricas y si algo se rompe o o
+[You]: o con algo, nosotros, digo, respondemos, y también es un tema de licencia, ¿no?
+[You]: Si no, estamos como que directamente dando todo el IP,
+[You]: y y para nosotros
+[You]: no tiene sentido, tiene que haber algún alguna
+[Remote]: eso eso lo tiene, no termino de entender.
+[Remote]: La la licencia es sobre qué exactamente.
+[You]: El código, la plataforma,
+[You]: toda la funcionalidad, todo lo que nosotros construimos, o sea, nuestro nuestro software.
+[Remote]: Entonces, ok, entonces, es una plataforma de Rexy.
+[You]: Sí, sí, sí.
+[Remote]: Esto esto se hace sobre una plataforma de Rexy.
+[You]: Acá, la única diferencia es
+[You]: un modelo, todos en la plataforma de Rexy, un modelo de SaaS,
+[You]: en donde yo te tengo que cobrar
+[You]: lo que procese y lo que almacén lo tuyo.
+[Remote]: Ok, ok, lo que no me queda claro es que se, entonces,
+[You]: Mis costos de nube.
+[Remote]: plataforma de Rexy, no es en un, no sé, de de de común.
+[You]: No, no, plataforma de Rexi, solamente que vive en la infra de común.
+[You]: Beneficios de eso,
+[You]: los costos de nube pasan a ser todos ustedes,
+[You]: Entonces, una de las cosas que dijo Uri la semana pasada fue, mirá,
+[You]: yo veo mucho valor en pagar dos mil, tres mil dólares por esto los próximos seis meses, pero once it's stabilized,
+[You]: on a steady state,
+[You]: es como que me parece mucho dinero seguir
+[You]: pagando por una solución automatizada de conciliación. Entonces, ahí es donde dijimos, ok, entonces, para usted tiene mucho más sentido
+[You]: acquire the capability.
+[You]: ¿Se entiende?
+[You]: Entonces,
+[Remote]: Sí.
+[You]: básicamente, lo que estaríamos haciendo es building an internal workflow for you guys, custom ad hoc,
+[You]: then we leave.
+[You]: Y después, tiene como una especie de service,
+[You]: quinientos dólares mensuales,
+[You]: de we're there for any bugs, críticos y no críticos, y también, digo,
+[You]: ahí incluye también el el reach out, de che, nos ayudan a
+[You]: un flujo nuevo, nos ayudan a integrar
+[You]: lo haríamos? Hay hay también un education on how to use the platform, que nosotros lo tenemos en Hood.
+[Remote]: Claro, claro, claro.
+[Remote]: Me queda claro eso. ¿Cuál es tu?
+[Remote]: No, me queda claro, yo quería pasar, el el otro punto que creo, Uri, queríamos hablar es,
+[Remote]: entender por qué crees que son seis meses que toma el
+[Remote]: to get there?
+[You]: O sea, en realidad, fue un estimado basado en el
+[You]: las distintas etapas que tenemos que, a,
+[You]: conectar la fuente de información,
+[You]: Porque, digo, we're gonna be building a custom software for you guys, ¿no?
+[You]: Va a haber toda una parte técnica
+[You]: de conectarnos a la fuente de información, de transformar esa fuente de información, de codificar una
+[Remote]: Sorry, sorry que que interrumpa. Toda la información la tenemos en Snowflake.
+[Remote]: Ajá. Entonces, hay que hacer alguna conexión adicional, además de
+[Remote]: pasarle...
+[You]: No.
+[You]: Pero solamente haya que hacer transformaciones, configuración de lógica,
+[You]: una parte técnica que tenemos que resolver,
+[You]: Y después, está la parte funcional.
+[You]: Qué tipo de dashboard se necesitan, qué tipo de alarmas necesitan, qué tipo de reportes necesitan,
+[You]: ¿Quieren conectarlo al ERP? Sí o no, para generar entradas contables.
+[You]: Hay toda una parte de
+[You]: conexión y configuración que que lleva su tiempo.
+[You]: Posiblemente, puede ser en menos,
+[You]: hay que hacer un un landscaping ahí de de de los esfuerzos.
+[You]: Particularmente, ahora están operando con dos bancos, ¿no? Entonces,
+[You]: se complejiza aún más, siguen con Galileo.
+[You]: No sé cuántos providers ya
+[Remote]: Que creo que esa esa esa era la esa era la otra pregunta que tenía, tenía...
+[Remote]: La la tercera es el, ¿la propuesta era para
+[Remote]: o sea, para todos nuestros flujos, no no no es solamente lo de
+[You]: Todo.
+[Remote]: No. Ah, todo, o sea, ok.
+[You]: O sea, si ya lo si ya lo vamos a hacer,
+[You]: hagámoslo todo, así les dejamos algo que
+[You]: que les resuelva
+[Remote]: Sí, porque si no, como hacer una partecita, no tiene ningún sentido, porque
+[You]: No, no.
+[Remote]: todo está interconectado.
+[You]: No, ahí sería todo y, obviamente,
+[You]: ustedes ya se quedan con la plataforma.
+[You]: Si quieren agregar algo que está por fuera de scope, obviamente, nosotros felices también de verlo, ¿no?
+[You]: Ustedes tendrían la flexibilidad de
+[You]: ya tienen las integraciones hechas, crear las conciliaciones que quieran, modificarlas,
+[You]: ya ya queda todo de de su lado.
+[You]: Y, de hecho, lo que pasa siempre es,
+[You]: se se empieza automatizando una conciliación y, de
+[You]: repente, empiezan todos los equipos a querer automatizar los
+[Remote]: Claro. Pará, ahí está bueno lo que plantean,
+[Remote]: La idea también de de de es que sea self-service, o sea,
+[Remote]: más allá de que nosotros los los acompañemos para integrar todos los flujos, que es que dicen, ah, choqué, que hay plug and play,
+[Remote]: También ustedes, la idea es que vayan creando nuevos flujos y lo puedan hacer, solo rex si está hecho,
+[Remote]: un poco para eso. Y respondiendo un poco a a la pregunta ahí, Tomás, que hacías de lo de
+[Remote]: modelo de licencia, es como ir
+[Remote]: pagando estos fixes, vos, no sé, nosotros vos usás
+[Remote]: o común usa versiones de AWS, de componentes,
+[Remote]: que van a ir saliendo vulnerabilidades, bugs, y eso
+[Remote]: está bueno que quede del lado de Rexy, para ir haciendo esos parches de seguridad sobre lo que
+[Remote]: sale, que nosotros lo hacemos continuo, y ahí mantenemos el modelo de licencia de todos los clientes.
+[Remote]: O sea, vos eso te puede dejar una brecha de seguridad en tu sistema, porque está conectado a Internet,
+[Remote]: y eso es como que queda del lado nuestro. Entonces, es como que te aseguras
+[Remote]: esa capa de intercompatibilidad mínima, porque la verdad que
+[Remote]: lo que hace que termine siendo caro es cuando escala la infra, es lo que dijo Teo esto de
+[Remote]: procesamiento, el storage, de la información que se va acumulando, y vas entrando en los tiers superiores,
+[Remote]: Eso ya lo asumen ustedes con su infra, entonces queda más interno, va
+[Remote]: otro tipo de costos también.
+[Remote]: Claro, claro.
+[Remote]: Uri, ¿te te quedaban más preguntas?
+[Remote]: Sí, algunas. Nacho, creo que viene el propósito de algo como
+[Remote]: transactions.
+[Remote]: ¿Eso fue como assuming volume increases, fue como based on projections o o
+[Remote]: dónde vino el número de 10,000,000?
+[You]: ¿Lo mencionaste vos que estuvimos en la oficina?
+[You]: 10,000,000 records, ¿no?, hoy, más o menos.
+[You]: Records.
+[Remote]: No. Perdón si eso, lo... ¿Ah?
+[You]: Sea,
+[You]: mencionaste que estaban conciliando, más o menos, 10,000,000 records por mes.
+[Remote]: No. Sorry. I I might have been wrong about the number
+[You]: En la oficina, el otro día.
+[Remote]: But I think it's almost 1.52, but I it's just
+[Remote]: relevant. Pero sí, con
+[Remote]: como que me gusta la idea, entiendo que la infraestructura es nuestra, más que nada estamos
+[Remote]: como que licensing the the software itself in order to run the reconciliations.
+[Remote]: Lo que no me queda superclaro es el el six month engagement,
+[Remote]: como if it's more of a plug and play product, y nosotros vamos a tener que también poner como mucho nuestra parte
+[Remote]: para como get it to the endpoint, no nos serían como seis meses de engagement
+[Remote]: just to, like, connect the sources and and get everything running.
+[Remote]: So maybe we can discuss details around that. Y me queda claro lo del
+[Remote]: dollar como retainer for in perpetuity para tener acceso al tool.
+[You]: Sí.
+[Remote]: De lo que tengo entendido, ¿no?
+[Remote]: Ajá.
+[You]: Sí, por ahí, seis meses, fue un poco exagerado.
+[You]: Ahí,
+[You]: no no
+[You]: ver de vuelta en detalle
+[You]: qué es lo que necesitamos
+[You]: allá, si son seis, tres, cuatro,
+[You]: los flujos conciliatorios no suelen ser plug and play,
+[You]: siempre hay un período de
+[You]: de análisis, entender bien el flujo, y y ver técnicamente a ver si hoy puede hacer todo lo que necesitan o tal vez hay que hacer desarrollos, Por por eso, está bueno al menos, estar preparado para que no no sea que mañana, como ya estamos enterados a Zoomer, que ya estamos, se puede confiar todo en un día listo. Suele haber un período de de prueba, de desarrollo, Sí, más que nada, hoy no están haciendo transaction level matching, ¿no? Cuando lo empezamos a hacer, I assure you, we're gonna discover some interesting stuff.
+[Remote]: No, y acá es importante, no sé cuánto
+[Remote]: ¿de cuántos flujos estamos hablando o todavía no tenemos cantidad?
+[You]: Y entre diez,
+[Remote]: Cuando cuando dicen flujos, se refieren como
+[You]: quince.
+[Remote]: movimiento de dos cuentas? Sí, o sea, reconciliaciones. Vos
+[Remote]: o sea, tenés sources, que son las cantidades de fuentes de información,
+[Remote]: capaz que tenés dos, pero tenés diez flujos de reconciliación. O sea,
+[Remote]: tenemos varios casos de uso, ¿cuántos tenemos? Sí.
+[Remote]: O sea, del lado de CFSP, por lo menos, diez, diría Tom, más en en todos esos,
+[Remote]: en todos esos, para dejarlo play, capaz que hay algo, y acá pongo
+[Remote]: la verdad sobre la mesa, capaz que en uno de esos usan algo que Rexy no tiene,
+[Remote]: y lo lo implementamos y se los dejamos listo, implementado
+[Remote]: ya en el código que le servimos, ¿no? Entonces, eso es lo que
+[Remote]: eso es lo que podría, por eso está bueno ahí que se junte en conteo
+[Remote]: para entender todos los flujos, para entender qué tenemos, qué no,
+[Remote]: y ahí entender el tiempo de integración.
+[You]: Y ahí, Uri, agrego,
+[You]: muchas veces no tenemos una llave conciliatoria, un ID, entonces,
+[You]: buscamos por
+[You]: por fecha, hora y demás,
+[You]: Si se puede, y hay relación con el proveedor,
+[You]: buscamos el ideal,
+[You]: es lograr que nosotros, desde común, le mandemos al proveedor
+[You]: un ID que nos lo devuelva para poder hacer un bacheo exacto. Ese es el mundo ideal.
+[Remote]: ¿Va a estar difícil?
+[Remote]: De nuestro lado, porque muchas cosas se mueven en batch, pero sí, agredido ahí que es el mundial.
+[You]: Y después, también, para ser honesto, what's in it for us?
+[You]: Es lo que le mencioné a Luri el otro día sobre nuestra visión.
+[You]: Que es esto del multiparty system.
+[You]: Entonces
+[You]: obviamente, estamos muy motivados en en en
+[You]: en solucionar esto con el modelo de licencia, que que se ve que les les picks
+[You]: interest ustedes,
+[You]: pero una b dos para pensar en la segunda mitad de año es
+[You]: cómo hacemos para realmente hackear la parte de las discrepancias, ¿no? Que hoy es
+[You]: pobre Jake Lata,
+[You]: torturarlo por Slack hasta que te conteste, o no sé quién es el
+[You]: point of... En su momento, yo lo torturé por Jake, o al contacto de CFSB o de CRB,
+[You]: starting to have those conversations, no? Like, should we have a shared platform?
+[You]: This?
+[You]: From a risk perspective, from an operations perspective?
+[You]: Digo, porque ustedes, por ahí, deben estar pensando como que,
+[You]: we're doing a lot of investment on our side, y y it's true. Primero, porque
+[You]: la relación y porque estamos muy interesados en trabajar con ustedes,
+[You]: pero pero también para para esa segunda mitad de año empezar a testear esa parte
+[You]: conectada, ¿no?, que le comenté a Uri el otro día.
+[Remote]: ¿Cómo cómo es...? ¿Qué es esa parte que yo no no estuve en la conversación?
+[You]: No, que, básicamente, nosotros, la manera en la que
+[You]: entendemos las conciliaciones es comparar my source of truth against yours.
+[You]: ¿No? Esto es, la source of truth de Galileo contra la de común, contra la que viés
+[You]: o con la que ve Uniteller, o sea, siempre hay distintas fuentes de información.
+[You]: Hablando sobre un mismo flujo de dinero, ¿no?
+[You]: Con lo cual,
+[You]: hoy estamos en en la fase uno, que es let's streamline the internal process for common.
+[You]: Asegurar que
+[You]: tenemos todos los archivos, procesamos, encontramos las diferencias.
+[You]: Pero después está el so what, ¿no? Cuando ves las diferencias, ¿qué pasa?
+[You]: That's when we need to bother Jake Lata.
+[You]: Jake, ¿dónde están estas transacciones? So, tenemos que hablar con el banco o tenemos que figure out
+[You]: the differences, ¿no?
+[You]: Ahora, ese proceso lleno de
+[You]: porque yo genero un reporte, te llamo a vos, Jake, y le digo, Jake, ¿dónde estás estas tres,
+[You]: transacciones? Jake va y por ahí compara contra un proceso interno,
+[You]: que posiblemente estén trabajando con información distinta, lógica distinta,
+[You]: Es posible ponerse de acuerdo, es una negociación de dónde están esas diez transacciones que faltan.
+[You]: Entonces,
+[You]: la tesis de Rexy es que
+[You]: Galileo, CRB, CFSB,
+[You]: común,
+[You]: Uniteller,
+[You]: they should all be consuming the same database.
+[You]: ¿Sí?
+[You]: Que es lo que Rexy quiere convertirse. They're all dumping the data on Rexy,
+[You]: y Rexy está haciendo todo el y todo el
+[You]: la reconciliation,
+[You]: cosa de que, when we see the differences, we're all working on the same
+[You]: and we know where
+[You]: the leak happened.
+[You]: Si es Galileo, si es CFSB, ¿tú has to respond to those differences, no?
+[You]: Eso es como long-term vision de de de Rexi, ¿no? Compartirnos en ese
+[You]: shared platform
+[You]: shared source of truth,
+[You]: across the stack.
+[You]: Creemos que realmente es como
+[You]: solucionamos el tema de conciliaciones, el problema de conciliaciones.
+[Remote]: O sea, que
+[You]: ¿No?
+[Remote]: claro, de lo que sí, como que todos
+[Remote]: no sé si el que el source of truth para algo es Galileo, que Galileo lo cargue en
+[Remote]: y que si CFSB después va a ejecutar los movimientos en base a esa información,
+[Remote]: que they pull it out from from Brexit, this is. Y
+[You]: Exacto.
+[Remote]: o sea, acá acá siento que como me falta un poco de conocimiento de how
+[Remote]: that exchange of information se da hoy en día.
+[Remote]: ¿No? Y creo, Uri, necesitamos un poco el Luis acá.
+[Remote]: Para ver exactamente cómo cómo es que si FSB el Inteler ejecuta los movimientos en base a
+[Remote]: qué, nosotros le decimos qué, desde dónde.
+[You]: CFSB le hace caso a Galileo.
+[Remote]: Claro.
+[You]: El tema es que después cuadre con
+[You]: con lo que con lo que hacen ustedes o lo que hacen los proveedores de ustedes, ¿no?
+[You]: Y después, si
+[Remote]: Pero si si siempre ejecuta exactamente lo que dice Galileo,
+[Remote]: ¿por qué habría diferencia, entonces, todo lo que dice Galileo y lo que
+[You]: Es la gran pregunta.
+[Remote]: y lo que dice y lo que dice CFSB?
+[You]: Es la gran pregunta, pero está lleno de diferencias.
+[Remote]: Pero porque en algún sentido, Galileo, entonces, ese
+[Remote]: ese sería ese rexy, sería ese source of truth en este momento.
+[Remote]: Pero, por alguna razón, está, no no cuadra igual.
+[You]: Фазжа,
+[You]: exactamente, encontramos diferencias.
+[You]: Sí.
+[You]: O sea,
+[You]: creo que en algún futuro
+[You]: no lejano,
+[You]: Rexy se convierte en el ledger que es halileo.
+[You]: Correcto.
+[You]: Galileo puede ser un player that might push back on this.
+[You]: Vision.
+[You]: Pero
+[Remote]: Yeah.
+[You]: pero, a nivel conceptual, tenemos que tener al banco
+[You]: la fintech y el payment provider looking at the same data.
+[You]: Realmente resolver el problema de conciliaciones.
+[You]: Porque hoy, si no, cada uno genera su
+[Remote]: Claro.
+[You]: y te lo comparte.
+[You]: Y no le importa.
+[Remote]: Sí, sí, pero
+[Remote]: pensando en lo que en lo que vos decías como que de esa b dos,
+[Remote]: un poco en lo que estás apostando es en que vas a poder lograr
+[You]: Sí, que trabajar conmigo.
+[Remote]: juntar a todas esas diez partes
+[Remote]: Claro, sí.
+[You]: Es el vet.
+[Remote]: Sí. Ese esa es como esa es como la gran la gran apuesta y la gran incógnita.
+[You]: Sí.
+[Remote]: Pero y ellos no trabajan hoy, pero hoy en día trabajan con
+[You]: Tal vez no no
+[You]: ¿Quiénes?
+[Remote]: ¿no?, como como ledger al final.
+[Remote]: Sí, es, o sea, no el ledger de ellos, pero sí el ledger es como de los third parties.
+[You]: Sí, tiene más de uno.
+[Remote]: CFSB, CRB.
+[You]: No solamente Galileo.
+[You]: Ellos tienen un quilombo en serio los bancos, porque
+[You]: porque saben que que estos players no son exactos y tienen muy poco
+[You]: control y visibilidad. Hay algunos bancos que tienen mejores controles que otros, pero
+[You]: digo, ¿cómo llegó a pasar lo de Synapse?
+[Remote]: No.
+[You]: Veinte veinticuatro?
+[Remote]: El banco es un desastre, todo es un desastre.
+[You]: Pero es estas cosas,
+[Remote]: A ver, creo que,
+[Remote]: a a a nosotros mismos nos nos nos pasó en
+[Remote]: late twenty twenty four.
+[You]: La la la
+[Remote]: Que no sabemos exactamente dónde está la plata.
+[You]: la de vanilla direct?
+[Remote]: Sí.
+[Remote]: Sí. Pero bueno,
+[You]: Part of that.
+[Remote]: Sí, sí.
+[You]: Fue interesante. Bueno, eso fue lo que lo que a mí el
+[You]: agarró y dijo, che, tenemos que tener algo para esto, es una locura.
+[Remote]: Sí.
+[You]: Pero, bueno, de vuelta, eso, para mí es una comisión para después,
+[You]: Hoy hay mucho valor por desbloquear en dar una una solución que
+[You]: que automatice el proceso y les dé a ustedes muchísimo leverage para no estar
+[You]: Hexes, Excel, SQL Scripts, Python, whatever,
+[Remote]: Sí.
+[You]: y que les dé control y visibilidad al menos, saber que esto escala sin que
+[You]: sin tener que, Uri, dedicarle cada vez más tiempo, más si tienen el road map nuevos bancos, nuevos
+[You]: nuevas integraciones, digo, sino como que el equipo
+[You]: esto se vuelve cada vez más complejo, y alguna solución que les dé leverage
+[You]: con lo cual nosotros también vemos muchísimo valor en ese play.
+[You]: Esto es por ahí adelantándome a la visión mucho más de largo plazo de ¿no?
+[Remote]: Sí. Pero, bueno, creo que, en terms of next steps, uno sería que
+[Remote]: Luis, nuestro CTO, nuestro head of engineering,
+[Remote]: hable con Sebas, de como what are the implications on our side, de como de site hosted by us infrastructure.
+[Remote]: Entender como what are the effort would be on our side.
+[Remote]: Y dos, we can work around como de ese
+[Remote]: month implementation timeline, como no queremos que sea seis meses, pero we can work on something that works for both of us.
+[You]: Sí.
+[Remote]: Sí, creo que tenemos que hacer un poco de trabajo de nuestro lado, Uri.
+[Remote]: De de Alarcon Engineering Sí. Para lo que estamos lo que estamos pensando.
+[Remote]: Y ver un poco qué viene del lado de ellos.
+[Remote]: Más que ahora hace un par de meses que fue que Ingenieurin tomó data.
+[You]: Ahí también,
+[You]: agrego un último comentario, y y después ya, si si quieren
+[You]: estamos on time.
+[You]: Nosotros estamos buscando ser el el el partner para los equipos de finanzas,
+[You]: Entonces,
+[You]: que, realmente, los
+[You]: independice de los equipos de tecnología.
+[You]: Con lo cual
+[You]: it's about how can we tech enable the finance function.
+[You]: ¿No? Y darte a vos, Tomás, un montón de leverage, que, como un siga creciendo,
+[You]: y vos tengas un ejército de herramientas, agentes,
+[You]: y tecnología,
+[You]: que no tengas que nunca
+[You]: sentarte a decir, I need to hire.
+[You]: I need someone to help me out.
+[You]: On these things, ¿no? Como darte muchísimo leverage a vos.
+[Remote]: Bueno, hoy los paso un montón con unos
+[Remote]: con clientes que tenemos, que hay veces que
+[Remote]: meten a los equipos de ingeniería para hacer desarrollos, el equipo de finanzas, pero después lleva una prioridad de negocio que el negocio se dedica a otra cosa y no a la parte de finanzas, y queda como segunda prioridad, dice, entonces, tenemos integraciones kilométricas, como que Rexi viene a hacer un poco eso, llevar AI, como dijo Nacho, a los equipos de finanzas,
+[Remote]: y que ustedes puedan con un agente resolver todo, pero bueno, el modelo de licencia sí implica
+[Remote]: ingeniería esté adentro para instalarlo, pero después el self service de reportería, reconciliaciones, del self service de seguir creando nuevas
+[Remote]: no solo de finanzas, de CX, de todo la parte non IT, digamos,
+[Remote]: la idea es que lo puedan manejar con es también el horizonte, ¿bien?
+[You]: Where are your tech
+[Remote]: Y para para todo el el
+[Remote]: el reverse engineering de la lógica de reconciliación,
+[Remote]: hay mucho ahí de vuelta,
+[Remote]: Nacho, vos sabrá, con con Jake, con Galileo, uno de los,
+[Remote]: contrapartes. ¿Se imaginan ustedes
+[Remote]: lidiando con ellos o vía común?
+[You]: Nosotros ahí Whatever is more efficient.
+[You]: Sí, lo que ustedes prefieran.
+[You]: Nosotros
+[You]: nuestra idea es dejárselos andando lo
+[You]: posible,
+[You]: Muchas veces necesitamos que nos desbloqueen o que nos saquen dudas y demás,
+[You]: pero si quieren que que nosotros ayudemos a un
+[You]: nos involucramos como ustedes quieran.
+[Remote]: Lo que habla para la conexión, ¿desiste, Tomás?
+[You]: Lo
+[You]: No, más la lógica, dice. Hay montón de
+[You]: transaction codes y cosas que que configuras en la lógica conciliatoria, que que a veces tenés
+[You]: que perseguirlo a Jake para que te diga qué son esos códigos, porque la documentación que te manda outdated, etcétera.
+[Remote]: Ok.
+[Remote]: Ok.
+[You]: Ahí hay mucha tecnología que se puede usar también, con lo cual
+[You]: si sabemos que Jake y por experiencia propia, es lento en responder y nos va a trabar,
+[You]: we own the outcome, y tratamos de buscar con la información cómo podemos machar, ¿no? Como que
+[Remote]: Okay.
+[You]: getting creative there.
+[You]: Y
+[Remote]: Bueno, eso nos pasa con todos los clientes que estamos analizando la información y tan
+[Remote]: porque no saben cómo conciliarla, entonces parte del problema también, ¿no?, del proceso de integración.
+[You]: Y si hay algo que desbloquear,
+[You]: por ahí les pedimos ayuda, porque a nosotros, claramente, nos van a responder más lento que ustedes.
+[You]: Ahí, por ahí, alguien que nos que nos desbloquee,
+[You]: funciona. Pero es llevar la conversación directo con Jake, si nos presentan y
+[You]: cuál es el scope y cuál es el timeline y y la llevamos nosotros.
+[You]: Después, si no hay responsiveness, we loop you in.
+[Remote]: Dale, dale. Uri, creo que no...
+[Remote]: Está un poquito de nuestro lado también conversaciones internas, me parece.
+[You]: Dale, tranquilo, joguimos a los avisan y
+[Remote]: Super útil esto. Gracias.
+[You]: avisan y vamos a la oficina también a hablarlo en persona, como quieran. Estamos acá cerca, en Bryant Park.
+[Remote]: Gracias. Dale, a full. Gracias a los tres. Chao, hasta luego.
+[Remote]: Abrazo. Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Customer-Managed Licensing Model Discussion
+
+- Rexi offers on-premise deployment option vs SaaS model
+  - Customer hosts infrastructure, receives Docker images for self-installation
+  - Común would manage their own AWS/GCP credentials and costs
+  - Database and code ownership stays with Común
+  - Rexi provides ongoing maintenance, security patches, bug fixes
+- Higher upfront investment (\~$2-3K for 6 months) then $500/month retainer
+  - Addresses Uriel’s concern about ongoing SaaS costs once system stabilizes
+  - Cloud processing/storage costs shift entirely to Común
+  - New module upgrades charged separately as additional revenue stream
+
+### Technical Implementation Scope
+
+- All reconciliation flows included (10-15 different flows across CFSB operations)
+  - Currently processing \~1.5M records monthly (not 10M as initially discussed)
+  - Data source: Snowflake warehouse
+  - Two bank providers: Galileo + others, multiple payment processors
+- 6-month timeline estimate may be excessive
+  - Custom workflow development for transaction-level matching
+  - Logic configuration, dashboard setup, ERP integration decisions
+  - Some flows may require new Rexi functionality development
+- Self-service platform design allows Común to create new reconciliation flows independently
+
+### Next Steps & Long-term Vision
+
+- Immediate actions needed:
+  - Luis (Común CTO) to discuss infrastructure implications with Sebastián García
+  - Refine implementation timeline (target less than 6 months)
+  - Internal Común engineering assessment of required effort
+- Rexi’s broader vision: Multi-party reconciliation platform
+  - Goal: Single source of truth shared by Galileo, CFSB, CRB, Uniteller, Común
+  - Replace current manual dispute resolution process with Jake Lata
+  - Position as shared ledger system across entire payment stack
+  - Addresses systemic reconciliation problems (referenced Synapse, Vanilla Direct issues)
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/55a2c3a5-2146-4620-848b-a198876bc423](https://notes.granola.ai/t/55a2c3a5-2146-4620-848b-a198876bc423)

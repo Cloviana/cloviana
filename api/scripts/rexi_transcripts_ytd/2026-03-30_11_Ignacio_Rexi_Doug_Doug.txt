@@ -1,0 +1,722 @@
+MEETING: [1:1] Ignacio (Rexi) <> Doug (Doug)
+DATE: 2026-03-30
+ID: not_M8hpUR5S0QMGJ9
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Dbnussman <dbnussman@gmail.com>
+SCHEDULED: 2026-03-30T18:00:00-04:00 - 2026-03-30T18:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: You too. Where are you calling in from? Jersey?
+[Remote]: Yeah, I mean,
+[Remote]: don't know how long you've been up in the New York area. I'm in in,
+[Remote]: Bridgewater, New Jersey about
+[Remote]: thirty five, forty minutes from the city.
+[You]: Okay. Okay. Very cool. Do you go into the city after or not?
+[Remote]: I I mean, I used to go in there full time.
+[Remote]: Then, you know, with the remote and COVID and all that stuff, changed. But, yeah,
+[Remote]: city's city's nice and easy to get into.
+[You]: Got it. Got it. Well, I'm
+[Remote]: Where you're in the city?
+[You]: I'm in in Williamsburg in Brooklyn, but
+[Remote]: Oh, okay.
+[You]: we're crashing at office
+[You]: an office in in Bryant Park, and we go, I don't know, three, four times a week.
+[Remote]: Okay.
+[You]: So so yeah. And then work from home.
+[You]: But currently, as we speak, I'm in Argentina.
+[Remote]: Right. Yeah.
+[You]: I'm Argentinian.
+[You]: So I came here for a wedding and also
+[You]: the opportunity to spend some time here with the team. We have our our
+[Remote]: Okay.
+[You]: tech team base here in in Buenos Aires.
+[You]: Our our CTO and all our founding engineers. So
+[You]: some team bonding time for me here.
+[Remote]: Important.
+[You]: Yep. Yep. Well, great to meet.
+[You]: Joao shared your your contact with me. You worked with him,
+[Remote]: Yep.
+[You]: before?
+[Remote]: Yeah. Yeah. We work together at Fitch. I've been down
+[Remote]: with him at Buenos Aires, Sao Paulo. Like,
+[Remote]: did a lot of Latin American stuff with him. But, yeah,
+[Remote]: And we've stayed in touch over the years. Good guy.
+[You]: Very cool. Very cool. I met him
+[You]: a conference the past week, FinTech Americas.
+[You]: He used to work at Symmetric, which is one of our biggest competitors here in Latin America.
+[You]: And as we were speaking about, our priorities going forward for the
+[You]: quarter, and I'll I'll share more about Rexy just in a minute. He said you should speak with Doug.
+[Remote]: Yes.
+[You]: He has he's amazing. He knows how to sell into these people,
+[You]: if you're looking to develop that capability, I
+[You]: Doug is your person. So let me let me share a bit more about Rexy and and how we the Scott's
+[You]: started.
+[Remote]: Sure.
+[You]: So, basically, my my
+[You]: my past experience is in I I started in in
+[You]: management consulting working at Bain here in Argentina.
+[You]: Doing mostly financial services working for the big banks.
+[You]: Then got bored of that, did a bit of, crypto at Bitso. Do you know Bitso?
+[Remote]: Uh-huh. I've heard of that.
+[You]: It's it's yeah. It's like the coinbase down here.
+[You]: So I I I would I did product there.
+[You]: That's when I figured I wanted to start a company, because I had the opportunity to go from scratch
+[You]: two full products, iterate launch them, iterate them,
+[You]: And it's just so fascinating that that they only grind and that
+[You]: daily iteration process with the feedback loose and so on.
+[You]: Decided I wanted to build
+[You]: wanted to build a company in The US, so I did an MBA in Harvard.
+[You]: And that's where I started building my company. I did it in this
+[You]: incubator program at MIT called called FinTech Ventures.
+[You]: Led by this guy named Matt He's a FinTech investor out of
+[You]: his fund called
+[Remote]: Okay.
+[You]: Ventures.
+[You]: And, I ended up winning
+[You]: the demo day, ended up winning a couple other fintech
+[You]: competition pitch competitions at Harvard, at MIT, and at Columbia.
+[You]: And with those initial
+[You]: safe notes,
+[You]: grants, AWS credits start up your main company.
+[You]: We incorporated the company 01/01/2025.
+[You]: I that's when we started that's where my when my first cofounder joined. He's also Argentinian. He was doing an MBA in Columbia Business School.
+[You]: And we started working with some design partners who graduated in May. Those design partners started converting to paying customers, and that's how we got to raise our our
+[You]: preseed round
+[You]: led by underscore
+[You]: Flybridge,
+[You]: NFX pair,
+[You]: textbook, and and
+[You]: We raised 1,200,000.0. This was July 2025.
+[You]: And ever since then, we onboarded a third cofounder, our CTO.
+[You]: Which is also Argentinian, but he's based in in in Buenos Aires.
+[You]: Bill and myself are based in New York.
+[You]: And we hired a team of founding engineers also one of the sites to start building
+[You]: our own architecture because, up until then, were working with a software studio.
+[Remote]: Right.
+[You]: That helped us build the first version of the product.
+[You]: So I'll start a bit more about, like,
+[You]: what we're building today and then tell you more a bit about the vision and then and then
+[You]: why I was interested in in meeting you.
+[You]: And I'm very excited about this conversation, actually. So
+[Remote]: Likewise, just so you know. Like,
+[You]: oh, cool.
+[Remote]: I love what I saw. Speaking to Joel, like,
+[Remote]: and understanding that, you know, the financial industry for years. Like,
+[Remote]: what you're doing is is pretty cool because I did something
+[Remote]: in the actuarial space,
+[Remote]: But when you bring AI into it, like,
+[Remote]: it it's just if it's used correctly, obviously, everybody just throws AI around. Like, it
+[Remote]: like a nothing. But if it's used correctly, it can really solve a lot of issues.
+[Remote]: And help people. So
+[You]: Yep. Yep. So, yeah, initially, we're building a
+[You]: reconciliation platform. It's basically a product that
+[You]: plugs into the data sources. We go straight to the source in just raw files.
+[You]: And we basically automate the process end to end with with the
+[You]: technology. Right? All the way from
+[You]: translating the files, you know, like, all the
+[You]: processing to make sure the formats are aligned and the nomenclatures are the same.
+[You]: Then we can figure the recon logic, which we use an agent to maximize the the matching ratio
+[You]: Just a caveat there. Once we start matching transactions, that's deterministic. We use AI to
+[You]: configure logic.
+[You]: Then we have an agent that helps our users
+[You]: investigate and close discrepancies in a 10 x faster way, which is, again,
+[You]: once you have a
+[You]: process set up that matches transactions, the most painful part where
+[You]: most of the time is spent is investigating closing discrepancies. So the problem solving we've built is is
+[You]: sort of our our
+[You]: our, I know, our shiny thing in demos that actually sells
+[You]: Right? Because that's where most of the short term value is accrued.
+[Remote]: Ok, gracias a
+[You]: And then we have all the output
+[You]: Yep.
+[Remote]: So the at the end of that,
+[Remote]: process, the human can say, yes. This is correct. What they have to do
+[You]: A 100%. We have a
+[Remote]: check it at the end.
+[You]: in the loop because as as you correctly brought up,
+[You]: this is a very sensitive workflow. I don't think people are
+[You]: gonna wanna hire a black box automation tool.
+[You]: It's it's about 10 xing productivity, making sure it's scalable. It's safer, but with a
+[You]: human
+[You]: reviewing and having full traceability and auditability of what we're doing.
+[You]: So, basically, in the problem server, what it does is
+[You]: it clusters the discrepancies by root cause, and it suggests solution.
+[Remote]: Right. Okay.
+[You]: As the as as the user starts approving or rejecting those solutions,
+[You]: the agent learns over time and creates what we call the business policy.
+[Remote]: All the way?
+[You]: Right?
+[You]: The business policy.
+[Remote]: Oh, okay. Yeah.
+[You]: Because reconciliation has
+[You]: a part that is just, like, technical data engineering, and then it has a business logic part of it.
+[Remote]: Right.
+[You]: Right? That's where all the nuance lives in terms of
+[You]: what are the thresholds the company is willing to take.
+[You]: What are some manual money movement the company does to rebalance some accounts,
+[You]: How do they work with specific providers? What's the deal they have with with
+[You]: that's when
+[You]: a lot of Nuance steps in, and our agents need
+[You]: start picking up all that Nuance and learning from the the user actions in the platform so that
+[You]: gains autonomy and starts executing with more
+[You]: independence and more
+[You]: automation, right, over time. But
+[You]: again, the human configurating, what type of
+[You]: autonomy
+[You]: to give that agent and approving and reject rejecting everything.
+[You]: And then finally, we have the output schemes, which are
+[You]: you can create your own dashboard. You can create your own, reporting flow.
+[You]: You can, plug into your data lake and spit out
+[You]: reconciled databases to
+[You]: to then use for other stuff. And we're also connected to the main ERP system
+[You]: to create the journal entries of stuff that's already reconciled. So today, I'll apply
+[You]: basically generates three values, right, in the short term.
+[You]: First is manual task automation.
+[You]: Which is the easiest to measure and to generate a business case with.
+[You]: The second one is, reducing
+[You]: what we call unreconcilable losses.
+[You]: Which typically is a journal entry in these accounting systems.
+[You]: Of stuff that you cannot reconcile by the end of the month, and so you take the loss.
+[You]: And that's a balance sheet write off that these companies are doing every single month. Right? And it's those are
+[You]: pretty big values at some companies.
+[You]: And then the last part is risk reduction. Right?
+[You]: Sometimes these companies have some
+[You]: reporting requirements from some regulators or compliance frameworks.
+[You]: And by automating the process end to end, they can ensure that they're being compliant.
+[You]: And that everything is safe and accounted for. And they're not gonna have, like, a
+[You]: audit triggered or having to pay any penalties or having a license removed and
+[You]: on.
+[You]: Today, we're operating on the three models. So there's there's the first one, which is the tool.
+[You]: The second one, which is an embedded tool,
+[You]: and this is specifically for customers in which they see recon
+[You]: as a value prop enhancer for their customers. But given it's a very complex product to build,
+[You]: they wanna partner with someone that can offer the services, like, sort of, like, a white label
+[You]: way.
+[You]: They control the experience, but they're hitting our APIs or they're hitting our white label solution
+[You]: too.
+[You]: Offer their clients
+[You]: a recontrol. That's the second model. And the third model
+[Remote]: Who who would a client be in that scenario?
+[You]: particularly payment processors or payment aggregators,
+[Remote]: Okay.
+[You]: that they're seeing their business getting commoditized. So they're adding
+[You]: additional services in their platform to differentiate from other solutions.
+[You]: To gain principality and gain share of wallet.
+[You]: Companies like DLocal, Wise, they're adding a lot of SaaS tools and services into their portals because
+[You]: we're seeing how their take rates are are diminishing and
+[You]: they can they need to start building the flexibility over time.
+[You]: And then the last model is the what we call the customer deployed model.
+[You]: Which is more like a calendar style
+[You]: deployment in which we deploy the the solution in in a hybrid infrastructure.
+[You]: That is basically
+[You]: owned by the customer but operate operated by us.
+[You]: For those cases, we tend to like
+[You]: a really strong reason to justify that because it's harder in terms of support, upgrades,
+[You]: and so on. Typically, for banks and insurance companies, that's
+[You]: the way to go. But for all the rest, we try to go with the SaaS tool.
+[You]: Or the embedded route.
+[You]: So that's, like, what we're doing today. Going forward, like, for us,
+[You]: reconciliation is just a wedge.
+[You]: For two main reasons. The first one is a critical pain point today that is unresolved.
+[You]: Many different verticals, not only financial services,
+[You]: And the second one is
+[You]: reconciliation gives you access
+[You]: to the most valuable data, which is transactional data.
+[You]: And so once you become
+[You]: that connective tissue while these data sources and you're creating the system of record,
+[You]: it's basically the foundation to automate the rest of
+[You]: the workflows inside finance and operations, FinOps.
+[You]: So for us, like reconciliation is the wedge to get access
+[You]: to the data to become the system of record and then build additional workflows that are gonna automate
+[You]: the rest of the processes with bindance and operation. I think
+[You]: with AI, we've seen already the first wave of automation with customer support.
+[You]: VoiceAI, TextAI.
+[You]: I think waves two and three are gonna be finance and operations. Because, again, these are enablement areas
+[You]: Not a single company on is gonna win
+[You]: market share or win against any competitor because they have a better finance department or a better
+[Remote]: Right.
+[You]: department. It's a hygiene stuff. Right? So it's gonna get automated by AI.
+[You]: Not only because it's it's more cost efficient, but also because it's
+[You]: it's better. I mean, all these processes are prone to human error.
+[You]: So having agents or technology do it is is is just better. It's more scalable. It's more precise.
+[You]: And it's more cost efficient, of course.
+[You]: So
+[Remote]: So all this data that you're gathering
+[Remote]: right, all this can you anonymize it?
+[Remote]: And make that a
+[Remote]: turn that into a profit center as well?
+[You]: Like, sell the data?
+[You]: I don't think so. I mean, this is this is very sensible data that our cost
+[Remote]: Yeah. Like, is there something there?
+[Remote]: No.
+[You]: are trusting us with.
+[You]: I don't think they're gonna like us selling that data. I mean,
+[You]: there might be an angle. I hadn't thought about it, but we treat
+[You]: data security and privacy with with, like,
+[You]: the utmost priority here because most of our companies do some pushback. In fact,
+[You]: we had to get, SOC two type two compliance. We're in the process
+[Remote]: Mhmm.
+[You]: of getting SOC one type two and ISO
+[You]: 27,001 because many other companies are asking for it.
+[Remote]: 100%. Yeah.
+[You]: Because, again, we're
+[You]: we're giving them access to the most valuable they're giving us access to the most valuable data.
+[You]: And so we need to treat it that way. I don't think it's gonna be a business model for us, but definitely something worth
+[You]: exploring in some future. I don't know.
+[You]: I haven't thought about it, to be honest.
+[Remote]: Yeah. Down the road, I could talk to you about that because I I, like, I I I see
+[Remote]: use cases from my past experiences.
+[Remote]: That
+[Remote]: like, I was at Moody's and all the big banks
+[Remote]: submitted data.
+[Remote]: Anonymized, repackaged, and resold to those same
+[Remote]: banks so they could do peer analysis.
+[You]: Interesting. Interesting.
+[Remote]: So they could benchmark
+[You]: Maybe maybe it's a future thing.
+[You]: To create a backlink item. But so the vision is
+[You]: sort of like what clock code is for developers.
+[You]: We want Rexy to be for FinOps operators. Right?
+[You]: So a platform for these executives to build
+[You]: the whole department with agentic workflows. Right?
+[Remote]: Right.
+[You]: Starting by reconciliation because it's critical pain point today,
+[You]: and because it's the foundation
+[You]: to be able to build these other workflows. Because AI is great, but if garbage in,
+[Remote]: 100%. Yeah.
+[You]: garbage out.
+[You]: So the first step is making a sense in the data and ensuring that
+[You]: there's a single source of truth that we can audit and track
+[You]: across the stack of of these abstraction layers creating the data.
+[You]: So back to
+[You]: ground level. We raised a PC ground.
+[You]: We have a couple of customers. I mean, this is a long sales process.
+[You]: Our ICP is a bit blurry. We have a bit more
+[You]: for the second quarter of the year, which is sort of like
+[You]: within financial services,
+[You]: big companies, not enterprise, but big companies with high transactional volumes,
+[You]: that are nontech savvy.
+[You]: Why?
+[You]: Because today, we're receiving a a lot of pushback from tech savvy institutions like Gramps, Brex, or these
+[You]: fintech companies that are saying, like, I'm gonna build this internally.
+[You]: Because they have they have the tech resources. They have a
+[You]: They have the data systems to do it. Now
+[You]: a different a different situation is when you talk with Bank with PayLions. These companies were, like, in the middle of America where
+[You]: they don't have the people, they don't have the tech stack, and and and they can do a lot
+[You]: in terms of efficiency.
+[You]: And optimization with with
+[You]: with these processes. Right? So
+[Remote]: Oh, no. That's
+[Remote]: yeah. Those are the places that well, the the big banks and those
+[Remote]: the small like, everybody needs it for different reasons. Right? And that's beauty.
+[You]: Exactly.
+[You]: So
+[You]: we have a couple of paying customers in production today.
+[You]: It's a long sales process. Traction, to be honest,
+[You]: hasn't been the one I would have desired, but I also acknowledge
+[You]: that this is b to b software, that this is critical infrastructure. We're a
+[You]: start up. It's hard to bet on us, to be honest.
+[You]: And so it's it's taking more time. We're at a tipping point right now in which
+[You]: given we've been doing this for the past eight to nine months,
+[You]: there's a couple of contracts or leads that have matured and are about to convert.
+[Remote]: Okay.
+[You]: I mean, like, there's
+[You]: three between three and five big contracts about to convert,
+[You]: which is definitely gonna
+[You]: put ourselves in this
+[You]: interesting situation in terms of implementing and making sure these are success cases.
+[You]: But one of the reasons I I wanted to to get to know you better was
+[You]: because for the second quarter of the year,
+[You]: and this is something that we've been saying but not prioritizing enough, is
+[You]: we wanna build the business in The US.
+[You]: US market, for many different reasons. The first one is
+[You]: size of the market. I mean, there's just
+[Remote]: Right.
+[You]: huge, huge pockets when I say, like, okay. Let's
+[You]: limit ourselves to pay lions sort of type of company. There's there's, like,
+[You]: a thousand or 2,000 of them in The US. Right?
+[You]: The second reason is
+[You]: willingness to pay. I mean, if you're playing a
+[You]: a a sale that is based on
+[You]: replacing human hours. Those human hours are
+[You]: five x or six x more expensive than Latin America.
+[You]: Now
+[You]: given we're Latin Americans and our and our past is in fintech,
+[You]: in in in LATAM countries,
+[You]: we've been getting a lot of inbound and a lot of opportunities
+[You]: in the LatAm market.
+[You]: So our pipeline today is, like, sort of half and half.
+[Remote]: Sure.
+[You]: But going forward for the second second and third quarter of the year,
+[You]: and given we're getting prepared for a seed raise,
+[You]: we really wanna double down on The US market.
+[You]: The second conclusion is
+[You]: even though I've studied in Harvard, my cofounder started in Colombia,
+[You]: we're Latin Americans.
+[You]: And so that means our our breadth
+[You]: our reach,
+[You]: in terms of network in The US is limited.
+[You]: Is limited basically to the
+[You]: universities we study.
+[Remote]: Right.
+[You]: Point blank. And then
+[You]: once we're in the conversations when I'm talking with, like, Darren Fisherman CFO of PayLions, which, again, these are not your most sophisticated institutions,
+[You]: it's very different if they're talking with you or if they're talking with me.
+[Remote]: Right. I hear it.
+[You]: And I'm sorry. I'm not I'm not I'm not victimizing myself. It's just different.
+[Remote]: Great.
+[You]: I I feel like even though I I speak English really well,
+[You]: there's just a handicap.
+[You]: Again,
+[You]: think about it. They're they're buying critical infrastructure from a crazy Argentinian guy that lives in New York. That's a harder sell than if they're buying it from Dugnos that
+[Remote]: Vale.
+[Remote]: Yes.
+[You]: they know you from other conferences. They they've seen your trajectory and so on and so
+[You]: forth. So
+[You]: going forward for the second quarter of the year or third quarter of the year, we're looking to have someone join us
+[You]: in creating a stronger
+[You]: scalable pipeline that converts into paying customers
+[You]: for Rexy so that going into a seed raise, we can
+[You]: show that we can get traction in LATAM because of our networks, but we've also
+[You]: been doing some
+[You]: really decent efforts, and and there's strong signal that we can also generate a business in The US.
+[You]: That's sort of why I was interested in in talking to you. Now
+[You]: as you might know,
+[Remote]: Yeah.
+[You]: everything is urgent for us right now. Right? We move at a very, very fast
+[You]: pace, and so
+[You]: I'll just say two things. We need
+[You]: strong, quick, early results.
+[You]: And and the tricky thing about that is
+[You]: you're not gonna have all the resources of an established
+[You]: company with you know, it's like it's about being very
+[You]: resourceful and doing
+[You]: what we can with what we have.
+[Remote]: I've done that before.
+[You]: And try to sell.
+[You]: And try to sell as
+[Remote]: Just so
+[You]: as as much as we can. So that's
+[You]: there's an urgency thing. And then the other thing at this stage, given we're a pre seed,
+[You]: our budget is limited. Right? The having said that,
+[You]: I think it's interesting for us to scope something in which
+[You]: it's
+[You]: you're gonna help us build toward that seed raise. And if if it works out and we see value in the
+[You]: relationship,
+[You]: that can later convert into a more
+[You]: I know, fuller, full time
+[Remote]: Mhmm.
+[You]: higher compensation,
+[You]: sort of role at Rexy as the
+[You]: head of sales, head of growth, or head of like, whatever the name is on
+[Remote]: Mira,
+[You]: on and you being the lead of us selling in The US market. Of course,
+[You]: I'm gonna be there with you, right, because I'm the founder, and he needs to be founder led at this point. And I
+[Remote]: Right.
+[Remote]: And you're the expert.
+[You]: think for the next eighteen to twenty four months,
+[You]: Yeah.
+[You]: But I need someone opening that door
+[You]: and that gives us credibility and brand and positioning to
+[You]: convert those to to actually, like, open the door and convert those those
+[Remote]: Yep.
+[You]: leads. Right? And you know them more than me on on
+[You]: what gets them excited, what type of
+[You]: relationship we need to build, what's the back and forth, do I need to travel, do I don't need to
+[You]: travel? Do I need to go to conferences? I mean, you've done this before. So there's a lot, I mean,
+[Remote]: Yep. Yep.
+[You]: to learn from you in the process as well. I'll stop talking there because I've talked
+[You]: but hopefully, this was a good enough context
+[Remote]: Yeah. Yeah.
+[You]: on on where we stand and what we're looking for and why I was so excited to meet you.
+[Remote]: Yeah. No. It all it all makes sense. Joel, you know,
+[Remote]: gave me a good lowdown based on your conversation with him. And
+[Remote]: you know, taking a look at the website and and everything like that. Like, I'm excited I I'm just as
+[Remote]: excited to to sit with you because I think there's a lot of opportunity here.
+[Remote]: And, you know, my experience, not just selling into the
+[Remote]: financial services space, but also my experience, I was the
+[Remote]: the
+[Remote]: boots on the ground for a New Zealand based startup.
+[Remote]: They wanted to expand in The US. It it was a different sale. Was selling into insurance.
+[Remote]: Carriers.
+[Remote]: It was a
+[Remote]: very similar AI was coming in to help them
+[Remote]: from an actuarial space.
+[Remote]: They're looking at so much data. They're making human mistakes, and there's a way to
+[Remote]: go through their spreadsheets and do things. And
+[Remote]: help them be more productive. So
+[Remote]: I've done that role before, like, being the first one,
+[Remote]: the sense of urgency, and, you know,
+[Remote]: not afraid of hard work. So that like, that's the last thing you have to worry about.
+[Remote]: I'll bust my butt. But, yeah,
+[Remote]: you you explained everything very well, and
+[Remote]: you know, you know, just from what you guys are doing, the opportunity,
+[Remote]: It's, it's it's definitely something I'm interested because I think there's
+[Remote]: a lot of opportunity out there. And, obviously, you started the company. So
+[Remote]: you you you you feel the same way.
+[Remote]: Yeah. I know. I I
+[You]: I think an an interesting an interesting plugin
+[You]: is I I've wrote a blog article the past week on on how I think
+[You]: traditional financial institutions are are gonna bridge the gap with fintech companies.
+[You]: In terms of the technology gap.
+[You]: Because today with AI,
+[You]: talent
+[You]: and technology in general doesn't matter anymore.
+[You]: It's gonna be very interesting to see how
+[You]: traditional banks start having similar cost to serve ratios to fintechs
+[You]: but with the lower cost of capital, the distribution networks, and the
+[You]: trust of being regulated. Right? So it's gonna be interesting, I think, in the next three to five years to see that
+[You]: that gap closed and suddenly
+[You]: there's less less of a difference on what we call, like, a neobank and a fintech bank versus
+[Remote]: Vale.
+[You]: traditional bank like Dark Bank. Right? And so how Rexy can be that technological partner
+[You]: to help these companies accelerate that transition. Right?
+[You]: That's that's one of our sales. So I think it's interesting coming from you where
+[You]: you open those doors in terms of saying, like, hey. I I've I've done this in the past. I've worked with banks
+[You]: is an incredible opportunity for these banks.
+[You]: To finally bridge that tech gap, and and Rexy can
+[You]: position as as as that tech partner.
+[You]: I just had a couple questions. Like,
+[You]: so your experience is based is is is mainly in sales. Right? Like, on on, like,
+[Remote]: That's yeah. That's me.
+[You]: target buyer personas, doing the outreach,
+[Remote]: Mhmm.
+[You]: doing those initial conversations,
+[You]: Perfect. And and mainly focused in insurance, you said?
+[Remote]: No. No. Financials like,
+[Remote]: so that was part of it, but it it's been selling into the financial services
+[Remote]: space, so including, you know, banks, asset managers,
+[Remote]: community banks, credit unions, like, the whole whole gamut.
+[You]: Amazing. Because I think that's gonna be our ACP, at least the one we're gonna be
+[You]: testing in q two and in q three.
+[You]: And two questions, like,
+[You]: is is your is your network more concentrated on the East Coast, or is it, like, national?
+[Remote]: Ja, final.
+[You]: National. Amazing.
+[You]: And how do you think is the best way
+[You]: to do the reach out, like, to connect with these people, with the right buyer personas and get those conversations
+[Remote]: Yeah. So
+[You]: going.
+[Remote]: it's just
+[Remote]: me doing a very casual email. Hey. Look at this is where I'm at.
+[Remote]: Give them a couple bullet points of what I'm doing, a white paper maybe, and say,
+[Remote]: you know, if you're not the right person, who can you introduce me to? Most sales people don't
+[Remote]: ask for the referral. They they wanna get to the like, I'm great at asking for referrals and
+[Remote]: getting to the right people. So if I don't have the right person, I'm gonna get to the right person.
+[Remote]: Because I've developed good relationships.
+[Remote]: And that yeah. Like, trust me. Like, Joel, we work together.
+[Remote]: Stay in touch. We try to help each other. You know, make connections. Like,
+[You]: But that's mainly relationship driven.
+[You]: Like, you're not using technology for people you don't know, for example. It's it's everything, like,
+[Remote]: Oh, no. Then you do yeah. You you're gonna use, like,
+[Remote]: LinkedIn Sales Navigator to, you know, compile some lists.
+[Remote]: Depending on what you guys wanna do as far as outreach tools to automate. You know, there's a
+[Remote]: a couple different thing, like Ripple, different things that you can, you know, use
+[Remote]: automate that process as well.
+[Remote]: So, yeah, it depends on how you know, if you wanna blast it out, do you wanna really
+[Remote]: zero in on a a few hard
+[Remote]: groups that you wanna go after. So, you know, I'm willing to work
+[Remote]: take your direction how you wanna go about it, the process.
+[Remote]: And I'll lead that process whichever way we come to the
+[Remote]: like, my job as a salesperson is to come get my client or get my
+[Remote]: to come to the buying decision with me, not me selling them.
+[Remote]: It's the same thing. You and I and whoever else gets involved on the rhexy side will come to the like, I'll I'll give you my my thoughts, but you guys are gonna have ideas, and then we'll here's this is the best way to attack it. We could sit down next week and and map that out. Right? Like, that like, I have my vision in the sales perspective. You have your vision from the business perspective. And we'll figure out what which way works. And after a couple weeks, if it doesn't work right, we'll switch the script and and
+[Remote]: go a different direction.
+[You]: Of course. So you'd not only help generating the lead, also converting it and and doing the wholesale
+[Remote]: Finally, close the deal.
+[You]: process.
+[You]: Amazing.
+[Remote]: And everything in between.
+[You]: Amazing. Amazing. Because because I think we also need help in that. I don't have a background in sales less less so in b to b sales, and it there's a lot of psychology. There's a lot of emotional stuff,
+[Remote]: It's a game.
+[You]: I still don't get.
+[You]: On what to say, what type of you know, like, creating the business case,
+[You]: like, going one step at a time. It's a game, and I'm I'm
+[You]: learning a ton, but maybe having someone like you that's an expert would be
+[You]: would be great for me. And the last question, given we have only one minute left is
+[You]: what are you up for what are you up to today, and and what are you looking for?
+[Remote]: I am
+[Remote]: I'm doing
+[Remote]: two consulting gigs right now from a sales perspective.
+[Remote]: I'm looking for something that's more exciting and could turn into a more permanent
+[Remote]: role.
+[Remote]: But, the other thing that I've done
+[Remote]: will help and that has helped me is I created an, job seeking networking group.
+[Remote]: It's been over a year. I've had 200 people come through my group.
+[Remote]: I get speakers from
+[Remote]: you know, career coaches, resume writers, an HR panel.
+[Remote]: An astronaut, New York Times best selling author. And I tell you this because
+[Remote]: I don't just sit around and wait for things to happen. Like, I'm a networker that, like,
+[Remote]: I try to get things going. And,
+[Remote]: I can reach out to someone I haven't spoken to in twenty years. They're probably gonna remember because I did something smart, not
+[Remote]: crazy. But I did something that will make them remember me. I'm not afraid to reach out.
+[Remote]: And I think this kind of fits with where you guys are right now. And and I've done this before
+[Remote]: Right? Like I told you, like, the New Zealand based company. I you know?
+[Remote]: I know you you have to wear many hats when when you're working with a a a
+[Remote]: company that's looking to take off. So I'm I'm willing to do that, willing to put in the hard
+[Remote]: work, and,
+[Remote]: the the reason
+[Remote]: is I I think there's a lot behind what you guys are doing, and there's a lot of opportunity.
+[Remote]: So
+[Remote]: I'm all in on that.
+[You]: Interesting. Interesting. Alright. I need to jump
+[You]: but this this was great. I think,
+[You]: probably an interesting next step, if you agree,
+[You]: because I am excited. I think there's a lot, but I think we need to do a bit more of this
+[You]: before we actually take a decision on how we move forward.
+[You]: Home of for me
+[You]: Let me go back to my numbers.
+[You]: My burn,
+[You]: budget,
+[You]: and and what I would love to achieve with you.
+[You]: And and circle back to document with that.
+[You]: I would love for you if you agree and have some time
+[You]: and this is gonna be interesting.
+[You]: With a but but with, like, a fresh set of eyes on what I just shared, about what we do,
+[You]: and the problem we're solving and the vision,
+[You]: We could put together, like, a
+[You]: I know what it is. Like, if it's, like, like, a document or a
+[You]: script on on what you would folk like, if we were to work together
+[You]: how would you focus the first ninety days?
+[You]: To maximize conversion?
+[You]: And build towards that seed round we're aiming for by
+[You]: the end of the quarter or start of q start of of the second half of the year.
+[You]: In terms of both, like,
+[You]: efforts, channels,
+[You]: which type of company would you would you target? What
+[You]: the target ACV?
+[You]: How would you do the outreach?
+[You]: And then just like a high level funnel on
+[You]: how many like, I'll share a bit more about this, but how how many companies do we need to target
+[You]: What's the conversion metrics we should be
+[You]: aiming for?
+[You]: So that by the end of the quarter, we have, let's say,
+[You]: 10 new paying customers.
+[You]: And then we'll exchange those files and then probably figure out
+[Remote]: Right.
+[You]: more time together to continue the conversation maybe by the end of the week.
+[Remote]: Yeah. That's fair. When you you're talking about ACV, though. What are you guys charging?
+[You]: A bit of lower place right now, but it's
+[You]: would say it was it's between 30 and a 120.
+[You]: Or between, like, 20 and a 120?
+[You]: It's a bit overlaced because it depends on on the complexity on
+[You]: on the the volume
+[You]: on the yeah. If there's any like, today, we're doing a lot of ad hoc development
+[You]: for our customers, of course.
+[You]: And we try to charge that every time we see our product is being stretched in some
+[You]: that we today
+[You]: so
+[You]: and, again,
+[You]: feel free to ask to use
+[You]: WhatsApp or or iMessage.
+[Remote]: WhatsApp?
+[You]: Do you use WhatsApp or or just, like,
+[Remote]: What what WhatsApp?
+[You]: use WhatsApp?
+[Remote]: Yep.
+[You]: Okay. I'll leave my
+[Remote]: I'll give you the
+[Remote]: okay.
+[You]: I'll leave my WhatsApp here.
+[You]: Feel free to drop
+[You]: this is my WhatsApp, which is my urgent care number, and then this is my
+[You]: US number.
+[Remote]: Which one would you prefer me to use?
+[You]: Whatever is easy for you. I don't care.
+[You]: Tend to use more WhatsApp from Argentina, but if if you're more comfortable using message
+[You]: just use message. I'm just sharing this. If you have any questions while you're working at it,
+[You]: shoot.
+[You]: I'll try to answer as quick as possible, and then we can aim to schedule more time maybe on
+[You]: Friday.
+[Remote]: Yeah. No. That that that that that would work.
+[Remote]: Yeah. Fry Friday.
+[You]: What what time could you do Friday?
+[Remote]: Let me just so we could just
+[You]: I like that you're already pushing to schedule that meeting. That's a very sales thing.
+[Remote]: Yeah. No. It's it's listen. Sales is just get a yes. Right? Get to the next
+[Remote]: next step.
+[You]: Yep.
+[You]: What time works for you?
+[Remote]: Let me see.
+[Remote]: Friday,
+[Remote]: you wanna do eleven?
+[You]: Eleven eastern,
+[Remote]: Yeah.
+[You]: Alright.
+[Remote]: That's good?
+[You]: Yep.
+[Remote]: Okay.
+[You]: I'll I'll do forty five minutes. Do you have forty five minutes?
+[You]: Amazing. Okay.
+[Remote]: That that that works.
+[You]: I'm just sharing the invite now, and
+[You]: yeah, let's both work on those documents and use that time
+[You]: to go over them and then figure out next steps then.
+[Remote]: So, like, if Friday work like, if we have a good conversation Friday, what what's your timing?
+[Remote]: To like, would you wanna get someone on yesterday, basically?
+[You]: Yeah. As soon as possible. Yeah. Moving fast.
+[Remote]: Okay. Alright.
+[Remote]: Alright. Good.
+[Remote]: That works for me.
+[You]: All right, Doug. Thank you for the time. I'm very excited about this.
+[Remote]: Alright.
+[You]: It's great to meet you. I know Joao spoke highly of you, and I'm excited about that.
+[You]: Let's work towards
+[You]: this on Friday and then figure out what comes next.
+[Remote]: Alright. That's fantastic. I appreciate you, sending this up, and I'll look
+[You]: I already sent it. Yep.
+[Remote]: forward to our next meeting. You're gonna send the invite. Right?
+[Remote]: Oh, okay. Perfect. Oh, yeah. There it is. Okay. Great.
+[You]: Thank you.
+[Remote]: Alright. Catch you later. Have a good night.
+[You]: Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Doug’s Background & Experience
+
+- Financial services sales expert with national network
+- Previously worked with Joao at Fitch, traveled to Buenos Aires/São Paulo for Latin American deals
+- Led US expansion for New Zealand startup selling AI actuarial solutions to insurance carriers
+- Currently doing two consulting gigs, seeking more permanent exciting opportunity
+- Runs job-seeking networking group (200+ members, speakers include career coaches, HR panels, bestselling authors)
+
+### Sales Approach & Capabilities
+
+- Relationship-driven outreach through warm network
+  - Casual emails with bullet points and white papers
+  - Strong at asking for referrals to reach right decision makers
+- Technology-enabled prospecting
+  - LinkedIn Sales Navigator for list building
+  - Automation tools like Ripple for scaled outreach
+- Full sales cycle management
+  - Lead generation through deal closing
+  - Consultative approach: “get client to buying decision with me, not selling them”
+- Willing to adapt strategy based on results and pivot quickly
+
+### Rexi’s US Market Expansion Goals
+
+- Target: Build scalable US pipeline for Q2/Q3 to support seed raise
+- Focus on non-tech savvy financial institutions (community banks, credit unions)
+  - Higher willingness to pay (5-6x Latin American labor costs)
+  - Less likely to build internal solutions vs fintech companies
+- Current challenges
+  - Limited US network beyond university connections
+  - Credibility gap when Latin American founders sell to US institutions
+  - Long B2B sales cycles for critical infrastructure
+- Pricing: $20K-$120K ACV (variable based on complexity/volume)
+
+### Next Steps
+
+- Both parties create 90-day strategy documents by Friday
+  - Doug: Sales focus, target companies, outreach channels, conversion funnel
+  - Ignacio: Budget, burn rate, success metrics for 10 new customers by quarter-end
+- Friday 11 AM ET follow-up meeting (45 minutes) to review documents
+- Timeline: Move fast - hire “yesterday” if Friday conversation goes well
+- Contact: WhatsApp/iMessage for questions during document prep
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/b238096e-32f0-48b7-ab97-8ca3de5eff47](https://notes.granola.ai/t/b238096e-32f0-48b7-ab97-8ca3de5eff47)

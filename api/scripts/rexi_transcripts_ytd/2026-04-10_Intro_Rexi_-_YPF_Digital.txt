@@ -1,0 +1,494 @@
+MEETING: Intro Rexi - YPF Digital
+DATE: 2026-04-10
+ID: not_eZMOR9VjhfSso0
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Carolina Morawetz <carolina@rexi.finance>, Mauro Cercos <mauro.cercos@ypf.com>, Natalia Figueredo <natalia.figueredo@ypf.com>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-04-10T15:00:00-04:00 - 2026-04-10T15:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: ¿Ahí me escuchan?
+[Remote]: Ahí sí.
+[Remote]: Ay, menos mal, pensé que ya te habías olvidado de nosotros. No, no, no.
+[Remote]: No. Deje de confesar que hay un problema con
+[Remote]: tenemos un tema con Google Meet.
+[Remote]: No no podemos entrar a, o sea, no no es herramienta corporativa,
+[Remote]: entonces, lo que nos termina pasando es que tengo que desconfigurar
+[Remote]: para
+[Remote]: ingresar dicho y hacíamos No, me di cuenta después.
+[Remote]: Pero hazme acordar que les avisé
+[Remote]: que como están chequeadas con Teams, no se puede.
+[Remote]: Primero, discúlpame, Paul, otra vez,
+[Remote]: No tenés perdón de dios. No, no, no, no, eso te va a caro, te va a costar
+[Remote]: de todo el tema de de de los precios y lo que está pasando a nivel
+[Remote]: de de de del valor del crudo y todo, y
+[Remote]: fui una fue una reunión medio que surgió de urgencia y se extendió más tiempo y, bueno, y
+[Remote]: así que, bueno, por por eso se complicó. Pero bueno, acá estamos, así que
+[Remote]: disculpa de por medio, estamos estamos acá. No, gracias, gracias.
+[You]: Pasan a
+[Remote]: Gracias por el tiempo, por el espacio. Quería mucho que conocieras a los chicos,
+[Remote]: Idealmente, habíamos tratado que fuera
+[Remote]: pero bueno, Nacho también, hoy que vio Nueva York, se está volviendo y
+[Remote]: y Teo también vive Nueva York, pero justo está acá, que son los dos
+[Remote]: que ahora se van a presentar. Pero bueno, ya va, les conté bastante,
+[Remote]: de, bueno, la relación que tenemos nosotros y lo que es IP hacia dónde creé llevar IPF, y me pareció que
+[Remote]: saben que habíamos estado hablando también el tema de Symmetric en su momento,
+[Remote]: pero la verdad que
+[Remote]: para el momento que está IPF digital hoy, para la visión que tenés a
+[Remote]: para lo que es tu estructura hoy, para lo que tenés que controlar
+[Remote]: a nivel escalabilidad con los seis millones de usuarios que tenés por de transacciones que
+[Remote]: generás por mes con los tres millones de usuarios, creemos, yo creo,
+[Remote]: honestamente, que conociendo cada día más
+[Remote]: la la solución de Rexi,
+[Remote]: creo que es una buena opción para que evalúes en este
+[Remote]: momento, que pudiera escalar a medida que vas
+[Remote]: escalando también el negocio IPF, y de una manera mucho más
+[Remote]: simple y con un costo beneficio bastante
+[Remote]: que que el de nuestra competencia, ¿no? Entonces,
+[Remote]: por eso insistí tanto en que nos escucharas y y que, bueno, que los chicos se pudieran
+[Remote]: presentar y también presentar un poco más en detalle la solución y escucharte a vos.
+[Remote]: Bueno, muchas gracias.
+[Remote]: Así que, Nachito, los dejo ahí.
+[You]: Dale, espectacular.
+[You]: Bueno, Mauro, un gusto un gusto conocerte, un gusto saludarte. Brevemente, nos
+[You]: bueno presentarnos, pero no me no me quiero demorar más de cinco o siete minutos en esto, porque después
+[You]: me encantaría entrar más detalles sobre dónde están hoy, cuáles son los dolores y
+[You]: creo que la idea de esta reunión, además de presentarnos, es
+[You]: evaluar si hay fit, ¿no?, si vale la pena tener alguna otra conversación, si hay interés
+[You]: y un dolor por resolver.
+[You]: Comentando un poco el equipo fundador,
+[You]: Teo está acá, falta a Seba, Seba es nuestro CTO, pero bueno, los tres venimos del mundo fintech de
+[You]: mundo PCPs, del mundo
+[You]: billeteras digitales,
+[You]: o cripto, en mi caso, también, y tenemos experiencia también en fintech en Estados Unidos,
+[You]: Y quizás lo que vale la pena remarcar es que estamos construyendo una compañía a partir de
+[You]: que hemos vivido, ¿no? Eso creo que es importante remarcarlo. Entonces,
+[You]: los tres tenemos anécdotas en mercado pago, en
+[You]: en común, en Naranja X y en Pomelo, de puntuales que
+[You]: muy bien el dolor,
+[You]: de conciliaciones, ¿no?, y el costo que puede llegar a tener.
+[You]: Entre otros, hay ahí, pero esto después, si quieres, te lo paso y y lo lees
+[You]: en algún momento. Un poquito más esto sobre nuestra historia,
+[You]: Rexy la incubamos en una en una aceleradora en MIT,
+[You]: liderada por Matt un inversor de fintech muy grande. Esa
+[You]: la terminamos ganando.
+[You]: Y con ese primer capital es que empezamos a construir el MVP. Ya después
+[You]: y yo, nos recibimos el MVA. Yo estaba estudiando en Harvard, tengo en Colombia,
+[You]: levantamos nuestra ronda prisid, con lo cual, desde entonces, hemos armado un equipo.
+[You]: Hemos construido un producto, hemos vendido, implementado con clientes, y en eso estamos creciendo
+[You]: la verdad, muy, muy, muy bien.
+[You]: Tanto en Estados Unidos como como en la región, en Latinoamérica.
+[You]: Del problema, no no sé qué tanto te puedo contar, me contó Caro vos estás muy involucrado en operaciones y conocés mucho
+[You]: el día a día y el detalle, este tipo de flujos,
+[You]: pero para un poco el problema de un punto de vista conceptual es
+[You]: en el mundo de servicios financieros hay una multiplicidad de fuentes muy grandes.
+[You]: Todas estas fuentes están sacando una foto del mismo flujo de dinero,
+[You]: pero entre ellas no se hablan, ¿no?, procesadores de pagos, bancos, adquirentes, ERPs,
+[You]: banking course, ledger, sistemas de back office, todos
+[You]: pintando una imagen de un flujo de dinero, pero cuando los empiezas a comparar te das cuenta que está lleno de
+[You]: diferencias.
+[You]: ¿Las compañías qué hacen? Empiezan a crear procesos para esto, ¿no?, equipos de operaciones
+[You]: con herramientas como Excel, SQL, Python, o a veces contratan con
+[You]: o desarrollan algo interno para
+[You]: tratar de que todos estos sistemas se hablen. Eso en el tiempo
+[You]: fue empeorando y lo que genera eso es costo, riesgo y fricción.
+[You]: Costo, porque a medida que escalás tenés que agrandar el equipo,
+[You]: Riesgo, porque el error en este tipo de procesos cuesta dinero.
+[You]: Y te puede costar algún tema regulatorio también. No sé, estamos trabajando con un banco que los
+[You]: meses
+[You]: viene pagando en multas al regulador porque no puede presentar un reporte cien por ciento conciliado.
+[You]: Multas
+[You]: de miles y miles de dólares, ¿no? Entonces, ese es el tipo de riesgo. También está el riesgo de perder una licencia
+[You]: llegado al caso. Y fricción, porque, obviamente, las consideraciones no es solamente un proceso de
+[You]: finanzas o de operaciones, sino que impacta muchas áreas. Un ejemplo de esto
+[You]: trabajamos con Buenvit en Argentina, que creo que tenía el quince por ciento o el veinte por ciento de los tickets
+[You]: de soporte.
+[You]: Por usuarios que iban y reclamaban dinero que habían depositado y no se había reflejado en la cuenta.
+[You]: Porque ellos no tenían una conciliación real time o casi real time
+[You]: para mostrar en la aplicación un saldo que había sido depositado.
+[You]: Tanto para flujos fiat como para flujos cripto.
+[You]: Esto lo voy a decir brevemente, pero es un poco para hablar también de nuestra
+[You]: visión, y dado que que vos sos el líder que
+[You]: de IPF digital, y y mirás finanzas, operaciones, producto, un poco, todo, Es decirte que, para hacerlo, las conciliaciones son una, es un primer paso. Es un primer paso, y la gran visión de Rexy es una, es ser una plataforma
+[You]: para que vos, Mauro, puedas construir agentes para automatizar muchos de tus procesos operativos.
+[You]: ¿Sí? Pero la conciliación es un paso previo,
+[You]: porque si yo te hablo de que hay una multiplicidad de fuentes, que ninguna se habla,
+[You]: lo primero que tengo que hacer es armar lo que llamamos un system of record.
+[You]: Que toma todas esas fuentes y te las concilia, y sobre eso yo puedo construir agentes.
+[You]: Si yo pongo agentes sobre una base que no está conciliada o no es precisa o no
+[You]: refleja la realidad, el agente me va a escupir un output
+[You]: con la misma precisión y y fiabilidad que esa misma fuente.
+[You]: El primer paso es decir,
+[You]: tengamos un sistema consolidado que refleje la realidad y
+[You]: de ahí, construir agentes, ¿no?
+[You]: Pero hoy, el producto que tenemos, estamos empezando a a desarrollar esa
+[You]: visión de plataforma, hoy es un producto de conciliaciones.
+[You]: Y automatiza el flujo
+[You]: de punta a punta, desde ingesta
+[You]: hasta cualquier lógica de reportería contable que vos necesites, dashboards,
+[You]: etcétera.
+[You]: Y algunos desarrollos iniciales que vale la pena mencionar, tenemos un integrador dinámico que perfite
+[You]: conectarnos a las fuentes
+[You]: en minutos, en días,
+[You]: Entonces, esa implementación es mucho más rápida y no requiere tanto trabajo de ustedes.
+[You]: El tema del data que es cómo el sistema aprende en el tiempo de la operatoria de IP
+[You]: digital.
+[You]: No solamente de los archivos, sino también de
+[You]: lo que hace Mauro en la plataforma.
+[You]: Y, de esa manera,
+[You]: se vuelve muy personalizada y se vuelve más autónoma, porque empieza a aprender y con el tiempo se vuelve cada vez mejor.
+[You]: Y después, el tercero, que vale la pena mencionar, es el problem solver, porque si
+[You]: si conocés el mundo de conciliación, es que calculo que lo conocés casi mejor que nosotros, es
+[You]: todo un tema de resolver diferencias.
+[You]: Cuando uno ya tiene un flujo de
+[You]: para archivos,
+[You]: todo un tema después de cuánto me demora y cuánto puedo resolver las diferencias.
+[You]: El problem server es un módulo agéntico que tenemos que, básicamente, encuentra patrones
+[You]: dentro de las diferencias, y te sugiere soluciones que vos podés aprobar o rechazar.
+[You]: Entonces, eso, esa esa investigación que antes te demoraba
+[You]: no sé, hablamos con equipos que están haciendo esto dos, tres horas por día de dos o tres personas,
+[You]: eso baja a minutos, y ahí me lleva a la siguiente slide, que es
+[You]: con los clientes que estamos trabajando. Acá tenés algunos de Latinoamérica, otros de Estados Unidos,
+[You]: pudimos reducir tareas en un ochenta por ciento.
+[You]: Y eso lo vamos a llevar más, porque pensá que el sistema, de vuelta, como aprende y se vuelve mejor,
+[You]: se optimiza y gana mucha productividad en el tiempo.
+[You]: El otro impacto tangible son las famosas pérdidas irreconciliables, esas
+[You]: que vos a fin de mes no podés explicar y por ende tenés que cerrar los libros
+[You]: y lo mandás a pérdida. Eso es otro ahorro tangible que hemos generado con clientes,
+[You]: Justo ahora, Tego, que que el día de producto, está trabajando en un módulo de, que llamamos revenue leakage,
+[You]: es decir, con el proveedor con el que trabajo yo le tiro a Rexy el contrato,
+[You]: Rexi arma una base de las comisiones que yo tendría que haber cobrado de todo el
+[You]: flujo de dinero y de los fees que tendría que haber pagado,
+[You]: y te lo compara con la realidad.
+[You]: Y no sabés las cosas que estamos encontrando con clientes, la cantidad de plata
+[You]: que encontramos de clientes que le cobran mal las comisiones, que se pagan mal los
+[You]: o que se deja dinero sobre la mesa, porque
+[You]: porque no hay nadie auditándolo. Entonces, ahí es como que tenemos un módulo que te audite y te
+[You]: recupera dinero.
+[Remote]: Ahí hay mucha ganancia en
+[You]: Y después, bueno,
+[Remote]: en también en términos financieros, hay un arreglo para liquidaciones en temas dos,
+[Remote]: y en promedio están liquidando en temas dos coma cinco o tres, entonces ahí hay
+[Remote]: anualizado una ganancia financiera muy grande en hacer un seguimiento más
+[Remote]: a nivel transaccional de de cada una de las liquidaciones, que antes no se hacía.
+[You]: Total,
+[You]: Pero, bueno, como no me quería extender, la corto ahí, después cualquier pregunta o duda, pongo
+[You]: feliz de contestarla.
+[You]: Encantado de escuchar más un poco sobre dónde están parados hoy, cómo
+[You]: qué tipo de flujos están conciliando,
+[You]: qué tipo de dolores tienen y cómo lo ves evolucionando en el tiempo también, ¿no? Porque a veces algunos clientes
+[You]: que trabajamos que me dicen, mirá, hoy siento que lo tengo más, yo lo he resuelto, pero a futuro
+[You]: si se da el plan de crecimiento que planteé para veinte veintiséis, va explotar por los aires, con lo cual por ahí necesite esto o ahora, preventivamente, o en el futuro, como esté prendido fuego. Así que no sé. Preguntarte ahí cómo cómo están parados hoy.
+[Remote]: Bueno, gracias por el resumen inicial.
+[Remote]: Nosotros es una plataforma que nace en el dos mil dieciocho y que partir de de los años sucesivos, empieza a abrir su su ecosistema, ¿no? Entonces tiene, por un lado, los pagos que ocurren en la red de estaciones de servicio, son mil setecientas estaciones, distribuidas en el país. Los pagos con tarjeta de crédito y débito, quedan suscriptos al al al formato más local, o sea, la conciliación dentro de la estación de servicio, que no está a nuestro cargo, sino que está estación de servicio administra su conciliación, como si fuese una una franquicia. Pero la billetera, dentro de la aplicación, lo que es el dinero en cuenta propio, funciona con una conciliación centralizada desde el
+[Remote]: nuestro. Hasta ahora, al tener un ecosistema cerrado, o sea, que
+[Remote]: que no había posibilidades de transferir entre usuarios
+[Remote]: Lo de PCP era una conciliación bastante tranquila, porque
+[Remote]: lo que tenías era un único callao posible, n es cachín, pero un solo callao. Era en el red de estación de servicio o en la red de de de la carga de combustible o la de tienda, pero estaba en el ecosistema cerrado. Desde hace poquito menos de un año abrimos eso a formato de billetera más abierto, entonces empezamos a a tener libre transferencia entre los usuarios, Después se sumó pago de servicios, con lo cual ya no estabas pagando solo en IPF, sino en seis mil a través de a través de TAPi,
+[You]: Happy.
+[You]: Ahí va.
+[Remote]: con esas integraciones,
+[Remote]: Después,
+[Remote]: podías empezar a pagar con transferencia en otros negocios,
+[Remote]: por afuera del ecosistema de IPF, si vienes residual,
+[Remote]: empezás a tener algunas cosas como más aleatorias de
+[Remote]: administrar el programa de beneficios de IPF, entonces,
+[Remote]: a tener algunas máquinas vending que operan en la torre, entonces, ya hay otro
+[Remote]: jugador que entra en el medio.
+[Remote]: Y y los cachines y los callaos se empiezan a incrementar,
+[Remote]: entre ellos se incrementa también o se va a empezar a incrementar,
+[Remote]: porque a partir de la semana que viene el saldo de ese la billetera empieza a estar remunerado, entonces también
+[Remote]: tiene una una complejidad adicional.
+[Remote]: En nivel números, más o menos, hoy tenemos dos millones de dólares
+[Remote]: dos días, más menos, ¿sí?, con un flujo
+[Remote]: a nueve millones de dólares que
+[Remote]: tenemos en la billetera. La
+[Remote]: aplicación, o IPF digital es un spin-off de IPF, y le compro, entre comillas, la
+[Remote]: aplicación a IPF para administrarla, para poder ser PCP,
+[Remote]: y y poder tener esta libre disponibilidad,
+[Remote]: con lo cual, como el consumo se realiza en IPF, IPF digital le tiene que pagar a IPF esos consumos, entonces, hoy nuestro
+[Remote]: operación es el usuario fondea, entro, eso entra una
+[Remote]: cuenta de IPF digital, la plata se queda ahí,
+[Remote]: nosotros tenemos distintas colocaciones financieras, cuando el usuario va a consumirla
+[Remote]: estación de servicio, reconocemos esa
+[Remote]: esa plata a IPF, y a su vez IPF se la reconoce a los operadores.
+[Remote]: Con lo cual ese es el
+[Remote]: el circuito de cómo
+[Remote]: de cómo funciona.
+[Remote]: En la medida que que fue empleando, esta conciliación se va
+[Remote]: se va complejizando,
+[Remote]: Tenemos hoy una conciliación
+[Remote]: con bastante grado de manualidad y con una
+[Remote]: cercanía más parecido a un formato
+[Remote]: de compañía como IPF, y no lo que buscaríamos como
+[Remote]: digital. ¿A qué me refiero a esto? Bueno, por ahí una conciliación que te sigue
+[Remote]: con t menos dos, en lugar de una conciliación a real time.
+[Remote]: ¿Sí?
+[Remote]: Que IPS está pensado como compañía para operar
+[Remote]: miles de clientes de millones de dólares, y por ahí la billetera,
+[Remote]: son millones de clientes con miles de pesos. Entonces,
+[Remote]: la relación de nuestros sistemas y la relación de los sistemas de tienen como una
+[Remote]: arquitectura de funcionamiento distinto.
+[Remote]: Sabemos que hay parte de nuestro sistema que tiene que ir integrado a SAP porque es el sistema de la compañía, hay cosas que se van a pagar ahí y que van a estar funcionando,
+[Remote]: pero hay otras que son conciliaciones
+[Remote]: propias que tenemos que empezar a seguir de otra manera, y esperamos que
+[Remote]: durante
+[Remote]: el próximo trimestre poder hacer un relevamiento de qué productos hay,
+[Remote]: con la intención de implementar, tener
+[Remote]: tipo de implementación y tratar el aspiracional sería
+[Remote]: sobre el último trimestre del año, tendríamos algún producto de conciliación
+[Remote]: con un grado de automatización mayor al actual, ¿sí?
+[Remote]: Eso lo que lo que visualizamos.
+[Remote]: Tenemos nuestro corro de
+[Remote]: bancario de la billetera,
+[Remote]: Flexibility, nuestro banco sponsor es Santander,
+[Remote]: Hoy,
+[Remote]: y Globant es el que hace la experiencia al front de la billetera, que es lo que menos
+[Remote]: impactaría acá, ¿sí?
+[Remote]: Ese es un poco el panorama o nuestra arquitectura y lo que visualizamos hacia adelante.
+[Remote]: Empezamos a ver algunas compañías,
+[Remote]: todavía no con ese nivel de detalle, pensábamos en hacer algún análisis de de mercado para ver oportunidades y ver cómo nos cómo nos, qué nos implicaría una integración y de qué manera, y cómo conviven otros sistemas, digo, bueno. Hay un sistema propio de IPF digital que le permite llevar su conciliación,
+[Remote]: después eso se une al sistema central de IPF, que tendrá
+[Remote]: su SAP, porque el pago de facturas y determinadas cosas
+[Remote]: tienen que seguir esa lógica, ¿sí? Esa arquitectura hay que
+[Remote]: diseñarla a detalle para entender cómo podría funcionar.
+[You]: Perfecto. Bueno, el timing, entonces,
+[You]: creo que es es bastante relevante, ¿no?, como relevar este en este q
+[You]: para tener algo ya implementado q tres.
+[Remote]: Es un poco la idea y es la expectativa. La verdad que, sinceramente, no sé si vamos a
+[Remote]: llegar. A veces, la compañía
+[Remote]: cuando son tan grandes, tienen algunos procesos difíciles,
+[Remote]: las integraciones para nosotros no son fáciles, y el entendimiento y las
+[Remote]: tampoco, o sea, seleccionar un proveedor y hacer un acuerdo,
+[Remote]: Muchas veces nos lleva bastante tiempo entre formas,
+[Remote]: entender el producto, los alcances, y después cuando vamos a la integración,
+[Remote]: bueno, también tiene su desarrollo. Ahora, en la expectativa ideal,
+[Remote]: sería que que que nos manejemos en esos tiempos.
+[Remote]: Lo que necesitamos es,
+[Remote]: posible, deberíamos tener algún sistema de
+[Remote]: conciliación un poco más robusto y automatizado de lo que tenemos hoy.
+[You]: Perfetto.
+[You]: Perfecto. Bueno, espectacular. Y
+[You]: Ok. Sí, creo que el timing es perfecto, la
+[You]: de vuelta es
+[You]: PCP,
+[You]: es lo que hacemos, ya trabajamos con PCPs.
+[You]: Con lo cual es un mundo que conocemos bien. Es interesante lo de Santander como banco banco
+[You]: No no se escucha mucho, vemos más BIND en Argentina, Banco Industrial,
+[You]: debe ser lo mismo, y sé que también ellos están explorando crecer en ese sentido, así que
+[You]: interesante ver cómo lo están
+[Remote]: Sí.
+[Remote]: No es lo mismo, porque el
+[Remote]: Banco Santander es un banco bastante más tradicional y que tiene mucho menos
+[Remote]: experiencia en el manejo de ciertos
+[Remote]: de costo fintech que lo que puede tener el BIN,
+[Remote]: Tiene una explicación, nosotros recién definimos el banco
+[Remote]: hace poco, y esa explicación tenía
+[Remote]: Santander tenía un aporte sobre sobre partner de marca y sobre crecimiento de usuarios que no lo tenía no lo tenía el BIN, la relación de Santander con el PF también es muy
+[Remote]: fuerte. Nos apoyamos y nos anclamos mucho ahí, hay una inversión para querer
+[Remote]: en para crecer en usuarios
+[Remote]: y en beneficios para los clientes que otros bancos que no tienen esa presencia
+[Remote]: comercial tan fuerte minorista, era más difícil de lograrlo.
+[Remote]: Eso como positivo, si querés como negativo, sí nos encontramos que
+[Remote]: los flujos son más de un banco tradicional, las arquitecturas, la
+[Remote]: forma, los abordajes. Entonces,
+[Remote]: hay muchas cosas que no están construidas del otro lado, lo cual te dificultan
+[Remote]: o te hacen llevar al camino
+[Remote]: del aprendizaje de este lado, porque tenés que construir mucho de
+[Remote]: mucho de acá. No es que, bueno, tienen la experiencia, saben cómo hacerlo, te enchufas y sale.
+[Remote]: Es un período en donde, bueno, no se
+[Remote]: se traba, nos enchufamos, se traba y sale.
+[Remote]: Así estamos operando hoy,
+[Remote]: pero bueno, era leer algo que esperaba, ¿no?, o sea, tiene un tiene un atributo fuerte y
+[Remote]: una debilidad en ese punto.
+[You]: Claro.
+[You]: Bueno mira la verdad che me me
+[You]: me me da placer el timing,
+[You]: y siento que podemos hacer un laburo por ahí estas próximas semanas o este mes para
+[You]: mostrar el producto
+[You]: para mostrarles cómo funcionaría y tener como ese preempt
+[You]: en este relevamiento.
+[You]: Nosotros ahí, en ese sentido, felices de de armar
+[You]: no sé, pruebas piloto, demos, lo que lo que sea necesario, y
+[You]: bien con los equipos. Nosotros, de vuelta, como la visión es mucho más
+[You]: agentizar la operación financiera y las consideraciones son una puerta de entrada, nos vendemos mucho más como un tech partner que como un vendedor. Entonces, en ese sentido, ¿viste?, vamos a las oficinas y trabajamos al lado del equipo implementando la quién mejor sabe cómo consideras esos archivos es el equipo que lo está haciendo actualmente. Y ellos son los que van a, el día de mañana, bajar esa lógica a la plataforma y después
+[You]: seguir agentizando otros
+[You]: procesos dentro del del departamento.
+[You]: No sé ahí
+[Remote]: Sí, y no, ahí
+[Remote]: a ver, IPF sabe vender combustible, y no sé si sabemos tanto del mundo del mundo fintech, Y esto que te decía al principio, es una compañía que, por eso, están diseñados de de miles para millones de dólares, sino al revés. Con lo cual, dentro de este discovery que estamos haciendo, también queremos ver cómo lo resuelve otro, y lejos de presentarlo como una debilidad eso, nosotros lo presentamos como con total franqueza, digamos, nuestro punto nosotros hemos hecho un trabajo bastante emblemático y representativo en el mercado, o sea, cuando construimos una compañía dentro de otra compañía, hoy la billetera debe estar entre las tres
+[Remote]: más utilizada, Argentina. Y PF es la compañía
+[Remote]: más volorada de la Argentina, el ecosistema es muy potente, hay muchas cosas que
+[Remote]: están muy bien y que tienen un potencial enorme, y hay muchas cosas que no conocemos y que la
+[Remote]: estamos aprendiendo y que y que tenemos la la humildad suficiente como para
+[Remote]: bueno, che,
+[Remote]: se resuelve esto en el mercado?, mostrame cómo se hace, cuál es el mejor camino. No queremos
+[Remote]: inventar la pólvora y nuestro equipo en ese terreno es bastante consciente. Entonces, sí,
+[Remote]: pueden alinear, obviamente, entender algunas casuísticas de IPF, pero
+[Remote]: es un equipo que está abierto a entender, bueno, decime
+[Remote]: cuál es el estándar, cómo voy a crecer, cómo lo voy a hacer y y
+[Remote]: no es que que sentate, te dicto y te lo hago, y no porque
+[You]: Oh, yeah.
+[Remote]: damos voluntad para hacerlo, sino porque la verdad que no tenemos esa fortaleza. Entonces,
+[Remote]: buscamos poder apoyarnos en que
+[Remote]: en que lo entiendan y va a ser un valor importante. Dos o tres cosas ahí para para aclarar, que me
+[Remote]: parecen importantes. Feria, teniendo en cuenta un poco lo que charlábamos y creo que puede llevarse una idea mejor de dónde estamos parados hoy, si así no fuera, estoy disponible a que volvamos hablar hasta que a ustedes les quede más o menos claro dónde estamos y hacia dónde vamos. Pensar en ese en ese formato qué es lo que se puede presentar, No tengo claro yo cómo cómo vamos a seguir nosotros este formato de discovery, quiere decir, vamos a encontrar cuatro o cinco compañías como ustedes y vamos a visitarlas, vamos a encontrar una que nos convenza y vamos a defender esa posición y vamos a hacer una
+[Remote]: directa, vamos a pedirle alguno de los
+[Remote]: implementadores nuestros
+[Remote]: decime cuáles son, yo te acerco esta, vos andá a buscar todas las demás y decime cómo vas
+[Remote]: seguir eso. Digo, todavía eso no lo tenemos resuelto y y
+[Remote]: con total sinceridad como para setear esas expectativas, ¿sí?
+[Remote]: Fíjense en ustedes cuál puede ser,
+[Remote]: los partners con los que trabajamos nosotros, se los nombré, es Global, Netflix,
+[Remote]: trabajamos con Microsoft el tema de la nube,
+[Remote]: y y esos son los que estamos
+[Remote]: hoy operando y los que están en el core de nuestra billetera y, bueno, y Santander, como
+[Remote]: nombre. Entonces, si ustedes ya tienen cierto conocimiento, conocen a algo, pueden verlo,
+[Remote]: hay una forma de entender cómo estamos operando y puede ser un camino, ¿sí?
+[You]: Okay.
+[Remote]: Si no, hay que explorarlo, analizarlo,
+[Remote]: por lo menos desde lo
+[Remote]: desde la arquitectura para después poder seguirlo.
+[You]: Buonissimo, grazie, anzi, per questo contesto.
+[Remote]: ¿Sí?
+[You]: Chaí, el interés del tiempo que que tenemos que saltar nosotros,
+[You]: ¿cómo te parece seguir como próximo paso? Yo, personalmente, como veo una oportunidad
+[You]: y veo muy buen timing,
+[You]: me encantaría conocer al equipo que hoy está conciliando, ¿no?, para por ahí
+[You]: la solución o hacerles una demo y empezar a conocernos. No sé cómo ves vos como próximo paso.
+[Remote]: Sí, fue un problema, o sea,
+[Remote]: si querés, traten de bajar algo de esto que hablamos,
+[Remote]: para poder compartírselo a este equipo. O sea, nosotros somos
+[Remote]: veinticinco personas hoy, más menos, directos en digital, ¿sí?
+[Remote]: Por lo cual yo tengo una
+[Remote]: una una necesidad muy tangible
+[Remote]: de alojar muy bien los recursos, o sea, el equipo no está para
+[Remote]: para sentarse y explorar en algo que concretamente
+[Remote]: no vamos a materializar, porque tenemos un ropa bastante exigido, entonces,
+[Remote]: lo ponemos la energía en algo que que que que no queremos
+[Remote]: que que queremos realmente resolver. Entonces, yo lo que te diría, demos un primer paso
+[Remote]: para entender cómo es la solución, mostrarnos algún
+[Remote]: algún caso, tratar de construir algo de lo que se imaginan respecto a eso,
+[Remote]: si para eso necesitan alguna charla
+[You]: No.
+[Remote]: más, lo lo comunico directamente con el gerente nuestro, pero después de ahí,
+[Remote]: ahí sí yo te disponibilizo, digo, che, júntense y piensen
+[Remote]: cómo puede cómo puede funcionar, pero tratemos de bajar un poco a
+[Remote]: a detalle cómo lo ven ustedes desde la experiencia también que tienen,
+[Remote]: dónde podríamos ir teniendo en cuenta toda esta parte.
+[You]: Obvio, hagamos una demo, una demo genérica,
+[You]: sin ningún tipo de de de expectativa,
+[You]: y ahí, a partir de ustedes, cuando cuando empiecen a diseñar mejor el proceso,
+[You]: participar activamente en ese proceso.
+[Remote]: Dale, dale, genial.
+[Remote]: Bueno, cualquier cosa tienen el contacto directo, así que
+[Remote]: por intermedio de Carolina, y, si no, ustedes se fijan
+[Remote]: yo después lo voy a poner en contacto con con que es el gerente financiero nuestro,
+[Remote]: para que para que puedan seguir trabajando
+[Remote]: un poco más en detalle y en profundidad con alguien,
+[Remote]: con él o con alguien de su equipo, que también están en el día a día,
+[Remote]: digo, yo por más que quisiera
+[Remote]: profundizar algunas cosas,
+[Remote]: estaría tan bueno que también entiendan cuál es la arquitectura, le
+[Remote]: pagamos a IPF dos veces por semana, digo, hay toda una lógica
+[Remote]: muy puntual de cómo funciona el negocio,
+[Remote]: pero es cuando entrás en detalle, digo, en la parte en la primer capa superficial,
+[Remote]: necesita lo mismo que necesita cualquier billetera, hay veinticuatro por
+[Remote]: siete entrando plata todo el tiempo y esto en canales de
+[Remote]: de diferenciación. Todavía
+[You]: No, por eso te digo, es un caso que conocemos bien, olvídate, es un caso que conocemos muy bien y ya estamos trabajando con
+[You]: clientes que tienen en la misma operatoria, así que en ese sentido
+[You]: nosotros,
+[You]: la conocemos bien.
+[Remote]: Yo creo que, creo que ahí, más que nada, Mauro, va a ser interesante que vos veas
+[Remote]: que puedan ver en esa demo también, apreciar, yo entiendo y creo que los chicos también
+[Remote]: les comenté, el el los recursos, digamos, limitados que
+[Remote]: tenés hoy y que los necesitás enfocados en ciertas cosas que son prioridad,
+[Remote]: y por eso yo creo que es un buen timing para una solución
+[Remote]: como esta, que permite esa agilidad
+[Remote]: el aumento de productividad de tu equipo y esa
+[Remote]: simplicidad y y y agilidad en términos de integración, lo que vos hablabas
+[Remote]: que te preocupaba, ¿no?, todo el tema de integraciones, que es complejo, además, porque está con IPF,
+[Remote]: Cuando conozcas un poco la demo, la plataforma, y veas
+[Remote]: visualices la
+[Remote]: la rapidez de integración. Y esa parte que decía Teo o o Nacho también,
+[Remote]: de que la solución va aprendiendo a medida que ustedes lo van usando,
+[Remote]: a vos
+[Remote]: me imagino que si te va prender la lamparita y vas a decir, esto es lo que necesito para mi equipo
+[Remote]: hoy lo tengo en todas partes, y que necesito que se enfoquen en
+[Remote]: partes estratégicas más que la al día a día,
+[Remote]: yo creo que, por conocerte a vos y conocer lo que las charlas que tuvimos,
+[Remote]: es algo que va a ser superinteresante que lo puedas visualizar. Entonces,
+[Remote]: ahí la demo, después te hacemos por ahí alguna pregunta para hacerlo más personal,
+[Remote]: personalizada posible, para que refleje realmente lo que lo que ustedes están
+[Remote]: y el día a día de ustedes, y me decís o nos decís a quién más
+[Remote]: integrar y la y la agendamos.
+[Remote]: Me parece que ahí va sin duda y
+[Remote]: o sea, si bien focalizamos ese esos recursos,
+[Remote]: mí este año hay tres, cuatro cosas por hacer, no mucho más, y esta es una.
+[Remote]: Así que no es algo que
+[Remote]: cuando yo lo focalizo, es algo que realmente nos preocupa porque es parte del crecimiento ordenado.
+[You]: Cien por ciento. Bueno, Mauro,
+[Remote]: Ajá.
+[Remote]: Sí que,
+[Remote]: Bueno, gracias por el tiempo y, bueno, quedamos en contacto con a vos.
+[You]: gracias a vos.
+[You]: Me gustazo, un buen fin de
+[Remote]: ¿Sí? Te veo la semana en el Wednesday.
+[Remote]: Dale, gracias, saludos. Hasta luego.
+
+============================================================
+SUMMARY
+============================================================
+### YPF Digital Platform Overview
+
+- Platform launched in 2018, initially closed ecosystem
+- Payment infrastructure:
+  - 1,700 gas stations across Argentina
+  - Credit/debit card payments handled at station level (franchise model)
+  - Digital wallet operates with centralized reconciliation
+- Recent expansion (less than 1 year ago):
+  - Open wallet functionality with free transfers between users
+  - Bill payment services integration
+  - Payments outside YPF ecosystem via transfers
+  - YPF benefits program administration
+  - Interest-bearing balances starting next week
+- Corporate structure:
+  - YPF Digital is spinoff that purchases wallet from YPF
+  - User funds flow: deposit → YPF Digital account → consumption recognition to YPF
+- Current scale: $2M daily transactions, $9M total wallet balance
+- Technology stack:
+  - Core banking: Flexibility platform
+  - Bank sponsor: Santander
+  - Frontend: Globant
+  - Cloud infrastructure: Microsoft
+  - Integration required with SAP system
+
+### Current Reconciliation Challenges
+
+- Reconciliation complexity increasing with ecosystem expansion
+- Current process very manual, operates more like traditional YPF (corporate mindset) vs digital-first approach
+- Architecture mismatch:
+  - YPF systems designed for thousands of clients with millions of dollars
+  - Digital wallet serves millions of clients with small amounts
+- Timing delays: T-2 reconciliation vs real-time needs
+- Team constraints: 25 people total, need efficient resource allocation
+- Integration challenges with traditional bank (Santander) vs fintech-native banks
+
+### Implementation Timeline & Next Steps
+
+- Q2 2024: Market research and product evaluation
+- Q3 2024: Target implementation of automated reconciliation system
+- Process concerns:
+  - Corporate procurement processes can be lengthy
+  - Integration complexity with existing systems
+  - Need robust solution as soon as possible
+- Team structure:
+  - Hernán: Financial manager (key contact for technical details)
+  - Mauro: Available for strategic discussions
+- Immediate next step: Generic demo to evaluate solution fit
+- Priority focus: One of only 3-4 major initiatives for the year
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/1a7101f6-e17b-4d37-a911-c968ada33562](https://notes.granola.ai/t/1a7101f6-e17b-4d37-a911-c968ada33562)

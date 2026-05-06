@@ -1,0 +1,430 @@
+MEETING: Rexi x Wollef: update
+DATE: 2026-02-23
+ID: not_dzBusGt85U9k3L
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Diego <diego@wollefvc.com>, Sebastianh <sebastianh@wollefvc.com>, Cristobal Perdomo <cristobal@wollefvc.com>
+SCHEDULED: 2026-02-23T17:00:00-05:00 - 2026-02-23T17:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Bueno.
+[You]: Me alegro, me alegro. Usted
+[You]: en safe.
+[You]: Bueno, no sé si
+[You]: traen una una una, preguntas
+[You]: o o más a modo app de
+[Remote]: No, que responderas, a ver qué, a ver en qué dabas, ¿no?, o sea, qué has logrado de
+[Remote]: en cuanto a temas de, no sé, de clientes, de poco, otros que nos ha hablado, ¿no?,
+[You]: Sí. Bueno, a ver,
+[You]: ¿dónde estamos hoy? Tenemos un equipo, somos un equipo de siete personas,
+[You]: trajimos un un CTO, creo que las días que hablamos estábamos en en ese Quest, no sé cuándo fue los días que hablamos, pero se Sebastián García,
+[Remote]: Sí.
+[You]: de pomelo,
+[Remote]: Ok.
+[You]: como como CTO, entonces, gran
+[You]: gran incorporación al equipo. Está liderando al equipo de cuatro
+[You]: devs en en Buenos Aires, Teo y yo todavía pasados acá en New York.
+[You]: Y todavía no, y seguiremos basados acá en New York.
+[You]: El target market,
+[You]: sigue siendo Estados Unidos por un tema de
+[You]: fragmentación en la competencia, willingness to pay,
+[You]: size of the market. We're based here in New York,
+[You]: generate those network effects.
+[You]: Yo voy estar yendo a San Francisco Mañana,
+[You]: if weather permits, y todo lo de LATAM que estamos tomando es un poco por
+[Remote]: Sí.
+[You]: por nuestros networks, ¿no?, más reactivos.
+[You]: Cosas que van que van saliendo, porque los tres fuimos fintech operators en en Latinoamérica.
+[You]: Así que where we are today? A ver, building and selling.
+[You]: Nuestro producto tiene
+[You]: creo que dos complejidades. La primera es
+[You]: it's hard to sell a scrappy product even though you price it
+[You]: as a scrappy product,
+[You]: porque estamos hablando de infraestructura, ¿no?, y particularmente con
+[You]: tiene una sensibilidad de que
+[You]: no hay un mercado por
+[You]: pagar la mitad por un scrappy product, porque no puede fallar.
+[You]: Hay una hay un hay un performance threshold mucho más elevado
+[You]: entonces, we need to make sure that the product is is working
+[You]: and it's reliable in a way
+[You]: que
+[You]: que está battle tested. O sea, tipo,
+[You]: testear todos los edge cases posibles, ya sea de escalabilidad,
+[You]: de bugs, de cosas, con lo cual eso eso
+[You]: requiere un una velocidad de desarrollo y y una ejecución mayor,
+[You]: Y lo otro es
+[You]: que tiene que ver con lo mismo, given its critical infrastructure and a sensitive workflow,
+[You]: hay cosas de de branding y de posicionamiento.
+[You]: Por eso no sé si habrán visto que empezamos a hacer un poquito más de PR, más ruido en redes sociales, empezamos a tratar de de también de hablar de nosotros, del funding team y la experiencia que traemos,
+[You]: a este a este problema y a la solución
+[You]: así que estuvimos ahí aumentando un poquito la actividad en en lo que es
+[You]: social media, prensa, con el objetivo de posicionamiento, porque brand matters,
+[You]: And until you get those logos
+[You]: that open other doors,
+[You]: you need to create that brand for yourself.
+[You]: Start working with some free pilots, y así.
+[You]: A tu pregunta, ¿tenemos clientes pagando en producción
+[You]: en Latinoamérica y en y en Estados Unidos,
+[Remote]: Okay.
+[You]: y tenemos ahí muchas
+[You]: leads abiertos, que pasamos propuestas comerciales o estamos en un free pilot,
+[You]: proof of concept, esa es la otra el ciclo de ventas,
+[You]: por lo general tiene un demo,
+[You]: después tiene un real demo con un NDA firmado,
+[You]: después tiene algún tipo de pilot test, where we actually go in and
+[You]: implement the solution, and it runs for one or two months.
+[You]: Shadow a un proceso actual,
+[You]: y después hay una segunda implementación en donde matamos el proceso actual
+[You]: and we start relying solely on on what Rexy says. Entonces,
+[You]: básicamente, desde desde una primera interacción hasta un full contract
+[You]: signed at full price, y y pueden pueden llevar muchos meses.
+[You]: Creo que hoy tenemos un muy buen healthy pipeline,
+[You]: y vamos a ver muchas de estas oportunidades materializarse en las próximas semanas.
+[You]: Así que así que ahí estamos, building and selling. La verdad que
+[You]: las dos buenas noticias quizás de los últimos meses fue
+[You]: el equipo que armamos en primer lugar, creo que los
+[You]: tres cofounders tenemos experiencia muy relevante y hemos traído ingenieros de primer nivel
+[You]: Argentina,
+[You]: Creo que la decisión de basar el equipo técnico en Argentina no fue por un tema de costos, fue más por un tema de
+[You]: where do we have the right
+[You]: to attract
+[You]: and retain
+[You]: top talent, ¿no? Por más de que yo haya hecho un MBA en Harvard o en Columbia, y
+[You]: acá en New York,
+[You]: we may have access to that top 1%, pero después de ahí a convencerlos,
+[You]: de que se sumen cuando el riesgo es infinito,
+[Remote]: Claro.
+[You]: ya hay un tema de quién eres, a quién conoces, con quién pueden hablar, y la verdad que
+[You]: tienen cero referencia mía, más allá de por ahí el Harvard stamp o el Columbia stamp, en el caso de Teo. En Latinoamérica,
+[Remote]: Sí.
+[You]: tengo acceso a ese top 1%,
+[You]: porque los conozco, I know who they are, I, los tres trabajamos en Latinoamérica,
+[You]: y tenemos la capacidad de atraerlos. Entonces, que se va
+[You]: se siente, che, yo fui funding team de Pomelo, también fui funding team de naranja x y y se traiga ingenieros de primer nivel,
+[You]: they're joining because you wanna work with him, ¿no? Entonces, y lo mismo conmigo y con Teo.
+[You]: Entonces, esa es una buena noticia, el el equipo que hemos armado
+[You]: staying lean,
+[You]: Creo que el costo es un second order effect, que nos da
+[You]: libertad
+[You]: ver mucho runway y poder
+[You]: tomar fundraising desde un lado mucho más orgánico y oportunito.
+[You]: Versus need related. Y la segunda gran oportunidad, quizás creo que para
+[Remote]: Yep.
+[You]: para la etapa en la que estamos,
+[You]: creo que
+[You]: esto lo veo con con otros founders o o cosas que voy escuchando, creo que hay muchos
+[You]: breaching stage companies that start with a
+[You]: hypothesis, understanding of the problem, y luego tienen que pivotear.
+[You]: Esos primeros meses, porque cuando van y se meten en las trincheras,
+[You]: en the weeds, se dan cuenta que ese problema
+[You]: o lo habían entendido mal,
+[You]: o la hipótesis de la solución estaba equivocada,
+[Remote]: Yeah.
+[You]: o ni siquiera es un problema.
+[You]: Y nosotros creo que cuando comparás nuestros primeros documentos, nuestras
+[You]: primeras notas, cuando estábamos iterando esto con Teo, we've only confirmed and gained conviction at the problem, ¿no? Sabemos que la es un tema de ejecución de nuestro lado, pero pero el problema y el en el mercado está, y lo vemos cada vez más grande. Desde, mismo en Latinoamérica, donde uno pensaría, bueno, Symmetric ya tiene mucha escala,
+[Remote]: Yeah.
+[You]: Symmetric is leaving a lot of deals on the table,
+[You]: that they're not willing to do because of their business model, y mismo así hay mucha
+[You]: gente, estamos viendo muchos deals saliendo de Symmetric y reemplazándonos con nosotros.
+[You]: Porque either got too expensive
+[You]: o no había mucho value add por fuera del cloud processing,
+[You]: con lo cual eso en Latinoamérica y Estados Unidos es
+[You]: cien x más grande.
+[You]: Por willingness to pay, e n de compañías,
+[You]: la fragmentación en la competencia es mucho más grande,
+[You]: entonces,
+[You]: la verdad que eso ha sido una gran, tipo, segunda noticia. La combi
+[You]: de del tamaño de oportunidad. It's on us, us to execute
+[You]: en un producto que sea realmente superador y mágico,
+[You]: y después en en en en sell it efficiently, ¿no?
+[You]: Con con esta mención que te acabo de hacer, de que el sales cycle
+[You]: es largo.
+[You]: Es largo.
+[Remote]: Oye, ¿y cuál es el...?
+[Remote]: El synten by subs, imagino?
+[Remote]: O sea, ¿cuál es el siguiente norte para ustedes?
+[You]: El norte, para nosotros, mirá,
+[You]: tenemos, obviamente, muchos milestones, ¿no?, pero
+[You]: siempre tiene que estar atado a
+[You]: valor real para nuestros clientes, entonces, y clientes realmente usando a
+[You]: relying on the platform. Eso es valor.
+[You]: Eso es tipo realmente valor agregado y todos los milestones tienen que estar
+[You]: anclados en eso. Así que
+[You]: tenemos un un milestone un poco agresivo, que es llegar a
+[You]: a veinticinco paying customers by end of q q dos.
+[You]: Y y para lograr eso, cascadean otros milestones, ¿no?
+[You]: Tenemos algunos a nivel producto,
+[You]: algunos módulos que nos falta desarrollar,
+[You]: y toda la todo lo que es la parte más
+[You]: agéntica y AI native de la plataforma,
+[You]: que va a generar un productivity gap enorme, porque es decir, a nivel producto,
+[You]: hemos enfocado en los últimos seis meses en
+[You]: building an MPP, ¿no? Building that data orchestrator que ingesta
+[You]: transforma, procesa y escupe resultados en un lindo dashboard.
+[You]: La siguiente fase es es adding intelligence, porque estuvimos preparando la infraestructura para que
+[You]: toda esa información sirva para ya sea pegarlo en el LM,
+[You]: entregar nuestros propios algoritmos de machine learning,
+[You]: empezar a crear la inteligencia a la plataforma, con lo cual se viene toda una b dos
+[You]: con un montón de inteligencia
+[You]: Mismo en el producto también hay distintos bottlenecks en lo que es
+[You]: connecting to the information and cleaning the information.
+[You]: Porque si entra garbage,
+[You]: no hay mucha magia que podamos hacer nosotros, aún con la mejor capa de inteligencia.
+[You]: Entonces, tenemos que hacer mucho trabajo ahí con los conectores y con el cleansing de esa información y con los
+[You]: las validaciones específicas para asegurar que estamos trabajando con data
+[You]: precisa, correcta y limpia, porque si no el resultado conciliatorio
+[You]: garbage in, garbage out.
+[You]: Con lo cual, a nivel producto, una B2 con muchísima inteligencia,
+[You]: y y mucho foco en el bottleneck, que son las integraciones a la
+[You]: fuente de la información y el cleansing de esa información.
+[You]: Luego, a nivel ventas, obviamente, founder led todavía,
+[You]: es algo que estoy llevando yo.
+[You]: Pero ahí tenemos algunos milestones también específicos, más allá de
+[You]: sell into 25 paying customers whatever.
+[You]: Creo que hoy la prioridad máxima
+[You]: para nosotros, a nivel
+[You]: distribución
+[You]: son dos. Uno,
+[You]: definición de un ICP más claro y más definido.
+[You]: Hoy creo que
+[You]: el blessing de que es un big problem y una gran oportunidad
+[You]: tiene un other side of the coin que es negativo, que we've been a lot of those less.
+[You]: Vos mirás
+[You]: nuestro pipeline hoy, y tengo
+[You]: traditional banks, sponsor banks, banking as a service providers,
+[You]: payment, Payfax, tengo neo banks, tengo crypto wallet,
+[You]: tengo InsurTechs,
+[You]: It's a mess.
+[You]: Y por ahí, a veces, we sell it saying that we're a data orchestrator
+[You]: industry agnostic, pero la realidad es cuando vos vas al flujo de conciliaciones,
+[You]: it's very nuanced.
+[You]: Eso is stretching our product in many different ways. No en realidad, sino también después,
+[You]: cuesta ser muy, muy bueno para todos.
+[You]: Algunos soy muy bueno y para otros
+[You]: meh.
+[You]: Y hoy yo necesito veinticinco paying customers que
+[You]: estén enamorados de mi producto, porque it's about, like, winning a niche and then expanding, ¿no?
+[Remote]: Sì.
+[You]: Entonces, definir el ICP es muy, muy importante, no solo a nivel producto, sino también
+[You]: a nivel esfuerzo de venta. Digo,
+[You]: venderle un banco
+[You]: es muy diferente a venderle a un neobank. Desde
+[You]: what type of wording
+[You]: resuena con ellos, de si PR matters,
+[You]: de si ven mi blog, de si van a las conferencias,
+[You]: hasta, no sé, cosas tácticas del sale
+[You]: sales process, do we need to loop in
+[You]: compliance and legal in some part of the conversations? Digo,
+[You]: son artes muy distintos. Entonces,
+[You]: there's a benefit
+[You]: no solamente por recursos acotados, sino there's a benefit in in effectiveness,
+[You]: de acotar el ICP tanto en producto como en distribución.
+[You]: Con lo cual,
+[You]: la del ICP es es
+[You]: es es fundamental, y es algo que tenemos que definir ahora en el corto plazo.
+[You]: Y después, quizás el segundo milestone que estamos buscando a nivel
+[You]: growth, que también por ahí es un poco agresivo,
+[You]: es
+[You]: buscar como esos, buscar un multiplicador.
+[You]: ¿Sí?
+[You]: Y tratar de, at least,
+[You]: have some sort of pilot running in q two in q two.
+[You]: ¿A qué me refiero con aceleradores? ¿Algún esfuerzo ya sea un partnership o un embedding, route, que me que me abra las puertas a acceder a un montón de clientes at once, ¿no? Esto lo vemos ya sea con adquirentes, acquirers, o lo vemos mucho con payment aggregators, en donde hay una gran oportunidad para que estas compañías mejoren su propuesta de valor con un producto de conciliaciones embebido en su portal. Es decir, their customers are suffering recon. And they already have a portion of the customer relationship and this is augmenting that relationship. No? Hay una parte de conciliar lo que están transaccionando con ellos, y después también tienen que
+[You]: la data que está por fuera.
+[You]: De ellos.
+[You]: Entonces,
+[You]: hay hay una tesis ahí que no solamente mejoras la propuesta de valor, sino que también puede ser un canal para un
+[You]: aumentar el la principalidad o el share of wallet.
+[You]: Porque
+[You]: ya tengo todo ahí. Si ya me están ofreciendo herramientas de software
+[You]: dentro del portal,
+[You]: there's an incentive for me to increase the share of wallet through that partner.
+[You]: Con lo cual ese es otro milestone que estamos queriendo explorar para para Q2.
+[You]: Lo cual nos permitiría
+[You]: testear la hipótesis del embedding route
+[You]: que hoy la tenemos
+[You]: latente, y, in case it works,
+[You]: sería un multiplayer effect a nivel clientes, ¿no? Porque, no sé, compañías como cobre
+[You]: mismo más grandes como DLocal,
+[You]: tienen muchos clientes a los cuales nosotros podríamos sell into,
+[You]: si estamos en esos canales de distribución. Es un multiplier porque es distinto al
+[You]: outbound, ya sea
+[You]: no sé, orgánico por intros, o cold outbound, que hacemos todas las semanas,
+[You]: para tratar de
+[You]: selling to customers, ¿no?
+[You]: Así que, that's
+[Remote]: Oye, y una pregunta.
+[You]: pretty much it. Hay muchos muchos
+[You]: Sí.
+[Remote]: El tema del out reach a clientes en Latinoamérica,
+[Remote]: o sea, ha sido
+[Remote]: se los ha hecho muy activamente o más o menos?
+[You]: No, in Latinoamérica no hemos casi hecho outreach. Todo lo que nos vino de Latinoamérica fue más
+[You]: network driven, intros
+[You]: o conocidos que les interesaba explorar,
+[You]: o, sí, o alguien que nos hablaba porque nos decía que
+[You]: buala, estaba dejando de usar Symmetric, que deberíamos hablar con ellos,
+[You]: No sé, conversaciones así como muy serendipity
+[You]: no hemos hecho un esfuerzo activo de outbound en LATAM, Más Allá De Intros Y Cosas De Nuestro Network. Eso Sí Lo Estamos Haciendo En Estados Unidos, ¿no?
+[Remote]: Ok.
+[You]: Both outbound
+[You]: como también ir a conferencias. Bueno, yo me estoy yendo a San Francisco Mañana,
+[You]: puramente a generar leads,
+[You]: fintech americas, money veinte veinte,
+[You]: Estamos yendo a estos eventos porque
+[You]: como te dije, it's it's still very relationship driven,
+[You]: y brand driven. Entonces, hay mucho más de market
+[You]: que de producto y de ingeniería en lo que estamos haciendo.
+[You]: O, Paul, no sé, pero everything matters.
+[You]: Y cuál es match.
+[Remote]: Muy bien.
+[Remote]: No, ver, quería ver en qué en qué andaban y si había sido más hacia la Tam o no.
+[Remote]: Porque te vas a pasar, es muy importante el tema de la TAM.
+[Remote]: Este,
+[You]: Hay la oportunidad, pero
+[You]: there's just a bigger opportunity here.
+[You]: Y creo que hoy, por lo menos hoy, en la escala en la que estamos hoy,
+[You]: me interesa mucho más definir el ICP,
+[Remote]: Sí.
+[You]: que el mercado, porque no estoy viendo
+[You]: mucha ineficiencia de servir clientes en LATAM o en Estados Unidos. Somos orchestration platform, es es data.
+[You]: Entonces, al final,
+[You]: a nivel producto no me molesta mucho, a nivel marketing no estoy haciendo ningún esfuerzo, me llega por mi network,
+[You]: con lo cual me me interesa mucho más
+[You]: definir y delimitar bien, ok, voy a trabajar solo con
+[You]: o solo con PSPs, o solo con neobanks, o solo, no sé,
+[You]: ese tipo de
+[You]: de límite, que el decir we're not gonna be working in Latin America,
+[You]: or or not in The US or not in Asia,
+[You]: estamos hablando con un banco enorme de Italia,
+[You]: There's opportunity all over this place
+[You]: in this workflow.
+[You]: Entonces,
+[You]: ya veremos. Si genera ineficiencia, tendremos que
+[You]: que acotar entonces el mercado y los esfuerzos. Pero por ahora no he visto mucho
+[You]: con un pipeline que te diría que es cincuenta cincuenta.
+[Remote]: Por eso, no, pues me digas por el tiempo, este,
+[Remote]: pues para saber dónde queda estaban y si después ayudar algo por acá, me dices, con mucho gusto.
+[You]: Va, buenísimo. Ustedes, recuérdame, ustedes
+[You]: What's your bread and butter en términos de deals?
+[Remote]: Rondas en
+[You]: Geografías,
+[Remote]: rondas entre dieciocho millones?
+[Remote]: Podemos hacer un ticket entre uno y tres,
+[Remote]: y que el mercado principal sea LATAM, ¿no?
+[Remote]: Lo import no esté más a dos, ¿no? Pero
+[You]: Like a principal LATAM. Ok. Entonces, this would
+[Remote]: pero sí que la sea más de la mitad del negocio, ¿no?
+[You]: Ok, va.
+[You]: Ok.
+[You]: Got it.
+[You]: ¿Qué están viendo ustedes en todo este espacio? No sé si han estado
+[Remote]: No, la verdad es que
+[Remote]: o sea,
+[Remote]: tu negocio solo está symmetric, ¿no?, que hemos visto la señal, no hemos visto nada similar.
+[You]: ¿Ustedes son inversores de Symmetric?
+[Remote]: No,
+[You]: ¿La viste en su momento o no?
+[Remote]: no, no.
+[Remote]: La villa era carísima,
+[Remote]: sea, no sé si ya algún día ha logrado
+[Remote]: llegar a su evaluación.
+[Remote]: O sea,
+[Remote]: cuando la vi fue en el dos mil veinte,
+[Remote]: y era una variación como treinta millones y no valía treinta millones por ningún lado, ¿no?
+[Remote]: Y siguió levantando plata y siguió levantando la operación más altas, con lo cual
+[Remote]: me cuesta creer que
+[Remote]: alguien esté en un, en un buen múltiplo, ¿no?
+[You]: Y, o sea, en su momento, you passed,
+[Remote]: No tenía sentido el precio.
+[You]: por el precio o you passed porque
+[Remote]: Sí somos muy ¿no?
+[You]: Pero at the right price, es una tesis que te gustaba, el mercado te gustaba, el
+[Remote]: No, sonaba interesante, sonaba interesante, este,
+[You]: equipo te gustaba o o qué...?
+[Remote]: me la mandó a Mercado Libre, estaba trabajando con ellos, estaba muy entusiasmados con ellos,
+[Remote]: por lo cual parece una solución que es buena, ¿no?
+[Remote]: El el tema es, sí, o sea,
+[Remote]: en el precio incorrecto es muy difícil hacer dinero, ¿no? Por más
+[Remote]: sea una gran equipo y un gran negocio lo que tú quieras, ¿no?
+[You]: ¿Y por qué crees que hay otros inversores que de
+[You]: pagar ese precio?
+[Remote]: Mis congéneres suelen ser mucho menos present city y mucho más type driven, ¿no? Es mi impresión.
+[You]: Interesante, interesante.
+[You]: Bueno, let's stay in touch. Me me
+[You]: De vuelta, siempre hubo una relación con ustedes.
+[You]: Bastante admirer de las compañías mías en el portfolio, by the way,
+[You]: así que
+[You]: así que nada, let's keep in touch. Estuvimos ahí, tenemos
+[Remote]: Un gusto.
+[You]: justo el el, ustedes son inversiones en Toku, ¿no?
+[Remote]: Teasy.
+[Remote]: Sí, te vas que ahí te vamos a conectarnos, no sé si al final pudiste hablar con ellos o no.
+[You]: Sí, sí, por eso te decía, tenemos una reunión muy importante el jueves con ellos.
+[Remote]: Nada, qué bueno.
+[You]: Así que
+[Remote]: Bueno, qué bueno.
+[Remote]: So, ojalá que sea algo.
+[You]: así que nada, gracias por esa intro. No sé si la la hicieron ustedes o no me acuerdo cómo llegamos a pero
+[You]: pero pero nada, thank you very much. Bueno, y nada, stay in touch.
+[You]: Abrazo.
+[Remote]: Vale, un mucha suerte, Cuídate.
+
+============================================================
+SUMMARY
+============================================================
+### Current Team & Operations
+
+- Team of 7 people total
+- Sebastián García from Pomelo joined as CTO
+  - Leading 4-person dev team in Buenos Aires
+  - Ignacio and Teo remain based in New York
+- Target market remains US due to fragmentation, willingness to pay, market size
+- LATAM deals coming reactively through network connections
+
+### Product Development Challenges
+
+- Infrastructure product requires high reliability threshold
+  - No market for “scrappy” products at half price in critical infrastructure
+  - Must be battle-tested across all edge cases
+- Brand positioning critical until acquiring reference logos
+  - Increased PR and social media activity
+  - Highlighting founding team experience and expertise
+
+### Sales Pipeline & Process
+
+- Paying customers in production in both LATAM and US
+- Typical sales cycle: Demo → NDA’d real demo → Pilot test (1-2 months shadow) → Full implementation
+- Timeline from first interaction to signed contract: several months
+- Healthy pipeline with multiple opportunities expected to close in coming weeks
+
+### Key Strategic Priorities for Q2
+
+- Aggressive milestone: 25 paying customers by end of Q2
+- Product development focus:
+  1. Adding intelligence layer to existing data orchestrator
+  2. Improving data connectors and cleansing capabilities
+  3. Building AI-native features for productivity gains
+- Critical ICP definition needed
+  - Current pipeline too scattered: traditional banks, sponsor banks, BaaS providers, payment processors, neobanks, crypto wallets, InsurTechs
+  - Stretching product capabilities across too many verticals
+  - Need focused approach for better effectiveness
+- Exploring partnership/embedding opportunities
+  - Target: Payment aggregators and acquirers
+  - Embedded reconciliation tools in partner portals
+  - Potential multiplier effect for customer acquisition
+
+### Investment Discussion with Wollef VC
+
+- Wollef focuses on $1-3M tickets in $18M+ rounds
+- Primary market must be LATAM (>50% of business)
+- Previously saw Symmetric in 2020 at $30M valuation
+  - Passed due to pricing, not thesis
+  - Noted other investors less price-sensitive, more hype-driven
+- Positive view of reconciliation market opportunity
+- Mentioned connection to Toku for Thursday meeting
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/2b2f4ce1-bc99-4e2c-9337-42c11c583e9f](https://notes.granola.ai/t/2b2f4ce1-bc99-4e2c-9337-42c11c583e9f)

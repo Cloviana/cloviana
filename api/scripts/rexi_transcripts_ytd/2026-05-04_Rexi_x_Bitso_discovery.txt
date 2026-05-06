@@ -1,0 +1,482 @@
+MEETING: Rexi x Bitso: discovery
+DATE: 2026-05-04
+ID: not_gKrUC14UZtb1PV
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Ana Torres <ana.torres@bitso.com>
+SCHEDULED: 2026-05-04T13:30:00-04:00 - 2026-05-04T14:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Bueno, exciting, entonces, se viene se viene intenso, pero exciting.
+[Remote]: También tenemos nuestro stable coin conference en junio, en aquí en México también, entonces se viene interesante.
+[You]: Bah, c'è, ahi
+[You]: ¿y cómo vienen con todos los cambios? ¿Vos tomaste el puesto de Ginel?
+[Remote]: Sí.
+[You]: Estás como head of payment options,
+[Remote]: Payment operations manager, sí, correcto.
+[You]: Entonces, conciliación es recon is is under your scope now,
+[Remote]: Sí.
+[You]: ¿Y y cómo quedó? Porque también salió Bernie, ¿no?
+[Remote]: Sí, Berny también se fue, y Berny es liderando como product manager el equipo
+[Remote]: el squad de ingeniería que se encarga de nuestros
+[Remote]: sistemas de reconciliación. Ahorita lo está tomando Karina,
+[Remote]: Karina ya trabajaba también como product manager aquí,
+[Remote]: ella lleva toda la parte del producto interno de
+[Remote]: nuestro Rams platform, toda la plataforma que maneja nuestros web, robos y retiros.
+[Remote]: Su scope creció un poquito más y ahora lleva también reconciliation systems.
+[You]: Ok. Bueno, ¿y cómo le está yendo con ese producto interno? Te cuento un poquito más
+[You]: de Rexi, pero no sé si Koro te pudo contar algo, pero bueno,
+[You]: Yo cofundé Rexi hace
+[You]: un poquito más de un año, y lo que construimos es un orquestador de información para
+[You]: conciliar flujos de dinero.
+[You]: Justamente para
+[You]: setups como el de Bitso, donde tienen una parte fiat, una parte cripto,
+[You]: en cada una de las partes fiat, por lo general, es una cuenta
+[You]: toca conciliar las entradas y salidas de dinero, también hay distintos hay distintos
+[You]: flujos de pagos,
+[You]: para cada uno de los países, entonces, se vuelve muy compleja la
+[You]: conciliación de los flujos de dinero y los balances, y por eso armamos un de datos
+[You]: que básicamente lo automatiza con tecnología agéntica.
+[You]: Entonces, mirá, a ver si te puedo mostrar algo rápidamente.
+[You]: Sobre cómo funciona Rex, y mirá,
+[You]: Para que te dé una idea y le pongas pies y cabeza. Entonces,
+[You]: te logueás y parece como Claude o como Chachi Pitico,
+[You]: cualquiera de estas herramientas que seguramente ya utilizás, y desde acá le podés pedir cualquier cosa,
+[You]: le podés pedir un reporte, un chart,
+[You]: puedes configurar un nuevo source, puedes
+[You]: configurar una nueva conciliación, lo que sea.
+[You]: Y acá, si querés, te metés en las distintas categorías, en las distintas
+[You]: secciones, y, por ejemplo, en sources, agregás tus fuentes,
+[You]: donde puedes conectar vía API, o no sé, agarrás y decís, bueno, Stripe, y le conectás ahí y le ponés Stripe transactions, y le conectás tu secret key, y y todo se conecta, o si querés un CSV o ConfirmTkt, aquí es donde se hace eso, y acá podés corroborar qué tan o sea, el el health de la fuente, ¿no?, que está consumiendo todos los días, si hay alguna anomalía o lo que sea. Lo interesante acá es que siempre se conserva la base cruda y vos podés generar views. ¿Para qué generás views? Básicamente, por ejemplo, para hacer columnas calculadas, para cambiar formatos, acá haces todo el trabajito de parsing, ¿sí?
+[Remote]: De acuerdo.
+[You]: Acá tenés el history de la de la ingesta, bla.
+[You]: Una vez que tenés a todos tus data sources aquí,
+[You]: configurás las conciliaciones,
+[You]: que ahí
+[You]: haga, por ejemplo, source a, source p, what's the reconciliation like,
+[You]: Is it one to one, one to many, many to many?
+[You]: Yes, es distintos sweeps. I am matching first on ID,
+[You]: then I can match based on date,
+[You]: And then I can add a tolerance plus minus one day,
+[You]: y así. Luego le configuras
+[You]: las comparaciones, porque una vez que yo me archivo por ID,
+[You]: tengo que comparar el amount o el estatus o distintas cosas,
+[You]: Entonces, acá, por ejemplo, comparison one, podéis agilizar
+[You]: otras comparaciones, también podés agregar una columna calculada,
+[You]: Esto es, por ejemplo, para calcular revenue, para hacer un una conciliación de revenue leakage,
+[You]: agarras y decís, bueno,
+[You]: cada una de estas transacciones me tendría que haber generado
+[You]: uno por ciento de commission fee, entonces, habría
+[You]: un calculated column y lo y lo comparás contra lo que el proveedor efectivamente te mandó de revenue,
+[You]: y después acá lo configuras si quieres que corra a mano
+[You]: o lo corrés todos los días a las ocho de la mañana o dos veces por día o casi real time.
+[You]: Todo esto lo puedes configurar a mano
+[You]: pero también le puedes decir a la gente, I need help,
+[Remote]: De acuerdo.
+[You]: y ahí y y te va ayudando aquí abajo, ¿sí? Podés agregar un
+[You]: otro chain, el chain típicamente se usa, por ejemplo, para decir, ok,
+[You]: first I match like this, and then
+[You]: whatever doesn't match here, match it against this other database, y vas armando como cadenas.
+[You]: Acá tenés todas tus conciliaciones, donde también puedes ver los resultados.
+[You]: Meterte y ver los resultados de cada día.
+[You]: Acá, unmatched, what happened? Comparison failed, o sea, que hay un match
+[You]: pero no hay un
+[You]: El match está aquí, del otro lado, del lado derecho,
+[You]: acá lo puedes downloadear, obviamente,
+[You]: filtrar las columnas, podés filtrar acá, mirá,
+[You]: the initiative is unmatched,
+[You]: y ves todas las diferencias directamente desde acá, y ves qué pasó,
+[You]: Entonces, son dos comparison failures,
+[You]: Después te venís, bueno, entonces, una vez que vos
+[You]: todas tus conciliaciones,
+[You]: ¿qué pasa? Lo que más lleva tiempo
+[You]: dinero,
+[You]: y lo que más ficción genera es investigar y resolver las diferencias, ¿verdad?
+[Remote]: Claro.
+[You]: Entonces, para eso armamos un agente que se llama al problem solver, donde vos para cada una
+[You]: dos conciliaciones,
+[You]: te podés meter,
+[You]: y y el el problem solver sugiere
+[You]: sugiere mejoras,
+[You]: ¿no? Entonces, por ejemplo, venimos acá, el me dice, mirá,
+[You]: critical metric 54%,
+[You]: y te está proponiendo una regla
+[You]: suggest either missing no values, no sé qué,
+[You]: the comparison uses exact quality for aggregate amount with without tolerance.
+[You]: Which may cause additional failures.
+[You]: Entonces, te dice, si agarras la tolerancia,
+[You]: te pasa y el Netflix aplica regla, bueno, esta falló, pero bueno, no importa.
+[You]: Y lo interesante acá es que tenés el case management system, donde podés poner blocks,
+[You]: in review y y vas como realmente trackeado todo eso,
+[You]: y todo queda cien por ciento auditable, de quién hizo qué en cada fecha
+[You]: Acá puedes tener una discusión, harías un un
+[You]: team member arroba Sebastián, take a look
+[Remote]: Ya.
+[You]: At these
+[You]: differences, please
+[You]: y se lo mandas y les llega una notificación.
+[You]: Y así. Entonces, going back to the problem solver, y
+[You]: acá lo abrís por conciliaciones. Acá te te te pone los agent de corporations y te
+[You]: te dice los más críticos y te te va sugiriendo cosas.
+[You]: Lo interesante acá es que mientras vos, a medida que vos vas tomando
+[You]: acá, el sistema aprende y se vuelve cada vez más autónomo y mejor.
+[You]: This is where you build your dashboard, where you can build whatever you want,
+[You]: literalmente. You can move this around.
+[You]: Es tipo cien por ciento configurar el dash,
+[You]: mismo también lo puedes crear de manera agéntica,
+[You]: y puedes tener un dashboard de contabilidad, uno de operaciones. Lo interesante acá es que puedes tener varios
+[You]: equipos colaborando desde Y después está la parte de reporting,
+[You]: de ustedes por ahí tienen que mandar un reporte al BIND o un reporte al banco de mail,
+[You]: o algún regulador,
+[You]: acá le tirás
+[You]: el formato que necesitás, te genera el reporte automáticamente y te lo puede mandar por mail, por
+[You]: Slack,
+[You]: lo que lo que tú necesites.
+[You]: Ah, bueno, tenemos esto en
+[You]: Y en settings, acá ves la parte de members,
+[You]: who are the current members, acá puedes configurar permisos.
+[You]: Y así.
+[Remote]: Ok. O sea, entonces,
+[Remote]: si si
+[Remote]: dime si si te si te te caché bien, pero
+[Remote]: tú subes el source, yo tengo que subir los sources hacia los que yo quiero
+[Remote]: reconciliar, ¿no? O sea, si yo reconcilio mis transacciones internas,
+[Remote]: contra lo de mi proveedor, subo ambos
+[Remote]: data sources o en su caso se los puedo conectar, los puedo conectar y se puede automatizar.
+[Remote]: Y me reconcilé a ambas cosas, configuro bajo las reglas
+[Remote]: bajo las que las quiero reconciliar y el agente me va a estar diciendo cuál son las discrepancias. Si hay algunas que no machean, no esté incorrecto, pero a lo mejor porque están fuera del mismo o a lo mejor puedo aplicar una regla para que las mache y no me vuelva a dar este este error. Eso un poco lo que entiendo que que podemos hacer con
+[You]: Sí, básicamente, como tener, imagínate, un cloud,
+[Remote]: Ya.
+[You]: specifically for
+[You]: recon, ¿no? Y el sistema aprende también. Y al igual que cloud,
+[You]: puedes ir dejando como distintas
+[You]: le puedes ir entrenando el context window. Entonces, por ejemplo,
+[You]: if you already know that every Friday at 5PM, treasury does a manual movement, that's never gonna
+[You]: match with another transaction.
+[You]: The system should understand it. Por eso digo que el sistema se vuelve
+[You]: muy bueno en el tiempo,
+[You]: y mejora, y entonces, básicamente, tener una herramienta
+[You]: que automatiza el proceso end to end, ¿no? Y no necesitas estar
+[You]: ni haciendo todo el data manipulation, que es ingestion, transformation y processing,
+[You]: tampoco tenés que estar haciendo reporting y tampoco tenés que estar haciendo
+[You]: la investigación y la resolución de discrepancias. O si la tenés que hacer, la hacés con un agente que realmente es muy productivo y es muy bueno encontrando
+[Remote]: Los los
+[You]: las excepciones.
+[Remote]: ¿va? Te platico como un poquito, digo, me imagino, porque
+[Remote]: conociste a Bernie, que ya tenías un poco de contexto de cómo funciona la reconciliación en Mitso,
+[Remote]: Pero te platico igual un poco cuáles son los retos que
+[Remote]: nosotros tenemos con el la reconciliación interna.
+[You]: Dale.
+[Remote]: Como dos reconciliaciones principales,
+[Remote]: hay otras que también son parte del sistema, pero es
+[Remote]: AUM reconciliation, assets under management reconciliation, y transactional reconciliation.
+[Remote]: Transactional reconciliation, básicamente, lo que hace es leer el source de nuestros
+[Remote]: partners externos, sean los bancos, o sea, en caso de cripto
+[Remote]: los proveedores de tecnología con los que hacemos el procesamiento de las transacciones.
+[Remote]: Y nuestros récords internos, que es lo que los todas las transacciones
+[Remote]: que nosotros creamos internamente.
+[Remote]: Lo que haces es que matchea justamente esas dos sources,
+[Remote]: y hace básicamente lo que lo que me mostraste aquí, ¿no?, ver
+[Remote]: que ambas sources matchen en estatus, en amount,
+[Remote]: en ID, etcétera.
+[Remote]: Si hay un flag ahí y y alguna de las dos no matchea,
+[Remote]: tenemos una alerta donde tenemos que revisar por qué no hay
+[Remote]: fue lo que pasó, por qué no están matcheando esas esas transacciones.
+[Remote]: En ese en específico no tenemos un
+[Remote]: sea, no tenemos tantos pain points.
+[Remote]: La verdad es que está un poco, ha sido mucho trabajo el equipo de refinarlo,
+[Remote]: durante mucho tiempo, pero está mucho mejor de lo de lo que
+[Remote]: solía estar. Nuestro principal problema ahorita es AUM reconciliation.
+[Remote]: Que es, básicamente, leemos todos los balances
+[Remote]: que tenemos en los diferentes proveedores,
+[Remote]: leemos todo el el agregado de balances de nuestros usuarios que tenemos en platform. La teoría es que ambas deberían de darnos una discrepancia de cero. ¿No? O sea, es todo lo que tengamos en plataforma de nuestros usuarios, debería de matchear exactamente con lo que tenemos en balances en bancos o en cripto. Ahí es donde tenemos el principal reto, donde no hemos logrado que todos los sources de balances se lean al mismo tiempo, que los sources de de lo liability, que le llamamos, que es lo que nosotros, we own to our users, en platform, y nunca tenemos esta como esta certeza
+[Remote]: de que lo que estamos al mismo tiempo es realmente lo correcto, ¿no?
+[Remote]: Y ahí es donde estamos intentando resolver ahorita
+[Remote]: cómo poder tener un mejor sistema para hacerlo.
+[Remote]: Uno de los principales problemas es que, no sé, en Blockchain,
+[Remote]: a las cinco, en este bloque de las once cincuenta y cuatro teníamos este amount.
+[Remote]: Pero en nosotros en plataforma, pues lo a lo mejor lo registramos tres minutos después.
+[Remote]: Entonces, si lo macheamos en el mismo time time, pues no nos va a dar la
+[Remote]: y no vamos a saber si nos faltan o no fondos, porque a lo mejor lo que nos faltan es porque
+[Remote]: estamos retrasados en el time stamp en el que estamos leyendo los sources, ¿no?
+[Remote]: Las reglas que estamos aplicando internamente,
+[Remote]: si un withdrawal ya está creado, pero entonces sigue siendo parte del balance del usuario o no, si
+[Remote]: salió o no salió, si deberíamos considerarlo. Y
+[Remote]: Todo eso cambia dependiendo de las integraciones que tenemos.
+[Remote]: Ahí es donde estamos teniendo como el mayor reto actualmente,
+[Remote]: de reconciliaciones.
+[You]: ¿Y cuál es la fuente del problema?
+[Remote]: Una
+[Remote]: son dos cosas. Una, para mí es la
+[Remote]: complejidad de las del source del del que estamos llamando a los balances, ¿no?
+[Remote]: Tenemos integraciones con todos los bancos y luego con nuestros proveedores de cripto.
+[Remote]: Y cada uno tiene, hay quienes tienen información en real time, hay
+[Remote]: no, y nos mandan un file.
+[Remote]: Hay quienes en cripto
+[Remote]: ejemplo, estamos leyendo al provider, no al blockchain directamente, y entonces ellos
+[Remote]: hay eventos que no nos mandan, hay webhooks que no están, y entonces de repente nos
+[Remote]: falta un balance o nos falta una transacción o nos falta algo que no
+[Remote]: que no está consiguiendo el proveedor, que sí está en el blockchain.
+[Remote]: ¿No? Entonces, a lo mejor ahí tenemos
+[Remote]: una limitación durísima de llamar directamente al blockchain para todas las assets que tenemos.
+[Remote]: Si no tenemos forma de tener un de leer los nodos de
+[Remote]: todas las redes de para todos los assets, ¿no?
+[Remote]: Y estamos confiando en los proveedores. Esa es el una de las mayores, el source of truth
+[Remote]: del balance de nuestras wallets en un momento exacto,
+[Remote]: que considere efectivamente todo lo que tenemos ahí.
+[Remote]: La segunda es internamente,
+[Remote]: en nuestros nuestros registros internos también
+[Remote]: tenemos delays en cuántos nos tardamos en procesar las transacciones.
+[Remote]: En que coincidan o no en el reconciliation que estamos haciendo,
+[Remote]: ¿funciona de alguna manera en real time o estamos intentando hacer hacerlo real time?
+[Remote]: Evidentemente corre en este momento, pero lo que tarda en correr
+[Remote]: y en poder leer toda la información,
+[Remote]: pues ya te pasó una transacción en el medio o varias en el medio y no lo estamos logrando tampoco
+[Remote]: leer, ¿no? Entonces, ahí esta es
+[Remote]: otra que tenemos importante. Para mí lo más, yo creo que en ambos
+[Remote]: casos es el source of truth de balance externo,
+[Remote]: y el tema del timestamp, de
+[Remote]: cómo estamos haciendo la reconciliación, en qué momento del tiempo.
+[You]: Esto es algo que va a estar bajo el... ¿Cómo se llama la persona que toma el rol de Bernie?
+[Remote]: Karina.
+[You]: Karina, esto va a estar bajo el scope de Karina.
+[Remote]: Correcto.
+[You]: What's the plan for it? ¿Como construir mejores conectores para la ingesta o
+[Remote]: Están haciendo un nuevo, una nueva
+[Remote]: un nuevo como revamp de este reconciliation engine,
+[Remote]: No hay un
+[Remote]: to be honest, no hay una solución para el tema del balance externo.
+[Remote]: ¿No? O sea, sigue siendo nosotros nuestro proveedor y
+[Remote]: y ya ya sabemos que realmente no estamos teniendo la información correcta.
+[Remote]: Desde ahí, ¿no? Entonces, ya para mí es eso es una de las cosas que que necesitamos resolver.
+[Remote]: Y no lo estamos resolviendo internamente con con las iniciativas que
+[You]: ¿Y por qué?
+[Remote]: están ongoing. Y
+[Remote]: porque ahorita no han encontrado como un source of truth
+[Remote]: que no sea el proveedor.
+[You]: ¿No se puede ir a blockchain directo?
+[Remote]: Tendríamos que buscar
+[Remote]: tendríamos que tener la infraestructura de cada uno de los
+[Remote]: de las networks en las que operamos.
+[Remote]: Aquí lo que justo estamos buscando, y y una de las cosas que quiero escuchar es,
+[Remote]: hay proveedores de reconciliación que ya están haciendo
+[Remote]: cripto directo con ellos lee directamente blockchain, no al proveedor.
+[Remote]: Justamente era de las de las preguntas que tenía
+[Remote]: ti, si ustedes tienen como un source of truth
+[Remote]: de conexión externa, porque es lo que hemos visto como con otros proveedores que estamos hablando,
+[Remote]: y tres, no sé, creo que cuando te había platicado un poquito
+[Remote]: que estábamos trabajando en evaluarlos también.
+[Remote]: Lo que ellos hacen es, ellos leen directamente la información desde blockchain,
+[Remote]: y concilian contra los proveedores.
+[Remote]: Sea, ellos tienen conexión con Fireblogs, por ejemplo, y
+[Remote]: ellos te den la información directamente de blockchain y concilian ambos.
+[Remote]: Ellos nos pueden decir, justamente, Firefox no te mandó esta transacción,
+[Remote]: Fireblocks no te mandó este balance, no te leyó en este time stamp,
+[Remote]: está faltando esta parte de este
+[You]: Pero ¿y eso eso por qué no lo podrían hacer ustedes?
+[Remote]: ¿Por qué no
+[Remote]: tendremos que tener un nodo para cada network que manejamos.
+[Remote]: So, tendremos que tener la infraestructura
+[Remote]: del nodo en cada una de las redes.
+[You]: ¿Y eso no lo tienen hoy?
+[Remote]: Y
+[Remote]: No, no, no tenemos.
+[Remote]: Eso tenemos un proveedor.
+[You]: ¿Y no hay manera de leer el blockchain sin tener un nodo?
+[Remote]: Pues lo podemos hacer a través de un proveedor externo de nodos,
+[Remote]: justamente también,
+[Remote]: y esa es otra de las opciones. O sea, contratar una
+[Remote]: un proveedor externo
+[Remote]: por ejemplo, hay unos que se hay uno que se llama Alkemi y otro que se llama GetNode, tienen nodos en diferentes networks, y podemos leer consumir la información a través de ellos. Eso es algo que están haciendo para otras iniciativas también, y sí lo estamos considerando. Y tendríamos hacer un three way reconciliation, ¿no? Proveedor,
+[Remote]: blockchain,
+[Remote]: y internamente.
+[You]: EBIT.
+[Remote]: Ese es ese es uno de los retos que estamos evaluando ahorita,
+[Remote]: vamos con un proveedor de la reconciliación o si vamos nosotros directamente a blockchain,
+[Remote]: o si vamos también proveedores a darnos la información correcta por
+[Remote]: E internamente, deberíamos de poder
+[Remote]: hacia un punto en el pasado
+[Remote]: en lugar de real time, ¿no?, porque real time sabemos que se nos va
+[Remote]: el en el momento en el que estamos corriendo el room las diferentes
+[Remote]: que pueden estar pasando, y más bien deberíamos estar reconciliando si ahorita son las once cincuenta y uno
+[Remote]: a las once cuarenta y nueve, y el corte
+[Remote]: de todo lo que pasó a las once cuarenta y nueve.
+[Remote]: En lugar de intentar
+[Remote]: tomar toda la información aquí. Eso sí lo está haciendo
+[Remote]: lo están haciendo en el nuevo revamp del engine.
+[You]: Ok. Y una pregunta, la
+[You]: la la parte transaccional, cuando decís que ya está resuelta,
+[You]: ¿tienen costo de mantenimiento?
+[You]: O sea, ¿hay un equipo que todavía está on top of it?
+[Remote]: El equipo de Karina cien por ciento se dedica a ese a ese producto.
+[Remote]: Ambos, al de y al de transactional record.
+[Remote]: Y es un squad que está constantemente dándole mantenimiento, que estamos
+[Remote]: flaggando cuando encontramos algo que a lo mejor es un fake mismatch,
+[Remote]: que en realidad sí estaba correcta toda la información y nos
+[Remote]: flaggeó una un mismatch que no
+[Remote]: que no debería, justamente lo que tú decías, ¿no? Algo que
+[Remote]: justo no tiene no tiene ese sistema es que el sistema esté aprendiendo constantemente y
+[Remote]: detectar estos edge cases que no son tan edge
+[Remote]: donde hay un manual entry, donde hay una manual transaction,
+[Remote]: que se hace cada cierto tiempo, pero que existe un récord
+[Remote]: Ese tipo de cosas lo hacemos manual todavía, por ejemplo.
+[Remote]: Si hicimos un manual adjustment interno que tiene una contraparte,
+[Remote]: pero no una contraparte externa, llora el sistema,
+[Remote]: porque creo que está un match y tenemos que matcharla.
+[Remote]: Directamente nosotros de manera manual.
+[Remote]: Ese tipo de cosas, justamente, si ese sistema todavía está corto, cuando te digo que no, es que no
+[Remote]: un problema, no es que
+[Remote]: funciona increíble, porque no tenemos lo que hace Rexi, por ejemplo,
+[Remote]: refiero a que no tenemos un pain point tan grande como ello en reconciliation, donde
+[Remote]: plano no estamos pudiendo confiar
+[Remote]: la información en en ese sistema es
+[Remote]: es la correcta, ¿no? Algo que que creo que que es
+[Remote]: superinteresante de lo que ustedes están haciendo es este este sistema donde
+[Remote]: donde puede estar aprendiendo y proponiendo estas nuevas reglas,
+[Remote]: que eso es como algo que sí puede agregar mucho valor, porque no,
+[Remote]: definitivamente es algo que no no tenemos actualmente.
+[You]: No, y la realidad es que
+[You]: las soluciones que interna que armaron seguramente no tengan mucho de AI o sí.
+[Remote]: No, cero.
+[You]: Engineers ahí en el equipo de
+[Remote]: No sé, te mentiría el, pero creo que ocho mínimo.
+[You]: Es que ese es el
+[You]: el gran play aquí, que vos y Karina ganen independencia de tecnología y tengan su propia herramienta.
+[You]: Y no dependan de desarrollos internos. Y también a nivel Bitshow, como que it makes sense,
+[You]: to dedicate those engineers to building product and other stuff, right? Como que no
+[You]: building internal tools.
+[Remote]: Y, por ejemplo, Ignacio, el
+[Remote]: database, o sea, porque lo lo único que yo veo de acá, que sería con
+[Remote]: para nosotros en Recci, es estar haciendo un upload de
+[Remote]: esta información constante.
+[Remote]: ¿No? O sea, lo como funciona actualmente es que
+[Remote]: el sistema ya lee desde los proveedores la información de las internas
+[Remote]: transacciones que van entrando y las matchea contra las que se están creando internamente.
+[Remote]: Eso para mí nada más es el el único punto que
+[Remote]: que sería interesante saber cómo lo podrían resolver
+[Remote]: porque esa esa en específico transactional recon is real time.
+[Remote]: Porque nos alertas y imagínate que tenemos un bug,
+[Remote]: estamos creando withdrawals sin tener una source externa,
+[Remote]: en ese momento yo quiero saber qué esto me está pasando, ¿no?, y y poder actuar.
+[You]: Sí, sí,
+[You]: No, you're...
+[Remote]: Esa es esa es la la parte
+[You]: You're right to bring it up.
+[You]: Pero hay dos cosas. Uno, típicamente, con nuestros clientes
+[You]: nosotros nos conectamos directo a la fuente, entonces, el mismo conector que construyeron ustedes nosotros lo estaríamos construyendo,
+[Remote]: Okay.
+[You]: In your case, if you already did it, we can piggyback on that
+[You]: and just plug into your data lake y consumir todo ahí.
+[Remote]: Okay.
+[You]: Tampoco andar reinventando la rueda. Pero
+[You]: habría que hacer un análisis de qué tan fiables son esos conectores que armaron, porque ahí tampoco queremos agregar another point of failure, típicamente nos gusta a nosotros controlar el end to end, ¿viste?, nosotros desde el conector hasta whatever is the output scheme that you guys need, porque ya después de vuelta es una dependencia más de sistemas del equipo de engineering de Bitso, y tratamos de justamente estar cien por ciento independientes y
+[You]: autónomos de
+[You]: de eso. Mirá, to be honest, y también dado que nos quedan ahí cuatro minutitos, nosotros
+[You]: our bread and butter is the transactional recon.
+[Remote]: Claro.
+[You]: We do AUM recon, pero no particularmente para el
+[You]: el caso uso que necesitan ustedes, que es un direct integrations with the blockchain.
+[You]: Ahora,
+[You]: datos en mean we cannot do it, porque obviamente nosotros somos, estamos en un en
+[You]: en un estadio en el que we're doing a lot of ad hoc stuff for our customers,
+[You]: y si
+[You]: si vemos la oportunidad y y creemos
+[You]: que nos puede servir para otros clientes, we're more than happy to do it ad hoc for Bitsel.
+[You]: Además por la relación que existe, ¿no? Entonces,
+[You]: ¿cómo ves que
+[You]: que podemos seguir?
+[Remote]: Yo creo que vale la pena
+[Remote]: voy a compartir un documento que compartimos con otros
+[Remote]: proveedores sobre lo que estaríamos buscando resolver en AUM. Que es como justo la parte que... La la de transaction me queda clarísima, eso creo que lo voy a platicar un poco con Conno para que que veamos cuáles podría ser el next step y, pues, podamos involucrar a Karina también probablemente en una siguiente
+[Remote]: Y con A1M lo que puedo hacer es compartir
+[Remote]: ese documento, que tú lo puedas como ya revisar un poco más a detalle y tú nos pudieras decir
+[Remote]: pues sí, es algo que podríamos hacer ad hoc,
+[Remote]: si si vemos oportunidad o o está fuera del scope de lo que
+[You]: Sí,
+[Remote]: podríamos llegar a hacer.
+[Remote]: Creo que que
+[You]: el transactional recon, a ver, no es solamente, a ver,
+[You]: para el transactional recon yo trataría de venderlo internamente como
+[You]: we shouldn't have eight engineers maintaining our internal infrastructure.
+[You]: Tipo, hay un ROI muy claro ahí,
+[You]: de una oportunidad de optimización del equipo de operaciones.
+[You]: Después, el el second order
+[You]: of magnitude es let's add AI to this, because AI is great at this.
+[You]: La productividad y el tiempo que van a ganar
+[You]: por
+[You]: implementar una una una infraestructura AI native como la nuestra es enorme.
+[You]: I would start by that.
+[You]: Y después, en ese en esas conversaciones, si vemos que eso vuela,
+[You]: ahí después metamos lo de AUM y vemos si tiene sentido de nuestro lado priorizarlo en el roadmap,
+[You]: y tratar de trabajar con ustedes para construirlo.
+[Remote]: De acuerdo. O sea, sí, de acuerdo, te lo te lo digo porque al
+[Remote]: final de cuentas este es el mismo equipo el que se encarga de ambos reconsideration systems,
+[Remote]: del equipo de Karina, y la mayor parte de ese equipo está enfocada en AOM.
+[Remote]: En este momento, ¿no?, más que transactional recon, justamente.
+[Remote]: Entonces, como que intentar venderlo como un
+[Remote]: equipo al que no le, quitarle bandwidth a un equipo,
+[Remote]: sí le quitamos una parte, pero realmente la otra parte la que
+[Remote]: está ahorita dedicado a ese equipo es AUM. Entonces,
+[Remote]: nos resuelve nada más como una
+[Remote]: una pequeña parte de lo que ese equipo tiene
+[You]: Dale, yo ahí también te voy a pedir por correo si me puedes compartir exactamente cuáles son las blockchains que tendríamos que ir a leer así yo también lo comparto con mi CTO y te hago un scoping de
+[Remote]: en este momento, ¿no?
+[You]: si es algo fácil, difícil, si lo podríamos tener y cuándo, y también
+[You]: con con esa visión podemos ver cómo seguimos. ¿Te parece?
+[Remote]: De acuerdo.
+[You]: Va. Bueno, buenísimo, Ana Karen, qué bueno ver
+[Remote]: Va.
+[You]: reconectado contigo y y nada, ojalá prosperen estas conversaciones. Creo que hay una oportunidad para trabajar juntos,
+[You]: así que...
+[You]: Nada, seguimos ahí por mail y vemos cómo sigue.
+[You]: Chao, chao.
+[Remote]: Perfecto, gracias.
+
+============================================================
+SUMMARY
+============================================================
+### Bitso’s Reconciliation Challenges
+
+- Two main reconciliation systems at Bitso
+  - Transactional reconciliation: matches external partner sources (banks, crypto providers) vs internal records
+  - AUM reconciliation: balances across providers vs user platform balances
+- Transactional recon mostly resolved after extensive refinement
+  - Still requires manual intervention for edge cases (manual adjustments, treasury movements)
+  - No AI/learning capabilities currently
+- AUM reconciliation is primary pain point
+  - Cannot achieve zero discrepancy between provider balances and platform liabilities
+  - Timing issues: blockchain reads at different timestamps than platform records
+  - Source of truth problems: relying on providers instead of direct blockchain access
+  - Missing transactions/webhooks from crypto providers
+
+### Team Structure & Resources
+
+- Karina took over from Bernie as product manager for reconciliation systems
+  - Manages both AUM and transactional reconciliation
+  - Also handles internal Rams platform (deposits/withdrawals)
+- El equipo de Karina está full-time manteniendo y el equipo de Karina tiene varios ingenieros - 8 engineers minimum dedicated to reconciliation maintenance
+- Team currently focused more on AUM than transactional reconciliation
+- Building new reconciliation engine revamp
+
+### Technical Solutions Discussion
+
+- Bitso considering direct blockchain integration
+  - Would require nodes for each network they operate on
+  - Alternative: external node providers (Alkemi, GetNode)
+  - Three-way reconciliation: provider vs blockchain vs internal
+- Point-in-time reconciliation instead of real-time for AUM
+- Rexi’s potential value proposition
+  - AI-powered learning system for edge case detection
+  - Independence from internal engineering resources
+  - Direct API connections vs piggyback on existing data lake
+
+### Next Steps
+
+- Ana to share AUM reconciliation requirements document
+- Ignacio to provide blockchain list for CTO scoping assessment
+- Follow-up discussion with Karina on transactional reconciliation
+- Evaluate ROI of freeing up 8 engineers from maintenance work
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/50232e87-c941-4107-b69b-e6148e4372de](https://notes.granola.ai/t/50232e87-c941-4107-b69b-e6148e4372de)

@@ -1,0 +1,266 @@
+MEETING: Nacho <> Agus
+DATE: 2026-02-19
+ID: not_8qjdBskLz5nRtq
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Agustin Rubinstein <agustin.rubinstein@buenbit.com>
+SCHEDULED: 2026-02-19T13:30:00-05:00 - 2026-02-19T14:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Hola, hola.
+[Remote]: Nacho. Todo tranquilo, todo bien.
+[You]: Muy bien, vos?
+[You]: En en tu casa.
+[Remote]: Estoy en mi casa hoy, voy en mi casa, sí, porque estamos ahí medio a full,
+[Remote]: así que le íbamos arrancar temprano y dije, bueno,
+[Remote]: Encima hay paro acá en Argentina, y así que, bueno, nada, decimos cómo
+[You]: Bien, bien. ¿Cómo vas tú?
+[Remote]: Va todo movido, la verdad, no te voy a mentir.
+[Remote]: Nada, tengo un pequeño recap
+[Remote]: en general de cómo cómo estamos en buen meet y cómo estamos con el proyecto.
+[You]: Vale.
+[Remote]: A ver, Buen Meet, ya ya viste vos un poco, ya te diste cuenta que está todo
+[Remote]: medio raro en el sentido de hay como muchas
+[Remote]: prioridades dando vuelta,
+[Remote]: y también poca certeza
+[Remote]: de qué va a pasar en el futuro
+[Remote]: con tanto el equipo como
+[Remote]: con la la operatoria puntual de hoy.
+[Remote]: Si bien todo arrancó como como una buena
+[Remote]: como una posibilidad de crecimiento y todo,
+[Remote]: con el tema de la compra, la realidad es que la app de vuelta en sí va a desaparecer,
+[Remote]: y vamos a pasar ser nexo argentino.
+[You]: Okay.
+[Remote]: Con esto, ¿qué es lo que te quiero decir?
+[Remote]: Que un poco las demoras
+[Remote]: por más que yo estuve pusheando internamente y que todo salga, es como que
+[Remote]: nada, el equipo de ingeniería está obligado a hacer esa migración,
+[Remote]: la realidad es que tampoco sabe después cuál es su continuidad dentro
+[Remote]: dentro de del equipo.
+[Remote]: Entonces, la realidad es que se hizo bastante difícil
+[Remote]: poder todo esto, como que
+[Remote]: entramos justo en un momento en donde después nos cambiaron todas las
+[Remote]: las variables de qué era lo que queríamos hacer.
+[You]: Total, sí.
+[Remote]: O sea, yo mi mi a ver,
+[Remote]: lo que yo te quería poner hoy en autos es decir, mirá, nosotros
+[Remote]: para dejar de perder tiempo, tanto ustedes como
+[Remote]: de nosotros,
+[Remote]: es dejar en standby el proyecto hasta que tengamos más claridad de
+[Remote]: qué es lo que va a pasar en próximos meses,
+[Remote]: y entender un poco más cuál va a ser el alcance que vamos a tener desde acá,
+[Remote]: para varios de los procesos que hoy estamos llevando,
+[Remote]: y ver y ver si lo podemos retomar.
+[Remote]: Pero la realidad es que hoy prefiero decirte esto y no
+[Remote]: hacerles perder el tiempo, como ya les hicimos perder el tiempo con un montón de cosas, que eso
+[You]: No, eso es tranqui.
+[Remote]: desde ya
+[Remote]: Pido disculpas, que la rapidez como que sé, no sé,
+[You]: Olvídate.
+[Remote]: ver, dentro de mi lado le puse lo mejor que podía, pero como que llegó un punto en el que no
+[Remote]: ya no había respuestas del otro lado, sinceramente.
+[Remote]: Y y la realidad es que
+[Remote]: nada, prefiero que hagamos esto y después en unos meses ver cómo cómo seguimos.
+[You]: Total, no, igual, tranqui, no pasa nada.
+[Remote]: Este,
+[You]: Entiendo por lo que están pasando, así que, en ese sentido, olvídate, y sé que siempre hubieron de las mejores intenciones,
+[You]: mismo también de de Juan, de Johnny, de todo el equipo, siempre hubo muy buena onda y muy buena
+[You]: intención. Simplemente hubieron factores externos que excedieron, así que no te preocupes, ahí
+[You]: se entiende perfectamente.
+[You]: Yo la la pregunta que tengo para hacerte es,
+[You]: porque lo que entiendo, a ver, es, por más que pase a NEXO a hacer NEXO Argentina y cambie la relación con el cliente,
+[You]: lo que está por debajo, la operadora con el BIND va a continuar,
+[You]: la necesidad de armar una conciliación de la parte fintech
+[You]: ars,
+[You]: esos peruanos,
+[You]: Firefox va a continuar.
+[You]: Con lo cual,
+[You]: mi análisis de la situación es que es un tema de que el equipo de ingeniería tiene como prioridad toda esa
+[You]: migración y, por ende, no puede atender este proyecto en el corto plazo, no si es una
+[You]: o no.
+[You]: Corregime si si es así.
+[Remote]: A ver, ahí hay como dos temas.
+[Remote]: Nosotros como al al
+[Remote]: al pasar a hacer Nexo Argentina, va a haber una sola aplicación,
+[Remote]: y vamos a dejar de utilizar nuestros
+[Remote]: back office, por decirlo de alguna manera. Vamos a pasar a hacer su back office. Si bien
+[Remote]: la operadora con el GIN más va a utilizarse
+[Remote]: pero todo va a ir directamente
+[Remote]: al
+[Remote]: al sistema de nexo.
+[Remote]: Yo hoy sinceramente no tengo claridad para decirte, che,
+[Remote]: están conciliando ellos, de qué manera lo están haciendo,
+[Remote]: ¿cómo es que lo están atacando este...?
+[Remote]: Este issue o o qué es lo que están haciendo.
+[Remote]: Entonces, la realidad es que ahí no tengo mucha visibilidad todavía.
+[Remote]: Entonces, como que necesitamos esa definición de su lado,
+[Remote]: para
+[Remote]: ver cómo se íbamos a ver. Nuestra idea era
+[Remote]: tenerlo todo esto armado para decirle, che, mirá, nosotros tenemos esto
+[Remote]: que lo pueden replicar con su sistema.
+[Remote]: ¿Entendés? Nuestra idea era un poco esa. La realidad es que ahora con
+[Remote]: con con esto, y sinceramente también te digo, yo creo que también esto arrancó mal con la tabla esta que
+[Remote]: estábamos armando de ingeniería interna, en vez de ir directamente a ustedes y, che, acá están los crudos, O sea, la realidad que ahí ya mal, pero bueno, nada, esa fue como la definición técnica de nuestro lado. Entonces, ahí como que no pude meter demasiado, si bien yo opiné que para mí la conciliación tenía que ser dos fuentes y que se considere sin ningún toqueteo de nuestro lado, como que, bueno, la ingeniería no lo no lo pude como para que eso salga así. Pero pero yo creo que para mí ese debería haber sido el camino, más allá de eso, siento que ahora, haya pasado este tiempo, no no
+[You]: Sí.
+[Remote]: no tiene tampoco tanto sentido que ustedes también empiecen
+[Remote]: a armar cosas con el que en unos meses va a dejar de existir.
+[Remote]: Que por ahí ahora nosotros tenemos esa claridad que antes no la teníamos.
+[You]: ¿O te referiste al back office es tipo patio?
+[Remote]: Claro, peato y papi
+[Remote]: van a dejar de existir cuando deje de existir la aplicación de WebBit como tal.
+[You]: Bueno, ahí más hay un argumento de ir directo a la fuente, ¿no?
+[You]: Quizás conectarnos al binding, gestar directo los archivos nosotros,
+[You]: ir directo contra algún ledger propio cuando migren ese ledger.
+[You]: No lo sé. Yo yo creo que
+[You]: o sea, te hago dos preguntas, o sea, porque
+[You]: hacia donde estaba tratando de de decirte era,
+[You]: che, entiendo perfecto,
+[You]: que que ingeniería tiene otras prioridades y está con esto y nunca y nunca te te
+[You]: va a dar bola, porque hay cosas más más relevantes en este momento pasando.
+[You]: Mí eso me parece una buena excusa para agarrar ingeniería, agarrar a Matías y decirle, bueno,
+[You]: che, los chicos de de Rexys están con ganas de meterse y hacerlo ellos, ir directo a las fuentes crudas,
+[You]: y hacerlo,
+[You]: Ingeniería sigue trabajando en en lo que tiene que estar trabajando, esto lo llevamos nosotros desde
+[You]: finanzas, operaciones.
+[You]: ¿Vuela o no
+[You]: eso puede ser una,
+[You]: Y la otra es, no sé quién tiene visibilidad de
+[You]: cómo van a cambiar estos procesos,
+[You]: Yo lo conozco mucho a Fede, tengo llegada a Fede,
+[You]: con Matías no no hablé mucho,
+[You]: pero preguntarle a ellos también cómo lo ven, si si por ahí están en
+[You]: en en la misma línea de decir, mirá, va a cambiar todo tanto, preferimos no hacer nada ahora,
+[You]: o si por ahí dicen, che, lo tenemos que hacer igual ahora o después, porque el aperteo con el mint va a seguir,
+[You]: con lo cual mejor hacerlo ahora, y si ustedes están dispuestos a
+[You]: con nosotros y hacer el laburo técnico con los datos crudos,
+[You]: bienvenidos sean. Yo
+[You]: como que eso es un poco lo que
+[You]: lo que pienso, si existe el el el tiro de
+[You]: nos arremangamos y hacemos el laburo técnico nosotros,
+[You]: o si verdaderamente es un, che, no tiene ni sentido que hagamos eso, frenemos y
+[You]: when the dust settles, volvemos a
+[You]: a involucrarlos, porque, de vuelta, la conciliación con a veces ahora tenemos que hacer como
+[You]: del lado fintech, del lado PCP,
+[You]: y
+[You]: y y, bueno,
+[Remote]: Mirá, a ver, esto que yo te estoy comunicando lo lo
+[Remote]: lo integramos con Mati, o sea, con Matías, con Matro Romero,
+[You]: Sí.
+[Remote]: También un poco pensando, como te digo,
+[Remote]: en
+[Remote]: las manos que tenemos hoy,
+[Remote]: las prioridades que hay hoy,
+[Remote]: esto
+[Remote]: el tema del traspaso va a ser bastante inminente, o sea, vienen como
+[Remote]: un poco de un mes y medio bastante
+[Remote]: complejo,
+[Remote]: y siento que todavía no hay una definición al respecto de esto que hablamos de
+[Remote]: cómo va a ser la conciliación, de qué manera, quién la va a encarar,
+[Remote]: y cómo.
+[Remote]: Si vos por tu lado querés hablar con no hay ningún problema,
+[Remote]: o sea, creo que nadie te va a dar mejor información que que Fede,
+[Remote]: y y Matt, que son los que están en realidad en
+[Remote]: en cabeza del proyecto de esta migración,
+[Remote]: pero hoy yo
+[Remote]: lo que lo que sí creo que que no vale la pena hacer este esfuerzo,
+[Remote]: y que también ustedes sean los únicos que estén enviando al carro. ¿Entiendes? Como que
+[You]: Ni siquiera si levantamos el laburo técnico que hoy estaban llevando Juandy y Johnny.
+[You]: Siquiera es a la vez.
+[Remote]: Y es que la veo lo veo complejo,
+[Remote]: lo veo complejo porque nosotros dependemos de la info, dependemos sí o sí también de
+[Remote]: de ellos, porque Pegato y todo eso también lo dependemos un poco de ellos. Si bien,
+[Remote]: con las tablas ustedes pudieron ver un poco
+[Remote]: cómo está parametrizado y cómo está clasificado, etcétera,
+[You]: Ok.
+[Remote]: siento que que
+[Remote]: no tiene demasiado sentido, sinceramente.
+[Remote]: Yo preferiría esperar un poco, ver que esto se aclare,
+[You]: Okay.
+[Remote]: entender un poco, a ver
+[Remote]: qué es lo que ellos van a querer que nosotros hagamos, si es que ellos ya no tienen algo de
+[Remote]: o no.
+[Remote]: Y ahí para mí sí,
+[Remote]: o sea, retomar esto, pero ya desde un lado decir, che,
+[Remote]: vamos como con nexo directamente, ¿entendés? O sea, listo, buen bit,
+[Remote]: podría haber sido o no fue, porque desapareció buen bit, por decir de alguna manera,
+[Remote]: y y directamente hacer el enlace con la gente en Nexo,
+[Remote]: y y ver ahí qué es lo que se puede hacer, porque lo otro que también, digamos, pensó en la Perú,
+[Remote]: tampoco sabemos si va a continuar la operatoria o no, o sea, está como todo todavía
+[Remote]: demasiado
+[Remote]: no claro como para tomar decisiones.
+[Remote]: Este, y prefiero entonces serte sincero y decir,
+[Remote]: la verdad, no no no les queremos hacer perder
+[Remote]: tiempo a ustedes tampoco, nunca tampoco fue la intención, al contrario, le diera que todo esto
+[You]: Olvídate, olvídate, olvídate, olvídate.
+[Remote]: fluya y que y que salga para adelante.
+[Remote]: Y en el medio realmente sí cambiaron como las
+[Remote]: las condiciones de de de cómo veníamos trabajando.
+[Remote]: Este,
+[You]: Sí, sí, sí, olvídate, olvídate. Bueno, genial.
+[Remote]: Sentí de mí, de como veo.
+[You]: Nada, me anoto
+[Remote]: Nacho, sentite libre si crees vos
+[Remote]: piffonear la fe, hablarnos con fe, sea, ningún problema con eso.
+[You]: Dale, dale, dale, genial. Sí, sí le escribo
+[You]: tengo una onda para para también ver cómo están pensando la migración y estas cosas.
+[You]: Pero pero más allá de eso, me anoto volver con vos en, no sé,
+[You]: un mes, dos meses para hacer catch up, a ver cómo vienen, y y seguimos ahí charlándolo.
+[You]: Cuando tengas también claridad de del equipo de Nexo, que que
+[You]: sea responsable de estas cosas,
+[You]: Feliz hablar con ellos, ver si ya tienen algo, si no tienen nada.
+[You]: Y explorarlo por ahí. Así que así que nada, y olvídate, De vuelta,
+[You]: no hay drama, creo que también ustedes fueron superabiertos a
+[You]: a trabajar con nosotros, así que lo lo agradecemos un montón y aprendimos un montón y tiramos un montón los productos
+[You]: trabajando con ustedes. Así que, de vuelta, esto es un stand by y hablemos más adelante.
+[Remote]: Vale, Nacho, de una, de una, de una, a ver.
+[Remote]: Hablemos en un mes y medio o dos, y yo tengo novedades antes y
+[Remote]: y yo puedo hacerles también como, hablo con con Matt, y también ver
+[Remote]: cómo podemos encarar para que ustedes también ya conozcan a la gente
+[Remote]: de Nexo y también empiecen más allá de Huemito y más allá de lo que nosotros hicimos. ¿Cuál es...? Que ustedes también le puedan dar valor a a a la plataforma directamente de ellos? Obvio que lo que lo voy a tener en cuenta, así que si yo antes de este mes y medio que después volvemos a hablar, ¿tengo alguna información o tengo algo puntual que que que sea relevante?, obvio que te te aviso y y y lo charlamos.
+[You]: Dale, Augus, listo. Millón de gracias. Estamos ahí al habla y
+[You]: bueno, te busco en unos meses a ver a ver cómo vienen.
+[Remote]: Dale, Nacho, un abrazo. Muchas gracias.
+[You]: Abrazo.
+
+============================================================
+SUMMARY
+============================================================
+### Project Status Update
+
+- Buenbit undergoing major transition - being acquired and becoming Nexo Argentina
+- Current Buenbit app will disappear entirely
+- Engineering team focused on migration with uncertain job continuity
+- Multiple competing priorities creating internal confusion
+
+### Technical Infrastructure Changes
+
+- Buenbit will stop using current back office systems (Pegato, Papi)
+- Moving to Nexo’s back office system
+- Binding operations will continue but flow directly to Nexo systems
+- Current conciliation processes unclear in new structure
+
+### Project Pause Decision
+
+- Agustin recommends putting Rexi collaboration on standby
+- Engineering team unable to prioritize due to migration demands
+- Prefers not to waste time on systems that will be discontinued
+- Timeline: revisit in 1-2 months once transition clarifies
+
+### Alternative Approaches Discussed
+
+- Nacho suggested Rexi could handle technical work directly
+  - Access raw data sources instead of relying on Buenbit engineering
+  - Work with crude data from Binding operations
+- Agustin concerned about dependencies on systems being phased out
+- Uncertainty about Peru operations continuity
+
+### Next Steps
+
+- Nacho to reach out to Fede for migration insights
+- Agustin will provide updates if relevant information emerges before planned follow-up
+- Reconnect in 1.5-2 months to assess new landscape
+- Potential introduction to Nexo team for direct collaboration
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/593f455c-230a-4d35-9edd-30aec21f6a41](https://notes.granola.ai/t/593f455c-230a-4d35-9edd-30aec21f6a41)

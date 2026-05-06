@@ -1,0 +1,846 @@
+MEETING: Rexi - GP | Reunión Finanzas/Clearing
+DATE: 2026-02-20
+ID: not_4TGE7ylRSsGjjn
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Agustin Suares Araujo <agustin.suares@globalprocessing.com.ar>, Alejandro Delbuono <alejandro.delbuono@globalprocessing.com.ar>, Mariela Ferrer <mariela.ferrer@globalprocessing.com.ar>, Nicolás Ezequiel Mobilia <nicolas.mobilia@globalprocessing.com.ar>
+SCHEDULED: 2026-02-20T09:00:00-05:00 - 2026-02-20T09:50:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Hola buenas.
+[Remote]: Hola, buen día, Ignacio, Teo, ¿cómo están?
+[Remote]: Buenas, ¿cómo andan?
+[Remote]: Todo bien, por suerte. ¿Ustedes?
+[Remote]: Hola, muy buen día.
+[You]: Muy bien por acá, acá en Nueva York, qué Espantoso. ¿Ustedes Todos En Buenos Aires?
+[Remote]: Sí. Todo se puede saber,
+[Remote]: sí. En Buenos Aires, un día soleado.
+[Remote]: En vida. Podríamos decir espantoso por el calor,
+[You]: Qué envidia, qué envidia acá.
+[You]: Literalmente,
+[Remote]: que cada uno está en otro lado y dice, ay, yo quiero estar en el frío, lo tengo que Claro,
+[Remote]: así que... No, no, no, lo de este invierno acá en Nueva York fue demasiado
+[Remote]: menos veinte menos veintiséis grados llegó a tener, o sea Oh. Bravo. Sí, sí, sí. Ahora está hace calor, hacen como dos, tres grados hoy. Bien, bien. Eso es calor, muy bien, bueno.
+[Remote]: Bueno.
+[You]: Agustín, ¿vos no estabas en la en la reunión anterior, puede ser?
+[You]: Creo que no.
+[Remote]: No. No En la reunión anterior estábamos, Nicolás. No.
+[You]: Perfecto.
+[Remote]: TPO y yo.
+[Remote]: Agustín, bueno, si quiere
+[You]: Con gusto.
+[Remote]: presentarte, Agustín y Alejandro, son del equipo de finanzas, si quieren
+[Remote]: presentarse. Bueno. ¿Cómo están? Bien. Bueno, yo estoy acá roto el área financiera, así que nada.
+[Remote]: Interesado en en en escucharlos.
+[Remote]: Así que, bueno, y Ale, te dejo a vos. Buenos días. Bueno. Yo estoy en en Global, estoy encargado de todo lo que
+[Remote]: es crediting, compensación y con las marcas, facturación y todo lo que es
+[Remote]: también reportería.
+[Remote]: Bien.
+[You]: Integular.
+[You]: Bueno, un gustazo, un gustazo para todos. Si quieren, hago una breve intro, así también
+[Remote]: Dale.
+[You]: los pongo en contexto, y y, pues, mira, voy a compartir pantallas y los
+[You]: Ah, no me deja. Va, no importa, vamos sin sin slide, no pasa nada.
+[Remote]: Pará, pará, pará, pará, pará, pará, que te te habilitamos.
+[You]: Dale.
+[Remote]: ¿Lo habilitás vos, María?
+[Remote]: Habilitalo, si querés.
+[Remote]: Ahí lo estoy habilitando. Ahí está. Ahí está, ahí está Disculpa, se me trabó. Ahí está.
+[You]: Excelente.
+[You]: Bueno, nada, voy a
+[You]: un par de láminas que me ayudan un poco a sentir el contexto de quiénes somos y qué es lo que hacemos,
+[You]: Entonces,
+[You]: con todo arrancamos esto, con todo estábamos estudiando un MBA en, yo yo estaba en Harvard, tengo en Columbia,
+[You]: arrancamos, bueno, vinimos de fintech también, tengo que venir de Mercado Pago, yo vengo de Bitch, yo trabajo en Fintech acá en Estados Unidos también,
+[You]: con lo cual el el problema de las conciliaciones lo vivimos nosotros como operadores.
+[You]: Estando del otro lado. Teo arrancó toda la pata de seguros en Mercado Pago,
+[You]: Yo trabajé en en Bitso, capaz conocen la la billetera de cripto que arrancó en México, bueno.
+[Remote]: Sí.
+[Remote]: De acuerdo.
+[You]: Estuve ahí también, lancé pagos con QR en Argentina, con lo cual también
+[You]: toda esa integración con Coelsa, pagos tres punto cero,
+[You]: trabajábamos con con lo cual toda esa conciliación también la hacía,
+[You]: y nuestro CTO que no está acá,
+[You]: viene de Pomelo, es funding team de Pomelo, el número de tecnología, con lo cual los tres conocemos muy bien, somos operadores y conocemos bien cómo funcionan esos archivos y los dolores detrás de los procesos conciliatorios.
+[Remote]: Perfecto. ¿Bien?
+[You]: Hoy estamos, o sea, tenemos
+[You]: una plataforma de de conciliación transaccional automatizada,
+[You]: ¿sí?, con inteligencia artificial en cada paso del camino,
+[You]: y estamos trabajando con
+[You]: cualquiera que esté en el stack de fintech, ¿no?, porque al final
+[You]: todos los players que están en este stack
+[You]: tanto de fintech y servicios financieros tradicionales, tienen el dolor, entonces banco sponsor,
+[You]: los banking as a service que están en el medio, plataformas fintech, proveedores de pagos,
+[You]: adquirentes, emisores, etcétera.
+[You]: Poquito a nuestros clientes hasta hasta el día de hoy, y nuestros inversores iniciales acá en
+[You]: equipo, que ya les mencioné.
+[You]: Y esto es un poquito nuestra propuesta de valor, ¿no?
+[You]: Porque ustedes seguramente se preguntarán cómo se diferencian de otras soluciones que hay en el mercado.
+[You]: Nosotros tenemos algunos
+[You]: sea, primero y principal, obviamente, nuestra tecnología es AI native, dado que arrancamos hace poco toda la arquitectura de las
+[You]: solución, está construida con inteligencia artificial y siendo un mundo de
+[You]: información estructurada
+[You]: encontramos unos casos de uso espectaculares y una productividad increíble, tanto en
+[You]: la ingesta y el desarrollo de esos conectores a las fuentes de información,
+[You]: la transformación de los formatos, que sabemos que es un dolor también,
+[You]: la configuración de la lógica conciliatoria, sabiendo que no siempre hay un
+[You]: ID único donde vos macheas transacciones, y sí, a veces
+[You]: te tenés que poner creativo con fecha, con monto, con
+[You]: usar un tercer base para crear una columna que después te va a permitir comparar con otra.
+[You]: Sabemos que también hay mucha creatividad, y después en la parte de resolución de discrepancias, porque
+[You]: estos procesos conciliatorios nunca cuadran al cien, ustedes sabrán mejor que yo,
+[You]: y entonces ahí seguramente va un tema de investigar y resolver las discrepancias, tener alarmas,
+[You]: de anomalías también para agarrarlas real time y que no se
+[You]: vuelva
+[You]: una bola de nieve
+[You]: a fin de mes,
+[You]: con lo cual está toda la parte de AI, y después a nivel
+[You]: design principal, si quieren cómo estamos enseñando y construyendo la plataforma,
+[You]: queremos que sea mucho más fácil de implementar,
+[You]: con este concepto de plug and play,
+[You]: es una mezcla de integraciones nativas con implementaciones agénticas,
+[You]: Queremos que sea self serve, porque también creemos que al final
+[You]: ustedes no quieren terciarizar este proceso, ustedes buscan una herramienta que les aumente
+[You]: dramáticamente la productividad.
+[You]: Idealmente, ustedes siguen siendo los dueños, controlan todo el proceso,
+[You]: y por eso estamos diseñando todo el producto para que sea self serve,
+[You]: sin la necesidad que ustedes tengan que estar pidiendo ayuda a equipos técnicos o estar coordinándose con
+[You]: con un account manager, con SLAs, digamos, queremos eliminar
+[You]: toda esa dependencia, tanto de un
+[You]: proveedor como de un equipo interno. Y después el tema del compliance.
+[You]: Que esto, bueno, depende con quién trabajamos, muchas veces
+[You]: las conciliaciones tienen
+[You]: requerimientos regulatorios,
+[You]: o de algún ente, por ser licencia bancaria, etcétera. Entonces,
+[You]: queremos que también la plataforma
+[You]: reduzca el riesgo de esa parte, automatizando todo el flujo de reporting
+[You]: y de compliance. Un poco de cómo nos
+[You]: con la competencia, esto yo por ahí ya lo mencioné un poquito, una implementación mucho más rápida.
+[You]: Cobramos la implementación, nos metemos de lleno con ustedes
+[You]: y en semanas lo sacamos andando, y y y nuestra modalidad
+[You]: play and play self serve nos permite tener un modelo de negocio que estaríamos siendo mucho más económicos
+[You]: que las otras soluciones, simplemente por cómo usamos la tecnología en en cada uno de estos procesos.
+[You]: Es un punto de los resultados que vemos de
+[You]: clientes iniciales,
+[You]: reducción de tareas manuales es el más grande,
+[You]: Está el tema del riesgo de compliance y regulatorio que les mencionaba.
+[You]: Y después lo que llamamos write off savings, ¿no?, que son
+[You]: muchas de estas empresas, no sé si es el caso de Global Processing,
+[You]: todos los meses tienen una partida de
+[You]: pérdidas irreconciliables, ¿no?
+[You]: Literalmente, es pérdida de caja para cerrar
+[You]: que no encuentran solución y y no tuvieron el tiempo de investigarlo,
+[You]: tiene que cerrar el mes y el equipo de contabilidad necesita hacer un asiento de eso y lo hacen y
+[You]: y asumen la pérdida.
+[You]: Y eso es otro.
+[You]: Técnicamente, debería ser cero, no no tenemos por qué
+[You]: perdiendo plata en el sistema por no poder conciliar, ¿no? Digo, o es un error de información,
+[You]: cuál plata faltando en algún lado del stack, le tenemos que identificar real time,
+[You]: y comunicarnos con el proveedor que
+[You]: que
+[You]: que que no que no nos está mandando esa plata, ¿no?
+[You]: Unos casos de éxito,
+[Remote]: Correcto. Sí, sí,
+[You]: y un poquito de cómo viene nuestra Roma futuro. Pero no quiero
+[You]: monopolizar la charla, en realidad acá nos interesa mucho más escucharlos a ustedes. Después una reunión
+[You]: inicial,
+[You]: con con Nico y con Mariela, nos contaron un poco
+[You]: que tienen las dos partes, ¿no? Tienen la parte de de
+[You]: misión y de adquirencia. Quizás hoy la que más duele para lo que es conciliaciones es la parte
+[You]: de adquirencia, entiendo,
+[You]: Y y dos cositas más que me llevé en la primer charla fue
+[You]: obviamente ustedes es como que
+[You]: quieren probar una herramienta interna
+[You]: para validar qué funciona, qué les funciona a ustedes para los procesos internos,
+[You]: y después estarían interesados en ofrecerla a sus clientes, porque saben que sus clientes al final
+[You]: toman el archivo saliente que viene de global processing y lo concilian con alguna
+[You]: base propia, con lo cual sería un gran valor agregado
+[You]: para global processing tener
+[You]: un workflow de este tipo embebido en el portal o en la
+[You]: experiencia para
+[You]: para generarle más valor al cliente, ¿no? Al final,
+[You]: La parte de misión también,
+[You]: pero parece que ahí todavía no hay tanto nuevo cliente.
+[You]: Así que no no no, por lo menos lo que yo me lleve a prerreunión,
+[You]: no era un dolor tan
+[You]: tan grande ahí. El último
+[Remote]: A ver,
+[You]: por ahí,
+[Remote]: o sea, la la solución la podemos pensar para ambas verticales, O sea,
+[You]: Okay.
+[Remote]: digo,
+[Remote]: no no no lo limitemos. Sí, creo que en adquirencia
+[Remote]: es más, está más claro el tema,
+[Remote]: pero lo podemos pensar para para
+[Remote]: Inclusive, ¿por qué? Porque alguno de nuestros clientes por ahí tienen otra
+[Remote]: que si nosotros vamos con alguna alternativa más
+[Remote]: más
+[Remote]: más económica, etcétera, etcétera, por ahí les
+[You]: Sí, el único comentario, el último comentario que quería hacer es
+[You]: salió la vez pasada y me pareció muy interesante, porque es un modelo que nosotros estamos experimentando ahora y estamos
+[You]: ya
+[You]: funcionando. Es el modelo de que nosotros llamamos customer manage,
+[You]: ¿no? Porque sé que ustedes hablaron con Symmetric en el pasado y
+[You]: poco lo que les pasó es que no les cerraba mucho
+[You]: la solución por la estructura y los costos
+[You]: asociados a esa estructura, ¿no? Más que nada los costos de la nube.
+[You]: Entonces, me acuerdo, creo que vos, Nicolás, mencionaste que
+[You]: les interesaba mucho el modelo customer management, es decir, nosotros
+[You]: desarrollamos toda la solución ad hoc a las necesidades que tienen ustedes,
+[You]: y la implementamos en la infra de ustedes.
+[You]: Lo cual
+[You]: a modelo a a en términos de modelo de negocio o del esquema de price,
+[You]: es por ahí un costo un poco más alto el primer año,
+[You]: después ustedes se quedan con un capability con AI interno que
+[You]: controlan ustedes y lo pueden después ofrecer o internamente o hacia clientes,
+[You]: y con nosotros simplemente hay un retainer muy bajo por soporte después del año uno.
+[Remote]: Yeah.
+[Remote]: Bien.
+[You]: Corto ahí, porque si no voy a seguir adelante, en realidad me encantaría escucharlos a ustedes que me
+[Remote]: Ah, da aquí.
+[You]: más de finanzas.
+[Remote]: Bien, bien. A ver,
+[Remote]: digo, para ya darle lugar a a a
+[Remote]: y a Alejandro, que son en definitiva los
+[Remote]: los usuarios, ¿no?, los los que van a a interactuar con
+[Remote]: con
+[Remote]: con la herramienta. Lo que nosotros planteábamos era
+[Remote]: un esquema en donde
+[Remote]: justamente, o sea, a ver, nosotros
+[Remote]: nos, digo, nos gustaría
+[Remote]: ese esquema en donde pueda ser infraestructura nuestra,
+[Remote]: para que también no no genere
+[Remote]: costos para ustedes,
+[Remote]: en en lo que es infraestructura,
+[Remote]: pero el modelo que buscamos es un modelo donde yo lo uso, yo
+[Remote]: soy el el, si querés, el experto,
+[Remote]: y a mis clientes voy
+[Remote]: voy
+[Remote]: con ese planteo, che, mirá, esta herramienta que yo uso no
+[Remote]: que yo vendo y no uso, sino que yo uso en en en mi día a día,
+[Remote]: me soluciona
+[Remote]: y ya esté integrada con nosotros, ya tiene los archivos
+[Remote]: los modelos de archivo que utilizamos, eventualmente
+[Remote]: hasta podríamos ver si es nuestra misma infra,
+[Remote]: de cargárselos nosotros, o sea, digo, de dar un llave en mano
+[Remote]: real, ¿no?, al cliente, en donde la solución con la que vamos a salir al cliente es
+[Remote]: algo que para el cliente, digo, si para GP la integración va
+[Remote]: ser n semanas, para el cliente debería ser un día,
+[Remote]: ¿por qué? Porque yo ya integro los archivos que yo ya sé que le voy a mandar,
+[Remote]: bien, ¿habrá algún otro archivo que yo no que yo
+[Remote]: desconozco de parte del cliente y el cliente por ahí quiera cruzarlo?
+[Remote]: También, bueno, esa será la parte que tiene que
+[Remote]: la que tiene que trabajar el cliente, pero en toda la parte de
+[Remote]: los salientes de GP,
+[Remote]: y etcétera,
+[Remote]: ya deberíamos
+[Remote]: dárselo resuelto.
+[Remote]: Al cliente.
+[You]: Totalmente de acuerdo. Sí, ya te ha hecho el conector.
+[You]: Para ellos debería ser como una especie de click through, lo sombreamos en Rexi y ya están cargados
+[You]: sus archivos privados,
+[You]: lo que operan con GP.
+[Remote]: Exacto, exacto, ya ha subido
+[Remote]: Y el otro punto, como ventaja, es
+[Remote]: cuando yo hago modificaciones de archivos,
+[Remote]: yo debería hacer la previa
+[Remote]: de
+[Remote]: vamos a modificar este archivo para que, o sea, digo, en
+[Remote]: operación normal, el al cliente le comunico que voy a modificar el archivo,
+[Remote]: se tiene que dar vuelta, tiene que hacer los cambios, este, con
+[Remote]: la plataforma que utilice para conseguir
+[Remote]: En esta instancia, debiera ser transparente eso para el cliente, ¿por qué? Porque
+[Remote]: si yo se lo estoy ofreciendo, yo al momento de decir, che, voy a
+[Remote]: cambiar este archivo, tendría que ir
+[Remote]: a hacer también el cambio al
+[You]: Total, total, total, total.
+[You]: Sí, sí,
+[You]: clarísimo, y y sería sería increíble lograr una
+[You]: experiencia así. Creo que hay mucho valor, ¿no?, porque ellos también tienen muchísimo dolor en su lado. Pero
+[You]: iría paso por paso,
+[You]: Primero, ganemos el el partido interno, que ustedes deben tener un montón de dolores ahí,
+[Remote]: Vale.
+[You]: Agustín y Alejandro, y y después se va a dar solo
+[You]: pensar cómo lo podemos productivizar hacia clientes, ¿no? Pero cuéntenos un poco de cómo
+[You]: qué están considerando hoy internamente, cómo lo están haciendo,
+[You]: cuáles son los principales puntos de dolor, un poco poco todo. Y y para que sepa
+[You]: ya tenemos un NDA firmado, con lo cual estamos
+[Remote]: Mauricio.
+[Remote]: Bueno.
+[You]: tranquilos por ese lado.
+[Remote]: Bueno. Dale.
+[Remote]: Dale, todo tuyo. Bueno. Bueno,
+[Remote]: buenos días. A ver, hoy lo que hacemos es recibir de primero,
+[Remote]: primero que nada, los los streaming de la marca, que son las liquidaciones de parte de la marca, donde nos dice
+[Remote]: cuánto nos van a debitar o acreditar.
+[Remote]: Según según la rama que corresponda, ¿no?, si es de adquirencia no se acreditan, si es
+[Remote]: emisión, no
+[Remote]: ¿sí?, de parte de la marca.
+[Remote]: ¿Sí?
+[Remote]: Ese es el primer punto, que esa es información que se manda el banco,
+[Remote]: ¿sí?, al banco representante que tengamos, Galicia Columbia,
+[Remote]: ¿sí?
+[Remote]: Y de y de parte interna, de nos
+[Remote]: de de Global, lo que recibimos son archivos como le mencioné en el mail, son tres veintidós cero tres, veintidós cero cuatro, veintidós cero seis, donde el veintidós cero tres debería con tiene conciliar contra la contra la liquidación que manda la banca, ¿sí? Pero dentro de de esa de de ese archivo hay operaciones, es un archivo transaccional, o sea, operación por operación, ¿sí?, donde no todo está liquidado, no todo está pagado al comercio. ¿Sí? O sea, que concile contra la marca, pero no contra el pago que sale a los comercios. O a los agrupadores, tasa de ¿sí? Entonces,
+[Remote]: vos vas a tener por un lado que ese archivo te concilia contra la marca,
+[Remote]: o es lo que debería pasar,
+[Remote]: y después vas a tener el veintidós cero cuatro y veintidós
+[Remote]: cero seis, que son complementos,
+[Remote]: ¿sí?, de esos
+[Remote]: de de eso de ese
+[Remote]: es acción t veintidós cero tres o t veintidós cero tres anteriores.
+[Remote]: ¿Sí?
+[Remote]: Que anteriores me refiero, por eso se necesita lo que más
+[Remote]: sería el punto de valor, el una base de datos, ¿sí?, donde se
+[Remote]: vaya actualizando con los archivos que diarios se vaya actualizando esa base de datos,
+[Remote]: ¿Por qué? Porque el veintidós cero cuatro y el veintidós cero seis son
+[Remote]: que ya sucedieron
+[Remote]: pero están liquidadas ese día.
+[Remote]: O sea, el día de hoy, ¿sí? O sea, pero ya vinieron en un t veintidós cero tres,
+[Remote]: anterior. Entonces, lo que
+[Remote]: hay que hacer no es agregar a la base de datos esa
+[Remote]: transacción, sino que actualizar la base de datos que venía antes con la fecha de pago correspondiente
+[Remote]: al día.
+[Remote]: No sé si me llegué hasta ahí,
+[You]: Buenísimo. O sea, el veintidós cero tres tiene
+[Remote]: ¿sí? Y
+[You]: tiene
+[You]: algunas liquidadas, otras no liquidadas, veintidós cero cuatro y veintidós cero seis
+[You]: son los complementos que llegan todos los días de las liquidadas, y ahí hay repetidas
+[You]: porque puedes tener una no liquidada en el veintidós cero tres, que aparece como liquidada el veintidós cero cuatro.
+[Remote]: Exacto. Veintidós cero cuatro serían de exterior, ¿sí?
+[Remote]: Operaciones en
+[Remote]: en realidad, aquí en esas son operaciones de tarjetahabientes del exterior que realizó en
+[Remote]: comercio del país, ¿sí?
+[Remote]: La marca la paga en dólares,
+[Remote]: nosotros al comercio se lo pagamos en pesos, o sea, que ahí nosotros tenemos un
+[Remote]: un crédito en dólares en la cuenta,
+[Remote]: y un pago en pesos, ¿sí?
+[Remote]: Y después tenemos en el veintidós cero seis operaciones que son
+[Remote]: por por distintas distintos negocios que son, por ejemplo,
+[Remote]: de corte, nosotros por ahí cortamos la hora antes y pagamos pagamos después
+[Remote]: a posterior, por lo tanto, en el t veintidós cero tres la marca no las paga,
+[Remote]: pero pero nosotros no la liquidamos. Entonces,
+[Remote]: también esto es un complemento también del veintidós cero tres.
+[Remote]: ¿Sí?
+[Remote]: Y eso es un
+[Remote]: y eso es lo que sería la
+[Remote]: conformar con el veintidós cero tres la base histórica, que podés tener dieciocho días
+[Remote]: hábiles para atrás desde el veintidós cero tres,
+[Remote]: ¿sí?, porque vos entrés en tarjeta de crédito, tenés dieciocho días hábiles de pago,
+[Remote]: Entonces, vos tenés que tener una historia mínima de
+[Remote]: dieciocho días hábiles para para atrás, para poder conformar el día del pago de de la fecha. ¿Sí? Y, ¿cómo le llaman?, y después y y después Después tenemos un archivo que se llama t tres mil trescientos, que lo que tiene es toda liquidaciones del día, del día de la fecha, que no llega en el DINA,
+[Remote]: y que es lo que se va a pagar a cada comercio o agrupador en la fecha, ¿sí?
+[Remote]: Eso tiene que cruzar contra la base.
+[Remote]: Contra la actual, con los tres archivos que se actualizó a la base,
+[Remote]: filtrás por la fecha de pago, digamos, la fecha de pago del día, y eso
+[Remote]: número de liquidación,
+[Remote]: tiene que tiene que coincidir contra el pago a cada uno de los comercios o a agrupadores.
+[Remote]: ¿Sí? Entonces, son
+[You]: Perfecto.
+[Remote]: son tres son
+[Remote]: son son dos cruces en realidad, una contra la marca,
+[You]: Tres bases, dos cruces.
+[Remote]: otra contra los comercios.
+[Remote]: ¿Sí?
+[Remote]: Y después entre lo que cobramos
+[You]: Perfecto.
+[Remote]: y lo que pagamos está la ganancia, digamos, por la diferencia entre los
+[Remote]: entre el intercambio que se llama, que es lo que nos cobra la marca, que le paga el divisor,
+[Remote]: y
+[Remote]: y lo que nosotros le cobramos como arancel a ecommerce,
+[Remote]: ahí estaría la ganancia, ¿sí?, la ganancia de de la
+[Remote]: de cada una de las transacciones.
+[You]: Archivos veintidós cero tres, veintidós cero cuatro, veintidós cero tres, ¿cómo les llegan?
+[Remote]: En lo bajo
+[Remote]: bajamos desde una de un del s tres de una de una
+[Remote]: de un Perfecto. En O el número que nos deja la gente de
+[Remote]: operaciones, nos deja los los carga ahí, nosotros lo descargamos y lo y lo elaboramos.
+[You]: Veintiocho
+[You]: tres, veintidós cero cuatro, o sea, porque son archivos bancarios que hay un equipo técnico que ya hace laburo y dejaron en
+[You]: Ah, propios, propios, ok, perfecto.
+[Remote]: No.
+[Remote]: Yeah.
+[You]: Propios contra liquidación de la marca, y después
+[You]: esa base propia
+[You]: contra comercios, ¿no?
+[You]: Clarísimo. ¿Cómo lo hacen hoy actualmente
+[You]: literalmente paso por paso, y cuáles son los puntos de dolor?
+[Remote]: La realidad, el punto más de dolor, el el la
+[Remote]: mantener la base, digamos, histórica y
+[Remote]: con todo lo que viene en el día,
+[Remote]: ¿sí?
+[Remote]: La realidad es que vos podés tomar
+[Remote]: solamente lo que lo que
+[Remote]: vengan a veintidós cero tres, veintidós cero cuatro, veintidós cero seis, pero lo que
+[Remote]: nosotros necesitamos conformar es una base, porque mensualmente a las marcas le tenemos que también
+[Remote]: con la base esa, presentar los informes correspondientes, ¿no?
+[Remote]: A más a más cercano, por ejemplo, de cada tres meses, avisa es mensual.
+[Remote]: Entonces, con la base esa, también después se se presenta la marca
+[Remote]: el informe correspondiente. Entonces, por eso nosotros también tenemos que guardar
+[Remote]: mensualmente el histórico para poder presentar a la marcha.
+[Remote]: No es que solamente usamos no es que solamente lo usamos para el día en sí.
+[Remote]: Ahí aprovecho y pregunto que mencionaste, nosotros también tenemos obviamente
+[Remote]: funcionalidades para automatizar la creación de reportes,
+[Remote]: ¿Cómo es el proceso de creación de ese reporte que mandan cada tres meses y cada un mes?
+[Remote]: Ese es en base a la base a la base de mensual, ¿sí?
+[Remote]: En caso de master se agrupa trimestral, el caso de Visa se va cargando en la
+[Remote]: de Visa mensualmente,
+[Remote]: Hoy lo hacemos con Access, digamos,
+[Remote]: está en la en la plataforma, en una en un programa de
+[Remote]: donde se cargan los archivos y se va anexando a una base mensual, día a día,
+[Remote]: todo el proceso que se hace del día se carga en una base y eso
+[Remote]: va quedando día a día todo toda la carga
+[Remote]: diaria, y, por lo tanto, después se conforma la base mensual una determinada
+[Remote]: el mes.
+[Remote]: Perfecto.
+[You]: ¿Y que hoy usan Excel o lo tienen montado con algún tipo de
+[Remote]: No, somos Excel.
+[You]: SQL o
+[Remote]: Para para lo que es para lo que es, o sea, Access para
+[Remote]: manejar los archivos, y de ahí salen consultas a Excel.
+[Remote]: Son consultas un poco más reducidas que lo que es
+[Remote]: no no tan transaccional como es el archivo en sí.
+[Remote]: Sino que lo hacemos por liquidación o por o por marca.
+[You]: Buenísimo.
+[You]: Entonces,
+[You]: levantan los archivos s tres,
+[You]: usan access para esos archivos, Excel para todo lo que es el procesamiento,
+[You]: y calculo que Excel también para armar los reportes estos mensuales y trimestrales, ¿no?
+[Remote]: Exacto, sí.
+[Remote]: Así es.
+[You]: Y pregunta,
+[You]: ¿cómo es el proceso cuando no cuadra?
+[You]: Porque imagino que
+[Remote]: Quando
+[You]: Nosotros nosotros lo hicimos, te pregunto
+[Remote]: o no cierra contra la marca o no cierra contra la liquidación,
+[Remote]: lo que tenemos es un grupo de teams donde está la gente de
+[Remote]: de soporte, donde
+[Remote]: levantamos el los montos, por qué no, por cuáles no cierran, y ellos
+[Remote]: si en la base quedó algo sin liquidar o sin
+[Remote]: o sin o que la marca lo haya rechazado,
+[Remote]: ¿sí?, y ahí, o sea, se deja, diferencia de partes, se
+[Remote]: se le decía algo que no la marca no aceptó, se vuelve a
+[Remote]: con la corrección correspondiente, y al día siguiente se corrige esa diferencia que tenemos
+[Remote]: o con la marca o con lo liquidado, ¿no?, siempre
+[Remote]: siempre es así, pero bueno, lo no no lo que no
+[Remote]: Nosotros nos tenemos que basar en lo que se liquidó,
+[Remote]: Si tenemos una diferencia, lo tenemos que levantar la gente de soporte,
+[Remote]: devuelvan a levantar esas transacciones y o ver cuál es la diferencia, ¿no?
+[Remote]: Porque siempre
+[Remote]: nosotros, desde clearing ya vemos el final del del circuito,
+[Remote]: no no podemos hacer nada, ya una vez
+[Remote]: la marca no mandó el crédito o que
+[Remote]: el archivo, digamos, a los comercios ya salió.
+[Remote]: O sea, nosotros tenemos que respetar eso, las diferencias las tenemos que ir levantando y corrigiendo a futuro.
+[You]: Perfecto.
+[You]: Y, oye, perfecto, clarísimo.
+[You]: ¿Este equipo es de es de IT, dijiste, de sistemas?
+[Remote]: Exacto, sí, sí, sí.
+[You]: Perfecto.
+[Remote]: Nosotros tenemos un grupo de teams donde no no, donde nada.
+[Remote]: Le decimos día a día, y a partir, o o nos piden un ticket,
+[Remote]: a través de Jira, y se lo subimos, o si es algo sencillo de
+[Remote]: lo lo resuelven en el momento.
+[You]: Excelente.
+[You]: Excelente. Y última preguntita del proceso es,
+[You]: todo esto que que que charlamos es control operativo, digamos, ¿no?
+[You]: ¿Cuál es el impacto en contabilidad? ¿Qué tan de cerca trabajan ustedes con contabilidad y cuál es
+[Remote]: Y nosotros le pasamos relación a partir de esa base que se genera
+[Remote]: le pasamos el asiento contable para que la gente de contabilidad lo suba al sistema.
+[You]: O sea, a ustedes también le deben un reporte diario a contabilidad.
+[You]: O mensual.
+[Remote]: Sí, le pasamos el asiento y después hacemos las justificaciones mensuales de la
+[Remote]: cuenta de de de las de las cuentas, ¿no?
+[You]: Excelente.
+[Remote]: El asientos diarios, a ver,
+[Remote]: Claro, el asientos diarios.
+[Remote]: El asiento, a partir de esa base por día, sale todo lo que va a registrarse diariamente,
+[You]: Ellos no hacen un chequeo adicional,
+[You]: toman el asiento, dicen esta es la verdad, porque viene de este tipo de
+[Remote]: Son en el accidente y lo que hagan, exacto, sí.
+[You]: viene el equipo de Ale,
+[Remote]: Después habrán los chequeos
+[Remote]: mensuales con, nosotros también armamos lo que se llama una intercompany, que es
+[Remote]: son todo lo que es la ganancia de la compañía y se pasa de
+[Remote]: se se ajustan las cuentas y se manda resultado, ¿no?, están en un pasivo,
+[Remote]: y y y mensualmente, a través de la inter company, se
+[Remote]: ese ese pasivo que hay se pasa a
+[Remote]: se pasa a resultado.
+[You]: Perfecto.
+[Remote]: Pasivo activo, ¿no?
+[You]: Perfecto, clarísimo.
+[You]: Bueno, yo del proceso, sí mismo no sé si a vos te acabo de una preguntita más
+[Remote]: No, clarísimo, clarísimo.
+[You]: técnica,
+[You]: quizás entonces la pregunta que les hago ahora
+[You]: Agustín y Alejandro, es,
+[You]: ¿qué se imaginan como una solución ideal? ¿Qué qué están buscando
+[You]: este q o el q que viene? Es decir, che,
+[You]: quiero que el proceso funcione así, así, asá, con una herramienta que me permita hacer esto.
+[You]: Así, hoja en blanco, ¿qué se imagina?
+[Remote]: A ver, lo lo lo ideal es
+[Remote]: conformar en una en una plataforma que soporte
+[Remote]: mejor proceso, los la recepción de estos archivos,
+[Remote]: a ver, yo lo tenía pensado en access,
+[Remote]: en mi teoría funciona, lo que
+[Remote]: generan la base histórica con el veintidós cero tres,
+[Remote]: y con el y el veintidós cero cuatro y veintidós cero seis,
+[Remote]: que que funcionen como un actualizador de esa base,
+[Remote]: lo que nosotros usamos es, hay un campo que se llama número de liquidación,
+[Remote]: y otro campo que se, ID de y otro campo que se llama ID de consumo
+[Remote]: Ese ID de consumo es único,
+[Remote]: y el campo de liquidación o está con un número
+[Remote]: significa que está liquidado, o sea, que está en el archivo de tres mil trescientos,
+[Remote]: o está en cero
+[Remote]: y no está ¿sí?
+[Remote]: Entonces,
+[Remote]: veintidós cero cuatro, veintidós cero
+[Remote]: seis te funcionan con ese ID de consumo único,
+[Remote]: y te agrega el número de liquidación. Entonces,
+[Remote]: lo bueno es tener una base
+[Remote]: histórica de veintidós cero tres, y que, y diariamente,
+[Remote]: áreas del veintidós cero tres del día y el veintidós cero cuatro y veintidós cero seis, que funcionen como una
+[Remote]: de esa base, y después
+[Remote]: a partir de esa base, traerse
+[Remote]: como un
+[Remote]: segundo veintidós cero tres, si quieren llamarle, o un reducido,
+[Remote]: que sea por la fecha de pago del del día, de la fecha.
+[Remote]: ¿Sí?
+[You]: Perfecto, o sea que
+[You]: hay hay mucho valor simplemente en tener esta base consolidada
+[You]: que día a día, con estos tres archivos nuevos que vienen, se esté actualizando correctamente.
+[Remote]: Exacto. Y también lo que nosotros tenemos después son agendas,
+[Remote]: ¿sí?, agenda de pago a futuro,
+[Remote]: porque lo usamos como análisis financiero también,
+[Remote]: entonces, esto, nada, va en ese veintidós cero tres hay
+[Remote]: fecha del día, con fecha de pago a futuro a días posteriores.
+[Remote]: Eso dieciocho
+[Remote]: ¿Eso es lo que habían dicho que era tema dieciocho, por lo general, o o
+[Remote]: Sí, puede ser a más diez,
+[Remote]: más más más uno o más dieciocho.
+[Remote]: ¿Sí? O sea, hay distintas fechas, ¿sí?
+[Remote]: O hay los viales, ¿no? O sea,
+[Remote]: Sí, sí, no, lo del día, lo del día, lo del día, después tenemos
+[Remote]: temas uno, y después tenés tema diez o tema dieciocho.
+[Remote]: ¿Sí? Depende del producto, depende también mucha, o sea, si es débito, es
+[Remote]: a a veinticuatro horas, si es
+[Remote]: si es
+[Remote]: si es prepagas cuarenta y ocho, y si es crédito, puede ser a diez o dieciocho días.
+[You]: Perfecto.
+[You]: Con lo cual esa agenda de pagos se van a que tenerla en cuenta para la conciliación.
+[Remote]: Entonces,
+[Remote]: en en realidad,
+[Remote]: no para la conciliación del día, porque eso te va a quedar como pendiente,
+[Remote]: de pendiente de pagar, pero sí es una agenda que tenemos
+[Remote]: que es cosas que ya cobramos, que la vamos a pagar a futuro,
+[Remote]: y esa y eso hay que ver, ir viendo la caída, si quiere, en
+[Remote]: llamarle caída de cuota, caída de pago, ¿no? O sea,
+[Remote]: es como una una caída de pago que vamos teniendo. A futuro que
+[Remote]: tiene que ir coincidiendo contra lo que
+[Remote]: venga en el día de de parte de
+[Remote]: de parte del t tres mil trescientos, ¿no?, que es lo liquidado del comercio.
+[Remote]: Tiene que coincidir en
+[Remote]: Claro, o sea, es importante desde el punto de vista más que de
+[Remote]: conciliatorio o de conciliatorio de caja después, si querés.
+[Remote]: No tanto en la que es como en Sales ya lo tiene,
+[Remote]: digamos, armado y sabe lo que debería entrar, pero es un tema también de
+[Remote]: de caja, ¿sí? Sí. Igualmente, eso se arma con la con la misma base que
+[Remote]: que sería,
+[Remote]: veintidós cero tres, esa base.
+[Remote]: Se que se haga,
+[Remote]: se se armaría directamente la agenda de pago, porque también tenés la columna de fecha de pago.
+[Remote]: Entonces, ponés a mayor a hoy y te da la agenda de pago, ¿sí?
+[Remote]: O sea Alejandro es
+[Remote]: Sí. Ahí lo lo lo las liquidaciones de la marca,
+[Remote]: Ustedes suelen encontrar diferencias
+[Remote]: financieras, es decir, en
+[Remote]: en cumplimiento de estos temas uno, temas diez, temas dieciocho, No, no, aparte de la marca, no, porque casi siempre lo que vos presentes a la marca. Puede haber un error en la presentación, porque la marca te te hace un archivo que vos mandaste a la marca. O sea, en adquirencia, vos mandaste el archivo con toda la información, la marca te lo acepta, te lo rechaza, y eso es lo que te liquida al día siguiente, ¿sí? Perfecto.
+[Remote]: Sí, lo que puede haber fue errores de
+[Remote]: de Mastercard, donde hizo un cálculo la marca
+[Remote]: de parte de Diva,
+[Remote]: y nada, puede haber un error en la marca, ¿sí?, pero
+[Remote]: y ahí, bueno, hay que ver cómo
+[Remote]: cómo resolverlo, porque tú puedes, hoy en día siguen generando diferencias.
+[Remote]: O tenemos un error de parte de Mastercard donde sigue generando diferencias en esos campos.
+[Remote]: Pero
+[Remote]: pero bueno, eso es algo que que para
+[Remote]: para inaugurar, ¿no?
+[You]: Clarísimo, clarísimo, clarísimo. Gracias, Alejandro, por todo el detalle.
+[Remote]: No, por favor.
+[You]: Nos encanta charlar con
+[You]: con con la gente de nuestros clientes, que realmente se vuelve experta en estos
+[You]: y en estos procesos. Es como que hay una cantidad de conocimiento
+[You]: concentrado que es que es impresionante.
+[You]: Así que, a ver, la verdad, siendo honesto,
+[You]: Rexi es un orquestador de información, con lo cual para el primer dolor, que es
+[You]: esta generación de una base consolidada que se vaya actualizando día a día,
+[You]: con tres archivos que la van alimentando, eso se puede hacer perfectamente y después se configura el
+[You]: flujo conciliatorio, que ya es la comparación contra la marca o contra el tres
+[You]: tres mil trescientos de la liquidación del comercio.
+[You]: No sé si ustedes tienen preguntas de su lado,
+[You]: feliz de de responderlas de cómo cómo funciona o o de lo que sea, de cómo trabajamos,
+[You]: Pero si no, lo lo que yo propongo al final siempre
+[You]: decimos conteo que es muy difícil vender nuestro producto porque
+[You]: es muy difícil, imaginárselo, verlo, podemos mostrar una demo, pero
+[You]: siempre nos pasa que mostramos una demo, nos ponemos en el lugar del cliente y decimos,
+[You]: claro, ven la demo, pero después dicen, che, ¿cómo va a ser esto realmente cuando lo
+[You]: ¿cómo va a funcionar?, porque en la demo, obviamente,
+[You]: siempre está al lado, lo estamos configurando para que en el momento aparezca impresionante. Pero
+[You]: digo, está firmado el NDA,
+[You]: entonces una oportunidad puede llegar a ser hacer una demo con archivos reales,
+[Remote]: Okay.
+[You]: ¿no? Entonces, lo
+[You]: montamos un flujo real, nos pasan archivos de dos, tres días,
+[You]: semana, un mes, lo lo lo que quieran,
+[You]: y les mostramos, mirá cómo se actualiza día a día este archivo conjunto,
+[You]: cómo se cruza con
+[You]: los archivos de la marca, con los archivos de de la con la liquidación de los comercios,
+[You]: cómo sería el flujo de trabajo
+[You]: de lo que hoy están haciendo en Access y en Excel en
+[You]: y hacemos una demo real.
+[You]: Y esto es progresivo, porque después de esa demo real también me van a decir
+[You]: bueno, ¿y cómo funcionaría si lo conectamos? Entonces, después por ahí pasamos una prueba piloto, donde ya sí nos metemos en
+[You]: producción y a que funcione de manera recurrente.
+[You]: Y vamos progresivamente desbloqueando valor y
+[You]: y mostrando ese valor. Pero yo propongo armar una demo
+[You]: con archivos reales, dado que ya tenemos el
+[You]: el NDA firmado. No sé qué les parece.
+[Remote]: Bien. Sí, perfecto, nosotros te pasamos
+[Remote]: te pasamos los archivos, no no se vemos después bien,
+[Remote]: qué archivo componen un día, por para el
+[Remote]: que lo carguen y y que, y hablamos, si quieres, con mi equipo,
+[Remote]: también, que es el que hace el proceso en sí, bien, para para ver el paso a paso, que ustedes lo vean, y nada, ver ver cómo cómo lo Perfecto. Yo creo que eso eso sería tal, quizás el el próximo paso, ¿no?, sea, Ale, hacer un mini sesión tuya del equipo con ellos para que vean el paso a paso, y después definir cómo le le volcamos lo lo los archivos para que ellos puedan montarlos, y quiero saber una vez, me parece superpiola y y y creo que es lo que necesitamos Lo dijiste bien, Ignacio, es eso, ¿no?, vemos la demo y queda buenísimo cuando decís
+[Remote]: che, tengo todo este archivo. Decí, no, bueno, en realidad, las
+[Remote]: forma en que nosotros lo habíamos pensado, entonces, hacerlo con con el crudo reales,
+[Remote]: es la mejor manera, ponemos para mí para, y y va a ser para Alex, y que ese
+[Remote]: usuario, sobre todo el que todo el equipo de él es el que lo va, el que lo está usando,
+[Remote]: ver realmente que tiene ese valor agregado, ¿sí? Entonces, creo que es la mejor manera de verlo,
+[You]: Sì, e
+[You]: cambio que simplemente en GP también hay que armar un business case, entonces tenemos que ver el valor
+[You]: para decir, ok, esto me va a desbloquear tanto valor, vamos con Rexy, ¿por qué?
+[Remote]: Sí, sí, sí.
+[You]: Hay un hay una creación de valor en el proceso de implementar una herramienta nueva.
+[Remote]: Sí, sí.
+[You]: Así que
+[You]: totalmente
+[You]: alineado por eso. Una última preguntita, y es más,
+[You]: para entender un poco cómo compite esto con otras prioridades de GP, qué tanta urgencia le ven a esto, esto es algo que decís
+[You]: che, si si lo saco en q uno, hago un gol de media cancha o un
+[You]: q dos hago un gol de media cancha, o mirá, la verdad que tengo otras prioridades y esto
+[Remote]: No.
+[You]: es un nice to have, que lo sacamos está buenísimo, pero no
+[You]: no no está en mi
+[Remote]: No.
+[Remote]: Pasa a ser más allá de una script to hub, o sea, para mí es una... No te voy decir la prioridad, porque
+[Remote]: porque te mentiría, pero sí es, se tire de transformar una prioridad.
+[Remote]: Se va, te lo te lo te lo voy a tirar la piel de al revés.
+[Remote]: Necesito que vos me que para mí es una prioridad.
+[Remote]: ¿Sí? O sea, que que la solución que me estés dando
+[Remote]: para mí es decirle, Ale, esto es una prioridad, ¿sí?
+[Remote]: Hoy, te digo, es un nice to have, porque me encantaría tener un conciliador que no dependa de una base de
+[Remote]: que sea mucho más ágil para Ale para que todo ese equipo
+[Remote]: pero te lo voy tardar a re decir, che, me encantaría que
+[Remote]: me me le parta la cabeza a Ale y Ale me estemos diciendo a mí, justamente,
+[Remote]: es al revés, o sea, ¿viste? A veces es, yo
+[Remote]: convencerlo a Ale de, che, Ale, tenemos que encontrar herramienta que sea
+[Remote]: Y él dice, no, yo me siento, me encantaría, pero tengo toda esta estructura que funciona bien y que con el
+[Remote]: y me pasa, porque lo lo venimos conversando hace un montón, ¿viste?
+[Remote]: El famoso, ¿no?, el de el de, che, está funcionando, y yo sé cómo hacer los parches, ¿viste?, y
+[Remote]: porque es dinármico, yo te tal, es una foto a
+[Remote]: a hoy, al sistema de hoy, pero todos los días van apareciendo cosas nuevas,
+[Remote]: los días no, pero van apareciendo cosas nuevas o necesidades nuevas que
+[Remote]: nos nos tiene que permitir, digamos, hacerlo. Entonces,
+[Remote]: me encantaría que sea alguien que me corra a mí diciéndome, che,
+[Remote]: necesito, esto tenemos que avanzarlo.
+[You]: Encantó, encantó.
+[Remote]: Nacho, y y
+[Remote]: antes de que de que de que Agustini y Ale este, nada, se se entusiasmen demasiado,
+[Remote]: Me gustaría que revisemos, si querés,
+[Remote]: nada, cómo sería el modelo de negocio.
+[Remote]: Qué te digo esto? Sabés que estuvimos en la misma conversación con Symmetric, y o sea, la hemos
+[Remote]: se lo hemos, este, blanqueado,
+[Remote]: No hemos llegado a un acuerdo comercial de de cómo
+[Remote]: de alguna manera, nada, un acuerdo comercial,
+[Remote]: o sea, nuestra postura es un poco, che, yo te
+[Remote]: te abro te abro, te impulso con mis
+[Remote]: clientes,
+[Remote]: terminamos de armar un un un caso de negocio en donde
+[Remote]: en donde tu solución tenga como beneficio cosas
+[Remote]: que es, si algún otro va a a comprar alguna otra solución,
+[Remote]: no lo tenga, ¿por qué?, porque nosotros ya estamos integrados, bueno, nos
+[Remote]: lo que dijimos, ¿no?, terminar de darle el paquete completo como para que
+[Remote]: para el cliente sea más rápida la la, che,
+[Remote]: este, prendo muy rápido,
+[Remote]: el servicio,
+[Remote]: y bueno, y nada, necesitamos ponernos de acuerdo en en en la parte económica,
+[Remote]: ¿Por qué te digo esto?
+[Remote]: Porque GPT tiene,
+[Remote]: cientos de miles y millones de transacciones,
+[Remote]: ahí es donde, che,
+[Remote]: viable que nosotros paguemos algo por transacción,
+[Remote]: o sea, y el planteo nuestro era, por eso era
+[Remote]: que infraestructura nuestra, eventualmente,
+[Remote]: nuestros clientes
+[Remote]: inclusive se podría plantear plantear con
+[Remote]: nuestra, aunque después el contrato lo tengan ustedes, digo, podemos podemos
+[Remote]: cranearlo de la forma que sea, si yo voy a estar subiendo las
+[Remote]: digo, la estoy subiendo para mí, la puedo subir para para el resto de los clientes, con lo cual
+[Remote]: digo, planteémoslo de tal manera
+[Remote]: en donde
+[Remote]: insisto, por ahí puede ser infraestructura de GPU,
+[Remote]: pero el el punto acá es
+[Remote]: y y y entiendo que es lo que lo que tenemos que ponernos de acuerdo, es
+[Remote]: GP no quiere pagar
+[Remote]: lo que generalmente este este tipo de solución es puesta
+[You]: Clarissimo.
+[Remote]: en los volúmenes que GPT tiene de transacciones.
+[Remote]: ¿Sí? Y ahí es donde nosotros te decimos, Chesy, la infraestructura es nuestra,
+[Remote]: no tenés costo de infraestructura de tu lado, eventualmente podemos ofrecerle este
+[Remote]: servicio a clientes g p, en donde yo en mi infraestructura se lo subo
+[Remote]: el contrato lo pueden tener por ustedes a través nuestro, después lo lo hablamos,
+[Remote]: pero digo, para que no te genere costo de infraestructura adicional a ustedes,
+[Remote]: digo,
+[Remote]: vayamos en paralelo trabajando la parte comercial,
+[Remote]: no no quisiera que
+[Remote]: digo, que no nos pongamos de acuerdo y y y y que hayamos trabajado de ambos lados
+[Remote]: sin
+[Remote]: tener, de antemano, ya cerrado este este tema, ¿no?
+[Remote]: Digo, antes de que Alejandro y y Agustín se me entusiasmen demasiado,
+[Remote]: hablemos la parte, si querés, comercial de de
+[Remote]: cómo vamos a hacer para para que sea un ganar ganar, o sea, la realidad es
+[Remote]: digo, yo no no no no no tengo ni intención de
+[Remote]: de, digo, de usarlo y que no no tengan un beneficio
+[Remote]: Entendemos que el beneficio se puede generar ofreciéndole la plataforma,
+[Remote]: a otros clientes, en donde podría, aunque aunque la infra por ahí
+[Remote]: sea la nuestra, por un tema de abaratar costos para ustedes,
+[Remote]: podría inclusive ser un tema de de
+[Remote]: que le vendan ustedes directamente, o sea, vamos de la mano con ustedes a los clientes,
+[Remote]: y le ofrecemos
+[Remote]: un producto ya cerrado, un producto donde
+[Remote]: ya está integrado, donde ya estén subidas. Por ejemplo, en la adquirencia es eso, o sea, no
+[Remote]: yo ya puedo subir las transacciones, yo ya puedo subir un montón de cosas
+[You]: Sí, sí.
+[Remote]: y lo mismo en la misión, ¿no?, en donde yo ya puedo subir un montón de de información
+[Remote]: y por ahí al cliente lo que le falta es al
+[Remote]: integrar alguna que otra
+[Remote]: alguna que otra base más, y no mucho.
+[Remote]: No mucho que más. Entonces, me parece que podemos decir con algo
+[You]: Obvio, obvio. Mira, ahí
+[Remote]: cerrado, empaquetado y
+[Remote]: Y yo creo que
+[Remote]: Perdón, Nacho, yo creo que que que que fuimos como muy claros y directos
+[Remote]: en nuestro primer encuentro, por eso pasamos a este a este segundo encuentro y
+[Remote]: que tenemos con el con el equipo después de producto.
+[Remote]: En esto, ¿no?, en que en que desde GP, digamos, no tenemos el presupuesto para abonar o asumir un costo mensual, y la idea sería que nosotros seamos usuarios de la herramienta y que podamos levantar las cosas a mejorar y demás, y qué mejor que siendo los usuarios para que después nosotros le presentemos o en contraprestación darle nuestra base de clientes y prospect, para vender la herramienta en reuniones que podemos armar y la presenten, ya andemos, o o ofrecerlo directamente nosotros y después sumarlos a ustedes. Yo creo que en en la, no primera reunión fuimos como muy claros en ese punto, justo para evitar avanzar con algo que después no nos termine
+[Remote]: de cerrar o que no haya quedado claro esta parte comercial.
+[You]: clarísimo, clarísimo, y y sí,
+[You]: gracias por esa frontalidad y esa sinceridad.
+[You]: Ahí creo que también lo dije en la primera llamada, tiro en la tecla, porque una de las grandes tesis de de
+[You]: lo que estamos queriendo construir es esta noción de una
+[You]: compartida, porque para nosotros el problema de conciliar
+[You]: en en en su raíz es un problema de coordinación, porque al final hay un archivo de la
+[You]: hay un archivo interno, hay un archivo de un adquirente, hay un archivo de una emisora, hay un archivo
+[You]: Son todos muchas
+[You]: muchos entes separados generando esos archivos y después cada uno localmente lo está conciliando.
+[You]: Si nosotros generamos una herramienta compartida, donde todos los archivos ya están ahí,
+[You]: y todos los entes están consumiendo esa misma información, conciliando con
+[You]: misma lógica y trabajando juntos en las diferencias,
+[You]: esa es la visión que tiene Rexi de cómo solucionar el tema de conciliaciones en servicios financieros, con lo cual
+[You]: trabajar con con una empresa como GP, que tiene
+[You]: ese network effect y ese system effect, ustedes ya trabajan
+[You]: de un lado con las marcas, de otro lado con un montón de comercios, para nosotros
+[You]: es un acelerador para ese platform play que estamos buscando.
+[You]: Con lo cual por eso también hay mucho interés en ambas partes. Propongo lo siguiente,
+[You]: y y de vuelta, como hay mucho interés y está tan alineado con nuestra visión, nosotros
+[You]: estamos muy dispuestos a hacerlo funcionar.
+[You]: Yo te busco a vos, Nico, por separado, y a vos, Mariela, para empezar a hablar de estos términos comerciales.
+[You]: Y te busco Alejandro para armar una working session la semana que viene para empezar a meternos
+[You]: en en la creación de esa demo, y vamos avanzando en paralelo. Totalmente de acuerdo de que si no hay
+[Remote]: Bien.
+[You]: si no hay un feed comercial, no perdamos tiempo,
+[You]: seguimos en contacto para otro futuro, pero avanzaría en paralelo porque de nuestro lado
+[You]: hay hay una intención de hacerlo funcionar, justamente por este platform play que ustedes están planteando.
+[Remote]: Bien.
+[You]: En donde lo usan internamente y después lo pueden abrir
+[You]: a todos los players y stakeholders con los que ya
+[Remote]: Perfecto. Perfecto, perfecto.
+[You]: trabajan.
+[Remote]: Buenísimo.
+[You]: ¿Listo? Bueno, mil gracias por el tiempo.
+[Remote]: Buenísimo.
+[Remote]: Genial.
+[You]: Buen viernes y y nada, nos vemos el lunes, ¿no?
+[Remote]: Sí, el arreglo con producto.
+[You]: Espectacular.
+[Remote]: Bueno, muchísimas gracias, chicos, por el tiempo que ha información. Abrazo, y
+[You]: Good job.
+[Remote]: Muchas Estamos en contacto. Hasta luego. Chau, chau.
+
+============================================================
+SUMMARY
+============================================================
+### Global Processing’s Current Reconciliation Process
+
+- Receive settlement files from card brands (Visa, Mastercard)
+  - Debit amounts for issuance, credit amounts for acquiring
+  - Information sent to representative banks (Galicia, Columbia)
+- Internal file processing workflow:
+  - T2203: Main transactional file vs brand liquidation
+    - Contains operations where not everything is liquidated/paid to merchants
+  - T2204 & T2206: Complementary files for T2203
+    - T2204: Foreign operations (card holders abroad, merchants domestic)
+    - T2206: Cut-off operations and other business lines
+    - Both files update T2203 with liquidation numbers for transactions paid that day
+- T3300: All daily liquidations paid to merchants/aggregators
+  - Must cross-reference against updated database by liquidation number
+
+### Technical Infrastructure and Pain Points
+
+- Files downloaded from S3 bucket by operations team
+- Current tools: Access for file management, Excel for queries and processing
+- Major pain point: Maintaining historical database that updates daily
+  - Need 18 business days minimum history (credit card payment terms)
+  - Database uses unique consumption ID and liquidation number fields
+  - Liquidation number: populated if liquidated, zero if not liquidated
+- Monthly/quarterly reporting requirements:
+  - Visa: Monthly reports
+  - Mastercard: Quarterly reports
+- When reconciliation doesn’t balance:
+  - IT support team investigates through Teams/Jira tickets
+  - Identify rejected or unliquidated transactions
+  - Corrections applied next day
+
+### Ideal Solution Requirements
+
+- Platform supporting better file reception process
+- Historical T2203 database with daily updates from T2204/T2206 as updaters
+- Future payment agendas from T2203 (T+1, T+10, T+18 depending on product)
+  - Debit: 24 hours
+  - Prepaid: 48 hours
+  - Credit: 10-18 days
+- Payment tracking for cash flow management (not clearing reconciliation)
+- Automated daily accounting entries to finance team
+- Monthly intercompany adjustments for profit recognition
+
+### Commercial Model Discussion
+
+- GP cannot pay traditional per-transaction pricing given their volume (hundreds of thousands/millions of transactions)
+- Proposed model: GP provides infrastructure, Rexi provides software
+- GP wants to use solution internally first, then offer to clients as value-add
+- Revenue sharing through client referrals rather than direct GP payments
+- GP clients currently take outbound files and reconcile with own systems
+- Embedded workflow in GP portal would provide significant client value
+
+### Next Steps
+
+1. Ignacio to contact Nicolás and Mariela separately for commercial terms discussion
+2. Working session with Alejandro’s team next week for demo preparation
+3. Real file demo using actual GP data (NDA already signed)
+4. Parallel commercial and technical workstreams
+5. Progressive pilot if commercial terms align
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/02e61160-230b-4824-9dbe-cd6898ff2070](https://notes.granola.ai/t/02e61160-230b-4824-9dbe-cd6898ff2070)

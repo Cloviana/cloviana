@@ -1,0 +1,597 @@
+MEETING: Rexi x Gr4vy: product demo
+DATE: 2026-01-14
+ID: not_mhwQCjLtlYDPUI
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Cristiano Betta <cbetta@gr4vy.com>, Jules <jules@gr4vy.com>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-01-14T09:00:00-05:00 - 2026-01-14T09:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Our records and really provide as much of that information back into our dashboard.
+[Remote]: Which is still stuff we're working on.
+[Remote]: The the issue we're having right now
+[Remote]: be honest with you, like, we have a lot of
+[Remote]: different requests for different PSPs. And the the actual integration on that
+[Remote]: just
+[Remote]: it's not complicated work. It's just
+[Remote]: frustrating work because each one of these PSPs has terrible documentation on it.
+[Remote]: Actually, verifying it against production is terrible.
+[Remote]: So
+[Remote]: we're ideally, if we can
+[Remote]: shortcut that and find a way to
+[Remote]: ingest data from somewhere else, somebody who's already done the work.
+[Remote]: It would make our lives easier. I'm not sure necessarily your product needs
+[Remote]: to be
+[Remote]: embedded in our side, but I think that's kind of depend the ball depends on the definition of
+[Remote]: what that embedding means. But I'd really like to kind of seriously explain
+[Remote]: explore
+[Remote]: what would it look like for us to
+[Remote]: handle a lot of this data ingestion
+[Remote]: not through our own integrations, but through yours.
+[Remote]: How much of a speed up would that deliver to us?
+[Remote]: Because then we can use those engineering resources to do more interesting things, obviously.
+[Remote]: That's my focus right now. Does that align with what you're thinking of, Jules?
+[Remote]: Yeah. I mean,
+[Remote]: Ignacio, they are maybe
+[Remote]: Last time we spoke,
+[Remote]: we we were
+[Remote]: pretty high level sort of understanding what what sort of the synergies are.
+[Remote]: Obviously, now we're in 2026, and we're all
+[Remote]: sort of preparing for
+[Remote]: for this year.
+[Remote]: And one of the things that came up was indeed
+[Remote]: quite a large overhead of connectors that we still need to build.
+[Remote]: Right? And and last time we spoke, we I and D mentioned, like,
+[Remote]: we have all the big ones.
+[Remote]: They're great, but now comes the long tail of sort of the smaller b as
+[Remote]: that merchants still wanna have. Right? And that was
+[Remote]: was not something that I had in mind last time, which after discussions lately with
+[Remote]: Cristiano, with regard
+[Remote]: the planning for this year came up like
+[Remote]: could be an interesting
+[Remote]: synergy with with Rexi. So that was not something that I thought of last time, but that came up
+[Remote]: as sort of recently more.
+[Remote]: That could be an interesting one to to explore. Right? So
+[Remote]: yeah, a whole bunch of smaller connections that if you would have
+[Remote]: integration already, we would be integrating to you, and then all of a sudden, we have all these connections
+[Remote]: via your report. Right? So that, that I think is an interesting one.
+[You]: Just one question there. Are you just, like,
+[You]: only interested in having that ingestion piece or
+[You]: and just like deliver the data and you have the recon engine and all the UX.
+[You]: Or are you also interested in our
+[You]: processing transformation capabilities and all our
+[You]: reconciliation workflow that we currently have. And, of course, it doesn't need to be like an embedding
+[You]: sort of, like, white label solution. We can do something like purely API.
+[You]: In which you still control
+[You]: all the experience and what's happening, customer facing, merchant facing,
+[You]: and then we are the ones ingesting, processing, matching data, and generating the reports for you to show
+[You]: showcase.
+[Remote]: I think the immediate needs is just the ingestion.
+[You]: Just
+[Remote]: I think anything else we do is
+[Remote]: TBD. Right? It's kind of like, let's see how this partnership goes.
+[Remote]: Like, let's see how this just just plans out.
+[Remote]: There's a there's a lot of challenges with that. Right? Because we've already
+[Remote]: done some of it. So, like, the question number comes, do we
+[Remote]: do we migrate our existing integrations over to you to use your service as well?
+[Remote]: That's not where the need is immediately.
+[Remote]: Interest, yes. Right? Like, we'd love to kinda, like, have a look at it.
+[Remote]: Eventually, but it's not where we where the focus is on right now.
+[You]: Got it.
+[Remote]: Yeah.
+[You]: Got it. And then one last question before Joe shows us the platform is,
+[You]: so you said you developed integrations with the biggest PSP provider
+[You]: and that you're missing that long tail.
+[You]: That long tail of missing integrations that are
+[You]: just frustrating and time consuming
+[You]: affects
+[You]: what percentage of your merchant base.
+[Remote]: 80%.
+[You]: 80%.
+[You]: Okay.
+[Remote]: Yeah.
+[You]: Got it.
+[You]: So it's it's it's it's a big
+[You]: it's a big thing that would generate a lot of value to most of your merchants.
+[Remote]: Yes. Because if you if you think about it, merchants
+[Remote]: orchestration because at the end of the day, they wanna use multiple
+[Remote]: acquirers. They wanna pick the weird and wonderful, as I call them.
+[Remote]: Right? Like, it can be, you know,
+[Remote]: the obscure, the, the very regionally
+[Remote]: specific ones. It can be not not it's not just your against your stripes.
+[Remote]: Etcetera. There's also quite a few direct bank acquiring routes.
+[Remote]: In there, and those are
+[Remote]: interesting.
+[Remote]: Really complex to work with to the
+[Remote]: you know, to to to not put it too blunt.
+[Remote]: Yeah. Not sure if I'm missing anything, Jules.
+[Remote]: Yeah. So also yeah. So the the direct bank
+[Remote]: not just acquiring, but, like,
+[Remote]: for example, Trustly, which is the direct
+[Remote]: debit method that has their own
+[Remote]: reboarding. There's a lot more of these out there.
+[Remote]: Merchants wanna use. They have a direct contract with these with these parties,
+[Remote]: that means that we have to integrate their their settlement reports. Right?
+[Remote]: Yeah.
+[Remote]: So I'd I'd like to kind of understand from your end because I've not seen anything from your
+[Remote]: product right now. Right? It's like,
+[Remote]: he run me through, like, what your
+[Remote]: offering is, how it works, and
+[Remote]: think specifically, like, what does your
+[Remote]: road map to enabling these services look like? Because I'm guessing your
+[You]: Yep.
+[Remote]: slowly running into the same problem as we are. Right? Just like how
+[Remote]: how are you solving that in a way that can enable us quicker?
+[Remote]: Quicker quicker?
+[Remote]: Stumbling over my words today.
+[Remote]: I'd I'd like to kind of understand that because at the end of the day, if
+[Remote]: if the bottleneck now just shifts to you, but you have a similar kind of timelines to
+[Remote]: make any changes to it.
+[Remote]: I'm not sure if this necessarily is gonna solve something. I'd I'd like to understand what your current
+[Remote]: offering is, how many how which piece piece do you currently cover, etcetera?
+[You]: Yep.
+[You]: Pierre, let's let's do a quick run through over the platform, and then we can talk about how are we planning to
+[You]: speed up
+[You]: integrations because we are running into the same problem.
+[You]: You're spot on.
+[Remote]: Alright. Let let me share screen.
+[Remote]: And then we can we can
+[Remote]: address any questions you have. But, basically, what what our platform does, it
+[Remote]: it automates reconciliation processes, both financial
+[Remote]: and operational, and now accounting processes. I I don't think we we even mentioned
+[Remote]: this, but we automate
+[Remote]: ledger entries for our customers as as well.
+[Remote]: So, basically, what we do is, we automate that ingestion
+[Remote]: We integrate with those PSPs.
+[Remote]: Bank sponsor banks, card providers, etcetera.
+[Remote]: We standardized the information because it
+[Remote]: generally comes in very, very different formats. You must know this.
+[Remote]: So we automate the ingestion. We automate the standardization.
+[Remote]: And then what we do is we create rules. Basically, rule is a
+[Remote]: a reconciliation between
+[Remote]: two data sources.
+[Remote]: Reconciliation is a a reconciliation of a whole money flow, which can be either
+[Remote]: just a simple rule with two data sources or
+[Remote]: a change, what we call a change reconciliation with with several
+[Remote]: databases. Then we've got the exception
+[Remote]: manager where, basically, we handle exceptions. We automate
+[Remote]: we automate exceptions as well. We
+[Remote]: we manually mark things as reconciled. We look for discrepancies. We
+[Remote]: basically use this as a problem solver.
+[Remote]: Then we've got, of course, alarms and and dashboards that can be sent daily
+[Remote]: via Slack or
+[Remote]: mail or whatever communication channel that you have.
+[Remote]: And then we've got personalizable dashboards that that you can
+[Remote]: that you can look. So, first off, let let let's do a basic
+[Remote]: reconciliation
+[Remote]: so that you get a sense on on on what our main
+[Remote]: capabilities automation capability
+[Remote]: are.
+[Remote]: So, basically, what I did here is I upload it to dummy databases,
+[Remote]: In this case, I just uploaded them via CSV,
+[Remote]: but, of course, what we do is we automate ingestion
+[Remote]: so that no one ever has to upload a a CSV.
+[Remote]: You can use either AI or manually
+[Remote]: standardize this or create calculated columns or whatever you need to
+[Remote]: pretransform this database so that you can
+[Remote]: compare it with the other database, which can be your internal database or or or whatever.
+[Remote]: Mhmm. Once you've got your
+[Remote]: data sources uploaded and standardized and and updated,
+[Remote]: You create a rule. A rule, as I mentioned, is a basic
+[Remote]: a basic crossing between two databases.
+[Remote]: So let's say source
+[Remote]: a versus source
+[Remote]: b
+[Remote]: and we
+[Remote]: have this
+[Remote]: databases.
+[Remote]: And then you've got so, basically, what we do is
+[Remote]: we make it very easy for nontechnical teams
+[Remote]: to automate reconciliation processes, which would
+[Remote]: otherwise be needed
+[Remote]: with with technical skills.
+[Remote]: So
+[Remote]: you select the data sources. You select the joint criteria in this
+[Remote]: case, it's, x ref equals x ref.
+[Remote]: But what what you can do is, you know, be
+[Remote]: basically, maybe the first first time you try to
+[Remote]: join these two databases, you you use an ID, but sometimes you might not.
+[Remote]: Or whatever. So you can
+[Remote]: do a second run
+[Remote]: with slightly looser rules, for example, with amount.
+[Remote]: And date
+[Remote]: transaction date,
+[Remote]: you can add tolerance, one day, one second, or whatever, and
+[Remote]: tolerancing amounts or absolute values or percentages
+[Remote]: and you can also add, I don't know,
+[Remote]: currency, for example,
+[Remote]: And that way, you make sure you increase your reconciliation percentage
+[Remote]: from, I don't know, 98% to 99% maybe or whatever.
+[Remote]: Then what you can do is
+[Remote]: do your comparisons. Basically,
+[Remote]: this is a
+[Remote]: this is a what we call the operational reconciliation, making sure that the transactions are
+[Remote]: effectively on both on both databases.
+[Remote]: Then what you can do is do either
+[Remote]: another operational reconciliation, basically, checking, for example, that the status is
+[Remote]: on both sides approved or charged back or whatever.
+[Remote]: Or you can you can you can check fees or you can check amounts or conversion rates
+[Remote]: or whatever you need to check.
+[Remote]: Can also do this.
+[Remote]: You can do them conditionally. For example, if this
+[Remote]: field equals to this, then check this or whatever.
+[Remote]: You can make them critical. Basically, if you mark them critical,
+[Remote]: if the comparison fails, then the the transaction will not be marked
+[Remote]: as
+[Remote]: matched. And then, of course, we you can standardize values. For example,
+[Remote]: in this
+[Remote]: database, memo is card charge.
+[Remote]: And in this other database is processor charge. It they never
+[Remote]: never they are never exactly the same. You can it can be
+[Remote]: either caps or, I don't know, in different languages or whatever.
+[Remote]: So here is where you
+[Remote]: standardize them. For example, this one and process of charge.
+[Remote]: This is how you you would standardize. And and then you can add I don't know. It
+[Remote]: debit, or whatever.
+[Remote]: This case, we're just doing a simple
+[Remote]: reconciliation between these two databases, and, of course, we add
+[Remote]: recommendations because many times companies
+[Remote]: really do not know how how to
+[Remote]: reconcile or how to best reconcile. So we
+[Remote]: we add
+[Remote]: a little of Let's be clear. Right? Like, this is about
+[Remote]: this is kind of a margin level reconciliation, right, which is then reconciling
+[Remote]: that bank transfer, like, bank deposits, I'm guessing, and
+[Remote]: It can be merchant level, but it can also be bank I mean,
+[Remote]: of our customers are are banks, and they are reconciling what they have internally with what their partners
+[Remote]: have
+[Remote]: or even between teams. So, basically, it's it's a super
+[Remote]: flexible platform. It it allows you to reconcile
+[Remote]: basically, whatever you you want.
+[Remote]: From our perspective right now, the way it looks like as a merchant just gives us their credentials.
+[Remote]: Right?
+[Remote]: Like, whether or not that's the SFTP credentials or the API credentials necessary.
+[Remote]: They
+[Remote]: plug that into our system. Now we're pulling that data in. And because we know it's
+[Remote]: source x, right, you know, this is IDans, whatever we then match
+[Remote]: it against our system. So we do
+[Remote]: some of this. I think what is of more interest to us is
+[Remote]: you know, what would it look like for us to not necessarily do the re
+[Remote]: reconciliation, but, like, can we get a feed
+[Remote]: Can we get a standardized feed?
+[Remote]: Is the same for every
+[Remote]: Rexy connection, whether or not that's the strive to add, etcetera, where we just get the
+[Remote]: same data with the same fields, with the same headers, etcetera, to pull in.
+[Remote]: We would probably do that reconciliation
+[Remote]: one time on our end because we know
+[Remote]: you know, we know which field represents our
+[Remote]: reference. We know which Against our system. That's already all in play
+[Remote]: That data transformation is in place. And, ideally, I wanna get to a point. I
+[Remote]: 'd like to get to a point where
+[Remote]: we've gotten that once for Rexy. If we now add another provider, we can say, oh, this is just
+[Remote]: follows the
+[Remote]: Rexy standards, and it goes through the Rexy API. And now we this is just how we
+[Remote]: how we tackle it.
+[Remote]: What would that look like? So let let's say I go in now and we wanna tomorrow, we'll
+[Remote]: wanna do Chase, right, which is SFTP. How how would I go and
+[Remote]: add that into into this?
+[Remote]: Goes back. Yes.
+[Remote]: I mean so, basically, what what
+[Remote]: what you want
+[Remote]: is
+[Remote]: having your own workspace, but within that workspace,
+[Remote]: you wanna have
+[Remote]: standardized reports or databases that come from various different
+[You]: And some transformation logic to have they
+[Remote]: providers. Right?
+[Remote]: Yes.
+[You]: we can
+[You]: output that standardized data into their
+[You]: platform.
+[Remote]: Exactly. That wouldn't be I mean,
+[Remote]: that wouldn't really be a challenge for us. Base basically,
+[Remote]: that we can do.
+[Remote]: It would not
+[Remote]: be using our reconciliation services, but but but that's fine because
+[Remote]: let let me just
+[Remote]: finish this small reconciliation because there's something you might be interested
+[Remote]: Mhmm.
+[Remote]: Let me just run the reconciliation. Basically,
+[Remote]: which is something you clearly are not that interested in source.
+[Remote]: A versus source
+[Remote]: What what you do here is you you get one rule, and you can, you know, create the
+[Remote]: different dependent rules or whatever.
+[Remote]: But here, it's just a standard, and and you schedule it.
+[Remote]: Let me just save this and and and run it because what we do for
+[Remote]: some of our customers is we automate
+[Remote]: the, exportable results, which you might also be
+[Remote]: interested. You'd execute this
+[Remote]: reconciliation manually.
+[Remote]: Of course, you get your result reports with your transactions that match
+[Remote]: that didn't match, your metric summary.
+[Remote]: But this is one I wanted to show you.
+[Remote]: Basically,
+[Remote]: we made it very easy for nontechnical users to create reports
+[Remote]: based on, on reconciliations.
+[Remote]: And they can be either exactly
+[Remote]: exactly what you get from the data sources or
+[Remote]: you can enrich the columns or or or or modify them or whatever. So, basically, what
+[Remote]: what we can do is
+[Remote]: both in sources
+[Remote]: ingest the data, standardize it,
+[Remote]: to whatever format you want, and then we we can extend
+[Remote]: export those results in whatever other format you want. So, basically, what what
+[Remote]: what you want
+[Remote]: we can do. What what I what I'd love to see is exactly what kind of
+[Remote]: transformation or standardized agent you you would like to do.
+[Remote]: But for, for Rexi, it wouldn't be very
+[Remote]: very complex. And and, I mean, it will
+[Remote]: we have
+[Remote]: it's a very flexible tool, so we we can ingest that and standardize it. And
+[Remote]: you know, automate reports.
+[Remote]: Yeah. I guess I guess the way I think about it, right, is,
+[Remote]: let's say tomorrow I mean, we already have our own IDN connect
+[Remote]: Right? But let's say tomorrow, we wanna add in ID and
+[Remote]: we
+[Remote]: we provide
+[Remote]: the merchant provides us with their Adyen credentials.
+[Remote]: Right?
+[Remote]: Yep.
+[Remote]: We pass that on to you.
+[Remote]: You just put up the automated process, and then on a
+[Remote]: daily basis, we get a file that is
+[Remote]: set up according to our standards.
+[Remote]: For that merchant, for those credentials pulling in
+[Remote]: that data.
+[Remote]: Like, that's the ideal outcome.
+[You]: Yeah.
+[Remote]: And then
+[Remote]: feel that to
+[Remote]: every piece of pee in the world really realistically.
+[Remote]: I don't wanna have to manage
+[Remote]: a different
+[Remote]: feed and transformations and set this up manually for every
+[Remote]: merchant doing that yet, if that makes sense.
+[Remote]: I want this to be
+[Remote]: from our point of view, once it's kind of set up,
+[Remote]: ideally ideally, I
+[Remote]: don't necessarily care too much about the data transformation because we can still
+[Remote]: do that one time on our end. We can do any kind of transformation.
+[Remote]: And clean up that's necessary. It's more about, can we get one standardized
+[Remote]: feed from Rexi?
+[Remote]: Right?
+[Remote]: Yeah. Look right now, like, resources, you are essentially pulling in the sources as a as
+[Remote]: And then a merchant still needs to kinda go in and kind of, like, clarify how they
+[Remote]: how they kind of transform these fields and maybe transfer the keys
+[Remote]: the values, etcetera. I know. Yeah. I mean, that that's because
+[Remote]: we don't know exactly what
+[Remote]: whatever customer comes wants to do.
+[Remote]: But
+[Remote]: if we already know what what format you're interested in, we we can
+[You]: And we can do transformations in the platform.
+[Remote]: just set it up.
+[You]: I don't know if you
+[You]: showed them, Thiel, but when when you ingest the sources, there's a lot of changes you can do.
+[You]: And it
+[You]: and and all that change logic
+[You]: or reformatting logic is only done once, and then every time it feeds in, it passes
+[You]: through that logic, through that transformation. So
+[You]: I think to round it up,
+[You]: ingestion transform and write it in your data
+[You]: is something we can do. We could definitely do. I think the challenge is more gonna be
+[You]: how do we integrate to that long tail of providers, is the the challenge you guys are having and
+[You]: and the pain you guys are having. And
+[You]: regarding that, wanted to mention,
+[You]: on data integrations, because it is something that we are also topping into,
+[You]: we're developing a dynamic integrator. That's how we call it to module insider
+[You]: our our code, which basically
+[You]: enables
+[You]: faster and dynamic integrations for that long tail of providers that
+[You]: we're never gonna catch up if if we try to do that
+[You]: 350 sort of
+[You]: integration library. I just wanna show you quickly
+[You]: one of the tests we did
+[You]: This was back in December. With this dynamic integrator in which
+[You]: it's it's it's it's on the back end yet
+[You]: but it's just showing
+[You]: how we're integrating, I think, to modern treasury it is in less than three minutes.
+[You]: This is something
+[Remote]: Yep.
+[You]: we're now scaling to do
+[You]: also with SFTPs and other
+[You]: integration logics. But
+[You]: we're basically building a dynamic AI integrator to speed up
+[Remote]: Basically, the the bigger our
+[You]: those integrations.
+[Remote]: library
+[Remote]: of integrations, the easier it is for us to get a new integration and the faster
+[Remote]: it is. Would this be 2019? It would be
+[Remote]: take us years and millions of dollars. I know it's taking taking us literally seconds.
+[Remote]: Thing is our integrations are only, two you know, ingest data
+[Remote]: not very complex.
+[Remote]: It's taking us
+[Remote]: just a few minutes to make these integrations.
+[Remote]: That's why you might be interested in this.
+[You]: Oh, it's treasury prime, actually.
+[You]: I was mistaken.
+[You]: But this is something we're already using on our back end to on when we onboard customers and we need to do
+[You]: quick integrations. Right?
+[You]: But, again, it's one of those modules that going forward is a priority in our road map.
+[You]: Because as you said, we're bumping into the same problem. Every time we onboard a user and we need to connect to the data sources,
+[You]: there's some struggling there and some time spent there. So
+[You]: for us to really become scalable and push through that
+[You]: implementation threshold, we need to be
+[You]: investing in this module. So
+[You]: that's just because you asked about the road map and and and how we're approaching this problem. Right?
+[Remote]: So do you have a list right now of, like, what your
+[Remote]: current integrations look like?
+[Remote]: Like, on which integrations you have?
+[Remote]: I'm not sure if this has been shared with us before.
+[You]: No.
+[You]: We don't have that many because we're going ad hoc, like, customer by customer.
+[Remote]: Yeah.
+[You]: But again and and then one of the interesting things about this dynamic integrator is that the integration
+[You]: sort of like lives
+[You]: on a per customer basis. It's not like that we're doing this on our code. It's like a
+[You]: customer comes in and we develop all the necessary integrations to work with that customer.
+[You]: Of course, then we
+[You]: save some of the logic and some of the learnings, but
+[You]: it's sort of, like, done on a per customer basis.
+[Remote]: Yeah.
+[Remote]: I mean, this is
+[Remote]: pretty similar to what we have
+[Remote]: ourselves. Like, we we've basically stand the hell out of
+[Remote]: the integrations. Right? Like, I think once you've
+[Remote]: once you've done
+[Remote]: I think, SFTP, byp hooks,
+[Remote]: I think that the only one we haven't titled yet is the email, I think, this point
+[Remote]: Like, we've kind of covered every one of the different
+[Remote]: import mechanisms.
+[Remote]: Right? And then it's just a question for you. Okay. How does the credentials how does the all four How do, like, all of those varieties? But we've
+[Remote]: kinda tackled that. I I think the challenge for us is
+[Remote]: more around
+[Remote]: well, you tell me you was, like,
+[Remote]: Quite often. Well,
+[Remote]: the the main issue with with the integrations is
+[Remote]: is usually in data pipeline.
+[Remote]: Right? So we received a file
+[Remote]: It contains certain data. We have a standardized a standardized
+[Remote]: set of data, and there's there's mismatches. And then it's it's just a matter of, like,
+[Remote]: making decisions on on what to do with that data.
+[Remote]: Mhmm.
+[Remote]: Then a second challenge that usually arises is
+[Remote]: is just the dependency on on that party.
+[Remote]: So a good example that we had recently was Chase.
+[Remote]: By Chase's bank. It's old school.
+[Remote]: Multiple different files for
+[Remote]: what we have actually essentially unified into one file.
+[Remote]: Long communication cycles, long cycles with regard to enabling,
+[Remote]: So that
+[Remote]: that just creates
+[Remote]: a long dependency. Right? Something that we
+[Remote]: would have been able to do in two weeks became a two and a half three month project.
+[Remote]: Right? And
+[Remote]: like Christiana said,
+[Remote]: those are are resources that are then even though that they're they're not
+[Remote]: necessarily locked up in in development, they're still waiting.
+[Remote]: Mhmm. Right? And and that's that's strain, basically. And
+[Remote]: you know, Chase is is maybe one example, but
+[Remote]: like I said, now we're running into the long tail,
+[Remote]: I it's probably not gonna get any better. Right. So
+[Remote]: And I think and I think one of the obvious problems is that
+[Remote]: it's interesting that you kind of, like, had it just kinda discover the APIs.
+[Remote]: Of this partner. Right? Like,
+[Remote]: we've integrated with multiple of these ones where there is no docs.
+[Remote]: There are no docs. There's maybe some PDF.
+[Remote]: PDFs aren't wrong.
+[Remote]: So there's a lot of iteration on, like, that integration, and that's
+[Remote]: Yeah. Yeah. Are you able to share a list with us on, like,
+[Remote]: which connections you currently have already?
+[Remote]: I I'd be very interested to know which ones you're alive with already.
+[Remote]: Because there's a difference between, you know, the theoretical implementation
+[Remote]: and the actual kind of whether or not you have some live traffic going through it.
+[Remote]: I think if there's an interesting overlap,
+[Remote]: between the ones that you are alive with already and the ones that are on our
+[Remote]: immediate wish list. There's an interesting potential for us to kind of
+[Remote]: go and look at that. Okay?
+[Remote]: A POC. Let's pick one of them, and let's see if we can build that integration with you. And so
+[Remote]: if we can
+[Remote]: kind of
+[Remote]: make that work for that customer, for that environment.
+[Remote]: If that doesn't work,
+[Remote]: then
+[Remote]: if that then works, then we can kinda scale it up and kind of, like, figure out the commercial
+[Remote]: around how the scale is beyond that. But I think
+[Remote]: I'd like to kind of get to one connection first.
+[You]: Yeah. Yeah.
+[Remote]: And then and see where we where we can take it next.
+[You]: We can definitely share that shirt
+[You]: that that list over. But being completely honest, I don't think that list of
+[You]: integrations we currently have and that we're alive with are gonna be useful for you. So
+[You]: I guess
+[You]: thinking about
+[You]: a chance of a POC
+[You]: after we share our list, maybe you guys can share the list of of of
+[You]: PSPs or partners you wanna integrate with
+[You]: and maybe the POC can be
+[You]: sort of like a test of how fast can we integrate versus
+[You]: you guys can integrate and what's the differential cost. Right? Because if it's
+[You]: freeing up resources and we can do it faster,
+[You]: then it might be also be interesting for you guys anyways. Right?
+[You]: Just because of our dynamic integrator and this is because
+[You]: this is this, this is like core to what we do. Like we're investing
+[You]: a lot of our resources and a lot of our team
+[You]: to this dynamic integrator. I'm sure that you guys
+[You]: have a way bigger roadmap of other functionalities and other stuff you wanna
+[You]: be doing in 2026 rather than doing integrations so that your merchants can
+[You]: reconcile better of your platform. You know what I mean? So,
+[Remote]: Yeah.
+[You]: can share the list over
+[You]: but but I think if if there's interest in a POC, I see it more around
+[You]: you sharing the list with us
+[You]: and then prioritizing which are the three integrations you want to test us out with. And we just do like a test
+[You]: over a couple of weeks or a couple of months to see how fast and how good we can integrate and transform the data for you guys.
+[Remote]: Yeah.
+[Remote]: Let's do that. If you can send us that list, we'll have a look at it. We'll send us back
+[Remote]: our kind of, like, immediate voice list. We definitely have some stuff that because it's on our road map.
+[Remote]: And then let's figure out which one we pick as a first trial one.
+[You]: Amazing.
+[Remote]: And get it out.
+[Remote]: Yeah.
+[You]: Right.
+[You]: Thank you for the time. I don't wanna be stealing more time from your calendars.
+[You]: Great meeting you, Luciano.
+[You]: I'll follow-up via email, and we'll take it from there.
+[Remote]: Thanks. Thank you. Cheers.
+[You]: Have a good one.
+[Remote]: Pleasure.
+
+============================================================
+SUMMARY
+============================================================
+### Their background
+
+- Gr4vy operates as a payment orchestration platform helping merchants manage multiple payment service providers (PSPs)
+- Currently have integrations with major PSPs but struggling with the “long tail” of smaller, regional, and specialized providers
+- 80% of their merchant base is affected by missing integrations with smaller PSPs
+- Merchants want to use “weird and wonderful” providers including regionally specific ones and direct bank acquiring routes
+- Examples of challenging integrations include Trustly (direct debit method with own reporting) and various direct bank connections
+
+### Pain points and needs
+
+- **Integration bottleneck is their primary challenge**: “The main painpoint is integrations. Smaller PSPs that merchants still want to have”
+- **Documentation quality**: “Each one of these PSPs has terrible documentation on it. Actually, verifying it against production is terrible”
+- **Resource allocation inefficiency**: Want to “use those engineering resources to do more interesting things” rather than building PSP integrations
+- **Long dependency cycles**: Chase Bank integration example took 2.5-3 months instead of expected 2 weeks due to:
+  - Multiple different files instead of unified format
+  - Long communication cycles
+  - Old school processes
+- **Standardization needs**: Looking for “one standardized feed from Rexi” regardless of underlying PSP
+- **Scalability concerns**: Don’t want to “manage a different feed and transformations and set this up manually for every merchant”
+
+### Questions or concerns
+
+- **Speed and efficiency**: “How much of a speed up would that deliver to us?” regarding using Rexi’s integrations instead of building their own
+- **Bottleneck shifting**: Concerned that “if the bottleneck now just shifts to you, but you have a similar kind of timelines to make any changes to it. I’m not sure if this necessarily is gonna solve something”
+- **Integration overlap**: Want to see Rexi’s current integration list to assess overlap with their immediate needs
+- **Proof of concept viability**: Need to verify if the partnership approach will work before scaling
+
+### Budget and timeline
+
+- No specific budget figures mentioned
+- Timeline context: Planning for 2026 roadmap and resource allocation
+- Immediate focus on addressing the 80% of merchant base affected by missing integrations
+- Interest in POC approach: “Let’s pick one of them, and let’s see if we can build that integration”
+
+### Next Steps
+
+- **Data exchange**:
+  1. Rexi to send list of current live integrations
+  2. Gr4vy to share their immediate wish list of PSP integrations
+- **POC selection**: Identify 3 priority integrations for testing Rexi’s speed and capability versus Gr4vy’s internal development
+- **Follow-up timing**: Ignacio to follow up via email to coordinate the data exchange and POC planning
+- **Success criteria**: Test “how fast can we integrate versus you guys can integrate and what’s the differential cost”
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/2408843a-8eb0-4b71-9edc-62130ae3434a](https://notes.granola.ai/t/2408843a-8eb0-4b71-9edc-62130ae3434a)

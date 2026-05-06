@@ -1,0 +1,647 @@
+MEETING: Ignacio Berardi (Rexi) <> Xan Wood (Canvas Prime)
+DATE: 2026-02-26
+ID: not_XtA3o7zdyS2NU2
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Xan Wood <xan@canvas.vc>
+SCHEDULED: 2026-02-26T13:00:00-05:00 - 2026-02-26T13:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Yeah. Can you hear me?
+[Remote]: Yes. I can hear you. How's everything going?
+[You]: Good. And you? I'm so sorry for the delay. This
+[You]: anchor speaker is driving me crazy today. I don't know what's going on.
+[Remote]: No problem at all. You're in New York? You're in the you're you're stuck in the snow?
+[You]: Stuck in in the snow. Exactly. I'm so sorry for
+[You]: change of plans. I had a bunch of meetings scheduled this week to
+[You]: in San Francisco. Had to do, like, change everything to virtual.
+[You]: I reprogrammed though for April 20, so I'll be there and I'll I'll tech
+[You]: you.
+[Remote]: Yeah.
+[You]: See if we can grab
+[You]: coffee in person or something.
+[Remote]: No. Let me know. That'd be great. I would, I would love that.
+[Remote]: And excited to excited to chat.
+[Remote]: Should I give a tiny bit of background on Canvas if that if that's helpful?
+[You]: Yeah. It would be great. Thank you.
+[Remote]: So we are a $850,000,000 AUM fund.
+[Remote]: We're investing out of our
+[Remote]: third fund, which is 350,000,000. And out of that fund, we're trying to do about
+[Remote]: 20 deals, so pretty concentrated. Typically,
+[Remote]: leading at the series a
+[Remote]: and series b. Although more series a now
+[Remote]: the kind of valuations, more kinda like c I guess, like, more kinda like
+[Remote]: c to series a now with with all the craziness and
+[Remote]: in the world. Most of what we do is financial services and digital health.
+[Remote]: And, really, what we're trying to do is invest in the inflection point of the go to market where
+[Remote]: hey. There's a product. It's working. How do we really, like,
+[Remote]: you know, obviously, keep on improving the product, how do we really kind of accelerate
+[Remote]: that go to market? That's kind of it. I saw, yeah, I saw
+[Remote]: NFX were an investor in you guys. I spent a tiny bit of time there as a
+[You]: Yeah. We actually we won a pitch comp. I I did an
+[Remote]: oh, nice.
+[You]: MBA in Harvard.
+[You]: And we won their their pitch competition called NFX FAST.
+[Remote]: Nice. Nice.
+[Remote]: Yes.
+[You]: We won that and got a got a check from them, which was added onto our
+[You]: preseed round we rate.
+[Remote]: Nice. I I went I did MBA at Berkeley, and I actually I was
+[Remote]: I set up the fellowship at Berkeley, so I messaged someone and and then did the fast
+[Remote]: competition there as well, which was which was fun.
+[You]: Very cool. Who do work with?
+[Remote]: Mainly with Anna,
+[You]: Anna. Anna's great. She's now in, like, in in maternity leave, think. Right?
+[Remote]: Yeah. Exactly. She's a maternity leave. We're actually catching up in a in a couple of weeks.
+[Remote]: She was in
+[Remote]: back in Barcelona, I think, and then I think she's coming back this time. She's she's great.
+[You]: Very cool, very cool.
+[You]: Well, thank you for the context. Just one last thing. You said CTC a, what's the typical check size you guys do?
+[Remote]: Oh, sorry. Five to twenty minutes.
+[You]: 5 to 10,000,000. Okay.
+[Remote]: And typically, leading
+[You]: So nothing below.
+[Remote]: typically leading, typically taking board seats. We can go
+[Remote]: we can go a little lower. We just, like,
+[Remote]: only in specific areas. I only like specific like, less, I guess, is the thing.
+[You]: Got it. Got it. Well, thanks for the context.
+[You]: Happy to share more about Rexy. So
+[You]: I'll I'll I'll tell you first how how like, the story of how we started it
+[Remote]: Ya.
+[You]: and the story of the founding team, and then a bit more about
+[You]: the thesis and the vision here. So I started my career match
+[You]: consulting, then went over to work for
+[You]: LATAM's largest crypto exchange called Bitso. I was I was
+[You]: early there. I did product there, and then came over to The US in '23 to study an MBA at Harvard. With the sole purpose of starting something,
+[Remote]: Yep.
+[You]: I think when I was product manager at Bits, on the way
+[You]: product management was structured there,
+[Remote]: Yep.
+[You]: it felt very entrepreneurial, and I just enjoyed so much the daily grind that they
+[You]: iteration process, and that's where I sort of felt I wanted to build something myself.
+[You]: And I think I had a list of of stuff
+[Remote]: Yep.
+[You]: I was passionate about, which I I needed for a bit.
+[You]: And then did not find enough conviction. I I ended, like, bumping into this
+[You]: problem space I'm now building for, which is
+[You]: the reconciliation space. I had
+[You]: initial experience around this space when I was product manager a bit so because I was
+[You]: product manager for the payments fleet.
+[You]: I built and launched two payment products there.
+[You]: And even though it was not my direct responsibility, I knew that payment ops
+[You]: had some requirements I had to abide to.
+[You]: And I knew the pain they suffered at at
+[You]: reconciling all these money movements.
+[Remote]: Ya.
+[You]: With the additional complexity of having crypto in the middle. Right?
+[You]: But then I did a summer internship here in in New York where on AffinTech called Common. Have you heard of them? It's a new bank for Latinos.
+[Remote]: Yep.
+[Remote]: Feel like I have. Yes. I feel exactly. I feel like I have out of them.
+[You]: I was I was
+[Remote]: Mhmm.
+[You]: chief of staff there at Seed Sage companies or whatever that means. They didn't have a CFO.
+[You]: So I was doing a lot of a lot of finance stuff.
+[You]: We were growing 30% week over week,
+[You]: And one day, the CTO came to me and said, hey,
+[You]: This is the task for the rest of your
+[You]: internship. You need to build the reconciliation workflow because every time I look at these things,
+[Remote]: No.
+[You]: they don't match.
+[You]: And and we're just growing
+[You]: so much and launching so many products at the same time. We need to start building something
+[You]: that monitors this at a daily basis and and catches the discrepancies ahead of time. So
+[You]: I
+[You]: just dove head on into this into this workspace and three things happened there.
+[You]: The first one was, how hard it was technically to build something for this.
+[Remote]: Yep.
+[You]: Ingesting the information, understanding the information. There's a lot of tribal knowledge in how these file
+[You]: work. All of these files come in many different formats.
+[You]: Shapes, forms. They're not all sent
+[You]: via API or SFTP. There's PDFs over email, csvg.portals. It's a mess.
+[Remote]: Yeah.
+[You]: The second thing that happened was
+[You]: more like a
+[You]: like a
+[You]: head blowing moment of
+[You]: wow. Is this the visibility and control that fintechs have over their
+[You]: flows? That was, like, a mind blowing moment for me. And and, honestly, Camun had very high standard
+[You]: technically. I mean, I'd be elderly CTO. He was a founding engineer at
+[You]: like, and the whole team was just amazing. So for me, was, like,
+[Remote]: Yep.
+[Remote]: Ja, ja.
+[You]: if Comune is operating this way, I can't imagine how the rest of the FinTechs are
+[You]: operating. And the third thing that happened
+[You]: which again was serendipity to my point that I just bumped into this problem face,
+[You]: Exactly the time where I was going through this process, the same last thing happened.
+[Remote]: Yep.
+[You]: This was summer twenty twenty four.
+[You]: And so I just came back to my second year at HPS saying, I'm building a company.
+[You]: Out of this. Like, this is a this is a real pain. This is a real problem.
+[You]: I'll add one more thing. When I was in Camun building the the workflow,
+[You]: I, of course, scouted the market for solutions, because I had built, a first version of it with
+[You]: some sort of, like, SQL script,
+[You]: it was just very obvious. It didn't scale. It was not safe enough.
+[Remote]: Yep.
+[You]: And so I started scouting the market, you know, BlackLine, Trintech,
+[You]: Ledge, Arkham, Duke, a lot of these players. And two things happened
+[You]: the first one is
+[You]: very expensive, like, very expensive. I'm talking about, like,
+[Remote]: Ja, ja.
+[You]: 10 k implementation projects, which lasted three to six months.
+[You]: And then the ongoing SaaS cost was anywhere between 6 to 15,000 a month.
+[Remote]: Ja, ja.
+[You]: For a SaaS recall. Right? Like,
+[You]: wow. There's no way Camun was paying for that. So we either
+[You]: dedicated software engineers or data engineers and building this company internally, or
+[You]: I don't know. We just kept operating with that brisk. So
+[You]: that's when I I came back second year at HBS.
+[You]: And said I'm building something out of this. It was just like
+[Remote]: Yep.
+[You]: too big to ignore, and and the conviction was just around the pain I had
+[You]: I had seen and I had scouted in the market. I
+[You]: signed up for this incubator program at MIT led by
+[Remote]: No.
+[You]: Matt Rhodes from Tectonic. I don't know if you know him.
+[You]: That incubator ended up in a demo day. I ended up winning.
+[You]: I won fast there. I won pair x.
+[You]: And so with that initial, the sort of mix of
+[Remote]: Yep.
+[You]: grants, safe notes, and some credits, I was like, okay. I'm gonna build this.
+[You]: And so the second last semester, my MBA
+[You]: incorporated the company
+[You]: first cofounder joined, and and we started building.
+[You]: First cofounder, he's also Argentinian. He was doing his MBA in Colombia.
+[You]: His his background is also in fintech. He built the
+[You]: insurance vertical en Mercado Pago, you know, the fintech arm of Becca Oliver.
+[Remote]: Yeah. That's, my biggest position now in my internal port my my own portfolio. I obviously got
+[Remote]: smashed this week, but it's such an amazing company. McCuddyLibre is such a
+[You]: I was about to ask if you had bought the dip.
+[Remote]: no. I I bought more of the dip. I'm like a glutton for punishment.
+[Remote]: It was like a big position that went down, like, 10%. Was like, I'm just gonna buy more. Because I just think, like,
+[Remote]: over a long term, that business, I think it's like that
+[Remote]: When I think of, like,
+[Remote]: LatAm, it's like, what is the first trillion dollar company in LatAm?
+[Remote]: It's, like, them or, I don't think it's gonna be New Bank. I think New Bank is, like,
+[Remote]: multiproduct enough to do that.
+[Remote]: So you're just like, okay. If you're willing to, like, take a lot of pain, probably
+[Remote]: I think, McCurley I don't know. What's your view on it?
+[You]: From a lot of different macro fundamentals, Mercado Libre is
+[You]: definitely underpriced at this point, and and the the growth path is just unlimited.
+[Remote]: Yeah.
+[You]: Not only because
+[You]: of some macro indicators in Latin America, like banking ratios, ecommerce,
+[You]: those things, but also the team and the culture they've built
+[You]: I mean, I I really
+[You]: if you have the chance, and I can help you do that,
+[You]: I would go down there and go to the HQ and meet some of those people and go to the offices. It's
+[Remote]: Oh, nice. I went I was in Argentina for my honeymoon. I should've done it then in a
+[You]: is crazy.
+[Remote]: couple of years ago.
+[Remote]: But I should've definitely done.
+[You]: I mean, the team
+[You]: we'll we'll see now. There's just a leadership transition going on right now. Right? Mark Marco stepping out
+[Remote]: Yeah.
+[Remote]: But it's kind of like a it's like a semi transition, it feels like. He's not like I don't think he's
+[Remote]: I don't think he's going, like,
+[Remote]: to go sit on a yacht, is he? The the
+[You]: No. No. No. He's not gonna do that. He's gonna be chairman and and definitely involved in the day to day.
+[Remote]: yeah.
+[You]: But this guy, Ariel, I worked with him
+[You]: he's a beast. He's an animal.
+[Remote]: Nada, es
+[You]: So so another reason to buy more in this dip
+[Remote]: That's what I maybe I should be buying more
+[Remote]: Yeah. No. Because I I saw, like, you know, when OpenAI did that, like,
+[Remote]: token thing as well, they were like, here are the top 50 people using tokens.
+[Remote]: Like, the only LATAM company was, like, Mercado Libre. And you're like, okay. Like, they're they're obviously there's
+[Remote]: like, they build the infrastructure.
+[Remote]: They're implementing the AI. They've got, like, just massive network effects. And so I'm pretty
+[Remote]: I'm bullish on the company for sure.
+[You]: Yep. Welcome back. So, started building.
+[You]: In spring twenty twenty five.
+[Remote]: Yep.
+[You]: Graduated
+[You]: Raised the pre seed round.
+[You]: Onboarded a third co founder,
+[Remote]: And who led the pre who who led the pre seat around?
+[You]: our CTO,
+[You]: Underscore, From Boston,
+[Remote]: Got it.
+[You]: Underscore And Flybridge, actually. But
+[Remote]: Yep.
+[You]: but underscore mostly.
+[Remote]: I am a co so
+[Remote]: on my MBA, I raised, like, a million dollars my classmates to invest in Berkeley.
+[Remote]: Founded companies. So we've got a portfolio of, like, 30 companies
+[Remote]: And I think they are a current master in one of them. Oh, yeah. They are.
+[Remote]: H u e. I'm very bad at pronouncing it. It's one of the
+[Remote]: companies, which is also a Harvard MBA company. It's a cup three ladies from Harvard.
+[Remote]: They do, like, UGC content.
+[You]: I I don't know about them.
+[You]: But
+[Remote]: Probably a couple years above you, I guess.
+[You]: yep.
+[You]: And so I said,
+[Remote]: Oh,
+[You]: onboarded the CTO. Up until then, Thale was served acting CTO.
+[You]: He's he's not properly technical, but he just can learn anything from
+[You]: overnight.
+[You]: And the CTO, he's found an engineer in Pomelo, no Pomelo,
+[You]: He's the big issuer processor in Latin America.
+[Remote]: had the
+[Remote]: oh, yeah. I've heard of those guys. Yeah.
+[You]: He was a founding engineer there. He was number two in
+[You]: felt the pain point,
+[You]: and he joined the CTO. We
+[You]: boarded four founding engineers, and we're a team of seven building and selling.
+[You]: So a bit about, like,
+[You]: our understanding of the problem and then our vision of how this should evolve. So the the first one is, like,
+[You]: macro speaking, you know, like, the every every single industry goes
+[You]: in these tech cycles of aggregation, modularization,
+[You]: you know, like, ever since tech started,
+[You]: we've gone these pendulums. Right? When you look at financial
+[You]: services, and maybe you agree or not, but the past ten years, we've modularized the stack
+[You]: in credit. Like,
+[You]: we just added more and more layers on top of sponsor banks,
+[You]: which has caused
+[You]: a lot of data fragmentation. That's why today,
+[You]: first, like, when we take a snapshot of what a neobank is, it's just a patch
+[Remote]: Yeah.
+[You]: work of integrations. The thing they're building internally
+[You]: like, the the true differentiator is their go to market. Like,
+[You]: LTV over TAC.
+[You]: The products, they don't need to build anymore. Just like, you wanna remove product? Okay. Intermitted with you, need teller.
+[You]: You want a card program? Just integrate with this program manager.
+[You]: You want, to offer cash in cash out, just integrate with Vanilla Direct.
+[You]: And and so on. So
+[You]: starting by the premise that
+[You]: the fintech stack has become incredibly borderized, this has created
+[You]: a data fragmentation issue, which has created risk
+[You]: And that's why things like Synapse ended up happening. Right? And so
+[You]: the question is how is this gonna evolve going forward? Knowing that this is a risk and that a lot of
+[You]: fintechs today are operating under this risk because, of course, again, the synapse
+[Remote]: Yep.
+[You]: thing is just the tip of the iceberg. There's a lot of fintechs below operating with
+[Remote]: Yeah. There's a ton there's a ton of stuff out there.
+[You]: yeah, operating with a lot of risk. So I think it's gonna go either of two ways.
+[You]: And and also assuming regulation is gonna not gonna step in under this
+[You]: administration,
+[You]: and
+[You]: don't think they're gonna tinker a lot with the fintech ecosystem. I think they can they can
+[You]: definitely put pressure on the sponsor banks and on the licensed institutions, but not on the fintech stack. So it's gonna go either of two ways. I think are there we are gonna create
+[Remote]: Yeah.
+[You]: some sort of data standard
+[You]: in which
+[You]: the inception of the data is reconciled and anyone can consume.
+[You]: So sort of like blockchain solution or solutions like Fragment. You know this company called Fragment?
+[Remote]: Yes.
+[Remote]: I do. Why do they're like a
+[You]: It's it's a reconciled ledger. It's a unified source of truth
+[Remote]: yes.
+[You]: across the stack. It's a it's a different way to build the ledger. Instead of building your own source of truth,
+[Remote]: Yes. Yes. Yes.
+[Remote]: Yep.
+[You]: it's a ledger that's interconnected with everyone you are integrated with. Right? So either we
+[Remote]: Ja, ja, ja.
+[You]: solve this problem from data creation, which is what what
+[You]: fragment is doing, or
+[You]: we create a centralized layer in which everyone is dumb
+[You]: the data, and that centralized layer is doing all the parsing and doing all the
+[You]: cross stack visibility.
+[Remote]: Yeah.
+[You]: Our vision is
+[You]: the the latter
+[You]: is is a lower lift, and it makes more sense from a coordination perspective. Because
+[You]: one thing is saying to everyone, every single fintech operator, hey. You need to be on fragment because
+[Remote]: Yeah.
+[You]: you need to change the way you're creating data so you can operate with all your providers. Now
+[You]: it's a different cell than saying, hey, use Rexy, just do whatever the hell you're doing right now, but just
+[You]: dump the data. So then Rexy is doing all the parsing, and all your partners
+[You]: can see what you're doing.
+[You]: Real time and can can ensure that whatever they're operating with you, they can keep track of.
+[You]: So that's the art thesis. So this is a very, of course, we're gonna
+[You]: be an AI power reconciliation platform, in the short term, we're adding a lot of value because we're replacing manual
+[You]: tasks and reducing risk. Yes. That's true. That's what we're doing right now.
+[You]: But the longer term vision is
+[You]: we wanna be the partners onboarding everyone
+[You]: in the stack. So sponsor banks, middleware providers, fintech platforms, payment providers,
+[You]: everyone is dumping the data anorexia
+[You]: and then Rexi is that centralized source of truth.
+[You]: Doing all the parsing and all the closing of discrepancies. Because when you think about
+[You]: when
+[You]: what's reconciliation? Reconciliation is because brain mind searches the truth against yours.
+[You]: Right?
+[You]: And so
+[Remote]: No.
+[You]: essentially, that's a coordination thing. We need to get together
+[You]: and agree on what's the actual truth. So
+[You]: just building a solution that's gonna streamline the internal process is
+[You]: gonna alleviate the symptom, not actually solve the problem for the
+[Remote]: Ya.
+[You]: What's absolutely gonna solve the problem for the industry
+[Remote]: Ja, ja.
+[You]: is to solve the coordination problem.
+[You]: So we need coordination. So what's actually gonna make us defense
+[You]: over time is not our technology. Our technology is gonna get us through
+[You]: series a because it's great technology and it's easier and it's faster and it's gonna automate
+[You]: all these people doing stuff in Excel and SQL.
+[You]: But
+[You]: the true solution to the problem and what's actually gonna make us
+[You]: is the network effects that come from
+[You]: being that centralized solution. Because
+[Remote]: No.
+[You]: once you match transactions, the workflow is all about
+[You]: investigating and solving discrepancies, which is where the risk
+[You]: is. Right? And that's very time consuming. It has a lot of friction. Now
+[You]: if both you and me have
+[You]: the same platform,
+[You]: we not only are working with the same data and reconciling with the same logic, but then we have
+[You]: a shared tool, a cloud tool to collaborate on discrepancies. And that's when discrepancies
+[You]: are
+[You]: in a matter of
+[You]: hours or minutes instead of weeks. Because what happens today? Let's say Común.
+[You]: I would build a discrepancy report, and then I would call our ledger.
+[You]: Our Galileo point of contact.
+[You]: Hey, Jake.
+[You]: This is the difference is I'm seeing the ledger against our bank. What's going on here, man? Oh, let me take a look.
+[You]: One week goes by. I need a meeting with you to compare the data.
+[Remote]: Yep.
+[You]: Then we go for the data and figure out we're working with different information. Oh, yeah. You're looking at the different files. You should
+[You]: look at this one. Okay. You didn't send it to me. Okay. You sent it to me. Let's fix it. Okay. Go back and forth.
+[You]: Hopefully, there's no money missing. If there's money missing and it took us three weeks to find out,
+[You]: we may lose a lot of money. And and I got a couple anecdotes there, but I gotta leave you
+[You]: and this is on the public reports, lost $27,000,000 with one of the
+[You]: providers.
+[You]: At Comune, I personally found a guy of 6,000,000 which hopefully, we didn't lose the money because the provider was sending the money
+[You]: to the wrong bank account, but we we were able to recover it. But
+[You]: these are the sort of risks you're enduring if you're not, like,
+[You]: operating these money flows correctly. So
+[You]: so that's
+[Remote]: Yep. And so the and then the and your IC
+[You]: a bit of, like, our understanding of situation and our longer term vision
+[Remote]: then is selling to, like, fintechs or selling
+[Remote]: to
+[Remote]: but, like, the bank like, the the the kind of, like, enabling banks. Like, where do you
+[Remote]: where do you see it?
+[You]: So it it's a two part answer. Right? The first one is
+[You]: who are we selling today? Because we need to generate traction. Need to build build a business first.
+[Remote]: Yeah.
+[You]: We're selling into fintechs. Shorter sales cycle, easier to adopt these technologies.
+[Remote]: Yep.
+[You]: Enables us to iterate the product and below the product. So
+[You]: fintechs. At some point in time, probably 2027,
+[You]: And it's conversations we're already having right now, sponsor banks.
+[You]: At some point, we need the sponsor ranks because those are the ones that can actually push you
+[You]: to the rest of the ecosystem as a shared solution, because they are the ones receiving the pressure and
+[You]: the from the regulator. Right? So
+[You]: at some point in time, we need to onboard the sponsor banks if we want
+[You]: to test the the thesis of this shared solution across the stack. Right?
+[Remote]: And what is, like, the obviously, I get the accuracy. Like, hey. You
+[Remote]: this is, like, it's gotta be accurate. But are you also selling, like, faster rev like, is there another, like, what are the
+[Remote]: like,
+[Remote]: value props you're kinda selling? I I get it. It's like, hey.
+[Remote]: Source of truth accuracy. But is there, like, a is there, a additional revenue value prop, or is it
+[Remote]: mainly around the accuracy?
+[You]: Not not directly. It's not
+[You]: I would I would love to be selling a revenue generating solution. It's an easier
+[You]: sell than a cost reduction, but
+[You]: today, I, to be honest, it's
+[You]: automating manual tasks. So you don't need to hire people or even dedicate technical resources
+[You]: to this. It doesn't make sense.
+[You]: Two, risk reduction. So it's a it's it's a hygiene thing. Like,
+[You]: just make sure you have a tool that's pointing you towards the differences every single day.
+[You]: Right? And then the tool also solves those discrepancies in real time.
+[You]: So it's risk reduction. And lastly, savings and write offs.
+[You]: A lot of these companies
+[You]: when they're not able to reconcile the money flows and there's no responsiveness of the providers,
+[You]: they're just doing, like, balance sheet write offs. And and and this is
+[You]: significant. These are, like, thousands of dollars or some of these companies every single month.
+[You]: And so then it's hey. That's zero.
+[You]: I'm taking a third of that. And then let's calculate
+[You]: all the manual tasks your team your team currently is doing,
+[You]: multiply it by the cost per hour, and I'm thinking a third of that as well.
+[You]: And that's how we build what Boolean is to play in the short term.
+[Remote]: Got it. And what is the I like, the you're saying the
+[Remote]: typical, like, ACV. What would be your, like where what are you seeing with your
+[Remote]: And and what are you seeing in terms of, like, actual ROI when you're landing at the moment with with the kind of customers?
+[Remote]: You have?
+[You]: So ACVs, we're targeting, and and this is our our competitive
+[You]: strategy as well because there's there's
+[You]: BlackLine, TrinTech, our these are expensive solutions that typically work with enterprise customers.
+[Remote]: Yep.
+[You]: Now
+[You]: given the cost of these solutions, there's, like, a
+[You]: I don't even wanna say, like, mid and lower market. Just, like,
+[Remote]: Yeah.
+[You]: smaller enterprise customers that don't wanna pay, like,
+[You]: $203,100 k a year for a recon SaaS.
+[You]: And for those who try to target ACVs,
+[You]: depending on the ways to pay. Right? And and then these calculations and ROIs we're making. So
+[You]: we're try try to target somewhere between sixty and eighty k ACVs,
+[Remote]: Yeah.
+[You]: but we're willing to go down to, like, twenty, fifteen if it if it makes sense for smaller companies.
+[You]: And that can go up as well depending on, again, the size of the solution, the amount of information we're
+[You]: processing, and so on.
+[You]: ROI,
+[You]: Well, the ROI we've seen is, again, manual task reduction
+[You]: by 95%, just like to pitch the XO.
+[You]: Bitch Excel, ditch all these scripts you're doing,
+[You]: This is an automated platform orchestrating all the information.
+[You]: That's one, and that's easy to quantify. Some of these teams, like, we're
+[You]: talking with fintech or payment companies that have teams that, like,
+[Remote]: Yeah.
+[You]: three, four, five people only doing reconciliation and chasing these differences.
+[You]: And then for some of the like, for some companies, it's mostly that, and then did have
+[You]: a lot of write offs. For other companies, particularly one in Latin America had,
+[You]: like, 20, 30 k write offs every single month.
+[You]: We took that down to
+[You]: a thousand, and we're taking that to zero. So that's, like,
+[You]: real money they're seeing. Right? Just just from, like, hey.
+[You]: Taking that responsibility away from them and over to their providers because they're the one they are the
+[You]: ones missing all this information. They're operating correctly. And so
+[You]: that's also enabling them, their providers, to say, hey. We need a recon.
+[You]: Some sort of recon solution ourselves as well. That's when
+[You]: we're starting to generate that collaborative effect with those providers.
+[Remote]: Got it. And what what what's the kind of, like,
+[Remote]: you know, size of the business at the moment?
+[You]: So, again, we're team
+[You]: of seven. We have early batch of paying customers. Of course, these ACVs are are not the ones we're targeting
+[You]: We're giving
+[You]: early partner discounts, just to, you know, like, prove
+[You]: the solution adds value, get them on board,
+[You]: They also help us iterate the product.
+[You]: So there we are building and selling. I think it it's a hard product to build,
+[Remote]: No.
+[You]: because this this is critical infrastructure.
+[You]: This is finance. So it's not like we can do a, like,
+[You]: scrappy solution for them to test out as soon as they rely on us.
+[You]: We cannot drop the ball. So
+[You]: we're making sure we're building the product with the right guardrails, and and taking this
+[You]: It's a misc of going fast with AI, but then slow and steady to make
+[You]: sure it's reliable, it's safe.
+[You]: And it has the right guardrails in terms of human in the loop.
+[You]: For all these automation tasks.
+[You]: So there we are. Early magical paying customers a good healthy buy
+[You]: But right now,
+[You]: we're we're appreciate stage where we're, like, really focused on nailing these first 10 to 20 customers that they absolutely love our product.
+[Remote]: Ja,
+[Remote]: Ja.
+[You]: And then and then figure out what's next.
+[Remote]: Nice. And and what did you raise? What did you what I can't remember. What did
+[Remote]: say you raised at the proceed?
+[Remote]: What did you raise in total, guess? So you raised, like, 1.5 in total, or that was
+[You]: 1.2?
+[Remote]: the 1.2 is including all the, like, grants and all those other things.
+[You]: 1.2 total.
+[Remote]: Got it. Got it. Nice. Are you raising at the moment, or you're kinda just
+[Remote]: chatting to people, testing the market, and all that stuff?
+[You]: We're not raising right now, but we are
+[You]: planning for a seed raise in in the second quarter of the year.
+[Remote]: Nice. Yeah. I think
+[Remote]: it'll probably be too early for us, but I think I know a ton of people,
+[Remote]: who would potentially be investing in this at the seed.
+[Remote]: And, like because I think this is a great
+[Remote]: idea. We actually looked at something slightly sim like, it's a diff very different
+[Remote]: positioning, but in a way, it's slightly similar.
+[Remote]: These guys
+[Remote]: which is more around revenue recognition mainly for, like,
+[Remote]: subscription businesses just to make sure that everything is
+[Remote]: you know, connected within that. They're doing quite well now, these guys.
+[Remote]: It's an interesting interesting it's like
+[Remote]: it is very it is different, very different to what you're doing, but it's just an interesting, like,
+[Remote]: kind of slightly different take, different market, but kind of a
+[Remote]: similar idea around, like, source of truth. So
+[You]: Through yourself,
+[Remote]: that'd be interesting to
+[You]: And that's similar cell. Right? It's it's automation, risk reduction,
+[Remote]: Bob?
+[Remote]: Yeah,
+[Remote]: And it's basically like, hey. You're going from, like,
+[Remote]: a
+[Remote]: spreadsheet to, like, we're gonna kinda analyze the spreadsheet
+[Remote]: for you and, like, point out, like, anomalies and
+[Remote]: all of that stuff. They can
+[Remote]: yeah. That's so that's just an interesting one for But, I think this is super interesting, and so I'm really happy to, like,
+[Remote]: help you as much as possible.
+[Remote]: In terms of, you know, getting that seed
+[Remote]: raised.
+[Remote]: And so as you kind of, like, if you if you have any monthly up
+[Remote]: or anything, please add me, and I'm pretty
+[Remote]: as you kind of definitely message me
+[Remote]: when you come to San Francisco, and then I'm very happy to try and, you know, introduce you
+[Remote]: around, you know, come
+[Remote]: of funds you might not have spoken to yet.
+[You]: Just to bounce bounce a bit on on the idea of that
+[You]: seed raise, what what would be a strong
+[You]: strong case for that seed round, in your opinion, given what you
+[Remote]: For you know, it's it's
+[You]: just heard about our mission while we're building
+[Remote]: it's so interesting where, like,
+[Remote]: in a way,
+[Remote]: it doesn't really matter. In a way, it's like the
+[Remote]: About it.
+[Remote]: Do you know what I mean?
+[Remote]: And so, like, you kind of wanna be having these kind of conversations and,
+[Remote]: you know, laying
+[Remote]: out to people
+[Remote]: like, what you're doing, like, what your goals are. You kind of, like,
+[Remote]: wanna undersell it a little bit and then, like, keep on up and I would definitely do, like, a monthly update
+[Remote]: and, like, undersell it a little bit. You've always got something good to show each month.
+[Remote]: So, like, concede rounds are, like, all over the place at the moment. Do you know what I mean?
+[You]: Yep.
+[Remote]: And so, like, some people who are, like, able to really, like,
+[Remote]: be in the AI zeitgeist can raise, like, a ton of money really easily with, like, nothing.
+[Remote]: Or and so, like, obviously, you wanna be in that, but that's I don't know how to help people get to that
+[Remote]: level, but it's like
+[Remote]: so it's kind of like, okay. This is
+[Remote]: the problem we're solving. This is why it's super
+[Remote]: complex, and this is why we're gonna, you know, win in
+[Remote]: that space, and this is, like, all our, like, accelerating traction. Do you know what mean?
+[Remote]: I think is and I think you did a good job of that, but I think there's not
+[Remote]: there's no, like, hey, you get to a million dollars and
+[Remote]: the real thing with, like, a seed raise is, like, creating momentum and creating, like,
+[Remote]: FOMO effectively because people are still really just investing in you and your team.
+[You]: Yep.
+[Remote]: You know what I mean? Like, the other stuff is kind of noise. It's kind of like a
+[Remote]: nice thing to have in a way, but, like,
+[Remote]: so it's just really, like, doubling down on that. And, like, I think the key is, like,
+[Remote]: yeah, showing
+[Remote]: people you've got, like like, accelerating progress and then, you know,
+[Remote]: one person excited. And then as soon as one person's got a term sheet down, you're like,
+[Remote]: on the dance floor and everyone gets excited. Do you know what I mean? It's like a
+[You]: Yeah.
+[Remote]: and so that's kind of like, that's, the big thing. Then, like,
+[Remote]: you know, definitely what you should do is, like, as you get closer to thinking about your
+[Remote]: you should, like,
+[Remote]: catch up with the investors who are, like, most excited to catch up and be like, hey. I just wanna, like,
+[Remote]: run this past you and just, like, let me know, like, what you think would be, like,
+[Remote]: a good story for the seed.
+[Remote]: If they're excited enough, then they might just, like, jump. Do you know what I mean? And you just do that as, like, a
+[You]: Yeah.
+[Remote]: you know what I mean? It's all, as you know, it's all just, how do I create this? Like, how do I, like,
+[Remote]: you know? Because you wanna have a process without having a process.
+[Remote]: You know what I mean? As soon as you're in, like,
+[Remote]: big drawn out pro and, like, there are just so many different investors out there. You can, like,
+[Remote]: really just chat to a lot of people and then, like,
+[Remote]: the ones you kind of wanna work with, you can either do that, be like, hey. Thinking about a seat. You can be like, hey.
+[Remote]: 'm gonna go out for, a seed in, like, a month.
+[Remote]: I really like you. And so, like, what do you need from me to do it? And, like, again, they're either a no or they're a yes.
+[Remote]: You know I mean? And then it's kind of at least, you know. I definitely think, like,
+[Remote]: monthly updates are good at this stage because
+[Remote]: you can then, like, ping people and be like, hey. I'm thinking about going for a seed. Like, would this be exciting for you?
+[Remote]: And they're either a yes or a no. Do you know what mean? Because they're senior updates.
+[Remote]: And so it's not just, like,
+[Remote]: oh, here's a thirty minute wasted call.
+[Remote]: It's like, oh, they've seen these updates. They're like, oh, this is quite cool. Let's, like, do anything. Do know what I mean?
+[You]: Yeah. Yep. Interesting. Thank you. Thank you for that. Bye.
+[Remote]: So, yeah, that's, like, the the if we
+[You]: Alright. I don't wanna do more time
+[You]: I wanna give you back time.
+[Remote]: Well, nice. Yeah. Great great to chat. And let me know when you're in
+[Remote]: San Francisco. We can grab a coffee.
+[You]: 100%. Thank you so much.
+[Remote]: No worries. Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Canvas Fund Overview
+
+- $850M AUM fund, investing from $350M Fund III
+- \~20 concentrated deals per fund, leading Series A/B rounds
+- $5-20M typical check size, usually taking board seats
+- Focus areas: financial services and digital health
+- Investment thesis: inflection point companies with proven product-market fit ready to scale go-to-market
+- Xan Wood background: Berkeley MBA, former NFX fellowship setup
+
+### Shared Connections & Background
+
+- Both won NFX FAST pitch competitions (Ignacio at Harvard, Xan at Berkeley)
+- Mutual connection: Anna at NFX (currently on maternity leave)
+- Shared bullish view on Mercado Libre
+  - Xan’s largest personal portfolio position
+  - Both see it as potential first $1T LatAm company
+  - Leadership transition from Marco to Ariel viewed positively
+
+### Rexi Fundraising Context
+
+- Current status: not actively raising, planning seed round Q2 2026
+- Raised $1.2M total to date (pre-seed from Underscore VC and Flybridge)
+- Team of 7: building and selling with early paying customers
+- Target seed ACVs: $60-80K (willing to go down to $15-20K for smaller companies)
+- ROI metrics: 95% manual task reduction, significant write-off elimination
+
+### Fundraising Strategy & Next Steps
+
+- Seed round timing and approach:
+  1. Monthly updates to create momentum and track progress
+  2. Undersell initially, then consistently over-deliver
+  3. Create FOMO through accelerating traction narrative
+  4. Focus on team/founder story over metrics at seed stage
+- Canvas likely too early stage for Rexi (Series A/B focus)
+- Xan offered introductions to seed-stage funds and SF networking
+- Plan to connect in person during Ignacio’s April SF trip
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/baf680ec-3c30-4536-acb8-557caae8936c](https://notes.granola.ai/t/baf680ec-3c30-4536-acb8-557caae8936c)

@@ -1,0 +1,695 @@
+MEETING: Rexi <> Mediobanca
+DATE: 2026-02-19
+ID: not_2fQyEKVFDGSkRe
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Francesca <francesca.rainoldi@foundersfactory.co>, Edoardo Gentili <edoardo.gentili@foundersfactory.co>, Andrea Guzzoni <andrea.guzzoni@foundersfactory.co>, Teo <teo@rexi.finance>, Giorgio Mugnai <giorgio.mugnai@mediobanca.com>, Stefano Contini <stefano.contini@mediobanca.com>, Alessia Armarolli <alessia.armarolli@mediobanca.com>, Martina Lotti <martina.lotti@mediobanca.com>, Marco Jwad <marco.jwad@mediobanca.com>
+SCHEDULED: 2026-02-19T09:00:00-05:00 - 2026-02-19T09:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Thirty minutes. So if you guys agree, we can move on with your presentation.
+[You]: Sure. A 100%. Well, thank you for having us. Thank you for the time.
+[You]: I'm just gonna flip through some slides here. So
+[You]: so it's a bit
+[You]: easier. Can you see my screen?
+[Remote]: Yeah.
+[You]: Great. Thank you. So just a bit about who we are.
+[Remote]: Yes.
+[You]: They all studied at at Columbia Business School. I studied in Harvard, and then we have our CTO, which
+[You]: comes from this payment and processor called Pomelo. The three of us fintech operators in the past,
+[You]: And, basically, what we're doing is we're we're building the infrastructure layer for
+[You]: for the fintech stack. Basically, when we were working at fintech before, we saw this
+[You]: huge problem of data fragmentation causing severe pain
+[You]: specifically in the reconciliation process, which is
+[You]: which has many different sides of
+[You]: of of the problem. Right? The first one, of course, is a lot of manual work.
+[You]: Just huge teams taking care of reconciliation at these companies. And these are tech companies.
+[You]: The second part is, of course, risk.
+[You]: Not only regulatory risk, but economic risk.
+[You]: Because when you're not tracking money correctly and you're not keeping
+[You]: account of these money flows in a robust and and scalable way,
+[You]: there's the risk of losing money. And the exhibit a of this was what happened with Synapse in 2024.
+[You]: And then the third part is the economic cost of write offs. These companies
+[You]: have a lot of transactions that they cannot reconcile at the end of the day, and they need
+[You]: to close the books. And so to close the books, they create a journal entry of unreconcilable
+[You]: money. And that's that's actual money being lost in the system, which for us
+[You]: in 2026 is crazy. So we're here to solve that problem from a
+[You]: from a systemic standpoint. Right? That's why we're targeting
+[You]: sponsor banks, BaaS providers, fintech platforms, and payment providers under
+[You]: unified coordination layer where everyone is
+[You]: seeing the same data, reconciling with the same logic, and we are providing
+[You]: a shared tool for them to collaborate on discrepancies.
+[You]: A bit of our early customers and our investors we raised the pre seed round in July, led
+[You]: by underscore b c with participation from Flybridge, textbook,
+[You]: Bear, and n f x. This is the founding team.
+[You]: Teo and myself here, you're missing to meet the
+[You]: the CTO, Sebastian, which is down in Argentina, building with the rest
+[You]: of the engineering team. A little bit of how our our our product works,
+[You]: I'm just gonna focus on the right side because left side is just our agent orchestration
+[You]: architecture.
+[You]: But on the right is sort of, our design principles. How are we building this tool first?
+[You]: Plug and play. We wanna be dragging teams into these
+[You]: month, multi month implementation
+[You]: processes that just take too much time to value.
+[You]: The second one is self serve. We want this tool to be owned and controlled by the finance teams.
+[You]: With full independence from the technical teams. And then the third one is compliance ready.
+[You]: Because, of course, reconciliation, which is basically monitoring the money movements and making sure
+[You]: these are moving in the right direction, the right amount, tend to have some
+[You]: regulatory requirements, some reporting requirements, and we wanna make sure that this is a tool that
+[You]: helps you to remain compliant. Right?
+[You]: A little bit about our our comparison against competitors. I'm just gonna flip through this one. How
+[You]: to share this afterwards. The results we're seeing with with our main with our with our early
+[You]: are
+[You]: again, workflow automation, eliminating a lot of the manual workload
+[You]: that these teams are performing today, all the way from connecting to the data
+[You]: transforming the data, processing the data,
+[You]: and investigating discrepancies. We're reducing compliance risk. We had zero audits or zero penalties with the with the companies we are working with.
+[You]: When when I'm talking about reconciliation related
+[You]: problems, we reduced write off savings by 95%, which is so some of these companies were actually writing off
+[You]: $20.25, 30 k a month of
+[You]: stuff they couldn't reconcile, and we brought that down to less
+[You]: than a k, and we're gonna just take that to zero as we continue iterating the workflow.
+[You]: Some case studies with initial customers, Comune is a neobank based in New York.
+[You]: Tera is also based in New York. Me and Teo are based in New York, by the way.
+[You]: Tara does global payroll.
+[You]: And this is our road map. Going forward, we're continuing to building on our on our dynamic integrations because the first part of the process is ingesting data and building the connectors.
+[You]: The second part is we are starting to
+[You]: experiment with embedding solutions. This is particularly important for payment infrastructure for companies.
+[You]: That see reconciliation as a value prop enhancer.
+[You]: And then we are continue building towards our big
+[You]: thesis, which is this these collaboration workflows, not only internally,
+[You]: between operations, finance, and accounting, but also towards third parties.
+[You]: Because reconciliation is comparing my source of truth against yours.
+[You]: And you're a third party. So the the the way to actually solve this problem from
+[You]: from its conceptual perspective is bringing these parties together where our share
+[You]: platform in the cloud.
+[You]: So that's where we're building towards in 2026.
+[You]: Other than that,
+[You]: happy to do a quick walkthrough over the platform. Know they have
+[You]: you have the platform there in hand to show just a quick walkthrough about
+[You]: the different functionalities and what we have today. And then I guess the idea was
+[You]: to hear more about about you. Is is is this something
+[You]: Or just answer any questions you might have. This is a very niche workflow, very tech
+[You]: very inside, very, like, infrastructure layer of
+[You]: these companies. I'm sure there's a billion questions we
+[You]: we we're happy more than happy to answer. And then
+[You]: actually dive into how
+[You]: how are you currently handling reconciliation at and if there's a case
+[You]: for us to help and automate the process?
+[Remote]: Yep. Sounds good.
+[Remote]: I think, Georgia, it's good to to see a demo first.
+[Remote]: Yeah. Yeah. Yeah. Yeah. Yeah. We can move on with the with the demo. Yeah. Yeah.
+[Remote]: Could be really interesting.
+[Remote]: That'd be cool.
+[Remote]: Yep.
+[You]: You're muted there, oh, है? At that.
+[Remote]: Can you hear me now? Yep.
+[You]: Yep.
+[Remote]: Perfect. So I just created a
+[Remote]: small exercise so that you can
+[Remote]: get a sense of what the platform actually looks like. But, basically, as Natchez said, we
+[Remote]: automate reconciliation processes
+[Remote]: mostly for sponsor banks, fintechs, and and
+[Remote]: players within the the fintech space.
+[Remote]: Basically, everything starts within sources. We automate the ingestion from
+[Remote]: every data source there is within the stack. I mean, we we
+[Remote]: do direct integrations with banks, fintechs. I don't know.
+[Remote]: Snowflake, AWS, any any database where
+[Remote]: our customer holds all its transactional information, we do direct integrations.
+[Remote]: All these transactions
+[Remote]: generally get and and have very, very different
+[Remote]: they have very different formats.
+[Remote]: So a big part of what we do is we standardize all that information
+[Remote]: within our platform. So most reconciliation platforms
+[Remote]: require you to do this standardization beforehand
+[Remote]: we actually do it automatically within our
+[Remote]: within our platform. Basically, any transformation you can do in Excel, you can automate
+[Remote]: here.
+[Remote]: And even within
+[Remote]: very complex cases, like
+[Remote]: I don't know, dependence and and
+[Remote]: maybe you need to calculate do
+[Remote]: complex calculations, etcetera. Anything you you could just describe here, and we will
+[Remote]: transform the data and get it ready to get reconciled here.
+[Remote]: She can do calculated columns, provide, transform date,
+[Remote]: parse fields, and, of course, enrich databases with third data sources.
+[Remote]: So once we have our
+[Remote]: databases ready, I'm gonna do a smaller exercise to
+[Remote]: so that you see it would this would be database
+[Remote]: and the internal ledger. It's a very classic reconciliation exercise within the
+[Remote]: industry, and let's just create a reconciliation.
+[Remote]: Live demo
+[Remote]: recon,
+[Remote]: and
+[Remote]: we create a rule live
+[Remote]: So, of course, the platform is
+[Remote]: extremely easy to use and flexible, so we can do
+[Remote]: one to one, one to many, many to one, and many to many.
+[Remote]: These are very, very much needed for
+[Remote]: mostly
+[Remote]: or banks that send information, not on a transactional level, but on a
+[Remote]: on a batch or group level. But in this case, I just created a a
+[Remote]: a one to one exercise that is
+[Remote]: exactly where we should aim always, having exact
+[Remote]: visibility on a transactional level.
+[Remote]: Perfect. Once we have both data
+[Remote]: data sources here, we just create the
+[Remote]: configuration. So what I create here is a
+[Remote]: two sweep reconciliation. Basically, the first the first sweep we try
+[Remote]: with the ID,
+[Remote]: is the idea case scenario or one to one with ID.
+[Remote]: We, of course, know that
+[Remote]: many of our customers do not have that. So we do a second sweep
+[Remote]: with whatever did that match here. We try again, and we
+[Remote]: do it with server
+[Remote]: Let's do here
+[Remote]: Listen.
+[Remote]: Settlement date
+[Remote]: amount in euros, direction,
+[Remote]: and counterparty
+[Remote]: It's here. This is trade date.
+[Remote]: Amount
+[Remote]: direction, and finally, counterpart.
+[Remote]: Course, we allow for tolerance,
+[Remote]: Maybe you wanna do a first trip with very strict
+[Remote]: very strict tolerance, and then maybe a second sweep with
+[Remote]: or more days or hours or seconds, minutes, whatever tolerance.
+[Remote]: And, of course, you can have turns in amount as well.
+[Remote]: How would it any
+[Remote]: did anyone ask anything?
+[Remote]: Yeah. Sorry. I was asking if there is
+[Remote]: tolerance for the amount instead of
+[Remote]: the day. Yes. And you just transfer me.
+[Remote]: Yes. Yes. We we allow tolerance in dates,
+[Remote]: and in amounts. Of course, you can put them either in percentage numbers or
+[Remote]: absolute values.
+[Remote]: So this is the operational reconciliation.
+[Remote]: This
+[Remote]: allows you to match those transactions
+[Remote]: but sometimes, you
+[Remote]: not only wanna match them, but you wanna check, for example, that the the
+[Remote]: settlement date is the correct one, or you wanna check that
+[Remote]: the fee that they applied is the correct one or the amount or the conversion rate.
+[Remote]: Here is where you would do that. You can mark it as critical. So
+[Remote]: if you mark it as critical and the comparison fails, then that's
+[Remote]: transaction won't be
+[Remote]: marked as reconciled.
+[Remote]: First, this can be we allow users
+[Remote]: normalize the data. This is very important because
+[Remote]: maybe you wanna check that the the the transaction is
+[Remote]: processed on one one side and approved on the other, and
+[Remote]: or or whatever the the the wording that each of these
+[Remote]: players within the fintech space is that that uses is very different.
+[Remote]: So here, you normalize it maybe
+[Remote]: one comes with caps, and the other one is like this. So we here, we allow the user to normalize and and
+[Remote]: and just make sure that everything is in
+[Remote]: correct status or currency or fee, etcetera. In this case, it's just a
+[Remote]: operational reconciliation that we're gonna do. And finally, you allow
+[Remote]: for transformation and calculations this
+[Remote]: will have no impact on whether a transaction gets or not.
+[Remote]: But it will allow users to create
+[Remote]: specific reports.
+[Remote]: Let's just create the rule. And, of course,
+[Remote]: one rule is a comparison, a reconciliation within
+[Remote]: two databases, but, these comparisons or reconciliations get
+[Remote]: extremely complex. So you can add dependent rules that run after the first one, and you compare it with
+[Remote]: third data sources or fourth, fifth, etcetera.
+[Remote]: First, what we do is we automate these
+[Remote]: these processes. What we're doing now, you only do once.
+[Remote]: It's gonna get done automatically.
+[Remote]: This can run either on a schedule basis
+[Remote]: maybe Mondays, Tuesdays, Wednesdays at 5AM or whatever time.
+[Remote]: Or they can
+[Remote]: triggered whenever one of the data sources gets updated.
+[Remote]: You know, that they will only run when
+[Remote]: the data is updated.
+[Remote]: Here, we're gonna run it on third third way, which is, of course, manual execution.
+[Remote]: Just for you to see, this should only take a a few seconds after
+[Remote]: the reconciliation has has run.
+[Remote]: We, of course, have this generic
+[Remote]: with
+[Remote]: what a basic reconciliation
+[Remote]: result would look like.
+[Remote]: Of course, that's not enough for many of our customers, so we allowed for personalized dashboards
+[Remote]: that we're gonna see right now.
+[Remote]: This is the result of the first sweep we did we we did with trade ID.
+[Remote]: And then on the second sweep, what whatever did not match, we tried again.
+[Remote]: In this case, using all these
+[Remote]: joy details, and we have
+[Remote]: we're left with only a 160 only on the clearing clearing side, and
+[Remote]: two sixty seven on the internal ledger.
+[Remote]: Of course, everything you can download and
+[Remote]: you know, dispose of the information. This is the general metrics I was talking about.
+[Remote]: For example,
+[Remote]: source a,
+[Remote]: source b,
+[Remote]: total transactions yesterday,
+[Remote]: were 973. Match transactions, 920, and then if
+[Remote]: got 53 transactions that match.
+[Remote]: You can export these results in whatever
+[Remote]: format you want, and we automate that export.
+[Remote]: So you only set up the report configuration once, and we feed
+[Remote]: wherever you want the the report on a daily basis or
+[Remote]: whatever
+[Remote]: recurrence you need. And, of course, you can have the the format that you want. You
+[Remote]: enrich the columns, create the right columns, you know, normalize them, etcetera.
+[Remote]: So it's extremely easy to use and extremely flexible in terms of what what you can do.
+[Remote]: For the FinApps teams.
+[Remote]: We've got the
+[Remote]: exception manager. Here, you would do final
+[Remote]: manual reconciliations with whatever extreme cases
+[Remote]: that that you have, maybe
+[Remote]: that this transaction matches with this one and you do a final match,
+[Remote]: or mark, one transaction as as an exception
+[Remote]: you know, it will never be on the other side. Maybe it was a man of movement, etcetera.
+[Remote]: You can you can create automatic, exception rules
+[Remote]: For example, whenever a transaction
+[Remote]: without a without an ID, just mark it as exception because I know that it was a manual movement
+[Remote]: will never match anything. We've got alarms.
+[Remote]: We send daily alarms via Slack or
+[Remote]: or email or whatever communications
+[Remote]: method you desire. You just
+[Remote]: get your message 5AM. Hey. Yesterday, you had
+[Remote]: 100 transactions, 397 reconciled.
+[Remote]: Here's the three transactions you you should have a look at.
+[Remote]: Finally, we've got the dashboards. I just created a
+[Remote]: a basic dashboard here.
+[Remote]: For you to see, but it's
+[Remote]: super flexible here. You have you can have you know, most companies have
+[Remote]: 15, 20 reconciliations, and every team wants to automate their own processes.
+[Remote]: And so maybe you wanna have one integrated dashboards with with only
+[Remote]: reconciliation results, etcetera. And it's just
+[Remote]: extremely easy to create, you know, these these widgets
+[Remote]: we can do a pie chart just for you to say.
+[Remote]: Live demo
+[Remote]: and
+[Remote]: that's it. You add the widget, and you can force sort it. And
+[Remote]: make it as big as t one. And
+[Remote]: let me just put here.
+[Remote]: And you can share this
+[Remote]: dashboard with whoever you wish
+[Remote]: Finally, we've got a
+[Remote]: second reporting module. This one automates reports created directly from sources.
+[Remote]: Maybe you've got, you know, four or five banks working with you, and you wanna create one standard report. But each of these banks sends information in
+[Remote]: you know, different formats. So you wanna create one format for, I don't know, creating the
+[Remote]: month end report or whatever, and we automate that as well.
+[Remote]: Extremely easy to use. And finally, we didn't
+[Remote]: see, and I think we didn't talk about this. But
+[Remote]: for some of our customers, we automate the
+[Remote]: the creation of the, journal entries
+[Remote]: of course, with with, with the proofs.
+[Remote]: But this was also a very manual process. They were just
+[Remote]: creating the journal entries on Excels and uploading them on
+[Remote]: NextSuite or whatever ERP that they're using, and we have
+[Remote]: automated that that process as well for
+[Remote]: for them. So, just wrapping up.
+[Remote]: We automate the injection. We automate the standardization of the information.
+[Remote]: Which we which is extremely important. We automate the reconciliation and the creation
+[Remote]: of dashboards, reports, and journal entries and alarms.
+[Remote]: I know if you have any questions.
+[Remote]: Yeah. I have one question. So if we can
+[Remote]: back to the sources,
+[Remote]: Yes.
+[Remote]: So here, do you have the payment?
+[Remote]: Yes. So these are the transactions
+[Remote]: This would be, information coming from your internal ledger.
+[Remote]: And you would get, you know, every payment updated every day. This is
+[Remote]: February 15, sixteenth,
+[Remote]: and this is just one payment.
+[Remote]: Okay. And here you have
+[Remote]: all the payment that are that are not
+[Remote]: yet.
+[Remote]: No. This is everything. This can be reconciled and yes.
+[Remote]: This is the the whole the whole database. And you can filter
+[Remote]: If you wanna check
+[Remote]: if you wanna check
+[Remote]: specific payments from the internal ledger,
+[Remote]: that did not reconcile
+[Remote]: you directly go to the exception manager, and you check
+[Remote]: within which rule because maybe one database gets reconciled with
+[Remote]: several other databases.
+[Remote]: So we we cannot say this transaction is reconciled
+[Remote]: gotta be more specific. Is it within
+[Remote]: these are database these are database
+[Remote]: So you just go
+[Remote]: for example, this is the accesses that we did.
+[Remote]: And these are all the transactions that it did not match. It's a 160.
+[Remote]: Out of the, I don't know, 2,000, 3,000 that we we had in the whole database.
+[Remote]: Okay. And where
+[Remote]: did you get the data from the payment?
+[Remote]: I mean, are you able to receive
+[Remote]: payment from Swift?
+[Remote]: Yes. We
+[Remote]: we get data from wherever you
+[Remote]: you prefer. We mostly do direct integrations with the
+[Remote]: the the banks or or whatever your data is.
+[Remote]: But we also get data via email sometimes
+[Remote]: SFTP
+[Remote]: depends on
+[Remote]: on how you
+[Remote]: you prefer us to to do that. But, basically, what we do is we
+[Remote]: automate integration and ingestion.
+[Remote]: But it's not possible to read as we
+[Remote]: message like, Pax zero zero nine or
+[Remote]: zero zero eight, from this, this system.
+[Remote]: That I would need to check
+[Remote]: exactly the
+[Remote]: Because banks, send a payment through
+[Remote]: sweet message, and we send most
+[Remote]: leaps at zero zero eight, at zero zero nine, or
+[Remote]: count 54, or count 53.
+[Remote]: And Yes. If
+[Remote]: sorry. If we get the information in either of those formats,
+[Remote]: and it
+[Remote]: I mean, if if that respects any
+[Remote]: any specific format, for example,
+[Remote]: position zero to nine is the
+[Remote]: transaction ID. Position nine to 16 is the transaction date, etcetera.
+[Remote]: We can just extract that information directly here.
+[Remote]: We
+[Remote]: tell the AI generator, extract this. This is the date. This is the
+[Remote]: transaction fee, this is the transaction amount, etcetera.
+[Remote]: And it gets automated as well.
+[Remote]: So you you
+[Remote]: I was wondering if with the message, you can
+[Remote]: be able to understand
+[Remote]: what kind of transaction it is, like,
+[Remote]: if you come back to
+[Remote]: what
+[Remote]: was open before, like,
+[Remote]: Here?
+[Remote]: Yeah. Yeah. Yeah. Thank you. Mhmm. So in AI formula, we can something like if
+[Remote]: you find an IZIN, you can match it with
+[Remote]: something.
+[Remote]: Exactly. It's that's exactly what we do. We've got the formula find.
+[Remote]: Maybe we can
+[Remote]: find here an and text within text and start number.
+[Remote]: Yes. It's extremely flexible here.
+[Remote]: And if you find something
+[Remote]: yeah, in the
+[Remote]: in the field with the proposed of the payment
+[Remote]: you can understood that it is an invoice or
+[Remote]: something else?
+[Remote]: Exactly.
+[Remote]: But Exactly. But but you have to to to
+[Remote]: write a formula, a specific
+[Remote]: specific formula? You you just describe it
+[Remote]: here. For example,
+[Remote]: see.
+[Remote]: Find here. Let's
+[Remote]: do it like this.
+[Remote]: Test. Find
+[Remote]: t within is in and
+[Remote]: provide
+[Remote]: following
+[Remote]: five
+[Remote]: digits, something like this. Yeah. This is what you meant?
+[Remote]: Example?
+[Remote]: Ah, yeah. Yeah. Yeah. Okay. But
+[Remote]: if it is brought, like, in instead of invoice,
+[Remote]: But I don't know that I'm
+[Remote]: I'm coming to to receive an payment with this
+[Remote]: this kind of with instead of invoice.
+[Remote]: The system is able to catch it
+[Remote]: to catch the information or or not.
+[Remote]: So yeah.
+[Remote]: Yes. We should I I should
+[Remote]: I should see the the exact scenario.
+[Remote]: I mean, if sometimes it comes with int and sometimes it
+[Remote]: comes with invoice,
+[Remote]: I should see exactly. But what we do
+[Remote]: is we we make sure it works. I mean, if you if we start working together, it's
+[Remote]: like
+[Remote]: we're gonna
+[Remote]: give you access to the tool and you sort it out.
+[Remote]: We're gonna work until we're sure that it
+[Remote]: that it works in every every case.
+[You]: Yeah. And the platform is is flexible enough to catch those cases. That's
+[You]: that's the whole idea. I mean, reconciliation is hard just because of examples
+[You]: you just mentioned, like, it's instead of
+[You]: invoice or they change the data format or the date format or then they batch
+[You]: some transactions.
+[You]: That's why it's complex. So the system is flexible enough to understand those
+[You]: anomalies and either configurate them in rules or propose
+[You]: what to do with them or flag them. Right? But that's exactly what the platform is aiming to do.
+[Remote]: Martina, question, how do you guys do it now at the moment, the whole this part?
+[Remote]: Internally?
+[Remote]: Yeah. So we work with, Swift messages
+[Remote]: So every day, we receive real time
+[Remote]: payment inflow and outflow, of course.
+[Remote]: And we reconcile with something we call
+[Remote]: for forecast because we use the system also to do cash management
+[Remote]: So we
+[Remote]: do not only made reconciliation, but
+[Remote]: it's on it's it's also for cash management purpose.
+[Remote]: Because we have to manage all the liquidity intraday
+[Remote]: And we match
+[Remote]: all the payment in and out with our forecast.
+[Remote]: And also all the status of
+[Remote]: all the payment we sent
+[Remote]: out because we need to to know
+[Remote]: when the payment, has reached
+[Remote]: the, the Swift, and when, our
+[Remote]: bank settled the payment,
+[Remote]: for incoming payment
+[Remote]: we we already have, some rules
+[Remote]: for which
+[Remote]: the reconciliation is already automated.
+[Remote]: Also for the the amount
+[Remote]: we have a range of 1% of Tolerance.
+[Remote]: Yeah. Yeah.
+[Remote]: Not for validate because it's important in bank
+[Remote]: the the value date. So if our counterpart pay us
+[Remote]: at one day later, it
+[Remote]: a problem, I would like to say.
+[Remote]: Yeah. That that's one of the main main cases we we make sure
+[Remote]: that our customers
+[Remote]: are, able to check
+[Remote]: both if the amount is exact and if the settlement date
+[Remote]: is exact as per contracts.
+[Remote]: Yeah. And, we have we have, forecast
+[Remote]: for which we have some market references for I don't know. Maybe when we have
+[Remote]: to to settle stock
+[Remote]: bond, and something like like like like
+[Remote]: like it. So our
+[Remote]: our depository bank send us swift message with
+[Remote]: some references so the forecast will match with the payment
+[Remote]: automatically.
+[Remote]: Perfect. So for
+[Remote]: for some of our customers,
+[Remote]: we normalize information, with market exchange for currencies.
+[Remote]: For example, if you wanna convert this
+[Remote]: euro into
+[Remote]: into, I know, dollars, for
+[Remote]: you would use currency convert and
+[Remote]: we use we of course, you
+[Remote]: you select the data, and we use market
+[Remote]: prices to normalize that information. We've got an API integration.
+[Remote]: You would want us to also do market integration market
+[Remote]: prices for for stocks or
+[Remote]: any other asset, we can also do that.
+[Remote]: To create that forecast.
+[Remote]: Okay.
+[Remote]: Okay. And then we use
+[Remote]: statement from the bank that we receive at the end of the day.
+[Remote]: So the day the day after, we will reconcile what
+[Remote]: we have already on our accounting system with
+[Remote]: statement that the bank, send us.
+[Remote]: And then we have a report that
+[Remote]: if we have something already
+[Remote]: recorded off, if we have something that
+[Remote]: for which maybe we didn't receive any kind of mass
+[Remote]: but they debit our account. So
+[Remote]: So and then we we made some
+[Remote]: manual manual recording
+[Remote]: Perfect. That's exactly what we automate. That kind of
+[Remote]: process as well.
+[Remote]: Matt,
+[Remote]: I I I won't
+[Remote]: to know if your system
+[Remote]: could be integrated in order system.
+[Remote]: What what would that look like?
+[Remote]: Because we already have this
+[Remote]: this this system
+[Remote]: for cash management and reconciliation.
+[Remote]: For which we manage all the payment
+[Remote]: in and out, our forecast, and our balance monitor for each
+[Remote]: account menu bank menu bank has
+[Remote]: with the with the other banks.
+[Remote]: So we we we see all the cash
+[Remote]: flow of every day.
+[Remote]: It's not only a system for reconciliation purpose, but
+[Remote]: for
+[Remote]: other Cash management. Yep. Yeah. Yeah. Mhmm.
+[Remote]: Yeah. It in it's important to add
+[Remote]: all the information in one system because
+[Remote]: we need to, also monitor the settlement of
+[Remote]: all the
+[Remote]: payment we are sending out? Yes.
+[Remote]: So, basically, we interact with several systems.
+[Remote]: The way we do that is we ingest information from
+[Remote]: system, for example, the one you just mentioned, and then we send back the information
+[Remote]: after we reconcile, for example,
+[Remote]: we send back the information as a
+[Remote]: as I mentioned.
+[Remote]: We export these results. So if you wanted
+[Remote]: to have all the reconciled information within your internal system,
+[Remote]: You can use us to reconcile, and we send it back. And you have
+[Remote]: every transaction and the status and and if it reconciled or not, etcetera.
+[Remote]: If that's what you meant by having all the information
+[Remote]: within one system, yes, we can definitely do that, and that's exactly what we do.
+[Remote]: If it was not that, maybe my other question was it
+[Remote]: you want the UI, the experience to be embedded within your own system or just
+[Remote]: make sure that the information is within your system?
+[Remote]: Information should be in my c
+[Remote]: but I'm seeing that as
+[Remote]: something out that is sending information out
+[Remote]: and then in in again,
+[Remote]: I I don't know if it is really efficient
+[Remote]: and because we need real time information in order
+[Remote]: to do cash management. So, I don't know, if a counterpart
+[Remote]: pay me 20,000,000 of US dollar and I didn't expect
+[Remote]: 20,000,000,000 US dollar value date today.
+[Remote]: I
+[Remote]: I have to be
+[Remote]: able to to
+[Remote]: to to understand what what what it is and
+[Remote]: to reconcile it to understand if
+[Remote]: a counterpart just made wrong payment
+[Remote]: I have to kick back found. So
+[Remote]: it's it's really important the timing
+[Remote]: Yep. Alright. Yeah. Our ingestion can be I mean,
+[Remote]: can be real time, and we support results
+[Remote]: as, like, as soon as our reconciliation runs,
+[Remote]: So we can we can we can work and and get it
+[Remote]: I mean, real time.
+[Remote]: We just have to set whenever
+[Remote]: we do those integrations, make sure that we get the information constantly.
+[Remote]: Sorry, guys.
+[Remote]: This is Stefano from Churchill Desk.
+[Remote]: Just wondering, I mean,
+[Remote]: everything Martina said is absolutely right.
+[Remote]: I was thinking about another angle where we
+[Remote]: we can find, I mean, useful
+[Remote]: this tool is useful. Just to give
+[Remote]: you a broader view, we are in the middle of an M and A process
+[Remote]: with the bank Monte dei Paschi, and I think that
+[Remote]: on the payment side, something is going to change.
+[Remote]: So
+[Remote]: of course, we will evaluate this this
+[Remote]: tool and keep in mind this this moment.
+[Remote]: And I see that maybe
+[Remote]: on other legal entities, we work on fact
+[Remote]: We work on consumer.
+[Remote]: This tool could be useful in terms of more account
+[Remote]: inside. You know? On factoring, usually, we receive
+[Remote]: inflows that comes
+[Remote]: before the contractual maturity or
+[Remote]: And I know that they spend a lot of time in reconcile all this stuff.
+[You]: Yep.
+[Remote]: So maybe this could be a better angle to
+[Remote]: look at this tool because from Martina's side, I think that
+[Remote]: we are already in
+[Remote]: I mean, something is already working quite well, not of course, but
+[Remote]: quite well. So I think this is good the the right angle we we can look at
+[You]: Yep. Makes total sense.
+[Remote]: Keeping in mind that the m and a process
+[Remote]: on our heads. I mean You're muted, Nacho.
+[You]: Yeah. I'm sure you're going through through a lot of changes right now.
+[You]: Sorry. I was saying, I'm sure you're going through a lot of changes right now. So,
+[You]: so, yeah, we understand. Just see this as
+[You]: a very powerful and flexible data orchestrator.
+[You]: We can match transactions with basically any condition
+[You]: any data flow. It's just about
+[You]: getting the right data into the system and configuring
+[You]: workflow, and then it runs automatically. So you you should you guys should see this as a tool,
+[You]: to automate any reconciliation workflow.
+[You]: It might be with factoring, with payments, with treasury, cash balances,
+[You]: whatever you guys need. Because at the end of the day, REXi is is, again,
+[You]: it's a data orchestrator. It's a very powerful and flexible data orchestrator where
+[You]: we need to just ingest the data and then configure it any sort of
+[You]: automated workflow inside the platform.
+[You]: Just being conscious of time here, not if there's any
+[You]: other big questions you guys wanna go over. If not, Eduardo, I can maybe
+[Remote]: Just sorry. Just the
+[You]: circle back with you and see what's the best
+[Remote]: a very brief one. Maybe you mentioned at the beginning. Can you please adjust to
+[Remote]: second explain whether you're working with some banks already or not?
+[Remote]: Yeah. Especially European because I see you already work
+[Remote]: with someone in America, but I didn't understand if
+[Remote]: are still working with something someone in Europe.
+[You]: No. We're not. No. We're not working with with with
+[You]: with banks in Europe yet. We're working with with banks here in in The Americas.
+[You]: Teo and myself, we're based in New York, and we have the tech team based in Argentina.
+[You]: So so, yeah, we're working mostly on The Americas. We haven't yet started
+[You]: distributing the product in in Europe yet. But, again,
+[Remote]: Okay.
+[You]: it it's the same thing. This is data orchestration. Like, the files you
+[You]: and the type of workflows you mentioned
+[You]: it's sort of universal across every continent. Right? So
+[You]: it's just about configuring logic and making sure that our our
+[You]: infrastructure and our platform is able to automate the workflow for you guys.
+[Remote]: Yeah. It was mine was more if I send on validation. It's
+[Remote]: regardless of the fact that these Americas or or Europe is so fine.
+[Remote]: Thanks.
+[Remote]: Perfect.
+[Remote]: Thank you.
+[You]: Other than that, thank you thank you for the time.
+[You]: Eduardo, I'll circle back to see how we we should continue. We see a lot of value to unblock
+[You]: here and and just
+[You]: like, one last thing is is is we're
+[You]: we're willing to do the the hard work with you guys to take the heavy lift. So,
+[You]: if you decide to to test it out with a pilot,
+[You]: or do a proof of concept,
+[You]: or whatever, just
+[You]: rest assured that our team is gonna go in there
+[You]: can maybe even travel and go to your offices and and implement it with you side by side and make
+[You]: sure it works for you guys. So just because of the stage we are. So
+[You]: that's that's the last comment.
+[Remote]: Perfect. Sounds good. Thank you for your time, guys.
+[Remote]: Then. We'll circle back. We chat internally with the with them.
+[You]: Amazing. Thank you so much. Great meeting.
+[Remote]: Fantastic.
+[Remote]: Thank you. Thank you, guys. See you. Thank you. Thank you. Bye. Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Mediobanca Current Reconciliation Process
+
+- Real-time Swift message processing for payment inflows/outflows
+- Reconciliation against forecast system for cash management purposes
+  - Manages liquidity intraday
+  - Automated rules for incoming payments with 1% amount tolerance
+  - Strict validation on value dates (no tolerance for timing delays)
+- End-of-day bank statement reconciliation
+  - Manual recording for unmatched transactions
+  - Exception handling for unexpected debits without messages
+- Market reference integration for stock/bond settlements via depository bank Swift messages
+
+### Technical Integration Discussion
+
+- Rexi platform capabilities demonstrated:
+  - Direct bank integrations, Snowflake, AWS database connections
+  - Automatic data standardization across different formats
+  - Swift message parsing (PAX 008/009, MT 940/950 formats)
+  - AI-powered field extraction and transaction categorization
+  - Real-time processing with configurable tolerance rules
+- Martina’s concern: Need for real-time information within existing cash management system
+  - Current system handles €20M+ transactions requiring immediate reconciliation
+  - Integration would need bidirectional data flow to maintain single source of truth
+
+### Strategic Context & Next Steps
+
+- M&A process with Monte dei Paschi ongoing - payment infrastructure changes expected
+- Stefano identified factoring division as better fit:
+  - High manual reconciliation workload for early payment settlements
+  - More complex matching requirements than current treasury operations
+- Rexi team willing to provide hands-on implementation support
+  - On-site deployment assistance available
+  - Proof of concept development offered
+- Eduardo to coordinate internal discussion and follow-up
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/c8f05ca4-76ee-4d07-93a5-f17d2d70ed33](https://notes.granola.ai/t/c8f05ca4-76ee-4d07-93a5-f17d2d70ed33)

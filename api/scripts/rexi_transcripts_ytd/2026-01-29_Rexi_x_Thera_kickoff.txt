@@ -1,0 +1,597 @@
+MEETING: Rexi x Thera:  kickoff
+DATE: 2026-01-29
+ID: not_DUklGYJgy7b0d2
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Aashish <aashish@getthera.com>, Akhil Reddy <akhil@getthera.com>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-01-29T10:00:00-05:00 - 2026-01-29T10:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Bien, vos.
+[You]: Muy caído el bocho ceo con lo del superreal.
+[Remote]: ¿Sí?
+[Remote]: Nada, para mí estamos bien.
+[Remote]: O sea,
+[Remote]: es un retraso, lo veo más como un retraso.
+[You]: Yo yo tampoco estoy caído al bote, yo creo que por ahí vos sí ya tenemos un poquito más de cicatricia cicatrices de cosas que no funcionaron, por ahí para ser ese primer gran
+[Remote]: Pero para mí no no se cayó nada, hacía algo, aprendí,
+[Remote]: es que
+[Remote]: todo demora.
+[You]: Sí, y aprendimos la oportunidad del enlatado,
+[You]: y y, bueno, a seguir metiéndole.
+[You]: Otras oportunidades en el pipeline. Pero nada, sí,
+[Remote]: Oh, yes.
+[You]: cayó un poco de bocho, se desesperó y me me me me mandó la nota a vos y dice, no,
+[You]: che, por ahí tenemos que en vez de hacer esto identidad de mercado.
+[Remote]: Hey.
+[You]: Ashish, how are you?
+[You]: Hello?
+[You]: Yeah. We can hear you. How's it going?
+[Remote]: I'm late, like, for a bit. Sorry.
+[You]: Now where is it?
+[Remote]: So, actually, actually, we'll be
+[Remote]: like, in ten minutes, he pinged me.
+[Remote]: So he's, like, running late.
+[Remote]: So we can start to for him.
+[Remote]: I think what's the agenda at
+[Remote]: we wanted to discuss, I believe,
+[Remote]: wanted to get discuss about
+[Remote]: our next steps. Right? What we want to integrate and
+[Remote]: all these things.
+[You]: Yeah. I guess
+[You]: we we we talked with the Kayla a couple weeks ago, and we're gonna
+[You]: reprioritize this project. We've been doing a lot of work in
+[You]: the last quarter in 2025. And, when I
+[You]: Akil said is that we're, like, 60% there. Right? So
+[Remote]: Okay.
+[You]: already
+[You]: bill our money flows inside Rexy. We're sending the Slack
+[You]: notifications, but, we're missing that last step
+[You]: in where it actually becomes functional and useful
+[You]: for you guys to operate, to log in to the platform, see the results, see what's happening, someone that
+[You]: actually start putting some eyeballs onto into it.
+[You]: So this meeting was sort of like to to kick it off. Right? To understand really
+[You]: what we have today and what's missing for you guys
+[You]: to actually have a a solution that's scalable and adding a lot of value for
+[You]: that daily operation. So I guess it can be useful if we
+[You]: start by seeing what we have today, what are we doing today,
+[You]: and then it will be great for you to point us towards
+[You]: what are we missing and what should be
+[You]: we work on the next three months? Just as context, we signed us six a three month contract, very low value
+[Remote]: Okay.
+[You]: which is, again, the objective of taking this to
+[You]: 60% to 100%. And so
+[You]: for that, we need to do this kickoff and this alignment
+[You]: on okay Ashish which are
+[You]: things we need to develop and then things we need to configure and integrate.
+[You]: To reach that a 100%. And one of the things I told, Akhil as well was
+[You]: for this to work, we do need a point of contact
+[You]: on their side, unlocking us, telling us what you need. I think
+[Remote]: Okay.
+[You]: he pointed towards you because you were the one also working with us, last quarter. Right?
+[Remote]: Yes.
+[You]: Great then. So the idea is for us
+[You]: to work very closely, Teo, yourself, me,
+[You]: Sebastian, our CTO that is not here today.
+[You]: To actually push this forward and reach a 100%. Right? That's that's the objective here.
+[Remote]: K.
+[You]: All all the all the blockers
+[You]: the idea is to have them via Slack.
+[You]: Let's have, there we have a queue.
+[You]: Hey, Akil. How's it going?
+[Remote]: Thank you.
+[You]: Are you muted?
+[Remote]: Hey, guys.
+[Remote]: Sorry. I'm a little late here.
+[You]: No. No worries. I was just doing a kickoff with Ashish and tell him
+[You]: sort of like this three month project in which we wanna take this from 60 to 100% and we're just talking about the the work dynamic, right, to use Slack
+[You]: to really, go over the blockers and make
+[You]: sure we we we're working and and delivering value every single week.
+[Remote]: Mhmm.
+[You]: And probably, I don't know what Ashish thinks about this. Maybe a biweekly fifteen minute meeting
+[You]: is also useful to put in the calendar just to make sure we're
+[You]: like, making progress every two weeks and making sure we're unlocking whatever we need to unlock.
+[You]: Other than that, the idea was to show what we have today.
+[You]: And then figure out together what does that a 100% mean
+[You]: and what do we need to develop, to reach that a 100%. So
+[You]: maybe, Dale, you wanna
+[Remote]: Yep.
+[You]: share what we have today and then
+[You]: let's altogether figure out what does success look like after this three month progress.
+[Remote]: Perfect. Alright. So let me share screen
+[Remote]: Do you Akhil, she's
+[Remote]: do you mind if I
+[Remote]: record the meeting? Because
+[Remote]: this might be useful in the future for us.
+[Remote]: Yeah. Yeah. It's it's good, I believe.
+[Remote]: Start recording.
+[Remote]: Perfect. Alright. So let's go
+[Remote]: Basically, what we are doing right now
+[Remote]: is we are daily ingesting, standardizing, and reconciling
+[Remote]: for money flows. These are
+[Remote]: the local
+[Remote]: treasury prime,
+[Remote]: wise, and stripe.
+[Remote]: And that's something we're doing daily. We've got our
+[Remote]: results being sent daily, on the on the
+[Remote]: on the Slack group and
+[Remote]: everything seems to be working fine.
+[Remote]: Regarding what we have right now,
+[Remote]: I would
+[Remote]: suggest
+[Remote]: a small change in
+[Remote]: the reconciliation we're doing in Stripe.
+[Remote]: We are
+[Remote]: verifying daily exact exactly not only the IDs,
+[Remote]: but the amounts.
+[Remote]: And those amounts, here you can see
+[Remote]: do not always match. They're very very small differences.
+[Remote]: Daily.
+[Remote]: But but maybe if we add a small tolerance
+[Remote]: we can increase the reconciliation percentage
+[Remote]: by
+[Remote]: big percentage. Is this the payout still? I think
+[Remote]: I think it will be, like, due to that EOR scribe that we added. So we are
+[Remote]: charging our customers in a different Skype.
+[Remote]: Like, sub account, you can say.
+[Remote]: So I think, we need to
+[Remote]: so right now, are only, referring to, like, one Skype account. Right?
+[Remote]: What do Yeah. We are, for the moment, only doing one Stripe account.
+[Remote]: We have not worked. We looked for the other account you sent us, and we couldn't find it.
+[Remote]: Yeah. So, basically, we have this another
+[Remote]: EUR type might be to add.
+[Remote]: Add the Rex e team.
+[Remote]: Ashish.
+[Remote]: I'm going to add him, like, or, like, provide
+[Remote]: API key. I'll give the API the scope of the API key. I I don't
+[Remote]: Or there might be another different API key because they live in different instances. Right?
+[Remote]: That that might be the issue because with the credentials that you logged in
+[Remote]: in Rexy,
+[Remote]: could not find that other account. Maybe we're gonna need
+[Remote]: a new a new account.
+[Remote]: Yep.
+[Remote]: I will get you there.
+[Remote]: I believe. Those should be the reason
+[Remote]: they are saying, like, some changes in the amount.
+[Remote]: Oh, okay. Is that the reason why we're seeing the differences?
+[Remote]: Yeah. It should be. I can see. Yeah.
+[Remote]: Alright. There are very small differences, but we are having 0% tolerance
+[Remote]: in amount. So whatever does not match exactly,
+[Remote]: we're not marking as matched.
+[Remote]: Yeah. I mean, I think I think Ashish
+[Remote]: should just go take a look at what's what's going on and then
+[Remote]: figure it out.
+[Remote]: She this is mainly for our contractor products,
+[Remote]: so we don't really need to put the EOR stuff into here.
+[Remote]: Right now.
+[Remote]: Alright. So and what about, like, US payroll?
+[Remote]: That number two charged activity?
+[Remote]: Collect come here? You can we we can do that as a a next
+[Remote]: step. But, like, let's get one product fully
+[Remote]: done.
+[Remote]: And matched
+[Remote]: Perfect. So
+[Remote]: as next steps regarding Stripe,
+[Remote]: log in on the new account.
+[Remote]: And create the new database and reconcile against more infrastructure. Right?
+[Remote]: Yep. That will be
+[Remote]: I mean, yeah, that's how we will, like, reduce the difference.
+[Remote]: Like, to a more accurate one.
+[Remote]: Perfect. Perfect.
+[Remote]: Alright. So that's on the Stripe
+[Remote]: versus modern treasury reconciliation.
+[Remote]: Then we've got the local treasury prime and y's.
+[Remote]: These all are working very well. They tend to have around
+[Remote]: a 100% reconciliation rate
+[Remote]: These these are the
+[Remote]: this is the monetary ledger
+[Remote]: with the local
+[Remote]: It has around 300 transactions a day, 80, and
+[Remote]: match transactions are almost always a 100%.
+[Remote]: We've got, for example, this one on January 22 that did not match.
+[Remote]: So this this seems to be working fine.
+[Remote]: They're
+[Remote]: there are some differences on the other side, which
+[Remote]: is the the local database.
+[Remote]: That has a few
+[Remote]: transactions a day that do not match. Do you know why this is?
+[Remote]: There? A minority Sometimes we do manual payouts
+[Remote]: so that might not yeah.
+[Remote]: Alright. And is there a way for us to identify
+[Remote]: those manual payments? Because
+[Remote]: we have added a feature here in the exception manager
+[Remote]: the local,
+[Remote]: That basically marks marks as exceptions
+[Remote]: automatically every day, whatever does not match.
+[Remote]: For example, those those movements, whatever we
+[Remote]: What
+[Remote]: Is it possible, like, to basically list out, like, the Slack report?
+[Remote]: Which, like, which is not matched so we can
+[Remote]: Yep. I mean Yeah. We we we can do that. But what I was suggesting is
+[Remote]: if there's a way to identify these, delocal transactions
+[Remote]: that are done manually,
+[Remote]: we can automatically mark this mark them as exceptions.
+[Remote]: We are not losing time just reviewing manual movements.
+[Remote]: And and we can focus on those transactions that
+[Remote]: actually should be Right now, I don't think they're passing any
+[Remote]: like, a user data, like, on key to an account.
+[Remote]: Transaction.
+[Remote]: Alright. Maybe I can
+[Remote]: do that. So let's say when you, like, read a transaction,
+[Remote]: in one of the you can check
+[Remote]: It's, like, initiated from Thera platform.
+[Remote]: Like that particular field. Right?
+[Remote]: Somewhere
+[Remote]: Perfect. Yeah. We can we can check that. There's many ways of
+[Remote]: of of checking, for example,
+[Remote]: We we there we can put conditions, a condition
+[Remote]: example, I don't know, any pattern, any percentage, or any any
+[Remote]: anything that can help us identify
+[Remote]: that these are manual manual movements that will never match with mod treasury.
+[Remote]: So we can automatically mark mark them as exceptions and
+[Remote]: and we can focus on those transactions that actually do not match.
+[Remote]: Alright.
+[Remote]: Right now, I think
+[Remote]: everything that is, like, not in empty.
+[Remote]: Should be, like, manually created from wise or d local.
+[Remote]: Everything that was?
+[Remote]: Everything that, like, that that is, like, not in empty.
+[Remote]: Like, a delocal transaction or device transaction.
+[Remote]: It should be, like, initiated manually from buys or d local.
+[Remote]: Alright. So let's see.
+[Remote]: The local
+[Remote]: This is the the local
+[Remote]: database. How can we identify manual movements here?
+[Remote]: This is the d local man database. Is there a way we can identify them?
+[Remote]: Yeah. Right now, as I said, like, are not passing any metadata.
+[Remote]: Which will say it's, like, initiated from
+[Remote]: Therapy.
+[Remote]: So they all So we need to, like,
+[Remote]: Alright. Alright. Perfect. I will
+[Remote]: I will, like, make some changes in the code. So going forward, you will
+[Remote]: say, like, it's insured from Tara platform. Fantastic. Alright. Perfect. So that's the local. The same goes for every other MICE. Yes. Yeah. Every other reconciliation we're doing. If there is any movement, like, manual movement that we know that we'll never reconcile, against, what we have in modern treasury, and we have a way to identify those, we can automatically mark the mark them as exceptions. Alright?
+[Remote]: Yep. Makes sense.
+[Remote]: Perfect.
+[Remote]: Alright. So that's on here.
+[Remote]: Example, here in
+[Remote]: monetary versus wise, we have
+[Remote]: mostly a hundred percent reconciliation rate,
+[Remote]: every day.
+[Remote]: On the monetary treasury side,
+[Remote]: We do have a few transactions on the y side
+[Remote]: that are also, unmatched daily. Is it the same? Is it
+[Remote]: manual movements? Yeah.
+[Remote]: Yes. We send, like,
+[Remote]: to some contractor, like, in some country.
+[Remote]: Wise or, like, the local is not support like, sub supported. So we send them via wise.
+[Remote]: Same goes for the local as well.
+[Remote]: Perfect. Alright. So if we can do the same,
+[Remote]: may maybe find a way of adding a tag or or whatever we can
+[Remote]: use to identify those and
+[Remote]: With the APIs, like, how can we pass some
+[Remote]: like, key?
+[Remote]: Alright. Well, then that's it. We
+[Remote]: we will first add the Stripe recurrence
+[Remote]: the new the new account,
+[Remote]: And then for d local and wise, we're gonna add
+[Remote]: we're gonna add this tag or or or
+[Remote]: or note or or whatever helps us identify them.
+[Remote]: So that we can automatically mark them as exceptions.
+[Remote]: And is there anything we should do with Treasury Prime?
+[Remote]: So right now, we started, like, sending
+[Remote]: our UI providers.
+[Remote]: From Transit Prime also.
+[Remote]: So, basically,
+[Remote]: it comes to Treasury Prime, then it leaves Treasury Prime also.
+[Remote]: I'll be able to, like,
+[Remote]: like, concile, like, what is living
+[Remote]: We don't log that information in empty right now.
+[Remote]: So what, like, what about leaving foreign registry?
+[Remote]: Oh, sorry. Treasury pride.
+[Remote]: Okay. So on on Treasury Prime, we have the same issue here.
+[Remote]: It tends to match a 100% on On the pains. Right?
+[Remote]: On the modern treasury?
+[Remote]: And then on the treasury prime side, we have around fifth well,
+[Remote]: 70% that do match.
+[Remote]: There is many transactions a day. Are these also manual movements?
+[Remote]: So, basically, the
+[Remote]: send some money to our
+[Remote]: like, let's say, Mercury account or some, like, wise account or the local account. Yep.
+[Remote]: The numbers should be lower. It's, like, very high here.
+[Remote]: Okay. So I mean the these transactions, for example, these
+[Remote]: 19 transactions,
+[Remote]: or these 16 transactions from yesterday, they will never match.
+[Remote]: Something on on
+[Remote]: on monitoring. Right?
+[Remote]: Yeah. 16?
+[Remote]: It's the it's the counterpart. Right?
+[Remote]: Counter transactions.
+[Remote]: Screen is very high.
+[Remote]: Yeah. So
+[Remote]: example, this is monetary.
+[Remote]: And this is treasury prime.
+[Remote]: Yesterday,
+[Remote]: we had 22 transactions on 22, they they they all matched.
+[Remote]: But if we look at treasury prime,
+[Remote]: only 22 matched because there were 47. So there's 25 transactions that did not match.
+[Remote]: And the so my question is, what what are these
+[Remote]: is there anything we can do about this 25 transactions?
+[Remote]: I believe, like, those would be
+[Remote]: basically, we started sending, our revenue accounts.
+[Remote]: Like, a different ACH, basically.
+[Remote]: Earlier it was, like, our revenue,
+[Remote]: a platform fees plus
+[Remote]: a contractor fees. Was it looking a single ACH?
+[Remote]: Mhmm. Now it's split into two ACH.
+[Remote]: So might be
+[Remote]: we are not
+[Remote]: tracking that our platform fee ACH.
+[Remote]: Properly here.
+[You]: Can we see those? Maybe we can see those transactions still.
+[Remote]: It might be the case.
+[Remote]: I will cross that
+[Remote]: Yep. I can I can send them over
+[Remote]: so that we
+[Remote]: we review them
+[Remote]: Alright? So we've got
+[Remote]: Wise and the local. We're gonna
+[Remote]: add a tag for manual movements.
+[Remote]: Stripe, we gotta add this new account that we're not taking into account.
+[Remote]: And Treasury Prime, we gotta check what these daily transactions on Treasury Prime are. That's on the four main reconciliations we're doing daily.
+[Remote]: Alright?
+[Remote]: Yep. Makes sense. I will let you know. I will update you.
+[Remote]: Perfect. I'm gonna Once you have the transaction IDs, I can
+[Remote]: Yep. I can I can send it I can send them to you? Perfect.
+[Remote]: And what else are
+[Remote]: So we've got these four reconciliations. We've got things to do.
+[Remote]: On each of them to to get them on point.
+[Remote]: Is there anything else you would like us to be working on?
+[You]: Yeah, what does success look like for you Akhil? Like what
+[You]: in what direction should we work for? After the three months,
+[You]: what would you like to have up and running?
+[Remote]: I think the the pay ins, ideally are
+[Remote]: a 100%. I mean, I guess,
+[Remote]: both of them
+[Remote]: ideally
+[Remote]: will be a 100%. Maybe the last one would just be, like, the off
+[Remote]: platform, like, manual ones that we can kind of figure out after. But,
+[Remote]: yeah, if we can make sure
+[Remote]: that the pay ins and the payouts
+[Remote]: for the main
+[Remote]: payout providers, which would be wise, delocal.
+[Remote]: Wise and delocal, are
+[Remote]: a 100%, and I think we'd we'd be in good shape then.
+[You]: So pay ins and payouts for main providers only?
+[You]: Or everything.
+[Remote]: I mean, ideally, we get we we move to everything, but I think
+[Remote]: the local and wise are probably 90% of our
+[Remote]: that's right. Right, Ashish?
+[Remote]: Maybe more.
+[You]: Got it. And and
+[You]: what's gonna the what what how is gonna work how is
+[You]: the workflow gonna look like?
+[You]: Once we have this, like, 100% running on on Rexies? Is someone gonna
+[You]: log into the platform, take a look at the discrepancies, mark exceptions, try to close the
+[You]: discrepancies. How do you imagine the workflow going from
+[You]: this just monitoring and pointing you towards the gaps to actually then solving them?
+[Remote]: Well, once it's a 100%, like,
+[Remote]: any deviation will be pretty alarming. So we'd we'd need to
+[Remote]: have, like, a
+[Remote]: an alarm attached to
+[Remote]: this.
+[You]: Any deviation other than a 100%, like, literally.
+[Remote]: Notification.
+[Remote]: Yeah. Yeah.
+[Remote]: With the main Perfect. Providers. Yeah.
+[Remote]: These are the transactions on treasury prime that are not
+[Remote]: not these are, for for example, from yesterday,
+[Remote]: I'm gonna send IDs.
+[Remote]: So we can
+[Remote]: so we can check if there is any
+[Remote]: anything we're not bringing from voluntary
+[Remote]: to Wuconsin.
+[You]: It does say it does say, say ACH, right, on the right?
+[You]: Are there a lot ACH deposits?
+[Remote]: Yep.
+[You]: Payroll.
+[Remote]: You will have a description field as well. Right? Description field in modern treasury.
+[Remote]: Can you sort here?
+[Remote]: Modern
+[Remote]: thing is these transactions
+[Remote]: don't have a a more inventory
+[Remote]: counterpart. That's the the issue.
+[You]: Is there a description view or not?
+[Remote]: Where?
+[You]: Like a column on the right
+[Remote]: No. But he he's
+[You]: Churchill O'Brien.
+[Remote]: said more oh, yeah. He said more on treasury. These are treasury prime.
+[You]: Treasury prime description.
+[You]: But it's not no.
+[You]: Why is that null? Is it because of the format?
+[Remote]: Which one?
+[You]: The description one. Desk. That one. That one desk.
+[Remote]: That way there there's just no data.
+[Remote]: Yeah. Can you send me this report? I will cross check and empty.
+[Remote]: What these transactions are.
+[Remote]: Let's let's do this. I'm gonna send you yesterday's
+[Remote]: Non matched console platform. Yeah. Exactly.
+[Remote]: So we can do a pressure prime here.
+[Remote]: I'm gonna send you
+[Remote]: this is yesterday.
+[Remote]: Everything matched on one of the treasury.
+[Remote]: And we've got 25 unmatched transactions on treasury prime.
+[Remote]: I'm gonna send you these 25 transactions. Right?
+[Remote]: Yep.
+[Remote]: Perfect.
+[Remote]: We can check
+[Remote]: Alright. Fantastic. So, basically,
+[Remote]: with that, we should be able to get
+[Remote]: I think if I look at the math, right,
+[Remote]: 22 transactions matched. So those will be, like, pains from companies.
+[Remote]: Mhmm. Then 22 doesn't match
+[Remote]: Will be the our platform fees.
+[Remote]: The standard. Member?
+[Remote]: Yeah. 25, like, our platform fees. That's total is
+[Remote]: and one extra will be, like, I send money to our Mercury account, like, from
+[Remote]: Okay. So that will be
+[Remote]: yeah.
+[Remote]: I think that's how the math is doing here.
+[Remote]: But I will check cross check here.
+[Remote]: Perfect. Alright. So if there is a way of
+[Remote]: identifying what's a fee versus what's
+[Remote]: Payroll amount. Yeah. Yeah. Mhmm. Perfect.
+[You]: One question there. Do you also require us to reconcile the fees?
+[Remote]: Okay.
+[You]: Or not?
+[Remote]: Ideally, like, we should, I mean,
+[Remote]: logging our platform fees into modern as well.
+[Remote]: And that should match with the Perfect. If we received the money from
+[Remote]: let's say, our company or not, like, our customer or not.
+[Remote]: So how we will
+[Remote]: go to
+[Remote]: yep.
+[Remote]: Right now, we don't have those fees on monetary.
+[Remote]: It should be there, I believe. I will
+[Remote]: like a company different account.
+[Remote]: So it goes to a different entry, like,
+[Remote]: sort of single entry. We have, like, three for one transaction, we create three different entries in modern treasury.
+[Remote]: I will send you the type
+[Remote]: is the type of that platform fee?
+[Remote]: Perfect. So then what we would need to do is
+[Remote]: identify which of these are fees and which are not.
+[Remote]: And
+[Remote]: split this database and reconcile on one side the
+[Remote]: the fees and on the other side the actual transactions. Alright?
+[Remote]: Yep. Perfect.
+[Remote]: Okay.
+[Remote]: Fantastic. So we've got
+[Remote]: we've got things to do for each of these. I'm gonna send you the
+[Remote]: unmatched transaction so that we confirm this.
+[Remote]: And
+[Remote]: we'll take it from there. Right?
+[You]: Yep. Akhil, is there anything else you wanted
+[Remote]: Yep. Makes sense.
+[You]: focused on? Going
+[You]: full speed after after this kickoff. We really wanna make this work and make sure that we're
+[You]: delivering value to what you guys are looking for. So feel free to just, like,
+[You]: air your feelings, what you think about this,
+[You]: what does it just look like, and those type of things to make sure we reach
+[You]: the end of this three month period with something that's actually cool and adding value for you guys.
+[Remote]: I I think that's everything issues. Is there anything on your side that you can think of?
+[Remote]: No. I think, like,
+[Remote]: for us to track our every, like, penny or something like that,
+[Remote]: I think our pains are sorted.
+[Remote]: Our payouts are also sorted.
+[Remote]: I don't think there will be any leak
+[Remote]: or
+[Remote]: we will, like, go to a 100% reconciliation across our products. Alright.
+[Remote]: Perfect. So those should be put
+[Remote]: Just a comment on
+[Remote]: on our platform. We finished
+[Remote]: the dashboard section where, basically, you can create your own dashboards
+[Remote]: and organize them as
+[Remote]: whichever way you're interested. So once we're done,
+[Remote]: tuning in the reconciliations, we can create whatever dashboard you're interested in and and
+[Remote]: and organize it, whichever way you want. So for example,
+[Remote]: we go here.
+[Remote]: This is the treasury prime reconciliation. We can
+[Remote]: I know, create a KPI card?
+[Remote]: Oh, no. What we can do is
+[Remote]: the exact opposite to what I just did.
+[Remote]: Select the treasury prime. This is the one Pretty prime unmatched.
+[Remote]: And here, we should see
+[Remote]: everything that is not matching.
+[Remote]: Versus, versus this one that has
+[Remote]: many matches.
+[Remote]: See? This is the same reconciliation.
+[Remote]: On one side,
+[Remote]: everything is matching.
+[Remote]: Except for this one.
+[Remote]: The other side, we're having about around half
+[Remote]: that are not matching, which is probably the fees.
+[Remote]: Yes. Yes. It looks like that. Yes. I will cross check here.
+[Remote]: It should be the fees.
+[Remote]: Alright.
+[Remote]: Okay. Perfect.
+[You]: Amazing.
+[You]: Thank you for the time.
+[You]: I'll schedule a biweekly meeting with you, Ashish. I'll put you, Akil, as optional.
+[You]: Does Tuesday work or or Monday better? What do you think?
+[Remote]: I'm fine with both. Monday twist to both.
+[You]: But early morning. Right? Because for you in India, it's late afternoon right now.
+[Remote]: I will be available, like, two, three EST timings, like, two, 3PM EST.
+[You]: Okay. We'll keep it at the morning then so it's
+[Remote]: So it should be fine.
+[You]: so it's so it's better for you.
+[You]: And yeah. And and we're we're both in New York, doing myself. So at some point,
+[You]: we can do a midpoint milestone and and go to the office, Akil, and and present you
+[You]: what we're working on and and and just make sure we're
+[You]: making progress towards that end of the
+[You]: third three month period. Other than that, let's use Slack.
+[You]: As our main communication channel to go over blockers and so on.
+[You]: The idea here is for you to just unblock us
+[You]: We're doing all the heavy lifting. We're doing all the work. So we're just gonna need some response
+[You]: over Slack. Other than that, we should be taking all the work on our side.
+[Remote]: Perfect. Awesome. Sounds good.
+[You]: Alright. Thank you, guys. Have a great day.
+[Remote]: I'll send the
+[Remote]: Two more yeah. Sorry, Tim.
+[Remote]: No. No. You you go.
+[Remote]: I said two two things. One, I wanna see if you guys are coming on the
+[Remote]: ski trip on Monday.
+[Remote]: So I don't know if you guys looked at that.
+[You]: I'm a bit packed. I'm underwater. I don't know, Tail.
+[Remote]: Yeah. Let let me check my
+[Remote]: I'm gonna I'm gonna check my week next week.
+[Remote]: Okay. Yeah. No worries. If not, I know Mondays are tough to Yeah.
+[Remote]: Busy day. And then the second one was I wanted to
+[Remote]: if we could get you guys on Thera, maybe, like, next week or something.
+[You]: Let's do that. Share share all the details with me, a link or whatever I need
+[You]: to create the account, and I'm more than happy to to start that that process as well. Of course.
+[Remote]: Okay. Awesome. Well, yeah, looking forward to getting this across the line, but
+[Remote]: I appreciate the time. And, yeah, we'll talk soon.
+[You]: Thank you so much.
+[Remote]: Perfect. I'll send the follow-up
+[Remote]: Yeah. Bye. Thanks, guys. Bye.
+[You]: Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Current Reconciliation Status
+
+- Daily ingestion and reconciliation across four money flows: Modern Treasury, Wise, D-Local, and Stripe
+- Slack notifications working, but missing final operational layer for daily use
+- Overall 60% complete - need to reach 100% for full functionality
+
+### Technical Issues & Solutions
+
+- Stripe reconciliation showing 0% tolerance causing mismatches
+  - Need new EUR Stripe account API access (different instance issue)
+  - Small amount differences likely due to EOR sub-account charging
+- D-Local and Wise manual payments creating daily unmatched transactions
+  - Solution: Add metadata tags to identify manual movements as automatic exceptions
+  - Focus reconciliation efforts on actual discrepancies vs manual transfers
+- Treasury Prime showing \~70% match rate (22 matched, 25 unmatched daily)
+  - Unmatched transactions likely platform fees split into separate ACH
+  - Need to identify fee vs transaction types, split database accordingly
+  - Teo to send yesterday’s 25 unmatched transaction IDs for analysis
+
+### Success Criteria & Next Steps
+
+- Target: 100% reconciliation for pay-ins and pay-outs on main providers (Wise, D-Local = 90% of volume)
+- Workflow: Any deviation from 100% triggers alarm system
+- Dashboard customization available once reconciliation tuned
+
+### Action Items
+
+1. **Ashish**: Provide new Stripe EUR account API access
+2. **Ashish**: Add metadata tags for manual D-Local/Wise transactions going forward
+3. **Teo**: Send unmatched Treasury Prime transaction IDs from yesterday for analysis
+4. **Ignacio**: Schedule biweekly 15-min progress meetings (2-3pm EST preferred)
+5. **Ashish**: Share Thera platform access details for team onboarding
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/11939fe4-a683-4e62-8e7b-c1521ef7ea12](https://notes.granola.ai/t/11939fe4-a683-4e62-8e7b-c1521ef7ea12)

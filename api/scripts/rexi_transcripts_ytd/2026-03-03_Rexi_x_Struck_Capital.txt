@@ -1,0 +1,544 @@
+MEETING: Rexi x Struck Capital
+DATE: 2026-03-03
+ID: not_FmFTll71xo4gu1
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Haley <haley@struckcapital.com>
+SCHEDULED: 2026-03-03T16:30:00-05:00 - 2026-03-03T17:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Hey. I'm so sorry. I'm very late.
+[You]: No worries. No worries. I was I was also a couple minutes late, and
+[Remote]: Ok.
+[You]: I I was late to the previous one as well. I'm back
+[You]: to back since the morning, so no worries. How's it going?
+[Remote]: It's good. Yeah. Yeah. That's what's been happening to me too is, like, I just can't get out
+[Remote]: out of the, like, three minutes late, five minutes late.
+[Remote]: Cycle. But yeah. No. I've I've been good.
+[Remote]: We've been, yeah, we've been busy, but now it's it's been it's been good. How about you?
+[You]: Oh, busy. Oh my god. Underwater. I think busy is
+[You]: understating it.
+[You]: But good
+[You]: good because we're we're getting traction where where the product is finally
+[You]: in a state where
+[You]: it's magical enough to convert sales. It's adding a lot
+[You]: of value in in a short period of time. So
+[You]: so, yeah, interesting times. It's more like, you know, like, at this stage,
+[You]: the bottleneck moves all over the place. Right? Sometimes it's
+[You]: it's it's getting customers. Sometimes it's
+[You]: product. Sometimes it's engineering.
+[You]: But, yeah, it's been fun. Good things happening.
+[You]: Definitely building up some momentum to
+[You]: to do a great seed raise by the second quarter.
+[You]: But just being patient a little bit longer, a couple more weeks
+[You]: left before I actually kick off.
+[You]: That fundraising conversation. Because we have
+[You]: you know, like, we have enough runway. Our our team is based in Argentina that gives us a lot of cost effectiveness.
+[You]: And so it's just
+[Remote]: Ya.
+[You]: that freedom
+[You]: makes us think more about when can we raise the best seed
+[You]: and when do we actually need that fresh capital to
+[You]: keep up to pace with the demand pull we're seeing. Right?
+[You]: And don't do it
+[You]: sooner, and don't do it later. Because I'm also a believer that in these
+[You]: critical infrastructure use cases,
+[You]: I don't think there's a first mover advantage. It's a hard problem to solve.
+[Remote]: Yeah.
+[You]: And we need to build the product in a way where it's robust, scalable, safe, secure.
+[Remote]: Mhmm.
+[You]: And and really iterate it, you know, with, like, a couple of customers for a long period of time.
+[Remote]: Mhmm.
+[You]: And then actually add JetPool to the formula when
+[You]: we achieve a certain threshold of
+[You]: performance which we are comfortable with. I I also acknowledge
+[You]: that it's it's you're chasing after a moving target,
+[Remote]: Yeah.
+[You]: So it's never like you're gonna feel ready
+[You]: But
+[You]: but, yeah,
+[Remote]: Yeah.
+[You]: I know.
+[Remote]: No. That makes sense. Yeah. It's funny. Like, ventures, so
+[Remote]: seasonal. It feels like things are really starting to pick up now.
+[Remote]: And it's probably yeah. I mean, I'm I'm sure it's more about, like, product and track
+[Remote]: and, like, just kind of where the the business is. But I do think it's, like,
+[Remote]: right now, yes, is starting to be, like,
+[Remote]: a a good time to raise. So I feel like, yeah, it lines up.
+[Remote]: I'm curious where can you, like, catch me up on just since the
+[Remote]: time we chatted, which I think was, like,
+[Remote]: Thanksgiving. Just curious, like, where you guys are now from attraction perspective and, like, yeah, what's
+[Remote]: what you guys have been working on.
+[You]: Yeah. Just a question
+[You]: for you. Why do you think it's a good time to race?
+[Remote]: Yeah. I mean, I just think spring and fall are, like,
+[Remote]: the times to raise. I think summer tends to be, like, very
+[Remote]: dead. Don't know. I mean, we see people raising in the summer, but a lot of
+[Remote]: deals, like, that I
+[Remote]: feel like I'm looking at in the summer either preempted or
+[Remote]: it's people who are, like,
+[Remote]: having runway challenges.
+[Remote]: So, yeah, I I don't know. Like, summer and holidays always feel slow to me.
+[You]: Yeah. Yeah. Makes sense. My I don't know if I told you, but my brother has a VC firm.
+[You]: Nico Verdi, from Annual Ventures.
+[Remote]: Okay. Yeah. Yeah.
+[You]: Do you know them? Maybe you know Tono.
+[Remote]: Yeah.
+[Remote]: I've heard of them. I don't yeah. No. Oh, Anime. Okay. Yeah.
+[Remote]: I don't know him personally. But, yeah, I've heard of them. That's funny.
+[You]: He's based
+[Remote]: So I'm sure you're getting on mother.
+[You]: yeah, he's based in Miami. His partner is based here in New York, Antonio. And they fly over to SF.
+[Remote]: Okay.
+[You]: Every once in a while, of course.
+[You]: So regarding the update, last we spoke was Thanksgiving,
+[Remote]: Yeah. I think so.
+[You]: Well, a lot of happened since then.
+[You]: Try to recap because that's a lot of
+[You]: time and rexy time.
+[You]: The first thing is, I know if by that time, our CTO had already joined,
+[Remote]: Yeah. I think so.
+[You]: Well, we onboarded Sebastian, third cofounder and CTO.
+[You]: He was a founding team member of an issuer processor
+[You]: named Pomelo, down in Latin America.
+[You]: So
+[You]: I don't know. Entrepreneurial experience, a lot of domain
+[You]: expertise. He knew the problem there.
+[Remote]: Yeah.
+[You]: Also working with Pomelo. I'd serve, like, a design partner right now.
+[You]: It's a bigger problem they have compared to our solution today.
+[You]: So that on on the team side,
+[You]: on the product side, we've
+[You]: migrated a whole the whole architecture to a new one.
+[You]: Which enables us to be really, really scalable. This was
+[You]: this came out of a
+[Remote]: Alright.
+[You]: demo meeting we had with OnePay.
+[You]: You know, Walmart's, wallet.
+[You]: They process 14,000,000 transactions a day.
+[Remote]: Ah, wow.
+[You]: That's a lot of information to process.
+[You]: And and
+[You]: they have this tool card called Reconheart, which they are paying
+[You]: I I think it's, like, half 1,000,000 a year for the tool. And the tool takes three and thirty seven minutes to process that information on a daily basis.
+[You]: So they need to program it to run
+[Remote]: Jeez.
+[You]: during the night.
+[You]: Our platform did the whole batch
+[You]: in under three minutes.
+[Remote]: Wow.
+[You]: So that
+[Remote]: Yeah. Super impressive.
+[You]: that was an architectural upgrade we did.
+[You]: Which was amazing.
+[You]: Second thing we did is
+[You]: we just
+[You]: started building agents. After we build the core foundation of the product, which is the
+[You]: you know, like comparing transactions, matching transactions, having a dashboard, so on,
+[You]: We're now building all the AI capabilities on top of it.
+[You]: With the different context windows, the different agents that are gonna
+[You]: actually make the experience magical. So that's why
+[You]: today, when I have a demo meeting,
+[You]: it's actually magical. You know?
+[You]: Because it's something they haven't seen before, and it's it's a different experience.
+[You]: You know? It's not like I'm showing this
+[You]: source configuration, transformation, and so on.
+[You]: And and and and whatever.
+[You]: It's now a different thing. It's it's really like a person. It's an analyst that starts to understand your flow,
+[You]: proposes optimizations, proposes, additional math matching, new rules, builds your dashboards, your reports, and it's just like conversational
+[You]: So it's
+[You]: definitely a different experience we're pulling towards, and it's becoming more magical. I think
+[You]: one of the learnings we've seen so far with the product we have today
+[You]: is not only this
+[You]: this
+[You]: agentic experience, but it's also how
+[You]: that AI infrastructure makes it way easier to implement.
+[Remote]: Mhmm.
+[You]: Right?
+[You]: One of the big friction points with
+[You]: when you go out shopping for a tool like this is
+[You]: these providers, they charge for implementations,
+[You]: and sometimes those it's like Vanta who works with Wark Street,
+[You]: They have third party providers doing implementations for you. So it's like
+[You]: it just gets too messy, and it's a big cognitive barrier. Whereas us, it's like,
+[You]: we'll just give you an invite link, configure your account, and start building your workflow. It feels like clock.
+[You]: More like a clock thing than
+[You]: implementing an ERP system. You know what I mean?
+[Remote]: Yeah. Yeah.
+[You]: So
+[You]: so that definitely lowered the bar on selling into demos,
+[You]: or even pilot tests or whatever.
+[You]: Because at least they're willing to try it out. You know? If it's so easy, just give me access. I'll try it out for a month. You know?
+[Remote]: Yeah.
+[You]: Which is what we what we wanted to do in the first place. So
+[You]: so that's an interesting one.
+[You]: And
+[You]: yeah, I guess,
+[You]: it's been a lot of work on product. We also are are are in the middle of, like, redesigning
+[You]: our our go to market strategy, which for
+[You]: different parts. Right? The first one is
+[You]: we're doing a lot more work in terms of brand
+[You]: reputation, credibility, and visibility because b to b sales
+[You]: is very important to have a brand. Not only
+[You]: a company brand, but my brand as a founder.
+[Remote]: Yeah.
+[You]: Don't know if we're connected in LinkedIn, but I started to doing some noise, which hopefully you're liking and
+[You]: commenting and so on.
+[Remote]: Yes. Okay. I don't think we I'm I'm, like, notoriously very bad at,
+[Remote]: but, yeah, I'll make a note to
+[You]: No worries. No worries. Just joking. So a lot more work
+[Remote]: be more
+[You]: on LinkedIn. We created a blog. We're creating articles. We are doing
+[You]: some noise in terms of PR.
+[Remote]: Ok.
+[You]: We're working on a product video, which is launching next week. So a lot of
+[You]: work on, like, the marketing side of things, creating the brand.
+[You]: Because today,
+[You]: even though we had a healthy pipeline,
+[You]: we didn't we didn't serve like, one month ago or two months ago, we didn't survive a
+[You]: single Google search. Like, if someone wanted to look
+[You]: look at us if we're legit or not, we seemed like a scam. There was no, like, there was no online
+[You]: content besides from our web page, which, by the way, is a bit shitty. We're we're
+[You]: we're launching a new one this week as well.
+[You]: Other other than our web page. So
+[You]: a lot of work on on positioning
+[You]: and doing some noise in PR. And the other part on go to market is refine
+[You]: the ICP. Right? Like, I think
+[You]: the good news that there's a lot of pull in the market for solution like this
+[You]: is also has also been
+[You]: something bad for us because our customers today are a bit all over the place.
+[Remote]: Mhmm.
+[You]: We are working with issuers
+[You]: with neo banks, with paybacks, some insurance companies,
+[You]: We're onboarding a sponsor bank. So it's like
+[You]: it's a bit all over the place, and it's stretching our product in many different ways. And it's also not
+[You]: efficient for go to market engine because all these customers, you know,
+[You]: they go to different conferences, they consume different
+[You]: channels. It's it's it's a different sales effort. So we need to really nail down the IC
+[You]: We're running these experiments on a weekly basis targeting, I know,
+[You]: February was 40 neobank, February was 40 sponsor banks, then PSPs and Payfax,
+[You]: then InsurTechs, and we're we're measuring conversion
+[You]: across the different steps of the pipeline.
+[You]: And once we have enough information starting q two, we're gonna really nail it down in
+[You]: terms of a specific ICP you wanna target.
+[You]: So that's another effort.
+[Remote]: Yeah.
+[You]: On on the go to market and distribution side. And
+[You]: yeah, just an update on team, we onboarded a fractional
+[You]: growth.
+[You]: Advisors, strategists, whatever.
+[You]: She comes from our biggest competitor in Latin America called Symmetric.
+[You]: So not only she has a big network in Latin America and in The US, but also
+[You]: she knows how to sell this type of product. So
+[You]: so that's definitely, like, taking our
+[You]: our quality and our
+[You]: effectiveness in sales conversations to a different level. She's actually great. She's, like,
+[You]: I'm I'm learning so much from her. I know if I told you before, but
+[You]: I didn't do sales in my in my previous experience. So it's it's, like, all new to me. And it's my role in rec
+[Remote]: Yeah.
+[You]: I'm doing sales, growth, marketing,
+[Remote]: Ya.
+[You]: fundraising, whatever.
+[Remote]: Yeah.
+[You]: But my main role between the three cofounders is I do distribution. Right? So
+[You]: I'm learning a ton. I was doing it on my own and now having someone where I
+[You]: can, you know, like, imitate and copy, it's it's been
+[You]: it's been awesome.
+[Remote]: Yeah.
+[You]: And, yeah, I think those are the updates. In terms of traction, we do have an early batch
+[You]: paying customers in production using the product. And the
+[You]: definitely heating up. As I said, we're onboarding two more customers this week,
+[You]: and next month.
+[You]: I mean, we have some live pilot tests running, free pilot tests.
+[You]: What I which I think
+[You]: are gonna convert, are probably gonna convert.
+[Remote]: Okay.
+[You]: So next month is gonna be March is gonna be actually hectic.
+[You]: And, again, at some point, it's about, like, really prioritizing. Right? Today, I don't
+[You]: need 50 customers. I need fifteen twenty that actually love our product.
+[You]: And with that, I think it's enough to prove something, raise some fresh capital, and take it to the next
+[You]: level, and prove that it's repeatable. But today, I mean,
+[You]: I don't know if you saw this one, but
+[You]: give me a second. I'll share with you
+[You]: Did you take a look at the, like,
+[You]: we've seen, like,
+[You]: ever since we started,
+[You]: that link I shared, that's the most similar company
+[Remote]: Yeah.
+[Remote]: Vamos ver si
+[You]: that we've seen since we started.
+[You]: It seems like look.
+[Remote]: Yeah.
+[You]: It seems like a clone to what we're doing.
+[Remote]: Really? Is this in the most
+[You]: And it and it has
+[You]: for us,
+[You]: this type of company being YC is just a good signal. You know?
+[Remote]: Yeah, I mean,
+[You]: It proves it proves there's a huge opportunity. It proves
+[You]: because I think one of the things
+[You]: I learned last fundraising was,
+[You]: it's it's a very niche problem space. And
+[You]: 99% of the investors I spoke with
+[You]: they they, like, they have no idea of how it works.
+[You]: They know surface level, these type of workflows, and and whatever, but
+[You]: and I think they're they know the complexity, the technical complexity, and
+[You]: how important it is for these companies to reconcile their money flows.
+[Remote]: Yeah.
+[You]: So that's why many of these investors push back saying, I know if this is a feature of another company.
+[Remote]: Yeah. Yeah. Yeah. Yeah. Yeah. Which makes it but it it's quite a I thought it was a
+[Remote]: robust, like, competitive landscape. Now we're I mean,
+[Remote]: this is only really possible with, like, recent, like, innovations in
+[Remote]: technology. Right? So maybe it's not. But, yeah, I was curious to get your thoughts on just, like,
+[Remote]: the broader competitive landscape. Because I think I've seen
+[Remote]: stuff that, like, claims to be similar, but, yeah, I don't know
+[Remote]: Like, it's it's always kinda hard to tell.
+[You]: So in The US, it's very, very fragmented.
+[You]: Very fragmented, both on verticals. There's different solutions for different verticals.
+[You]: And in terms of size.
+[You]: There's solutions that are better for
+[You]: really enterprise grade customers that pay millions of dollars for these solutions, and then there's smaller SMB solutions, which are really light
+[You]: low functionality, and so on. It's really, really fragmented. There's no clear winner.
+[You]: I think that's evidence
+[You]: that the reconciliation workflow, it's incredibly nuanced.
+[You]: So that's why these players are just focused on
+[You]: size and vertical that's, you know, like,
+[You]: Now
+[You]: that changes with AI.
+[You]: Right? And and one of the things we're seeing, and we have, like,
+[You]: insight of this from a big competitor in Argentine in in Latin America called Symmetry,
+[You]: For these companies,
+[You]: I'm sure you're seeing this across other verticals, it's very hard to
+[You]: build a company in 2018 and now try to add AI to the product today.
+[Remote]: Yeah.
+[You]: It's just like
+[You]: it it it there's a lot of friction around should I have, like, an AI task
+[You]: force, or should I push for all my teams to be AI native?
+[Remote]: Mhmm.
+[You]: Can I actually migrate the existing product
+[You]: to have more AI capabilities, or do I need to build something new? If I need to build something new,
+[You]: how do I transition all my customers to that new platform? It's gonna be, like,
+[You]: there's there's a lot of friction
+[You]: on why a bigger company cannot become AIA native from one day to the other.
+[You]: For us, as I said, we just built an architecture that runs
+[You]: 15,000,000 transactions in under three minutes.
+[Remote]: Ya.
+[You]: We can build connectors in under three hours.
+[You]: For any integration you need to do. And I'm saying three hours,
+[You]: just because there's some back and forth in API docs not being super precise.
+[You]: If the APIs are good, it's it's minutes because we have a dynamic integrator. So
+[You]: every single
+[You]: bottleneck of the process for recon gets
+[You]: solved with AI. Now
+[You]: question you're probably thinking of is, okay. I think that can take you to a really big company.
+[You]: But what takes you to, like,
+[You]: a 100,000,000,000 company?
+[You]: And I think the only way to
+[You]: bridge that gap and and and break that threshold is
+[You]: if you start generating network effects.
+[You]: On the collaborative solution. Meaning,
+[You]: Rexy starts to become
+[You]: like, forget about all the AI capabilities, which are great and are gonna add a lot of value in the next
+[You]: three to five years. But then to break through that is the network effects coming from you being
+[You]: the
+[You]: the central orchestrator of all that information. Right? And so when you build out a new
+[You]: fintech,
+[You]: you just need to be on Rexy because the sponsor bank is there, because all your providers are there, and it's
+[Remote]: Yeah.
+[You]: served like the rules of the game. You know what I mean? And and the cost is shared, so it becomes cheaper for everyone.
+[You]: And the workflow is actually solved for everyone.
+[Remote]: Yeah.
+[You]: Everyone from a root cause. Because if I only stay on the AI replacement plate,
+[You]: only thing I'm doing is I'm streamlining the internal process. I'm not fixing
+[You]: the root cause for the industry, which is data fragmentation. To fix data fragmentation,
+[You]: I need to normalize. I need to parse.
+[Remote]: Ya, y el
+[You]: And I need everyone to consume the same information.
+[You]: That's what we wanna do
+[Remote]: No. For sure. No. It makes a ton of sense.
+[You]: longer term. Right?
+[Remote]: Why you need that, like, foundation. And then sorry. Can you just
+[Remote]: like, help me understand what what are the agents doing? Like, what are the agentic workflows
+[Remote]: because it sounds like that's kind of, like, net new.
+[You]: Sure. A 100%. So the first one is,
+[Remote]: I would love to just, like, understand that.
+[You]: sort of, like, data quality and data transformations.
+[You]: One of the things that typically breaks when you're running an automated recon process
+[You]: is when suddenly you ingest data on a Tuesday and it comes broken or
+[You]: you know, or a column is missing or something. And we don't wanna be running with, like,
+[You]: so there's there's the data quality agent that's monitoring
+[You]: how data is being ingested every single day, the quality of something's missing, any anomaly or whatever.
+[You]: That's the first one.
+[Remote]: Yeah.
+[You]: The second one one is doing automated transformation. So we are the one given we are the ones parsing, we get to to decide what's
+[You]: the format, what's the naming,
+[You]: that we wanna be using on this centralized data system. Right? So we have an agent that's
+[You]: learning from all of these databases and doing the transformations.
+[You]: Why do I say learning? Because
+[You]: it's it's not it's a
+[You]: big amount of possibilities, but it's not infinite. Meaning,
+[You]: for example, if I share with you one of these transactional files
+[You]: there's no that it's very hard for you to understand which one is the date column.
+[You]: Which one is the value column, because there's
+[You]: 10 dates. There's 10 value columns. There's, like,
+[You]: you know, like and the naming for those columns is different across all these providers.
+[You]: But the agent starts to understand
+[You]: based on just iteration, all our customers, the same customer, how
+[Remote]: Ah, okay.
+[You]: to pick those columns. So on the data transformation, the same.
+[You]: It also understands
+[You]: for that single data source,
+[You]: which you're gonna compare it against.
+[You]: Right? And so if you're gonna be comparing, I don't know,
+[You]: the fees, then it also understands if you need to do some torture
+[You]: transformation here to be able to compare it with this one.
+[Remote]: Yeah.
+[You]: Right?
+[You]: So on the transformation front, then on on building the reconciliation logic.
+[You]: How are we gonna build the logic? That's human approved, but it's an agent that's
+[Remote]: Yeah.
+[You]: suggests the logic which maximizes the ratio.
+[You]: And then finally, the biggest one is on the exception management.
+[You]: There's agents that run on all exemptions and start building these clusters.
+[You]: All these transactions are not matching because it's missing the ID. All these transactions are are not match
+[You]: because there are probably manual money movements that you're
+[You]: treasury lead did.
+[You]: Is this okay? Yes or no? You click yes? Okay. It's reconciled.
+[Remote]: Yeah.
+[You]: Because it's never gonna reconcile with the story speak. So it creates these clusters, and
+[You]: when the customer starts taking actions, either
+[You]: approving, rejecting, adding memos, and so on, it learns.
+[Remote]: Yeah. Yeah. Yeah.
+[You]: And so it gets really, really intelligent at creating
+[You]: new rules that run automatically
+[You]: or at understanding
+[You]: how
+[You]: because in reconciliation, there's, like, the hard coded logic, and then there's the policy.
+[Remote]: Yeah.
+[You]: You know? Policy is more like, how do I report these differences?
+[You]: What's the threshold I'm willing to have in terms of
+[You]: if a transaction is matching but the amount doesn't match exactly, what's the threshold your company is
+[You]: is comfortable with. And so that policy is an
+[Remote]: Yeah.
+[You]: agent that starts learning how you operate, and that's when it gets better and better over time with your
+[You]: operations.
+[You]: And the idea, of course, today is
+[You]: it it it's like a phased approach. Right? It's automated with a SaaS
+[You]: Now it's
+[You]: approval basis with agents. At some point, it's gonna be executed by
+[You]: And you're just gonna chat with someone to get the results, go over some reviews, or whatever.
+[You]: But it it at at some point, the North Star is
+[You]: for this
+[You]: to be automatically executed by agents that know exact that is that are connected to your data
+[You]: sources.
+[You]: And that know how it works.
+[Remote]: Yeah.
+[Remote]: Okay. Okay. Yeah. No. That makes
+[Remote]: sense because I
+[Remote]: well, we're running out of time. But, I mean, I would love to understand, like, your kind of, like, onboard
+[Remote]: and setup and, like, implementation process too.
+[Remote]: Which may be a longer question. But yeah. I mean, like,
+[Remote]: how long does it generally take you guys and, like, what are sort of, like, at a high level what's involved?
+[You]: I'll do a short answer to that one because I need to jump up. But
+[You]: it could take us weeks.
+[Remote]: Okay.
+[You]: We can do it in weeks.
+[You]: There's a couple of things that
+[Remote]: Okay.
+[You]: are out of our control,
+[You]: but we take, like, this
+[You]: extreme counter approach of owning the outcome, and we drive our customers'
+[You]: crazy. Like and I tell them.
+[You]: If we're landing on Monday, you better get prepared because we're gonna move fast.
+[You]: And if if you're not moving fast, you're gonna be accountable for that. You know?
+[Remote]: Yeah.
+[You]: And I'm actually
+[You]: I'm actually thinking about experimenting with this, like, implementation deposit
+[You]: like, saying,
+[You]: you get maybe $5,000.
+[You]: If this is not live in under five weeks,
+[You]: I'm keeping it. If it's live, I'll keep it back.
+[You]: So that the feedback like this might I I I read it in, and I know if LinkedIn or
+[Remote]: Yeah. Yeah. Yeah.
+[You]: and I'm I'm I wanna test it out. I think it's interesting because there's a lot of things that don't depend on
+[You]: You know? They need to open us
+[You]: the connectors if we need to build an SFTP or whatever. But, typically, the implementation involves
+[Remote]: Mhmm.
+[You]: connecting to the data,
+[You]: and configuring all the recon logic and and the transformation logic.
+[Remote]: Yeah.
+[You]: Which we do some hand holding
+[You]: with the product owner on the other side just to teach them how to use a platform and how to use it correctly.
+[You]: But then it the idea is for it to be, like, self serve and and for them to take it on afterwards.
+[Remote]: Yeah. Yeah. Yeah. Okay. No. That makes sense. I did yeah. I have more stuff I wanna ask you,
+[Remote]: we're running out of time, which is my fault. But, no. Would love to
+[Remote]: do you have any, like have you had a chance to I know it's been super busy, but
+[Remote]: do you have, like, a deck or any, like, materials that you put together, like, for the raise or or not
+[You]: Not yet. No. Unfortunately, not yet.
+[Remote]: yet?
+[Remote]: Alright.
+[You]: Yeah. As he said, underwater. But
+[You]: but, I mean, if you're gonna be in New York the next
+[You]: few weeks, let me know, and we'll catch up. And if not, as soon as I start
+[You]: the process, I'll, for sure, reach out to to get into more serious conversations, of course.
+[Remote]: Okay. Yeah. Yeah. No. Sounds good. Yeah. And I'll let you know if anything comes up
+[Remote]: because I think for us, like,
+[Remote]: yeah. It sounds like you guys have really good preset investors. You've been, like, in conversations with
+[Remote]: with other firms, so just wanna make sure we're not, like, behind. But, yeah,
+[You]: Great.
+[Remote]: that that all sounds good.
+[You]: Awesome, Hailey. Good catching up.
+[You]: And and hope you have a rest a a great rest of your day. We'll be in touch.
+[Remote]: Yeah. You too. Sounds good. Bye.
+[You]: Bye bye.
+
+============================================================
+SUMMARY
+============================================================
+### Company Updates Since November
+
+- Team expansion: Sebastian joined as CTO/third cofounder
+  - Former founding team member at Pomelo (Latin American issuer processor)
+  - Pomelo now serving as design partner for larger-scale problems
+- Architecture overhaul for massive scalability
+  - Demo with OnePay (Walmart’s wallet): 14M daily transactions
+  - Rexi processed full batch in <3 minutes vs competitor’s 37 minutes
+  - OnePay pays \~$500K/year for current tool that requires overnight processing
+- AI agent development on top of core platform
+  - Data quality monitoring and automated transformations
+  - Reconciliation logic suggestions with human approval
+  - Exception management through clustering and policy learning
+  - Implementation now takes weeks vs months, self-serve approach
+- Go-to-market refinement
+  - Brand building: LinkedIn presence, blog, PR, product video launching
+  - ICP experimentation across verticals (neobanks, sponsor banks, PSPs, InsurTechs)
+  - Fractional growth advisor from Symmetric (major LatAm competitor)
+
+### Market Position & Fundraising Strategy
+
+- Timing considerations for seed raise
+  - Planning Q2 launch with sufficient runway from Argentina-based cost structure
+  - Spring identified as optimal fundraising season vs summer slowdown
+- Competitive validation through YC company emergence
+  - Similar solution recently accepted to YC
+  - Proves market opportunity in niche but critical problem space
+- US market fragmentation creates opportunity
+  - No clear winner, solutions split by vertical and company size
+  - Legacy players struggling to integrate AI vs Rexi’s AI-native architecture
+- Long-term vision: network effects through data orchestration
+  - Beyond AI efficiency gains to fixing industry data fragmentation
+  - Central platform where all fintech ecosystem participants connect
+
+### Current Traction & Implementation
+
+- Early paying customers in production
+- Two new customer onboardings this week
+- Multiple free pilot tests likely to convert in March
+- Target: 15-20 customers who love the product vs 50 mediocre relationships
+- Implementation approach: extreme ownership with potential $5K deposit experiment
+  - 5-week guarantee or forfeit deposit
+  - Involves data connection, recon logic configuration, customer training
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/e4b73370-ffca-45d9-8c57-b15d37c04560](https://notes.granola.ai/t/e4b73370-ffca-45d9-8c57-b15d37c04560)

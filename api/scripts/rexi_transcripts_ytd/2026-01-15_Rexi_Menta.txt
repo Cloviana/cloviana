@@ -1,0 +1,449 @@
+MEETING: Rexi <> Menta
+DATE: 2026-01-15
+ID: not_gCuNBkpQEQJJWc
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Tomas Juan Cazes <tomas.cazes@mentatickets.com>, Mariagonzalo <mariagonzalo@mentatickets.com>
+SCHEDULED: 2026-01-15T15:30:00-05:00 - 2026-01-15T16:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Amigo,
+[Remote]: Fuck me.
+[Remote]: Let's see what
+[Remote]: ¿Ven la paja hasta de
+[You]: ¿Querés reiniciar y te espero?
+[Remote]: Hola, Nacho, ¿cómo andás?
+[You]: कौन सा मेरी?
+[You]: Muy bien, ¿y vos?
+[Remote]: Viendo, tranqui.
+[Remote]: Perdón.
+[You]: ¿Ya con ganas de salir de vacaciones?
+[Remote]: Ay, sí, por favor.
+[You]: ¿Cuándo te vas? ¿Sabes qué viene?
+[Remote]: Voy a la a las corridas. No, me voy Mañana. Sí, Me Voy A Villa Lango Chura.
+[You]: Ah, tremendo, ¿Dónde vas?
+[You]: Ukelly, no, la puta va a agarrar
+[Remote]: Unas ganas,
+[You]: Qué bueno, qué bueno, con amigos, con familia,
+[Remote]: Me voy con, sí, con mi novio y
+[Remote]: con una amiga y su novio, y allá está un amigo de mi novio y
+[Remote]: su su novia, así que
+[Remote]: I'm alive.
+[Remote]: Sí.
+[Remote]: I need further words. Sick.
+[Remote]: Lo que es el tercer
+[You]: locura, ¿no? El corte.
+[Remote]: lo que es el tercer
+[Remote]: Además creo que se cortó tipo mucha
+[Remote]: de capital.
+[Remote]: Sí. No, en provincia también,
+[Remote]: Ah, provincia también?
+[Remote]: Eche, mi hijo se le cortó un, tipo, veinte minibrio.
+[Remote]: Es que está haciendo mucho calor.
+[You]: Si nosotros tenemos al equipo también ahí todos medio offline, quilombo,
+[You]: Pero bueno, yo ya de vuelta en en Nueva York, en Estados Unidos, ¿Teo sigue ahí?
+[You]: Se supone la semana que viene. Che,
+[You]: no les quiero sacar mucho tiempo,
+[You]: Ahí un poco, yo lo lo que les quería
+[You]: comentar es, Mary estuvo haciendo algunas preguntas respecto a integraciones,
+[You]: particularmente de y BIN, unas integraciones que nosotros ya las podemos hacer.
+[You]: Ahí dependiendo del cliente, a veces
+[You]: nos integramos directamente y necesitamos que ustedes metan las credenciales en la plataforma, bueno, y gestart,
+[You]: o con otros clientes que ya tienen desarrollada la ingesta a una base propia,
+[You]: Snowflake, ABBS, BigQuery, o un Natalie casi,
+[You]: nos conectamos, clic con el Natalie y lo chupamos ahí. Particularmente, porque a veces
+[You]: ya los equipos hacen algo
+[You]: tratamiento a la información y nosotros ya ingestamos algo un poquito más masticado.
+[You]: Y y también particularmente, porque a veces tomamos bases o tablas de ahí,
+[You]: para hacer un enrichment y otros cruces que faciliten
+[You]: la conciliación. Nada, abiertos a ambos módulos
+[You]: Lo que, honestamente, que ustedes necesiten son integraciones que desarrollamos nosotros,
+[You]: vez que le dejamos andando, dejamos andando. También en ese período de implementación,
+[You]: nos sentamos verdaderamente, o sea, ahora a Mary le dimos
+[You]: plataforma, le dijimos divertite, hicimos un una working session, pero
+[You]: si decidiéramos avanzar, obviamente, hacemos una o más
+[You]: working sessions para ayudarte media a realmente conectar la información,
+[You]: configurar todo y que ya te quede todo andando.
+[Remote]: Bien.
+[You]: Lo que quería ahí charlar
+[You]: con los dos, particularmente con Tommy, es, obviamente, modelo de pricing.
+[You]: Obviamente, creo que
+[You]: en el caso de conciliación de venta,
+[You]: tiene mucha mucha mucho potencial de mejora y mucho valor por agregado,
+[You]: pero no es que tienen una operatoria y un volumen en el que
+[You]: esto significa un riesgo operativo grande, simplemente, obviamente, generaría mucha productividad, ahora
+[You]: mucho tiempo, pero pero no es un riesgo
+[You]: grande para el negocio, digamos, porque de última es
+[You]: quedarse hasta más tarde y mirar en Excel y buscar los números, las diferencias salen
+[You]: y los macheos se encuentran. Habiendo dicho eso, a nosotros nos sirve mucho
+[Remote]: So
+[You]: estamos en una etapa en la que, obviamente, temprana todavía, y nos sirve mucho tener clientes
+[You]: andando y usando la plataforma.
+[You]: Por cosas que, mismo el chat que tenemos con Mary fueron saliendo cositas,
+[You]: nosotros vamos esperando y vamos mejorando. Por lo cual, ahí lo que yo propongo es
+[You]: o sea, primero está la la decisión de si
+[You]: a Mary y a Boston te agrega valor, tenés esta plataforma, no solo mirando ahora
+[You]: sino a futuro también, Si hay, no sé cómo son los planes para veinte veintiséis, pero si hay
+[You]: nuevas integraciones o un crecimiento muy marcado,
+[You]: ya volver cada vez más relevante y cada vez más importante.
+[You]: Molesta la prevención, si necesitamos algo así o no, yo ahí le mandé
+[You]: mensajito a Mary hablando un poco de de los desarrollos internos.
+[You]: Nos pasa que viene tecnología y te nos dice, che, yo te amundás
+[You]: en dos milóputos, no no vayas a pagar por esto. Y ahí, obviamente,
+[You]: depende de la operativa que tengan ustedes y del bandwidth que tengan ustedes.
+[You]: Sí, verdad que por ahí algunos filtros, algunos chequeos, algunos alarmas los pueden configurar,
+[You]: Pero el problema es que sigue después de eso, ¿no? El día que Metis necesita
+[You]: un cambio, día que Merry necesita incorporar un nuevo proveedor,
+[You]: hacer un nuevo chequeo, hacer un reporte, tiene que ir a
+[You]: abrir el ticket con los de tecnología, que ya sabemos cómo son. Hay un van, siempre están
+[You]: a mil con otras prioridades, ahí como que Meri pierde autonomía con lo que uno
+[You]: agregados también para Mary es la autonomía y la independencia que le da, digamos.
+[You]: La plataforma es muy fácil de configurar, muy intuitiva,
+[You]: después, si no, nos tira a nosotros, ¿no? Que también por la relación que tenemos con ustedes, Tommy y
+[You]: y la relación con Mary,
+[You]: estamos ahí para lo que necesite y y le ayudamos. Entonces, gana mucha independencia de autonomía de tecnología.
+[You]: ¿Cuál es la primera pregunta? Decir, ¿qué agrego algo o no? Y si la si la respuesta es sí,
+[You]: ahí yo lo que diría es, podemos arreglar un pricing
+[You]: basado en algún presupuesto que tengan ustedes, que tenga sentido.
+[You]: Y y lo hacemos funcionar. Porque, como dije antes,
+[You]: no sirve tener clientes rodando, usando la plataforma y
+[You]: nada, si después esto escala y se vuelve más relevante, podemos ajustar ese pricing, porque yo también
+[You]: entiendo y tengo algo de contexto de la situación en la que están ustedes hoy, ¿no?
+[Remote]: Six.
+[Remote]: So get it what show a principio
+[Remote]: Hoy estamos encarando dos iniciativas bastante grandes en Mendup,
+[Remote]: Como vamos a escalar ahora
+[Remote]: ya en un mes ya pagan con un cliente de Estados Unidos,
+[Remote]: qué Europa si viene, tarde o temprano, y así sucesivamente.
+[Remote]: Estamos encarando dos
+[Remote]: o proyectos bastante grandes. Uno, lo que llamamos el
+[Remote]: es el
+[Remote]: expangozo coma, tipo, el el central of
+[Remote]: operations de venta, que es tipo el back office nuestro,
+[Remote]: para ver qué onda la la operación de venta, era su salud y todo. Parte de eso es conciliar, o sea, en el sentido de que nosotros tenemos que tener que salir dos palos en payouts, aparecen dos palos que salieron en procesador Pepito,
+[Remote]: Esos primero, y después otras cosas que son más
+[Remote]: a eventos cancelados,
+[Remote]: devoluciones,
+[Remote]: otros que hoy son manuales,
+[Remote]: hoy los ejecutamos manualmente, que los lo vamos a hacer en este command session.
+[Remote]: O sea, ¿qué va a ser importante para escalar? Porque sí,
+[Remote]: ya empezamos a operar con los clientes grandes como Fiverr y esos,
+[Remote]: que operan en cincuenta países y tienen no sé cuántos miles de eventos, no sé
+[Remote]: millones de tickets,
+[Remote]: ya te la regalo.
+[Remote]: Lo que hacemos nuevamente.
+[Remote]: Entonces, ellos, por un lado,
+[Remote]: y el otro lado estamos encargando lo que nuestro mayor problema a nivel
+[Remote]: fin ops,
+[Remote]: que es lo que estamos hablando en Medic, Es Payouts, Generalmente, Porque Es Lo Que Más Casuísticas Tiene, Es Lo Demás. Errores Puede Suceder, Etcétera. Hoy Ya Estamos Encarando Para Escalar A Europa y Estados Unidos,
+[Remote]: por default,
+[Remote]: va a estar el seller center. Seller center es tipo del
+[Remote]: centrito,
+[Remote]: los vendedores donde pueden manejar su plata, es como una wallet interno.
+[Remote]: Que eso nos va a simplificar bastante tema payouts,
+[Remote]: porque ya no es que te pago, te cuento bancaria y y listo.
+[Remote]: Eso puede fallar o no fallar.
+[Remote]: Entonces, el seller center nos va a dar mucha más flexibilidad y potestad, o sea, más control en tema payouts, pero para la TAM no, Ahora, Palatam vamos a armar un pequeño seller center,
+[Remote]: más improvisado para que esto funcione.
+[Remote]: Entonces,
+[Remote]: si haría valor o no,
+[Remote]: a mí la respuesta, si si tenés un sistema que que sea con
+[Remote]: concilie bien y que nos arregle problemas, siempre la respuesta sí.
+[Remote]: Ahora,
+[Remote]: si el seller center funciona bien y el back office funciona bien,
+[Remote]: que son two big ifs,
+[Remote]: siguiente,
+[Remote]: el la necesidad sigue estando, pero sí se va, es mucho más baja, o sea, pasa otro
+[Remote]: a otro, como yo,
+[Remote]: otra etapa, o sea, como otro otra otra etapa de importancia.
+[Remote]: Obviamente, ni idea cómo esto va,
+[Remote]: escalar con clientes grandes, no sé si esto se va a funcionar o no, que esos
+[Remote]: mi preocupación más grande,
+[Remote]: que es
+[Remote]: esto puede funcionar todo bien,
+[Remote]: pero ¿qué pasa con clientes enormes o con otro tipo de operaciones?
+[Remote]: Con múltiples países, múltiples monedas, múltiples, o sea, ya es
+[Remote]: otra cosa.
+[Remote]: Con otros modelos operativos, a mí lo que me preocupa es modelos operativos, por ejemplo.
+[Remote]: Donde nosotros no procesamos los datos a veces.
+[Remote]: Que eso es una PAG.
+[Remote]: Entonces,
+[Remote]: ahí ya empieza a complicar, y ahí es donde yo creo que tiene más sentido
+[Remote]: Al imperio, al igual, ahí se nos complica la ingesta de data.
+[Remote]: Porque nosotros no encontramos el procesador, entonces no tenemos la data, el profesor, tipo de nivel de integración.
+[Remote]: Así que nada,
+[Remote]: tengo esa esos tres puntos,
+[Remote]: me gusta Rexy,
+[Remote]: quizás para la etapa de
+[Remote]: la escala a nivel cincuenta países europeos con FIDOR.
+[Remote]: Más, o sea, a más que Europa la mayoría de en Qatar,
+[Remote]: Entonces,
+[Remote]: a mí me tiene sentido
+[Remote]: y ahí sí asignaría
+[Remote]: tengo un budget más importante, ¿por qué?
+[Remote]: Ya es otro volumen y ya es otro peligro con mis clientes.
+[Remote]: Ya no no son
+[Remote]: cincuenta mil mexicanos que puedo perder en evento falopa de palenque mexicano.
+[You]: ¿Lo hay Fiberes en Estados Unidos?
+[Remote]: Fever trabaja en Estados Unidos, mucho en Europa, ellos son españoles originalmente, ya tienen es global.
+[You]: Pero este bill que están cosolones para Europa.
+[You]: Y eso es lo que te escalaría mucho la operación.
+[Remote]: Los grandes, o sea, necesariamente Fiber, Fiber tiene la complejidad agregada que
+[Remote]: tiene múltiples países, o sea, es muy global, tienen grandes cincuenta países.
+[Remote]: Incluidos todos los mil.
+[Remote]: Todos
+[Remote]: Lo malo,
+[Remote]: es que, y lo otro es un audience view o en otro
+[Remote]: que no en billions dollars más que nada, Estados Unidos, y tiene muchas tiqueteras.
+[You]: Yo porque acaba de decir que tendría sentido cuando
+[Remote]: Eso también.
+[You]: estemos operando con otro volumen, quiero tener el timeline de eso, cómo cómo estás pensando el timeline de
+[You]: eso.
+[Remote]: Y el timeline
+[Remote]: es una, me encantaría trabajar eso, pero
+[Remote]: a ver, ya mandando la propuesta,
+[Remote]: falta que la firmen, o que la ponen y que la firmen, yo le tengo fe.
+[Remote]: El el problema lo que va a tardar más con Fever, si es que todo sale bien,
+[Remote]: es otro big if,
+[Remote]: es el rollout.
+[Remote]: Porque, al igual que probante rexy, que necesitas integrar cosas o intentás integrarte en una
+[Remote]: forma,
+[Remote]: mientras una integración bastante agresiva, somos
+[Remote]: quiero decirlo, pero es como un cáncer, ¿viste? Que se mete el puto fumó.
+[Remote]: Entonces, es difícil
+[Remote]: la integración, porque Fever tiene Fever, tiene Dice, tiene OneBox, tiene, no sé, en carajo de fórmula uno, no, Goro, el nombre,
+[Remote]: y no sé qué más, tenemos cinco sistemas diferentes en múltiples países diferentes.
+[Remote]: Ni siquiera estoy mencionando los que te pago que tienen.
+[Remote]: Entonces, va a ser un técnico muy largo, probablemente, eso asegura. Pero con una primera operación con alguna cosa de figure en algún mercado, en algo, ¿sí? Todos ahí en este año, según, según. Pero de vuelta, FiberFull es otro es otro mojo. De hecho,
+[Remote]: contratada a alguien para que, digo, se meta a confirmar directamente.
+[You]: Claro. Bueno, mira, ahí creo que
+[Remote]: Es otra voz.
+[You]: una una propuesta que, o sea, creo que lo más natural, dado lo que escucho,
+[You]: arreglamos un pricing hoy simbólico,
+[You]: que ustedes puedan pagar, nos haga sentido a nosotros,
+[You]: enchufamos la plataforma a Merry para que la empiece a usar para para Vint, para D-Local, para todo lo que tienen hoy.
+[You]: Es como una manera de prepararse, es un problema menos. Si salen los de Fever y arrancan las integraciones,
+[You]: ya ahí nos involucran, nos metemos de vuelta con Merry y empezamos a escalar la plataforma para esa nueva operatoria. En paralelo, obviamente, van a desarrollar este central of operations y el seller center. Si en algún momento después decís, che, ya lo tengo adentro, listo. Si es una funcionalidad que logran desarrollar y ya nos necesitan más, buenísimo. Pero creo que hay mucho valor en el mientras tanto hasta que eso suceda, y y también está el big if de si sale bien o no. O si sale lo de Fever, quizás se desferioriza.
+[Remote]: Yes.
+[Remote]: No. All of them.
+[You]: Quizás se des prioriza el seller center. No sé, digo, sabemos que esas prioridades cambian todo el tiempo.
+[You]: Lo que nunca nos va a cambiar es la necesidad de conciliar lo que ya tienen andando,
+[You]: lo que van a estar bombardeando. Por eso mi propuesta es decir, che,
+[You]: si le ven valor hoy, agreguemos arreglemos un precio simbólico hoy,
+[You]: pensalo vos, Tommy, decime que es tren pros a pagar,
+[You]: con, obviamente, un asterisco, de hecho, si si sale lo de Fiber y quieren escalar con Fever, ya pasamos a un modelo de pricing más
+[You]: acorde a lo que tenemos nosotros hoy.
+[You]: Pero creo que estaría bueno porque es un problema menos para el rollout,
+[Remote]: Sí,
+[You]: Cuando estén pensando en el rollout, nos llama a nosotros y nos ponemos a trabajar con Barry,
+[You]: en en integrar la plataforma
+[You]: Rexy para toda la operatoria de feed.
+[You]: Las integraciones que esto conlleva, etcétera.
+[Remote]: Dale, te mando un mensaje,
+[Remote]: para ver
+[Remote]: para
+[Remote]: yo creo que va a estar bueno, obviamente,
+[Remote]: para ustedes el tema de plataforma, de desarrollo de plataforma,
+[Remote]: a nosotros también para aprender sobre
+[Remote]: cómo
+[Remote]: es un buen producto de conciliación.
+[You]: Oreo.
+[Remote]: O sea, que algo que funcione bien al considerar
+[Remote]: qué nos sirve, qué no nos sirve.
+[You]: Oreo.
+[Remote]: Conciliación que se dio como, entonces, de cosas.
+[You]: Sí, aparte, cuando te metes así con la información,
+[You]: aparece mucho learning de la información. Aseguro que con la plataforma
+[Remote]: Let's see.
+[You]: se va dar cuenta fallas del BIN que suceden todos los viernes a las cuatro de la tarde,
+[You]: empiezan a salir cositas como un knowledge, que después ustedes si lo quieren poner
+[You]: el central operation, se lo llevan, a ver, configuración y es data de ustedes, eso siempre.
+[Remote]: Dale, sigamos así.
+[You]: Otra cosa para, otra cosa que quería mencionar,
+[You]: no sé cuál es el scope de este center of operations.
+[Remote]: Here.
+[You]: Tampoco sé
+[You]: qué tan decididos están en desarrollarlo internamente
+[You]: o contratar otra cosa. Si hay mucho
+[You]: overlap con lo que estamos haciendo,
+[You]: ¿quién dice podemos instalar Rexy como center of operations? No sé.
+[Remote]: No.
+[Remote]: No, no, porque
+[Remote]: tenemos muchas operaciones ad hoc
+[Remote]: de de nuestro mercado y nuestro producto.
+[Remote]: Tipo, una es
+[Remote]: lo que nosotros llamamos un sub reversa.
+[Remote]: Cuando vos tenés una reventa que tenés que cancelar y go back, básicamente, pon
+[Remote]: fraude, contracargo, por decisión de la persona que sea,
+[Remote]: una operación de inteligencia interna, tipo, a nivel data de venta, a nivel
+[Remote]: nuestra infraestructura, o sea, no tiene nada que ver con ningún otro proveedor.
+[Remote]: Obviamente, sí, ahí conlleva un refund, por ejemplo, con el inversor de pago, sí, qué sé yo.
+[Remote]: Otra cosa puede ser un sub manual cuando tenés compras por fuera.
+[Remote]: Eso también.
+[Remote]: Que todo hoy requiere, che, hay un detective, da una mano,
+[Remote]: hacer esto,
+[Remote]: su chao.
+[Remote]: Esos son los primeros dos pasos. Los otros pasos son
+[Remote]: que nosotros llamamos alertas,
+[Remote]: o puntos, o sea, como hoy, no sé, tecnología tiene
+[Remote]: bueno, se dispara el usage, o sea, todo eso lo que
+[Remote]: que sea, para ver qué carajo está pasando, si está disparando, ¿no?
+[Remote]: Es lo mismo de nosotros, en sentido, che, estamos teniendo muchos rechazos en cobros,
+[Remote]: o sea, en pagos,
+[Remote]: muchos rechazos, ¿por qué? ¿De qué? ¿Qué te vas dando alerta? Che, fíjate acá.
+[Remote]: Porque ya no va a ser viable
+[Remote]: entre un mercado pago, entre y local y a un check o listing.
+[You]: K.
+[Remote]: ¿Ya? O sea, desees enviar. Y lo mismo, la misma lógica la llevo a
+[Remote]: en el sentido de que
+[Remote]: che,
+[Remote]: estamos bien de liquidez, tenemos, tienen que salir cien palos el ocho de noviembre,
+[Remote]: Tenemos cien palos para ocho de noviembre, si no, ¿qué hacemos con respecto?
+[Remote]: Che, ya salieron los pagos,
+[Remote]: ¿Cuánto salieron bien? ¿Cuándo salieron mal? ¿Por qué salieron mal? O sea, el tipo
+[Remote]: reason code,
+[Remote]: que puede ser perfilante por salir mal sin ningún
+[Remote]: error por c,
+[Remote]: y y salió la cantidad que tiene que salir.
+[Remote]: ¿Por qué? Porque lo lo que más miedo nos da a nosotros es que
+[Remote]: nuestra base de datos en el TAR, o sea, que mentate y diga, che, este pago salió completed,
+[Remote]: y en el otro lado dice no, no salió nada complete.
+[Remote]: Del lado, pues,
+[Remote]: peor al revés. Hoy hoy nos pasó no con un pega, pero con un pago donde te
+[Remote]: de profesor dijo sí pagado, y nosotros dijimos no, pagado las pelotas.
+[Remote]: Ahí te das un correo.
+[Remote]: Esos
+[Remote]: checks, básicamente, en cantidad de plata, en cantidad de peoples y en release,
+[Remote]: es lo que va a pasar el sistema, idealmente.
+[Remote]: Tenés ya el posotrot integrado en los posadores, pero si no no puede hacer payouts,
+[Remote]: Obviamente cada posador tiene su skin diferente y toda la bola que ya ya sabrán.
+[Remote]: O sea, ese es el MVP,
+[Remote]: the operation center.
+[Remote]: Creo que no me falta mucho más más que creo eventos cancelados que también va estar ahí,
+[Remote]: No sé si, me acuerdo, me dice, faltaba algo.
+[You]: Bueno, para pensar, digo, si si están interesados,
+[Remote]: Me lo acuerdo a memoria todo.
+[You]: al final si es data, nosotros podemos armar algo, pero bueno, algunos que tienen un scope más grande, es
+[Remote]: Sí, es
+[You]: complejo, por lo pronto lo hacemos con esto es
+[Remote]: eso, eso es un score bastante más grande.
+[Remote]: Y también lo que me decía Tech, lo que me decía Tom, que es nuestro sitio web,
+[Remote]: a él le da un poco de cosa delegar
+[Remote]: cosas que él cree que son por,
+[Remote]: tecnología que inventa tiene que hacer bien necesariamente a tu proveedor.
+[Remote]: ¿Por qué?
+[Remote]: Porque una tiquetera
+[Remote]: tradicional, o sea, cualquiera,
+[Remote]: son, deberían ser
+[Remote]: muy buenos en pains, o sea, recibir plata, cobrar
+[Remote]: tarjeta de crédito, cobrar, recibe esa plata muy bien.
+[Remote]: Un poco fraude, con bajo costo, lo que le sea rápido, todo lo que quiere.
+[Remote]: Pero no saben hacer payouts.
+[Remote]: Porque no es algo que
+[Remote]: tengan operativamente. Desmenta como una parte de de fin
+[Remote]: nueva que le suma y que tenemos que ser muy buenos,
+[Remote]: es en eso.
+[Remote]: Entonces,
+[Remote]: también tuve un poco de pushback con el lado de Tom, es che,
+[Remote]: ustedes no ser muy buenos.
+[Remote]: Acceso no debe elegir, porque la rompemos en
+[Remote]: esto, en un seller onboarding, en seller payouts, en todo esta parte.
+[Remote]: Tienes razón.
+[Remote]: Un poco, porque me iba a nos tocó
+[Remote]: Obviamente, la parte de conciliación es parte
+[Remote]: pero no es tampoco el core de todo.
+[Remote]: Tenemos que ser buenos, conciliación te dice, che,
+[Remote]: es como, yo lo veo a
+[Remote]: ya estoy equivocado, yo veo conciliación para nosotros es más que un
+[Remote]: un score. ¿Qué tan qué tan buenos somos? ¿Estamos haciéndolo bien o no me lo pago gente?
+[Remote]: No sé si confío todo el tiempo, a veces sí, a veces no, depende de qué día me agarras.
+[Remote]: Entonces, yo lo veo así, es como un score, si está moviendo bien o mal.
+[You]: Hold on.
+[Remote]: No sé qué tan buenos también somos dando ese score.
+[Remote]: Que esa es la pregunta del millón también.
+[You]: जी जी जी.
+[Remote]: Pero
+[You]: Total.
+[Remote]: Pero veo lo de conciliación, amigo re,
+[Remote]: ahora ahora déjame que lo vea, te mando un mensaje.
+[You]: Vale.
+[You]: En cuanto lo mandes el mensaje,
+[Remote]: Pero lo de, a nivel operativo es muy, eso lo veo muy complicado.
+[You]: Dale, dale, no, tranquilo. Y se entiende.
+[You]: Nada, avísame ahí cuando cuando lo tengan claro,
+[You]: en cuanto arreglemos, Mary, hacemos un kickoff,
+[You]: y nos ponemos a trabajar en las integraciones. Y en y en
+[You]: ayudarte realmente a configurarlo para que ya corra automáticamente y dashboards, reportes, etcétera.
+[Remote]: Perfecto.
+[You]: ¿Sale?
+[Remote]: Bien.
+[You]: Bueno, chicos, gracias por el tiempo. Que tengas un gran día y abrazo grande.
+[Remote]: Sí, Carito,
+[You]: Hola, vale.
+[Remote]: Queda ahí la pregunta. Bueno, mil gracias.
+[Remote]: Estoy Bueno.
+[You]: No, para bebés no. ¿Sabés que estás pensando mucho? Porque acá tener un una sobrina
+[Remote]: ¿Hace tipo un meeting?
+[Remote]: Mini size,
+[You]: y está pensando hacer algo kids, pero por ahora no. Mirá, está todo acá, no sé
+[You]: si vas a verlo, todo acá en display.
+[Remote]: Sí, ahora vamos a poner
+[Remote]: Y personas brigadas.
+[Remote]: Bordudo, yo Inés en invierno acá en julio, ¿no?
+[Remote]: Se tiene tres.
+[Remote]: O a a, o tener ocho meses, nueve meses, ¿me Ya le entran, cositas.
+[You]: A ver, ahí.
+[Remote]: Yo le compro
+[You]: Yeah, था तो आई
+[You]: está todo el stock de Ira.
+[Remote]: When stock
+[You]: Aquí lo matar. Pero bueno.
+[Remote]: Bueno, amigo, te mando un abrazo.
+[Remote]: Dale.
+[Remote]: Ahora sí, amigo. Bye bye. Chao, Nacho.
+[You]: Abrazo, gracias.
+
+============================================================
+SUMMARY
+============================================================
+### Menta’s Scaling Challenges & Current Initiatives
+
+- Two major initiatives underway to handle scaling to US/Europe markets
+- **Central of Operations** (command center)
+  - Backoffice monitoring for sales operations health
+  - Includes conciliation processes
+  - Manual processes for cancelled events, refunds currently being automated
+  - Essential for handling large clients like Fever (operates in 50+ countries)
+- **Seller Center** (wallet system)
+  - Replaces direct bank account payouts with internal wallet
+  - Will simplify payout reconciliation significantly
+  - Full version for Europe/US expansion
+  - Improvised version planned for LATAM market
+
+### Fever Deal Impact & Timeline
+
+- Fever proposal submitted, awaiting signature
+- Complex integration required across multiple systems
+  - Fever owns: Dice, OneBox, Formula One platform, plus 5+ different systems
+  - Multiple countries, currencies, payment processors
+- Rollout timeline uncertain but first operations expected this year
+- Would dramatically increase volume and operational complexity
+- Current manual processes would break at that scale
+
+### Rexi Integration Proposal & Pricing
+
+- Proposed symbolic pricing for current operations (Menta’s existing D-Local, BIN integrations)
+- Rexi handles both direct integrations and data warehouse connections (Snowflake, BigQuery)
+- Value proposition: operational autonomy vs. dependency on tech team tickets
+- If Fever deal materializes, pricing would scale appropriately
+- Implementation includes working sessions with Mary for platform configuration
+
+### Next Steps
+
+- Tomas to send message with budget/pricing proposal
+- Upon agreement: kickoff with Mary for integration setup
+- Rexi team available for ongoing support and platform optimization
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/a0e51e0d-d8c8-4963-bcaf-b68337865590](https://notes.granola.ai/t/a0e51e0d-d8c8-4963-bcaf-b68337865590)

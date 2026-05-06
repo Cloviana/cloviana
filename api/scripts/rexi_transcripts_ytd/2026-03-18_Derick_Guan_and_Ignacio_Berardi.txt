@@ -1,0 +1,394 @@
+MEETING: Derick Guan and Ignacio Berardi
+DATE: 2026-03-18
+ID: not_R1QJZ9KXGu8aLR
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Derick <derick@cascading.ai>
+SCHEDULED: 2026-03-18T19:30:00-04:00 - 2026-03-18T20:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: We're friends from school.
+[You]: He's a bit younger than me.
+[You]: But we went to the same high school, and now they're both building stuff in The US.
+[You]: Closer friends, of course, were, you know,
+[Remote]: Yeah.
+[You]: Did you did you found a start up before or not?
+[Remote]: Yes. So I found a company before we raised 25,000,000.
+[Remote]: To be a Robin Hood Park market, and then we sold it.
+[Remote]: I went to the dark side to become a prime equity investor before coming back
+[Remote]: the good side trying to build something.
+[You]: That's an interesting journey, but congratulations. Great achievements there.
+[You]: But, well, you must remember when you were building, having, like,
+[You]: a founder friend, which you can you can just ask the stupid questions. It's just so
+[You]: so valuable at this stage. So that's what Eugenio is
+[You]: for me, back and forth.
+[Remote]: Oh, that's awesome. He's he's such a good guy. I really like him.
+[You]: Well, let me start by saying I'm a huge fan of what you guys are doing at Caska.
+[You]: I don't know if Casca is like a rebranding or you still call yourself cascading.
+[You]: Or how does that work?
+[Remote]: It's we just talked the first five flats toes and
+[Remote]: make it more easier to say eight. That that's essentially how it comes back.
+[You]: Got it. Got it. Well, I'm big fan. You know? Like like, it it really looks like you guys are
+[You]: transforming how loans get originated.
+[You]: So so that's that's interesting.
+[You]: We're focusing on what happens after. Right?
+[You]: Once the loans are originated, money goes back and forth,
+[You]: and keeping track of that money across different systems becomes very painful. So
+[You]: just a brief intro of what we do at at Rexy.
+[You]: Basically, what we're doing is we're building
+[You]: an orchestration platform that plugs into different systems, generate
+[You]: the transactional data, and we're doing the reconciliation of that
+[You]: data. Right? Starting by ingestion, the parsing, the processing,
+[You]: investigating, closing discrepancies, and then all the output schemas related
+[You]: to generating reports, plugging into your piece to generate journal entries,
+[You]: basically automating with a genetic technology to process end to end.
+[You]: The longer term vision
+[You]: is becoming like the cloud code for FinOps. Right? Enabling finance and
+[You]: teams to build these agentic workflows without the need of hiring more headcount Right? Because
+[Remote]: How are you thinking?
+[You]: basically, what we think
+[Remote]: No. That that all makes sense. Like, it's definitely very high use case. I'm curious how you're thinking about
+[Remote]: right now if more banks actually, like, hang with Claude, etcetera.
+[Remote]: And actually being very much forward deployed
+[Remote]: And I think Claude is everybody's already working with open ad comment to
+[Remote]: to view agent take flow. Genuinely curious, like, how are you thinking about
+[Remote]: sort of, like, the differentiability there?
+[You]: Well, we think, like, the first part is,
+[You]: given we're laser focused on reconciliation, our RAI
+[You]: our our agents are trained on a wider set of edge cases
+[You]: and we see more mistakes. We see more best practices. So,
+[You]: our agents are trained with a context window
+[You]: that nobody else is gonna have because we're working with banks
+[You]: payment processors, fintechs, marketplaces, and we just see more
+[You]: of the problem. Right? That's the technical part of it.
+[Remote]: Right.
+[You]: And the more conceptual part of it is that our vision
+[You]: to really solve reconciliation, it's not only streamlining and automating that process,
+[You]: of really, like, orchestrating the data. But also, when you think about what's the last
+[You]: step of the process, which is investigating and closing the discrepancies, it typically involves
+[You]: you collaborating with a third party.
+[You]: So when you think about the pain of reconciliation at its core, it's a coordination issue.
+[You]: It's that today, these companies are not working closer together.
+[You]: And so the the the great thesis about RXi is that at some point, we wanna become a shared
+[You]: tool.
+[You]: Between the bank, the fintech, the payment processor that way.
+[You]: All the parties involved in the same money flow are working with the same data,
+[Remote]: Yeah.
+[You]: reconciling with the same logic, and then they have a shared tool to collaborate on discrepancies.
+[You]: What that generates in terms of defensibility is network effects.
+[Remote]: Right.
+[You]: Right? Because, again, the problem of
+[You]: reconciliation is data fragmentation and lack of coordination. It's not really about automating the
+[You]: which
+[You]: between you and me, there's a lot of value
+[You]: to unlock just in automation. But the vision going forward as you
+[You]: correctly mentioned, is creating the network effects which are actually gonna
+[You]: generate the defensibility we need. And and, again,
+[You]: once we get access to the all that transactional data, that's a really great foundation to earn
+[You]: the right to build additional workflows on top of it. Because once you're the glue, once you're the
+[You]: connective tissue,
+[You]: you own the source of the truth layer. Right? And then
+[You]: you can build additional workflows on top of that. Right? And then surfing the wave of finance and ops teams getting automated by AI.
+[Remote]: Ya.
+[You]: Today, we're working with banks, fintechs,
+[You]: payment processors, and we're seeing a huge value
+[You]: out of just plain automation. Right?
+[You]: But curious to double down on
+[You]: your role at at Casca. I know you are building the banking solution,
+[Remote]: Yes. So what we do is
+[Remote]: we are trying to review the call, and the reason why I
+[Remote]: trying to review the call is every time with technology innovation,
+[Remote]: dot com cloud right now for AI,
+[Remote]: time there's a new call being built, the reason is you need a new
+[Remote]: as you said, a new layouts of records to be able to
+[Remote]: have any actions on top of it.
+[Remote]: So that's why we started with lung origination and we have already built four lung servicing and digital accounts opening as well.
+[Remote]: We are working with some of the more
+[Remote]: different size of banks, so we are doing both community
+[Remote]: regional, and even top 10 banks like Huntington to to deploy our solutions.
+[Remote]: What we are doing right now is
+[Remote]: more focused on high menu workflows
+[Remote]: commercial side. So this offer banks that have
+[Remote]: that are quite
+[Remote]: dependent on hiring to be able to grow their
+[Remote]: overall bugs, we are focused on that part. So
+[Remote]: today, we have about
+[Remote]: 10 customized, and
+[Remote]: we are about 45 b pay rates
+[Remote]: 33 media. And and yeah.
+[Remote]: Yes.
+[You]: Wow. You are 45 people?
+[You]: And you're all based in San Francisco.
+[Remote]: Yeah.
+[Remote]: Yes.
+[You]: Wow. And you have 10 paying customers.
+[You]: And how did you manage to raise 33,000,000 with, an
+[You]: like, a just a deck with nothing?
+[Remote]: So we raised before actually, when we first raised
+[Remote]: we we announced it last summer, but we raised actually the summer before. It was
+[Remote]: a bit of interesting story. So our largest compact
+[Remote]: which is called NCNO. They have long origination system
+[Remote]: found about seven, eight years ago, bought by Insight, and then talked public
+[Remote]: and then got sewed.
+[Remote]: The founder of Encino, who is also the founder of Canopy Ventures,
+[Remote]: of the LPs are the top 70 banks in The US.
+[Remote]: They left NCL, and then we wanted to look for the next NCL
+[Remote]: in the AI age. So they they chose us, and we're very full
+[Remote]: in that sense. So when we both started,
+[Remote]: we only were working with one banks with them. So that's why we raised our aid. They're,
+[Remote]: okay. You guys obviously can do the low intonation system, and and we are more
+[Remote]: more so of the
+[Remote]: AI partner for most of these banks because we have yet
+[Remote]: to do one single outbound sales, etcetera.
+[Remote]: All of our introductions are warm intro from people in our network,
+[Remote]: and and usually to VP level plus, usually CIO levels.
+[Remote]: We help them to think through how they can bring in AI to
+[Remote]: actually
+[Remote]: in P and L value. Right? Most of the AI solutions you see these days are
+[Remote]: are about
+[Remote]: sort of, you know, Changi BT or or clock cowork.
+[Remote]: But how do you actually translate that into your revenue growth
+[Remote]: or or your book volume? Banks don't really see that. So that's where cost are
+[Remote]: comes in to really take one business units at a time.
+[Remote]: Which where we become the call.
+[You]: Wow. Wow.
+[You]: Sounds very interesting. I like the story. There was definitely something about
+[You]: story that I was missing, given the the rapid growth and the amount of people you guys are already. But
+[You]: it's it's very obvious to me you guys are gonna do great because, the founding team and
+[You]: the whole team is is really knowledgeable about what you're building. Right? And
+[You]: and it served like that three point o
+[You]: system powered by AI on something that you've proven you can already build and sell.
+[You]: Right? So very, very interesting. Regarding the loan origination operation,
+[You]: do you think is there any reconciliation pain there both for Casca and
+[You]: internally or for your customers?
+[Remote]: The reconciliation
+[Remote]: we have
+[Remote]: for the consumer side
+[Remote]: So
+[Remote]: contacts may do the automation for both
+[Remote]: the business owners and for the bank's thumbs ups. Right?
+[Remote]: So from the customers
+[Remote]: parts, we do a lot of the
+[Remote]: the accounts, cons reconsideration. So we reconsider all of the
+[Remote]: customer accounts
+[Remote]: right now, we are doing that through pledge, but we're actually all doing some internal integration as well.
+[Remote]: And on the bank side,
+[Remote]: we actually see
+[Remote]: strong issues with that because
+[Remote]: what the most level of consideration that we're doing is
+[Remote]: when we are doing loan servicing, we're trying to access the account's balance, like,
+[Remote]: to make sure they have
+[Remote]: a good account health plus the accounts opening
+[Remote]: we really consider it's all the accounts that we have through plat
+[Remote]: and that has been working quite well thus far.
+[Remote]: I have
+[Remote]: I'm curious what kind of reconciliation do you guys do
+[Remote]: and then how do you
+[You]: Bon, on parle
+[Remote]: back with you guys?
+[You]: is very flexible and very configurable to any
+[You]: reconciliation logic and setup. But what we typically do is we're typically like,
+[You]: the customers we're working with typically reconcile a bank statement against an internal ledger,
+[You]: and then against every single external provider they're integrated
+[You]: with. So let's say a neobank which is sitting on top of
+[You]: CFSB Bank here in New York,
+[You]: They have the bank statement. They have an internal ledger with Galileo.
+[You]: Or Marta Treasurer, Treasury Prime, whomever is powering that ledger.
+[You]: And then for each one of the products and services they're offering, they're receiving the transactional files
+[You]: from those providers. Let's say,
+[Remote]: Yeah.
+[You]: Vanilla Direct for cash and cash out.
+[You]: And so we're basically reconciling the first layer and then against the bank,
+[You]: ensuring that those three system layers are showing the same
+[You]: money movement in the right direction and the right amounts, both for
+[You]: user money movements and fees and revenue.
+[Remote]: Yeah.
+[You]: And you would be amazed at the differences we find every single day.
+[You]: So it's it's it's really
+[You]: there's the ROI is based first and foremost, of course,
+[You]: on on automating manual work, that if not, you have someone doing it with some sort of
+[You]: SQL script or
+[You]: or just, like, Excel macros.
+[Remote]: Right.
+[You]: The second part is is reducing the losses.
+[You]: The famous unreconcilable losses, which some
+[You]: teams are are really, really vague, particularly when transaction volume
+[You]: punches through a certain threshold.
+[You]: And you have, like, a 99% matching ratio, that 1% is still a lot of transaction
+[You]: And the teams investigating those, of course, are gonna do an eighty twenty approach, try to
+[You]: just solve the big ones and and and the smaller ones are just doing write offs.
+[Remote]: Right.
+[You]: So there's a big ROI behind that. And then the last one is behind
+[You]: regulatory and compliance frameworks that they need to abide to.
+[You]: And for that, they need a specific level of reporting that needs to be automated.
+[You]: For them not to fail those requirements. So those are the three things we're seeing right now.
+[You]: As we scale
+[You]: we're starting to automate other workflows inside the finance and operations.
+[You]: Teams. For example, one that we're starting to automate right now is accounting.
+[You]: Because reconciliation has both the operational need
+[You]: which is that daily checkup
+[You]: sort of like a hygiene process to make sure that the money movement you operated that day
+[You]: was correctly correctly accounted for. And then at the end of the month, the accounting team needs to close the book.
+[You]: And they run some balance reconciliation to ensure that
+[You]: what they're seeing is is the truth. Right? And so
+[Remote]: Due due to in house OCR right now,
+[You]: what do you mean by UCR?
+[Remote]: OCR?
+[Remote]: So how are you analyzing all of the, let's say, bank statements
+[Remote]: pulling in each one of the transactions,
+[Remote]: etcetera.
+[You]: How are we analyzing those?
+[Remote]: Yep.
+[You]: We connect
+[You]: to the to straight to the source. We ingest the raw files, and we do the parsing and the process
+[You]: based both on business logic that we acquire from the teams
+[You]: and then our agents propose additional logic based on
+[You]: the analysis of that structured data, and it finds patterns on how to reconcile those movements.
+[Remote]: Okay. Interesting.
+[Remote]: Because that is one part that we actually have seen problems with
+[Remote]: is
+[Remote]: a lot of the times we analyze the bank statements
+[Remote]: the transactions and the reconsideration are actually not done correctly. So we do
+[Remote]: we do is that we take the applicant's bank statements, all sorts of
+[Remote]: you know, that p and l coming in, trying to analyze each one of the
+[Remote]: trying to pull in each one of the transaction month over month, trying to project the financial health
+[Remote]: Right? And
+[Remote]: on that side, we actually
+[Remote]: a lot we we used to do it
+[Remote]: on foundation model and that like, quite bio.
+[Remote]: Start working with external provider. So more, like, specific bank statement analysis
+[Remote]: Like, for example, I will hear on data.
+[Remote]: And there's lots of errors in terms of
+[Remote]: pulling in transactions and reconsiderating transactions.
+[Remote]: So so that is one part that we do have a with a
+[You]: Well, very interested to speak with the team that
+[You]: actually owns that problem. Is it you or or someone else?
+[Remote]: So I'd like with the approximate that. Yeah.
+[You]: You work with a team on that one?
+[Remote]: Yeah.
+[You]: You're you're like, you work all over
+[You]: the company. Right? You're like,
+[You]: like a sir, like a CEO almost.
+[Remote]: I do kind of everything. Do a lot of product lag. I do a of customer lag.
+[Remote]: Finance, investor relations, or strategy work, so everything.
+[You]: Well, nice. Congratulations. That's an incredible role. That's a very cool chief of staff.
+[You]: Version because some of some chief of staffs are, like, glorified assistance, but I feel like you're
+[You]: running the company almost.
+[You]: But, yeah, how do you wish to proceed? I mean, we're more than happy to
+[You]: deep dive more into the problem and maybe show a demo or something.
+[You]: If you see a case on that internal
+[You]: problem. Maybe there's more of a case on being, partners
+[You]: to either power your reconciliation for your customers
+[You]: sort of, like, an as an embedded solution, which is another route we're exploring right now,
+[You]: or just going through some
+[You]: reseller agreement where, we can work with the bank
+[You]: you're currently working with automating that part of the process for them. I don't know.
+[Remote]: Yeah.
+[You]: Whatever you see most value.
+[Remote]: I think
+[Remote]: the parts that I think this would be most
+[Remote]: applicable to us
+[Remote]: would
+[Remote]: to be
+[Remote]: have more of a partnership when we actually are focusing more on the
+[Remote]: accounts opening side. So we are building
+[Remote]: context
+[Remote]: Cascade is a origination in serving system. Right? But that's no. That's it's hard for a bank to
+[Remote]: capture the deposits. The moment you give out
+[Remote]: your the loan they've already provided, some sorts of, you know, promotion,
+[Remote]: on the on the deposit side. And once they capture the customer,
+[Remote]: they usually work with the customer on the embedded financing side to really provide embedded financing also
+[Remote]: which we also do provide. And that part, I think, is where the reconciliation will come in very hand
+[Remote]: that benefits both the banks and both the customers themselves.
+[Remote]: So
+[Remote]: but we are not quite
+[Remote]: there yet because we are very much still
+[Remote]: implementing our existing solutions on the account opening rather than
+[Remote]: building a top embedded funding platform, which we are planning to do some
+[Remote]: q four also. So happy to circle back
+[Remote]: when
+[Remote]: when
+[Remote]: like, in in two, three months, I think that would be a good time to see
+[Remote]: how we have that partnership together, and if that would be helpful sort of to bring to some of our
+[Remote]: mix. We we, in general,
+[Remote]: we are very
+[Remote]: strong thesis on who are the people that we would like to work with versus people who don't
+[Remote]: work with, and we bring the entire suites to the bank. So, for example,
+[Remote]: one of the most recent bank that we've that we're implementing, we bought in about seven different vendors.
+[Remote]: That we
+[Remote]: very much prefer working with to the banks.
+[Remote]: To bring sort of, like, their suites of technologies that
+[Remote]: just don't want to behave, but we
+[Remote]: but people that we have worked with before that we know are good solutions. So
+[Remote]: that is the best way for what I see.
+[Remote]: And then translates into I think we can keep in touch.
+[Remote]: And and happy to catch up on your if I know this is he, and then we can
+[Remote]: can see see you guys just give that conversation too.
+[You]: Amazing, Derek. Let's do that then. Let's let's circle back
+[You]: two, three months when this is higher priority.
+[You]: I'll text you when I'm in San Francisco to grab lunch, beer, coffee, or whatever.
+[You]: And, again, it's great meeting you. I was I was a 100% sure that anyone that
+[You]: Eugenio would introduce me would be a genius, and and I'm
+[You]: confirming that. So, again, congratulations on what you're building.
+[You]: And and let's keep connected.
+[Remote]: Yep. Sounds great. Alright. Great to meet you. Take care. Have a nice evening.
+[You]: Bye bye.
+[Remote]: Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Derick’s Background & Casca Overview
+
+- Previously founded company that raised $25M (Robin Hood-style market), sold it
+- Became private equity investor before returning to founding
+- Casca (shortened from Cascading) - AI-powered banking solutions
+  - 45 employees, all San Francisco-based
+  - 10 paying customers
+  - Raised $33M (announced last summer, actually raised summer before)
+- Focus on high-value commercial workflows for banks dependent on hiring for growth
+
+### Casca’s Business Model & Growth
+
+- Building new core banking infrastructure for AI age
+  - Loan origination system (primary)
+  - Loan servicing and digital account opening
+- Working with community, regional, and top 10 banks (including Huntington)
+- Backed by NCNO founder (previous loan origination system, sold publicly)
+  - NCNO founder started Canopy Ventures with top 70 US banks as LPs
+  - Chose Casca as “next NCNO in AI age”
+- Zero outbound sales - all warm intros to VP/CIO level
+- Help banks translate AI into P&L value vs. just ChatGPT/Claude implementations
+
+### Current Reconciliation Challenges at Casca
+
+- Consumer side: automated account reconciliation through Plaid + internal integrations
+- Bank side: strong reconciliation issues in loan servicing
+  - Access account balances for health checks
+  - Account opening reconciliation through Plaid
+- Bank statement analysis problems
+  - Used to use foundation models (high error rate)
+  - Now work with external providers (still lots of transaction pulling/reconciliation errors)
+  - Specific mention of issues with data providers
+
+### Partnership Discussion & Timeline
+
+- They are interested in a partnership model
+- Most applicable area: embedded financing platform
+  - Banks capture deposits after loan origination
+  - Provide embedded financing to existing customers
+  - Reconciliation would benefit both banks and customers
+- Not current priority - still implementing existing account opening solutions
+- Circle back in 2-3 months when this becomes higher priority
+- Casca brings entire vendor suites to banks (recently brought 7 vendors to one bank)
+- Prefer working with proven solutions from trusted partners
+
+### Next Steps
+
+- Reconnect in Q4 2026 when embedded financing platform becomes priority
+- Ignacio to reach out when in San Francisco for in-person meeting
+- Explore partnership vs. embedded solution vs. reseller agreement options
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/c07e6da9-f9f6-4b1d-b939-550fb344b764](https://notes.granola.ai/t/c07e6da9-f9f6-4b1d-b939-550fb344b764)

@@ -1,0 +1,681 @@
+MEETING: Cameron Ramsay and Ignacio Berardi
+DATE: 2026-01-06
+ID: not_1aY4O0roauUlr0
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Cameron Ramsay <cameron.ramsay@bain.com>
+SCHEDULED: 2026-01-06T09:00:00-05:00 - 2026-01-06T09:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Hey, Cameron. How's it going?
+[Remote]: Hey, Ignacio.
+[Remote]: Doing very well. How are you?
+[You]: Doing good. Doing good. You're in London?
+[Remote]: I am
+[Remote]: in South Africa at the moment for a wedding.
+[You]: Oh, interesting. Very nice.
+[You]: Johannesburg or where?
+[Remote]: Cape Town. Cape Town.
+[You]: Cape Town.
+[Remote]: Yeah. It's unusually rainy and cloudy days,
+[You]: Cape Town. Nice.
+[Remote]: feels like I'm in London. But
+[You]: No. I saw the
+[Remote]: it's a lot warmer than London.
+[You]: the fan in the back of you. Was not that's not London for sure.
+[Remote]: Yeah. Exactly.
+[Remote]: How are you? Where where are you at the moment?
+[You]: I'm Caroline Uruguay.
+[You]: I came here to spend New Year's and Christmas with my family, and
+[You]: heading back to New York, this week on Thursday.
+[Remote]: Okay.
+[You]: So, yeah, just
+[You]: taking good advantage of the last good weather before going back to snowy.
+[You]: Negative Celsius degrees back in New York, but happy to get back.
+[You]: Lot of work to do. 2026 is gonna be very exciting for us, and
+[You]: eager eager and with with new energies to go back building.
+[Remote]: Yeah. Awesome. Awesome. Well, it's good to catch up. I mean, think a lot has happened. Right? And
+[Remote]: probably in both of our
+[Remote]: our sides. So I'm I'm keen to hear what you've been up to and the business you've started, and
+[Remote]: share a bit about what's going what's been going on with future back lunches as well.
+[You]: Sure. A 100%. I was trying to figure out when when was
+[You]: last time we spoke? Was it, like, 2024?
+[Remote]: Yes. I think it was the 2024.
+[You]: When I was, like, looking for a summer internship or something like that,
+[Remote]: Yes. We were speaking about, like, the
+[Remote]: VC world in general and sort of you wanting to potentially go into that world. Yeah.
+[You]: Interesting. Well, I'm just gonna do a chronological
+[Remote]: February 2024. So almost two years, it looks like.
+[You]: wow.
+[You]: Time flew by differently. It doesn't seem that long ago we spoke. So
+[You]: just a bit impressive how time flies.
+[You]: So just chronologically, what happened after that, I did
+[You]: I ended up doing a summer internship at a fintech called Kumun.
+[You]: Based in New York.
+[Remote]: Yeah.
+[You]: It's it's like a neo bank
+[You]: targeting Latinos living in The US. So, like, bottom of the pyramid Latinos, they're
+[You]: immigrants. Some of them with Visa. Some of them would not
+[You]: with Visa, and they're just providing a very simple banking solution in Spanish.
+[You]: For all that
+[You]: big segment. And they were, like,
+[You]: growing very fast. I joined
+[You]: seed stage, so they had just
+[You]: raised the seed round a couple months before.
+[You]: And
+[You]: and they were growing 30% week over week.
+[Remote]: Wow.
+[You]: Like sign ups
+[You]: deposits, TPV. It was it was going crazy.
+[You]: I was their chief of staff,
+[You]: but a chief of staff at a seed stage company. You might imagine this
+[You]: a lot of random stuff. There's not, like, a clearly defined role for that.
+[Remote]: Yeah.
+[You]: But just working with with both of the cofounders on on
+[You]: putting out fires. When you go that that fast, a lot of things
+[You]: start to catch fire, and I was just making sure that
+[You]: that
+[You]: pace of growth was not gonna kill us.
+[Remote]: Yeah.
+[You]: One of the things I ended up doing there,
+[You]: was an operational process called reconciliation.
+[You]: And this has two parts. Right? The first one is basically checking every single money
+[You]: flow we operate, that money is flowing in the right directions in the right amounts.
+[Remote]: Yeah.
+[You]: Every single day?
+[You]: By money flows, I mean every single product and every single partner.
+[You]: We operate with. Right? That means
+[You]: the cash in, cash out provider, the remittance provider,
+[You]: We had two remittance providers, so those are two flows.
+[You]: The debit card transactions, the ACH transactions. Basically, yeah, every single money flow that that
+[Remote]: Yeah.
+[You]: NeoBank was operating.
+[You]: And that's, like, the operational need
+[You]: the the operational reconciliation need.
+[You]: And then the second part is sort of like the accounting workflow that triggers
+[You]: at the end of the month.
+[You]: Which is basically reconciling the balances. Right? All the money flows you've been operating,
+[You]: during the month at the end of the month should add up to a
+[You]: specific balance that it's the balance you should be seeing at your
+[You]: sponsor bank account. Right?
+[Remote]: Yeah.
+[You]: Your FBO account. So
+[You]: basically,
+[You]: before that, there was no process. It was just the founders, the CTO,
+[You]: checking every once in a while that that balance is added up.
+[You]: And as we were growing that, that
+[You]: quickly, they he was like,
+[You]: the last few times I
+[You]: checked on it, there was big gaps, and and we should start building a process for this.
+[You]: Like a daily monitoring process. So he tasked me with that on the second part of my internship.
+[Remote]: Yep.
+[You]: And so I started building a workflow. Right? And and it was all about
+[You]: first getting the data,
+[You]: which was not that easy. Some of these providers have APIs,
+[You]: that you can ingest
+[You]: asynchronously every single day.
+[You]: Others are just sending you flat files via email.
+[You]: Or require you to
+[You]: go into a portal and download the CSV of transactions for that day.
+[You]: So that was tedious. That was hard. I'm just gonna
+[Remote]: Yeah.
+[You]: describe all the pains which ended up making me wanna start a business out of this.
+[Remote]: Yeah.
+[You]: Ingesting.
+[You]: Big pain.
+[You]: Transforming, all these files come in different formats. Right? There's no
+[You]: standard for data sharing or for the formats
+[You]: or the tags or the names of the columns of all these files.
+[You]: Additional complexity comes also from
+[You]: how these money flows are operating. Not all of these are real time payments. Some of these are
+[You]: like, batched payments at the end of the day. So
+[You]: so then you're matching
+[You]: many transactions to one transaction. It's not a one to one match.
+[You]: Match. So again, second source of pain is transformation and processing.
+[Remote]: Yeah.
+[You]: And then the third part of the vein is,
+[You]: of course, these things never match when you're comparing these files that should be the same.
+[You]: Terms of, like, an internal ledger against a report from a writer.
+[You]: Which both have the same set of transactions that they should be the same. They never the same.
+[You]: So then
+[You]: the workflow becomes about
+[You]: discrepancy, investigation, and and and resolution. Right?
+[You]: And that's where we lost a lot of time and a lot of money.
+[You]: Cause we were operating, I don't know, million transactions a month.
+[You]: And we were able to match 95%.
+[You]: So 5% you might imagine, is 500,000 transactions.
+[Remote]: Yep.
+[You]: Which
+[You]: of course, it was just me
+[You]: using SQL or Excel to investigate these transactions.
+[Remote]: Yeah.
+[You]: And so, of course, what what you end up doing is just, like,
+[You]: investigating the big ones
+[You]: or the
+[You]: most important providers and most important money flows. And the other ones, you're just, like,
+[You]: let's wait a couple days, and if not, let's just do a write off. Like, because it's stuff you cannot
+[You]: get the information to match. So that's when I started to get
+[Remote]: Yeah.
+[You]: a bit mind blown at how this workflow really works.
+[You]: Both on
+[You]: the the amount of money and time that is lost on it and the inefficiency of it.
+[You]: And the low level of visibility and control that these
+[You]: Fintechs and and and
+[You]: financial institution
+[You]: providers.
+[Remote]: Yeah.
+[You]: Have over the money flows they're operating. Right? And
+[You]: interestingly so, at the same time, I was doing this, the synapse thing happened in The US.
+[You]: Are you aware about what happened in the synapse?
+[Remote]: Possibly. But remind me.
+[You]: Synapse was a banking as a service provider.
+[You]: That went down for other reasons. But in the process of going down, they figured out they had a
+[You]: $95,000,000 gap with one of the sponsor banks they were operating with.
+[Remote]: Okay.
+[You]: Evolve Bank and Trust was the was the bank. It was a scandal. It was a shake
+[Remote]: Yeah.
+[You]: out. It was actually a shakeout for the fintech
+[You]: ecosystem in The US.
+[Remote]: Yeah.
+[You]: But it was a shakeout because suddenly everyone everyone's like, hey.
+[You]: Our money is not safe with these fintechs.
+[You]: And also shake out on the regulatory scrutiny that came afterwards. Right? Like,
+[You]: regulators were like, holy shit.
+[You]: This is obvious that this is just the tip of the iceberg, and that
+[You]: cannot imagine how these other fintechs are operating with. Right?
+[You]: So
+[Remote]: Yes.
+[You]: coming back to my second year at HBS,
+[You]: I was like, I wanna build a business out of this. This is this is a this is a real problem.
+[You]: That
+[You]: companies are willing to pay for because it's about it's about risk. It's a matter of risk.
+[You]: It's not the same selling a solution for
+[You]: automation or efficiency or just like the typical SaaS
+[You]: replacing people doing manual work.
+[You]: Versus selling something that's gonna reduce risk at compliance
+[Remote]: Yeah.
+[You]: and make sure that you're operating in a safe and healthy way. It's a hygiene thing. That's how I I
+[You]: like to describe it.
+[Remote]: Yep.
+[You]: So it came back to my to my second year
+[You]: and just triggered this discovery sort of, like, effort. You know?
+[You]: A 100 plus interviews, fintechs, banks, payment providers,
+[You]: banking as a service providers,
+[You]: Trying to understand, like, deeply what's what's the problem here, understanding the incentives.
+[You]: Understanding the tech side of it, and also investigating
+[You]: why hasn't this problem been solved yet.
+[You]: The main the main
+[You]: insight there is, of course, the first one is it's it's a real problem. Like, every single
+[You]: interview I did,
+[You]: soon as you mentioned reconciliation, they're like, ugh.
+[You]: Painful.
+[You]: Like, that's a first reaction every single person does when you talk about reconciliation.
+[Remote]: Yeah.
+[You]: And it not only happens with financial institutions, it also happens in insurance.
+[You]: And ecommerce. And, basically, every sin every vertical where
+[You]: you're integrating multiple payment flows and the the
+[You]: transactionality is high. Right?
+[You]: And the other insight was
+[You]: it hasn't been actually solved yet.
+[You]: Because it's
+[You]: a, hard technically,
+[You]: I was mentioning getting the data, transforming the data, and processing the data is hard.
+[You]: And b, because it's very nuanced.
+[You]: So every single setup, every single FinTech payment provider sponsored bank has a different setup.
+[You]: On how they operate money flows and how they wanna manage reconciliations.
+[Remote]: Yeah.
+[You]: Because they have different regulatory needs, they have different operational needs,
+[You]: and they're operating differently. The cool thing about FinTech is that everyone is building the setup the way they want.
+[You]: Again, some of these providers are doing it in batch
+[You]: transactions. Some of the things are doing it in real time transactions with cutoff times.
+[You]: But everyone is building the stack the way they want.
+[You]: That
+[You]: directly affects
+[You]: the reconciliation workload. So it's very hard to build like a static SaaS
+[You]: that is a one size fits all for all the companies you're gonna be serving.
+[Remote]: Yeah.
+[You]: So those were the two insights out of the discovery, which if you think about AI
+[You]: is really capable of solving. The first one, it's it's it's a data thing.
+[Remote]: Yep.
+[You]: It's a data orchestration thing that AI is really good at.
+[You]: Looking at structured data and understanding patterns and finding
+[You]: combinations and discrepancies on these files.
+[You]: Also on the ingestion side. And then on the on the Nuance,
+[You]: of the workflow,
+[You]: AI served like
+[You]: of course, lowering the gap of building SaaS. Right? So
+[You]: our vision for Xie is almost it needs to feel like you're building your own workflow. Like building your own SaaS internally. But you're doing it with a tool that is for nontechnical people so that you're not consuming internal tech resources. Like, we think about ten years from now, I'm happy to get your thoughts on this one is I think AI, what's gotta do is
+[You]: all the companies are just gonna start producing organic value, real value on stuff that's
+[You]: gonna make them different on their core, on their competitive advantage.
+[You]: All the rest of the enablement errors are gonna be
+[You]: AI agents.
+[You]: Including reconciliation, including financial operations, customer support, like
+[You]: these are not areas where companies are gonna
+[You]: really make make it or break it.
+[You]: So they're not gonna be investing organic resources on it.
+[You]: So we're all already seeing a lot of this happen in
+[You]: customer support, financial on the on the CFO stack,
+[You]: seeing a lot of things happen as well. Rexi is gonna be bridging the gap in
+[Remote]: Yeah.
+[You]: between the CFO stack and the COO stack.
+[You]: Because these workflows are inherently connected in every single company.
+[You]: And today, they're very siloed, and they're two different organizations and with different processes and so
+[Remote]: Yeah.
+[You]: on.
+[You]: So long story short,
+[You]: we're building RecC for
+[You]: to be a platform for the future of financial operations starting by Recony which is an incredible wedge, because that way we get into
+[You]: the transactional data.
+[You]: We sit in the middle of the stack and we become the data orchestrator to then build other
+[You]: workflows on top of that, like financial reporting, ledgering,
+[You]: even, functions for AML on fraud.
+[You]: We can even get into payments if we want. But, basically, that platform that it
+[You]: the CFO or the COO to operate,
+[You]: with a single data orchestration platform that has visibility across the stack and with
+[You]: all the integrations that they're running.
+[You]: Right now, of course, we're laser focused on providing
+[You]: a really good reconciliation workflow.
+[Remote]: Yep.
+[You]: And
+[You]: and it's been fun. So we've we've raised the pre seed round
+[You]: I I graduated in May. I started working on this
+[You]: as I said,
+[You]: fall twenty twenty four.
+[You]: Basically, started I I I did that discovery
+[Remote]: Okay.
+[You]: starting in August when I came back to my internship. When I finished that semester, a
+[You]: thing happened was I started developing this thesis, and I started going to these pitch competitions in Harvard.
+[You]: And and I started winning.
+[You]: I won this incubator program at MIT. I won
+[You]: the pair competition at Harvard. I won the NFX competition at Harvard.
+[You]: My cofounder won the AI startup challenge in Colombia.
+[You]: And with those wins, we got some grants
+[You]: We got some safe notes. We got some credits, and that's
+[You]: when 01/01/2025, we incorporated the company and started building.
+[You]: With companies we knew had to Spain and were willing to
+[You]: serve as design partners for us.
+[You]: For free.
+[You]: And I guess how we converted those design partners to pain
+[You]: customers is that we were able to raise a pre seat ground in July year.
+[You]: We raised 1,200,000.0 And with that, every everything took off. I moved to New York.
+[Remote]: Yep.
+[You]: We built a team. We're a team we're team of seven right now.
+[You]: It's me and my cofounder in New York, and we have the tech team, CTO plus
+[You]: CTO plus four based in Argentina.
+[You]: We're both Argentinians, we have access to great talent there. And, honestly,
+[You]: it's a fraction of the cost set in The US.
+[You]: So team of seven we have, paying customers live in the platform.
+[Remote]: Yep.
+[You]: And, yeah, building and selling, 2026 is gonna be awesome. I mean, there's there's so much
+[You]: to do, of course,
+[You]: a lot of learnings as we started building and selling it to customers.
+[You]: But the but the cool thing about what we're doing is there's there's two good news
+[You]: that I'm happy about and and proud about.
+[You]: So far. Right? The first one is
+[You]: I think three seat stage companies tend to have a hypothesis on the
+[You]: problem. And then once they start building and selling, they realize that the problem is elsewhere.
+[Remote]: Yes.
+[You]: And we've been lucky enough that
+[You]: time over time as we iterated with the customers,
+[You]: The pain point is just very real, and it's the same one we the same one I saw back in
+[You]: Kamoon and back in Bitso.
+[You]: And the same one my cofounders saw back in.
+[Remote]: Yeah.
+[You]: It's just it's just, like, reconciliation is vain, and they
+[You]: it's it's the same pain. So it's not like we're pivoting
+[You]: trying to find other things to build. It's more like
+[You]: we're lucky enough that today, it's more of an execution play.
+[You]: Can we actually build a great product, and can we
+[You]: sell it efficiently to these
+[You]: companies rather than pivoting to find another
+[Remote]: It's awesome.
+[You]: And the second thing I'm proud of is the team we've built. We've built an amazing team. It's it's
+[You]: we're three cofounders.
+[You]: With very relevant experience.
+[You]: In the space, and then we've hired
+[You]: four founding engineers that are
+[You]: awesome. Just like, know, like, ex Google, ex Mercado Power, ex Pomelo,
+[Remote]: Yep.
+[You]: and and
+[Remote]: Awesome.
+[You]: and yeah. So exciting times ahead. A lot of work yet to be done. A lot of
+[Remote]: Aquí,
+[You]: learnings yet.
+[Remote]: What what's the, what are the big twenty twenty six milestones in your mind?
+[You]: But
+[You]: Well, I'm I'm just gonna talk about it conceptually because
+[You]: of course, I have metrics, but at the end of the day, it's gonna be
+[You]: more about getting this conceptual
+[You]: organic value before fundraising again. And it's like the first one is
+[You]: nailing the IC nailing nailing the product for a specific
+[You]: ICP. So right now, have
+[You]: a pretty good set of paying customers, but they're from different verticals.
+[You]: Right? Like, we have a payment provider. We have a global payroll company. We have a neo bank. We have a sponsor bank. We have a BaaS provider. And it's like, they're very different customers, right, with different needs. And that that clearly doesn't scale at least at our stage where we need to really find the needs where we're good at and and just, like, firepower of that niche. So the milestone for me this quarter or or this first half of the year is
+[Remote]: Yeah.
+[Remote]: Yep.
+[You]: figuring out
+[You]: which specific vertical of customers we are really good at serving
+[You]: and then finding the right go to market motion to sell into them quickly and efficient
+[Remote]: Yeah.
+[You]: With that, once I see a little bit of signal on that, meaning
+[You]: we're really good at selling into
+[You]: payment providers that manage
+[You]: a, b, c integrations or products
+[You]: and
+[You]: way to sell into them is
+[You]: this and that channel.
+[You]: And that's how we're efficient selling into these companies.
+[Remote]: Yeah.
+[You]: And we can demonstrate that we have a shorter sales cycle, and our implementation is
+[You]: is also faster because our product is very well suited for their needs.
+[You]: That's when we're gonna go ahead and and fundraise our C ground.
+[You]: So it's a combination of
+[You]: finding that ICP that has a burning pain with this.
+[You]: We can sell into efficiently. Once we find that flywheel in which
+[You]: our product is really good for that segment, and we
+[Remote]: Yeah.
+[You]: able to sell into them quickly and fast and efficiently.
+[You]: When we're gonna say, okay. Let's fundraise to actually
+[You]: capture that opportunity. That's how I see fundraising. Like, once we
+[Remote]: Yep.
+[You]: find something that we can actually scale like, right now, we're doing a lot of stuff that doesn't scale. Right?
+[You]: Both on
+[You]: selling, it's me pushing pushing the car.
+[You]: Doing follow ups, going to conferences, and so on and so forth, which is good because
+[You]: it's the exploratory phase we're in.
+[You]: But it's not skill.
+[You]: On the product side, every every single customer we onboard
+[You]: we need to do a lot of implementation, which
+[Remote]: Yeah.
+[You]: a lot of handholding on on plugging the system. We need to do a lot of
+[You]: ad hoc developments of requirements that we had in Map before because this
+[You]: company is from new vertical that has this specific need.
+[Remote]: Natural.
+[You]: And and that doesn't scale. So, again, once we find find something that scales, it's when we
+[You]: we're gonna go ahead and fundraise
+[You]: our seed round this year for sure.
+[Remote]: Yeah. Makes complete sense. And
+[Remote]: who who from the paying customers you have today, like, who's the main
+[Remote]: you know, customer within the business that you're
+[Remote]: with? So you mentioned the CFO, COO, but are you selling into them directly, or is there sort of a
+[Remote]: specific team within finance that's buying this?
+[Remote]: Who's your main customer?
+[You]: Well, it it again, given these are
+[You]: different customers, it depends. On financial institutions, so anywhere in the stack
+[You]: of
+[You]: a fintech
+[You]: or a sponsor bank.
+[You]: Typically, it's the finance department.
+[You]: Because they are the ones also doing the operational workflow
+[You]: of reconciling every single day.
+[You]: And
+[You]: if we sell directly, our our user is typically not
+[You]: CFO. It's
+[You]: a head of finance yeah, or a finance lead. It's like that first hire after
+[Remote]: Okay.
+[You]: the CFO.
+[Remote]: Yeah.
+[You]: Because that's the one owning the workflow, both the operational one and the accounting one.
+[You]: On companies,
+[You]: more on the payment side,
+[You]: or or, like, ecommerce platforms or insurance, it's more like the ops team.
+[You]: So it's it's a combination of having
+[You]: real buyer and the budget owner is always the CFO or the COO.
+[Remote]: Yeah.
+[You]: The user and the sponsor and the one pushing us and the one, like,
+[You]: going through the proof of concept with us and and really pushing the solution like, hey. We need to buy this.
+[You]: Typically, it's like a head of finance or a finance lead or a
+[Remote]: Okay. Got it.
+[You]: of ops or an ops lease.
+[You]: Within finance,
+[You]: we see a lot of
+[You]: fit with treasury teams and accounting teams because, again, it it just impacts them directly.
+[Remote]: Yeah.
+[Remote]: Okay.
+[Remote]: Oh, रालाशित?
+[You]: Hi, Lasha. You're back. You're back.
+[Remote]: Okay. No. I was just saying it's six it's
+[Remote]: an exciting update. It's cool that you've, ended up in the in the start up world and you sort
+[Remote]: of taking something on. This is this is awesome.
+[Remote]: I'm glad we connect.
+[You]: Yeah. It's it's it's been fun. But how about you tell me more about about the
+[You]: fun and and what changes have been happening on your side.
+[Remote]: Yeah. Look. On our side,
+[Remote]: we've mostly probably been executing what what we spoke about last time.
+[Remote]: 20 portfolio companies now. It should be 21 in the next week or two with
+[Remote]: got another deal closing right now.
+[Remote]: We'll probably
+[Remote]: finish off with the first fund in March or April this year.
+[Remote]: And be rolling straight into a second fund, which is exciting. So
+[Remote]: we still need to raise that fund in the next couple months, hoping that it will be
+[Remote]: you know, 50% to a 100% larger than the first fund, which means
+[Remote]: you know, writing investment checks of closer
+[Remote]: a million dollars or up to a million dollars, which which is sort of the
+[Remote]: step that we'd like to take.
+[Remote]: But for the most part, executing exactly as we wanted to. You know? We've
+[Remote]: we've stuck to the thesis of being alumni founded businesses and led businesses.
+[Remote]: We've remained a global fund, although we we do have a US focus. It's just sort of where we see a lot of the quality deals.
+[You]: Yep.
+[Remote]: Have three in The UK. We have a business in France. We have a business in Australia.
+[Remote]: APAC is a bit of a blind spot for us, but something we're working on. Same same as LatAm.
+[Remote]: But we've also been happy with sort of the the generalist thesis. You know? We've got
+[Remote]: we've got a portfolio of companies that are not all b to b SaaS, although
+[Remote]: have lots of B2B SaaS because it's it's a great place to invest.
+[Remote]: But we also have, like, robotics. We have logistics. We have
+[Remote]: fintechs. We have consumer software. So
+[Remote]: we have a web variety of different things, which is which is great.
+[Remote]: So, yeah, it's been a
+[You]: Do you guys invest in Alef?
+[Remote]: it's been working.
+[You]: From Albert Gauzy?
+[Remote]: No. We looked at her left. I I've spoke to Albert quite a lot.
+[Remote]: To know him quite well now, but
+[Remote]: we didn't invest because
+[Remote]: like, I think the round was just
+[Remote]: moving on with our
+[Remote]: Cosler Ventures weren't very interested in, like,
+[Remote]: sharing information from their experience or anything. So
+[Remote]: it kind of made it a hard process, to be honest, for us.
+[Remote]: And we
+[Remote]: yeah, we just couldn't get we just couldn't get enough conviction in the time we had, frankly.
+[You]: Got it. And you guys typically do
+[You]: series a, series b, or more like c you do c drones?
+[Remote]: No. It's c c series. I
+[You]: In Tuesday.
+[Remote]: So we do a lot of seed, and we do a lot of series a.
+[You]: Got it.
+[Remote]: Certainly, if you guys raise in 2026, like, let's let's have a conversation, and let's
+[Remote]: let's chat as soon as that's on your mind. You know?
+[Remote]: We can we can certainly have a have a serious conversation about potentially investing at that point.
+[You]: Sure. A 100%. And and you guys
+[You]: lead or co lead or typically just follow?
+[Remote]: Some people you just follow. Look. Like I said, the
+[Remote]: the second fund, some stuff might change. Depends on the size of the fund.
+[Remote]: But I suspect
+[Remote]: it'll still be a relatively small fund, and that sort of probably makes sense for us to continue to just
+[Remote]: be a follow on investor.
+[Remote]: But
+[Remote]: the the one thing I would say is that
+[Remote]: we like to come to our own conclusions about deals rather than being a follow on that
+[Remote]: a follow investor that just
+[Remote]: invests because x y z other fund is investing. So
+[You]: Of course.
+[Remote]: like, that's why that's why we couldn't make a left work, for example. I think
+[Remote]: I think Coesler were leading around and were like,
+[Remote]: of their opinion, that's
+[Remote]: seeing as they're leading it, anyone else should just jump on board. But
+[Remote]: you know, you you know what Bain is like. It's it's
+[Remote]: of people that want their own opinions and have their own thoughts. And so
+[Remote]: yeah, we try and we try and stick to investments that we feel like we
+[Remote]: personally have, like, had the opportunity to learn about, think about, get our heads about. So
+[Remote]: so, yeah, we we we like to do a lot of, like, outside intelligence. We obviously
+[Remote]: keep it pretty light for the founding team.
+[Remote]: We let you guys, like, focus on the lead investors, etcetera.
+[Remote]: But we do a lot of our own diligence, speak to our own experts,
+[Remote]: Like to also chat to the lead investor who is involved because it's nice to sort of
+[Remote]: just get to know them and understand, like, how
+[Remote]: the way that they're seeing the deal. But
+[Remote]: that's kind of how we think about it.
+[You]: Got it. Got it. Very cool. And and just one last question, which I'm curious about. Like,
+[You]: how has the thesis unfolded on
+[You]: just investing in Bain alumni? Like, how how
+[You]: how are you seeing that unfold?
+[You]: I I remember there was a metric that a lot of people out of Bayne go and start
+[You]: companies. Like, really
+[You]: big portion of people do that.
+[Remote]: Yeah.
+[You]: But how does that translate into actually generating VC returns?
+[Remote]: Yeah. That metric was 8% of even start their own business
+[Remote]: at some point.
+[Remote]: Look. So we
+[Remote]: obviously still early days. Right? Like, we are
+[Remote]: two and a half,
+[Remote]: close getting close to three years into the thumbnail.
+[Remote]: But a lot of the a lot of the investments we've made are
+[Remote]: twelve months, eighteen months old at this point. So
+[Remote]: in the life of venture, it's still a very young portfolio.
+[You]: Yep.
+[Remote]: And so no one can tell you how well the fund is performing until
+[Remote]: another three years has passed probably.
+[Remote]: But from the
+[Remote]: leading indicators,
+[Remote]: would say it's all very positive. Like, we have
+[Remote]: strong deal flow.
+[Remote]: Relevant to the space that we wanna be investing. Right? So very strong VC focus
+[Remote]: deal flow.
+[Remote]: We don't have to, like,
+[Remote]: put
+[Remote]: deals into our portfolio that don't feel rightful venture. We have plenty deals to look at, which
+[Remote]: is great.
+[Remote]: We see a lot of deals that
+[Remote]: have attracted very
+[Remote]: high quality capital, and we have access to those deals.
+[Remote]: Likes of Aleph, for example. You know, we we see a lot of these sorts of deals that have really name brand
+[Remote]: investors involved, so that's a good leading indicator of of sort of the deals we can get into.
+[Remote]: We see very high quality bayonies, like people that have
+[Remote]: exceptional records at Bain going on to start businesses and
+[Remote]: and wanting to take capital from from FBV, which is awesome.
+[Remote]: And then we have
+[Remote]: five of our 20 companies have been marked up already in in
+[Remote]: just just since we've invested. So
+[Remote]: one of them just raised a 100,000,000 from Blackstone,
+[Remote]: Another one raised, like, 30,000,000 from another DC fund.
+[Remote]: In December, And, yeah, that's there there's a bunch of them which are which are going really well. So
+[Remote]: the leading indicators are positive. But like I said, who who knows until probably
+[You]: Too soon to tell.
+[Remote]: four years from now?
+[You]: Interesting. Interesting. And then in terms of value add, you guys do leverage
+[You]: the the Bay network of experts and and, like, the consulting arm
+[You]: to add value to these companies?
+[Remote]: Yeah. Absolutely. We have a permanent member on our team who's focused on
+[Remote]: portfolio company support.
+[Remote]: Currently, he's a New York based senior manager at Bain, so it's someone that
+[Remote]: they do six month rotations, but
+[Remote]: it's permanently filled role.
+[Remote]: And that person basically coordinates everything from whether it's a workshop with a couple of being partners,
+[Remote]: introductions to Bain clients, access to IP, like, whatever it is that
+[Remote]: our portfolio companies need.
+[Remote]: We coordinate to make that happen,
+[Remote]: yeah, NPS is super high. Portfolio companies are there.
+[You]: I think that's huge.
+[You]: I think that's huge. Like, that that will be
+[You]: I I think that's
+[You]: you guys are differentiated, and it's a I think it's a huge value add. Like,
+[You]: having, like, someone
+[You]: with that level of support and connections in network,
+[Remote]: Yeah. Certainly. I mean,
+[You]: it's it's it's it's very interesting.
+[Remote]: it's a big part of how we
+[Remote]: I think, get access to these deals. You know? People are excited about that access.
+[Remote]: People are excited about what Bain can can help not just today, also, like,
+[Remote]: six years from now with the connections that we have in private equity, like, all the different
+[Remote]: sorts of things. Right? Like,
+[Remote]: probably the company that's gonna buy your company
+[Remote]: Bain has a relationship with. You know? Like, it's
+[You]: Yep.
+[Remote]: a lot of different ways.
+[Remote]: We can help along the lifecycle of the start ups. So
+[Remote]: yeah, I think it's
+[Remote]: I like to think we're good partner. So it's it's it's positioned to be a nice place.
+[You]: Yeah.
+[You]: Very nice. Very nice. I need to jump camera, but it was great
+[You]: catching up. I was just gonna say, if there's if you're gonna be in New York or anyone in your team
+[You]: gonna be in New York,
+[You]: happy to just
+[You]: start creating that relationship with whoever's there, with you or or whomever.
+[You]: As we continue building towards that seat raise. I think I'm I'm very
+[You]: interested in in in what you just mentioned, and and we will be fundraising this year. So
+[You]: let's get let's make sure you guys get all the information
+[You]: you need before that happens, and and we start creating a relationship early. And
+[You]: and, again, if there's someone in New York worth meeting, happy to
+[Remote]: Yeah.
+[You]: get intro to that person.
+[Remote]: Don't have someone permanently there, so he'll be done in, like, a month. So
+[Remote]: probably you and I just like, let's have another catch up in a few months and just stay connected.
+[You]: Very cool, Cameron. Alright. Thank you so much. You have a great week.
+[You]: And and we'll be in touch.
+[Remote]: Just YouTube. Just Ignacio.
+[You]: Bye bye.
+
+============================================================
+SUMMARY
+============================================================
+### Cameron’s Current Update
+
+- Future Back Ventures progress
+  - 20 portfolio companies, 21st closing next week or two
+  - First fund closing March/April 2026
+  - Second fund raising starting soon (50-100% larger)
+  - Target investment checks closer to $1M vs current smaller amounts
+- Investment thesis execution
+  - Alumni-founded businesses focus maintained
+  - Global fund with US concentration for quality deals
+  - 3 UK companies, 1 France, 1 Australia
+  - APAC and LatAm still blind spots
+  - Generalist approach: B2B SaaS, robotics, logistics, fintech, consumer software
+- Portfolio performance indicators
+  - 5 of 20 companies already marked up since investment
+  - One raised $100M from Blackstone
+  - Another raised $30M in December
+  - Strong deal flow with high-quality capital attraction
+
+### Investment Approach & Value Add
+
+- Investment strategy
+  - Seed and Series A focus
+  - Follow investor approach (not leading rounds)
+  - Independent diligence vs automatic follow-on
+  - Own conclusions required before investing
+- Bain network leverage
+  - Permanent NY-based Senior Manager for portfolio support (6-month rotations)
+  - Workshops with Bain partners
+  - Client introductions and IP access
+  - PE connections for future exits
+  - High NPS from portfolio companies
+
+### Ignacio’s Business Update
+
+- Rexi platform development
+  - Financial operations platform starting with reconciliation
+  - Addresses 95% match rate problem (5% = 500K transactions/month unmatched)
+  - AI-powered data orchestration for nuanced, customized workflows
+  - Vision: AI agents for non-core business functions
+- Fundraising & growth milestones
+  - Pre-seed: $1.2M raised July 2025
+  - Team of 7: 2 cofounders in NYC, CTO + 4 engineers in Argentina
+  - Multiple paying customers across verticals (payment providers, neo banks, BaaS, sponsor banks)
+- 2026 priorities
+  1. Nail specific ICP from current diverse customer base
+  2. Optimize go-to-market motion for chosen vertical
+  3. Demonstrate scalable sales cycle and implementation
+  4. Raise seed round after proving scalable flywheel
+
+### Next Steps
+
+- Cameron and Ignacio to reconnect in few months as seed fundraising approaches
+- Potential FBV investment conversation when Rexi raises in 2026
+- NYC meeting coordination if FBV team visits (current NY person rotating out in \~1 month)
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/9433324b-4862-4ec6-8a24-409d9b935690](https://notes.granola.ai/t/9433324b-4862-4ec6-8a24-409d9b935690)

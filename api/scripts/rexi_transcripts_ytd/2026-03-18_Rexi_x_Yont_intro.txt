@@ -1,0 +1,430 @@
+MEETING: Rexi x Yont: intro
+DATE: 2026-03-18
+ID: not_HLogcSM2NNKqPg
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Matias <matias@yont.com.ar>, Dino <dino@yont.com.ar>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-03-18T14:00:00-04:00 - 2026-03-18T14:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Todo bien, por suerte. Bueno, un gusto
+[Remote]: Todo bien y vos?
+[You]: un gusto enorme conocerlos. Gracias por
+[You]: por
+[You]: con nosotros. Si les parece bien,
+[You]: esta reunión es medio discovery, obviamente, para conocernos, les cuento un poquito más
+[You]: sobre nosotros, que hacemos esta TEO, mi cofounder,
+[You]: Si les parece bien,
+[You]: les hago una breve intro sobre nosotros, qué hacemos
+[You]: somos, en qué nos enfocamos,
+[You]: después nos encantaría meternos de lleno en en
+[You]: en qué en por qué se contactaron con nosotros, cuáles son los dolores,
+[You]: y básicamente sería el objetivo de esta llamada, es evaluar fit.
+[You]: Si no hay fit, soy el
+[You]: che, creo que esta otra herramienta por ahí es mejor para vos, y si hay fit, encantado de ver ahí
+[You]: un próximo paso de por ahí ver una demo y
+[You]: y mostrarles más sobre la solución. Pero
+[Remote]: Dale.
+[You]: dejame que
+[You]: te abro acá un un one pager que que suelo usar para
+[You]: para estos casos,
+[You]: para un poco
+[You]: presentar la solución y un poquito quiénes somos,
+[You]: Entonces, básicamente,
+[You]: Rexy viene a resolver un problema
+[You]: muy grande en servicios y en otras verticales también,
+[You]: que es el problema de
+[You]: la complejidad operacional que surge de tener
+[You]: muchas fuentes de información dispersas.
+[You]: ¿Sí? Esto pasa mucho en banca, pasa mucho en seguros,
+[You]: pasa mucho en marketplaces, cualquier compañía que tenga
+[You]: múltiples flujos de pago y una transaccionalidad alta,
+[You]: tiene un un lindo desafío para conciliar todo ese
+[You]: información y entender verdaderamente cuál es la fuente de la verdad.
+[You]: Un banco, tienes un procesador de pagos, tienes un ledger con órdenes internas,
+[You]: tienes un proveedor externo que también te manda un archivo transaccional con lo que opero ese ese partner,
+[You]: Digo, eso era lo que ustedes seguramente al estar integrados con varios providers deben vivir. Esto es algo que, de vuelta, genera un costo, costo operativo de tener personas mirándolo, genera un costo de muchas veces las pérdidas irreconciliables, esas cosas que no te cuadran y a fin de mes no las podés cuadrar, Y después, por último, genera un riesgo muy grande, ¿no? No sé si ustedes o algunas compañías con las que trabajamos, tienen necesidades, requerimientos de reguladores, o de frameworks de compliance, y el no poder conciliar bien toda esta les termina generando o una multa o un o le quitan la licencia, etcétera. Entonces,
+[You]: típicamente, el el impacto que que logra una herramienta como
+[You]: con el punto más un poco cómo funciona es
+[You]: automatización de tareas manuales,
+[You]: reducción de pérdidas irreconciliables y reducción de riesgo regulatorio de compliance.
+[You]: Ahora, ¿cómo funciona RICSI, no?
+[You]: Rexy, básicamente, es una herramienta que te permite automatizar el flujo
+[You]: de principio a fin, el flujo de conciliaciones. Hoy estamos enfocados cien por ciento en conciliaciones.
+[You]: La visión a futuro es convertirnos como el plot code
+[You]: para FinOps
+[You]: vamos a tener muchos más templates y verticales de workflows
+[You]: para que CFOs y COOPs puedan automatizar casi que sus departamentos enteros,
+[You]: con flujos agénticos, pero hoy estamos específicamente
+[You]: enfocados en conciliación, es decir, en automatizar este proceso.
+[You]: Entonces, básicamente, somos un orquestador de información, nos
+[You]: a las fuentes
+[You]: para ingestarle sus archivos de manera sincrónica,
+[You]: Luego hacemos todo lo que es el parsing, el parsing es la transformación o ese preprocesal
+[You]: para luego empezar a matchear
+[You]: transacciones. Después matcheamos transacciones con una lógica conciliatoria,
+[You]: que ahí absorbemos lo que ustedes saben de sus archivos, y también tenemos agentes que
+[You]: encuentran patrones y proponen reglas.
+[You]: Y por último, tenés todo lo que es la investigación y resolución de discrepancias, que es donde típicamente
+[You]: se dedica el mayor tiempo, ¿no? Una vez que tenés un flujo automático,
+[You]: nunca cuadra cien por ciento, entonces ahí donde los equipos se tienen que meter a investigar
+[You]: esas diferencias. Ahí también tenemos tecnología
+[You]: con inteligencia artificial, la gente que que se mete
+[You]: arma clusters de transacciones, te identifica la causa raíz,
+[You]: te propone una solución. Y a medida que vos operás, usuario opera
+[You]: aprueba o rechaza esa solución,
+[You]: el sistema empieza a aprender. Aprende de los archivos y de la información estructurada,
+[You]: y aprende de las acciones del cliente. Entonces, eso quiere decir que
+[You]: justamente, el sistema se vuelve mejor en el tiempo,
+[You]: con el uso, ¿no? Un poco del impacto que tuvimos con
+[You]: clientes iniciales, de vuelta, reducción de tareas manuales en un ochenta por ciento, esto medio en horas,
+[You]: redujimos las pérdidas irreconciliables en un noventa y cinco por ciento, eso lo queremos llevar a
+[You]: a cero, porque no debería haber pérdidas irreconciliables,
+[You]: y después, ninguno de nuestros clientes tuvo algún riesgo de compliance regulatorio, porque también
+[You]: la creación de esos reportes y
+[You]: asegurarnos que está
+[You]: conciliado para presentar a cualquier regulador.
+[You]: ¿Cómo estamos armando Rexy y por qué es diferente de otras soluciones en el mercado? Primero y principal,
+[You]: somos AI native.
+[You]: ¿No?
+[You]: Todo nuestro stack, toda la arquitectura está construida con una lógica
+[You]: con distintos context windows, para que agentes se vuelvan
+[You]: expertos en esa tarea específica, ¿sí? Y eso también
+[You]: mucho de por qué por ahí es mejor contratar a Rexy que construirlo internamente.
+[You]: Y eso es porque nuestros agentes están entrenados
+[You]: con las casuísticas de todos nuestros clientes.
+[You]: En lugar de por ahí un agente que uno desarrolla internamente y solo aprende del context window interno, ¿no?
+[You]: Idea es que, justamente, sea muy configurable y muy flexible,
+[You]: para que la implementación sea rápida, que sea fácil de usar,
+[You]: que sea
+[You]: Para eso, bueno, mucho poco en el diseño y en la
+[You]: experiencia, y de vuelta en tecnología agéntica que acompañe al usuario a crear esa lógica. La idea es que de vuelta sea mucho más plug and play, que no sean procesos de implementación de meses en donde el time to value se termina alargando mucho y se diluye el impacto del tiempo, Y lo último que mencionaba, que que es self learning. Un poquito las verticales es donde trabajamos hoy principalmente. Bancos, seguros, fintech, una adquirencia de emisión, el mundo de PCPs y de pagos, y estamos empezando a trabajar con marketplaces e ecommerce. Y por último, menciono un poquito sobre la infraestructura. De vuelta trabajamos con información transaccional, que sabemos que es
+[You]: sensible, que tiene que ser privada, con lo cual
+[You]: es muy importante para nosotros que la plataforma sea bien robusta en el manejo de esa información,
+[You]: con lo cual ya estamos certificados con SOC dos tipo dos, estamos en proceso de tener
+[You]: SOC uno tipo dos y
+[You]: hizo veintisiete mil uno,
+[You]: y también trabajamos con mecanismos para encriptar la la información, con hasheos,
+[You]: para para preservar esa privacidad de la información.
+[You]: Eso es un poquito sobre, un poquito lo que hacemos. Entonces, para cerrar, si quieren, es
+[You]: es una plataforma que se ingesta estos archivos transaccionales
+[You]: y con inteligencia artificial automatiza
+[You]: el proceso de conciliaciones.
+[You]: Generando
+[You]: reducción de tareas manuales,
+[You]: reducción de pérdidas irreconciliables,
+[You]: reducción de riesgo regulatorio y de compliance. Eso es un poquito
+[You]: estamos trabajando hoy. Lo único, lo último cierro
+[You]: somos todos argentinos, Teo y yo estamos basados en Nueva York,
+[You]: un mercado muy importante para nosotros es Estados Unidos, donde ya tenemos clientes en producción acá,
+[You]: Todos los clientes que vienen en Latinoamérica son un poco por nuestras redes, es
+[You]: inbound reactivo que recibimos, pero también tenemos clientes en Argentina,
+[You]: en Venezuela, en Colombia, en México. Así que
+[You]: nada, con un footprint
+[You]: en todo Américas, si quieren,
+[You]: pero pero con mucha presencia en ambos lugares. El equipo técnico CTO, con todo el funding
+[You]: team están en Argentina, y los uno que estamos en Nueva York somos teo y yo.
+[Remote]: Ok. Bien, te cuento un poquito nosotros
+[Remote]: la necesidad que estamos teniendo y vemos ahí si
+[Remote]: terminamos de de hacer match. Nosotros
+[Remote]: tenemos varias empresas, no es una única, entre ellas una es una PC
+[Remote]: entonces, la conciliación de PCPs, entiendo que que lo hacen,
+[Remote]: Hoy, en realidad, no es algo que que realmente nos
+[Remote]: urja y preocupe, porque no tenemos todavía pagos
+[Remote]: con QR, lo cual genera un montón más de de transacciones,
+[Remote]: simplemente transferencias, y después toda la parte de
+[Remote]: inversiones en mercado de capitales y demás. Pero después, además, tenemos varias
+[Remote]: empresas, entre ellas también tenemos otra empresa que otorga
+[Remote]: créditos y una empresa que realiza cobranzas, tanto propia como de terceros.
+[Remote]: Entonces, las consideraciones bancarias lo que solemos tener es
+[Remote]: bastante trabajo operativo de, primero, porque tenemos
+[Remote]: lo menos, por empresa cuatro bancos,
+[Remote]: después, en cuanto a tema de conciliaciones, la PCP tiene un montón de movimientos y después la que da créditos, y la que
+[Remote]: realiza la cobranza de los créditos al ser propia de terceros también tiene otro millón de movimientos, ya que
+[Remote]: tenés, bueno, todas las cobranzas de los créditos, todos los impuestos que te cobran por cada uno de
+[Remote]: de los créditos que cobraste, todas las gastos y comisiones bancarias que
+[Remote]: después hay que aplicarlo según corresponda a cada una de las empresas.
+[Remote]: Entonces, lo que estábamos buscando acá es, bueno,
+[Remote]: algún sistema para automatizar todas estas conciliaciones que de
+[Remote]: ¿cómo es?, de de todos los bancos, todas las empresas,
+[Remote]: con, ¿cómo es?, con
+[Remote]: con el menor tiempo humano posible,
+[Remote]: que bueno, entiendo que eso hoy en día se se está empezando a desarrollar.
+[You]: Exactamente.
+[Remote]: Una pregunta, chicos.
+[Remote]: Ustedes hoy dijeron que están trabajando con clientes en Argentina, ¿son billeteras esos clientes,
+[You]: Sí.
+[Remote]: sea,
+[Remote]: tienen como alta reguladora el Banco Central de atrás,
+[You]: Sí, estamos trabajando con
+[You]: PSPs y también con bancos en Argentina.
+[Remote]: Ok. ¿Y el volumen
+[Remote]: que que que ustedes dicen, mirá, para para que esto realmente sea eficiente,
+[Remote]: de su lado,
+[Remote]: tenés que tener un volumen estimado de operaciones o transacciones x,
+[You]: Por el mínimo, ¿asís?
+[Remote]: ¿Los tiene?
+[You]: Volumen mínimo, decís, o te preocupa al máximo.
+[Remote]: ¿Cómo?
+[Remote]: Claro, un volumen... No, no, no, para arriba de
+[Remote]: entiendo que es superescalable, me me refiero a esto, un volumen mínimo de de transacciones.
+[You]: Ahí vi que la
+[Remote]: No.
+[You]: en la
+[You]: en el form dice, ustedes tienen entre uno y cinco millones
+[You]: de transacciones mensuales.
+[Remote]: Cantidad de transacciones, no.
+[Remote]: No, no, no.
+[You]: Ah, uno de cinco millones es el el valor monetario.
+[Remote]: Sí, exacto.
+[You]: Por mes.
+[Remote]: Sí.
+[You]: ¿Cuántas transacciones son, más o menos, por mes?
+[Remote]: Sí.
+[Remote]: No, no lo tengo ahora, el número.
+[Remote]: Está perfecto. Igual, Dino, contestando tu pregunta,
+[Remote]: tenemos clientes que operan con un par de miles por mes,
+[Remote]: y y no
+[Remote]: Por lo general, la pregunta viene más del otro lado, por lo la que nos decía Nacho, de millones
+[Remote]: del lado del mínimo para que sea una herramienta eficiente, no no no hay.
+[Remote]: O sea,
+[Remote]: podés hacer ejercicios de un par de miles, un par de cientos, y está perfecto.
+[Remote]: Ok.
+[Remote]: Acá con, en Argentina, ¿con qué bancos trabajan?
+[Remote]: Entiendo eso va a ser otro tema.
+[Remote]: No todos los bancos hoy en día están
+[Remote]: No, depende. Nosotros, o sea, siempre buscamos
+[Remote]: automatizar la ingesta
+[Remote]: vía integración directa con API,
+[Remote]: no es el cien por ciento, entonces, alguno de nuestros clientes directamente
+[Remote]: recibimos vía email, la verdad que lo lo tratamos de de de solucionar en en un caso
+[Remote]: por caso.
+[Remote]: Pero sí buscamos siempre que sea automático.
+[Remote]: Ok.
+[You]: ¿Usted con qué banco opera con el BIN?
+[Remote]: No.
+[You]: ¿Comafi? Bueno, ya la tenemos O teníamos, o estábamos trabajando con Buenbit, trabaja con Coinal, pero en su caso ellos ya habían hecho un conector
+[Remote]: La PCP la tenemos en
+[Remote]: Perfecto.
+[You]: nosotros consumíamos de alguna base interna. Si ustedes ya están trayendo sus archivos a una base
+[You]: propia, nosotros lo podemos tomar ahí también,
+[Remote]: Sí, sí, con Coina ya estamos conectados.
+[Remote]: Pero nos falta conexión, bueno, comercio, ya
+[Remote]: nos dijeron que tienen, pero todavía no nos conectamos. Banco provincia y Banco Nación todavía no estamos conectados.
+[Remote]: Y Santander tampoco.
+[Remote]: No sé si con esos tienen alguna conexión con algún cliente.
+[You]: No.
+[You]: Pero, digo,
+[You]: si no tienen APIs, simplemente ahí nos facilitan ustedes una conversación con los equipos de ellos,
+[You]: para hacer un SFTP
+[You]: Debería ser straightforward, digo, lo deben hacer con varios otros clientes,
+[You]: y deberían poder hacerlo con ustedes.
+[Remote]: Okay.
+[Remote]: Ahí nosotros tenemos flexibilidad.
+[Remote]: Si ustedes prefieren que ingestemos directo de un data link suyo,
+[Remote]: y automaticemos todas las personas desde ahí, está perfecto.
+[Remote]: Si prefieren que nosotros vayamos directo al proveedor de la información y
+[Remote]: nosotros directamente, también lo hacemos.
+[Remote]: Tenemos esa flexibilidad.
+[Remote]: Ok, sí, no, estaba pensando más en alguno de estos bancos que pudiera no tener
+[Remote]: conexión por por API o FTP, pero
+[Remote]: bueno. Y ahí ustedes como
+[Remote]: cómo es después el el...? ¿Cómo es?, el cruce de información y la conciliación,
+[Remote]: sea, contra dónde generan los dashboard o el control
+[Remote]: de que esté conciliando bien la parte de análisis manual y demás. Eso, nada, eso ese es lo central de lo que hacemos. O sea, automatizamos la ingesta de información la estandarizamos porque viene de todos los diferentes proveedores, entonces, tal vez vienen, en uno vienen centavos y en otro en dólares, entonces, la de la la la estandarización de información o los formatos fecha, o tal vez algún tipo de cálculo de más que haya que hacer, se prepara la información entre las diferentes fuentes de datos se genera completamente de manera no code y muy, muy fácil de hacer la automatización de las reconciliaciones, ahí tenemos mucha flexibilidad, one to one, one to many, many to many,
+[Remote]: con tolerancia en fecha, tolerancia al monto, en
+[Remote]: porcentaje, todo lo todo lo que hagan a nivel conciliatorio de su lado, yo creo que
+[Remote]: lo lo podemos resolver, ¿no? Hemos encontrado
+[Remote]: ningún caso todavía donde no podamos.
+[Remote]: Y después, obviamente, tenemos todo lo que es resolución de crepancias,
+[Remote]: sugerencia de reglas nuevas, sugerencia de
+[Remote]: o o insights de por qué es que no está no está macheando algo, si es
+[Remote]: algún impuesto mal aplicado, si son diferentes períodos de tiempo entre la base de datos, si
+[Remote]: se puede mejorar o reducir o aumentar la la ambigüedad.
+[Remote]: O las tolerancias,
+[Remote]: Y después, obviamente, tenemos módulo de dashboard,
+[Remote]: completamente personalizable, que para que puedan compartir intraequipo y demás.
+[Remote]: Que lo puedan diseñar ustedes,
+[Remote]: y, obviamente, todo tipo de
+[Remote]: alarmas vía Slack, vía email,
+[Remote]: automatización de generación de reportes,
+[Remote]: en base a la información conciliada, automatización de generación de asientos contables, también
+[Remote]: hacemos para alguno de nuestros clientes,
+[Remote]: con Oracle. Son dos procesos que vimos que eran muy manuales en el
+[Remote]: clientes y que fuimos directamente
+[Remote]: productizando y automatizando.
+[Remote]: Ok, está bien. A lo que iba con esto es, ustedes, por ejemplo,
+[Remote]: tienen una un diseño donde
+[Remote]: UI para que un administrativo pueda hacer el control de esto. Por cierto.
+[Remote]: Completamente NoCode, es una herramienta algo que
+[Remote]: no tiene conocimientos técnicos, que no sabe Python, no sabe nada, se mete y arma sus propias procesos y sus propios dashboards, todo completamente no code. Bien. Y ahí una pregunta más, La en la parte de conciliación, ¿hasta dónde podemos ir? Pues nosotros más allá de de, va, de caso. Nosotros después con todas estas conciliaciones, más allá de de encontrar los saldos a qué corresponde y demás, empezamos a determinar, por ejemplo, área a la corresponde, sub área, detalle y demás, para después hacer distintos análisis. Todo eso también se podría incluir en esto. Sí. Tendría que ver bien, a nivel técnico, a qué se refieren, o sea,
+[Remote]: cómo identificás de qué área es y demás,
+[Remote]: pero sí, obviamente Es que, claro, hay algunas que son por regla, después
+[Remote]: otras va a quedar manual a a a esta persona.
+[Remote]: Sí, igualmente,
+[Remote]: tendría que ver en detalle, ¿no?, pero cada vez eso manual
+[Remote]: va a quedar
+[Remote]: menos y menos. Pero sí, tiene toda la las herramientas para
+[Remote]: que sea colaborativo
+[Remote]: intra intraempresa, o sea, que varias usuarios cada uno deje sus propias
+[Remote]: conciliaciones, sus propios procesos haga su, tiene permisos personalizables, vos crees que
+[Remote]: este tipo de esta área puedan modificar o generar conciliaciones
+[Remote]: manuales, pero no automáticas y demás?
+[Remote]: Ok.
+[Remote]: Ok.
+[Remote]: ¿Ustedes qué, cuáles son las áreas que que suelen estar
+[Remote]: con problemas o o o
+[Remote]: que suelen llevar a cabo este proceso, finanzas, operaciones,
+[Remote]: finanzas y operaciones, operaciones más para la
+[Remote]: parte de la conciliación de la PCP contra los movimientos, sea, los movimientos que tenemos en el banco contra, mientras
+[Remote]: que que nos indica la PCP, y después finanzas para absolutamente todos los movimientos
+[Remote]: financieros de todas las empresas. Perfecto.
+[Remote]: ¿Y hoy cómo cómo lo están conciliando
+[Remote]: O sea, ¿qué herramienta están usando técnicamente?
+[Remote]: Para lo que son conciliaciones bancarias, es
+[Remote]: Claro, Excel.
+[Remote]: Y para lo que es la conciliación de la PCP,
+[Remote]: hoy esto es lo que nos falta terminar de desarrollar, tenemos, a ver, todo lo que es en
+[Remote]: ¿cómo es? No tenemos todavía ninguna conciliación a
+[Remote]: armada automática para para hacerlo.
+[Remote]: Perfecto.
+[Remote]: Ok.
+[Remote]: Bueno, y con, no sé, vos, Dinos, ¿tienes alguna pregunta?
+[Remote]: No, creo que ya bastante entonces,
+[Remote]: ¿cómo es el proceso?, ¿cuánto tiempo lo ven?, no sé si tienen una
+[Remote]: un presupuesto.
+[Remote]: Ahí lo solemos hacer es una demo,
+[Remote]: con nuestros clientes para entender
+[Remote]: nosotros
+[Remote]: tipo de consideraciones tienen, qué tipo de problema estamos tratando de solucionar,
+[Remote]: Por lo que me comentás, igual es algo que ya ya estamos trabajando.
+[Remote]: Ustedes, para que vean su propia su propia conciliación,
+[Remote]: cómo quedaría dentro de Rexi,
+[Remote]: automatizada,
+[Remote]: Ahí no sé si prefieren que hagamos
+[Remote]: una demo genérica, que nosotros le mostremos más o menos en base a lo que los
+[Remote]: comentaron cómo quedaría,
+[Remote]: o si quieren directamente compartirnos un archivo de una semana o un mes,
+[Remote]: de alguna de las PCP, por ejemplo, y nosotros
+[Remote]: lo montamos en agendamos unos minutos en los próximos días, y les mostramos cómo quedaría
+[Remote]: en Rexi.
+[Remote]: Dale, sí, prefiero hacer esto a segundo.
+[Remote]: Pasarte Exacto. Tipo de las las principales conciliaciones que tenemos,
+[Remote]: para para ver, uno de la PCP y otro, por ejemplo, de la empresa de cobranza,
+[Remote]: y ver ahí cómo quedaría.
+[Remote]: Vale. ¿Vosti, David? Sí.
+[Remote]: Perdón, Pedro Teo, dale, dale.
+[Remote]: No, sobre eso, por lo general nos comparten la información,
+[Remote]: y un poco de de un guideline
+[Remote]: Por lo general, se cruza este con este o o algún tipo de
+[Remote]: de lógica conciliatoria la que tengas.
+[You]: Mande, firmamos un NDA, ¿no?, para estar seguros con esta información.
+[Remote]: Sí, sí, sí, eso sí, tenemos tenemos NDA armado.
+[Remote]: Para firmar, después les pido algunos datos y se los paso.
+[You]: Dale.
+[Remote]: Perfecto. No, lo que estaba pensando es, nosotros tenemos
+[Remote]: es como un grupo económico
+[Remote]: y por ahí
+[Remote]: ese grupo económico tiene distintos reguladores atrás y distintos
+[Remote]: informes que presentar y demás.
+[Remote]: Si tiene la posibilidad de uno ver la foto completa,
+[Remote]: sé que Matys es usuario, pueda ver la foto completa cruzando
+[Remote]: dos empresas del mismo grupo,
+[Remote]: y, a su vez, cada
+[Remote]: cada empresa pueda, a su vez, ver las conciliaciones y hacer el reporting correspondiente para cada
+[Remote]: gente que que pueda tener atrás.
+[Remote]: Exacto. Lo que haríamos nosotros es generar
+[Remote]: una organización
+[Remote]: y dentro de esa organización, diferentes roles.
+[Remote]: Entonces,
+[Remote]: Mati tendría el rol de admin, por ejemplo, y puede ver todo lo que
+[Remote]: sucede en la organización y demás,
+[Remote]: después, si quieren que ciertos usuarios tengan
+[Remote]: acceso a solo ciertas fuentes de datos y ciertas conciliaciones, ciertas partes del proceso,
+[Remote]: lo vamos generando
+[Remote]: así, personalizado, ad hoc,
+[Remote]: Y después, por ejemplo, en la parte de dashboards, que le le mostramos en en la demo,
+[Remote]: se puede hacer dashboards específicos por conciliación,
+[Remote]: o dashboards más generales de toda la información. Por ejemplo,
+[Remote]: total operado, total, todas las
+[Remote]: las las conciliaciones en una misma en una misma
+[Remote]: vista, por ejemplo Sí, ahí creo que la pregunta de vino iba más
+[Remote]: por el lado de nosotros
+[Remote]: son
+[Remote]: son quizás cinco empresas que vamos a estar subiendo la información que cada
+[Remote]: ver, que yo yo pueda ver un dashboard con todos junto o por separado al mismo tiempo.
+[Remote]: Exactamente. Sí, porque después, claro, después, no sé,
+[Remote]: los régimen de la PCP son unos, no tiene que mezclarse con la información de la
+[Remote]: hace cobranza y demás.
+[Remote]: Perfecto.
+[Remote]: No, sí, podemos hacer permisos y también, obviamente, hay
+[Remote]: diferentes formas de organizar la información. Hay carpetas,
+[Remote]: permiso de visualización y demás.
+[Remote]: Ok. Bueno,
+[Remote]: dale, hagamos eso. Les paso el NDA que tenemos para firmarlos
+[Remote]: seguramente les pida algunos datos, se los pido al mail de de quién, eso.
+[You]: Abi.
+[Remote]: A vos, Ignacio, dale.
+[Remote]: Perfecto.
+[You]: De hecho, si querés, decime qué datos necesitás y te los mando ya mismo por mail.
+[You]: ¿O o no sabés todavía?
+[Remote]: Ver.
+[You]: Ah, sí, veo por mail, veo por mail. Tienes mi correo, ¿no?
+[Remote]: Sí, esos son, sí, sí.
+[You]: Acá en el invite.
+[Remote]: Son tres datos, creo que el nombre de la sociedad, dirección, una cosa así.
+[You]: Dale, mándame te lo mando rápidamente, vamos al NDA, y cuando nos pases
+[You]: los archivos y la lógica, que también proponete unos horarios para la demo, y y ya así agendamos.
+[Remote]: Dale, perfecto.
+[You]: Listo.
+[Remote]: Listo.
+[Remote]: Bueno, chicos,
+[You]: Un gustazo, muchas gracias.
+[Remote]: Raúl.
+[Remote]: Un placer, gracias. Hasta luego.
+[You]: Chao, chao.
+
+============================================================
+SUMMARY
+============================================================
+### Yont Company Overview & Needs
+
+- Multi-company group with complex reconciliation requirements
+  - PCP (payment processor) with bank transfers and future QR payments
+  - Credit-granting company
+  - Collections company (own + third-party debt)
+- Current pain points:
+  - 4+ banks per company creating operational overhead
+  - Manual Excel-based bank reconciliations
+  - No automated PCP reconciliation system yet
+  - Complex fee/tax allocations across entities
+- Transaction volume: $1-5M monthly (transaction count TBD)
+- Key personnel: Matias (admin oversight), operations & finance teams
+
+### Technical Integration Requirements
+
+- Bank connections needed:
+  - Coina: Already connected
+  - Banco Provincia, Nación, Santander: No current API/SFTP
+  - Comafi: Rexi has existing integration
+- Flexible ingestion options acceptable (direct API, SFTP, or data lake)
+- Multi-entity dashboard requirements:
+  - Consolidated view across 5 companies for Matias
+  - Separate regulatory reporting per entity
+  - Role-based permissions for different regulators
+- Advanced categorization needs beyond basic reconciliation
+  - Area/sub-area allocation rules
+  - Mix of automated rules + manual assignments
+
+### Next Steps
+
+- Matias to send NDA for signature
+- Yont to provide sample files:
+  - PCP reconciliation data + logic
+  - Collections company data + logic
+- Rexi to build demo with actual Yont data
+- Schedule follow-up demo meeting
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/82e169b4-f072-48b0-9c07-d898bf8304ac](https://notes.granola.ai/t/82e169b4-f072-48b0-9c07-d898bf8304ac)

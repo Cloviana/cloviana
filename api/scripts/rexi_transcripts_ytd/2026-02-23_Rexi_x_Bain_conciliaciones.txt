@@ -1,0 +1,720 @@
+MEETING: Rexi x Bain: conciliaciones
+DATE: 2026-02-23
+ID: not_jNrk2WSFltmUuA
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Pablo Sansuste <pablo.sansuste@bain.com>, Tomas Novoa <tomas.novoa@bain.com>
+SCHEDULED: 2026-02-23T11:00:00-05:00 - 2026-02-23T11:45:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Perdón.
+[Remote]: Es
+[Remote]: ¿cómo andas, querido? Dando tiempo.
+[Remote]: Muy bien.
+[Remote]: Ahí voy, acá está, bonito.
+[You]: Dale.
+[You]: ¿Me escuchan?
+[You]: Están muteados ustedes, creo.
+[You]: Casi, Pablo, ¿todo bien?
+[Remote]: Todo bien, todo bien, ¿entonces con Tommy?
+[Remote]: Viste que la la juventud de este estilo de antiojo, Pablo, y los
+[Remote]: que no, los que son viejos chotos como vos, no no usan nada. No usamos antiojos, no
+[You]: Tiene la vista de Alcón, todavía.
+[Remote]: Ya se operaron, ya se operaron oíste eso.
+[You]: Aparte,
+[You]: para agregar para agregar valor en esos bancos con los que trabajan, no necesita ni ver nada, ¿va?
+[You]: Dice dos pavadas.
+[Remote]: Todo todo todo el buró.
+[You]: Sí,
+[You]: bueno, mil gracias por el espacio. ¿Cómo lo volveré a conectar? ¿Están en Alem?
+[Remote]: ¿Yo? Bueno, cliente. Sí, estamos al cliente.
+[Remote]: Cliente, cerca, cerca de la oficina.
+[You]: Ah, muy bien.
+[You]: Bueno,
+[Remote]: Y y contame, yo yo no sé nada de de entrar haciendo así, contame un poco.
+[You]: Dale.
+[Remote]: Contame idea.
+[You]: Me encanta. Le voy a compartir pantalla
+[Remote]: Basics.
+[You]: y y vamos charlándolo
+[You]: pero
+[You]: a ver, si querés,
+[You]: el el, para para decirlo en dos palabras,
+[You]: nosotros tenemos una plataforma que automatiza el proceso de conciliaciones en servicios financieros.
+[You]: ¿Sí? Entonces, imagínense y gestar la base transaccional de un core,
+[You]: contra la de un ledger, contra la de un procesador de pagos,
+[You]: los tres operaron el mismo flujo de dinero, deberían mostrar la misma verdad, bueno,
+[You]: esas cosas nunca cuadran, siempre hay
+[You]: transacciones que quedan perdidas, reembolsos, devoluciones, o mismo
+[You]: cosas que fallan en el back end, porque al final la única plata real es la plata que está en el cobro en el
+[You]: banco, todo lo que está por encima son abstracciones de software, ¿sí? Entonces,
+[You]: nosotros
+[You]: comparamos, si querés, lo que debería ser un flujo de dinero unificado entre estas cuatro partes,
+[You]: banco sponsor.
+[You]: De los la plataforma de fintech,
+[You]: o el proveedor de pagos, nosotros
+[You]: conciliamos todos esos archivos y te mostramos la diferencia, o automatizamos el proceso. Hoy,
+[You]: organizaciones como, no sé, desde SuperVL hasta Fintech como Revolut en Argentina,
+[You]: tienen procesos
+[You]: de conciliación interno, ¿sí?, donde tienen una persona de payment ops
+[You]: o alguien en equipo de finanzas que agarra todos sus
+[You]: lo mete en Excel y está haciendo VLOUCAPs todo el día, asegurando de que cuadre, y lo que no cuadra
+[You]: hace algún tipo de proceso de investigación
+[You]: para entender por qué no cuadró. Si a fin de mes no lo logró cuadrar,
+[You]: entrada contable, pérdida irreconciliable, y se pierde plata.
+[You]: O sea, una locura.
+[You]: Con lo cual, es eso, hoy somos una plataforma que automatiza el proceso de conciliaciones
+[You]: Quizás para ubicarlos en el espacio, ¿conocen si
+[Remote]: Más para la
+[Remote]: evitar esos leakages y no tanto
+[Remote]: para, tipo, insights más del negocio.
+[You]: Hoy
+[Remote]: Tipo,
+[You]: hoy no, hoy hoy son tres cosas.
+[You]: Automatizar el proceso
+[You]: hay muchísima tarea manual, hay equipos de cinco ocho personas en Superbill haciendo esto manualmente,
+[You]: Dos,
+[You]: reducción de riesgo,
+[You]: SuperBield tuvo, ustedes sabrán mejor que nadie, tuvo hace ocho años una una una
+[You]: una causa, no sé, un legajo con el Banco Central, que pagaban multas todos los años,
+[You]: porque no no podían presentar reportes conciliados,
+[You]: y y lo lograron cerrar recién ahora en noviembre con un laburo con una consultora de tecnología, etcétera.
+[You]: Está la parte de riesgo,
+[You]: y después está la parte de reducción de leakages. La visión a futuro
+[You]: de Rexies, una vez que yo estoy construyendo esa fuente de la verdad conciliada, sí,
+[You]: agregar insights, agregar toda la capacidad de BI, de reporting, de
+[You]: de, no sé, de ledgering, de fraude, de Gmail, hay un montón de que se puede construir por encima, pero hoy
+[You]: es una plataforma de conciliación automática.
+[Remote]: No.
+[You]: ¿Conoce Symmetric?
+[You]: Bueno,
+[You]: Symmetric es el gran competidor en Latinoamérica.
+[You]: Galicia trabaja con Symmetric, Naranja X trabaja con Symmetric,
+[You]: Mercado Pago trabaja con Symmetric, y para que tenga una idea de la escala de
+[You]: contratos, Mercado Pago le paga más de diez millones de dólares por año a Symmetric.
+[You]: Por un SaaS de conciliaciones.
+[Remote]: Se creó hace cuánto.
+[You]: Y lo arranqué desde un año el MBA,
+[You]: y estoy full time desde
+[You]: mayo.
+[You]: De veinte a veinticinco. Levantamos una Sí, acá, estos somos los tres cofounders.
+[Remote]: Ok, y vos hiciste los fondos, cuáles fondos más?
+[You]: Teo, trabajo en Mercado Pago, ¿La mía?
+[Remote]: Tiene que cambiar.
+[Remote]: Es un bacho, o sea, esa foto
+[Remote]: Yo te juro que ahí no te entendés.
+[You]: Parezco
+[You]: Pero pero ojo ojo que en
+[Remote]: Te encontré. Y y
+[You]: ojo, Kentek, la cara de loco garpa,
+[You]: Vidalo a Albert. Albert le cae la foto para decir loco,
+[Remote]: Sí, sí, sí, igual.
+[Remote]: Ok. Entonces, en talibanes.
+[Remote]: Ok, la creaste,
+[Remote]: está bueno. Y esta simétrica también tiene muchos años un par de años más,
+[You]: Sí, tiene cinco o siete años ya en el
+[Remote]: así, es tipo es más más viejo.
+[You]: mercado, ya levantaron más de cien palos, levantaron serie b.
+[Remote]: Bueno. Y vos, ¿ustedes dónde están acá en Argentina o están en Estados Unidos?
+[You]: Teo y yo estamos en Nueva York,
+[You]: Seba, con el equipo técnico, están en Buenos Aires.
+[You]: Somos siete.
+[Remote]: Ok.
+[Remote]: Oh, perfecto.
+[Remote]: Y, Nacho, ¿esto es solamente para conciliaciones a nivel banco o también haces
+[Remote]: conciliaciones para lo que son, por ejemplo, los merchants dentro de un banco? Por ejemplo, con
+[Remote]: de
+[Remote]: las PyMEs y que vos mires el cien por ciento del flujo.
+[You]: Bueno, es muy interesante
+[Remote]: No, por eso,
+[Remote]: insight todavía es una una capa, dice, que no me lo creo.
+[Remote]: O sea, no, lo que sí, sí.
+[You]: No, no,
+[You]: muy buena la pregunta. A ver,
+[You]: en en en en instituciones como bancos o procesadores de pagos grandes,
+[Remote]: Sí.
+[You]: hay dos oportunidades. Está la conciliación interna,
+[Remote]: Sí.
+[You]: y después está que sus merchants están conciliando pagos contra los archivos que
+[You]: ellos generan, con lo cual lo están viendo muchos como un
+[You]: enhancer, entonces, nosotros hoy tenemos dos modelos, la venta directa,
+[You]: y después tenemos una embedded solution,
+[You]: donde, por ejemplo, d local puede ofrecer Rexy a sus merchants.
+[You]: Están
+[Remote]: Pensando así. Y luego que el Jefferson
+[You]: No, no, no.
+[You]: Estamos explorando ese tipo de blaze.
+[You]: Porque
+[Remote]: Ok.
+[You]: porque hacía el,
+[You]: la conciliación, o sea, si lo pensás desde punto de vista conceptual,
+[You]: es comparar mi fuente de la verdad contra la tuya.
+[You]: Con lo cual, cualquier tipo de solución, es decir, la del
+[You]: contra la del procesador de pagos, contra la del proceso de pago contra la fintech, digo, y deberíamos estar mirando lo
+[You]: pero por algún momento en ambos sistemas se ven con separado.
+[You]: Con lo cual cualquier tipo de solución tiene que generar cierta coordinación entre las partes.
+[You]: Y acá ya me estoy hablando de la la visión del RRX a largo plazo,
+[You]: En algún momento nos gustaría tener a a todos los players,
+[You]: en REXI, ¿no? Tenés al banco, tenés a la procesadora de pagos, tenés a la fintech, y ellos tres tienen una herramienta ahora para ver la información, conciliar con la misma lógica, juntos colaborar en las discrepancias, ¿no? En un mundo de AI donde sabemos que la tecnología no nos va a diferenciar, ¿qué nos va a diferenciar? O qué nos va a hacer defensibles este network effect de decir, che, estemos todos en un lugar centralizado, ¿entendés?
+[Remote]: Sí.
+[Remote]: Sí.
+[Remote]: Perfecto. Y, Nacho,
+[Remote]: ¿qué tan lejos estás de tener un buen producto
+[Remote]: para hacer la conciliación de esos esos merchants?
+[Remote]: Me estoy imaginando más para, tipo,
+[Remote]: cualquier banco, lo que te van a pedir más que la conciliación interna es No, pero
+[Remote]: problema,
+[Remote]: El banco que estamos ahora, de Banrique es seguro. Seguro, no sé si lo hacen, cómo lo hacen. En los clientes que tenemos en otros países también. Banco más chiquitos o... Sí. Antes de ir al chat. Vos llegás. ¿Cuánto tiempo tenés una especie, no no llamarlo MVP, POC, que diga, mirá, corrí algo, y tengo una y te tengo un primer producto para mostrarte que dice esto, entonces, los que estoy encontrando, ¿no?, ¿se entiende? O sea, ¿cuánto tiempo tardas en tener una primera versión que pueda generar valor? Son semanas o cómo es? O tiene su
+[You]: Bueno, respuesta rápida,
+[You]: respuesta rápida, hoy hoy somos muy ágiles, hoy somos un equipo chico que
+[You]: que si hay una oportunidad grande nos metemos de una y
+[You]: sí, en semanas, te diría que en menos de un mes
+[You]: podemos tener un un un buen assessment
+[You]: de hecho, esto es un tu flujo de dinero, acá tenés muchísimo gap, tenés que arreglar la información,
+[You]: acá automatizamos todas estas tareas manuales que te agarran tantas horas,
+[You]: y acá fijate cómo eso se trasladó en ahorros de pérdidas y reconciliables por mes. Yo creo que en un
+[You]: mes lo podemos lograr. Típicamente,
+[You]: no es un tema de velocidad nuestro,
+[You]: sino
+[You]: la calidad y la información con la que trabajamos, y qué tan rápido nos podemos integrar.
+[You]: Si el equipo de tecnología de SuperBel se demora
+[You]: seis semanas en darme acceso a las tablas que yo necesito, porque son datas crudas, porque hay sensibilidad de
+[You]: información, muchas veces termino demorándome más por eso que que por internamente, pero
+[Remote]: Sí.
+[You]: si tenemos al sponsor
+[You]: del otro lado, en menos de un mes tengo un diagnóstico muy bueno de de los flujos de dinero.
+[Remote]: Yo tendría eso, soy un banco así,
+[Remote]: es esa información confidencial. Vos todo te lo corrés
+[Remote]: en mis
+[Remote]: lo siguiente del banco o en tus ambientes. ¿Cómo haces?, ¿cómo hago banco para
+[Remote]: más o menos de que mañana se conoce, aparece afuera, no?
+[You]: Otro punto interesantísimo
+[You]: placer, en diez minutos con ustedes salen todos los puntos interesantes de una.
+[You]: Básicamente, nosotros hoy acabamos de ser certificados SOC dos tipo dos,
+[You]: estamos en proceso de certificarnos SOC uno y ISO veintisiete mil uno,
+[You]: Nada, sé ellos que necesitás para poder trabajar con bancos, pero una de las cosas
+[You]: estamos viendo con bancos y seguradoras grandes es que ni siquiera con eso te quieren dar su información.
+[You]: Entonces,
+[You]: tenemos un modelo SaaS, con el que trabajamos, por lo general, con procesadores de pagos o con o con fintechs, y para bancos, ofrecemos un modelo on premise,
+[You]: o o client hosted, en donde
+[You]: se configura todo, se instala todo y se déploya en la infraestructura de Banco Superbién.
+[You]: Lo cual les permite que la información quede ahí y ellos simplemente compraron en
+[You]: AI capability para automatizar la concitación.
+[You]: Hay un, el modelo de negocio es un upfront cost mucho más alto,
+[You]: pero después queda un retainer bajo por servicio y SLAs,
+[You]: porque está deployed on su infraestructura, si ellos ya empiezan a tocar cosas y se rompe por eso, bueno.
+[Remote]: Pero claro, veces son, continuamente tenés que ir a un solo por
+[You]: Ahí hay un un
+[Remote]: tú voy cambiando cosas del día a día de operación, y por lo tanto esa consignación ajustada. Que se rompe, ¿no? Por ahí esa Rompe el
+[You]: Se rompe.
+[You]: Sí, requiere mucho mantenimiento,
+[You]: requiere mucho mantenimiento, por eso Symmetric es tan caro.
+[You]: Porque no te venden solamente el software.
+[You]: Mercado Pago le está pagando, sí, obviamente por el software, pero en realidad
+[You]: implícitamente le está pagando
+[You]: a alguien que responde
+[You]: por la conciliación, ¿me entendés? Hay como una tercialización de la
+[You]: ¿Cómo?
+[Remote]: ¿Cuánto gasta Galicia en Symmetric?
+[You]: Y debe estar en los millones de dólares por año.
+[You]: Preguntá.
+[You]: Pero pará, dato de color, dato de dato de color, Galicia Ventures es inversor en Symmetric.
+[Remote]: Acá,
+[Remote]: Oh, symmetrical is
+[Remote]: No tiene que ver con ahí en Argentina, ¿o sí?
+[You]: ¿Son colombianos?
+[You]: Pero entraron en mercado pago muy rápido y en rapi, porque son ex rapi.
+[You]: La rompen,
+[Remote]: Y vos tenés, a ver, contame dos o tres clientes, sí, bancos que tenés supervieles, ¿uno?
+[You]: Con Superbiel, mirá,
+[You]: tú vamos a nada de firmar un contrato justamente con este modelo de licencia que
+[You]: se deployan su infraestructura,
+[You]: y decidieron cambiar el core de tarjetas
+[You]: STQ.
+[You]: Con lo cual se pateó para fin de marzo. No hay nada firmado,
+[You]: teníamos todo el template listo como para salir, pero no se firmó
+[You]: pero estuvimos en conversaciones muy avanzadas.
+[You]: Después tenemos a Fintech acá en Estados Unidos y procesadores de pagos acá en Estados Unidos,
+[You]: Estamos trabajando con Buenbit también,
+[You]: y bueno, hay muchas pruebas piloto ahí corriendo, ¿viste?, esto como que
+[You]: es un producto difícil de vender,
+[You]: porque es infraestructura.
+[You]: Y entonces hasta que ven el valor,
+[You]: te tengo que armar una prueba piloto donde realmente me tengo que meter muy deep a a
+[You]: instalártelo, a configurártelo y y y lleva tiempo.
+[You]: Y lo otro también al cien infraestructura es que la vara de calidad está mucho más alta,
+[You]: es como cualquier startup donde
+[You]: estás pagando poco, pero porque sabes que es un producto que tiene mucho riesgo en romperse.
+[You]: No se puede romper en conciliaciones. Digo, no no puedo tener un falso
+[You]: positivo, por ejemplo, de algo que decir que concilió y no concilió. Plata, ¿me entendés?
+[You]: Entonces,
+[You]: el go to market es más lento y
+[You]: y y, bueno, lo lo bueno de eso, el otro de la manera, que hay hay un
+[You]: mucho más alto, ¿no? Una vez que estás adentro y conciliando
+[You]: que es por eso de Symmetry, que después se da el lujo de cobrar lo que cobra, ¿no? Hay un vendor locking
+[You]: muy alto con estas cosas, es como casi como el core bancario, no sé.
+[Remote]: Una vez que entrás y
+[Remote]: Le pregunto si nuestros clientes
+[Remote]: saben muy fácilmente cuánto hacen el día de
+[Remote]: ajustes de conciliación, a través un número.
+[You]: No, hay tres preguntas interesantes.
+[Remote]: Tienen que hacer, de estar.
+[You]: Para hacer. La pregunta es,
+[You]: la primera es, ¿cuánta gente tienen dedicada puramente a conciliaciones?
+[You]: Se sorprenderían,
+[You]: Que es un laburo de
+[You]: contar por otros, No es un laburo de mucho valor agregado, es un laburo de contar por otros.
+[You]: Dos,
+[You]: eso, cuántas pérdidas irreconciliables,
+[You]: una entrada en el libro contable, eso
+[You]: lo entendés seguro.
+[You]: Y tres, ¿qué riesgo están riesgo están conllevando con eso hacia
+[You]: algún ente regulador?
+[Remote]: Y y eso, en general, ahí, Nacho, lo tienen en tipos de operaciones,
+[Remote]: o los ves como del equipo de contabilidad del banco?
+[You]: En un banco, típicamente, está dentro de
+[You]: no es contabilidad,
+[You]: pero está dentro del equipo de finanzas. En una fintech,
+[You]: es distinto, termina haciendo más operaciones, tipo fin ops.
+[You]: O alguien de payments. Otra cosa interesante también es, yo no sé si Galicia tiene planes de volverse
+[You]: banco sponsor o algún banco en Argentina, como ustedes trabajan aquí, quién, volverse banco sponsor de la fintechs,
+[You]: para comerle
+[You]: algo de mercado al BIND.
+[You]: Pero si vos estás operando un fintech program,
+[You]: ahí se vuelve particularmente relevante, porque vos les abrís estas cuentas ómnibus
+[You]: la fintech le conecta diez mil productos de pagos encima,
+[You]: y ahí automáticamente perdiste control y visibilidad que está haciendo la fintech.
+[Remote]: Dos clientes Ahí me veo una movida más, Nacho, de
+[Remote]: realidad que la fintechs, o o, ¿viste?, que es lo que pasó un poquito con
+[Remote]: con Santander, de hecho, acabo de, tengo un acuerdo con Kingasa Service,
+[You]: Era
+[Remote]: con
+[Remote]: Entonces, lo que te puedo ofrecer un BIN, ¿o hoy hoy sí lo va a ofrecer
+[Remote]: Pero ahí no pero ahí no van a ser cuentas anónimos, ¿o sí? No.
+[Remote]: ¿O sí?
+[You]: Cien por ciento, la cuenta de Omnibus. Es un CV corta u.
+[Remote]: No sé No encuentran nada de
+[Remote]: Es que vas a Raúl. Acá.
+[You]: Para cada cliente, para acá, wallet y PF,
+[Remote]: ¿Sí?
+[You]: A la mierda.
+[Remote]: Porque ahí el
+[Remote]: está cambiando un poquito el mercado y están pasando todo lo que es
+[Remote]: lo de todas las CV corta u a CV larga u, porque pueden hacer intermediación.
+[Remote]: Es donde está el, básicamente, el margen está ahí.
+[Remote]: Esa es la lógica ahí de de IPF firmando, si
+[Remote]: todas las CV cortas pasan los CV largas a partir de
+[Remote]: cuando lo implementen más.
+[Remote]: Sí. No y todas, pero por lo menos las que tienen Las que tienen valor.
+[Remote]: Tienen transaccionalidad, las van pasar lo que hizo, ¿viste, Voila, cuando firmó
+[Remote]: cuando firmó la compra de Willow y demás, que pasó, ahora, de hecho, las empezó a forzar
+[Remote]: que toda la compra la pasaron de
+[You]: Mira,
+[Remote]: CV corta uva a CV largo.
+[You]: bueno, le pagaba un par y medio por año symmetric,
+[You]: y el año pasado decidieron romper el contrato y construir algo propio.
+[You]: A Iván, Es un producto difícil... Bueno, nuestro principal competidor, en realidad,
+[You]: hoy, quizás, es mucha empresa que dice, no, esto lo voy a armar internamente.
+[You]: Que después, bueno,
+[Remote]: ¿Cuál es cuál es el costo? Ponele que vos sos un banco
+[Remote]: voy a hacer superbién, poné que soy superbién,
+[Remote]: digo,
+[Remote]: dale para adelante. ¿Qué tengo de Upfront, Upper Oaks?
+[Remote]: Magnitud,
+[Remote]: Y versus un recurrente. Para ¿viste?, si es algo
+[Remote]: muy bajo y poco riesgo para para el banco o es algo, ¿viste?,
+[Remote]: que necesita un par de aprobaciones para para poder ir para adelante.
+[You]: Esto me está preguntando al modelo customer management, con donde lo implementamos en la en el en la del cliente.
+[You]: Y mirá,
+[You]: a ver,
+[You]: nosotros hoy estamos temprano todavía, con lo cual nos estamos posicionando mucho como
+[You]: bajo costo bajo riesgo, ¿no?
+[You]: Porque porque necesitamos crecer, necesitamos implementar. El producto también mucho
+[You]: cuando cuando realmente le damos rodaje con transaccionalidad real, porque ahí encontramos todos los
+[You]: edge cases que que aparecen en este flujo, ¿no?
+[You]: Te soy totalmente honesto y ahí, obviamente,
+[You]: que queda acá, a superbién, estuvimos a nada
+[You]: un contrato de cuatrocientos mil dólares.
+[You]: Y después, el primer año,
+[You]: donde hacíamos toda la implementación para veintiséis flujos de dinero, lo deployábamos en su infraestructura, y a partir de veinte veintisiete era un retainer bajo de
+[You]: seis mil, doce mil dólares por año, de SLAs, de soporte y de... Después, cualquier app o cualquier flujo adicional te lo cobro aparte.
+[You]: Pero pará,
+[Remote]: Perfecto.
+[You]: este es un precio que
+[You]: honestamente,
+[You]: alto,
+[You]: fuimos altos porque veíamos que había una necesidad y había un willingness to pay. Estamos dispuestos a hacerlo
+[You]: también entre vos y yo, si hubiese una oportunidad,
+[You]: la mitad o menos también, Hoy queremos mucho más ese
+[Remote]: Yo creo que tienes que tener uno o dos locos, bancos grandes,
+[Remote]: para después poder cobrar más caro, ¿no? Yo creo que va a tener que hacer aún
+[You]: Exacto.
+[Remote]: algún ahí en que
+[Remote]: ahí de poner, yo yo personalmente te digo, yo creo que es un tema
+[Remote]: que los bancos a ver fuja muy mal, pero yo creo que fuja, como decís vos, a a a sangre,
+[Remote]: y aunque debe haber liquids de todas formas,
+[Remote]: hay como una especie de, bueno, voy a dormir tranquilo porque
+[Remote]: cuando hay un veinte muñequitos mirándolo los temitas, al momento de arreglar, ¿no?
+[Remote]: Bueno, le meto AI.
+[Remote]: Puta,
+[Remote]: Después todos los días tengo los bancos, vos decís, en su país está en modo de tarjeta.
+[Remote]: La verdad,
+[Remote]: todos los días hay un módulo nuevo que se va a cambiar, siendo honesto.
+[Remote]: Entonces, puta, ¿cómo cambio esto? Dos,
+[Remote]: información AI, puta, le
+[Remote]: todas las packing de información, ¿no?, de la forma más granular posible, ¿no?
+[You]: Sí.
+[Remote]: O sea, en términos de información, es tipo,
+[Remote]: le entregué a corazón abierto todo, ¿me entendés? O sea, le
+[Remote]: le di el ADN, no, no, no.
+[You]: Oh, yeah.
+[Remote]: Y, por lo tanto, puta, ¿va a una a una startup, entre comillas, será que es
+[Remote]: confiable que va a ser? Mañana aparezcan los diarios que hay
+[Remote]: que me está pidiendo plata por Blackmail, porque use
+[Remote]: hay mucha preocupación los bancos,
+[Remote]: ese sentido. Entonces, creo que, claro,
+[Remote]: che, no, yo no soy cualquiera, soy un symmetric que tengo
+[Remote]: clientes, tengo los otros ahí ya está de otro lado y por ahí es una
+[Remote]: hola, Di.
+[Remote]: De de de la uno, ¿no?
+[Remote]: Yo creo que hay un paso ahí para pasar por ahí. Pero pero está bueno. Yo,
+[Remote]: yo acá contame lo que vamos pensando ahora. Yo creo que yo tengo uno o dos clientes, por lo menos, creo que
+[Remote]: a mí, por lo, creo que está bueno que nosotros
+[Remote]: entender
+[Remote]: cuánta gente hay, cuál es el leakage, como para entender el price,
+[Remote]: y nada de eso,
+[Remote]: hacerles esa intro.
+[You]: Obvio. No sé cómo se manejan ustedes, o sea, yo con estas intros o con con
+[You]: con founders que les pichean estas soluciones, lo que sí sé es que particularmente en bancos,
+[You]: hacen mucho lo que ustedes les dicen también.
+[You]: Entonces, ahí es donde por ahí también me interesaba charlar con ustedes o también con
+[You]: con con partners y otras consultoras.
+[You]: Porque
+[You]: hay mucho que cubrirse el culo de, Bane me trajo esta solución, o
+[You]: el partner de McKinsey me dijo que teníamos que implementar esto, y
+[You]: y no miran mucho ellos, y también
+[You]: me pasa mucho, y me pasó cuando hablé con SuperBell, no tienen ni idea ni cómo empezar a mirar,
+[You]: el mercado por estas soluciones.
+[You]: Entonces,
+[You]: nada,
+[You]: sabía que ustedes están trabajando con todos los
+[You]: líderes de la región y que
+[You]: que tienen esa oreja, que que los escucha mucho y los
+[You]: los los respeta mucho en cualquier tipo de recomendación que ustedes hagan,
+[You]: saben que viene curada, saben que funciona, y porque también saben que
+[You]: quizás
+[You]: sus competidores están trabajando con la misma solución y han generado impacto en tanto y tanto.
+[You]: No sé cómo ustedes se manejan, yo simplemente les quería contar lo que estaba haciendo,
+[You]: y si hay alguna punta
+[You]: inmediata que ustedes vean, sería increíble.
+[Remote]: Dale, déjanos déjanos ahí que miramos Está bueno. Miramos
+[Remote]: ahí los también los clientes nuestros vos sabés, ya ya.
+[Remote]: No no tenemos esta charla de
+[Remote]: conciliación leakage
+[Remote]: este proceso operativo de nuestro día a día, ¿ok?
+[Remote]: Pero es más,
+[Remote]: un tema de
+[Remote]: un site de help a nuestros clientes diciendo, ok,
+[Remote]: voy a inventar, tenés diez tipos y perdés dos millones por año en
+[Remote]: o tres millones por año en esto, o cinco millones
+[Remote]: lo cual, y que te pueda ayudar,
+[Remote]: Es un site site help nuestro, no es un corp.
+[You]: Cla protesis un relationship building c'è de password advice
+[Remote]: No es parte nuestro.
+[You]: que lo estoy viendo en otro lugar,
+[Remote]: Más que
+[Remote]: No, no sé, después no sé, no sé si en un banco más chiquito poder decir,
+[Remote]: estoy ayudando a, o sea, estamos poniendo un proyecto en un banco muy chiquito que es tipo
+[Remote]: por ahí, optimizando el resultado.
+[Remote]: Sí, se me ocurre por ahí dentro de eso poner mi un
+[Remote]: alguien dos días, seis, dos días a entender esto,
+[Remote]: y poder, porque no, eventualmente, si es relevante,
+[Remote]: hacer algo que te presento, barra, como que te entro dentro de la solución.
+[Remote]: En un banco chiquito puede ser.
+[Remote]: En un banco
+[You]: ¿Cómo ven ustedes? Una cosa que que yo les quería hacer era,
+[You]: ¿cómo ven...?
+[You]: Cómo ven ustedes
+[You]: particularmente cuando trabajan con bancos,
+[You]: cómo están llevando AI?
+[Remote]: Yo creo que todavía es muy difuso el tema.
+[Remote]: Yo creo que
+[Remote]: lo banco, la mayoría de cosas están están todo el mundo haciendo cositas. Es como que los mayores bancos dicen, no, tenemos que hacer cosas.
+[Remote]: No, tenemos que hacer cosas, tal, y todo está todo el mundo haciendo cositas por su cuenta,
+[Remote]: Sin una sin una lógica,
+[Remote]: y y creo que los dos tendrían que ser muy,
+[Remote]: los dos muy variados, tipo, muy heterogéneos, en muchos casos marginales. Entonces, es como que creo que él hoy en día él el principal caso de uso es en más de tecnología, ¿no?, que es de desarrollo de código. Barra cosas relacionadas a eso, ¿no? Tipo, por ejemplo, o sea, en qué en el club que estamos trabajando, más que desarrollos, es un tema de que tienen sistemas muy viejos, están usando Jenny, están usando AI para para describir el código entero en lenguaje
+[You]: ¿Automatización?
+[Remote]: nuevo, ¿me entendés? O sea, eso es corto el año de Eso eso está bueno,
+[Remote]: pero después decís, che, pero a puta, ¿cuánto valor eso generó
+[Remote]: Y todavía dudoso,
+[Remote]: pero claramente es un, para el día de hoy, es un punto de olor enorme, porque tiene
+[Remote]: dos tipos de ochenta años, o sea, solo se iba a escribir ese código, aquí se molesta en el horno,
+[Remote]: pero días, todo lo mismo va a misa diciendo, por favor,
+[Remote]: te piden los enfermos y jubileo, vete en el horno,
+[Remote]: Y y, bueno, eso se saca como un riesgo
+[Remote]: un riesgo, etcétera.
+[You]: Muy verde.
+[Remote]: Desde el punto de vista del gran gran valor, todavía
+[Remote]: es limitado,
+[Remote]: pero yo creo que hay mucho mucha hay mucho esfuerzo
+[Remote]: poco de resultados, pero yo yo por eso soy muy muy optimista, o sea, yo creo que
+[Remote]: el que acá, no sé, una visión de acá a tres años de quedar bien, va ser cosas muy distintas.
+[Remote]: Pero
+[Remote]: está a punto empatarados. Qué normal, es entonces, hay que cambiar muchas cosas.
+[Remote]: Me dio
+[Remote]: medio muy puntual, ¿no?
+[You]: Sí.
+[Remote]: ¿Se entiende?
+[Remote]: Pero no es que esta solución no va transformar el sector del banco.
+[Remote]: ¿Ok? Sabé que te lo diga, no va a transformar el total del banco. Un plus.
+[You]: No, no, no, está clarísimo.
+[Remote]: Acá la la joda es cómo hacer para que
+[Remote]: transformar
+[Remote]: el comic es el resultado del banco, o sea,
+[Remote]: porque ofrezco una propuesta muy distinta,
+[Remote]: o lo hago con un costo muy distinto, ¿no?, o lo hago con ingreso muy distinto.
+[You]: ¿Y cuáles son esas iniciativas que que piensan que va mover la aguja con AI?
+[You]: Más tipo customer relationship soporte, ¿o o por qué lado?
+[Remote]: Sí, yo creo que viene viene por mucho de Customer service. Customer service.
+[Remote]: Bajar el costo, porque vas a tener, ¿lo viste el account load de los
+[Remote]: managers va pasar de eso de
+[Remote]: mil seiscientos a
+[You]: Seis mil.
+[Remote]: diez mil. Punto donde
+[Remote]: en lo extremo, sobre un banco digital,
+[Remote]: el punto de vista del costo, se va a reducir esa ventaja competitiva, porque
+[Remote]: yo voy a poder hacer un banco con personas, pero esas personas van a ser muy, muy, muy, muy propus.
+[Remote]: ¿Ok?
+[Remote]: Van a van a haber una bola de de despidos para tratar de igualarlos.
+[Remote]: Y si y la, entonces, voy a poder usar esas personas
+[Remote]: en un
+[Remote]: y obviamente lo que ustedes están haciendo eso también, ¿no? No, bueno, haciendo eso, ¿no? Empieza a tener gente
+[Remote]: ya sé, o sea, muchos días. Entonces, creo que es eso.
+[Remote]: Hay un tema de costo barra
+[Remote]: productividad y arrallamiento, o sea, para la atención a la venta.
+[Remote]: No menor.
+[Remote]: Pero a eso cuesta un huevo llegar a eso.
+[Remote]: Que eso sea realmente
+[You]: Cambio cultura da me no?
+[Remote]: Voy a tardar un poco,
+[Remote]: La duda es,
+[Remote]: tengo que ir, saludo.
+[Remote]: No creo, y otros que dicen, sí creo, pero no tendría cómo llegar ahí, ¿no?
+[You]: Y quizás la la pregunta para vos ahí también es, o sea, ok,
+[You]: acuerdo que se va a invertir un montón de recursos.
+[You]: ¿Cómo están pensando instituciones
+[You]: bancarias en
+[You]: desarrollar internamente versus salir a buscar vendors?
+[You]: Y cuando salen a buscar vendors en un mercado que está
+[You]: proliferado de vendors.
+[You]: ¿Cómo mierda eligen?
+[Remote]: Yo lo que te digo es,
+[Remote]: claro, no sé,
+[Remote]: tenés vendors de diferentes tipos, tenés vendors por ahí tipo vos o vendors tipo
+[Remote]: Ya son por ejemplo, ¿no? O viene Salesforce y
+[Remote]: como tengo Salesforce, me ofrece Einstein, ¿no? Sí. Por ejemplo, Google, no
+[Remote]: ofrece toda la plataforma de Microsoft, no sé.
+[Remote]: Yo creo que
+[Remote]: esos grandes canten
+[Remote]: consiguiendo meternos en soluciones?
+[Remote]: Pero muchos usuarios al final
+[Remote]: tiene impacto bastante bastante De valor. Sí.
+[Remote]: Mixto en resultados, porque son fáciles de implementar
+[Remote]: pero
+[Remote]: el valor es muy difuso, ¿no?
+[Remote]: No está tan tardo y vos te cambiar comportamientos y proceso, ¿no?
+[Remote]: Te juro que están yendo más por ahí algunos, entonces, es muy es muy
+[Remote]: porque además es no es tan centralizado, cada uno contrata, ¿no?
+[Remote]: Viene el CRM, dicen de más del Salesforce, viene la operación y le dicen de no sé qué,
+[You]: Pero lo que estás viendo es mucho
+[Remote]: viene DTI, le dice
+[You]: vendor, o sea, buscan afuera ayuda afuera,
+[You]: y están relying on the big names todavía.
+[Remote]: Sí, sí, sí.
+[Remote]: Bueno, esa esa esa es el uno. Después sí, ponés tenés algún otro
+[Remote]: En Latinoamérica muy poquito de de vendor renicho.
+[Remote]: Sí, pero un poquitito, debe ser ahí, pero es como que da un poco.
+[You]: Mucho cagazo.
+[Remote]: Ya, sí, y el que y el que no llega, porque no sé
+[Remote]: sé, o es conocido de, ¿viste?, del CEO o de un
+[Remote]: accionista o algo así. O sea, no no es tanto, ¿viste?, por
+[Remote]: Son más los, te diría, los Salesforce, los Google,
+[Remote]: los que vemos por acá ¿Cuánto lugar? Yo creo que vos tenés que tener un logo
+[Remote]: mínimamente decente,
+[Remote]: por país para
+[Remote]: Che, este, no sé, este superbién, te voy
+[Remote]: laburando con ellos, firmado,
+[Remote]: andá a hablar con ellos
+[Remote]: Y y armar ese ese caso, este, ese success story, ¿no?
+[You]: Cien por ciento.
+[Remote]: Que agarrás, ¿viste?, y lo y lo explicas en todos lados,
+[Remote]: ¿Qué es como te hace el sales for, ¿viste?, cuando te viene a vender el Einstein y te dice, no, fijate
+[Remote]: lo que conseguimos ahí en el Banco De Panamá y vos decís,
+[Remote]: Claramente, no es buen visto, o todo todo bien lo todo bien, pero sea, no son estas Se lo
+[You]: No, no, necesitamos tu logo.
+[You]: El tema es conseguir el primero.
+[Remote]: Claro, claro, sí, sí, sí, sí. Claro, sí,
+[Remote]: Pero yo sí me puedo imaginar que
+[Remote]: tú tú soluciones a una solución que
+[Remote]: Esta es un plug and play,
+[Remote]: no está mal.
+[Remote]: Yo creo que es menos placa es menos
+[Remote]: play lo que vos decís, creo que va a haber mucho mantenimiento.
+[Remote]: Porque los bancos están cambiando todo su tecnológico,
+[You]: Sì, sì,
+[Remote]: la forma significativa.
+[You]: No, y mismo, aunque no cambies el stack, enlazás un producto nuevo,
+[Remote]: Eso tiene más
+[You]: nuevo, te afecta todo el flujo de conciliación de siempre.
+[Remote]: Bueno, y está bueno, es más más charro. Aquí hay muchos mil cambios así, lo
+[Remote]: Igual te soy sincero, creo que es mucho más fácil venderle un banco más
+[Remote]: que eso, el tema de de los merchants y la conciliación para su
+[Remote]: clientes, eso no me lo tomo porque
+[Remote]: es menos, para ellos es menos risky.
+[Remote]: Es cómo le mostrás la información distinta a
+[Remote]: a sus clientes, y ahí pensar en muchos bancos
+[Remote]: ese tipo de soluciones. No tienen mal asunto.
+[Remote]: Bancos adquirentes. Si vos mirás Stone en Brasil,
+[Remote]: se compró se se compró todo toda la parte de CRM Y Era Para La Conciliación, Lo Hicieron Lo Hicieron Ellos. Y Tabú Compró, Vendió. Hizo Hizo También Eso. Handy, El Dueño, Handy Barra Pues Puedes Sí. Con Hasta Nacho. Sí. Una Fintech En Uruguay, Por ejemplo Sí.
+[Remote]: Andy, que es una cliente disruptor,
+[Remote]: en ecommerce. Sí.
+[You]: Ahora, vos decís que, entonces, el el sell de hacia merchants, del investment solution, es mucho,
+[You]: mejor que el interno por un tema de riesgo, eso lo estás diciendo.
+[Remote]: No. No me ¿por ahí?
+[Remote]: Más fácil de de probarlo.
+[Remote]: ¿Lobos por ahí?
+[Remote]: Pero para mí el caso de leakage es un caso muy a la vena,
+[Remote]: Si yo me decís, che, tengo
+[Remote]: tengo tres millones de dólares de tickets o cinco millones de tickets todos los años.
+[Remote]: Tomé parecemos llevas entre y o al costo financiero de plata que
+[Remote]: tuve que ir para atrás,
+[You]: Además, eso, me pagan tarde.
+[Remote]: y después
+[Remote]: sí, no sé, en banco yo te resuelvo el ochenta por ciento,
+[Remote]: sea, va bien eso.
+[Remote]: Honestamente, está bueno.
+[Remote]: Sí.
+[Remote]: Acá, finalmente, ¿cuánto es?
+[Remote]: Pero ese domain está espectacular.
+[Remote]: Pero es como un muy grande, el deepfate que arte la va
+[Remote]: el regular, diaria, todo,
+[You]: Sí, sí, es la información más que más vale.
+[Remote]: y dónde es eso. La junta que lo pagué o Tú tú lo vas a
+[Remote]: solo lo vas a liberar eso o que te salgan a buscar cuando es un quilombo grande.
+[Remote]: Y que se hayan dado buen
+[You]: Bueno, nosotros arrancamos
+[You]: ¿Escucharon el caso de Synapse acá en Estados Unidos?
+[Remote]: No,
+[Remote]: sin absolutamente nada. No, no,
+[Remote]: no,
+[You]: O sea,
+[You]: fue un quilombo padre, se perdieron más de ciento cincuenta millones de dólares.
+[You]: Después les paso el link, pero fue un quilombo padre,
+[You]: y como que todo el mundo dijo, epa, pará, si finte que están operando así,
+[You]: vamos a poner vamos a poner los controles, porque si no es un quilombo bárbaro,
+[You]: En Estados Unidos, aparte, uno pensaría que por ahí acá hacen las cosas más
+[You]: responsables. ¿No sabés las fintechs que yo he visto en Latinoamérica las cosas que hacen con esto?
+[You]: Desastre.
+[You]: Desastre.
+[Remote]: Exacto. No, sí, sí, no.
+[You]: Pero bueno,
+[You]: mientras cuadre o haya un threshold de más menos cinco por ciento, siguen
+[Remote]: Las yo creo que van a estar más abiertas
+[Remote]: a donde estoy usando la Fintech a mí, a nuestras. ¿Jande?
+[Remote]: Podéis mirar a
+[Remote]: qué tipo de cosas de personas ahí que le pueda decir.
+[Remote]: No, te puede decir a Martín, directo.
+[Remote]: Sí.
+[Remote]: No sé si tiene un problema el costo, porque ellos
+[Remote]: podéis, listo, la contabilidad y demás. Tenés mucha gente que se los hace se los hace el
+[Remote]: no no se va a ofrecer el link.
+[Remote]: Pero lo hace el BIN, ¿verdad?, ¿cómo se llama?
+[Remote]: Sí.
+[Remote]: Lo sé, la fintechs en Argentina, la gran mayoría las hacen todos vía BIND, ¿no?
+[You]: Tienen que conciliarlo, el BIN. Con buen BIN, si ingestamos,
+[You]: el archivo del BIND y lo comparamos con translator propio y contra cualquier provider que ellos integran.
+[You]: Pero pero bueno, no quiero sacar más tiempo, che, mil y gas,
+[Remote]: No, pero yo
+[Remote]: yo me, nos llevamos ella para pensar, creo está buena, mí a mí me encanta siempre como side note,
+[Remote]: poder recomendar algo y que tenga
+[You]: Obvio.
+[Remote]: está bueno.
+[Remote]: Vale.
+[You]: Si les sigo a ustedes, feliz. Si no, no los quiero no los quiero molestar,
+[Remote]: Como gusta
+[You]: con mucho laburo, y solo si les sirve y le ven valor realmente los clientes con los que trabajan.
+[Remote]: que tenemos ahí le voy a pedir acá a Tom y Barrapato que
+[Remote]: que cuánto es el
+[Remote]: o cuánto cuánto tienen que hacer en consideración por mes,
+[You]: ¿Y cuánta gente tienen?
+[Remote]: ver si tiene sentido que que que los presentemos. No.
+[Remote]: Por ahí puedo recomendarte
+[Remote]: más, sí, por recomendarte.
+[Remote]: Bueno, ¿cómo pensás?
+[You]: Vale.
+[Remote]: Avisamos.
+[Remote]: Dale, somos todos para empezar con Tommy.
+[You]: Dale.
+[Remote]: Dale, Nacho, bueno.
+[You]: Mil gracias,
+[Remote]: Buena parte.
+[Remote]: Gracias, Nachito.
+[You]: Abrazo.
+[Remote]: A la segunda,
+
+============================================================
+SUMMARY
+============================================================
+### Rexi Product Overview & Market Position
+
+- Automated reconciliation platform for financial services
+  - Compares transactional data across core banking, ledger, payment processors
+  - Identifies discrepancies, lost transactions, refunds, backend failures
+- Current clients include US fintechs, payment processors, Buenbit
+  - SuperVL nearly signed $400K contract (delayed due to core system change to STQ)
+  - Buenbit active implementation in progress
+- Main competitor: Symmetric (Colombian, 5-7 years in market)
+  - Galicia, Naranja X, Mercado Pago clients
+  - Mercado Pago pays $10M+ annually
+  - Galicia Ventures invested in Symmetric
+  - Voila terminated Symmetric contract last year to build internal solution
+
+### Bain’s Market Perspective on AI in Banking
+
+- Current AI adoption very diffuse across banks
+  - Everyone doing small projects without clear strategy
+  - Most valuable use case: legacy code modernization using AI
+  - Customer service automation promising but cultural change required
+- Vendor selection patterns:
+  - Banks prefer established players (Salesforce Einstein, Google, Microsoft)
+  - Niche vendors need strong logo references to gain traction
+  - Risk aversion high - need proven success stories
+- Embedded solutions for merchant reconciliation potentially easier sell
+  - Lower risk profile than internal bank systems
+  - Stone (Brazil) and other acquirers building/buying these capabilities
+
+### Technical Implementation & Pricing Models
+
+- Two deployment options:
+  1. SaaS model for fintechs/payment processors
+  2. On-premise/client-hosted for banks (higher security requirements)
+- SOC 2 Type 2 certified, pursuing SOC 1 and ISO 27001
+- Pricing example (SuperVL): $400K upfront, $6-12K annual retainer
+  - Covers 26 money flows, deployment, first-year implementation
+  - Additional flows charged separately
+- Implementation timeline: <1 month for assessment and value demonstration
+  - Speed limited by client data access, not Rexi capabilities
+
+### Next Steps
+
+- Bain to evaluate with 1-2 banking clients
+  - Assess current reconciliation headcount and processes
+  - Quantify monthly reconciliation losses and manual effort
+  - Determine if introduction makes sense
+- Pablo and Tomas will discuss internally and follow up
+- Potential focus on smaller banks where implementation risk lower
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/2ac1dcf9-c077-472a-9bf7-66f72a9240a6](https://notes.granola.ai/t/2ac1dcf9-c077-472a-9bf7-66f72a9240a6)

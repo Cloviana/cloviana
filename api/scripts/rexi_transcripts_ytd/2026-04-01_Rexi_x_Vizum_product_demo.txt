@@ -1,0 +1,511 @@
+MEETING: Rexi x Vizum: product demo
+DATE: 2026-04-01
+ID: not_sJEWWY11yK0SLC
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Teo <teo@rexi.finance>, Gabino Fraga Jesterhoudt <gabino@vizum.mx>
+SCHEDULED: 2026-04-01T13:30:00-04:00 - 2026-04-01T14:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Esa era un poquito la idea de hoy. Si querés,
+[You]: lo que puedo hacer es un un breve recap de de lo que charlamos la vez pasada,
+[Remote]: Sí. Dale, y después yo muestro muestro un poco
+[Remote]: preparé un ejercicio conciliatorio en base a lo que compartieron por por mail,
+[Remote]: como para que tengan un pantallazo de la plataforma un poco más
+[Remote]: enfocado en su operatorio real. Buenísimo.
+[You]: Bueno,
+[Remote]: Excelente, claro que sí.
+[You]: un poco sobre la operatoria de Bizum,
+[You]: está en el el stablecoin sandwich,
+[You]: ¿no?, de MXN, USDT, y luego, moneda destino,
+[You]: sirviendo mucho el
+[You]: compañías como importadores, exportadores, fintechs y casinos, mencionaste,
+[Remote]: Mhmm.
+[You]: Y hoy la conciliación de distintas fuentes de información, bancos,
+[You]: algún tipo de ledger interno, y no sé si
+[You]: tendrán a Fireblocks ahí como proveedor de
+[You]: de cripto, pero es una consideración manual.
+[You]: Son cuatro o cinco fuentes de información,
+[You]: La complejidad también viene de que hay distintas
+[You]: estructuras de comisiones,
+[You]: y que hoy todo se resuelve en Excel. Particularmente, es un proceso que lleva Gonzalo, el CFO, ¿no?,
+[Remote]: Sí.
+[You]: que está de de vacaciones.
+[Remote]: Correcto.
+[You]: Tipo sumar. De hecho, podríamos grabar así después se lo ¿no?
+[Remote]: Sí, podemos
+[You]: Así que eso era un poquito
+[You]: los dolores que lo hacían en Excel y llevaba
+[You]: una hora por día,
+[You]: al proceso. Y, obviamente, está el trabajo manual,
+[You]: de no solamente machar las transacciones, sino de luego ir resolviendo, investigando las diferencias, ¿no? Porque, o
+[You]: que nunca machean al cien por ciento. Y, bueno, con la perspectiva de crecimiento que tienen,
+[You]: esto
+[You]: por ahí, hoy es un problema, pero el día de mañana se va volver realmente un problemón.
+[You]: Y entonces estaban buscando algo para resolverlo este q.
+[Remote]: Sí.
+[You]: Entendí bien el tema del timing, ¿no?, algo para para por ahí probar este este quarter.
+[Remote]: Sí, definitivamente.
+[You]: Perfecto. ¿Dónde estás? ¿En Valle De Bravo?
+[Remote]: No, en mi departamento, aquí en México. Nada, tengo muchos árboles.
+[You]: Ah, ahí se parecía mucho verde. Bueno, entonces,
+[You]: si te parece bien, metámonos en la demo. Si
+[You]: libre de de interrumpir y pausar y hacer preguntas sobre sobre lo que te parezca.
+[You]: Obviamente, va a ser un walkthrough genérico, pero bueno, la idea es hacerte un repaso en función de los dolores que mencionaste y y después pensar juntos cuál puede ser un next step, si es que hay interés y te gusta lo que ves.
+[Remote]: Buenísimo, claro que sí.
+[You]: Vale, genial.
+[Remote]: Perfecto. Bueno, comparto pantalla,
+[Remote]: Ahí están viendo, ¿no?
+[Remote]: Sí. Bueno,
+[Remote]: un poco en base a al al PDF que que compartieron
+[Remote]: describiendo cómo sería un Perdona.
+[Remote]: Perdona, que te
+[Remote]: te interrumpa. Sí, podemos, estamos grabando, no sé si ya empezamos a
+[You]: Arranco, arranco.
+[Remote]: Sí.
+[You]: Así es, Sí.
+[Remote]: Ah, súper.
+[Remote]: Ahí puse.
+[Remote]: Va.
+[You]: Ahí está.
+[Remote]: Buenísimo. Perfecto. Listo. Perdón por romper.
+[Remote]: Perfecto. Como decía, en base al al PDF,
+[Remote]: nos compartieron, describiendo un poco cómo sería una operatoria de de de conversión
+[Remote]: típica, pasando primero, por ejemplo, de pesos mexicanos a UST, y después
+[Remote]: a USD, o o viceversa, generé un ejercicio conciliatorio
+[Remote]: de
+[Remote]: de tres partes, es decir, tres bases de datos
+[Remote]: que pueden ser la base de datos del banco, la base de datos del proveedor de
+[Remote]: de conversión, la base de datos del banco local, cualquier tipo de
+[Remote]: de operatoria que
+[Remote]: que pueda llegar a tener tres bases de datos incluidas. Pero esto, obviamente,
+[Remote]: genérico, lo importante acá es que se lleven, que que te lleves un pantallazo
+[Remote]: de cómo funciona Rexi. Todo arranca desde las once, y básicamente nos dedicamos a
+[Remote]: automatizar la ingesta y estandarización de esa información,
+[Remote]: es decir, nos conectamos a todos los proveedores, tanto bancarios,
+[Remote]: proveedores de liquidez, tarjetas o cualquier tipo de partner,
+[Remote]: que que trabaje con ustedes, y automatizamos y
+[Remote]: toda esa información transaccional dentro de una misma
+[Remote]: plataforma. Entonces, por ejemplo, acá tenemos la base de datos de los
+[Remote]: de lo que se venían a hacer lo los pay ins,
+[Remote]: todo lo que es la vista default, nosotros no la tocamos,
+[Remote]: toda la la vista default queda siempre
+[Remote]: exactamente como la como un espejo, un clon,
+[Remote]: de cómo la tiene el el proveedor o partner,
+[Remote]: Obviamente, sí corremos algunos procesos de análisis para ver la calidad de esa información, si
+[Remote]: si el formato fecha es el correcto o si si hay algún problema, tal vez
+[Remote]: el campo ID tiene el noventa y cinco por ciento de las transacciones,
+[Remote]: y falta un uno por ciento o un cinco por ciento,
+[Remote]: esta información queda siempre
+[Remote]: siempre impoluta. Obviamente, se puede trabajar y entender
+[Remote]: la información que está viniendo con
+[Remote]: nuestros agentes, que ayudan a a procesarlo y demás, y se pueden generar vistas.
+[Remote]: Básicamente, es una vista, es
+[Remote]: un proceso que se automatiza, entonces nosotros ahora podemos cambiar el formato
+[Remote]: a este campo, o o tal vez
+[Remote]: hacer agrupaciones, filtros, hacer fórmulas
+[Remote]: específicas. Obviamente, le decimos al AI, quiero filtrar
+[Remote]: o calcular el fee solamente cuando vienen euros o o cualquier fórmula compleja,
+[Remote]: cualquier tipo de masticación de la información que se tenga que hacer antes de hacer ese curso de conciliatorio,
+[Remote]: se hace acá y se puede generar una vista demo
+[Remote]: view,
+[Remote]: se, y se deja filtrado. Por ejemplo, tal vez queremos hacer
+[Remote]: un una base de datos
+[Remote]: específica por cada una de las monedas destino, entonces hacemos un
+[Remote]: speeding views, ponemos a cada moneda destino,
+[Remote]: Acá verificamos qué valores, y acá nos nos generaría
+[Remote]: seis bases de datos independientes. Esta vez queremos conciliar
+[Remote]: cada una de estas bases de datos, acá se van generando de la carrera a la izquierda,
+[Remote]: cada una de estas bases de datos con diferente fuente de datos. Entonces,
+[Remote]: de esta manera mantenemos la la versión original siempre
+[Remote]: unificada y y
+[Remote]: y exactamente igual a la del proveedor, pero podemos hacer todas las
+[Remote]: de modificaciones, filtros, estandarizaciones y demás que querramos
+[Remote]: para prepararla para el cruce de datos con la otra
+[Remote]: base de datos. Entonces, tenemos ahí el pay in,
+[Remote]: payout, y acá la el la conversión,
+[Remote]: En este caso, yo no hice ningún tipo de transformación, porque, como vemos, ya ya
+[Remote]: el el campo fecha lo tomó como fecha correctamente, el el
+[Remote]: el el preanálise que hicimos, el campo, los diferentes campos montos también están acá,
+[Remote]: el formato correcto, no hay que hacer ningún tipo de modificación.
+[Remote]: Una vez que tenemos eso, vamos a la conciliación.
+[Remote]: Yo acá hice una conciliación de dos partes,
+[Remote]: primero el pay in contra la conversión, y después la conversión contra el payout.
+[Remote]: Para estas conciliaciones, obviamente, se puede hacer
+[Remote]: montón de estrategias diferentes de conciliación, un one to one, one to many, many two,
+[Remote]: many to one, many to many. Dentro del one to one puede ser occurrence counter
+[Remote]: estrictamente one to one, donde no permitimos ni un tipo de
+[Remote]: de de ambigüedad. Y también tenemos
+[Remote]: la posibilidad de elegir las diferentes, mira, estas son las
+[Remote]: las bases de datos que generamos recién, cada una por una moneda,
+[Remote]: o la default, que es la original, que es la que usamos en este caso.
+[Remote]: También se puede usar los resultados de otra conciliación,
+[Remote]: para hacer una siguiente conciliación, así se va generando las diferentes conciliaciones encadenadas
+[Remote]: Acá vemos las diferentes barridas, yo hice una sola barrida,
+[Remote]: por reference ID, pero podríamos agregar diferentes barridas o diferentes joins
+[Remote]: tal vez agregarle tolerancia en en monto o en fecha, y después comparaciones.
+[Remote]: Yo lo que hice acá fue,
+[Remote]: primero, asegurarme operativamente que la transacción esté en ambas bases de datos
+[Remote]: en la y en la interna, por ejemplo, y después quiero comparar
+[Remote]: el monto de esa transacción en en pesos mexicanos, que sea el correcto con
+[Remote]: le puse cero coma uno por ciento de tolerancia, pero puede ser
+[Remote]: cualquier tipo de tolerancia, también puede ser cero. Entonces, primero nos aseguramos que la transacción esté,
+[Remote]: y después hacemos una conciliación financiera asegurándonos que, por ejemplo,
+[Remote]: el monto sea correcto, pero también podemos verificar que la fecha sea la correcta, que el estatus
+[Remote]: ambas transacciones esté aprobado o o o o
+[Remote]: normalizado, también se puede hacer aprobado de un lado y approved del otro,
+[Remote]: o sea, cualquier tipo de conciliación se puede hacer
+[Remote]: acá. Una vez que tenemos configuradas, obviamente,
+[Remote]: esto es para automatizar, y también le podemos pedir a la gente que que nos ayude a
+[Remote]: optimizarla y demás,
+[Remote]: En este caso, yo ya la corrí,
+[Remote]: y vamos a ver
+[Remote]: los resultados. Entonces,
+[Remote]: acá tenemos los resultados por regla, es decir, por barrida.
+[Remote]: Primero, tengo la regla uno, que hicimos el paying contra conversión. La regla dos,
+[Remote]: conversión contra contra payout. Los resultados
+[Remote]: acá
+[Remote]: si quieren ver los detalles, lo lo lo pueden, pero, básicamente, tenés una tabla con
+[Remote]: toda la información de de cada una de las reglas.
+[Remote]: Base a datos paying,
+[Remote]: y base a datos vision. Estas son las match, obviamente se puede
+[Remote]: por match, en match y demás, y después tenemos las las métricas. Las métricas son simplemente métricas genéricas de de cualquier conciliación, son métricas que les sirven a ustedes y les sirven a a cualquier proveedor.
+[Remote]: Pero después, si necesitan ver algún tipo de
+[Remote]: de métricas más específicas, todo se ven dashboards que vamos a ver ahora en unos minutos.
+[Remote]: Obviamente, acá tenemos Ok.
+[Remote]: Base datos uno, base datos dos, el el por
+[Remote]: de conciliado de cada una, por fecha, por ejemplo,
+[Remote]: el veintisiete de marzo de dos mil veintiséis, doscientas cuarenta y cuatro transacciones,
+[Remote]: se matcharon, veintiséis no matcharon. Maestro.
+[Remote]: Que te confirmo a la tarde noche.
+[Remote]: Monto...
+[Remote]: Neto.
+[Remote]: Lo vamos a ver también.
+[Remote]: En cuánto es eso, matcheado y no matcheado, en
+[Remote]: en pesos mexicanos. Acá tenemos seis millones de pesos que nos matchearon ayer, y
+[Remote]: lo mismo el lado del proveedor.
+[Remote]: Eso por el lado de conciliaciones. Después, obviamente, llega todo el proceso de
+[Remote]: bueno, entender qué está pasando, qué, por qué no es
+[Remote]: cien por ciento lo conciliado, qué podemos hacer para mejorar.
+[Remote]: Obviamente, nosotros acá, los agentes se han vuelto desde que arrancamos a hoy
+[Remote]: tremendamente poderosos, ya son mucho mejores que cualquier humano,
+[Remote]: entonces, son son una herramienta. Si hoy están haciendo un proceso manual,
+[Remote]: están tardiendo mucho tiempo, básicamente, porque
+[Remote]: no somos muy buenos investigando grandes volúmenes de datos, y los agentes encuentran, la diferencia,
+[Remote]: rapidísimo, si es una diferencia temporal.
+[Remote]: O si es un, por por ejemplo, acá yo le puse cero coma uno por ciento de tolerancia,
+[Remote]: y me está sugiriendo si la aumentamos un poco a cero coma cinco,
+[Remote]: el porcentaje de conciliación pasa de noventa y uno a noventa y nueve coma cinco.
+[Remote]: Claramente, es un tema de pequeñas variaciones en esos en esos movimientos.
+[Remote]: Obviamente, todas estas optimizaciones se pueden revisar,
+[Remote]: y aplicar la las reglas que te que te sugiere para la próxima vez que
+[Remote]: para la próxima vez que
+[Remote]: que corra la conciliación, directamente se aplique la la la
+[Remote]: la sugerencia. Y, obviamente, también hay
+[Remote]: este caso, son tres sugerencias para aumentar la el porcentaje conciliatorio,
+[Remote]: pero a veces
+[Remote]: el el el reporte que te genera el agente simplemente es, nunca van a conciliar porque los períodos de tiempo de ambas bases de datos simplemente no son los mismos. No hay forma, no hay regla que podamos hacer que que que ayude a mejorar el porcentaje de conciliatorio. Eso va a depender mucho del del operatorio de ustedes. Obviamente, acá el agente ayude a hacerle mucho a entender qué pasó,
+[Remote]: por qué está considerando bien o mal, se puede conversar, pedir ejemplos y demás,
+[Remote]: también tenemos toda la parte del exception manager, que es la la la regla
+[Remote]: el proceso manual para ver todas las discrepancias,
+[Remote]: donde investigamos y y tratamos de de llegar a
+[Remote]: a matches manuales uno por uno, nosotros estamos convencidos de que
+[Remote]: esto es una app del dos mil quince, y muy pronto va ser absolutamente todo a través de la
+[Remote]: gente, ¿no?, va a haber que estar haciendo investigaciones
+[Remote]: manualmente. Obviamente, también podemos hacer acá el
+[Remote]: el explorador de de información.
+[Remote]: Después, obviamente, tenemos notificaciones que se mandan por por Slack, email o cualquier medio de comunicación que ustedes quieran, con con todos los días, cada vez que corre la conciliación, solamente cuando No sé si la trabaja, digo, ¿no?, a ninguno de nosotros no. Y demás. Tenemos los dashboards, que te comenté. Los dashboards son extremadamente fáciles de de usar, Se puede hacer un dashboard por source, un dashboard por reconsideración o un dashboard de todas las conciliaciones en uno solo, depende quién es el usuario, pueden tener varios dashboards. Obviamente, el dashboard le puedes decir, al agente generan un un un dashboard y te lo va a generar,
+[Remote]: Ajá. Va a ser sobre sources o reconciliaciones, en este caso tenemos solo esta.
+[Remote]: Y
+[Remote]: las dos reglas, y acá tenemos los diferentes widgets
+[Remote]: que se generan, PO tables,
+[Remote]: pie charts, line charts, y demás. Ahora vamos a generar uno básico
+[Remote]: como para que veas, por ejemplo,
+[Remote]: en el x le podemos poner fecha,
+[Remote]: y
+[Remote]: daily,
+[Remote]: y
+[Remote]: le podemos poner
+[Remote]: estatus,
+[Remote]: estatus,
+[Remote]: No no no importa, lo lo lo que quiero mostrar acá,
+[Remote]: test,
+[Remote]: es que los widgets se pueden generar y
+[Remote]: Bueno, creo que lo lo configuré mal, pero se pueden
+[Remote]: organizar y
+[Remote]: agregar, editar y demás muy fácilmente para para los usuarios.
+[Remote]: Acá también se puede hacer con el agente.
+[Remote]: Tenemos recordings, nos dimos cuenta que para nuestros
+[Remote]: clientes había una parte que no era necesariamente conciliatoria, pero sí
+[Remote]: muy manual, de generación de reportes diarios, semanales o mensuales,
+[Remote]: Entonces, también les permitimos crear crear reportes tremendamente customizables,
+[Remote]: enriqueciendo, organizando la información como haga falta.
+[Remote]: Y, obviamente, podemos exportar cualquier tipo de información, conciliatoria o del proveedor, a
+[Remote]: cualquier base de datos que quieran ustedes, tal vez quieren tener
+[Remote]: en su propia base de datos toda la información de todos los proveedores,
+[Remote]: Nosotros la ingestamos y se la volvemos a enviar, o o la conciliamos y se la volvemos a enviar, o
+[Remote]: o pueden organizarla como quieran.
+[Remote]: También se puede hacer output con CSV,
+[Remote]: descargarse cualquier tipo de información que necesiten, BigQuery o cualquier base de datos que que haga falta.
+[Remote]: Entonces, en definitiva, lo que hacemos es
+[Remote]: automatizar la ingesta, automatizamos la estandarización,
+[Remote]: reconciliamos, aceleramos muchísimo el proceso de investigación de discrepancias, que
+[Remote]: suele ser el que el el que más tiempo le lleva a nuestros clientes,
+[Remote]: Tenemos notificaciones, dashboards personalizables que pueden compartir internamente entre equipos y demás,
+[Remote]: y, obviamente, generación de reportes automatizados y exports
+[Remote]: a base de datos que
+[Remote]: ustedes quieran.
+[Remote]: Eso es a grandes rasgos
+[Remote]: Y, por ejemplo, si hago un
+[Remote]: Supongo que lo de one to many, many to one, es cuando haces
+[Remote]: transacciones bulk, ¿no?
+[Remote]: Exactamente, exactamente. Lo que te permite es
+[Remote]: tener conciliaciones one to one y one to many,
+[Remote]: sin perder la visibilidad transaccional. Entonces, tal vez tenemos
+[Remote]: un bulk, y lo querés comparar con toda la con el bulk de de transacciones,
+[Remote]: si lo hacés un group by típico, es perdés la visibilidad transaccional, lo que te permite la herramienta
+[Remote]: es saber exactamente dentro de ese Google qué transacciones están
+[Remote]: ¿Y cómo identifica
+[Remote]: no sé, un error ahí?
+[Remote]: De todas las transacciones.
+[Remote]: ¿Cómo se llama?
+[Remote]: Este Eso depende
+[Remote]: depende mucho de cómo tienen la información ustedes ahí, tendríamos que hacer un ejercicio feliz de hacerlo
+[Remote]: pero básicamente depende cómo lo lo configuran.
+[Remote]: Ok.
+[Remote]: Otro problema que nos hemos encontrado es
+[Remote]: este, pues sí, en estas plataformas
+[Remote]: por ejemplo, se regresa un pago,
+[Remote]: y se nos se nos acredita, pues,
+[Remote]: a la plataforma de ese partner que tenemos, por ejemplo. Pero
+[Remote]: hay veces que,
+[Remote]: no nos avisa,
+[Remote]: o no se registra el la devolución,
+[Remote]: y hasta que no vemos nosotros, o sea, ha pasado que hasta que no identificamos
+[Remote]: qué pago es que no se ha devuelto,
+[Remote]: este, el partner
+[Remote]: O sea, muy malas prácticas, obviamente, pero Sí.
+[Remote]: Nos ha pasado. Este, hasta que no le decimos, oye, pásame
+[Remote]: todo el historial de los refunds que ha habido, y ya identificamos
+[Remote]: cuál es el que no no vemos reflejado y así.
+[Remote]: No sé, ahí, pues, obviamente, fue un tema de
+[Remote]: que supongo se puede arreglar con esto.
+[Remote]: O sea, esa explicación de ese
+[Remote]: Exactamente, o sea, si ellos tienen forma de disponibilizar cuáles son los los pagos,
+[Remote]: o el estatus de las transacciones, nosotros lo ponen lo lo ponen en
+[Remote]: todos los días apenas sucede.
+[Remote]: Ok.
+[Remote]: Y
+[Remote]: todo es transaccional, ¿no? O no, tampoco, no sé,
+[Remote]: toman en cuenta balances. Es transaccional, pero, por ejemplo,
+[Remote]: lo que suelen usar nuestros clientes es
+[Remote]: por ejemplo, tenemos la base de datos la la base de datos de payout, y nosotros tenemos
+[Remote]: en en el proveedor
+[Remote]: el balance diario. Entonces, lo que hacemos es generar
+[Remote]: un
+[Remote]: un balance
+[Remote]: básicamente, acumulativo o no acumulativo, para generar
+[Remote]: una hoja de visualización de lo de los balances teóricos diarios.
+[Remote]: Entonces, compara el balance teórico diario en base a las todas las transacciones, todos los movimientos del día,
+[Remote]: y se compara con el reporte de de de balance end of day,
+[Remote]: que que da el proveedor. Entonces, cuando hay una diferencia, directamente sabemos exactamente
+[Remote]: cuánto es el monto y buscamos la transacción que falta
+[Remote]: en un, que no tomó el el proveedor.
+[Remote]: Ok, buenísimo.
+[Remote]: Entonces, básicamente,
+[Remote]: Sí.
+[Remote]: Adelante, adelante.
+[Remote]: No, que automatizamos la generación de de de conciliaciones.
+[Remote]: Transaccionales Ajá. Y conciliaciones de balance.
+[Remote]: Son diferentes conciliaciones.
+[Remote]: Exacto, ok.
+[Remote]: Y, pues sí, funciona, digamos,
+[Remote]: para todo el flujo
+[Remote]: que que le expande, ¿no? O sea, muchísimos partners, conversiones por todos lados,
+[Remote]: refunds.
+[Remote]: Todo eso, todo lo de aquí todo lo que describieron se puede hacer
+[Remote]: perfectamente y automatizar en
+[Remote]: Perfecto.
+[Remote]: Pues se ve ideal.
+[Remote]: La verdad, es es es, este, algo que, o sea, lo buscaba así.
+[Remote]: Porque todas las otras soluciones que vi
+[Remote]: increíblemente complicadas.
+[Remote]: Es es un feedback que que solemos recibir.
+[Remote]: Sí. Que es intuitiva y fácil de usar.
+[Remote]: Sí, perfecto.
+[You]: ¿Qué otro comentario o feedback
+[You]: o reacción
+[You]: a lo que mostró Teo recién nos podrías compartir?
+[Remote]: No, pues,
+[Remote]: la verdad es que se ve, o sea, de nuestro lado,
+[Remote]: muy fácil, o sea, al final nada más es ponerlos todos los inputs ahí,
+[Remote]: de de las APIs de nuestros proveedores,
+[Remote]: y
+[Remote]: dejar que esto corra. O sea, la verdad es que
+[Remote]: está muy difícil de
+[Remote]: visualizar.
+[You]: Está bueno. Por ahí, si querés, te cuento un poco
+[You]: cómo podemos alinear próximos pasos.
+[You]: Nosotros ahí, típicamente, bueno, la implementación queda cien por ciento de nuestro lado,
+[You]: Lo que
+[You]: ponemos como un incentivo, entonces,
+[You]: o sea, primero te cuento un poquito del pricing. Nosotros
+[You]: el modelo lo lo parecemos fijo,
+[You]: una estimación en base al volumen transaccional, la cantidad de conectores,
+[You]: la complejidad de los flujos, y con eso pasamos un quote fijo.
+[You]: ¿Sí?
+[Remote]: Okay.
+[You]: Por dos motivos, pero porque creo que ya te comenté un poquito nuestra visión, nuestra visión es
+[You]: que conciliaciones para nosotros es un wedge, y después ayudarlos a ustedes a construir otros work
+[You]: agénticos,
+[You]: dentro de FinOps para para automatizar más tareas. Pero automatizar tareas sobre un sitio web record que está conciliado, ¿no? Porque si no, ahí hay, sí, garbage in, garbage out. Entonces, the first step is creating the system of record that's reconciled, y después construir esos otros workflows.
+[You]: Por eso también nuestro nuestro país es fijo, da previsibilidad y también
+[You]: con las perspectivas de crecimiento que tiene Bissum,
+[You]: no queremos ser esos vendors que
+[You]: que rápidamente, si ustedes crecen diez x, el invoice crece diez x, entonces, estamos en esa lista de, ok, now we need to think about renegotiating or maybe building something internally. ¿Por qué? Porque reconciliation the wedge, ¿no? Ahora, la implementación, lo que solemos hacer ahí es it's all on our side. We take all the all the heavy lifting, pero sí necesitamos dos tipos de sponsors del lado de ustedes. Uno, como de producto y operaciones, nos va pasando el business logic sobre cómo funcionan los archivos, y cuál es la lógica, los thresholds y todo el business policy behind Brickell,
+[You]: y uno, y un sponsor técnico que nos habilite
+[You]: la entrada a los conectores, a las APIs, a la ingesta de esa información, ¿no?
+[You]: Nosotros ahí ponemos un incentivo en la implementación en donde
+[You]: el quote que yo te haga mensual
+[You]: es lo que cobro de la implementación.
+[You]: Pero if we are live under
+[You]: thirty days,
+[You]: ese ese ese costo es bonificado hacia el primer mes del
+[You]: es decir, sale gratis la
+[Remote]: Okay.
+[You]: Lo ponemos con un incentivo para mudarnos rápido, para asegurarnos
+[Remote]: Yeah.
+[Remote]: Mhmm.
+[You]: un time to value rápido, porque, si no, es como que se diluye la implementación,
+[You]: y nunca termina siendo como una prioridad. Entonces,
+[Remote]: Sí.
+[You]: that's typically how we work in terms of implementation. We do the work,
+[You]: but we put an incentive so that together we can move quickly.
+[Remote]: Okay.
+[Remote]: Vanessa.
+[You]: Así que, si te parece, dejame que trabajo
+[You]: base a los volúmenes. Ya me compartiste volúmenes transaccionales, cantidad de conectores y esas
+[You]: cosas, ¿no? O, si no, te las puedo anotar ahora rápidamente.
+[Remote]: Sí, sí, sí, sí, no, creo que no te las compartí.
+[Remote]: ¿Mande?
+[You]: ¿Cuántas fuentes de información
+[You]: vamos a tener que gestar.
+[Remote]: Son
+[Remote]: pues,
+[Remote]: entre
+[Remote]: cinco y ocho.
+[Remote]: Sí.
+[Remote]: Por ahí.
+[Remote]: Obviamente, pues, paso a paso, ¿no?, pero
+[You]: ¿En entre cinco y ocho o cinco más ocho?
+[Remote]: Y hay,
+[Remote]: No, entre cinco y ocho. O sea, sí estamos hablando de
+[Remote]: banco mexicano,
+[Remote]: todos los partners que tenemos liquidar,
+[You]: Ah, pero ustedes ya tenían un data lake propio, ¿no?
+[Remote]: Sí, como
+[Remote]: Sí, o sea, sí tenemos un sistema nosotros, ajá.
+[You]: O sea, que tendríamos que hacer
+[You]: solamente un conector a ese sistema para ingestar todas las tablas.
+[Remote]: Es correcto, sí.
+[You]: Ok, solo un conector
+[Remote]: Eso eso acelera mucho acelera mucho el proceso de implementación, cuando
+[Remote]: toda la información ya
+[Remote]: Sí, nosotros tenemos
+[Remote]: este, un admin dashboard
+[Remote]: ahí, con
+[Remote]: toda la información, page
+[You]: ¿Cuál es? ¿Qué data le acusan?
+[Remote]: Queda ley,
+[You]: Snowflake Google Amazon s tres
+[Remote]: No tengo idea.
+[Remote]: La verdad, no sé.
+[You]: Bueno, no
+[Remote]: O sea, seguramente Amazon.
+[Remote]: AWS.
+[You]: ¿Y el y el volumen transaccional es cuánto es, más o menos?
+[Remote]: Sí, no es mi lenguaje.
+[Remote]: De
+[Remote]: de
+[Remote]: pagos de clientes, dices, o de número de transacciones?
+[You]: Transacciones a conciliar.
+[Remote]: O sea, número de transacciones o volumen.
+[Remote]: Ah,
+[Remote]: Tengo que checar.
+[Remote]: Tengo que checar todos
+[Remote]: como
+[Remote]: no sé, unos
+[Remote]: veinte a treinta pagos al día,
+[Remote]: Entonces, serían,
+[You]: Ok.
+[Remote]: pagings, no sé, treinta, y luego treinta payouts,
+[Remote]: pero luego intercompany payments,
+[Remote]: unos cuantos bulk payments de por medio.
+[Remote]: Entonces, pay ins treinta, pay outs treinta,
+[Remote]: algo así.
+[You]: Ok.
+[You]: Más los intercompany barric.
+[You]: Ok. Y
+[You]: tienen estimaciones de
+[You]: cómo va a crecer ese volumen a fin de año o o no saben?
+[Remote]: Pues
+[Remote]: sí, yo creo que, o sea,
+[Remote]: no sé, triplicar.
+[Remote]: Todo esto.
+[Remote]: Depende, es que depende del cliente. Sabes que tenemos clientes que mandan
+[Remote]: pocos pagos, pero de alto volumen, luego unos que entran
+[Remote]: y hacen muchísimos pagos chiquitos,
+[Remote]: Este,
+[Remote]: puede variar, y y sí ha estado fluctuando bastante, y
+[Remote]: tenido, entonces,
+[Remote]: sí, obviamente, el el gol es triplicar a final de año.
+[You]: Ok. Bueno, yo conecto tu já até a
+[You]: te lo paso por por correo y vemos cómo seguimos, ¿te parece? Quizás,
+[You]: valga la pena
+[You]: Bueno, le compartimos también el recording a
+[Remote]: Por favor.
+[You]: a tu socio,
+[You]: ahí vemos cómo seguimos, ¿te parece?
+[Remote]: Sí, si me lo puedes mandar, estaría buenísimo.
+[You]: Dale. Listo, Gabino, un gustazo. Muchas gracias por el tiempo.
+[Remote]: Un placer. Gracias.
+[Remote]: Que estén muy bien. Feliz
+[Remote]: semana
+[You]: Igualmente.
+[Remote]: Luego,
+[You]: Chao, chao.
+[Remote]: Cuídense.
+
+============================================================
+SUMMARY
+============================================================
+### Vizum — Context & Pain Points
+
+- Reconciliation today done manually in Excel by Gonzalo (CFO), \~1 hour/day
+- Sources: between 5 and 8 — but all already ingested into a proprietary data lake
+  - Only 1 connector needed; Gabino unsure of the data lake provider (likely AWS)
+- Transaction volume: \~30 pay-ins + \~30 pay-outs per day, plus intercompany bulk payments
+  - Goal: 3x volume by end of year
+  - Mix varies: some clients send few high-value payments, others many small ones
+- Key pain point flagged by Gabino: refunds not always registered or communicated by partners
+  - Has required manually requesting full refund history to identify missing entries
+
+### Gabino’s Reactions to the Demo
+
+- Overall reaction very positive — described it as exactly what he was looking for
+- Noted other solutions he evaluated were “incredibly complicated” by comparison
+- Key insight: sees implementation as straightforward — “just plug in all the provider APIs and let it run”
+- Confirmed the platform covers their full flow: multi-partner, multi-currency conversions, refunds, bulk payments
+
+### Next Steps
+
+- Ignacio
+  - Send Gabino a pricing quote based on volumes discussed
+  - Share meeting recording with Gabino’s co-founder/partner
+- Gabino
+  - Confirm data lake provider to Ignacio (expected: AWS)
+  - Share recording with co-founder and align on next steps
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/ac7b253f-7563-41ce-9cda-869d9d5a5571](https://notes.granola.ai/t/ac7b253f-7563-41ce-9cda-869d9d5a5571)

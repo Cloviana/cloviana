@@ -1,0 +1,513 @@
+MEETING: Rexi x HDI Seguros: intro
+DATE: 2026-01-28
+ID: not_wdQaZb86K5trZJ
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Santiago Castro <santiago.castro@hdiseguros.com.co>, Sebastian Nicholls <sebastian.nicholls@hdiseguros.com.co>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-01-28T15:30:00-05:00 - 2026-01-28T16:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Bien, gracias, mucho gusto.
+[You]: Angélica, Sebastián.
+[Remote]: Placer.
+[Remote]: Sí, y aquí también me acompaña Luz, Y Acaba De Llegar Santiago, que es el otro contacto que es
+[Remote]: te dijo Nicolás.
+[You]: Ahí va, sí, buenísimo.
+[You]: Bueno, un gusto saludarlos. Acá me acompaña Teo, mi mi cofounder,
+[You]: estamos los dos en
+[You]: en Nueva York, viviendo. Tenemos parte del equipo de Nueva York y
+[You]: y parte en en Argentina. Quizás ahí como contexto
+[You]: les cuento que yo trabajé muchos años con con Nico, más Juan, en en Bain, en su época en Bain, hicimos muchos proyectos de
+[You]: servicios financieros y también de seguros, y y bueno, nada, es un gran amigo.
+[You]: Jugamos golf juntos, corremos juntos,
+[You]: el cruce, no sé si habla tanto del cruce como hablaba en Bain,
+[Remote]: Sí.
+[You]: ¿ya los torturó? ¿Ya ya convenció a alguno a correr el cruce?
+[Remote]: No, no, no, pero las las
+[Remote]: de Santiago está muy familiarizada con el tema porque también trabajó allá un buen tiempo, entonces,
+[Remote]: está dateada.
+[You]: Ahí va. Bueno, buenísimo. Ya saben todo, Benico, entonces,
+[You]: Así que eso es un poquito el contexto,
+[You]: Yo lo llamé el otro día, le le conté un poquito de lo que estábamos haciendo,
+[You]: y y me recomendó hablar con ustedes y después ver
+[You]: ver si si podemos presentarles un poco la solución,
+[You]: conocer más sobre sus procesos, sus dolores con
+[You]: con este workflow y ver si evaluar un potencial fit, ya sea para arrancar con
+[You]: con una demo, con una prueba de concepto, algo chiquito, después
+[You]: un volupamiento más progresivo, incremental. Voy a compartir pantalla para
+[You]: para dar un poquito más de contexto sobre nosotros
+[You]: ya después nos encantaría en realidad enfocar el tiempo en escucharlos a ustedes.
+[You]: Pero, bueno, poquito sobre
+[You]: qué hacemos, para quiénes y por qué nosotros no.
+[You]: Nosotros arrancamos de hardware, de MIT y Colombia,
+[You]: en una en una incubadora en MIT que se llama FinTech Ventures,
+[You]: Los tres somos operadores de FinTech, venimos de
+[You]: de Bitso, de mercado pago,
+[You]: de Pomelo, de Común, Con Lo Cual Trabajamos En Fintech Muchos Años, Naranja X También En Argentina,
+[You]: Y conocemos estos dolores, estos problemas
+[You]: operativos y financieros de primera mano, ¿no? De ahí de ahí viene
+[You]: la idea y y el por qué construir esta compañía.
+[You]: Lo que hacemos hoy, básicamente, es tenemos una plataforma
+[You]: de conciliación automática, ¿sí? Entonces,
+[You]: la plataforma básicamente ingesta información transacta
+[You]: de distintas fuentes de información, hace todo el parsing
+[You]: a un formato unificado para poder procesarlo, hacemos todo el matching,
+[You]: con reglas de negocio, barridas,
+[You]: rangos de tolerancia, etcétera, y luego
+[You]: un lugar donde se disponibilizan los resultados, en modo dash
+[You]: dashboard con gráficos, y un módulo de manejo de discrepancias. Acá, como bien sabemos,
+[You]: el mundo de conciliaciones es machear transacciones, después donde uno lleva
+[You]: mayor tiempo y mayor esfuerzo es investigando y resolviendo las discrepancias.
+[You]: Entonces, tenemos todo un módulo que lo llamamos problem solver,
+[You]: en donde mostramos las discrepancias y con tecnología encontramos
+[You]: patrones adicionales, sugerencias, marcado como ese
+[You]: excepciones, hacer hacer archivos manuales, etcétera.
+[You]: Después, por último, está el output, que podemos generar reportes, si tienen algún regulador,
+[You]: podemos imprimir los resultados en alguna base de datos de ustedes,
+[You]: o mismo tenemos conexiones con los principales CRPs,
+[You]: para generar los asientos contables ya automáticos, ¿no?
+[You]: La idea de la herramienta es que sea utilizada para
+[You]: equipos de finanzas o de operaciones,
+[You]: sin dependencia técnica, que es una herramienta que ustedes puedan operar
+[You]: ustedes puedan configurar sin la dependencia de
+[You]: tener que pedir ayuda a un ingeniero de software, a un ingeniero de datos,
+[You]: que como bien sabemos
+[You]: muchas veces hay competencia de prioridades, lleva más tiempo,
+[You]: y entonces es difícil desbloquear el valor rápidamente. Esas
+[You]: cómo estamos diseñando a la plataforma de esa manera, muy flexible y configurable para usuarios no técnicos.
+[You]: Un poquito sobre los clientes con los que trabajamos hasta ahora,
+[You]: una mezcla de Estados Unidos y Argentina y nuestros inversores,
+[You]: Este es el equipo, como les comentaba,
+[You]: el el por qué nosotros venimos de de fintech.
+[You]: De Latinoamérica y de Estados Unidos también,
+[You]: Tego particularmente construyó toda la toda la
+[You]: de seguros en Mercado Pago con Carlos Hernadaz,
+[You]: con lo cual conoce muy bien la la industria de seguros.
+[You]: Quieren un poquito nuestra propuesta de valor, ¿no? Que creo que ya hablé un poco, ¿no? Pero, obviamente,
+[You]: el core de todo lo que hacemos es la inteligencia artificial.
+[You]: Las conciliaciones, al final, es análisis de datos estructurados. Con lo cual hemos encontrado un caso de uso muy muy bueno para esta tecnología, para todo lo que es desde la ingesta, el parceo, que es la transformación de formatos, el procesamiento, cuál es la lógica conciliatoria que maximiza el macheo. Eso lo usamos con con inteligencia artificial, y después la resolución de discrepancias, ¿no? Y después hay una un agente que coordina todo,
+[You]: e interactúa con el usuario. Y los factores de diseño, digamos,
+[You]: nuestra propuesta está anclada en tres factores de diseño claves, que sea plug and play, es decir, el tag
+[You]: to value. Si decidimos avanzar, esto tiene que ser muy fácil
+[You]: de conectar y implementar para que ustedes puedan ver valor en semanas. No puede ser un proyecto de
+[You]: seis meses. Después que sea self serve, esto que hablaba de la autoriza
+[You]: de los equipos técnicos, y por último que sea compliance ready.
+[You]: Porque al final la conciliación, al ser un proceso de higiene,
+[You]: siempre conlleva algún tipo de requerimiento regulatorio o de reporting,
+[You]: que queremos que la plataforma nos ayude a cumplir con
+[You]: requerimientos de manera mucho más eficiente. Esto es un poquito cómo no, te apoyo y les puedo
+[You]: pasar esto, pero cómo nos diferecemos de la competencia, porque hay otras herramientas en el mercado,
+[You]: Principalmente, para resumirlo en nuestro enfoque con inteligencia artificial,
+[You]: que nos permite ser obviamente mucho más eficientes para la configuración y el
+[You]: mantenimiento de la plataforma, y eso nos permite ser mucho más económicos que la competencia, ¿no?
+[You]: Ahí, Angélica, vi que te levantaste la mano.
+[Remote]: Sí, gracias. Quiero
+[Remote]: preguntarte para saber en dónde nos paramos. Esto se refiere únicamente a pagos,
+[Remote]: a ingresos o cualquier flujo de la compañía?
+[You]: Cualquier flujo.
+[Remote]: Puede ser de salida o de entrada.
+[You]: Exactamente.
+[Remote]: Listo, gracias. Hecho, ahí, Angélica, no no sé
+[Remote]: suele suceder
+[Remote]: que nos contacta un equipo dentro de una compañía, que puede ser
+[Remote]: operaciones, fin ups, accounting,
+[Remote]: o finanzas,
+[Remote]: después, una vez que ya tienen la la herramienta contratada,
+[Remote]: otros equipos empiezan a querer automatizar procesos.
+[Remote]: Entonces, empiezan a usar la la plataforma y centralizar ahí
+[Remote]: operaciones.
+[Remote]: Ok.
+[You]: Esto es un poquito sobre los resultados que hemos visto con clientes actuales.
+[You]: Reducción de tareas manuales, obviamente, mucho Excel, ese
+[You]: SQL que reemplazamos con esta herramienta automática.
+[You]: Cero riesgo, entonces, nuestros clientes con los que trabajamos ninguno tuvo una
+[You]: auditoría regulatoria que tuvo que pagarle alguna penalidad o presentar algún reporte,
+[You]: Y el último, muy
+[You]: importante es muchas compañías que no logran conciliar
+[You]: al cien por ciento de los flujos terminan teniendo pérdidas mes a mes.
+[You]: Del balance sheet, y y hemos reducido esas por noventa
+[You]: y cinco por ciento en promedio, con lo cual hoy ya es
+[You]: casos muy puntuales, donde está, ni siquiera depende de nosotros, porque la información no llegó hoy
+[You]: llegó mal. Como bien sabemos, como bien saben, seguramente
+[You]: les genera muchos dolores de cabeza a veces que la fuente de información no es correcta o no es precisa.
+[You]: Casos de estudio, que después yo se los envío y un poco nuestro ropa hacia adelante,
+[You]: con integraciones dinámicas, soluciones embedded y flujos colaborativos que te vos estabas contando un poquito. Así que eso es un poquito sobre nosotros, Estamos en una etapa temprana, pero ya ya con clientes en producción, clientes pagando, clientes grandes, tenemos bancos tradicionales, procesadoras de pagos, tenemos algunos intermediarios en seguros, pero sí voy a a a a resaltar que en seguros estamos empezándonos a meter, sabemos que los flujos son muy parecidos, son flujos transaccionales al final, nos queda por descubrir esas particularidades y quizás tengamos que configurar e iterar con ustedes, pero pero eso es donde estamos parados hoy. Fuera de eso,
+[You]: nos encantaría escucharlos cómo manejan
+[You]: conciliaciones, cuáles son las necesidades, cómo lo están manejando hoy y, principalmente,
+[You]: si si existe un dolor que valga la pena explorar una
+[You]: un dolor suficiente, que valga la pena el esfuerzo y el tiempo de explorar una solución
+[You]: este q, ¿no?
+[Remote]: Y a Lusto, dos dos preguntas a Edward, de que mostraste que pasaste rápido.
+[Remote]: Primero, tú dices que no importa que la data no esté lo suficientemente
+[Remote]: digamos, que organizada, estructurada para poder hacer los análisis, digo, por qué,
+[Remote]: nuestra calidad de datos aquí, pues, por eso está Santiago acá, que él lidera el área
+[Remote]: de datos de analítica, ese siempre es un dolor de cabeza. Entonces,
+[Remote]: siempre escucha, no, no se preocupen, puede ser
+[Remote]: no estructurada, semiestructurada, nosotros la ponemos bulletproof.
+[Remote]: Así.
+[Remote]: No lo he visto mucho. Entonces, ¿qué qué confianza tengo en que eso de verdad sí va a pasar? Porque si
+[Remote]: te entiendo es, te paso el desorden que hay hoy en día y ustedes reestructuran.
+[Remote]: Pues, me quedé un poco escéptico en el tema. Entonces, mi primer pregunta,
+[Remote]: Si quieres hablar con eso y ya después te hago la segunda.
+[You]: Sí, entiendo cien por ciento la desconfianza, es parte de la propuesta de algo que hacemos nosotros.
+[You]: Nosotros tenemos que, con tecnología,
+[You]: agarrar toda esa información que viene, como bien decís,
+[You]: desordenada, desestructurada, con las columnas y la nomenclatura
+[You]: diferente en todos esos archivos. Entonces, ahí nosotros tenemos
+[You]: obviamente, muchísima inteligencia artificial y tecnología para poder
+[You]: resolverlo, y después está la parte dentro de la plataforma que nosotros llamamos el policy.
+[You]: ¿Qué es el policy? El policy es el knowledge transfer
+[You]: que hoy está en la cabeza de todos ustedes, esto que vos mencionabas,
+[You]: solo ustedes saben cómo funcionan esos archivos y cómo se estructuran.
+[You]: Seguramente les llevó muchos meses aprenderlos, pero hoy estoy seguro que Angélica o no sé quién más
+[You]: se lo saben de arriba abajo, saben perfecto cómo funcionan.
+[You]: Obviamente, después hay un descubrimiento constante e iterativo, pero
+[You]: ese knowledge transfer nosotros lo tenemos que codificar en la plataforma.
+[You]: Y eso se hace, ya sea configurando los flujos,
+[You]: y la plataforma aprende a medida que operamos.
+[You]: Digo, si el archivo viene de determinada manera todos los días, al décimo día ya lo
+[You]: aprendemos a interpretar. Si empieza a cambiar, tardamos cinco días, pero después lo interpretamos. Lo mismo si Angélica nos hace ese knowledge transfer a través de una
+[You]: interfaz de chat que tenemos, eso se va codificando y la plataforma
+[You]: aprende a medida que opera con ustedes. Pero entiéndele escepticismo, digamos.
+[Remote]: Si les puedo hacer una pregunta, me encantaría entender bien a a qué se refieren con
+[Remote]: data no estructurada, porque
+[Remote]: obviamente, nosotros nos dedicamos a estandarizar información que viene de un montón de diferentes de de de en formatos
+[Remote]: horribles, hemos visto cosas muy feas, y y y en
+[Remote]: nada, básicamente, enriquecerla y demás,
+[Remote]: pero cuando dicen que tienen mucha data,
+[Remote]: desorganizada o desestructurada, se refieren a que tienen, por ejemplo, información que tienen que levantar
+[Remote]: de chats,
+[Remote]: y estructurarlo, o a qué se refieren con eso.
+[Remote]: Bueno, sobre todo, y y ahí te roban las palabras, señor, el crédito,
+[Remote]: sobre todo, digamos, nosotros tenemos miles de bancos, muchos bancos,
+[Remote]: muchas fiducias de dónde sacamos, digamos, las información de lo que nos ingresa y lo que nos sale,
+[Remote]: Cada banco tiene una estructura diferente, algunos son Excel, otros PDF, otros son
+[Remote]: no tenemos una estructura organizada única, aunque existen algunas estandarizadas que
+[Remote]: tratan de hacerlo, pues yo creo que ustedes ya se han encontrado con esto
+[Remote]: en todas las veces que han hecho esto. Todos los bancos tienen una estructura diferente y al final nos toca
+[Remote]: o hacer un desarrollo grandísimo en las plataformas para que reciban la estructura del banco,
+[Remote]: o sacarlo manualmente que termina siendo, pues, sacarlo manualmente con todos los riesgos que trae
+[Remote]: Ok, perfecto. No, bueno, clarísimo, o sea, si si es
+[Remote]: a lo que se refieren desestructurado es que viene de diferentes
+[Remote]: fuentes, sí, no sé qué pasó, pero
+[Remote]: Se fue.
+[Remote]: Clarísima tu tu respuesta y sí, nosotros nos nos dedicamos a eso.
+[Remote]: A ingestar de diferentes fuentes, diferentes bancos, diferentes formatos,
+[Remote]: estandarizarlo en un único formato.
+[Remote]: Ay, mi pregunta, mientras ellos se conectan, más chiquita es
+[Remote]: y yo creo que vamos alineado con lo que decía Sebastián es, también se conectan con el
+[Remote]: sistema acorde de las compañías, es decir, por un lado, obviamente,
+[Remote]: externa, que es la que viene más desorganizada, porque trae como mil cosas
+[Remote]: diferentes y como cada quien lo quiera, y también con la interna y también con las
+[Remote]: las cosas adicionales que puedan surgir de
+[Remote]: tarjetas de crédito, que es algo que sale adicionalmente, por ejemplo.
+[Remote]: Exactamente, o sea, nosotros nos integramos a todas las fuentes de datos
+[Remote]: haya que conciliar. Es un app más típico,
+[Remote]: es el corp de la compañía contra la información que
+[Remote]: viene de algún proveedor, como puede ser de los bancos con el con con los que trabajan ustedes.
+[You]: Ahí sí hay, boludo.
+[Remote]: Ya volvimos, perdón, problemas técnicos acá.
+[You]: Ahí
+[Remote]: Problemas de data estructurada, sino también hubo problemas técnicos
+[You]: Pero, I think,
+[You]: una segunda pregunta, creo.
+[Remote]: Sí, la segunda pregunta que que
+[Remote]: pusiste ahí, lo pasaste muy rápido, pero hay una parte de que decía free trial,
+[Remote]: no hablaste nada y seguiste derecho.
+[You]: Ah, sí, obvio, por eso sí. A ver,
+[You]: una de las barreras que nosotros encontramos mucho con las herramientas de software en general
+[You]: es esta sensación de Y esto porque estuvimos del otro lado,
+[You]: Teo implementó una herramienta de conciliación en mercado pago, yo imprimé un
+[You]: proceso en una fintech. Está siempre ese ese
+[You]: estigma de que sentís que estás comprando una caja negra, te hacen una demo buenísimo, pero de ahí
+[You]: cuando lo tenés andando en tu sistema, funcionando, agregando valor,
+[You]: todos sabemos que del dicho al del dicho al hecho hay un gran trecho, ¿no?
+[You]: Entonces, estamos tratando de bajar esa barrera con
+[You]: ya sea una prueba muy acotada gratis o una prueba de concepto
+[You]: a un costo simbólico, donde nos metemos realmente como shadowing
+[You]: el proceso actual con
+[You]: con Angélica, con con Nina, con el equipo, a mostrarles cómo funciona. Obviamente, shadowing
+[You]: para una dependencia sobre el sistema, pero para que puedan
+[You]: ver el valor y que después, si deciden avanzar, ya ya vieron cómo funciona, ya vieron el valor.
+[You]: ¿No?
+[Remote]: Yes.
+[Remote]: ¿Tenías preguntas? Sí, sí, tengo una pregunta
+[Remote]: ahí y para lo que preguntaba, veo de las bases que nosotros
+[Remote]: manejamos. Actualmente, nosotros tenemos
+[Remote]: fuentes diferentes dependiendo de los sponsors que manejamos.
+[Remote]: Cada uno tiene una data diferente que la tenemos
+[Remote]: que alinear a nuestras datas,
+[Remote]: y hoy nosotros utilizamos unas herramientas que
+[Remote]: que tenemos, es una de las herramientas que utilizamos para
+[Remote]: a través de flujos, coger toda la información y ponerla
+[Remote]: como nuestros aplicativos lo requieren.
+[Remote]: Entonces, que eso nos ha ayudado mucho a optimizar los tiempos.
+[Remote]: Cuando ustedes hablan de estructurar la
+[Remote]: es
+[Remote]: nosotros recibimos las fuentes a través de un web service,
+[Remote]: alguna carpeta de TTP, y ustedes se conectan y simplemente
+[Remote]: durante
+[Remote]: cierto tiempo transforman la información.
+[Remote]: ¿Sí?
+[Remote]: Pregunta, ¿hay límites de registros
+[Remote]: ¿cómo es la la el procesamiento?
+[Remote]: En segundos, en minutos, porque hay datas que son bastante pesadas.
+[Remote]: Entonces, quisiera también como entender la magnitud
+[Remote]: que en un día perfecto de cierre podemos
+[Remote]: tener
+[Remote]: más de dos millones de registros procesantes.
+[Remote]: Sí, mira, ahí lo primero es
+[Remote]: obviamente,
+[Remote]: la industria o o o el
+[Remote]: el negocio donde estamos nosotros es
+[Remote]: la unión entre alta complejidad
+[Remote]: alta regulación,
+[Remote]: y alto volumen.
+[Remote]: Entonces, yo creo que ustedes entran perfecto en
+[Remote]: en en ese tipo de compañías, solemos operar con compañías que le pasan exactamente esto.
+[Remote]: Información
+[Remote]: desparramada por todos lados,
+[Remote]: en diferentes formatos, y volúmenes muy altos que, por ejemplo, un Excel te rompen
+[Remote]: entonces empiezan a requerir mucho equipo técnico,
+[Remote]: para poder conciliar esa información de manera operativa y financiera.
+[Remote]: Nosotros
+[Remote]: usted ya tiene un trabajo prehecho de
+[Remote]: ingestar toda esa información en algún tipo de data like, como el que comentabas,
+[Remote]: y estructurarlo, nosotros podemos ingestar la información directo desde ahí,
+[Remote]: o podemos ir directo a las fuentes de datos,
+[Remote]: ingestarlas ahí y estandarizarlas en nuestro sistema de manera
+[Remote]: completamente no code. Si si avanzamos una demo, le le mostraría cómo es
+[Remote]: Nosotros nos dedicamos a automatizar procesos
+[Remote]: de manera no code. Entonces, es muy fácil para cualquier usuario
+[Remote]: agarrar información de diferentes formatos,
+[Remote]: decir, bueno, cuando esta información viene acá, yo quiero que quede en este formato.
+[Remote]: Cada vez que se ingesta de vuelta, quede en este formato.
+[Remote]: Respecto a los tiempos, a ver, hemos hecho procesamiento de más de diez, quince millones,
+[Remote]: en
+[Remote]: cuestión de diez, veinte segundos o menos, cuando cuando es solamente por un índice, Entonces, procesos que solemos hacer o una vez por día, o dos, tres veces por día, no suelen ser real time, Entonces, la idea es que toda esta conciliación se haga de manera automática, por ejemplo, en la madrugada y queda todas las mañanas ustedes simplemente se metan a ver qué discrepancias hay y qué hay que qué hay que corregir, vez de hacer todo el trabajo de ingestar, de estandarizar, de conciliar y demás,
+[Remote]: y después recién ahí trabajar las discrepancias.
+[Remote]: Otra pregunta, ¿esa información ustedes la trabajan o la
+[Remote]: cruzan todo en la nube? Porque, pues, ahí hay
+[Remote]: información sensible de nuestros clientes.
+[Remote]: Entonces, ahí en temas de ciberseguridad, cómo es la protección de la
+[Remote]: por ciento. Lo lo primero es, obviamente, comentarle que nosotros somos
+[Remote]: soft dos compliance tipo dos, o sea,
+[Remote]: nos dedicamos a trabajar con información sensible,
+[Remote]: y lo segundo es comentarles que nosotros
+[Remote]: si hay algún tipo de información que no tiene sentido para la ingesta,
+[Remote]: para la conciliación,
+[Remote]: pero que es sensible y prefieren que quede de su lado, nosotros directamente solo ingestamos los cruces.
+[Remote]: Entonces, por ejemplo,
+[Remote]: alguno de nuestros clientes hachean la información,
+[Remote]: cruzamos los hashes y hacemos el trabajo de ingesta y procesamiento, ahí tenemos un montón de alternativas
+[Remote]: también tenemos un modelo de licencia que ahora Nacho también les les puede comentar y
+[Remote]: y, va, quedaría por definir de nuestro lado cómo cómo es la la mejor forma.
+[You]: Sí, tenemos tres modelos, básicamente. Además de tener unos estándares de seguridad,
+[You]: necesarios para trabajar con compañías de seguros y y
+[You]: servicios financieros. Modelo SaaS, que ahí de vuelta estaría en nuestra infra, como dijo
+[You]: Teo, tenemos un modelo donde levantamos una infra intermedia,
+[You]: que ustedes son dueños, pero nosotros operamos,
+[You]: entonces ahí hay una facilidad, que es un modelo medio híbrido,
+[You]: después tenemos un modelo donde ya directamente construimos
+[You]: toda la solución y la implantamos en su infra y ya después ustedes la manejan.
+[Remote]: En en el modelo de licencia,
+[Remote]: ustedes serían dueños
+[Remote]: del código de la aplicación de de de Rexy,
+[Remote]: correría sobre su propia infra,
+[Remote]: los costos de infra, el procesamiento, todo queda de su lado,
+[Remote]: y la información nunca sale de su sistema. Entonces,
+[Remote]: las compañías tal vez muy
+[Remote]: celosa de su información y demás, suelen elegir este modelo,
+[Remote]: otras compañías que quieren tal vez más flexibilidad, más velocidad y demás,
+[Remote]: suelen elegir el modelo SaaS.
+[Remote]: Nosotros tenemos flexibilidad para
+[Remote]: para trabajar con ambas.
+[Remote]: Hay hay una pregunta, básicamente lo que ustedes están diciendo, escogemos la información como llegue,
+[Remote]: la ponemos, sacamos lo que ustedes necesitan a través de, pues, la I
+[Remote]: y y estas herramientas que ustedes tienen detrás, y la colocamos en el formato
+[Remote]: ustedes lo necesiten para poder conciliarla en su aplicativo financiero.
+[Remote]: ¿Sí? Esto tanto para flujos de ingreso como para flujos de salida,
+[Remote]: Eso es, digamos, como lo que lo que entiendo hasta ese momento.
+[Remote]: ¿Qué tanto puede ser también
+[Remote]: a través de, por ejemplo, casos, como lo mencionaba Alejandra, que esto pueda cruzar
+[Remote]: tener que abrir el caso, sino que simplemente
+[Remote]: la IA coja la la el el correo o coja el caso,
+[Remote]: y lo cruce por algunos patrones. Entiendo que esto
+[Remote]: es un modelo que va haciendo evolutivo y esto podría llegar a pasar.
+[Remote]: A ver, no, me encantaría ver
+[Remote]: exactamente el caso
+[Remote]: los detalles, porque no quiero decir cosas que no, pero
+[Remote]: nosotros estamos trabajando en un montón de mejoras
+[Remote]: que van muy bien ese sentido,
+[Remote]: Todavía no estamos ingestando información no estructurada, o sea,
+[Remote]: chats internos,
+[Remote]: para conciliar
+[Remote]: pero
+[Remote]: quédate tranquila que en dos o tres meses ya la vamos a estar haciendo. Estoy
+[Remote]: avanzando en una velocidad increíble todo eso.
+[Remote]: Por ahora estamos
+[Remote]: con foco en todo lo que es
+[Remote]: estructuración y y estandarización y
+[Remote]: obviamente hay mucho aprendizaje en nuestro lado,
+[Remote]: no estamos creciendo todavía hoy,
+[Remote]: veintiocho de enero, dos mil veintiséis,
+[Remote]: información de chats y demás para conciliar
+[Remote]: probablemente
+[Remote]: el próximo mes sí,
+[Remote]: Ok. Pues la pregunta, obviamente, ya es para una para una un proceso
+[Remote]: más adelante, pero, pues, va va alineada con lo que decía Alejandra y desde la regulación acá en Colombia es bastante pesada,
+[Remote]: a la información de los clientes, entonces, pues ustedes entiendo que tienen los dos
+[Remote]: los dos las dos formas.
+[Remote]: Tendríamos que empezar a revisar si hay algo para empezar a hacer la prueba que a a
+[Remote]: la que hablaba, pero, pues, obviamente, es un dolor
+[Remote]: tienen todas las compañías, no nos excluimos, de hecho, como seguros, creo que
+[Remote]: la cantidad de partidas que tenemos es es superior a incluso a a ante ante
+[Remote]: pero, pues, toca
+[Remote]: toca ya hablarlo pues en en en campo.
+[Remote]: Y mi última pregunta es el tema de costos.
+[Remote]: Es una licencia,
+[Remote]: que está limitada a ciertas transacciones,
+[Remote]: vi algo que una implementación free, pero
+[Remote]: después el la tarifa del taxímetro,
+[Remote]: ¿cómo se mediría? Más es porque
+[Remote]: conocemos nosotros que manejamos un volumen de datos bastante amplio.
+[You]: Sí, ahí depende depende del modelo, ¿no? El el el modelo que dice implementación gratis es el modelo
+[You]: SaaS, donde todo corre en nuestro nuestro cloud, ¿sí?
+[You]: Ahí lo implementamos y tenemos tres esquemas de pricing.
+[You]: Uno cien por ciento fijo que le brinda al cliente una previsibilidad de costos
+[You]: para los próximos doce meses, y ahí nos sentamos, hacemos estimaciones de volumen,
+[You]: y les pasamos un quote que tenga sentido para ambas partes,
+[You]: Tenemos uno híbrido con un platform fee bajo y una parte variable,
+[You]: y tenemos uno que sea cien por ciento variable. Ahí nosotros somos las tres propuestas y ustedes eligen,
+[You]: La parte variable siempre depende de registros
+[You]: a conciliar.
+[You]: Eso por el modelo SaaS. En el modelo licencia, donde la plataforma
+[You]: corre en infraestructura de ustedes, el el
+[You]: esquema de pricing que hacemos es, nosotros implementamos todo en el SaaS,
+[You]: lo hacemos un zip y lo implantamos en su infra.
+[You]: Y ahí ya después nos vamos, digamos, lo operan ustedes, se alinea un scope,
+[You]: se alinea todas las operaciones de HDI,
+[You]: a a a contemplar en la plataforma, se configura todo y se implanta en la intra.
+[You]: Y después queda un retainer muy, muy, muy bajito para
+[You]: soporte y para
+[You]: no sé, consultas sobre cómo usa la plataforma y sí, soporte, básicamente. Después cualquier upgrade
+[You]: se vende, se cotiza por separado.
+[You]: Y cualquier apoyo se cotiza por separado. Y después hay hay todos unos SLAs ahí también
+[You]: porque si ustedes
+[Remote]: Ahí
+[You]: si ustedes empiezan a tocar el código base,
+[You]: nosotros no nos podemos hacer cargo después de los arreglos, entonces ahí hay
+[You]: está todo especificado en un SLA, pero ahí el costo, digamos, sería más alto del primer año,
+[You]: después a partir del año uno, muy bajito y ya lo controlan ustedes.
+[Remote]: Claro, hay un modelo.
+[Remote]: ¿Sí?
+[Remote]: O en ambos modelos nosotros podemos puede ser aprendizaje
+[Remote]: de la herramienta
+[Remote]: de de nuestro conocimiento.
+[You]: No, en ambos casos ustedes pueden seguir
+[You]: aprendiendo y usando la la la única diferencia es que en el modelo SaaS
+[You]: digamos, si si
+[You]: crecen los flujos o crecen los registros, posiblemente suba el
+[You]: el invoice. En el otro modelo se cobra como
+[You]: la implementación y el código, y ya después nos vamos, corre en su infra, entonces no hay un invoice mensual.
+[Remote]: Okay.
+[You]: Más allá de un retainer muy bajo.
+[Remote]: Hay una diferencia también es en el segundo modelo,
+[Remote]: nos quedamos con el código, con el código, y ahí ya también es
+[Remote]: es es es
+[Remote]: es ver qué tan creativos nos volvemos nosotros, si preferimos dejarlo exactamente igual,
+[Remote]: empezamos a hacer modificaciones,
+[Remote]: mientras en el primer modelo tipo SaaS
+[Remote]: eso sí es más una caja externa, que es de ellos,
+[Remote]: y procesamos y y lo que yo entendería es
+[Remote]: ellos hacen outbreaks, modificaciones al código, pues eso al final para nosotros es absolutamente transparente,
+[Remote]: ¿sí? Entonces, como
+[Remote]: el el el segundo modelo es más nuestro, más propietario de código, ¿sí?
+[Remote]: Pero también más rígido en temas de
+[Remote]: de de updates y que que se lo abres en al al sistema.
+[Remote]: Y en el que sería interno si algún ajuste de actualizar
+[Remote]: pues tendríamos que pedir soporte a ellos.
+[Remote]: Es lo que entendí. Es de licencia, que si ese cobro
+[Remote]: Cuando es el modelo con el administrativo, si le metemos la mano el código Es responsabilidad,
+[Remote]: pues ahí sí ya se vuelve más complejo y puedan puedan
+[Remote]: Yo les yo les propongo le propongo algo Nacho y y Teo.
+[Remote]: Decir, si hay valor, hay valor,
+[Remote]: y eventualmente vemos cuál de las opciones es, pero yo creo que primero es
+[Remote]: como
+[Remote]: se demuestren, pues, que que que hay valor, ¿sí? Entonces,
+[Remote]: mi sugerencia es en la chiteo,
+[Remote]: hagamos una reunión ya por aparte,
+[Remote]: con Angélica y con Luz, o nosotros llevamos
+[Remote]: como ya no sé, los cuatro o cinco procesos donde creemos que esto puede ser algo que que eventualmente huele, ustedes nos tiran, bueno, todas las características y eso, creo que vamos con este proceso, y ahí ya, digamos, que me me adhiero la propuesta de ustedes de valor, que dice, que es resuelto en menos de dos semanas, ¿sí? Vamos viendo cómo va el tema,
+[Remote]: y si ahí hay valor y demostramos que es, solo que ya no
+[Remote]: podemos sentar justamente a ver si es modelo uno, modelo dos, y bueno, y vemos cómo, pero esa sería mi mi propuesta, entendiéndose que puede ser, y lo pongo aquí de frente de Nacho y Teo, que
+[Remote]: en dos semanas o no lo logremos, o al final nos parece que
+[Remote]: es muy poco lo que están agregando, ¿sí? Pero, o sea, diciendo que
+[Remote]: vamos a ir a probar, pero puede que al final no hagamos nada en el mediano grado plazo,
+[Remote]: ¿cierto? Entendiendo que tengamos esa claridad, que no hay algo
+[Remote]: finding en este momento.
+[You]: Obvio, no, cien por ciento, para ver si entendí bien, entonces,
+[You]: hagamos una demo, si querés agendamos una reunión y les mostramos el producto,
+[You]: y ya si después quieren avanzar con un con
+[You]: un free trial, ahí es sentarnos a estructurar ese free trial, porque
+[You]: ahí ya deberíamos por ahí firmar un NDA para
+[You]: tener, no sé si información real o o que nos pase analogía conciliatoria, etcétera.
+[Remote]: Eventualmente cuando dimensionemos cómo se hace el
+[Remote]: la la fase de free trial y eso, cómo les damos acceso a qué, etcétera,
+[Remote]: etcétera, y ya nos toca también ponernos más técnicos de este lado.
+[You]: Excellent.
+[Remote]: Y y de compliance también, para el tema de superfinanciera que esté
+[Remote]: cubierto con todo lo de datos.
+[You]: Olha, vamos
+[You]: vamos paso por paso, yo avanzaría con una demo con Angélica con Luz y con Santiago, para ver la parte funcional, a ver si les hace sentido.
+[You]: Y si ya hace sentido, ahí involucramos compliance datos y vemos cómo avanzamos.
+[Remote]: Okay.
+[You]: ¿Parece?
+[Remote]: Ok. Perfecto, bien. Listo, gracias. Listo, muchas gracias.
+
+============================================================
+SUMMARY
+============================================================
+### HDI Seguros Current Challenges
+
+- Multiple banking sources with inconsistent data structures
+  - Thousands of banks and fiduciaries with different formats
+  - Excel files, PDFs, no standardized reporting structure
+  - Currently requires massive internal development or manual processing
+- High transaction volumes
+  - Over 2 million records on peak closing days
+  - Current tools struggle with Excel limitations at scale
+- Data quality and security concerns
+  - Information comes from various sponsors in different formats
+  - Regulatory compliance requirements (Superfinanciera)
+  - Sensitive client data protection needs
+- Key users: Angélica and Luz (operations), Santiago Castro (data analytics lead), Sebastián (data area)
+
+### Rexi Solution Overview
+
+- AI-powered reconciliation platform for structured transaction data
+  - Ingests from multiple sources, standardizes to unified format
+  - Automated matching with business rules and tolerance ranges
+  - Problem solver module for discrepancy investigation
+- Processing capabilities
+  - 10-15 million records in 10-20 seconds
+  - Batch processing (1-3x daily, not real-time)
+  - No-code configuration for non-technical users
+- Three deployment models available
+  1. SaaS (cloud-hosted)
+  2. Hybrid (customer-owned infrastructure, Rexi-operated)
+  3. On-premise license (customer owns and operates code)
+- Pricing varies by model: fixed, hybrid, or variable based on transaction volume
+
+### Next Steps
+
+- Schedule demo with Angélica, Luz, and Santiago to show functional capabilities
+- If value demonstrated, proceed to free trial discussion
+  - Requires NDA for real data access
+  - 2-week proof of concept timeline
+  - Involves compliance and technical teams for data access protocols
+- Sebastian emphasized no binding commitment - trial may not lead to implementation
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/81e8a535-6082-4a30-97d9-53515dbc98fc](https://notes.granola.ai/t/81e8a535-6082-4a30-97d9-53515dbc98fc)

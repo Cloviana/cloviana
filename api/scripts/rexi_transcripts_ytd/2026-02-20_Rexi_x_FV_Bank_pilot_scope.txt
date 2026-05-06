@@ -1,0 +1,637 @@
+MEETING: Rexi x FV Bank: pilot scope
+DATE: 2026-02-20
+ID: not_je75Ihnct5lmy1
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Sujeeth <sujeeth@fvbank.us>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-02-20T08:00:00-05:00 - 2026-02-20T08:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Buen día.
+[You]: Buenos días.
+[Remote]: Qué
+[You]: Sí, boludo, tuve que
+[You]: prender todas las luces, está oscuro.
+[You]: O hasta el final,
+[You]: un poquito de research de estos.
+[You]: Здравствуйте,
+[Remote]: Morning, Nashville.
+[Remote]: Morning.
+[You]: Good afternoon for you, Ray.
+[Remote]: Good evening.
+[Remote]: Evening, 06:32.
+[Remote]: Yep.
+[You]: 06:32PM. Okay. Already
+[Remote]: Yep.
+[You]: very close to the weekend.
+[Remote]: Yeah. Almost.
+[You]: How are you today?
+[Remote]: Today is great. It's good.
+[You]: Do you typically work, like, from midday to late in the night, or or
+[You]: just the normal India hours?
+[Remote]: I usually work at mid midday. I start
+[Remote]: at around 12PM. I work till ten. I mean,
+[Remote]: I I really work from home, so there is no need to travel also.
+[Remote]: So I usually have a label for most of the time.
+[You]: Ok.
+[Remote]: When Frank usually logs in at tuning,
+[Remote]: US time,
+[Remote]: has anything to discuss, we'll
+[Remote]: and have the meeting.
+[Remote]: And we'll choose our date.
+[Remote]: My team works for in the Indian time, in
+[Remote]: time only.
+[Remote]: Because we do work on reconciliation, which usually happens
+[Remote]: previous days activities to reconcil. So
+[Remote]: they perhaps they do the work and keep it ready.
+[Remote]: For any exceptions.
+[Remote]: When the US team actually logs in, they get the all the list of exception they have to deal with.
+[You]: That's that's a good thing about the time difference. Right?
+[You]: In sync.
+[Remote]: Yeah.
+[Remote]: Yeah.
+[You]: It's sort of like you get up very early, do all the processing, all the
+[You]: all the all the all the work of matching transactions, and then they
+[You]: investigate when it's your when you go to sleep.
+[You]: Interesting.
+[You]: Well, just before we start, like, we'd love to get your thoughts on on the demo. Like, just
+[You]: general feedback on how you saw it.
+[You]: Are you, like, what did you like? What did you not like?
+[You]: And what made made you get interested in doing a pilot with us?
+[Remote]: Demo was good. I mean, we really liked everyone.
+[Remote]: And what we liked the most was the balances, how it calculates.
+[Remote]: The data. So we are not going to upload the balances each day.
+[Remote]: To, you know, reconcile them. So it usually takes
+[Remote]: from the both the data sources, the balances are paid.
+[Remote]: And can we
+[Remote]: calculate I mean, we can do the balance matching.
+[Remote]: Automatically, that is the most unique one, and we
+[Remote]: was really good. Because if we're going to upload the balances, it's always
+[Remote]: it would be an error or it could be
+[Remote]: match it purposefully, we can upload the wrong balances also. We we can't
+[Remote]: you know, put the blame in. It's always a manual error.
+[Remote]: So but if everything is automated, it's really good.
+[Remote]: Fantastic. That's what I have liked it.
+[Remote]: Apart from that, the matching rules and how our data
+[Remote]: that was your data which you showed on the demo.
+[Remote]: When we did the actual data and when we actually
+[Remote]: look I mean, we get the chance to look into it
+[Remote]: or we get to practice or we get to know the system.
+[Remote]: As Ram mentioned last time,
+[Remote]: you get the
+[Remote]: kind of
+[Remote]: to check how how actually the rules work and we
+[Remote]: we actually put wanted to put our rules and see how it works
+[Remote]: or we can tweak it, or we can
+[Remote]: or if if auto runs how it works, we that would be better for us to check.
+[Remote]: That's what Ram mentioned last
+[Remote]: the last
+[Remote]: Because Ram is a technical guy. He his team works on the technical part.
+[Remote]: So
+[Remote]: we are the end users. We we
+[Remote]: we say them what we need. They
+[Remote]: prepare that and give to us.
+[You]: Yeah. That's one of the ideas. Right?
+[Remote]: So all
+[You]: For you to guy for you guys to gain
+[Remote]: so
+[You]: sorry. Go ahead.
+[Remote]: alright. Now in the black line also, it's going it's it's the same. I mean, they are writing the rules
+[Remote]: and they're helping us.
+[Remote]: So we we say them that this this data should be matched to this
+[Remote]: reference number. They prepared the rules and keep it.
+[Remote]: And they work on the data sources, file uploadings,
+[Remote]: automations, and all.
+[Remote]: The black line.
+[Remote]: The same thing they want to check with
+[Remote]: Rexy also.
+[You]: Yeah. I think that's one of the key value adds here for you guys to gain independence
+[You]: from the technical teams and from BlackLine. This tool is designed so that you,
+[You]: take ownership and control over all the configurations so that
+[You]: if anything happens, you can be the one actually fixing it. Right? Instead of having to ask
+[You]: to the internal engineering team or having to ask to backline,
+[You]: The idea is for you to gain
+[You]: full control and visibility over the workflow.
+[You]: And and to
+[You]: maintain it over time, add new flows,
+[You]: maybe if you're gonna launch a new product, configure it there.
+[You]: We're all we're of course, we're gonna help you guys configure it and implement everything.
+[You]: But the design principle of how we are approaching the product is
+[You]: for Yusuji to be full owner
+[You]: of the workflow, without the need of a technical person to step in or
+[You]: or someone from Black Lane.
+[Remote]: That's really good there. We we can
+[Remote]: manage ourselves.
+[Remote]: A limited I mean,
+[Remote]: the controls
+[Remote]: should be, like,
+[Remote]: the one who does the recon.
+[Remote]: Person who actually handles the reconciliation should not have the controls of
+[Remote]: the other things of of changing the parameters or something.
+[Remote]: It should be
+[Remote]: it should be with other person.
+[Remote]: Because
+[Remote]: it's one sec. The reconciliation team should only do the recount.
+[Remote]: As per the audience, we cannot keep the controls with us.
+[Remote]: So
+[Remote]: someone
+[Remote]: the controls and checks that.
+[Remote]: We only do the recon and do the results.
+[Remote]: We we check the exceptions.
+[Remote]: That's how it should be.
+[Remote]: We can we did not anyone can become an admin either.
+[You]: Yep.
+[Remote]: Yep.
+[Remote]: Put the parameters in that.
+[Remote]: That's really good. Dependency would be lesser.
+[You]: Got it.
+[Remote]: On that
+[You]: Got it. And and and and just one question here, Sujit. Like, just to understand the
+[You]: sort of, like, urgency of of the problem. Is this is this something you're looking to
+[You]: execute this quarter
+[You]: Or
+[You]: or it's gonna be hard to do it this quarter? How do you think about urgency about this?
+[Remote]: I can see if we take
+[Remote]: the custody recon is something which is really
+[Remote]: painful. I mean, it's
+[Remote]: it's it's in it's not even completed in the black line properly.
+[Remote]: So when we go to this, we have to go with the
+[Remote]: as per week. But we have to check with Frank once.
+[Remote]: About this. Final decision maker is the Frank.
+[Remote]: But for me, as a process thing, yes, we are,
+[Remote]: need it for a study, also for the banking, if it works with it.
+[You]: Wait. You said custody for the custody.
+[Remote]: Custody reconciliation.
+[Remote]: So we have two but we'll one is the banking.
+[Remote]: Product and one is a custody. Custody is all the cryptocurrencies.
+[Remote]: USDT, USDC, and BTC, all all those.
+[Remote]: So we we we termed it as a custody.
+[You]: So the custody reconciliation
+[Remote]: Those are all
+[You]: and then the transactional bank reconciliation.
+[Remote]: Yeah.
+[Remote]: A study, we we have a two vendors where we
+[You]: Who
+[Remote]: we deal with with our system and those two vendors.
+[Remote]: So we need to match those
+[Remote]: data with them and with our system.
+[You]: Do you use
+[Remote]: So that's the
+[You]: Fireblocks, or which vendors do you use for crypto?
+[Remote]: we have Fireblown. We have SVOX.
+[Remote]: We have two multiple crypto transactions.
+[You]: Got it. Got it.
+[Remote]: Five block and s p s.
+[You]: And for the custody recon,
+[You]: you're you're doing it manually. You're not even reconciling.
+[Remote]: Are doing it in black line, but
+[Remote]: we have some challenges in the black line.
+[Remote]: So
+[Remote]: it's like
+[Remote]: 50 60, 40% kind of work.
+[Remote]: 60% of 80 to 20%. 80% is automated. 20% is manual.
+[You]: And that hurts. Right?
+[Remote]: So that way
+[Remote]: some of the things are not
+[Remote]: actually matching. Yeah.
+[Remote]: There are some
+[Remote]: so what
+[Remote]: but as a volume
+[Remote]: transaction wise, banking transactions are more.
+[Remote]: Compared to this crypto.
+[Remote]: So
+[Remote]: it all I mean, Frank will be taking the decision on
+[Remote]: which product we are going to do.
+[You]: Got it.
+[Remote]: Anyway,
+[You]: Yeah. I think Frank is gonna be the decision maker.
+[Remote]: Right.
+[You]: Particularly on on the budget side and so on. But given you are the one using it,
+[You]: we need to make sure that that you love the product
+[You]: know how to use it, and truly see value of going from BlackLine to a solution like ours.
+[You]: Right? There needs to be, like, a
+[You]: a business case in which we show that we are 10 x better
+[You]: more flexible, more scalable, and that you really trust us.
+[You]: On your reconciliation processes.
+[You]: So, other than that, I think
+[You]: you guys are are are interested in doing a a, like, a pilot test or
+[You]: or, like, a real proof of concept. Right?
+[Remote]: And we we we'll do with the real cases.
+[Remote]: Testing. If we get as a sandbox environment,
+[Remote]: we are going to upload our data
+[Remote]: and we'll try to do the real time
+[Remote]: the production data, we we'll try to check the real time matching size of how it works.
+[You]: But is this like,
+[You]: like, a one off exercise you wanna do, or do you wanna do, like, a recurrent
+[You]: exercise in which we reconcile all the money movements for, like, one or two months?
+[You]: And then
+[You]: measure it against performance indicators of BlackLine,
+[You]: and then take a decision. Like, how do you wanna structure it? Is it more like a
+[You]: you share production data, and we do a one off sort of, like, another demo?
+[You]: Or do you actually wanna do, a pilot?
+[Remote]: We we want to do a pilot.
+[You]: A pilot. Okay.
+[Remote]: Yeah. So so that we we come to know how this works and
+[Remote]: we can go with more
+[Remote]: more data or more banking to be added there
+[Remote]: so we that can be taken. I mean, that incident can be taken with the pilot
+[You]: Got it.
+[Remote]: access.
+[Remote]: Once we get to know how on the the one.
+[You]: Yeah.
+[You]: Question for you then.
+[You]: What scope would the pilot have?
+[You]: You wanna do
+[You]: just the custody part,
+[You]: just the bank part, the whole thing.
+[You]: Just for us to start aligning on on the scope of the pilot?
+[Remote]: For me, can take will do with the cluster first.
+[Remote]: To check how it work.
+[Remote]: So for at least a month or
+[Remote]: or complete data from each other, we'll just see how the custody works with the matching the
+[Remote]: with the references, how it works.
+[Remote]: Then we'll take a decision on banking and
+[Remote]: I guess Frank will be letting you know how we are going with.
+[Remote]: Other
+[Remote]: When we go to the production and complete the hours, then we will
+[You]: But for the pilot, you wanna keep it to the to the custody part, the crypto part.
+[Remote]: yeah.
+[Remote]: Keep the fact.
+[You]: Okay.
+[You]: And then question for you, Sujit, is,
+[You]: what are the success criteria? Like, what do you need to see
+[You]: after the pilot?
+[You]: For you to take the decision and say, okay, I wanna I wanna replace black line with brexi?
+[You]: What are the two or three things that you really wanna see?
+[Remote]: Yeah. Once the pilot is
+[Remote]: we are confident in the we'll be replacing the black line with the
+[Remote]: The reconciliation will be more depending on the I mean, we we we we
+[Remote]: shipped our all reconciliation to the rexy from the back end.
+[Remote]: That's the
+[Remote]: no. We we are thinking of.
+[You]: Yeah. Yeah. I I and the question is, during the pilot,
+[You]: how are we gonna measure success?
+[You]: Of the pilot?
+[Remote]: The results, what black line is giving in red
+[Remote]: is we are going to compare.
+[Remote]: That's the one. I mean, what's now black line we have already returns running in the black
+[Remote]: line.
+[Remote]: We'll just check the black line, return it how the works.
+[Remote]: So the comparison of both the works, we will take a decision on that.
+[You]: E já de speed,
+[Remote]: It's about it's not speak. It's
+[Remote]: speed. No. It's above the
+[Remote]: accuracy of the ring card.
+[Remote]: Of the machine.
+[Remote]: Yeah.
+[You]: So matching ratio
+[Remote]: Action ratio and how actually it matches with the
+[Remote]: reference numbers or with the less rules or
+[Remote]: how how how actually the vaccine works. We got a lot of rules in the black line now.
+[Remote]: To match.
+[Remote]: The data.
+[Remote]: So, comparatively, how we can how how that can be reduced and
+[Remote]: more accurate
+[Remote]: we can make
+[Remote]: the matchings.
+[You]: What do you mean by accuracy?
+[Remote]: Right.
+[Remote]: Let me see. Now we have got many unmatched.
+[Remote]: In the black light.
+[Remote]: Where it's not getting matched. So we say, oh, this is because of this. We and we say, okay.
+[Remote]: But that unmatched transaction should be reduced at the next
+[Remote]: We are looking at that
+[You]: Okay. So it's it's the matching ratio.
+[You]: When you when you say accuracy, you say matching ratio.
+[Remote]: Yeah. And yeah. Black sometimes
+[Remote]: some rules work, some rule doesn't work in a black line.
+[Remote]: It has got lot of
+[Remote]: you know, hindrance
+[Remote]: when we actually set the rules and all.
+[Remote]: So search things we will look into here.
+[You]: Got it.
+[Remote]: And we'll see how it works.
+[You]: Perfect.
+[You]: And how long would you like the pilot to be?
+[You]: Is it one month, two months,
+[You]: three months,
+[Remote]: Yeah. I'll, leave this to
+[Remote]: Sri Ram. He's not here.
+[Remote]: Sri Ram will let you know how how
+[Remote]: much she need because his team works and
+[Remote]: So he'll give us
+[You]: Seriam is is the technical is the technical person of the team.
+[Remote]: he's a product. Yeah. He's a yeah. He's a technical guy. He
+[Remote]: 's a product manager, so he looks into it and
+[Remote]: he he handles the technical part.
+[You]: Sorry.
+[You]: I don't know. Tell you, you have any questions? Or
+[You]: you're muted.
+[Remote]: Yep.
+[Remote]: So, well, regarding the actual,
+[Remote]: exercise, if we're gonna do the crypto reconciliation,
+[Remote]: could we go over the integrations? You mentioned that you work with
+[Remote]: Fireblocks. Which other, integrations should we
+[Remote]: work on?
+[Remote]: So that we can assist the data?
+[Remote]: Have five block and yes, folks.
+[Remote]: Yes.
+[Remote]: We have our cardholder stone, which is a custody account bank.
+[Remote]: For we have
+[Remote]: yeah. That's it.
+[Remote]: We have MBS also.
+[Remote]: So those four Yeah.
+[You]: And then the question is, do you already ingest
+[Remote]: Perfect.
+[You]: the data in some sort of internal data lake, or do we need to integrate directly to the data
+[Remote]: You need for Xbox and file
+[You]: source?
+[Remote]: Block for for our system, it should be
+[Remote]: in link.
+[Remote]: You will for the you have to do an API integration for FileBlock and SVOX.
+[You]: So for FireLogs and Exo, we need to do the direct integration.
+[Remote]: To get the link. Okay?
+[Remote]: It should be an API through API, I guess.
+[Remote]: We'll be get the API
+[You]: Got it.
+[You]: And for the other two?
+[Remote]: One is Carlos doesn't have the APIs. They don't have the APIs.
+[Remote]: To date, we have to get the files and upload.
+[Remote]: Or MPS, I guess, we have the APIs. Can you get it?
+[Remote]: And the
+[Remote]: how do this they send those files? Is it via email or
+[Remote]: do you have to downloaded them from from the portal?
+[Remote]: The for Farmerston?
+[Remote]: We have to go from the
+[Remote]: You have to download them?
+[Remote]: Yeah. For Connestone, have to download it from the portal and then have to look it.
+[Remote]: That's what happening with the blackmail right now. We they have the APIs. So
+[Remote]: Perfect.
+[You]: Can you can you
+[You]: enumerate the list of the integrations you said? So we have Fireblocks, Xbox,
+[Remote]: Envías.
+[You]: Cornerstone.
+[Remote]: Harvestone. Yeah. Harvestone Capital. We have one custody again. Harvestone.
+[Remote]: Right?
+[Remote]: Perfect.
+[You]: Cornerstone, and then NBS.
+[You]: Like this? Like I'm putting in the chat?
+[Remote]: MBS.
+[Remote]: Arm is two.
+[Remote]: Right. Yeah.
+[Remote]: Yep. Yes. Yep. First. Security.
+[You]: MBS securities. Okay. And
+[Remote]: Yeah. I think NPS security is also we are downloading and
+[Remote]: uploading it. We don't have any API for this.
+[Remote]: We have to download from the portal, and we are doing APIs.
+[Remote]: MBS securities.
+[You]: So Cornerstone MBS.
+[Remote]: The other is for yeah.
+[Remote]: It's Fox.
+[Remote]: Have an API. Their file block has an API.
+[Remote]: Getting the data of two API for these two.
+[Remote]: Other two, we need to download and upload to the
+[Remote]: data sources.
+[You]: Ok.
+[You]: Tableau from portal.
+[You]: And upload. That's something I mean, for the pilot, we need to understand if we wanna
+[You]: build something
+[You]: that works in an automated way so you don't have to download from the portal and
+[You]: upload to the platform every single day. Right?
+[Remote]: We Cornerstone, we we can place the files in the
+[Remote]: SFTP, but we have to download and place it there, and it should take it from the
+[Remote]: SFTP.
+[You]: Or you can build an SFTP with us and and send the files via SFTP.
+[Remote]: That's the part
+[Remote]: is the one the one of the way
+[Remote]: partly automated.
+[Remote]: These guys don't have the API, so we don't get we have to download it anyways
+[Remote]: Someone has to download and place it in the SMP to pick that.
+[Remote]: Lexie has to pick it.
+[Remote]: Up there.
+[You]: Perfect.
+[Remote]: Other do you still have the EPS, file block and response?
+[You]: Perfect. Perfect.
+[Remote]: That can be
+[You]: And
+[You]: well, I guess,
+[You]: before before we continue,
+[You]: so you ingest the data
+[You]: We processed it in
+[You]: We see the differences, and we the differences. That's more on on Frank's
+[You]: team. So you just
+[You]: so you log in to do the ingestion and the processing, and then someone else logs in to do the
+[You]: discrepancy investigation.
+[You]: And and then what's next? Is there some sort of reporting
+[You]: requirement?
+[Remote]: One is the recon. We should have a reconciliation template
+[Remote]: where we say
+[Remote]: was the balance of data source a. This was the balance of data source b.
+[Remote]: And this is the difference. This is difference is due to this
+[Remote]: reconciling items where we can justify this.
+[Remote]: And list them.
+[Remote]: Or they are the item in transit maybe because of that.
+[Remote]: You know, timing difference or they are
+[Remote]: permanent differences. We'll just list that. And the same we match the balances.
+[Remote]: And prepared, there should be a prepared, and there should be an approval.
+[Remote]: For this income.
+[Remote]: Ultimate I mean, when we say
+[Remote]: that should block us.
+[Remote]: Once thirty five,
+[Remote]: This is the scope. I mean, how we work on
+[Remote]: Perfect.
+[Remote]: Two data sources balances should match.
+[Remote]: The differences of these two balances are the reconciling items.
+[Remote]: Where we have to justify. I mean, it's
+[Remote]: maybe list and we justify it.
+[You]: Then that
+[Remote]: Why they are
+[You]: that report, you send it to whom?
+[You]: To accounting, to finance.
+[Remote]: Yeah. Accounting and finance takes it
+[Remote]: Auditors can check it.
+[Remote]: At the end of
+[Remote]: audited auditing time.
+[Remote]: They can check-in. They say that this is the
+[Remote]: I mean, they they it's needed for the week and week.
+[Remote]: The method how we use to recon. I mean, they they get to know about that.
+[Remote]: And the controls we have.
+[You]: So who's the preparer and who's the approver?
+[Remote]: We have it's all re reconciliation team.
+[Remote]: One of the
+[Remote]: of the teammate, mine, will be a preparer. He prepares the recon.
+[Remote]: And once he certifies it,
+[Remote]: approval has to approve it whether he has done it right or not.
+[You]: And who's the
+[You]: You or someone on Frank's side?
+[Remote]: It should be me. It should be me as an approver. Yeah. Yep. It should be me.
+[You]: And then that report goes to accounting and finance.
+[Remote]: Yeah.
+[Remote]: Can be sent to accounting and finance financial controller, John, and Frank both.
+[You]: Perfect. Perfect.
+[You]: Got it. Very clear.
+[You]: On my side, it's it's it's super clear. I think what we need to do is then align based on this,
+[You]: scope,
+[You]: we still need to define the length
+[You]: I think it's gonna be two or three months.
+[You]: And we do need to align on on what's gonna be the commercial structure of that. Right?
+[You]: Because we're gonna be
+[You]: working alongside you. We're gonna really
+[You]: deep dive with you to implement Rexi. We're gonna do all the handholding, all the implementation
+[You]: all the configuration with you to make sure it works.
+[You]: So that
+[You]: gonna be a lot of time and work
+[You]: spent together.
+[You]: Would you say it's more like two months or three months?
+[You]: Yeah.
+[Remote]: For the sandbox?
+[Remote]: Should be I think two months should be fine too.
+[You]: Great.
+[Remote]: I guess, once we
+[Remote]: get to know
+[You]: Perfect.
+[Remote]: the data, then we can go into production.
+[Remote]: Months would be great. I think Ram should be there in this call for most
+[Remote]: technical integration part.
+[Remote]: So
+[Remote]: next time we'll get the program,
+[Remote]: then he can really answer all your
+[Remote]: technical related, integration related questions.
+[You]: Got it.
+[You]: I'll I'll create an email thread after this one with you, with Frank, and with Right?
+[Remote]: Right.
+[You]: Am I missing anything anyone else?
+[Remote]: Nickel is the one.
+[Remote]: He's a three round reports to Nikki. Vikki should be there, and Vijay also should be there.
+[Remote]: We check Nikki's call
+[You]: Nikhil So we have Frank Nickel Sriram Suji,
+[You]: and
+[You]: NVIDIA.
+[Remote]: VJ and one more guy is Rahul.
+[You]: Perfect.
+[You]: But the the the general app mover of
+[Remote]: Okay.
+[You]: everything is gonna be Frank.
+[Remote]: Right.
+[Remote]: Frank yeah. It's all for Frank's for us. Frank and Frank's speakers.
+[You]: Perfect.
+[You]: Okay.
+[You]: I don't know if I'm missing anything else. Ah, yeah,
+[You]: One last question is, like,
+[You]: I don't know if you can share how much
+[You]: like, what's the budget for something like this? How much are you spending today with Black Line? Is cost something you're worried about or not so much?
+[You]: How you think about about the cost of these tools?
+[Remote]: Project
+[Remote]: Yeah. Regarding budget, I'm not
+[Remote]: I mean, black line I mean, regarding budget, Frank would be the
+[Remote]: who can I mean, we are not expect I mean, we are not having anything in the mind of budget?
+[Remote]: We are looking at the work
+[Remote]: which as a reconciliation, which is a very important process.
+[Remote]: They are looking into my RCU's messages
+[Remote]: clear that we have to go for a proper return
+[Remote]: process.
+[Remote]: So he given go ahead and
+[Remote]: the things where we can
+[Remote]: our work should be
+[Remote]: accurate and perfect. So I don't think so, budget, we are healing
+[You]: Got it.
+[Remote]: thought ups. It's okay.
+[You]: And and one last question is
+[Remote]: So Frank yeah.
+[You]: okay.
+[You]: Frank would be the person on on on the budget side, but you're most worried on on having a proper
+[Remote]: Alright. Alright.
+[You]: recon process. You don't think budget is a is a big thing?
+[You]: Okay.
+[Remote]: The main thing is that. Yeah.
+[Remote]: Process.
+[You]: Last question is, are you guys
+[Remote]: Since Frank, you can check with Frank on this if you still need the the budget.
+[Remote]: You can check with Frank.
+[You]: Okay.
+[You]: Awesome.
+[You]: And last question is, are you considering other tools, or you are only talking with us?
+[Remote]: If the rexy is perfect,
+[Remote]: then we'll go with only Rexy. We'll not keep
+[Remote]: two, three tools.
+[You]: Ok.
+[Remote]: I mean, what's the need? I mean, we can have only one tool, like, in the we can
+[Remote]: if the work is going good, then we can do it one UX.
+[You]: Amazing. Amazing.
+[You]: Alright. So, Jeep, that's it on my side. I don't know, tell you have any other additional question?
+[Remote]: Oh, super clear.
+[You]: And, we're gonna
+[You]: be spending a lot of time together. We're very excited.
+[You]: Because we're gonna be part of your team even though we are the founders. We're gonna be part of your team. We're gonna
+[You]: help you implement this and make sure that Rexy is, as you just said,
+[You]: perfect. So let me get back to you. I'll create an email
+[You]: with these five people you mentioned.
+[You]: Just summarizing what we just talked about this pilot test for two months.
+[You]: Focused on the on the custodial part.
+[You]: And and you help us push the conversation forward.
+[You]: Mean, we're ready to go whenever you say, so
+[You]: let's see how how Frank and the team thinks about this and and then when we should
+[You]: start the pilot.
+[Remote]: Yeah.
+[You]: Alright.
+[Remote]: Fantastic.
+[You]: Have a great rest of your Friday, great weekend, and and we'll be in touch.
+[Remote]: Yeah. Yeah. We'll be in touch.
+[Remote]: A great weekend.
+[You]: Thank you.
+
+============================================================
+SUMMARY
+============================================================
+### Pilot Scope and Decision Making
+
+- Final decision maker is Frank
+- Two reconciliation types at FV Bank:
+  - Custody reconciliation (crypto): Fireblocks, SFOX, Cornerstone, MBS Securities
+    - Currently 80% automated in BlackLine, 20% manual
+    - Most painful process - not properly completed in BlackLine
+  - Transactional bank reconciliation: where most volume is
+- Pilot focus: custody reconciliation first
+  - Duration: 2 months (pending Sriram’s technical assessment)
+  - Real production data testing in sandbox environment
+  - Sriram (technical/product manager) will determine exact timeline
+
+### Integration Requirements
+
+- API integrations needed:
+  1. Fireblocks - API available
+  2. SFOX - API available
+- Manual file handling required:
+  1. Cornerstone - download from portal, upload to platform
+    - Can place files in SFTP for automated pickup
+  2. MBS Securities - download from portal, upload to platform
+- Sriram’s team handles technical integrations and data sources
+
+### Success Criteria and Process
+
+- Success measurements vs BlackLine performance:
+  1. Rule configuration - reduce complexity from current many rules
+  2. Matching ratio improvement
+  3. Accuracy - reduce unmatched transactions (BlackLine has many unmatches, inconsistent rule performance)
+  4. Processing speed
+- Reconciliation template requirements:
+  - Balance A vs Balance B comparison
+  - Difference identification with transaction explanations
+  - Justification for reconciling items (timing differences, permanent differences)
+- Approval workflow:
+  - Preparer: reconciliation teammate
+  - Approver: Sujeeth
+  - Final report goes to accounting, finance, John (financial controller), and Frank
+- Budget considerations: Frank handles budget decisions, CEO message emphasizes building proper recon process over cost concerns
+- Tool selection: “If Rexi is perfect, then we would go with Rexi only”
+
+### Next Steps
+
+- Create email thread including: Frank, Nikhil, Sriram, Sujeeth, Vijay, Rahul
+- Align on commercial structure for 2-month pilot
+- Schedule technical integration discussion with Sriram present
+- Define pilot start date pending Frank’s approval
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/53c53631-457b-428b-bdb7-13e0d8145dd4](https://notes.granola.ai/t/53c53631-457b-428b-bdb7-13e0d8145dd4)

@@ -1,0 +1,339 @@
+MEETING: [1:1] Ignacio (Rexi) <> Angela (Kuiper VC)
+DATE: 2026-05-01
+ID: not_RIz0YUBqY3fhEp
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Angela <angela@kuipervc.com>
+SCHEDULED: 2026-05-01T12:00:00-04:00 - 2026-05-01T12:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Muy bien también, gracias.
+[You]: Hi.
+[You]: Se van a intensa.
+[You]: ¿Dónde está?
+[Remote]: Bueno, ya vienes, qué bueno.
+[Remote]: ¿Dónde anda?
+[You]: Josi, ¿tú?
+[Remote]: ¿En Nueva York estás?
+[Remote]: Ah, qué bien. En la en México, ahorita.
+[You]: Ah, va.
+[Remote]: Todo bien, muy bien todo por acá.
+[Remote]: ¿Ustedes cómo van? Hace un montón no platicábamos con ustedes.
+[You]: ¿Cuándo fue el día que hablamos? A ver.
+[Remote]: En
+[Remote]: septiembre, sí, en septiembre.
+[Remote]: Sí.
+[You]: Ah, wow.
+[You]: Sí, fin de agosto.
+[You]: Septiembre. Guau, sí.
+[You]: Una vida,
+[Remote]: Sí.
+[You]: A ver, what happened since?
+[You]: ¿Conbordamos un CTO, que es co-founder también?
+[Remote]: Okay.
+[You]: Founding team member de
+[Remote]: Ok.
+[You]: Naranja X, y luego, founding team member de Pomelo.
+[Remote]: Ok.
+[You]: Siete años building Pomelo, con lo cual
+[You]: nada, muy sortudos de poder haberlo
+[You]: sumado a Seba, Seba es un crack,
+[You]: conoce mucho la industria,
+[You]: particularmente del lado payments, pero también del lado banca.
+[Remote]: Okay.
+[You]: Y nada, muy entrepreneurial también, ¿no? Él fue founding team member de
+[You]: de vuelta de naranja x y de pomelo, así que
+[You]: conoce bien how to build stuff from scratch.
+[You]: What else happened? Well, we built an amazing platform, we redesigned the architecture
+[You]: We're working with customers. We're onboarding our
+[You]: first set of enterprise customers. Eso es por ahí inicial, design partners, y convertimos a
+[You]: customers, siguen trabajando con nosotros, pero ahora ya
+[You]: focusing on on the big ones.
+[You]: Somos siete
+[You]: próximamente va a ser ocho,
+[You]: y estamos
+[You]: preparando nuestros seed grays
+[Remote]: Okay.
+[You]: para fin de
+[Remote]: Ok.
+[You]: q dos, principios de q tres, va a ser.
+[You]: Sí, yo creo que va ser, sí.
+[Remote]: Perfecto.
+[Remote]: ¿Cuánto quieren levantar?
+[You]: Ma tipo...
+[You]: Cinco,
+[Remote]: Ok.
+[You]: seguramente, todavía tengo que definirlo bien, pero creo que vamos a salir a levantar cinco. Again, por no
+[You]: fundraising now, Entonces, digo, no no tengo no tengo nada.
+[Remote]: Sí.
+[You]: Estamos head down building and selling,
+[You]: pero creo que
+[You]: los contratos que estamos por cerrar, las
+[You]: semanas nos van a posicionar muy bien, con buen momentum para salir a levantar en
+[You]: en julio, agosto.
+[Remote]: Okay.
+[You]: Así que
+[You]: that's the objective.
+[Remote]: ¿Y a qué evaluación sabes?
+[Remote]: Más o menos?
+[Remote]: Ok.
+[You]: Veinticinco.
+[You]: Trenta.
+[You]: Yo creo que vamos a, sí, levantar entre cinco y seis,
+[Remote]: Ok.
+[You]: entre veinticinco y treinta y cinco, algo así.
+[Remote]: Ok, perfecto.
+[Remote]: ¿Y cómo van ahorita de de MRI y todo eso?
+[You]: Y, bueno, como te digo, o sea,
+[Remote]: O, bueno, de número de
+[You]: estamos estamos cerrando nuestros clientes más grandes ahora,
+[You]: con lo cual eso nos va a mover muchísimo el
+[You]: el el revenue y la atracción,
+[Remote]: Ok.
+[You]: porque son clientes grandes, son clientes que
+[You]: solamente uno puede ser de trescientos k por año,
+[You]: el otro va a ser de ciento ochenta, doscientos,
+[Remote]: Ok.
+[You]: y tenemos tres más que van a ser entre
+[You]: cien y ciento veinte.
+[Remote]: Ok.
+[You]: Así que
+[You]: por eso te digo,
+[You]: Nada, se está poniendo interesante.
+[Remote]: Ok.
+[You]: Esta semana fue muy intensa. Pero pero muy bien, la verdad que muy convencidos de
+[You]: de la oportunidad que hay, y no solamente en recon,
+[You]: sino lo interesante de lo que estamos haciendo es cómo se puede volver infraestructura
+[You]: para después construir el application layer
+[You]: un montón de otras cosas, ¿no?
+[Remote]: Ok.
+[You]: Porque, no sé, el el típico ejemplo es
+[You]: todas las compañías hoy están queriendo
+[You]: Estoy hablando de las enterprise, ¿no?
+[Remote]: Mhmm.
+[You]: Implementar AI, ¿no?
+[You]: Y les pasan varias cosas,
+[You]: Primero, muchas veces no tienen el talento,
+[You]: Segundo, muchas veces no tienen los sistemas.
+[You]: Y tercero, a nivel infraestructura se vuelve muy difícil
+[You]: o sea, tiene las herramientas. Tercero, a veces no
+[You]: tienen la infraestructura en términos de
+[You]: cuando yo quiero implementar
+[You]: agents for a specific workflow,
+[You]: Necesito conectar esos agents a
+[You]: una infraestructura donde el agent pueda consumir todo el contexto y toda la
+[You]: información para poder ejecutar ese task de una manera
+[You]: escalable, reliable y, más importantemente, precisa.
+[Remote]: Sí,
+[You]: ¿No?, porque estamos hablando de servicios financieros.
+[You]: Entonces,
+[You]: reconciliation se vuelve como un stepping stone towards that vision, por
+[You]: it's basically creating the financial graph
+[You]: across all your data sources. No?
+[Remote]: Okay.
+[You]: Entonces,
+[You]: that's what we're building towards.
+[You]: Y, para nosotros, el el recon es el wedge y es el necessary foundation
+[You]: to build these other workflows. Y
+[You]: stickiness
+[Remote]: Ok.
+[You]: va a ser justamente de how entrenched we can get in these companies.
+[You]: ¿No? Una vez que somos esa infra, que somos esa plataforma,
+[You]: it's very hard to replace, ¿no? It's a very sticky
+[You]: sticky contract, sticky revenue, por
+[You]: no solamente por la parte técnica y infraestructura, sino también por la
+[You]: relación, creo que todas estas compañías
+[You]: en la visión de ellos, todas
+[You]: plataformas de AI son lo mismo,
+[You]: and they're really picking their and trusting on that team and on that brand.
+[You]: They're taking a bet on the brand.
+[You]: Entonces,
+[You]: typically, if you deliver and you perform, there's no reason why they would replace
+[Remote]: Sí.
+[You]: you. ¿No? Esto como
+[You]: Why do certain
+[You]: CEOs work with McKinsey and why do certain CEOs work with
+[You]: Spain?
+[Remote]: Sí, sí,
+[You]: ¿No? Eligen la relación, y once you become entrenched,
+[You]: and they know your business and they understand how it works,
+[You]: there's
+[You]: productivity and economies of scale of continue
+[You]: of continuing that relationship. No?
+[You]: Así que
+[Remote]: Ok.
+[You]: that's what we're betting on.
+[You]: Starting by recon. Y por eso en Q2 estamos empezando a desarrollar nuestro primer
+[Remote]: Perfecto.
+[You]: adjacent workflow
+[You]: que es el de accounting, Not accounting in terms of journal entries, but
+[You]: accounting in terms of reconciling the balances at the end of the month and making
+[You]: sure that we are reading and writing into the ERPs
+[You]: with this financial graph. No? Instead of
+[Remote]: Okay.
+[You]: plugging your ERP to the bank,
+[You]: you should plug your ERP to Rexy, porque Rexy is plugged into everything else.
+[Remote]: Okay.
+[You]: And it's something the ERPs will never do because
+[You]: they don't need to.
+[Remote]: Perfecto.
+[You]: Entonces,
+[You]: en eso vamos. La verdad que muchísima oportunidad. Hemos tenido muy buena atracción en Latinoamérica, ahora estamos
+[You]: buscando
+[You]: set
+[Remote]: No sé, Estados Unidos.
+[You]: sí, set the the the motion here in The US, por eso estamos
+[You]: acabo de cerrar un outbound partner, me va a ayudar con outbound,
+[You]: y acabo, y estoy buscando un first como founding go to market
+[Remote]: Okay.
+[You]: para el para el US, porque, la verdad, que la TAM lo podemos cubrir de manera reactiva con
+[You]: con nuestras redes, ¿no?
+[Remote]: Sí.
+[You]: Así que
+[You]: eso es un poquito donde estamos, un punto muy interesante, acelerando mucho, la verdad,
+[You]: trabajando mucho, acelerando mucho, estamos viendo mucha atracción,
+[You]: y y esperando tener el momentum indicado para
+[You]: salir a levantar esa esa seat.
+[Remote]: Ok, perfecto.
+[Remote]: Perfecto.
+[Remote]: Pues nosotros estamos haciendo nuestros últimos tickets
+[Remote]: y los estamos haciendo un poco en más altas evaluaciones que al principio.
+[Remote]: Porque
+[Remote]: pues, no sé, así se fue estructurando el portafolio. A lo mejor puede estar interesante nosotros, si
+[Remote]: les interesa. Pero lo voy a le voy a contar a JP cómo van y a ver qué Digo, sé que todavía no tiene el deck ni nada, pero para ir platicando.
+[You]: Obvio, obvio, cien por ciento. ¿Cómo te fue con Ignacio del Campo, la intro que te hice?
+[Remote]: Ah, muy bien.
+[Remote]: Nos gustó mucho, Pacto, pero
+[Remote]: como que iban creciendo un poco lento.
+[Remote]: Entonces, los dejamos, y y les estaba costando trabajo levantar.
+[Remote]: Entonces, bajamos un poco como
+[Remote]: que pase el tiempo,
+[Remote]: y y voy a tocar base con él pronto.
+[You]: Ok. Y
+[Remote]: Pero está padrísimo lo que está la verdad.
+[You]: Es un modelo difícil el que están haciendo, pero el equipo es fenomenal. Yo trabajo con todos, de hecho.
+[Remote]: Sí, sí.
+[Remote]: Sí, muy buen equipo. No, y lo que están haciendo está muy padre.
+[You]: Sì,
+[Remote]: Nada más es
+[Remote]: no sé, depende mucho como del usuario final que sí vaya y
+[Remote]: O sea, hay mucha gente que tiene que hacer
+[Remote]: acciones para que funcione.
+[Remote]: Pero a mí me encanta, yo sí lo haría.
+[You]: Sí.
+[You]: Y ustedes ya levantando el segundo fondo, entonces,
+[Remote]: Vamos a empezar en junio, justo. Junio y julio, por ahí.
+[You]: Este sería el segundo, ¿verdad? Sí.
+[Remote]: Este es el primero y, ajá, sería el segundo.
+[You]: ¿Y cuánto están buscando levantar?
+[Remote]: Queremos levantar
+[Remote]: yo creo que mínimo quince.
+[Remote]: Quince y
+[You]: Mínimo quince. Ok. ¿Y la tesis es la misma o o cambiando un poquito?
+[Remote]: Vamos a reservar ahora sí algo para follow ons y a subir el ticket.
+[Remote]: Para tener un poco más de ownership. Pero misma etapa, mismo
+[You]: Receive.
+[Remote]: todo.
+[Remote]: Sí, preset seed, software,
+[Remote]: Spanish speaking, y y meternos un poco más en US, aunque no haya
+[Remote]: Spanish speaking founders o lo que sea.
+[You]: Claro, claro, bueno, entonces, y por ahora son JP y tú, ¿no?
+[Remote]: Y otro que se llama Andrés, creo que no lo conocieron, pero sí, nada más dos, tres.
+[Remote]: Estamos dos.
+[You]: Bueno, superinteresante. Si puedo ayudar en algo, let me know. Nosotros estamos heads down
+[Remote]: Mil gracias.
+[You]: selling, así que
+[Remote]: Sí, claro.
+[You]: en este momento
+[You]: nada, no hay mucho head space ni bandwidth para andar
+[Remote]: Sí, levantando.
+[You]: Sí me sí me sí me interesa, obviamente,
+[Remote]: Bueno,
+[You]: tener tus updates contigo, porque
+[You]: para mantener la relación, y de vuelta creo que hubo mucho
+[Remote]: Sí.
+[Remote]: Sí.
+[You]: mucha chemistry en nuestras conversaciones
+[You]: en su momento, así que nada, me encantaría stay close y
+[Remote]: Gracias.
+[You]: y obviamente hacerlos parte del proceso cuando
+[Remote]: ¿Cuándo le va?
+[You]: cuando levantemos en julio agosto. Pero
+[Remote]: Va.
+[You]: no sé,
+[You]: let's say in touch. Si vienes a New York, tres mil euros tomamos un café, no sé tienen pensado venir.
+[Remote]: Va.
+[Remote]: Justo estábamos viendo que es el New York Tech Week en junio.
+[Remote]: Y hay como un
+[Remote]: este, latinos, no sé qué, eventos de latinos, hijo,
+[Remote]: A lo mejor, estábamos planeando ir.
+[You]: Bueno, let me know, let me know y nos juntamos.
+[Remote]: Si vamos,
+[Remote]: va.
+[Remote]: Va, seguro.
+[You]: Hacemos lunch.
+[Remote]: Mil mil gracias por el ratito.
+[You]: Bueno, Ángela, que tenga buen viernes y buen fin de semana.
+[Remote]: Igual, bye.
+[You]: Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Company Updates Since September
+
+- Hired Seba as CTO and co-founder
+  - Former founding team member at Naranja X and Pomelo
+  - 7 years building Pomelo
+  - Strong payments and banking industry expertise
+- Team growth: 7 people, expanding to 8 soon
+- Platform redesign with new architecture
+- Converting design partners to enterprise customers
+
+### Fundraising Plans
+
+- Seed round timing: End Q2/early Q3 (July-August)
+- Target raise: $5M
+- Valuation range: $25M-$35M
+- Current focus: Head down building and selling
+- Large contract closures will create momentum for fundraising
+
+### Revenue Pipeline
+
+- Major contracts closing soon:
+  - One client: $300K annually
+  - Another client: $180K-$200K annually
+  - Three additional clients: $100K-$120K each
+- Moving from design partnerships to paid enterprise customers
+
+### Product Vision & Strategy
+
+- Reconciliation as stepping stone to broader AI infrastructure
+- Building financial graph across all data sources
+- Q2: Developing adjacent accounting workflow
+  - ERP integration through Rexi platform
+  - Alternative to direct bank-ERP connections
+- Agent infrastructure for financial workflows
+  - Scalable, reliable, precise execution
+  - High stickiness once entrenched
+
+### Kuiper VC Updates
+
+- Making final tickets at higher valuations
+- Fund II launch: June-July
+- Target raise: Minimum $15M
+- Strategy changes:
+  - Reserving capital for follow-ons
+  - Increasing ticket sizes for more ownership
+  - Expanding into US (beyond Spanish-speaking founders)
+- Team: JP, Angela, and Andrés
+
+### Next Steps
+
+- Angela to update JP on Rexi’s progress
+- Potential coffee meeting during NYC Tech Week in June
+- Maintain relationship for July-August fundraising process
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/185ee212-6816-41a6-923d-c9885f7e1874](https://notes.granola.ai/t/185ee212-6816-41a6-923d-c9885f7e1874)

@@ -1,0 +1,342 @@
+MEETING: [1:1] Ignacio (Rexi) <> Andres (Flood)
+DATE: 2026-04-27
+ID: not_Arj8louD4sT81J
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Abiernat <abiernat@usa.net>, Andres Biernat <abiernat@biernat.onmicrosoft.com>
+SCHEDULED: 2026-04-27T12:00:00-04:00 - 2026-04-27T12:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Mirá vos, la juventud. Che, felicitaciones por este
+[Remote]: proceso de Rexi. Supongo que lo venís pensando durante tu
+[Remote]: tu tus dos años de máster, ¿verdad?, ¿o fue algo que ya venías arrastrando de antes?
+[You]: Bueno, mirá,
+[You]: era un problema que yo ya había identificado antes,
+[You]: pero en el medio de mi maestría yo hice una pasantía de verano acá en Nueva York, en una fintech,
+[You]: y ahí sucedieron varias cosas. Uno,
+[You]: me tocó a mí ser el owner de de las conciliaciones,
+[Remote]: Uh-huh.
+[You]: desde una fintech, entonces vi como el problema en primera persona,
+[You]: Yo ya había visto el problema en en Bitso, cuando era product manager del equipo de pago,
+[You]: pero no era directamente responsable.
+[Remote]: Ok.
+[You]: Y esa vez acá en en New York me tocó ser a mí responsable y
+[You]: vi más la complejidad y el riesgo,
+[You]: y lo otro que pasó fue
+[You]: lo de Synapse, Fue Ahí Justo En El Verano De Veinte Veinticuatro, Que Fue Como Un Caso Muy Muy Por Lo Menos Acá En Estados Unidos,
+[Remote]: Okay.
+[You]: que para mí era una ilustración muy clara del tamaño del
+[You]: problema y de que esto era la punta del iceberg, y que debajo de eso había un montón de bancos
+[You]: procesadores de pagos, fintechs,
+[You]: operando de una manera
+[You]: muy poco segura, muy poco escalable y muy ineficiente, y que había una oportunidad enorme en el mercado
+[You]: Así que si querés,
+[You]: ahí fue donde dije, che, creo que voy a hacer una compañía de esto,
+[You]: y volví al segundo año del MBA, y así empezar a a construirlo. Así que
+[You]: pensándolo hace, pensándolo seriamente, hace dos años.
+[Remote]: Ajá. O sea, que vos, la experiencia
+[Remote]: en el la parte de finanzas, la
+[Remote]: la desarrollaste en este en estos últimos dos o tres lugares donde estuviste y
+[Remote]: creaste este producto, que es más para la el sector financiero,
+[Remote]: más que nada en el segundo año de tu maestría, ¿verdad?
+[You]: Sí, la experiencia viene de antes. Yo yo arranqué mi carrera
+[You]: en en consultoría en Bein, ahí en Argentina,
+[Remote]: Okay.
+[You]: y me tocó trabajar con los grandes bancos de la región,
+[You]: en Perú, Colombia, Chile, Argentina, Brasil,
+[You]: Y, bueno, entonces, ahí ya un poco entendiendo cómo funcionan los bancos,
+[You]: cómo funciona el sistema financiero, ya ya tenía experiencia. Después Richo,
+[You]: es sistema financiero, es fintech,
+[You]: tiene una parte de fiat, tiene una parte de cripto, y
+[You]: y, bueno, y ya así, después directamente en en común fue
+[You]: la experiencia más directa, digamos. Pero pero ya venía de
+[You]: antes. Y desarrollando el producto desde, te diría, desde enero veinte veinticinco.
+[Remote]: Okay.
+[You]: Porque la
+[You]: la segunda mitad de veinte veinticuatro estuve en una incubadora
+[You]: en MIT,
+[You]: que se llama Fintech Ventures, la lidera un tipo que se llama Matt Rhodes,
+[You]: que tiene un fondo de visita, también, Tectonic Ventures,
+[You]: Y ahí fue donde le di más forma, la idea, la tesis y a la compañía, esa
+[You]: esa incubadora
+[You]: terminaba en un demo day que terminé ganando,
+[You]: y a partir de ahí con esos... Después gané dos competencias más,
+[Remote]: Ajá.
+[You]: en hardware,
+[You]: y con esos fondos iniciales fue que incorporamos la compañía en en
+[You]: el primero de enero veinte veinticinco, y ahí empezamos a trabajar con
+[You]: con un software estudio que nos permitió armar la primera versión del producto,
+[You]: y pues con eso, bueno, ya levantamos la ronda, incorporamos un equipo y
+[You]: toda la arquitectura que tenemos hoy.
+[Remote]: Ok. Y ustedes, este producto ya
+[Remote]: está funcionando, ¿verdad?, ¿o ustedes lo están como desarrollando mientras están
+[Remote]: volando?
+[You]: Sí, sí, correcto, ya está ya está
+[You]: live, en producción con clientes, pero, obviamente, está
+[Remote]: Okay.
+[You]: avanzando y progresando a pasos agigantados, ¿no? Semana a semana sacamos
+[You]: features nuevos, cosas nuevas, y
+[You]: y, bueno, si te muestro el producto hoy y te lo muestro en dos semanas, vas a ver que hay diez cosas nuevas.
+[You]: Hoy con AI, la verdad que la velocidad de iteración es
+[You]: es
+[You]: es sorprendente.
+[Remote]: Ok. Y el
+[Remote]: foco de este producto es bancos y billeteras virtuales,
+[Remote]: digamos, más para el área específica de fintech,
+[Remote]: de bancos o también se aplica a otras empresas grandes?
+[You]: Bueno, mira, nosotros, obviamente, tenemos un foco en
+[You]: en servicios financieros, porque es donde
+[You]: este dolor se manifiesta
+[You]: con mayor riesgo, con mayor costo,
+[You]: y y con mayor también de
+[You]: digamos, ineficiencia y fricción,
+[You]: por un tema que no operan flujos de pagos. Pero si querés,
+[You]: el tema de las conciliaciones aplica a cualquier compañía
+[You]: tenga múltiples flujos de dinero y una transaccionalidad alta.
+[You]: Cualquier tipo de compañía que tenga ese tipo de operación tiene un tema con las
+[You]: y tiene que tener algún sistema para
+[You]: para estar monitoreando y y cuadrando sus flujos.
+[You]: Particularmente, si querés,
+[You]: por un tema de tracción, nosotros hoy estamos enfocados en bancos, pagos,
+[You]: seguros,
+[You]: y después como por ahí vertical no tan
+[You]: servicio financiero, tenemos a marketplaces.
+[You]: Entonces, trabajamos con compañías como Despegar,
+[You]: como Tienda Nube,
+[You]: que de vuelta tienen toda una operación fintech por ahí a la
+[You]: es una es un marketplace, es una compañía que no es fintech,
+[You]: pero hoy hay muchas compañías que son fintechs porque tienen alguna solución de pago,
+[You]: por calmaron un procesador,
+[You]: porque lanzaron una tarjeta.
+[You]: Porque tienen una wallet. Entonces, al final es como
+[You]: vemos también mucha atracción en ese mundo de marketplaces.
+[Remote]: Okay.
+[Remote]: Te preguntaba todas estas cosas y
+[Remote]: y me alegro que tenga ganas de conversar un ratito. No necesariamente por flood, no
+[Remote]: si bien creamos marketplaces, la verdad que como startup
+[Remote]: recién estamos empezando y no no tenemos una necesidad específica de esto.
+[Remote]: Pero a mí se me ocurrió, si yo no te podía ayudar a vos
+[Remote]: justo hoy vi que estabas buscando un go to market, este, líder,
+[Remote]: que evidentemente no soy yo, porque yo no tengo, no vengo del mundo
+[Remote]: financiero ni de las fintech ni tengo contactos en Estados Unidos con bancos y demás,
+[Remote]: pero me preguntaba si a vos te podría servir
+[Remote]: que yo te desarrolle o contactos
+[Remote]: o potenciales contactos en otras industrias. Por ejemplo,
+[Remote]: yo vengo del del mundo de los medios. Podría intentar generar una reunión con alguien
+[Remote]: adentro de Univisión, con alguien adentro de
+[Remote]: NDC Universal, Telemundo.
+[Remote]: En Latinoamérica tengo contacto con telcos,
+[Remote]: desde América Móvil A Tigo, Pasando Por Otros Más Chicos. He Intentado, Por Ejemplo, Y Tengo Buena Llegada Con La Gente De Pichincha y de una en Ecuador, digo,
+[Remote]: muy fuera del Área que vos tenés el foco, que evidentemente es Estados Unidos la industria financiera o los grandes, grandes marketplaces, supongo, de Latinoamérica, que
+[Remote]: en parte operan con una pata, por lo menos, de registro societario aquí en Estados Unidos.
+[Remote]: Así que nada, un poco era conversar con vos
+[Remote]: esto. Me dio mucha gracia la casualidad de de de
+[Remote]: tu posteo de hoy en LinkedIn, que estaba buscando a alguien para hacer una cosa parecida, pero con
+[Remote]: foco acá en Estados Unidos, y escuchar a ver qué qué
+[Remote]: si esto te puede servir o no.
+[You]: La verdad que sí, estoy recontra abierto. Creo que la parte de medios
+[You]: no sé en qué nos puede llegar a servir, más allá de quizás algún tipo de
+[You]: VPR, de artículo que nos quieran cubrir porque les interesa el problem
+[You]: space y les interesa la misión de Rexxi, ahí encantado. Eso siempre nos ha servido como posicionamiento y como marca.
+[Remote]: ¿Pero no como clientes?
+[You]: Y a los medios, no no los veo muy como clientes, salvo
+[You]: toda la pata de suscripciones para los medios digitales, puede ser
+[You]: a explorar. Honestamente, no he tenido conversaciones con ningún medio que
+[You]: que tenga este problema, pero
+[You]: pero si vos por ahí me hacés ese discovery previo de tipo, che,
+[You]: ¿cómo manejan las conciliaciones de sus flujos de dinero? ¿Les duele o no les duele? Y te dicen que
+[You]: y quieren una reunión, yo más que encantado.
+[You]: Pero a priori,
+[You]: no
+[You]: no sé si vaya a haber un un problema grande por resolver ahí, porque por ahí me equivoco,
+[You]: Lo sí lo veo, que lo mencionaste, es en telcos, y eso sí
+[You]: lo teníamos como una vertical ahí para explorar en algún momento,
+[You]: Hablamos con una telco en un momento, pero no traccionó mucho.
+[You]: Ahora estamos trabajando con personal pay,
+[You]: que es como la la billetera digital de de personal.
+[You]: Que es como un un joint venture con Banco Macro,
+[You]: pero
+[You]: Telcos me interesa mucho, medios
+[You]: no sé. Si vos tenés algún contacto y podés hacer ese
+[You]: prescreening y me decís, che, Nacho, creo que acá hay una oportunidad, yo más que encantado de tomar la llamada.
+[You]: Pero hoy también, ¿viste?, por la etapa en la que estamos,
+[You]: mis esfuerzos proactivos
+[You]: los tengo que targetear bien a a los casos de uso que ya conocemos bien y sabemos
+[You]: nuestra solución se adapta, porque si no, como te digo, lo de conciliación es
+[You]: es que puede aplicar a cualquier negocio.
+[You]: Y
+[You]: y ahí
+[You]: la solución difiere bastante negocio a negocio,
+[You]: y la manera de llegarle a esas verticales también es muy distinta.
+[You]: Entonces, hoy tengo que enfocar un poco los esfuerzos, pero
+[You]: pero si vos te interesa por por por el simple hecho de conectar,
+[You]: yo feliz de de que nos abras puertas. Y ahí también,
+[You]: remunerar ese ese valor que nos traigas, O yo feliz de armar algo que
+[You]: por ahí te puedo te puedes poner como un
+[You]: partner o un affiliate nuestro,
+[You]: y y la compensación se remunera en base a, no sé, podemos hacer
+[You]: o o o o reunión calificada, no sé.
+[You]: Hagamos una lista en conjunto donde por ahí
+[You]: vos me decís, mirá, toda esta lista de compañías que yo tengo mucho contacto, mucha llegada,
+[You]: y me encantaría hacerte una intro porque siento que puede haber fit, y salimos a
+[You]: a hacer ese hunting juntos. Así que sí, la la respuesta es sí.
+[Remote]: Ok. Dos cosas. Primero, una pregunta.
+[Remote]: Un servicio tipo Netflix o tipo Vicks que es el el el el streaming de Univision.
+[Remote]: ¿Es un target potencial para esto o no? ¿No? ¿Está alejado del
+[Remote]: que vos estás buscando.
+[You]: Sí, cien por ciento, porque deben tener un volumen de suscripciones muy alto,
+[You]: y, obviamente, hay que estar chequeando constantemente
+[You]: distintos procesadores de pagos, distintos flujos de dinero,
+[You]: y deben tener promociones también que tienen que estar constantemente conciliando.
+[Remote]: Okay.
+[You]: Mismo por ahí, tienen un partnership con algunas agencias de bundling de suscripciones,
+[Remote]: Exacto.
+[You]: y entonces esas agencias de bundling les pasa el pago
+[You]: todo de una, ellos pues tienen que considerar contar las cuentas. Digo, deben tener una necesidad de conciliatoria
+[You]: sí, alta, interesante.
+[Remote]: Ok. ¿Vos tenés contactos acá con la gente de Amazon?
+[You]: Acá decís dónde.
+[Remote]: En Estados Unidos.
+[You]: Y Amazon es una compañía muy grande,
+[You]: Conozco mucha gente que trabaja en Amazon, pero no sé tipo de contacto vos decís,
+[You]: como
+[Remote]: Si estás hablando con ellos,
+[You]: No, no estoy hablando con ellos.
+[Remote]: Ok.
+[Remote]: Ok. Bueno, mirá, la verdad es que no sé
+[Remote]: si voy a poder generar clientes o no, lo que puedo es
+[Remote]: intentar generar reuniones, ver si hay interés,
+[Remote]: eventualmente generar entrevistas o presentaciones.
+[Remote]: Si te interesa, bueno, para empezar, lo que yo
+[Remote]: sería un, como un,
+[Remote]: un one pager, o o como lo quiera llamar, de cómo presento esto.
+[Remote]: Es decir, cómo yendo a un telco
+[Remote]: presento esto diciendo, ustedes estarían interesados en tal o cual cosa?
+[Remote]: ¿Cómo yendo a un Netflix o cómo yendo a un Amazon o cómo yendo a un Amazon Prime Video,
+[Remote]: presento esto. No tiene que ser algo muy detallado, porque al final del día lo explicarías vos.
+[Remote]: Pero tiene que ser el intro para decir, mirá, me gustaría
+[Remote]: si les interesa, generar una reunión con alguien del departamento de finanzas o de lo que fuere, para presentarles
+[Remote]: una herramienta que nosotros estamos ofreciendo
+[Remote]: que hace estas cosas o resuelve estos problemas, o que se
+[Remote]: precisamente en estas necesidades que ustedes puedan tener. ¿Te parece?
+[You]: Fabhàtico c'ho te la voce a un
+[You]: un blurb con un one pager esta semana,
+[You]: y con eso
+[You]: nada, disparamos esas esas intros.
+[You]: De vuelta, no sé si esto era un ofrecimiento de que lo querías hacer así, de de buena onda, o
+[You]: o estás buscando algún tipo de remuneración. Yo no quiero
+[You]: abusar de de de tu network ni de tu tiempo, entonces, me quiero
+[You]: asegurar de que también hay un win win para ambas partes. Pero pero si lo querías hacer así, de
+[You]: de buena onda, yo, un emprendedor, también también feliz.
+[Remote]: Mirá, lo haría de buena onda simplemente para ayudarte, pero
+[Remote]: si hubiese una compensación en algún momento,
+[Remote]: digamos, mejor todavía. Yo, de hecho, estoy buscando cosas para hacer y esto
+[Remote]: primero, no surgió como algo para hacer, pero hoy por hoy digo, mirá,
+[Remote]: ya que me acabo de pasar tres años tratando de vender marketplaces en una serie de mercados y
+[Remote]: generé un montón de contactos adicionales a los que ya tenía. Quizás esto pueda servir para vender este producto,
+[Remote]: no lo termino de entender, pero por la idea que tengo y por el tipo de
+[Remote]: que tengo, puedo llegar a llegar al agente clave para decidir en algunas empresas.
+[You]: Obvio. ¿Vos estás basado en Miami?
+[Remote]: Digamos,
+[Remote]: sí, legalmente tengo mi casa en Miami, pero estoy viviendo en Boston en estos momentos,
+[Remote]: familia.
+[You]: Ah, ok, fantástico. Bueno,
+[You]: hagamos eso, entonces, yo yo vuelvo contigo con un blurb y un one pager,
+[You]: y medio con una propuesta de cómo creo que podríamos
+[You]: compensar este tipo de puertas,
+[You]: Después, creo que un siguiente paso, si si lo ves bien,
+[You]: ves bien la propuesta, sería
+[You]: armar una lista, ¿viste?, armar un spreadsheet simple de
+[You]: che, estas son todas las compañías que tengo contacto muy directo
+[You]: y después decimos, sí, no, sí, no, sí, no, y
+[You]: y después arreglamos ahí, y bueno, y después ya sería
+[You]: ir en busca de esas intros, ¿te parece?
+[Remote]: Dale, sí, sí, justo, eso, justamente eso te voy a decir, me me
+[Remote]: el el one pager, yo genero un listado de los primeros,
+[Remote]: quizás el low hanging fruit, nos ponemos de acuerdo y yo empiezo los
+[Remote]: el el outreach a ver qué qué surge de todo eso.
+[You]: Listo, Andrés, fantástico. Bueno, millón de gracias,
+[You]: por el ofrecimiento y por el tiempo. Qué bueno que te
+[You]: pudiste llamar a PCM ahí y que te gustó la presentación. Ahí yo estaba de
+[You]: de camisa, porque había gente más de... Cuando cuando me
+[You]: con bancos, aseguradoras y compañías más más tradicionales, me me pongo la camisa
+[You]: ya después en el día a día estoy más como tech founder y y ajusto el
+[You]: el body language y el y la vestimenta. Pero bueno, ahí vamos.
+[Remote]: Perfecto. ¿Vos, si necesitás que yo te mande un email o usamos el
+[Remote]: LinkedIn o cómo querés que lo hagamos?
+[You]: Te mando al mail del invite que había dos
+[Remote]: Dale, usa punto net.
+[You]: está el de
+[You]: Microsoft o el de USA punto net?, ¿cuál mandó?
+[Remote]: V seis punto net, que es el más fácil de recordar.
+[You]: Listo, te mando ahí ahora. Entonces,
+[You]: el blurb y el y el y el one pager, y una propuesta de
+[You]: cómo veo la compensación, y a partir de eso avanzamos.
+[Remote]: Y yo te contesto con el listado de los primeros
+[Remote]: del del outreach.
+[Remote]: Cuídate, Ignacio, hasta luego.
+[You]: Listo, Andrés. Muchas gracias,
+
+============================================================
+SUMMARY
+============================================================
+### Ignacio’s Background & Rexi Development
+
+- Problem identified during summer 2024 internship at NYC fintech
+  - Owned reconciliations process firsthand
+  - Previously saw issue at Bitso as product manager but wasn’t directly responsible
+- Synapse collapse (summer 2024) illustrated scale of problem
+  - Showed banks, payment processors, fintechs operating unsafely/inefficiently
+  - Recognized massive market opportunity
+- Timeline:
+  - Serious development started 2 years ago
+  - H2 2024: MIT Fintech Ventures incubator (led by Matt Rhodes)
+  - Won demo day + 2 additional competitions
+  - Jan 1, 2025: Incorporated company
+  - Jan 2025-present: Product development with software studio, raised funding, built team
+
+### Current Product Status & Target Market
+
+- Live in production with clients
+- Rapid iteration: new features weekly with AI acceleration
+- Primary focus: Financial services (banks, payments, insurance)
+  - Highest risk/cost manifestation of reconciliation pain
+  - High transaction volume, multiple money flows
+- Secondary targets: Marketplaces (Despegar, Tienda Nube)
+  - Many now have fintech components (processors, cards, wallets)
+- Telcos identified as potential vertical to explore
+- Currently working with Personal Pay (Personal + Banco Macro joint venture)
+
+### Andres’s Outreach Proposal
+
+- Offering to leverage network for client introductions
+- Background: 3 years selling marketplaces, extensive contacts across industries
+- Potential sectors:
+  - Media: Univision, NBC Universal, Telemundo (streaming services like Netflix, Vix)
+  - Telcos: América Móvil, Tigo, others
+  - Banking: Pichincha contacts in Ecuador
+- Streaming services confirmed as strong targets
+  - High subscription volumes
+  - Multiple payment processors
+  - Promotional reconciliation needs
+  - Bundling agency partnerships requiring reconciliation
+
+### Partnership Structure
+
+- Andres offering help initially as goodwill, open to compensation
+- Ignacio committed to win-win arrangement
+- Planned approach:
+  1. Ignacio provides blurb + one-pager for different verticals
+  2. Andres creates target company spreadsheet
+  3. Joint qualification of opportunities
+  4. Andres conducts outreach for qualified intros
+
+### Next Steps
+
+- Ignacio: Send blurb, one-pager, and compensation proposal to [abiernat@usa.net](mailto:abiernat@usa.net)
+- Andres: Respond with initial target company list for outreach
+- Focus on “low hanging fruit” opportunities first
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/d4d4e2ca-4c87-47a6-87c1-d6bd60c0f6ab](https://notes.granola.ai/t/d4d4e2ca-4c87-47a6-87c1-d6bd60c0f6ab)

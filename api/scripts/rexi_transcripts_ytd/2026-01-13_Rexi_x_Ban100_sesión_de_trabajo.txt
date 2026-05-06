@@ -1,0 +1,468 @@
+MEETING: Rexi x Ban100: sesión de trabajo
+DATE: 2026-01-13
+ID: not_k8UbdzZjxPTFcE
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Golaya <golaya@ban100.com.co>, Teo <teo@rexi.finance>, Dpuestes <dpuestes@ban100.com.co>, Yrunzar <yrunzar@ban100.com.co>, Lrendon <lrendon@ban100.com.co>
+SCHEDULED: 2026-01-13T09:00:00-05:00 - 2026-01-13T10:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Com o azul?
+[Remote]: So that's
+[Remote]: Decís que viene, este,
+[Remote]: Esta de,
+[Remote]: ¿no? ¿Cómo se llama?
+[You]: No es Diana.
+[Remote]: Gustavo Gustavo Oraya.
+[You]: Ese es uno, pero
+[You]: es como medio del jefe, ¿entiendo?
+[Remote]: Es el único que confirmó en Meet.
+[You]: Okay.
+[You]: Bueno, igual,
+[Remote]: Donde nos mandaron la data,
+[Remote]: Una sola base de datos mandaron, ya arrancamos raro.
+[You]: No, no, no, ¿te acordás? ¿Vos estabas en la reunión,
+[Remote]: Había que crear la otra, ¿no? Sí, había que crear la otra.
+[You]: Hola, Diana.
+[Remote]: Buenas.
+[Remote]: Hola, buenos días.
+[You]: ¿Cómo está, Diana?
+[Remote]: ¿Qué tal?
+[Remote]: Bien, gracias.
+[You]: Me alegro.
+[You]: Se suma el resto del equipo.
+[Remote]: Sí, dame un momento.
+[You]: C'est là.
+[You]: Hola, hola.
+[Remote]: Buenas, buenos días.
+[Remote]: Listo, ahora sí estamos completos.
+[Remote]: Luis Gustavo está ocupado en este momento, yo creo que se une después.
+[Remote]: Y si no, pues, igual podemos empezar. Perfecto. De todas maneras, la idea de hoy es
+[Remote]: hacer una una pequeña sesión de trabajo,
+[Remote]: Básicamente, después de de de la demo que hicimos
+[Remote]: la vez pasada,
+[Remote]: quedamos en tratar de bajar un poco más a tierra,
+[Remote]: un ejercicio conciliatorio,
+[Remote]: con la información que nos compartieron y con un poco de guía de ustedes,
+[Remote]: Yo ahora la idea es
+[Remote]: compartir pantalla y que y que me guíen y que hagamos
+[Remote]: una sesión de trabajo y y un ejercicio conciliatorio en conjunto. ¿Qué tal qué tal les parece?
+[Remote]: Sí, la la idea es hacer el ejercicio según lo que les
+[Remote]: explicamos la la última sesión.
+[Remote]: Exactamente. Con la información que ya tienen.
+[You]: ¿Hay algo particular que quieran ver? ¿Algo específico que que
+[You]: les gustaría ver para decidir si les agregaría valor o no?
+[Remote]: Pues, de acuerdo a lo que les
+[Remote]: explicábamos, pues, queremos ver el cargue de los
+[Remote]: archivos, cómo se referencia, el proceso, pues, como tal de conciliación y
+[Remote]: me muestre un saldo final.
+[Remote]: Perfecto.
+[Remote]: Entonces, ya que, bueno, ya ya
+[Remote]: un par de minutos de las once, aprovechemos el tiempo y arranco compartiendo pantalla, ¿dale?
+[Remote]: Lo primero que quería compartir es
+[Remote]: el archivo que me compartieron,
+[Remote]: Que se llama
+[Remote]: pases demopruebas. Un segundo.
+[Remote]: Ahí están viendo.
+[You]: Sí,
+[Remote]: Entonces,
+[Remote]: una de las cosas que necesitamos es hacer referencias
+[Remote]: que nosotros llamamos enriquecer fuentes de datos,
+[Remote]: en base a otras
+[Remote]: otras fuentes de datos, y hacer eso de manera automática y y de de manera diaria o con la con la
+[Remote]: frecuencia que
+[Remote]: que haya. Lo primero que que te quería preguntar, Diana, es,
+[Remote]: acá tenemos
+[Remote]: las cuentas, y después tenemos
+[Remote]: tapa indirecto, tapa consumo, tapa directo, tapa micro,
+[Remote]: bancos, extracto,
+[Remote]: La primera pregunta es, y para bajarlo en Claro, si queremos hacer hoy un ejercicio
+[Remote]: ejercicio básico conciliatorio, como para que ustedes vean la plataforma, principalmente, y vean cómo cómo
+[Remote]: enriquecer y demás.
+[Remote]: Dos
+[Remote]: fuentes de datos o qué dos pestañas de acá del Excel tendríamos que conciliar?
+[Remote]: ¿Y cuál sería la llave conciliatoria?
+[Remote]: Listo, entonces,
+[Remote]: que el ejercicio sería con la hoja que dice cuenta veintinueve.
+[Remote]: Perfecto.
+[Remote]: Y auxiliar contable.
+[Remote]: Auxiliar contable.
+[Remote]: Esta.
+[Remote]: Correcto. Perfecto. Entonces, si me das un segundo, yo lo primero que voy a hacer es
+[Remote]: subir
+[Remote]: esta base de datos
+[Remote]: a
+[Remote]: a Rexi.
+[Remote]: Listo. Entonces, ahí aprovecho para ponerte un ejemplo
+[Remote]: si de esa base quisiera omitir ciertos registros, o sea, que cargue todo menos
+[Remote]: Sí. Se puede filtrar dentro de, se puede o filtrar. Obviamente, nosotros no dedicamos a automatizar también ingesta. Entonces, a futuro, si llegamos a avanzar, nosotros no tendríamos que estar subiendo el Excel, sino que directamente nos integramos a la fuente de datos y lo sacamos todo por sistema. Y ahí sí podemos explicar. De otra manera, también podemos filtrar dentro de la plataforma. Entonces, esta pestaña es auxiliar.
+[Remote]: Entonces,
+[Remote]: comparto pantalla ahora,
+[Remote]: Entonces, ahora directamente subimos el auxiliar.
+[Remote]: Auxiliar contable.
+[Remote]: Donde lo guardé.
+[Remote]: Para que
+[Remote]: Just a
+[Remote]: Auxiliar contable.
+[Remote]: Perfecto.
+[Remote]: Listo. Ahora que tenemos las bases
+[Remote]: preparadas,
+[Remote]: lo subimos a auxiliar contable,
+[Remote]: ahí están viendo mi pantalla.
+[You]: Sí.
+[Remote]: Perfecto.
+[You]: Bom dia.
+[Remote]: Y lo cargamos.
+[Remote]: Como te dije,
+[Remote]: este caso estamos teniendo un ejercicio frío, como llamamos nosotros,
+[Remote]: nosotros nos dedicamos a automatizar los procesos los los procesos conciliatorios. Entonces,
+[Remote]: tenemos acá un archivo, lo subimos, pero en realidad nosotros
+[Remote]: integramos directamente a la fuente para que no tengas que hacer esto todos los días.
+[Remote]: Fecha de creación,
+[Remote]: Vamos a cargarlo.
+[Remote]: Directamente
+[Remote]: acá,
+[Remote]: Sí.
+[You]: K.
+[Remote]: Auxiliar
+[Remote]: contable.
+[Remote]: Aquí está, el formato fecha.
+[Remote]: Perfecto. Entonces, ¿cuál sería ahora el siguiente paso para hacer
+[Remote]: el cruce entre auxiliar contable?
+[Remote]: Y la cuenta veintinueve.
+[Remote]: Que la tenemos acá.
+[Remote]: La cuenta veintinueve habría que referenciarla.
+[Remote]: Con los archivos que dicen tapa.
+[Remote]: Tapa, perfecto. Entonces, nosotros tenemos
+[Remote]: por ejemplo, acá, tapa directo,
+[Remote]: tapa consumo,
+[Remote]: tapa indirecto.
+[Remote]: ¿Cómo la referenciamos?
+[Remote]: Pues tendríamos que usar todas, pero, pues, este caso, pues, hacemos el quise tapa directo.
+[Remote]: Sí.
+[Remote]: ¿Qué qué tenemos que? Tenemos que traer columnas de etapa directo,
+[Remote]: a esta cuenta veintinueve?
+[Remote]: Sí, la columna que dice
+[Remote]: ID.
+[Remote]: Y
+[Remote]: se relaciona la tapa con
+[Remote]: con la cuenta veintinueve.
+[Remote]: En el archivo de tapa, la columna se llama comprobante.
+[Remote]: ¿Cuál de las tapas uso? ¿Tapa directo?
+[Remote]: Directo, sí.
+[Remote]: Entonces,
+[Remote]: tenemos que
+[Remote]: relacionar la columna comprobante,
+[Remote]: que es esta,
+[Remote]: y de acá nos tenemos que traer
+[Remote]: cuál cuál cuál ID. El ID.
+[Remote]: ¿Dónde está el ID?
+[Remote]: ¿Este?
+[Remote]: Pero es en todos los casos
+[Remote]: dos cinco nueve tres. Puede variar. Ah, no, varía, perfecto. Entonces, comprobamos, vamos a cuenta veintinueve, y hacemos lo que llamamos el. Entonces, tenemos que tratar de tapa directo nos tenemos que traer el ID solamente el ID, Sí, solo necesitamos el ID. Después traemos cómo era la relación
+[Remote]: entre cuenta veintinueve y tapa directa
+[Remote]: Quedamos en ir a comer, así que
+[Remote]: Marina, no sé si él escribió a las cuatro de la mañana, o volvió el WiFi, porque viste que a veces está Va en secuencia, es igual a comprobante? Comprobante, sí. Bueno, por eso de este año de Florida. Llegas en avioneta por agua y sí,
+[Remote]: los mortales llegamos por Ferre. Pero igualmente la experiencia es increíble. Y si te quieres sentir en una playa paradisíaca de
+[Remote]: Caribe, sin seguir de Estados Unidos, en este lugar te cuento lo mejor y lo veo. Acá no hay carro, pero si
+[Remote]: tú eres con mar. En piscina y para visitar esta isla tienes que hospedarte en una
+[Remote]: cocina full equipada, cuatro habitaciones y el roof deck, pues me apartas ahorita. Desde aquí puedes ver en la mano
+[Remote]: y el atardecer, pero al menos una vez tienes que ir a la playa a verlo salir.
+[Remote]: Por ejemplo,
+[Remote]: valor secuencia. ¿A este qué habría que agregarle?
+[Remote]: Un uno al inicio.
+[Remote]: ¿Un uno al inicio?
+[Remote]: Entonces,
+[Remote]: Secuencia.
+[Remote]: Uno
+[Remote]: Okay.
+[You]: No sé si ya te agregarle comillas, sale uno.
+[Remote]: Acá está, uno seis
+[You]: Ah, perfecto.
+[Remote]: sí quedaría.
+[Remote]: Apply.
+[You]: Y esto de vuelta, se hace solo una vez, ¿no?
+[Remote]: Exactamente.
+[You]: Después ya queda automáticamente
+[Remote]: Automatiza siempre
+[Remote]: Como es una base
+[Remote]: de cien mil, puede tardar unos segundos.
+[Remote]: Todas maneras, esto es, como dice Nacho, algo que se automatiza. Nunca más hay que agregarlo en un
+[Remote]: adelante a nada, siempre se ingesta automáticamente y se agrega el uno y se cruza.
+[Remote]: Manera automática.
+[Remote]: Con razón, yo no lograba
+[Remote]: cruzar las dos bases,
+[Remote]: ni referenciarlas, porque no sabía que había que agregarle un dígito extra
+[Remote]: al a la
+[Remote]: al archivo, vamos viendo en el otro,
+[Remote]: Entonces,
+[Remote]: si vamos a
+[Remote]: tapa directo,
+[Remote]: referencia,
+[Remote]: Acá, claro, uno seis dos cinco, perfecto.
+[Remote]: ¿Ahí todavía está procesando o ya? Sí.
+[Remote]: Está agregándole el uno a las cien mil Ah, ok, listo.
+[Remote]: En cuenta veintinueve.
+[You]: Estão indo
+[You]: estás viendo otra cosa, Teo, estamos viendo como una pantalla estática.
+[Remote]: Sí, no, la es el es la tapa directo.
+[Remote]: Tengo las dos.
+[Remote]: Las dos
+[Remote]: bases. Espérame un segundo que procese.
+[Remote]: Un segundo que estoy revisando que estoy cargando.
+[Remote]: Correctamente.
+[Remote]: Bueno,
+[Remote]: Comparto pantalla,
+[You]: Estamos viendo siete a veintinueve.
+[Remote]: Aí está
+[Remote]: Perfecto. Entonces,
+[Remote]: esta es
+[Remote]: el campo fecha,
+[Remote]: por así decirlo, que lo vamos a usar para motivos de reporting. Y acá tenemos el
+[Remote]: valor secuencia con el uno agregado. Entonces, ahora lo que hacemos es referenciar
+[Remote]: con
+[Remote]: tapa directo
+[Remote]: tenemos que agregar la columna. ¿Qué columna era?
+[Remote]: El ID, y es La la que queremos traer, sí, ID. Valor. Secuencia, es igual a
+[Remote]: ¿Comprobante era?
+[Remote]: La que está en el archivo cuenta veintinueve, sí comproba.
+[Remote]: Ah, no, la tapa comprobante. Perfecto.
+[Remote]: Perfecto. Entonces, traemos el el la columna ID,
+[Remote]: de
+[Remote]: el valor secuencia, de
+[Remote]: tapa directo con valor secuencia es igual a comprobante, y aplicamos
+[Remote]: la referencia.
+[Remote]: Esto también puede demorar unos segundos, porque es una base de datos muy grande,
+[Remote]: Mira, acá tenemos
+[Remote]: el valor secuencia
+[Remote]: uno, seis, dos, tres,
+[Remote]: que tiene el uno agregado,
+[Remote]: Pero cuando
+[Remote]: traigo el ID, no me lo está trayendo.
+[Remote]: Y tampoco el comprobante.
+[Remote]: ¿Para ninguno de los registros?
+[Remote]: Vamos a ver.
+[Remote]: Ah, sí, sí, sí, mirá, lo trajo para
+[Remote]: sí, sí, sí. Perdón, es que no era para el cien por ciento de los casos, se ve que algunos no lo tienen.
+[Remote]: Perfecto. Bueno, acá tenemos el referenciado, tenemos el ID, comprobante, valor secuencia con el uno hecho. Listo. Es que, dígame, los los que no cruzaban probablemente estén en la en los otros archivos de tapa. Perfecto.
+[Remote]: Perfecto. Ya, ya tendríamos
+[Remote]: el
+[Remote]: la la columna de cruce en ese archivo.
+[Remote]: Ahora, en el auxiliar contable. Sí.
+[Remote]: ¿Qué hay qué hay que hacer en el auxiliar contable? En el auxiliar
+[Remote]: contable tenemos este mismo dato de ID, pero viene
+[Remote]: viene en la columna de observación,
+[Remote]: viene con otros datos. Entonces, digamos que hay que extraer solo el ID. Perfecto.
+[Remote]: Entonces, vamos a
+[Remote]: auxiliar contable,
+[Remote]: ¿En qué columna? Ah,
+[Remote]: observación, esta.
+[Remote]: Perfecto.
+[Remote]: Y, ah, es un número muy grande.
+[Remote]: Este número,
+[Remote]: observaciones,
+[Remote]: Correcto.
+[Remote]: Y ahí hay que extraer el dato.
+[Remote]: ¿Qué número hay que extraer de acá?
+[Remote]: Un segundo, te digo el de qué campo es.
+[Remote]: A partir del dígito
+[Remote]: dieciocho, Perfecto. Entonces, Y ese campo puede tener de uno a doce dígitos.
+[Remote]: Vamos a probar acá.
+[Remote]: Puede tener de uno a doce dígitos,
+[Remote]: Sí.
+[Remote]: ¿Y el cero puede ser parte de los dígitos?
+[Remote]: Puede ser.
+[Remote]: Ok.
+[Remote]: ¿Y cómo sabemos?
+[Remote]: Cuándo el cero es parte de los dígitos y cuándo no?
+[Remote]: Nosotros hoy lo hacemos con una macro.
+[Remote]: Que lo que hace es rellenar los campos.
+[Remote]: Ok, eso lo hacemos con una macro que rellena
+[Remote]: con ceros para completar los doce hacia el
+[Remote]: Ah, ok.
+[Remote]: Perfecto.
+[Remote]: Entonces,
+[Remote]: ¿para qué voy a tomar nota? Porque creo que lo mejor va a ser que yo me lleve.
+[Remote]: Estas indicaciones,
+[Remote]: y arme un un video para que ustedes vean.
+[Remote]: Entonces,
+[Remote]: Está acá en el chat tenemos
+[Remote]: por ejemplo,
+[Remote]: este número de observaciones.
+[Remote]: Y siempre a partir de
+[Remote]: el dígito dieciocho, tenemos el número que nos interesa,
+[Remote]: Y puede tener entre uno ahí,
+[Remote]: Entre uno y doce ahí.
+[Remote]: Doce dígitos. Pero siempre tiene que tener doce dígitos,
+[Remote]: Si tiene menos, le agregamos los ceros.
+[Remote]: No, puede tener menos, por eso te digo que puede ser entre uno
+[Remote]: y doce. Lo que hacemos hoy usar es una usar una macro
+[Remote]: que rellena con doce dígitos, esa observación
+[Remote]: está en en el archivo de auxiliar.
+[Remote]: Pero para efectos del cruce puede tener menos
+[Remote]: Ah, ok. ¿Y
+[Remote]: casualidad me podrás mostrar cómo es el el output
+[Remote]: de ese campo así así yo lo replico?
+[Remote]: ¿Tenés algún Excel por ahí?
+[Remote]: Dame un segundo.
+[Remote]: Entonces, los pasos son bastante simples. Primero,
+[Remote]: haré Ahí estás viendo mi pantalla. Sí, perfecto.
+[Remote]: Entonces, lo que nosotros hacemos hoy día es usar esta macro.
+[Remote]: Sí.
+[Remote]: Pues, por ejemplo, esta es una de las observaciones.
+[Remote]: Y este es el ID que necesitamos, que es el que va a servir de
+[Remote]: cruce con Perfecto. Con lo que ya referenciaste.
+[Remote]: Y si el el ID es más corto,
+[Remote]: ¿la referencia va a ser más corta o le agregamos los ceros?
+[Remote]: Entonces, te muestro cómo funciona. Digamos que cuando se está armando esa observación,
+[Remote]: nosotros ponemos estos campos,
+[Remote]: Sí. Este, por ejemplo, sé cuántos dígitos tiene.
+[Remote]: ¿Diez dígitos, más o menos? Sí.
+[Remote]: Y cuando lo convertimos resulta esta observación
+[Remote]: que puede ser alfanumérica, lo que hace es rellenar con cero los campos vacíos,
+[Remote]: o completar este que se le estableció que podía ser de doce dígitos, lo completa con cero
+[Remote]: Pues, para que todas las observaciones nos queden, digamos, que con la misma
+[Remote]: la misma extensión.
+[Remote]: Perfecto. Y después, entonces, ya tenemos
+[Remote]: por el lado de cuenta veintinueve,
+[Remote]: tenemos el campo
+[Remote]: referenciado de etapa directo,
+[Remote]: y ese campo
+[Remote]: se referencia con el campo observaciones extraído,
+[Remote]: Correcto.
+[Remote]: Perfecto.
+[Remote]: Ok.
+[Remote]: Y ese es el cruce exacto entre cuenta veintinueve
+[Remote]: y la auxiliar contable.
+[Remote]: Sí, esa es nuestra llave de cruce, que puede ser uno a uno,
+[Remote]: o
+[Remote]: de uno a a varios. Perfecto.
+[Remote]: Perfecto, clarísimo. Bueno, entonces, les propongo lo siguiente,
+[Remote]: Fue muy útil para nosotros esto, creo que
+[Remote]: cuando hicimos la demo originalmente nos nos faltaba un poco de información para poder hacer los los cruces,
+[Remote]: así que
+[Remote]: yo ahora, nada, tomé nota de de los los cambios que hay que hacer y y de y demás,
+[Remote]: y de los pasos para hacer el el
+[Remote]: la demo correcta, por así decirlo exactamente, con su información, así que me llevo
+[Remote]: a hacer estos pasos
+[Remote]: grabarles un video de dos, tres minutos de cómo quedaría un cruce contable
+[Remote]: usando Rexi,
+[Remote]: y les escribimos para para
+[Remote]: coordinar los próximos pasos, ¿dale?
+[Remote]: Ok. Pues, algo que nos gustaría ver es que la herramienta
+[Remote]: el saldo de la cuenta.
+[Remote]: El el saldo final,
+[Remote]: decir, el Correcto. Menos los movimientos.
+[Remote]: Entonces, digamos que partimos de cero
+[Remote]: El auxiliar contable es
+[Remote]: es uno de los insumos, ahí solo te estamos relacionando una cuenta.
+[Remote]: Perfecto.
+[Remote]: El que dice cuenta veintinueve es un segundo insumo,
+[Remote]: pero ahí ya vienen relacionadas varias cuentas.
+[Remote]: Sí.
+[Remote]: Entonces, lo que quisiéramos llegar, pues, partiendo de un saldo cero, pues,
+[Remote]: ustedes no tienen los los saldos iniciales, ver un saldo final.
+[Remote]: Ok, perfecto. El que, pues, digamos,
+[Remote]: en en el orden de ideas y en un día a día debería coincidirnos con un balance.
+[Remote]: Espectacular.
+[Remote]: Ok.
+[Remote]: Vale. Entonces, me llevo me llevo armar
+[Remote]: demo, ese ejercicio, y mostrar el saldo final cómo quedaría.
+[Remote]: Ok, listo.
+[You]: Diana, una pregunta.
+[Remote]: Dale, muchas gracias.
+[Remote]: Sí.
+[Remote]: Dime.
+[You]: ¿Cómo ves el el el proceso evolucionando después de
+[You]: de esta última interacción de demo?
+[You]: No sé ahí si por ahí tenemos que involucrar a involucrar a Luis, o a quién para empezar a hablar quizás de una
+[You]: prueba de concepto o propuesta comercial o cómo ves evolucionando el proceso?
+[Remote]: Pues tendríamos
+[Remote]: que la parte que
+[Remote]: nos van a mostrar en el video, porque digamos que en este ejercicio no no hemos llegado a ningún punto
+[Remote]: conciliación.
+[Remote]: O sea, no no vemos un resultado final. Me llevo me llevo a crear
+[Remote]: esa esa conciliación con las instrucciones que me diste recién y se los compartimos, ¿dale?
+[You]: Bueno, espectacular.
+[You]: Pero
+[You]: ejemplo, quizás no es con nosotros, pero en el pasado Diana,
+[You]: ¿han contratado alguna herramienta externa de cómo ha sido ese proceso?
+[Remote]: No, no, no estamos partiendo de
+[Remote]: de cero el incluir una una herramienta, porque actualmente el ejercicio es manual.
+[You]: No, pero digo, en general, en operaciones o en finanzas,
+[You]: ¿han contratado algún
+[You]: proveedor externo y cómo fue ese proceso, quién aprueba el presupuesto, etcétera?
+[Remote]: Ah, en eso ya lo tendrías que mirar con con mis gusta o
+[You]: Sí.
+[Remote]: Vamos que en el tiempo que que
+[Remote]: yo llevo aquí en la organización no no se ha contratado una una herramienta de un proveedor exacto.
+[You]: Okay.
+[Remote]: Vale.
+[You]: Listo. Bueno, quedamos con eso de nuestro lado, entonces, y nos contactamos para
+[Remote]: Diana Ah, ok, listo.
+[You]: para ver cómo seguimos.
+[Remote]: Muchas gracias por las instrucciones, fue muy útil para nosotros. Creo que el
+[Remote]: la la vez pasada nos nos había faltado un poco de información,
+[Remote]: llevo a replicar el flujo conciliatorio que hoy se hace en Excel,
+[Remote]: dentro de Rexy y compartirles un video, ¿dale?
+[Remote]: Listo, vale, muchas gracias. Un placer. Listo,
+[You]: Gracias, Diana.
+[Remote]: Marcela, ¿tienen algo adicional que que debate o incluida?
+[Remote]: No, no por ahora.
+[Remote]: Listo.
+[You]: Abrazo
+[Remote]: Vale, muchas gracias.
+[Remote]: Vale, muchas gracias.
+[You]: Gracias.
+
+============================================================
+SUMMARY
+============================================================
+### Rexi Demo Session with Ban100 Team
+
+- Working session to demonstrate Rexi’s reconciliation platform using Ban100’s actual data
+- Ban100 team: Diana (Golaya), plus Dpuestes, Yrunzar, Lrendon attending
+- Gustavo (Luis Gustavo) busy but may join later
+
+### Data Sources Setup
+
+- Ban100 provided “pases demopruebas” Excel file with multiple sheets
+- Target reconciliation: “Cuenta 29” sheet vs “Auxiliar Contable” sheet
+- Uploaded Auxiliar Contable first to Rexi platform
+- Rexi automates data ingestion vs manual Excel uploads in production
+
+### Reference Data Enrichment Process
+
+- Cuenta 29 needs enrichment from “Tapa” files (Tapa Directo, Tapa Consumo, Tapa Indirecto)
+- Demo focused on Tapa Directo integration
+- Key relationship: Cuenta 29 “Valor Secuencia” field = Tapa Directo “Comprobante” field
+- Required data transformation: Add “1” prefix to Valor Secuencia values
+  - Example: “62593” becomes “162593”
+- Successfully referenced ID column from Tapa Directo into Cuenta 29
+- Some records didn’t match - likely in other Tapa files
+
+### Auxiliar Contable Data Extraction Challenge
+
+- ID needed from “Observaciones” column (large alphanumeric string)
+- ID located starting at digit 18 in Observaciones field
+- ID can be 1-12 digits long
+- Ban100 currently uses macro to pad shorter IDs with leading zeros to 12 digits
+- This extracted ID serves as reconciliation key with Cuenta 29
+
+### Next Steps and Requirements
+
+- Teo to replicate full reconciliation flow with provided instructions
+- Create 2-3 minute demo video showing complete Ban100 reconciliation process
+- Must show final account balance calculation
+  - Starting from zero balance
+  - Adding Auxiliar Contable movements
+  - Subtracting Cuenta 29 movements
+  - Display final balance that should match daily balance sheet
+- Ban100 currently does all reconciliation manually in Excel
+- No previous external tool procurement experience
+- Budget approval process would involve Luis Gustavo
+- Follow up meeting to discuss proof of concept and commercial proposal
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/6ed8c00a-3004-465c-92a4-2f34f977c22b](https://notes.granola.ai/t/6ed8c00a-3004-465c-92a4-2f34f977c22b)

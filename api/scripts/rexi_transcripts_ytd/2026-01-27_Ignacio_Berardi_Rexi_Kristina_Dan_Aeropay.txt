@@ -1,0 +1,569 @@
+MEETING: Ignacio Berardi (Rexi) <> Kristina + Dan (Aeropay)
+DATE: 2026-01-27
+ID: not_kwYwP7cemwxfLd
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Daniel Muller <daniel@aeropay.com>, Teo <teo@rexi.finance>, Kristina Bittorf <kristina.bittorf@aeropay.com>
+SCHEDULED: 2026-01-27T15:30:00-05:00 - 2026-01-27T16:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: And that he thought there might be a fit here.
+[You]: I can do I don't know how much Ford told you about us.
+[You]: If you have enough context, if not, happy to do just, like, a short
+[You]: intro on on what we do and and where we specialize. And then
+[You]: we'll be more than happy to learn more from from your your operations and see if there's a fit here.
+[Remote]: Yeah. I brought Christina, our head of finance. So
+[Remote]: she's
+[Remote]: she's the one that
+[Remote]: worries about this all day, every day.
+[Remote]: That's right.
+[You]: Very cool. And very nice to meet you, Christine. I'm just here to
+[You]: hopefully make your life easier. I was on the other side,
+[You]: I worked just as context. I was a fintech operator before this, and I was
+[You]: chief of staff of the SeedSage company. They didn't have a CFO.
+[You]: So I was sort of, like, a head of finance sort of
+[You]: role
+[You]: informally, and I was
+[You]: living through the same pains, you're probably living Christina. So
+[You]: then three of us, three cofounders, we were fintech operators before, and and we know
+[You]: how these things work. I'm just gonna do
+[Remote]: Yep.
+[You]: run through some slides here as sort of as as a context and then
+[You]: just jump straight through
+[You]: understanding more about you guys. Do you see the Google Sites?
+[Remote]: Yep.
+[You]: Amazing. So
+[You]: this is basically what we do. Right? So we were empowering fintech companies with with
+[You]: financial infrastructure to, operate
+[You]: and deliver safer, more reliable products. Because
+[You]: reconciliation at its core, it's a hygiene process, right? It's
+[You]: how do we enable
+[You]: our operations to run efficiently, smoothly, and without risk?
+[You]: And then ensuring that we're abiding by any regulator or
+[You]: law, we need to present some sort of report on something.
+[You]: Who are we targeting? We're targeting basically anyone in the fintech
+[You]: stock. Right? We're working with sponsor banks, payment providers, FinTech platforms, and even
+[You]: BaaS providers at some point with some embedding solutions and white labeling.
+[You]: Because we think that at its core reconciliation is a coordination issue.
+[You]: So the best way to solve this problem is to become a shared tool.
+[You]: So one of our big vision bets
+[You]: on on how to solve this problem is how do we become a shared
+[You]: tool between a sponsor bank and a fintech platform.
+[You]: So that they can work together on the same platform to reconcile
+[You]: the same logic with the same information and then have a shared tool to collaborate
+[You]: on discrepancies because
+[You]: you might know this Christina the requisite Azure workflow at some point, once you get a tool in place, it's about
+[You]: investigating and solving differences. Right? And so then that's where
+[You]: this third party collaboration kicks in and it's
+[You]: very tedious, time consuming, and not efficient. So if we have a
+[You]: shared tool, then we break through all those frictions and actually
+[You]: solve the problem at its root cause. Right? A little bit of our
+[You]: early customers and investors. I can share this over. I know if
+[You]: already have it. The founding team, again, I come
+[You]: Bitsokumun, they are COO,
+[You]: comes from Mercado Pago, and Sebastian Garcia, our CTO, he comes from Pomaino Naranja X Pomedo is a processor issuer, in Latin America. Naranja X is a is a fintech
+[You]: Mercado Lab I'm sure you know, biggest tech company in Latin America.
+[You]: A bit of our value proposition. So
+[You]: I'm just going to go over the design factors on the right, because the left is just talking about our
+[You]: infrastructure and our technology based on genetic workflows.
+[You]: But on the right is what I think is mostly relevant, which is
+[You]: truly like how are we designing and building our product right and the first one is
+[You]: we want this to be plug and play and self serve because we believe that
+[You]: the reconciliation workflow should be owned and controlled by
+[You]: Christina and by Dan, not by us.
+[You]: And so what we're providing is a tool
+[You]: that you feel like you're building your own workflow, that you're building your own software.
+[You]: Right? Because we know that reconciliation is a very, very
+[You]: nuanced workflow that depends a lot on who you work with, how you work with them,
+[You]: what type of regulators you have, what type of reporting requirements you have, how are you connecting
+[You]: to accounting or not, or is this an operational workflow?
+[You]: And so the best way we can solve this problem
+[You]: on a on a one size fits all basis is
+[You]: the tool needs to feel like building your own software.
+[You]: And then we also are compliance ready. Right? We we build automated reporting workflows
+[You]: to make sure that you have everything ready to
+[You]: comply with regulators if you are regulated at some point.
+[You]: About how we differentiate the competition,
+[You]: we don't charge for implementations.
+[You]: Our time to value is really fast because, again, our our tool is very
+[You]: flexible and it's easy to configure it. And that means we're way cheaper.
+[You]: Right? Because competitors, have a SaaS product and then have a lot of
+[You]: professional services on top of it. And that's why they're expensive.
+[You]: Our design principle is for this to become a SaaS
+[You]: only play. This is a tool you guys get to
+[You]: implement and configure it yourselves. Of course, this point, given we're early, we're doing a lot of hand holding and
+[You]: implementations, we're helping our customers
+[You]: set it up. But that's where we're going towards, and that's what's
+[You]: gonna enable us to be cheaper than competition. Right?
+[You]: A bit of the results from early customers.
+[You]: 80% reduction in manual work, zero regulatory audits,
+[You]: And this is the most important one, is 95% reduction in recurrent write
+[You]: offs, stuff that companies are not able to reconcile
+[You]: and end up doing balance sheet write offs because they're
+[You]: they lost that money and or or they don't know where it is. Right?
+[You]: We've reduced that by 90 per 95% with our early customers.
+[You]: These are two case studies, Camun and Thera in The US.
+[You]: And this is about, like, where are we going to
+[You]: Right? We're going towards dynamic integrations.
+[You]: Basically ingest all the data sources we need to
+[You]: figure out a way to integrate to new data sources in a very scalable and efficient way.
+[You]: So we're building a dynamic integrator. We're already testing with our customers.
+[You]: Embedded solutions, if this is something you
+[You]: think could be useful to your customers, then you wanna offer it in your portal.
+[You]: We are experimenting with white labeling and embedded solutions.
+[You]: And then the collaboration workflows as I just mentioned, which is
+[You]: externally with your bank, with your payment provider, with your VAAS provider,
+[You]: or whomever you're reconciling against. And it's also internal.
+[You]: Between finance and operations because I'm sure
+[You]: the FinOps team or the payment ops team is running a daily recon process and then
+[You]: the finance team steps in at the of the month to reconcile balances.
+[You]: But they should be connected. They should be working
+[You]: under the same platform with the same information.
+[You]: And with the same logic. Right?
+[You]: For some weird reason, we've discovered that with our customers, this is not always
+[You]: the truth.
+[You]: And that these teams work in silos with different systems, different information. So that's another
+[You]: collaboration opportunity we're unlocking here.
+[You]: So that's pretty much it on
+[You]: our presentation. Other than that, would love
+[You]: to hear more like
+[You]: why we're interested in in in taking this meeting. How are you suffering recon? How are you solving it today?
+[You]: Just like a discovery sort of run through would be great.
+[Remote]: Probably the biggest challenge for us, right, is there's a lot
+[Remote]: lot of timing differences between what is hitting,
+[Remote]: what we see, like, from a data perspective in our dashboards for
+[Remote]: what when it gets hit when when it actually posts in the bank,
+[Remote]: One of our ODFIs, the CRV, you listed that
+[Remote]: They're pretty finicky. They're like, well, we have an open API, and
+[Remote]: but it doesn't allow us to download any reporting directly from their dash
+[Remote]: boards unless we ingest the data on our back end
+[Remote]: kind of manipulate it on our own way so that we can
+[Remote]: get beyond what we are we're pulling in in our dashboards.
+[Remote]: And so I guess I'm I'm curious on, like, how does this product look like? Like,
+[Remote]: you know, how do you guys make that solve? Essentially, for me as a finance person,
+[Remote]: what I'm trying to do is always prove out every step of the way
+[Remote]: that we are calculating the right amount of revenue. That's what we actually see in the bank.
+[Remote]: That's actually what gets posted in revenue within our account
+[Remote]: accounting ERP. Currently, we're in
+[Remote]: in QuickBooks, but that could change and mature.
+[Remote]: All the way through so that I could all the way through
+[Remote]: to our bank reconciling to our bank statements to say, like,
+[Remote]: this total incoming activity
+[Remote]: matches what we anticipated from what we calculated off of revenue,
+[Remote]: If there's any differences, it's because of this population. It's because of
+[Remote]: timing. This population because of failure.
+[Remote]: So I guess, like, how does that look like? And what's the tech how do you guys go about that? Because, like,
+[Remote]: transaction reference numbers between
+[Remote]: what we see at CRB versus what we see in our state, like,
+[Remote]: in our in our CRB platform versus what we see in our statements.
+[Remote]: Or they don't they don't have the same reference numbers even. So
+[Remote]: yeah, just curious on what what your tech is
+[Remote]: to to kind of walk through that process.
+[You]: Yeah. Sure. Sure. So
+[You]: basically, how the product works today is we ingest
+[You]: from all the different data sources, and that can be
+[You]: a payment processor, your bank, a ledger, wherever you have the transaction
+[You]: information, the raw transactional information we do reconcile with, we ingest directly.
+[You]: Either API, SFTP, picking up CSV files from portals or
+[You]: text, you know, like, just flat files from emails, whatever.
+[You]: We just need to make sure that it's running asynchronously so that we are able to ingest every
+[You]: time these files are available. And then
+[You]: you configure it all the recon logic, which starts
+[You]: from data transformations, what type of manipulation you need to do to the data,
+[You]: so that's easier to process, all the way to recon logic.
+[You]: Right? Like, how are we matching transactions? What are we comparing? Are we comparing amounts, dates,
+[You]: amount of transactions? How are we matching across
+[You]: Are we doing, like, just waves of matching? Do we have
+[You]: different ranges of thresholds? Are we able to reconcile something that was
+[You]: posted today, but it was settled two days from now? Like, all those
+[You]: all that logic, you you need to configure it on the platform.
+[You]: And then it just runs automatically. Once you configured all
+[You]: workflow from transformation and from matching, it runs every single day.
+[You]: And you have a dashboard where you can see the results and you have a problem solver, which we are
+[You]: which would basically helps you go through differences. This population, this is the cluster
+[You]: All these transactions are due to, timing differences. All these transactions are due to the
+[You]: counterpart or the critical
+[You]: comparison based on amount failed, and there's a lot of explainability there and suggested action
+[You]: Everything is AI powered. Right? Like, the transformation
+[You]: data transformation side, we do the parsing with AI. The reconciliation logic
+[You]: we find the patterns and we propose the most
+[You]: productive reconciliation logic, right, that basically match it match
+[You]: maximizes the transaction ratio, the matching ratio.
+[You]: And then on the discrepancy side, we learn a lot from
+[You]: just the recurring usage as we start analyzing the
+[You]: discrepancies, we can propose new rules. So there's always a transaction
+[You]: on Tuesdays that ends up being unreconciled because the bank
+[You]: there's a mental transfer on the bank done by someone on the treasury team the system learns from that and so that's configurated in the recon lodging
+[You]: doesn't appear anymore in the
+[You]: differences and then we also learn from your usage
+[You]: so as you approve suggestions, as you manual match transactions, as you add context
+[You]: to the agent, it gets better and better over time. It
+[You]: understands it's what we call the policy, right? Because one thing is the recon logic, how we're matching transactions
+[You]: but then the other thing is the policy that you, Christina, are doing to manage discrepancies.
+[You]: Right? And so that's what we learned with time, and so the tool gets better and better.
+[You]: The tool today looks like a SaaS tool. It's a portal as a web application.
+[You]: Ingest transform match dashboard problem solver.
+[You]: And then we have two types of outputs.
+[You]: We can plug into ERPs and create journal entries of stuff that's already reconciled.
+[You]: And we can also push results into any database if you want your
+[You]: recon results printed in your Snowflake or your BigQuery or whatever you're using,
+[You]: we can also do that. And then we can also generate reports based on regulation
+[You]: regulatory frameworks
+[You]: We can create alarms via Slack, via email,
+[You]: So on a daily basis, how it would work is you will log in
+[You]: to GLE results investigating those discrepancies with a lot of intelligence added
+[You]: to that layer. I don't know if that answered the question.
+[Remote]: Yeah.
+[Remote]: Yes. Do you guys have direct relationships with ODFIs? So I'm just like, all their, you know, like, their raw data and how, like, it translates to, like, what their statement, how, like, how it then would reconcile to the actual statements that get printed off for for their customers?
+[You]: We don't have relationships, but it's something we learn we learn over time. Right? It's structured data.
+[You]: So as we onboard more and more customers and as we work with more and more customers, we're we're
+[You]: we see a lot of
+[You]: knowledge accumulated there. Right? That's just an example. Working with Camun,
+[You]: Camun uses Galileo as a ledger.
+[You]: So every single customer we onboard that uses Galileo as a ledger, we already know how the file works.
+[You]: Our system knows, it's not even us. Like the system is learning about all these data
+[You]: sources and how these things are structured, which also makes us better
+[You]: to, find patterns on discrepancies. We know that Galileo every single Friday
+[You]: fails on certain transaction codes or
+[You]: the audit time is 4PM eastern time instead of 5PM eastern time every single week.
+[You]: And we know those things. Those are all the nuances that we start learning
+[You]: as we onboard new customers and as we work more and more with one single customer.
+[You]: The question for you is, you're saying,
+[You]: about the process you run. How are you currently running and and which are the the main pain points you try
+[Remote]: I I think there's something to add a little
+[You]: to solve here? Like, how
+[Remote]: a little priority. We don't use middleware. So the reason Christina is asking is
+[Remote]: around ODFIs is, like, we have small credit unions or
+[Remote]: midsize regional bank or very, like,
+[Remote]: innovative fintech bank like Cross River.
+[Remote]: They all look and act and feel very different. There's no, like,
+[Remote]: modern treasury Galileo or any middle what in the middle of
+[Remote]: all of this moving around.
+[Remote]: So we have unique processes
+[Remote]: for each one, and some are, like, on old course,
+[Remote]: You know? So it's like
+[Remote]: the push pull here is
+[Remote]: it is so custom that I don't know if there would be enough
+[Remote]: value in a tool that we'd
+[Remote]: you'd have to do almost
+[Remote]: like, is it worth it for you to do
+[Remote]: that much work to ingest
+[Remote]: ODFIs that we work with that are so fragmented so that you unify it for us?
+[Remote]: It feels like it it's almost like
+[Remote]: not for the business model. Right? Like, it should be a little bit more out of the box.
+[Remote]: Based on the data sources.
+[You]: Well, it's it's what we eat or crack.
+[You]: So I'm not going to promise you anything, but
+[You]: our business depends on our ability to crack exactly that because the reconciliation space
+[You]: of course, you guys may have a complex operation
+[You]: but but trust me, we've seen a lot of complex situations.
+[You]: And and our ability to crack those complex situations and that long tail of
+[You]: nuances is gonna be a make it or break it for our company. So
+[You]: even though we might do a lot of non scalable stuff
+[You]: when working with you guys, it's something that we're gonna learn to generate.
+[Remote]: Yeah.
+[You]: And then and then it's gonna serve as the next customer
+[You]: So we're we're definitely down to those learning experiences as well.
+[You]: Because again, we need to crack this and we're building technology for it.
+[You]: I'm not gonna promise you're gonna do everything automated out of the box from day one. There's probably a lot of
+[Remote]: Yeah.
+[You]: non scalable work to be done here, but it's it's
+[You]: serving our needs and it's serving our our mission and our vision. So
+[Remote]: Well well, I well, obviously, timing is good. We
+[Remote]: we have a a goal to unify the outlook
+[Remote]: here and make it easy? We have an internal project.
+[Remote]: We're scoping now to do this.
+[Remote]: Mhmm. So using a tool could be good. I mean, the reason I think we're
+[Remote]: 's also asking, like, what it looks like on the front end would also be, like,
+[Remote]: when she logs in with the team,
+[Remote]: and starts to, like, match everything, like, does that look and feel? Is it intuitive? Is
+[Remote]: assuming all the data is flowing nicely and you're cleaning it?
+[Remote]: I just keep coming back to, like,
+[Remote]: you know, I see a lot of the logos on here. We're gonna put you guys out with
+[Remote]: the level of uniqueness that we have because we're so close to the metal. Like,
+[Remote]: part of our goal is that we don't wanna rely on some of the
+[Remote]: third parties that we see here. If anything, we compete against most of them.
+[Remote]: So if you're down for it, I mean, I think we're we're totally open. It is something we need to
+[Remote]: solve now.
+[Remote]: So
+[You]: It it is a priority for q one.
+[Remote]: again, I just
+[Remote]: yeah. I would say a
+[Remote]: priority for you wanna figure out what we need to do. Mhmm. And then
+[You]: Okay.
+[Remote]: for this year, we we are gonna do it.
+[Remote]: We just, like again, we have this, like, general ledger project
+[Remote]: that we're gonna scope.
+[Remote]: It'll include all these moving parts. Mhmm.
+[Remote]: We know our moving parts really well.
+[Remote]: But, again, I don't think either of us are against using
+[Remote]: a third party that can help us. I just I
+[Remote]: know that it's gonna be a ton of work.
+[Remote]: To bring a lot of things. More of, like, the lift and how long it's gonna take
+[Remote]: to get to the automation point. And I guess it would be really helpful to understand, like,
+[Remote]: of your customers, which banks have you guys already
+[Remote]: stood up reconciliation processes for?
+[Remote]: Because if we're gonna kind of be building it alongside
+[Remote]: you guys, I guess the question is, like, why
+[Remote]: we could also spend that time building it
+[Remote]: internally? And so that that's kind of what we'll we'll balance it again.
+[Remote]: Unless, like, you're saying, you know, we've already gotten figured out
+[Remote]: all these notifies that overlap with yours.
+[Remote]: So it's we're literally you know, it's just a matter of hooking up
+[Remote]: and there could be, like, ad hoc things that happen just to you guys.
+[Remote]: But, generally speaking, 90% of
+[Remote]: you know, we already know what the different data points are
+[Remote]: that that'll enable us to kind of bridge the gap between
+[Remote]: what you see in statements versus what's happening on the back end and the
+[Remote]: in our back end. So I guess I think that would
+[Remote]: be helpful to kind of understand, like,
+[Remote]: just the speed and
+[Remote]: the differential that we we would be able to gain using a tool.
+[You]: Sure. Sure. A 100%. So we're working with
+[Remote]: Like yours.
+[You]: right now, two banks in Latin America fully in production paying customers.
+[You]: In The US, we're on two proof of like, two POCs with two banks.
+[You]: Celtic Bank and Dartbank.
+[You]: We're working with those on on proof of concepts,
+[You]: Still a lot of work to be done there.
+[You]: But but it's a great use case. And at the end of the day, it's it's what we're
+[You]: trying to do here. It's our, it's our, it's our mission. It's just like
+[You]: we're an early stage company and so there's a lot of work to be done.
+[You]: But, but we're having a really clear path forward and what we want to do and what's the
+[You]: experience look like. Regarding building internally, this is something that
+[You]: definitely we we talk with with potential customers.
+[You]: I'll just say two things here. The first one is, of course,
+[You]: you guys have probably, like, limited tech resources. Any company does.
+[You]: It's about, like, prioritizing where to invest them or not. So
+[You]: and it depends if reconciliation is at the core of
+[You]: what you guys do and therefore you need to control and have it internally as a capability or not.
+[You]: That's the first one that's strategic. That's something that I'm not gonna
+[You]: judge or or provide my opinion on.
+[You]: What I will say is companies that end up prior
+[You]: to do it internally tend to underestimate how complex
+[You]: building a tool like this is and how complex it is to maintain
+[You]: So typically, scope it out as, okay, we're gonna invest a year of an engineering team building something internally. It ends up being more than a year.
+[You]: And then it ends up requiring a lot of maintenance on
+[You]: new money flows, edits. There's, like, a constant
+[You]: iteration on this tool. It's a live tool. So
+[You]: that's just two things I'll I'll say with these
+[Remote]: Yeah.
+[Remote]: Do that I do that pitch
+[Remote]: when we're talking about error pay too. People are like, oh, I'm gonna do my own pay by bank.
+[Remote]: ACH. And we're like, it's a lot harder than you think. So I'm I'm with you
+[Remote]: a 100%, and I don't wanna build this if I don't have to.
+[Remote]: Trust me. You know, I think
+[Remote]: think it really comes down to, like,
+[Remote]: when you say you're working with Dart,
+[Remote]: and Celtic, those are clients, or are those source banks that you're
+[Remote]: pulling data out of and cleansing?
+[You]: Oh, we're we're already pulling data from those for other
+[You]: customers. It's we're we're doing a POC for their internal reconciliation purposes.
+[Remote]: Okay. And then for the so I see, like, password lead, crossrover, stride,
+[Remote]: Those are folks you've already integrated with, and you pull data from
+[You]: Yeah.
+[Remote]: today?
+[Remote]: Okay.
+[You]: Yep.
+[Remote]: Okay. So on that list, yeah, it would be only Crust River or
+[Remote]: and we have, like, four others.
+[Remote]: If you want, like, we can give you like, let's
+[Remote]: NDA. We can give you sample data of what it looks
+[Remote]: like from all those guys. And then maybe you tell us, like,
+[Remote]: hey. We'd like to continue exploring even though it's super unique.
+[Remote]: You probably won't get a ton of reusable value.
+[Remote]: Out of some of these banks because for us, something to consider is we're in
+[Remote]: highly regulated verticals that not a lot of people operate in. That's part of our
+[Remote]: premise.
+[Remote]: And if you're like, yeah. You know, we value you as a potential
+[Remote]: client and logo. We'll do the work.
+[Remote]: There is some risk. You don't get reasonable value from some of the
+[Remote]: integrations you might do for us.
+[Remote]: And if you're, like, clear out on all that and you still wanna do it,
+[Remote]: you know, again, I'm
+[Remote]: not I don't need to build internally. There just hasn't been a tool for us to look at.
+[Remote]: In this world yet.
+[You]: Got it.
+[Remote]: So that that's all.
+[You]: I'm just just to scope the the work here. This is for internal purposes. It's not an embedded
+[You]: route you're looking for.
+[Remote]: Yeah. Yeah. We just need one place to unify
+[Remote]: a lot of our reconciliation flows. Like, for example, we've got
+[Remote]: automatic billing based on volume, discounts. We've got
+[Remote]: rev share that we need to auto calculate. We need to auto debit clients
+[Remote]: based on different exposure cap thresholds.
+[Remote]: Like, there's a lot of things that happen, and today, Christina and her team just manually do all of it.
+[Remote]: And
+[Remote]: we were gonna build a general ledger
+[Remote]: that sort of does a lot of these things in an automatic way.
+[Remote]: And so everything would be for, like,
+[Remote]: internal automation.
+[You]: Got it. And and you're working with how many banks?
+[Remote]: Today, we work with fives.
+[Remote]: We're gonna probably add a six. And then, you know,
+[Remote]: that's probably good for right now.
+[You]: And you're always comparing
+[Remote]: And only Cross River is the is the one on this list.
+[You]: Got it. And and you're you're always comparing those bank statements against
+[You]: some sort of internal
+[You]: calculations on what it should be.
+[Remote]: Yeah.
+[You]: Got it. So it's ingesting data from the five banks
+[You]: How are you currently ingesting data from those five banks?
+[Remote]: SFTP.
+[You]: SFTP.
+[Remote]: Right?
+[Remote]: Yeah.
+[You]: So it's already in some serving channel databases.
+[Remote]: Other than cross server
+[Remote]: cross server's API.
+[Remote]: The rest are our SFTP,
+[Remote]: centralize into
+[Remote]: our database,
+[Remote]: output into Metabase,
+[Remote]: Metabase is used as, like, our internal analytics reporting system.
+[Remote]: Then that's match match against bank statements and bank accounts.
+[Remote]: And then, yeah, like, I think price
+[Remote]: is in what we call an admin portal.
+[Remote]: Our admin portal is what our payments ops team uses to, like,
+[Remote]: push and pull the levers on configurations.
+[Remote]: And other things at a merchant level.
+[You]: Got it. And the database is which one?
+[Remote]: RDS. Oh. No.
+[Remote]: Amazon, you're talking about our relational database.
+[You]: Yeah. Amazon. Perfect. S three.
+[Remote]: Mhmm.
+[Remote]: Mhmm. Yeah.
+[You]: Okay. We already have the Amazon integration. So, like,
+[You]: in in your case, if you're already ingesting the bank data into Amazon s three, it's
+[You]: just plugging there and ingesting the raw data file from there.
+[You]: Of course, we need to do the parsing and the unification and then all the calculations to match
+[You]: the should be against what it is and then we figured all those flows.
+[You]: Let's do something. I propose let's do a product demo.
+[You]: I think, of course, let's sign the NDA.
+[You]: Just follow-up after this meeting with with the next steps. Let's find sign the NDA.
+[You]: If you're interested, particularly Christina, were asking about the interface, I'm more than happy to walk you
+[You]: walk through a demo, how it currently works today.
+[You]: And then we can scope out, given this is something you need to figure out in q one but not
+[You]: be live in q one. Let's try to figure out if we can use February and March as sort of a proof of concept. Right? Let's start small, prove the value,
+[You]: and then if by February, March,
+[You]: you're like, okay, is the way to go. We can actually talk about a scalable
+[You]: and full solution and a longer term contract, but I can
+[You]: start thinking about a POC February, March for a limited scope that you guys wouldn't test
+[You]: test out?
+[Remote]: Christina, your your call I mean, I think
+[Remote]: I think it can hurt to see the demo.
+[Remote]: For sure.
+[Remote]: Sure. Maybe go through the demo, see if you like the interface,
+[Remote]: and then, you know, we can see what a successful POC looks like.
+[Remote]: And then I think maybe having PJ
+[You]: Sure.
+[Remote]: or whoever is looking at scoping
+[Remote]: all the moving parts. I don't even think we put that on paper yet, but we need to.
+[Remote]: But maybe sharing that with
+[Remote]: with the Rexy team once we have that
+[Remote]: Yeah. So you can see all the things that we need to look at.
+[You]: Question for you, Christina, is
+[Remote]: Yeah. We're doing our initial scoping next week.
+[Remote]: Once Adam, like, gets back.
+[Remote]: We can definitely do that. But, yeah, let's schedule a a demo so that I I can at least visualize
+[Remote]: how how you guys integrated all these different pieces and what the outputs
+[Remote]: look like
+[You]: Got it. For the demo, do you want us to do
+[You]: just, like, a generic walk through, or do you wanna sign an NDA
+[You]: send real data and we plug it into the system to show you how it works?
+[You]: In Rexy.
+[Remote]: I can connect with dad. I mean,
+[Remote]: I'm open to seeing how it'd look like. I mean, without the kind of, like, the rules in place,
+[Remote]: I mean, like, if you think, like, it's gonna actually
+[Remote]: kind of translate the data,
+[Remote]: right off the bat without us having to
+[Remote]: give you all the different configurations and, like, logic and all of that.
+[Remote]: Then that would be that that sounds good.
+[You]: Oh, no. We would need that for sure. We would need that for sure to to construct the should be. Right?
+[Remote]: Yeah. That might take longer. So, like, I would like to see at least
+[Remote]: how the the platform you know, what the platform is doing.
+[You]: It's visionary, Ben.
+[Remote]: Will be helpful.
+[You]: It's visionary walk through, sometime next week.
+[Remote]: Yeah. Yeah.
+[Remote]: If you can, like,
+[You]: I'll just follow
+[Remote]: yeah. If you can, like, kind of, wipe out, like, any kind of confidential stuff
+[You]: Yeah. Go ahead.
+[Remote]: you can show me how something, like,
+[Remote]: your cross river reconciliation
+[Remote]: looks like
+[Remote]: that's something that I can, like, at least apply to kind of the things that we're already seeing on our end.
+[You]: Let me take that back to the team. I don't know if we have some
+[Remote]: Yeah.
+[You]: sandbox data or some, like, dummy data we can play with. Let me figure that out
+[Remote]: Yeah.
+[You]: come back to you. I'll just I need to jump, but,
+[You]: thank you for the time. Great meeting you guys. I think there's there's something interesting to pursue here.
+[You]: I'm excited. I'll just follow-up to try to
+[You]: schedule that demo next week and we'll take it step by step.
+[Remote]: Okay. Sounds good. Perfect.
+[Remote]: Okay. We'll talk soon.
+[You]: Thank you so much.
+[You]: Have a good one.
+[Remote]: Thank you. Thanks.
+[Remote]: We'll talk. Alright.
+[Remote]: Bye. Bye.
+[You]: Bye bye.
+
+============================================================
+SUMMARY
+============================================================
+### AeroPay’s Current Challenges
+
+- Key reconciliation pain points:
+  - Timing differences between dashboard data and bank posting
+  - Complex data ingestion from multiple sources
+  - Manual verification processes for revenue calculation
+- Cross River Bank limitations:
+  - API available but restricts direct dashboard reporting downloads
+  - Requires backend data manipulation for usable insights
+  - Transaction reference numbers don’t match between platform and statements
+- Current infrastructure:
+  - 5 banks total (Cross River only one on Rexi’s existing integration list)
+  - SFTP for 4 banks, API for Cross River only
+  - Data flows: Amazon S3 → Metabase (internal BI) → Admin Portal
+- Manual processes handled by Kristina’s team:
+  - Revenue verification from calculation to bank posting to ERP (QuickBooks)
+  - Automatic billing based on volume discounts
+  - Rev share calculations
+  - Auto-debit clients based on exposure cap thresholds
+
+### Technical Fit Assessment
+
+- Rexi’s current integrations:
+  - 2 Latin American banks (full production)
+  - 2 US POCs (Celtic Bank, Dart Bank)
+  - Cross River already integrated for other customers
+- AeroPay’s unique challenges:
+  - No middleware (no Modern Treasury, Galileo, etc.)
+  - Highly regulated verticals with limited operator overlap
+  - Each bank integration completely custom
+  - “So close to the metal” - compete against many fintech providers
+- Implementation considerations:
+  - Significant non-scalable work required initially
+  - Amazon S3 integration already available
+  - Would need extensive configuration for matching logic and transformations
+
+### Next Steps
+
+- Schedule product demo for next week
+  - Generic walkthrough vs. real data demo discussion
+  - Kristina wants to see Cross River reconciliation example if possible
+- February-March POC proposal:
+  - Limited scope proof of concept
+  - Test value before full implementation
+- Internal AeroPay actions:
+  - Initial scoping session scheduled for next week (after Adam returns)
+  - Will share detailed requirements with Rexi team
+  - NDA execution for data sharing
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/8bbd9f3b-2d34-43dd-bb85-a2f23c280786](https://notes.granola.ai/t/8bbd9f3b-2d34-43dd-bb85-a2f23c280786)

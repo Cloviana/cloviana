@@ -1,0 +1,519 @@
+MEETING: Rexi <> Despegar
+DATE: 2026-04-30
+ID: not_rx1LJh6r9aMZNX
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Juan Defelice <juan.defelice@despegar.com>, Sebastián García <sebastian@rexi.finance>, Leonardo Lins <leonardo.lins@despegar.com>, Teo <teo@rexi.finance>, Jean Castillo <jean.castillo@despegar.com>
+SCHEDULED: 2026-04-30T08:30:00-04:00 - 2026-04-30T09:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Ignacio, ¿cómo estás?
+[Remote]: Diego, buen día. Buen día, John. Buen día, Nacho.
+[You]: ¿Cómo andan?
+[Remote]: ¿Todo bien, ustedes?
+[You]: Buen día.
+[Remote]: Oh, bien.
+[Remote]: Semana corta, así que movida.
+[You]: Sí. ¿Es de noche en Buenos Aires a esta hora?
+[Remote]: No.
+[Remote]: No, no, no, no, ya está bastante claro.
+[You]: Ah, ok. Está haciendo un lugar con poca luz, pues, ¿ya?
+[Remote]: Claro, estoy en, sí, estoy en una cabina dentro de la oficina.
+[You]: Ah, perfecto, perfecto.
+[Remote]: Sí.
+[You]: Bueno, buenísimo.
+[Remote]: ¿Ustedes cómo está el clima mejoró, no? Me imagino.
+[You]: El clima un poco
+[Remote]: Más o menos.
+[You]: más o menos, sí, pero pero getting there.
+[You]: Getting better every day.
+[Remote]: Bueno, bien.
+[You]: Como que hay días que hay días que sí ya está impecable, hay días que, más o menos,
+[Remote]: Qué recae. Sí, ocupo,
+[You]: Pero bueno,
+[Remote]: Buenos Aires levantó bastante, va a ser máxima de veintidós, así que va estar rehermoso.
+[You]: Wait.
+[Remote]: Qué bueno.
+[You]: Fantástico.
+[Remote]: Chicos, ahí esperamos unos minutos. Leo confirmó, se
+[Remote]: suma y y arrancamos, si les parece. Dale, perfecto.
+[Remote]: Ahí, Seba también, calculo.
+[Remote]: ¿Qué te iba a comentar? Vi tu mensaje ayer, Ignacio, estoy cien por ciento en línea con lo que comentaste, así que
+[Remote]: igual entiendo que la charla va a ser en la tarde. Hola, buenos días.
+[You]: ¿Cómo salió?
+[Remote]: Buen día, Leo, ¿cómo estás? ¿Cómo estás? ¿Cómo, Leo?
+[You]: Todo bien, por suerte.
+[Remote]: Dale,
+[Remote]: Buen día. ¿Cómo va, Seba?
+[Remote]: ¿Cómo andan? Buen día, Sebas. Buenos días.
+[Remote]: Leo, muy bien. Todo bien, ¿y y tú?
+[Remote]: Todo bien, por suerte, gracias.
+[Remote]: Bien, chicos, creo que ya podemos arrancar.
+[Remote]: Nada, hago una introducción rápida y y empezamos la charla. El propósito de esta reunión es es
+[Remote]: debatir junto con ustedes las métricas que habíamos conversado de el Asis en función de los principales KPIs que habíamos acordado,
+[Remote]: y adicionamos un KPI que nos
+[Remote]: clave, que ya lo estuvimos conversando con ustedes, que es la parte de autonomía.
+[You]: Perfecto.
+[Remote]: Impecable.
+[Remote]: Perfecto.
+[Remote]: Bien, buenísimo. Entonces, en función de eso,
+[Remote]: actualmente, nosotros
+[Remote]: digamos que la población, por la parte de tarjetas que está bajo el
+[Remote]: del piloto, es lo que sería Brasil,
+[Remote]: el mundo de Colombia, porque tiene diversas casuísticas.
+[Remote]: Para estos contamos con un ochenta y ocho y un noventa y nueve por ciento
+[Remote]: de cobertura a nivel de conciliaciones automáticas.
+[Remote]: Perfecto. Ahí
+[Remote]: si quieren, sea al Nacho, ¿les parece? Si les comparto un poco el
+[Remote]: el mapa que tenemos ahora de de conciliaciones? Es importante que que lo veamos ahora
+[Remote]: porque esos porcentajes conciliatorios
+[Remote]: demás está decir que podemos llegar perfectamente
+[Remote]: con Rexi y más, porque las dos barridas que están haciendo hoy con Oracle son bastante
+[Remote]: básicas. Pero sí es importante
+[Remote]: mencionar que hay un universo de información
+[Remote]: limitada dentro de Rexy y un universo total de información dentro de Oracle, por ejemplo, Entonces, siempre que trabajemos con un universo limitado de información, el porcentaje conciliatorio va a ser más limitado. Digo esto porque cuando usamos comparaciones exactas entre lo que hace Rexy y lo que hace Oracle,
+[Remote]: Rexy es mejor. Ahora, Oracle tiene
+[Remote]: la información, entonces quería asegurarme de que
+[Remote]: por ejemplo, tenemos todos los cupones y todos los recibos dentro de Rexi,
+[Remote]: o al menos que comparamos
+[Remote]: peras con peras, ¿no? Eso es porque
+[Remote]: todo lo que es tarjetas, un cupón puede tener muchos recibos,
+[Remote]: y muchas cuotas, o
+[Remote]: un un recibo puede tener muchos cupones,
+[Remote]: muchas cuotas, o una cuota, entonces pueden dar diferentes cuotas, tal vez
+[Remote]: incluso hasta del año pasado, que no están dentro del universo del SFTP de Rexi,
+[Remote]: Entonces, cuando veamos los números conciliatorios en Rexi, puede, sí,
+[Remote]: si falta información, puede ser un poquito menos.
+[Remote]: Les comparto un poco como para que vean, y y seguimos, después volvemos con
+[Remote]: con los siguientes KPIs. Adelante, Teo. Ahí dejo de
+[Remote]: Ajá. Perfecto.
+[You]: Esto es fantástico, Jean, igual, Es fantástico lo que lo que hicieron.
+[Remote]: Exactamente.
+[Remote]: Bueno, esto es todo lo que es
+[You]: Es muy borroso tío,
+[You]: A lo mejor.
+[Remote]: Así es.
+[You]: Ahora mejor, ahora mejor.
+[Remote]: Ahí se me dijo. Ah, perfecto. Bueno, esto es
+[Remote]: todo lo que estuvimos bajando de los trabajos con cada uno de los equipos,
+[Remote]: A nivel conciliatorio, el más complejo es
+[Remote]: el de Brasil tarjetas, acá lo ven el mapa,
+[Remote]: incluye
+[Remote]: toda la información que son los adquirentes, que cómo no van pasando cada uno,
+[Remote]: los scripts que va siendo
+[Remote]: el equipo de despegar para generar los cupones, la generación de los cupones en sí, la conciliación, cómo se generan lo los
+[Remote]: los dentro de cómo se agrupan, cómo se organizan,
+[Remote]: cómo se organizan lo los recibos. También tenemos, por otro lado,
+[Remote]: el gate bancario, que es un un prerrequisito.
+[Remote]: Previo a
+[Remote]: a la la conciliación de cupones sobre sus recibos,
+[Remote]: Acá entramos ya en la etapa de lo que es
+[Remote]: el
+[Remote]: el segundo paso, el el el one to one strict. Esto es lo que hoy se está haciendo en
+[Remote]: en en Oracle, pero se hace con dos barridas medio básicas. Ahí
+[Remote]: nosotros queremos mejorarlas, hacer cuatro. De hecho, en en las demos ya ya hicimos cuatro,
+[Remote]: Y después tenemos las las barridas
+[Remote]: many to many para rescatar los casos de uso donde despegar
+[Remote]: con donde ahora que él no sirve, y están ahora los equipos haciendo trabajos manuales.
+[Remote]: Una vez que tenemos toda esta información conciliada con los con los tres pasos principales de tarjetas,
+[Remote]: generamos el el reporte output. Esto se hace
+[Remote]: todos los bancos,
+[Remote]: para ventas como para cancelaciones. Los números de cancelaciones
+[Remote]: y esto es importante que lo veamos,
+[Remote]: son muchísimo más bajos por diseño
+[Remote]: los números conciliatorios. Esto, si querés, lo podemos meter más en detalle, pero
+[Remote]: nunca vamos a llegar a noventa y nueve por ciento conciliado
+[Remote]: dentro de cancelaciones por cómo están diseñadas las
+[Remote]: en sí. Esto, si querés, podemos pedirle más más detalle
+[Remote]: a los equipos de cancelaciones. Esto por el lado de
+[Remote]: Pero perdón, Teo, Si Quieres Hagamos Esto Allí, La Parte De Cancelaciones. Lo Que Estoy Entendiendo Es Tenemos Un Scope Limitado De Línea De Tiempo De Información, Con Lo Cual Nos Está Impidiendo Llegar A Un Ratio A Nivel De Conciliación Automática. No, No, No. Las Cancelaciones Tienen... Incluso Si Tenemos, Incluso Hoy En Oracle, Incluso Si Tenemos Todo El Universo De Información, Las Cancelaciones Por Diseño, Por Falta De Por Falta De Información Y Demás, Nunca Van A Llegar A Un Número Conciliatorio Muy Alto, Nosotros Tenemos Ahora Reunión A Las Once De Argentina,
+[Remote]: el equipo tarjetas. Vamos a indagar, porque nos compartieron ayer el archivo de conciliación de
+[Remote]: tarjetas, pero sí, como como aviso previo,
+[Remote]: incluso con toda la información y con todas las herramientas del mundo, las conciliaciones
+[Remote]: suelen tener, de cancelaciones suelen tener un porcentaje de conciliatorio más bajo. Entonces,
+[Remote]: cuando hablamos de ello, ochenta y seis, ochenta y nueve por ciento consiliado dentro de Oracle,
+[Remote]: es de todo lo que es ventas, no cancelaciones.
+[Remote]: Ok, ok, bien. Teo, ¿te puedo pedir un favor?
+[Remote]: En función de este reanudamiento que están haciendo, ¿me puedes compartir
+[Remote]: esos datos que consideras que son clave
+[Remote]: no tenemos a nivel de diseño de infraestructura de cancelaciones en la
+[Remote]: cuales podría llegar a mejorar Ok. Ese ratio.
+[Remote]: O sea, porque entiendo que estás relevando a profundidad, entiendo que puedes llegar a decir, che,
+[Remote]: no se está dando este automática porque no contamos con a b c y d.
+[Remote]: Perfecto. Si querés, indagamos un poquito, esto igual
+[Remote]: como ves acá, nos lo compartieron ayer.
+[Remote]: Merchant rev, que es el la primer barrida, la mayoría de
+[Remote]: las conciliaciones, tanto de ventas como de cancelaciones, y cuotas,
+[Remote]: no son confiables en cancelación. Es decir, la información en sí no está completa.
+[Remote]: La razón, tengo que seguir indagando, pero sí sé que la los
+[Remote]: por ciento conciliatorio de cancelaciones en tarjetas suelen ser mucho peores que que los de
+[Remote]: tarjeta de crédito.
+[Remote]: De ventas. Bien, me gustaría me gustaría bien
+[Remote]: entender el por qué, principalmente por el proceso de finance transformation,
+[Remote]: porque entonces, si Redshift lo puede hacer, lo podemos alimentar con esa data.
+[Remote]: Simplemente hay que crear el flujo.
+[Remote]: Dale, perfecto.
+[Remote]: Bueno, y lo mismo para Colombia, es un un proceso
+[Remote]: similar al de Brasil, con sus con sus pequeñas
+[Remote]: particularidades y y sus propias llaves, pero también ya lo tenemos acá
+[Remote]: completamente mapeado
+[Remote]: Esto tiene también su propio ID bancario,
+[Remote]: diseñándolo todavía la la parte del gate bancario, el
+[Remote]: foco de las consideraciones hasta ahora fue cupones versus recibos,
+[Remote]: pero el equipo quiere agregar esto que no se hace en Oracle todavía, se hace manual,
+[Remote]: que es el gate bancario. Entonces, nosotros queremos automatizar esa parte también.
+[Remote]: Así que, si querés, después vemos los
+[Remote]: los otros flujos.
+[Remote]: Ok, ok, bien. Y me gustaría de
+[Remote]: si quieres en esa reunión que vamos a tener a detalle con el equipo, veamos
+[Remote]: de en qué manera estaría afectando esta parte de
+[Remote]: dentro del ratio que determinamos, ¿no?, para para que sean peras con peras.
+[Remote]: Dale, perfecto, perfecto. Entonces,
+[Remote]: yo ahora en la reunión que tengo con con el equipo de tarjetas indago un poquito
+[Remote]: las razones por las cuales los ratios de hoy de
+[Remote]: de dan menores. Yo, la verdad, ahí no tengo mucho detalle todavía.
+[Remote]: Cuáles son esos números, a ver si de alguna manera podés mejorarlos.
+[Remote]: Buenísimo.
+[Remote]: Bien, chicos, ahí vuelvo, minuto, vuelvo a la presentación.
+[Remote]: Ya. Si quieren, esto va a ser más iterativo, ¿no?, de los dos equipos.
+[Remote]: Como que está buenísimo presentá ahí, Jean, todo lo que vos tengas, lo lo que armaron,
+[Remote]: que nosotros vayamos ajustando, che, hasta acá podemos llegar con este
+[Remote]: espectro de datos y, si no, tenemos que iterarlo para este lado
+[Remote]: y y lo vamos armando entre los dos.
+[Remote]: Perfecto, seguro.
+[Remote]: Un minuto, presentar. Bien.
+[Remote]: Listo, ahí pueden ver mi pantalla.
+[You]: Feito.
+[Remote]: Perfecto.
+[Remote]: Bien. Sí, que repaso rápido esto y cerramos esta parte. Tiempo
+[Remote]: total de procesamiento, tenemos esto es a nivel automático en tu en,
+[Remote]: sin la conciliación manual del del remanente no conciliado
+[Remote]: estamos hablando de noventa y dos horas para Brasil,
+[Remote]: en el cual conciliamos uno coma siete millones de líneas,
+[You]: ¿Esto es por mes?
+[Remote]: nivel mensual,
+[You]: ¿Esto es por mes?
+[Remote]: Perdón, Ignacio, te escuché muy bajito.
+[You]: Por semana, por día,
+[Remote]: Por mes, por mes.
+[You]: Ok.
+[Remote]: Y a nivel Colombia, tenemos treinta y seis horas con ochenta y ocho mil líneas. La diferencia que ven allí, porque no no
+[Remote]: como que la línea de la cantidad de esfuerzo no está correlacionado
+[Remote]: con la cantidad de líneas conciliadas, principalmente se debe a las múltiples
+[Remote]: que existen dentro de Colombia.
+[You]: Claro.
+[Remote]: Por eso lleva lleva un mayor esfuerzo con muchas menos líneas.
+[Remote]: Y el tiempo dedicado a nivel manual para hacer ese
+[Remote]: conciliaciones manuales, todo el tema de de
+[Remote]: de hacer ese macheo de las partidas no conciliar automáticamente, tenemos veintiocho horas a nivel
+[Remote]: Treinta Y Seis Horas A Nivel Colombia.
+[Remote]: Y en autonomía y
+[Remote]: esto aplica para todo, tanto tarjetas hearing no nail,
+[Remote]: actualmente, dependemos de equipo técnico para hacer nuevas configuraciones, o sea,
+[Remote]: ese Pintáguramente. Sí, se convirtió en Ese ese básico.
+[Remote]: Ese básico. Sí. Sí. Ese es el otro y es algo que
+[Remote]: sí, es algo que necesitamos romper, ¿no?, y y y darle esa autonomía e independencia a los
+[Remote]: equipos, buscando esa flexibilidad que tenemos nosotros como
+[Remote]: objetivo a nivel de finance transformation. Completamente alineados. Ahí nosotros creo que es un
+[Remote]: uno de los core de de lo que hacemos es darle independencia
+[Remote]: a equipos no técnicos para poder automatizar procesos sin necesidad de conocimientos
+[Remote]: específicos de Python, de SQL. Ajá.
+[Remote]: Esos esos desarrollos, esa autonomía que ustedes necesitan es de
+[Remote]: equipos técnicos de despegar, por ejemplo, no sé, el equipo de desarrollo que ayude a los
+[Remote]: equipos de finanzas, eso o es equipo técnico de las herramientas que tienen hoy que
+[Remote]: che, queremos hacer este desarrollo, lo sé, con Oracle y tienen que hacer ahí desarrollos también para que se ajuste
+[Remote]: Sí, ese equipo de IT, Sebas, respondiendo tu pregunta, equipo de IT,
+[Remote]: que nos brinda soporte para procesos básicos como
+[Remote]: cargar un nuevo adquirente o o un nuevo flujo.
+[Remote]: Vieron que nuestro flujo actual tenemos una herramienta de
+[Remote]: desarrollada in house que se encarga de transformar los datos del
+[Remote]: que vienen del adquirente o o del de la tercera parte,
+[Remote]: y prepararlo para Oracle, para ser cargados de break o para la configurar para su conciliación.
+[Remote]: Entonces, hacer ese flujo del alta de nuevo, entender la data,
+[Remote]: cargarla y procesarla dentro de esa herramienta desarrollada in house,
+[Remote]: lo realiza el equipo de IT de desarrollo. Perfecto.
+[You]: Pregunta.
+[You]: ¿Lo podremos medir eso?
+[You]: De cuánto esfuerzo requiere hoy de manera recurrente de tecnología?
+[You]: Este proceso? Lo digo porque creo que
+[You]: es una una variable más para agregar al business case,
+[You]: de costo económico versus REXI, y cómo
+[You]: hay un ROI muy claro de implementar una herramienta como la nuestra,
+[You]: porque eliminaríamos todo ese costo interno de desarrollo de
+[You]: de herramientas y de mantenimiento de esas herramientas, ¿no?
+[Remote]: Es buen punto, Ignacio, me lo oyó
+[Remote]: para ver, porque quiero revisar a profundidad que no se
+[Remote]: esté duplicando con las horas que estamos de colocando dentro de la parte automática.
+[You]: Ah, ok.
+[Remote]: Ahí los chicos incluyeron también horas de esfuerzo asociada a nuevas
+[You]: Okay.
+[You]: Okay.
+[Remote]: No, la verdad que para nosotros ese es un redacto, es como el el de
+[Remote]: darle autonomía a los equipos y que no se use músculo de desarrollo de
+[Remote]: para estas tareas más de desarrollo interno y se puedan manejar
+[Remote]: los equipos de de finanzas solo, está bueno el dato. Pero bueno, nada, vayamoslo viendo,
+[Remote]: vayamos viéndolo, si nos vamos a dar cuenta la parte de autonomías y se genera o no,
+[Remote]: más con cuando, nada, el equipo ya empieza a probar directamente de crear nuevos flujos,
+[Remote]: ahí se van a dar cuenta un poquito de de de si está bien ese
+[Remote]: ese punto o no.
+[Remote]: Buenísimo, Sebas. Sí, apuntemos a eso, pero tengamos esto como un pilar
+[Remote]: a desarrollar durante todo este piloto, ¿no?
+[Remote]: Darle, transmitirle el know how a los equipos para
+[Remote]: que puedan hacer end to end ellos el
+[Remote]: partiendo de un nuevo desarrollo, ¿no?, de un nuevo adquirente, de una nueva tercera parte que se
+[Remote]: Perfecto. Ahí, Jean, te te doy un poco de visibilidad y para que
+[Remote]: lo sigas comunicando como como una opción con los equipos, yo tengo reuniones
+[Remote]: casi todos los días con alguien de de alguno de los equipos que que tienen dudas y demás,
+[Remote]: ahí bajá lo que eso es
+[Remote]: parte del proceso también. O sea,
+[Remote]: todas las reuniones que hagan falta, todas las dudas, siempre que en el momento en que la tengan,
+[Remote]: antes de quedarse trabados, intentad y y y llegar a
+[Remote]: a cierto punto, tal vez, de no entender o de frustrarse, que me escriban a mí,
+[Remote]: yo estoy disponible tener reuniones
+[Remote]: los días hace falta. Buenísimo, Teo, perfecto. Bajo el mensaje.
+[Remote]: Y y mensaje, sí. Yo ahora, obviamente, se los estuve comentando, ¿no?, pero
+[Remote]: pero está bueno también que lo sepas.
+[Remote]: Perfecto, no, muchas gracias y y dale, vamos con eso.
+[Remote]: Bien, chicos, air y non air es lo que vemos acá, noventa y
+[Remote]: noventa y tres por ciento. A nivel de air, consideramos cincuenta mil líneas
+[Remote]: cada treinta minutos, o treinta minutos nos toma considerarse cincuenta mil línea,
+[Remote]: veinte horas, ciento cincuenta mil líneas para la parte non air,
+[Remote]: y a nivel de esfuerzo de conciliación manual, tenemos dos
+[Remote]: y ochenta y tres horas por la parte de non air.
+[Remote]: Guau, un montón ochenta y tres ahí en Non Air.
+[Remote]: Sí, porque acá pasa mucho eso, Ignacio y Sebas, lo que lo
+[Remote]: comentamos al inicio de que necesitamos esfuerzo del equipo de IT para nuevos desarrollos,
+[Remote]: en on air sería la parte de hoteles,
+[Remote]: Ok. Con lo cual es, y y nosotros estamos apuntando a incrementar nuestro
+[Remote]: stock de de proveedores de hoteles, con lo cual es algo que va a ser mucho más recurrente.
+[Remote]: Perfecto. Ahí comparto un poquito también el mapa con
+[Remote]: de todo lo que es ER,
+[Remote]: Nosotros tenemos lo que entra por Yata,
+[Remote]: y lo que entra de aerolíneas individuales,
+[Remote]: Mucho de este trabajo es por el lado de conciliación,
+[Remote]: obviamente las las diferentes views por por cada uno contra los
+[Remote]: por cada uno de los países contra las OM,
+[Remote]: pero hay un proceso muy grande también de
+[Remote]: de parceo de la información,
+[Remote]: cómo nos envía la información
+[Remote]: viene obviamente completamente ilegible. Nosotros estamos haciendo mucho foco en
+[Remote]: facilitarles
+[Remote]: y darle herramienta a los equipos no técnicos de este lado también,
+[Remote]: Hoy en la en la en la capacitación vamos a ver un poco de esto,
+[Remote]: pero sí quiero que que vea Jean que
+[Remote]: estamos dándoles herramientas también para independencia en cuanto a parecido de información y demás.
+[Remote]: No es solo sino también
+[Remote]: disponibilidad de la información, que la puedan ver, que la puedan consumir,
+[Remote]: de manera automática. Sí, ahí el el, creo que el lunes, cuando hablamos un poco en el kickoff, contaron un poquito esto de los problemas de parceo y y estas cositas que querían solucionar, agarramos el training y dijimos, che, pará, pongamos los casos reales y pusimos el parceador automático,
+[Remote]: con el agente para que vean cómo no sé, pidieron que es, a veces son cadenas de
+[Remote]: caracteres, de bytes, bueno, que eso sea automáticamente, le pasás el PDF
+[Remote]: decía, parciame esto para que esté en datos legibles
+[Remote]: que vean cómo el agente de Rexy lo hace automáticamente
+[Remote]: y le queda toda la vista armada. Hoy hubo un proceso manual que vivimos estas dos semanas ahora hablamos de esa parte, pero bueno, era innecesaria la parte
+[Remote]: manual antes de entrar en lo logéntico,
+[Remote]: porque, bueno, nada, todos sabemos que lo logéntico y los LLMs,
+[Remote]: tienen sus cosas, pero nada, hoy van a ver eso, sea, ajustamos el training directamente a lo que pidieron el lunes.
+[Remote]: Exactamente. Buenísimo. Obviamente también es clave, chicos, muchas gracias por eso, porque yo creo que llevar
+[Remote]: casos de uso al training Sí, seguro.
+[Remote]: Y y vamos a captar más la atención de ello, porque es su día a día
+[Remote]: y y va a potenciar mucho la parte de mantenimiento.
+[Remote]: Tratamos de hacer el efecto guau, de que vean, bueno,
+[Remote]: esto es lo que hacen, esto es lo que tienen que hacer, y esto lo van a poder hacer ustedes, capaz que hoy necesitan ese
+[Remote]: de IT o lo hacen muy a a pulmón con Excel, entonces,
+[Remote]: che, pongamos todo lo que ellos van a ver valor ahí supercon data real.
+[Remote]: Ahí hay un un
+[Remote]: un punto que Rexi empieza a ser un centralizador de información, tal vez no no está
+[Remote]: tan
+[Remote]: es tan palpable este punto, no no es tan bajable a un KPI,
+[Remote]: pero hoy llega información de los proveedores en PDF, ahora ingestamos PDF,
+[Remote]: información completamente ilegible, sin parcial y demás, entonces,
+[Remote]: Rexi,
+[Remote]: pudiendo leer toda esta información, automatizando todos estos procesos y centralizando toda esta información,
+[Remote]: se vuelve como un orquestador de información vez ni siquiera para conciliar, sino para consumir. También vamos a un poco de de esto hoy en en en la capacitación. No, Teo, buenísimo. Creo que ahí refuerzo el comentario de Ignacio de poder
+[Remote]: traer las horas de esfuerzo, de nuevas implementaciones, de nuevo parceo de datos,
+[Remote]: que hace el equipo de desarrollo, y poder comparar eso
+[Remote]: con el esfuerzo que conllevaría realizarlo en Red Sea, ¿no? Yo creo que
+[Remote]: ese sería el indicador que podría llegar a medir
+[Remote]: cómo Redshift puede llegar a ser mucho más ágil en en en eso que se va a convertir cada vez
+[Remote]: en algo más recurrente, ¿no?, por este Perfecto. Objetivo que tenemos de ir creciendo en proveedores.
+[Remote]: Bien, ahí si nos si bien nosotros tenemos un piloto fijado, es nos vamos extendiendo todo el tiempo, ¿no?, pero porque nosotros también queremos encontrar el mejor business case que a nosotros nos sirve un montón, ahí nosotros nos reinteresa esa parte, Jean. Tipo, como que hacemos a los equipos non IT autónomos de IT, ¿no?, que
+[Remote]: que compiten tanto con el músculo, o sea, tenemos que lograr ese éxito que es para la
+[Remote]: vinimos a hacer nosotros. Realmente, hoy le vamos a mostrar un poquito y y
+[Remote]: en el training al equipo, pero estamos armando el el Cloud Code for
+[Remote]: que es tipo este ChatGPT de de FinOps
+[Remote]: puedan ustedes abstraerse, independizarse, y
+[Remote]: siempre decimos lo mismo en los equipos que estamos con los clientes, capaz que son los primeros equipos que tienen los verdaderos
+[Remote]: y no los agentes del chatcito dando vueltas,
+[Remote]: Esto es literalmente agentes trabajando sobre la data y
+[Remote]: haciendo lo que quieran sobre la data, ¿ok? O sea,
+[Remote]: es muy bueno el producto que estamos llevándole a los equipos, pero bueno,
+[Remote]: acá hay un tema también de design partner, de que entre los dos
+[Remote]: partes, noche, nosotros necesitamos esto y nosotros lo vamos ajustando y lo vamos armando en
+[Remote]: como dije el otro día, esto no existe a nivel industria, o sea, lo que lo al
+[Remote]: producto que estamos armando son como, todos estamos probando nosotros mismos también, ¿no?, como equipo.
+[Remote]: Pero tenemos el horizonte muy fijado, ¿no?, tipo, sabemos que es por ahí porque
+[Remote]: vemos el impacto que que hoy hoy lo van a ver, la verdad que que está muy bueno lo lo que lo que
+[Remote]: es hoy. Sí, no, buenísimo, Seba, nosotros estamos cien por cien
+[Remote]: alineados con esa misma filosofía, o sea, nosotros también creemos, y y un poco
+[Remote]: la chispa que nos llevó a ir con ustedes es esa parte de inteligencia artificial,
+[Remote]: inteligencia artificial llegó para transformar la manera en la que hoy trabajamos
+[Remote]: y dejó para, y y también llegó para eliminar esa barrera de
+[Remote]: de lo que era IT, de lo que era operacional,
+[Remote]: y y es lo que queremos alcanzar también nosotros.
+[Remote]: De por si era un un objetivo que teníamos a nivel proyecto,
+[Remote]: buscar esa autonomía, esa flexibilidad, así que
+[Remote]: o sea, cuenten con nosotros para para avanzar y poder conseguir ese objetivo, porque no
+[Remote]: también estamos muy interesados en ese tema. Hoy hoy en el training
+[Remote]: no solo, o sea, vamos a hablar de todo lo agente,
+[Remote]: pero para eso también tenemos que hablar de AI, ¿ok?, de cómo promptear, porque ahora empiezan a promptear
+[Remote]: en en en en Rexi, y tenemos que hablar de de de
+[Remote]: cómo prontear, cuáles son buenas formas de prompting, cómo prontear bien para ir
+[Remote]: incremental, y no que después se cagás. Obviamente siempre está el human in the loop,
+[Remote]: pero como que nosotros también con nuestros clientes queremos que sepan que tienen un equipo enfrente,
+[Remote]: pueden resolver un montón de dudas sobre AI, ¿no? Nosotros somos AI native, sea,
+[Remote]: nacimos así, pero queremos que también tengan esta entrada
+[Remote]: decir, che, pará, hay un equipo enfrente que sabe mucho y les podemos enseñar también el
+[Remote]: Es más, viene uno de los chicos, o sea, el head de AI, a dar dos slides
+[Remote]: para que hablar un poco de prompt engineering y todo eso,
+[Remote]: que que que para mí, para nosotros está bueno como transmitir esa ese conocimiento también a sus equipos,
+[Remote]: que no solo sirve con Rexi, también sirve para todas las herramientas que estén por fuera de Rexi,
+[Remote]: No, buenísimo,
+[Remote]: buenísimo.
+[Remote]: Oye, buenísimo.
+[Remote]: Bien, chicos, eso es lo que tenemos, entonces, para
+[Remote]: tarde. Estos son los objetivos, entonces, de métricas que vimos, que revisamos así. Esto repasamos non air, Bien.
+[Remote]: Que creo que nos quedó repasar Noneth, Noneth la la última de todos.
+[Remote]: Sí, ahí tenemos
+[Remote]: noventa y tres por ciento, creo que están viendo chico, ¿no?
+[Remote]: Ahí va, noventa y tres por ciento a nivel de automática,
+[Remote]: veinte horas nos lleva a conciliar ciento cincuenta mil líneas y ochenta y tres horas
+[Remote]: esto es lo que hablamos de del esfuerzo a nivel de conciliación manual,
+[Remote]: debido principalmente al la cantidad de altas de nuevo spam.
+[Remote]: Impecable.
+[Remote]: Perfecto. Ahí comparto un segundo. Esto
+[Remote]: en todo lo que es
+[Remote]: Ahí.
+[Remote]: Perfects.
+[Remote]: En todo lo que es en on air, tenemos
+[Remote]: el proceso de mapeado, es más simple, pero tiene
+[Remote]: a nivel conciliatorio, una complejidad que es
+[Remote]: conciliar
+[Remote]: diferentes monedas,
+[Remote]: tal vez hasta dos o tres monedas por transacción, incluso cuatro monedas por transacción,
+[Remote]: moneda de cobro, moneda de pago, moneda de transacción,
+[Remote]: así que nos queda definir
+[Remote]: qué tipo de conversor vamos a usar para que nosotros en esta en estos próximos días
+[Remote]: hagamos esta integración
+[Remote]: tal vez algún proveedor estándar o algún proveedor que que ustedes se
+[Remote]: sientan cómodos para hacer esa conciliación de
+[Remote]: de non air,
+[Remote]: con condicional con con las monedas.
+[Remote]: Así que ahí queda del lado del equipo de despegar,
+[Remote]: definir qué proveedor vamos a usar para no net, para para las conciliaciones,
+[Remote]: y una vez que lo tengamos, nosotros lo implementamos.
+[Remote]: Buenísimo, buenísimo. ¿Quién se le usa tarea, Teo?
+[Remote]: Así hago el follow interno. Esta tarea creo que
+[Remote]: a ver, nos juntamos para verlo
+[Remote]: Con Amero, ¿no? La dale.
+[Remote]: Sí, pero no me acuerdo quién comentó en la reunión pasada que se había llevado
+[Remote]: no sé si Migue se había llevado permable. Ok.
+[Remote]: Me parece bien. Lo sigo lo sigo con Perfecto, ok.
+[Remote]: Con Jess también lo estuvimos viendo esto, pero no sé si era ella la indicada para
+[Remote]: seleccionar cuál es el proveedor.
+[Remote]: Creo que se le había llegado a mí,
+[Remote]: Sí, lo veo con Migue. Migue es el que tiene el owner de esta parte de de proceso non air. Dale, dale tengan un proveedor. Nosotros si quieren, también les podemos ofrecer, nosotros tenemos un proveedor nuestro que usa otro cliente, está completamente a a disposición también. Buenísimo. Buenísimo. Proveedor, ¿te refieres a Ateo?
+[Remote]: Es así.
+[Remote]: Hay
+[Remote]: dos, tenemos dos bases de datos,
+[Remote]: Sí. Cada transacción tiene
+[Remote]: hasta dos monedas diferentes. Entonces, dependiendo el caso de uso,
+[Remote]: se concilia con una tolerancia específica. Si es la misma moneda y es dólares, se usa
+[Remote]: una tolerancia, si es
+[Remote]: moneda de cobro y moneda de pago esta, se usa otra tolerancia.
+[Remote]: Hay veces que tenemos que estandarizar,
+[Remote]: están en pesos, tal vez dólares canadienses contra pesos mexicanos,
+[Remote]: necesitamos estandarizar a dólares, por ejemplo.
+[Remote]: Para esa estandarización,
+[Remote]: necesitamos usar algún tipo de conversor.
+[Remote]: Entonces, obviamente, como los conversores
+[Remote]: son son son muy específicos y tienen, se agrega cierta tolerancia,
+[Remote]: pero hay proveedores de mercado, hay un montón de proveedores que nosotros
+[Remote]: podemos usar para hacer esa conversión en los casos donde no estamos hablando de la misma moneda.
+[Remote]: ¿Qué proveedor usamos? Depende de ustedes el el que se sientan cómodos,
+[Remote]: Nosotros tenemos un proveedor de mercado que usa uno de nuestros clientes,
+[Remote]: felices de proveedores. Si ustedes quieren que, no sé, accedamos a otro proveedor,
+[Remote]: lo vemos también.
+[Remote]: Bien, dale, Teo, me lo llevo, hago catch up con el equipo, Yo creo que ahí lo importante es demostrar la capability, que la capacidades que tiene Reggie, de también de poder conectarse con esos proveedores,
+[Remote]: ¿Y esto por qué te lo digo? Porque hoy en día tenemos dos, ¿no?
+[Remote]: Nosotros usamos Bloomberg, que alimenta a Oracle y podemos
+[Remote]: también extraerla directamente de Oracle esas tasas Sí. En el
+[Remote]: no no no hablemos de featured stay, pero en el Asis lo tenemos de esa manera,
+[Remote]: y también tenemos a cierre de cada mes un tasas corporativas, que entiendo que también podría llegar a ser parte de esto. Entonces, yo creo que deberíamos demostrar esa flexibilidad que tenemos, y para el piloto, igual,
+[Remote]: converso con los chicos, no bajo línea acá, lo converso con los chicos,
+[Remote]: cerramos eso y le damos feedback, pero yo lo el mensaje que quiero transmitir es que
+[Remote]: poder demostrar esa flexibilidad para conectarnos indistintamente
+[Remote]: con estos proveedores, de tal manera de que el día de mañana es un plug and play, ¿no? Che, yo di baja a este y conecto este y y ya tengo esa fuente de datos para hacer la conversión. ¿Cómo va ser? Perfecto. Sí, de nuestro lado, Jean, mientras tengamos, tipo, la forma de conectarnos y eso es
+[Remote]: distinto, para nosotros no no pasaría nada. Sea, está bueno también para demostrar al equipo, che,
+[Remote]: se conecta rápido. O sea, solamente tienen que elegir ustedes qué proveedor qué, por el tema de FX rate,
+[Remote]: depende de cada cliente. Ahí también, o sea, no no no no es algo que podamos tomar la decisión nosotros.
+[Remote]: Perfecto. No, no, buenísimo, chicos, vamos con eso.
+[Remote]: Genial.
+[Remote]: Buenísimo.
+[Remote]: Bueno, nos vemos ahora en un rato.
+[Remote]: Sí. ¿Nos podrás compartir ahí lo lo que proyectaste hoy, Jean?
+[Remote]: Sí, sí, se los comparto, chicos. Ahí, si querés, los dejo en el grupo, en la pestaña esta donde tenemos
+[Remote]: la parte de los objetivos, lo el
+[Remote]: y allí coloco esta parte, así lo tenemos todos visualmente, y se lo comparto en
+[Remote]: también para para que lo tengan. Dale, ahí, y Leo,
+[Remote]: no sé si tienen algún algo más que nos quieran decir, de que necesiten los
+[Remote]: equipos, que fueron escuchando, que nosotros podamos ir preparando la próxima semana. So,
+[Remote]: tenemos el training, ¿no?, la sesión agéntica. Después ya queda toda la parte de datos reales y
+[Remote]: ir laburando con los equipos real, tipo, con toda la data real,
+[Remote]: para terminar de cosas. Yo me quedo, si quieren, chicos, se ve para para
+
+============================================================
+SUMMARY
+============================================================
+### Current Reconciliation Performance
+
+- Brazil cards: 88-99% automatic reconciliation coverage
+  - 1.7M lines processed monthly (92 hours processing time)
+  - 28 hours manual effort for remaining unmatched items
+- Colombia cards: Similar process with country-specific configurations
+  - 88K lines processed monthly (36 hours processing time)
+  - 36 hours manual reconciliation effort
+- Cancellations inherently have lower reconciliation rates by design
+  - Even with complete data universe, cancellations never reach high reconciliation percentages
+  - Oracle’s current merchant rev sweep (first pass) shows unreliable cancellation data
+
+### Air vs Non-Air Processing Metrics
+
+- Air bookings: 90-93% reconciliation rate
+  - 50K lines processed every 30 minutes
+  - 20 hours for 150K lines processing
+  - 2 hours manual reconciliation effort
+- Non-Air (hotels): 93% reconciliation rate
+  - 83 hours manual reconciliation effort due to frequent new supplier onboarding
+  - Complex parsing required for illegible data formats (PDFs, unstructured data)
+  - Multi-currency reconciliation complexity (2-4 currencies per transaction)
+
+### Autonomy and Technical Dependencies
+
+- Current limitation: Teams depend on IT for new configurations and supplier onboarding
+- Rexi positioning as solution for non-technical team independence
+  - AI-native approach with prompt engineering training planned
+  - Automatic PDF parsing and data structuring capabilities
+  - Centralized information orchestration beyond just reconciliation
+- Training session scheduled to demonstrate real use cases with actual Despegar data
+
+### Next Steps
+
+- Jean: Share detailed presentation materials in project group
+- Teo: Investigate cancellation reconciliation limitations and provide improvement recommendations
+- Miguel: Define FX rate provider for non-air multi-currency reconciliation
+  - Options: Bloomberg (current Oracle feed), Oracle direct extraction, or Rexi’s market provider
+  - Need to demonstrate plug-and-play flexibility for different providers
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/2f4bf76a-42bd-40ac-a44d-eac119f4431a](https://notes.granola.ai/t/2f4bf76a-42bd-40ac-a44d-eac119f4431a)

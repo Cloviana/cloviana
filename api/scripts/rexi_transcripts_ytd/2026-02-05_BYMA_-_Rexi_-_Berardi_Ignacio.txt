@@ -1,0 +1,572 @@
+MEETING: BYMA - Rexi - Berardi, Ignacio
+DATE: 2026-02-05
+ID: not_BIwhqka4iGAvrA
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, BYMA <test@bymacorp.onmicrosoft.com>
+SCHEDULED: 2026-02-05T15:00:00-05:00 - 2026-02-05T15:45:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Nosotros esto
+[Remote]: globos, todas cosas agrupadas,
+[Remote]: bueno, si las diferencias son muy grandes, se empieza a abrir muy de manera manual a buscar una
+[Remote]: digamos, en una transacción. La idea sería
+[Remote]: sería, justamente, ir a una conciliación por transacción.
+[Remote]: Eso sería lo lo ideal y lo que se busca, digamos, así que estaría buenísimo.
+[Remote]: Estaría buenísimo ver quizás, no sé, alguna demo o algo que
+[Remote]: tengan hecha de de lo que es la plataforma o de algún caso de uso, a ver si nosotros lo vemos como
+[Remote]: nada, adaptable. No creo que sea nada del otro mundo, si por ahí
+[Remote]: no sé, las condiciones que ustedes piden. Supongo que nosotros tenemos, ponele,
+[Remote]: sería lo lo
+[Remote]: para lo que lo estoy pensando, sería para una conciliación de de operaciones de lo que es la custodia,
+[Remote]: imagino que tendríamos que tener, no sé, un dato en común entre las dos fuentes que tenemos
+[Remote]: cruzar, o algo que ustedes toman, o no sé cuáles son las características que toman,
+[Remote]: para para hacer ese cruce, para ver si nosotros
+[Remote]: también tenemos ese dato de ambos lados como para, o si lo podemos conseguir,
+[Remote]: como para ver si se puede usar o no. Bueno, quizás esos requisitos
+[Remote]: básicos, digamos, para para las consideraciones dentro de la plataforma de ustedes
+[You]: ¿Nos sirve si si los contás?
+[Remote]: ¿Me sirve si si nos
+[You]: Como de principio a fin,
+[Remote]: como de principio a fin cómo corren el proceso hoy? Tipo, literalmente, del
+[You]: el proceso hoy? Tipo, literalmente,
+[You]: el primer momento, cómo es que está la base, si le si está usando Excel, tipo, no mostrar nada.
+[Remote]: el primer aumento, cómo en qué están las bases, el, si estás usando, tipo, no mostraron
+[You]: Principio a fin, ver cómo lo hacés hoy,
+[Remote]: principio a fin, algo como el hacés hoy,
+[You]: y qué es lo que más te duele.
+[Remote]: y qué es lo que pasa pasa que lo que nos está pasando es que estamos en un proceso
+[Remote]: estamos cambiando todo, y toda la contabilidad entera, y hasta cómo
+[Remote]: cómo llevar la información, estamos cambiando también el ERP. O sea, es como
+[Remote]: lo de hoy nos sirve de mucho, porque la realidad es que se va a cambiar,
+[Remote]: hecho, hoy, como que se están ingresando de un solo de los
+[Remote]: Es como que nosotros tenemos dos patas, por así decirle, el banco
+[Remote]: y la transacción, ¿no?, la transacción operativa. Hoy,
+[Remote]: hagan de cuenta que se está registrando solo de la pata del banco, se registra por fuera del resto, y solo se
+[Remote]: cruza como que que tenga sentido, digamos, a módulo vos, con la operación.
+[Remote]: La idea ahora es registrar el banco, la operación, y que eso
+[Remote]: digamos.
+[Remote]: Esa sería la
+[Remote]: la idea. Debería cruzar línea por línea,
+[You]: Perfecto. O sea, está en un proceso de redefinir todo.
+[Remote]: Perfecto Una línea del banco definir todo.
+[You]: Están justo en un proceso interesante de decir,
+[Remote]: ¿Cómo?
+[Remote]: Están justo en un proceso interesante de decir,
+[You]: che, todo lo que tenemos hasta ahora, como estamos cambiando el sistema,
+[Remote]: che, todo lo queremos hasta ahora, como estamos cambiando el sistema, armemos algo
+[You]: armemos algo
+[You]: que ahora sí sea más automático, más tecnológico, etcétera.
+[Remote]: que ahora Es cero. Más automático, más tecnológico, etcétera.
+[You]: Ahí te
+[Remote]: Exacto, de cero.
+[You]: te contesto.
+[Remote]: Te contesto a la a la pregunta que me habías hecho,
+[You]: Elidas,
+[Remote]: El ideal siempre es tener un número de referencia o ID con el que hacer ese match transaccional,
+[Remote]: Si ahora están rediseñando todo y se puede incluir eso, obviamente,
+[Remote]: facilita mucho,
+[You]: Pero
+[Remote]: pero Sí, entiendo. Vemos mucho
+[You]: caso donde
+[Remote]: casos donde no está eso, entonces, se hace
+[Remote]: un cruce por
+[You]: por ejemplo,
+[Remote]: por ejemplo, monto
+[You]: punto
+[Remote]: fecha, hora y segundo, con una tolerancia de dos, tres segundos tal vez,
+[Remote]: y los últimos cuatro números de de la tarjeta, o hemos visto
+[Remote]: absolutamente todo después.
+[Remote]: En una siguiente sesión seguramente hacemos una demo
+[Remote]: y y le les muestro la plataforma, es muy flexible en ese sentido.
+[Remote]: Se le puede agregar tolerancias, diferentes barridas, una primer barrida por ID,
+[Remote]: una segunda barrida con monto, fecha, para los que no los que no terminan de machar y demás, pero bueno,
+[Remote]: contestando tu pregunta, se trabaja siempre al ideal, que es un ID,
+[Remote]: y sabemos que no siempre está eso, entonces, hay diferentes formas de de resolverlo.
+[Remote]: Bien. Sí, la idea sería tratar de contar con ese ID
+[Remote]: sabemos si lo vamos a tener en todos los casos, en todas las operaciones,
+[Remote]: pero bueno, si se puede ir haciendo como distintos barridos, quizás ir como filtrando si
+[Remote]: bueno, pero como les digo, estamos como replanteando todo de cero, entonces
+[Remote]: no hay nada tan claro, pero también es, a la vez, es el momento para plantear estas cosas.
+[Remote]: Vamos a necesitar estos códigos de los dos, de ambos lados, bueno, ver si se pueden conseguir.
+[Remote]: Por lo que tengo entendido, la mitad de las operaciones
+[Remote]: tenemos operaciones de entrada y de salida, por ejemplo. La que son salida, la que son pagos,
+[Remote]: tendríamos ese ID, identificado en los dos, pero lo que son ingresos no.
+[Remote]: Tenemos que ver ahí ese tema. Y
+[Remote]: ejemplo, hoy, lo que son los ingresos, en el banco, en la parte del banco entra como todo
+[Remote]: ponele, tres, cuatro transferencias, y en la operacional te entra en un globo.
+[Remote]: Entonces tampoco te va a cruzar por monto. Entonces,
+[Remote]: bueno, también estamos hasta definiendo procesos nuestros internos de la
+[Remote]: carguémoslo tal cual las transacciones que entran en el banco.
+[Remote]: Y, bueno, nada, entonces lleva como hasta también, nada, replanteemos un poco de procesos
+[Remote]: internos nuestros, ¿no? Pero
+[Remote]: pero, bueno, nada, eso sería un poco, no
+[Remote]: nuestra nuestra necesidad y nuestro punto de dolor.
+[You]: Más allá de
+[Remote]: Pero, bueno, estamos en
+[You]: de ese proceso automático,
+[Remote]: ese proceso automático,
+[You]: y de
+[Remote]: y de macheo uno a uno.
+[You]: no.
+[You]: ¿Cómo se imaginan la solución perfecta a esto?
+[Remote]: ¿Cómo se imaginan una solución perfecta a esto?
+[You]: ¿Qué están buscando, Sayo, si
+[Remote]: ¿Qué qué están buscando? Si Porque nosotros, en realidad,
+[You]: O sea, si te digo,
+[Remote]: es así, nosotros a lo que es el ERP vamos a llevar
+[Remote]: vuelta, vamos a seguir llevando como a cientos genéricos, porque es inviable llevar
+[Remote]: la contabilidad operación por operación. O sea, es
+[Remote]: es inviable y no es redituable tampoco. Entonces, nosotros vamos a llevar esos globos
+[Remote]: El tema es que vos en el ERP vas a conciliar y tenés que hacer este
+[Remote]: pero lo más probable es que, al ser un globo de un lado, un globo del otro,
+[Remote]: si tenés una pequeña diferencia en una sola transacción, el eso no te lo va a conciliar.
+[Remote]: Nosotros necesitamos otro sistema que se vendría a ser esta plataforma,
+[Remote]: aparte, donde podamos ya tener conciliado eso,
+[You]: Okay.
+[Remote]: operación por operación.
+[Remote]: Che, ¿por qué no nos cruza el globo este acá? Bueno, porque en esta otra
+[Remote]: sistema tenemos que tal, tal, tal transacción, nos están trabando esta conciliación. Ese sería
+[Remote]: el fin de, para nosotros, de este de esta plataforma,
+[Remote]: paralela, llamémosle a la contabilidad.
+[Remote]: Ahí te te agrego solo para que también lo lo lo tengan en cuenta.
+[You]: Para varios.
+[Remote]: Para varios de nuestros clientes, nosotros
+[You]: Unificamos.
+[Remote]: unificamos eso que vos mencionaste, entonces nosotros agarramos el el transaccional,
+[You]: Cosillamos,
+[Remote]: conciliamos
+[You]: y lo que
+[Remote]: y lo que concilia generamos automáticamente los seiscientos contables. Obviamente,
+[You]: quedamos
+[Remote]: seiscientos contables
+[You]: no son
+[Remote]: no son hechos línea por línea de cada movimiento, sino que son agrupados en base a algún
+[You]: hechos en línea con ellas.
+[Remote]: criterio
+[Remote]: predefinido por el cliente. Entonces, si ustedes están interesados en que
+[Remote]: agarremos la información transaccional
+[Remote]: concilemos
+[You]: Y, en base a
+[Remote]: y, en base a las reglas de negocio, generemos automáticamente asientos contables
+[Remote]: obviamente con aprobación manual, pero la la generación en sí
+[Remote]: de las líneas hacia automática,
+[Remote]: como para que lo tengan en mente, también lo hacemos.
+[Remote]: Ok.
+[Remote]: Bueno, bueno, bueno, lo tenemos en mente, justo ahora estamos
+[Remote]: trabajando en las integraciones ya directamente de estos de estos otros
+[Remote]: satélites, le llamamos, que sería, uno sería el del banco, otro sería el de la operación, cada uno va a mandar sus asientos a al sistema, digamos, al ERP,
+[Remote]: pero lo va a mandar de forma agrupada.
+[Remote]: Nosotros, por algún lado, necesitamos esa agrupación,
+[Remote]: tenerla aperturada y tener lista una conciliación por transacción para los
+[Remote]: para los días donde no no cruce, que lo más probable es que suceda y suceda seguido.
+[You]: por
+[You]: Entonces,
+[You]: Entonces,
+[Remote]: Tiene que ser algo muy diario. Obviamente, esto sería diario, ¿no?
+[Remote]: Sí. Transaccional y diario.
+[You]: Sí, ahí
+[Remote]: Sí, ahí dependemos de la disponibilidad de información, pero si hay información diaria,
+[You]: información diaria,
+[You]: nosotros.
+[Remote]: Sí, sí, sí, la la hay, y ese es otro tema que quizás acá si chicos
+[Remote]: Lucas está bueno que esté, pero bueno, lo podamos consultar y llevarnos de punto, pero
+[Remote]: el tema volumen de información
+[Remote]: es un tema y que, obviamente, bueno, la plataforma lo soporte, porque la realidad es
+[Remote]: es que es bastante, y, obviamente, sería de los dos lados, sería como duplicarla,
+[Remote]: Entonces, bueno, ese sería otro tema a
+[You]: Estamos pensando por
+[Remote]: mirar mes, por semana, por día.
+[You]: por mes,
+[You]: por día.
+[Remote]: Pará, te voy a tirar así un día.
+[Remote]: Y esto sería una conversación
+[You]: Y esto sería la cancelación
+[You]: de dos fuentes,
+[Remote]: de dos fuentes, un De dos fuentes. Y un extracto bancario.
+[You]: un una fuente operativa y un extracto bancario.
+[You]: Un banco.
+[Remote]: Exacto.
+[Remote]: Banco.
+[You]: ¿Qué banco usa en el BIN?
+[Remote]: Bueno ¿en el bill? No, un banco no, serían
+[Remote]: cuatro bancos, en principio. No, es el BCRA.
+[Remote]: Ah. El Banco Central.
+[Remote]: Déjame ver.
+[Remote]: Son cuatro bancos contra
+[You]: Son cuatro bancos.
+[You]: Un archivo operativo que
+[Remote]: un archivo operativo que viene de dónde lo tienen ese archivo operativo.
+[You]: che è
+[Remote]: Ese archivo es de Nasdaq.
+[Remote]: Es la custodia, digamos, de caja de valores.
+[You]: que estaríamos directo de ahí o de alguna base?
+[Remote]: ¿Haríamos directo de ahí o de alguna base de ustedes lo tienen, algún data lake?
+[Remote]: Está está en el data habría que ir ahí donde conviene sacar
+[Remote]: la la
+[You]: Y lo
+[Remote]: Si conviene pearle directamente a Nasdaq o al data lake, habría que ver
+[You]: lo
+[Remote]: Y los archivos en banco ya los ingestan ustedes también.
+[You]: los archivos de los bancos,
+[Remote]: Y los archivos de los bancos, bueno, también, es que nosotros tenemos
+[Remote]: como un satélite que está conectado directo al banco por API,
+[Remote]: y sacamos toda la la info de ahí. Abrí que, yo checo toda la parte tecnológica.
+[Remote]: Menos mil, pero le digo que está pasando Lucas.
+[Remote]: Pero en más la reunión puedo consumarlo.
+[Remote]: Apreditas en este satélite toda la información, tanto de los bancos como
+[You]: Okay.
+[Remote]: de
+[Remote]: Perfecto. No, son, o sea, tipo, la de la de la operación está en el satélite este, que es NASDAQ, digamos, y la del banco en otro, que es propio nuestro de Bima, que está conectado por API con el Banco Central, y ahí nos pasan todos los movimientos.
+[You]: Okay.
+[Remote]: Clarísimo. Pero a nosotros ya nos facilita mucho, porque si a veces tenemos que
+[You]: Nosotros nos facilita mucho, porque si no, tenemos que hacer las integraciones directo a los
+[Remote]: las integraciones directo a los bancos, se escucha más complejo Claro, no, no, eso seguro que no.
+[You]: complejo, tiene
+[Remote]: No, no, con el Banco Central no creo que se tengan que integrar, porque eso ya lo tenemos nosotros, tenemos todo.
+[You]: Excelente.
+[Remote]: Excelente. Ahí les digo, pero ponele que
+[Remote]: hay un día setenta y ocho mil líneas tengo.
+[Remote]: Y eso sería
+[Remote]: de solo de Nasdaq, y eso mismo debería venir de del banco.
+[Remote]: Sí, está está perfecto, ya, completamente dentro de
+[Remote]: de los bancos que que podemos manejar.
+[You]: Sí. Ahí,
+[Remote]: Sí. Ahí, una preguntita,
+[You]: una preguntita,
+[You]: Esto es una prioridad
+[Remote]: esto es una prioridad, ¿qué qué tan alto en las prioridades está?
+[You]: ¿qué qué tan alto es la prioridad si está? Tipo, es algo de
+[Remote]: Tipo, ¿es algo de de este q como que tiene o o?
+[You]: de ¿cómo es que no?
+[You]: O sea, claro, no me ha
+[Remote]: Sea, claro, como que yo llame a
+[You]: a mapear la prioridad y la urgencia de esto.
+[Remote]: a mapear la prioridad y la urgencia de esto.
+[Remote]: Y acá, capaz Luz me puede dar más una mano, pero
+[Remote]: que dentro del
+[Remote]: No sé si
+[Remote]: Lo que pasa que ahí también tenemos que ver en qué nivel está el ERP, y después ver qué pasa. Nosotros estamos en un proceso de simplificar y automatizar todos los procesos de de varias áreas. Entre ellos contabilidad es una de las que tiene mayor prioridad, porque, bueno, la conciliación actualmente es como un punto de dólar, pero creo que deberíamos revisar en qué situación estamos con el ERP,
+[You]: Yep.
+[You]: Cake.
+[Remote]: para ver si podemos empezar con esta automatización.
+[Remote]: Si se puede hacer simultáneo, no le veo problema,
+[Remote]: creo que deberíamos ahí ver más a nivel
+[Remote]: técnico cuál es el digamos, el Sí, quizás la demanda nuestra de recursos, porque la realidad es que, si ustedes me dicen, para contabilidad, si lo pudiese mostrar mañana, viene bárbaro igual, porque es algo que nos sirve nosotros tenerlo conciliado hoy, por transacción. El tema es, sí, depende de como nuestra disponibilidad de recursos y lo que nos demande a nosotros. Obvio, no, no En tiempo. Nosotros nos convertimos en una extensión del equipo de ustedes, la vida de que ustedes no dediquen nada de recursos a esto. Está bien. Es importante que tengamos una contraparte del lado de ustedes,
+[You]: Oh, yeah. No.
+[You]: Nosotros nos convertimos en una extensión de
+[You]: recursos a esto.
+[You]: Si
+[You]: es importante que
+[You]: tengamos una contraparte de
+[You]: posiblemente, de sistemas,
+[Remote]: posiblemente de sistemas Para definiciones y
+[You]: que en las
+[You]: que nos destrabe, que nos dé acceso a la información y nos pueda destrabar
+[Remote]: etcétera, ¿no? Claro, que nos dé acceso a la información y nos pueda extravar con algunas preguntas
+[You]: algunas preguntas. Primero, tenés que tener acceso a la información, ¿no?
+[Remote]: porque
+[Remote]: primero vamos a tener que tener acceso a la información, ¿no?
+[You]: Y después pregunta de
+[Remote]: Y después, seguro, surjan mil preguntas de
+[Remote]: nomenclaturas, cómo llegan los archivos cada
+[You]: cada cuánto? ¿Se rompe el colector, etcétera?
+[Remote]: se rompe el conector, etcétera,
+[You]: Pero es
+[Remote]: pero es es un tiempo mínimo y es que nos desbloqueen, no requiere ayuda Porque no requiere trabajo de ellos. Es muy poco tiempo del del otro lado, por lo general, pero sí tal vez algo nos traba o tenemos una duda y es una respuesta rápida Bárbaro. Del otro lado.
+[You]: tiempo mínimo, es que nos desbloqueen, no requiere
+[You]: ayuda ni
+[You]: no requiere trabajo eso.
+[You]: Y
+[You]: Entonces, ahora,
+[Remote]: Entonces, a ver
+[You]: resumir un poco, bueno, si es
+[Remote]: para resumir un poco, pero si ustedes
+[You]: ¿tienen alguna pregunta adicional o...?
+[Remote]: tienen alguna pregunta adicional o
+[You]: Lo que buscan es
+[Remote]: Lo que buscan es
+[You]: una visibilidad
+[Remote]: una visibilidad a nivel transaccional de las diferencias.
+[You]: nivel transaccional de las diferencias, algo que consigue
+[Remote]: Algo Exactamente. Transacción por transacción,
+[You]: por transacción,
+[You]: y después, si encima agregamos
+[Remote]: y después, encima agregamos el valor de la pata contable, que
+[You]: el valor de la plata contable, que
+[Remote]: imprima en el ERP,
+[You]: los contables ya considerados,
+[Remote]: los asientos contables ya conciliados,
+[You]: ahí ya es
+[Remote]: es ahí ya es un gol de media cancha.
+[You]: Eso,
+[Remote]: Eso no sé, habría que habría que charlarlo. Nosotros dentro no,
+[Remote]: de de Bima, pero porque eso ya se está haciendo por por
+[Remote]: cada satélite, ya está generando sus asientos y estamos trabajando en eso.
+[Remote]: Entonces, no sé si se va a hacer desde ahí.
+[You]: Okay.
+[You]: Pero
+[Remote]: Pero sí, la parte transaccional, porque, y, a ver, obviamente, va a ver que
+[Remote]: hacer como un control de lo que estemos mandando desde los
+[Remote]: sea lo mismo que le mandemos a esta plataforma para conciliar, ¿no?, y que den los números.
+[Remote]: Más allá de que consigue transacción por transacción, que el total de transacciones me cruce con el total que
+[Remote]: estoy mandando la ciento contable desde los desde los satélites. Eso sería
+[Remote]: como un controlcito extra, pero pero no, bueno, no sé, no me no
+[Remote]: no lo descarto y no les digo que no de una, pero creería que los asientos contables irían desde otro lado.
+[Remote]: O, por lo menos, es como está pensado hoy, quizás vamos con esta
+[Remote]: idea y nos dicen, no, bueno, está bueno, lo usemos o no, pero pero, bueno, está buenísimo saberlo.
+[Remote]: Claro, yo lo comentaba como para que lo sepan y si si de repente
+[Remote]: la parte de asientos contables también es una carga operativa o o
+[Remote]: o para el equipo técnico y demás, nosotros también lo nos dedicamos a automatizarlo completamente
+[Remote]: ¿cómo cómo se dice? No-code, o sea, autogestionable, y lo editan en la plataforma y listo.
+[Remote]: Barrera. No, está buenísimo saberlo. Nada, de mi lado,
+[Remote]: estaría buenísimo, creo, ver una ver una demo y quizás sumar a uno de los chicos de que hace bancos
+[Remote]: también es el que el que está mucho en consideraciones,
+[Remote]: Y nada, yo centrado en esta parte, por las dudas ahí, Kevin, Lu, en lo que es
+[Remote]: la consideración del operatorio NASDAQ, Bimacash, no consideraciones bancarias en general.
+[Remote]: Que consideraciones bancarias
+[Remote]: medio que lo llevaríamos por pero para esta conciliación puntual,
+[Remote]: sí estaría estaría muy bueno ver una demo y ver si lo podamos llegar a
+[Remote]: a implementar y ver si es si es lo que buscamos.
+[You]: Perfecto.
+[You]: Ahí nos
+[Remote]: Ahí nosotros lo que, por lo general, hacemos con con demos es
+[Remote]: te pedimos, por ejemplo, dos archivos con
+[You]: Lo
+[Remote]: cinco líneas cada uno, de ejemplo, nosotros las populamos y te mostramos exactamente cómo sería un cruce con tu data, obviamente con data Dummy hecha con nosotros, si necesitamos algunos ejemplos y y la estructura y y demás. Dale. Eso sí, sí, lo podemos lo podemos sacar. Yo lo las he hecho manualmente, digamos, lo lo he simulado manualmente, así que tengo días sacado de ambos sistemas, y serían, obviamente, dos planillas de Excel. Exactamente, perfecto. Para que veas el valor real y veas un ejemplo real en la demo, ¿viste?, porque una genérica veces...
+[You]: no solo la
+[You]: I can see.
+[You]: Para que veas el valor real y veas un ejemplo real en la ¿viste?, porque si hacemos una genérica los
+[Remote]: Los
+[You]: nuestros clientes se quedan como
+[Remote]: los clientes se quedan como medio como, pero no sé si cómo les funcionaría, así que
+[You]: cómo funcionaría, así que
+[You]: si querés, para que él compartas y
+[Remote]: si querés, para que nos compartas eso y estar seguros, tengamos un NDA, así estamos cien por ciento
+[You]: por ciento
+[Remote]: del lado correcto de la ley, con seguridad por ese lado,
+[You]: del lado
+[You]: por ese lado,
+[You]: Ahí, después, si quieres, yo,
+[Remote]: Ahí, después, si querés, Kevin, te busco, o no sé si lo yo, directo,
+[You]: para ver si yo quiero mandar un tip de ustedes o
+[Remote]: ustedes para ver si nos quieren mandar un template ustedes, o mandamos el nuestro, con el que siempre hacemos las demos.
+[You]: nuestro, porque siempre hacemos las demos.
+[Remote]: Dale, si quieres, yo un mail como para poderlos en contacto también, yo igual
+[Remote]: estoy a disposición siempre, pero para que también todos se puedan contactar entre todos.
+[Remote]: Y se puedan enviar los archivos, yo después de reunión algún que los pongo en contacto.
+[You]: Thank you.
+[You]: Dale. Pilar, una pregunta, la usuaria de la
+[Remote]: Dale. Buenísimo. Pilar, una pregunta que tú dices, ¿la la usuaria de la plataforma serías vos, cien por ciento vos?
+[Remote]: No, no, o sea, todo el área contable y de de todo lo que sería bancos.
+[You]: Ok.
+[Remote]: Ahí es un área donde somos, no sé.
+[Remote]: Ser
+[Remote]: siete, ocho.
+[Remote]: Entre bancos y
+[Remote]: Perfecto. Ahí, lo que nos suele pasar también es que
+[You]: Lo contacto.
+[Remote]: nos contactan un área, como por ejemplo, ustedes,
+[You]: Y de repente
+[Remote]: y de repente hay otros procesos, bueno, suelen ser finanzas,
+[Remote]: operaciones y contabilidad, las las tres grandes áreas, pero después de repente vienen equipos
+[Remote]: técnicos,
+[Remote]: repente ha llegado marketing y todos quieren... Nosotros nos dedicamos a automatizar procesos
+[Remote]: conciliatorios.
+[Remote]: De repente empieza todo el mundo a querer armar sus propias automatizaciones, sus propios
+[Remote]: demás.
+[Remote]: Sí, seguro, seguro que después se se
+[Remote]: nada, te empezás a iluminar para qué otras cosas pueden servir. Como le digo, hoy lo estoy pensando para esto,
+[Remote]: que nada, es la nueva la necesidad que tenemos como muy fresca,
+[You]: Perfecto.
+[Remote]: seguramente
+[Remote]: hasta otras otras áreas que explota.
+[You]: No, y nos encanta, al final, el alcance limitado, siempre ayuda para movernos.
+[Remote]: El alcance limitado siempre ayuda para movernos más rápido, ¿viste?, crear valor rápido, después vemos como que
+[You]: Rápido, ¿viste?, y crear valor rápido.
+[You]: Expandimos. Última preguntita,
+[Remote]: Sí. Una preguntita, y acá por ahí me estoy adelantando, ¿no?, pero
+[You]: Acá, por ahí, me estarían dando el otro.
+[You]: Hacemos la demo,
+[Remote]: hacemos la si quieren después hacemos una prueba piloto, digo, todo funciona.
+[You]: armamos el el caso
+[Remote]: Y armamos el el caso.
+[You]: ¿A quién se lo tengo?
+[Remote]: ¿A quién se lo tenemos que presentar para que
+[You]: Para que pruebe y avanzar ya en decir, ok, estamos
+[Remote]: apruebe y avanzar ya en decir, ok, necesitamos contratar esta herramienta? ¿O es una decisión que tomarían ustedes dos? No, no, no, supongo que gerencia de de administración o CFO.
+[You]: contratar esta herramienta.
+[You]: O es una decisión que tomarían ustedes dos.
+[You]: No.
+[Remote]: Alguno... Por ahí por ahí andará el aprobador.
+[You]: Y en en otros casos,
+[Remote]: Y en en otros casos, cuando contrataron herramientas ahí, ¿cómo
+[You]: herramientas ahí,
+[You]: o
+[You]: o cómo fue ese proceso? ¿Cómo
+[Remote]: cómo fue ese proceso?, ¿cómo funcionó?
+[Remote]: Ay, no sé si Kevin sabrá yo.
+[Remote]: No, no tuve él. Y la verdad, no, no
+[Remote]: no tengo mucho conocimiento. Me imagino que este caso se lo tendrá que aprobar Augus, Augustino Fuatorres, que es la CFO.
+[Remote]: Así que sí, me me imagino que irá por ese lado. Ahora que
+[Remote]: presentárselo a ella, a las la apreciación la la gente de de contabilidad,
+[Remote]: y, bueno, valorarán y vamos a probar a ello.
+[You]: Buenísimo.
+[Remote]: Sí, yo creo que, generalmente, lo que solemos hacer es
+[Remote]: ver diferentes alternativas, y después se toma la
+[Remote]: la decisión que se cree más correcta, pero creo que, en este caso,
+[Remote]: o gerenta o CFO aprobarían.
+[Remote]: Así que, entre ellos, todo bien. Digamos, no sabemos quién, pero en tres dos dos. Perfecto. Creo que ahí la clave para mostrarlo es
+[You]: Perfecto.
+[Remote]: esto que comentaban ustedes, chicos, y quizás hacerlo con info nuestra, por no que sea info...
+[Remote]: Basura, pero claro.
+[Remote]: Pero que sea con info nuestra y que realmente sea como aplicable a lo nuestro, y quizás no ir con algo genérico. Porque nos ha pasado, y que por ahí te es difícil llevarlo a lo a lo tuyo. Perfecto, espectacular. Y, obviamente, están recién empezando a explorar esto no tienen un un presupuesto en la cabeza, un rango de No, ahí. Ok. Creo que va a depender mucho de la utilidad que nos dé también y del de la solución que nos brinde supongo que ahí se evaluará.
+[You]: Perfecto.
+[You]: Espectacular.
+[You]: Y, obviamente,
+[You]: recién empezando a explorar esto,
+[You]: tienen un presupuesto en la cabeza, un rango de
+[You]: nada.
+[You]: Ok.
+[You]: Obvio. Sí.
+[You]: Obvio.
+[You]: Bueno, espectacular. No sé si
+[Remote]: Bueno, espectacular. No sé si
+[You]: quedó algo
+[Remote]: quedó algo, alguna preguntita o algo, sino
+[You]: algo así, luego,
+[You]: sería por el
+[Remote]: avanzaría por el NDA, que nos compartan el archivo y tratar de agendar una demo la semana que viene.
+[You]: Dale.
+[Remote]: Dale. La
+[You]: Sí.
+[Remote]: tiempo de implementación decía cuatro semanas,
+[Remote]: Sí. Dígame una. Depende mucho de
+[You]: Okay. Menos también.
+[Remote]: del
+[Remote]: de la disponibilidad de la información.
+[Remote]: Ok. Si si de su lado se se disponibiliza todo rápido, sí.
+[You]: Sí, claro.
+[Remote]: Bien, sí, sí, yo entre hoy y mañana les armo un
+[Remote]: sea, le borro un poco los datos reales, digamos, y se lo se lo paso.
+[Remote]: ¿Y hay etapas de capacitación a
+[Remote]: a los colaboradores para que sepan, digamos, hacer como este no-code? Ok.
+[Remote]: Perfecto. Por ciento. Típicamente, esas cuatro semanas las escrituramos dos de de
+[You]: Más con los equipos técnicos, conectando la plataforma,
+[Remote]: más con los equipos técnicos conectando la plataforma y poniéndola andar, y después las otras dos hacemos como
+[You]: hacemos como
+[You]: workshops, working sessions con los equipos
+[Remote]: workshops o working sessions Ah, buenísimo.
+[You]: asegurando hacerlo bien el walk through, los casos de uso.
+[Remote]: Asegurando, haciendo bien el walkthrough, los casos de uso. De todas maneras,
+[Remote]: el la la implementación nos la calzamos nosotros.
+[Remote]: O sea, lo dejamos andando, vemos que ustedes dicen ok y demás,
+[Remote]: y obviamente cien por ciento acompañado en el aprendizaje por hacer la plataforma y demás,
+[Remote]: Es muy intuitiva, igual,
+[Remote]: pero
+[Remote]: como para que se queden tranquilas, que es un acompañamiento
+[Remote]: completo.
+[Remote]: Ok, buenísimo.
+[You]: Okay.
+[You]: Bueno, ahí,
+[Remote]: Bueno, ahí, justo, digitando, Lucía,
+[You]: algo
+[You]: Pinarrón.
+[Remote]: Pilar, Ron,
+[You]: Si nos vas a mandar archivos
+[Remote]: si nos vas a mandar archivos
+[You]: le vas a borrar la línea, entonces, significa que vamos con eso,
+[Remote]: le vas a borrar las líneas, entonces ni firmamos el NDA, vamos con eso,
+[You]: Si no vas a mandar archivos reales,
+[Remote]: Si nos vas a mandar archivos reales, firmemos el NDA, así que
+[You]: no se le envía y así que
+[You]: camino, como
+[Remote]: los dos caminos, o vos prefieras.
+[Remote]: Bueno, como quieran, si quieren lo charlamos un poco más adentro, porque capaz
+[Remote]: capaz es mejor info real, pero a la vez tendríamos que charlarlo adentro si la podemos pasar o no.
+[Remote]: Así que no sé si quieren ahí lo, hablamos un poco con con el gerente. Sí.
+[Remote]: Hablamos con el gerente de administración, que es Sole, Soledad, y
+[Remote]: con la misma y
+[You]: Dale.
+[Remote]: les pasamos.
+[Remote]: Te te doy más.
+[You]: ¿Sí me quiere?
+[Remote]: Si me querés pasar los archivos con dos, tres líneas,
+[Remote]: y yo las populo, o sea, yo que le genero la data a mí también es una opción,
+[Remote]: como como para que
+[Remote]: sea lo que mejoro.
+[Remote]: Les parezca.
+[Remote]: Dale, dale, dale. Vemos la posibilidad de poder mandar info real, que para mí sería lo ideal,
+[Remote]: pero si no, bueno, vemos ahí
+[Remote]: Obvio. Cómo cómo vamos.
+[You]: Dale.
+[Remote]: Dale, espectacular. Buenísimo. Un ratito
+[You]: Una
+[You]: Bueno, mil gracias.
+[Remote]: mando el mail para ponernos en contacto y después, no, de
+[Remote]: deciden si vamos con Inforreal o no. Si vamos con Inforreal, avanzamos con el tema del NDA, si no,
+[Remote]: nada, avanzamos con el tema Gami, y, bueno, vamos hablando para
+[Remote]: concretar
+[Remote]: una siguiente instancia, quizás más técnico, y una demo para
+[Remote]: pasarlo más interesante.
+[You]: Dale.
+[Remote]: Dale. Buenísimo. Dale, buenísimo. Bueno, chicos, era nada. Gracias, checo. Gracias.
+[You]: Gracias Kevin.
+[Remote]: Chao, Chao, chao.
+
+============================================================
+SUMMARY
+============================================================
+### Their background
+
+- BYMA (Bolsas y Mercados Argentinos) operates in financial markets with custody operations
+- Currently undergoing complete system transformation, changing their entire ERP and accounting processes
+- Have two main operational streams: bank transactions and operational transactions (custody operations)
+- Currently operate with 4 different banks through Banco Central integration
+- Use NASDAQ for custody operations, data stored in their data lake
+- Accounting team of 7-8 people who would be platform users
+- Process approximately 78,000 transactions per day from NASDAQ alone
+- Have developed internal satellites: one connected to banks via API through Banco Central, another for NASDAQ operations
+
+### Pain points and needs
+
+- Currently reconciling transactions at aggregate level only, creating visibility gaps when individual transaction differences prevent proper reconciliation
+- Manual reconciliation process when globalized amounts don’t match due to single transaction discrepancies
+- Need transaction-by-transaction visibility to identify specific reconciliation issues
+- Limited ID matching capability:
+  - Outbound operations (payments) have unique IDs on both sides
+  - Inbound operations lack unique IDs for matching
+- Current bank entries show as grouped transfers while operational side shows individual transactions, making amount-based matching impossible
+- Reconciliation is “a major pain point” according to the team
+- Need daily, transactional-level reconciliation to support their ERP migration
+
+### Questions or concerns
+
+- Volume capacity: “Obviously the platform needs to support this because the reality is it’s quite a lot, and obviously it would be from both sides, so it would be like doubling it”
+- Data integration approach: whether to pull directly from NASDAQ or from their data lake
+- Resource requirements from their technical team for implementation
+- Whether the platform can handle their specific matching requirements when unique IDs aren’t available
+- Integration timeline alignment with their ongoing ERP implementation
+
+### Budget and timeline
+
+- No specific budget established yet: “I think it will depend a lot on the utility it gives us and the solution it provides”
+- Extremely high urgency: “If we could have it next week, that would be a goal”
+- Timeline depends on ERP implementation status and resource availability
+- Decision makers: CFO Agustina Torres and Administration Manager Soledad
+- Evaluation process includes comparing different alternatives before final decision
+- Implementation timeframe mentioned as 4 weeks if information availability allows
+
+### Next Steps
+
+- BYMA to provide sample data files (2 Excel files with transaction examples)
+- Decide on NDA requirement if sharing real data vs. dummy data approach
+- Schedule demo for next week using BYMA’s actual data structure
+- Include technical team member (Lucas) and banking operations specialist in next meeting
+- Ignacio to send introductory email connecting all parties
+- BYMA to consult internally with Administration Manager (Soledad) about data sharing permissions
+- Prepare demo showing transaction-by-transaction reconciliation using BYMA’s specific data format
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/181306a7-9429-4fca-93c0-3fc0ebb0c19f](https://notes.granola.ai/t/181306a7-9429-4fca-93c0-3fc0ebb0c19f)

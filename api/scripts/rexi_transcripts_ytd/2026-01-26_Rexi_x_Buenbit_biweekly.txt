@@ -1,0 +1,526 @@
+MEETING: Rexi x Buenbit: biweekly
+DATE: 2026-01-26
+ID: not_6oHdBx2p0Cys8k
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Sofia Cilli <sofia.cilli@buenbit.com>, Sebastian <sebastian@rexi.finance>, Matias Romero, CFA <matias.romero@buenbit.com>, Agustin Rubinstein <agustin.rubinstein@buenbit.com>, Juan Dimodugno <juan.dimodugno@buenbit.com>, Rubí Bricka <rubi.bricka@buenbit.com>, Teo <teo@rexi.finance>, Nicola Romero <nicola.romero@buenbit.com>, Luis Radunsky <luis.radunsky@buenbit.com>, Jonathan Navarro <jonathan.navarro@buenbit.com>
+SCHEDULED: 2026-01-26T14:00:00-05:00 - 2026-01-26T14:45:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Buenas.
+[Remote]: Buenas. ¿Cómo, man? ¿Cómo, man?
+[Remote]: ¿Qué tal, chicos? Che, bueno, nada, para empezar quería
+[Remote]: pasar un poco estatus y situación de estos último tiempo, si quieren.
+[Remote]: Ahora con esto de Nexo estamos bastante ocupados,
+[Remote]: entre varias cosas, pero mientras que podemos atender
+[Remote]: la integración esta que estamos haciendo con ustedes y todo, vamos avanzando en la medida de lo posible,
+[Remote]: y primero lo que surgieron fueron varias cosas de la integración,
+[Remote]: en sí, por eso también se demoró tanto primero con la parte de BIND que faltaba para
+[Remote]: ponerlo en el data warehouse, y a la par de eso también, Erno,
+[Remote]: haciendo la parte de los archivos que se suben,
+[Remote]: Y, bueno, al final,
+[Remote]: varias idas y vueltas, pero estamos en condiciones de
+[Remote]: por un lado, la parte que son las transacciones que se producen en buen beat,
+[Remote]: esa parte está up to date,
+[Remote]: actualiza todos los días, estos últimos
+[Remote]: tres, cuatro días estuvimos con problemas en el data warehouse,
+[Remote]: Puede que por ahí no se haya reflejado, pero hoy ya está resuelto, así que
+[Remote]: sin dudas, eso está. Tenemos transacciones hasta el mismo día te dejé escuchar.
+[Remote]: ¿Es problema mío? ¿A mí?
+[Remote]: Sí, le escuché qué pasó.
+[Remote]: Ahora sí, perdón, No sé si habían hablado o algo y
+[Remote]: no, comenté que sí tenemos tenemos transacciones incluso de hoy,
+[Remote]: en en la tabla de transactions.
+[Remote]: Así que sí, sí está actualizando bien. Bueno,
+[Remote]: por otro lado, la otra parte, que es las transacciones
+[Remote]: que el proveedor reporta,
+[Remote]: y nosotros subimos por archivos,
+[Remote]: que es esa segunda tabla involucrada,
+[Remote]: Esa tabla la estamos cargando, o sea, la idea
+[Remote]: hacer una herramienta en back office y que se pueda cargar desde ahí,
+[Remote]: el back end ya está resuelto de eso. Mañana lo vamos a probar y configurar,
+[Remote]: ver si falta ajustar algo, pero en principio ya estaría
+[Remote]: terminado, según lo que me dijeron,
+[Remote]: y será cuestión de configurarlo nada más. Y de ser así, entonces mañana ya
+[Remote]: estaríamos con
+[Remote]: movimientos también en la que es provider transactions.
+[Remote]: Perfecto. Yo acá armé esto como para que, porque estuvimos haciendo los los
+[Remote]: conciliatorios con las tablas nuevas en d doble h conciliations,
+[Remote]: y pasó exactamente lo que explicaste recién,
+[Remote]: no tenemos matches porque las tablas
+[Remote]: hoy, como están en esta base de datos nueva,
+[Remote]: no coinciden al mismo período. Entonces, tenemos
+[Remote]: como dijiste, ya actualizado hasta el día de hoy,
+[Remote]: y todo lo que es proveer transactions arranca
+[Remote]: en el el primero de agosto, por así decirlo, y termina el último día de agosto,
+[Remote]: y esta transacción se arranca el dos de septiembre. Entonces, no no hay ningún cruce temporal entre
+[Remote]: estas tablas, por ahora.
+[Remote]: Perfecto. Bueno, para tener en cuenta ahí,
+[Remote]: va a arrancar el dos de septiembre, como bien dijiste, a ser la fecha
+[Remote]: en la cual transactions va a estar populada, de ahí en adelante,
+[Remote]: Sin embargo, la de provider transaction no, esa vamos a cargar desde diciembre,
+[Remote]: sea, incluido en adelante.
+[Remote]: Perfecto.
+[Remote]: Lo último que tengamos.
+[Remote]: ¿Sí?
+[Remote]: Por si hay que hacer alguna exclusión o algo, porque esas no van a machear nunca en principio
+[Remote]: No, está bien, obviamente eso lo lo podemos gestionar directo desde la plataforma o en la al momento
+[Remote]: de la ingesta, eso es irrelevante.
+[Remote]: Ok.
+[Remote]: Lo que quieran conciliar se concilia desde la fecha que
+[Remote]: les parezca a ustedes en adelante.
+[Remote]: Ok, perfecto. Bueno, en
+[Remote]: teoría mañana vamos a cargar todos los files, ahí estamos gestionando bien los accesos y recopilando bien todo, porque son muchos archivos. Y eso igual debería ser transparente, y una vez que los tenemos y subidos, se deberían disponibilizar automáticamente. Y a partir de ahí deberíamos chequear si hay algún duplicado o algo en esa ata que limpia, y en teoría no lo debería haber. Para también pasarles un toque reporte con respecto a eso que habían ustedes reportado en un momento, ¿no? Que había como duplicado. O sea, nosotros encontramos duplicados esta vez en la en la de la de provider transactions.
+[Remote]: Sí, es que esa es es es como que se carga a mano y estuvimos haciendo pruebas.
+[Remote]: Podría estar sin duda duplicado. Pero ahora que mapeemos directamente
+[Remote]: archivos ahí, si hay duplicados,
+[Remote]: o es un error en el archivo,
+[Remote]: no lo vimos nunca,
+[Remote]: o directamente es algo en todo el proceso este y, bueno,
+[Remote]: saltar ahí, sinceramente, porque no tiene mucho sentido. Si si hay
+[Remote]: provider, perdón, si hay transacciones,
+[Remote]: de buen beat duplicadas, ahí sí
+[Remote]: vamos a revisar con toda.
+[Remote]: Pero en esa tabla que fue temporal, no no creo que valga mucho la pena en eso.
+[Remote]: Dale, perfecto.
+[Remote]: Bueno, de de nuestro lado, eso nomás.
+[Remote]: Y y gracias por la aclaración. Nosotros ahora, entonces,
+[Remote]: ya a partir de mañana o o pasado, cuando esté la la información, ya podemos empezar a
+[Remote]: de manera diaria,
+[Remote]: Eso es así. Sí, ahí yo,
+[Remote]: ahí Johnny, yo por ahí haría la salvedad de que, si bien podemos hacer un full
+[Remote]: upload mañana o en estos días,
+[Remote]: la herramienta para que se vayan subiendo los files todavía no está
+[Remote]: y todavía no Perfecto, eso es lo que iba a preguntar se barrió, por ende,
+[Remote]: eso puede ser algún tipo de definición y agregar algún delay en el medio.
+[Remote]: Pero de última, sí, mientras se desarrolla,
+[Remote]: alocamos diez, quince minutos por día,
+[Remote]: a a subirlo manualmente nosotros directamente desde el backend,
+[Remote]: podría ser algún tipo de alternativa.
+[Remote]: Sí, yo lo que estaba pensando ahí es,
+[Remote]: en el transcurso, o sea, como es una herramienta medio automática para lo por lo menos lo que es el código,
+[Remote]: subir nosotros los archivos con Erno en un rato lo hacemos y subimos bien todo lo que haya,
+[Remote]: hasta el día de la fecha, digamos, de mañana. Y sí, obviamente,
+[Remote]: algo que iba a decir antes, pero bueno, bien que lo mencionaron, la herramienta del back office no está,
+[Remote]: así que a partir del momento, mañana, asumiendo que cargamos todo,
+[Remote]: el próximo archivo que venga del proveedor
+[Remote]: vamos a tener que ver de cómo cargarlo.
+[Remote]: ¿Sí? Si si nos lo pasan a nosotros, si nosotros le enseñamos cómo hacerlo desde un API,
+[Remote]: que no es tan difícil, pero bueno, para no seguir agregando gente en la cadena,
+[Remote]: Pero bueno, por lo menos igual,
+[Remote]: ya deberíamos tener mucha más claridad con diciembre, y lo que va de enero, sin dudas, y y poder resolver cualquier problema a partir de ahí.
+[Remote]: Juan, y consulta, el tema de la del ATUL, y eso
+[Remote]: ¿tú tienes visibilidad de cuándo podrías llegar a estar como para que se automatice todo eso?
+[Remote]: Y lo cierto es que por todo esto que que estuvimos
+[Remote]: haciendo con con Nexo y demás, no,
+[Remote]: no se le dedicó tiempo a estimar
+[Remote]: la
+[Remote]: confección de la herramienta. No obstante, si mañana cuando, este, suban los chicos la
+[Remote]: los files, se disponibilice algún tipo de de
+[Remote]: contrato y demás, se podría estimar mañana y
+[Remote]: tratar de atacarlo de manera prioritaria.
+[Remote]: Obviamente, vamos a tener que internamente hacer algún enroque
+[Remote]: producto de todo lo que también está pasando en paralelo.
+[Remote]: Por eso también, incluso, no se pasó una estimación formal.
+[Remote]: Sí, el el proceso de decir verdad no es tan complicado, es un solo endpoint y se puede
+[Remote]: hacer todo con un comando. O sea, ese comando lo podría ejecutar cualquiera, nosotros le pasamos y
+[Remote]: con el token de la COFIS se puede ejecutar eso sin problemas.
+[Remote]: Eso sería un muy buen entry point para romper la dependencia de que
+[Remote]: esté lista la herramienta del back office y poder seguir cargando cosas.
+[Remote]: Ahora, si igual podemos avanzar con esto, y mientras
+[Remote]: ustedes pueden probar la conciliación, que todo funcione, diciembre, enero y
+[Remote]: ajustar cualquier cosa, en todo ese tiempo que pase para validar eso,
+[Remote]: quizás ahí tenemos un poco de aire para atacar la herramienta.
+[Remote]: Pero la herramienta no no es un problema, porque igual alguien va a tener que ir y subirlo,
+[Remote]: sea que lo hagas del back office o ya sea que lo hagas de una terminal, porque
+[Remote]: ese es el el mecanismo, se va a tener que tomar el laburo de ir a hacerlo.
+[Remote]: Nosotros podemos dejar ese código muy claro, que sea un solo código, sea
+[Remote]: se copia y se pega,
+[Remote]: le ponés el nombre del archivo y te lo sube.
+[Remote]: Y eso sería como lo más fácil
+[Remote]: para no tener que hacerlo nosotros.
+[Remote]: Y de ahí habría que ver el tema de la herramienta igual del back office, que eso ya
+[Remote]: llevará tiempo y habrá que que ver cómo quién lo toma y tal.
+[Remote]: Pero como para que todos tengamos algo, por lo menos, para movernos.
+[Remote]: Digo, como una solución.
+[Remote]: Después, si si no convence el tema del script y eso, o es muy difícil, vemos.
+[Remote]: Lo nos pasan el file, lo hacemos nosotros, de última.
+[Remote]: Importante es que podamos cargar mañana todo
+[Remote]: lo que ya hay, digamos, de de diciembre y enero.
+[Remote]: Buenísimo.
+[Remote]: K.
+[Remote]: Bueno, no sé si hay más, hay alguna duda puntual o algo.
+[Remote]: No, de, o sea, doble clic, por lo que comentó, tío,
+[Remote]: podemos
+[Remote]: dar por por cerrado el tema de falta de accesos y todo, ya pudieron chequear todo.
+[Remote]: Sí, sí, ya accedimos a la data, perfecto, y obviamente,
+[Remote]: la la diferencia temporal de de la fuente de datos
+[Remote]: cuando hicimos los procesos conciliatorios, pero verla está está perfecto.
+[Remote]: Y lo único que hay son ciento y pico de duplicados en la de provider,
+[Remote]: pero Ok. Eso es lo de menos.
+[Remote]: Sí, ahí como para también tirar
+[Remote]: cuando estuve mirando la query, los movimientos,
+[Remote]: hay source de Bing y hay source de Coinal. Sí. Y van a ver que también iSource unknown
+[Remote]: y hay unos movimientos ahí, y son del back office
+[Remote]: porque el
+[Remote]: el el ID interno empieza con b o guion bajo y u hash.
+[Remote]: El tema es que yo no supe muy bien qué decisión tomar ahí, los dejé,
+[Remote]: ustedes seguramente los van a terminar viendo y veremos.
+[Remote]: Nosotros estamos segregando las bases por bindi, coinag,
+[Remote]: y no nos estamos trayendo nada que no tenga eso, si hay que traerlo, lo traemos y lo
+[Remote]: gestionamos como ustedes prefieran.
+[Remote]: Y yo diría de tomar un approach más
+[Remote]: así, tipo de traerte todo y en base de ahí ver
+[Remote]: qué qué acción tomar, las que no tengas mapeados,
+[Remote]: ahí entramos en contacto. Porque yo vi, pero pero se podrían haber
+[Remote]: escapado si nadie las veía, y y la idea es justamente que que tengamos bien como todo, sí se puede.
+[Remote]: Sí, se puede tener todo. Entonces, eso es más una decisión de negocio
+[Remote]: nosotros le les compartimos, si querés, la las
+[Remote]: transacciones que no que no tienen proveedor, y
+[Remote]: y después vemos qué qué qué transacciones son y qué y qué se hace con esas.
+[Remote]: Ok. Bueno, no, como
+[Remote]: quizás no, no se hace nada, pero
+[Remote]: sí.
+[Remote]: Sí, Manuel. No entendí viendo lo del proceso manual, es one shot,
+[Remote]: es recurrente?
+[Remote]: No, es recurrente cada vez que el proveedor informa un file nuevo.
+[Remote]: Hay que ir al back office y subirlo.
+[Remote]: O sea, si es uno por día,
+[Remote]: es una vez al día cada vez que llega ese file al back office y subirlo.
+[Remote]: La
+[Remote]: Ahí, pero planteamos la solución de entrada así, porque podían ser
+[Remote]: NFiles, CN conexiones, cada proveedor con su mambo, entonces, para no atar
+[Remote]: concretamente un SFTP específico de un proveedor y tal, dijimos que lo bajen,
+[Remote]: quien tenga acceso, si lo mandan por mail,
+[Remote]: lo mandan por mail,
+[Remote]: Lo que sea, no importa, se sube desde una sola herramienta en el back office.
+[Remote]: Esa fuera arquitectura, medio que quedó así, no hay nada, medio automatizado en ese sentido.
+[Remote]: Sé yo, se puede plantear, sin duda, pero, bueno, no sé, hay que ver cuántas recurrencias,
+[Remote]: los están todos los días a la misma hora y un par de cosas, digamos.
+[Remote]: Y y ahí consulta, ¿eso lo lo tendríamos que hacer desde el lado de nosotros?
+[Remote]: O Nacho y Teo? ¿Eso lo pueden ustedes también levantar la? Sí, eso le damos acceso.
+[Remote]: Eso, eso.
+[Remote]: Lo que pasa es que justamente hicimos toda una arquitectura para que no tengan que hacer eso los chicos.
+[Remote]: Porque hay cosas que vienen por mail,
+[Remote]: dar un ejemplo, y ese mail
+[Remote]: ¿cómo lo absorben ellos de una manera
+[Remote]: concreta.
+[Remote]: No, y y y además está la otra parte, el procesamiento de las files,
+[Remote]: y el mapeo a la a la estructura que nosotros
+[Remote]: definimos se corre de nuestro lado, no no es viable,
+[Remote]: que ellos tengan el crudo, nos lo pasen a nosotros y nosotros le
+[Remote]: le carguemos cosas.
+[Remote]: Después, si quieren, lo lo vemos, porque se puede challenger, se puede automatizar
+[Remote]: sin duda, no, no hay problema, tampoco es más complicado.
+[Remote]: Hay dos cosas. Una, si ustedes hacen algún tipo de enriquecimiento que nosotros no podemos hacer,
+[Remote]: ahí, bueno, no no sé si hay mucha solución.
+[Remote]: Lo del mail, nosotros felices de desarrollar algún tipo de solución
+[Remote]: para para gestar vía email. O sea, es algo que nosotros vamos a estar haciendo eventualmente sí o sí,
+[Remote]: si hay una casilla que que que quiera,
+[Remote]: Y y el enriquecimiento sí podría ser ustedes, ¿no?
+[Remote]: No no sé qué tipo de enriquecimiento es, pero sí, obvio.
+[You]: Si vas a la base,
+[Remote]: O sea, muchos de los clientes, muchos de los clientes de RED usan Rexy y hacen todo, procesan todo en Rexy, o sea,
+[Remote]: tenemos distintos métodos de ingestión. Esto del mail sería nuevo, pero
+[Remote]: la idea es tomarlo. Justamente estamos esperando un cliente que venga
+[Remote]: el caso del mail para hacer ese método de integración, pero la idea es si
+[Remote]: está la data en Rex y poder procesarla, y a nivel output ahí, Juandi,
+[Remote]: la idea es que desde Rexy ustedes puedan exportarlo
+[Remote]: a cualquier VD ya procesando la data.
+[Remote]: O sea, enriquecida con lo que necesiten,
+[Remote]: con la data ingestada, obviamente, que tiene buen beat. O sea, eso es lo más rápido
+[Remote]: para no depender del equipo de tecnología
+[Remote]: de buen beat y poder procesar todo vía Rexy. Pero ahí nada,
+[Remote]: yo ahora seguiría con estos últimos cambios, que ahora estamos medio en last mile,
+[Remote]: a medida que vayamos encontrando, capaz que para liberarlos ustedes, chicos,
+[Remote]: podemos ir tomando otros flujos o otro tipo de ingesta
+[Remote]: de manera más isolada, sin depender tanto del team de tecnología de de y de buen beat. Sí, o sea, yo yo vuelvo a otra vez a la idea original. Nosotros planteamos una arquitectura porque teníamos unas constraints específicas, de qué compartir, cómo compartir, cuándo compartir, Hicimos todo un laburo, se hizo un microservicio, que se cargan las cosas, se mapean, por x o por I, se demoró eso, está listo. Ahora cambiar un toque eso para descartarlo y que ustedes empiecen a ingestar otra vez los files del proveedor y otra vez hacer todo ese laburo que ya se hizo, me parece que no tiene mucho sentido ahora.
+[Remote]: Ya, ya. Parece que sí, se vuelve un tema recurrente, que no
+[Remote]: se puede de ninguna manera, ahí sí tomemos una acción sin duda y veamos
+[Remote]: automatizarlo es sencillo desde el back office.
+[Remote]: Yo lea directamente el back office si hay un file nuevo, y vemos que Roska lo inventamos de ese lado,
+[Remote]: para no perder el control
+[Remote]: toda la solución que armamos,
+[Remote]: yo trataría de ir por ahí. Si quieren, igual lo podemos challenger,
+[Remote]: y la verdad que no es tan complicado, porque lo más gordo es la parte de transactions,
+[Remote]: ya se las pusimos a ustedes en ese formato,
+[Remote]: y más más uno que otro cambio ahí, eso es lo más importante.
+[Remote]: Ustedes con los files podrían resolver lo lo demás.
+[Remote]: A mí no, lo que me preocupa, lo que decías es,
+[Remote]: quince minutos al día,
+[Remote]: coma,
+[Remote]: ¿no?
+[Remote]: Sí,
+[Remote]: de lo que dije yo, o sea, el hecho de
+[Remote]: el end goal, finalmente, es que en la en el back office
+[Remote]: la persona que que vaya a querer disparar la conciliación o
+[Remote]: los files,
+[Remote]: va, selecciona el el archivo, lo carga con el con
+[Remote]: el
+[Remote]: con la configuración del proveedor, que ya va a estar definida,
+[Remote]: le da procesar y eso se carga
+[Remote]: para que se le escriba los los datos del lado de Rexy.
+[Remote]: Hasta que esa
+[Remote]: la hasta que la tool del back office no esté generada,
+[Remote]: a John y a mí eventualmente durante
+[Remote]: este tiempo, hasta que esté disponible esa herramienta,
+[Remote]: va poder llevarnos ese tiempo.
+[Remote]: Dije, separá de esa ventana como para decir, che,
+[Remote]: hoy tiene que pasar esto sí o sí, mañana tiene que pasar esto sí o sí, y y hacerlo de manera más periódica y de manera consciente. No Ok. No porque yo vea quince minutos en sí, que sea un proceso que
+[Remote]: que que demore eso, sino de decir,
+[Remote]: separemos el tiempo para hacerlo. O sea, no vamos, no, la idea no es
+[Remote]: es no dejar huerfan a la
+[Remote]: el la situación, y que el atul finalmente sea
+[Remote]: cargo un file, le doy procesar, me desentendí completamente,
+[Remote]: y la conciliación corre el lado de Rexit. Ok. Y y la carga, el file es descargarla de un de una casilla,
+[Remote]: La idea es descargarlo
+[Remote]: del source que sea, en el caso de
+[Remote]: en el caso de ese genos, nos manda a una casilla de mail
+[Remote]: que es files punto transfer arroba webbing webbix punto com, y en el caso de bin,
+[Remote]: nos mandan n files por día,
+[Remote]: y lo cargan en un drive, que es el DSFTP.
+[Remote]: Ahí ya hay dos discrepancias en cómo obtener la información. ¿Quién quién lo carga?
+[Remote]: ¿Quién lo carga, Alvin?
+[Remote]: El VIN directamente.
+[Remote]: Ok, ok, o sea,
+[Remote]: ok, no no está bien que tiene que tener un buzón, descargar, hacer clic, guardar, todo todo eso.
+[Remote]: O sea, ese traigo el drive.
+[Remote]: Ahí alguien alguien de buen beat tiene que hacer ese trabajo igual.
+[Remote]: Alguien de buen beat tiene acceso a ese lugar,
+[Remote]: dice, ah, llegó el file, lo descarga, va al back office y lo sube.
+[Remote]: Eso, o sea, yo vuelvo a repetir lo que dije antes,
+[Remote]: era el el plan que consideramos inicialmente por por todo lo que habíamos considerado.
+[Remote]: Si ahora la estrategia cambia, podemos ajustar tranquilamente eso y ver qué le
+[Remote]: vuelta le buscamos para que no haya que nadie ir a poner un botón.
+[Remote]: Hay una, vamos, en base a lo que hicimos ahí al día de hoy, digo,
+[Remote]: Para agregar ahí esto,
+[Remote]: nosotros no sabíamos lo del mail o cómo ingestaba. La idea es también automatizar y que no haya, o sea, que tener una
+[Remote]: persona todos los días misma.
+[Remote]: Te te desconectaste algo, ya no suenas.
+[Remote]: No, no, no, no se escucha.
+[You]: Nope.
+[Remote]: Todavía no.
+[Remote]: No.
+[Remote]: A mí me me indica preocupación es que cuando
+[You]: Se conectaron los airpods ahí, listo, por ahí, me pasa todo el tiempo.
+[Remote]: o sea, preocupación es que con menos gente en operaciones, en finanzas y en
+[Remote]: ingeniería,
+[Remote]: y a los esos quince minutos, sé que no son quince minutos, el tiempo que fuera,
+[Remote]: se se se va meter cada vez más valioso, ¿no? Sobre todo si queríamos meter más
+[Remote]: más fuentes.
+[Remote]: ¿Ese escucha?
+[Remote]: Sí, perfecto.
+[Remote]: Sorry, perdón, me Usted lo lo lo que decía es que no
+[Remote]: no sabíamos lo de esto o la idea,
+[Remote]: esto de de de Rexy es que no haya una persona manualmente todos los días
+[Remote]: yendo a cargar un file y poder automatizar esos procesos. Así que
+[Remote]: si quieren revisar esa parte manual, la podemos revisar también para ayudar y
+[Remote]: que nadie tenga que, desde el operario, digamos, preocuparse por eso,
+[Remote]: y nosotros hacemos esa integración. Ya vi que es una casilla de mail también,
+[Remote]: exclusiva para eso, ¿no? Por lo que dijiste, entonces podemos hacer ese tipo de integración a nosotros,
+[Remote]: Claro, suena que es un, ¿cómo no? El el
+[Remote]: I don't I don't I
+[Remote]: un de fondo de seguridad de no compartir datos por compartir,
+[Remote]: y al pasarles el file, les estaríamos compartiendo c v u, datos
+[Remote]: bancarios y cosas que, en realidad, a fines de la conciliación,
+[Remote]: no tienen mucho sentido.
+[Remote]: Entonces, con ese criterio diseñamos todo un una cuestión de seguridad, de, bueno, de
+[Remote]: eventualmente un plan también de de continuar con con algún otro proveedor de
+[Remote]: conciliación, si ustedes dejaban de ofrecer servicio,
+[Remote]: se tuvieron un montón de cosas en cuenta y se diseñó esa solución,
+[Remote]: que tiene ese tema,
+[Remote]: que igual se puede nuevamente resolver y hacer esa automatización ahí, en vez de tener que hacerla a ustedes,
+[Remote]: y crédito igual,
+[Remote]: también se puede cambiar.
+[Remote]: Cambiarlo sería descartar un servicio que hicimos
+[Remote]: y toda esa idea del plan del back office,
+[Remote]: ustedes sin gestar esos archivos directamente del drive que comparte el proveedor, que se los comparte a ustedes,
+[Remote]: ustedes lo leen,
+[Remote]: Y lo del mail era un ejemplo, No es que hay un mail, hoy creo que no hay
+[Remote]: todavía o tuvimos, pero es un reporte mensual,
+[Remote]: Ahora, actualmente, son cosas que están en un drive,
+[Remote]: y el otro creo que es un es SFTP directamente.
+[Remote]: Yo ¿De ahí hay?
+[Remote]: ¿Cómo cómo escalamos esto con más providers? ¿Cómo se lo imaginan?
+[Remote]: ¿Hoy es bien? Decir configurar en el back office de dónde lo tiene que leer,
+[Remote]: hices un SFTP que dispare automáticamente la lectura de eso y lo cargue solo, en vez de que vaya a un operador.
+[Remote]: Y así con n providers.
+[Remote]: Ok, todo con la misma tabla, contra la misma tabla,
+[Remote]: Sí, sí, sí.
+[Remote]: Eso ya lo ya lo armamos así para que vengan n providers,
+[Remote]: lo que no armamos fue como que se haga automático el el la lectura del file,
+[Remote]: sino que alguien tiene que ir y poner ese file del proveedor.
+[Remote]: Pero eso puede caer en nuestro lado, no en el lado de de
+[Remote]: sí, como está armadora, de nuestro lado.
+[Remote]: ¿Cómo? ¿Cómo seguimos?
+[Remote]: Mañana nosotros depositamos los files,
+[Remote]: a partir de que nosotros mañana disponibilizamos los files, vemos si se puede conciliar bien
+[Remote]: todo diciembre, que está completo, y enero hasta el día de mañana.
+[Remote]: Y si no salta nada raro ahí,
+[Remote]: que que requiera ajustar,
+[Remote]: diríamos que está bastante sólido lo que es la arquitectura de y gestar los datos y tal,
+[Remote]: y ahí sería simplemente cargar lo que falta y ver cómo resolvemos esto de
+[Remote]: la dependencia de que alguien vaya y cargue lo files, de nuestro lado.
+[Remote]: Después, no sé, en general,
+[Remote]: digo, a nivel general del proyecto de Rexy y y
+[Remote]: los Gowls y todo, no sé. Digo, yo eso es lo que puedo decir del lado nuestro de ingeniería. Lo que queremos en el corto plazo es comenzar a conseguir estos dos providers,
+[Remote]: ver que que todo funcione bien, resolver consultas que tengamos,
+[Remote]: asegurarnos de de eso que necesitamos, nuestra principal fuente de de
+[Remote]: volumen
+[Remote]: y una vez que estemos cómodos con eso, pasar lo siguiente, ¿no? Que
+[Remote]: ser Perú, podría ser cripto, podría ser Binance, podría ser
+[You]: Exacto.
+[You]: Lo que más queremos es de que ya esté
+[You]: funcionando de manera automática y asincrónica, y que AUS y el equipo le empiecen a dar
+[You]: ese uso más funcional, ¿no? Y de reporting y de meterse a los dash
+[You]: investigar y resolver discrepancias, que es en realidad para lo cual estamos
+[You]: implementando todo esto. Así que mientras más semanas
+[You]: tengamos de AUR, Ruby y el equipo más
+[You]: de finanzas usando la plataforma mejor, porque van a salir muchas cositas ahí también
+[You]: de features, de cosas de experiencia que vamos a tener que ir ajustando.
+[You]: Y el objetivo después ya con con estos dos flujos
+[You]: andando automáticamente con mucho feedback de AUG, de Ruby del equipo,
+[You]: ahí sí ya después toma una decisión si escalamos para Perú y cripto, ¿no? Pero sí, ese es el norte.
+[Remote]: Pasa que en el corto plazo yo lo que veo es que es lo mismo, en
+[Remote]: de que tengamos o no la automatización del back office. Asumiendo que mañana nosotros podemos cargar todo hasta
+[Remote]: diciembre, enero,
+[Remote]: ya se puede hacer el el gordo, porque estamos en enero.
+[Remote]: Entonces, ¿qué va a hacer la diferencia? Un file de un día solo a conciliar,
+[Remote]: Yo creo que se puede igual practicar todo lo demás con el equipo y que vayan aceitando, viendo la herramienta,
+[Remote]: Total ya va a dar un resultado a la conciliación que hagan de diciembre y enero como para
+[Remote]: conocer bien la herramienta, ver qué valores
+[Remote]: Obvio. Y ahí vamos cargando los files.
+[Remote]: Sin duda, porque eso no nos tiene que poder frenar de ninguna manera la carga de files,
+[Remote]: me me lo cargo yo y me me dicen dónde llega y lo pongo yo en el back office.
+[Remote]: Pero como para seguir avanzando bien con todo lo demás.
+[Remote]: Buenísimo. Nosotros en en
+[Remote]: en el file que que conciliamos de agosto teníamos un un porcentaje que creo que
+[Remote]: noventa y siete, noventa y ocho por ciento de conciliación,
+[Remote]: también estaría bueno entender ese dos por ciento, más allá de lo del
+[Remote]: día del mes y el último, que era donde estaba la diferencia, los que están en el medio,
+[Remote]: de un tipo de regla que podamos ajustar o entender esos casos de uso, como para ya entrar
+[Remote]: la diaria de una conciliación.
+[Remote]: Y sí, ahí habría que bajar a nivel transacción y y estudiarlo.
+[Remote]: Perfecto.
+[Remote]: Pero eso yo diría que ya lo hagan directamente con los chicos y y así van viendo la
+[Remote]: plataforma y viendo bien todo.
+[You]: Sí, por eso una que conectada técnicamente
+[Remote]: Buen
+[You]: es más workshops funcionales con con Ruby, con el equipo.
+[You]: Que ahí es donde va a estar verdaderamente
+[You]: el valor. Yo lo que digo es
+[You]: antes de meter, yo entiendo que técnicamente Johnny no
+[You]: pasar a cripto y a Perú es medio de lo mismo, desde el punto de vista de arquitectura y de disponibilización de las tablas,
+[You]: Pero bueno, no sirve cerrar el alcance acá,
+[You]: realmente validarlo, qué funciona, los features, la experiencia,
+[You]: de de la plataforma, y una vez validado todo eso, que va a haber un
+[You]: adicional a partir de ahí, ahí sí ahí sí ya decir ok, listo, a ver si expandimos,
+[You]: y y empezamos a hacer un alcance más integral.
+[You]: Hoy tenemos hasta el diez de febrero para eso, con lo cual hay por ahí
+[You]: deberíamos ver qué hacemos. Si llegamos al diez de febrero para esa decisión, yo creo que sí,
+[You]: si ya técnicamente está habilitado y esta semana empezamos a
+[You]: a a darle ese uso recurrente, yo creo que llegamos perfecto al diez de febrero para
+[You]: hacer esa retro y y decidir cómo avanzamos, ¿no?
+[Remote]: Bueno,
+[Remote]: duda, mañana nosotros pasamos feedback de ya en lo inmediato, a ver qué onda eso, cómo queda,
+[Remote]: y en base a eso también vemos de definir un poco
+[Remote]: el coste de armar esa esa cuestión de automatización
+[Remote]: para ver cuántos tiempos lleva.
+[Remote]: Y y en base a eso seguimos iterando.
+[You]: Vale.
+[Remote]: ¿Sí? También me me gustaría ver qué onda con la integración del
+[Remote]: resto de cuestiones, o sea, los otros proveedores que queremos integrar,
+[Remote]: nosotros hicimos el surfaced de eso nada más. Ahora me gustaría, si ya hay un poco más de detalle,
+[Remote]: hacer un poco más de deep dive para ver si falta alguna columna, algún detalle,
+[Remote]: si es por API, como que hay un par de cosas todavía que tenemos que ver.
+[Remote]: Bueno, no sé, ahí no no sé qué planes tenían con respecto a eso en en
+[Remote]: en lo que sigue.
+[Remote]: Tenemos que ver cualquier el mayor retorno sobre
+[Remote]: inversión, con los defredores, ¿no? Perú para el tema es el proceso más manual que tenemos, donde más
+[Remote]: espacio para para error hay, de la misma tipo de son menos transacciones, mientras que
+[Remote]: sí.
+[Remote]: Fireblocks hay
+[Remote]: cientos de miles de transacciones,
+[Remote]: pero está bastante automatizado, entonces, como hacer
+[Remote]: beneficio de cada una, para ver con cuál seguimos.
+[Remote]: El problema en términos generales con con Perú es que no nos ofrecen files de
+[Remote]: conciliación,
+[Remote]: que, como vos decís, es muy manual y pasa de cuenta, digamos.
+[Remote]: Claro, y pasa un poco similar con Bridge. Bridge a nosotros no nos pasa
+[Remote]: conciliaciones, tenemos que ir muy a lo
+[Remote]: a lo crudo de todos los eventos que nos informan,
+[Remote]: para poder sacar la
+[Remote]: los valores que nos mandan de la factura, incluso.
+[Remote]: Capaz que lo más orgánico en cuanto a integridad de datos que nos
+[Remote]: provean en files y demás,
+[Remote]: sería la pata cripto.
+[Remote]: Que si bien es más volumen, es más ano
+[Remote]: digamos, todo. Pero al mismo tiempo donde nos pueden meter el gol,
+[Remote]: falta de reconciliación, es sobre todo en los primeros, ¿no? Donde
+[Remote]: todo es manual y puede dar un cero además en algo, ese es el como el
+[Remote]: contra.
+[Remote]: Ahí lo que sugiero también un poco es que rompan con el esquema de lo que armamos,
+[Remote]: en plan de Perú, que tiene ciertas complejidades y que no hay disponibilidad,
+[Remote]: y piensen directamente entre rex y también coméntenle el problema que hay con Perú, ver
+[Remote]: ellos vienen con alguna solución directa,
+[Remote]: porque sí entiendo que es una complejidad ahí.
+[Remote]: Para no seguir sumando. Con los cripto, sí, sin duda, lo lo vamos y lo metemos de una.
+[Remote]: Pero ahí nos van a venir bien ideas de de los chicos que hasta donde pueden llegar y y, bueno,
+[Remote]: en ese caso, el tema de seguridad vemos ahí qué datos hay involucrados y por ahí se
+[Remote]: puede, sin duda, ir por ahí.
+[You]: Dale, buenísimo.
+[Remote]: Esperamos entonces
+[Remote]: a mañana y y en cuanto esté todo listo empezamos más que nada con el uso de la plataforma, ahí vemos cómo cómo seguimos con los otros flujos. O sea, ya desde el miércoles podríamos comenzar a probar. Es lo que
+[You]: Calculo, sí. Yo lo acabo de escuchar, sí.
+[You]: Bueno.
+[Remote]: And what you goes?
+[Remote]: Un placer. Avanzamos.
+[You]: Gracias a todos por el tiempo.
+
+============================================================
+SUMMARY
+============================================================
+### Integration Status Update
+
+- Data warehouse issues resolved as of today after 3-4 days of problems
+- Transactions table now updating daily with current data through today
+- Provider transactions table will be loaded tomorrow via back office tool
+  - Backend complete, requires final testing and configuration
+  - Will include December data going forward
+  - Current temporal gap: transactions start Sept 2, provider transactions end Aug 31
+
+### Technical Implementation
+
+- Found \~100+ duplicates in provider transactions table
+  - Expected due to manual testing process
+  - Will be cleaned once automated file upload begins
+- Source mapping includes Bind, Coinal, and unknown sources
+  - Unknown sources are back office transactions (ID starts with b_u#)
+  - Decision needed on whether to include all transaction types
+- Current architecture designed for security/data privacy
+  - Prevents sharing raw banking/CVU data unnecessarily
+  - Built for multi-provider scalability
+
+### Operational Workflow
+
+- Manual file upload process until back office tool ready
+  - Requires 15 minutes daily for file processing
+  - Two sources: email ([files.transfer@webbix.com](mailto:files.transfer@webbix.com)) and SFTP drive
+  - Someone from Buenbit team needs daily file management
+- Automation options discussed
+  - Email integration feasible for Rexi to implement
+  - Could eliminate manual daily uploads
+  - API endpoint available as interim solution
+- Timeline: Full December-January data available tomorrow for reconciliation testing
+
+### Next Steps
+
+- Load all historical files tomorrow (Buenbit team)
+- Begin daily reconciliation testing Wednesday
+- Validate 97-98% match rate and investigate 2% discrepancies
+- Assess back office automation timeline after Nexo project priorities
+- Evaluate expanding to Peru/crypto providers by Feb 10 decision point
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/bacbaca1-f161-4e7f-911f-397441033181](https://notes.granola.ai/t/bacbaca1-f161-4e7f-911f-397441033181)

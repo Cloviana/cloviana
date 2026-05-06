@@ -1,0 +1,733 @@
+MEETING: Rexi x Ran Makavy (Growth / Distribution)
+DATE: 2026-02-18
+ID: not_TD5nzHQmYscs38
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Ran Makavy <ran@makavy.com>
+SCHEDULED: 2026-02-18T11:30:00-05:00 - 2026-02-18T12:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Hello, Ron. How are you?
+[Remote]: Hello.
+[Remote]: Good. How's it going?
+[You]: Doing good. And you?
+[Remote]: Pretty good. Pretty good?
+[You]: That background is not
+[You]: Right?
+[Remote]: What's that?
+[Remote]: I'm not there. Yeah. Yeah. I'm not there now, but I was there.
+[You]: You wish to be there, right? Me too.
+[You]: You like skiing?
+[Remote]: Yeah. I'm injured right now. I had a knee surgery last week. So
+[You]: Oh, ACL?
+[Remote]: I'm dreaming of a ski.
+[Remote]: No. Just that me discuss. No. Not not a
+[Remote]: I mean, still not a big one, but still recovery.
+[You]: Well, good. Well, I'm happy with not ACL
+[Remote]: No.
+[You]: did get ACL surgery a couple years ago, and it was
+[You]: a nightmare. The recovery was just way too long and all the
+[You]: all the sequels after that, they had up a couple of months tears, and then, I know, I I ran Marathon last
+[You]: year, and I I still feel like I run not in a symmetrical way.
+[You]: And it's been already, like, three or four years. It's crazy, but but I'm happy it was not that.
+[Remote]: Yeah.
+[Remote]: No. I mean, I'm old now. It's at this point, I'm
+[Remote]: I'm doing physical therapy all the time. It doesn't matter. If if I don't do physical therapy, I get injured.
+[You]: And you're based in New York. Right?
+[Remote]: I might as well just do it all the time.
+[Remote]: Yeah. Yeah. I'm in New York.
+[You]: Okay.
+[Remote]: In New York too. No?
+[You]: Very cool. Well, thank you for taking your time.
+[You]: As soon as as soon as Lilly said you you were the most
+[You]: you were one of the most, one of the best
+[You]: distribution leaders she had ever met.
+[You]: Something triggered inside me because it's something where
+[You]: I wanna say struggling, but definitely try to figure out
+[Remote]: Yeah.
+[You]: at Rexy. And I can give you
+[You]: like, a short intro on on Rexy, what we do, and and where we are struggling today.
+[You]: And then would would be great to get your insights, your
+[Remote]: Yeah.
+[You]: advice, or whatever. So Rexy, basically, we're we're we're building a reconciliation platform.
+[Remote]: Well,
+[You]: For fintechs, sponsor banks, payment processors, anyone
+[You]: you know, managing a high transactional volume and integrating multiple payment
+[You]: flows has a pain with reconciliation, and we're building this
+[You]: AA power software to automate the process for them. Now we all know
+[You]: this is not defensible long term with AI, so
+[You]: one of the thesis we had at Rexy when we started this, like a year ago is,
+[You]: the true defensibility and the will come from the network effects
+[You]: of becoming a centralized system. So our understanding of of why it's
+[You]: hard to reconcile today, because reconciliation is just comparing my source to truth against yours.
+[Remote]: Yep.
+[You]: Right? And so there's there's a coordination thing that's happening today.
+[You]: Which explains why it's so painful. So
+[You]: the solution should be a coordination solution, somewhere something that
+[You]: bridges the gap between all these parties and makes sure that they are
+[You]: sharing the correct data in the correct formats
+[You]: that they have a centralized view of what's happening
+[You]: with the money they're transaction they're transacting to each other.
+[You]: So, Rexy, at some point, aims to become that shared tool between the bank
+[You]: the fintech, the payment provider, and payment processor.
+[You]: So that everyone is seeing the same data reconciling with the same logic.
+[You]: And then they have a shared tool to go over the discrepancies. Right? Because today,
+[You]: all this fragmentation, discrepancies become more like a negotiation.
+[You]: Like like saying, hey, I see 10 transactions based on my side,
+[You]: You see 10 on your side, and they're different, and we need to, like, get together to understand
+[You]: to agree on what happened. Right? And it's crazy that today,
+[You]: those things are happening. So so that's our, like, our our our longer term vision, becoming that
+[You]: shared tool. And, of course, for us, reconciliation is a wedge.
+[You]: Not only to becoming that network wide tool, but also
+[You]: to be able to build additional workflows for FinOps on top of it. We believe that
+[You]: financial operations is not gonna be something that's gonna
+[You]: set a company apart from competitors.
+[You]: And so they're always gonna be just this hygiene thing you need to take care of. And in the future, that's
+[You]: gonna be done by agents. I have no doubt of that. There's not gonna be human or at least there's gonna be humans
+[You]: monitoring and supervising, but not
+[You]: humans actually tracking money and and and keeping these spreads
+[You]: heets together and so on. It's just gonna be a team of agents, supervised and and and
+[You]: orchestrated by a CFO, and that's it. And that's
+[You]: sort of, like, the future we're building towards as well.
+[You]: Today, we're building a SaaS. We're selling a SaaS.
+[Remote]: Yeah.
+[You]: I'm talking with finance leaders at banks, payment companies, and and neobanks and fintechs.
+[You]: And I'm saying, hey, today you have a team of two or three people doing this,
+[You]: So it's about workflow automation. It's about risk reduction.
+[You]: And it's about avoiding write offs of stuff you cannot reconcile
+[You]: Some of these fintechs are not able to reconcile everything,
+[You]: not even explain everything, so they're doing literally, like, balance sheet write offs every single month.
+[You]: Even though it's it's a small percentage, it's money, and it can amount to
+[You]: $5.10, $20.15 k a month, and and and that
+[Remote]: Yeah.
+[You]: builds up over time. So that's our sell today.
+[You]: Where are we struggling?
+[You]: First and foremost, we're struggling a bit on the ICP.
+[You]: Which is a good thing and a bad thing. The good thing is they're pulling the market
+[Remote]: Yeah.
+[You]: for many different parts, for a solution like this. Like, we see pull from insurance,
+[You]: marketplaces, banking, payments, fintechs,
+[You]: and anyone in the middle as well. Like, embedded solution, like,
+[You]: banking as a service solutions, which want to embed this capability into their
+[Remote]: Yeah.
+[You]: Like, there's a lot of pull, which that's a good thing. The bad thing is
+[You]: we lack focus, and we have not gained
+[You]: conviction on where we wanna focus today. And that just to step the stage here, we're a pre stage company. So
+[Remote]: Yep.
+[You]: for us, focus is the name of the game, and we need to really nail it down to
+[You]: to something that we can actually win and nail. That's one thing that
+[Remote]: Yeah.
+[You]: that's been happening. The other thing that's been happening is
+[You]: on the sales process itself.
+[You]: I don't think we have we we haven't been struggling in generating top of funnel.
+[You]: Because of our networks and because we don't need that much
+[You]: top of funnel today. We don't need, like, you know, a thousand companies. We need 10, 20 paying customers at this point.
+[Remote]: Yeah.
+[You]: So I don't think the issue is top of funnel. I think the issue is within the funnel,
+[You]: we're not being super smart in qualifying, disqualifying,
+[You]: asking the right questions. I think the demos we've been showing are not magical,
+[You]: then if we do a pilot test or we go straight to a commercial proposal, if the pilot
+[You]: is paid or not. And then there's always the pushback
+[You]: from someone technical on the client's side saying, I can build this
+[You]: internally. There's a couple of things going around, like,
+[You]: that have that have been frustrating for us in terms of
+[You]: given we see the size of the opportunity, given we see a lot of top of funnel,
+[You]: we haven't been converting enough as we would like to.
+[Remote]: Yeah.
+[You]: So that's that's
+[You]: the whole context. I wanna hear more about you the next twenty two minutes. I'm just gonna shut my mouth and and just
+[You]: observe all the learnings and what are your thoughts and and and so on.
+[Remote]: Cool. Okay. So, I mean, I have lots of thoughts.
+[Remote]: I'd also say,
+[Remote]: I think where you are
+[Remote]: I mean, I would sort of more categorize where you're struggling in, like,
+[Remote]: kind of positioning and sales strategy.
+[Remote]: Kind of area. You know, it's an it's less of a you know,
+[Remote]: Most people look for growth. They think about, like, top of funnel
+[Remote]: and then conversion rates and stuff like that. But I actually think it's like it's a it
+[Remote]: in general, it's a too narrow way of thinking about it anyway. So I think it's like I think
+[Remote]: have a good conversation.
+[Remote]: But but I don't actually think you have a
+[Remote]: growth problem. You have a different problem, but, let's let's talk about it.
+[Remote]: I think the
+[Remote]: something you can
+[Remote]: try to do to help for first of all, thinking
+[Remote]: is it let's start with the ICP So
+[Remote]: what I like to do is, like, you know, like, take a table
+[Remote]: and, you know, let's start from the left side, then list a few
+[Remote]: for ICPs. You can say bank, fintech, marketplaces,
+[Remote]: insurance, whatever, large,
+[Remote]: corporate that have complicated financials. I know. Whatever is, like,
+[Remote]: that. Put the
+[Remote]: and all the the idea is not just to make a a long list, but make, let's say,
+[Remote]: you seriously considering these
+[Remote]: four, then put those four. Okay. Don't don't make, like, a just a lump. That's not a four.
+[Remote]: I think for each one of those, you wanna the idea is, like,
+[Remote]: I kind of call it since, the marketing metric.
+[Remote]: Right? It's like, want for each one of them, you wanna understand
+[Remote]: what is the pain you have they're having.
+[Remote]: What is their
+[Remote]: current solution for the Spain?
+[Remote]: And, like, how how much better is your solution for their pay?
+[Remote]: And and then the better needs to qualify by you know, if I have, like, a
+[Remote]: if I have a small
+[Remote]: you give me an itch cream,
+[Remote]: then it's like, your solution is 10 times better, but I don't care about it.
+[Remote]: But if my whole body is, like, you know, itching and I can't sleep,
+[Remote]: you know, your cream is now a lifesaver. Right?
+[Remote]: So so I think it's not just like like I said, where I can do a reconciliation
+[Remote]: 20 times faster. That's like, great. I don't really care about it. I'm wasting
+[Remote]: three people made out of, 10,000. Who cares? Whatever. It's like, I don't have time for it.
+[Remote]: So you also wanna think about
+[Remote]: how important is the problem you're solving
+[Remote]: to that organization in the list of other problems they have.
+[Remote]: Right? So if, for example, I
+[Remote]: I'm helping now a company that does, like,
+[Remote]: don't know, SaaS for solo entrepreneurs.
+[Remote]: They obviously do a ton of stuff on payments.
+[Remote]: And invoices and all this stuff.
+[Remote]: Again, I don't know your products, exactly what it does, but it sounds like it might be relevant.
+[Remote]: This company
+[Remote]: They process, I don't know, at least hundreds of millions of dollars, many
+[Remote]: small transactions.
+[Remote]: Sounds like it might be relevant. Right?
+[Remote]: But
+[Remote]: if I go to talk to them now and I say, look. We are just gonna get killed by
+[Remote]: OpenCloud next month.
+[Remote]: I don't have time to deal with reconsideration right now. Sure. That would be amazing if I
+[Remote]: It was solved.
+[Remote]: But it's not a top five priority right now. So you also need to kinda think about
+[Remote]: the this your quest early question about qualification.
+[Remote]: Qualification is really this.
+[Remote]: Like, how important the problem is, how big it is, and how much better your solutions.
+[Remote]: And the reason why you wanna define divide by the ICP because that that would, like, help you you might you might say, you know what? For marketplaces,
+[Remote]: we're solving a really big pain for just
+[Remote]: general payment system, medium sized pain. For this time, maybe it's like a
+[Remote]: so that's one. I think once you get there,
+[Remote]: then I think the question becomes, like,
+[Remote]: how good are you at articulating
+[Remote]: the right value to the right person in the organization?
+[Remote]: Because that's, like, the the second kind of failure
+[Remote]: on the margin. You know, you're not saying the right message. If I I oversimplify it, but
+[Remote]: there's so many companies I've seen. It's like if you ask them, why do people use your product? They say,
+[Remote]: b c, three different reasons. I go to
+[Remote]: their Google Ads and, like, their those three reason why people buy their products,
+[Remote]: are not in their Google Ads.
+[Remote]: So now if you ask me, like, let's optimize convert the
+[Remote]: funnel conversion, like, it it's irrelevant because you're not getting the right people into the funnel.
+[Remote]: Because you're not selling the valuable position. It's very hard to then get
+[Remote]: convince them or the value proposition is when they didn't come for it. So
+[Remote]: in in your case, it's not an it's not an online
+[Remote]: marketing, but it's same thing. Like, if you are asking your network
+[Remote]: to connect you with someone,
+[Remote]: it's almost like you wanna
+[Remote]: lead them with with the thing that you're doing to know is better.
+[Remote]: So if they come to talk to you,
+[Remote]: they will
+[Remote]: be excited about exactly what you tell them.
+[Remote]: And if they decide to work with you, they'll get the value from exactly what you tell them. So it's a little bit
+[Remote]: for a lot of companies, I've seen and and the reason I'm
+[Remote]: kinda talking about this table
+[Remote]: something you'll see that's like, okay.
+[Remote]: I'm getting a lot of people, a lot of fintech,
+[Remote]: but, actually, my value is better on marketplaces.
+[Remote]: My message is really resonating with banks.
+[Remote]: So now you have, like I I kinda probably like, it's like a bingo thing.
+[Remote]: It's like it's not enough
+[Remote]: that you have a a great ICP, a great value, and a great
+[Remote]: like, messaging, they need to be on the same line.
+[Remote]: Right? If they're not on the same line,
+[Remote]: then there's, like, a ton of friction in the middle, and then sometimes the
+[Remote]: and you wanna know like, especially before, you know, before you go to a meeting,
+[Remote]: before you take a meeting.
+[Remote]: You kinda wanna think about that.
+[Remote]: That's like the I would say start this high level. That's a bit
+[Remote]: generic, but it's kind of high level. I think it helps.
+[Remote]: Organize stuff.
+[Remote]: I think once you
+[Remote]: you say, you know what? Like, I think this is this line
+[Remote]: for I'm I'm, again, making it up. Marketplace is is seems to be, my strongest one.
+[Remote]: So now let's get marketplaces into the funnel.
+[Remote]: Now I think what you said is, like, okay. How do I
+[Remote]: show the value
+[Remote]: in the
+[Remote]: quickest, most impressive way.
+[Remote]: Because even those marketplaces, you know, there's, they have, like, 10 other things to
+[Remote]: The
+[Remote]: I mean, there's lots of thing you can do. One, in the early stage, a little bit hard to
+[Remote]: say, like, you know, that what companies really like is that, like,
+[Remote]: case study from a company exactly like mine.
+[Remote]: That would be kind of, like, the best, but you may not have enough because you're just starting. So it would
+[Remote]: but because because people like those case studies,
+[Remote]: it's also worth to focus
+[Remote]: on kind of, like, a
+[Remote]: industry. Even if you don't really care about industry,
+[Remote]: let's say your product work exactly the same in, like,
+[Remote]: health care and
+[Remote]: I know, lending, whatever. Even if right. Let's say it works exactly the same. Doesn't really matter.
+[Remote]: Finds teams are the same. Everything's the same.
+[Remote]: There's still benefit to talk to five companies in health care,
+[Remote]: that compared to, you know, three in health care, two inland.
+[Remote]: And the reason is, like, it's it just you kind of you pick the language. You know how
+[Remote]: the org is structured.
+[Remote]: You can say you can say something, hey. I'm
+[Remote]: just deployed with one of
+[Remote]: the biggest player in your industry. Like, there's all those, like, small things that gives you both
+[Remote]: and curiosity and, like, and more
+[Remote]: each I mean, I have several companies that, like,
+[Remote]: you know, there would be nothing the companies
+[Remote]: nothing to do with health care.
+[Remote]: They just sell to health care. Why? Because once they sold three health care companies,
+[Remote]: oh, this is the rumor mill. It's like, oh my god. They're doing AI for health care.
+[Remote]: Whatever. They know. Their AI is nice to do with health care. It's just help the companies buy it for something else.
+[Remote]: And it could be even more narrow. Right? It could be we they do AI
+[Remote]: the marketing team in health care.
+[Remote]: Right?
+[Remote]: And it's even less relevant to health care. We do we just do marketing stuff. We actually just do
+[Remote]: generic agents. We sell them to marketing team. They happen to be in health care.
+[Remote]: But now all the health care marketing teams are like, oh my god. I need to do what this company is doing.
+[You]: Yep.
+[Remote]: Like,
+[Remote]: And you can you can get so so since, like so in many ways, it's
+[Remote]: repeating the concept of, like, kind of this metrics is the more dense you go,
+[Remote]: the easier it is kind of to look spread. Of course, you have to start something and
+[Remote]: at the beginning, you might
+[Remote]: depends where you are now. But at the beginning, you might say, you know, I am gonna go to three industries
+[Remote]: and, like, two types of ICPs and maybe
+[Remote]: because I I don't have any of them. So it's like
+[Remote]: I don't it's not that I can leverage my deal with
+[You]: Yeah. And and the product is not something static. It's it's like
+[You]: work in progress. Right? So I can adapt the product to then
+[You]: once I decide the ICP, can adapt the product. So, like, saying,
+[You]: like, for me, now it's very hard to say,
+[You]: for which ICP is my product great.
+[You]: It's very hard for me to say that because the product is still, like,
+[You]: a work in progress, and it's it's very, you know,
+[You]: flexible and exchanging week over week. So it's not like we have a big
+[You]: robust
+[Remote]: Yeah. No. I didn't I didn't I think, look, in general,
+[You]: product, which
+[Remote]: this is again more more more going to price, actually.
+[Remote]: In general, I think
+[Remote]: it is a problem
+[Remote]: when you say it's and and not knowing the SMB is both like good and bad. I I think it's more
+[Remote]: bad than good, to be honest.
+[Remote]: I think the ideal scenario
+[Remote]: is that you choose your ICP. That's the ideal scenario.
+[Remote]: The the second best is that you find your ICP.
+[Remote]: Right?
+[Remote]: And then maybe the third one is that, you know, you're experimenting. Right?
+[Remote]: It looks like you are kind of in the x-ray. The the because you are also
+[Remote]: sell I'm guessing selling to some big companies.
+[Remote]: Or trying to sell to big companies.
+[Remote]: It's probably not an option for you to
+[Remote]: decide on your ICP
+[Remote]: Basically, sit in a room twenty minute, decide on ICP, and then focus on that. So you might not
+[Remote]: you might because it might be that your decision of this ICP will take you two years to
+[Remote]: the contract.
+[Remote]: And that's kind of unrealistic. So I think it's you might be in a place where you are in the
+[Remote]: kind of find your ICP,
+[Remote]: But still, I would try to
+[Remote]: I would try to be narrow
+[Remote]: still,
+[Remote]: Obviously, not.
+[Remote]: To the risk of, you I'm just doing two things that if they fail, I have no company. It's, like, not too narrow.
+[Remote]: But I'll try to be narrow because it's still there is a benefit
+[Remote]: there's just a benefit of, like, knowing the language and knowing the people.
+[Remote]: And having those conversations with the same
+[Remote]: type of ICPs. And there's
+[Remote]: the the downside that more the more it's
+[Remote]: spread you are,
+[Remote]: it just it's thinking about this. Let's say let's say you have only one customer.
+[Remote]: One potential customer in the file. Right?
+[Remote]: And that's it.
+[Remote]: Then, you know, you would be sitting now and working on Claude code and getting oh, no. Whatever.
+[Remote]: Claude and getting all the
+[Remote]: research data that you can get on them. You go to LinkedIn and
+[Remote]: research all the friends that connect to everyone in this company. You send, like, 20 emails and, like,
+[Remote]: talk to random people, and, like, you spend, like, twenty hours to prep for this one meeting because you have nothing else to do.
+[Remote]: Now if you have, like, five,
+[Remote]: then you can spend maximum four hours of meeting.
+[Remote]: Now it's possible that because you only spent four, you're not gonna convert anything.
+[Remote]: And when you when you start,
+[You]: But then
+[Remote]: your only option is to over yeah.
+[You]: I mean, the backside of that is if I lose
+[You]: that single customer,
+[You]: it's it's it's like, you invest everything in one single lead, and then it's
+[You]: gone, and and you start again the clock.
+[Remote]: Tony. So I think I agree. So I think I mean,
+[Remote]: not if it was easy, you know, anyone would do it. But yeah. So it's not an
+[Remote]: the question is maybe something you asked, like, how do I qualify the final so I don't waste my time?
+[Remote]: Just, like, one question. And then but once I qualify,
+[Remote]: I'm saying, okay. Now you gotta give it
+[Remote]: the most.
+[Remote]: Right?
+[You]: I go all in.
+[Remote]: It's even more. I say once
+[Remote]: once you've got the the most impressive customer,
+[Remote]: you almost you almost need to, like, stop working on the funnel and making sure they're the happiest person.
+[Remote]: The happiest customer in the world.
+[Remote]: Because if they are unhappy, then you're even more trouble than before you start. Right?
+[Remote]: So I think this is more of a
+[Remote]: I mean, this is got more of a arc kind of the science. I mean, you need to kind of see
+[Remote]: It's it's kind of tricky because, you know, as as a as a founder, the
+[Remote]: right, you always, like, optimistic. Otherwise, you wouldn't even start. So you have to be optimistic.
+[Remote]: But when you talk about selling something to a large company, you have to be
+[Remote]: extremely realistic. Like, don't sell yourself.
+[Remote]: That you're you can you know, like, if you've talked to them for four months,
+[Remote]: you got to the VP level and your procurement and all the stuff,
+[Remote]: maybe you're a 20 you're a 20% chance of closing. It's still, like, it's not these things are
+[You]: Yeah.
+[Remote]: you know,
+[Remote]: and they're tough to close. It's not you have to
+[Remote]: stay skeptic, optimistic, but skeptic.
+[Remote]: So I think that's kind of where it is. You know, when you
+[Remote]: if you're now at, like, pricing negotiation,
+[Remote]: that's clearly a sign. Let's say drop everything else, like, close it. Right?
+[Remote]: If you're, like, a pre demo, then it's, like,
+[Remote]: it's clearly a a very, very low probability no matter
+[Remote]: I mean, after you do a 100 demos and you know your conversion rate, I mean, pre demo, you probably
+[Remote]: you know, it's very, very low.
+[Remote]: But still, it doesn't think about this as the
+[Remote]: let's let's take it at the beginning. Okay. You don't know when you're gonna close.
+[Remote]: But now let's say you can work on
+[Remote]: 20 leads to get 20 demos or 10 leads to get 10 demos.
+[Remote]: Right? Let's say you only have to do that.
+[Remote]: I would say
+[Remote]: unless you've already done
+[Remote]: 20 demos,
+[Remote]: should focus on 10 leads and not 20.
+[Remote]: Because you don't know yet, like, how this is gonna work,
+[Remote]: So you have to start getting demos more important than closing deals. Once you
+[Remote]: figure out, okay. Now I know what it takes to get demos. Now I can
+[Remote]: assess through the next time that I wanna work on 20 or 30 at the time or just dead.
+[Remote]: Because, like, you have to know think about this. Like,
+[Remote]: here's a a different optimistic founder optimistic model to look at the world.
+[Remote]: Right? I think so I can't remember who said that, but they say, like, you know,
+[Remote]: we've never lost the deal. It's everyone is a prospective customer. They have either they
+[Remote]: signed already or they haven't signed yet.
+[Remote]: Right? So I look at the funnel, you know,
+[Remote]: At the beginning of the funnel, there's every single customer in the world.
+[Remote]: Okay? Some of them have never heard about us, but it's in my funnel. In my spreadsheet,
+[Remote]: have the name. It's in the funnel. They just don't know. Right?
+[Remote]: Step number two, they need to know we exist. Right? Step number three, they need to, like,
+[Remote]: consider them I wanna bias. Right? So
+[Remote]: you kinda, over time, wanna
+[Remote]: discover sort of, like, your ability to move through the funnel
+[Remote]: And
+[Remote]: the problem is, like, if you're
+[Remote]: spread this in,
+[Remote]: if you spread this in and you succeed, great.
+[Remote]: But if you spread too thin and you don't succeed, you often don't have the learning. That's, think, the biggest
+[Remote]: problem.
+[You]: That's a key thing. Yep.
+[Remote]: So
+[Remote]: yeah. So I'll give you an example. Actually, a company I I'm I'm on the board, and
+[Remote]: years ago, I had an argument with the team. They didn't agree with me.
+[Remote]: Unfortunately. And they were like,
+[Remote]: we think we know what it takes to sell,
+[Remote]: We have aggressive goal for the year. We are hiring eight salespeople.
+[Remote]: And I'm like, you don't know how to sell. You think you know how to sell.
+[Remote]: But you haven't show show me the I'm on board now. Show I
+[Remote]: sell me this revenue. Show me the P and L. If you sign the P and L,
+[Remote]: I believe you that you know how to sell.
+[Remote]: But they explained we were in this meeting, and we talked to this one, and, like, they said yes and, like, whatever.
+[Remote]: It's like until I see revenue in the P and L,
+[Remote]: it doesn't come.
+[Remote]: And I basically told them, like, look. Instead of having eight people on the sales team,
+[Remote]: they shired three.
+[Remote]: And on those three people,
+[Remote]: you sit on every call and you read every transcription.
+[Remote]: And you follow every email, so you know exactly what it takes to sell.
+[Remote]: And they were like, well, if you only do three and we don't get good salespeople,
+[Remote]: we would learn anything. If we do eight,
+[Remote]: we have more things to learn from.
+[Remote]: And my argument is like, no. If you do eight, you have not enough time to learn from
+[Remote]: And they ended up hiring eight people,
+[Remote]: After six or nine months, sales were not going well.
+[Remote]: Turns out that not just the the
+[Remote]: some of the sales were not good. The head of sales was not good.
+[Remote]: But there was so much going on
+[Remote]: that they didn't have a capacity to go deep and understand that the team is not good.
+[Remote]: And after nine months, they ended up firing most of the team.
+[Remote]: And and still not learning how to sell.
+[You]: Interesting.
+[Remote]: Now yeah. Now, by the way and and this is the company was doing very well.
+[Remote]: It's kind of it made sense. We already had $10,000,000 revenue. We thought that this is time to scale.
+[Remote]: But at the same time, the market was changing, and I think they were switching from
+[Remote]: small comments to big comment. There are lots of reasons why
+[Remote]: I thought they don't know how to sell even though it looked like the company is doing well.
+[Remote]: And now it's two years after that,
+[Remote]: and after a lot of churn, and now it's basically
+[Remote]: so the CEO, this Hugo, to the sales meeting. You go to every you go to coffee with that. But
+[You]: Back to square zero.
+[Remote]: yeah, respect to zero, and we just two months ago, we just closed, like, a
+[Remote]: massive multimillion dollar deal. I'm like, right great. Now
+[Remote]: let's start slowly replicating that. Like, what have we learned how to sell?
+[Remote]: Like, a big company?
+[Remote]: So so I think that's kind of what I what I'm saying when you do
+[Remote]: too. I I mean, you're a very small team. So if you, like, now you have a bunch of emails,
+[Remote]: from a lot of companies, you know, you don't have time to kinda
+[Remote]: it's it's it's you always have time to follow, but you don't have time to do enough of the research.
+[Remote]: And even though research is much easier today,
+[Remote]: it's still, like, you know, you can send Claude to do the research, but it comes back
+[Remote]: a 30 page document. Someone needs to read it. Right? It's like a
+[You]: Yeah. Yeah. Yeah. A 100%. A 100%. And you need to articulate it in the meeting, and that takes some studying and some time.
+[You]: It's also not like you're reading out a a script from Claude in the meeting.
+[Remote]: Okay. Now I'll I'll give you a cool idea, for example, of that.
+[Remote]: What happened when you have
+[Remote]: more time to focus? So one of the ways
+[Remote]: this company, I'm on the board, we got this client. We actually had
+[Remote]: we have an agent that not just research everything, the company
+[Remote]: Try to find all the financials.
+[Remote]: And a bunch of data about the products.
+[Remote]: And we use, like, an AI agent to create a a synthetic database
+[Remote]: with our best guess
+[Remote]: of their own data.
+[Remote]: And then when we come to do the demo,
+[Remote]: the demo runs on data that looked like it's already there on data.
+[Remote]: It has their names, their sales. Every
+[Remote]: public information, the other
+[Remote]: is correct already.
+[Remote]: In the demo.
+[Remote]: So you're talking about, like, how do I get something like, wow. How do I make them
+[Remote]: feel like it's real?
+[Remote]: That made them feel like it's real? It's like, wait. The only thing we need to do is switch
+[Remote]: to our fake database, to your true database, and tomorrow, get the value from this project.
+[You]: Interesting. Interesting.
+[You]: I guess, like,
+[Remote]: And and now you can only do this because you invest more in, like,
+[Remote]: preparing for this client. Right?
+[You]: yeah. So I guess, like, the the just to to, like,
+[You]: sort of round it up here, your big advice is today,
+[You]: just focus on those 10 leads and make sure you
+[You]: get the hell out of research out of those 10 leads and show yourself your really
+[You]: knowledgeable about those companies in those meetings. And and so that way,
+[You]: whatever happens with that lead, you have a lot of learnings that you can then
+[You]: iterate for future leads. That's sort of the the message
+[You]: at this stage?
+[Remote]: Yes. Yes. In parallel to kinda maintaining this metric.
+[Remote]: So when you go to the meeting, you say, okay. Based on this iced
+[Remote]: and what I believe is their pain, this is, I believe,
+[Remote]: why what I'm doing is 10 times better than what I have right now.
+[Remote]: That's why I that's why I qualify them. Now when you talk to them, you might say, you know what? I just
+[Remote]: learned that I I made a mistake in the assumption of how much pain it is.
+[Remote]: So you adjust it and say, oh, I made a mistake.
+[Remote]: My the mistake might be, oh, I can add another feature, and I'll be 50 x better.
+[Remote]: Now I have a better pitch. But, like, you kinda wanna validate your
+[Remote]: target customer pain points
+[Remote]: how amazing a solution is,
+[Remote]: and then how do I sell to this? You maybe in the sell, you you learn that you are talking to the wrong person
+[Remote]: company.
+[Remote]: And then you say, okay. For next time I talk to the marketplace, I need to talk to the
+[Remote]: growth operations, not the CFO, whatever. Next time I talk to
+[Remote]: yeah. I mean, it's possible. Wanna talk to fanatics, maybe you need to talk to the
+[Remote]: president of growth, not to see if I'm just making it. But it's like
+[Remote]: the learning is basically, was I correct?
+[Remote]: In my ICP value I'm bringing?
+[Remote]: And to
+[Remote]: is my method of delivering it
+[Remote]: The right message, right person is working.
+[You]: Got it.
+[You]: Got it. Interesting. I just... Okay.
+[You]: I I like the framework. We'll definitely
+[You]: go back to the to the drawing board on this one.
+[You]: And then I'm not sure how you like, just to being conscious of time here, have one more minute left.
+[You]: How do you actually engage, with companies? I know you're an investor. You're also some
+[You]: sort of you do angel investments. I don't if you do it out of a fund, but,
+[You]: like, I see a lot of value out of these conversations because I'm not a
+[You]: I don't have like, my my past experience is
+[Remote]: Can you give me one second? Hold on.
+[Remote]: Probá el one take, one take.
+[Remote]: So do you wanna do you wanna wait, like, just
+[Remote]: two or three minutes? I just need to call a car for my kid.
+[You]: Sure. A 100%.
+[Remote]: Is that okay?
+[You]: Yeah.
+[Remote]: Okay.
+[Remote]: I'm just playing on, on mute for a second.
+[You]: Yeah. A 100%.
+[Remote]: Yeah.
+[Remote]: Sorry. One more minute. Almost done.
+[You]: No worries. No worries. No rush.
+[Remote]: Hey. Sorry. My, my kid is at soccer practice. My wife is on a
+[Remote]: plane to Miami.
+[Remote]: So I had to get him an Uber.
+[You]: No worries. No worries.
+[Remote]: So
+[Remote]: it's
+[Remote]: that was a tricky one.
+[Remote]: Yeah. You're saying about about about my involvement. So
+[Remote]: in general, I
+[Remote]: I
+[Remote]: I I do invest in early stage companies.
+[Remote]: I'm a little bit slowing down on that one. I'm
+[Remote]: about to launch a more late stage fund.
+[Remote]: So but I do still invest in early stage companies. I
+[Remote]: tend not to
+[Remote]: do any kind of official advising agreements or stuff like that.
+[Remote]: Just a little bit of a
+[Remote]: worry about commitments.
+[Remote]: Even though I know it's
+[Remote]: not real commitment, but still
+[Remote]: you know, I feel
+[Remote]: ethical, you know, if I'm an adviser, I kinda wanna help. So it's
+[Remote]: I try not to do that. I'm
+[Remote]: often, I would just do
+[Remote]: I mean, I'll let's say more specifically for one, like, the the most relevant thing for for what
+[Remote]: you're doing is that
+[Remote]: you know, from time to time, if you wanna chat and I have time, then
+[Remote]: I'm just happy to chat, and then that's it. No. There's nothing official and nothing
+[Remote]: And if I'm busy, then I want to type it. So that's kind of
+[You]: I think, I mean, I confirm Lilly's
+[Remote]: probably the
+[You]: Lilly's description. I think I have
+[You]: a lot to learn from you. I am discovering this as we go. I mean,
+[You]: I I know you feel my my path,
+[You]: You are a founder yourself, so you you you understand what I'm going through. So I think there's a lot of learning
+[You]: I can leverage. Let's take it from there. I'll I'll just continue iterating. I'll take this piece of
+[You]: feedback, seriously. I think it's it's we're in the middle of that.
+[You]: It's gonna be very, very useful to apply this framework today.
+[You]: And let's keep in touch. I was just looking at some of the companies you advise or
+[You]: in the board of, and I think there's some potential leads there.
+[You]: I'll share it blurb over email. You think there's
+[You]: there's some fit, then, just feel free to forward. And if not,
+[You]: I'll just be in touch and probably contact you in a couple months time to get another of these
+[You]: learning sessions, if you're okay with it.
+[Remote]: Yeah. That sounds good. Then I don't if you have, like, a
+[Remote]: a one pager for like, a sales one pager, not an investor one pager.
+[Remote]: With the blurb, then, yeah, I can forward it to a few companies and see if it's relevant.
+[You]: Amazing. Run.
+[Remote]: I did I did, like, a I did talk to one company before
+[Remote]: call. Just sent a quick email just to see which is a fintech company. I'm not not
+[Remote]: good name name. I don't know if you talked them or not, but they
+[Remote]: they did say, you know, this reconciliation is like,
+[Remote]: serious problem, and it's, a huge pain.
+[Remote]: They eventually said they build it in house,
+[Remote]: and it's for them, it's now basically a solved problem, but they did say it wasn't true.
+[Remote]: It was, like, a decent project.
+[Remote]: Not like a
+[You]: They already built something internally.
+[Remote]: they already built some internally where they feel like it's good enough, so they don't
+[Remote]: kind of need it. But they do say, you know, probably I know. If you came, two years ago,
+[Remote]: you know, they they might have considered
+[Remote]: kind of using a third party
+[You]: Interesting.
+[Remote]: And they and, again, they did say it's not it was, like, a
+[Remote]: it wasn't like a trivial effort. So
+[You]: Great.
+[You]: Great. Great. Well, again, thank you
+[Remote]: but there are I I actually think it's like and this is very, very in
+[Remote]: this is the intuition that's maybe totally off because I'm not an expert on the space.
+[Remote]: Like, the very technical
+[Remote]: fintech companies, especially the earlier stage,
+[Remote]: I'm guessing it would be harder to sell to them.
+[Remote]: Even if it doesn't make sense for them to build it, they
+[Remote]: they have the DNA to build it.
+[You]: Yeah.
+[Remote]: And, therefore, it's kind of it's
+[Remote]: a harder one. If you think more I
+[Remote]: thinking maybe more kind of marketplaces or
+[Remote]: companies that, like,
+[Remote]: they they may have similar problems,
+[Remote]: on the
+[You]: But it's not their core, and they don't have the tech DNA.
+[Remote]: Yeah. And if they usually they usually market base come from, like,
+[Remote]: wood.
+[Remote]: You know, marketing, generating demand and supply and matching and
+[Remote]: this is so much work
+[Remote]: But so let's say, at at Lyft when I was at Lyft,
+[Remote]: I had a 100% fintech team.
+[Remote]: At Lyft.
+[Remote]: That's
+[Remote]: but that's only when, you know, we were doing
+[Remote]: I don't know, 20,000,000,000 a year in processing.
+[Remote]: So, you know, at this point,
+[Remote]: you know, every
+[Remote]: point 1% I'm saving on
+[Remote]: anything is, like, caring for the whole team. Right? Because it's different, but it's a
+[Remote]: you have to be at a scale
+[Remote]: where it's starting to make sense doing things that are not core just because they're
+[Remote]: ROI positive and, you know, most companies are not there. So it's so I think it's
+[You]: Yeah. That's something we're thinking we're thinking on the ACP side.
+[You]: Many of these, like, nascent companies are are very, AI native
+[You]: tech first, and they're like, I'm gonna build everything internally and so what.
+[You]: And we're seeing actually more traction on companies where
+[You]: reconciliation is not part of their core, so they have other focus areas.
+[You]: They just wanna get rid of it. And they don't have the tech capabilities nor the talent
+[You]: to build something internally because, as you said, it's nontrivial. It's hard to build.
+[You]: So if you're gonna do it, it's because you you you know how to do it, and and
+[You]: and you know what you need, and you have the necessary talent to do it.
+[You]: But, yeah, again, something we we still need to define
+[Remote]: Yeah.
+[You]: these upcoming weeks. So so, again,
+[Remote]: Gracias.
+[You]: thank you for the time. This has been super, super helpful. I'll just try to keep in touch,
+[You]: and maybe schedule some
+[You]: time in a couple months' time, when we get more signal.
+[You]: Other than that, thank you so much. I'll
+[You]: share the one pager and a blurb. So if you see any other
+[You]: potential leads, just feel theater forward.
+[Remote]: Cool. Sounds good.
+[Remote]: Cool. Good luck. Good week.
+[You]: All right, Ryan. Thank you so much once again.
+[Remote]: Bye.
+[Remote]: Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Rexi’s Current Challenges
+
+- ICP (Ideal Customer Profile) struggles
+  - Market pull from multiple sectors: insurance, marketplaces, banking, payments, fintechs, embedded solutions
+  - Lack of focus - good and bad problem
+  - Need conviction on where to focus as pre-stage company
+- Sales process issues
+  - Top of funnel generation not the problem (only need 10-20 paying customers currently)
+  - Within-funnel problems: qualification, demos not magical enough
+  - Technical pushback: “I can build this internally”
+  - Low conversion despite seeing opportunity size and good top of funnel
+
+### Strategic Framework for Growth
+
+- Qualifying prospects effectively
+  - How important is the problem you’re solving in the list of other problems they have?
+  - Value proposition: how much better your solution is vs the current way they are solving the pain
+- Messaging alignment
+  - How good are you articulating the solution to the right person in the organization
+  - Great ICP + Great Value + Great message - everything should be in the same line
+  - If misaligned, creates friction in middle of sales process
+
+### Focus and Positioning Strategy
+
+- ICP selection approach
+  1. Ideal scenario: choose ICP
+  2. Second best: find ICP
+  3. Third best: experimenting
+- Benefits of industry focus
+  - There is a benefit of knowing the language and knowing the people
+  - Create curiosity: People like case studies - show me how the product works great for my competitor
+  - Credibility: Once you sell to 3 healthcare companies, it’s easier to sell to others
+  - Rumor mill effect amplifies reputation within vertical
+- Recommendation: Focus on 10 leads maximum
+  - Deep research and preparation for each
+  - Learn conversion patterns before scaling
+  - Example: AI agent created synthetic database with prospect’s actual data for demo
+
+### Key Insights and Next Steps
+
+- Technical DNA consideration
+  - Very technical fintech companies harder to sell to - they have DNA to build internally
+  - Better targets: marketplaces, companies where reconciliation isn’t core competency
+  - Scale matters - Lyft had 100% fintech team only when processing $20B annually
+- Ran’s involvement
+  - Available for periodic informal chats when time permits
+  - No official advisory agreements
+  - Will review sales one-pager and forward to relevant portfolio companies
+  - Already contacted one fintech - they built solution internally but confirmed reconciliation was “serious problem” and “huge pain”
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/0abeadce-d434-453f-87b3-6f82ed1a0f43](https://notes.granola.ai/t/0abeadce-d434-453f-87b3-6f82ed1a0f43)

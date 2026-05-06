@@ -1,0 +1,386 @@
+MEETING: AIR <> Rexi Follow-up
+DATE: 2026-02-04
+ID: not_drOMl08cxE8GTY
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Nat <nat@regulationinnovation.org>, Aye <aye@regulationinnovation.org>, Kisha <kisha@regulationinnovation.org>
+SCHEDULED: 2026-02-04T15:00:00-05:00 - 2026-02-04T15:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Makes that they need this.
+[You]: Well, we have two models.
+[You]: And it depends on on which player in the stock we're serving.
+[You]: Because
+[You]: as you might know, this is sensible data.
+[You]: We're working with. It's transactional data.
+[You]: So we got SOC two type two compliance last week.
+[You]: And we're getting additional frameworks to make sure we are
+[You]: complied and safe to manage this information.
+[You]: Still some companies in the stack
+[You]: that don't want to share this information.
+[You]: Not only that, they also think
+[You]: reconciliation is a core capability they should have.
+[You]: So to your second question, one of the frictions we're having is
+[You]: them wanting to build something internally.
+[You]: Which I think they're underestimating the complexity of
+[You]: doing that and how long it takes in the investment, and it doesn't make sense.
+[You]: And then the other part is
+[You]: it's just solving the internal workflow. It's not solving this collaboration and this
+[You]: connective tissue sort of pitch. Right?
+[You]: Because if they just do a tool that's gonna help them automate internal reconciliation, still not solve
+[You]: the problem.
+[You]: That arises when differences pop up, which happen every single month. Right?
+[You]: Once I see the differences, then
+[You]: how do I investigate and close them?
+[You]: And that's why Rexy
+[You]: by positioning itself as a centralized shared tool, adds a lot of value to the
+[You]: ecosystem. So I said, we have two models. One is just a pure SaaS.
+[You]: It's a software. We plug into the data sources,
+[You]: and we charge a fee based on
+[You]: the amount of
+[You]: records we're reconciling.
+[You]: And the other model, which is more for the banks,
+[You]: really don't wanna have a vendor for this,
+[You]: is the same thing, but on premise.
+[You]: Right? So we basically develop and tailor the solution to their
+[You]: needs.
+[You]: And then we deploy it in their infrastructure. Because, again, then
+[You]: not touching the data.
+[You]: They are
+[You]: buying an AI capability rather than renting.
+[You]: And they have full control over something
+[You]: that should be core to what they do. They don't rely on an external vendor, which then has pricing
+[You]: power to charge
+[You]: whatever they want on this workflow. Right?
+[Remote]: And the and the on prem solution still has the
+[Remote]: kinda the greater global good, or does it you know, or
+[You]: Yeah.
+[Remote]: plugging in across a wider ecosystem than just one environment.
+[You]: Yeah.
+[You]: It's the same tool. Just depends where it's hosted. But yeah.
+[You]: Essentially, yes. We can connect that on premise tool to their
+[You]: connections and integrations to make sure that whomever
+[You]: working with that bank has, again, that centralized source of truth, which is Rexy, and they can operate
+[You]: collectively over the same platform.
+[You]: For the for the on for the on premise model, I forgot to say that. It's
+[You]: a one time upfront fee.
+[You]: To basically develop and implement the solution deployed in their infrastructure.
+[You]: And then it's a really low
+[You]: retainer to make sure we can continue providing support on
+[You]: whatever happens and if they need to do additional developments or change
+[You]: or even upgrades on new modules we're gonna be developing.
+[You]: In the next months.
+[Remote]: And sorry. I'm gonna ask two more questions and then turn over to Keisha.
+[You]: Go ahead.
+[Remote]: And I. And this is this is still getting into
+[Remote]: and is
+[Remote]: kind of the
+[Remote]: where
+[Remote]: you know,
+[Remote]: where you're in in the ecosystem. Let's are y'all touching, say,
+[Remote]: crypto, and the crypto
+[Remote]: applications that are coming in, I
+[Remote]: I foresee
+[Remote]: an episode like Synapse that had, you know, middleware
+[Remote]: failure and then reconciliation issues.
+[Remote]: Repeating in the crypto space.
+[You]: Sure, I understand. It served the same problem.
+[You]: Right?
+[You]: It's, again, it's adding abstraction layers.
+[You]: On the crypto front, whatever happens on the blockchain layer, that's
+[You]: fully auditable and blockchain per se
+[You]: as a system
+[You]: is a decentralized ledger, right, that anyone can audit
+[You]: and see the transactions. The problem is when
+[You]: these crypto solutions
+[You]: are not like a ledger where you own your keys,
+[You]: are not like a wallet where you own your keys,
+[You]: Like meant like,
+[You]: Coinbase.
+[You]: If you have an account with Coinbase and you have Bitcoin and Coinbase, you don't own your
+[You]: Coinbase is just a crypto bank. They're holding Bitcoin for you. So it's the same thing. It's a bank.
+[You]: So they have the crypto for you. So in those cases, yes.
+[You]: It's the same thing. It's the same thing as reconciling with a bank.
+[You]: Let's let's compare your ledger against what's on the blockchain.
+[You]: A 100%. And we and we are serving customers like those. We have a crypto exchange in
+[You]: Latin America.
+[You]: And we're starting pilot tests with a crypto exchange in
+[You]: in The US, again, these
+[You]: custodial models where
+[You]: it's just a bank.
+[You]: But instead of holding, I don't know, dollars, they're you're holding crypto for you, whatever.
+[You]: Now for the
+[You]: truly decentralized model of crypto, MPC Wallet's or even decentralized wallets there's no need for reconciliation in the blockchain. Because anyone can audit. Like, there's that that's one of the key
+[You]: value props of blockchain.
+[You]: Now
+[You]: everyone here knows that crypto adoption is 95% the first model, not the not the latter. The latter is just like the
+[You]: I don't wanna say it. Like, it's like the I used to be a crypto
+[You]: punch, so I can say crypto it's more like the crypto fanatics that have
+[You]: keys over their wallets. 95% of crypto usage is under these
+[You]: custodial solutions. Right?
+[Remote]: Yeah. And I I I guess I was thinking more the l two, l
+[Remote]: three developments are gonna be built on the l one platform.
+[Remote]: When you're starting to think about tokenized
+[Remote]: debt assets, and you create a complex
+[Remote]: model
+[Remote]: of crypto, the
+[Remote]: the
+[Remote]: blockchain
+[Remote]: only goes so far as the token and not
+[Remote]: to the second, third, and fourth application. And I think that's where the next failure failure
+[Remote]: will hit just as a
+[Remote]: maybe a I don't want I think there's so much opportunity in
+[Remote]: such a great space, but that that's kinda where I was thinking is, are y'all looking for
+[You]: For those companies, we typically solve the
+[You]: again, first, the bank,
+[You]: which is where they get the on ramp against their ledger, and then the ledger against
+[You]: the blockchain. We're reconciling
+[You]: twofold. Right?
+[You]: But on the blockchain,
+[You]: it technically technically doesn't make sense to reconcile because
+[You]: it's it's a it's a it's a centralized universal ledger.
+[You]: By definition.
+[Remote]: Okay. Okay. Sorry. I was just
+[Remote]: trying to get a little bit more where where y'all stood and
+[Remote]: you know, where you stand. And so some of the conversations with Randy, where
+[Remote]: Keisha, I, do y'all have other things. I'm dominating this conversation. I don't need to.
+[Remote]: That's your whole, Nat. I'm just kidding.
+[Remote]: I don't have any questions. I think kind of where
+[Remote]: I guess fast forwarding, and I'll let Aye jump in, of how we can partner together
+[Remote]: You know, we have several events, that we're planning this year.
+[Remote]: Just want to just find out towards the end of the call, and I actually do have a
+[Remote]: stop that you guys can stay on, how we can partner to
+[Remote]: But I did you have anything?
+[Remote]: Yeah. I just had one question. So one of the things
+[Remote]: you talked a lot about integration, but I wanted to know more around
+[Remote]: what core limitations have you ran into, or what challenges
+[Remote]: have you ran into when it came to the core? I know a lot of our banks
+[Remote]: the issues that we've seen in some of our work previously is, like, them not even having access
+[Remote]: to certain data depending on what core system they are on.
+[Remote]: Just wanna know more about the core, the limitations, or challenges that you've encountered.
+[Remote]: As well as just what has that been like for you in general?
+[You]: It's painful.
+[You]: But that's why there's opportunity. Right? Like,
+[You]: ver there's pain, there's opportunity. And I think today with with these new technologies and AI,
+[You]: what was not possible before is now becoming possible. It's it's just so powerful.
+[You]: And I think the whole banking industry has skipped
+[You]: like, a tech window, just because these really, really old
+[You]: cores were not great, but they worked.
+[You]: And the switching costs were bigger than just, like, digitalizing and doing some software on top of
+[You]: it. But with AI, now the gap is just
+[You]: so big that trust me, many of these banks are really driving some innovation
+[You]: forward and either
+[You]: replacing cores for more modern ones or building abstractions on top of these
+[You]: cores,
+[You]: so that they're easier to operate and easier to extract value from.
+[You]: So we're leaning like and I'm speaking with sponsor banks in The US. So there's there's
+[You]: you would be amazed at how these banks like Celtic, Thread, Cross River,
+[You]: are doing really good jobs at really, like, upgrading their text
+[You]: stack. Because, again, now with AI,
+[You]: gap is just so big.
+[You]: And and it's gonna come down to terms of profitability, efficiency, and they're just gonna
+[You]: start losing against other competitors. Right? Because we're already seeing, like, these
+[You]: regional
+[You]: made America banks grew their deposits 10 x,
+[You]: serving Fintech,
+[You]: what happened? Now we're seeing tech first sponsor banks pop up.
+[You]: Because there's a big opportunity here.
+[You]: Companies like Column,
+[You]: these are the newer banks coming in saying, hey, we're
+[You]: just leaving all this business to these regional banks that are have awful tech infrastructures.
+[You]: And are really hard to operate. But but, yes,
+[You]: one of our key limitations is not only integrating to all these data sources, but also
+[You]: the quality of the data.
+[You]: That's a big thing. And there's some gatekeepers.
+[You]: And that's why we need to work alongside regulators to make
+[You]: sure that those gatekeepers are not working against
+[You]: the safety of the system.
+[You]: Like, some of these scores
+[You]: don't wanna give us
+[You]: external vendor access to the data
+[You]: because they wanna be building these solutions themselves.
+[You]: Now,
+[You]: if we have partnership with with associations and regulators that are trying to
+[You]: push this forward and make sure that no one's guardrailing and no one is, like, stifling innovation,
+[You]: I think we can work together to make sure
+[You]: we build the system in a more scalable and safer way.
+[You]: But that's why we need your help because I think you guys have the leverage
+[You]: and the connections and the associations to make sure that those things don't happen.
+[Remote]: Well, I think
+[Remote]: I think the question is, you know, did you have a thought on
+[Remote]: on partnership? I I think as you know, we're nonmember, nonprofit. I'm
+[Remote]: sure Randy shared that. I'm not sure how far y'all got in the conversations.
+[Remote]: Our activities, we we seek
+[Remote]: funders for we we
+[Remote]: do have a special sauce. I think we're a super convener.
+[Remote]: But we're looking at where is the regular, you know,
+[Remote]: lack of regulatory clarity. Where is
+[Remote]: where regulations, you know, not modernized or they need to be modernized
+[Remote]: to to advance with technology. These are the types of spaces we're in.
+[Remote]: But kinda hearing what our model is that, you know,
+[Remote]: we're hosting the convenience. We're we're doing white papers. We're
+[Remote]: we're we're amplifying issues, but we're doing it with
+[Remote]: with partners, you know, that that are funding because we don't have another funding
+[Remote]: source to to be quite frank. What are what are the thoughts there?
+[You]: So, Randy did mention a couple of things we could
+[You]: partner in.
+[You]: The first part is, of course, happy to coauthor any of these white papers or
+[You]: with you.
+[You]: I think part of what we can get from ARR is that positioning. Right?
+[You]: We're legit. That we're working for the same mission.
+[You]: And that we wanna help the regulators push this forward because we believe
+[You]: the best for the system, for everyone, for the users,
+[You]: for the companies themselves as well.
+[You]: So I think coauthoring and creating content could be one.
+[You]: For sure.
+[You]: The second one is participating. I know you guys, organized many of these
+[You]: sprints, initiatives, and events.
+[You]: And I'm more than happy to assist. Of course, again, we're also
+[You]: strapped for funding. We're a seed pre seed stage company. We raised 1,200,000.0 back
+[You]: in July.
+[You]: And we're seeing to raise we're hoping to raise again in in q two.
+[You]: Bigger round.
+[You]: But, yeah, for us, going to those events
+[You]: knowing that there's gonna be a lot of decision makers there,
+[You]: and then knowing that we can get distribution there is also
+[You]: very, very interesting. And last but not least, I know you guys also talk a lot with the regulators.
+[You]: If at some point in some of these conversations, we can partner to show
+[You]: privately funded solutions out there that could make a dent
+[You]: on this effort.
+[You]: I'm happy to collaborate with you guys. I don't know if you have meetings with the
+[You]: OCC, with the FDIC, CFPB. These are all entities that are gonna
+[You]: affect
+[You]: a lot what's gonna happen with this reconciliation
+[You]: and this bank FinTech partnership. So
+[You]: I guess it's it's those three things, creating content,
+[You]: participating in events,
+[You]: that we can get distribution there, and then partnering with you guys when you're talking with regulators to make sure also what we're building is in line with their thinking.
+[You]: If at some point the FDIC confirms any rule,
+[You]: we want to make sure our product is
+[You]: ready to go
+[You]: and and can use that framework to help
+[You]: push adoption in the in the industry.
+[Remote]: I love it. I third party risk management,
+[Remote]: is
+[Remote]: is a major issue, something we're working on a lot. Sorry if you hear my
+[Remote]: son, in the background. I don't know if that's, coming through.
+[You]: No. No. No worries.
+[Remote]: So it's certainly
+[Remote]: it's a major topic. It's a major priority for us.
+[Remote]: Kinda the things you said, I think we can
+[Remote]: we can
+[Remote]: take it back, look at what we're working on, and and perhaps just
+[Remote]: kinda consider what what would be the right partnership. I I don't it's
+[Remote]: not
+[Remote]: there is one. There's potential. We just need to figure out
+[Remote]: how to maximize that potential, in kind of our ongoing activities if
+[You]: Exactly. And I'm happy to, like, adapt
+[You]: be flexible. Like, I'm sure you guys have an agenda.
+[Remote]: yeah.
+[You]: There's a lot of things you could be working on, and you're prioritizing what are the three things you're gonna be working on in this
+[You]: quarter and the next?
+[You]: So I'm happy to, like, for you guys to drive that conversation like, hey. I think
+[You]: you could help us a lot
+[You]: in this objective we have for q one. And then
+[You]: I'm there to help.
+[You]: I'm really there to help and to push this forward, and I and then we can see what I can get out of you. Right?
+[You]: In terms of distribution, brand positioning, and so on.
+[You]: I'm happy to adapt and be flexible in whatever your priorities are for this quarter.
+[Remote]: Perfect. Yeah. We'll we'll take this away. We'll discuss it. Like I said, we're working in in the
+[Remote]: space. We're having a lot of conversations on this. I think it's
+[Remote]: just a matter of the right the right fit, the right place. You know? I don't I don't
+[Remote]: Keisha, I you can correct me. I've never seen air
+[Remote]: branding for a
+[Remote]: for a company just because it's not something that I I think we've
+[Remote]: traditionally
+[Remote]: done, but we
+[Remote]: do allow companies to showcase kinda some of the great work they're doing
+[Remote]: and present it in public
+[Remote]: forums, not as an endorsement, but just alongside others, things like that.
+[You]: Would love to.
+[Remote]: So
+[Remote]: Yeah. We we normally, I don't know if we're planning to do one this year.
+[You]: Yep.
+[Remote]: Host RegTech Capital Hill event.
+[Remote]: Annually where we invite different tech
+[Remote]: companies to come in, meet different
+[Remote]: regulators are invited. You know, some of our funders are invited.
+[Remote]: But just networking. So as we think about that as a
+[Remote]: our plan for this year and put the list together, we will certainly add you.
+[Remote]: Your company to that as well.
+[You]: Well,
+[You]: more than happy. Very grateful. And I don't know who
+[You]: reopened the conversation, but thank you so much. I thought this conversation was totally dead, so thank
+[You]: Keisha.
+[Remote]: No.
+[You]: I really appreciate it, and
+[You]: I'll just follow-up after this conversation to make sure we try to push it forward. But, again,
+[You]: super open and flexible for you to tell me what your priorities are this
+[Remote]: Yep.
+[You]: year this quarter.
+[You]: And I'll just make sure I'm adding value, from day one and then
+[You]: just being closer to you guys is gonna add value for me and for Rexi. So
+[You]: more than happy to collaborate.
+[Remote]: It's it's a good business model. It's a good proposition.
+[Remote]: To see where you're going as well no matter what. So it's, it's
+[Remote]: it's a need.
+[You]: Alright. Thank you so much. Great meeting, everyone.
+[You]: Bye bye.
+[Remote]: Great. Thank you. Nice to meet you. Okay.
+[Remote]: Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Rexi’s Business Models
+
+- Two deployment options for reconciliation platform:
+  - Pure SaaS: Software-based, charge per records reconciled
+  - On-premise: One-time upfront fee + low retainer for support
+    - Banks maintain full data control
+    - Same connectivity to ecosystem partners
+    - Eliminates vendor dependency concerns
+
+### Crypto & Blockchain Applications
+
+- Serving custodial crypto exchanges (95% of crypto usage)
+  - Latin American crypto exchange (current customer)
+  - US crypto exchange (pilot testing)
+- Reconciliation approach:
+  1. Bank ledger vs crypto exchange records
+  2. Exchange ledger vs blockchain transactions
+- True decentralized wallets don’t need reconciliation (blockchain is auditable)
+- L2/L3 developments create new reconciliation needs beyond base blockchain layer
+
+### Core Banking System Challenges
+
+- Major pain point but creates opportunity with AI advancement
+- Data quality issues and gatekeeper resistance
+  - Some cores block external vendor access
+  - Prefer building internal solutions (underestimate complexity)
+- Progressive banks upgrading infrastructure:
+  - Celtic, Thread, Cross River modernizing tech stacks
+  - New tech-first sponsor banks emerging (Column example)
+- Gap between old cores and AI capabilities driving innovation
+
+### Partnership Opportunities with AIR
+
+- Three collaboration areas identified:
+  1. Co-author white papers for regulatory positioning
+  2. Participate in AIR events for distribution to decision makers
+  3. Partner in regulator meetings (OCC, FDIC, CFPB)
+- AIR’s model: Non-member nonprofit seeking funders for convening activities
+- Potential inclusion in annual RegTech Capitol Hill event
+  - Tech companies meet regulators and funders
+  - Networking focused, not endorsement
+
+### Next Steps
+
+- AIR team will discuss internally and identify right partnership fit
+- Ignacio to follow up after meeting to advance collaboration
+- AIR to add Rexi to RegTech Capitol Hill event consideration list
+- Flexible approach: AIR to drive priorities, Rexi to adapt and support
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/690a1149-2ab5-4565-a3cb-ef392f4fc492](https://notes.granola.ai/t/690a1149-2ab5-4565-a3cb-ef392f4fc492)

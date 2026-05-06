@@ -1,0 +1,462 @@
+MEETING: LayerZero <> Sensei  (Parker Mathews)
+DATE: 2026-04-27
+ID: not_EUw7jMCSmjwOZR
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Ivanszeftel <ivanszeftel@gmail.com>, Parker Mathews <parker.mathews@layerzero.foundation>, Pablo Larguia <pablo@senseinode.com>, LayerZero-NYC-1-Brooklyn (12) <c_1881me1447dnohgsi1erdss96ui38@resource.calendar.google.com>
+SCHEDULED: 2026-04-27T14:30:00-04:00 - 2026-04-27T15:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: The the short answer is a ton of ways. Right? Like, what what our core
+[Remote]: specialty is at layer zero is facilitating value
+[Remote]: transfer between chains.
+[Remote]: So there are obviously a bunch of ways that we do that.
+[Remote]: Sort of the most used, I would say, today is, like,
+[Remote]: messaging based value transfer. So OFTs,
+[Remote]: you know, the the things that we have on Stargate,
+[Remote]: with Hydra, which is sort of, like, Layer Zero own
+[Remote]: stablecoins that you can deploy onto your chain. Stargate pools, which
+[Remote]: is, you know, lock and unlock connected by layer zero messaging.
+[Remote]: But in the last six months or so, we've also, like,
+[Remote]: gotten a lot deeper into the intense
+[Remote]: space as well, which obviously is, like, sort of the other main value
+[Remote]: methodology on chain. So we have our own, like, intense
+[Remote]: framework that we call swaps.
+[Remote]: Right now, there's just a single provider in this framework.
+[Remote]: Called Aori. But we're onboarding, I wanna say,
+[Remote]: three more right now that all sort of specialize in different kind of
+[Remote]: sub verticals of this broader antenna space. So, like,
+[Remote]: for example, stable coin orchestration, we think
+[Remote]: like, we're we're really bullish on and, think that, you know, that will continue to grow really
+[Remote]: in the space. And so, like,
+[Remote]: not just a a swap, but, like, a swap followed by
+[Remote]: a smart contract interaction with some follow-up action. We think, like,
+[Remote]: that will continue to to sort of grow in popularity.
+[Remote]: And, so
+[Remote]: all of these sort of different ways that you can move value using layer zero One thing that we have seen sort of get a a lot of great track
+[Remote]: with, like, some of these neobanks, but also, like,
+[Remote]: exchanges more kind of on the CDFI side of the space where they don't have, like,
+[Remote]: an entire team of of solidity engineers and maybe don't wanna do, like, smart
+[Remote]: interaction themselves for, like, all of these different things.
+[Remote]: We have this new API product that essentially rolls up
+[Remote]: everything I just talked about into, like, one no code interface.
+[Remote]: Call it the value transfer API.
+[Remote]: And that's something that you could use for anything
+[Remote]: from, you know, building a custom bridge front end to, like,
+[Remote]: powering deposits and withdrawals from an entire neobank or exchange.
+[Remote]: That's something that, yeah, it's it's currently in, a closed beta right now where we're
+[Remote]: it with, like, a sort of small group of partners. But I think that will continue to just
+[Remote]: grow an importance as well. It, you know, does other cool things as well. Like, for example,
+[Remote]: it automatically indexes every single new OA
+[Remote]: pathway that's deployed. So, like, say you have
+[Remote]: a bridging front end for a specific chain. Right? And you don't wanna have to, like,
+[Remote]: constantly be searching either scan or cell scan or
+[Remote]: whatever for, like, new OFTs that are deployed. You just use the API and, like,
+[Remote]: as soon as another asset issuer deploys onto that chain, it's automatically included
+[Remote]: in there. And so
+[Remote]: stuff like that, I think, is really important to us, on the interop side.
+[Remote]: Then, of course, there's this upcoming l one that we announced in February, zero. And zero, I think, obviously presents, like, a
+[Remote]: totally new set of of challenges and things to sort of figure out for us.
+[Remote]: Right now, we are it's still pretty early days.
+[Remote]: On the zero stuff. We're we're thinking it'll launch. May net will launch
+[Remote]: hopefully, like, q four of this year with a,
+[Remote]: a public test net over the summer. But
+[Remote]: in terms of zero, there's kind of and, again, it it folds into, like, our work with
+[Remote]: exchanges and our work with neobanks.
+[Remote]: Zero, I think, sort of the the foundational concept is this idea of
+[Remote]: paralyzed execution environments that we call zones.
+[Remote]: When we launch, there will be
+[Remote]: two separate zones that we set up.
+[Remote]: The first one will be called the general purpose zone.
+[Remote]: And it's like a, you know, an EVM solidity denominated environment where we
+[Remote]: that
+[Remote]: asset issuers but also app builders that we work with
+[Remote]: will be able to basically just port over their EVM code and and, you know, run it day one.
+[Remote]: Then the second zone that we're gonna launch with, is called the
+[Remote]: capital market zone.
+[Remote]: And this is, like, hyper optimized to be the best
+[Remote]: trading environment that has ever been deployed on a blockchain. So
+[Remote]: 2,000,000 TPS, ten millisecond latency. Both of those are, like,
+[Remote]: 20 x
+[Remote]: more performant in something like Hyperliquid, for example.
+[Remote]: Okay. That
+[Remote]: training environment will be a Rust denominated VM.
+[Remote]: And we actually built this this framework for deploying apps
+[Remote]: there that we called verifiable apps.
+[Remote]: Or VAPS because you know we love our our shortened nicknames for things here at zero.
+[Remote]: And you can basically think of this this framework as, like,
+[Remote]: a super powerful code compiler that can take an app
+[Remote]: that you've built in
+[Remote]: any smart contract language, but also in something that's totally not blocked
+[Remote]: chain specific. So you could build an app in in Python or React or something like that.
+[Remote]: And it will, transmute it into a
+[Remote]: that is able to run with the validator set on zero. So, like,
+[Remote]: for these people that I mentioned, for a lot of, you know, c d five players or people like
+[Remote]: you know, like Robin Hood, for example, who who have a crypto team but not
+[Remote]: a 100 smart contract devs. Like,
+[Remote]: again, just making the process of, like, building a blockchain app
+[Remote]: a lot easier is is something that's super important to us.
+[Remote]: I'm I'm sorry. These verify verifiable apps
+[Remote]: it's a third zone, or it's inside Capital Markets?
+[Remote]: Zone? So it's it is
+[Remote]: a zero specific thing. Right? So you could use it to deploy on any of the zones,
+[Remote]: We're thinking it'll be more utilized
+[Remote]: in this trading zone just because
+[Remote]: it's harder to build smart contracts in Rust than it is in Solidity.
+[Remote]: But, no, you could use it to deploy in the the EVM zone as well.
+[Remote]: For sure.
+[Remote]: Okay.
+[Remote]: Cool. So we have the general purpose zone.
+[Remote]: The capital markets zone. And is there a third one, or those are the two main zones?
+[Remote]: So those are the two that we'll launch with.
+[Remote]: Okay. In theory, though, there's no limit to the number of these
+[Remote]: these different zones that can be deployed. So, yeah, in the future, like, I guess, we'll we'll kind of
+[Remote]: see what what types of apps we can
+[Remote]: sort of gravitate towards zero and maybe something like a prediction market zone or
+[Remote]: payment zone or something like that, I think, is definitely Uh-huh. Possible. Like,
+[Remote]: you know, following main net launch.
+[Remote]: Makes sense.
+[Remote]: And and from the
+[Remote]: validator side of this layer one,
+[Remote]: do you think it could make sense to or to have us in the radar
+[Remote]: for in a couple of months where when when the
+[Remote]: when the layers going to launch,
+[Remote]: either a test net or
+[Remote]: or, yeah, an original validator set.
+[Remote]: Is there a kind of way either to apply or or
+[Remote]: who is doing the
+[Remote]: yeah.
+[Remote]: Yeah. Who who is deciding the
+[Remote]: original set set or is already decided?
+[Remote]: No. So we're still sort of so I guess, like, general progress of
+[Remote]: Right? So
+[Remote]: we have all of these different parts of the stack that, you know, the the
+[Remote]: consensus algorithm, the verifiable database. We
+[Remote]: built, like, this really cool native ZK with, the research
+[Remote]: team at a 16 z. Like,
+[Remote]: all of that stuff is done, and we're sort of testing internally right now.
+[Remote]: What we haven't done yet is make kind of
+[Remote]: specific decisions on what we want the validator set to look like,
+[Remote]: Okay. There there is some stuff I can tell you, though.
+[Remote]: Probably the most important thing about, like, validation on Xero is
+[Remote]: through these these different parts of the stack that we've built,
+[Remote]: be possible to run a zero validator on, like,
+[Remote]: the lightest weight hardware that you can buy.
+[Remote]: To demonstrate that, we verified
+[Remote]: at our, like, live announcement in February we used a network of, like, a 150 Raspberry Pi
+[Remote]: powered validators to in real time on a on an internal demo net,
+[Remote]: verify ZK proofs for thirty days worth
+[Remote]: of EthMainNet transactions in about twenty four seconds.
+[Remote]: So, like, about a million and a half TPS.
+[Remote]: Okay. And
+[Remote]: yeah. Or, you know, in in the long run, like, you could run a validator on
+[Remote]: a phone, on an Apple Watch, on a MacBook. Like, you won't need to have a a
+[Remote]: $50,000 server or whatever, like, on some other chains.
+[Remote]: We expect there to be, like, a very diverse set of global validators, and I'm sure there will
+[Remote]: be more specific conversations that that we can have there as we sort of, like,
+[Remote]: move a little bit closer to that happening.
+[Remote]: Okay. That's great.
+[Remote]: Yeah. Now it makes sense that if it's easier to
+[Remote]: easier and more democratized, the the access of
+[Remote]: to new
+[Remote]: validators that that will be good.
+[Remote]: Yeah. What we can do in the future is, like,
+[Remote]: launch from day zero in 10 countries or in different
+[Remote]: data centers or
+[Remote]: yeah, in a different way to have good coverage of
+[Remote]: of at least Latin America. So, yeah, let's have that conversation when
+[Remote]: when it's time to you please let us know, or I or I know if you would like
+[Remote]: us just to be in touch with the infrastructure
+[Remote]: person
+[Remote]: So he he
+[Remote]: so to know when when when it's ready, or or you let us know
+[Remote]: how we can move forward on that in the future.
+[Remote]: Yeah. I will keep you guys posted there. Our so our
+[Remote]: at layer zero, we're, like, a 150 people, but, like,
+[Remote]: a 130 are are engineers. So our, like,
+[Remote]: business function here is pretty small, and we all kinda do everything all at once.
+[Remote]: Mhmm. So I'll I'll definitely know when
+[Remote]: that sort of has next steps for you guys and can can certainly let you know.
+[Remote]: Awesome. Thank you so much. And
+[Remote]: and yeah. So so I as I was saying at the beginning,
+[Remote]: Ivan came with this
+[Remote]: idea of seeing it with
+[Remote]: our friend Nacho. If there's a
+[Remote]: a way to collaborate with layer zero, or I don't know how
+[Remote]: is layer zero anticipating for for the
+[Remote]: reconciliation
+[Remote]: yeah, challenges that that will probably already happen. We have
+[Remote]: more exponential in the future.
+[Remote]: I don't know if it maybe, Naj, if you can do a a three, four minutes intro about
+[Remote]: what you are doing, how do you think
+[Remote]: we we we can possibly work with
+[Remote]: zero? How can he add value?
+[You]: Sure. A 100%. So,
+[You]: to keep it quick here,
+[You]: I'll skip this one about the team.
+[You]: Just talk more about the the product, and the problem we're solving, which is,
+[You]: basically data fragmentation in in finance operations, particularly in these environments
+[You]: with crypto involved. There's a lot of systems representing
+[You]: reality, and we all know that all these systems are not connected. So
+[You]: from the company standpoint or from anyone operating the money flow,
+[You]: what you need to do is basically
+[You]: consolidate all these data sources in one place and make sure that these
+[You]: data sources are illustrating the same
+[You]: picture of the truth. And so that part that process is what we call reconciliation, which teams have
+[You]: historically done with
+[You]: many different tools and processes and teams. And so that generates cost
+[You]: risk,
+[You]: scalability. Cost because, of course, as you grow
+[You]: you need to start growing the team because a lot of these these processes are manual.
+[You]: You need to investigate. You need to collaborate with third parties to understand these money flows.
+[You]: And so then the team the size of the team grows. Risk, because if you
+[Remote]: So so
+[Remote]: so sorry, Nacho Nacho, but can we go one step back?
+[Remote]: Know if if Park had
+[Remote]: do do you know how is layer zero managing
+[Remote]: yeah, reconciliation and control layer right now?
+[Remote]: Is there an ecosystem of potential partners
+[Remote]: or or or maybe or, you know, or you think in
+[Remote]: in
+[Remote]: we can move forward on on with not expanding you this? Or
+[Remote]: what are your thoughts on that at this point?
+[Remote]: I mean, we I would say yeah. I I
+[Remote]: have only heard one slide of the pitch, so I still need to figure out exactly what you guys do. But,
+[Remote]: in terms of what I saw on that slide,
+[Remote]: I know we try to sort of on on the the process management front, we
+[Remote]: try to internalize as much of it as we can.
+[Remote]: There are, of course, like, external third parties that we work with, but, like,
+[Remote]: I think, yeah, something that
+[Remote]: like,
+[Remote]: is sort of inherent to the way that we do things is trying to
+[Remote]: sort of have these systems managed internally.
+[Remote]: But, yeah, I still I will caveat on that with saying that Okay. Okay. So so so sorry.
+[Remote]: For interrupting my side. I I That's okay. I wasn't worried if if it was something that
+[Remote]: that that that could
+[Remote]: We can move forward on it. Sorry, Nacho. Yeah. Yeah. Sorry.
+[Remote]: Go ahead. Ahead. So let's see the
+[Remote]: Just one thing from my side. The way that the the thing that a six right now, Pepsi, this will
+[Remote]: apply also for agentic payments, that we see that there are there are a lot of
+[Remote]: that we deploy on zero or on layer zero infrastructure.
+[Remote]: Payments, that's that's something that will come.
+[Remote]: The near future. So
+[Remote]: the, traditional problems that companies are having today with
+[Remote]: reconciliation, we see that happening as well
+[Remote]: with agentic payments on chain. So the solution that Nacho will
+[Remote]: explain in a second, I think it
+[Remote]: it can be it can can be applied not only for
+[Remote]: layer zero, but also for all the teams deploying on the zero blockchain in the in the future.
+[Remote]: Okay.
+[You]: Exactly. Yeah. Basically, like, any any company that is
+[You]: integrating multiple money flows and has a high transactional volume
+[You]: has a pain with reconciling money movements across these abstraction layers. And so what we do at Rexy it's an agentic platform that basically plugs to each one of those data sources.
+[You]: And does all the reconciliation in an autonomous way. So we have agents that are both
+[You]: ingesting the data, transforming the data, comparing the files,
+[You]: surfacing the differences, and then helping you close these differences by becoming an
+[You]: system.
+[You]: By which layer zero and all the parties involved in the money flow, they're all participating in rec
+[You]: And that way,
+[You]: the data is centralized, reconciliation is centralized,
+[You]: and then every single party has has a shared platform to collaborate on the on the differences. Right?
+[You]: So that's sort of, like, the problem we solved today. And just speaking a bit more
+[You]: towards our vision,
+[You]: which is
+[You]: basically interest sends
+[You]: reconciliation. Right? For us, reconciliation is just a wedge.
+[You]: We're starting it by today for two main reasons. First,
+[You]: it's a critical pain point today. I mean, the Synapse scandal last
+[You]: year 2024 is sort of like the tip of the iceberg illustrating that this is an industry wide
+[You]: problem, not only
+[You]: in in the more crypto use cases, but also in fiat, just, like,
+[You]: sponsor banking sort of setups.
+[You]: And the second reason why we're starting by reconciliation is that
+[You]: we're seeing a big wave of automation in FinOps right now with agents.
+[You]: But in order to deploy those agents, you need to set them on top of a source.
+[You]: A transactional source. Right? And if you don't have a single reconcile source of
+[You]: truth, then you need to pick where you're gonna deploy that agent. And that means that probably that
+[You]: agent is gonna be executing tasks
+[You]: that are not gonna be precise enough or reliable enough because that because that's
+[You]: data source is not reconciled. So that's why we
+[You]: see it as an interesting wedge because it becomes the foundational layer by which then we can
+[You]: deploy agents for imagine
+[You]: treasury ops, strategic finance, FP and A, accounting, these other adjacent workflows to reconciliation,
+[You]: that today are also seeing a lot of friction, a lot of cost, and a lot of risk because
+[You]: there's no reconciled source of truth.
+[You]: But today, we have an an amazingly powerful platform to reconcile these money
+[You]: movements, and these are some of the
+[You]: development that today, I think, set us apart.
+[You]: Which is first one, the dynamic integrator, which enables us to connect to any data source
+[You]: whether it's script or fiat, SFTP, API,
+[You]: even just, like, downloading CSVs from portals,
+[You]: Then we have our agentic flywheel that this means that
+[You]: the platform learns by these files and by the
+[You]: that users take on the platform. Because we know that reconciliation is an incredibly nuanced
+[You]: workflow,
+[You]: And so the platform needs to start developing that context window
+[You]: by which we really understand and adapt
+[You]: to your specific use case and to the business logic that layer zero needs from this workflow. Right?
+[You]: And then the third component is our problem solver, which I can then show you in another
+[You]: meeting a short demo about this module, which is amazing. But, basically,
+[You]: when you're comparing all these files and matching transactions, they never
+[You]: match a 100%. Right? So
+[You]: it's all about solving that last mile of differences. And so our problem solver what it does,
+[You]: is it groups all these differences in different clusters.
+[You]: By root cause and it proposes solutions. Either it be
+[You]: eliminate duplicates, mark this as a mental transaction, and so on.
+[You]: And when the user starts approving and rejecting those suggestions,
+[You]: that's when we start creating the context window that the system starts learning.
+[You]: And so over time,
+[You]: it becomes more and more autonomous.
+[You]: Well, these are, the opportunity starting by the wedge and the
+[You]: platform, and this is just to mention a bit about the team and our and our investors.
+[You]: We're a Prestige company. We're already working live with
+[You]: banks, processors, insurance companies, crypto in The US and in Latin America.
+[You]: And the three of us come from from fintech. Right? I particularly come from the crypto world as well.
+[You]: I used to work for Bitso. I don't know if you know Bitso from from Mexico, but now
+[You]: operating across all South America.
+[You]: I was the park manager there for the payments fleet, so
+[You]: I understand
+[You]: all the operations between crypto, fiat, and and and the reconciliation needs that
+[You]: these workflows present.
+[You]: Just being conscious of time here because we have four minutes left.
+[You]: That's sort of what we do, and then we would love to explore if there's a use case with you guys.
+[You]: Not only with you guys, but also with the clients you
+[You]: work with, right, which is, think, the most relevant opportunity here.
+[Remote]: Yeah. Thank you for running through that, Nacho. Appreciate it. And I think your your sense is
+[Remote]: correct there. I think this is something that sort of, like, we we wouldn't
+[Remote]: necessarily have the need for today in terms of, like, our internal ops, but that
+[Remote]: a ton of these partners that we have, and that we work with
+[Remote]: sort of would be you know, I I think it'd be more applicable to what they do.
+[Remote]: I would love to sorry. Again, being conscious of time, I would love if you guys have
+[Remote]: a demo or something that I can try out or a video recording of, like,
+[Remote]: the platform in action. I'm I'm definitely, like, a very visual learner myself.
+[Remote]: And I think that would help me to better understand how these
+[Remote]: neobanks and exchanges that we work with might use this.
+[Remote]: And then, yeah, I would love to just have the deck as well to, like,
+[Remote]: amongst our team.
+[Remote]: But, yeah, I think in general, like, we are always looking for ways
+[Remote]: to make our partners' lives a bit easier. And
+[Remote]: this is something that I think could could contribute to that. I just I've
+[Remote]: to to be fully honest, I feel like I I need a slightly deeper understanding of, like,
+[Remote]: how it actually works in action, if that makes sense.
+[You]: Of course. Of course. I understand. But,
+[You]: what I recommend then there is, do you wanna loop in
+[You]: the people doing reconciliation internally? Because they probably understand and and really know how this
+[You]: workflow operates, and and they can have
+[You]: I think, a good understanding and a view of our platform is is powerful.
+[You]: Or not, it will be useful for your customers. And I'm happy to do it in person if if you're, like, flagged
+[You]: five blocks away. Your offices are five blocks away. Can go in person and do a live demo there if that's useful.
+[Remote]: Yeah. Thank you.
+[Remote]: So it it would be great. I think the people who make those decisions are probably at our
+[Remote]: headquarters in Vancouver. So slightly slightly less close than our, our Brooklyn office
+[Remote]: here. But, yeah, let me let me send some messages
+[Remote]: and see what I can learn.
+[Remote]: Again, I think anything that you can send me that helps demonstrate what you guys
+[Remote]: do, when I have those conversations would would make my life a little bit easier there.
+[You]: Got it. Got it. I'll send over those materials, right after this meeting.
+[Remote]: Cool. Sounds good. Awesome. Yeah. That
+[Remote]: would be great because I think maybe I kind of
+[Remote]: Brexit could be a kind of ecosystem partner or
+[Remote]: someone who facilitate
+[Remote]: for the ones who want neobanks and different
+[Remote]: financial institutions that will need reconciliation with
+[Remote]: other counterpart.
+[Remote]: Yeah. Maybe something and and let's see if Rexy Nacho should do any kind of
+[Remote]: implementation or with any APIs
+[Remote]: of layer zero could could work closer. But let's start
+[Remote]: Parker suggests with send him, please,
+[Remote]: send us all a a deck and
+[Remote]: a little demo, if possible.
+[Remote]: Okay?
+[Remote]: Would be great. Appreciate it in advance.
+[You]: I'll I'll send the deck and some materials, for the demo.
+[You]: The, like, the platform is evolving every single week. So what I prefer there is if there's interest with the
+[You]: deck,
+[You]: I'm more than happy to set up set up a call, set up some time, and do a live demo either
+[You]: virtually or in person, whatever works best for the team. And then we can walk you through different modules,
+[Remote]: Yeah. That'd be great. Sound good.
+[You]: show you how the platform works.
+[You]: Awesome. Alright, Parker.
+[Remote]: Okay.
+[You]: Great meeting you.
+[Remote]: Parker.
+[Remote]: To one more thing to keep talking. Should we create a group in Telegram, Parker, with the
+[Remote]: Pablo, with Brexit? Okay. Yeah. Let's let's talk over there.
+[Remote]: Sweet. Do you have Parker's Telegram, Iván?
+[Remote]: Yeah. I do. I do. Yeah. Awesome.
+[Remote]: Okay. Okay. Let's move forward from there. So
+[Remote]: thank you so much, Parker, and hope to see you soon
+[Remote]: either in New York or or come come to Buenos Aires whenever you want.
+[Remote]: I know, man. I got it. I got it. I'm so sad that dev connect is not there again this year because I was like, it's used to go. It's a real real bar. It it was amazing. And, actually, I was going to suggest that, Parker, we did an event
+[Remote]: for DevConnect last year at the end of the year when the when the
+[Remote]: summertime comes to to Buenos Aires. We will most likely do another one at the
+[Remote]: end of the year. So if you're looking for teams, we have a lot of builders here in Buenos Aires.
+[Remote]: So if you already launched Zero and you are looking to connect with to
+[Remote]: developers or builders over here, we can do a joint event or something to other
+[Remote]: closer to to November or December.
+[Remote]: Yeah. I I sadly, I don't think I'll be able to convince my boss
+[Remote]: to let me go to play the virus this September.
+[Remote]: I really wish I could because I need more more empanadas and more wine
+[Remote]: But I'll I'll definitely I'll let you guys know if that if that
+[Remote]: changes for sure. And appreciate the offer. Of course. Thank you so much.
+[You]: Thank you.
+[Remote]: I guess. Thanks for the time. Great meeting.
+
+============================================================
+SUMMARY
+============================================================
+### LayerZero Value Transfer Solutions
+
+- Core specialty: facilitating value transfer between chains
+- Current offerings:
+  - OFTs (Omnichain Fungible Tokens) on Stargate
+  - Hydra: LayerZero’s native stablecoins deployable on any chain
+  - Stargate pools: lock/unlock mechanism via LayerZero messaging
+- Intent-based solutions expanding rapidly
+  - SWAPS framework with Aori as initial provider
+  - 3 additional providers onboarding for specialized verticals
+  - Focus on stablecoin orchestration and smart contract interactions
+- Value Transfer API (closed beta)
+  - No-code interface for neobanks/exchanges without solidity teams
+  - Auto-indexes new OFT pathways upon deployment
+  - Powers custom bridge frontends, deposits/withdrawals
+
+### Zero L1 Launch Details
+
+- Mainnet launch: Q4 2026, public testnet summer 2026
+- Parallelized execution environments called “zones”:
+  1. General Purpose Zone: EVM/Solidity environment for easy porting
+  2. Capital Markets Zone: Rust VM optimized for trading
+    - 2M TPS, 10ms latency (20x better than Hyperliquid)
+    - Verifiable Apps (VAPs) framework compiles any language to validator-compatible code
+- Validator requirements:
+  - Ultra-lightweight hardware (Raspberry Pi capable)
+  - Demo: 150 Pi validators processed 30 days of Ethereum transactions in 24 seconds
+  - Can run on phones, Apple Watch, MacBook
+  - No $50K servers required
+- Validator selection process still being determined
+  - Team of 150 (130 engineers), small business function
+  - Parker will update on validator opportunities
+
+### Partnership Exploration & Next Steps
+
+- Rexi reconciliation platform overview presented
+  - Addresses data fragmentation in crypto/fiat operations
+  - Agentic platform for autonomous reconciliation across multiple data sources
+  - Relevant for LayerZero partners (neobanks, exchanges) rather than internal use
+- Parker’s feedback:
+  - Needs visual demo/materials to better understand platform
+  - Decision makers located in Vancouver HQ
+  - Interested in solutions that help partner ecosystem
+- Immediate actions:
+  1. Ignacio to send deck and demo materials to Parker
+  2. Create Telegram group for ongoing coordination
+  3. Potential live demo (virtual or in-person) if initial materials show promise
+- Future collaboration opportunities:
+  - Ecosystem partnership for LayerZero clients needing reconciliation
+  - Potential API integration possibilities
+  - Joint Buenos Aires event for Zero launch (Nov/Dec 2026)
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/dbdc8d3b-94e3-47d2-9c4b-9b88a49535ad](https://notes.granola.ai/t/dbdc8d3b-94e3-47d2-9c4b-9b88a49535ad)

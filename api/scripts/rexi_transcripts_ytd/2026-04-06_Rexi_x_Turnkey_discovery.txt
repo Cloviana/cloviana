@@ -1,0 +1,582 @@
+MEETING: Rexi x Turnkey : discovery
+DATE: 2026-04-06
+ID: not_vSQOe1EjN5LXTH
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Aman Deol <aman@turnkey.io>
+SCHEDULED: 2026-04-06T10:00:00-04:00 - 2026-04-06T10:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: I'm in
+[Remote]: God god are you calling in from?
+[You]: I'm in Buenos Aires right now, Argentina.
+[You]: Our team is based here. Our tech team
+[Remote]: Okay. Cool.
+[You]: so
+[You]: spent the past two weeks here building with the team, going back to New York this weekend.
+[Remote]: Agora, isso
+[You]: Yes. Yes. How about you?
+[Remote]: say, are you are you based fully full time in New York?
+[Remote]: Okay.
+[Remote]: I'm I'm I'm actually in London, but most of the team is in New York.
+[You]: Okay. And you travel often?
+[Remote]: Yeah. Like, I so I come to New York probably, like, twice
+[Remote]: a year or maybe three times a year just to, like, work from the office there for a little bit.
+[Remote]: And then, obviously, you know, like, conference circuits. I I got back from Cannes, like, a few days ago.
+[Remote]: Headed to Paris for Paris blockchain week next Monday.
+[Remote]: But, like, mainly I think I'm gonna be doing mainly, like, European conferences and Asia conferences.
+[Remote]: And kind of give up on the America ones now that, like,
+[Remote]: we've like, we have the full team in North America. Like, no point in you flying out there.
+[You]: Yeah.
+[Remote]: But yeah. No. It's it's good.
+[Remote]: Awesome. How how long how long you've been building Rexy?
+[Remote]: Like, I look I took a look a little bit, like, what you guys are working on, but, I would love to hear more
+[You]: Sure.
+[Remote]: from your end of, like,
+[Remote]: The the story a little bit.
+[You]: Yeah. Sure. Sure. So the a rec team, we've been building for
+[You]: over a year and a half now, over eighteen months, about about to turn two years.
+[You]: A little less. Exactly. It it's hard to put, like, where where when we
+[Remote]: Ahora sí.
+[You]: started exactly because I started building this when I was in business school.
+[You]: My background is is in fintech.
+[You]: I was a PM at Bitsso, which is LatAm's largest
+[You]: crypto exchange down there.
+[You]: I also did management consulting, working with the big brands. Some of my cofounders also fintech operators from before. And I guess, like,
+[You]: after building in in fintech for a couple of years, this was this is, like,
+[You]: repetitive, lagging pain.
+[You]: That impacted
+[You]: a lot of areas in inside the organization, which is
+[You]: Something very basic as as saying, okay. Which is the system of record of the company?
+[You]: That really reflects, money movements?
+[You]: Accurately and at scale across multiple providers, multiple integrations, and
+[You]: and and, I know, a lot of banks, a lot of
+[You]: customers, and so on. And so
+[You]: after
+[You]: building a reconciliation process myself at at this fintech company called Comune, do you know Comune?
+[You]: It's a new bank based in The US serving
+[Remote]: Don't. I don't actually.
+[You]: Latinos in The US.
+[You]: Very interesting value prop. Just raised a series a last year. Didn't reaffirm
+[Remote]: Right.
+[You]: growing like crazy. I was there at a seed stage level. It was
+[You]: like, the second nontechnical hire.
+[You]: As chief of staff, and and I ended up doing reconciliation
+[You]: because we're growing 30% week over week. And when I when I did it,
+[You]: couple of things happened. I I had already done it before when I was p
+[You]: at Bitsto, but this was the first time, like, being responsible for it. You know what I mean?
+[Remote]: Yeah.
+[You]: First,
+[You]: surprised at how, you know, hard it was technically,
+[You]: getting the data. Like, there's a big data engineering challenge in both getting the data, making sense of the data, and building
+[You]: something that it
+[You]: with a constantly evolving
+[You]: landscape of data.
+[You]: Also incredible in Nuance. So I I did serve some of the solutions out there
+[You]: and none of them felt like they were dynamic enough to adapt to that constantly changing environment. Right?
+[You]: Second thing that happened was
+[You]: just this mind blowing moment of, wow. Are FinTech's operating this way? Like,
+[You]: it's really some of these fintechs are
+[You]: and it makes sense because of the capital structure of of, you know, venture money.
+[You]: Prioritizing time to market and speed, but not building the infrastructure that
+[You]: enables these type of
+[You]: of money monitoring
+[You]: in place. And I was at Camun, which Camun had really high standards in terms of
+[You]: engineering, security,
+[You]: frameworks, and so on. And so I was like,
+[You]: how are other fintechs operating if Komoot is one of the best? And and
+[You]: this is what we have today. Because when I when I was building the reconciliation process, I found a $6,000,000 with one of our cash in cash out providers.
+[Remote]: Wow.
+[You]: Was like, holy shit. And and then the third thing that happened at the same time I was doing this was Synapse.
+[You]: So all of that felt like
+[You]: perfect storm for me to say, I need to build a company out of this. It it it's big enough
+[You]: It's a recurring pain. It's a current pain. Some startups, think, are more like
+[You]: futuristic, building towards a future problem.
+[You]: Ours is, like, we're building for
+[You]: really
+[You]: obvious problem. Like, any anyone operating financial services today
+[You]: or even non financial services, any company
+[You]: operating multiple payment flows with a high transactionality has a payment reconciliation. It's not solved.
+[You]: It's not solved by SaaS because, again,
+[You]: an incredibly nuanced world.
+[You]: And it's not solved in an efficient way because
+[You]: the same constraint.
+[You]: All these companies have a SaaS but then have to plug in a lot of consulting on top of it. And that's why it's it's very
+[You]: Like, if you if you get quotes from BlackLine,
+[You]: So, like,
+[You]: our our big thesis is the first one is
+[You]: it's a great timing with AI.
+[You]: This is a great problem for AI. It's structured data.
+[Remote]: Yep.
+[You]: Like, always changing data so it can self optimize.
+[You]: And then and then the second one is sort of, like, taking it like, a root cause or
+[You]: approach.
+[Remote]: Yes.
+[You]: You think about reconciliation at its core, it's coordination issue.
+[You]: Reconciliation is hard because all these providers are not
+[You]: operating
+[Remote]: Yep.
+[You]: under certain standards, are not sending the data under certain rules and formats.
+[You]: And, therefore,
+[You]: just try to stitch a bunch of providers together that are operating under different rules.
+[Remote]: Yep.
+[You]: So at the at at at the core, it's a coordination
+[You]: issue. Those are data engineering challenge, but in core, it's a coordination issue. So our approach to it is
+[You]: is basically whatever solution we build
+[You]: we're not gonna be alleviating symptoms with an automation tool, but we're also gonna be bridging that gap
+[You]: coordination. So what Brexit aims to be is a connected tool.
+[Remote]: Yep.
+[You]: That means
+[You]: can
+[You]: have all its providers, including the bank and the ledger inside Rexy.
+[You]: And what generates that is Rexy becomes a system of record for all these parties
+[You]: and then you're reconciling the same data
+[You]: with the same logic, and then you have a shared tool to collaborate on discrepancies.
+[You]: And what that generates over time is network effects. Right? Like,
+[You]: some point, if the bank is on Rexy and that's the way it's operating with all its fintech partners,
+[You]: if you're a fintech wanting to work with that bank,
+[You]: banks can tell you you need to be a rexy as sort of like an operational standard because this is the way they have
+[You]: to make sure they can control and and monitor whatever you're doing on your front, and you have free
+[You]: like,
+[You]: freedom and visibility to build whatever products you want and do all the money movements you want. And so the
+[You]: system gets more efficient, and we're solving the root cause, which is coordination.
+[You]: Now the vision after that is
+[You]: and this also has to do with timing. I feel like
+[You]: this applies I mean, Turnkey is probably a very tech savvy institution
+[You]: operating
+[You]: very AI native.
+[Remote]: Sí.
+[You]: I'm sure you're bumping into the same problem, which is but this applies more, like, to non tech savvy institutions. Just
+[Remote]: Yep.
+[You]: everyone wants to add agents to their operation. Right?
+[You]: But if if if you know better than me, then if if
+[You]: garbage goes in, garbage will go out. So, like, agents are already there. They're amazing.
+[You]: Tools, but
+[You]: the hardest part in the bottleneck is getting the right data to train those agents and to make them work
+[You]: And and and reconciliation feels like the first step. Right? Because
+[You]: if you're feeding data that is not that is not
+[You]: precise, and that money is missing, whatever the agent does is gonna dull on top of that same mistake. So
+[You]: reconciliation for feels like the first step, the foundation, to then build the gentic workflows on top of
+[You]: And so
+[You]: that's a longer term vision becoming like the cloud code for FinOps. Right?
+[You]: Starting by reconciliation because it's a pain big pain today.
+[You]: And because it's a foundation by which we can then build the gentic on top of it.
+[Remote]: Okay. And is it, like,
+[Remote]: correct. Because, okay, I'm a very crypto person. So, like, just so that I can fully understand things, is it, like,
+[Remote]: a kind of, like, a centralized ledger where, like, you
+[Remote]: connect in all these, like, different providers. Let's say it's,
+[Remote]: Stripe and Adi and or whatever. Like, everyone you're using and you plug it into, like, one system so you can fetch all the data
+[Remote]: have it in, like, a single ledger system, and, like, also, like, make these
+[Remote]: like, payments transactions, etcetera, across all these providers from that single
+[Remote]: like, entry or, like, front end.
+[You]: Mean, yes. And I love speaking with with crypto people because
+[You]: the first question that pops up is, like,
+[You]: you're building blockchain.
+[You]: Those are all the features of a blockchain. Right? Like, it's it's it's it's a
+[You]: decentralized nature where everyone
+[You]: is sort of, like, agreeing on what
+[You]: the hell happened on those money flows.
+[You]: And we've given this a lot of thought.
+[You]: I think in this case, there's some benefits to centralization.
+[You]: Particularly on the data part on the data engineering Like, someone needs to be doing all the parsing because that's also part of the challenge. Like,
+[You]: there's there's two sides of it. There's the data engineering part,
+[You]: which is someone needs to do the parsing
+[You]: so we can have a universal format to track these money movements. And then
+[You]: someone needs to be the the infrastructure so we can have that sort of, like,
+[You]: decentralized blockchain effect in which we're all agreeing on what the hell happened on that money flow.
+[Remote]: Yep. Yep.
+[You]: But the first one feels like we need
+[You]: a higher degree of centralization and control.
+[You]: Because no one's gonna agree on the format or on the framework. There's no regulation coming in. Everyone's operating the way they want.
+[You]: And we don't wanna be doing, like,
+[You]: forcing everyone to abide by some certain rule because another option was to go, like, open source.
+[Remote]: Yeah.
+[You]: Like, hey.
+[You]: Everyone should be creating ledgers. Like, but that's that's, like, a longer route, and it takes
+[You]: it takes a bigger of all the ecosystem.
+[You]: Think it's easier for us to say, just dump whatever data you are creating, and I'll be the one doing the parsing.
+[You]: And then you or guys are gonna get together in the same platform to agree on what actually happened.
+[Remote]: Yeah. And I actually, like, I I don't think, like, what you're doing should be on
+[Remote]: chains, to be honest with on chain, I to be honest. I think more so, like,
+[Remote]: it it sometimes is a helpful way for me to, like, frame it in my mind that, like,
+[Remote]: okay. This is, like, a centralized ledger. And, like, it like, I I don't mean that to say, like,
+[Remote]: insultingly. I mean that, like, truthfully, where, like, it's that's, a useful thing, I imagine. Like,
+[Remote]: but so if I'm, like, a client of yours,
+[Remote]: is the framing right that, like, I could then use all these
+[Remote]: services inside, like, a refi front end so I can, like,
+[Remote]: skip going through all these different providers, and it's all, like, reconciled on the
+[Remote]: platform. Is that kind of, a good way to think about it?
+[You]: I don't know if you're gonna be skipping having a ledger or having, like, a bank send you
+[You]: the files because we're just gonna be a data orchestrator to think about it. I don't think I mean,
+[You]: what we will probably replace is the ledger.
+[Remote]: Okay.
+[You]: Because at some point, the ledger is is doing exactly that. It's mapping
+[You]: your activity and then sending it to the banks, the bank executes that one time transaction every single day.
+[You]: Now
+[You]: if Rexy is doing that and and and we're just
+[You]: doing a one way reconciliation between the bank and our
+[You]: systems, and there's no need for a ledger.
+[You]: Which I think is gonna be the case at some point. We're already seeing this with, like,
+[You]: DDA accounts with with Lead Bank and these newer sponsor banks where
+[You]: it's not longer an FPO structure, and and and the accounts are all mapped to every individual.
+[You]: So why do you need a ledger there? It's all API.
+[You]: I think we're going towards that world. The same for BaaS, like, banking and service and
+[You]: is gonna disappear. We're already seeing a lot of fintechs either
+[You]: applying for licensees or
+[You]: or buying banks or even, like, just doing direct integration
+[You]: is an example of that.
+[You]: Started with with the unit and then quickly turned off unit and went straight to the bank.
+[You]: Because it I mean, I'm not sure if you guys are working with bank and stewardship or not.
+[Remote]: No. Generally I I don't think we are, generally speaking. Like, I think we do on, like,
+[Remote]: our client level. Like, we have clients that do banking as a service.
+[Remote]: And are, like, integrating, like,
+[Remote]: wallet functionality into like, they're gonna essentially
+[Remote]: turn into not just banking as a service, but also, like, wallets as a service and all this kind of stuff.
+[Remote]: But yeah.
+[Remote]: Internally for Turnkey, no. We're not we're not doing that.
+[You]: Got it. Got it.
+[You]: But, well, tell me more about Turnkey. Like, and I'm trying to remember how we got connected
+[Remote]: I think, yeah, I think Dan, which is like
+[You]: I forgot. Sorry for the
+[Remote]: one of our one of the guys on the team on, like, the go to my
+[Remote]: team, Dan, I think, reached out to you, and then we're like, you should talk to these.
+[Remote]: Sexy guys. And I like, okay. Cool. Okay. I think it was, a simple thing where, like, he thought the platform was cool, and he
+[Remote]: thought, like, there might be stuff we could work on together. But, yeah, like, I'll give you like, let me just
+[Remote]: quickly talk it through Turkey, like, at a super high level.
+[Remote]: Turkey is extremely flexible wallet infrastructure, and we were
+[Remote]: sort of built to sit one layer beneath
+[Remote]: typical wallet info providers that work in crypto. So
+[Remote]: on, like, one end of the spectrum, you have, like, wallet as a service
+[Remote]: where you could have, like, let's say, a Privi, a dynamic, DFNS.
+[Remote]: And then on the other side, you have these sort of, like, digital asset management platforms, like,
+[Remote]: it could be custodial, so, like, a BitGo, or it could be noncustodial, like a Fireblocks.
+[Remote]: But, essentially, very package front ends where people could do, like, on chain interactions for, like, businesses.
+[Remote]: Trankey has some of these high level abstractions, so we do have, like, our own wallet as a service kit.
+[Remote]: But we were built to sit one layer below that.
+[Remote]: To essentially productize the primitives around
+[Remote]: key generation, signing,
+[Remote]: of transactions, authentication, and then policies, which are effectively, like,
+[Remote]: programmatic controls for who can access a private key and what they can do with it.
+[Remote]: The reason why we emphasize this kind of, like, one layer below is, like,
+[Remote]: we focus on flexibility. And, ideally, with a clunky stack, you could build
+[Remote]: your own version of, like, a privy or a Firefox or a dynamic
+[Remote]: using our underlying primitives in house rather than having to work with all these
+[Remote]: other providers, which long term people tend to prefer as they develop, like, more complex
+[Remote]: crypto use cases. I would say, like,
+[Remote]: our use cases fall into sort of, like, three high level buckets.
+[Remote]: So one is noncustodial embedded wallets.
+[Remote]: So these are, like, you're a consumer app. You want
+[Remote]: crypto wallet built natively into your application. You want your users to sign up with,
+[Remote]: like, the email or the social login. That's, like, a core bread and butter use case. We provide
+[Remote]: I think, some, good clients there that we have is probably, like,
+[Remote]: Axiom, Moonshot, Infinix, Magic Eden. So a bunch of, like, on chain crypto native
+[Remote]: teams. The second use case is sort of
+[Remote]: back end API driven wallets. So these are usually, like, custodial business
+[Remote]: wallets that a company uses to with, like, API keys to control the wallets.
+[Remote]: And set up very programmatic controls over, like, sponsored sweeps,
+[Remote]: over, like, multisig approvals, over having, like, team wallets, and so on and so forth.
+[Remote]: With that use case, I think some of our bigger clients are people like Bridge,
+[Remote]: people like Polymarket, people like Super State,
+[Remote]: most of them essentially doing, like, internal treasury management or, like, smart contract management.
+[Remote]: The final use case is a lot of people white label TurnKey.
+[Remote]: And that's because we sit kind of at this low level that
+[Remote]: people white labelers are, like, dynamic alchemy squads have all created their own wallet as a
+[Remote]: service offerings on top of Turnkey that they go on and sell to their clients.
+[Remote]: Yeah. So that that's kinda, like, super high level. It's a good way to think about it is, like,
+[Remote]: anywhere you need a private key that's programmatically created and controlled, that's where, like, Turnkey shines.
+[Remote]: So, yeah, I'm I'm kinda are you guys doing anything crypto related?
+[Remote]: Like because I I see, like, on your site, there was a lot of it was, like,
+[Remote]: even when I look at, like, the providers you work with, it's like Alien, PayPal,
+[Remote]: Chase. Like, this is just, the demo example I was looking at. Didn't actually, like, go into the demo, but,
+[Remote]: yeah, I'm curious if you guys are doing anything quicker with
+[You]: We are working. Exactly. We're working with Bitso. We're gonna
+[You]: one bit now acquired by Nexo.
+[You]: And so, like, we integrate the Fireblogs and do all that reconciliation as well.
+[You]: I was gonna ask that. Like, do you guys have any sort of
+[You]: big reconciliation workflow inside Turnkey, or how does it work?
+[Remote]: No, Willie.
+[Remote]: I I don't believe we have any, like, reconciliation workflow. Like,
+[Remote]: I don't think most of our clients come to us with those kind of requests.
+[Remote]: Actually, it would be good to know. What are what are you guys doing with Firefox? Like, how how does how do you work together with them?
+[You]: We, you know, we don't work with Fireblock. We just
+[You]: integrate with them to ingest, like, the all all the new prints that yeah.
+[You]: All all the movements in the wallets
+[You]: then we reconcile that against internal ledger of the provider.
+[Remote]: How how
+[You]: Of the company.
+[Remote]: is it is it is there a lift from Firefox's side
+[Remote]: to being able to do this integration, or is it something you guys were able to do, like, pretty much yourselves?
+[You]: We'd we'd do it ourselves.
+[You]: They're pretty open.
+[You]: Like, with FiveLocks, it's pretty open. Yeah.
+[Remote]: Interesting.
+[Remote]: So, like, if
+[You]: It's an API integration with with
+[Remote]: if, like,
+[You]: our customers' credentials.
+[Remote]: Ah, okay. Okay. Okay. Yeah. Yeah.
+[You]: Just inject the data.
+[Remote]: You're you understand? You're you have, like, an API integration with the customers who use their Firefox
+[Remote]: credentials to, like, log in to I don't know. Log however it works. And
+[Remote]: then, like, that pulls all the data from their Firefox account that they use to register. Oh, interesting.
+[You]: Exactly. That's why, like,
+[You]: I was asking, do you like, the first question is, does Turnkey have some sort of
+[You]: on on ramp or off ramp
+[Remote]: We don't provide one internally. We work with
+[You]: from Fayette?
+[Remote]: Coinbase and MoonPay to provide that into our water kit.
+[Remote]: So that we don't have our own, like, turnkey on ramps.
+[Remote]: We work with them. Like, I don't think there is really
+[Remote]: desire to build one internally.
+[Remote]: We're mainly focused on, like, key management.
+[You]: Okay. Got it.
+[You]: And then the crypto part is
+[You]: sort of infrastructure you sell to companies, and they are the ones in charge of reconciliation.
+[You]: So maybe it's, like,
+[You]: for you guys, it's more like
+[You]: are you interested in offering some sort of
+[You]: sort of reconciliation solution inside the portal for your customers or not?
+[You]: Is that
+[Remote]: That I I I would I would I think my brain is a bit, like,
+[Remote]: how would someone, like, use that? So, like, for example, when we
+[Remote]: because, like, okay. A lot of our clients are, like,
+[Remote]: essentially, for us, they're like b to b to c. Right? So we're giving them, like, b to b tooling.
+[Remote]: They're offering it to the end users. So I know if, like, the end users need reconciliation. I imagine this
+[Remote]: more like a business use case. And then
+[Remote]: the
+[Remote]: b to b clients that we have, which is, like, the custodial wards,
+[Remote]: I'm trying to think of, like,
+[Remote]: the ones that are, like there are certain ones which are, like,
+[Remote]: not really monetary use cases as much. So, like,
+[Remote]: let's say you're poly market. Like, you're using Turnkey to
+[Remote]: set up, like, API controlled wallets and
+[Remote]: essentially using those wallets to deploy new
+[Remote]: prediction market markets, like the smart contract markets, and then resolve those markets.
+[Remote]: So, like, there isn't too much of, like, a financial use case there.
+[Remote]: It's more so just, the deployment of smart contracts.
+[Remote]: But then on the case of, like, somebody like Bridge, they're using us to, like,
+[Remote]: spin up hundreds of thousands of deposit addresses and, like, sweep funds between treasury
+[Remote]: addresses. So maybe there, there is something.
+[Remote]: Like, that they might need. Yeah. I'm curious. Like, how do you how do how would, like, this work
+[Remote]: going forward if, like, somebody were to do something with you guys?
+[You]: I mean, I'm I'm just trying to think, like, we have we have
+[Remote]: Yeah.
+[You]: three different models. Right? The first one is, the SaaS model where any customer
+[You]: can just create an account with Rexy, connect the data sources, and start building a
+[You]: Azure workflow inside Rexy.
+[You]: That's how it works today.
+[You]: The second one is an embedded solution. So, again, for
+[You]: some of our customers, it's it's b two b two b.
+[Remote]: Yep.
+[You]: So, basically, let's say payment processors or infrastructure providers like you guys where
+[You]: you guys are interested in having a reconciliation tool inside your platform, but it's a very
+[You]: complex product to build out internally because it's not your bread and butter. And then
+[You]: provide some sort of white labeling or embedded solution for you guys. Right?
+[You]: And that goes all the way from a reseller partnership to a licensing agreement
+[You]: or to even, like, a white labeling
+[You]: 100%, like, inside the platform. And the third model is
+[You]: deployed. This is typically more for, like, banks, insurers, or big legacy companies which have
+[You]: higher data sensibility, higher data privacy concerns. And so then
+[You]: for those customers,
+[You]: we developed we developed a product by just
+[You]: to their use case and deployed in their infrastructure. And then it's like
+[You]: we just take care of the support and all the upgrades associated with with that solution.
+[You]: How it works, basically, you connect the data sources.
+[You]: We make sure those those connectors are ingesting data synchronously every single day.
+[Remote]: Okay.
+[You]: And then they're they're
+[Remote]: Could you, like, for example, hypothetically, like,
+[Remote]: does it need to, like, log in with credentials? Because, like,
+[Remote]: I imagine, like, if you're ingesting data sources, I like, couldn't you just, like, query like, let's say, like,
+[Remote]: Etherscan or something for, like to, like, actually query, like, a wallet addresses activity?
+[You]: Yeah.
+[Remote]: And I pull that into your
+[You]: It's any connector. Yeah. Yeah. And it's not like we're asking for credentials.
+[Remote]: okay. Okay.
+[Remote]: Yeah. Yeah.
+[You]: It's it's just the API
+[You]: it's the API keys.
+[Remote]: Okay.
+[You]: That we need from the customers. And so we adjust the sources.
+[You]: And then there's a whole data engineering pipeline configured to both, again, do the
+[You]: translation.
+[You]: The processing with the reconciliation logic, and then someone from the payment ops team or the fin ops team logged in every single day to
+[You]: investigate and solve the discrepancies. Right? And then that is
+[Remote]: Thanks. Okay.
+[You]: plugged into their ERP to create the journal entries of stuff that's already reconciled.
+[Remote]: Okay.
+[You]: That's basically how it works today.
+[You]: Now
+[You]: second the module that is now in beta that we're now starting to develop is the accounting module.
+[You]: Because reconciliation has both an upside
+[Remote]: Yep.
+[You]: which is that daily need to track money movements, and then it has a month
+[Remote]: Yep.
+[You]: closed side, which is more like on the accounting side, which is reconciling the balances.
+[Remote]: Yep.
+[You]: I'm sure you guys, for example, or the the the companies working with crypto typically have the again,
+[You]: the transaction level reconciliation, and they have the AUM
+[You]: reconciliation, which is also very painful.
+[You]: And so that's that's that's how it works today.
+[Remote]: Interesting. And, like, what what
+[Remote]: if I was gonna, like, send because, obviously, I'm I'm on a go to market
+[Remote]: team. If I was gonna send some of the stuff to, like, product team, what would be the best things to share with them?
+[You]: I can share I can share a project video. I can share a won't
+[You]: or one pager and a learn.
+[You]: Think and then if they wanna do a demo, we could do a live demo. We can show them.
+[Remote]: Okay. Cool.
+[Remote]: Whatever software to send over that I can, like, pass over to the team, like, feel free to
+[Remote]: shoot me over. I'd I I'm happy to, like, let them get them taking a look at stuff.
+[Remote]: Yeah. I I I think that, like, for us, like, I obviously, like, don't
+[Remote]: make the product decisions at the end of day, but, like like, my job is to, like, go learn what people are building and, like,
+[Remote]: like, see how it can be useful for our stack. And
+[Remote]: know. There is something here that I think could be, like, helpful.
+[You]: Sure. Is this something you've heard already
+[You]: that is on the product pipeline, or is this the first time you're hearing about it?
+[Remote]: Not not necessarily. I think this is, like, something of, like, a first time we're hearing about this where, like,
+[Remote]: I I can, like, see the problem you're describing.
+[Remote]: I guess, like, when when I looked it up and, like, the way you described
+[Remote]: I can see the problem you're describing it and, like, why it would be difficult. And when I think about it, like,
+[Remote]: current, like, financial, like,
+[Remote]: providers, like, tooling providers that exist outside of crypto,
+[Remote]: if there's a requirement to do this together, then, like, the fragmentation will be even worse
+[Remote]: with, crypto companies. So, like, I feel like I do see, like, the the need for it.
+[Remote]: So it's something that yeah. I I don't think there's, like, a burning
+[Remote]: desire right now to do it, it is something I wanna, like, float to the team and see what they they kinda think about it.
+[You]: Cool.
+[You]: Okay. Let me send over then the video, a blurb, and a one pager, and then
+[You]: let me know. I mean,
+[Remote]: Awesome.
+[You]: super low stakes. No pressure. This is an embedded
+[You]: it it's an embedded opportunity. And if if you haven't heard it,
+[You]: so far, it probably means it's not super high in in terms of priorities.
+[You]: But if this definitely spikes interest, happy to do a demo next week or or whenever is best for the team.
+[Remote]: How do quick question.
+[Remote]: Who who who else is like, who are you, like, competing within this
+[Remote]: Are you guys, like, a first mover here? Like, who's who exists?
+[You]: I mean, there's just the legacy providers, like BlackLine, Trintech, the
+[You]: are these are mostly serving the banking industry and insurance industries.
+[You]: These are legacy software providers, horrible tools.
+[Remote]: Yeah.
+[You]: And then you have the newest ones
+[You]: that are more, like, vertically
+[You]: focused.
+[You]: Like, Archim, Duco,
+[You]: Ledge,
+[You]: These are companies that that that are also doing the same thing. And Latin America, there's a big one called Symmetry. Can now try to punch into the American market.
+[You]: But it's it's it's again,
+[Remote]: Yeah.
+[You]: we're not first movers.
+[You]: But I think
+[You]: out of all the players that have taken a stab at it, no one has actually, like, transcended
+[You]: beyond a certain threshold of scale.
+[Remote]: Yeah.
+[You]: Because it's a hard problem. It's a complex problem. A one's problem.
+[Remote]: Yeah.
+[You]: It's sensible. And now with AI, there's a lot of people more, like, on the field of
+[You]: wanna build this internally.
+[You]: Right?
+[You]: Which we're gonna see that come back in a couple months because it's a complex product to build and and
+[You]: and once you have
+[Remote]: Yeah.
+[You]: experts
+[You]: expert agents doing it, it's gonna be more cost efficient and better. And
+[You]: and it it also pushes you to
+[You]: focus on what you're good at. Right? Like, no one's gonna
+[You]: win against any competitor by having a better reconciliation tool. Right? So it's
+[Remote]: Yeah. I I I hear people telling us, we're gonna do key management in house, and I was like, I'll see him during my
+[Remote]: months. Just wait till you go you go off and build it and then come back. We'll we'll talk in a little bit.
+[You]: Exactly. Exactly.
+[You]: Well,
+[Remote]: You do you
+[You]: go ahead.
+[Remote]: guys know
+[Remote]: I I think they're a bit different than you guys. But do you know a company called Formance?
+[You]: Yep.
+[You]: Actually, I know I know someone that works there.
+[Remote]: Would you consider them, like, in the same, like, kinda grain, or is they
+[Remote]: they're not really AI oriented at all and, like, aren't, like, working towards that, I think. But, like,
+[Remote]: is that, a similar field, you think?
+[You]: They're more on the ledgering side. Right?
+[You]: I think it's directly competitive.
+[You]: But there's definitely some overlap in terms of
+[You]: I mean,
+[You]: it's a different approach at the same problem because by building I think
+[Remote]: Yeah.
+[You]: formats is more
+[You]: competitive with fragment. You know these guys?
+[Remote]: I don't know if fragment I know for Wamantz because, actually, like, I
+[Remote]: closed a deal with them recently where they're gonna use us to, like, do noncustodial wallets on
+[Remote]: like, part of their stack. So I wondered if that was something that, like, you guys have looked into it
+[You]: There's overlap
+[You]: I don't think like,
+[You]: yeah, there's there's definitely overlap.
+[You]: Different approaches to the same problem.
+[Remote]: Yep.
+[You]: But not directly competitive. I think they're both they they're targeting other
+[You]: other type of companies as well. So
+[You]: I know.
+[Remote]: Yeah. That makes sense.
+[Remote]: Are you guys gonna, like, be looking at, like, doing any, like, crypto stuff at all?
+[Remote]: Like, on, like, the wallet side of things by any chance? Like, is there anything you guys plan on doing there or not really?
+[You]: Not really. We're I mean,
+[You]: there's a lot to do on on the solution side. We're not gonna be touching money anytime
+[You]: soon. I think we're gonna position ourselves more as a
+[You]: data orchestrator and and adding these additional workflows on top of the
+[You]: system of record we're trying to build.
+[Remote]: How do you guys make money?
+[You]: We're charging for the for the platform, basically.
+[Remote]: Yeah.
+[You]: For the outcome.
+[Remote]: Like,
+[You]: Yeah.
+[Remote]: Okay. Cool. Awesome.
+[Remote]: Cool. Yeah. Like, feel free to send over the info. I'll shoot it over to our team. There's anything that that's
+[Remote]: sparks interest with them, I'll let you know. But appreciate you taking the time.
+[You]: Cool. Thank you for the time, Amman. Great meeting you, and let me know when you're in New York and grab coffee or something.
+[Remote]: 100%. Sounds good.
+[You]: See you. Bye bye.
+[Remote]: Alright.
+
+============================================================
+SUMMARY
+============================================================
+### Turnkey Overview
+
+- Flexible wallet infrastructure, positioned one layer below typical wallet providers (Privy, Dynamic, DFNS, Fireblocks, BitGo)
+- Core primitives: key generation, transaction signing, authentication, and programmable access policies for private keys
+- Three main use cases:
+  1. Non-custodial embedded wallets (consumer apps) — clients include Axiom, Moonshot, Magic Eden
+  2. Back-end API-driven custodial wallets — clients include Bridge, Polymarket, SuperState
+  3. White-label infrastructure — Dynamic, Alchemy, and others have built wallet-as-a-service products on top of Turnkey
+- On-ramp/off-ramp: no internal solution; partners with Coinbase and MoonPay via their wallet kit
+- No existing reconciliation workflow internally; not a current client request
+
+### Fit Assessment
+
+- Aman sees the problem clearly, especially given crypto’s added fragmentation vs. traditional finance
+- Most relevant Turnkey clients for reconciliation: Bridge (spinning up hundreds of thousands of deposit addresses, sweeping funds between treasury addresses)
+- Less relevant: clients like Polymarket (smart contract deployment, not financial flows)
+- Aman flagged Formance — recently closed a deal with them for non-custodial wallets; curious about overlap
+  - Rexi’s view: Formance is more on the ledgering side, closer to competing with Fragment; different approach, some overlap, not directly competitive
+- Aman’s honest read: not a burning internal priority, but worth floating to the product team
+
+### Competitive Landscape (shared with Aman)
+
+- Legacy: BlackLine, Trintech — serve banking/insurance, outdated tooling
+- Newer vertical players: Archim, Duco, Ledge, Symmetry (LatAm, pushing into US)
+- No player has scaled beyond a certain threshold — problem complexity is the barrier
+- AI-native internal build attempts are increasing, but Rexi’s view is they’ll hit the same wall and come back
+
+### Next Steps
+
+- Ignacio
+  - Send Aman: product demo video, blurb, and one-pager
+- Aman
+  - Forward materials to Turnkey product team
+  - Flag as a potential embedded opportunity; loop back if it sparks interest
+  - Meet up in New York (next visit)
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/6f434772-9d43-489c-9b8c-1c19fbd12775](https://notes.granola.ai/t/6f434772-9d43-489c-9b8c-1c19fbd12775)

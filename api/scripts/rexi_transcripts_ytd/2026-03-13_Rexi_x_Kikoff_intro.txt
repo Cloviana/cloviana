@@ -1,0 +1,612 @@
+MEETING: Rexi x Kikoff: intro
+DATE: 2026-03-13
+ID: not_segcwukcIWTHca
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Katy <katy@kikoff.com>, Teo <teo@rexi.finance>, Prabhbir <prabhbir@kikoff.com>, San Francisco-4-#8 Pen & Paper (4) <c_188a0mktcco7ghjdi4loj46htbrc8@resource.calendar.google.com>, San Francisco-4-#4 Drum & Bass (4) <c_1885cla18ceish5tlot0phjnkupkq@resource.calendar.google.com>
+SCHEDULED: 2026-03-13T14:30:00-04:00 - 2026-03-13T15:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Oh, there you go.
+[You]: How's it going?
+[Remote]: Hello.
+[Remote]: Good.
+[Remote]: How about you?
+[You]: You calling in from I'm good. Doing good. Thank you.
+[You]: You calling in from separate
+[Remote]: California.
+[You]: California?
+[Remote]: Yeah.
+[You]: Amazing.
+[You]: You guys in Palo Alto or Downtown San Francisco?
+[Remote]: We are in Downtown San Francisco.
+[You]: Okay. Very cool.
+[Remote]: How about you?
+[You]: Well,
+[You]: I'm in I'm based in New York.
+[Remote]: Okay.
+[You]: I was gonna go to San Francisco the week of the blizzard, but I got
+[You]: stuck here in New York because all the flights got canceled.
+[You]: I am going back to San Francisco, April 20. So it'd be great maybe to grab
+[Remote]: Okay.
+[You]: coffee in person there while while I'm there.
+[You]: If you're up for it.
+[You]: Well, thank you for the time. I'm just trying to look up how we got introduced. I think it was
+[Remote]: I reached out to Cynthia, who's our CEO, and then she connected once.
+[You]: Got it. Yeah. Exactly. Well oh, I know now.
+[You]: It was via
+[You]: okay. No.
+[You]: Well, let me let me do a short intro on on what we do, and then
+[You]: and who we are, and then we'd love to hear more about
+[You]: about about you guys and and
+[You]: deep dive into
+[You]: your reconciliation needs, how are you currently managing it, and if there's any
+[You]: specific pain points that maybe our platform, our solution could be
+[You]: adding value. Let me just
+[You]: I'll just open our one page here.
+[You]: And let me project my screen. I think it's gonna help.
+[You]: Put this into
+[You]: I I can share this afterwards, but
+[You]: let me do some
+[You]: there. Okay. So, basically, what we're building at Rexy is
+[You]: the vision is building, like, the cloud for fit
+[You]: Right? We're building a platform in which
+[You]: the CFOs, the head of finance, the COOs, the head of operations could
+[You]: basically
+[You]: build agentic workflows for every single
+[You]: operation or every single function they're
+[You]: currently undergoing in the organization. That's that's sort of, like, the big
+[You]: vision. We are are starting by financial services because in financial services,
+[You]: the ops and the finance teams are particularly relevant just because of the nature of the business.
+[You]: And we are starting by reconciliation because, we see
+[You]: a big pain in the market. We the three cofounders, we were FinTech operators for
+[You]: before.
+[You]: We built reconciliation workflows at payment processors, neobanks, banks,
+[You]: insured techs, and we've seen the pain. Not only the pain of doing this
+[You]: work, but also the economic cost and the compliance risk that it might
+[You]: entail.
+[You]: So
+[You]: basically, what we have today is is is basically an
+[You]: orchestration platform
+[You]: This is about the problem statement. Again, when you're not
+[You]: reconciling correctly or you don't have the right
+[You]: platform to do it in a robust and automated way,
+[You]: there's a lot of risks that might be created. Right? And
+[You]: some anecdotes I have, I was working for a fintech and neobank here in New York,
+[You]: which operated on under an FBO structure with
+[You]: FDIC Bank. Oh, no. So the CF CFSB Bank here in New York.
+[You]: And
+[You]: we found a gap of $6,000,000, and we found it
+[You]: six months later because we're not reconciling correctly the money movements with one of our
+[You]: external providers. That's one of the risks that might arise. Other things that might happen when you have
+[You]: a scalable reconciliation work, though, is
+[You]: for example,
+[You]: impact in
+[You]: customer support.
+[You]: You know, like tickets from users that are
+[You]: claiming for funds they're not seeing in their wallets, and it's because you don't have a live real time
+[You]: reconciliation workflow
+[You]: that hits the webhook and basically updates their
+[You]: balance in the wallet with money that you already have in the bank, actually.
+[You]: That's one thing. Another impact may be product.
+[You]: Sometimes these teams are building new features or new products, and they're ready to launch. And
+[You]: suddenly, Ops becomes bottleneck because you cannot launch because Ops still doesn't have the workflow
+[You]: to be able to reconcile that new product. Those are other things that we might see
+[You]: when you have a robust reconciliation, workflow.
+[You]: So, basically, what what Rexy adds
+[You]: is, first of all, end to end automation, just killing all the manual tasks
+[You]: involved in the process, all the way from
+[You]: ingesting, transforming, and processing these files that are that is
+[You]: again, it could be very time consuming because we all know these files come in many different shapes and forms.
+[You]: Sometimes the connectors are unstable, and there's a big data engineering work
+[You]: around
+[You]: reconciling money movements.
+[You]: Then it's about, again, having real time visibility over those money movements.
+[You]: Making sure that these operations are audit ready. So having everything in a platform that is
+[You]: 100% traceable and auditable
+[You]: enables these teams to also comply with some
+[You]: regulator framework or reporting
+[You]: requirement that you might need to abide to.
+[You]: And, of course,
+[You]: it's all about scalability, I was mentioning before.
+[You]: Having a platform in which you can quickly configure a new flows, new data,
+[You]: schemas, and so on enables you to be way quicker in
+[You]: developing products and and launching them to market, right, without ops becoming the bottleneck.
+[Remote]: Oh, sorry.
+[You]: These
+[Remote]: Questions. Do you have is Rexy, like,
+[Remote]: SOP one and SOP two compliance?
+[You]: We are SOC two type two, and we are in the process of getting SOC one type
+[You]: two.
+[You]: And also ISO 27,001. Those are the two that are undergoing
+[You]: currently in process, and we're already certified SOC two type two.
+[Remote]: Okay. Great.
+[Remote]: So if you can you scroll back up to your previous slide?
+[Remote]: For your end to end automation, I think one of, like, the,
+[Remote]: we spoke about not even just, like, Rexy, but
+[Remote]: having a third party reconciliation, you know, platform.
+[Remote]: Layer. One of the concerns, like,
+[Remote]: the engine product side is that, well, even if you have, like, a third party helping us
+[Remote]: reconciliation,
+[Remote]: they still have to do, like, a lot of work for if
+[Remote]: the data doesn't work, then they still have to, like, fix it.
+[Remote]: And then
+[Remote]: having a third party just means, like, an other set of data that they have to manage.
+[Remote]: Right? So now we have to manage, like, internal set of data and then my
+[Remote]: data coming into your third party platform. So in their mind, it's
+[Remote]: seems like it's actually more work, and they're like, hey. Why don't we just build it ourselves? Right?
+[Remote]: So I don't know, like, if you have any, like,
+[Remote]: what is kind of the build versus buy, like, argument here?
+[You]: Great question. Great question. I love it.
+[You]: The first thing I'll say is if you're hiring a tool and it's creating more time,
+[You]: then it's probably the wrong tool. Right? Not not it's not like
+[You]: every single tool out there is is is not
+[You]: useful. Like, our our with the teams we work, and I was about to show this,
+[You]: we've reduced manual work by 80%. We've reduced write offs by 95%.
+[You]: Our customers have zero regulatory audit incidents.
+[You]: Thanks to Rexy. We've been working with customers that were paying penalties because of this,
+[You]: Those were reduced to zero, and none of our customers are actually
+[You]: having any risk on the compliance side. So that's that's the first thing I'll say. I think
+[You]: the objective of any tool you guys are hiring has to have a clear business case in
+[You]: clear ROI in terms of time saved
+[You]: and an economic ROI behind
+[You]: paying for that tool. Regarding the internal build,
+[You]: versus, hiring a vendor.
+[You]: The first part is
+[You]: resources. Right? I think kickoff has
+[You]: has maybe an an amazing team of engineers, but
+[You]: I'm sure reconciliation is not top of the list in terms of priority for you.
+[You]: Right now. So
+[You]: it's hard to
+[You]: to get time from technical people
+[You]: to build a workflow that is not very high on that list of priorities. So
+[You]: talking about internal builds,
+[You]: it's it's hard to get the teams to prioritize it.
+[You]: The second part is
+[You]: it's a hard problem to build.
+[You]: Product to build. I mean, we're building a company out of it. So
+[You]: I think many of the teams that do the that
+[You]: to go down the path of internal build underestimate
+[You]: complexity that this workflow has and that building a product may take
+[You]: not only a longer time in terms of a onetime
+[You]: but also it takes a lot of maintenance afterwards.
+[You]: So any resources you're gonna invest on this workflow
+[You]: you need to make sure that those resources are gonna invest time into it.
+[You]: In a recurring basis.
+[You]: That's the second part. And the third part is more technical.
+[You]: Part. Right? Like, I I do get the question around
+[You]: today with AI, you can build a lot of these workflows yourself.
+[You]: But our agents are trained on context windows,
+[You]: that are bigger because they learn and they become reconciliation
+[You]: across our whole portfolio of companies.
+[You]: That means we see
+[You]: a bigger set of edge cases. We see a bigger set
+[You]: of best practices, and that's why our agents being reconciliation experts
+[You]: are way better than any agent that
+[You]: you guys could build internally just because
+[You]: we're we're trained and we're specialized at it.
+[You]: So that's sort of, the the the what I think about
+[You]: about these things. But it is a great question, I think, today. Many of the companies are asking
+[You]: the question that question for every single vendor they're hiring. Right?
+[You]: But I think those are the three things. First,
+[You]: will you be able to invest technical resources on something that's not priority?
+[You]: Second,
+[You]: I think there's a underestimation on how complex this workflow is.
+[You]: And build a product out of it, not only
+[You]: on how big the onetime investment is, but also on the recurring investment of maintaining it.
+[You]: And the third part is, technically,
+[You]: I don't think companies will get
+[You]: the level of expertise
+[You]: that our agents have just because we're working with bigger sets of data and and
+[You]: a bigger set of edge cases
+[You]: and problems and best practices that we can then
+[You]: train the agent with, and it's it's way better.
+[Remote]: Yeah. That makes sense. I had a quick question. In terms of your agents,
+[Remote]: are you using kind of an external
+[Remote]: API with, like, Claude or OpenAI, or are you using your own kind of LLM
+[You]: No. No. No. We don't have we don't have our own LL
+[Remote]: LLM that you've trained for this?
+[You]: We're using well, of course, we're like, every single start up
+[You]: AI startup, we're multi multi model
+[You]: and we optimize it
+[You]: every single time. There's there's, like, we run these tests for this for the different tasks,
+[You]: we're always changing between models.
+[You]: Try to use the one that's more optimized for the task at hand.
+[You]: I mean, entropic is better for some tasks. OpenAI is better for others.
+[You]: Gemini is better for others because there's a lot of tasks at the workflow. Right? From
+[You]: the way from the connector and building those connectors
+[You]: and and making sure they're healthy and checking the the the health status of those connectors, detect
+[You]: detecting anomalies in the data,
+[You]: to
+[You]: all the parsing we do, to to pre transform the files so that it's easier to process.
+[You]: To the reconciliation logic itself, which needs to be dynamic because these
+[You]: files change all the time.
+[You]: And the last part is the problem solver, which we have an agent that is trained
+[You]: to go over the differences, find patterns, clusters, and suggest
+[You]: resolutions for a human to come in and approve.
+[You]: Right? And as the human approves and takes action on the platform,
+[You]: that's another separate context window
+[You]: which we are
+[You]: training our agents with so that the tool becomes better over time because we start
+[You]: what we call your policy.
+[You]: Right? Your policy is, for example, what are
+[You]: the tolerance thresholds you have for reconciliation? Is it plus minus 5%? Is it plus minus $10,000?
+[You]: Those type of things. How are you currently
+[You]: managing exceptions? Are you marking things as manual exception?
+[You]: Why are you marking those as manual exceptions? Are those manual money movements and the system starts learning
+[You]: and codifying that into a logic that is dynamic
+[You]: and is, like, self learning and optimizing all the time.
+[You]: So to your question, we're we're hitting
+[You]: the existing models, and we're optimizing in terms of which one is better for the
+[You]: task at hand.
+[Remote]: Makes sense. And then, sorry, as a quick follow-up on that. When you're using these different
+[Remote]: kind of models, how are you ensuring data security?
+[Remote]: Just because we have a lot of, like, material non
+[Remote]: public information. Have, like, social
+[Remote]: it's, socials for customers. We have a lot of this sense of information.
+[Remote]: That we don't wanna risk exposing.
+[You]: Yeah. Of course. 100%. There's different ways we're working.
+[You]: For example, with a customer, we're working with with hashed data.
+[You]: All the data we receive is hashed.
+[You]: And then when we're hitting these APIs,
+[You]: we're we're
+[You]: basic I mean, when we hit the enterprise APIs, these are
+[You]: these are private.
+[You]: First, we build private tenants for each customer, and then when we hit these these models,
+[You]: those are private
+[You]: connectors. Right? Because we have an enterprise account
+[You]: with with these
+[You]: with these models, and and then that data is not being
+[You]: used for training or or for anything else.
+[You]: We do keep
+[You]: security standards way way up, and we do care about it a lot. It's
+[You]: front and center of what we do because, again,
+[You]: we're working with financial services institutions, banks, insurers,
+[You]: processors, and so it's very important for that data to be safe. Depending on on our customer,
+[You]: we can adapt
+[You]: that part
+[You]: to their needs. I'll add just one more comment on that one, which is
+[You]: when there's a big
+[You]: important reason
+[You]: around security,
+[You]: we do off offer our enterprise customers the customer managed model.
+[You]: Which is we build the whole workflow
+[You]: we deploy it in your infrastructure. Or we set up an
+[You]: intermediate infrastructure which is owned by you guys but operated by us,
+[You]: And that way, we can hit the models that you guys are doing.
+[You]: Are using for whatever you're doing internal. I'm sure you are also
+[You]: using Entropic, OpenAI, Gemini, these these
+[You]: or or yeah. Or the one on Microsoft.
+[You]: So
+[You]: if that's a major concern, we can also explore the customer managed model.
+[Remote]: Cool.
+[You]: And, yeah, like,
+[You]: this is sort of, like, to go over why we are different from other solutions to the market. Right? Again, we're AI native.
+[You]: Everything we're building is agentic.
+[You]: As you mentioned, Katie, some of these solutions out there in the market are are heavy to
+[You]: require a lot of work because they're static.
+[You]: And they're solutions. Right? What that means is
+[You]: you need to basically
+[You]: work
+[You]: the way they are telling you to work, the way we are designing rec
+[You]: it sort of feels like you are building your own workflow, adjusted and custom to your needs.
+[You]: Because
+[You]: we think reconciliation is a very nuanced and specific workflow. It's it's very
+[You]: to your setup, to your needs, to your compliance frameworks, etcetera.
+[You]: And so it needs to be a custom made, tailored
+[You]: solution. And for that,
+[You]: to happen in a scalable way,
+[You]: we're building a platform that feels like a tool.
+[You]: Doesn't feel like a SaaS. It feels like a tool in which you configure your own needs. Right? That's why it's all
+[You]: dynamic. It's configurable.
+[You]: We try to do it very plug and play.
+[You]: So that time to value is also shorter, and there's no not a big
+[You]: upfront investment to make it work.
+[You]: And the self learning part of it, which I already mentioned.
+[You]: Some of the verticals we're already working with
+[You]: banks, insurance,
+[You]: fintech platforms,
+[You]: payments,
+[You]: acquirers, that's inside payments, and the
+[You]: is in ecommerce. Basically, anyone
+[You]: that has multiple payment flows and a high transactional volume
+[You]: has a big pain around Brick on, and that's where
+[You]: we excel at this stage.
+[You]: You were asking about about this part. We do end to end encryption, SOC
+[You]: two type two.
+[You]: It's a cloud native, but, again, for some end
+[You]: customers in which there's a big reason to
+[You]: hold security standards higher,
+[You]: then we can explore the customer managed solution as well.
+[You]: So yeah. I mean, other than that, I'm happy to answer any
+[You]: questions that might still
+[You]: be not clear for you guys. But
+[You]: would love to learn more about you. Like, how are you currently managing this
+[You]: this process? Is it a priority for this quarter?
+[You]: What are the biggest pains?
+[You]: Does this resonate on something that could definitely add value or not?
+[You]: Would love to deep dive deep dive deeper on on those questions.
+[Remote]: Do you have so
+[Remote]: what I kinda wanna know is do you have a
+[Remote]: like, any current customer who are, like,
+[Remote]: b to c with, like, very high transactions, and what is, like, their reconciliation, like, look
+[Remote]: like? With, like, kind of, like, internal set of data, like,
+[Remote]: multiple payment processors, which
+[Remote]: obviously, like, the bank. How how does that look like?
+[You]: Yeah. So
+[You]: example, one of our customers is Común.
+[You]: You guys know Comun?
+[You]: Let me share quick
+[You]: their web page here. It's a neobank based here in New York. They raised they're about to raise
+[You]: series b. It's pretty big
+[You]: pretty big volume so far. Basically, what they do is
+[You]: it's it's a banking it's a neobank. Right? It's banking for Latinos in The US.
+[You]: So what they do is, basically, they have two sponsor banks right now,
+[Remote]: Okay.
+[You]: and they operate a card program. They have a remittance product, and they have a
+[You]: a cash in cash out product.
+[You]: And, of course, they're plugged into ACH, Zelle, those things. Well, Zelle, not anymore.
+[You]: So, basically, they have approximately
+[You]: it was 10,000,000 transactions a month.
+[You]: And they're operating seven or eight money flows.
+[You]: Right? And for each one of those money flows, what we do is basically compare
+[You]: the bank statements
+[You]: Right?
+[You]: With the sponsor banks they're operating with these FPO structures. Again, it's the ledger.
+[You]: And against the transactional files that each one of these providers is sending.
+[You]: So for example, Visa is sending a file for the CART program.
+[You]: Uniteller is sending a file for the remittance product.
+[You]: Vanilla Direct is sending the file for the cash in cash out product and so on.
+[You]: So it's a it's a three way reconciliation. It's pretty complex.
+[You]: And we're checking that on a daily basis, and then they have a dash
+[You]: in which they can browse over the differences, see the healthiness of each one of those flows.
+[You]: And then inside the problem solver, they have an agent that helps them
+[You]: investigate and close the discrepancies. And the final part is we're plugged to their ERP.
+[You]: So we're creating the journal entries for
+[You]: all these money movements that are already reconciled.
+[You]: So that's that's an example of of a B2C fintech where
+[You]: we're working with with a really high transactionality.
+[Remote]: So if they do find any discrepancy, do
+[Remote]: you need to how does, like, the workflow work if you do find, like, a discrepancy?
+[You]: Well, so for like, reconciliation is is about
+[You]: is about three things. Right? The first part is configuring an automated workflow.
+[You]: We don't wanna be doing manual work on ingestion, transformation, and
+[You]: That's that's the first part. We cannot be spending time on doing this in 2026.
+[You]: The second part is once we have that workload configurated, it's
+[You]: running automatically every single day,
+[You]: we look at the differences. Because to do that workflow, we configure it a recon lodge.
+[You]: Right?
+[You]: When we look at the differences,
+[You]: those differences are typically
+[You]: I'd like to talk about, like, there's two buckets.
+[You]: One bucket is data mistakes.
+[You]: Stuff that if we do a double click, if we investigate, we're gonna find the
+[You]: the the answer to that difference. Right? It's not money missing. It's just like
+[You]: the file was not updated or there's duplicates or it came without the correct
+[You]: format or whatever.
+[You]: That's a big data engineering effort that with AI, we're bringing that to zero.
+[You]: Now after that, there's always gonna be a small part of
+[You]: small number of transactions that we try to minimize as much as we can,
+[You]: that maybe is money missing, and that's what we wanna catch. Right?
+[You]: If if if at some point there's transactions missing,
+[You]: we wanna be able to tell you that that same day.
+[You]: So they can so that you can build a quick report and send it to the bank
+[You]: saying, hey. Hey. Where are these transactions?
+[You]: I I need to make sense of those transactions. Because if not, you at the end of the month, you're gonna
+[You]: you're gonna be forced to write off those transactions because that's money missing. Right? So
+[You]: typically, the workflow that goes to
+[You]: when we identify money missing, that's when the teams step in and need to
+[You]: call a provider
+[You]: or call the bank
+[You]: make sense of what happened.
+[You]: The last thing I'll say with that,
+[You]: it's something that we are currently developing,
+[You]: is the collaborative workflow.
+[You]: Because the last step there would be it would be really
+[You]: useful
+[You]: and it will generate network effects for us.
+[You]: If
+[You]: the bank is also on rexy.
+[You]: If your provider is also on rexy. And so that way,
+[You]: all the three parts are
+[You]: looking at the same data, reconciling with the same logic, and suddenly you have a shared platform to
+[You]: collaborate on discrepancy.
+[You]: Because what ends up happening is one once you find those five trends
+[You]: that are missing, you pick up the phone and call your ledger provider,
+[You]: Hey, Jake.
+[You]: What's going on with these five transactions? Are you are you share with Slack, whatever the communication channel is?
+[You]: So that well, that happens next is Jake goes back to their
+[You]: workflows and compare it against their results.
+[You]: And and and guess what? They're working with different data.
+[You]: Reconciling with different logic, and so the five transactions that you see as miss
+[You]: probably Jake has other 25, and they're not the same.
+[You]: That's the back and forth that takes weeks.
+[You]: And if we have a back end issue in which money is actually leaking,
+[You]: that's when suddenly after six weeks,
+[You]: a couple million dollars are actually missing and are lost. Right? So
+[You]: we we see that as as the the next step regarding
+[You]: discrepancy resolution. Right? Having
+[You]: the different parties operate under Rexy, and then Rexy becomes that shared layer
+[You]: in which
+[You]: these companies can see the same data, reconcile with the same logic, and have a shared tool to collaborate on
+[You]: discrepancies. But I'm just saying this because it's in the roadmap and it's part of our vision. It's not something we have today.
+[You]: Today,
+[You]: once you find those five transactions that are actually missing, you need to take the next step of
+[You]: phoning someone else and understanding what happened.
+[Remote]: Pete, question? I had a good question. Yeah. I guess my question was, like,
+[Remote]: in terms of reconciliation logic, I think one common pitfall is, like,
+[Remote]: versus, like, transaction date versus settlement date. And when you're dealing with, like,
+[Remote]: four to five different payment processors, banks, and your internal dataset,
+[Remote]: there can be inconsistencies with how one dataset is reconciling off its own date.
+[Remote]: One is on transaction date. I guess, does your model kind of have logic
+[Remote]: around that? Because I think that's one common issue we see where we're
+[Remote]: having to go back in and reconcile based off of, like,
+[Remote]: like, this is the transaction. This is the settlement and then figure out
+[Remote]: I guess, a pattern of
+[You]: Typically, if it's a
+[You]: provider that we're already working with for another customer, that's that's
+[You]: knowledge that we already have.
+[You]: Then there's a lot there's a lot of knowledge that knowledge transfer that needs to happen from you guys.
+[You]: We need to absorb
+[You]: like,
+[You]: the cool thing about what we are doing is that the teams we are working with, they're experts.
+[You]: I mean, you guys know the files inside out. You know all the pitfalls. You know all the edge cases.
+[You]: And so that's knowledge we typically need to absorb, and the
+[You]: and the and the platform needs to acquire in terms of the context window.
+[You]: Like, again, AI is all about context windows, and so that's something we need to build over time.
+[You]: If if maybe we learn it with you guys because it's
+[You]: specific to how you guys operate or maybe we learn it because of the provider because it's pro
+[You]: a provider specific thing.
+[You]: So those are all learnings that we are
+[You]: acquiring over time into our platform, into our agents.
+[You]: And it's either we already have it or we need to codify it with you guys.
+[Remote]: Have you guys tried to, kinda onboard
+[Remote]: a customer and a Dinner workouts?
+[You]: Not really. For some customers,
+[You]: the implementation took a bit more time.
+[You]: As you saw on the one pager, we we say that we can implement the platform in
+[You]: we wanna say under a week because it's a bit too aggressive, but we can.
+[You]: Typically, what delays most
+[You]: the implementation processes are access to the data.
+[You]: Why? Because not everything is
+[You]: beautiful API.
+[You]: Right?
+[You]: There's SFTPs. There's some things that we need
+[You]: to go ahead and get from PDF over email. There's some things we need to get from
+[You]: I don't know, log in to a portal and download a CSV. So that's when it it starts getting a bit messed.
+[You]: And the system again, the system we're a data orchestrator. So
+[You]: and we can do a lot of data cleansing, a lot of, again,
+[You]: tribal knowledge, codification into the platform. But
+[You]: at some point, if garbage is coming in and we don't have the necessary tool to reconcile the data,
+[You]: there's an underlying problem which you probably have to solve with that provider.
+[You]: We haven't seen that
+[You]: so far.
+[You]: I think it's because we do the necessary
+[You]: discovery process, the necessary demos, and the necessary pilot tests.
+[You]: So that by the time we start implementing the platform,
+[You]: we already know it's gonna work and it's gonna add value.
+[Remote]: Okay. And what is the
+[You]: But but but, Katie, to your point, we are the first and trust us.
+[You]: We are the first ones that if we see fit, then
+[You]: we're we're gonna we're gonna we're gonna share that. We're gonna be completely honest.
+[You]: And we might even refer you guys to another tool we think is
+[You]: is more useful to what you need.
+[Remote]: Yeah. What is, like, the typical like, it would
+[Remote]: time line? You said one week, but
+[Remote]: like,
+[Remote]: it a month?
+[You]: Yeah. I mean, more than a month, it's a failure for us.
+[You]: I mean,
+[You]: if it's more than a month, we would be very unhappy with the process. But, again, for that, we need
+[You]: good access to the data.
+[You]: And we need some sort of sponsorship from you guys
+[You]: to actually unblock us and and give us all the
+[You]: all that tribal knowledge that is concentrated in your heads.
+[You]: So we can actually pour it into the platform and now the agentic
+[You]: the agents, the team of agents now
+[You]: now has it and can operate for you guys.
+[Remote]: Okay.
+[Remote]: Thank you. I know we don't really have a lot of time to go over what
+[Remote]: we do, but maybe we can schedule another meeting for that.
+[You]: Yeah. We can do that.
+[You]: Or if you're interested, maybe next session can be again,
+[You]: a bit more discovery on how you're currently managing and what are the pain points.
+[You]: And we could do a demo as well. I can I can loop in my my CPO
+[You]: which is the one building the magic behind all of this?
+[Remote]: Ok.
+[You]: And
+[You]: we're more than happy to do some additional discovery and then go over some agent some
+[You]: generic demo
+[You]: that also gives you guys a a quick overview and a walk through of the platform.
+[You]: And then if we see value out of that,
+[You]: we can figure out either
+[You]: what we typically do is either a real demo. So we sign an NDA, and you share some real files.
+[You]: We
+[You]: show you a real reconciliation flow for kickoff.
+[You]: Or we can just go ahead and do some sort of pilot test in which we plug in the platform
+[You]: and have it running for a couple of weeks for you guys to actually see the value.
+[You]: Of course, shadowing the existing process because we don't wanna be adding any
+[You]: operational risk during these test phases, but,
+[You]: yeah, let's do that. Let's let's say schedule some extra time
+[You]: When is best for you next week? So we already blocked some time in the calendar.
+[Remote]: I'm gonna want to actually add in
+[Remote]: Nidia and Orion too. We have to take a look.
+[Remote]: I think next
+[Remote]: Thursday next Thursday,
+[You]: Okay.
+[Remote]: be okay.
+[You]: What time?
+[Remote]: One one to two p PMPST?
+[Remote]: P
+[You]: One to 2PM pacific time.
+[You]: Got it. Okay. I'll send over the invite right now, and
+[Remote]: Yes.
+[You]: and, yeah, see you there. We'll do a a quick
+[You]: discovery on how you're currently managing it and then the other half
+[You]: the time, we're gonna do a generic demo.
+[You]: Does that sound right?
+[Remote]: Ça se fait.
+[You]: Alright, Thank you so much. I I know your name.
+[Remote]: My name is Fran.
+[You]: Was it?
+[You]: Brad? Nice to meet you, Brad. Thank you for the time.
+[You]: You guys have a great rest of your Friday and good weekend.
+[Remote]: Yeah. Hey. Thanks. Bye.
+[You]: Bye bye.
+
+============================================================
+SUMMARY
+============================================================
+### Their background
+
+- Kikoff is based in Downtown San Francisco with team members Katy and Prabhbir
+- They operate as a B2C company with very high transaction volumes
+- Handle material non-public information including customer social security numbers and sensitive financial data
+- Currently manage multiple payment processors, banks, and internal datasets
+- Have engineering team but reconciliation is not a top priority for technical resources
+
+### Pain points and needs
+
+- Manual reconciliation work creating significant operational burden
+- Managing multiple data sources creates complexity: “now we have to manage, like, internal set of data and then my data coming into your third party platform”
+- Engineering team concerns about build vs. buy decision
+  - “Why don’t we just build it ourselves?” - questioning need for third-party solution
+  - Worry that third-party tools create “more work” and “another set of data that they have to manage”
+- Common reconciliation issues with transaction date vs. settlement date inconsistencies
+  - “one common pitfall is, like, versus, like, transaction date versus settlement date”
+  - Different datasets reconciling off different date standards creates mismatches
+- Need to handle 4-5 different payment processors with varying data formats
+
+### Questions or concerns
+
+- Data security priorities given sensitive customer information
+  - “we have a lot of, like, material non public information. Have, like, social it’s, socials for customers”
+  - “we don’t wanna risk exposing” sensitive data
+- SOC compliance requirements verification
+- Technical architecture questions about LLM usage and API security
+- Implementation timeline and potential failure scenarios
+  - “Have you guys tried to, kinda onboard a customer and a Dinner workouts?” \[didn’t work out\]
+- Build vs. buy analysis - engineering team skeptical of adding another vendor
+
+### Budget and timeline
+
+- No specific budget figures mentioned
+- Timeline discussions focused on implementation speed
+- Interested in quick time-to-value solutions
+- Next meeting scheduled for Thursday, 1-2 PM PST to continue discovery
+
+### Next Steps
+
+- Follow-up meeting scheduled for next Thursday, 1-2 PM PST (March 20, 2026)
+- Will include additional team members: Nidia and Orion
+- Meeting agenda split between:
+  1. Further discovery on current reconciliation processes and pain points
+  2. Generic platform demo
+- Potential next phases discussed:
+  - Real demo with NDA and actual Kikoff files
+  - Pilot test shadowing existing processes for several weeks
+- Ignacio to send calendar invite for Thursday meeting
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/da1a9324-d9b5-42e8-9176-1da0a266fbea](https://notes.granola.ai/t/da1a9324-d9b5-42e8-9176-1da0a266fbea)

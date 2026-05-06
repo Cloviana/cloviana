@@ -1,0 +1,568 @@
+MEETING: Rexi x Conduit: intro
+DATE: 2026-03-16
+ID: not_jJ5bjlDOTGQxqO
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Mihai <mihai@conduit.financial>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-03-16T12:00:00-04:00 - 2026-03-16T12:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Horas. ¿Qué onda?
+[You]: Buenas, buenas.
+[You]: ¿Todos, bien y vos?
+[You]: Sí.
+[Remote]: Yeah.
+[You]: Che, estas reuniones introductorias de repente
+[You]: Ah, no sé, como quieras.
+[Remote]: No, no, lo charlábamos una vez, y
+[Remote]: para mí viene bien. Cuando
+[Remote]: cuando no la tenemos,
+[Remote]: y al respecto y me cae la demo, me agarra un poco más el choto y no está bueno.
+[Remote]: ¿Lo veis? ¿Todo bien?
+[You]: Estos son, tipo,
+[You]: es tipo un revolut.
+[You]: Hello, mi hija.
+[Remote]: Hey. Hey. Hi, Gerald. How are you guys?
+[You]: Doing good. You?
+[Remote]: Good. Good. I was looking forward to
+[Remote]: meeting you
+[Remote]: Sadly, it didn't happen in person, but
+[Remote]: let's see the magic remotely.
+[You]: Yeah. Of course. Of course. You're based in
+[You]: Montreal?
+[You]: Is that where
+[You]: you guys have headquartered offices or something, or it's just everyone's remote?
+[You]: Sort of
+[Remote]: Yeah. Everyone's remote, so we don't have a
+[Remote]: they're, like, an actual headquarters. We're a US based company, but
+[You]: Okay.
+[Remote]: all of our people are working remote.
+[You]: Got it.
+[You]: Well, and and and I was gonna catch you in New York or San Francisco?
+[You]: You're right.
+[Remote]: I wasn't born a status, actually, and I think we exchanged
+[You]: You're right. You're right. How was it?
+[Remote]: yeah. Yeah.
+[Remote]: Great. It was my first time there. I really loved the city, the vibes. I got to meet
+[Remote]: some clients, also, like, just general
+[Remote]: people from the ecosystem and was very impressed with
+[You]: Nice. Nice.
+[Remote]: everything stands.
+[You]: Well, let us know if you need any recommendations next time or if
+[You]: you are also looking for people there, talented people. We
+[You]: we ourselves have our our tech team based down there, our CTO plus our
+[You]: four founding engineers, and and Theo is right there
+[You]: right now. I'm going there end of the month, so we do have
+[You]: a lot of local ties with Argentina. We're all Argentinian, so we've got a big network down there.
+[Remote]: Sounds good. Will do.
+[You]: Alright. So
+[You]: I said, okay. If I just do a a quick intro about Rexy, what we do,
+[You]: what we focus on, and why I think there might be an
+[You]: there. Then we'd love to hear more about you
+[You]: the role at Conduit, and exactly
+[You]: what got you interested in in this meeting, probably some sort of pain point you're trying to solve.
+[You]: And then we can evaluate if there's a fit or not. If there's no fit, I'm
+[You]: I'll be the first one to tell you
+[You]: that we're not a fit, and there's other tools in the market that are better for what you need.
+[You]: If there's a fit, then we can talk about next steps once we understand what's
+[You]: the opportunity here.
+[Remote]: Yep.
+[You]: Does that sound right?
+[Remote]: Sounds good? Не знаете это?
+[You]: Amazing. Alright. Let me share my screen here. I'll just go over a quick one pager. We have
+[You]: to introduce Rexy.
+[You]: It's it's sort of like a from a high level perspective, and then
+[You]: drilling trailing it down to what we're doing today. So
+[You]: on the high level perspective, the mission for Rexie is to
+[You]: basically
+[You]: build, the cloud for FinOps. Right? It's it's a platform
+[You]: with a bunch of tools where finance and operations can build their own workflows using
+[You]: using agents. Right?
+[You]: Of course, we have some templates, and we're gonna be focusing on specific product verticals
+[You]: as we start progressing. But, that's the longer term vision. We have
+[You]: we're we we we think that in the near future,
+[You]: enablement areas like finance operations, we think
+[You]: are gonna be run way more efficiently, meaning way less people.
+[You]: And that's gonna mean that the more tenured and
+[You]: executives are gonna have to build
+[You]: a lot of the workflows that today they have people doing with with agents.
+[You]: Right? And so that's what we wanna be. We wanna be that platform for CFOs and COOs to build their
+[You]: their functions
+[You]: with AI.
+[You]: We are starting by financial services.
+[You]: Because finance and operations functions in these companies are relevant and they're very
+[You]: critical. And within financial services,
+[You]: we're focusing on reconciliation, for two main reasons. The first one is
+[You]: it's a big, big pain point today.
+[You]: Particularly on on the fintech stack.
+[You]: In which there's a lot of layers
+[You]: touching the transaction and creating data, and, therefore, it's it's become
+[You]: it's become very very risky to not have a robust reconciliation process.
+[You]: I was I was working for a fintech company before starting Rexy in which
+[You]: I had I had to build a reconciliation
+[You]: process myself, and I saw firsthand the risks associated to
+[You]: not having a robust process in place. Just to keep two anecdotes here,
+[You]: when I when I was doing that, I found a $6,000,000,000 gap
+[You]: one of our
+[You]: cash in, cash out providers. And Teo, coming from Malpao, also found a
+[You]: big big gap when he was working there
+[You]: It's in the four zero one k. Miguel is a public company. Miguel Pao is, like, the fintech arm.
+[Remote]: Yep.
+[You]: They lost $27,000,000. And, of course, the Synapse scandal is just another
+[You]: point of evidence of what happens when you're not running these processes in a robust way.
+[You]: So that's
+[You]: that's sort of, like, what we're building for. And, of course,
+[You]: our product today is is an orchestration platform,
+[You]: We plug straight to this data to the data source,
+[You]: we ingest the raw files, and we take the process
+[You]: end to end, basically. We do all the parsing, all the
+[You]: transformations required to be able to process the data,
+[You]: then we process it,
+[You]: then we investigate and solve discrepancies, and then there's the whole output logic
+[You]: towards either creating reports,
+[You]: plugging into the ERPs to create journal entries,
+[You]: or even
+[You]: complying with some sort of regulator that is asking specific information about these money flows.
+[You]: These are some of the impacts we've been having with early customers.
+[You]: Of course, the first one is around automation. Right? We we reduced
+[You]: the hours spent
+[You]: in in manual tasks by 80% with our initial set of customers.
+[You]: Reduced write offs
+[You]: you know, that that journal entry and the ledger call,
+[You]: unreconcilable transactions. Well, we we reduced that by 95%, and we really wanna take that to zero because we
+[You]: like to believe that in 2026, money should not be
+[You]: lost in the system.
+[You]: Anymore.
+[You]: And then the final one is is the the regulatory front
+[You]: and and the compliance risk. Right?
+[You]: Our early our early customers have had zero incidents and zero audits triggered by not having a a robust reconciliation process.
+[You]: The last thing I'll say regarding our tool is, given we are
+[You]: AI native, it's way more configurable and flexible to your needs. It's
+[You]: should feel like you, Miha, are building your own workflow.
+[You]: Without the need of having help from
+[You]: technical people. So the idea is also to give more
+[You]: independence and autonomy to the finance team so they can build their own stuff.
+[You]: And not require assistance or help from the from the
+[You]: from the technology teams, the engineering teams.
+[You]: Some of the verticals we're currently working with, because, of course,
+[You]: reconciliation is a problem across the board.
+[You]: We're working with banks, insurance providers,
+[You]: fintech platforms, payment companies,
+[You]: acquirers, and and yeah.
+[You]: Acquirers, subaquires, and then we're we're starting to explore marketplaces and ecommerce
+[You]: Because, basically, anyone
+[You]: with multiple payment flows and high transactional volume has a pain with Recon. Right?
+[You]: And then our tech stack and our
+[You]: our safety. Right? We are SOC two type two compliant. We're currently doing SOC one type
+[You]: two.
+[You]: And ISO 27,001. We're encrypting the data as well
+[You]: Of course, we work on the cloud.
+[You]: And and, yeah, I guess that's pretty much it.
+[You]: I don't know if there's any questions or doubts on on what we do, what we specialize on.
+[You]: Or if not, we can just jump in and and and and you start sharing
+[You]: What got you interested in this meeting and and what type of pain points can we help you with?
+[Remote]: Yep. Sounds good. I mean, your pitch definitely resonates
+[Remote]: I'm, I'm currently overseeing finance accounting, which
+[Remote]: is involved in the final reconciliations essentially of all of our payment flows. So
+[Remote]: you know, those unreconciled, those manual hours, and this
+[Remote]: and that. I was very exposed to them also now helping our product team in which we wanna build some of these, you know, facilitator general.
+[Remote]: So
+[Remote]: this resonates. Why took the meeting? Well, two, main
+[Remote]: reasons. One, our CEO spoke highly of you.
+[Remote]: And two, is I
+[Remote]: like, we still have this this problem. Despite we would
+[Remote]: obviously, you know, we developed templates and internal
+[Remote]: processes, SOPs, etcetera, but it's not resolved.
+[Remote]: Issue. And I haven't seen a solution so far that
+[Remote]: that helps define it. I have seen other pitches
+[Remote]: for this transparently. A couple of actually coming from from Argentina as
+[Remote]: well. There's metric. There was another one. So
+[Remote]: smaller company that I forget. It's been almost a year actually that that we spoke to them.
+[Remote]: So
+[Remote]: I'm seeing actually a lot of solutions from the very early start up, like, you know, seeds,
+[Remote]: stage to the more
+[Remote]: late stage solutions that are maybe more
+[Remote]: crypto focused, like, for example, crypto or crypto worth
+[Remote]: or
+[Remote]: tax bid, etcetera. Now
+[Remote]: my and you might you know, coming from a fintech background, you might
+[Remote]: understand this better.
+[Remote]: Main pain points are we have, I know,
+[Remote]: 48 bank accounts.
+[Remote]: In 20 different banks.
+[Remote]: Some of them have a feed, you know, via Yardly or whatever. Most don't.
+[Remote]: Most of them have different reports, different types, formats of data,
+[Remote]: different cadence. So just the data cleanup and uniformly
+[Remote]: is obviously an issue, and and something very manual. Although,
+[Remote]: technically, you know, if you sold it for one month, at least from a formatting perspective, data cleaning
+[Remote]: it starts to
+[Remote]: to be
+[Remote]: you can do it for for other months now.
+[Remote]: I don't wanna do monthly either. Wanna do daily. So data sourcing, data
+[Remote]: cleaning, and just get a clean data ready for the reconciliation, I believe
+[Remote]: half of the game is played there, be to be quite honest, especially in terms of manual
+[Remote]: reconciliation.
+[Remote]: Then
+[Remote]: yes, I have my bank data, but I also have my own chain data, which is another
+[Remote]: works. Now on chain data, there's other providers. We have our own data from our wallets.
+[Remote]: I would say the on chain piece is,
+[Remote]: ironically, less of a problem because
+[Remote]: transaction hashes, there's wallets, so we are pretty much
+[Remote]: aware of everything that's going on in in in our wallets. I I would hope so.
+[Remote]: But
+[Remote]: there comes the time when we need to put those together.
+[Remote]: And we need to say, okay. I have my banks. I have my
+[Remote]: own chain. We do, you know, our business' payments, a lot of on ramps
+[Remote]: off ramps transfer. So money will come on chain. We'll get
+[Remote]: converted, and will flow out via fiat
+[Remote]: a bank account, being it's a USD, BRL, COP, Amexen,
+[Remote]: Euro bank accounts. So to unify those
+[Remote]: two worlds, we have our internal, you know, transactional tracker essentially which
+[Remote]: our system that spits out a report saying, okay.
+[Remote]: This transaction hash is linked to this client and this
+[Remote]: payment in the bank is linked to that client.
+[Remote]: That's how we work.
+[Remote]: For I see this as an as a essentially,
+[Remote]: taking
+[Remote]: two data sources and unifying them by using our
+[Remote]: internal tracker as a basically source of truth.
+[Remote]: That sometimes works, sometimes doesn't. Our
+[Remote]: system is not perfect either.
+[Remote]: And every time we have new banks, we need to take time to set up this whole new
+[Remote]: approach. And sometimes we'll use a bank for a month or two, then we realize, hey. These guys are too
+[Remote]: expensive or they don't support our use case that well. So
+[Remote]: we would have done the same work that we do for a bank that processes billions We we do for a bank that will process, I don't know, a couple of 100,000, and then we
+[Remote]: we leave it off. So
+[Remote]: but we would have spent all that bandwidth and time on on doing it.
+[Remote]: Well, this is like a long
+[Remote]: not superstructured list of obtain points that
+[Remote]: that we're trying to to solve in our reconciliation workflows.
+[You]: Very interesting. Thank you for sharing. And it does resonate with
+[You]: most of the customers we're currently working with, and it resonates with the thesis behind Rexy. Right?
+[You]: As you said, most of the problem is is done in in ingestion and data cleanup.
+[You]: Hence, once you configure the recon logic, it's pretty much straightforward. In some cases,
+[You]: it gets creative when you have, like, one too many or many too many
+[You]: That's when we need to get a bit more creative on the on the reconciliation logic. But
+[You]: you're right to say that building the connectors and cleaning the data
+[You]: is is 50% of the heavy lift. Now,
+[You]: question for you is,
+[You]: when you take a picture of the current state today,
+[You]: where do you wanna take it? Like, what's the ideal process with you?
+[You]: For you? Like, let's say,
+[You]: you have a white
+[You]: wish list white paper wish list for 2026.
+[You]: How would you want to solve reconciliation at at conduit?
+[Remote]: My this where I'll put my product hot
+[Remote]: more than my finance hunt is
+[Remote]: we're actually putting them together is
+[Remote]: a very ideal
+[Remote]: ideal world, which might be
+[Remote]: I want my data sources, the banks, plugged in directly.
+[Remote]: Via API ideally or, like, daily reports flowing in.
+[Remote]: I want my own system to get its reports flowing in. I
+[Remote]: have my on chain data live.
+[Remote]: I want the daily rec
+[Remote]: for 26. Or later, I want the live rec.
+[Remote]: But for 26, I want a daily rec of okay. Today, we process
+[Remote]: x amount of
+[Remote]: bank payouts. We processed y amount of
+[Remote]: on chain.
+[Remote]: This is how every transaction
+[Remote]: is essentially completed.
+[Remote]: Starter on one side, ended up the other, and the opposite.
+[Remote]: Exception report,
+[Remote]: Exception report connects to our internal exception tracker. You know, like, when you
+[Remote]: have recharges, refunds, these edge cases that end up taking most of the
+[Remote]: time. Because my experience, 98% of the records
+[Remote]: are done in 10% of the time. And there are the other
+[You]: Yep.
+[Remote]: let's call it two to 5% is what kills you, and it becomes a black hole.
+[Remote]: So
+[Remote]: for me, success looks like also
+[Remote]: adding some sort of a
+[Remote]: you know, feature or or or product to address those edge
+[Remote]: cases as best as possible because I know a lot of that is on us.
+[Remote]: Having the proper, you know, proper tracking, proper source of truth. Okay?
+[Remote]: Are all of your refunds listed properly? Do you maintain all of this
+[Remote]: exception tracking properly? Because then and to be completely frank with you,
+[Remote]: I can I can just
+[Remote]: push three files into a cloud session and, you know,
+[Remote]: like, mother cowork or whatever and get it to actually do
+[Remote]: it, which we actually do more and more? It's not
+[Remote]: a product per se because every time you're kind of happy with the spoke.
+[Remote]: But it's getting pretty, pretty good.
+[You]: And what we
+[You]: you say are the main blockers for you to achieve that?
+[You]: State of ideal state of daily recon?
+[Remote]: Men blockers, I would say, is just other shit we I need to handle internally.
+[Remote]: If I would have time to focus on this a 100%, to be completely honest, I think we
+[Remote]: could have billed it, but, like, with any tech company, like, in theory, could build your whole stack, but
+[You]: Yeah.
+[Remote]: we're we're focused on what makes the difference rather than
+[Remote]: building making our internal life
+[Remote]: easier.
+[Remote]: With the limited resources that we have. We focus on engineers. So
+[Remote]: it's partially a build versus, buy.
+[Remote]: Issue.
+[Remote]: I'm I'm like, we're definitely not looking at building most of it.
+[Remote]: To be
+[Remote]: as a product per se. Okay. We're gonna use, you know, clubs,
+[Remote]: whatever is available there to make life easier. There's also a a question of just
+[Remote]: overall cost because, you know, I have some outsourced stuff maybe that
+[Remote]: not that expensive, but I also
+[Remote]: well, I want I don't wanna rely on just manual processes all the time because
+[Remote]: those need to be reviewed, David Anders questions, the whole view
+[Remote]: audit log and review chain gets quite can get complex.
+[Remote]: Whether in an ideal product, to go back to your question,
+[Remote]: if I have an exception, I wanna see the full
+[Remote]: chain and audit log, and I wanna know, like, okay. This is
+[Remote]: exception started then.
+[Remote]: At that place, and this is how we tend to do this is how the loop
+[Remote]: closes. And if it doesn't close, I wanna have a list, and I wanna track those.
+[Remote]: Day by day, week by week, month by month, and ask questions about why do we still have exception.
+[You]: Got it. Got it. Super clear.
+[You]: And so, therefore, I like I like this conversation of build versus buy.
+[You]: It's something we see a lot even today with AI.
+[You]: Think every single start up is asking the same question. Are we gonna get
+[You]: replaced from Cloud Cowork or Cloud Code at some point?
+[You]: I think there's two things
+[You]: Yeah. Currently, we will. But we might as well enjoy while we
+[Remote]: Not not today.
+[Remote]: Yep.
+[You]: while it doesn't. But
+[You]: there's there's yeah. There's there's two things there. The first one is
+[You]: all about limited resources and where you wanna spend your time and energy.
+[You]: This is not gonna make conduit different or win against competitors. It's just
+[You]: it's a hygiene thing. Right? And so
+[You]: that places reconciliation on a spot which is
+[You]: try to solve it some way but without dedicating internal resources.
+[You]: And the other one I think is the underestimation
+[You]: of the complexity of this product. Right? The teams we've seen
+[You]: that have tried to build something internally, they have, but then it
+[You]: required a higher one off investment on building it, and then the
+[You]: recurring cost of maintaining it. Because as you might know,
+[You]: these files change all the time.
+[You]: And that brings whatever static reconciliation logic you have or workflow you have,
+[You]: every time a provider changes some sort of format or structure.
+[You]: Or changes the connector, the reconciliation workflow breaks. You need
+[You]: someone on top of it maintaining it. So so that's another
+[You]: internal resources drain that might might not make sense.
+[You]: Just two more questions regarding
+[You]: timing and regarding budget. Regarding timing,
+[You]: is this something you wanna try to pursue in in the second quarter of the year?
+[You]: Or is this something that's more like, if we
+[You]: find something at some point which makes sense, then great. If not, we're just gonna continue doing it.
+[You]: The way we are.
+[You]: How high priority is this for you?
+[Remote]: The answer is mixed meaning. It is high priority. It's something that
+[Remote]: would transparently get
+[Remote]: integrated with next week if too big is.
+[Remote]: One, the product actually works and is adopted to our needs.
+[Remote]: And the integration timeline and lift from our side
+[Remote]: is reasonable.
+[Remote]: And the third, obviously, commercials make sense. But
+[Remote]: for me, it's not a question that
+[Remote]: you know, we we don't wanna do it. We wanna do it. It's just so far
+[Remote]: haven't found a product that is materially better than whatever we're able to spin up internally.
+[Remote]: So there's that. And I would love to see
+[Remote]: the actual data ingestion, you know,
+[Remote]: How does it work? How do you clean the data? How do we get to that matching?
+[Remote]: That's that's really key for me. The matching, as you said, like, if I have all my data and I just match
+[Remote]: them, it it
+[Remote]: can be a lookup if, you know,
+[Remote]: at an extreme. But how do we put all of that
+[Remote]: messy
+[Remote]: Like, how do we take that chaos and create something that's that's coherent?
+[Remote]: Complete, and accurate? This is where I think you can win.
+[Remote]: Our business and a lot of other business.
+[You]: A 100%. A 100%. Thank you for sharing that.
+[You]: And the last one about budget is
+[You]: if you could I know I know this is maybe too soon, but it does help to understand
+[You]: the willingness to pay here. But
+[You]: what would be
+[You]: too expensive, what would be reasonable, and what would be
+[You]: cheap for you to think this is a no brainer for you to
+[You]: buy.
+[Remote]: It's hard to me to give you numbers because we don't have something. Like,
+[Remote]: you know, I can't
+[Remote]: I don't have a bias towards an existing thing where I say, okay. I currently spend this,
+[Remote]: much on this whole solution, so this is what I'm willing to spend maybe at the
+[Remote]: more because I'm more efficient. We have a bunch of different
+[Remote]: solutions. Again, some of the crypto reconciliation stuff
+[Remote]: which is, you know, like, Tres, Cryptio, all those guys, like, I know what they charge.
+[Remote]: Which is one piece, but it's not the full piece of the puzzle.
+[Remote]: And at the other extreme, I have a $200 cloud called
+[Remote]: subscription that can do sometimes more than than these guys can. So
+[Remote]: that's that's the array. It's very much a discovery for me as it is
+[Remote]: for you guys to be to be honest. Now if you tell me off the bat, if you tell me today, this is gonna be a
+[Remote]: 100 k a year,
+[Remote]: well, I would have very high expectations about
+[Remote]: how this allows me to close in two days and never think about it.
+[Remote]: Maybe, you know, maybe it's true. I don't know. But
+[Remote]: the whole willingness to pay needs to come with the actual performance, and I I'm someone that
+[Remote]: likes to touch the thing, like, see how it works, touch it if possible.
+[Remote]: I don't know. Sandbox, demo, let's do some tests.
+[Remote]: Before I I commit and before I
+[Remote]: use up your time and mind to kind of go further.
+[You]: 100%. A 100%. That's why we that's how we like to do it. And just to give you a bit more context,
+[You]: here, we do go over demos. We do some proof of concept.
+[You]: Sometimes it's for free for you to try around, touch it around. We don't want this to be a
+[You]: black box purchase sort of thing. We wanna really
+[You]: for you to try it, to use it in in production environment,
+[You]: with real data before you actually take the decision of saying, okay. This is what I need.
+[You]: And there's a clear ROI and a business case behind this decision. So
+[You]: a 100% aligned with that. The other thing I wanted to add is
+[You]: there's there's a benefit for us being an early stage company, right, which is these
+[You]: the early batch of paying customers we're getting are are
+[You]: we're really partnering with them in terms of, first, support. It's direct contact with the founders.
+[You]: They always have cofounder. I'm a cofounder. You're gonna meet our third cofounder at some point during
+[You]: these conversations, and that
+[You]: really has a direct relationship, and we wanna become partners, not vendors, with you guys.
+[You]: The second part is is the product and how we can tailor it and and and really prioritize
+[You]: some of the things that you might need specifically that maybe
+[You]: are other clients
+[You]: still haven't flagged or raised. That's just because we're early stage, and we
+[You]: know that at some point, if you guys ask for it, there's gonna be another company in the future that's
+[You]: asking for that feature or functionality as well.
+[You]: So that's
+[You]: that's the other one. And the third part is, of course, as I was saying, a lot of testing environments, you getting the
+[You]: on the product, trying it out before you actually take a decision.
+[You]: We don't wanna be rushing anything. We wanna prove value.
+[You]: Incrementally step by step. And then once we we're really sure that this makes sense
+[You]: both sides, then
+[You]: get into a contract, which is a win win for both parties.
+[You]: So what I what I propose, if you're if you're if you agree and you're aligned,
+[You]: is let's do a demo, and that demo can go one of two ways.
+[You]: We can do a generic walkthrough of the platform,
+[You]: showing just the the features that would add
+[You]: to the pain points you just mentioned. The second option is to do real demo.
+[You]: We sign an NDA,
+[You]: You can maybe share over some files. Doesn't need to be exactly the same file, maybe just the
+[You]: and the formats. We just put synthetic data into it.
+[You]: And we can show a demo based on on really
+[You]: how you're reconciling these flows, and we can show you how we clean the file,
+[You]: how we process the transactions,
+[You]: discrepancy management dashboard, the dashboard, and all the output schemas that we've built.
+[You]: Up to you. We think it's better to go through a real demo because then
+[You]: can compare against your internal processes and and and that adds more
+[You]: visibility and and real tangible
+[You]: view of how it will work.
+[You]: But I guess maybe it's it's just up to you.
+[Remote]: I'd love to do a real demo. As I said, like, I wanna get this close to the metal as I can
+[Remote]: signing a contract and
+[Remote]: we have our files already pretty much again ready because it's
+[Remote]: stuff that we use now to feed into into cowork essentially and and get get
+[Remote]: some of those matches going.
+[Remote]: If
+[Remote]: I can send our, like, MDA the MDA that we use. If not,
+[Remote]: can send me yours. I'll need to run it by our legal team before signing.
+[Remote]: And, let's do that. And then we'll see you like, okay. Does it make sense? Does it not
+[Remote]: And we'll continue the conversation.
+[You]: Amazing. I think if it's quicker, then you can send over your NDA. We're just
+[Remote]: Fantastic.
+[You]: sign it quickly.
+[You]: And then, when do you think would be best
+[You]: to do that
+[You]: demo?
+[Remote]: Realistically, like, this week, I'm
+[Remote]: really swamped. I don't wanna commit to something that I can't I
+[You]: Works on as well. No worries.
+[You]: That's great, actually.
+[Remote]: so by the time, like, you know, we get Simon stuff, I'll
+[Remote]: think I have the link to your calendar, but realistically, mid next week, I would say.
+[Remote]: So once we get the NDAs,
+[You]: Okay. Okay. Let's let's take it via email then.
+[Remote]: once we have the NDA, I'll
+[You]: Yeah.
+[Remote]: I'll take a look at your calendar and book book a time.
+[Remote]: And then share some files and
+[Remote]: you know, maybe it'll tell me, hey. These files are missing this or that or
+[Remote]: formatting, etcetera, but that
+[Remote]: that sounds like the
+[Remote]: way to go.
+[You]: Amazingly, hi. All right. Is there anything else
+[You]: that we haven't covered that you would like to maybe ask a question or something?
+[Remote]: I mean, I'll I'll be curious to see the demo, but
+[Remote]: maybe a quick question is
+[Remote]: how far into the data gathering do you go?
+[Remote]: Like, do you are you at the upload CSV level?
+[Remote]: Are you at the we connect to the actual feed being at the yeah.
+[Remote]: Whatever it takes.
+[Remote]: It's usually API or SFTP,
+[Remote]: but we even for some of our customers gather it via email or
+[Remote]: even scrapping. I mean,
+[Remote]: case scenario, scrapping, but it it can happen. I know what your
+[Remote]: you know, 20 or We have all of these.
+[Remote]: I mean, realistically, I have a Zapier's creating a transaction with
+[Remote]: notifications that come in by email because the bank doesn't have anything else. Yep.
+[Remote]: Welcome to The US. You know?
+[Remote]: Perfect.
+[You]: Yeah. As Phil said, 80% of it is is API and CPTB.
+[You]: Plus SFTV, and then remaining 20%, which is very painful, is
+[You]: yeah, PDF via email or even downloading downloading a CSV from a portal or something.
+[Remote]: Do you maybe quick quick quick. Do you connect with the ERP ERPs like, you know, the NetSuite, the zeros of this world? Okay.
+[You]: But
+[You]: Yep.
+[You]: And then you can configure it
+[You]: the accounting dictionary from the platform and and just
+[You]: automate the journal entries as well.
+[You]: Alright.
+[Remote]: Okay.
+[You]: You so much, Great meeting you. I'll follow-up via email
+[You]: and and we should get that NDA signed and ready and the file's over
+[You]: then we can schedule time next week for for that demo.
+[You]: Thank you so much.
+[Remote]: Excellent. Thank you, gents. Looking forward
+[Remote]: Perfect. Bye bye.
+[You]: Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Conduit’s Reconciliation Pain Points
+
+- Main challenges with current process:
+  - Data ingestion: hard to get the data from sources
+  - Data clean-up: painful and very manual process
+    - 48 bank accounts across 20 different banks
+    - Different reports and formats from each bank
+    - Most banks don’t have API feeds, rely on manual downloads
+    - Want to move from monthly to daily reconciliation
+- On-chain piece less of a problem
+  - Transaction hashes provide clear tracking
+  - Wallet data is well-structured
+- Processing both fiat and on-chain data together is the real challenge
+  - Money flows: on-chain → conversion → fiat bank accounts (USD, BRL, COP, MXN, EUR)
+  - Internal transactional tracker serves as source of truth but isn’t perfect
+  - New bank setups require significant manual work, even for short-term relationships
+
+### Mihai’s Ideal Solution Requirements
+
+- Data sources plugged in directly via API or daily automated reports
+- Daily reconciliation process (moving toward live reconciliation later)
+- Exception reporting system
+  - Connected to their internal exception tracker
+  - Feature that specifically helps with edge cases
+  - 98% of records process in 10% of time, but 2-5% become “black holes”
+- Full audit trail and loop closure tracking for exceptions
+- Day-by-day exception tracking with clear resolution paths
+
+### Decision Criteria and Next Steps
+
+- Main blockers to building internally:
+  - “Other shit” they need to handle - resource constraints
+  - Build vs buy decision: not looking to build this internally
+  - Currently has some outsourced processes handling parts of this
+- High priority project - would integrate next week if:
+  1. Product works and is adapted to their needs
+  2. Integration timeline and lift from their side is reasonable
+  3. Commercial terms make sense
+- Budget considerations:
+  - “If this is $100k a year, then it would really need to close everything in two days”
+  - Wants to touch and test the product before committing
+- Mihai will send their NDA for review
+- Real demo scheduled for mid-next week using Conduit’s actual file formats with synthetic data
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/70532a06-9bea-4601-839e-5e9563579bbb](https://notes.granola.ai/t/70532a06-9bea-4601-839e-5e9563579bbb)

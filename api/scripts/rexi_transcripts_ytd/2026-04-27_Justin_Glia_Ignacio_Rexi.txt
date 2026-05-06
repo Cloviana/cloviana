@@ -1,0 +1,611 @@
+MEETING: Justin (Glia) + Ignacio (Rexi)
+DATE: 2026-04-27
+ID: not_9y5SNCopiAAs4w
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Justin DiPietro <justin@glia.com>
+SCHEDULED: 2026-04-27T12:30:00-04:00 - 2026-04-27T13:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Hello, Justin. How are you?
+[Remote]: Hey. Sorry about that.
+[Remote]: Good. How are you?
+[You]: Doing good. No worries. No worries.
+[You]: Thank you for taking the time with meeting with me. We got introduced via
+[Remote]: Yeah.
+[You]: Jeremy. Right? Jeremy
+[You]: How do you know Jeremy? Is he an investor at GLEA?
+[Remote]: Yep. We are Jeremy. Yep.
+[Remote]: No. No. No. I was thinking because he he's in here. He's a very
+[Remote]: connected with ERA, but but, no, he's not
+[Remote]: he's not an investor. I just threw threw mutual investors from, like, past companies.
+[You]: Okay.
+[You]: Got it. Got it. Well,
+[You]: I I I shared last month's investor he's an investor in
+[You]: I'm the cofounder and CEO of
+[Remote]: No. It's
+[You]: Just a short snippet of what we do
+[You]: We're building,
+[You]: AI powered infrastructure for reconciliation and other FinOps workflows.
+[You]: So, basically, starting by automating the reconciliation workflow for banks
+[You]: payments, insurance, and marketplaces.
+[You]: And then using that as the wedge to deploy
+[You]: agents for treasury ops, strategic finance,
+[You]: FB and A, accounting, all these other workflows that are very tied to
+[You]: reconciliation.
+[Remote]: Is it is it all for banking?
+[You]: Not only banking. We also work with payments, fintechs,
+[You]: and marketplaces, for example.
+[Remote]: Okay. I see.
+[You]: And insurance.
+[Remote]: Oh, one do you have any initial customers?
+[You]: Yep. Yep. We're already live with with several customers in production.
+[Remote]: What what kind what kind of customers?
+[You]: Both in Latin America and in The US.
+[You]: And
+[You]: mostly fintechs. Oh, in Argentina, we're working with banks
+[You]: Latin America, we're working with banks. Here in The US, we yet to nail our first bank.
+[Remote]: Okay.
+[You]: Working mostly with fintechs here in The US. Fintechs and payment processors
+[You]: So so, yeah,
+[Remote]: How would a how would a bank use you?
+[You]: So, basically, banks, typically have
+[You]: big, big teams of doing reconciliation just
+[You]: exclusively dedicated to reconciling money movements.
+[You]: Basically comparing their their banking core
+[You]: against any internal order book.
+[You]: And then depending on which products or services they operate, they need to also reconcile those individual products.
+[You]: Because today,
+[You]: what typically happens is
+[You]: these banking courts are very old and don't work properly, and so they've built
+[You]: abstraction layers on top of the core,
+[You]: And before you hit the core, you need to make sure that those abstraction layers are actually
+[You]: Because if not, it's back and before that takes a lot of time
+[You]: and can become costly.
+[You]: So that's one internal use case for the banks.
+[You]: Reconciling
+[You]: the core against their general operations.
+[You]: And then reconciling each one of the products against
+[You]: the accounting system as well. Now
+[You]: which is what's interesting, for sponsor banks
+[You]: serving the fintech industry,
+[You]: it's either a direct integration or they're working with BaaS partners.
+[You]: And so they also need to reconcile that. And that's that's particularly painful and
+[You]: risky because after Synapse, all the banks are making sure that these badge
+[You]: relationships are
+[You]: correctly accounted for, and that if they have been, direct with with fintechs,
+[You]: they are able to control and monitor what these
+[You]: external parties are doing with their depository services.
+[You]: Particularly after Synapse, a lot of consent orders hitting the sponsor banks. And so
+[You]: it's an interesting part, particularly for the sponsor banks.
+[Remote]: So if you go to who would you sell to in a bank?
+[You]: Controllers finance people,
+[Remote]: Mhmm.
+[Remote]: Mean, would you say, would we be a customer?
+[Remote]: I know we're not a
+[Remote]: but would we be a customer? I don't I'm not, like, an expert on our our from, like, an accounting perspective,
+[You]: Maybe.
+[You]: Yeah.
+[You]: I I didn't think about it, honestly. I was more
+[Remote]: Yeah. I I was I was curious.
+[You]: I was more interested in in meeting you first because, I mean,
+[You]: it's always great to meet successful or great
+[You]: founders in the fintech industry. And second, because, Jeremy said that it would be a fruitful conversation to talk about how to sell into banks. You guys sell into banks.
+[You]: Right?
+[You]: Okay.
+[Remote]: Oh, yeah. Yeah. Banks and and credit unions as well.
+[Remote]: Have you have you tried a credit
+[You]: So I think Jeremy's angle was was more in that sense.
+[Remote]: have you have you is there any difference with the credit union?
+[Remote]: Than a bank for you that you know of?
+[You]: No. I would love to work with Credit Union as well.
+[Remote]: No.
+[You]: Yeah.
+[Remote]: So how how do you price?
+[You]: So today, given our vision goes beyond
+[You]: reconciliation, and reconciliation is for us just the wedge,
+[You]: We price it fixed.
+[You]: We just do an estimation based on number of connectors,
+[You]: expected volume, and the accounting
+[You]: integration also. And with that, we give you a fixed quote.
+[You]: Because, again, for us, it's a land mix
+[You]: expand opportunity, and we're very comfortable or
+[You]: pricing recon as maybe as as a loss leader to deploy agents in other fin ops workflows.
+[Remote]: And the
+[Remote]: okay.
+[Remote]: It's not it's not I mean, it's not an area where I know a ton of bounds, be quite quite honest. Like, that
+[Remote]: I I know I know that's selling the banks or credit unions, but, the,
+[Remote]: I don't know how they do their their, like,
+[Remote]: accounting, treasury management, stuff like that. Today.
+[You]: So one question.
+[You]: You're you're the CEO. Right?
+[Remote]: Chief strategy officer. This is cofounder.
+[You]: Okay. And so have you led the the sales efforts at CLIA, or or is there someone most more more focused on that?
+[Remote]: I mean, we have a wholesale team now, but
+[Remote]: yeah, essentially, yes, like, throughout the years. But,
+[Remote]: do they technically roll to me? No. But do they roll to me? Yes.
+[You]: And, so I'm very interested in getting your, like,
+[You]: learnings from the beginning because I I think
+[You]: you've now achieved served, like, skate velocity. Right now you have a brand, you
+[You]: a big network to sell into banks and credit unions, but
+[You]: how was it at the beginning? How did you nail the first deals?
+[You]: What type of channels work for you? Like, what would be your advice to someone that's
+[You]: farther
+[You]: before in the road and is trying to land their first banking contracts or credit unions.
+[Remote]: Conferences.
+[Remote]: Conferences, conferences, but not
+[Remote]: but not the big ones, the tiny ones. They're, like, Credit Union,
+[Remote]: Association of that no one shows up to but, like, 10 credit unions or 10 banks
+[Remote]: It's really cheap to go because they're very tiny places.
+[Remote]: And, but you get to meet them all and, like, speak to them.
+[Remote]: And, like, shake hands versus, like, these large conferences is very difficult, and you get
+[Remote]: like, very large customer. They're expensive and, like,
+[Remote]: that's my that's my number one
+[Remote]: piece of advice I give.
+[Remote]: How many how many people on on your team?
+[You]: Interesting.
+[You]: So right now, we're seven mostly technical. I'm the CEO, but I'm the one leading
+[You]: all the distribution efforts. And I am going to conferences, but I'm I'm starting to learn these
+[You]: these different
+[You]: best practices. Because I did go to money twenty twenty, which was amazing,
+[You]: but it was huge. And and and it's also
+[Remote]: But that's an that's an example of where it's, like, very
+[Remote]: I mean, talk about expensive, really expensive.
+[Remote]: And, to have a booth or something like that. And then
+[Remote]: I mean, we still go. But but
+[Remote]: I would never advise you to get a booth there because you're much better off, like,
+[Remote]: going to 10 tiny events than than one mega event.
+[You]: And and and if you would say three for for banks, which were the top three events that you would go to in my stage?
+[Remote]: I don't know anymore about the like, we go to ton of
+[Remote]: events. I don't know the specific ones. I would just look up tiny tiny regional ones.
+[You]: Okay.
+[Remote]: That are easy for you to get to. You're in New York.
+[You]: Yes.
+[Remote]: Yeah. That are easy for you to get to.
+[You]: Remote
+[Remote]: Are you guys are you built on are you built on AWS or GCP? Or
+[You]: AWS.
+[Remote]: or you built?
+[Remote]: Yeah.
+[You]: And,
+[You]: so conferences is
+[You]: by far the most important.
+[You]: And then and then what type of banks do you sell into?
+[Remote]: Wait. Is there alguien?
+[You]: What type of banks do you selling to?
+[Remote]: In terms of what?
+[Remote]: Like, what do you mean type of bank?
+[You]: Commercial banks, sponsor banks,
+[Remote]: Oh, they're almost all
+[You]: websites,
+[Remote]: just all re like, regional banks. Regional banks and regional credit unions.
+[You]: And then
+[Remote]: So they're they're
+[Remote]: they're generally commercial and consumer.
+[You]: and then once you meet them,
+[You]: what's been most effective? Do you still travel, like, to their
+[You]: to have those meetings?
+[Remote]: Yeah.
+[You]: Like, what's what's been most effective to shorten the sales cycle and close the deal?
+[Remote]: You have it right? Physically show up.
+[You]: Like, even even for intermediate meetings, just go.
+[Remote]: Like, physically go there.
+[Remote]: If they'll let you yeah.
+[Remote]: I mean, we will show up even if we don't have a meeting.
+[You]: Just knock their offices? Knock their door?
+[You]: With donuts. You do that. You still do that.
+[Remote]: Ya, video.
+[Remote]: Literally with donuts.
+[You]: That's for more for credit unions than banks. Right?
+[Remote]: Both. You'd be surprised.
+[Remote]: But, I mean, I look. For you, I don't I wouldn't recommend that. I I would recommend the
+[Remote]: honestly, there's there's literally, like,
+[Remote]: 10 conferences a month.
+[Remote]: So so just pick the conferences, go meet them,
+[Remote]: network, and get your first up and running.
+[You]: Got it. Got it. And and and you guys are selling them
+[You]: it's a customer service platform. Right?
+[Remote]: Yeah.
+[Remote]: Yeah. What what's your average what's your average deal size?
+[Remote]: Like, what are you trying to target?
+[You]: We'll try to target, like, somewhere between sixty and eighty k.
+[Remote]: Okay.
+[You]: It's not that expensive, but I think it can go way way above
+[You]: just the beginning as an early stage startup, we try to keep it low to
+[You]: get them in. You know?
+[Remote]: Are there competitors that are going after the same space?
+[You]: Well, there's there's a big one, but it's it's more for bigger banks.
+[Remote]: Mhmm.
+[You]: BlackLine.
+[You]: You might know them.
+[Remote]: Are they
+[You]: It's it's a public company.
+[Remote]: are they
+[Remote]: are oh, they're yeah. Yeah.
+[You]: They're listed.
+[Remote]: I think
+[Remote]: I'm thinking of the
+[You]: And other than going to conferences, what else do you do? Do you like webinar
+[You]: or workshops or those type of things or just like a mix of conferences and outbound and that's it?
+[Remote]: We do yeah. Outbound webinars.
+[Remote]: But I think that the
+[Remote]: the the outbound works
+[Remote]: to cold calling.
+[Remote]: That works.
+[Remote]: As well.
+[Remote]: Oh, so what what at what AUM do you think, like,
+[Remote]: BlackLine kinda steps in?
+[Remote]: Like, like, what's
+[Remote]: the biggest bank that you guys think that you would have before they would go with someone like a BlackLine?
+[You]: I think blacklight is is
+[You]: it's really expensive. It's a heavy implementation process, so it's it's
+[You]: for bigger banks, I would say, like,
+[You]: if there's 1,500 banks in The US, I think black line is for the top
+[Remote]: Third,
+[You]: third.
+[You]: Yeah.
+[Remote]: Okay.
+[You]: Our top our our top quartile
+[You]: in terms of AUM. It's it's for really big banks.
+[Remote]: Yeah.
+[Remote]: Okay.
+[You]: And then and then have you
+[Remote]: And so
+[Remote]: Okay. Here you go.
+[You]: have you said have you have you
+[You]: have you
+[You]: gotten any objections in AI
+[You]: when when working with them? What what's the most typical? Like,
+[You]: what have been the typical friction
+[You]: obstacles you had to
+[You]: over.
+[Remote]: I think, like,
+[Remote]: the
+[Remote]: I mean, a lot of the typical ones, like, we
+[Remote]: have an AI policy. We don't do anything that that the data leaves are
+[Remote]: our our premise
+[Remote]: we're normally able to get through those objectives objections.
+[Remote]: Are you are you guys, like, SOC two dash two compliant yet?
+[You]: SOC two type two. Yep.
+[Remote]: Okay.
+[Remote]: Yeah. So, like, earlier, we had to get, like, things like that.
+[Remote]: And, I mean, we have that now. But
+[Remote]: what other objections we get?
+[Remote]: It's probably more I'm not thinking about. How long does it take you to implement?
+[You]: Depends a lot on the on the data sources.
+[You]: But it can be live in under a month.
+[You]: In the best one case, two months average.
+[Remote]: And then what are they doing once they're implementing? Are they only are they just looking at, like,
+[Remote]: anything you guys bubble up that's not consolidated?
+[Remote]: Or what's, like, the work is that the work process?
+[You]: Yep.
+[You]: Yeah. The work process is just
+[You]: to the background, and you just take a look at what's not working, what's not
+[You]: reconciling, basically. And you can and the system has
+[You]: AI powered suggestions to power through them really quickly.
+[Remote]: And then, like, what does it
+[Remote]: I don't know how it works. Like, does it ultimately produce, like, a report that they use with the auditors? Or
+[Remote]: how
+[You]: Yeah. That that's one output scheme. Another
+[You]: output scheme is plugging into the ERP to create the journal entries.
+[Remote]: Okay.
+[You]: And you can also generate
+[You]: dashboards and then just custom reports for other areas as well.
+[Remote]: I see.
+[You]: But the most common ones are those just
+[You]: report for a regulator or for internal team or something like that.
+[Remote]: Mhmm.
+[You]: A dashboard for monitoring, and then
+[You]: the journal introducing the ERP. Sometimes you also spit out,
+[You]: a file
+[You]: that treasury needs to execute bulk payments. So you're like, gusto
+[You]: as this bulk file and then
+[Remote]: Ah, sí.
+[You]: it does all the payroll?
+[You]: Those type of things?
+[Remote]: And are you are you
+[Remote]: is your aspiration to target, like,
+[Remote]: obviously, banks and the credit unions, but but but
+[Remote]: is your aspiration to go further than just the financial sector?
+[You]: Yep. Yep. So it's for now, it's
+[You]: it's banks, payments, and insurance. We are starting to get our feet wet
+[You]: with marketplaces. They have, like, a fintech arm.
+[Remote]: Okay.
+[You]: Multiple payment flows, and maybe a wallet.
+[You]: Is always there. The thing with is
+[You]: it's as long as the sales cycle, and they
+[You]: pay you a fraction that what a bank can pay. And then also today, they're in, like, this clot
+[You]: honeymoon where they wanna build everything internally, and it's gonna come back our way. But
+[You]: today, I'm like, I'm not wasting time with these people thinking they can build everything themselves.
+[You]: So so for now avoiding fintechs,
+[You]: focusing mostly on
+[You]: banking, payments, insurance, and marketplaces. And then
+[You]: I think telcos
+[You]: telecommunications is gonna be interesting. And, like, at the end of the day, like,
+[You]: any company operating multiple payment flows and with high transactional volume has
+[You]: penny with Recon.
+[You]: And would need an automated system to handle it.
+[Remote]: En mi
+[You]: Because it's full of edge cases, it's full of manual investigations,
+[Remote]: if you're
+[You]: It's inefficient. It causes risk.
+[Remote]: who so is so the controller is essentially enabled to
+[Remote]: remove stat or not need as many staff if they have this.
+[You]: Exacto.
+[Remote]: Is that the I'm awesome.
+[You]: It's it's staff reduction, risk reduction,
+[You]: and then, avoiding avoiding revenue leakage
+[You]: and fee overpayment, because we're also double checking those type of things.
+[You]: You can, like, interact so you can upload a contract with your processor.
+[You]: And then just generate a new database, which is the should be, and compare it against what they actually cleared.
+[You]: And you can check
+[You]: on a daily basis. Did they actually clear the right fees, the right revenue,
+[Remote]: Ahí sí.
+[You]: or not?
+[Remote]: Ok.
+[You]: So just, like, just to frame the goal, I wanted to get your learning
+[Remote]: And
+[Remote]: Ja, ja, ja.
+[You]: on on on selling into banks, and then
+[You]: like, this may be a moonshot. But if you see a potential for partnership here in which
+[Remote]: Well, that's why I'm asking you questions.
+[You]: okay.
+[You]: Okay.
+[Remote]: So
+[Remote]: oh, yeah. No. The the yeah. That's fine. Most of my questions are if
+[Remote]: if if I see a potential for a partnership.
+[Remote]: So
+[You]: You guys partnered with other startups that are, like, complementary to what you do and
+[You]: selling to the same segment or not yet?
+[Remote]: We have, but, typically, they're, like,
+[Remote]: they're connected more.
+[Remote]: In terms of what we do.
+[Remote]: That makes sense, like like, I'll give you an example. Like, we part we partner with, like, a voice biomex or
+[Remote]: company that, like, they use
+[Remote]: for voice biometrics. So it's it's more connected. But
+[Remote]: I'm not opposed to having partnerships that are not connected.
+[Remote]: I'm just that are more just on the, like, agentic layer.
+[Remote]: That's why I was kinda curious of the call. But it it
+[Remote]: it is a little bit farther from, like, my
+[Remote]: knowledge of understanding of
+[Remote]: I mean, frankly, I barely understand what our own controller does. So
+[Remote]: it has a
+[Remote]: has a little bit more of a gap for me. But that's why I'm curious at, like, what
+[Remote]: what's happening at the banks and credit unions from, like,
+[Remote]: this piece of the labor that, like,
+[Remote]: obviously, needs to be changed.
+[You]: Yeah. The pain is
+[Remote]: Yeah.
+[You]: first fragmented systems
+[You]: that are not connected, which is basically
+[You]: the root cause in many of the problem spaces we're building for when we talk with
+[You]: banks, payments, and insurance. There's there's a fragmented
+[Remote]: What are are they rejected? Have you spoke
+[You]: data source,
+[Remote]: to any banks or credit unions in The US yet?
+[Remote]: What what what rejections are they giving you?
+[You]: Yeah. Yeah. I spoke. The thing is,
+[You]: no. It's mostly ghosting, I think.
+[You]: Which are not willing to work with an early stage startup. That's the hard part.
+[You]: Because, like, when we when we did go deep in understanding their processes,
+[You]: was a huge opportunity.
+[Remote]: I would just so you know, I would start with credit unions before you go to bank.
+[Remote]: Like, we have hundreds of banks and credit unions, but we started,
+[Remote]: credit unions are much easier before you go to banks.
+[You]: Why?
+[Remote]: Who's more open to trying things?
+[Remote]: They're a little they're less regulated as well. So
+[Remote]: they don't they're not as, like, anal about stuff.
+[Remote]: Which is good at first.
+[You]: Does that mean the willingness to pay is lower or not?
+[Remote]: No. There no hay nada.
+[Remote]: Their willingness space is still there.
+[You]: And how do you guys price
+[Remote]: Oh, that's the other thing. I
+[You]: your platform?
+[Remote]: we price based on AUM or based on, like, member count.
+[Remote]: Like, how many how many how many customers they have. But but you should price on AUM.
+[Remote]: That should be your pricing model.
+[Remote]: If I were you.
+[You]: N N Y?
+[Remote]: It just
+[Remote]: they know, like, a larger bank pays more, smaller bank pays less.
+[Remote]: It's just a very clean way of pricing.
+[You]: It's simple for them to digest and understand.
+[Remote]: Yeah. Yeah. How much you how what do you
+[Remote]: much do you charge for how big are you? Billion dollar bank? Okay. This is your payment.
+[Remote]: So and the rule the rule of thumb is of, AUM,
+[You]: And it's it's it.
+[Remote]: $1,000,000,000
+[Remote]: credit union is a is a $4,000,000,000 bank.
+[Remote]: It's equal in, like, operational complexity. So, like,
+[You]: Yep.
+[Remote]: because the banks do a lot of commercial activity,
+[Remote]: so they have they'll tend to have higher
+[Remote]: assets.
+[Remote]: So it's one to four is the rule of thumb.
+[Remote]: What what when you get a new customer,
+[Remote]: so you said it takes a couple months to go live?
+[You]: Yeah.
+[Remote]: How how how can
+[You]: Mean, it depends a lot on their systems.
+[Remote]: people intensive is it on your side?
+[You]: Yeah. We have some forward deployment efforts.
+[You]: For sure.
+[Remote]: Okay.
+[Remote]: So if you so if you got, like, 20 customers tomorrow, you can do it.
+[You]: Excuse me,
+[Remote]: Like, if you like, what what would your
+[Remote]: if if I handed you 20 customers tomorrow,
+[Remote]: it would be a little bit much.
+[You]: I could do it.
+[You]: We could definitely do it.
+[Remote]: A 100 customers tomorrow.
+[You]: No way.
+[Remote]: Okay. So there is a breaking point. Yeah.
+[You]: Yeah.
+[You]: At least today. I mean, we we raised our pre seed in July, so it's a year since our pre seed.
+[You]: So
+[Remote]: How much did you rate?
+[You]: 1,200,000.
+[Remote]: Mhmm.
+[You]: And we're getting ready to raise our our seed round by the end of this quarter.
+[Remote]: What are you gonna raise?
+[You]: I think we're gonna raise five to six, some routine there.
+[You]: So, again, it's it's gonna be mostly to scale our our
+[You]: forward deployment efforts because
+[You]: I don't need that big of a team for the platform development side of it. We we can go very quick on that.
+[You]: Front. It's it's way more about
+[You]: can we implement quickly and efficiently with the pipeline we're getting
+[You]: And today, we're
+[You]: running behind with seven people. But we're just generating that traction to
+[You]: to raise a really good seat.
+[Remote]: What are what do you whatever you've been charging for implementation?
+[Remote]: It's probably like that. Right?
+[You]: No. Honestly, like, yeah.
+[You]: It's been a bit a bit like that. And and what I like to do is
+[You]: I don't like to charge for implementation, and this is something I read over x, and I'm
+[You]: and it's working really good for me, which is
+[You]: we charge, like, two months worth of the system,
+[You]: but then it were live before
+[You]: thirty calendar days or sixty calendar days, we'll credit it back.
+[You]: And what that does is make sure they're unblocking us. Because many times, time to value
+[You]: just depends on them
+[You]: sharing documentation for the connectors or sharing the
+[Remote]: That's alright.
+[You]: the reconciliation requirement.
+[Remote]: Guess that I guess when you're just starting started, sort of, I would revisit that and
+[Remote]: a year or something. Like,
+[You]: Like, charge for implementation?
+[Remote]: oh, yeah. I mean, they'll pay. They don't I have we've increased our implementation price
+[Remote]: like, five times and never changed anything.
+[Remote]: They're they're new. You're used to it. Yeah.
+[You]: And then they're paper it.
+[You]: But what what's what's the order of magnitude? How am I
+[You]: do you charge for implementations?
+[Remote]: Try to hit 20% of AR.
+[You]: Oh wow! That's big!
+[Remote]: Yeah.
+[Remote]: We don't and we charge we don't credit a bag. An ARR starts the day they sign.
+[Remote]: The contract. We'll give them some flexibility, but
+[Remote]: it starts within ninety days.
+[Remote]: You you have access to the system. You pay for the access.
+[Remote]: Just because you're not implementing doesn't mean that you don't have access.
+[Remote]: It's yeah. Give me your documentation faster. You have access. You wanna get value.
+[You]: Is is is your space
+[Remote]: Anyway, I mean, I know I'm saying this now now, but I I know if I could say this
+[Remote]: like, then. So
+[Remote]: that's how that's how it works now.
+[You]: Interesting.
+[You]: Do you guys get a lot of competition?
+[Remote]: We we have some yeah. Yeah. That's a whole another subject. But yeah.
+[Remote]: We do have some competition. But
+[You]: And how do you guys win?
+[You]: When it gets competitive?
+[Remote]: depends who the competition is.
+[Remote]: The
+[Remote]: it's setting the Lots and lots of
+[Remote]: things. I don't have enough time to go through go through that right now. But
+[Remote]: but the I think the
+[Remote]: it's it's interesting.
+[Remote]: I'll I'll just maybe if I set more time and see a demo, I I can, like,
+[Remote]: think more, like, would a part would a partnership work or not?
+[Remote]: Does that work?
+[You]: Okay. Let's do that. I'll I'll I'll shoot over an email with with
+[You]: with details to to schedule some more time to do a demo, and we can figure out it then.
+[Remote]: Yeah. Let's see. And if you wanna ask more questions, have an answer too. I'm just I'm
+[Remote]: like I said, I'm always looking in the space of, like, other places in the the
+[Remote]: banking org that, like, we don't
+[Remote]: touch that we can use our relationships with.
+[Remote]: To help expand our
+[You]: I'm telling you, this is a huge one.
+[You]: And it's a huge not only, like,
+[You]: economic ROI in terms of, reducing staff, but also
+[Remote]: Yeah.
+[You]: has a lot a lot of risk associated with it. And so
+[You]: banks are very
+[You]: risk averse. You might know that. So
+[Remote]: Maybe I'll maybe I'll bring my I had a finance on it too so he because
+[Remote]: I'm sure he understands what the banks are doing a lot more than
+[Remote]: myself in terms of this particular aspect.
+[You]: Awesome, Justin. Alright. Thank you for the time. I'll follow-up you
+[Remote]: So
+[Remote]: thanks a lot. Are you are you Argentinian?
+[You]: email.
+[You]: Yes.
+[Remote]: Oh, nice. I thought I thought so about your by the employee count. Cool.
+[Remote]: My cofounders are Guatemalan. So
+[You]: Okay. Very cool. Alright.
+[You]: In touch. Thank you.
+
+============================================================
+SUMMARY
+============================================================
+### Sales Strategy for Banks & Credit Unions
+
+- **#1 advice: conferences, but the small ones. Not the big ones**
+
+  - Target tiny regional events (10 banks/credit unions attending)
+  - Much cheaper than large conferences like Money 2020
+  - Better networking opportunities vs expensive mega events
+  - Look for easy-to-reach regional conferences from NYC base
+
+- **#2 outbound (cold-calling works)**
+
+  - Direct outreach remains effective
+  - Physical presence crucial - “literally show up with donuts”
+  - Travel to their offices even for intermediate meetings
+  - Will show up without meetings if necessary
+
+- **#3 webinars**
+
+  - Part of effective mix alongside conferences and outbound
+
+### Target Market Insights
+
+- **Start with credit unions before banks**
+
+  - More openness to trying new things
+  - Less regulated than banks
+  - Equal willingness to pay as banks
+  - Easier entry point for early-stage startups
+
+- **Customer profile: regional banks and regional credit unions**
+
+  - Both commercial and consumer focused
+  - Avoid mega banks initially (top quartile by AUM)
+  - BlackLine dominates top third of market (1,500+ banks in US)
+
+### Pricing Strategy
+
+- **Price in terms of AUM**
+
+  - Clean model for banks to understand
+  - Larger bank pays more, smaller pays less
+  - **4B bank = 1B credit union** (in terms of operational complexity)
+  - Banks have higher AUM due to commercial activity
+
+- **Charge for implementations**
+
+  - Target 20% of ARR for implementation fees
+  - ARR starts day of contract signing (within 90 days max)
+  - Don’t credit back implementation costs
+  - Access begins immediately regardless of implementation timeline
+
+### Partnership Potential
+
+- Justin interested in exploring partnership opportunities
+  - Glia focuses on customer service platform for banks/credit unions
+  - Hundreds of bank/credit union relationships
+  - Looking for complementary solutions in banking org
+  - May include head of finance in future discussions
+
+### Next Steps
+
+- Ignacio to send demo scheduling email to Justin
+- Potential follow-up with Glia’s head of finance for deeper technical discussion
+- Explore partnership opportunities after product demonstration
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/89d54208-3930-4117-87d3-f384a8e5df93](https://notes.granola.ai/t/89d54208-3930-4117-87d3-f384a8e5df93)

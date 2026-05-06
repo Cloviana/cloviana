@@ -1,0 +1,626 @@
+MEETING: Rexi x BIND: conciliaciones
+DATE: 2026-04-06
+ID: not_Hzo6qVtRTqEOXy
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Hperez <hperez@bind.com.ar>, Mafriol <mafriol@bind.com.ar>, Smartino <smartino@bancoindustrial.com.ar>
+SCHEDULED: 2026-04-06T10:30:00-04:00 - 2026-04-06T11:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Hola, buenas, perdón, perdón, la demora.
+[Remote]: Pero ahí está.
+[Remote]: Buenas noches. Ignacio, ¿cómo te va? Encantado, un gusto.
+[You]: Encantado. Laura, Hernán, Sabrina.
+[You]: Que me quedó bien afuera. No, es mi mi
+[Remote]: No, en, desde el banco estamos todos.
+[You]: Espectacular. Bueno,
+[Remote]: Ahora, si querés.
+[Remote]: No sé si hay alguien más de la empresa y si no,
+[You]: por ahí uno más, pero arranquemos, que que ya entre tarde y y
+[You]: va ir sumando mi socio, seguramente, Teo, esté sumando.
+[You]: Bueno, antes que nada, un gustazo saludarlos. Espero que estén teniendo un gran
+[You]: comienzo de semana, después de fin de semana largo.
+[You]: Lo que yo pensaba para hoy era un poco presentarnos,
+[You]: contarles un poquito qué es lo que hacemos, creo que la primera vez que hablamos, esto está bueno
+[You]: setear ahí un poquito el tono y y que nos ubiquen bien en en tiempo y espacio.
+[You]: Y después me encantaría escuchar más de ustedes, ¿no?
+[You]: Relacionado al proceso de conciliaciones.
+[You]: Específicamente como lo operan hoy,
+[You]: qué tipo de dolores tienen, cómo lo solucionan y qué
+[You]: pensando para este cubo, para este año, para para solucionarlo o hacerlo más eficiente o
+[You]: o lo que sea. ¿Les parece con esa agenda o...?
+[You]: O querían cubrir otra cosa?
+[Remote]: No, no, no está perfecto. Si querés, nos vamos presentando.
+[Remote]: Yo soy Hernán Pérez, soy gerente de contabilidad. De Banco Industrial,
+[Remote]: bueno, sabría
+[Remote]: gracias. Yo soy Sabrina, y estoy a cargo
+[Remote]: del equipo de control operativo contable. Nosotros armamos
+[Remote]: justamente, las conciliaciones entre todo el proceso operativo y la contabilidad.
+[Remote]: La presentación ante balance.
+[Remote]: Bueno, yo soy Laura, y soy gerenta de las empresas vinculadas
+[Remote]: o sea, todo lo relacionado con las vinculadas, no con el banco.
+[Remote]: Tengo la parte administrativa y la parte contable.
+[Remote]: Hacemos conciliaciones,
+[Remote]: pero actualmente utilizamos, bueno, Excel y
+[Remote]: herramientas, pero ninguna automatizada.
+[You]: Mauricio.
+[Remote]: Claro. Nosotros, si querés, te cuento un poquito, nosotros
+[Remote]: también usamos herramienta de oficina y estamos también incursionando en todo lo que tiene que ver con licencia
+[Remote]: artificial. No en conciliaciones aún, si el banco
+[Remote]: digamos, nos ha marcado una línea y nosotros, digamos, vamos hacia ese lugar.
+[Remote]: Hoy todavía no estamos conciliando con IA, estamos tratando de
+[Remote]: Tenemos una herramienta con un proveedor que se llama Symmetric, que
+[Remote]: un proveedor que trabaja con
+[Remote]: que trabaja con Mercado Libre, con algunos bancos de
+[Remote]: acá, que hace
+[Remote]: masivas,
+[Remote]: con Sabrina. Sabrina ha implementado, digamos, una conciliación
+[Remote]: que la más voluminosa que tenemos en el banco, que tiene que ver con Coelsa, donde está nuestro
+[Remote]: nuestro negocio, y estamos yendo también a otros productos
+[Remote]: bueno, también con Laura, que somos compañeros de
+[Remote]: equipo, también tratando de ver si se puede automatizar
+[Remote]: cuestiones que tiene que ver
+[Remote]: en el área de ella y en la mía, en fin, ahí es donde estamos parados hoy, digamos,
+[You]: Buenísimo, gracias por ese contexto. Me
+[Remote]: en cuanto a conciliación.
+[You]: sirve lo de Symmetric.
+[You]: También nos ubica en tiempo y espacio a nosotros hoy
+[You]: competimos con Symmetric de manera directa, obviamente, con otro enfoque,
+[You]: mucho más AI native, y ahora y ahora después les voy a contar un poquito más cómo lo solucionamos.
+[You]: Pero sí, digamos, técnicamente, obtendrían symmetric
+[You]: o nosotros, o si para los que tienen Symmetric, después tienen para otros nosotros. Pero digo,
+[You]: no tendrían Symmetric y nosotros para el mismo proceso, porque ambos
+[You]: estamos conciliando flujos de dinero y conciliando transacciones.
+[You]: Les comparto brevemente, voy a tratar de ser lo más breve posible, así después nos metemos
+[You]: mucho más en la operatoria de ustedes.
+[You]: Para contarnos un poquito quiénes somos. Este es el equipo fundador Teo no se pudo sumar, se iba a sumar, pero no se pudo sumar.
+[You]: Esto es solo para decir que estamos construyendo a partir de experiencias personales, ¿no? Los tres venimos
+[You]: de esas empresas que están ahí abajo, de de
+[You]: servicios financieros y de fintech, y vivimos de otro lado lo que es el
+[You]: de conciliaciones,
+[You]: y otros procesos también operativos, financieros y contables,
+[You]: la manualidad que conllevan, el tiempo que se pierde, la precisión que se pierde, el dinero que se pierde,
+[You]: y cómo también impactan otras áreas, ¿no? Impacta el área de producto, impacta el área de operación, este,
+[You]: no es que es un solamente un foco de olor, sino que también tiene mucha dependencia.
+[You]: Rex y la Incobamos desde MIT, yo estaba estudiando en Harvard,
+[You]: hicimos una incubadora fintech ahí, que terminamos ganando. Con eso, nuestra primer ronda de capital.
+[You]: Y ahí están los fondos que nos invirtieron en esa primera en esa primer ronda de capital. Son fondos más de
+[You]: ¿verdad?, Estados Unidos,
+[You]: Yo estoy basado en Nueva York,
+[You]: debo también
+[You]: pero Sebastián, con el equipo técnico, están en en Buenos Aires.
+[You]: Con lo cual hoy tenemos ambos mercados, Estados Unidos y Latinoamérica.
+[You]: El problema que identificamos es un poco el que viene en
+[You]: comentando ustedes, ¿no? Hay una multiplicidad de fuentes
+[You]: esa multiplicidad de fuentes para yo poder conciliarlas, creo procesos,
+[You]: con estas herramientas, Excel, SQL,
+[You]: Python. Algunas compañías también contratan consultoría o algún tipo de desarrollo de herramienta interna.
+[You]: Ese y y eso se traduce en costo, riesgo y fricción.
+[You]: Porque, bueno, te escala la operación y tenés que escalar el equipo,
+[You]: porque me imagino, Sabrina, que, obviamente, deben tener
+[You]: automatizado, pero el el gran Collo Monteyes es lo que es la investigación y la
+[You]: resolución de diferencias, ¿no?
+[You]: Que si te escala el proceso o escalas proveedores, tenés que contratar más gente, porque tenés que
+[You]: gente analizando esas diferencias.
+[You]: Genera el riesgo operativo,
+[You]: porque, obviamente, tener
+[You]: humanos con todas estas herramientas y procesos
+[You]: hay error humano en el proceso, y el problema de de las conciliaciones es
+[You]: que el error cuesta dinero,
+[You]: no es un error que, bueno, es una macana que puede arreglar día siete y ya está. Hay riesgo regulatorio, solo que ustedes tengan que presentar cierto tipo de reportes, cumplir con procedimientos del Banco Central,
+[You]: otras instituciones,
+[You]: y cuando eso no está bien hecho, puede derivar en multas o pérdida de licencias.
+[You]: Y después está la gran dependencia de sistemas.
+[You]: No sé, Sabrina, ahí si vos tenés un equipo de data
+[You]: de tecnología que que te ayuda en las implementaciones,
+[Remote]: Sí, sí, sí, trabajamos directo con esos equipos.
+[You]: y
+[You]: claro, y el sistema es
+[You]: tiene prioridades y está siempre ahí compitiendo, que te den bola,
+[You]: y y la verdad que los otros, lo que más queremos es darles herramientas
+[You]: técnicas a ustedes para que ganen la autonomía e independencia, ¿no?
+[You]: Se puedan mover a a su velocidad.
+[You]: Ahora,
+[You]: bueno lo que dijiste Hernán de la IA, ¿no? Nosotros
+[You]: las conciliaciones las conseguimos como una puerta de entrada.
+[You]: Como un wedge.
+[You]: ¿Sí? Primero, porque es un doloroidal, y segundo, porque es la base sobre la cual después
+[You]: podemos construir otros flujos agénticos para automatizar operaciones y
+[You]: y workflows contables, ¿no? Porque sin una conciliación,
+[You]: sin una fuente de la verdad unificada, que yo pueda decir, esto refleja la operatoria del
+[You]: del banco industrial. No puedo construir ningún flujo agéntico, porque el flujo agéntico
+[You]: toma esa misma información. Entonces, si yo le doy información no precisa,
+[You]: el output no va a ser preciso, con lo cual también lo vemos como una base fundacional para luego
+[You]: la operación de
+[You]: de otras partes de la compañía. ¿Qué tenemos hoy? Hoy es una plataforma de conciliación
+[You]: que se conecta a las fuentes
+[You]: ¿sí?, ingestamos la información, hacemos la traducción y el parceo,
+[You]: de los formatos,
+[You]: procesamos con la lógica de conciliatoria,
+[You]: después tenemos agentes que facilitan lo que es la
+[You]: y la resolución de discrepancias, con lo cual
+[You]: ustedes ganan muchísima autonomía también y muchísima productividad,
+[You]: y se automatiza también el flujo de reporting.
+[You]: Interno y externo.
+[You]: Posiblemente algún reporte que tengan que mandar a producto o
+[You]: reporte que tengan que mandar a contabilidad, algún reporte que tengan que mandar
+[You]: hacia algún proveedor externo, el Banco Central o a un regulador, también automatizamos
+[You]: esa parte. Algunos desarrollos iniciales que vale la pena comentar,
+[You]: comentar solamente dos, así no me extiendo acá, es el problem solver, que es lo que comentaba recién,
+[You]: que básicamente lo que hace es analiza las diferencias
+[You]: y agrupa el clusters de transacciones por causa raíz, y después te sugiere
+[You]: cómo se deberían resolver.
+[You]: Y vos sabrías, te metes y aprobás y aprobás o rechazás la sugerencia.
+[You]: A medida que vos aprobás y rechazás la sugerencia, el sistema empieza a aprender,
+[You]: de cómo opera el BIN y cómo opera el BIN con sus proveedores. Eso quiere decir que
+[You]: el sistema aprende en el tiempo, no solamente de la información, sino de las acciones,
+[You]: usuario, y se vuelve cada vez más independiente y cada vez más autónomo.
+[You]: Estos son algunos de los clientes que estuvimos trabajando y algunos resultados que hemos
+[You]: logrado.
+[You]: Ochenta por ciento de reducción de tareas manuales,
+[You]: noventa y cinco por ciento de reducción de pérdidas irreconciliables
+[You]: Esto debe ser una entrada contable que tienen, o no sé si tienen, pero muchas compañías tienen,
+[You]: cuando no logran resolver diferencias y tienen que cerrar los libros,
+[You]: arman esa entrada, que eso es dinero que se pierde,
+[You]: Hemos reducido eso en un noventa y cinco por ciento
+[You]: que arranca por poder explicarlo.
+[You]: Después uno lo tiene que resolver internamente o externamente, pero poder explicarlo ya
+[You]: es un paso enorme.
+[You]: Y estas son las distintas modalidades que ofrecemos el producto, ¿no?
+[You]: La modalidad SaaS, que es la modalidad más
+[You]: más popular,
+[You]: Después tenemos el embedded solution, que esto sería, por ejemplo, si Bind quiere
+[You]: una solución conciliatoria hacia sus clientes,
+[Remote]: Ah, okay.
+[You]: ¿sí?, ¿cómo cómo podemos entender la solución en el portal del BIND?
+[You]: Y el tercer la tercer modalidad es lo que nos
+[You]: llamamos el customer deployed, que es
+[You]: desarrollamos la infraestructura
+[You]: cien por ciento justo con la necesidad del build y la deployamos en su infraestructura.
+[You]: ¿Sí?
+[You]: Entonces, ahí después ya queda controlada por ustedes. Para esta última
+[You]: lo que siempre decimos, tiene que haber una razón
+[You]: importante y suficiente como para justificarla, porque la realidad es que
+[You]: requiere otro tipo de desarrollo inicial, requiere otro tipo de implementación,
+[You]: requiere otro tipo de soporte
+[You]: posterior, ¿no?
+[You]: Todo lo que es actualizaciones, bugs y esas cosas.
+[You]: Pero bueno, lo ofrecemos porque para algunos clientes, por ejemplo, para bancos o donde hay
+[You]: grande con la información,
+[You]: puede llegar a ser un modelo interesante.
+[You]: Lo último, cerrar con la seguridad, tenemos todas las certificaciones para
+[You]: trabajar con este tipo de información, porque sabemos que estamos trabajando con la información
+[You]: transaccional, que es la información que más vale para estas compañías, y
+[You]: y, por ende, tenemos frameworks internos y externos para garantizar que la
+[You]: está segura y
+[You]: y y la estamos cuidando, ¿no?
+[You]: Habiendo dicho eso, ojalá no no haberme extendido mucho
+[You]: Me encantaría entrar más detalles, Sabrina, sobre ese
+[You]: con Symmetrica, hacia cuánto están trabajando con ellos, cómo han sido los resultados.
+[Remote]: Y ya tenemos un año de trabajo con ellos y los resultados fueron excelentes, o
+[Remote]: sea, tenemos el cien por cien de del
+[Remote]: del proceso conciliado y he identificado las los desvíos.
+[You]: Y y que sería el próximo paso que estarían queriendo, o sea, está todo todo el todo el alcance con
+[You]: conciliatorio del BIN ya está en Symmetric.
+[Remote]: Oh, no, no, no, no No, todo el alcance no, tenemos un solo proceso actualmente con ellos,
+[Remote]: fue el primero con el que encaramos, que es el
+[Remote]: de transferencia o movimientos a través de Coelsa.
+[Remote]: Nosotros hoy estamos iniciando un segundo proceso, que es el de compra de cartera.
+[Remote]: Son procesos, Ignacio, muy voluminosos. El el primero que te comentas a alguien era el más doloroso,
+[Remote]: porque el BIM, por el negocio que tiene, trabaja con APIs, digamos, con
+[Remote]: grandes empresas. Entonces, el volumen, que en los sistemas se
+[Remote]: la gran cantidad de operaciones que tenemos, transacciones diarias. Entonces,
+[Remote]: Ajá. Eso generaba que no cualquier conciliador podía ingresar al banco para
+[Remote]: tomar la solución.
+[Remote]: Llegamos a Simeto y la verdad que lo metamos en el primer proceso,
+[Remote]: anduvo muy bien y hoy estamos en un segundo segundo marzo, tiene que ver con la compra de cartera a mercado libre.
+[Remote]: En fin, son muchas operaciones donde nosotros tenemos que abrir el banco
+[Remote]: con todo resuelto, y un poco ese es el el objetivo.
+[Remote]: Las que nos vienen
+[Remote]: son, pero es un poco Machados.
+[Remote]: Más chicos, digamos, con otras características, pero bueno.
+[Remote]: Hay todavía una
+[Remote]: digamos, un gran
+[Remote]: una gran cantidad de procesos que todavía
+[Remote]: aún falta resolver. Y un poco llevaba inteligencia artificial, porque
+[Remote]: es un poco lo que el banco en sí es a donde él quiere apuntar, digamos, ¿no?
+[Remote]: Mejor esta mejora de no solo conciliatorio, sino mejora de procesos
+[Remote]: operativos,
+[Remote]: de presentación, en fin, todo lo que la IA nos nos viene avanzando es así,
+[Remote]: donde quiere ir.
+[Remote]: Por eso te lo ponía como un punto arriba de la mesa que
+[Remote]: que está bueno que
+[Remote]: a ver si ustedes están trabajando o están viendo algo de eso.
+[You]: Sí, ahí quizás para para también contarte un poquito cómo nos diferenciamos
+[You]: con Symmetric, que que, de vuelta, es una tremenda herramienta muy robusta, empezaron hace bastante más que no
+[You]: entonces,
+[You]: tienen más iteración en el mercado, ¿no?, además llega
+[You]: Nosotros todavía, digamos, estamos en una etapa más temprana con una
+[You]: mucho más tecnológica, digamos, toda nuestra arquitectura es AI native, entonces van a ver que
+[You]: cuando cuando por ahí, si hacemos una demo la semana que viene, van a ver que nuestra experiencia es
+[You]: totalmente diferente. Tenemos agentes resolviendo la ingesta, resolviendo la transformación,
+[You]: la lógica conciliatoria y la resolución de diferencias, y ellos aceleran
+[Remote]: Eso es
+[You]: la productividad. El segundo punto a destacar es
+[You]: nosotros trabajamos sobre archivos crudos, no sé si en la implementación de Symmetric les obligaron a ustedes a
+[You]: a share, manipuleo de
+[You]: cambiar formatos, agregar llaves conciliaturas para luego subirlo a symmetric y
+[Remote]: No.
+[Remote]: No, todo lo resuelve la herramienta.
+[You]: O sea, ¿ustedes le meten los archivos como están?
+[You]: Ah, ok. Bueno, genial.
+[Remote]: Exacto, sí.
+[Remote]: Sí, sí, sí, solamente parametrizamos la estructura en la herramienta y después
+[Remote]: creamos las reglas de conciliación en la herramienta.
+[You]: Excelente. Bueno, y el tercer punto a destacar es la resolución de diferencias.
+[You]: Que, obviamente, como bien sabrá Sabrina, estas cosas nunca cuadran al cien por ciento,
+[You]: Entonces, primero preguntarte qué ratio de macheo están
+[You]: logrando con la herramienta,
+[You]: y qué hacen con las diferencias, cómo están resolviendo las diferencias.
+[Remote]: Hoy las diferencias en por el
+[Remote]: por el tipo de proceso, las diferencias se tienen que resolver en forma manual y ya
+[Remote]: que intervenir un analista del equipo de operaciones para el análisis y la
+[Remote]: Acá estamos hablando del proceso de coelsa, tiene que ver con
+[Remote]: todo lo que es transferencias emitidas o recibidas en distintos conceptos,
+[Remote]: hacia las cuentas de los clientes. Entonces, ya tiene que sí o sí intervenir
+[Remote]: un analista, porque estás moviendo monetariamente los
+[Remote]: fondos de los clientes, estás haciendo ajuste contra el cliente.
+[Remote]: Entonces,
+[Remote]: dependemos sí o sí de alguien que analice lo que la herramienta deduje
+[Remote]: como diferencia de partida. Y hoy por hoy se están en
+[You]: ¿Qué tasa de macheo logran?
+[Remote]: El cien por cien, o sea, las diferencias se están encontrando al cien por cien.
+[You]: No, pero
+[You]: ¿qué qué...? Perdón, no, que la la, ¿qué tasa de Mateo de Mateo lo vean en
+[You]: O sea, cuántas, o sea, lo que estoy preguntando es cuántas transacciones por mes tienen que analizar los analistas.
+[Remote]: Ah, me No, no, no, no, las transacciones
+[Remote]: digamos, de análisis por desvío son pocas, El proceso es muy grande, son miles y millones de transacciones, y nosotros estábamos resolviendo menos del uno por ciento de los desvíos, porque ese es el desvío identificado. O sea, el proceso funciona, la verdad, bien, como proceso en sí, en la conciliación no abarcamos el cien por cien de toda la conciliación y estamos identificando los desvíos genuinos. Por eso eso lo que, digamos, no no nos queda nadie afuera por contemplar. ¿O querés saber quizás el volumen que concilió?
+[You]: Claro, sí, tres transacciones por mes,
+[You]: ¿cuántas estás conciliando automáticamente en Symmetric y cuántas tiene que intervenir en una lista?
+[Remote]: Tenemos miles de millones de transacciones por mes, y
+[Remote]: conciliando, no sé, dependiendo el día, entre trescientos a
+[Remote]: O sea, son, por eso te digo, es menos del uno por ciento
+[Remote]: del volumen total operado.
+[You]: Que no matche automáticamente y tienen que terminar una lista.
+[Remote]: No automáticamente porque son desvíos genuinos, son errores del proceso
+[Remote]: no porque no macheen, sino porque el proceso
+[You]: Perfecto, perfecto.
+[Remote]: el proceso de automático del banco, digamos, entre el
+[Remote]: compensador, hubo algún desvío en la falla y que hay que regularizar los
+[Remote]: sí o sí manualmente. No hay, digamos, identificado
+[Remote]: desvíos que me los tiró el conciliador y eran erróneos a eso.
+[You]: Perfecto, no, no, sí, sí.
+[Remote]: Voy.
+[You]: Perfecto. O sea, que la la pregunta
+[You]: ustedes ya están conciliando más de noventa y nueve por ciento del volumen operado,
+[Remote]: Sí.
+[You]: los analistas entran a ver solamente ese cero coma cinco.
+[Remote]: Sí.
+[You]: Que son desvíos genuinos, obvio.
+[Remote]: Desde cero coma cinco.
+[Remote]: Exacto, tal cual, sí.
+[You]: Y no están contemplados en las en los parámetros y en las reglas conciliatorias.
+[Remote]: No, exacto.
+[Remote]: O sea, por ahí, en el correr del tiempo, a veces queda algún grupo y
+[Remote]: mínimo, sin, digamos, que no concilió, y cuando lo vamos a identificar, es un
+[Remote]: grupo nuevo conciliatorio, pero es porque hubo una caso
+[Remote]: nueva que implementó nuestro compensador y no
+[You]: Sí.
+[Remote]: estábamos informados, entonces, tenemos que agregar esa regla. Pero hasta ahora,
+[You]: Sí, sí, sí, sí.
+[Remote]: pudimos resolver todo con la herramienta de SOI. Ahí, yo te voy a hacer una consulta. Nosotros, cuando fuimos a buscar Symmetry, lo buscamos porque teníamos mucho volumen, como dice Sabrina, digamos,
+[Remote]: el banco, por el tipo de negocio,
+[Remote]: buscamos eso en Quizás no nos focalizamos
+[Remote]: en otras cuestiones que quizás otras empresas Hoy, por los dos,
+[Remote]: productos que tenemos, son gigantes y necesitamos que el banco abra conciliado. Por eso te
+[Remote]: que la intervención de analista es poca, y
+[Remote]: lo resuelve en en un tiempo
+[Remote]: bueno.
+[Remote]: Pero bueno, nosotros estamos yendo mirando a otro lugar también, digamos, de inteligencia artificial,
+[Remote]: de de ser dinámico, de que tenga apertura a nivel grupo,
+[Remote]: Entonces, pues está bueno también explorar
+[You]: Sí, sí.
+[Remote]: que es un poco
+[You]: Ya, nosotros justamente el
+[Remote]: eso, ¿no?, digamos.
+[You]: la la plataforma está construida para escalar de, la hicimos una arquitectura técnica de la
+[You]: del producto, está hecho para escalar desde el día uno, lo lo construimos así en el principio.
+[You]: Podemos podemos conciliar ciento treinta millones de
+[You]: transacciones por día.
+[You]: Y la plataforma corre en menos de un minuto.
+[You]: O sea...
+[You]: El volumen de información no es no es un tema para nosotros.
+[Remote]: Bueno.
+[You]: Quizás
+[Remote]: Bien.
+[You]: para agregar donde sí agreguemos valor,
+[You]: quería preguntarles,
+[You]: ¿cuántos analistas de conciliación hay?
+[You]: Estas diferencias?
+[Remote]: Tenés, o sea, tenemos uno del lado de mi equipo,
+[Remote]: y uno del lado del equipo de operaciones, son dos.
+[You]: Okay.
+[Remote]: Pero sí o sí. Uno es un contable y el otro es un operativo.
+[You]: Y ahí,
+[You]: Sí. Y la siguiente pregunta que hago es, este ratio de conciliación, que es más de noventa y nueve por ciento, es específico al proceso con Coelsa, que es, como bien sabemos,
+[Remote]: Sí.
+[You]: tiene conectores muy buenos, tiene una operatoria muy buena,
+[You]: se ha robustecido en el tiempo. Yo estaba
+[You]: contexto, yo trabajé en Bitso, y simplemente pago con QR en en Bitso, con lo cual conozco todas las integraciones con Coedge, conozco cómo funciona.
+[Remote]: Ok.
+[You]: Y también estábamos interesados con el BIN, con lo cual vi cómo
+[You]: todo ese sistema
+[You]: fintech en Argentina ha evolucionado y hoy está en una
+[You]: realmente muy buena, particularmente lo que es ¿no?
+[Remote]: Sí.
+[You]: Ahora,
+[You]: en estos que se vienen de compra de cartera y los que quedan,
+[You]: creo
+[You]: sí, saber mucho de que se van a poner interesantes.
+[You]: Van a va a haber otro tipo de creatividad. No son proveedores que tengan la misma calidad de conectores,
+[You]: no son proveedores que tengan la misma calidad de
+[You]: de los archivos, llaves conciliatorias, te cambian las
+[You]: todo el tiempo, tienen mucho más errores que una cámara como Coelsa. Ahí
+[You]: lo que yo, ya ya pensando por ahí en un próximo paso, ¿puedes llegar a ser
+[You]: interesante,
+[You]: es, ahora están arrancando Symmetry con este segundo proceso.
+[You]: Si ustedes si ustedes estarían abiertos
+[You]: a hacer con nosotros o algún tercero, nosotros lo podemos estudiar como
+[You]: prueba piloto que sea realmente de bajo costo y de bajo riesgo para ustedes,
+[You]: y, de paso, van comparando lo que sería una herramienta
+[You]: más moderna, mucho más AI-native,
+[You]: con IA,
+[You]: y agentes que automatizan el proceso end to end desde la el procesamiento hasta también la
+[You]: investigación y resolución de diferencias, y y después comparan y ven si
+[You]: es algo que por ahí quieren hacer marcha atrás con Symmetric y y implementarnos a nosotros en Coelsa.
+[You]: Agrego una cosita más, nuestro modelo de negocio, un poco la arquitectura de AI native, no sé
+[You]: hace mucho más
+[You]: eficientes en costos. Ahí yo no
+[You]: no no me quiero meter, pero pero sabemos, porque también hemos reemplazado Symmetric en otras
+[You]: compañías,
+[You]: que el tema de la factura es relevante. De hecho,
+[You]: está saliendo de Symmetry.
+[You]: Mercado Pago está saliendo de Symmetric. Todas compañías que están saliendo
+[You]: por un tema, no porque no sea buena,
+[You]: sino porque
+[You]: el modelo de pricing que tienen
+[You]: te termina generando como un impuesto al growth.
+[You]: Digo, vos crecés diez x, la factura de Symmetry va a crecer diez x.
+[You]: Entonces, en algún punto,
+[You]: le pegás a ese donde decís,
+[You]: ¿viste?, lee grandes números, de repente no tiene sentido hacerlo internamente esto,
+[You]: No sé, preguntarles ahí cómo piensan ustedes el lo que se invierte hoy en Symmetric y si ese
+[You]: costo realmente
+[You]: refleja el el el valor que les da,
+[You]: en términos de automatización de procesos, ¿no?
+[Remote]: Mirá, hoy hoy por hoy, digamos, toda la necesidad que teníamos,
+[Remote]: teníamos un dolor grande, es como que
+[Remote]: bueno, esa factura se la banca,
+[Remote]: pero sí estamos trabajando todos los días y todos los meses en costos acá en en los bancos, en todas las...
+[Remote]: Las empresas. Y, además, también tenemos
+[Remote]: queremos con otras empresas, o en tu caso esta, Rexi,
+[Remote]: porque también tenemos un grupo, y Laura es es gerente vinculada, entonces,
+[Remote]: ella tiene un abanico de empresas, digamos, que ella lleva,
+[Remote]: y tiene un desafío gigante. Entonces, digo, no está de más
+[Remote]: charlar, sobre todo si si el
+[Remote]: valor quizás es bastante bueno o
+[Remote]: diferencial en el mercado lo que ofrecen ustedes, porque genera posibilidades, ¿no? Acá
+[Remote]: hoy estamos revisando números todo el tiempo, y
+[Remote]: así es una tarea diaria que tenemos con el equipo y mensual. Entonces,
+[Remote]: a mí me gustaría seguir viendo posibilidades,
+[Remote]: propuestas, qué ofrecen, quizás con algún producto charlarlo.
+[Remote]: No sé, Laura, ahí qué pensás, pero nos obliga.
+[Remote]: La dinámica del banco siempre a revisar lo que hacemos, entonces
+[You]: Total.
+[Remote]: me parece que en ese pueden aparecer oportunidades
+[Remote]: para ambas partes, ¿no?
+[You]: Sí.
+[Remote]: Bueno, nosotros vivir veremos la
+[Remote]: cómo continúa, y por hoy estamos con Forment, pero bueno, siempre
+[You]: Okay.
+[Remote]: hay competidores en esto, y y, bueno, y y puede pasar.
+[Remote]: Así que me gustaría seguir explorando, digamos,
+[You]: Mira, yo ahi
+[Remote]: una buena
+[You]: si están interesados, si les parece, lo que propondría como
+[You]: paso, porque obviamente me escucharon hablar,
+[You]: mostré un par de láminas, pero van a decir
+[You]: este bocón que habla de más, y promete muchas cosas.
+[You]: Me encantaría mostrarles el momento, ¿sí?
+[You]: Creo que sería un próximo paso para que también Sabrina, que por ahí, o Laura, que operan todos los días
+[You]: Symmetric, puedan ver realmente estas diferencias que hablo, ¿no?
+[You]: A ver si les si les parece interesante o no.
+[You]: Ahí podemos ir
+[You]: en dos caminos distintos. Podemos hacer una demo genérica,
+[You]: donde, no sé, podemos replicar con data sintética, una
+[You]: ejemplo de Coelsa, un ejemplo de compra de cartera, y lo mostramos. Sí,
+[Remote]: te hago una pregunta, Nacho, porque creo que una de las necesidades que más
+[Remote]: tiene el banco, entiendo que Lau también, es la conciliación de
+[You]: De balances.
+[Remote]: cuentas corrientes.
+[Remote]: Exacto, sí. La
+[You]: ¿Cómo sería eso?
+[Remote]: cuenta corriente.
+[Remote]: Movimientos de cuentas corrientes.
+[Remote]: El flujo de entrada y salida de las billeteras.
+[You]: Si.
+[Remote]: Claro, de todo lo que, nosotros tenemos una, bueno, dentro de todas las vinculadas,
+[Remote]: vinculadas la más grande actualmente,
+[Remote]: es una procesadora de pagos, ¿sí?
+[Remote]: Una PCP. Entonces, ahí, como bien dijo Sabri, la conciliación es todo cuenta corriente, o sea, actualmente tiene
+[Remote]: doscientas cuentas corrientes, ¿sí?, subcuentas, ya me hemos lee.
+[Remote]: Tiene la madre y después tiene subcuentas, que para uno para cada una tiene
+[Remote]: en la misma diferentes clientes y diferentes
+[Remote]: productos también, ¿sí?
+[Remote]: Entonces, ahí es cuando se nos hace muy complicado, y hoy en día,
+[Remote]: no está conciliado el cien por ciento de los movimientos que están en sus cuentas.
+[Remote]: Mi pregunta también, Iva, ¿ustedes actualmente están trabajando o hicieron algún desarrollo
+[Remote]: con alguna PSP?
+[You]: Sí.
+[You]: Sí, sí, sí. Trabajamos, en Argentina estamos trabajando con
+[You]: con, bueno, WebBit, que ahora es nexo,
+[Remote]: Sí.
+[You]: que tiene licencia PSP, con INE, con, estamos trabajando, empezando a trabajar con Cachea,
+[You]: creo que estaban por sacar PCP, la la venezolana, bueno, con bicho, obviamente. Así que sí, digamos, el rubro PSP lo lo conocemos bien, y hacemos ese tipo de conciliaciones.
+[Remote]: Bueno. Ok, más estaría bueno también ahí en la demo, si nos pueden traer
+[Remote]: algo relacionado a eso.
+[Remote]: A ver, nosotros también
+[You]: Lo, sí, lo que iba a decir era eso, ajustó.
+[You]: Sí.
+[Remote]: Sí.
+[You]: Perdón, perdónale.
+[You]: No, no, no, que
+[Remote]: No, no, tranquila, la adelante.
+[You]: iba a decir eso, la demo la podemos ser genérica, basado en casos que ya vemos nosotros y lo llenamos con data sintética,
+[You]: o
+[You]: lo que podemos hacer, Laura,
+[Remote]: Sí.
+[You]: o Sabrina,
+[You]: firmamos un NDA,
+[You]: y me comparten los archivos de un día
+[You]: a modo ejemplo,
+[You]: y les mostramos una demo real.
+[Remote]: No, ahí va estar un poco más complejo, porque tenemos
+[You]: Esta es la conciliación de
+[Remote]: todo el tema de seguridad, de compliance, y no
+[Remote]: no es algo dinámico. Prefiero que traigas algo tuyo No lo hacemos más, sí.
+[Remote]: Por eso que a mí no lo salimos mal Sí, no, no, no, no vamos a ver nunca más la demo, o sea.
+[Remote]: Porque ni siquiera hay como, o sea, una seguridad de la compra del producto, entonces,
+[Remote]: sí, va a ser muy complejo hacerlo.
+[You]: Listo, listo, lo hacemos genérica, entonces.
+[You]: Laura, ver, hagamos un doble clic exactamente en lo que te gustaría ver y lo armamos.
+[Remote]: Sí.
+[Remote]: Esto que que les comenté antes, el tema de la subcuenta,
+[Remote]: que son cuentas corrientes, ¿sí? Que tiene, o sea, esta PCP tiene
+[Remote]: sus cuentas con el banco.
+[Remote]: Eso es lo que me gustaría poder conciliar.
+[Remote]: Tanto el dato operativo con el contable.
+[Remote]: ¿Sí? O sea, qué yo qué yo veo en el banco y qué después
+[Remote]: veo reflejado en la contabilidad?
+[You]: Son dos bases, digamos,
+[You]: una base sería la del banco, otra base sería la la contable, y
+[You]: también cruzando transacciones y después chequeando balances.
+[Remote]: Exactamente, sí, así es.
+[You]: Listo.
+[You]: ¿La contabilidad la tienen en algún ERP específico que que
+[You]: run ver alguna estructura particular o no?
+[Remote]: Actualmente está en Tangno, sí.
+[You]: Ok.
+[Remote]: O a la parte contable.
+[You]: Y el banco es un archivo del bill.
+[Remote]: Exactamente, sí.
+[You]: Que es un archivo transaccional.
+[Remote]: Sí, pensá que en el del lado del banco tenés
+[Remote]: con códigos de movimientos y muy genérico. Ahí, por ahí a veces es donde está la Claro, sí. Cómo identificar. O sea, el problema es la, cada transacción poder identificarlo y poder llevarlo también a la cuenta a la cuenta contable correspondiente. Ajá. Claro, exactamente.
+[You]: Claro, no hay no hay llaves conciliatorias, no hay un identificador único.
+[You]: Nos ponemos creativos con fecha, hora, monto y hacemos una combinación de cosas.
+[Remote]: Claro, capaz tenés algunos datos,
+[Remote]: CUIT, algunas cosas, pero no
+[Remote]: justamente el tema de la transacción, o sea, que corresponde.
+[You]: Y ahí el el macho es uno a uno, o por ahí
+[You]: tenés una transacción que agrupa a muchas?
+[Remote]: No, uno a uno.
+[You]: Perfecto. Listo, yo con esto armamos una demo genérica con
+[You]: con información sintética, creo que va a estar muy bueno.
+[You]: Lo busco por mail, dado que estamos en hora y quiero hacer
+[You]: respetuoso para agendar un espacio que les parece, no sé si
+[You]: fines de semana o la que viene para hacer esa demo.
+[Remote]: That is
+[You]: Ahí.
+[Remote]: Dale, no hay problema. Nacho, te te hago una pregunta más, perdón.
+[Remote]: Ustedes, el el costo del servicio
+[Remote]: es un
+[Remote]: fijo sobre la conciliación, un mensual? ¿Tiene
+[Remote]: está asociado a alguna variable? ¿Cómo lo manejan?
+[You]: Mira, es buenísima la pregunta, y por eso no
+[You]: diferenciamos también de symmetric. Nosotros hacemos un assessment en base a la
+[You]: del flujo, que tiene que ver con la cantidad de conectores,
+[You]: con si hay llaves conciliatorios o no, porque eso también impacta nuestro costo de de AI y de
+[You]: procesamiento,
+[You]: y de volumen, obviamente, transaccional
+[You]: Con todas esas métricas, hacemos una estimación y pasamos un precio fijo. Entonces, eso a ustedes les da cien por ciento previsibilidad de cuánto van a pagar por rexi, mes a mes por los próximos doce meses, por lo por la duración del contrato. Si quieren hacer un contrato de tres años, van a saber que el costo de rexi es fijo, y nosotros absorbemos el el riesgo de que crezca la operación de ustedes. Sí.
+[Remote]: Ok.
+[Remote]: Okay.
+[Remote]: In the
+[Remote]: Eso.
+[Remote]: Ok, ok, ok. La revisión la c es cuando vence el contrato.
+[You]: Sí, exactamente.
+[Remote]: Ok.
+[You]: Porque, de vuelta, para nosotros, consideraciones es la puerta de entrada.
+[Remote]: Bueno.
+[You]: Nosotros lo que queremos es generar esta base conciliada y después ayudarlos a a
+[You]: más procesos dentro del banco.
+[You]: Por eso nos posicionamos mucho más como un partner tecnológico y no tanto como un vendor en esta etapa.
+[Remote]: Ok.
+[Remote]: Bárbara. Bien. Va Por Ahí La Última También Mía, Bárbara.
+[You]: Bueno,
+[You]: Nos dijo, entonces, que así así no no llegan tarde al
+[You]: perdón, por llegar tarde y lo sigo por por mail para que me cuente la disponibilidad para
+[You]: semana o la que viene y agendar esa sesión.
+[Remote]: Dale, il primo?
+[You]: Un gustazo conocerlos.
+[Remote]: Muchísimas gracias. Gracias.
+
+============================================================
+SUMMARY
+============================================================
+### Participants
+
+- Hernán Pérez — Gerente de Contabilidad, Banco Industrial
+- Sabrina Martino — Control Operativo Contable (conciliaciones between operations and accounting)
+- Laura Mafriol — Gerente de Empresas Vinculadas (BIND-affiliated companies, not the bank itself)
+
+### Current State: Simetrik & Conciliation Operations
+
+- Sabrina implemented Simetrik; running for \~1 year with excellent results
+
+- Currently only one process live on Simetrik: Coelsa (transfers/movements)
+
+  - Coelsa chosen first because it was the most painful — very high transaction volume
+
+  - 99% auto-match rate; analysts only review <0.5% of volume (genuine deviations)
+
+  - Deviations are real process errors (e.g. compensator failures), not matching failures
+
+- Second process now starting: compra de cartera (portfolio purchase from Mercado Libre)
+
+- Volume is a key constraint — not every reconciliation tool could handle it
+
+- Two reconciliation analysts total:
+
+  - One from accounting (Hernán’s team)
+  - One from operations
+
+- Remaining processes described as smaller but more complex than Coelsa
+
+  - Less reliable connectors, lower-quality files, frequently changing reconciliation keys
+
+- Bank is actively exploring AI to improve not just reconciliation but broader operational processes
+
+### Laura’s Use Case: PSP & Current Accounts
+
+- Laura manages a group of affiliated companies; largest is a PSP (payment processor)
+- PSP has \~200 current accounts (+ sub-accounts) with the bank
+  - Each sub-account holds different clients and different products
+- Reconciliation need: operational data vs. accounting data
+  - “What I see in the bank vs. what I see reflected in accounting”
+- Accounting system: Tango (ERP)
+- Bank-side data: a BIND transaction file (generic movement codes, no unique identifier)
+- No unique reconciliation key — matching requires creative combination of date, time, amount, CUIT, etc.
+- Matching logic: 1:1
+- Currently not 100% reconciled — significant open pain point
+
+### Next Steps
+
+- Ignacio Berardi
+  - Send follow-up email to schedule demo session (this week or next)
+  - Build generic demo using synthetic data based on two scenarios:
+    1. Coelsa-style transfer reconciliation
+    2. PSP current account reconciliation (200 sub-accounts, bank file vs. Tango)
+  - Note: real data sharing ruled out — bank security/compliance process too complex
+- BIND team
+  - Hernán/Sabrina/Laura to confirm availability for demo session via email
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/1642b4b0-4d25-4950-bc55-f6f19e17d984](https://notes.granola.ai/t/1642b4b0-4d25-4950-bc55-f6f19e17d984)

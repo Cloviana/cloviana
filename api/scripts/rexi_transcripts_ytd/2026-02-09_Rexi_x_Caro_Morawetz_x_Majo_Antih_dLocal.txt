@@ -1,0 +1,815 @@
+MEETING: Rexi x Caro Morawetz x Majo Antih (dLocal)
+DATE: 2026-02-09
+ID: not_KMLzsEHEOW8ttl
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Morawetzcarolina <morawetzcarolina@gmail.com>, Majo <majo@kred-consulting.com>, Sebastián García <sebastian@rexi.finance>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-02-09T16:00:00-05:00 - 2026-02-09T16:45:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Todo bien. ¿Ustedes?
+[Remote]: Qué bueno, todo bien también.
+[You]: Hello? Hola,
+[You]: ¿Y tú?
+[Remote]: ¿Cómo anda?
+[Remote]: Ahí ahí te presento, Majo, a los dos.
+[Remote]: Genios, dos de los genios por detrás de
+[Remote]: de Rey. Me imagino.
+[Remote]: Gracias, antes que nada, gracias, Majo, por el tiempo. Sé que
+[Remote]: estás ahí, en Ciudad De México, con un montón de reuniones y y con un
+[Remote]: una presentación, un proyecto que tenés que entregar hoy No, tranqui, no, no, no te preocupes.
+[Remote]: No, no, no, por favor. Sí.
+[Remote]: Mil gracias. Pero se me ocurrió comentarle a los
+[Remote]: chicos de de que te conocía, de que, bueno, vos fuiste la
+[Remote]: la decisora, la tomadora de decisión de implementar
+[Remote]: Symmetric en su momento en de toda tu experiencia
+[Remote]: Si querés, ahora obviamente te presentás y se presentan ellos, pero
+[Remote]: algo ya les comenté, a vos ya te comenté algo también de lo que está
+[Remote]: haciendo, así que, no sé, ahí los dejo
+[Remote]: para que se presenten, pregunten,
+[Remote]: una una llamada de de, te vamos a robar tu
+[Remote]: tu cerebro y tu expertise.
+[Remote]: Sí, tranquila, ningún problema. ¿Qué tal, chicos? Mucho gusto. Un placer.
+[You]: Mucho gusto.
+[Remote]: Igualmente, igualmente.
+[Remote]: Tengo treinta años de trabajo,
+[Remote]: en mi mi espalda, soy un poco un par de décadas más grandes que ustedes.
+[Remote]: Y todo ¿Cómo somos?
+[Remote]: Sí, la hice en en Price, en la parte de auditoría, entendiendo que
+[Remote]: en Argentina, en consultoría, también en
+[Remote]: en México, clientes de LATAM.
+[Remote]: Y dentro de mi experiencia fuera de lo que es
+[Remote]: consultoría o big four, estuve en Mercado Libre hace diez años,
+[Remote]: un par de años, que justo fue cuando se implementó Symmetric,
+[Remote]: también, cuando marcó libre de CEO...
+[Remote]: O sea, hace, yo así, te digo, hace doce años fue que entré,
+[Remote]: Mercado Libre no conciliaba todo lo que era
+[Remote]: lo que pasaba por la operatoria de mercados pagos, que obviamente, comparada con la de hoy, no era nada.
+[Remote]: Y me dijo que el auditor nos les había puesto una ultimátum de que
+[Remote]: tenían que empezar a conciliar, y en ese pregunta.
+[Remote]: Y que no le ni le comenté a Nacho ni a Teo ni a Sebas que que recién entró.
+[Remote]: ¿Te molestaría si grabamos esta esta conversación? No, no.
+[Remote]: No, ninguna creo que va a ser un montón de información que por ahí antes que estar tomando nota,
+[Remote]: y eso, que se nos olvida Sí, obvio, obvio, te lo
+[Remote]: pongo ahí a
+[Remote]: Y después me tocó pasar por
+[Remote]: en dos mil
+[Remote]: menos mediados Q3 dos mil veintiuno en
+[Remote]: Y más allá de eso, tengo pila de experiencia,
+[Remote]: todo lo que son conciliaciones, imagínense auditoría,
+[Remote]: procesos de un lado, del otro, implementación,
+[Remote]: Asegurar, ahí ya mencionaste
+[Remote]: dos experiencias que para nosotros
+[Remote]: sonoro, que es todo lo que es la implementación de mercado pago,
+[Remote]: y en en DLocal.
+[Remote]: Sí.
+[Remote]: Nada, nosotros un poco ya tenemos cierto contexto sobre
+[Remote]: sobre Simétrica en mercado pago,
+[Remote]: Sí.
+[Remote]: Pero, de todas maneras, ahí, nada, aprovecho, si ya se puede arrancar a preguntar, para mí,
+[Remote]: es Sí, sí, obvio, obvio.
+[Remote]: La conversación, entonces la solución que ustedes
+[Remote]: tienen o desarrollaron es
+[Remote]: tipo similar, distinta,
+[Remote]: O sea, automatizamos procesos conciliatorios.
+[Remote]: Tenemos, obviamente Bien. Diferencias, un enfoque y y diferentes
+[Remote]: maneras de resolverlo, pero atacamos el mismo problema, que es el de Bien.
+[Remote]: Así que nada, ahí mi primer pregunta es,
+[Remote]: entonces, Pago implementó Symmetric por una intimación
+[Remote]: de un ente regulatorio
+[Remote]: No, no, no, no. Es que el
+[Remote]: el volumen del negocio venía creciendo. Estoy hablando hace doce años atrás, que me
+[Remote]: libre.
+[Remote]: Se venían haciendo algún ciertas conciliaciones en formas globales, digamos,
+[Remote]: no transacción por transacción,
+[Remote]: Entonces, en ese momento se evaluaron varios proveedores
+[Remote]: no me acuerdo cuáles otros, pero se evaluaron varios proveedores y se también dio elegir
+[Remote]: a Symmetric. Lo que te digo es
+[You]: Pero ¿para hace doce años?
+[Remote]: ¿Cómo?
+[You]: Esto fue hace doce años que se implementó o es Symmetric.
+[Remote]: Sí.
+[You]: Que arrancó hace menos,
+[Remote]: En dos mil catorce, dos mil catorce. Ahí
+[Remote]: No, no, por eso, yo, si Metaph nace en el dos mil dieciocho,
+[Remote]: ahí creo que por ahí habrá sido.
+[Remote]: No sé, pero ¿Desde dos mil catorce escuchaba symmetric?
+[Remote]: Claro, o sea, fue cuando se contrató,
+[Remote]: Cuando yo trabajaba con Grace en
+[Remote]: ¿habrá tenido otro nombre, habrá sido más esta
+[Remote]: que ahora, habrá sido otro, pero
+[Remote]: se empezó en dos mil catorce. Seguro. No sé, el embrión de lo que soy Symmetric, pero Claro. Ok. Herramienta y
+[You]: Great.
+[You]: Por ahí, sí, sí, hay veces que hay compañías que ponen que arrancar
+[You]: más adelante, ¿no? Y al principio hay dos, tres años de iteración que no te enteraste.
+[Remote]: Claro, a lo mejor no tenían ni...
+[Remote]: Claro, a lo mejor no tenían ni formalizada la sociedad todavía, digamos, ¿no? Y
+[Remote]: Imaginate. Pero sí, fue en dos mil catorce. Perfecto. Y ahí ahí Oh, algo que me preguntaba Teo, que es más del lado del producto, la versión, ¿vos te acordás que...? Porque yo les cuando yo entro a Symmetric, Symmetric justo pasaba de la uno a la versión dos y la versión uno, nunca la entendí bien, pero entiendo que tanto dilo, calcó, mercado pago, habían implementado la versión uno, después fue todo el traspaso a la versión dos, que era más o modelo SaaS, porque la versión uno era menos
+[Remote]: por lo que yo entendía, y Mercado Libre, Mercado
+[Remote]: y Di Local eran dos, y Rapi creo en ese momento eran los
+[Remote]: tres clientes que tenían la versión una que tenían que migrar a la dos y fue todo un.
+[Remote]: Tema de transición,
+[Remote]: de tres grandes clientes. ¿Vos te acordás algo de eso de de
+[Remote]: cómo era esa versión que dijiste? Acuerdo que
+[Remote]: yo usé más que nada, yo personalmente como BP del área, digamos, usé
+[Remote]: más que nada la versión nueva, la web.
+[Remote]: O sea, las SaaS.
+[Remote]: No recuerdo haber interactuado con otra versión distinta.
+[Remote]: Era la nueva. Ok. De acuerdo que había habido proceso algún
+[You]: Pero buena
+[Remote]: cambio, pero
+[Remote]: piensen que de local, lo que tenía de desafío es que
+[Remote]: o sea, Symmetric se fue en
+[Remote]: se fue implementando por olas, ¿sí?, porque di local ya en ese dos mil veintiuno, cuando
+[Remote]: yo entré, y que empezó el proyecto Symmetric, procesé
+[Remote]: en más de cuarenta países, y dentro de cada país tenías
+[Remote]: los medios de cobro que cada uno era el mundo, ¿no? O sea, entonces, imaginate,
+[Remote]: cuarenta países multiplicados por la n
+[Remote]: cantidad de medios de cobro que tenía en cada país,
+[Remote]: cada uno tenía una implementación individual, porque la forma de conectarse
+[Remote]: era distinta. Entonces, a lo mejor,
+[Remote]: que cuando yo entré, no sé, no no tengo los reportes, pero
+[Remote]: lo mejor, recién el treinta por ciento del TPV se estaba conciliando.
+[Remote]: O sea, sí, fue muy de a poco el avance. Ahí O sea,
+[Remote]: año y medio, digamos, pero fue por
+[Remote]: por Olas, por Springs, ¿no?, y y se fue
+[Remote]: implementando porque era demasiado.
+[Remote]: Te hago una pregunta, ¿ahí cuáles eran las las principales razones o o...?
+[Remote]: O los principales motivos por los que deciden implementar Symmetric? Era,
+[Remote]: porque había una bajada de línea de conciliar, porque querían ahorrar, por
+[Remote]: querían
+[Remote]: encontrar No, no, porque, a ver,
+[Remote]: o sea, la conciliación de cualquier cuenta de balance
+[Remote]: a nivel saldo y a nivel operacional,
+[Remote]: es como el control más importante que cualquier compañía
+[Remote]: puede tener.
+[Remote]: ¿No? ¿Y qué pasó? Hasta el dos mil veinte,
+[Remote]: o sea, bastante del IPO de local, esas conciliaciones se hacían a mano. O sea, los chicos iban y bajaban. El reporte de la API de local con las transacciones Ajá. Te mandaban reporte y hacían un b look up, transacción por transacción. ¿Sí? Claro, después eso, imaginate, habrá sido, diloka, no dos mil dieciséis, dos mil dieciséis, dos mil diecisiete, dos mil dieciocho todo bien, ya después el negocio empezó a tener un volumen, en lo cual mi lookup no te funcionaba, ¿no? Entonces, ahí surge la necesidad de implementar una herramienta que sea más potente, digamos, ¿no? Y pensé que esa herramienta tampoco se aplicó, y no creo que hoy esté aplicada en el
+[Remote]: cien por ciento de los
+[Remote]: los saldos y de los dos, ¿no? Y de los, y de, en ese caso, son las
+[Remote]: Porque si un si vos tenés en un país un medio de cobro,
+[Remote]: de repente te procesa, no sé,
+[Remote]: dos mil transacciones por mes, que te puede pasar
+[Remote]: no vas a implementar Symmetrica, hay una relación costo beneficio,
+[Remote]: ¿no?, en cuanto al
+[Remote]: y aplicar la herramienta.
+[Remote]: Pero la decisión, yo te digo, te lo digo desde el punto de vista de auditora y de
+[Remote]: o sea, yo soy auditora, lo primero que voy a pedir en una compañía
+[Remote]: que sea medianamente seria es la conciliación de su operación.
+[Remote]: O sea, de los saldos y, bueno, en este caso, las transacciones, porque
+[Remote]: el core del negocio de, loca, los de mercado pago, es justamente
+[Remote]: este, la la el la transacción del cupón de
+[You]: ¿Tenían un partnership ahí con Symmetric? Cosa decir,
+[You]: para cada cliente que yo voy y laudito, si está Symmetric es como que ya hay un check,
+[You]: ustedes como que Symmetry está conectado con la auditoría, porque sí trabaja
+[You]: con las Big Four.
+[Remote]: No.
+[Remote]: Sea, lo que pasa es que cuando podés symmetric, y lo mismo que le des
+[Remote]: su producto, ¿no?, es algo general. Pero después tenés mucha
+[Remote]: dependiendo de cliente barra
+[Remote]: barra qué cuenta es la que estás conciliando, ¿no?
+[Remote]: Entonces, es muy difícil decir, ah, si
+[Remote]: es symmetric, yo no hago nada como auditor, ¿no?
+[Remote]: Los que sí, algo que el auditor lo primero que va a pedir,
+[Remote]: son esos reportes SaaS, ¿los conocen ustedes? SOC, perdón, SOC uno, SOC dos,
+[You]: Sí.
+[Remote]: es lo primero que te va a pedir el auditor, ¿no? El SOC dos, que
+[Remote]: que es de confianza en controles, ¿no? Ya sea
+[Remote]: es una compañía pública, como que no.
+[Remote]: Te lo va a pedir, digamos, ¿no? Pero no es que es un automático como es Symmetric, no
+[Remote]: No, no, lo mismo, Prite me daba lo mismo, hacía la revisión de los controles generales de
+[Remote]: de, y todo el checklist de revisión de SaaS, y después hacía pruebas
+[Remote]: y todo sobre lo que lo que era la conciliación.
+[You]: ¿Ustedes nunca estaban en posición de
+[Remote]: ¿No? Perfecto.
+[You]: algún cliente donde veían que les costaba la conciliación de recomendar una herramienta?
+[Remote]: Sí, sí, siempre, siempre.
+[Remote]: Cuando yo era auditora, sí.
+[Remote]: Sí. Siempre tenés, y, de hecho, ustedes pueden hacer acuerdos con Big Four.
+[Remote]: Hay, ¿viste?, o sea, que que, digamos, que
+[Remote]: que la recomienden en sus clientes y que ellos sean quizás partner
+[Remote]: suyos en alguna actividad, ¿entendés?, para
+[Remote]: para captar trabajos.
+[Remote]: Pero ustedes, ¿najo como DiLocal? No, como DiLocal no
+[Remote]: a sus clientes, a los clientes de DLocal,
+[Remote]: no era algo que se decía. Pues yo le comentaba eso a los chicos también, no, Symetik nunca
+[Remote]: fue como
+[Remote]: no hizo partnerships con sus
+[Remote]: integra, con las compañías con las cuales se integró, como DLocal, como Prisma y demás, para que a través de ellos llegaran como que esos fueran canales de distribución esto de los clientes, ¿no? No, eso no pasó en el caso de Symmetric, pasó con las
+[Remote]: four, que ahí se hizo partnerships con Deloitte, con Price,
+[Remote]: Claro. Ahí no sé vos desde el lado de auditora y, a ver,
+[Remote]: venido de de Big Four también, por ahí te pregunto.
+[Remote]: Nunca nos funcionó mucho,
+[Remote]: Symmetric, porque justamente yo le argumentaba
+[Remote]: ese tema al equipo, ¿no? Las big four tienen que ser
+[Remote]: technology agnostic, o sea, no pueden a sus clientes decir, tienes que cuánto te digo,
+[Remote]: pueden dar la consultoría, te pueden orientar
+[Remote]: por más que tengan un partnership, así como tenían con nosotros, tenían con BlackLine, tenían con con los demás, entonces, era la cosa que
+[Remote]: el, sí, en el mundo Big For vos también,
+[Remote]: submundo, digamos, ¿no? Lo que es el submundo de auditoría,
+[Remote]: se, donde si, por ejemplo, yo puedo tener un cliente
+[Remote]: y y me dice, mirá, estoy entre estas tres herramientas de
+[Remote]: ¿Vos conocés alguna?, ¿me podés recomendar alguna?
+[Remote]: Sí lo puedo hacer, digamos, ¿no? Le digo, la relación auditor, auditado, le digo, si
+[Remote]: mirá, yo tengo otros clientes que utilizan la herramienta, yo hasta he hecho colecciones, ¿viste?
+[Remote]: Tipo, Caro, vos que sos, no sé, Lady Loca, entonces, va a hablar con Mercado Libre, que
+[Remote]: ya implementó Symmetric, y que te cuente su experiencia, etcétera.
+[Remote]: ¿No? Como siendo auditor de las dos compañías, ponele, ¿no?
+[Remote]: Ahora, dentro de las Big Four, tenés todo el mundo en auditoría.
+[Remote]: Digamos, que son empresas que las big four no auditan, y en esas sí pueden hacer los
+[Remote]: partnerships, la implementación de la herramienta con la herramienta que sea,
+[Remote]: y, bueno, de ahí me ha tocado, yo trabajaba acá en México, por ejemplo, trabajaba en, o sea, teníamos
+[Remote]: el Price México tenía lagrimen con ZAP en su momento,
+[Remote]: entonces, había todo un equipo que lo que hacía era buscar dentro de su
+[Remote]: clientes
+[Remote]: los cuales le podía vender la solución SAP, que no eran de auditoría, y tenía sus
+[Remote]: sus revenues, ¿no?, y sus beneficios por
+[Remote]: por el acuerdo que tenía con SAP, por ejemplo.
+[Remote]: Entonces, ahí depende las big four, pero sí tenés un mundo auditoría y no auditoría,
+[Remote]: El que no auditoría, vos le podés vender lo que quieras. Que es auditoría en la parte de ahí
+[Remote]: no te puedes meter en nada.
+[Remote]: Básicamente.
+[You]: Bien.
+[Remote]: Es como un
+[Remote]: Ahora sí,
+[Remote]: total. Recomendarle a sus clientes una herramienta no
+[Remote]: creo que en un de local, por ejemplo, alguien se quiera meter en eso.
+[You]: Claro. Sí, desde de local...
+[Remote]: ¿Entendés?
+[Remote]: Que me
+[Remote]: un ahorro en en en lo que le cobran, no sé.
+[You]: Claro. Sí, desde el local, ¿quién es
+[Remote]: Sí.
+[You]: la figura que decide
+[You]: aprueba y responsable de una contratación como la de Symmetric.
+[Remote]: Y en, hoy no sé, en su momento, CFO.
+[Remote]: Me imagino que hoy día es ser el mismo, el CFO es el que decide la contratación.
+[You]: Y en esa decisión, ¿ustedes le traían
+[Remote]: En libre, en su momento, también.
+[You]: un business case, un tipo, che, mirá, ya la probamos, hicimos una prueba piloto,
+[Remote]: Claro.
+[You]: y ahí en ese business case
+[Remote]: Sí.
+[Remote]: Exacto.
+[Remote]: Exacto.
+[You]: ¿qué presentaban?
+[Remote]: No, básicamente, presentás con
+[Remote]: comparación de herramienta con herramienta, ¿no?, qué cosas
+[Remote]: todas las herramientas tienen ventajas y desventajas, ¿no?
+[Remote]: O cosas buenas o cosas que por ahí una herramienta tiene una funcionalidad que la
+[Remote]: otra no,
+[Remote]: experiencia de mercado, etcétera, y costos, ¿no?
+[Remote]: Eso, básicamente, en el business case. A mí siempre me siempre que es contratar alguna herramienta, ya
+[Remote]: a conciliación u otras, era comparar, por lo menos, tres a
+[Remote]: Depende de la criticidad del
+[Remote]: del del tema, ¿no? Pero lo que es conciliación, generalmente, se comparaba con
+[Remote]: tres herramientas y
+[Remote]: y y, bueno, nada, se comparaba
+[Remote]: la ventaja, ventaja de la herramienta, pero
+[Remote]: sí, lo que te digo es, el último poder de decisión lo va tener el CFO,
+[Remote]: ¿sí?
+[Remote]: Pero
+[Remote]: al que vos le tenés que convencer que tu herramienta es la mejor,
+[Remote]: es al que va estar todos los días
+[You]: Por eso, ahí ahí va mi pregunta. Por eso, pero llegamos con
+[Remote]: Ese ese es el proyecto
+[You]: y después te pregunto el
+[You]: sigamos con el CFO, después te pregunto al usuario, porque creo que está buena la distinción
+[Remote]: Sí.
+[Remote]: Sí.
+[You]: Al, sí, o sea, a la hora de, vos armás el business case comparados a tres herramientas.
+[You]: ¿Viste? Entre líneas, ¿cuál es el factor que más pesaba, por lo general, en esa en esa decisión?
+[Remote]: Yo si tuviera que decidir que he estado de los dos lados, digamos, ¿no?,
+[Remote]: tipo,
+[Remote]: Hoy en día, es capacidad de la herramienta en cuanto a
+[Remote]: velocidad de trabajo, digamos, y
+[Remote]: y experiencia del usuario utilizando la herramienta?
+[Remote]: Y potencialidad, ¿no? Porque vos empezás conciliando, no sé,
+[Remote]: de tarjeta de crédito, y después podés incluir
+[Remote]: hecho, en su momento, no sé si Caro ha gustado o no, pero habíamos evaluado
+[Remote]: incluir las conciliaciones bancarias, o sea,
+[Remote]: varias áreas que que había que automatizar la conciliación, ¿no?
+[Remote]: Para mí es eso, lo más. Y segundo, a mí
+[Remote]: a mí personalmente, y creo que a todo el que compra una herramienta, es
+[Remote]: ¿cómo te responde el la persona?
+[Remote]: ¿Viste?, que tenés del otro lado.
+[Remote]: O sea, que
+[Remote]: no digo, no no te digo la que te está vendiendo, porque, a lo mejor, no es la que te
+[Remote]: está vendiendo, es la que después
+[Remote]: todos los, de cada vez que vos tengas un quilombo,
+[Remote]: estás comprando la mochila de que es la herramienta que te va a solucionar los problemas.
+[Remote]: ¿No? Pero sabemos que no va a pasar el cien por ciento de tiempo, siempre van a surgir cosas, ¿no?
+[Remote]: Yo compro también en función de la confianza que me da la persona que
+[Remote]: es el de, no sé, de operaciones o
+[Remote]: que va a estar todos los días ayudándome a resolver los problemas.
+[Remote]: Es como un partnership, ¿me explico? Para mí es como
+[You]: Y la relación, la confianza.
+[Remote]: es un proveedor, es un
+[Remote]: alguien, claro, exacto, yo quiero a alguien que
+[Remote]: al barco con el mismo compromiso que yo, o sea,
+[Remote]: que, ponele, mi objetivo veinte veintiséis es implementar
+[Remote]: una herramienta de conciliación x en cinco países, ¿no?
+[Remote]: Y tener, por lo menos, conciliado con la herramienta el ochenta por ciento del TPV.
+[Remote]: Y yo voy a contratar a alguien que sienta que
+[Remote]: es que su objetivo es el mismo que el mío, ¿me entendés? Entonces, yo sé que va dejar
+[Remote]: todo en la cancha para que yo pueda cumplir mi objetivo.
+[Remote]: Eso es muy personal, ¿no? O sea, es
+[Remote]: por un lado, la herramienta que me solucione lo que yo
+[Remote]: en un tiempo razonable y con una capacidad
+[Remote]: razonable y con perspectivas de futuro, y por el otro lado es
+[Remote]: y te digo, porque me pasó
+[Remote]: ahora con un, ¿zas?, que compré que no me funcionaba y digo, ¿y ahora quién le reclamo?, ¿viste?, o sea,
+[Remote]: yo soy uno, pero esa misma sensación de confianza del que te lo está vendiendo.
+[You]: Total.
+[Remote]: ¿No? O del que De ahí es.
+[Remote]: Después vos tenés equipo de customer success,
+[Remote]: tenían, y para cuentas como Di Local había personas
+[Remote]: más dedicadas a esas cuentas. Claro. Por ahí era esa misma persona que
+[Remote]: atendía cinco de locals o seis, pero era el que
+[Remote]: acompañaba, una una vez hecha la venta, acompañaban
+[Remote]: al al cliente en ese día a día para pasar
+[Remote]: cualquier mensaje ida y vuelta al equipo de implementación, al mismo account
+[Remote]: a quien fuera, para estaba ahí
+[Remote]: con el partner que dice Sí. Ahí
+[Remote]: cuando cuando le presentaron ahí el caso, yo estoy yo estoy todavía en el en
+[Remote]: en el proceso de, ok, decime con Symmetric.
+[Remote]: Ustedes calculó que analizaron algunas herramientas y consideraron otras opciones como
+[Remote]: o contratar más gente
+[Remote]: construir algo interno,
+[Remote]: Mirá, en el caso de local,
+[Remote]: ¿se intentó construir algo interno?
+[Remote]: Y como construcción interna no funcionó,
+[Remote]: se decidió ir a una herramienta. En el caso de DLocker, lo que pasaba es que
+[Remote]: el CFO de eLocal, que era Diego Cabrera Cannay,
+[Remote]: había sido parte del proceso de decisión de implementación de la herramienta
+[Remote]: en Mercado Libre, y en un momento había tenido a cargo el
+[Remote]: equipo de conciliaciones, entonces me dijo que se fue a Cimetic,
+[Remote]: por un tema de que Diego ya la conocía,
+[Remote]: sabía cómo funcionaba, etcétera, etcétera, etcétera.
+[Remote]: ¿No? Ahí hubo como una experiencia previa. En el caso de Mercado Libre,
+[Remote]: sí hubo,
+[Remote]: Ni me acuerdo, ya fueron hace como más de doce años.
+[Remote]: Pero sí, ahí sí hubo como, se evaluaron como tres proveedores, ni me acuerdo cuál es
+[Remote]: eran, pero
+[Remote]: yo te digo, en general, finanzas
+[Remote]: para cualquier desarrollo que necesite, va a ir a un tercero.
+[Remote]: Porque finanzas nunca, nunca, nunca
+[Remote]: ser prioridad para el equipo de IT Internet. O sea, salvo que el equipo de IT interno designe un
+[Remote]: específico para finanzas, no sé ponerle,
+[Remote]: que le está implementando SaaS, entonces, un momento tuvo que designar un equipo
+[Remote]: de IT para la implementación de apps, ponele, ¿no? Pero de lo que
+[Remote]: rollo, pro, desarrollo, los desarrolladores personas. O sea, es
+[Remote]: una competencia que finanzas, por lo menos en las compañías que yo trabajé,
+[Remote]: nunca
+[Remote]: va a ganar, o sea, menos en la Fintech, o sea,
+[Remote]: que van a una velocidad enorme, nunca.
+[Remote]: Si, por ejemplo, yo muchos años trabajé con
+[Remote]: Ustedes están en Argentina, ¿verdad?
+[You]: Pardi, pardi.
+[Remote]: No, en Nueva York, pero Seba está en Argentina, sí.
+[Remote]: Ah, ok, ok. No, no, yo para para ver si conocían o no de mercado.
+[Remote]: Trabajando en Price, A Mí Me Tocó Trabajar Con Toda La Banca De Argentina, en su momento, en los quince años que trabajé en Prize. En un banco, si ustedes hablan de lo herramienta, un banco, per se, ahí es distinto. Porque como vos tenés un regulador que te obliga a nivel finanzas presentar, cosas, generar las conciliaciones, y después viene el regulador y te la saudita, Los bancos no asumen ese riesgo de finanzas prioridad cero y todo el negocio. ¿Me explico? Porque el mismo regulador te hace balancear. Pero todo lo que finte y todo eso, Hasta cierto punto, igual, ¿no? No, no, bueno, sí, con un nivel razonable, obviamente, no hacer la prioridad ni se va a llevar el ochenta por ciento de los recursos, pero sí, no pueden hacerse, digamos,
+[Remote]: no puede pasarlo a mí en un AffinTech, que
+[Remote]: me ha pasado a mí hasta con el con el proyecto SAP,
+[Remote]: o sea, que yo tenía el, o sea, el que imagínate que a mí el desarrollo era
+[Remote]: las salidas de los sistemas de eLocal para que se conecten con SAP,
+[Remote]: y no tenía recursos, o sea, ni siquiera para eso.
+[Remote]: Pero lo que es fintech para mí, o sea, finanzas siempre va a ir como opción a
+[Remote]: a... Tercero, nunca desarrollo propio.
+[Remote]: Porque es muy difícil competir con la
+[Remote]: priorización de recursos con respecto a la venta al cliente o al servicio al cliente.
+[You]: Sí, una vez que tenés
+[You]: las las propuestas con con precios, ¿viste?,
+[Remote]: Sí.
+[You]: O sea, cualquier cualquier compra de una
+[You]: herramienta externa en una compañía conlleva el famoso
+[You]: business case, es decir, che, estamos contratando esta herramienta
+[Remote]: Sí, sí.
+[You]: porque nos genera un valor económico que, de otra manera,
+[Remote]: Sí.
+[You]: sería más caro, es decir, si no tengo symmetric, me cuesta cien,
+[Remote]: Sí.
+[Remote]: Sí.
+[You]: con symmetric me cuesta cincuenta. ¿Cómo
+[You]: cómo se justificaba eso? ¿Automatización de horas hombre,
+[You]: o o directamente económico la reducción de riesgo? Entonces, eso es medio
+[You]: ¿Cómo cómo era la venta interna de decir, ok, contratamos Symmetric, invertimos en Symmetric,
+[Remote]: Sí.
+[You]: Sabiendo el costo que tiene Symmetric, ¿no?
+[Remote]: Sí, sí. En el caso de local, era
+[Remote]: o sea, una combinación de las dos cosas, ¿no? O sea, que si vos no contrato
+[Remote]: una herramienta, tenés que poner a personas, y que llega un punto donde las herramientas
+[Remote]: básicas, como un Excel, podías ir algo más
+[Remote]: ¿viste?, como alguna herramienta de base de datos, ponele,
+[Remote]: pero llega un punto en el cual es hora hombres versus herramienta.
+[Remote]: Básicamente, ¿no? Es decir, bueno, para acá, no sé, para
+[Remote]: conciliar el TPV en promedio todos los mercados, cada, no sé,
+[Remote]: cada millón de TPV, necesito una persona. ¿No?
+[Remote]: ¿Y cómo compara eso con la herramienta? Esa es la mejor
+[Remote]: Hay veces que le puedo hacer, hay veces que es medio complejo, ¿viste?, porque
+[Remote]: tenés que tomar con muchos muchos assumptions para poder decir, bueno, si no contrato a
+[You]: Pero la principal era automatización de la sombra,
+[Remote]: a o a la
+[You]: ese era el principal cell.
+[Remote]: No, en el caso de local, y que
+[Remote]: creo que hoy cualquier negocio de ese estilo es lo mismo, es el tema también la velocidad.
+[Remote]: ¿No? Porque
+[Remote]: A ver, ¿cómo se explico?
+[Remote]: O sea, si bien estas conciliaciones están del lado de finanzas,
+[Remote]: o sea, era el único control que había en el local del negocio, per se,
+[Remote]: ¿entendés? O sea, no había otro equipo
+[Remote]: controlara que la transacción que procesó la app
+[Remote]: de local la haya recibido el procesador, y, por lo tanto, la iba a
+[Remote]: cobrar y pagarla en merchan. ¿Me explico? Era era el corazón del negocio.
+[Remote]: Entonces, si vos tenés, por ejemplo, un fraude o cualquier
+[Remote]: cosa en el medio, o sea, cualquier tema que suceda en el medio, no sé,
+[Remote]: fraude, que no te funcionó la API, o no sé, lo que puede llegar a pasar,
+[Remote]: la única forma de detectarlo
+[Remote]: era con la conciliación.
+[Remote]: ¿Entendés? Y vos sabés que, si vos tenés un fraude,
+[Remote]: imagínate que, no sé, que hay un fraude, no sé, tarjetas de
+[Remote]: crédito o truchas en un en Colombia, ¿no? Que es muy sucede, hombre,
+[Remote]: ¿no? Tú, uno muy grande con El que estás
+[Remote]: haciendo fraude hoy, te va a meter, no sé, diez mil dólares.
+[Remote]: Mañana va a decir, estos no se avivaron, entonces,
+[Remote]: te va a meter cien mil. Pasado va a decir, estos no se avivaron,
+[Remote]: Entonces, más allá de de la
+[Remote]: con objetivo de finanzas, es
+[Remote]: el negocio que está conciliando. Entonces, si vos tenés
+[Remote]: Yo siempre dije que estuve a cargo de este, del equipo de conciliaciones, mi sueño sería poder tener un
+[Remote]: reporte todos los días en la mañana, que me diga todo lo que procesé ayer, ¿lo recibió el procesador o no, o esto sí o esto no? ¿Sí? Y y poder accionar y que me tire color rojo, naranja, verde, amarillo, en función a cómo viene la consolidación, en función a la, para mí eso era el sueño. Tenés mi tablero de control todas las mañanas de los, no sé, veinte procesadores más importantes, que representaban, no sé, el ochenta por ciento del TPV, y poder accionar inmediatamente. O sea, eso es lo que te da una Pero, Majo, eso no. Majo, ¿eso no lo tenía symmetric?
+[You]: El real time.
+[Remote]: No, es que no lo tenía symmetric, sí lo tiene.
+[Remote]: Hay un tema de timing y de maduración en las conciliaciones,
+[Remote]: Sí. Que te lleva tiempo, o sea, vos
+[Remote]: o sea, el procesador no te da online la información.
+[Remote]: Te da hoy, la información de hace cuarenta y ocho horas, ponele, ¿no?
+[Remote]: Con suerte, con suerte, o sea
+[Remote]: vos pensás que compañías como de locos trabajan en mercados emergentes, quizás en mercados
+[Remote]: de primera línea son real time, no sé, como un Pix de Brasil, me imagino, ¿no?
+[Remote]: Mejor.
+[Remote]: Pero bueno, tener, o sea, sí la herramienta estaba
+[Remote]: y después se desarrollaron reportes como para tener este tablero de control,
+[Remote]: Nunca, obviamente, llegó a ser mi mejor deseo o mi mejor
+[Remote]: aspiración, no por un tema de que la herramienta no, sino que
+[Remote]: o sea, ustedes lo que yo, o sea, la herramienta debe poner datos para que te arroje
+[Remote]: el tablero de control, ¿no? Entonces, y eso es todo un desafío. Entonces,
+[Remote]: para mí, a nivel conciliación de un negocio con lo que es procesamiento de
+[Remote]: tarjetas de crédito, eso sería lo ideal. ¿Por qué? Porque siempre, si no venís,
+[Remote]: dos días desfasado, ¿entendés?,
+[Remote]: con el negocio.
+[Remote]: Eso te quería preguntar. En a la hora de la toma de decisión,
+[Remote]: más allá de de todo lo que mencionaste, ¿había expectativa
+[Remote]: o se encontraron con plata tal vez un proveedor que
+[Remote]: financieramente les liquidaba en promedio un día más tarde,
+[Remote]: o algunas transacciones no las liquidaba directamente,
+[Remote]: ¿Qué encontraron ahí? Sí, eso siempre pasa, eso siempre pasa.
+[Remote]: Yo te digo mi experiencia, siempre pasa.
+[Remote]: O sea, es un crisol de cosas que pueden pasar.
+[Remote]: Primero, en mi experiencia, incluso de la herramienta de conciliación,
+[Remote]: voy a dar nombres ni casos específicos, pero sí ha pasado que hubo
+[Remote]: en determinados mercados, entonces, de repente vos tenías
+[Remote]: la transacción en la API ID local, pero esa transacción
+[Remote]: el
+[Remote]: el procesador la había rechazado, o sea,
+[Remote]: nunca se la iba a cobrar el cliente y nunca te lo iba a pagar, y para vos era una
+[Remote]: que de cara al merchant o al comercio, confirmado, ¿no?
+[Remote]: Ese es el peor escenario.
+[Remote]: Porque esa lo tenés que asumir vos.
+[Remote]: ¿No?
+[Remote]: Ha pasado casos en los cuales esto sucedió
+[Remote]: no por culpa de de de
+[Remote]: del, no sé, del intermediario, como puede ser el loco o mercado pago, sino porque
+[Remote]: algo en la red funcionó mal. O sea, ¿qué puede suceder?
+[Remote]: En la red de Visa o en la conexión con un determinado banco, con un
+[Remote]: procesador funcionó mal,
+[Remote]: hubo una actualización de sistemas que no se hizo, entonces,
+[Remote]: esto pudo suceder por culpa de un tercero, entonces ahí vas contra el tercero y recuperás el dinero.
+[Remote]: ¿No? Ahí, en esos casos, era directamente transacciones
+[Remote]: que no les liquidaban.
+[Remote]: Sí, exacto, que no te liquidan, digamos, ¿no? Porque más allá de la del del
+[Remote]: control de procesamiento, vos tenés que hacer el control de la liquidación, ¿no? Porque
+[Remote]: O sea, entonces
+[Remote]: presentador, ¿tú dirías...?
+[Remote]: Claro. El primer
+[Remote]: eso te digo, no sé si me logro expresar bien, pero
+[Remote]: en el caso de ir local, este control era el control del negocio, o sea,
+[Remote]: no había otro control.
+[Remote]: No no no había después alguien en operaciones controlando en
+[Remote]: tesorería controlando.
+[Remote]: O sea, podría llegar a tener algún control de
+[Remote]: razonabilidad de flujo, ¿viste?, de
+[Remote]: de de determinados merchants, países,
+[Remote]: significativos, pero el control al detalle era este.
+[Remote]: Entonces, por eso te digo, más allá del costo,
+[Remote]: te puede costar más la herramienta, pero hay un factor de
+[Remote]: rapidez y eficiencia que
+[Remote]: la herramienta le gana a lo manual, o sea.
+[You]: Sí.
+[Remote]: Que esto que te digo es, bueno, el día de ayer no, de hace dos días, ¿no?
+[Remote]: Pero el el hombre para poder generarte esta
+[Remote]: conciliación en forma automática, o sea, es imposible,
+[Remote]: ¿me explico?, de billones de
+[You]: Sí, sí.
+[Remote]: de TPV. Entonces, para, es un mix de los dos,
+[Remote]: O sea, Ignacio me decías, hora hombres, hora hombre,
+[Remote]: pero considerando el peso de la eficiencia y la rapidez en tener la
+[You]: O sea,
+[Remote]: por las las personas.
+[You]: había mucha mucho intangible en el business case.
+[Remote]: Exacto, exacto, exacto.
+[You]: Esto de real time, esto de reducción de riesgo, de auditoría, como que
+[Remote]: Pero eso es de cualquier herramienta, ¿no? O sea, eso es como para mí es a la de
+[Remote]: decisión de
+[Remote]: en esta parte del intangible, ¿no? O sea, como
+[Remote]: cualquiera de las herramientas que tengas sobre la mesa te tiene que cubrir ese intangible, si no, no sirve.
+[Remote]: ¿No? O sea, si
+[You]: No, no, sí, está claro, pero está difícil de cuantificar y y después es difícil para ustedes medir
+[You]: che, si Symmetric me cobra cinco palos o me cobra quinientas Lucas, como sé.
+[Remote]: Sí.
+[You]: Que tiene sentido, ¿me entendés?
+[Remote]: Sí.
+[Remote]: Sí, sí, sí, sí, sí, tal cual, tal cual.
+[You]: Yo quiero preguntarte sobre
+[You]: la implementación.
+[Remote]: Oh, dolor de cabeza.
+[You]: ¿Qué era lo que más dolía, lo que más tiempo llevaba?
+[Remote]: Sí.
+[Remote]: A ver, dos cosas, yo pensé hasta intentar tratar esta llamada tratando de recordar las épocas de
+[Remote]: de business assurance. Sí, la implementación es
+[Remote]: o sea, cualquier proceso, en cualquier compañía, la cual vos dependa de un tercero,
+[Remote]: es un pain, porque, o sea, dependías de qué
+[Remote]: contraparte, que es el procesador o el banco,
+[Remote]: Los bancos en general tienen mucho más aceitados estos procesos, ¿viste?, pero
+[Remote]: los procesadores, imaginate, en países emergentes, o sea,
+[Remote]: o sea, sus sistemas hay
+[Remote]: Encima, bueno, ahí depende también de con quién
+[Remote]: vos elijas procesar en el país, ¿no? Pero
+[Remote]: he visto experiencias donde los procesadores, ponele de África,
+[Remote]: sea, no tenían capacidad ni para quizás conectarte.
+[Remote]: ¿Entendés? Entonces, tenías que primero,
+[Remote]: entender qué nivel de
+[Remote]: de sistema tenía el procesador para poder conectarlo con
+[Remote]: con tu API, ¿no?
+[Remote]: Por eso digo que no es un pay, porque ahí dependías de otro.
+[Remote]: Muchas veces los procesadores
+[Remote]: es un negocio que que cuida mucho los costos, entonces por ahí no te
+[Remote]: asigna un equipo para que vos te puedas conectar, ¿viste? Te, no, mirá,
+[Remote]: transacciones en el dashboard, que alguien entre y que se arreglen, ¿no?
+[Remote]: Como que
+[Remote]: ese para mí era
+[Remote]: un peine en ese sentido. Y después, a mí, lo que
+[Remote]: estuve pensando bastante es
+[Remote]: que después, a nivel
+[Remote]: persona, o sea, porque no sé cómo es la herramienta de ustedes, pero
+[Remote]: Symmetry, todo es muy lindo, pero Symmetry te dice, mirá, o sea,
+[Remote]: tu API procesó estas diez transacciones, ¿sí?,
+[Remote]: Y la información que llegó el procesador son
+[Remote]: estas cinco,
+[Remote]: con el mismo monto, y estas cinco, no coincide el monto, y
+[Remote]: o tres que no coincide el monto, y dos que falta, ponele, por decir una cosa, ¿no?
+[Remote]: Y después hay un montón de trabajo manual ahí atrás, que hay que ir
+[Remote]: transacción por transacción.
+[You]: La parte de discrepancias de sí que sería, no no
+[Remote]: Entonces, yo decía,
+[Remote]: Claro.
+[You]: solucionado en symmetric.
+[Remote]: Claro, exacto, o sea, exacto.
+[You]: ¿Cómo era esa resolución de discrepancias? ¿Cómo cómo seguía el proceso?
+[Remote]: No,
+[Remote]: no, bueno, ahí cada
+[Remote]: cada país, o sea, di local dividía los equipos por países, entonces tenía
+[Remote]: un equipo por país, que era una persona, dos, tres, depende del volumen de cada país,
+[Remote]: entraba al dashboard de Symmetric, se bajaba esas
+[Remote]: tres transacciones que no le coincidían y las dos que estaban, ¿viste?, lo único de Symmetric te
+[Remote]: mostraba. Estas coinciden, estas no están acá y no están acá.
+[Remote]: Estas no están acá y están acá, y estas te dan diferencias, ¿no?
+[Remote]: Después que ya todo el trabajo manual, y eso era días y días.
+[Remote]: De conciliación. Que yo me imagino que eso, no sé, Carlos estuvo más en Symmetry, pero
+[Remote]: hoy en día debería haber, o sea, la inteligencia artificial, me imagino que debe
+[Remote]: metiendo ahí
+[Remote]: ficha, digamos, para
+[Remote]: para entender, porque si no era transacción por transacción, ir a bucear,
+[Remote]: a entender qué es lo que había pasado, que estaban un lado o no en el otro, viceversa, o no coincidía.
+[Remote]: Explico? Ese otro trabajo engorroso.
+[Remote]: Si vos conciliás un país que da todo bien, buenísimo.
+[Remote]: O sea, o te da dentro de un rango que vos definas, ¿no?, porque ahí entra
+[Remote]: también el tema de la relación costo beneficio, ¿no?
+[Remote]: Pero después el tema de la investigar las discrepancias,
+[You]: Sí, sí, sí, es un dolor de cabeza. Ché, y ahí,
+[Remote]: No, no.
+[You]: entonces, en tu
+[Remote]: Y hasta que no terminás eso, no termina la conciliación, porque la conciliación termina
+[You]: No, obvio, obvio.
+[Remote]: Cuando leíste, explicaste la última
+[Remote]: transacción por qué no, mandaste el último reclamo al procesador para que te pague por
+[Remote]: se pierde las transacciones en el medio? O sea, realmente se
+[You]: O el monto no reconciliado lleva un valor bajo
+[Remote]: Claro, exacto.
+[You]: las bolas.
+[Remote]: Sí. Me imagino que hoy lo del
+[You]: Tu experiencia,
+[Remote]: artificial debería, de alguna forma,
+[You]: Sí, sí, nos estamos experimentando mucho con eso.
+[You]: No está fácil, pero estamos
+[Remote]: No, lo sé.
+[You]: queriendo invertir mucho en eso. Pregunta ahí,
+[You]: ¿qué rol jugaba el equipo de contabilidad?
+[You]: Ahora siempre equipos de operaciones esto.
+[Remote]: Esto no es
+[Remote]: no es, o sea, en tanto en Mercado Libre como en Bilocal, este equipo está dentro de
+[Remote]: no está en operaciones.
+[You]: ¿Y cómo se llama?
+[Remote]: Es un equipo dentro de
+[Remote]: Business assurance.
+[Remote]: Business assurance, como assurance o
+[You]: Sí, sí.
+[Remote]: del negocio, digamos, ¿no?
+[You]: Y contabilidad, ¿cómo entraba o no entraba en esto?
+[Remote]: No, o sea,
+[Remote]: lo único que entraba era ponele mensualmente, o sea, lo
+[Remote]: la teoría, te digo, ¿no? ¿Qué debería qué debería suceder o qué pasaba en un banco? Como con los bancos, esto,
+[Remote]: pasa que los bancos están mucho más aceitados, no tenés cross border en los bancos, ¿viste? Entonces,
+[Remote]: todo lo que es cross border es un quilombo, pero
+[Remote]: contabilidad debería recibir un reporte todos los meses, en los cuales business
+[Remote]: me diga, mirá, de las conciliaciones surgieron estas
+[Remote]: estas diferencias las investigamos durante seis meses, de acuerdo a la política,
+[Remote]: y tenés que reconocer una pérdida por esto, o una ganancia, o lo que corresponda.
+[Remote]: Contabilidad en general es un equipo que recibe inputs.
+[Remote]: ¿No?, que no debería tomar decisiones.
+[Remote]: Digamos, ¿no? Entonces, contabilidad debería registrarse,
+[Remote]: vos llegaste a estas discrepancias, dijiste, no puedo hacer nada, perdí la cita,
+[You]: Ok, entonces, un player totalmente secundario en todo esto.
+[Remote]: Y se lo reporta
+[Remote]: Sí, sí, sí, totalmente, totalmente.
+[You]: Interesante eso.
+[Remote]: Cuando yo entré a DiLocal,
+[Remote]: eso depende cómo lo organice cada compañía, porque hay compañías en donde el área de contabilidad
+[Remote]: como contabilidad es todo automático, quizás es el que concilia.
+[Remote]: O sea, eso depende cómo se realice cada cada compañía.
+[Remote]: Pensá que yo, cuando entré a El Ocal tenía como cinco equipos
+[Remote]: a cargo, ¿no?, tenía cargo contabilidad,
+[Remote]: tenía cargo business assurance, tenía cargo
+[Remote]: todo lo que era SSC reporting y contabilidad, era todo junto con
+[Remote]: contabilidad operativa, contabilidad corporativa, todo, todo,
+[Remote]: eso se se hizo un split y se dejó por un lado lo que sería
+[Remote]: contabilidad operacional, que es
+[Remote]: producir accounting records, y por el otro, la contabilidad que toma eso y
+[Remote]: produce reportes, hace un balance, revisa
+[Remote]: hacen más un control
+[Remote]: contable, digamos, ¿no? Entonces, ¿fines? Yo le
+[Remote]: equipo totalmente en paralelo.
+[Remote]: O sea, para lo único que se comunicaba con un líder, como te decía, mirá,
+[Remote]: todos estos que yo tenía acá, ya hay que mandarlo a pérdida y, con realidad,
+[You]: Claro. Sí,
+[You]: una vez implementado,
+[Remote]: Sí.
+[You]: ¿cómo seguía el contacto con Symmetry? O sea, dependían mucho de ellos,
+[You]: para arreglar cosas, agregar cosas nuevas o ustedes ganaban
+[You]: autonomía y ya podían configurar sus propios flujos?
+[Remote]: A ver, te digo mis recuerdos. En general, una vez que ya
+[Remote]: estaba implementado, salvo que
+[Remote]: que identifique que pasó algo grave con la
+[Remote]: ¿viste?, de repente no te concilia nada, no sé si salvó, pasó. O sea,
+[Remote]: o el procesador cambió algo y no nos avisó,
+[Remote]: o no sé, algo de la herramienta no está funcionando, ¿no?
+[You]: Y para ese travel shooting, por ejemplo, ¿tenían que le andara el teléfono o lo hacían ustedes?
+[Remote]: En general, lo que sucedía es que dentro de business assurance había como un
+[Remote]: subequipo de implementaciones, y lo hacían ellos.
+[Remote]: Pero era
+[You]: Interno.
+[Remote]: tres partes, sí, lo hacía, sea, di loca al
+[Remote]: junto con Symmetric y el procesador, el contacto del procesador con el cual se había configurado la herramienta.
+[Remote]: No, no me acuerdo
+[Remote]: pero en general una vez que se implementaba y se
+[Remote]: y estaba en vivo, ya, salvo que haya algún cambio
+[Remote]: importante en el procesador seguro.
+[Remote]: Tenías en el equipo también builders,
+[Remote]: de Symmetric, que que por lo general era lo que se se capacitaba a ciertas
+[Remote]: personas que eran los que después adentro
+[Remote]: mantenían la la herramienta caminante, ¿no? Se certificaban en cómo manejarla, en cómo se
+[Remote]: los problemas, y eran por el contacto directo con
+[Remote]: con Symmetric, pero eran los que llamábamos builders,
+[Remote]: y que incluso después se hizo se hicieron certificaciones de de esos personajes también.
+[Remote]: Claro. Que lo interesante fue
+[Remote]: interesante es que
+[Remote]: muchos de esos builders, obviamente, no sé, quizá voy a decir,
+[Remote]: cualquier cosa. El de de local se va de de local y se va
+[Remote]: otra empresa.
+[Remote]: Entonces, ya como tiene todo el expertise de Symmetric, esa persona también entra como un champion de porque ya lleva todo el expertise, entonces entra a trabajar, otra empresa no tiene no tiene implementado Symmetric, pero como él ya pasó por todas las certificaciones, ya sabe cómo usarlas, ya lo usó, ya le solucionó la vida, se lleva también ese ese esa referencia internamente, ¿no?, y eso también hacia con que la rueda girara con respecto a a ventas y nuevos logos, esos builders que iban pasando
+[Remote]: en el mercado de una empresa a la otra.
+[Remote]: Sí.
+[You]: Qué tiene que pasar para que se
+[You]: para que The Local considere cambiar
+[You]: la herramienta o decidir desarrollar algo internamente.
+[Remote]: Para mí, ni loca, lo cualquier compañía,
+[Remote]: sea, para mí, ahí lo que tiene que pasar es una muy buena diferencia en precio.
+[Remote]: O sea, una vez que
+[Remote]: que que es como un ERP, ¿no?, como
+[Remote]: una vez que implementó Symmetric, ponele,
+[Remote]: como que tiene que ser una herramienta muy atractiva, que tenga las
+[Remote]: mismas funcionalidades, que resuelva los mismos problemas de la misma manera,
+[Remote]: que a DiLocal le cueste, tenga un bajo costo de cambio de herramienta, y que le explique un ahorro en dinero, básicamente.
+[You]: No hay tanto un diferencial de performance que estén buscando. Por ejemplo,
+[You]: si yo te vendo que por ahí valgo lo mismo, pero tengo el módulo de discrepancia que vos decís,
+[You]: decís que es otra cosa.
+[You]: ¿Hay un sell por ahí o no? ¿O es más un tema de costo a esta altura?
+[Remote]: Puede ser, pero para mí a esta altura es más un tema de costos.
+[Remote]: Me da esa sensación, ¿no? Nunca me
+[Remote]: a esta situación de ver una alternativa. Sí, en su momento, ya había hablado de Symmetry,
+[Remote]: para otras cosas, o sea, que quizás le sirve las ideas que le
+[Remote]: tiro, ¿no? O sea, en su momento, ¿te acordás Caro cuando habíamos hablado en un momento de de cuál era el futuro de la herramienta, no? En en su, bueno, de local intentó rematar Zap, no pudo, entonces, después hubo como una segunda ola, y en esa segunda ola la disyuntiva estaba, vieron que ZAP puede ser, un sistema simple de contabilidad, cuando recibe un globo de del sistema y las contabiliza, o puede contabilizar transacción por transacción. ¿No? Entonces, ahí depende del negocio, la complejidad, la maduración de la compañía, lo que sea quiere invertir, no invertir, etcétera. Y en su momento, digamos, evaluó Symmetric, medio como sistema contable, o
+[Remote]: que nos permita hacer hasta sus mayores, porque veíamos que tenía
+[Remote]: Porque dijimos, ya la ya tiene todas las transacciones.
+[Remote]: O sea, Symmetric ya la API le manda todas las transacciones, ¿no?
+[Remote]: ¿Por qué no utilizar una herramienta como Symmetric para
+[Remote]: a partir de esa información que ya tiene de la operación,
+[Remote]: me genere la contabilidad.
+[Remote]: ¿Entendés?, y yo ya sé que funciona. Entonces, la misma herramienta
+[Remote]: por un lado, te contabiliza, por otro lado, te concilia con terceros, ¿no? Como que
+[Remote]: iba a simplificar. Ahí lo habíamos
+[Remote]: hacer CTO, de hecho, el CTO se reunió con
+[Remote]: en su momento, y me dio como que, no sé, me parece que no se animó a
+[Remote]: a salir de la herramienta Nosotros estamos
+[Remote]: automatizando ya la generación de los seiscientos contables.
+[Remote]: Es la única parte contable que que hacemos. Pero bueno, es una parte muy tediosa también, ¿no?
+[Remote]: Muchas empresas hacen un Excel gigante y se lo enchufan a su ERP,
+[Remote]: con todos los movimientos.
+[Remote]: ¿Eso te sirve, o sea, hasta un punto de
+[Remote]: ¿no? O sea, ahí depende del, para mí, el target de mercado
+
+============================================================
+SUMMARY
+============================================================
+### Majo’s Background & Experience
+
+- 30 years experience in finance/audit
+- PwC auditor in Argentina and Mexico consulting
+- Mercado Libre (10+ years ago): Implemented Symmetric when they needed to start reconciling Mercado Pago transactions
+  - Auditor ultimatum drove initial need
+  - Volume growth made manual processes impossible
+- dLocal (mid-2021): Led Symmetric implementation across 40+ countries
+  - Each country/payment method required individual implementation
+  - Only \~30% of TPV reconciled when she started
+  - 18-month rollout by waves/sprints
+
+### Decision-Making Process & Business Case
+
+- CFO ultimate decision maker (both Mercado Libre and dLocal)
+- Standard evaluation: Compare 3+ tools minimum
+- Key decision factors:
+  1. Tool capability - speed, user experience, scalability potential
+  2. Relationship/trust with support team - “buying partnership, not just tool”
+  3. Market experience and references
+- dLocal advantage: CFO Diego Cabrera had previous Symmetric experience at Mercado Libre
+- Business case justification:
+  - Primary: Hours saved vs manual reconciliation
+  - Secondary: Speed/efficiency for fraud detection and business control
+  - Intangibles: Risk reduction, audit readiness, real-time visibility
+
+### Implementation Challenges
+
+- Las implementaciones duelen porque dependés mucho de 3ros (note-taker’s observation)
+- Major pain points:
+  - Dependency on third-party processors with varying system capabilities
+  - Emerging market processors often lack resources/technical capacity
+  - Some African processors couldn’t even provide proper connections
+  - Processors prioritize cost control over client integration support
+- Version history: Symmetric migrated major clients (dLocal, Mercado Libre, Rappi) from v1 to v2 (SaaS model)
+
+### Operational Reality & Discrepancy Resolution
+
+- Symmetric identifies matches/mismatches but doesn’t resolve discrepancies
+- Manual work remains: Transaction-by-transaction investigation for:
+  - Amount differences
+  - Missing transactions (either side)
+  - Timing mismatches
+- Country teams spend days resolving discrepancies manually
+- Common issues found:
+  - Transactions approved by dLocal but rejected by processor
+  - Network failures (Visa, bank connections, system updates)
+  - Cross-border processing complications
+
+### Team Structure & Vendor Relationships
+
+- Reconciliation sits in “Business Assurance” (not operations/accounting)
+- Accounting receives monthly reports for loss recognition only
+- Builder certification program: Internal experts trained on Symmetric
+  - Builders become champions when moving to other companies
+  - Creates organic referral network across market
+- Customer success: Dedicated account management for large clients
+- Big Four partnerships exist but limited effectiveness due to technology agnosticism requirements
+
+### Future Considerations & Switching Barriers
+
+- High switching costs once implemented (like ERP systems)
+- Would require significant price advantage to consider alternatives
+- Performance improvements alone unlikely to drive change
+- Previous evaluation: Symmetric as accounting system (transaction-level booking)
+  - Would eliminate dual data entry
+  - CTO explored but didn’t proceed
+- Current automation focus: Journal entry generation from reconciliation data
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/3709884f-ab46-4596-8580-dcba2ce09649](https://notes.granola.ai/t/3709884f-ab46-4596-8580-dcba2ce09649)

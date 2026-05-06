@@ -1,0 +1,430 @@
+MEETING: Rexi x Bamboo Payment Systems: discovery
+DATE: 2026-04-29
+ID: not_pk87luXULEZ48x
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Gcornwell <gcornwell@bamboopayment.com>, Lguzman <lguzman@bamboopayment.com>
+SCHEDULED: 2026-04-29T11:30:00-04:00 - 2026-04-29T12:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Doing good. Thank you. I'm so sorry for the
+[You]: for being two minutes behind here. Where are calling in from?
+[Remote]: No problem, no problem,
+[Remote]: Lacho is our CTO, and he's based
+[Remote]: in Colombia and
+[Remote]: I'm out of Dallas, Texas, and I run the sales and partnership teams.
+[You]: Okay. Very cool. Well, thank you for for taking the time.
+[You]: Let me
+[You]: share more about Rexy, what we do, and then would love to explore if there's some
+[You]: something if there's if if there's fit with
+[You]: with bamboo payments. So, basically,
+[You]: at Rexy let me let me pull up some slides here.
+[You]: Just give me one second. So I think it's gonna be easier for me to do the intro.
+[You]: Give me a second.
+[You]: Am I lagging with the connection, or am I good
+[Remote]: No. You're good.
+[You]: Okay. Sharing
+[You]: see my slides?
+[Remote]: Yes.
+[You]: So basically, just to talk a little bit more about what we do and the team,
+[You]: this is these are the three cofounders building building Rexy. I'm the CEO here.
+[You]: But just to point out, the three of us were operating in the payment space
+[You]: in the fintech space before building
+[You]: And it comes from feeling the pain
+[You]: being the other side of the counter. Right? So the thing about
+[You]: that anecdotes working for different fintech companies in the region,
+[You]: in which, there was a big pain around the reconciliation process and how it impact
+[You]: other areas of the business, particularly product and operations.
+[You]: In some cases, for example, I found a $6,000,000 gap at a fintech called Común,
+[You]: They all was present in Mercado when they lost
+[You]: $27,000,000 to an external payment provider.
+[You]: And Sebastián García, which was a founding team member at Naranja X San Pomelo,
+[You]: He saw how at tech tech savvy institutions like Pomelo, for example,
+[You]: they still had big payment ops teams doing reconciliation manually, and it had a huge
+[You]: not only cost, but it was also very painful for other areas of the business.
+[You]: At its core, reconciliation is a data fragmentation problem. Right? And so
+[You]: what ends up happening is that these companies are building processes around
+[You]: around reconciliation, which involve
+[You]: siloed tools like Excel, SQL queries,
+[You]: custom script, or maybe even consultants.
+[You]: And that over time generates cost, risk, and scalability. Right? And so cost
+[You]: because
+[You]: as you scale, you need to build out the payment ops team, is
+[You]: constantly and recurrently,
+[You]: managing this process. It create it creates risk because
+[You]: of recurrent write offs, the risk of losing a license or paying penalties.
+[You]: And it creates scalability concerns. Right now, you intervene new provider,
+[You]: launch new products and services,
+[You]: how does this process evolve without needing to hire more people or just
+[You]: really
+[You]: hindering growth because it slows you down. Thale has an an anecdote in Rigal Pao where
+[You]: they were ready. They were they had all the development done for a new product,
+[You]: and they couldn't launch it because the payment ops team still hadn't done
+[You]: the reconciliation workload to launch that product. So it might even
+[You]: affect the speed at which you can, build and deploy new products and new features.
+[You]: Talking a little bit more about our vision, our vision
+[You]: transcends reconciliation. We're starting by reconciliation. So our platform is an agentic
+[You]: platform that automates the process end to end.
+[You]: But the the vision beyond that is how can we help them move
+[You]: automate many of these fin ops
+[You]: that are affected by reconciliation. So we start by reconciliation to create that
+[You]: data layer which is reconciled across all your systems
+[You]: so that then we can deploy agents for other workflows in the FinOps
+[You]: environment. Right? Imagine treasury ops, strategic finance, FBNA accounting,
+[You]: and these other workflows that, again, are
+[You]: feeding from the reconciliation output and the reconciliation is an upgrade.
+[You]: Then they're also affected by
+[You]: by those inefficiencies. Today, it's a very powerful
+[You]: platform. We're working with banks, payment processors, marketplaces, and insurance companies.
+[You]: Automating the process end to end. Right? All the way from ingestion
+[You]: creating the connectors to the data sources,
+[You]: to the final reporting that plugs into your base to create the journal entries or even just
+[You]: creating ad hoc reports for regulators.
+[You]: And in the middle, it's an agentic platform that basically
+[You]: automates every step of the way. And just to mention some of the things we've developed that are
+[You]: that are pretty amazing and are generating really good results with our customers is, first,
+[You]: the dynamic integrator, which enables us to connect the data sources in a very efficient way.
+[You]: We know that this world is not
+[You]: mostly API that work.
+[You]: It's APIs that don't work, and then there's SFTPs,
+[You]: There's CSVs we need to download from portals.
+[You]: And there's PDF reads to pick up from mails. So our
+[You]: dynamic integrator, again, it's an agentic technology that basically
+[You]: connects very quickly to all these data sources.
+[You]: Then we have our our GenTech Flywheel, which is how does the system adapt
+[You]: and learn
+[You]: to your specific use case? We know reconciliation is an incredibly nuanced workflow,
+[You]: that depends a lot on the specific setup, the regulatory requirements, the operational requirements,
+[You]: And so for us, it's
+[You]: how can reqci be
+[You]: very agnostic and very flexible to adapt to different use cases, and how over time
+[You]: there's agents that are being trained on context windows specific to your company
+[You]: as we get better and better over time.
+[You]: And the last part is problem solver. We all note here, if if you're close to the reconciliation
+[You]: that
+[You]: it's not only about automating the file comparison part of the spectrum,
+[You]: It's also that last mile of investigating and closing the differences. Right? And that's when we have
+[You]: where we have we build an agent called the problem solver, which basically
+[You]: grabs these differences
+[You]: groups them by root cause, and proposes solutions to the customer. That
+[You]: you can approve or reject.
+[You]: And once you start approving and rejecting and taking actions, that problem server
+[You]: is also feeding that information back to the reconciliation logic so that next time
+[You]: it's not a difference.
+[You]: It's automatically detected as a duplicate or as a manual
+[You]: transaction done by treasury and so on.
+[You]: A little bit more about the team and our investors.
+[You]: The three of us are Argentinians. I'm based in US. Diego is based in US as well.
+[You]: We're building for the so we have track
+[You]: here in The US. We also have traction in Latin America.
+[You]: But our investors are mostly US based PCs that have
+[You]: invested in our
+[You]: our previous round.
+[You]: And some key team members that we have, Franco Panario doing head of data and AI,
+[You]: he was previously working at
+[You]: and Julian Oscagloni, previously working at Google.
+[You]: And S app.
+[You]: So, yeah, I think the the longer term vision here is, again, how do we become
+[You]: instead of a vendor, tech vendor, how do we become a platform?
+[You]: And a tech partner for Bamboo?
+[You]: To deploy agents for the fin ops
+[You]: processes. Right? I think we've already seen the first wave of automation with AI
+[You]: and customer support.
+[You]: I think waves two and three are gonna be in finance and operations because, again,
+[You]: these are not
+[You]: processes or workflows or departments
+[You]: that are gonna make grow
+[You]: or make the company win against competitors. It's not part of the core
+[You]: that you need to control. And so
+[You]: as we think about agentic automation, our thesis is that
+[You]: companies will only will only focus on
+[You]: developing authentic and organic value for stuff that's
+[You]: gonna set them apart from competitors and that all of these enablement areas are gonna get automated by
+[You]: by agents.
+[You]: But for that, we need the infrastructure, which is basically connecting all the data sources together
+[You]: and creating that reconciled source of truth
+[You]: which enables you guys to deploy agents for all these processes. So that's
+[You]: sort of like who we are and what we do.
+[You]: Particularly, we're working with payment companies that are very similar to
+[You]: Bamboo setup, but we'd love to learn more about the setup, the current state of the business,
+[You]: the plan for twenty two and six. And then deep diving, of course, in
+[You]: how you're currently managing recon and if it makes sense if there's a fit
+[You]: to explore something together. Right?
+[Remote]: Alright. Thank you, Nasir.
+[Remote]: Where do these platform or agents run? Do do you offer your own infrastructure, or
+[Remote]: do they need to run-in our in bamboo infrastructure?
+[You]: It's in our infrastructure. Yeah.
+[Remote]: Yours. Okay.
+[You]: Yep.
+[Remote]: And is it where AWS or where is it?
+[You]: AWS. Yeah.
+[Remote]: Cool. How do you compare with platforms like Symmetric?
+[Remote]: That do you know that is very used here in in Latin?
+[You]: It's a great question, and and we are competing head to head with Symmetric.
+[You]: I think the first one is, and this is gonna be gonna sound very obvious,
+[You]: but I think it's it's definitely a differentiator at this time, which is
+[You]: we're AI native.
+[You]: Right? And that means that all our architecture, all our product, all the all the experience
+[You]: has been
+[You]: built the ground up thinking about AI applications and
+[You]: this is this gonna become scalable over time. Right? And so
+[You]: that I think is something that's gonna set us apart in the experience and in the product performance
+[You]: and the productivity, and it also makes us different in terms of the business model.
+[You]: Because we're way more efficient at implementing and maintaining the product
+[You]: than companies like Symmetric, which need to have a lot of professional services
+[You]: involved in implementing and maintaining the platform because
+[You]: it's a great product, but it's a frankin' stain of software
+[You]: that's hard to implement and hard to maintain. That's why there's
+[You]: account managers, there's customer support teams in India,
+[You]: helping you with that.
+[You]: We're a very lean team, and we're building a platform in a way that is way more
+[You]: plug and play and way more self serve. And that means we're also more cost efficient.
+[You]: Because we're using AI as a business model enabler. Right?
+[You]: The second thing I'll say is
+[You]: our vision is very different. Right?
+[You]: It's not only the product and the technology, also the vision. As I was saying, the vision for us
+[You]: is, reconciliation is just a
+[You]: and we wanna really deploy agents for other adjacent workflows.
+[You]: And not only stay in solving reconciliation and
+[You]: and another interesting part of our vision, which we are starting to develop right now, is
+[You]: the real problem with reconciliation
+[You]: is a coordination issue.
+[You]: Right? Because reconciliation is in every transaction, there's two parts.
+[You]: And reconciliation is just comparing source of
+[You]: truth of this part against the source of truth of this part.
+[You]: Right? We're always comparing a should be against what actually happened.
+[You]: This provider told me they were gonna send me
+[You]: transactions, but I've only see ten and nine in my system. What's the difference? Right? And so
+[You]: to actually solve reconciliation, we need to build connective tissue.
+[You]: And so rexy, the vision for rexy is how do we become an interconnected solution between and all the external providers? With whom you share those money flows. And that way, all the parties are reconciling anorexia. And then and then what that generates is
+[You]: first, everyone is working over the same set of files and data,
+[You]: Second,
+[You]: you're reconciling with the same logic, which is the most productive logic because it is
+[You]: AI generated. And third,
+[You]: you have a shared platform to collaborate on differences.
+[You]: On discrepancies and align on what's the actual source of truth across
+[You]: the stack involved in a money flow.
+[You]: I guess those are the two things. Right? In terms of product and performance, we're AI native, and in terms of vision,
+[You]: our vision transcends
+[You]: reconciliation, and our vision for solving reconciliation is this interconnected solution.
+[You]: Because we think it's
+[You]: the solution for the cause, right, of the problem, not
+[You]: just alleviating symptoms. I think
+[You]: solutions like Symmetric are alleviating the symptoms in a in a great way. I think it's a great product.
+[You]: And it's creating a it's creating a lot of value for these companies.
+[You]: But it's not solving the most painful part of the workflow, which is the last mile of
+[You]: investigating and closing the differences. Symmetric will only point you towards
+[You]: these are the differences, and then you need to build a workflow outside of symmetric
+[You]: to investigate and close the differences. Right?
+[Remote]: Yes. Of course.
+[Remote]: Yeah. That part, remains in the you know,
+[Remote]: the in the team and the people just to find out
+[Remote]: what were the problem. Do you have, like,
+[Remote]: you mentioned plugins and all of that.
+[Remote]: That means that do you have, like, the plugins or connectors
+[Remote]: for, I don't know, let's say,
+[Remote]: whatever.
+[Remote]: Pago fácil en Argentina, nada,
+[Remote]: MEC en Colombia, like like the built in connector for every
+[Remote]: processor or acquirer in LATAM? Or how
+[Remote]: how can we just
+[Remote]: connect to
+[Remote]: to to those
+[You]: We're taking a different approach.
+[You]: We do have some native integrations, which we've been working on for our initial customers, but we think that
+[You]: doesn't scale.
+[You]: Because if every like, if if it's just a run
+[You]: or a race to build a
+[You]: really big native library of integrations. Right? And so
+[You]: way to circle that around is, as I was mentioning, we're we're really investing in this
+[You]: integrator that enables us to build the connectors for
+[You]: single customer, but in a dynamic way.
+[You]: For that customer. We have it in our
+[You]: we don't have it natively. And so that's what makes us way quicker to implement.
+[You]: Because I don't need to be doing these native integrations. I just do it for each one of the
+[You]: Of course, then we gain some knowledge and some economies of scale in terms of
+[You]: if this is an integration we've already done
+[You]: for another customer, then we know it. We know how it works. We know the docs.
+[You]: We know all the nuance surrounding. Because we both know that
+[You]: AI API docs are outdated and are not all
+[You]: always reflecting what actually happened. So there's a lot of iteration there.
+[You]: But again, we're taking a different route instead of going down the
+[You]: rays of pay of building a native library, we're going
+[You]: a dynamic manner for each one of our customers.
+[You]: But, we can integrate with
+[You]: File, Fassil, Nike, AnyBank,
+[You]: either it's SFTP, API, or as I said,
+[You]: some customers are even pulling
+[You]: PDFs from email or downloading CSVs from portals. We we do whatever.
+[You]: Building the connector is is the first step of the process, and it's very important.
+[Remote]: Ok.
+[Remote]: But so what you're
+[Remote]: what you mean is the dynamic integration or connector is kind of
+[Remote]: an aging
+[Remote]: I don't know, discovering with
+[Remote]: how it should be the
+[Remote]: I don't know, the the processing of the file or the
+[Remote]: you know, the whatever
+[You]: Yes.
+[Remote]: the the integration gave us.
+[You]: Exactly. But it it it's an agent. Yep.
+[Remote]: Ok, ok.
+[Remote]: Interesting approaching approach. K?
+[Remote]: Good. Well, I have no more questions so far.
+[Remote]: Greg.
+[You]: How do you currently handle
+[Remote]: Ignacio.
+[You]: I have some how do you currently handle reconciliation? Is it a pain at at bamboo
+[You]: Were you already shopping for solutions? Did you talk with Symmetry? What what's the state of the problem?
+[Remote]: We're using Symmetric from a while.
+[You]: Ah, you're already using Symmetric.
+[Remote]: Yeah.
+[Remote]: Yes. We were already using Symmetric from yeah. I know.
+[Remote]: Probably a couple of years or something like that.
+[You]: And how is it working out for you guys?
+[Remote]: Well, as you mentioned, we have some paints and
+[Remote]: it have been, like, a very
+[Remote]: slow and long process, you know, to cover all the integration we have.
+[Remote]: Actually, I'm not sure.
+[Remote]: I kind of disconnect from that project for a for a while.
+[Remote]: And, actually, I don't know if
+[Remote]: now on we have, like,
+[Remote]: like, every
+[Remote]: like, every integration covered. I'm not sure about that.
+[Remote]: Probably
+[Remote]: don't.
+[Remote]: Because every time we add a new integration, it takes a lot of time to
+[Remote]: to add the reconciliation part.
+[You]: North. And what about the cost?
+[Remote]: Well, it is it's kind of thank you. It's not
+[Remote]: I mean, for us, we're we're a small company. I mean, we are not like a
+[Remote]: we are a let's say, medium to small company. So
+[Remote]: for us, it's it's costly.
+[Remote]: How's your you you talk you didn't talk about that
+[Remote]: How is your
+[Remote]: cost model? How do you
+[Remote]: charge your customer with this solution?
+[You]: We do an estimation based on volume
+[You]: number of connectors, and overall complexity with the workflow.
+[Remote]: Okay.
+[You]: And I give you a fixed quote.
+[You]: I think that's also differential
+[You]: versus our competitors. Me by fixed, I mean, it does not depend on your
+[You]: volume, and it does not depend on the amount of seats of people
+[You]: consuming a platform. It's fixed for the full contract.
+[You]: And that gives you full price
+[You]: visibility visibility into the future.
+[You]: And it basically enables you to scale gaining
+[You]: economies of scale. Right? As you scale, you want your unit economics
+[You]: to improve, not to remain the same. So if if you scale 10 x
+[You]: and my invoice 10 x,
+[You]: we're gonna get together next year. You're gonna try to negotiate and pull down the price or just replace me.
+[You]: And given my vision transcends reconciliation, I'm trying to price reconciliation in a way
+[You]: that is just like a partner.
+[You]: Today, your cost is
+[You]: is fixed because you can always solve this with people. Right? You can hire a team of ten twenty people to do it, and you're gonna be able to do it.
+[You]: And that's a fixed cost for you. It depend on the amount of transactions. Of course,
+[You]: the problem with using people is
+[You]: as you grow, you need more people. Right? But
+[You]: but it's a fixed cost for you. And so that's why we're pricing it fixed, a 100% fixed. And we're taking all the risks
+[You]: of
+[You]: your growth
+[You]: and your AI usage in the platform as well.
+[Remote]: Okay.
+[Remote]: Good.
+[Remote]: What do you think is a good next step? Probably
+[Remote]: you to have a meeting with someone from the
+[Remote]: from the finance team, which handled the the reconciliation.
+[Remote]: Actually, with with one of the technical guys who
+[Remote]: which is very close to the project. And probably discuss about the the pricing and compare with with Symmetric, but not only pricing, but, you know, all of the pain points that we have probably could be a a good idea to at least you know, understand the cost comparison between between them What do you think?
+[You]: Sure. I think that's a great next step.
+[You]: Just maybe a question for you, Lasides, is
+[You]: how are you approaching this? Is this something that
+[You]: if our solution is way better and it's cheaper, you might replace it this quarter?
+[You]: What's the urgency?
+[You]: Where is it coming from? Like, clearly,
+[You]: you took this meeting because there was some sort of interest or some sort of
+[You]: dissatisfaction or pain with the current situation, but I wanna understand
+[You]: if this is actually something you wanna pursue or not. Just because to be honest here,
+[You]: we try not to play the replacement
+[You]: route.
+[You]: We're an early stage startup, and it's been better for us to go up
+[You]: companies that are not using anything, just being the first system in.
+[You]: So every time they tell us they're using Symmetry,
+[You]: I'm like,
+[You]: okay. Is this actually coming from a dissatisfaction that you're looking to replace Symmetric or not?
+[You]: Just because it's it's a better use of everyone's time here.
+[You]: If that's the case, I'm more than happy to to to meet the finance team and and really show them how we are different, do a quote in terms of pricing, and then figure it out.
+[You]: But if you're like, nah, I'm just shopping around to see what happens, then probably
+[You]: better to reengage when it's actually a problem for you guys than its top priority. Right?
+[Remote]: Okay. Good question. So let me first check with them with the
+[Remote]: finance team. Actually, well, they they are
+[Remote]: they are, like, the owners of the product, so they they should have the, like, the real feedback
+[Remote]: more more than myself. So
+[Remote]: let me talk to them. Let me understand if they have this
+[Remote]: I don't know, a big pain that they that they want want to solve
+[Remote]: in the short term. And I will let you know if
+[Remote]: if you say yes, well, we can arrange a different meeting.
+[Remote]: But if, I know, if not a priority for them, well,
+[Remote]: I will let you know as well.
+[Remote]: ¿Está bien?
+[You]: Amazing. I think that sounds right. And, again,
+[You]: I'm I'm I'm gonna I'm gonna follow-up after this meeting with an email so you can share exactly with them
+[You]: the message on on what we do, how we do it differently, and our pricing model, how it's
+[You]: different. And then based on that, it makes sense to
+[Remote]: Okay.
+[Remote]: Great.
+[Remote]: Okay?
+[Remote]: You, Ignacio. Thank you, Ignacio.
+[Remote]: Have a good day.
+[Remote]: Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Bamboo Payment Systems Overview
+
+- Gcornwell runs sales and partnerships from Dallas, Texas
+- Lguzman is CTO based in Colombia
+- Medium to small company size
+- Currently using Symmetric for reconciliation (couple of years)
+
+### Current Reconciliation Pain Points
+
+- Symmetric implementation slow and lengthy process
+- Not all integrations covered yet
+- Adding new integrations takes significant time
+- Cost burden for company size
+- Manual investigation of differences still required outside Symmetric
+
+### Rexi’s Competitive Positioning vs Symmetric
+
+- AI-native architecture vs legacy system
+- More plug-and-play, self-serve implementation
+- Lower professional services requirements
+- Dynamic connector approach instead of native integration library
+- Problem solver agent for investigating/closing differences
+- Vision extends beyond reconciliation to broader FinOps automation
+
+### Pricing Model Discussion
+
+- Rexi offers fixed pricing regardless of:
+  - Transaction volume growth
+  - Number of platform users
+  - AI usage increases
+- Quote based on initial volume, connectors, and workflow complexity
+- Bamboo finds Symmetric costly for their company size
+
+### Next Steps
+
+- Lguzman to check with finance team on:
+  - Current pain level with Symmetric
+  - Priority for replacement solution
+  - Real feedback from reconciliation process owners
+- If high priority: arrange meeting with finance team and technical stakeholders
+- Ignacio to follow up with email containing solution details and pricing model
+- Decision on proceeding based on finance team’s urgency assessment
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/1d83f910-bee9-41f6-967b-93e8537d0f46](https://notes.granola.ai/t/1d83f910-bee9-41f6-967b-93e8537d0f46)

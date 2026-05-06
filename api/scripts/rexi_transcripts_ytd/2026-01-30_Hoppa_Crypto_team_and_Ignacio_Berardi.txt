@@ -1,0 +1,362 @@
+MEETING: Hoppa Crypto team and Ignacio Berardi
+DATE: 2026-01-30
+ID: not_0Ve4tpzny4HV41
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Beno <beno@polkabiome.com>, Beno <beno@hoppacrypto.com>, Mike <mike@hoppacrypto.com>, Mike <mike@polkabiome.com>, Beno Van Gansen <beno@hoppa.global>
+SCHEDULED: 2026-01-30T11:00:00-05:00 - 2026-01-30T11:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Thank you.
+[Remote]: Good. Good. Not bad.
+[Remote]: That was great.
+[You]: Sounds great.
+[Remote]: I guess Beno cannot join.
+[Remote]: Unfortunately. Sorry.
+[You]: Can you hear me well?
+[Remote]: Yeah. I can hear you well.
+[Remote]: And you?
+[You]: Yeah. Perfect.
+[Remote]: Unfortunately, Beno, our director,
+[Remote]: he cannot join.
+[Remote]: But I think I'm a
+[You]: Okay. No worries.
+[Remote]: I'm a head of partnerships in HelperCrypto.
+[Remote]: So I guess
+[Remote]: we can talk. So
+[Remote]: you, first of all, for the connection and for your message on LinkedIn.
+[You]: Sure. A 100%.
+[Remote]: So that's
+[Remote]: yep.
+[You]: Hello?
+[Remote]: I guess let's start with the round of introductions.
+[You]: Yeah. Sure. Let's just wait a couple of minutes for the rest to join. I have
+[You]: a couple of team members joining. I don't know if someone else is joining. You said
+[Remote]: Yeah.
+[You]: no. It's only gonna be you.
+[You]: Okay. Got it.
+[Remote]: Of course, it's Friday evening, so I don't think
+[Remote]: or director, I think he
+[Remote]: is on the call with the partners.
+[Remote]: Reviewing the integration. So, unfortunately, he cannot join.
+[You]: Okay. No worries. No worries.
+[You]: I can do let me let me see if someone else is joining
+[You]: on my end. No. No one else. I think I forgot.
+[You]: To add, my cofounder. But,
+[You]: I think you get off then.
+[You]: With the introductions. I'm just gonna share some slides of of
+[You]: who we are, what we do, and then, we can explore
+[You]: together if there's a fit between, Hotpah crypto and anorexia. Right? So the the idea is just to go through a brief overview of what we do
+[Remote]: Mhmm.
+[You]: who we work with, and then maybe you can also ensure yourself
+[You]: Papa crypto, and what are your specific needs with reconciliation.
+[You]: Then we can figure out if it makes sense to have a an additional conversation maybe around
+[You]: a product demo or even discussing more details about your
+[You]: reconciliation process and so on. Does that look like a
+[Remote]: Sounds good.
+[You]: a good agenda for you?
+[You]: And just confirming, you have until
+[You]: until the half hour. Right?
+[Remote]: Yeah. Yeah.
+[Remote]: Maybe
+[Remote]: even, like, twenty minutes, I think.
+[You]: Ok, cool.
+[You]: So let me just flip through these slides quickly, to do the intro.
+[You]: So, basically, this is a little bit more about us.
+[You]: An overview of what we do for whom and why us.
+[You]: We're empowering fintech companies
+[You]: both in the cryptos in the crypto stack and also
+[You]: in just the regular Fintech platform stack.
+[You]: With, basically, AI powered infrastructure to automate
+[You]: financial reconciliation. Right? This is, our first product.
+[You]: Our vision is to become
+[You]: the platform where FinOps teams find
+[You]: AI agents to apply to certain
+[You]: workflow that today are done very manually,
+[You]: are hard to scale, and are very risky. Right? That's the the hard part about
+[Remote]: Mhmm.
+[You]: financial workflows, that they're risky. If they're not done correctly with
+[You]: extreme precision, money might get lost. And that's
+[You]: that's the risk we're dealing with.
+[You]: What we're targeting today, we're working with the whole fintech
+[You]: stack, right, all the way from the sponsor banks, SaaS providers, Synthic platforms,
+[You]: payment providers, crypto wallets, and and
+[You]: every single player that is basically touching the money or managing the money,
+[You]: and requires some sort of reconciliation need. Right?
+[You]: Why us? The founding team where we have a lot of fintech experience
+[You]: We've built, fintech products, fintech operations,
+[You]: mainly around Latin America. I worked at
+[Remote]: Uh-huh.
+[You]: so and Camune in The US market as well. My cofounders worked
+[You]: come from Mercado Pago, Naranja X, Pomelo, these are big, big
+[You]: tech companies in Latin America. And so we
+[You]: we've dealt with this pain. We know we
+[You]: were like building a product we wish you had in the past
+[You]: and that gives us a really
+[You]: interesting insight on how these things should be done and and our product development
+[Remote]: Mhmm.
+[You]: efforts. This is a little bit more about, our current traction
+[You]: early customers, our our investors.
+[You]: And this is the team I would mention to you. I'm the CEO. I'm leading
+[You]: everything related to distribution and go to market. Theo, which was about to join, but I
+[You]: just figured I did invite him. Maybe you're gonna meet him next time.
+[You]: He leads everything, related to product and operations, and then we have Sebastian leading technology.
+[You]: So a value proposition, like, how does the
+[You]: platform actually work? Right? It's hard to say we're automating
+[You]: transactional reconciliation without
+[You]: explaining how the product works. Right? And so the the the customer journey typically
+[You]: involves four different steps. Right? The first one is data ingestion.
+[You]: We need to connect to your data sources, which that might mean your bank,
+[You]: your ledger, your,
+[You]: provider, your payment provider, or any other
+[You]: any other entity that's touching the money, that's
+[You]: generating a transactional file we need to reconcile with.
+[You]: We can develop either direct integrations to those systems
+[You]: or if you already have them in your cloud, we just connect your cloud and adjust that data.
+[Remote]: Mhmm.
+[You]: Automatically and synchronously. Right? Then
+[You]: the once the data is in the platform, we do the the data transformation.
+[You]: I'm sure you know that these files come in many different formats.
+[You]: Many different forms, many different naming,
+[You]: ways of operating. It's hard. So the first thing is
+[You]: parsing those files so that they're easier to process. Right? And that's where
+[You]: our data transformation agent comes in and unifies those
+[You]: those files into a single format. Then we have the data processing agent.
+[You]: Which basically what this agent does is figures out the reconciliation logic
+[You]: to match the transactions. Are we matching based
+[You]: on transaction ID? Are we matching based on date, amount,
+[You]: There's many different, reconciliation keys that we can use to combine transaction
+[You]: and match them. And then we have the comparatives. We should compare statuses. We should compare amounts.
+[You]: Should we compare dates?
+[You]: Should we compare fees? Should we compare costs, revenue, and and so forth?
+[You]: So that agent basically configurates all the logic so that these files are then processed.
+[Remote]: Uh-huh.
+[You]: And then finally, these things never match a 100%. Right?
+[Remote]: Yeah.
+[You]: It's never it's never the same. So
+[You]: the workflow becomes way more about investigating and closing the discrepancies. And so then
+[You]: that's when, you log in to our discrepancy resolution module,
+[You]: and that's where you can find AI powered suggestions,
+[You]: new rules to configure it, and you can also do some manual matching, create journal engine,
+[You]: everything with traceability and auditability. So that then
+[You]: once everything is reconciled and posted,
+[You]: you can see exactly what happened, how you match
+[You]: those things, who did it, and when. Right? And then the last part, which is not
+[You]: here, our platform has a functionality to
+[You]: plug into the main ERP systems. And so we create the journal entries
+[You]: of all the transactions that are already reconciled.
+[Remote]: Mhmm.
+[You]: Now what are what are the key design factors that we're building product
+[You]: with? Right? The first one is plug and play. We really want you guys to
+[You]: try the platform and have a really quick time to value.
+[You]: So it's easy to use, easy to implement. Right? The second part is self serve.
+[You]: Our value prop, really is
+[You]: centered around the idea that this should feel like you're building your own workflow.
+[You]: Your own software. Right? Not that we have a SaaS product and you need to adapt,
+[You]: and that you need to, like, change your operations so that it works with Brexit. Rec
+[You]: should adapt to you, and that's why we're building the product in a way
+[You]: is a 100% self serve from
+[You]: for for nontechnical users, for people from ops and finance.
+[You]: That way, we are creating a lot of autonomy and independence
+[You]: from the engineering teams that we know are always underwater with a long backlog
+[You]: of tasks. Right? And then the last thing is, the product is compliance ready.
+[You]: Because reconciliation has a big, big adjacency around compliance.
+[You]: And reporting. So we're building a lot of functionality around
+[You]: this product, enabling these companies
+[You]: to ensure that they are compliant. Right? And they are compliant in a very efficient way without having
+[You]: having huge teams of FinOps accounting,
+[You]: or even operations to try to be compliant. The tool does it for you.
+[You]: And there's a human in the loop just
+[You]: approving, suggesting, and providing the necessary
+[You]: guard rails for the system to operate efficiently.
+[Remote]: Mhmm.
+[You]: It's a little more about how we differentiate from competitors.
+[You]: Again, the main the main differentiation here is, the tag
+[You]: to value implementation time.
+[You]: And that data then the flexibility and the configurability
+[You]: of the platform,
+[You]: we adapt your workflows, not the other way around.
+[You]: And then, of course, everything around AI. Right? We're we're building a company in
+[You]: 2025, 2024. And so that
+[You]: enables us to be AI native from day one, and that's why our product and our technology
+[You]: is way more advanced by competitors.
+[You]: And this basically
+[You]: enables us to have a business model which we can be way cheaper than a competitor.
+[You]: Almost half. So we tend to, like, out price competitors by a significant amount.
+[You]: With a better tool. So we're 10 x better and half the price.
+[You]: A little bit of the results of early
+[You]: customers. We've reduced 80% of the manner work related to reconciliation.
+[You]: Zero regulatory audits coming from our customers,
+[You]: thanks to the tool enabling them to be
+[You]: on time, compliant, and with the necessary require reporting requirement.
+[You]: And then finally, we've reduced write offs.
+[You]: Write offs are related to money that's lost,
+[You]: for stuff that's unreconciled, and you cannot find
+[You]: the explanation nor the money.
+[You]: And so there's a lot of companies doing recurrent write offs, literally, like, just, like, at the end of the month,
+[You]: they're losing money because they cannot reconcile their money flows.
+[You]: And so we reduced that by 95% This is sort of, like, to build the ROI around implementing a solution like ours. Right?
+[You]: These are just case studies. Yeah. Go ahead.
+[Remote]: Yep.
+[Remote]: Look at Ignacio. Just not to waste your time.
+[Remote]: I don't think we're
+[Remote]: on that stage where we can implement your service because we currently have, like, around
+[Remote]: 15 live clients, and we are onboarding the clients in the stage of
+[Remote]: onboarding at the moment. So I don't think,
+[Remote]: we'll use it, like, right now now. And it's
+[Remote]: the decision of our director because he's more
+[Remote]: tax savvy. So more for the partnerships and
+[Remote]: the customer service, I would say. So I'm not
+[Remote]: really into the flow of the company in terms of your services that you're providing.
+[Remote]: That would be
+[Remote]: cool if you can tell me, like,
+[Remote]: with what companies are you working?
+[Remote]: With, like,
+[Remote]: you mentioned, like, in the previous in the slides.
+[You]: Yeah. Of course. Just one question. What type of
+[You]: customers are you onboarding? Is it B2C or B2B?
+[Remote]: Yeah. We are purely b to b.
+[You]: Got it. And then what type of customers are you onboarding?
+[Remote]: We have different, like,
+[Remote]: let's say, it's fintech providers. So we we are just issuing
+[Remote]: the crypto cards, and we're go given, like, the full
+[Remote]: service of crypto cards inside. You can find iBands,
+[Remote]: on ramps, and off ramps from our part
+[Remote]: but mainly it's crypto cards. So we're purely b two b. So let's say
+[Remote]: an exchange can come to us and they ask, hey, guys. We need crypto cards for our users.
+[Remote]: We're giving them like, we have four IBAN we have four BINs
+[Remote]: already at the moment, like, in Hong Kong, Europe, and US.
+[Remote]: And, we are
+[Remote]: adopting, like, the compliance. We look at the company where
+[Remote]: they registered, basically doing the UBOs
+[Remote]: analysis, and then we are providing the system according to that.
+[Remote]: It's
+[Remote]: mostly, I would say, fintech providers, crypto companies, and
+[You]: Okay. Okay. Very interesting.
+[Remote]: casinos.
+[You]: And mainly focused in Europe and Asia.
+[Remote]: No. Where do I?
+[Remote]: We can work with US companies. With Latin America, we have the companies
+[Remote]: from
+[Remote]: Peru, Ecuador, Colombia, Asia,
+[You]: Okay.
+[Remote]: and Europe, of course.
+[You]: Okay. Amazing. Well, then given your
+[You]: on the partnerships team, do you think this is a product you're
+[You]: your customers would be interested in?
+[Remote]: I think he asked.
+[Remote]: That's what I was thinking about.
+[Remote]: So if you have the referral materials,
+[Remote]: feel free to send it to me via email. And
+[Remote]: I have the same, actually, request from you because
+[Remote]: I saw that you have customers that are much now
+[Remote]: profile, in our product. If,
+[Remote]: are you guys working in any kind of referral programs? Because
+[Remote]: we have a referral program, which is we are giving 50 per 15 just for the introduction.
+[You]: 15% of what?
+[Remote]: Of the revenue generated from the volumes of the cards.
+[You]: But but how how how do you do it just for the introduction? That needs
+[You]: to generate the revenue?
+[Remote]: Yeah. Exactly. So let's say you introduce us
+[Remote]: to one of the exchanges that you are working with, and they need cards.
+[Remote]: And you know that they need cards. They come to us. You make a
+[Remote]: a Telegram group, let's say, then we have a call, and then when they agree to have the cards,
+[Remote]: we enboard them, and they start, generating revenue by volumes.
+[Remote]: And
+[Remote]: the profit from these volumes, get 15% because it was the referral.
+[You]: Okay.
+[Remote]: That's how we work.
+[You]: Okay. Perfect.
+[You]: We can do we can do something similar with you guys as well. I'll just share this deck
+[You]: in a one pager. And then the question for you is
+[Remote]: Cool. Cool.
+[You]: are you just interested in a referral thing or are you maybe
+[You]: interested in an embedding thing? Do you have a portal you offer
+[You]: to your customers or is it just a card infrastructure?
+[Remote]: Instacart infrastructure.
+[You]: Okay. So no portal. No interface.
+[Remote]: No.
+[Remote]: Not we have, but
+[Remote]: like, not in this stage where we can implement your product. Maybe in the future, yes.
+[You]: Great.
+[Remote]: I want to be honest with you.
+[You]: Okay. A 100%. Then let's do something. I'll share these materials.
+[You]: I don't know if you wanna sign some sort of reseller agreement.
+[Remote]: Yeah.
+[You]: Or how do you
+[You]: about this? But we can do the same agreement both ways. We can do
+[You]: yeah, we can do 15% of of the revenue we get from from your customers.
+[Remote]: Sounds good.
+[You]: And
+[You]: that's it for us.
+[Remote]: Do you use Telegram by any chance?
+[You]: No. Not really.
+[Remote]: Email?
+[You]: Yes.
+[Remote]: Yep. US style.
+[You]: Yeah. This is my email.
+[Remote]: Yep. Okay.
+[Remote]: I have it. Then I will share the information there
+[Remote]: and, feel free to share yours.
+[Remote]: And let's sign the
+[Remote]: referral agreements.
+[You]: Do you wanna send over your
+[You]: standard agreement, or do you want me to draft one?
+[Remote]: From your side, yes. Please draft one, and I will send ours.
+[You]: Okay. Perfect.
+[You]: Alright. Great meeting, Mike.
+[Remote]: Okay.
+[You]: Is there anything else you wanna go through?
+[Remote]: No. I think that's that's a nice endpoint.
+[You]: Okay. Great. Well, great meeting you
+[You]: you so much for the space and the time. Let's get those contracts in, and let's try to push our solution
+[Remote]: Thank you.
+[Remote]: Exactly. Sounds good.
+[You]: to our customers. Right?
+[Remote]: Thank you.
+[You]: Thank you so much. Bye bye.
+[Remote]: Have a nice day.
+[You]: You too.
+[Remote]: Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Hoppa Crypto Overview
+
+- B2B crypto card infrastructure provider
+- 15 live clients currently, actively onboarding more
+- Services include:
+  - Crypto card issuance
+  - IBANs, on-ramps, off-ramps
+  - 4 BINs across Hong Kong, Europe, US
+- Target customers: exchanges, fintech providers, crypto companies, casinos
+- Global reach: US, Latin America (Peru, Ecuador, Colombia), Asia, Europe
+
+### Current Business Stage
+
+- Too early for reconciliation automation implementation
+- Director (Beno) makes technical service decisions
+- Mike handles partnerships and customer service
+- Focus on client onboarding vs operational optimization
+
+### Partnership Opportunity Discussion
+
+- Mutual referral program proposed
+- Hoppa Crypto’s standard terms:
+  - 15% of revenue from card volumes
+  - Introduction-based referrals via Telegram groups
+  - Payment only after client generates revenue
+- Agreed to reciprocal 15% revenue share structure
+- No portal/interface integration opportunity (infrastructure-only model)
+
+### Next Steps
+
+- Ignacio to draft referral agreement
+- Mike to send Hoppa Crypto’s standard agreement
+- Exchange referral materials via email
+- Both parties to identify potential customer introductions
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/41e4bf8a-7a24-44cc-b230-8fc71ebc7045](https://notes.granola.ai/t/41e4bf8a-7a24-44cc-b230-8fc71ebc7045)

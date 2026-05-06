@@ -1,0 +1,433 @@
+MEETING: Rexi x BPBA: intro
+DATE: 2026-03-20
+ID: not_nEoSBFZ1ua5aDz
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Nmochera <nmochera@bpba.com.ar>, Mnunez2 <mnunez2@bpba.com.ar>, Teo <teo@rexi.finance>, Carolina Morawetz <carolina@rexi.finance>
+SCHEDULED: 2026-03-20T10:00:00-04:00 - 2026-03-20T10:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Hola, buenas.
+[Remote]: Hola, Ignacio. Tranquilo, no es el
+[You]: ¿Cómo está, Matías? Perdón, la demora.
+[Remote]: hay ningún problema.
+[Remote]: Preguntando el el rol de
+[Remote]: Estaba contando hablar un poco
+[Remote]: oye, el rol
+[Remote]: mío, realmente, en el banco.
+[Remote]: Más o menos hace unos ocho meses,
+[Remote]: se armó el equipo de comercios enfocado en todo lo que es la parte
+[Remote]: del desarrollo de banco privado.
+[Remote]: Nosotros estamos
+[Remote]: asociándonos con payway, para usar el gateway de pago,
+[Remote]: en conjunto con otros proveedores,
+[Remote]: en una empresa que se llama Team Quality, que es la que nos da toda la plataforma de administración
+[Remote]: para
+[Remote]: control de seguimiento y liquidación de las operaciones,
+[Remote]: Esto todavía no no está lanzado, estamos empezando a montar
+[Remote]: algunos comercios de prueba en producción,
+[Remote]: Es un mundo nuevo para nosotros, pero nos permite empezar a
+[Remote]: a meternos en el negocio
+[Remote]: de adquirencia, ¿sí?, o sumo o subaquidencia, por así decirlo.
+[Remote]: Actualmente el banco ofrece las condiciones de pay with infiles,
+[Remote]: como revendedores, ¿sí? Lo único que hacemos ahí es quedarnos
+[Remote]: con la acreditación de los fondos
+[Remote]: de los comercios, pero no
+[Remote]: podemos participar en lo que son los ingresos de los franceses.
+[Remote]: ¿Sí? Entonces, un poco
+[Remote]: ahí logramos
+[Remote]: avanzar a través del directorio del banco, que apruebe
+[Remote]: el lanzamiento de este producto. ¿No? El asociado con otro partner,
+[Remote]: como recién les comentaba. Bueno, y y ahí un poco,
+[Remote]: a ustedes a través de de de una nota que vi en el diario,
+[Remote]: la verdad que, bueno, me pareció interesante conocer cuál era la propuesta,
+[Remote]: o entender un poquito que que cuenten, pues, la solución. La realidad que hoy
+[Remote]: no estamos en producción, tampoco tenemos tan claro por el base de los volumen,
+[Remote]: de operaciones, cuáles van a ser tal vez los problemas que puedan llegar a surgir,
+[Remote]: en el mundo de lo que son las concentraciones.
+[Remote]: Al azar de pruebas y de divulgación, estamos tratando de
+[Remote]: estamos trabajando con diez operaciones. Pero
+[Remote]: para que entiendan, ¿no?, nosotros tenemos actualmente unos ciento noventa mil comercios,
+[Remote]: que están operando la solución de cuentas de comercio. Soy cuenta de comercio,
+[Remote]: solamente permito operar con pagos por transferencia. Hoy no podemos no aceptamos pagos con tarjetas. Con lo cual, se los va a sumar tú un ecosistema, que hoy no manejamos en forma directa, porque hoy todo ese mundo lo maneja el dueño de esa operación es PayWay Pfizer, con lo cual hoy
+[Remote]: nos vamos a encontrar con un mundo nuevo.
+[Remote]: ¿Sí? Inicialmente tenemos ciento ochenta mil comercios, que ya
+[Remote]: están enrolados en la aplicación,
+[Remote]: y buscamos que que que comiencen a operar con esta con esa
+[Remote]: esta nueva solución. Pero
+[Remote]: de esos ciento ochenta mil, sesenta y cuatro mil vienen operando
+[Remote]: de forma activa el último mes. La verdad que venimos en declive, pregunto de que
+[Remote]: producto quedó muy corto, no tenemos muchas
+[Remote]: mucha funcionalidad, no poder ofrecer con una con tarjeta de crédito,
+[Remote]: te quedas un poco fuera dentro de lo que es el mercado, ¿no?
+[Remote]: Teniendo en cuenta. Hoy la participación que tiene el
+[Remote]: Mercado Pago, NAVE y demás.
+[Remote]: Dentro del roadmap del
+[Remote]: de la evolución
+[Remote]: de la aplicación, tenemos contemplado también adquirir terminales,
+[Remote]: y más o menos para el segundo semestre estimamos que lleguen al país.
+[Remote]: Para que estén operativas.
+[Remote]: Así que, bueno, eso es un poco el
+[Remote]: el análisis, ¿no?, o el o el resumen del estado en el que estamos, que, bueno, tal vez es importante que que sepan que no estamos en revisión, por lo tanto, tal vez hoy no no tengo tan en claro cuál va a ser el lío que se me viene más adelante, ¿no? Pero es un poco para podernos encontrar.
+[You]: Buenísimo, Matías, gracias por el contexto y
+[You]: ahí quizás me presento, perdón que me sume unos minutitos tarde. Yo soy el soy cofounder y
+[You]: CEO de Rexi. No sé si los chicos tuvieron la posibilidad de presentarse, pero
+[You]: pero, bueno, Tego está en en producto y en operaciones,
+[You]: también cofounder, y Caro está como g
+[You]: of growth y marketing, ayudándonos en esfuerzos de distribución y
+[You]: y y posicionamiento de marca.
+[You]: Te cuento un poquito, o sea,
+[You]: un poquito lo que hacemos, y después, en base a lo que escuché,
+[You]: algunos comentarios, y también feliz de responder otras dudas y preguntas que vayan surgiendo.
+[You]: Nosotros arrancamos desde un poquito más de un año y medio,
+[You]: Los tres cofounders venimos del mundo financiero,
+[You]: del mundo Fintech, particularmente. Tego estuvo en Mercado Pago, nuestro sitio viene de Pomelo, yo estuve en en común y en Bicho, en el mundo Fintech, y antes de eso estuve en en consultoría estratégica, trabajando para bancos como Galicia, Santander, BBVA,
+[You]: Macro,
+[You]: los grandes bancos, SuperBield, los grandes bancos de Argentina.
+[You]: Es un mundo que conocemos bien, y quizás el arrancar la compañía
+[You]: el fundar esta startup vino de, justamente, el dolor que habíamos vivido estando del otro lado.
+[You]: ¿Qué es Rexi? Rexi es una plataforma
+[You]: creo que esta información, ¿sí?, a nivel conceptual. Entonces, ¿qué es que hacemos?
+[You]: Nos conectamos a las fuentes de información
+[You]: ya sea un extracto bancario, el archivo que te manda un procesador de pagos,
+[You]: la API que te manda una billetera,
+[You]: algún ledger interno, algún sistema interno de trackeo de transacciones,
+[You]: toda la información transaccional que se debe conciliar.
+[You]: Lo importante acá es que vamos con los archivos crudos.
+[You]: Entonces, eso no eso quiere decir que no requiere ningún pretrabajo de ustedes
+[You]: para poder usar la plataforma.
+[You]: Mencionando estas cositas
+[You]: diferenciales, porque sí nos separan
+[You]: de la competencia, de otros proveedores, que por ahí seguramente estás
+[You]: hablando en el mercado o investigando.
+[You]: El primer punto es ese, trabajamos con archivos crudos. Primero, porque nuestra plataforma tiene la capacidad de
+[You]: hacer todo ese preprocesamiento,
+[You]: y segundo, porque por un tema de trazabilidad y de y auditabilidad,
+[You]: es importante siempre poder volver a ese archivo crudo, por cualquier cosa que pase, ¿no? Entonces, preferimos controlar el
+[Remote]: Yep.
+[You]: flujo de información
+[You]: de principio a fin.
+[You]: Una vez ingestados los archivos, que se conectan, ya sea por a,
+[You]: SFTP, traemos CSVs de portales o
+[You]: PDFs de de mails,
+[You]: Una vez que que se construye este conector para ingestar de manera diaria y a cinco
+[You]: el primer paso dentro la plataforma es la transformación.
+[You]: Estos formatos, estos archivos, como bien vos sabrá, o por ahí te estás adelantando,
+[You]: vienen todos con formatos diferentes, nomenclaturas diferentes,
+[You]: estructuras diferentes, y, por ende, hay un que hay que hacer.
+[You]: Comentaba que hacemos nosotros en la plataforma.
+[You]: Eso se hace con tecnología también de inteligencia artificial, que busca ese formato universal
+[You]: que va a facilitar la la la la el procesamiento que viene luego.
+[You]: El segundo paso dentro de la plataforma es el procesamiento.
+[You]: Es la lógica conciliatoria. Y ahí hay dos partes.
+[You]: Primero, absorbemos la lógica de negocio
+[You]: ustedes ya conocen por conocer los archivos, o que nosotros también conocemos porque sabemos
+[You]: funciona el archivo de Prisma, cómo funciona el archivo de
+[You]: cómo funciona el archivo de Mastercard o el bancario de Superbiel.
+[You]: O de Coinar o de BIN,
+[You]: pero se confía en una lógica conciliatoria que lo que busca hacer es
+[You]: lo que llamamos el el ratio de macheo.
+[You]: El ratio de cruce. Lo que más queremos es tratar de considerar a
+[You]: cantidad de transacciones posible. Lo hacemos con la lógica de negocio más
+[You]: un agente que mira la información estructurada y propone nuevas reglas.
+[You]: Hay veces que
+[You]: nosotros humanos entendemos que se cruza por monto, fecha,
+[You]: y algún identificador,
+[You]: la gente, luego, es muy bueno buscando condiminaciones adicionales. Esto es particularmente útil cuando la
+[You]: no es uno a uno,
+[You]: sino por ahí muchas transacciones a uno.
+[You]: Porque tenés un banco que te agrupa transacciones una vez al día, por ejemplo.
+[You]: Una vez procesada la información, toda esa parte de
+[You]: y procesamiento, eso ya se hace automáticamente.
+[You]: Con lo cual, el segundo paso es, obviamente, lo que llamamos la
+[You]: la investigación y resolución de discrepancias, que ahí es donde se
+[You]: termina gastando la mayor cantidad del tiempo
+[You]: de nuestros clientes, porque
+[You]: esa parte es la más tediosa y la más manual, digamos.
+[Remote]: Esa es la que me preocupa, esa la que me me preocupa, que es la que
+[You]: Porque
+[Remote]: también desconozco,
+[Remote]: y me me atemoriza un poco cuál va a ser el volumen de esas discrepancias.
+[Remote]: Te hago un paréntesis por este tema que
+[Remote]: comentabas, para ver si te sube un poquito más de información. Nosotros tenemos este, vamos a tener este sistema de team quality,
+[Remote]: es un orquestador, el cual se ocupa de
+[Remote]: tomar las transacciones de la app,
+[Remote]: aprobar el el cobro, ya sea con tarjeta de crédito, débito,
+[Remote]: las manda las marcas, las marcas aprueban y queda registrada la operación.
+[Remote]: Al final del día,
+[Remote]: hace el cierre de lote y ya presenta un payment. Y al otro día,
+[Remote]: Cable nos va a mandar un archivo
+[You]: Liquidas.
+[Remote]: Entonces, del class
+[You]: Sí.
+[Remote]: y también el de presentadas.
+[Remote]: El de presentás para validar justamente que todas las operaciones del día anterior
+[Remote]: pasaron correctamente,
+[Remote]: y en el de liquidadas entiendo que son lo que corresponde pagar en el día.
+[Remote]: ¿Sí?
+[Remote]: Bueno, ahí hay archivos que vienen, por un lado,
+[Remote]: del orquestador, dice, este, codeword in quality,
+[Remote]: de la plataforma, y por el otro lado del paywall. Y ahí lo que hace es como una primera concitación.
+[Remote]: A mí lo que me atemoriza es qué pasa
+[Remote]: si hay algo que no coincide entre lo que tenía el otro estado y lo que y lo que me hizo
+[Remote]: Entonces, ahí lo que me preocupaba era ver
+[Remote]: che, ¿y ahí qué hacemos? Si de repente tengo
+[Remote]: No sé.
+[Remote]: Dos mil operaciones pendientes de conciliar, tengo que ir uno a uno, como ves, esa esa es la parte que
+[You]: Esa es la parte más de la luz.
+[Remote]: Exacto.
+[You]: Totalmente en lo correcto de que, en en que te preocupe esa parte,
+[You]: porque esa es la parte que más va a llevar tiempo y la parte más manual.
+[You]: Y ahí es donde, de vuelta,
+[You]: en Rexi, primero que nada, lo más probable es que nosotros logremos conciliar
+[You]: más transacciones de lo que logre conciliar este sistema.
+[You]: Por lo que te digo que tenemos tecnología con
+[You]: algoritmos de machine learning, inteligencia artificial, que maximiza
+[You]: el ratio de conciliación.
+[You]: Entonces, ya trabajás sobre una base de diferencias mucho menor.
+[You]: Dentro de la base de diferencias, eso se divide típicamente en dos grandes mundos.
+[You]: Uno, lo que es errores de información,
+[You]: que si yo actualice una base,
+[You]: corrijo el sistema propio, busco patrones adicionales, porque por ahí hay duplicados,
+[You]: no sé, o me falta una fecha en algunas transacciones, errores de data,
+[Remote]: Sí.
+[You]: Y después está el otro mundo, que es plata que realmente falta.
+[You]: Que hay un contracargo, hay un error, hay que
+[You]: llamar a Payway y entender qué pasó, llamar al banco y entender qué pasó.
+[You]: Este mundo de data, nosotros lo reducimos a cero.
+[You]: De vuelta con tecnología agéntica y machine learning para
+[You]: agrupar transacciones en clusters,
+[You]: por causa raíz,
+[You]: y proponer soluciones.
+[Remote]: Okay.
+[You]: ¿Sí? Entonces, por ejemplo, encuentra que estas diez transacciones están duplicadas
+[You]: no son diferencias, están duplicadas en la base de
+[You]: Payway o están duplicadas en la base interna.
+[You]: O en el banco, por algún motivo, algún error de reporting.
+[You]: Vos podés ahí entrar y decir, apruebo o rechazo esta sugerencia. Si la aprobat,
+[You]: listo, ya no te aparecen más en las diferencias. Y así, en el sistema, empezás a
+[You]: ir resolviendo las discrepancias, pero no es uno a uno, ¿me entendés? Tenés
+[You]: una capa de inteligencia que
+[You]: te ayuda a que eso, en vez de tardarte por ahí horas, lo hagas realmente en veinte minutos, mires una por una y vayas a probar entrechazando.
+[You]: Lo interesante de esto
+[You]: es que, a medida que vos vas aprobando y rechazando,
+[You]: el sistema aprende.
+[You]: Eso quiere decir que la próxima vez,
+[You]: ese tipo de transacciones, ese tipo de error, no te aparece más en diferencias.
+[You]: Ya lo codificó como una regla conciliatoria, ya te eliminas los duplicados de una.
+[You]: En el tiempo se vuelve mucho mejor. Tenemos como un data ahí donde la
+[You]: gente aprende
+[You]: no solamente de la información particular de ustedes,
+[You]: sino también de las acciones de ustedes.
+[You]: Y con eso,
+[You]: se vuelve mejor en el tiempo.
+[You]: Y terminándote para contarle lo que hacemos en Rexi, está el último paso.
+[Remote]: Sí,
+[You]: Que es todos los esquemas de output.
+[You]: Ahí tenemos reportes,
+[You]: totalmente personalizados para lo que necesiten. No sé si tienen alguna
+[You]: por ejemplo, con el Banco Central o algún regulador, eso se puede automatizar también.
+[You]: Dashboards, obviamente, vos te podés meter en la plataforma y ver el estado de la operación,
+[You]: día por día,
+[You]: semana por semana, qué cuadró, qué no cuadró, cuál es el estado de esas diferencias.
+[You]: Cuál es la edad de esas diferencias, porque a veces tenés que esperar uno o dos días a que aparezcan las transacciones.
+[You]: Entonces, toda esa lógica de, che, si ya pasó una semana, ponemela como crítica, alta, prioridad alta, baja, media, ese tipo de cosas, Y después está todo el tema de contabilidad. Que ahí nos conectamos a los principales ERPs y se configura dentro de Rex y lo miramos el diccionario contable.
+[You]: ¿Cómo vamos a agrupar todas estas transacciones para generar las entradas?
+[You]: Una es que se configura,
+[You]: te queda todo el flujo automatizado de principio a fin.
+[You]: Ingesta, transformación, procesamiento, resolución de discrepancias,
+[You]: creación de asientos contables, o reporting o el dashboard, con lo cual es un poquito
+[You]: a grandes rasgos, cómo funciona el flujo, la plataforma, el producto.
+[You]: Si querés, te cuento un poquito más con quiénes estamos trabajando hoy, para que también te des una idea de
+[You]: de en qué nos enfocamos. Estamos trabajando con bancos,
+[You]: procesadores de pagos, adquirentes billeteras digitales, y y plataforma fintech en en un en una definición un poquito más más amplia, porque la realidad es que la conciliación se vuelve un dolor en cualquier compañía que tenga múltiples flujos de pago, dinero. Y una transaccionalidad alta. Como bien vos decías, si la, es lo mismo si la diferencia son dos mil a si la diferencia son diez. ¿No? Entonces, la transacción tiene que ser alta, y tiene que haber múltiples flujos de pago para que se complejice realmente el el el flujo. Con lo cual, un poquito sobre nosotros, qué hacemos, y y creo que ya te conté un poquito de quiénes somos,
+[You]: Nosotros
+[You]: tenemos parte del equipo basado en Nueva York, parte del equipo basado en Buenos Aires.
+[You]: Trabajamos con compañías acá en Estados Unidos,
+[You]: y en en Latinoamérica.
+[You]: Y, por último, quizás algo que por ahí les les importa a
+[You]: ustedes como banco es el tema de la seguridad y la privacidad de la información. Tenemos
+[You]: estamos certificados con SOC dos, tipo dos, estamos trabajando con compañías públicas,
+[You]: en proceso de tener SOC uno tipo dos y la certificación de ISO veintisiete mil uno, Y para nosotros, todo lo que es privacidad y seguridad de la información es primordial. Esto es información transaccional, y sabemos que la tenemos que cuidar igual o más que ustedes, entonces todos los flujos de información y cómo trabajamos,
+[You]: tenemos eso como prioridad, digamos. Trabajamos con información encriptada, con nuestros clientes
+[Remote]: esto esto es un tema que se se había levantado, ¿no?, el problema que hemos tenido con los proveedores es que
+[Remote]: algunas de estas plataformas se intentaron, se articulará por lo p c I,
+[Remote]: y
+[Remote]: yo no sé si si ustedes están certificados en esa en esa instancia,
+[You]: PCI, no, porque no solemos trabajar con ese tipo de información, pero en los casos que necesite PCI, tenemos una solución intermedia, que es podemos la información.
+[You]: O encriptarla, de manera que toda esa información sensible nunca entra a
+[You]: De hecho, estamos trabajando en un cliente de esa manera.
+[Remote]: Ok. Ya, perfecto. Porque en ese caso,
+[Remote]: yo entiendo que hay alguna algún tipo de información, como son, por ejemplo, datos de tarjeta de crédito,
+[Remote]: no no que no deberían viajar en su formato de texto plano, sino que deberían venir
+[Remote]: tokenizados, así decirlo,
+[Remote]: Entiendo que hoy la plataforma
+[Remote]: viaja de esa manera, ahí lo que me cuesta entender es cómo
+[Remote]: cómo se terminan de consolidar las operaciones, ¿no?
+[Remote]: Pero entiendo que es un mundo que voy a conocer en breve cuando estemos en production.
+[Remote]: Nosotros, lamentablemente, los ambientes de homologación de payway no existen.
+[Remote]: Entonces, hay muchas cosas que no hemos podido probar,
+[Remote]: me voy a enterar
+[Remote]: cuando empecemos a
+[Remote]: incorporar comercios en la etapa de producción,
+[Remote]: y podamos ver cómo van
+[Remote]: cómo, digamos, cómo cómo se van cruzando las operaciones. Hay cosas que no
+[Remote]: repito, que no las pudimos ver en evaluación, por lo tanto, voy
+[Remote]: en la estancia de producción. Por ejemplo, contra cargos tampoco lo pude ver, porque me lo va mandar paywall,
+[Remote]: Si bien tengo algún diseño de registro, no me queda clara la operatoria diaria,
+[Remote]: los voy a estar recibiendo, o qué cuestiones tengo que estar
+[Remote]: atención. Pero
+[Remote]: entiendo que
+[Remote]: un poco la definición del negocio es que nos contrataron, nos vamos a aplicar al comercio,
+[Remote]: se los vamos a cobrar, y después tendrá que el comercio
+[Remote]: iniciar el reclamo interno del banco y y ahí con Payway usarlos para
+[Remote]: para presentar la documentación que tenga que presentar, para ver si
+[Remote]: eventualmente se hace una reversa y demás.
+[Remote]: A mí, al principio, esta charla me sirve para para que ustedes me cuenten un poco
+[Remote]: es lo que vienen haciendo, con quiénes estaban trabajando.
+[Remote]: Y
+[Remote]: me parece que tal vez
+[Remote]: de de mi parte, una vez que empecemos a rodar un poco
+[Remote]: dentro del próximo mes, capaz que ya tuve un poquito más de información como para
+[Remote]: ajustar los puntos más más fuertes o las dudas que tenga como para que tal vez
+[Remote]: pues, volverlos a juntar,
+[Remote]: y mostrarle, ¿no?, como más la operatoria diaria,
+[Remote]: y ver si hay alguna cuestión que
+[Remote]: que podamos definir más adelante.
+[Remote]: Se me ocurre en esta instancia, pero bueno, como te decía, ¿no?, hoy no estoy en producción,
+[Remote]: no no tengo claro cuáles son las cuestiones que tenemos que
+[Remote]: que ajustar, ¿sí?
+[Remote]: Pero bueno, me parece importante, por lo menos, tener esta primer charla para conocerlos,
+[Remote]: eventualmente ponerlos en contacto para
+[Remote]: ver si eventualmente podemos
+[Remote]: volver a juntarnos y y conversar.
+[You]: Totalmente, totalmente.
+[You]: Mirá,
+[You]: me gusta, o sea, no no no sé si, no quiero decir me gusta, pero
+[You]: me parece interesante el approach de
+[You]: empezar a pensarlo de antemano.
+[You]: ¿Sí?
+[Remote]: Esa ese es el tema, exacto. Creo que de ahí resumiste lo que
+[You]: Porque
+[Remote]: lo que me está pasando.
+[You]: porque la realidad es que, si después lanzás y
+[You]: y no sabés bien cómo va a funcionar esto,
+[You]: vas a estar atajando penales
+[You]: y lo más probable es que se pierda plata en esos primeros meses de operación. Sí, no, pero es tratar de, o sea, creo que anticiparse es lo correcto. Así que, en ese sentido, lo lo único que te quería transmitir es contá con nosotros, para trabajar previo a esa a ese lanzamiento, para por ahí ya dejar, por ejemplo, los conectores y los flujos y en esos primeros tres meses de lanzamiento,
+[Remote]: Creo que voy a tajar finales, igual, lo tengo claro,
+[You]: contá con nosotros en términos de equipo, de de sentarnos al lado tuyo
+[You]: y y poder reaccionar semana a semana a cómo van llegando los archivos, a las casuísticas que vamos viendo,
+[You]: Esto
+[You]: mundo de conciliaciones es un mundo de casuísticas.
+[You]: Digo, codificar un flujo de principio a fin
+[You]: no es lo más difícil de este mundo. Lo más difícil de este mundo es atajar
+[You]: todas las casuísticas que pueden suceder
+[You]: porque, aparte, muchas veces no dependen solamente de vos, sino de proveedores externos, ¿no?
+[You]: Que cambian constantemente.
+[You]: Entonces,
+[You]: feliz de retomarlo más adelante, cuando ya por ahí estén más cerca del lanzamiento,
+[You]: pero quería transmitirte que que feliz de conectarnos y armar
+[You]: una prueba de concepto para sus primeros tres meses de lanzamiento.
+[Remote]: Eso eso eso eso quería consultar, tal vez
+[Remote]: ¿ustedes tienen posibilidad de armar tal vez una prueba, una demo, para ver cómo
+[Remote]: cómo funciona?
+[You]: Cien por ciento, podemos hacer una demo. Lo que sí,
+[You]: todavía no sabés cómo va a funcionar el flujo, te voy a mostrar una demo,
+[You]: que te va a parecer increíble, pero no creo que sea muy el reflejo de tu operatoria.
+[You]: Si la querés ver en acción,
+[Remote]: Okay.
+[You]: feliz, cuadramos una mismo la semana que viene y
+[You]: y te mostramos un poquito cómo funciona el producto, los distintos componentes y etcétera. Pero
+[You]: pero pero sí,
+[Remote]: Bueno,
+[You]: Yo soy Caro algo.
+[Remote]: No, no, ahí, Martti, te quería preguntar si el equipo de organización y
+[Remote]: adentro del banco estaría involucrado también en esto.
+[Remote]: Sí, sí, son varias las áreas que van a estar involucradas.
+[Remote]: Porque ahí, no sé si la conocés a a María Gabriela Vega.
+[Remote]: Del equipo. Sé que es un equipo enorme, pero bueno, yo la conozco.
+[Remote]: Bastante. Mil quinientos empleados. Pero te preguntaba porque
+[Remote]: justamente, si ese equipo también está involucrado, que me imagino que sí, va a
+[Remote]: estar involucrado en ¿Sabes en dónde? ¿En qué? O sea ¿Dónde está en el equipo de
+[Remote]: de procesos, organización y proceso, justamente,
+[Remote]: en auditoría interna y está en organización y procesos ahora. ¿Yo? María Gabriela Vega. Justo le estaba preguntando también, pero sé que es un es un mundo ahí adentro, pero bueno, sí, ella va a estar involucrada, ella conoce bastante, este, digamos, esta dinámica, y la podemos llamar también a a que participe, ¿no?, y y de su Bien, bueno, buenísimo, me quedo en el contacto, le dejo ir porque la verdad que no la conozco, porque como decís, ¿viste?, somos muchos empleados. A veces, este, algunos equipos trabajan en algún otros en otro, pero bueno, ahí hay que ver quién quién se asigna de esa área. Pero pero sí, definitivamente, como decía Nacho, cuando
+[Remote]: cuando tengas algo para que haga sentido la demo también, ¿no?
+[Remote]: Cuanto antes tengas algo concreto,
+[Remote]: bueno, vamos a timing, está muy bueno el timing, como decía Nacho, de
+[Remote]: poder arrancar ya pensando y cocreando
+[Remote]: juntos,
+[Remote]: y no traer por ahí a al el vendor. A ver, entiendo, a ver,
+[Remote]: nosotros en en esta instancia estoy buscando entender cuáles son
+[Remote]: las distintas alternativas que tenemos o soluciones que
+[Remote]: que podemos contar dentro del mercado y entender un poco
+[Remote]: cómo funciona. Pero ahí coincido con Ignacio, o en esta instancia hoy
+[Remote]: no estoy en el mundo real, con lo cual tal vez no me va a sumar tanto
+[Remote]: hasta tanto estemos en producción. Pero bueno, me quedo con los contactos
+[Remote]: y sepa que seguramente les voy a escribir y tal vez cuando
+[Remote]: cuando ya tengamos estos flujos en producción, el ida y vuelta,
+[Remote]: capaz que no ahí ya lo podemos juntar para para ver una demo, ¿no?, incluso les puedo mostrar un poco cuáles son
+[Remote]: los las soluciones con las que vamos a contar nosotros con los próximos proveedores,
+[Remote]: bueno, eventualmente vemos cómo cómo cómo podemos avanzar.
+[You]: Dale, listo, quedamos en contacto, entonces.
+[Remote]: Están muteadonas.
+[You]: Te mando un mail y la ya quedamos ahí.
+[You]: Perdón.
+[You]: No, te decía, dale, que, entonces, buenísimo.
+[You]: Me parece bárbaro. Quedamos en contacto,
+[You]: dudes en contactarnos antes del lanzamiento de vuelta,
+[You]: Nos sentamos y colaboramos con ustedes, nos queremos convertir en una extensión del equipo.
+[You]: Así que ya, cuando estén por ahí, en esa recta final,
+[You]: para lanzar y quieren empezar a tener conversaciones, feliz de armarlo ahí como una pruebita de concepto.
+[You]: Y después, si en esos primeros tres meses están contentos y funciona, hablamos de por ahí un contrato más de largo plazo.
+[Remote]: Bueno, dale, dale, perfecto. Bueno, chicos, les agradezco todo por el tiempo.
+[You]: ¿Te parece?
+[Remote]: Así que éxito también, les les deseo lo mejor.
+[Remote]: Felicitaciones también por por el reconocimiento y la nota que
+[You]: Gracias, Matías. Enorme.
+[Remote]: en el día Gracias. Buen día.
+[Remote]: Un gusto. Buen fin. También, igualmente. Hasta luego.
+
+============================================================
+SUMMARY
+============================================================
+### BPBA’s Current Payment Processing Setup
+
+- Launching new acquiring business with Payway gateway partnership
+  - Team Quality provides administration platform for operations control
+  - Currently testing with 10 merchants in production
+  - Not yet live - still in pilot phase
+- Existing merchant base: 190k total, 64k active last month
+  - Currently only accept bank transfers, no card payments
+  - Business declining due to limited payment options vs competitors (Mercado Pago, NAVI)
+- Roadmap includes acquiring terminals for second half of year
+- Revenue model: Currently reseller for Payway Profiles, only earn from fund settlement
+  - New setup allows participation in transaction fees
+
+### Rexi Platform Overview & Reconciliation Solution
+
+- Connects to raw data sources (bank statements, processor files, APIs, ledgers)
+  - No preprocessing required from client side
+  - Maintains full audit trail with original files
+- Three-step process:
+  1. Data transformation using AI to standardize formats
+  2. Processing with business logic + ML agent for maximum matching ratio
+  3. Discrepancy investigation with clustering and automated suggestions
+- Key differentiator: Reduces manual reconciliation work significantly
+  - Groups discrepancies by root cause with proposed solutions
+  - System learns from user approvals/rejections
+  - Eliminates data errors automatically (duplicates, missing dates)
+- Security: SOC 2 Type 2 certified, working toward SOC 1 Type 2 and ISO 27001
+  - Can handle PCI requirements through tokenization/encryption
+
+### Next Steps
+
+- BPBA to contact Rexi once production environment is live and operational
+  - Matías acknowledged need to understand real-world reconciliation challenges first
+  - Demo scheduled for when actual transaction flows are available
+- Rexi offered proof-of-concept collaboration during first 3 months of BPBA launch
+  - Team available for weekly support during initial rollout period
+- María Gabriela Vega from BPBA’s organization/processes team to be involved in future discussions
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/9faf7eee-d71b-47ac-8814-e894d93c6e23](https://notes.granola.ai/t/9faf7eee-d71b-47ac-8814-e894d93c6e23)

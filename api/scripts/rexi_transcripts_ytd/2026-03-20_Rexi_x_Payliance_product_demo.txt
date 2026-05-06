@@ -1,0 +1,548 @@
+MEETING: Rexi x Payliance: product demo
+DATE: 2026-03-20
+ID: not_fOHBJm4viGZZ2E
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Teo <teo@rexi.finance>, Jpizzuto <jpizzuto@payliance.com>, Darren Fleishman <dfleishman@payliance.com>, Mmccullough <mmccullough@payliance.com>
+SCHEDULED: 2026-03-20T16:00:00-04:00 - 2026-03-20T17:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: I got someone coming on Monday that I'll be training.
+[Remote]: Along with everything else. You know? It's just it's
+[You]: Along with business as usual.
+[Remote]: we've got
+[Remote]: yeah. We have two two acquisitions that have happened in the past
+[Remote]: year.
+[Remote]: One happened in twenty four.
+[Remote]: Actually, and we're still meeting weekly on
+[Remote]: on transition stuff related to that, and we have an acquisition that happened at October.
+[Remote]: That we're starting to get hot and heavy into transition work.
+[Remote]: So there's meetings on that.
+[Remote]: A lot of work to do. At all.
+[Remote]: What's that, Jenny?
+[Remote]: You say, Jody, can you hear us?
+[Remote]: Hold on. It's probably something with my mic.
+[You]: We can hear you.
+[Remote]: A lot going on.
+[Remote]: The reconciliation project that Darren referred to, that's what Jody's been working on quite a bit.
+[Remote]: We're Interesting. It's kind of
+[Remote]: she's putting a pause on her right now because we have auditors that need information, and she's been unable
+[Remote]: to provide that because she's been busy as well. So, yeah, a lot going on.
+[You]: Got it. And your
+[You]: okay.
+[You]: Because, like,
+[You]: they'll made an initial exercise on the files that Darren shared.
+[You]: And what we had in line after that initial meeting were Dylan showed the results,
+[You]: also sent the results over via email.
+[You]: Was
+[You]: that we would do some working sessions to get that
+[You]: a point where we could actually explain all the historic movements.
+[You]: And then set the
+[You]: and with that, set the foundations of
+[You]: a process
+[Remote]: Okay.
+[You]: which we would automate the whole process going forward on a on a recurring basis.
+[You]: Right? Like, have a have a platform that on daily, weekly, or monthly basis is reconciling
+[You]: all the money movements in an automatic way for you guys.
+[Remote]: Right.
+[You]: For that,
+[You]: we
+[You]: basically, like, they'll correct me if I'm wrong, but the information is not enough
+[You]: for us to explain the differences. So we needed some business logic
+[You]: from Jody and from Darren for us to iterate it a bit.
+[You]: To reach that
+[You]: 80, 90, a 100% in which we
+[You]: can now explain what's going on. And with that logic, then set up the recurring process. So
+[Remote]: Okay.
+[You]: that's why I was asking if you guys
+[You]: had made any progress. Probably, Jody, are you there?
+[Remote]: I'm here. Can you guys hear me okay now? Yeah.
+[You]: We can hear you. Yep.
+[Remote]: Yep. Yep. Okay.
+[You]: Sorry.
+[Remote]: Could never hear you. So I was trying to figure out what happened with my settings. I was going in there trying to get it.
+[You]: How are you today, Jody?
+[Remote]: I'm good. I'm good.
+[You]: Busy week?
+[Remote]: Always.
+[Remote]: So the one thing that I noticed just right off the bat
+[Remote]: is the RTP data.
+[Remote]: RTP data that was given to you guys, and it's
+[Remote]: any of the mids that end in RTP,
+[Remote]: Yep. That goes through a completely different bank account, not through this bank account.
+[Remote]: Mhmm. So
+[Remote]: and you had mentioned on a call when you showed me some of that before with Darren that
+[Remote]: you needed that. Like, that helped reconcile one of the items. But then when I looked at
+[Remote]: like, our NetSuite of where they recorded it, it was totally different mid.
+[Remote]: Yeah. So
+[Remote]: I didn't understand. I was trying to look at the files to see
+[Remote]: what you originally were given because that should be pulled out.
+[Remote]: And then some of the names. Okay. That's important. The
+[Remote]: Yeah. Some of the
+[Remote]: names that were on your
+[Remote]: there's a way that you could link some of the mids with the names.
+[Remote]: That's interesting as well.
+[Remote]: From, like, what you see on the bank statement.
+[Remote]: You could take some of that data that's in there and tie that back to some of the mids.
+[Remote]: Does that make sense?
+[Remote]: It it it does. Maybe You wanna share a screen and kinda look at
+[Remote]: what you have so that I can kinda talk you through some just so you can understand
+[Remote]: what I'm meant by that.
+[Remote]: Unmute your screen. So Yep.
+[Remote]: Which one which of the two files would you would you like us? The
+[Remote]: transfusion prefunded adjustments or the other one?
+[Remote]: Well, just bring up
+[Remote]: the adjustments first, and then we'll Yeah.
+[Remote]: We'll talk through that one.
+[Remote]: Perfect. Let me share screen.
+[Remote]: So I'm trying to remember if there was a
+[Remote]: that was in
+[Remote]: with the mids from the transfusion history.
+[Remote]: Okay.
+[Remote]: Okay. So these mids, the client IDs that you see,
+[Remote]: on the left hand side in a,
+[Remote]: Yep.
+[Remote]: Those then is there a way that you can put, like, the bank on the other side of your screen?
+[Remote]: Yes. Of course.
+[Remote]: This.
+[Remote]: And
+[Remote]: let me
+[Remote]: open this one.
+[Remote]: There we go.
+[Remote]: Now oh, see see some of those mids?
+[Remote]: Are built into that column c?
+[Remote]: There's like, on the second line down, I can see k four b ACH.
+[Remote]: First one's got a f x c c b.
+[Remote]: Yes.
+[Remote]: And then the they're the I c a l v a c like, some of those have got them
+[Remote]: not name. And then if you don't have a mid, if you've got a name, some of those names
+[Remote]: can correspond back to a mid.
+[Remote]: If you've got a mapping for mid with name,
+[Remote]: If you got and if you don't have that, I can get you something that we use when we're doing our
+[Remote]: prefunding mapping.
+[Remote]: Like, in our system. I can give you a
+[Remote]: file that we have that might be the other file that would help
+[Remote]: link these two together.
+[Remote]: Alright. Could you share that with me so that I can have a look at it?
+[Remote]: Yeah. Hold on. Let me see.
+[Remote]: If I can remember where it's at. One second.
+[Remote]: Merchant task funds removed from
+[Remote]: AXQC to go.
+[Remote]: And there is some things going on, like,
+[Remote]: they send in to our ACH account, and they want us to move it out
+[Remote]: to our card or to our RTP bank account. So you'll see, like, an in and an
+[Remote]: out.
+[Remote]: The transaction. Yes. It did come in through the ACH bank account,
+[Remote]: then we turned around and sent it back out and sent it to our card prefunding.
+[Remote]: At Evolve, or we send it to
+[Remote]: CVW Bank for one of the RTP accounts.
+[Remote]: So you'll see the ins and the outs is what some of those will be.
+[Remote]: How can we identify one here
+[Remote]: Hold on one second. Let me I was trying to find that other file, then let me
+[Remote]: Page down on the bank data side because those are wires.
+[Remote]: It would be
+[Remote]: filter pop popped on that filter on the descriptive text one field.
+[Remote]: Yep.
+[Remote]: Oh, this is gonna be huge.
+[Remote]: Because I know all those lines, like, 27 and down.
+[Remote]: Are all of our funding that we're pulling.
+[Remote]: To fund
+[Remote]: yeah. To fund
+[Remote]: MCA servicing as the cash payment layer like, their accounts.
+[Remote]: Were pulling out of this account
+[Remote]: to fund their transactions
+[Remote]: and that's going to our other bank accounts.
+[Remote]: But there's a way hold on one second.
+[Remote]: Because you basically need
+[Remote]: almost in this
+[Remote]: transfusion prefunded adjustments
+[Remote]: field, you almost need to have, like, bank company names or or not bank
+[Remote]: client ID names.
+[Remote]: Yes. Anything that we can
+[Remote]: sort of somehow
+[Remote]: Do the mapping to where you start creating these rules that I'm talking about. Okay.
+[Remote]: Exactly. So the the the way the way we work is
+[Remote]: we try finding
+[Remote]: anything. Our our platform
+[Remote]: can standardize any data and learn. We we can
+[Remote]: we can we can do a lot of that.
+[Remote]: We need some sort of, you know,
+[Remote]: guidance or something we can build on top of.
+[Remote]: Yeah. So let me
+[Remote]: let me email you something.
+[Remote]: Alright.
+[Remote]: Darren. Hey. Can you hear me?
+[Remote]: Yep.
+[Remote]: Hey, Mark. I got a quick question for you.
+[Remote]: And that's why I'm late because it's a big deal.
+[Remote]: We had a payment to Teer Point for $51,000.
+[Remote]: To buy out the contract.
+[Remote]: I can't find it.
+[Remote]: It should go below the line. And I don't know unless we
+[Remote]: accrued it in 12/31, which we may have done that.
+[Remote]: Yeah. Let me look and see if I can find it.
+[Remote]: Okay.
+[Remote]: Thanks, guys. We're trying to wrap up the month, and that's a big issue.
+[Remote]: Sorry.
+[Remote]: No. You're fine. I was just pulling up a file that I can send to Toledo.
+[You]: Hopefully, this becomes seamless with Rexy at some point this year.
+[Remote]: Okay.
+[Remote]: Is that not a reconciliation item? That's where where
+[Remote]: Bill.
+[You]: Imagine that.
+[You]: Would be great. Right? Imagine having the
+[Remote]: Yeah.
+[You]: last week of the month
+[You]: being just a normal week.
+[Remote]: I don't know what that is.
+[Remote]: Oh, yeah. Alright. I couldn't find it. And my
+[Remote]: for some reason, my instance of
+[Remote]: NetSuite's not operating.
+[Remote]: It went to, EFT integration expense.
+[Remote]: $5,053,006 35.
+[Remote]: Did you hear that, Ann?
+[Remote]: You still there, Karen?
+[You]: Nope.
+[Remote]: Here we go.
+[Remote]: Yeah. Sorry. I didn't mean to close. I was trying to close.
+[Remote]: Did you hear what I said, Gary? Yeah. I mean, I'm just gonna be I mean
+[Remote]: Did you hear me there?
+[Remote]: You're on mute.
+[Remote]: No. I didn't. What's up?
+[Remote]: Okay. So it's, we paid that
+[Remote]: I just lost it. What was that?
+[Remote]: It went to integrate EFT integration
+[Remote]: expense. We paid, it was $53,006.35.
+[Remote]: Was it in March or
+[Remote]: February?
+[Remote]: We booked it in December 2025.
+[Remote]: No. We accrued it in December. But when we say actual bill was was posted December thirty first
+[Remote]: I don't know. I don't know how we did it. We actually had a cash payment then.
+[Remote]: No. The cash didn't go out until
+[Remote]: let's see.
+[Remote]: February 12.
+[Remote]: Right.
+[Remote]: Okay. Alright. I'll that may so
+[Remote]: okay, we booked the bill then. We
+[Remote]: we should have recruited. We didn't get the bill until January. Know that. That's okay. Alright. So
+[Remote]: that's why I'm not seeing it. I I gotta work with Goldman. I'll be back on in about five minutes.
+[Remote]: Guys, and then I'll get this sorted. Okay. Thanks, Mark. K.
+[Remote]: Bye.
+[Remote]: Oh, no. I found the spreadsheet. It's not gonna be all inclusive, but at least it gives you a
+[Remote]: small
+[Remote]: listing. I just sent it.
+[Remote]: Both to both of you.
+[Remote]: Hey, Mark. Gobin is looking to know about that
+[Remote]: CNG interchange mishappened.
+[Remote]: I replied to him, but I don't
+[Remote]: know if he's I must be having some issue with Teams because I'm sending messages, and they're
+[Remote]: usually, you see a check mark means they've seen it.
+[Remote]: And everything's not being shown as being seen.
+[Remote]: No. You might need to
+[Remote]: restart then
+[Remote]: Maybe there is an update or something.
+[Remote]: Which which one is it? Is it in February or March?
+[Remote]: You want them to know that went out
+[Remote]: in February or March? Oh, it out in February. Tell ask him if he saw my message.
+[Remote]: And I'm a have to restart.
+[Remote]: You said it went out in February?
+[Remote]: Yeah.
+[Remote]: Okay.
+[Remote]: He's replying right now.
+[Remote]: Teo, you guys see what I sent?
+[Remote]: Let me see. Did you send it via email?
+[Remote]: Yes.
+[Remote]: Gobin said I missed it.
+[Remote]: I don't know whether he
+[Remote]: missed your message or whether
+[Remote]: he didn't see it. I know.
+[Remote]: I didn't get it yet.
+[Remote]: Take I sent it to both of you.
+[Remote]: Hold on. K.
+[Remote]: There we there we go.
+[Remote]: So do you mind if I record, the the next few seconds? No. That's fine.
+[Remote]: Go ahead. Yeah. In in case we deep dive on this
+[Remote]: after the meeting, I just wanna make sure I have everything I need.
+[Remote]: Yeah. No problem.
+[Remote]: Alright. There we go. So
+[Remote]: could you
+[Remote]: briefly
+[Remote]: Are you sharing your screen? Because I may have paused it now. Okay.
+[Remote]: Yeah. No. I'm I'm sharing it now. Okay. Yeah. So this is what we got.
+[Remote]: Yeah. So the mids on the far left is gonna wanna be what you see when you look
+[Remote]: at
+[Remote]: that transfusion report.
+[Remote]: The Yes. Names that you yeah. I was gonna say the names that you see in b and c
+[Remote]: c
+[Remote]: some of these could be related to
+[Remote]: different names that you're gonna see the data come in through on the bank.
+[Remote]: So these So if you look in the bank data
+[Remote]: yeah. Was gonna say if you see the bank data, it says two two three three cash. So if you look at descriptive text one,
+[Remote]: in the bank, do you see 2233 Paradise Road listed
+[Remote]: Yes.
+[Remote]: Then you'll see
+[Remote]: that it belongs to and it goes to evolve. So this is the card prefund.
+[Remote]: This has got both card and wells mixed together.
+[Remote]: So it shows both card
+[Remote]: which is anything that's evolved, and ACH, which is anything that's the Wells Fargo account.
+[Remote]: Now there is a separate card account related to CCB that I don't know that you were given the data for.
+[Remote]: Which is fine because it's it's one account. We can we can filter out those
+[Remote]: So you're looking at, right now, the ACH account.
+[Remote]: So look at
+[Remote]: do you see 30 quick loan lending anywhere on the bank?
+[Remote]: Let me see.
+[Remote]: So in the bank on the descriptive text, you see
+[Remote]: Here.
+[Remote]: Let's just look for a quick
+[Remote]: quick money solutions now. Well, that's money going
+[Remote]: that would be money going out too.
+[Remote]: Fund that. You would be looking for anything. You got the WT in front, the wire.
+[Remote]: Essential lending.
+[Remote]: Essential lending.
+[Remote]: Okay. I'll just look for quick lending.
+[Remote]: Maybe 30 q 8 No.
+[Remote]: I don't see anything related.
+[Remote]: Maybe it's
+[Remote]: What day did you send that email to me?
+[Remote]: With the files that you originally got?
+[Remote]: Because maybe I'll look it up myself, and I can help walk you through it on my side.
+[Remote]: I'll look at it.
+[Remote]: I think I see it. March 10.
+[Remote]: Yes. Around that day. Yeah. Exactly.
+[Remote]: Because if this won't work,
+[Remote]: what I can do
+[Remote]: is I can get you well, you can see you start looking and looking up certain mids.
+[Remote]: Within your data.
+[Remote]: On the bank, if there's a mid,
+[Remote]: Where?
+[Remote]: I'm looking to see one that's kinda made in here somewhere. Yeah. Well, that's
+[Remote]: giggle, but if you can see one that's got an actual mid listed
+[Remote]: right there. Line fifty six ten.
+[Remote]: See how it says a f f c c v?
+[Remote]: Yes. Line there would relate to
+[Remote]: client ID column a,
+[Remote]: in the transfusion data
+[Remote]: for AXFCCV.
+[Remote]: Yes.
+[Remote]: I see it.
+[Remote]: Oh, you got and it's a f x
+[Remote]: or a x f dot
+[Remote]: got a x q.
+[Remote]: A x
+[Remote]: Yeah.
+[Remote]: No. But it it does say here
+[Remote]: merchant ask funds removed to AX. Same thing.
+[Remote]: Is that the same thing on 10/22 that was a 170,000?
+[Remote]: That's a 170,000 I see on
+[Remote]: our site on transfusion. What does the bank say for that day on 10/22?
+[Remote]: Is that both 10/20 no.
+[Remote]: That's 02/14/2025.
+[Remote]: 02/14. So you should be able to say anything that's in column c a f
+[Remote]: CCV, you're gonna find it in column a AXFCCV
+[Remote]: Okay. Filter your bank
+[Remote]: or just filter your transfusion data on that AXFCCB.
+[Remote]: Like at the top filter out just for that
+[Remote]: Let's see. Oh, no. There's no
+[Remote]: there is no AXF CCB.
+[Remote]: How about ELVACH?
+[Remote]: E l b V as in Victor. V as in Victor. A c a c as in Yeah.
+[Remote]: Perfect.
+[Remote]: So on 10/22,
+[Remote]: in column b,
+[Remote]: why do I not see anything for 10/22?
+[Remote]: What kind of order are these there you go. Okay.
+[Remote]: So on 10/22,
+[Remote]: what is the amount that you see on the bank side? I can't see that because it's one or two columns over more.
+[Remote]: That's on the system.
+[Remote]: Here.
+[Remote]: Yeah. Yeah.
+[Remote]: On row fifty six eleven, what's the amount?
+[Remote]: 400,000. Okay. So that four 100,000 match
+[Remote]: up to the 400,000 that's online
+[Remote]: $4.00 $3.02.
+[Remote]: Here. Yep. Okay.
+[Remote]: Interesting. Perfect. So if it says bank wire,
+[Remote]: in this so if g says bank wire,
+[Remote]: the mid is an a,
+[Remote]: the date is in b,
+[Remote]: The amount that we received, the positive number, b w yep.
+[Remote]: Then you can tie that to anything that's a credit amount in
+[Remote]: the bank data on column e.
+[Remote]: Alright. Perfect.
+[Remote]: And I can send you a more inclusive list
+[Remote]: of these names.
+[Remote]: On from my billing data file that I have.
+[Remote]: That gives you a bid and a
+[Remote]: name, and then I'll also give you
+[Remote]: a location name so you have all three. Because sometimes things by
+[Remote]: be listed by location. Some could be listed by a bank. And that other spreadsheet I already
+[Remote]: sent you could be the
+[Remote]: anomalies. Like, if they send if it's not the same name, then
+[Remote]: their company name comes through on the bank statement, it'd be something else.
+[Remote]: Then you'll see it on that
+[Remote]: listing that we use for mapping our MIDS when we post our journal entries into NetSuite.
+[Remote]: Okay. That that might be very useful. Can you send that file over?
+[Remote]: Yeah. I'll send that to you. And see and see what we can build.
+[Remote]: Yeah. Because I think that'll help you then relate those two files together.
+[Remote]: Yep. Perfect.
+[Remote]: Alright. On my end, I would need some time to review that.
+[Remote]: So That's fine. Do you wanna bring the files back up, though? Because I wanna show you something or explain something else to you real quick.
+[Remote]: Yes.
+[Remote]: Let me share my third screen.
+[You]: In the meanwhile, do you guys think next week is gonna be
+[Remote]: So what you see on the bank side that's called PayLions
+[Remote]: That's us pulling money out of their accounts.
+[Remote]: So that's gonna be a quite equal to what you see in the negative
+[Remote]: column and column c on the transfusion data. Yes. Here.
+[Remote]: Anything that's hanging in here.
+[Remote]: Gonna be, Baylands Yes. Because that's us funding
+[Remote]: the accounts where their actual activity occurred.
+[Remote]: Okay. Perfect. So when I give you those names, then that
+[Remote]: should help you relate back to now there is some that has multiple, as you
+[Remote]: can see, there's big loan, Texas, loans. There's multiple ones in here that have the same
+[Remote]: name maybe.
+[Remote]: Ally Credit.
+[Remote]: Things of that nature, that they
+[Remote]: could be one or two midst. But then you by having that knowledge, then you'll know
+[Remote]: what what couple of mids that you can look at.
+[Remote]: On the actual transfusion data to come back with the total that was sent out.
+[Remote]: To cover their activity for the day.
+[Remote]: Perfect.
+[Remote]: But Alright. I can get that for you. I'll use it with the most
+[Remote]: current file, so that'll include everything that
+[Remote]: up to today that is a client.
+[Remote]: Perfect.
+[Remote]: Alright. Thank you very much. I think that's gonna be very useful.
+[Remote]: Yeah. No problem.
+[You]: Other than that, like, I I wanted to ask Darren, do you think
+[Remote]: At least
+[Remote]: yeah.
+[You]: next week is gonna be
+[You]: not easier, but do you think you guys would have time to prioritize this and and
+[You]: and work towards
+[You]: making some real progress here? Given we've been, like, kicking forward the
+[You]: this meeting for a couple weeks now, you're you're muted.
+[Remote]: I will have time next week. I don't like that we're slipping.
+[Remote]: For a variety of reasons, not the least of which is I don't wanna waste your time.
+[You]: I mean, don't don't worry about us. It's more like, we really wanna create value for you guys
+[Remote]: I'll make it a priority at least.
+[Remote]: Right. I know. I know. Well,
+[You]: and that's why we're trying to push it forward.
+[Remote]: guys have been good and and responsive when I've struggled.
+[Remote]: Honestly.
+[Remote]: Jody,
+[Remote]: I know you're just talking going through the file.
+[Remote]: Don't know exactly what you covered.
+[Remote]: Know they want some more rules around it.
+[Remote]: I Mhmm. Have a chance to openness, you know, between medication
+[Remote]: and and
+[Remote]: you know, this week, just catch up. I think I'll have some more
+[Remote]: time next week. The main priority, I gotta get Chuck ready coming
+[Remote]: done.
+[Remote]: Next week.
+[Remote]: I gotta get audit done next week, but that's what what I just explained to them, Darren.
+[Remote]: They should be able to start building some of those rules with some of the spreadsheets.
+[Remote]: That I'm providing them so they can see the company name, the mid,
+[Remote]: and the correlation. And then because right now, all they have on the one file is just
+[Remote]: The other one, they've got names and mids kinda mixed together depending upon what the
+[Remote]: description is from the bank that we receive when they do
+[Remote]: So with sending them what I'm going go ahead and send them from the billing file showing the mid, which
+[Remote]: the company name and the location name Right. We know how it could possibly come in. And then they've got the
+[Remote]: nuances that we kinda know based on,
+[Remote]: what they might call something when a wire
+[Remote]: comes in versus what their company name is is completely different. So we've got some of those called out
+[Remote]: that we have a tracking sheet for that Jim uses to be able to book in the NetSuite.
+[Remote]: So
+[Remote]: that's
+[Remote]: I'm gonna provide that as well so they can use that
+[Remote]: to be able to start building some of these roads.
+[Remote]: Okay. Yeah. I mean, given that, let's keep going.
+[Remote]: Jody, why don't we just carve out an hour or two now?
+[Remote]: Week, and we'll get some more rules squared away from them that I can communicate to them?
+[Remote]: Okay. Well, they know to pull all the RTP data out right now.
+[Remote]: They know that should not be included in the transfusion data file that they received.
+[Remote]: They know
+[Remote]: some like I said, I showed them some of the MIDS are built into the banking file.
+[Remote]: Then you can easily correlate those back.
+[Remote]: So I think there will be
+[Remote]: quite a bit of rules that they'll have be able to have set up between now and next Thursday.
+[Remote]: Based on what I'm getting ready to send to them that with the
+[Remote]: billing file.
+[Remote]: Data that I have. Alright. Sounds good.
+[Remote]: NASA?
+[You]: Sounds great. So
+[Remote]: Yep.
+[You]: from what I just heard, there's a couple of things you still need to send over.
+[Remote]: Yep.
+[You]: And then we'll do some work on our side and revert back with the results.
+[You]: Amazing.
+[Remote]: I'll get Ray and do that right now since I have the hours that is live for this meeting. So, yeah, I'll do it, and then
+[Remote]: just let me know if you see anything and have any other questions.
+[You]: Okay. Let's
+[Remote]: Like, as you're building this out.
+[You]: let's take it then back and forth via email, and
+[Remote]: Yep.
+[You]: if we can get some real progress next week, then we figure out if we need another meeting or or what's next step.
+[You]: After that.
+[Remote]: Okay. Sounds good. Cool. Thanks, guys. Appreciate it.
+[You]: Thank you.
+[Remote]: Thanks. Tony. Alright. Mhmm. Bye. Bye bye.
+
+============================================================
+SUMMARY
+============================================================
+### Reconciliation Project Status
+
+- Project paused due to auditor information requests
+- Jody unable to provide audit data while busy with reconciliation work
+- Two recent acquisitions creating additional workload
+  - 2024 acquisition: weekly transition meetings ongoing
+  - October acquisition: intensive transition work starting
+- New team member starting Monday requiring training
+
+### Data Analysis Findings
+
+- RTP data issue identified
+  - Any MIDs ending in “RTP” go through different bank account
+  - Should be excluded from current reconciliation scope
+- Bank statement data contains embedded MID information
+  - Column C shows MIDs like “k4bACH”, “fxccb”, “icalvac”
+  - Names in bank data can map back to MIDs when mapping file provided
+- Current data insufficient to explain all historic movements
+  - Need business logic from Jody and Darren to reach 80-90% explanation rate
+
+### Mapping Solutions Provided
+
+- Jody shared initial mapping spreadsheet during call
+  - Links MIDs to company names and locations
+  - Shows both card (Evolve) and ACH (Wells Fargo) accounts
+- Additional comprehensive billing file to be sent
+  - Contains MID, company name, and location name
+  - Includes anomalies where bank statement names differ from company names
+- Payliance transactions identified
+  - Negative amounts in transfusion data = Payliance funding client accounts
+  - Bank statement shows “Payliance” for outgoing funds
+
+### Technical Implementation Progress
+
+- Demonstrated successful MID-to-bank correlation
+  - AXFCCV example: $400K transaction matched between systems
+  - Bank wire transactions (column G) tie to credit amounts (column E)
+- Rules development framework established
+  - Filter RTP data out completely
+  - Use embedded MIDs for direct matching
+  - Apply name mapping for indirect matches
+
+### Next Steps
+
+- Jody to send comprehensive billing file with MID mappings immediately
+- Rexi team to build rules using provided mapping data
+- Email communication for questions during development
+- Follow-up meeting next week if significant progress made
+  - Darren committed to prioritizing project next week
+  - 1-2 hour working session planned with Jody
+- Goal: Establish automated daily/weekly/monthly reconciliation platform
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/52bb09c2-6a72-43c8-b495-ed8d4383334e](https://notes.granola.ai/t/52bb09c2-6a72-43c8-b495-ed8d4383334e)

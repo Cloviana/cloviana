@@ -1,0 +1,534 @@
+MEETING: Call Banco Galicia : Rexi
+DATE: 2026-03-18
+ID: not_FzKYA76z7ReZJ1
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Carolina Morawetz <carolina@rexi.finance>, Erico Ignacio Behmer <erico.behmer@bancogalicia.com.ar>
+SCHEDULED: 2026-03-18T16:30:00-04:00 - 2026-03-18T17:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Mora, estaba justo cerrando una reunión acá en en
+[Remote]: en mi oficina y no y no podía no podía lograr que la gente se vaya.
+[Remote]: No pasa nada.
+[You]: I did
+[Remote]: ¿Cuándo?
+[You]: impresión
+[Remote]: Yo gusto.
+[You]: Mucho gusto, te presento a cada team de Rex y nos vamos todos, pero bueno, cada uno
+[You]: cumple su función, me parece interesante que nos conozcas. Bueno, yo estoy como CEO y co-founder,
+[You]: Seba es nuestro CTO,
+[You]: Teo es CPO, CBO, y Caro es head of growth.
+[You]: Así que nada, acá estamos todos. Te hago, si querés, no sé qué tanto te contaron de de nosotros, pero
+[Remote]: No, nada.
+[You]: un poco cómo pensaba llevar la charla
+[Remote]: Vale.
+[You]: si te parece te hago una intro de de cuánto de nosotros, qué hacemos,
+[You]: quiénes somos,
+[You]: y un poco en qué nos especializamos y y por qué nos interesaba hablar con
+[You]: con ustedes, y luego nos encantaría ver que nos cuentes un poco más específicamente sobre lo que hacemos,
+[You]: a ver cómo lo están manejando
+[You]: en Galicia y qué tipo de oportunidades ves desde ese lado.
+[You]: ¿Te parece?
+[You]: Espectacular. Bueno,
+[You]: que abro acá un one pager que creo que me ayuda a veces a a presentar
+[You]: un poco
+[You]: lo que voy diciendo.
+[You]: Ahí está.
+[You]: ¿Ahí ven?
+[Remote]: Perfecto.
+[You]: Bueno, entonces, desde Rexi arrancamos sobre
+[Remote]: Perfecto.
+[You]: sobre un problema muy
+[You]: claro y muy evidente, particularmente en servicios financieros, pero creemos que se
+[You]: cualquier compañía que integra múltiples flujos de pagos y tiene una transaccionalidad alta, ¿no?
+[You]: Es esa fragmentación de información.
+[You]: Que termina impactando muchos otros procesos dentro del negocio, operativos de producto,
+[You]: y financieros, pero la causa raíz es que hoy hay muchos sistemas
+[You]: con las transacciones y con los movimientos de dinero,
+[You]: entonces se vuelve muy difícil entender cuál es la fuente de la verdad y
+[You]: cuál es la data más precisa
+[You]: ya sea para tomar decisiones o mismo para monitorear el estado de la operación.
+[You]: Esa esa complejidad operatoria termina generando riesgo, ¿no?
+[You]: Riesgo y costos, riesgo operativo, riesgo regulatorio,
+[You]: costos porque tenés que tener equipos dedicados específicamente a
+[You]: a a integrar toda esa información y entenderla y a procesarla,
+[You]: y luego el costo económico de cualquier pérdida asociada a no poder conciliar la
+[You]: efectivamente, ¿no?
+[You]: Entonces, nuestra solución es, básicamente,
+[You]: un control layer, ¿sí?, un orquestador de información, que nos conectamos a todas esas
+[You]: fuentes
+[You]: transaccionales y hacemos todo el trabajo de parsing y de procesamiento,
+[You]: para crear esa fuente de la verdad unificada, sobre la cual
+[You]: podemos conciliar, que es un flujo operativo y y y financiero,
+[You]: podemos generar las entradas de los doscientos contables, que es un proceso más de contabilidad,
+[You]: y todo el impacto que tiene, tener una conciliación
+[You]: automatizada, robusta y escalable del resto del negocio, ¿no?, en producto,
+[You]: en operaciones, te doy algunos ejemplos. Operaciones,
+[You]: estamos trabajando con buen bit, que creo que un número era como quince, veinte por de los tickets de Castle no support, eran clientes quejándose porque no tenían acreditado el dinero.
+[You]: Porque no tenían una conciliación contra el banco sponsor,
+[You]: manera real time, ese es un ejemplo.
+[You]: Impactando la experiencia y la satisfacción
+[You]: del cliente. Otro ejemplo que usted o puede mencionar de Mercado Pago es
+[You]: tenían features o productos listos para lanzar, y en un cuello de botella
+[You]: operaciones o finanzas, porque todavía no tenían el proceso de conciliatorio armado para poder lanzar.
+[You]: Te quita velocidad. Y así muchas otras áreas que se ven impactadas,
+[You]: también, cuando, por ejemplo, el mercado pago, Tego tiene otra anécdota de que
+[You]: los productos de financiamiento, si te lo están pagando uno o dos días tarde,
+[You]: bueno, esto tiene un costo financiero, que cuando lo ves a escala es ley de grandes números, ¿no? Entonces, ahí es donde
+[You]: otro impacto de no tener una conciliación real time.
+[You]: ¿Cómo estamos designando el producto? Bueno, obviamente es una orquestación de información,
+[You]: que lo que viene a hacer es automatizar el proceso end to end, desde ingesta, parsing, procesamiento,
+[You]: y todos los esquemas de output que te nombraba recién.
+[You]: La idea es que haya una trazabilidad y una auditabilidad completa
+[You]: para, justamente, si hay una necesidad regulatoria de compliance,
+[You]: poder tener ese ese journey bien completo, bien trazado, y generar el reporte
+[You]: que me va a permitir
+[You]: cumplir con el requerimiento de ese regulador o ese mecanismo de de compliance.
+[You]: Un poco del impacto que venimos teniendo en en en algunos clientes iniciales, bueno,
+[You]: como te dije, la primer parte es al tratar de la automatización.
+[You]: Equipos enteros dedicados a la conciliación
+[You]: con horas y horas de tarea manual en Excel o algún
+[You]: de SQL o investigación a ojo,
+[You]: redujimos eso en un ochenta por ciento a nuestros clientes actuales.
+[You]: Después está la la partida
+[You]: contable, que se llama pérdidas irreconciliables.
+[You]: Algunas compañías que antes de trabajar con nosotros eran miles y miles de dólares por mes,
+[You]: el equipo de contabilidad tenía que ir directamente a hacer un write off, porque no tenían cómo explicar esa diferencia.
+[You]: Y después está la parte, como te dije, de riesgo de compliance y regulatorio.
+[You]: Que al tener una plataforma robusta que automatiza el flujo end to end,
+[You]: hasta el punto final, que es la generación de ese reporte, que tenés que mandar el b s r a todos los mediodías,
+[You]: les permite
+[You]: reducir ese riesgo. No sé, trabajando con un banco que tuvo una partida abierta,
+[You]: con el SRA pagando una multa de dieciocho meses.
+[You]: Entonces, ese tipo de cosas las evitamos.
+[You]: ¿Cómo estamos iniciando el producto? Bueno,
+[You]: AI native, ¿no? Obviamente, la arquitectura, todo está pensado para tener agentes para cada uno de esos tasks específicos que te nombraba, desde ingesta, parse,
+[You]: procesamiento, resolución de discrepancias,
+[You]: con context windows muy acotados para volverse expertos en ese task, ¿no?
+[You]: La idea es que la logía conciliatoria también sea dinámica y no sea estática,
+[You]: porque sabemos que estos archivos cambian todo el tiempo, cambian el formato, cambian las columnas,
+[You]: vienen con duplicado. Lógico, no puede ser estática, porque te cambia algo
+[You]: del flujo y se rompe todo el flujo.
+[You]: Esa lógica dinámica que se optimiza continuamente es muy importante.
+[You]: Luego, en cuanto al uso y al sell, queremos que la plataforma sea
+[You]: intuitiva, fácil de usar y muy configurable. En vez de que ustedes se tengan que adaptar a una
+[You]: de software,
+[You]: que esto se sienta como que estás creando tu propio software, ¿no?, tu propia
+[You]: propia herramienta de conciliatoria. ¿Por qué?
+[You]: Porque sabemos muy bien que la conciliación es un proceso demasiado específico
+[You]: a cada compañía, a cada setup, a cada integración y a cada proveedor.
+[You]: Armar yo un SaaS que sea un one size fits all,
+[You]: es medio como una tarea imposible,
+[You]: termino cayendo en los modelos de nuestros competidores, que tienen muchísima consultoría.
+[You]: De implementación y de mantenimiento, porque están adaptando una herramienta rígida
+[You]: a las particularidades de cada empresa, ¿no?
+[You]: Después lo último de ahí, esto es self learning, porque la lógica conciliatoria y ese flujo
+[You]: una parte donde nosotros codificamos la operatoria de la compañía,
+[You]: pero luego el usuario empieza a tomar acciones sobre las sugerencias de los agentes.
+[You]: A medida que un usuario toma acciones, nosotros aprendemos de
+[You]: de esas acciones y esas decisiones, que lo que llamamos el business policy, por ejemplo,
+[You]: rangos de tolerancia a las diferencias,
+[You]: la los los machivos manuales, las excepciones, eso son
+[You]: cosas muy particulares de cada compañía que tenemos que ir aprendiendo para que
+[You]: el agente vaya ganando autonomía y en algún punto ejecute solo, ¿sí?
+[You]: Y después también aprendemos de esa data estructurada
+[You]: para también ir optimizando en el tiempo.
+[You]: Algunas de las compañías con las que trabajamos hoy, bancos, seguros,
+[You]: plataforma fintech, obviamente PSPs,
+[You]: estamos empezando a meternos en el mundo de adquirencia y emisión,
+[You]: y marketplaces. Tenemos hoy foco en
+[You]: Estados Unidos, te voy yo estamos basados en Nueva York, el resto del equipo está en Argentina.
+[You]: Con lo cual hoy el pipeline te diría que es mitad y mitad, todo lo que es Latinoamérica es
+[You]: más reactivo, inbound que recibimos
+[You]: por nuestras redes y por nuestros perfiles, el el foco
+[You]: lo tenemos puesto en el mercado americano. Y después esto para cerrar un
+[You]: poquito de de
+[You]: obviamente que algunas de las preguntas que siempre surgen es la privacidad de la
+[You]: la seguridad.
+[You]: Más que nada cuando trabajamos con bancos.
+[You]: Ahí nos tomamos eso bastante
+[You]: bastante prioridad. Ya estamos certificados SOC dos tipo dos,
+[You]: estamos en proceso de tener SOC uno tipo dos, y ISO veintisiete mil uno.
+[You]: Y después trabajamos con mecanismos de inscripción,
+[You]: decriptado, perdón,
+[You]: con una cliente trabajamos con data
+[You]: lo cual nos parece
+[You]: de vuelta muy importante para preservar esa sensibilidad.
+[You]: Lo último que te agrego relacionado a esto, y creo que es
+[You]: relevante para para Galicia,
+[You]: es con bancos, particularmente, donde hay una sensibilidad elevada de la información y
+[You]: y y
+[You]: suelen no gustarle trabajar con herramientas de software en un cloud externo,
+[You]: más con esta información,
+[You]: Tenemos una solución que llamamos customer managed, donde levantamos una infraestructura intermedia
+[You]: que está
+[You]: controlada por ustedes, pero operada por nosotros, en donde les permite que la información y todo quede en la
+[You]: de ustedes y preservemos esa
+[You]: sensibilidad y esa privacidad. Típicamente, tratamos de que haya una razón muy fuerte
+[You]: para que exista ese modelo, porque dificulta todo lo que es el deployment, el
+[You]: soporte y cualquier upgrade posterior que nosotros vayamos desarrollando.
+[You]: Pero si existe, lo tenemos como un modelo
+[You]: posible para
+[You]: para desarrollar en conjunto.
+[You]: Cierro con un poquito nuestra visión más de largo plazo, y es
+[You]: arrancando por conciliaciones. Para nosotros esto va a ser
+[You]: lo que estamos tratando de construir, Rexies es una plataforma que se sienta como el cloud
+[You]: para finance operations, donde los los CFOs y los COOs ganen la independencia de los equipos técnicos y puedan construir sus propios flujos agénticos
+[You]: para muchas de las tareas que hoy
+[You]: performan. Estamos arrancando por por, primero, posterior financiero, porque los equipos de finanzas yo
+[You]: operaciones son relevantes en este tipo de compañías.
+[You]: Y estamos arrancando por conciliaciones, primer principal, porque es un dolor muy crítico hoy.
+[You]: Un pull muy grande en el mercado por un producto como este.
+[You]: Y segundo, porque nos brinda acceso a la información que más vale, que es la información transactional.
+[You]: Sobre la cual después yo puedo construir todos estos otros templates que te contaba, ¿no?
+[You]: Pero bueno, hoy muy enfocados en conciliaciones porque
+[You]: porque es un problema enorme y y vemos mucho pool en el mercado.
+[You]: Con eso cierro. Feliz de completar cualquier
+[You]: duda o pregunta, y si no preguntarte a vos un poco cómo lo ves
+[You]: internamente,
+[You]: cómo están implementando este tipo de cosas en el banco,
+[Remote]: Dame un tanto que cierro la puerta, que hay un chorro aquí afuera. A ver, la verdad que
+[Remote]: nosotros
+[Remote]: obviamente, no somos la excepción, Galicia tiene sus
+[Remote]: sus problemas de conciliación, problemas de contabilidad de producto,
+[Remote]: problemas de de
+[Remote]: de data que se pierde, que
+[Remote]: se cruza, este, sucursales que, o modelos, esquemas contables antiguos que
+[Remote]: que complejizan aún más encima
+[Remote]: este, toda la contabilidad general del banco y la y y los
+[Remote]: los diarios, si querés que sucede en todas las sucursales, que se trabajan como casi BYM chiquititas el distribuidos en el país, así existe el modelo
+[Remote]: contable bancario argentino hace mil años.
+[Remote]: Y que eso tiene su dificultad, y también tenemos
+[Remote]: equipos que se dedican a la reconciliación constante de las cuentas contables,
+[Remote]: de las partidas presupuestarias y de
+[Remote]: Y a eso le sumás la complejidad de cada producto, ¿no?, trabajar con
+[Remote]: tarjetas de crédito y con rendiciones de de todas las procesadoras es un
+[Remote]: mundo en sí mismo. Este, la contabilidad de préstamos
+[Remote]: es un mundo en sí mismo,
+[Remote]: son los dos productos más complejos de conciliar
+[Remote]: operación con contabilidad,
+[You]: Seguros,
+[You]: Es seguro, ¿no?
+[Remote]: Seguros, la compañía de seguros es una compañía aparte,
+[You]: Ah,
+[Remote]: este, tiene tiene toda su organización totalmente separada,
+[Remote]: Yo fui a la compañía de seguros, y te diría que la contabilidad de seguros es
+[Remote]: un millón de veces más simple
+[Remote]: que que la contabilidad de préstamos, por ejemplo.
+[Remote]: Este,
+[Remote]: por el ecosistema tecnológico, incluso, digamos, viste que los las compañías de seguro tienen como
+[Remote]: o son más es más cerradito, y tienen operaciones, este, financieras tienen poquitas también. Este, tienen, es decir, pagar ciento y cobrar primas, no mucho más, y alguna cosa más, pero ya está. El banco tiene siete millones, digamos, solamente un producto, como el caso de préstamos, tiene, obviamente, intereses, mora, refinanciamientos, este, distintos productos algunos que capitalizan de una manera, otros de otra manera, este, normas, NIF, no sé cuánto. Reevaluación, es un chinazo total.
+[Remote]: Colocó en nada, no somos ajenos al problema.
+[Remote]: Con lo cual
+[Remote]: y que hemos
+[Remote]: probado
+[Remote]: y estábamos buscando formas de resolverlo,
+[Remote]: de todo tipo,
+[Remote]: o sea, con equipos completos tratando de de de de resolver esto a mano, como decías,
+[Remote]: inventando algunas algunas herramientas. Te cuento, nosotros estamos
+[Remote]: empezamos a implementar Symmetric, no sé si la conocés, Symmetric,
+[Remote]: Este, estamos implementando, está implementado symmetric en en
+[Remote]: en préstamos y en tarjetas,
+[Remote]: con más menos éxito,
+[Remote]: hemos logrado
+[Remote]: bajar
+[Remote]: este, operación de de conciliación,
+[Remote]: no estamos en el punto óptimo
+[Remote]: Tenemos también nuestras partidas presupuestarias sin asignar
+[Remote]: ahí, viviendo
+[Remote]: Repurgimos muchísimo,
+[Remote]: el las las pérdidas operacionales o las pérdidas por
+[You]: el sitio de Galicia, ¿me traté de interrumpir este momento?
+[Remote]: pendientes de imputación, que se quedan viviendo forever hasta que en algún momento la tenés que mandar a pérdida, porque ahí central te dice
+[Remote]: maestro, más de sesenta días la partida no puede estar ahí, nos lo redujimos bastante, con lo cual
+[Remote]: este, es un un proceso que que la venimos pegando, sin embargo, nada, el problema está.
+[Remote]: Así que nada, es un es un problema real.
+[Remote]: Me
+[Remote]: me cuesta ver, tecnológicamente, ahora que
+[Remote]: cómo funciona el producto, digamos, cómo le son las fuentes de datos, cómo
+[Remote]: cómo concilia todo esto,
+[Remote]: y cuál es el output. Si el output son
+[Remote]: los asientos con tales efectivos en el en en el en el general ledger de de
+[Remote]: de de la organización, si es al
+[Remote]: cómo funciona en en mi cabeza y cómo
+[Remote]: y cómo termina aplicándose, eso por ahí sería una pregunta.
+[Remote]: La otra pregunta que se me ocurre a es,
+[Remote]: ¿quiénes son sus competidores?
+[Remote]: Yo me quedé en mi cabeza que usamos Symmetry con una tool de conciliación de
+[Remote]: pero que no es una tool especialista en conciliación contable, ¿no?
+[Remote]: Y puedes entender cuál es el
+[Remote]: cómo es el el business case de ustedes, cómo es el el pricing model,
+[Remote]: de de Rexi.
+[Remote]: Bueno, esto no no fue intencional.
+[You]: Ok. Bueno, contesto por por partes.
+[Remote]: Los gestos de
+[Remote]: salieron los globitos de la del de la cámara de la Mac.
+[You]: Ah, no, perdón.
+[You]: Bueno, contesto por partes. ¿Cómo funciona el producto? Entonces, hoy de
+[You]: nos conectemos directo a la fuente de la información
+[You]: archivo crudo. Entonces, ahí también creo que hay un diferencial versus simétrico, otras herramientas que por ahí te
+[You]: exigen cierto preprocesamiento,
+[You]: para usar su plataforma,
+[You]: Nosotros vamos a archivo crudos, primero porque tenemos la tecnología para parciar ese archivo crudo,
+[You]: o para hacer cierta lógica de enrichment con algún archivo adicional,
+[You]: Y segundo, porque a nivel trazabilidad es muy importante poder volver a ese archivo crudo.
+[You]: Y la dependencia del outcome lo controlamos más nosotros. Si tenemos
+[You]: esa trazabilidad completa de principio a fin.
+[You]: Se hace todo el parsing, toda la lógica de procesamiento, y los esquemas de output son desde dashboard
+[You]: de control operativo,
+[You]: hasta reportes que con con framework
+[You]: específicos, por ejemplo, para el SRA, cualquier tipo de proveedor que ustedes necesiten,
+[You]: después nos conectamos a los principales ERPs para generar las entradas contables.
+[You]: Para eso se necesita configurar el diccionario contable, la lógica contable dentro de
+[You]: ¿sí?, y alguien que la mantenga para que después eso se cree automáticamente. Con lo cual,
+[You]: la respuesta es
+[You]: sí, así es como funciona todo el producto.
+[You]: La segunda pregunta,
+[You]: era,
+[You]: relacionada al producto. ¿Cómo era?
+[Remote]: La competencia, sí.
+[You]: Ah, con vendedores.
+[Remote]: Sí. ¿Cuál? Sí, sí.
+[You]: Sí, no te voy a mentir, a ver, Symmetric es un competidor directo,
+[You]: nosotros obviamente tenemos
+[You]: otro modelo de negocio,
+[You]: y otro approach al problema,
+[You]: pero sí, la realidad es que competimos en muchos procesos de licitación con Symmetry,
+[You]: porque al final es un orquestador de información que consigue datos también.
+[You]: En Argentina hay otras, Conciliac, Nupseo,
+[You]: pero bueno, nuestros principales competidores, como te dije, están más acá en Estados Unidos,
+[You]: BlackLine, es una empresa pública, Trintech, Arkham, Duco, otros players acá de Estados Unidos. Blackline más en el, por ahí lo conoce
+[You]: es más el sistema el mundo bancario.
+[You]: Pero igual, estamos con dos bancos ahora en comparaciones muy avanzadas acá en Estados Unidos, Dart Bank y SP Bank,
+[You]: reemplazando BlackLine.
+[You]: A veces nos pinchamos, decimos, che, somos un preset stage company por reemplazar BlackLine. BlackLine es una compañía
+[You]: pública.
+[You]: Entonces, también habla un poco de del momento en el que estamos, que creo que
+[You]: financieras más tradicionales hoy están dispuestos a tomar más riesgo con con herramientas
+[You]: artificial, porque creo que el gap
+[You]: eficiencia ya es tan grande y el switching cost
+[You]: tan bajo que
+[You]: por lo menos probar están mucho más dispuestos, ¿no?
+[You]: A a implementar un sistema que capaz usan hace más de una década que están usando BlackLine seguramente, ¿no?
+[You]: De negocio,
+[Remote]: Érico,
+[Remote]: una cosita, Nacho. Érico, ahí dijiste que
+[Remote]: estaban usando Symmetric. ¿Cuándo integraron Symmetric?
+[Remote]: Creo que el primer proceso de consolidación lo hicimos hace
+[Remote]: un año y medio, un poquito más,
+[Remote]: Ok. Digamos, y Symmetry que entró por Galicia Ventures, nosotros tenemos un venture capital,
+[Remote]: y y Symmetric entró ahí, pusimos un vet chiquito,
+[Remote]: Venture, de Galicia Ventures en Symmetric, pero no es que usamos Symmetric porque
+[Remote]: es una compañía que nosotros le invertimos, somos dueños, Digamos, nada más que
+[Remote]: este, a través de nuestro
+[Remote]: de nuestro brazo de de chequerés de innovación y observación del mercado
+[Remote]: que es Galicia Ventures. ¿Conocimos a Symmetric?
+[Remote]: Este, y
+[Remote]: Y lo usan para los Y lo y lo y lo empezamos usar, sí, pero Pero les quedó les
+[Remote]: corto que ahí eso es lo que entiendo que en la parte contable quedó corto
+[Remote]: no terminó, las desintegraciones son difíciles, ¿qué qué es lo que sucede? Eso aparte es la que no no
+[Remote]: no entendí.
+[Remote]: Te diría que el el lo que los cortos son nosotros.
+[Remote]: Ok. Porque
+[Remote]: nuestro propio conocimiento de de cómo funcionan
+[Remote]: los distintos aplicativos del banco o los distintos sistemas y los flujos de información
+[Remote]: muchas veces,
+[Remote]: ¿Y y cómo eso se traduce a a la contabilidad pura?
+[Remote]: Digamos, muchas veces nosotros no sabemos cómo funciona.
+[Remote]: Digamos, ¿y y qué caso de uso o qué
+[Remote]: del lado del cliente
+[Remote]: tiene que generar
+[Remote]: qué asiento específico El asiento contable, tal cual.
+[Remote]: Nada, digamos, yo de de de fui al colegio comercial, así que, digamos, lo primero que hice en el secundario era
+[Remote]: hacer, ¿viste?, a hacer libros mayores, qué sé yo.
+[Remote]: Claro, libro diario, no, mayor, para mí es fácil, tipo, cuando vendés,
+[Remote]: tipo, che, bueno, es es ventas a no sé cuánto, la del asiento contable.
+[Remote]: El principio partida doble y toda la historia. Ahora, te digo que vos le preguntás a un pibe del equipo de desarrollo que está desarrollando en
+[Remote]: el el en el de préstamos y No, no.
+[Remote]: Entiende buenísimo el caso de uso, el cliente paga el préstamo en online banking. Perfecto.
+[Remote]: ¿Y eso cómo se traduce? No, ni idea. Sí. Y te agarras la cabeza. Bueno, ese es el problema de
+[Remote]: todo la de de todos los días.
+[Remote]: Sumale el pago, la reversa, el que pagó capital, no pagó
+[Remote]: intereses, pagó intereses, este, atrasado, este, pagó la cuota tarde y le tuviste que recalcular la mora.
+[Remote]: Refinanció y le cambiaste la tasa.
+[Remote]: Imaginate, todo eso la los dieciocho mil casos de uso distinto que tiene, que son todas contabilidades distintas,
+[Remote]: Cien por ciento. Yo hice el motor de crédito en Pomelo,
+[Remote]: y es pasa eso, ¿no?, el modelo de negocio de crédito es muy distinto al de débito y
+[Remote]: prepago. El de crédito es una industria directamente, y tiene
+[Remote]: tantos casos de uso que, claro, el programador termina, che, no no hay, es es infinito y los vas descubriendo también y
+[Remote]: esto demora la refinanciación, los intereses compuestos y, bueno, también por country es
+[Remote]: un tema, pero lo reentiendo, bueno, nosotros
+[Remote]: acá un poco lo que contaba Nacho y y cómo nosotros
+[Remote]: que es realmente nuestro competidor, pero sentimos que el diferencial de es esta
+[Remote]: esta integración, ¿no? Es como las empresas
+[Remote]: terminan usando mucho más rápido, por haberlo hecho muy agéntico de
+[Remote]: entender la data. Es más, nosotros, por ejemplo, no sé, la empresas como Symmetric o o BlackLine, vos integrás sources, muchas fuentes de datos,
+[Remote]: pero vos tenés que saber cómo conciliarlo, tenés que saber cuál es la data
+[Remote]: tenés que parciarla, tenés que entenderla. Nosotros en Rexy todo, desde la ingesta, desde cómo te conectás, que no hacemos una integración custom,
+[Remote]: es una integradora agnóstico, hasta que Rexi analiza la data
+[Remote]: te sugiere mejoras en la conciliación, te sugiere las reglas de cómo conciliar,
+[Remote]: y, bueno, después tenemos la automatización de asientos contables, que, obviamente, tienen una aprobación
+[Remote]: ponerla de o no, pero se generan a partir de una reconsideración, es como dijiste vos, bueno, che, hubo
+[Remote]: venta o algo así, estas son las cuentas, este es nuestro ERP, y automáticamente se hace esa
+[Remote]: de asientos contables que, obviamente, lo maneja la empresa.
+[Remote]: Pero bueno, toda esta parte de industria
+[Remote]: es, la tenemos insertada en Rexy.
+[Remote]: Rexi fue muy armado por, nosotros venimos de industria
+[Remote]: entonces lo armamos mucho para la industria banco,
+[Remote]: tarjeta de crédito, débito, entonces, como todos los procesos de settlement,
+[Remote]: todos los procesos de conciliación, liquidación, que vienen de Visa, Master,
+[Remote]: como que está muy armada, custom, para eso. Así que, nada, estaría bueno después
+[Remote]: capaz que coordinar algo para mostrar un poco la herramienta, y voy a hacer el power de Rexi en esos frentes, ¿no?
+[Remote]: Está bueno.
+[You]: Me preguntaste
+[You]: Perdón.
+[You]: Preguntaste sobre el modelo de pricing, y por eso por eso cierro.
+[You]: El dato de nuestra visión, como nuestra visión es mucho más
+[You]: convertirnos en una plataforma para muchos flujos agénticos de finanzas y operaciones,
+[You]: La estrategia de pricing la estamos pensando de tal manera de que baje mucho la barrera de entrada
+[You]: y realmente empezar a trabajar con con nuestros clientes.
+[You]: De esa manera, una de las cosas que aprendimos con modelos como Symmetry, que te cobran por volumen,
+[You]: es que no termina funcionando, porque es como que si vos crecés,
+[You]: en algún momento me tengo que sacar de encima, de vuelta por ley hay grandes números, porque si Symmetric me está costando medio
+[You]: palo verde por año, y ya el business case no me cierra.
+[You]: Vemos mucho cliente queriendo salir Symmetric por lo caro que es,
+[You]: y en ese sentido nosotros queremos barajar esa barrera de entrada y
+[You]: primero que nada, la estrategia de pricing es fija, hacemos una estimación de
+[You]: porque nos impacta el economics,
+[You]: hacemos un contrato fijo que les da muchísima previsibilidad de costos, y si ustedes crecen,
+[You]: no pasa nada, unit economic para ustedes mejora,
+[You]: vuelta, con esa esencia de partnership tecnológico a largo plazo. Realmente queremos
+[You]: sentarnos con nuestros clientes hasta ir a las oficinas,
+[You]: construir el primer flujo agente y reconciliaciones, y después what's next.
+[You]: Cuál es el siguiente que tenemos que seguir automatizando.
+[You]: Así que, en ese sentido, solo
+[You]: compartirte eso, que es un esquema fijo.
+[Remote]: Bueno.
+[Remote]: Che, la verdad que está está está bueno,
+[Remote]: Yo creo que valdría la pena armar por ahí alguna demo más aterrizada para que
+[Remote]: los chicos que hoy están se... Capaz que el equipo que implementa Symétrico, capaz que el equipo
+[Remote]: contabilidad o los equipos de producto que hoy tienen el dolor de
+[Remote]: conciliar la operación,
+[Remote]: o el mismo, nosotros tenemos un equipo que es el CBC, que es el
+[Remote]: centro de verificación contable y O sea, hay un área para todo esto, es buenísimo.
+[Remote]: Que el que les que les puedan mostrar el producto, que que les descuenten cómo
+[Remote]: cómo funciona, que lo vean que lo vean funcionando, que entiendan por ahí la facilidad de presentación o
+[Remote]: el potencial que tiene de cómo traducir conciliaciones hipercomplejas,
+[Remote]: con ya una experiencia
+[Remote]: este, como decía recién Sebastián, de años de haber aprendido de los dolores del sistema financiero y haberlo
+[Remote]: bueno, ya esto está hasta resuelto, no es que, porque esto me imagino que ustedes lo tienen claro y por eso
+[Remote]: decidieron invertir en esto, y es
+[You]: ¿Qué pasa, Benito?
+[Remote]: hay poco conocimiento
+[Remote]: de de cómo resolverlo este dolor.
+[You]: No, dame un un minuto que termine.
+[Remote]: Porque, digamos muy underserved la industria nuestra.
+[Remote]: O sea, es, o sea, nos damos cuenta, esto que dice Nacho, de
+[Remote]: lo de BlackLine, comparado, tipo, una empresa como Rexy, que la verdad que
+[Remote]: ya ya estamos en en el mercado, pero la verdad muy nuevos, y las empresas, tipo, bancos ya
+[Remote]: están viendo, muy necesitando. Es como una industria que no se
+[Remote]: ayudó mucho, ¿no?, y y y, bueno, estamos tratando de llevar esta era que ayuda mucho todo el día.
+[Remote]: Sí, sí, y bien atrás a la a al a la a la cola y requiere un
+[Remote]: conocimiento específico, que eventualmente creo que lo fuimos como
+[Remote]: nos dedicamos más a a lanzar producto que a que arreglar el el backend.
+[Remote]: Y y el backend se transformó en en
+[Remote]: en un lastre para muchas cosas, un una fuente de pérdida como como
+[Remote]: como comentabas recién vos, Ignacio, al principio, con lo cual
+[Remote]: viene más atrás, pero por suerte viene siendo un catch up.
+[Remote]: Nada, yo, si si quieren podemos coordinar una review con con el equipo de
+[Remote]: que labura en en la parte tecnológica, es
+[Remote]: de contabilidad y algún equipo de producto, que son los mismos que le metieron la mano a Symmetric, como para que comparen producto, vean potencial, pros, cons, me parece que está bueno para para darle una oportunidad.
+[You]: Dale, listo, te busco ahí por mail,
+[You]: un recap de lo que charlamos, y si nos puedes conectar con esos equipos para coordinar una llamada,
+[You]: espectacular. Justo estamos
+[You]: yo estoy yendo a Argentina a fin de mes, Teo y Ceball ya están ahí,
+[You]: que si hasta que la quieran hacer en persona nos podemos acercar. ¿Estás ahí en Verona y Reconquista?
+[Remote]: Hoy me toca... Acá, yo estoy un poco acá, a veces,
+[Remote]: en el edificio de Premier Reconquista En La Torre, Y Otros Días Estoy En El Nuestro Edificio Que Tenemos En Chacarita, que es Plaza Galicia,
+[Remote]: es donde está el el el el grueso del equipo de tecnología.
+[Remote]: Entonces,
+[Remote]: algunos días allá, otros días acá, otros días en mi casa, pero
+[Remote]: pero hoy me tocó acá en Torre. Pero y te digo, creo que y el equipo de contabilidad está acá, casi
+[Remote]: siempre está acá en la Torre, Pereira de Conquista, así que, pero lo podemos hacerla donde sea.
+[You]: Vale.
+[Remote]: La la la casi que está piola. Pero lo lo bueno es eso, es que
+[Remote]: como es un equipo más técnico, está bueno que entiendan y que vean el producto funcional,
+[Remote]: y que que vean un caso de uso en vivo o... Este es el caso, che, fijate.
+[Remote]: Este problema vos ya lo tenés, ¿viste?, Banco Galicia, que es, agarrás los settlement de las
+[Remote]: de crédito, esto es lo que te manda Visa. ¿Y qué hacés con esto? Bueno, así como lo operamos.
+[Remote]: En otro cliente o o en o en un entorno de demo, esto es cómo operá
+[Remote]: para que puedan imaginarse el resultado. Si no, es medio medio difícil y y todo parece ciencia ficción, ¿me
+[Remote]: Impecable. Ahí estaría bueno
+[You]: Sí, total.
+[Remote]: que nos pase, si querés, cuando hablen con Nachito, ¿qué qué es lo que más les duele?, ¿viste?, el
+[Remote]: si me decís settlement, liquidación, tarjetas de crédito, nosotros hacemos como medio la demo
+[Remote]: específica para eso, ¿no?, y y mostramos todo el flujo de lo que tenemos, así vamos directo al
+[Remote]: a a donde puede haber valor ahí para ustedes.
+[Remote]: Dale.
+[You]: Puerto Rico.
+[Remote]: Dale, Ale. Ah, bueno. Buenísimo.
+[Remote]: Yo yo, digamos, sobre sobre tu correo,
+[Remote]: abro un poco el juego a los a los equipos que meten mano en el barro con todos estos temas y
+[Remote]: y lo peloteamos y y lo gestamos bien, digamos, para que tenga
+[Remote]: valor el siguiente paso y no lo y y no nos pase lo que por ahí no pasa a veces que
+[Remote]: que que descartás una solución por el, porque, no, no, no,
+[Remote]: no sirve al final, ¿viste?, y y está y no está bueno eso.
+[You]: Espectacular. Bueno, mil gracias por el espacio, un gustazo conocerte, y ahí
+[You]: el follow up por mail y la llevamos por ahí.
+[Remote]: Bueno, excelente, chicos, el gusto es mío,
+[Remote]: Querido un abrazo. Adiós. Hasta
+
+============================================================
+SUMMARY
+============================================================
+### Banco Galicia’s Current Reconciliation Challenges
+
+- Using Simetrik for loans and credit cards for \~1.5 years
+  - Implemented through Galicia Ventures (investment arm), not because they own it
+  - Has reduced reconciliation operations but far from optimal
+  - Still have unassigned budget items living indefinitely
+  - Reduced operational losses from pending imputations significantly
+- Core knowledge gaps limiting effectiveness
+  - “We are the bottleneck” - limited understanding of bank systems
+  - Development teams understand use cases but not accounting translation
+  - 18,000+ different use cases for loan products alone
+  - Each scenario requires different accounting treatment
+- Complex product reconciliation pain points
+  - Credit cards and loan renditions from processors most complex
+  - Legacy branch model complicates general accounting
+  - Distributed branches operate like small independent units
+  - Insurance company separate with simpler accounting structure
+
+### Technical Implementation & Competitive Landscape
+
+- Simetrik limitations vs Rexi advantages
+  - Simetrik requires data preprocessing; Rexi works with raw files
+  - Rexi provides end-to-end automation with AI agents
+  - Rexi suggests reconciliation rules and improvements automatically
+  - Built specifically for financial services (cards, settlement, liquidation)
+- Pricing model concerns
+  - Volume-based pricing becomes prohibitive at scale
+  - Clients wanting to leave Simetrik due to costs (“medio palo verde por año”)
+  - Rexi offers fixed pricing for cost predictability
+- Security requirements for banks
+  - Customer-managed infrastructure option available
+  - Preserves data sensitivity while maintaining Rexi operation
+
+### Next Steps
+
+- Erico to coordinate demo with technical teams
+  - Include Simetrik implementation team for comparison
+  - Accounting team participation essential
+  - CBC (Centro de Verificación Contable) team involvement
+- Focus demo on specific pain points
+  - Visa/Mastercard settlement files processing
+  - Credit card liquidation workflows
+  - Show live use case resolution
+- Meeting logistics
+  - Rexi team visiting Argentina end of month
+  - Can meet in-person at Torre Reconquista or Plaza Galicia
+  - Erico to send follow-up email with team introductions
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/ba2f4efc-4f6b-4da8-9f18-1ed4cc7e5cb0](https://notes.granola.ai/t/ba2f4efc-4f6b-4da8-9f18-1ed4cc7e5cb0)

@@ -1,0 +1,612 @@
+MEETING: Rexi x Payoneer: intro
+DATE: 2026-03-06
+ID: not_6wsZgNNBu7TWcj
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Maorvi <maorvi@payoneer.com>
+SCHEDULED: 2026-03-09T11:30:00-04:00 - 2026-03-09T12:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: I'm from Israel.
+[You]: You're there right now?
+[Remote]: Yes. In Israel.
+[You]: Okay. And how is everything there? Is it safe?
+[Remote]: No.
+[Remote]: No. I mean, like, you know, it's we used to it. We live years in war, but
+[Remote]: it's a
+[Remote]: problematic
+[Remote]: But yeah.
+[You]: But but but you're safe and and and
+[You]: everything's okay.
+[You]: You're in Tel Aviv.
+[Remote]: Yeah. Definitely.
+[Remote]: I actually live in Tel but now I I went to my
+[Remote]: parents' house. Like, they have their own bomb shelter and stuff. So it
+[Remote]: better with the baby. So it's easier to let her sleep in a
+[Remote]: shelter and not
+[Remote]: and not to move her all the time from home to home. Anyway,
+[You]: Okay. Well, hopefully,
+[You]: staying safe and and and
+[You]: everything is good there. I'm I'm I'm in New York, so
+[Remote]: Ya, hola.
+[Remote]: Where where where are you from? Like, in in New York where do you live?
+[You]: No. In Brooklyn.
+[Remote]: In in this in in the city?
+[You]: And originally from Argentina.
+[Remote]: Yeah.
+[You]: So
+[You]: I'm just saying this because I think there's a strong connection between Israel and Argentina.
+[You]: I heard you guys
+[You]: see the same TV shows we saw when we were young. That's crazy.
+[Remote]: Chiquititas. Right?
+[You]: Chiquititas,
+[You]: Los Ángeles, Rebelde Way, that's
+[You]: I did I did
+[You]: master's program in Harvard. I graduated in 2025, one of my closest
+[You]: friends. Maybe you know her, Libi Moseher,
+[Remote]: No.
+[You]: She oh, she's one of my closest friends. She's from Israel as well.
+[You]: And when
+[You]: we
+[You]: got to the conversation that when she was a kid,
+[You]: she also saw Chiquititas Rebelde Hue en Los Angeles. My mind did like that. I was like,
+[You]: why on earth
+[You]: is this being streamed in Israel? It's it's the most Argentinian show ever
+[You]: But
+[You]: I guess we've been we've been educated the same way this is working, so that's why we we
+[You]: in the same way.
+[Remote]: Definitely.
+[You]: Well, Maurer, thank you for connecting. I I do appreciate your your openness
+[You]: meeting me and and and meeting and and hearing more about what we do.
+[You]: I can do a short
+[You]: someone else training?
+[Remote]: Actually sent an invite to my one of my
+[You]: Okay.
+[Remote]: team members, Sal, So he's gonna he's gonna join the
+[You]: Okay.
+[Remote]: but he he cannot talk because he's trying to put his baby to sleep, but he he will listen.
+[You]: Okay.
+[Remote]: So that's
+[You]: Amazing. Well, thank you thank you again for for the time and for the openness
+[You]: I'll just do a brief context
+[You]: of what we do at Rexy, and then would love to hear more about
+[You]: are you currently handling these processes at Payoneer.
+[You]: Just one thing to say. I know Payoneer is a
+[You]: huge company.
+[You]: I'm a huge fan of it, actually. A lot of people in Argentina use Pioneer. You guys have a big
+[You]: office in Argentina, and I have a I know a lot of people that work
+[You]: in in the Argentinian office. So
+[You]: so a big fan of of everything you do and the fact that you've set up an office in in Argentina.
+[You]: Rexy is basically an AI powered reconciliation
+[You]: Right? So we're a data orchestrator. We plug into the different
+[You]: systems that generate the transactional reports.
+[You]: And we orchestrate the whole process end to end. So, basically, we
+[You]: ingest the transactional reports,
+[You]: the raw files. So we don't need Payoneer to be doing some
+[You]: data engineering work to be able to use Rexy. We go straight to the source. We ingest those files.
+[You]: We normalize all the formats.
+[You]: The nomenclatures,
+[You]: We also can enrich these databases with additional data from your internal data
+[You]: that makes it easier to process.
+[You]: We do all that normalization with AI,
+[You]: We process the data, which is the the matching logic.
+[You]: How do we match transactions across these files?
+[You]: That logic is dynamic.
+[You]: It's AI powered, AI suggested.
+[You]: A human in the loop that approves it and and and iterates it to get
+[You]: to the maximum matching ratio that we can.
+[You]: Then that whole process is set up once, and it runs
+[You]: automatically and asynchronously every single day. The user then logs in
+[You]: single day to take a look at their differences, review the differences,
+[You]: and try to solve them. Right? And that's where, again, we have an AI agent that
+[You]: basically clusters the differences
+[You]: in different root causes.
+[You]: And then proposes solutions. And as the user starts
+[You]: taking action in those resolutions,
+[You]: we start building
+[You]: we call the policy.
+[You]: The policy for Payoneer, which is how you, Maor, or how Payoneer in general
+[You]: operates these differences.
+[You]: Some examples. What are the thresholds by which you're matching transactions?
+[You]: Is it plus minus 5%? Is it plus minus $1?
+[You]: How are you matching how are you doing in the manual matches? How are you marking exceptions?
+[You]: That policy then basically feeds back into the reconciliation logic
+[You]: and it optimizes over time. So that means rexy
+[You]: ends up being purpose built for Payoneer, and it get better it it gets better over time. Why?
+[You]: Because we have this data flywheel in which we learn about your files. We learn about how you all
+[You]: operate.
+[You]: And the system gets better and better.
+[You]: The last thing I'll say is
+[You]: it it's about our value proposition. Right? How are we different
+[You]: from other tools in the market and and and what's the true value that we're unlocking here?
+[You]: The first one, of course, is automation. Right? Which
+[You]: I don't know what's the case at Pioneer, but many of the companies we work with
+[You]: have teams of people doing reconciliation in Excel.
+[You]: There's a lot of manual work going on behind the scenes.
+[Remote]: So, I mean, I mean, if we can just
+[Remote]: have a
+[Remote]: more of a discussion, we actually
+[Remote]: are working with automation for the past ten years.
+[Remote]: We we had the Trintech Let's see if you
+[You]: Okay.
+[You]: I know them. Yep.
+[Remote]: and now we actually just now implemented
+[You]: Okay.
+[Remote]: in the last year.
+[Remote]: So, I mean, we do
+[Remote]: automation. What I thought actually coming to this conversation
+[Remote]: is maybe you have
+[Remote]: like, not only
+[Remote]: you know, one one product end to end. Maybe we can use AI
+[Remote]: capabilities in
+[Remote]: maybe
+[You]: Like a part of the process and then use black line complementary
+[Remote]: yeah. And
+[Remote]: exactly. Exactly. Because we do have black line, and it's
+[Remote]: you know, it's a very robust process, and
+[You]: Heavy.
+[Remote]: And and it is a machine. I mean, we we we understand that it's not using a
+[Remote]: and AI is is is much much faster and and
+[Remote]: as you said, like, the learning curve that's
+[Remote]: you that you can do is not something that's
+[Remote]: machine can do. It's it's totally different.
+[Remote]: Value to the to the process, but we we definitely wanted to hear
+[Remote]: more about
+[Remote]: what do you do and maybe
+[Remote]: try to work together even in small parts.
+[Remote]: But but this this was the intention. So this is
+[Remote]: this is us. Like, we we do we do this automation of a
+[Remote]: reconciliation for the past ten years, and now we we are
+[Remote]: done this change to black line. We actually now just
+[Remote]: finishing the the last the last, parts this month.
+[Remote]: And so it's,
+[Remote]: it's it's something that, like,
+[Remote]: not end to end of all the process, but
+[Remote]: the I mean, we
+[You]: The processing.
+[Remote]: we do a fix
+[Remote]: and and create the files and formatting the files outside of BlackLine.
+[Remote]: We're not connected into the database.
+[Remote]: We use Alteryx.
+[You]: Yep.
+[Remote]: Yeah. So we use Alteryx and a lot of
+[Remote]: you know, different FTSs to bring
+[Remote]: stuff from from the database into into Alteryx and then send it to
+[Remote]: I mean, it's pretty complex process to get this
+[Remote]: data into black line.
+[Remote]: But, yeah, this this is
+[Remote]: for sure, something that we can do better.
+[You]: Yeah. I know BlackLine. I know TrueNTech, so I feel
+[You]: I know how it works.
+[You]: And I do agree with you that maybe
+[You]: the best use case right now is to help you guys in some parts of the process.
+[You]: Is it the preprocessing to use BlackLine?
+[You]: Or is it what black line spits out as the differences and you need help
+[You]: using AI for the differences?
+[You]: That might be a use case. And then we can see how it works, and then
+[You]: maybe bring up the case of
+[You]: doing a land and expand. But but I do
+[You]: like the approach of saying,
+[You]: be complementary to black line,
+[You]: let's add value in some parts of the process.
+[You]: Me omit cell again.
+[You]: Maybe the baby is already asleep.
+[You]: No.
+[You]: Okay.
+[You]: It takes longer for fathers to put babies to sleep, right, than mothers.
+[Remote]: Yeah. Yeah. Definitely. Definitely.
+[You]: I don't have babies, but I think it's
+[Remote]: Yeah. Yeah. Yeah. It it is true. Is true.
+[Remote]: Okay. So you do you want to show us something like
+[Remote]: how how this thing works, like, or or how does it looks?
+[You]: I would I would love to do it more so I've
+[Remote]: Do you have
+[You]: before going through, like, a demo, I would love to understand
+[You]: more, like, with the current process you're implementing at BlackLine.
+[You]: Which are the main pain points. Right? Like, where where do you see more value
+[You]: to get out of AI or some sort of automation platform? Like,
+[Remote]: Yeah.
+[Remote]: I I do I do definitely understand.
+[Remote]: I think the the main pain point is is, first of all,
+[Remote]: it doesn't matter how
+[Remote]: let's let's say you you have a a my back.
+[Remote]: Right? But if if the engine is is shit,
+[Remote]: you're not gonna go nowhere. So exactly here that if the data is
+[Remote]: coming from the system is not good, you cannot really have
+[Remote]: a a good monitoring on it on
+[You]: Garbage in, garbage out.
+[Remote]: on where where we have
+[Remote]: Exactly. So that's, I think, the the
+[Remote]: first and main point pain point we do have. We do experience with the process.
+[Remote]: Of course, we have also
+[You]: Where is the garbage coming from?
+[Remote]: the the system, the banks, the providers,
+[Remote]: I mean, we try to fix it today with Alteryx, but still
+[Remote]: it's it's very, very heavy process, and we do
+[Remote]: have a lot of hard coded stuff. And
+[Remote]: you know,
+[Remote]: it's not the easiest.
+[Remote]: But this is this is, I think, the the main point pay pain point
+[Remote]: We we also have
+[Remote]: the whole side of manual stuff that that's happening because
+[Remote]: you know, in the end in the
+[Remote]: the in the big system, you don't always have a
+[Remote]: for everything inside Pioneer, and and you have this this
+[Remote]: small manual action that happened. And we have the
+[Remote]: auto logs that are saying exactly what it is. And then
+[Remote]: we need to manually investigate. And you still need to have this
+[Remote]: teams of people working on this data. And
+[Remote]: and and checking the mismatches and checking the manual transaction and
+[Remote]: and and creating this manual process even if we have
+[Remote]: ninety nine point something percent of the process automated, you still have these places in the process where it's not it's not working as easy and fast as as it should. And and then we need the manual intervention.
+[You]: Got it. And and so
+[You]: so, basically, just to summarize here, it's it's a lot of pain around the garbage in, which comes
+[You]: systems, banks, providers,
+[You]: sending data that is inaccurate, is not precise. There's a lot of
+[You]: processing there in Alteryx, a lot of hard coded stuff that doesn't
+[You]: scale, and people need to be looking and maintaining it all the time.
+[You]: And then the second part is
+[You]: the investigation of manual movements and the investigation resolution of
+[You]: Right?
+[You]: And and just one question for you, Maor.
+[You]: As as, like, I'm seeing here you're director of finance transformation.
+[You]: What does success look like? What are you trying to achieve this
+[You]: quarter or the next quarter or even this year regarding reconciliation? Like, what's
+[You]: the true neck North Star
+[Remote]: I mean, we we we came from, like, half menu, like, automatic
+[Remote]: process. Like, TrinTech was not covering 100% of the process. It was covering about six or 70%. So now that we are reaching out to 100%, so we
+[Remote]: to, first of all we have KPIs that, you know,
+[Remote]: do think the team that does the mismatches work
+[Remote]: or less false positives, less days of the closing,
+[Remote]: of the monthly closing, and so on and so on. I also
+[Remote]: besides the finance transformation itself, I also
+[Remote]: manage the whole reconciliation process and teams in
+[Remote]: in PeerNeo.
+[Remote]: So
+[Remote]: I mean, also in the
+[Remote]: transformation side, trying to, get work done and and
+[Remote]: automation and and have things, click of more click of a button and less
+[Remote]: people doing excels, as you said. But then on the other side, we also want to
+[Remote]: you know, less less time to market from from
+[Remote]: the moment, the month end until we we can
+[Remote]: send the results to the management and the and the stock exchange and
+[Remote]: and, of course, it's always, like, we want less
+[Remote]: less people to be involved and not, like, to have an
+[Remote]: army of 20, 30 people in India who's working on the mismatches on a daily basis.
+[You]: Yep.
+[Remote]: But
+[Remote]: yeah.
+[Remote]: This is this is where our KPI instance
+[You]: Got it. And and
+[You]: do you think
+[You]: I'm I'm sure I'm sure BlackLine is not a cheap solution. Right?
+[Remote]: Yeah.
+[You]: Neither Trintech. I mean, these are very expensive solutions.
+[You]: I have two questions regarding that. The first one is
+[You]: how and why did you choose BlackLine?
+[You]: And the second one, do you think there's budget
+[You]: to have another tool that's complementary to BlackLine in the same workflow? Or
+[Remote]: Mean I mean, I'll I'll be honest. I'm not I'm not sure, like,
+[Remote]: regarding budgets and stuff. I did you know, you you you did reach out and and
+[Remote]: and I'm not I'm not saying no to hear about AI tools and what they are doing.
+[Remote]: I do want to hear to see what we are talking about. And even if it's not now, we can talk about it.
+[Remote]: Maybe in the in the near future, but really, like,
+[Remote]: I'm I'm not sure that that we need to
+[Remote]: to go to the, like, to the to the budget stuff and
+[Remote]: and we need to understand what what is the idea, what
+[Remote]: how it looks like, and and have and have you on our speed dial.
+[Remote]: So not not, like,
+[You]: Sure.
+[Remote]: already
+[You]: Sure. Sure.
+[Remote]: jump in there because we're just finishing an implementation now. So it's
+[Remote]: it's not it's not that, like,
+[You]: Urgent.
+[Remote]: immediate
+[Remote]: Yeah?
+[Remote]: Yeah. But we we definitely want to hear
+[You]: Got it.
+[You]: I'm trying to see if I have a demo here to show you, but the thing is we're we're currently
+[You]: merging a lot of stuff to production here. So
+[You]: and and and then
+[You]: when you chose BlackLine, I'm sure you analyzed other other solutions,
+[You]: how did you choose BlackLine? Just, like, what was the rationale behind that?
+[Remote]: Yeah. We had a few, consultants, and, we
+[Remote]: we chose between the the
+[Remote]: existing
+[Remote]: Maybe maybe we'll have alarm soon. Let's see. Hopefully, not.
+[Remote]: We have a few consultants. We we chose between the, you know, the
+[Remote]: the softwares that that that
+[Remote]: were brought to our table. It was a little bit
+[Remote]: AI, so we didn't have that
+[Remote]: I mean, before before the, you know, the
+[Remote]: the last few months that AI is everywhere,
+[Remote]: It was, like, two years ago. So
+[Remote]: it was
+[You]: Okay.
+[Remote]: a bit a bit before that we that we thought about
+[You]: Let me
+[Remote]: putting it in
+[You]: let me add my let me add my cofounder to the meeting.
+[Remote]: process.
+[You]: He can show a bit of the
+[You]: of the platform.
+[You]: To do a quick run through of something. Let me see if he has
+[You]: access to to show us something. You can also see some of the flavor I was
+[You]: talking about regarding
+[You]: the data transformations and the data cleansing
+[You]: and
+[You]: there we have
+[You]: this is Teo, my cofounder.
+[You]: This is
+[Remote]: Hi. How's it going?
+[Remote]: All good. And you?
+[You]: this is Maor from from Israel. He is director of finance at Pioneer. I was just telling him about about Rexy.
+[Remote]: Good. Good.
+[You]: Just this context here, they started using Trintech and they migrated over to BlackLine the past year.
+[You]: They have
+[You]: almost a 100% of the process automated right now with BlackLine.
+[You]: They chose BlackLine out of a referral from some consultants they were working with.
+[You]: And even with BlackLine, they're seeing a lot of pain with
+[You]: the data cleansing process, data transformation process,
+[Remote]: Interest.
+[You]: There's a lot of hard coded stuff, a lot of processes around Alteryx to be able to use black line in a more
+[You]: effective way. And then there's also some pain around
+[You]: discrepancy resolution, discrepancy management, and all that part as well.
+[You]: He was asking me to show
+[You]: maybe we can show him something. I know if you have some sort of generic thing to show us
+[Remote]: Yeah. Definitely. Definitely.
+[You]: particularly on the on the data transformation side and the
+[You]: discrepancy
+[You]: resolution side with a new problem solver, we
+[You]: rolled out last week.
+[Remote]: Definitely. I I
+[Remote]: are you happy with, BlackLine? Because
+[Remote]: we have not heard good reviews so far.
+[Remote]: I mean, we
+[Remote]: as as a as a
+[Remote]: you just said, we did start it like last year. So it's
+[Remote]: not we're we we don't have it for years. We just
+[Remote]: you know, in the still in the animal phase from a lot of
+[Remote]: perspective. So we are we are not not happy yet.
+[Remote]: We'll see how it goes in the future. But for now,
+[Remote]: it's all good.
+[Remote]: Interesting. Well,
+[Remote]: so, basically,
+[Remote]: what we do is we automate just as as BlackLine, we automate the injection from the data
+[Remote]: Maybe we connect directly to sponsor banks
+[Remote]: card providers, or whatever.
+[Remote]: Partners you're currently, working with.
+[Remote]: And each of those integrations create
+[Remote]: creates either one or more databases, what we call sources,
+[Remote]: Once you have the, the source here, you get your default
+[Remote]: view. This is exactly what you get from
+[Remote]: from the the partner. We never modified the original source.
+[Remote]: But what you do is you create views, and so you do
+[Remote]: modify the data
+[Remote]: and it's extremely easy to use. As you can see,
+[Remote]: you can filter the information, groupage,
+[Remote]: create formulas using AI so that
+[Remote]: they become even more and more flexible
+[Remote]: You can sort it, parse the fields, or modify the format.
+[Remote]: Transform the date, splitting views. This is if you wanna
+[Remote]: you know, you have
+[Remote]: one database with different with, I don't know, three, four variables,
+[Remote]: maybe you wanna split those in different sources.
+[Remote]: And treat each as a different source to reconcile against others.
+[Remote]: This would be, for example, if you use this type
+[Remote]: here,
+[Remote]: You would split this database in three databases. Let's let's create them. We call them fuse.
+[Remote]: This is the first one, second here, and then third one would appear here.
+[Remote]: And then
+[Remote]: if you, what's the last thing?
+[Remote]: If you wanna enrich this data source with a third data source,
+[Remote]: you you automate that here using this VLOOKUP
+[Remote]: formula. And, of course, we organize information in in
+[Remote]: cumulative balance
+[Remote]: if you wanna also reconcile balances.
+[Remote]: That's on the
+[Remote]: on the
+[Remote]: sources side. Basically,
+[Remote]: any transformation you wanna automate
+[Remote]: any transformation you wanna do that you could do on Excel, you can do here.
+[Remote]: Only you automate it, and you can do it in a scalable way. Basically, we have
+[Remote]: customers with millions and millions of transactions.
+[Remote]: Then, of course, we have the
+[Remote]: reconciliations module, exception manager for
+[Remote]: you know, whatever did not match. Maybe you wanna manually match them.
+[Remote]: We have this, but we we believe this is a
+[Remote]: you know, 2,015 software. We believe that this model process
+[Remote]: won't be done anymore.
+[Remote]: I'll show you now how I think it will be done in the following weeks.
+[Remote]: Actually,
+[Remote]: Then, of course, we have alarms.
+[Remote]: If you wanna send alarms via Slack, email,
+[Remote]: dashboards, I mean, reconciliation results,
+[Remote]: tend to have a
+[Remote]: basic information, but you wanna maybe have your own dashboard with
+[Remote]: information from many reconciliations. And, of course, they are extremely easy to use. You just
+[Remote]: new widgets or or dividers, blocks, whatever.
+[Remote]: With whatever information you want. This is
+[Remote]: maybe if you if if you wanna share a dashboard with
+[Remote]: another team or leadership or whatever,
+[Remote]: You can create them
+[Remote]: very easily.
+[Remote]: We can automate the generation of reports as well.
+[Remote]: And what we were talking about, the problem solver,
+[Remote]: Basically, if you've been following news,
+[Remote]: LMs are
+[Remote]: fantastic.
+[Remote]: At understanding large large volumes of structure
+[Remote]: data, which is what we're working now
+[Remote]: what we're working with now.
+[Remote]: It basically helps you understand what you're doing
+[Remote]: It helps you find you you can tell him, hey. Show me examples.
+[Remote]: Explain to me why is the reconciliation percentage
+[Remote]: named 97%, and it's gonna tell you
+[Remote]: hey.
+[Remote]: 3% is because time difference, those transactions will never match.
+[Remote]: Those, databases are simply from
+[Remote]: different time periods, or it's gonna tell you, hey.
+[Remote]: Transactions that that could actually match.
+[Remote]: If you modified x rule, that's rule optimization here,
+[Remote]: It helps you increase your
+[Remote]: your current reconciliation from 79% to 87 if you do that modification.
+[Remote]: Of course, there's
+[Remote]: infinite number of things you can do using
+[Remote]: LMS right now with structured data. It's extremely powerful.
+[Remote]: And the most basic one is understanding, hey. What's going on? It it it's sometimes overwhelming.
+[Remote]: First, it also
+[Remote]: creates reports for you to understand even better, and you can you have your own
+[Remote]: business
+[Remote]: is done live. It might take a a few seconds.
+[Remote]: But, yeah, basically, that's the
+[Remote]: the platform on a on a broad way.
+[Remote]: You have any questions, any parts you wanna see? Yeah.
+[Remote]: I I I actually wanted to
+[Remote]: see a little bit. Do you have, like, a
+[Remote]: journals
+[Remote]: Do you do journals, or you just do metrics? We we automate the creation of
+[Remote]: of journals. Let me see. This is a demo. This is the
+[Remote]: No. It's it's fine even even if you just talk about it and you don't show me, it's also fine. Like,
+[Remote]: Yeah. We we automate the creation of journal entries.
+[Remote]: Based on reconciled information.
+[Remote]: Right now, we are integrated with NetSuite.
+[Remote]: From Oracle.
+[Remote]: But our,
+[Remote]: our, what we call the accounting module is agnostic.
+[Remote]: So if you're working with any other,
+[Remote]: know, SAP or whatever
+[Remote]: other, your you're working with the business
+[Remote]: but, you know, for Microsoft. But same.
+[Remote]: Perfect. Yeah. We basically, you create the model, and you create the
+[Remote]: the I mean, we we
+[Remote]: create the integration, and and you can you can use it
+[Remote]: with whatever system you're
+[Remote]: Okay. Great. Just a question. You know, in the in the
+[Remote]: you are when working with this
+[Remote]: big companies, always need to
+[Remote]: keep our SOX requirements.
+[Remote]: Where are you from this point of view? Like, I mean, AI
+[Remote]: is new to the whole SOCs things. Yeah. We we are SOC compliance.
+[Remote]: Finished a few weeks ago the whole process, so we are compliant right now.
+[You]: SOC two type two.
+[Remote]: Yeah. Okay.
+[You]: We're getting the process of getting SOC one type two and and and PCI
+[You]: twenty seven one.
+[Remote]: Ok.
+[You]: 37,001. Yep.
+[Remote]: The guys actually, like,
+[Remote]: as as I said to you in the beginning, we we we just moved to BlackLine I really enjoy to to see this, and I think we can
+[Remote]: talk more maybe in in a few months once we finish the last
+[Remote]: integration that we have in the last two months.
+[Remote]: I do think we have we have something to talk about on the
+[Remote]: as you mentioned, about the the beginning, the data parsing and also stuff
+[Remote]: are more I mean, like, I'm I'm thinking AI all the time, but just
+[Remote]: like, Black Lane is a monster as a is a machine. You know? It's not AI in nowhere.
+[Remote]: The in the process.
+[Remote]: So I'm
+[Remote]: I'm also trying to put like, I'm trying to build agents, trying to build stuff, but
+[Remote]: this is, like, not
+[Remote]: not in inside the system. So, definitely, we we have things to talk about.
+[Remote]: But, of course, like, if if
+[Remote]: if I would have to choose a software now, not like
+[Remote]: you know, I I don't know you that way, so I'm not gonna say something I I
+[Remote]: cannot say. But
+[Remote]: mean, AI was definitely
+[Remote]: a big issue if I would have to choose now. We chose, like, two years ago. That's why we went with
+[Remote]: you know, the big machine known
+[You]: Yep.
+[Remote]: machine, but, of course, the AI is a
+[Remote]: important, and may and I think we can definitely talk in the
+[Remote]: let me see. But thank you for for for the time in showing. I mean, I'm
+[Remote]: really, without knowing what what you are offering,
+[Remote]: said yes because I'm really trying to open to open our
+[Remote]: mindset to AI solutions and really
+[Remote]: hear what what the market has to offer. So I think
+[Remote]: I think it's
+[Remote]: great, anyway. I think we were talking
+[You]: Thank you thank you for the time.
+[Remote]: in
+[You]: Really like showing the platform and learning more about how you are thinking about
+[You]: reconciliation processes at a company like Pioneer, which we admire a lot. So thank you for the time.
+[You]: And it's about, as you said, we're the speed dial. So
+[You]: anytime, any day, if you need help with anything,
+[You]: shoot me a message. We'll get on a call. We'll show you something. We'll do a demo, a pilot test,
+[You]: whatever you need.
+[You]: Please give us a call. I'll I'll I will write down a reminder to reach
+[You]: out, like, in a couple of months, maybe two or three months.
+[You]: To see where your
+[You]: where
+[Remote]: Yeah. Three months, I think, relate it will be relate. Most likely
+[Remote]: won't recognize that platform by then.
+[Remote]: Yeah. I I definitely do. Like, I saw this. I know I know it's not gonna look like in a
+[Remote]: No. And reconciliations is a is a the
+[Remote]: as far as I've seen, is the most clear example of
+[Remote]: an automatable and LLM based process.
+[Remote]: Humans are terrible at at doing this and understanding large volumes of data.
+[Remote]: I understand the your business
+[Remote]: so good in order to build a good reconciliation process.
+[Remote]: We're trying to we're trying to be these kind of people
+[Remote]: Yeah. But still, in order for you to just get into a situation and and act,
+[Remote]: you need something that is work working for you, not you to work for them. So
+[Remote]: Yeah. Definitely.
+[You]: agree.
+[You]: Well, Maurer,
+[Remote]: You have the
+[You]: thank you so much.
+[Remote]: coach.
+[Remote]: Thank you.
+[You]: Please stay safe.
+[You]: And and we'll be in touch.
+[Remote]: Nice.
+[You]: Bye bye.
+[Remote]: Speak soon. Bye bye.
+[Remote]: Bye bye.
+
+============================================================
+SUMMARY
+============================================================
+### Payoneer’s Current Reconciliation Setup
+
+- Recently migrated from Trintech to BlackLine (finishing last parts this month)
+- 10 years of automation experience, now reaching 100% automated process
+- Complex data pipeline: systems → Alteryx → BlackLine
+  - Not connected directly to databases
+  - Multiple FTPs for data extraction
+  - Heavy preprocessing required before BlackLine
+
+### Main Pain Points
+
+- Garbage in, garbage out problem
+  - Data quality issues from systems, banks, providers
+  - Very heavy process of cleansing with hard-coded solutions in Alteryx
+  - Not scalable, requires constant maintenance
+- Manual intervention still required
+  - Teams investigating manual transactions and mismatches
+  - Despite 99%+ automation, edge cases need human review
+  - Army of 20-30 people in India handling daily discrepancies
+
+### Success Metrics & Goals
+
+- KPIs focused on operational efficiency:
+  1. Reduced team size for discrepancy resolution
+  2. Fewer false positives
+  3. Faster monthly close cycles
+  4. Less time to market for financial reporting
+- BlackLine chosen 2 years ago via consultant recommendations
+  - AI wasn’t major consideration at time of selection
+  - Still in “animal phase” of implementation
+- Open to AI solutions for complementary use cases, particularly:
+  - Data preprocessing and transformation
+  - Discrepancy resolution and investigation
+
+### Next Steps
+
+- Maor interested in future collaboration once BlackLine implementation complete
+- Follow-up planned in 3 months when system fully operational
+- Potential areas for AI integration: data parsing and discrepancy management
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/f55f1a61-a596-4f82-a267-4042fcc9c7fa](https://notes.granola.ai/t/f55f1a61-a596-4f82-a267-4042fcc9c7fa)

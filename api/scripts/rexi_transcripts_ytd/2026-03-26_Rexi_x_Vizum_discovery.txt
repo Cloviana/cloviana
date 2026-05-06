@@ -1,0 +1,332 @@
+MEETING: Rexi x Vizum: discovery
+DATE: 2026-03-26
+ID: not_mMZl2HuCtxBNst
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Gabino Fraga Jesterhoudt <gabino@vizum.mx>
+SCHEDULED: 2026-03-26T17:30:00-04:00 - 2026-03-26T18:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Y usamos lo que se llama la stablecoin sandwich,
+[Remote]: que, prácticamente, agarras los
+[Remote]: los pesos mexicanos, los conviertes en USDT,
+[Remote]: los mandas, los USDT, y luego los vuelves a convertir en la moneda que
+[Remote]: estás realizando el pago, ¿no?
+[Remote]: Entonces, con esta forma, pues llega más rápido y más
+[Remote]: barato
+[Remote]: los pagos.
+[You]: Ok. Bueno, muy interesante, la verdad. Congratulations, creo que es un use
+[You]: case muy interesante y
+[You]: agrega muchísimo valor tangible y
+[You]: clientes principalmente, ¿quiénes son?
+[Remote]: Empresas, pueden ser importadores, exportadores, fintechs también,
+[Remote]: pueden ser casinos,
+[Remote]: pueden ser
+[Remote]: ¿Qué tenemos?
+[Remote]: Comercializadoras,
+[Remote]: De todo un poco, la verdad, bastante distribuido.
+[You]: Ok. Y
+[You]: el dolor de las conciliaciones viene por un
+[You]: tema más interno o o a tus clientes les duele las conciliaciones? O both.
+[Remote]: No,
+[Remote]: interno, interno totalmente,
+[Remote]: Nosotros estamos conectados
+[Remote]: yo creo que como a ocho
+[Remote]: En estos ocho partners, pues,
+[Remote]: son diferentes cosas en diferentes canales, tenemos cuentas concentradoras
+[Remote]: en cada uno de diferentes modalidades, algunos
+[Remote]: podemos pagar, digamos, de una cuenta concentradora nuestra, unos tienen que venir a fuerzas
+[Remote]: de directo
+[Remote]: a una subcuenta del cliente. Tenemos un relajo
+[Remote]: ahí dentro de pay ins y payouts,
+[Remote]: tipos de cambio.
+[Remote]: En diferentes flujos. Entonces, como lo estábamos haciendo ahorita, pues es con
+[Remote]: manual,
+[Remote]: Excel, checamos, este,
+[Remote]: balances en todas las cuentas, vemos todo lo que entró, todo lo que
+[Remote]: salió, poco
+[Remote]: la relación de lo que le cobramos a cada
+[Remote]: cliente,
+[Remote]: en su tipo de cambio,
+[Remote]: pues, hay unos que les cobramos el dos por ciento, hay unos que les cobramos el punto dos por ciento,
+[Remote]: Entonces, ahí hacemos una relación y vemos si nos hace sentido, ¿no? O sea,
+[Remote]: así ya vemos como la la cuenta final y dije, y pensamos, ¿hace sentido?, pues sí.
+[Remote]: Si no hace sentido y decimos, no, pues estamos veinte mil dólares abajo, pues, ¿qué pasó?
+[Remote]: Y tenemos que ver si hubo un un retorno de algún fondo,
+[Remote]: si mandamos un pago que no se fondeó, algún error.
+[Remote]: Todo este tipo de cosas, ¿no?, que, pues,
+[Remote]: hasta me da pena decirlo que lo hacemos así, porque estamos tan tecnológicos en todos,
+[Remote]: los otros lados, que la reconciliación
+[Remote]: este, pues la estamos haciendo de esta forma que no está bien,
+[Remote]: Y las soluciones que he visto, pues están muy institucionales,
+[Remote]: están demasiado
+[Remote]: con setecientas pestañas, con
+[Remote]: plataformas que nos tienen que dar una
+[Remote]: para la integración para todo el equipo de meses, para
+[Remote]: diferentes casos de uso,
+[Remote]: como que no habían hecho sentido. Esto ha sido un un
+[Remote]: este, mid reciente,
+[Remote]: y lo lo un rato, y ahorita me salieron ustedes en LinkedIn.
+[Remote]: Entonces, verlos.
+[You]: Ah, bueno.
+[You]: Me me me gusta saber que los canales
+[Remote]: Ajá.
+[You]: LinkedIn están reaccionando inbound. La verdad que cuando me dicen de dónde vienen, es como que, guau, ok,
+[You]: atribución, ¿viste? Porque en go to market estamos haciendo muchas cosas al mismo tiempo y
+[Remote]: Sí, sí, sí.
+[You]: y está difícil medir qué funciona y qué no. Así que gracias por
+[You]: por esa Bueno, te cuento, sí, nosotros nuestra herramienta es
+[You]: AI native, es totalmente agéntica, y eso quiere decir que es muy configurable, es muy
+[You]: flexible a lo que ustedes necesiten, y más importante
+[You]: hemos estado recibiendo muchísimo feedback de clientes de
+[You]: es muy fácil de usar y es muy intuitiva.
+[You]: ¿Sí? El primer paso sí, obviamente, es construir los colectores a la información.
+[Remote]: Okay.
+[You]: Entonces, nos tenemos que integrar para asegurar que tenemos
+[Remote]: Sí.
+[You]: un flujo de información asíncrono
+[You]: para automatizar el proceso, ¿verdad?
+[You]: Y luego, lo que te da la plataforma al final es el
+[You]: el ahorro de de tareas manuales,
+[You]: la mayor precisión, porque vos me decías que estaban conciliando balance,
+[You]: nosotros conciliamos a nivel transaccional, con lo cual, cuando no cuadra,
+[You]: salta específicamente cuáles son los
+[You]: los registros que te faltan, y ahí también tenemos un agente que lo que hace es arma clusters, de las diferencias por causa raíz,
+[You]: y vos podés aprobar y rechazar la sugerencia de la resolución.
+[You]: A medida que vos aprobás y rechazás y vas acciones en la plataforma, el agente aprende. Y eso después lo codifica como una regla, ahí tenemos un data flywheel, que la gente aprende tanto de la información estructurada que cuentan ustedes, como también de las acciones de ustedes, y el sistema gana muchísima Te cuento un poquito más the roadmap ahead, también, por si te interesa. Nosotros, conciliaciones, lo vemos como un wedge, una puerta de entrada. Es nuestro primer producto. Pero el longer term vision es ser el cloud code for Fino. Entonces, arrancando por conciliaciones, pero luego vamos a construir otros templates dentro de la plataforma, para que ejecutivos de finanzas o de operaciones puedan agentizar y automatizar todo su flujo
+[Remote]: Mhmm.
+[You]: Pero, bueno, hoy, superfocused on reconciliation, en
+[Remote]: Buenísimo.
+[You]: companies, bancos, procesadores de pagos, etcétera. Y nuestro modelo de negocio también
+[You]: al ser muy tecnológico,
+[You]: me permite servir por ahí a compañías
+[You]: como Bizum, con un modelo de pricing que les
+[You]: que les rinda a ustedes. Porque calculo que lo que te habrá pasado también con otras soluciones del mercado
+[You]: parecido muy muy caras, ¿no?, muy costosas.
+[Remote]: Sí, sí, sí.
+[Remote]: Sí, pasa es que
+[Remote]: tienen setecientas cosas ahí, y una de ellas es la reconciliación. Entonces,
+[Remote]: me tiene que dejar caer todo.
+[You]: Obvio. Bueno, un par de preguntas para ti, así
+[You]: así me das un poquito más de contexto. La persona hoy,
+[You]: responsable de conciliaciones eres tú, la que te dedica tiempo,
+[Remote]: No, mi socio, Gonzalo, el director financiero.
+[You]: Ok. ¿Y cuántas horas por mes le dedica al proceso?
+[Remote]: Pues yo diría que
+[You]: O por semana, no sé.
+[Remote]: unos cuarenta minutos al
+[Remote]: unos cuarenta minutos al día,
+[Remote]: al final del día,
+[You]: Ok, perfecto.
+[Remote]: Ajá.
+[You]: ¿Y han tenido en el pasado alguna pérdida grande?
+[You]: Por no conciliar bien, o algún descalce grande?
+[Remote]: Gracias a dios, ¿no?
+[Remote]: Pero
+[Remote]: porque nos dimos cuenta que
+[Remote]: faltaban, este, ciertos pagos que no habían llegado y se habían, había habido un
+[Remote]: un refund,
+[Remote]: y le preguntamos a nuestro partner, que que
+[Remote]: nos pase todos los refunds que han habido, y sí, ahí había uno
+[Remote]: no estaba marcado y
+[Remote]: ese tipo de cosas. No no ha habido pérdidas, pero, pues sí, tenemos que andar buscando
+[Remote]: fue el error y cosas así.
+[Remote]: Sí.
+[Remote]: No el error, sino, sí, dónde dónde se ubica el dinero.
+[You]: Ok.
+[You]: Otra preguntita más es, ¿cuántas fuentes de información tenemos que conciliar?
+[Remote]: Serán
+[Remote]: unos
+[Remote]: cuatro o cinco partners,
+[Remote]: o sea, o cinco cuentas.
+[You]: Y eso, la información la
+[You]: traemos por API, ¿ustedes ya la traen a un data lake o cómo ingestan esa información?
+[Remote]: Y la la la sacamos todas nosotros, como nos digan.
+[Remote]: O sea, la tenemos, o sea, nosotros estamos conectados a ellos,
+[Remote]: para todo.
+[Remote]: Sí, los sacamos como
+[Remote]: o sea,
+[You]: O sea, ustedes ya están trayendo todo a un data lake propio, porque eso facilitaría mucho a Rex y se
+[You]: conecta directamente al data lake e ingestamos solamente de una fuente todas las tablas, ¿no?
+[Remote]: No
+[Remote]: falta por, estamos sacando la integración de un par, o sea, que estén fully
+[Remote]: en API. Pero sí, ya tenemos unos con los que podemos empezar así.
+[You]: Ok, perfecto. Y las últimas preguntas que tenía eran más tácticas,
+[You]: Gabino, ¿esto es algo que quieren resolver este O sea, ¿qué tan alto están las prioridades
+[You]: para ustedes?
+[Remote]: Para mí es uno de es una de las
+[Remote]: más importantes del negocio, porque
+[Remote]: o sea, es es lo más delicado. O sea, yo creo que si en si se puede en este Q,
+[Remote]: se puede, o sea, yo lo quisiera en este Q.
+[You]: Excelente, perfecto.
+[You]: Y, entonces, calculo que en una próxima reunión tendremos que involucrar al director financiero, tu socio, ¿no?
+[You]: Es quien lleva este proceso todos los días.
+[Remote]: Sí, estaría bueno, una una sesión
+[Remote]: Lo único malo es que, justamente, hoy sale de viaje,
+[Remote]: Si no, le pregunto qué día podría tomar ahí una una
+[Remote]: junta en en esta semana.
+[Remote]: La siguiente? Sale dos semanas el tema.
+[Remote]: Pero con que yo vea, o sea, al final, yo creo que
+[Remote]: se lo puedo, o sea, yo igual he hecho la conciliación, sé exactamente
+[Remote]: todo lo que está pasando, ¿no? Entonces,
+[Remote]: la podría tener yo una sesión, una demo, lo que sea.
+[You]: Ok, espectacular. Bueno, mirá, como próximo paso, te
+[You]: propongo hacer una demo.
+[You]: ¿Sí? Mostrarte cómo funciona la plataforma,
+[You]: cómo resolvería los distintos puntos de dolor que me acabás de mencionar,
+[You]: para que vos puedas ver un poco más de cómo funciona el producto.
+[Remote]: Sí,
+[You]: Demos nosotros las podemos hacer
+[You]: dos maneras.
+[You]: Podemos hacer una demo genérica, donde yo creo data sintética y
+[You]: muestro por ahí.
+[You]: Digo, con la información que tengo de Bizum y la que me acabas de compartir, armo data sintética
+[Remote]: Step.
+[You]: en lo que yo creo que funciona en tus archivos, esa es una,
+[You]: o firmamos un NDA, me compartís archivos reales,
+[Remote]: Okay.
+[You]: y una demo real, y ahí puedes comparar
+[You]: Rex-Min el proceso actual que hacés en Excel.
+[Remote]: Ok, entonces,
+[Remote]: bueno, de mi lado te estaría compartiendo, entonces, los payings que tengo en pesos,
+[Remote]: los payouts que salen cuando fondeo,
+[Remote]: esta cuenta, que me lo convierta a stablecoins,
+[Remote]: luego el
+[Remote]: payout que hago de esa cuenta de stablecoins a el partner que yo decido con quién liquidar,
+[Remote]: y el payout que luego hago con ese partners
+[Remote]: para ya liquidar el pago final. Sería sería algo así.
+[You]: Ok, vos querés armar, entonces, firmamos un NDA y me
+[Remote]: Sí, podemos hacerlo.
+[You]: información real.
+[You]: Dale.
+[You]: Para el NDA, si te parece, no sé si ustedes tienen un template o
+[Remote]: Mándame el tuyo, no hay, no pasa nada.
+[You]: te mande el nuestro,
+[You]: Listo. Entonces, ahora te hago follow up por correo,
+[You]: te mando nuestro template para que lo revises y te pido los datos para
+[You]: avanzar con la firma,
+[You]: una vez que esté firmado, me puedes compartir los archivos.
+[Remote]: Va.
+[You]: La product demo.
+[You]: Te parece
+[You]: el miércoles que viene?
+[Remote]: Okay.
+[Remote]: Perfecto, sin tema.
+[You]: A qué hora te viene bien?
+[Remote]: Estoy bastante libre, menos
+[Remote]: de las once al
+[Remote]: ¿en qué horario?
+[Remote]: Ahorita, ¿qué horas para ti?
+[You]: Para mí son las seis, seis menos ocho.
+[Remote]: Entonces,
+[Remote]: a las dos.
+[Remote]: De dos a tres para ti, no estoy disponible, todo lo demás sí.
+[You]: Ok, listo. Bueno, te voy a mandar una
+[You]: una un invite para para el miércoles,
+[You]: y hacemos una demo ahí mismo, si te parece.
+[Remote]: Oye, Ignacio, una pregunta.
+[Remote]: Por curiosidad, ¿qué ya tienen en mente como
+[Remote]: los siguientes productos
+[Remote]: en este ecosistema que me platicas?
+[You]: Sí,
+[You]: pregunta. Ya estamos desarrollando el módulo de accounting.
+[Remote]: Okay.
+[You]: Entonces, ese es uno,
+[You]: y y todo el reporting ya está más o menos embebido, lo seguimos
+[You]: desarrollando. Entonces, reportes ad hoc para reguladores,
+[You]: para tu banco, para un equipo de finanzas interno, ese tipo de cosas. Así que
+[You]: después,
+[Remote]: Buenísimo.
+[You]: ya más q tres, q cuatro, arrancaríamos con cosas de tesorería,
+[You]: con cosas de fraude,
+[You]: y con otro tipo de workflow por encima. Pero pero hoy, muy enfocado en conciliaciones,
+[You]: y trabajando mucho en reporting que acabo.
+[Remote]: Buenísimo. ¿Y cómo están manejando ahorita las, este,
+[Remote]: O sea, ¿cómo cobran las las conciliaciones?
+[You]: Lo hacemos por workflow, no queremos cobrar por volumen transaccional, porque no queremos
+[Remote]: Mhmm.
+[You]: poner un tax on your growth.
+[You]: Creemos que esto
+[You]: una infraestructura muy crítica para las operaciones de compañías como Bizum. Entonces,
+[You]: queremos ser un partner tecnológico de largo plazo, porque justamente nuestra idea es construir otro flujo futuro, con lo cual colamos por workflow, ahí hacemos nosotros un assessment en términos de obviamente, el volumen, la complejidad y la cantidad de conectores. Por eso te decía esas preguntas. Pero yo con eso después te hago un quote que es fijo por la duración del contrato, es un quote fijo de doce meses. ¿Te perdí?
+[Remote]: Claro,
+[Remote]: Buenísimo.
+[Remote]: Buen
+[Remote]: gusta.
+[Remote]: No, te
+[You]: Ahí yo te perdí un poco, te perdí en videos,
+[Remote]: toma la señal, ¿tú me escuchaste?
+[You]: Sí, ahora sí te escucho de vuelta.
+[Remote]: No, te te escuché perfecto.
+[You]: Va.
+[You]: Lo que te iba a nombrar ahí es, ¿vos tenés un un presupuesto en mente, algún budget
+[You]: para vos, un un rango que tenga sentido para
+[You]: para una herramienta que te automatice las conciliaciones o o no lo tenés muy pensado?
+[Remote]: No tengo no
+[You]: No te escuché, te perdí.
+[Remote]: Que no
+[You]: Hola, hola.
+[Remote]: Pero, pues,
+[You]: Te perdí, no, no te escucho.
+[Remote]: ¿Me escucha?
+[You]: No.
+[Remote]: ¿Bueno, bueno?
+[You]: No, no te escucho.
+
+============================================================
+SUMMARY
+============================================================
+### Vizum Business Model & Pain Points
+
+- Cross-border payments using “stablecoin sandwich” method
+  - Convert Mexican pesos → USDT → destination currency
+  - Faster and cheaper than traditional methods
+- Client base: importers, exporters, fintechs, casinos, trading companies
+  - Distributed across various industries
+- Current reconciliation process entirely manual
+  - Excel-based across 8 different partners
+  - Multiple account types: concentrator accounts, direct client subaccounts
+  - Daily process takes \~40 minutes for CFO Gonzalo
+  - Different fee structures (0.2% to 2%) per client complicate tracking
+
+### Current Reconciliation Challenges
+
+- Manual balance checking across all partner accounts
+- Complex pay-in/payout flows with different exchange rates
+- Recent issues with untracked refunds from partners
+  - No major losses but time-intensive error hunting
+  - Example: Missing refund required partner investigation
+- Existing solutions too institutional with “700 tabs”
+  - Require months of integration for full team
+  - Don’t fit mid-market needs
+
+### Technical Infrastructure
+
+- 4-5 partner connections for reconciliation
+- Some partners fully API-integrated, others in progress
+- No centralized data lake yet
+- Currently extracting data as needed from each partner
+
+### Rexi Solution Fit
+
+- AI-native, configurable platform
+- Transaction-level reconciliation vs. balance-level
+- Automated root cause clustering with approval workflow
+- Learning system that codifies approved resolutions
+- Workflow-based pricing (not transaction volume)
+  - Fixed 12-month contracts
+  - Assessment based on volume, complexity, connectors
+
+### Next Steps
+
+1. NDA execution - Ignacio to send template
+2. Real data sharing for demo preparation
+3. Product demo scheduled for next Wednesday
+  - Gabino available except 2-3 PM his time
+4. Include CFO Gonzalo in future meetings
+  - Currently traveling for 2 weeks
+  - Gabino comfortable proceeding with initial demo
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/ff16bc4e-9587-4dae-b5c4-31f8b542aa11](https://notes.granola.ai/t/ff16bc4e-9587-4dae-b5c4-31f8b542aa11)

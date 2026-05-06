@@ -1,0 +1,531 @@
+MEETING: Rexi x Payliance
+DATE: 2026-02-20
+ID: not_d9zOEtDw3uiuWn
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Teo <teo@rexi.finance>, Darren Fleishman <dfleishman@payliance.com>
+SCHEDULED: 2026-02-20T16:30:00-05:00 - 2026-02-20T17:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: There is anything else?
+[Remote]: Joe.
+[Remote]: Yep. Hey. How are you? I lost my screen here. Hold on. I
+[Remote]: on something. Just there we go. I'm back. Hey. I guess so.
+[You]: Can you?
+[Remote]: Yeah. Good. Yeah. Let's go through what you think.
+[Remote]: And then we can talk about next steps too.
+[Remote]: Definitely. So let me
+[Remote]: share screen.
+[Remote]: I'm gonna share my whole screen because
+[Remote]: I'm gonna have to
+[Remote]: share an Excel afterwards. But
+[Remote]: can you see my screen now? Yep.
+[Remote]: I can There we go. So, basically, what we did
+[Remote]: was
+[Remote]: first, we got both files
+[Remote]: They were not exactly on the same time frame.
+[Remote]: So Okay. The the the mostly, yes.
+[Remote]: But there were a couple thousand. So, for example, the the bank file had had
+[Remote]: 30,000 transactions.
+[Remote]: I only analyze
+[Remote]: 27,000 of those.
+[Remote]: Because
+[Remote]: the other three to 4,000 were not
+[Remote]: within the transaction file, time frame.
+[Remote]: So that's that's the first one. Yeah. I understand that. Yeah. We just
+[Remote]: grab some stuff so you can test it. Yeah. So the this is the most important part.
+[Remote]: Basically, what we did is
+[Remote]: first, we'd
+[Remote]: all the data, we started trying one to one match.
+[Remote]: Basically, same day, exact amount.
+[Remote]: First sweep.
+[Remote]: Then what whatever did that match on that, we did a one day tolerance.
+[Remote]: Exact amount.
+[Remote]: Mhmm. But whatever did not match, we did a a two day tolerance, three Right.
+[Remote]: I tried up to four.
+[Remote]: And then at four days,
+[Remote]: I added 1% tolerance in amount.
+[Remote]: And this is important because
+[Remote]: as you see here,
+[Remote]: these are the the step up
+[Remote]: step one results.
+[Remote]: So, basically, same day exact, one day tolerance to the
+[Remote]: and and up up to four days.
+[Remote]: And so these are the results.
+[Remote]: Total matches we found on the first sweep. It's
+[Remote]: 4,400. That is
+[Remote]: 1,700. And then
+[Remote]: we have 4,000 more than when that we find when we add
+[Remote]: 1% tolerance.
+[Remote]: Amount.
+[Remote]: I brought in a few examples so that we can have a look, but these
+[Remote]: these tolerance
+[Remote]: tends to make sense because there's sometimes even 1¢ difference
+[Remote]: So
+[Remote]: we we're gonna we're gonna even reduce it 2.1.
+[Remote]: So the in total, we have ten thousand ten thousand eight hundred matches on the one to one.
+[Remote]: What we did then was
+[Remote]: prior things for one to many.
+[Remote]: This is a a bit trickier. Mostly, with our clients,
+[Remote]: when we do one too many, we
+[Remote]: do have some kind of logic
+[Remote]: that we need to follow. It's not just
+[Remote]: Mhmm.
+[Remote]: Trial and error. It's
+[Remote]: at
+[Remote]: all the transactions based on this
+[Remote]: x variable and compare them to this other x variable.
+[Remote]: In this case, we don't have that.
+[Remote]: And we don't even have
+[Remote]: fixed time reference. So what we did is we got
+[Remote]: one transaction
+[Remote]: from the
+[Remote]: from the file, the bank file,
+[Remote]: and
+[Remote]: we started compiling all the the same day
+[Remote]: and up to four days, combinations of of transactions.
+[Remote]: Starting by two, of course, because we one, we already did.
+[Remote]: And then we we increase that and up to six.
+[Remote]: Mhmm. During that,
+[Remote]: we only managed to get
+[Remote]: Okay.
+[Remote]: Not great. R 17
+[Remote]: seventeen transactions on on the on the Bankwire side.
+[Remote]: If we look at the numbers
+[Remote]: all,
+[Remote]: it's
+[Remote]: bank wire inbound in the time frame that we do have information. We have
+[Remote]: 86% coverage.
+[Remote]: It's way lower on the
+[Remote]: TV side. It's it's
+[Remote]: actually, well, we I think we expected this. Right.
+[Remote]: And on the bank file, it's a bit higher.
+[Remote]: So it's
+[Remote]: almost 92% of of the credits
+[Remote]: are regular side, and it's way lower on the debit side.
+[Remote]: Don't know why
+[Remote]: this is
+[Remote]: I mean, we're
+[Remote]: what's what what's that big difference? Maybe you do I don't know.
+[Remote]: Alright.
+[Remote]: So I'm getting any data. I don't know. Right? And but it's good.
+[Remote]: Interesting.
+[Remote]: This and and well, then what I did is
+[Remote]: get one example from each
+[Remote]: of the sweeps. So this is sweep one.
+[Remote]: Two, three, four, five, and one too many.
+[Remote]: Of course, one is no
+[Remote]: big deal. It's just Right.
+[Remote]: Two thousand six hundred fourteen. It's this transaction same day. No doubt on that. It's it's credit amount. We we make sure it's credit when it's a b w. And then this one, one day tolerance, it's exact same amount.
+[Remote]: And then we've got this one,
+[Remote]: three thousand two day tolerance, and we see here it's a miss
+[Remote]: In the comment, it's a miss from
+[Remote]: June Yep. Right. Right. Okay. Then we do find it
+[Remote]: here on June Right. June the twenty So it's correction. Yeah. This logic
+[Remote]: does make sense.
+[Remote]: Up to five, four day tolerance and 1%, tolerance.
+[Remote]: This is where what I meant. It's,
+[Remote]: here.
+[Remote]: Port
+[Remote]: Yep. Four 100,432, whatever.
+[Remote]: It's just 1¢ difference. Okay. Yeah. Okay. Yeah.
+[Remote]: I mean, that
+[Remote]: up to that, that all makes sense. That's I mean,
+[Remote]: that's, just our bread and butter. We do that. We that. That's
+[Remote]: what we do with Brexit. Then for the one to many,
+[Remote]: it I mean, what it did find, it makes total sense.
+[Remote]: Two transactions
+[Remote]: bank wire after hours, it's
+[Remote]: 350,000, 300,000 against 650,000. It says Combs, and, of course,
+[Remote]: is Community Loans of America. So
+[Remote]: Right.
+[Remote]: Yeah. And then this one comment
+[Remote]: merchant as funds removed from homes.
+[Remote]: And they are both the same day, and they add up. So, I mean, what we did find in in one to many
+[Remote]: looks correct.
+[Remote]: But, of course, we still have that 8% that we
+[Remote]: have now been able to
+[Remote]: I don't know if there's I mean, anything we we any logic
+[Remote]: Your result let me just jump in. Your results are not surprising.
+[Remote]: K? Because I know I did this manually
+[Remote]: for a different set of data
+[Remote]: and I would you know, I didn't
+[Remote]: have reporting like this at all. Because I was literally eyeballing that
+[Remote]: And it is
+[Remote]: this isn't out of bounds. Like, this
+[Remote]: you know, a lot of it matched up. I didn't you know, I used Excel to do some of this
+[Remote]: you know, some some good kind of stuff.
+[Remote]: Okay.
+[Remote]: I am sure
+[Remote]: in the stuff that hasn't matched, there are rules that we have not to
+[Remote]: defined for you that you can
+[Remote]: code and and, get much tighter.
+[Remote]: What I think we're gonna need to do
+[Remote]: in order to work that is see what the unmatched things are
+[Remote]: just kinda work our way through it.
+[Remote]: Right? And say, okay. You know, we're looking at the data. Oh, when we do
+[Remote]: you know, Chicago Board of making stuff up. Chicago Board of Trade,
+[Remote]: yeah, that's spread over six days, and here's how it works. Right? Or if we do, you know,
+[Remote]: MoneyLion, it ends up at over three fields. And because of the way their flows come in, you gotta take this one out, and then it's gonna add
+[Remote]: Right? So there's gonna be stuff like that that
+[Remote]: I'm not even privy to
+[Remote]: You know, I don't know how that works, but my team does.
+[Remote]: I'm not sure how to
+[Remote]: work that yet. I mean, you've had some experience doing this. What's the best practice of us
+[Remote]: working through sort of this mid level result?
+[Remote]: Yeah. So
+[Remote]: generally, we either have
+[Remote]: some kind of logic
+[Remote]: that we can try to follow and reconstruct
+[Remote]: or
+[Remote]: best case scenario, we just work with the banks or the systems and try to get that
+[Remote]: ID
+[Remote]: so that this
+[Remote]: so that there's no doubt. That would be, like,
+[Remote]: the
+[Remote]: correct way to go as Okay. As businesses scale
+[Remote]: they work towards having one ID matching each transaction so that we
+[Remote]: never have Right. So I'm with you there.
+[Remote]: Yeah. The truth is that that's that's an investment because you need the teams to
+[Remote]: build that ID.
+[Remote]: If you don't have that, at least
+[Remote]: we need to construct the logic
+[Remote]: so that the there's no ambiguity
+[Remote]: while we
+[Remote]: find those matches.
+[Remote]: Those are the the the two ways
+[Remote]: And that we're happy to
+[Remote]: maybe have a meeting with your team and see if that logic
+[Remote]: is something we can build.
+[Remote]: And automate
+[Remote]: which which I'm sure it is because, I mean, this is what we do.
+[You]: Yep.
+[Remote]: But
+[Remote]: but we would need to
+[Remote]: put it down in paper and see if we can build it for you.
+[Remote]: Okay. Let's
+[Remote]: let's get something set up towards the end of next week. Yep.
+[Remote]: We can do that.
+[Remote]: Ignacio,
+[Remote]: you know, I've been candid with you. I'm not looking for free consulting.
+[Remote]: You know, you gotta tell me when, you know, the
+[Remote]: perspective stuff stops, and we gotta you know, there's there's a business
+[Remote]: here and, you know, that's gonna
+[Remote]: perhaps change our conversation a little bit. But
+[Remote]: you know, I'm a realist there. I'm not right? So I'm just trying to respect
+[You]: Thank you.
+[Remote]: your business.
+[You]: Thank you for that, but
+[You]: don't don't worry, Darren. Like,
+[Remote]: Okay.
+[You]: actually, like, literally, don't worry. We
+[You]: generated any value for you yet.
+[Remote]: Okay.
+[You]: Let's make sure we generate value, and once we actually
+[You]: see value from both sides, then we can sit down and talk about
+[Remote]: Okay. Well,
+[You]: what sort of agreement we wanna set up.
+[Remote]: what I do need from you and because I don't wanna waste your time.
+[Remote]: Is I do need some sort of perspective of, okay.
+[Remote]: Seen Canada data. You know what we're doing. Let's assume we solve all these problems.
+[Remote]: What what do you recommend
+[Remote]: given what your capabilities are of how we'd construct a relationship?
+[Remote]: So I don't even know what that's gonna look like. Right? I don't know if
+[You]: Yeah.
+[Remote]: you know, I don't even know how the you know, we would use your service
+[Remote]: And, you know, I just know you guys obviously have sophistication around
+[Remote]: in these kind of high data driven
+[Remote]: data quantity situations.
+[Remote]: Okay. You know, like, do we send your data every day? Do we send data to you every day in a batch processing
+[Remote]: process? Is it monthly? Is it you get an API, we have to ping I
+[Remote]: like, I just don't know how you're
+[Remote]: service works. So
+[You]: Yep.
+[Remote]: I I need some guidance there so, you know, we can
+[Remote]: articulate, hey. You know, this is gonna be roughly the size of a cost for the
+[Remote]: ongoing service. I think it's a good idea or not. You know, I need to understand that.
+[You]: Cool. So in regards to how it works, it's basically I mean,
+[You]: it's hosted in our infrastructure, so we need to ingest the data in some way or form.
+[You]: Ideally, we do that daily and we run this daily because that's what
+[You]: actually is gonna reduce risk for you guys, catching stuff real time.
+[Remote]: That's right. Right. I did. Yep.
+[You]: And making and making sure we're running it daily and and keeping it up to date. So
+[You]: typically how it goes is once we prove value and we really see
+[You]: a path forward towards implementing a recurrent
+[You]: solution for this workflow, which is how we work with each one of our customers.
+[You]: We typically just create a commercial proposal, which
+[You]: is a win win for both parties. You see the value out of having this platform. We see value of working with you guys
+[You]: solving this problem for you guys.
+[You]: And then the contract typically entails we
+[You]: dive in, become an extension of your team to make sure we connect all the data sources
+[You]: configure it all the transformations, configure it all the processing,
+[You]: the reporting requirements. If we need to plug into an ERP, we do that as well.
+[You]: We implement everything, and then we just leave it up and running. Now
+[You]: what does happen is
+[You]: given the tool is designed for you to be, like, using it,
+[You]: and and, a self serve basis, someone on your side will have to
+[You]: own the platform, meaning logging in,
+[You]: understanding how this data is being ingested, transformed, processed,
+[You]: going over the discrepancies, if they have to edit a dashboard or
+[You]: configure a new workflow. Someone needs to be like an an owner of the platform
+[You]: on your side. Don't know if it's gonna be you or someone in your team, but someone
+[Remote]: Yeah. No. Well, it definitely won't be me.
+[Remote]: We interviewed someone today that I think would take over that role.
+[Remote]: Right? You know, so we're probably gonna bring on new staff to
+[Remote]: to complement this. It's a upgrading, basically,
+[Remote]: a role that, unfortunately, has someone leave our organization, but
+[Remote]: we're bringing in someone with additional horsepower that
+[Remote]: can operate in this world better.
+[Remote]: And that's, you know, that's what we're planning on.
+[Remote]: You know, it'd start here. It might expand to a broader set of
+[Remote]: reconciliations that we're doing manually now.
+[Remote]: I could see that happening.
+[Remote]: We have a process where we've got that working
+[Remote]: and that might be an easier
+[Remote]: frankly, that might be an easier thing to automate because we we have it.
+[You]: Yep.
+[Remote]: Working, and we're processing
+[Remote]: $4,000,000,000, a month
+[Remote]: through this these particular accounts. And we've got the,
+[Remote]: the variance down to, you know,
+[Remote]: unknown variance down to, I don't know, hundreds of dollars. So, you know,
+[You]: Wow.
+[You]: Yeah.
+[Remote]: Yeah. We're as good as we're gonna get.
+[Remote]: You know? It's the bottom line.
+[Remote]: So, you know, we have all the nuances. There's, like, nine reports that have to feed into it so you know where all the pieces are and
+[Remote]: it's really complicated. But let's start with this because this is a
+[Remote]: a solved problem that we can automate.
+[Remote]: This is an unsolved problem. It's a real problem, if you know what I mean. I
+[You]: Yeah. That's why. Let's take it step by step.
+[Remote]: That's what I think is, guys.
+[You]: My
+[You]: take a step by step. My proposal is let's nail this one.
+[Remote]: Okay.
+[You]: And then
+[Remote]: Okay.
+[You]: once we both see value on augmenting the relationship, we can sit down
+[You]: and talk about
+[You]: a contract, an agreement. That's a win win for both parties. If you need
+[Remote]: What
+[You]: an estimate of cost for you to say, like, hey,
+[You]: I'm just trying to understand, because I don't wanna waste your time if this is not gonna never convert for me.
+[Remote]: Right. Right. Yeah. I mean, if you come back to me and say,
+[Remote]: this is a $100 a month, we're not gonna do this. So know? So and and I'm you know, I don't wanna put
+[Remote]: you know, ideas in their head. I know I'm not expecting this gonna be a $100 a month, but
+[Remote]: it is, let's just stop right here.
+[Remote]: But, you know, I need to understand
+[Remote]: know, what the pricing is and what we're talking about. Because if it's out of bounds for us,
+[Remote]: that matters and, you know, I don't wanna waste your time. So
+[You]: What's out of bounds for you guys?
+[Remote]: I don't know yet. That's and I mean that because
+[Remote]: I don't I don't know what the
+[Remote]: the model works here, how this works.
+[Remote]: I would say we would think
+[Remote]: I can hire but think about it this way. It's gotta be cheaper than me just
+[You]: Yep.
+[Remote]: hire one FTE that just says it's full time.
+[Remote]: K?
+[You]: 100%.
+[Remote]: Okay.
+[Remote]: Okay. So and that would be sort of the other way I would need to go.
+[Remote]: So
+[Remote]: that gives you some sort of idea of the way I'll be evaluating it.
+[You]: A 100%. A 100%. Okay.
+[You]: Again, let's take it step by step. Let's prove value. We're more than happy to continue doing this for free.
+[You]: No worries. As long as there's commitment on going back and
+[You]: forth quickly and a and a good turnover to make sure we're we're making progress,
+[Remote]: Yeah.
+[You]: we're we're we're more than happy to do it for free until we
+[You]: see value from both sides. And then
+[You]: we see value, we can sit down and talk about what's next.
+[Remote]: Yeah. Yeah. I'll just charge you. I'm not gonna bring
+[Remote]: up again, but I'll charge you with you. I understand when you're gonna come to me at some point and say, hey. That's it.
+[Remote]: We gotta talk about a a commercial arrangement. Get it. K?
+[You]: I appreciate the approach. I appreciate the approach.
+[You]: Can you just help us get that session for late next week with the people involved?
+[Remote]: Yeah. The I'm not even book it right now.
+[Remote]: So there's no confusion next week.
+[Remote]: I wanna have some people on my
+[Remote]: team there. Thursdays are a good day, usually, to catch people.
+[Remote]: Let me I'm gonna drop a mock meeting here
+[Remote]: give me a second. People need to be there.
+[Remote]: Should I be Thursday afternoon, I'm quite free.
+[Remote]: After Yeah. One PM.
+[Remote]: Also, Darren,
+[Remote]: would you have an
+[Remote]: estimate not on not on
+[Remote]: dollar value, but number of transactions you're processing
+[Remote]: for us, we have an idea.
+[Remote]: Yeah. It's not that many on a daily basis. I mean, you could use that data, and you would see it. But
+[Remote]: 40,000 a year?
+[Remote]: Oh, in well, in this dataset,
+[Remote]: the let's let's see. So
+[Remote]: yeah. That sounds about right.
+[Remote]: In but there's two accounts, and I only gave you one. So double it.
+[Remote]: Perfect.
+[Remote]: Just just to have an idea. So it's
+[Remote]: We can get in the ACH side.
+[Remote]: Alright. You know, that's the other business. There's
+[Remote]: there are six accounts
+[Remote]: far more complicated, far more transactions,
+[Remote]: That's where the billions there are
+[Remote]: like I was talking about.
+[Remote]: I would say each account
+[Remote]: you know, so there are different volumes in there, but
+[Remote]: each account
+[Remote]: probably has
+[Remote]: a 120 a day.
+[Remote]: So
+[Remote]: you know, that's ins and outs.
+[Remote]: So I get, you know, you do, you know, 120 times six. That's
+[Remote]: is $7.47 20,
+[Remote]: then times 200, you know, two hundred banking days or whatever it is. $2.50.
+[Remote]: So that's that's what we're talking about.
+[Remote]: Her account.
+[Remote]: No. We got the per account. So it's $7.60.
+[Remote]: I think that would be
+[Remote]: a decent estimate
+[Remote]: Fantastic.
+[Remote]: K.
+[Remote]: Yeah. I think that's it.
+[Remote]: The live bit well.
+[Remote]: That's the asset side.
+[Remote]: That's just the bank account. The liabilities
+[Remote]: god,
+[Remote]: No. It's not really transactions because it's in that
+[Remote]: The liability so that this
+[Remote]: the reconciliation we're talking about for the larger one is much more
+[Remote]: So there's a bank
+[Remote]: reconciliation. Right? That's what we're doing here more or less. Right?
+[Remote]: Mhmm.
+[Remote]: Then we get a report out of our system that says that
+[Remote]: cash sitting in the bank account is equal to
+[Remote]: how much we think we owe people.
+[Remote]: And those two numbers are
+[Remote]: you know, are should move up and down the same amount every day.
+[Remote]: So the amount of cash we have might start
+[Remote]: different than the amount that's in the liability, but
+[Remote]: the net change to those accounts should be exactly the same.
+[Remote]: So we have a liability report. We don't need work by consigning that.
+[Remote]: It comes out that's just a report. There's no
+[Remote]: but what we should be reconciling is the net change
+[Remote]: between yesterday and today between the two accounts.
+[Remote]: And that's what we got nailed to, you know, very little variance.
+[Remote]: But
+[Remote]: on that,
+[Remote]: in the liability report, it's probably
+[Remote]: in terms of data
+[Remote]: every day, couple thousand lines,
+[Remote]: And then there are nine reports that have to be
+[Remote]: aggregated to get to the number. So nine version not not all
+[Remote]: The main one has a couple thousand, you know, couple thousand lines. The other ones, I don't know. I haven't really looked at them, but there's
+[Remote]: you know, all sorts of subthings and things that weren't captured
+[Remote]: in the original report and, oh, we did this and we gotta get that. You know, it's all this
+[Remote]: exceptions that we've kinda worked out over time.
+[Remote]: That all had to be aggregated together because
+[Remote]: if you don't have one of those pieces, your liabilities the
+[Remote]: the spread's gonna be off.
+[Remote]: Alright.
+[Remote]: Okay. So that that's a much more, like I said, much more complicated
+[Remote]: That's where we've been focusing on when you know, the time I've been dedicated was getting that right.
+[Remote]: And we we were close.
+[Remote]: I mean, we're not gonna exactly. Right? But we're pretty close, which is good.
+[Remote]: And so and, you know, we can go over that some other time if you wanna
+[Remote]: see all that. Jody, who's gonna be on the call,
+[Remote]: Oh, you know what? I didn't
+[Remote]: look to see him in Ravel. I sat at the meeting and didn't do anything.
+[Remote]: So I got distracted.
+[Remote]: Here it is.
+[Remote]: No.
+[Remote]: It is. What do you have?
+[Remote]: Between 02:30 and 04:00 on
+[Remote]: Thursday.
+[You]: Looks good to me.
+[Remote]: Why we do three to four, do an hour?
+[You]: Yeah.
+[You]: Let's block an hour because it's gonna be like a working session. We go deep into the files, understand them.
+[Remote]: Okay.
+[Remote]: Yeah.
+[Remote]: I'm gonna have to specify my team getting them up to speed of what
+[Remote]: I've sent you and the conversation we had. I'll do that.
+[Remote]: What would be helpful is to give a high level overview of your services.
+[Remote]: To start.
+[Remote]: You know? Like, give me the twenty minute sales pitch and then get into
+[Remote]: some of these issues and things. And I'll get I'll get them up to speed so they know what
+[Remote]: to expect.
+[You]: Amazing.
+[Remote]: Of a conversation.
+[Remote]: Alright.
+[You]: Sounds good.
+[You]: Thank you, Darren.
+[Remote]: Sounds good.
+[You]: Have a great pride in Richmond.
+[Remote]: Appreciate it.
+[You]: Bye bye.
+[Remote]: Alright. Thanks. Alright. Okay. Bye bye.
+
+============================================================
+SUMMARY
+============================================================
+### Reconciliation Analysis Results
+
+- Analyzed 27,000 of 30,000 bank transactions (3-4k outside timeframe)
+- Matching methodology used progressive tolerance levels:
+  1. Same day, exact amount: 4,400 matches
+  2. 1-day tolerance, exact amount: 1,700 matches
+  3. 2-4 day tolerance: additional matches found
+  4. 4-day + 1% amount tolerance: 4,000 more matches
+  - Total one-to-one matches: 10,800
+- One-to-many matching yielded only 17 transactions
+  - Example: Two bank wire transactions (350k + 300k = 650k) correctly matched
+- Coverage achieved:
+  - Bank wire inbound: 86%
+  - TV side: significantly lower
+  - Bank file credits: 92%
+  - Bank file debits: much lower coverage
+
+### Unmatched Transaction Analysis
+
+- 8% of transactions remain unmatched despite tolerance adjustments
+- Darren confirmed results align with his manual reconciliation experience
+- Missing matches likely require business-specific logic rules
+  - Examples: Chicago Board of Trade spreads over 6 days
+  - MoneyLion flows across 3 fields with specific sequencing
+- Two potential solutions:
+  1. Build custom logic rules with Payliance team input
+  2. Implement unique transaction IDs (preferred long-term approach)
+
+### Service Implementation Discussion
+
+- Daily data ingestion and processing recommended for real-time risk reduction
+- Rexi would host infrastructure and handle all technical setup
+- Requires dedicated Payliance team member to own platform
+  - Darren interviewing candidate for this role
+  - Would replace departing team member with enhanced capabilities
+- Potential expansion to other reconciliation processes
+  - Current manual process handles $4B monthly with minimal variance
+  - Nine reports feed into complex liability reconciliation
+
+### Transaction Volume Estimates
+
+- Current dataset: \~40,000 transactions annually across 2 accounts
+- Additional ACH business: 6 accounts, \~120 transactions/day each
+  - Estimated 750+ daily transactions total
+  - \~150,000+ annual transactions across all accounts
+- Liability reconciliation involves thousands of daily data lines
+
+### Next Steps
+
+- Schedule working session for late next week (Thursday 3-4 PM proposed)
+  - Deep dive into unmatched files with Payliance team
+  - Darren to brief his team on current progress
+  - Rexi to provide 20-minute service overview
+- Continue free proof-of-value work until mutual benefit established
+- Commercial discussion deferred until clear value demonstrated
+  - Pricing constraint: must be cheaper than hiring full-time employee
+  - Darren committed to transparency on budget boundaries
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/5cf258cb-2c3c-4c65-9744-dc00a9fdb332](https://notes.granola.ai/t/5cf258cb-2c3c-4c65-9744-dc00a9fdb332)

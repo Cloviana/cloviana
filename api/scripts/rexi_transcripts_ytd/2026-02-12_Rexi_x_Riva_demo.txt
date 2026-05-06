@@ -1,0 +1,445 @@
+MEETING: Rexi x Riva: demo
+DATE: 2026-02-12
+ID: not_WQUzGHyCR9KQTo
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Robert Macdonald <robert.macdonald@rivamoney.com>
+SCHEDULED: 2026-02-12T09:00:00-05:00 - 2026-02-12T09:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: And you cannot get, like, really just
+[You]: focused time to make progress in what you need to do. So
+[Remote]: Yeah. Of course. It happens.
+[You]: for me,
+[You]: long nights for me, but packed meetings means there's a lot of pull. So
+[You]: so good good good things going. How about you?
+[Remote]: Exactly. Any good things. Yeah.
+[Remote]: I know. Getting there.
+[Remote]: We had a big sort of sprint
+[Remote]: the last week or so trying to push some new products and stuff.
+[Remote]: So the engine engineering team was busy, but, yeah, it's busy, you know, trying to
+[Remote]: trying to onboard as many customers as possible. We're also in
+[Remote]: in touch with a couple other partners to expand
+[Remote]: the offering that we can we can give to companies like you guys. So yeah.
+[Remote]: It's going well. They're busy as well, which is good, of course.
+[You]: Great, great. Well,
+[You]: look, I'll I'll just explain the current setup, and and and then Patty to see how
+[Remote]: Yeah.
+[You]: how we can collaborate here.
+[You]: So it's it's two employees in The US, just like a normal payroll company.
+[You]: We have Gusto. I don't know if you heard about Gusto. So two of us
+[You]: w two employees here in New York. And then we have five contractors.
+[You]: Based in our
+[Remote]: Yeah.
+[You]: For those, the process I did today is I do.
+[You]: BREX, ACH transfer, one transfer every single month.
+[You]: Dollar app. In dollar app, I have a business account.
+[You]: And then from there, I disperse to my
+[You]: contractor's dollar app personal accounts because I made them create
+[You]: dollar app personal accounts.
+[You]: So that's, like, internal transfer within dollar app.
+[You]: The whole process cost me zero because it's an ACH
+[You]: from Brexit dollar app and from dollar app internal transfers to them.
+[You]: Eligibility cost of $8.00.
+[You]: The only thing is I need to do that two step. Every single month, I need to do the ACH,
+[You]: and I do the bulk payment from Dara. So it's free.
+[You]: But I have to do this
+[You]: two step process. So I'm really open to
+[You]: see how you guys do it, how it works. Of course, there's a scalability thing. Right? Today, it's
+[Remote]: Yeah.
+[You]: five contractors. There's not that much.
+[You]: As soon as I get, I don't know,
+[You]: We're not gonna hire, I think, any more people
+[You]: in the upcoming three to six months.
+[You]: But once you raise our seat around, we are gonna hire more people, and that
+[You]: number of five contractors is gonna probably convert to more, like,
+[You]: 10, 15. I don't know. We'll see.
+[Remote]: Of course. Yeah. I mean, that was gonna be the follow on question
+[You]: And then maybe it
+[Remote]: for me just to sort of understand
+[Remote]: I guess, what your hiring process is
+[Remote]: looking like and where you're gonna be hiring out of, whether it be, you know, continue
+[Remote]: continuing to to hire out of Argentina or if you're looking elsewhere as well within Europe or
+[Remote]: whatever it may be because, I mean, depending on that, you know, there's different offerings on the
+[Remote]: on the
+[Remote]: on the platform that that will
+[You]: Yeah. No. I think it's it's it's gonna remain either New York or Argentina. We're not gonna hire people in Europe or Asia or
+[Remote]: help you guys
+[You]: or other places. Maybe
+[You]: But that's more like two to three years from now. We might hire we might want, like, people
+[You]: a group, you know, a team in India or Philippines doing
+[Remote]: Yeah.
+[You]: account management or customer support or some dev work. But
+[You]: I don't see that happening in the next
+[Remote]: Yeah.
+[You]: twelve to eighteen months.
+[Remote]: Yeah.
+[Remote]: Okay. Well, cool. Yeah. Let me run you through the product
+[Remote]: give you a brief sort of overview of how it works and the different sort of capabilities that it has.
+[Remote]: You did say that potentially the the contractors were
+[Remote]: interested in receiving in in stable coin, which which we've got the capabilities
+[Remote]: do.
+[You]: Today, they're receiving an in Sablecoin. So, for dollar app, as soon as you
+[You]: deposit money, they convert your US dollars to coins,
+[Remote]: Okay. Is this
+[You]: and then what I'm sending them is Stablecoins.
+[Remote]: Okay. I see. Okay. Well, I mean yeah. Stablecoins dollar local currency, whatever it is, we can do all of that. So let me share my screen.
+[You]: Bueno, no,
+[You]: The only requirement there is for them to receive the money
+[You]: in US dollars, either stable coins or US dollars, because, you know, in Argentina,
+[You]: with the inflation thing,
+[You]: wanna give them the freedom of doing whatever they want with that money. If they wanna convert it to
+[You]: local currency to do some payments, they can do that. If they wanna save in US dollars,
+[You]: they can also do that. You know?
+[Remote]: Of course. Of course.
+[Remote]: Cool. Well, let me share my screen, and I can just run you through the
+[Remote]: the platform.
+[You]: Got it.
+[You]: Have you tried mate before?
+[Remote]: Haven't. I've heard of it, though. Apparently, it's very good.
+[You]: Productivity hack, my friend. You should you should try it.
+[Remote]: I've heard. I've heard it. Don't know all the soccer players drink it or something as well?
+[You]: Yeah. Yeah.
+[Remote]: Cool. So
+[Remote]: here we go. Can you see my screen?
+[You]: Yes.
+[Remote]: Perfect. So, essentially, what
+[Remote]: is that you guys will obviously have to onboard with us, which they you know, you'll
+[Remote]: standard KYC, KYB,
+[Remote]: checks that you'll have to do, but the process is pretty, you know,
+[Remote]: client friendly. We try to make it as straightforward as possible and so that it's not
+[Remote]: sort of this long winded process. It can take
+[Remote]: a day or two. Really, it's it's it's quite straightforward.
+[Remote]: So, essentially, you will log on to your platform over here. You will see your
+[Remote]: company's name up here. So these this is obviously in staging. So we
+[Remote]: whole lot of different different ones up there. So this is Apple's account.
+[Remote]: And you will have the capability
+[Remote]: to hold money in a variety of different
+[Remote]: currencies. So these are the currencies that we currently have available for you guys to hold money in
+[Remote]: in. So you got USD, half CHF, DKK,
+[Remote]: sec, AUD, GBP, euros, and USDC.
+[You]: This means you have a bank address for each one of those countries.
+[Remote]: Correct. Yeah. We've got a bank
+[You]: Bank do you use in The US?
+[Remote]: In The US, we've got
+[Remote]: so it's through a partner called
+[Remote]: sorry?
+[You]: Lead or bridge?
+[You]: Yeah. Which bank are you using for the USD?
+[Remote]: For the USDC. Sorry.
+[Remote]: For the USD, so we partner with a a bank
+[Remote]: It's called Fiat Republic and underlying it's called
+[Remote]: Slovak savings account, I think it is.
+[Remote]: Yeah, standardized USD, you know, fully fully licensed
+[Remote]: and regulated bank within within America.
+[You]: But you said it's First First Republic Bank?
+[Remote]: No. So it's we we we we've partnered with the with
+[Remote]: company called Fiat Republic that gives us access to these
+[Remote]: local USD accounts, and their underlying bank is Slovak Savings Bank.
+[You]: Okay. Got it.
+[Remote]: Yeah.
+[Remote]: So, essentially, you got capability in all these as well as
+[Remote]: stablecoins. So you can hold
+[Remote]: move money as you like between these different Obviously,
+[Remote]: for your use case, you're probably only gonna use USD or USDC.
+[Remote]: So, essentially, what
+[Remote]: you can do is you'll simply whenever you want to,
+[Remote]: from your business account, you will have your own, you know,
+[Remote]: USD account that you would be able to just upload money into
+[Remote]: whenever need be, and that would be instant. You know, it would be
+[Remote]: on the on the local
+[Remote]: local payments infrastructure there in The US. So it would instantly up
+[Remote]: money into your USD account, and you would have your balance there that you would be able to
+[Remote]: to see. And then, essentially, what you would do is you could create recipients
+[Remote]: So for your four or five contractors that you have,
+[Remote]: you would come here and you would create a whether they wanna receive it in
+[Remote]: in in USDC over here or if they're just wanting
+[Remote]: receive it in in USD.
+[Remote]: Paid currency, you would simply create your
+[Remote]: You would
+[Remote]: enter in there the the details, the the bank account that they wanna receive it in.
+[Remote]: And then that recipient would be saved
+[Remote]: under your recipient tab over here. It'd simply just
+[Remote]: click up here, add recipients. You'd choose US dollar.
+[Remote]: You'd click continue. It would be for an individual.
+[Remote]: And then you would enter their last names, their account number, their account type, the AC
+[Remote]: routing number, etcetera, etcetera. And then you would verify your recipient, and that would
+[Remote]: create a new recipient for you to send money to. So you could do that for all four of your
+[Remote]: of your recipients.
+[Remote]: And then there are different ways you can make the payments. You can simply just do a send
+[Remote]: transfer over here. So it would take you to the screen. You'd be like, okay. Cool. I'm transferring
+[Remote]: my USD account over here.
+[Remote]: Click next step, and then you would choose your recipients
+[Remote]: that you've already created that would be saved here.
+[Remote]: So let's filter by currency quickly.
+[Remote]: Let's go to USD. You would select
+[Remote]: your recipient here.
+[Remote]: You'd click next.
+[Remote]: Sorry. You select your recipient. You click continue.
+[Remote]: And then you would just enter the that you want your
+[Remote]: your contractor to get. And
+[Remote]: you hit continue. You'd select your transfer for
+[Remote]: select your transfer reason, salary payments. Also, funds would be business income.
+[Remote]: You can also, you know, make tags. That's
+[Remote]: you, for your own sake, know exactly what that payment was made for. Your
+[Remote]: click payroll, you could put a reference if you want to continue, and it'll give you a
+[Remote]: OTP that you would have to enter.
+[Remote]: That payment would be made.
+[Remote]: Obviously, you would also be able to see the fees that we would be charging you, say this were to be a
+[Remote]: USD to
+[Remote]: ARS transfer, there would be a fee that we would charge a percentage fee for that if
+[Remote]: conversion. So that's sort of the the straightforward way to send money to a
+[Remote]: if you wanted to do it that way. The other way is because you've got multiple
+[Remote]: recipients on on your end,
+[You]: Yep.
+[Remote]: he can do it through a bulk transfer.
+[You]: App has the same thing. Are you sure of, like, upload a template that says
+[You]: all the different names, the amounts, and you do the bulk transfer?
+[Remote]: Exactly. So you just say create all transfer of
+[Remote]: you would again choose your USD accounts that you wanted in
+[Remote]: into the name of this bulk transfer. So, again, you would go payroll,
+[Remote]: you select your USD account, and you'd select your recipients against all your
+[Remote]: that you've already created. You just have to do that one time would be saved. Yeah.
+[Remote]: So you'd enter your five contractors names would be saved here. So let's just go again
+[Remote]: to USD
+[Remote]: and say
+[Remote]: some of them
+[Remote]: So you can select USD, and then you just select multiple recipients over here.
+[Remote]: You click continue, and then again, you just enter
+[Remote]: whatever
+[Remote]: that you
+[Remote]: pay each of them per month.
+[You]: But just to understand, like, I'm adding a layer. Right? I would do Brex, Reva, Reva dollar app.
+[Remote]: No.
+[Remote]: Straight from Reva, this would go into their accounts.
+[Remote]: Into, you their their
+[You]: Enter the account.
+[Remote]: their accounts that they
+[Remote]: they hold, they wanna hold money. You would enter their
+[Remote]: bank account details.
+[You]: The the Argentinian bank account?
+[Remote]: And it would go straight into
+[Remote]: or what it it it can be the
+[Remote]: app that they use, the Argentinian bank account, whatever it is, you can choose.
+[You]: Oh, so I'm replacing the the dollar up part
+[You]: Sorry. Replacing the dollar up.
+[Remote]: So you had said
+[You]: Right?
+[Remote]: yeah. You'd simply
+[You]: Brex, Reva, Reva dollar app to their personal accounts.
+[Remote]: straight to the yeah. Well, into dollar then they can do whatever they want to do with it, essentially.
+[You]: Exactly. But we're replacing the
+[Remote]: Yeah.
+[You]: business account of dollar app.
+[Remote]: So
+[You]: And how how much do you charge for, like, cash ins and and and those transfers?
+[Remote]: What's your USD account in
+[Remote]: the money platform USD account?
+[You]: Like like the flow. I'm sending money
+[You]: from BREX to Reeva account, and then from Reeva account doing the bulk transfers.
+[You]: To their dollar app accounts? What would be the cost?
+[Remote]: So it it
+[Remote]: so it would
+[Remote]: most likely just be transaction fees that we're covering. So that would be
+[Remote]: because we've got underlying banks and we cover those transaction fees, and that's what the the charge would be.
+[Remote]: Yeah.
+[You]: Do do you know what's that charge amount?
+[Remote]: I can't tell you off the top of my head, but
+[Remote]: you know, if we if we proceed and you guys are interested, we can give you a full breakdown of it, what the exact piece
+[Remote]: would
+[Remote]: that would you know, we can send you a contract of of what the fees look like.
+[Remote]: And then yeah. So so for this, you would simply just click initiate transfer
+[Remote]: the bulk transfer would
+[Remote]: be sent through to all the different
+[Remote]: contractors that you have.
+[Remote]: Again, you'd also have to send an OTP. And then another nice thing for you guys as
+[You]: Yep.
+[Remote]: as a business is, like, if you
+[Remote]: were to come ahead, go ahead and and, you know, onboard with us,
+[Remote]: If you were to
+[Remote]: upload money into your
+[You]: Or is interest
+[Remote]: it earns interest. Correct? So we've got sort of a yield
+[You]: How much?
+[Remote]: that that you that you would be earning in
+[Remote]: I don't know if this is the accurate number, but I think it's between about three and a half
+[Remote]: to to potentially four and a half percent that you would be earning.
+[Remote]: Earning yield on on on that money just sitting stationary in in our accounts.
+[Remote]: So that's sort of a a a brief overview of of how it works.
+[Remote]: Of course, there's a lot more capabilities that come with it as you
+[Remote]: expand your business and grow and enter different markets and whatnot. You know, the
+[Remote]: capabilities will will really show themselves
+[Remote]: as you start to grow and and and
+[Remote]: have the need of of more cross border payments. But
+[Remote]: yeah, for you at the moment, that's sort of the the basic overview of how it
+[Remote]: could work and and sort of the benefits that it would give you. Obviously, the yield is also a big
+[Remote]: big one for you guys at the moment. So yeah. I mean, that's that's
+[Remote]: that's how it works. I don't know if you've got any other questions or
+[You]: No. Super clear. And and, honestly, great. I mean,
+[You]: very interesting product you guys have built.
+[You]: I'm not sure on the specific ICP. Right?
+[Remote]: Yeah.
+[Remote]: I mean,
+[You]: Because, like, our our setup is pretty
+[You]: simple, at least today.
+[You]: But yeah. And the thing I'm I'm just most worried about is the cost.
+[You]: Like, today, I'm getting charged zero on on the flow of
+[You]: Brexit dollar app dollar app Like, literally zero.
+[You]: That that ACH is free, and the internal dollar app is free.
+[You]: So I know if that's gonna change.
+[You]: Because I I know the dollar app business account that it's something they started off.
+[You]: In the recent twelve to eighteen months.
+[You]: The past twelve to eighteen months, maybe they're doing it for free and incurring the costs them
+[You]: I know what's gonna happen going forward.
+[You]: Or making or maybe they're making money out of my float. I don't know.
+[You]: But today, I'm paying zero. So, like,
+[You]: I know what would I
+[Remote]: Yep. I mean, for us, as I said, like, there's no there's no effect
+[Remote]: fee that we're charging. It's purely just transaction fees
+[Remote]: to cover to cover our costs when it comes to, you know, our underlying banks are gonna
+[Remote]: charge us
+[Remote]: $5 or not even whatever it is for the ACH
+[Remote]: transfer. So that's the only thing that would be converted onto you guys. But
+[You]: Yeah.
+[Remote]: yeah. I mean, you you, like obviously, you guys are are still quite a
+[Remote]: company. I mean, it was more just sort of us, you know, offering our product to you as you are offering your product
+[Remote]: to us. We thought maybe this would be something of interest to you guys.
+[Remote]: Seeing that you do have contractors based outside of of of The US.
+[Remote]: But yeah. I mean, have I think about it?
+[Remote]: Let me know where where where you stand.
+[Remote]: Obviously, no pressure at all, but we would love to have you guys on board.
+[Remote]: I don't know if if if you guys have the capabilities to earn yield and stuff like that
+[Remote]: in in Bricks. I assume you
+[Remote]: probably should.
+[Remote]: But, yeah, if that's something you don't you don't have at the moment, I mean, obviously,
+[Remote]: always nice to earn a little bit of money on on on on money that's just sitting stationary.
+[You]: Sure.
+[Remote]: So yeah.
+[You]: Let me give this some thought, and I'll get back to you. But to be honest, I I don't think there's gonna be a
+[You]: I don't think it's it's gonna be
+[You]: I don't think it makes sense for us today. Maybe at some point in the future.
+[You]: But what would be interesting is if you can tell me
+[You]: what type of companies are you specifically targeting, and maybe I can refer to
+[You]: some companies that I think could get value out of this.
+[Remote]: Yeah. I mean, so for us, there's there's two type of target areas that we have at the moment. The
+[Remote]: the classic one is obviously just b to b, so businesses to businesses. So if
+[Remote]: example, say you've got a business based in America,
+[Remote]: and they have suppliers based in Brazil.
+[Remote]: And they would be wanting to pay their suppliers
+[Remote]: USD to VRRL. And, obviously, you know,
+[Remote]: through correspondent banking at the moment, there's a lot of fees that that that rack up
+[Remote]: during that transfer, and FXs are quite quite wide.
+[Remote]: Whereas our FX are very sort of narrow.
+[Remote]: Cheap, and payments is instant to to their suppliers in
+[Remote]: for for for named sake.
+[Remote]: So that that's, like, one classic sort of
+[Remote]: example, whether it be for manufacturers, suppliers,
+[Remote]: you know, any anything that that's
+[Remote]: that is based outside of of the jurisdiction that you're operating in. And then the second one would be sort of
+[Remote]: your
+[Remote]: your use case here, which would be b two p. So
+[Remote]: businesses that are hiring sort of outside of the jurisdiction that they
+[Remote]: operating in, you know, how it is now nowadays with remote work and
+[Remote]: and whatnot. A lot of a lot of companies are are doing hiring outside of
+[Remote]: of the jurisdictions that they're operating in, and they're
+[Remote]: end users would wanna receive money whether it be in Stablecoins,
+[Remote]: their local
+[Remote]: whatever it may be. So that's another another use case step
+[Remote]: sort of we we've we've decided to target and and see that there's quite quite a big
+[Remote]: gap in the market for. So, yeah, would be b to b
+[Remote]: payroll payments and then b to b for supply payments
+[Remote]: imports, whatever it may be for for a company that that
+[Remote]: in that in that sort of sector. So those are the two sort of main use cases that
+[Remote]: we're that we're targeting at the moment. Yeah.
+[You]: Okay. Got it. Alright. I'll take a look at at at the people I know,
+[You]: the companies I know here in New York, and and we'll definitely refer you guys to many of them if I
+[You]: think there's there's a fit.
+[You]: And, yeah, let me give it to the part of the thought, but, as I said, I don't think there's a fit today just because I think
+[You]: this would replace my current setup and adding a fee.
+[You]: And even though it's slow and I would love to work with you guys, it's like it doesn't make
+[Remote]: Yeah.
+[You]: You know? As we continue scaling or if at some point dollar app
+[You]: starts charging me for these transfers,
+[You]: I'm more than happy. You know? But today, I don't see, like, a
+[You]: a value add for me to jump over
+[Remote]: Of course.
+[You]: to use Reva instead of dollar.
+[Remote]: Yeah. And, I mean, on the yield side of things, are you getting yield and breaks?
+[You]: I was just checking that
+[Remote]: Or how does that work?
+[You]: I'm getting 3.41% Yeah.
+[You]: Your BRICS.
+[Remote]: Okay. Well, I can confirm the exact yield demand for you just
+[Remote]: see if it's more and if it's worth worth you guys
+[Remote]: sort of even if it's just for the yield component,
+[Remote]: components wanting to wanting to jump over,
+[Remote]: But, yeah, I mean, let's stay in comms.
+[Remote]: Let's see let's see what happens. Let me know sort of where you guys stand, and
+[Remote]: yeah, that would be great if you could potentially introduce us to to
+[Remote]: some businesses that might need this
+[Remote]: at the moment.
+[You]: Will do. Will do. If I have, like, a hit list you're trying to target in The US,
+[You]: send it over. I may know people there, and I can definitely facilitate interviews for you guys.
+[Remote]: Cool. Grads. But, yeah, we'll keep in touch for sure.
+[Remote]: With regards to
+[Remote]: of your product and and what you guys can offer us as we scale
+[Remote]: as Mahindra said, as we, you know, get bigger in the
+[Remote]: a lot more flows coming through the business, you guys definitely will probably be able to
+[Remote]: you know, give us a value add and help us out. So we'll definitely keep in touch.
+[Remote]: And, yeah, hope hopefully, we can work together and partner in the future.
+[You]: Sounds good, Robert. All right. Have a good rest of your day.
+[Remote]: Well, you too, man. Cheers.
+[You]: Thank thank you.
+
+============================================================
+SUMMARY
+============================================================
+### Rexi’s Current Contractor Payment Setup
+
+- 2 US employees on Gusto payroll
+- 5 Argentina-based contractors paid monthly via:
+  - Brex ACH transfer to Dollar App business account
+  - Dollar App internal transfers to contractors’ personal accounts
+  - Total cost: $0 (ACH free, internal transfers free)
+- Scaling concerns: 5 contractors → 10-15 when fundraising
+- Geographic focus: New York + Argentina only
+  - Potential Asia expansion (India/Philippines) in 2-3 years for support/dev roles
+
+### Riva Money Platform Overview
+
+- Multi-currency wallet capabilities
+  - USD, CHF, DKK, SEK, AUD, GBP, EUR, USDC
+  - US banking partner: Fiat Republic (underlying Slovak Savings Bank)
+- Payment workflow:
+  1. Fund USD account from Brex
+  2. Create recipient profiles (one-time setup)
+  3. Bulk transfers directly to contractor accounts
+- 3.5-4.5% yield on idle balances
+- Transaction fees only (covering underlying bank costs)
+
+### Cost Comparison Analysis
+
+- Riva would replace Dollar App business account layer
+- Current Rexi cost: $0 total
+- Riva cost: Transaction fees (exact amount TBD)
+- Ignacio earning 3.41% yield on Brex currently
+- Riva yield potentially higher but offset by transaction costs
+
+### Target Market Fit Assessment
+
+- Riva’s ideal customers:
+  1. B2B cross-border supplier payments (US→Brazil example)
+  2. B2P remote workforce payments outside operating jurisdiction
+- Rexi evaluation: No immediate value due to zero current costs
+- Future consideration if Dollar App introduces fees
+
+### Next Steps
+
+- Ignacio to consider referrals from NYC network
+- Robert to confirm exact yield rates vs Brex
+- Robert to send target company hit list for potential introductions
+- Future partnership discussions as both companies scale
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/37afd44c-4e04-4eb0-9fb9-422b5357a056](https://notes.granola.ai/t/37afd44c-4e04-4eb0-9fb9-422b5357a056)

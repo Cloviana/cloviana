@@ -1,0 +1,444 @@
+MEETING: Rexi x Slash: intro
+DATE: 2026-03-19
+ID: not_Vww8e1aCNSbLoa
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Nico <nico@slash.com>
+SCHEDULED: 2026-03-19T11:00:00-04:00 - 2026-03-19T11:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: En en el área más de ventas enfocado en startups.
+[Remote]: Mira, yo estoy liderando todo el equipo de startups.
+[Remote]: Son
+[Remote]: ahora un poquitito partnerships con con different venture capitals,
+[Remote]: con private equity firms, con accounting firms, trabajando con AI Labs,
+[Remote]: poder un poquito mejorar el rewards que tenemos para nuestros customers,
+[Remote]: trabajando con startups para traerlo la plataforma y un poquito con
+[Remote]: product management para trabajar con engineering y customer success, y hay que poder integrar
+[Remote]: hacer la vida lo más sencilla de ustedes posible.
+[You]: Bueno, bueno, bueno, superinteresante. La verdad, congrats. Qué divertido arrancar
+[You]: como un business vertical nuevo o un
+[You]: segment vertical nuevo dentro de una compañía que ya es
+[You]: bastante entrepreneurial, ¿no?, y bastante tech driven.
+[Remote]: No, ha sido superinteresante, la verdad que yo conozco el founder de
+[Remote]: de Stanford, los dos fuimos, yo lo conocía cuando él ya estaba dropped out y somos amigos,
+[Remote]: y la verdad que, bueno,
+[Remote]: ahí hemos hablado de de yo meterme al equipo por un tiempo, pero cosas pasaron y
+[Remote]: y los deadlines siempre cambian, y lo que era dos mil veintisiete terminó siendo la llamada
+[Remote]: en diciembre del dos mil veinticinco y I quit my job y devine. Así que
+[You]: Qué bueno.
+[Remote]: en eso estamos.
+[You]: Qué divertido. Y originalmente de Chile, supongo,
+[Remote]: Sí, sí, nací en Chile, estuve dieciocho años y
+[Remote]: me fui a a Stanford hacer el frenado y y me quedé acá desde entonces.
+[You]: Guau, impresionante. ¿Conoces a Gregorio Ingham?
+[Remote]: Gregorio, hoy
+[Remote]: No. ¿Qué año es?
+[You]: Falcon Range, dos mil trece.
+[Remote]: No, me me saca me saca
+[You]: ¿Vos sos veinte veinte?
+[Remote]: me saca
+[Remote]: Me gradué del dos mil veintiuno.
+[You]: Ah, ok.
+[You]: Ok, sí, yo soy dos mil catorce. O sea, que tenés veintidós años. Veintitrés, guau. Congrats.
+[Remote]: Veintitrés.
+[Remote]: I più
+[Remote]: cuéntame un poquito de ustedes cómo partiste, qué es lo que
+[Remote]: es lo que motivó el el el beginning
+[You]: Te cuento, dale.
+[You]: Bueno, a ver, yo vengo desde del mundo fintech, trabajé en Bitch,
+[You]: ¿Conoces Bitso, el el crypto exchange?
+[Remote]: Sí.
+[You]: En realidad, ranqué en management consulting, trabajando para bancos.
+[You]: Luego Bitso, y luego recientemente hice un MVA en Harvard.
+[You]: Y creo que
+[You]: en mi tiempo en Bitshow, cuando me tocó ser product manager, fue que me di cuenta que quería
+[You]: a company, que necesito ser ser product manager dentro de un startup, cuando tenés la posibilidad de lanzar un producto nuevo, sort of feels like
+[You]: entrepreneurship.
+[You]: Me encantó el proceso, me encantó. El proceso de build stuff from scratch,
+[You]: muchos moving pieces at the same time, product technology, go to market, unit economics,
+[You]: blah. Así que
+[You]: me vine a jarroar un poco
+[You]: entre vos y yo, yo quería ir a Stanford, but I got waitlisted.
+[You]: Un poco porque, de vuelta, I wanted to start a business, y creo que
+[You]: there's network effects that are present in in Silicon Valley, in San Que do not exist in Boston, for sure. Acá en New York existen, pero no tanto.
+[You]: Y, bueno, hice un summary
+[You]: acá en New York, en una fintech, en donde me tocó
+[You]: firsthand construir el el reconciliation workflow.
+[You]: Ahí fue como no way back.
+[Remote]: Con con Abiel, ¿cierto? Común es de es de
+[You]: Sí.
+[Remote]: Abiel y está también Andrés López, creo.
+[You]: Andrés, Andrés, Andrés, sí.
+[Remote]: Sí.
+[Remote]: Sí.
+[You]: Andrés Santos. ¿Lo conocés?
+[Remote]: Conozco a Ariel por, este, Víctor es amigo de Abiela,
+[Remote]: que me ha tocado conversar con él un par de veces
+[You]: Correct.
+[Remote]: Así que
+[You]: Una bestia salvaje.
+[Remote]: entre todos se conocen este small world.
+[You]: Bueno, Stumper Underground. Había un gran
+[You]: club de Stumper Underground en en
+[You]: computer science en en común, así que muy divertido.
+[You]: Pero, bueno, me tocó construir el reconciliation workload myself y
+[You]: there was no way back. Primero, un desafío técnico muy grande, que con AI should be
+[You]: solved,
+[You]: That's what we're building for. Segundo, el nivel de control y visibilidad que tiene la fintech sobre
+[You]: sus flujos de dinero, y no solo la fintech, bancos, procesadores de pagos, es es realmente sorprendente.
+[You]: Se pierde dinero en el sistema, lo cual resulta muy loco.
+[You]: Y el tercer punto fue el caso de Synapse.
+[You]: En veinte veinticuatro, ¿no?, que creo que fue como un
+[You]: tip of the iceberg moment showing that the fintech industry
+[You]: needed a newer way of operating y, bueno,
+[You]: for me, that was enough to build the company out of it. Así que en eso estamos. Tenemos un, hoy tenemos
+[You]: live customers in production,
+[You]: trabajamos con fintechs, payment processors, banks,
+[You]: La plataforma hoy es un orquestador de información, entonces nos conectamos a las distintas fuentes transaccionales.
+[You]: Sponsor bank, el ledger, any transactional provider you're integrated with,
+[You]: y gestamos todo eso, y después hacemos con AI todo el parsing, el
+[You]: processing y el discrepancy resolution. Y después están todos los output
+[You]: ¿no? Todo lo que sea dashboards, reporting,
+[You]: creating journal entries in the ERPs,
+[You]: or, mismo, downloading reports or
+[You]: dropping reports in in data repositories de nuestros clientes.
+[You]: Y, obviamente, muchísimas herramientas de BI dentro de la plataforma.
+[You]: Así que today we're solving reconciliation, ¿sí? El impacto que vemos con nuestros clientes es
+[You]: ahorro de tareas manuales, entonces equipos enteros dedicados a la conciliación that
+[You]: be that way. Vemos ahorro y pérdidas,
+[You]: esos monthly write offs of stuff you cannot reconcile.
+[You]: Y tercero, reducción de riesgo regulatorio de compliance.
+[You]: Porque cuando no estás conciliando bien, posiblemente
+[You]: tengas que pagar una multa con tu banco o pierdas la licencia para operar pagos, etcétera.
+[You]: Así que that's the impact we're seeing today.
+[You]: Going forward, la visión es volvernos como el cloud code for FinOps, ¿sí?
+[Remote]: Ya, tremendo.
+[You]: Donde, tipo, los equipos de finanzas y operaciones puedan construir
+[You]: toda su organización de manera agéntica.
+[Remote]: Y espérate, ¿cuántos son el team? Y me imagino, bueno, levantaron
+[Remote]: pero me imagino están levantando
+[Remote]: rondas zero, son, o sea, capital efficiency wise, ¿cómo cómo andan con eso?
+[You]: Somos siete punto cinco
+[You]: FTEs en este momento,
+[Remote]: ¿Ya?
+[You]: el cofounders y cuatro founding engineers.
+[You]: Y ahora tenemos un fractional growth advisor,
+[You]: We're very capital efficient, porque el equipo está
+[You]: mitad en Buenos Aires, mitad acá en New York.
+[Remote]: Ya.
+[You]: Somos argentinos.
+[You]: Y estamos, sí, levantamos una preside en julio, y estamos getting ready for our seed, en el en el q dos
+[Remote]: Treviendo.
+[You]: de veinte veintiséis de veinte veintiséis. Así que
+[You]: tenemos, sí, la verdad que there's a big poll in the market for our product.
+[You]: Across fintech, banking,
+[You]: payments.
+[You]: Así que así que tenemos buen momentum, la verdad.
+[You]: Es un producto hard to build, con lo cual it's not like
+[You]: we're gonna solve this problem overnight. It's gonna take a lot of iteration cycles.
+[You]: Pero pero ahí vamos, vamos bien, ahora que vamos muy bien y
+[You]: bueno, ojalá ahora con la seed seguir acelerando, ¿no?
+[Remote]: Nuestra nuestra controller creo que hizo un demo para
+[Remote]: semana que viene,
+[You]: ¿Con nosotros?
+[Remote]: Sí,
+[You]: A ver.
+[Remote]: semana tal,
+[Remote]: hizo creo que el jueves.
+[You]: Correcto. Credit y sume.
+[Remote]: Usualmente estoy viajando, pero pero bueno, avísame,
+[Remote]: avísame, encantaría el producto.
+[You]: ¿Y hasta cuándo estás en New York?
+[Remote]: Pero pero
+[Remote]: mira, estoy hasta acá hasta el sábado en la mañana, después viajo veinticuatro horas a Boston,
+[Remote]: me voy con un VC A Un Pequeño Conference, Y Después Me Devuelvo Domingo Y Después Vuelvo A Vuelta A San Francisco. La verdad que tengo un conference hoy día como a las
+[You]: Ah, ¿el de Silicon Valley Bank?
+[Remote]: una, así que ahí tengo que
+[Remote]: Sí.
+[You]: Sí, yo iba a ir, pero después
+[You]: no sé, I've got a lot of work to do, y la verdad
+[You]: given I'm not pitching
+[You]: como que sentí que va a ser muy un showcase de los startups que van a estar
+[You]: entonces, ir simplemente a hacer networking y que después me pregunten, hey, I didn't hear your pitch, va a ser medio raro.
+[Remote]: Bueno, pero avísame, estás
+[You]: Así que no sé.
+[Remote]: cerca de de dónde se va a estar este evento de pero
+[Remote]: quizás podríamos tomar un un un café o algo
+[You]: ¿Dónde estás parando vos?
+[Remote]: si es que andas por ahí.
+[Remote]: No sé qué tan
+[Remote]: Mira, yo ahora me estoy que ando
+[Remote]: la verdad que ya que estoy trabajando, me estoy quedando en la casa un amigo que
+[Remote]: hecho, hoy ahora están en San Francisco, están quedando en mi en mi departamento, acaban de levantar su zipra en ello,
+[Remote]: si estanqueando buen ratito.
+[Remote]: Y él es el departamento en Nueva York, así que
+[Remote]: este ha sido a como headquarter en en West Village.
+[Remote]: También, o sea, uno argentino, uno mexicano, uno
+[Remote]: uno gringo y uno indio, que acaban de levantar como siete millones, es decir,
+[You]: Kacen?
+[Remote]: están haciendo hedge slash insurances para
+[Remote]: SMBs,
+[Remote]: y enterprises via prediction markets as a medium,
+[Remote]: ocupando, están trabajando con market makers y con gente como
+[Remote]: dos de ellos son former quants, uno es de Palantir y uno tiene su hedge fund,
+[You]: Oh, wow.
+[Remote]: así que
+[Remote]: están creando un algorithm to detect as este como
+[Remote]: where companies are susceptible, y después providing them with trades
+[Remote]: normal insurances wouldn't cover. Entonces, por ejemplo,
+[Remote]: si si tú eres un tequila producer y agave spikes up,
+[Remote]: there's no agave futures, pero agave spikes the legislation, no sé,
+[Remote]: whatever can happen.
+[Remote]: Te dicen como your avenue is at risk y y provide you contracts
+[Remote]: and they have liquidity todo. Entonces, la verdad que es superinteresante lo que estás haciendo.
+[You]: Va.
+[You]: Tremendo. Mirá, yo hoy no voy a, yo estoy en Brooklyn, hoy hoy no creo que vaya para Manhattan,
+[You]: I've got a lot of work to do.
+[You]: Pero mañana estoy en Manhattan,
+[Remote]: Bueno,
+[You]: Si querés, nos podemos tomar un café tipo
+[You]: no sé, después de las cuatro pm,
+[Remote]: Quattro pm, quattro pm, dame un segundito.
+[Remote]: Viendo acá, Javier.
+[Remote]: Ya, yo pongo tipo cinco pm, ¿te parece?
+[You]: Dale, listo. Ahí ya mismo te mando el el
+[You]: hacemos por por por... ¿Vas a estar por West Village también?
+[Remote]: Sí, a donde sea, me me muevo.
+[You]: Vale, nicht du heute mandel invite?
+[You]: Coffee,
+[You]: Bueno, y, bueno, entonces, ahead of
+[Remote]: Bueno, lo lo que te cuento,
+[You]: ¿Cómo...? Sea, ahí ayúdame a ver para la reunión de la semana
+[Remote]: Ignacio,
+[You]: que viene con la controller, sabes del del del problem space? ¿Qué sabes de cuál es la mejor manera de venderle algo a slash?
+[Remote]: Mira,
+[Remote]: la verdad, nosotros, mira, tenemos un superlinked
+[Remote]: nosotros somos cincuenta y cinco
+[Remote]: procesamos billions in payments, tenemos un one person CFO team, o sea, la verdad
+[Remote]: we're really efficient,
+[Remote]: Estaba hablando con ella y le conté que
+[Remote]: o sea, que que me estaba juntando contigo, y le mandé el producto y le dije, es
+[Remote]: something that we're interested in? Me dijo, actually looks really cool, let me check out, como let me check it out.
+[Remote]: Pero ella ella está en Poland, o sea, viaja every now and then acá a San Francisco,
+[Remote]: está arreglando un tema de risas,
+[Remote]: pero la verdad que no no no hablamos mucho de eso. Pero le puedo preguntar y ahí te puedo contar, te puedo contar
+[Remote]: mañana o te mando un WhatsApp o algo, Pero pero sí, le le mandé, o sea, le mandé a las formas que nada, sea, el el website y un un post de lo que estaban haciendo, y me dijo, ah, interesting.
+[You]: Sì,
+[You]: sí. Bueno, genial. Y, entonces, ¿cómo cómo te puedo ayudar? A ver, nosotros, we're banking with Brexit.
+[You]: Y, honestly, no sé,
+[You]: unless there's a really
+[You]: strong
+[You]: reason for me to switch, como que hay un switching cost que me rompería un poco las bolas,
+[You]: cambiar, to be honest. At this stage,
+[You]: maybe maybe later if there's, I don't know, tipo,
+[You]: again, if there's a product thing that, like, tipo, ahora, ¿cuál cuál es el pitch, the slash?
+[Remote]: Sí, sí.
+[You]: Ejemplo, para startups that are already on Brexit or on Mercury, no sé.
+[Remote]: Primero, deja preguntarte, o sea,
+[Remote]: some transparent financial questions. Uno, do you know your rates with Brexit? O sea,
+[Remote]: cuánto te go down the management fees, cuánto te... Sé que BREX no da cashback, pero dan
+[Remote]: Brex points que tienen un 60¢ conversion.
+[Remote]: ¿Qué qué estás getting right now from Brexit en temas de eso? ¿Y y qué te está dando right now de tasa
+[Remote]: de tesorería? No no el average, sino como right now today, what's like the net 70 yield,
+[You]: A ver, déjame, entonces, que te hago un login. A ver,
+[You]: ¿qué me da Brex hoy? Honestly, la la la interfaz me gusta mucho,
+[You]: Yo ya era fan de Brexit por Aviel. Aviel es founding engineer de Brexit, ¿habías?
+[Remote]: Sí.
+[You]: Con lo cual,
+[You]: he made me love Brexit. En común usaban Brexit, ya me había gustado mucho el producto,
+[Remote]: En
+[You]: Y, bueno, y tienen buena startup.
+[Remote]: en
+[You]: Ah, ¿por qué?
+[Remote]: cambiaron a ramp, de hecho.
+[Remote]: No no sé, cuando yo hablé con
+[Remote]: con Tomás,
+[You]: Sí.
+[Remote]: y con Adriana cambiarlos de ramp
+[Remote]: a
+[Remote]: a slash.
+[You]: ¿Y los convenciste?
+[Remote]: En eso, en eso.
+[You]: Bueno, mirá,
+[You]: acá en Brex. Me genera tres punto treinta y nueve.
+[You]: Por ciento.
+[Remote]: Ya. ¿Y de y de fees te...? ¿Eso es incluyendo fees o no?
+[You]: No fees.
+[Remote]: Ok.
+[You]: Fees again.
+[You]: No.
+[Remote]: De de de tesorería.
+[You]: No, no, no.
+[Remote]: Bueno, que
+[You]: Se lo fiz.
+[You]: Charge for fees.
+[Remote]: creo que están embedded ya en tu en tu yield. Yo yo te digo, bueno,
+[Remote]: en tema de en tema de de por qué y cómo hemos estado cambiando empresas over,
+[Remote]: de Bricks Road,
+[Remote]: en un threefold dancer. Uno,
+[Remote]: materially just better economics.
+[Remote]: Tenemos un unlimited 2% cashback.
+[Remote]: En temas de todo lo que es card spend,
+[Remote]: sin sin máximo. O sea, if you
+[Remote]: spend a million dollars a month, you're gonna get 2% cashback on that.
+[Remote]: Segundo, y, bueno, ahora te muestro te muestro el platform mejor, más sencillo, y
+[Remote]: te te estoy contando
+[Remote]: La verdad que el el el
+[Remote]: la interfaz es supersimilar a lo que estaba acostumbrado con Brexit, con Mercury, con Roe, Acá tenemos un de mil y 2% cashback,
+[Remote]: lo puedes tomar tax free, moverlo a cualquier cuenta,
+[Remote]: verdad que eso no un needle mover todo lo que son startups. Se convierte un poquitito más importante cuando
+[Remote]: tu inference cost o tu AI spend ya empieza a incrementar, por ejemplo,
+[Remote]: una empresa gastando sobre cien mil dólares al mes en Anthropic, o sea, percent cashback on that every single month, it compounds like twenty five k al final del año.
+[Remote]: Mira, no no van a spend a lot of time, pero
+[Remote]: moving money, o sea, selecting recipients, we have no fee transfers,
+[Remote]: todo lo que es doméstico y todo lo que es internacional, tenemos un flat fee at $25.
+[Remote]: Es decir, mandas cien o un millón,
+[Remote]: $25,
+[Remote]: Ustedes quizá no sean importante, pero somos crypto native,
+[Remote]: puedes send and receive stablecoins vía nuestra plataforma,
+[Remote]: Y y y, bueno, también, pues, connect bank accounts, WAIR ACH dos,
+[Remote]: supersencillo.
+[Remote]: When it comes to our biggest difference through the economics,
+[Remote]: nosotros no cobramos fees para tesorería y nuestro current yield, bueno, ahora está está
+[Remote]: fue en junio, ahora estamos en tres punto ochenta y tres por ciento.
+[Remote]: O sea, ya casi cincuenta basis points more, que quizás con un seed round
+[Remote]: con un preset la diferencia no es tanta, pero ya cuando
+[Remote]: you're you're starting to spend millions of dollars, o sea, or you have millions dollars in el en el treasury,
+[Remote]: $5.06, 7,000,000, son diferencia de ya casi veinte mil dólares.
+[You]: Buenísimo, pero I've I've been in fintech long enough to understand that these
+[You]: don't add up in terms of unit economics. Entonces, me me encantaría entender cuál es la estrategia
+[You]: behind this to make it profitable at some point.
+[Remote]: Super supersencillo, supersencillo.
+[Remote]: Uno, a diferencia de breaks, nosotros no somos profitable, o sea, nosotros somos profitable, perdón.
+[Remote]: Ellos no.
+[Remote]: Nosotros tampoco tenemos
+[Remote]: overhead cost, o sea, son más de mil seiscientos empleados, nosotros somos cincuenta y cinco.
+[Remote]: Y la razón por la que tu yield en Brexit es tres punto tres, porque
+[Remote]: el business de BREX, el business de Mercury they started with startups, and now they're going enterprise, and they're going
+[Remote]: bigger companies. ¿Por qué? Porque
+[Remote]: the way
+[Remote]: card, como todo lo que son los payment platforms,
+[Remote]: the way you make money is interchange, ¿cierto? If you spend a $100 the receiver doesn't get a 100. They get 97.6 It's playing 2.4% differential or 2.5% of the vendor.
+[Remote]: Que se distribuye
+[Remote]: entre el el el que hace la carta, el acquiring bank, ponte Stripe y y the customer.
+[Remote]: Entonces, en nuestro caso,
+[Remote]: know, we give back 2% to you guys, this 2.4%. We give back 2% a ustedes,
+[Remote]: después le pagamos un point 1% a Stripe, y después a 30 basis points, we share them with column.
+[Remote]: Slash partió como un banking platform,
+[Remote]: para todo lo que son los high spend customers, o sea, gente que gasta entre dos a cinco millones de dólares al mes.
+[Remote]: Our money is from high cartsman. We do three times
+[Remote]: more card payment than mercury.
+[Remote]: So billions of dollar. We've we've processed over $30,000,000,000.
+[Remote]: In transactions. So our main money comes from high volumes.
+[Remote]: Your main money saver comes from a very efficient
+[Remote]: team of 55 people. You can very optimize
+[Remote]: a back end, and then everything's automated and lowest we've
+[Remote]: gone it down to lowest cost. Entonces,
+[Remote]: a profitable company. We've been for two years.
+[Remote]: And we're going from all of, like, construction, wholesale, health care startups.
+[Remote]: We can afford to keep the same deals
+[Remote]: porque you're not our main customer base. We're not trying to make money of you guys.
+[Remote]: We're not losing money, but we don't have anyone to sustain. ¿No?
+[Remote]: Nuestro bet es que si a ustedes les podemos ofrecer el mismo deal de
+[Remote]: no fees on treasury,
+[Remote]: y darle el cashback cuando ustedes crezcan y su card spend crecer,
+[Remote]: we grow with you guys.
+[Remote]: Y la razón por la que Brexit o esto están growing up y going to enterprise y wholesalers,
+[Remote]: very simple.
+[Remote]: Start ups just don't spend enough, o sea, si está gastando veinte mil al mes,
+[Remote]: they're not making enough interchange fees, entonces, whether make their money is charging you guys in treasury.
+[Remote]: So your yield is 3.3, but they're probably taking from 30 to 50 basis points in your treasury.
+[Remote]: Then when you get $10,000,000 or $6,000,000,
+[Remote]: they're making the 30 or 50 basis points
+[Remote]: porque, otherwise, they're not making any money, and they have a huge back office.
+[Remote]: Así es como, like, that's really the two ways of making money in this business.
+[Remote]: Entonces, that's how we that's how it's, like, sustained, entre comillas, para
+[You]: Got it.
+[Remote]: porque no no estamos perdiendo plata, pero we don't have a growing team we have to keep up with.
+[Remote]: We're expanding to startups, not from startups other way around.
+[You]: Got it, got it. Bueno, superinteresante. Como te dije, la verdad que
+[You]: we're building and selling, tipo, no no estoy para agregar entropía en la operación moviéndome de banco,
+[You]: I think it could make a
+[You]: difference when we raise a seed.
+[You]: La tenemos planteada para q dos, así que let's be in touch
+[You]: fines de q dos barra q tres para ver si tiene sentido migrar.
+[Remote]: Sí, no, y, bueno, crear la cuenta se demora diez minutos, igual
+[Remote]: que esto, o sea, tenemos
+[Remote]: todo lo que es built in, accounting, native integration con QuickBooks,
+[Remote]: Zero, toda esta plataforma. Tenemos un reimbursement platform que
+[Remote]: sea, sobre el Brexit, ¿no?
+[Remote]: When your team is growing, it's it's good to keep everything in one go with pictures, AI,
+[Remote]: We have native invoicing. You can create invoices with your brands.
+[Remote]: Track them, pay them, o sea, todo
+[Remote]: platform.
+[Remote]: Básicamente. Y y we have seen a lot of
+[Remote]: switch, en especial por el el tema de
+[Remote]: literalmente, por tesorería.
+[Remote]: We we had a we had a when starts aren't profitable, it makes
+[Remote]: difference. We just had a guy migrate going 30,000,000 in treasury. The difference is
+[Remote]: over 180 k what they were keeping with us, and that's, hiring or firing an engineer.
+[You]: Sí, sí, no, no, no. La diferencia, claramente, es, ¿sabes?, malo. Cuando ponemos
+[Remote]: O sea, eso.
+[You]: la famosa ley de grandes números.
+[Remote]: Sí.
+[You]: Eso, ahora no justifica por los volúmenes que manejamos nosotros, pero hace set.
+[You]: Pet group, bueno, tomémonos un café mañana, y, si querés, te cuento más un poquito cómo venimos.
+[You]: Y, in terms of of the onboarding or the migration, you can
+[You]: put in a reminder, o mismo yo,
+[You]: para circle back end of the second quarter of the year y tratar de pensar una migración para
+[You]: si te parece. Me gusta la propuesta de valor y
+[You]: y la verdad que
+[You]: también es buen signaling si Abiel y Andrés están considerando cambiarse a slash.
+[Remote]: No no son solo de llevar todo.
+[You]: ¿No? Eso también
+[Remote]: Que tenemos que ya se han cambiado el pipeline.
+[You]: Seguro.
+[Remote]: Ya
+[Remote]: tienen big names, big launches ahead.
+[You]: Buenísimo. Bueno, y de vuelta, congrats por el por el progress so far, y
+[You]: por por por tu carrera. Con veintitrés años estás en un lugar muy, muy interesante.
+[You]: Hablemos en más detalle mañana, nos tomamos un café y charlamos más de la vida, ¿te parece?
+[Remote]: Dale, tremendo. Bueno, nos vemos, Ignacio.
+[You]: Un gusto. Abrazo.
+[Remote]: Dale,
+
+============================================================
+SUMMARY
+============================================================
+### Nico’s Background & Role at Slash
+
+- Leading startup team at Slash (fintech company)
+- 23 years old, Stanford graduate (2021), originally from Chile
+- Partnerships with VCs, private equity firms, accounting firms, AI labs
+- Working on rewards improvement and product management integration
+- Knows Slash founder from Stanford, joined in December 2025
+
+### Slash’s Value Proposition for Startups
+
+- Financial advantages over Brex/Mercury:
+  - Unlimited 2% cashback on all card spend (no maximum)
+  - Current treasury yield: 3.83% vs Brex’s 3.39%
+  - No fees on domestic/international transfers ($25 flat fee vs variable)
+  - No treasury management fees
+- Business model sustainability:
+  - 55 employees vs Brex’s 1,600+ (lower overhead)
+  - Profitable for 2 years, targeting high-spend customers ($2-5M monthly)
+  - $30B+ in processed transactions
+  - Makes money from interchange fees on high-volume clients
+- Platform features:
+  - Native QuickBooks/Xero integration
+  - Built-in invoicing, reimbursement platform
+  - Crypto native (stablecoin send/receive)
+  - 10-minute account setup
+
+### Next Steps
+
+- Coffee meeting tomorrow at 5pm in West Village
+- Slash controller demo with Rexi scheduled for next Thursday
+- Ignacio to consider migration after Q2 seed round (end Q2/Q3 2026)
+- Nico will ask controller about Rexi’s specific needs and report back
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/85463d60-5cea-4a58-b87d-10be5785f7e0](https://notes.granola.ai/t/85463d60-5cea-4a58-b87d-10be5785f7e0)

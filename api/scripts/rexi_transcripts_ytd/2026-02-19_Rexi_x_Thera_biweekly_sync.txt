@@ -1,0 +1,245 @@
+MEETING: Rexi x Thera [biweekly sync]
+DATE: 2026-02-19
+ID: not_j8u4i1cCFi02ox
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Teo <teo@rexi.finance>, Aashish <aashish@getthera.com>, Akhil Reddy <akhil@getthera.com>
+SCHEDULED: 2026-02-19T10:00:00-05:00 - 2026-02-19T10:45:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Oh, no difference. I mean, same thing will happen for PPE, like, design.
+[Remote]: Yeah. Oh, so you will you will divide you will create a new
+[Remote]: fee account
+[Remote]: I can see no. Not account. I mean,
+[Remote]: it's same, basically. What I'm what I mean to say is
+[Remote]: same thing will happen on also, like, play
+[Remote]: fee and other ACH.
+[Remote]: And contract fee and another.
+[Remote]: Same thing will be happening for
+[You]: Palabra.
+[Remote]: PPS. Perfect. When when will this happen?
+[Remote]: It should be already be happening. I mean, that's why the match
+[Remote]: match increase. Right?
+[You]: Laura.
+[Remote]: Okay. Let me let me I'm gonna check after the
+[Remote]: after the meeting.
+[Remote]: Because they seem to be
+[Remote]: reconciling fine, but maybe we should check
+[Remote]: I'm gonna check exactly the minute we we turn off.
+[Remote]: So
+[Remote]: then we've got Wise,
+[Remote]: Wise also seems to be working fine.
+[Remote]: Except for this day that I sent you the the list
+[Remote]: of transactions. I don't know what happened here.
+[Remote]: Yeah. I couldn't actually, yeah, I give it to my, like, my op support team.
+[Remote]: I will follow-up to them.
+[Remote]: Okay. Get to it. Yeah. Alright. I completely forgot about it.
+[Remote]: Yeah. Don't don't worry. It's just it it looks
+[Remote]: a bit off on on this day particular day. Something seems to have happened.
+[Remote]: So February 1 February 2 was, like,
+[Remote]: Sunday, I believe. Right?
+[Remote]: Maybe it was a Sunday.
+[Remote]: It's February 2.
+[Remote]: So February 2 was
+[You]: Monday.
+[Remote]: Monday.
+[You]: Maybe some
+[Remote]: It's Monday. Yeah.
+[Remote]: I do it on
+[Remote]: I'm saying it might be on Monday, like, they didn't process.
+[Remote]: Those transactions. Might might have I will just follow-up.
+[Remote]: Yeah. I just completely forget about it. I will follow-up.
+[Remote]: Perfect. And then we've got the local
+[Remote]: seems to be working fine. We've got a few days with maybe one unmatched
+[Remote]: two unmatched, but mostly
+[Remote]: if we
+[Remote]: make it bigger, maybe it's clear. We've got maybe one day here with one and match.
+[Remote]: Out of 254. So the local seems to be working fine.
+[Remote]: And then we've got
+[Remote]: Strike.
+[Remote]: So Stripe, we've got the new account
+[Remote]: and the
+[Remote]: the tag that you added within the metadata was in February 5.
+[Remote]: And you see that the minute that we implemented the new
+[Remote]: reconciliation,
+[Remote]: the percentage that matched increased
+[Remote]: This I'm this I'm checking, it was because we didn't update correctly the data.
+[Remote]: This is today.
+[Remote]: Yesterday. Okay. But the yeah. It should be it should be fine.
+[Remote]: So the numbers are now reconciling way, way
+[Remote]: closer to a 100% that what they used to.
+[Remote]: My only question here is,
+[Remote]: what we used to do on Stripe
+[Remote]: was to normalize all the data
+[Remote]: to US dollars compare that.
+[Remote]: But, on the past few days, while I was, checking for
+[Remote]: While while I was checking,
+[Remote]: the
+[Remote]: information, I noticed that the
+[Remote]: information on
+[Remote]: treasury and on Stripe are on the same currency. Is that correct?
+[Remote]: So, basically, I I few customers also, like, they give like, they give us in
+[Remote]: different, let's say, GBP or some euros. They send us in euros as well.
+[Remote]: Not always
+[Remote]: The the the question is sometimes they send us in Canadian dollars, for example,
+[Remote]: Yes. For example, here.
+[Remote]: The question is,
+[Remote]: what we had spoken in the past was that you you
+[Remote]: you had the information in
+[Remote]: local currency here on monetary,
+[Remote]: but you had it in
+[Remote]: in only in US dollars on Stripe, but I think that is not correct.
+[Remote]: Think that
+[Remote]: everything is in local currency on Stripe as well.
+[Remote]: If we go to share confirm it. Yeah. If we if we go to the
+[Remote]: Stripe account here,
+[Remote]: here you see exactly that transaction is in
+[Remote]: Canadian dollars. So it's not only US dollars. It's sometimes
+[Remote]: so
+[Remote]: basically, what I noticed is that we can compare it in local currency
+[Remote]: and that's it.
+[Remote]: And we are not
+[Remote]: no longer needing to do this conversion rate that we were doing.
+[Remote]: Yeah. I see. I remember, like, basically, we charged them
+[Remote]: in, like, their
+[Remote]: local currency, our customers.
+[Remote]: Yeah. We are I mean, I don't know, like, how
+[Remote]: we can read that. Maybe Mike, like, was not aware fully.
+[Remote]: But I will
+[Remote]: confirm it again.
+[Remote]: As far as I know, my my code base,
+[Remote]: we we charge them in their local currency, like, whatever is
+[Remote]: Perfect. Yeah. That that's what that's what it looks like. So
+[Remote]: we're gonna keep local currency unless you, tell us
+[Remote]: otherwise.
+[Remote]: Ok. So, we're gonna keep on testing
+[Remote]: the new reconciliation and most likely turn on the
+[Remote]: alarms
+[Remote]: between today and tomorrow. So you start getting the new
+[Remote]: updated reconciliations.
+[Remote]: My last question is regarding
+[Remote]: regarding
+[Remote]: Treasury Prime. So you mentioned that you added the
+[Remote]: fee here.
+[Remote]: Yes.
+[Remote]: So my question is,
+[Remote]: what should we
+[Remote]: be
+[Remote]: adding to the reconciliation
+[Remote]: The same thing on the same thing. Let me see.
+[Remote]: When I do invoice payment
+[Remote]: one of two,
+[Remote]: So if in that entry,
+[Remote]: platform fee ACH ID,
+[Remote]: then you should use it. Like, same thing
+[Remote]: what we are doing for
+[Remote]: Same logic should be there.
+[Remote]: So here, these are transactions from yesterday,
+[Remote]: and we should be getting
+[Remote]: the
+[Remote]: Applied home fee Exactly. Here.
+[Remote]: Got the platform fee, but
+[Remote]: then
+[Remote]: we've only got
+[Remote]: these
+[Remote]: Treasury Prime database.
+[Remote]: Should we
+[Remote]: be having another one?
+[Remote]: Or it should be only one? Only on the same. It's on the same.
+[Remote]: So some of these
+[Remote]: some of these transactions are
+[Remote]: the the principal and some are the fees.
+[Remote]: Yes. Yes. Correct. Same thing between Stripe. We have two different accounts.
+[Remote]: But in DP, everything is within the same account.
+[Remote]: Perfect. That's super clear. Alright. Fantastic. So we're gonna work on this as well.
+[Remote]: That's And everything on my side. Already matching. Right?
+[Remote]: I think I thought, like I mean, in
+[Remote]: the TP data is already matching. Right? It's close to 100 already.
+[Remote]: Yes. It's it's close to a 100. That that's why I did not do any changes.
+[Remote]: But I'm gonna look into it and see what's what's going on. But
+[Remote]: everything is matching.
+[Remote]: Which is
+[Remote]: I remember, like, we had last last to last call.
+[Remote]: There were, twenty five minutes. Right? Like, 22 transactions were happening, 22 were unmatched.
+[Remote]: Something like that was there. So Here.
+[Remote]: Treasury pride.
+[Remote]: Yes. These are the probably the fees
+[Remote]: that are not matching.
+[Remote]: Yes. Yes. Yes. So basically, thing need to be
+[Remote]: applied here as well. Like, same
+[Remote]: That is the same account. We don't need to, like,
+[Remote]: create a new API key and, like, fetch transactions from there.
+[Remote]: It's within the same account.
+[Remote]: Perfect. And so
+[Remote]: you applied this on February 5,
+[Remote]: So before that, it's not gonna be
+[Remote]: possible to do that that matching.
+[Remote]: Is it alright if we march everything before February 5 as an exception so that we get the data clear?
+[Remote]: Yes. You can do it. But I Perfect. Think it's something necessary maybe
+[Remote]: from February onwards, we can track better.
+[Remote]: Perfect.
+[Remote]: Fantastic. Alright. That's
+[Remote]: can you add him to this dashboard? I think Michael is added. Right?
+[Remote]: Not me.
+[Remote]: Yes. Organizations,
+[Remote]: We've got and Michael. Yep.
+[Remote]: I'm gonna You can remove Michael. You can remove Michael. Michael, he never accepted the invitation.
+[Remote]: Remove. Actually, he left Sarah. So he's not working.
+[Remote]: Let me get your email. Yeah. Paste it in the chat as well.
+[Remote]: Send it.
+[Remote]: An email
+[Remote]: and I'm gonna
+[Remote]: make you an admin here.
+[Remote]: Perfect. You should get an email soon.
+[Remote]: Yeah. I got it. Yeah. Perfect. So I'm gonna be working on those changes.
+[Remote]: And let you know once we're done. Alright?
+[Remote]: Yeah. Sure, sir. Okay.
+[Remote]: Thank you.
+[Remote]: No. Thank you. Thank you, Ashish.
+[You]: Thank you,
+[Remote]: Have a great day. You too. Bye.
+[You]: Have a good one.
+
+============================================================
+SUMMARY
+============================================================
+Mand´
+
+### Payment Processing Reconciliation Updates
+
+- Stripe reconciliation significantly improved after February 5 metadata tag implementation
+  - Match percentage increased dramatically from previous low rates
+  - New account setup working properly
+  - Currency handling clarified: all transactions remain in local currency (CAD, GBP, EUR)
+  - No longer need USD conversion - can compare directly in local currencies
+- Treasury Prime reconciliation close to 100% matching
+  - Fee structure now implemented same as other processors
+  - Platform fees and principal transactions both within same account
+  - No separate API key needed for fee tracking
+
+### Outstanding Issues & Follow-ups
+
+- Wise transactions from February 1-2 need investigation
+  - Unusual transaction pattern on those dates
+  - Aashish to follow up with ops support team
+- Local payment processor performing well
+  - Only 1-2 unmatched transactions out of 254 total
+- Strike reconciliation data correction needed for recent days
+
+### Dashboard Access Changes
+
+- Michael removed from dashboard (no longer with company)
+- Akhil Reddy to be added as admin
+  - Email invitation sent during meeting
+- Dashboard now shows Ignacio and Akhil as active users
+
+### Next Steps
+
+- Aashish: Investigate Wise transaction anomalies from Feb 1-2
+- Aashish: Implement Treasury Prime fee reconciliation logic (same as Stripe)
+- Aashish: Turn on reconciliation alarms within 24-48 hours
+- Aashish: Mark pre-February 5 transactions as exceptions for clean data going forward
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/2f2c0f59-4f2d-4258-9563-cbea49d5cbcf](https://notes.granola.ai/t/2f2c0f59-4f2d-4258-9563-cbea49d5cbcf)

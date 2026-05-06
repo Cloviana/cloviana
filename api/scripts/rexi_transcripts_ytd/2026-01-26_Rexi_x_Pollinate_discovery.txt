@@ -1,0 +1,628 @@
+MEETING: Rexi x Pollinate: discovery
+DATE: 2026-01-26
+ID: not_IAt3LvgxD6rGzM
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Sam Yates <sam.yates@pollinate.global>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-01-26T10:00:00-05:00 - 2026-01-26T10:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: From, payout
+[Remote]: payor to to to pay, really. I I
+[Remote]: I don't know to what extent this ties in with that or if it this is an
+[Remote]: overlay or an additional capability,
+[Remote]: that you're proposing.
+[You]: So, Paul, currently, is reconciling the transactions that go through
+[You]: the bank.
+[You]: Only or every
+[You]: does it have a capability of ingesting other data sources and reconciling all the money movements
+[You]: for the merchant.
+[You]: Lo estamos perdiendo, ¿no?
+[Remote]: I I think we'll ask you.
+[Remote]: Oh, there there you are.
+[Remote]: Just the what they're taking
+[Remote]: what they're taking for
+[Remote]: Sorry. Can you hear me?
+[You]: Now you're back, but we lost you for a moment.
+[Remote]: Hello?
+[Remote]: Okay. I was saying,
+[Remote]: it's for merchant services more broadly.
+[Remote]: So
+[Remote]: anything to do with money in
+[Remote]: Hello?
+[You]: I think you're
+[You]: intern is a bit laggy.
+[You]: Hello?
+[Remote]: New it's weird. I'm on the office Wi Fi. Can you hear me now?
+[You]: I can we can hear you. Yeah.
+[You]: With a lag.
+[You]: But we can.
+[Remote]: Okay. Well, let's stick to this. I'm gonna have my
+[Remote]: my camera off just in case.
+[Remote]: Would you
+[Remote]: I'm trying to think.
+[Remote]: I could maybe try and join on my phone if that's easier. If that will be
+[Remote]: better.
+[You]: We can hear you now, I think it's a bit choppy and and laggy. I don't know if
+[Remote]: Okay. Let me let me try and join on my
+[Remote]: phone then.
+[Remote]: See if this is better.
+[Remote]: Hey. So this is on my mobile network.
+[You]: Nope.
+[Remote]: You should be able to Yeah. That's better.
+[You]: That's way better.
+[Remote]: Way better.
+[Remote]: Okay. Cool. So I was saying the
+[Remote]: the portal view is for all transactions related
+[Remote]: payments in. So it will be anything a shop
+[Remote]: or a merchant takes on terminal.
+[Remote]: Or online.
+[Remote]: Any gateway
+[Remote]: that the bank is providing. So it's reconciling those
+[Remote]: transactions to
+[Remote]: is actually appearing in the bank account.
+[You]: Okay. Got it. So
+[You]: well, Donald did not mention this, that you had
+[You]: reconciliation capabilities inside the portal. I guess then my next question is
+[You]: how is it currently working? Is it rolled out for all users?
+[You]: What's the road map looking like for that feature?
+[You]: Are you thinking about partnering with the vendor for this workflow or not?
+[You]: Are you thinking about, like, solving that pain for the end customer?
+[Remote]: So it's it's a
+[Remote]: a fundamental kit. So we've got three products.
+[Remote]: Guess you could call it, as well as the platform that
+[Remote]: we're building on top of in terms of the integration lab, the system
+[Remote]: between the bank and the processor.
+[Remote]: As well.
+[Remote]: But the products that sits on the top of it are
+[Remote]: onboarding,
+[Remote]: marketplace, and portal.
+[Remote]: And the portal part is the transaction management part that I was talking about.
+[Remote]: That is operational with
+[Remote]: all of our merchants who
+[Remote]: we have in platform today. So that would be with
+[Remote]: Truth, for example,
+[Remote]: all of their
+[Remote]: merchants that are on the platform have
+[You]: Yep.
+[Remote]: the portal capability. Whether they use it or not,
+[Remote]: a different question, and uptake is variable.
+[Remote]: And sometimes quite challenging.
+[Remote]: To get a lot of merchants to actually log in and see. Because sometimes these
+[Remote]: and medium sized businesses, as I'm sure you guys are aware,
+[Remote]: reconciliation isn't something we do on a daily basis. It's something they do
+[Remote]: every couple of months or
+[Remote]: when it comes to the end of the tax year or something like that.
+[Remote]: They might wanna know what the headline number is, and they might get
+[Remote]: concerned if they see there's difference between what they expected
+[Remote]: to see in there and what is actually
+[Remote]: was was actually coming in.
+[Remote]: But it's not something where they're
+[Remote]: interrogating it or a lot of them are interrogating every single day. We should've been
+[Remote]: has been a problem for us in terms of how do we drive more merch
+[Remote]: engagement once we've onboarded the merchants through our onboarding product.
+[Remote]: Is why we started then looking at marketplace as well because marketplace
+[Remote]: is a good way in which we can engage
+[Remote]: merchants with wider ecosystems of products and services.
+[Remote]: And in marketplace, you will have stuff
+[Remote]: which is
+[Remote]: related to
+[Remote]: lending. We've got integrations with ULEND.
+[Remote]: Third party lenders as well as some products and services.
+[Remote]: And then we're we're we're tendering for
+[Remote]: or we're going out with RFIs really for other products and services that could enrich
+[Remote]: that marketplace
+[Remote]: that would bring third parties
+[Remote]: to a bank that they might not have as capabilities
+[Remote]: today, but a merchant might click and say, yep. You know what?
+[Remote]: That that's a that's a value added feature that my bank's not offering me.
+[Remote]: So who else? So we
+[Remote]: who else are we going out to? I've got a list
+[Remote]: of of different providers, but
+[Remote]: it could be chargeback providers as well, or another
+[Remote]: example
+[Remote]: We didn't have reconciliation on that just because
+[You]: You have it internally.
+[Remote]: it is something we're
+[You]: Yeah.
+[Remote]: we tend to do
+[Remote]: anyway. But
+[Remote]: maybe I'm missing something. I don't know if there's
+[You]: No. I guess the question is, like, I think the good thing
+[Remote]: something, Tom.
+[Remote]: Thinking
+[You]: the good thing is
+[You]: the the the fact that you guys offer
+[You]: reconciliation is that the portal validates the need.
+[You]: I'm sure you prioritize it because you saw the need from customers.
+[You]: The question is more regarding how do you like,
+[You]: is this just, like, one off you guys developed and and it's
+[You]: stopped there, or is there plans to continue improving the product into an end
+[You]: state? And
+[You]: are you guys wanting to do that internally, or are you willing
+[You]: to maybe embed or white label solution out there in the market?
+[You]: And also, like, when did you launch this capability? And, yeah, what what does this strategy look like
+[You]: full reconciliation?
+[You]: Module?
+[You]: For us to say.
+[Remote]: I mean, he's been a saving of products.
+[Remote]: Since inception of the company, really helping merchants to understand their transactions better.
+[Remote]: Was
+[Remote]: the the fundamental reason why we
+[Remote]: first came into existence to to help merchants understand that stuff.
+[Remote]: Has it evolved? No. I mean, it's quite a simple and basic
+[Remote]: and unsophisticated
+[Remote]: Here are your transactions. Here's what's settled.
+[Remote]: Here are your chargebacks.
+[Remote]: Here are the disputes.
+[You]: Oh, but there's no, like, matching? There's no transaction matching?
+[Remote]: Hera
+[Remote]: Not at the individual transaction level.
+[Remote]: There's not.
+[Remote]: I don't think. So I I
+[Remote]: think it's more high level
+[Remote]: than that. I'm gonna find
+[You]: It's just like comparing balances then.
+[Remote]: It's comparing balances. Yeah.
+[You]: Got it. And and
+[You]: do you think transaction matching is something important or or not as much?
+[You]: Because then the question is, like, when when balances don't match,
+[You]: what's the next step. Right? We typically see with customers that do just
+[You]: balance level matching
+[You]: that when they find differences, then the investigation process is just
+[You]: very time consuming because you knew, do you do some sort of back, like
+[You]: backwards engineering to try to understand and make sense of which are the transaction
+[You]: that are actually missing. And we both know these things
+[You]: never match. I don't know at the merchant level for SMBs, maybe they do match, but
+[You]: at least with the customers we work with, these things never match.
+[You]: So the workflow becomes way more about investigating and closing discrepancies
+[You]: and how do we provide
+[You]: real
+[You]: time visibility and accurate visibility on that. Right? Because that enables these teams
+[You]: actually go ahead and investigate and close those differences. When they have
+[You]: at the transaction level the information.
+[Remote]: Yeah. I mean, it
+[Remote]: I've been interested
+[Remote]: to know you guys still hear me. I you
+[Remote]: Frozen again.
+[You]: It's a bit choppy again.
+[Remote]: Yeah. I don't know what's going on.
+[You]: We can hear you.
+[Remote]: Can you
+[You]: Yep.
+[Remote]: he made and made me alright.
+[Remote]: Okay.
+[Remote]: So
+[Remote]: so I I I I think
+[Remote]: I think the the the need of a transaction level is
+[Remote]: is there to some extent. If they
+[Remote]: if they
+[Remote]: want to drill into
+[Remote]: wire transaction,
+[Remote]: has
+[Remote]: been disputed, for example, and what the reason is, then at
+[Remote]: I think that's that's really interesting. If that transaction has settled
+[Remote]: normally and then there are fees associated with it,
+[Remote]: they're pretty regular fees. Like, it's
+[Remote]: you know, the merchant's discount rate, which is
+[Remote]: gone, which has been split between
+[Remote]: the acquirer and
+[Remote]: the
+[Remote]: the the merchant then
+[Remote]: the merchant will want to
+[Remote]: understand what cut they're getting.
+[Remote]: And
+[Remote]: what they're being settled in nested fees.
+[You]: What's That's something Donald mentioned actually.
+[Remote]: So that's important.
+[You]: It's it's interesting you say because Donald mentioned that, like, merchants have no idea if they're
+[You]: getting the right amount they should be getting. So some sort of check
+[You]: there on a transaction level and calculating
+[You]: is Visa or Mastercard sending you the right amount. Right? Or any payment gateway.
+[You]: That's also an interesting
+[You]: interesting one.
+[You]: I don't know if there's
+[You]: someone
+[You]: like like, who owns the reconciliation
+[You]: product at Pallade? Is it is it you or is there someone, like, from product
+[You]: owning and building this
+[Remote]: No. There is
+[Remote]: Very
+[Remote]: someone in prod
+[Remote]: who is looking at this more deeply, which is why I was
+[Remote]: thinking they would probably be better educated as to, what our capability design is
+[Remote]: space. But
+[Remote]: the
+[Remote]: I'm gonna be very cynical, I think
+[Remote]: at the moment, our problem
+[Remote]: isn't
+[Remote]: reconciliation. Our problem is
+[Remote]: engagement within
+[Remote]: the portal. And if we're saying that
+[Remote]: this is gonna solve a
+[Remote]: merchant's problems today,
+[Remote]: And
+[Remote]: they're gonna log in
+[Remote]: more often because of it.
+[Remote]: Then I can see the value of it.
+[Remote]: But at the moment, if
+[Remote]: the merchant is rarely logging in
+[Remote]: to see their transactions,
+[Remote]: and income anyway.
+[Remote]: Well, why would we make the features any richer if
+[Remote]: they're not getting any eyeballs?
+[You]: Agreed. A 100% agreed. But
+[Remote]: So that's where I think it's
+[You]: the question
+[You]: is more about, like,
+[You]: the merchant profile and understanding better that
+[You]: If there's a merchant profile which has
+[You]: a decent amount of volume, I'm sure they're reconciling payments.
+[You]: In another interface.
+[You]: And that may be
+[You]: Excel,
+[You]: SQL, or maybe they have a BI tool they use for
+[You]: So if they like,
+[You]: and then that's why maybe it's better to speak with the product person that maybe has
+[You]: done the discovery of interviewing some of his customers, understanding their needs and pains.
+[You]: But I guess that's the question we need to answer. Are there merchants that use pollinate that are reconciling another interface? If the answer is yes,
+[You]: there's a big enough segment of that, then
+[You]: we could definitely
+[You]: increase time spent on the polyneap platform
+[You]: with a reconciliation product. Because
+[You]: the ops teams of these companies spend a lot of time
+[You]: investigating and solving discrepancies. That's what we're seeing with our customers. Like, we're we're seeing a lot of time
+[You]: spent
+[You]: in our platform
+[You]: in the problem solver section, looking at these discrepancies and trying to close them out
+[You]: generating reports, dashboards. So
+[Remote]: What what's a good example?
+[Remote]: In that case?
+[You]: We have, let's say, a global payroll company.
+[You]: They have pay ins and they have payouts.
+[You]: And so they're using Rexi to, again, track all those pay ins,
+[You]: against the ledger,
+[You]: and then against the bank statement and then all the payouts against the ledger and a bank statement.
+[You]: And and they're seeing differences in those
+[You]: transactions every single day that they are monitoring as day goes by and if it just
+[You]: takes more than three days to close the difference, they go ahead
+[You]: investigate,
+[You]: try to understand, make sense,
+[You]: of why that difference exists. And if not,
+[You]: they need to really
+[You]: generate a report and reach out to that provider or to that bank or
+[You]: to the ledger saying, hey, where are these transactions?
+[You]: And these things fail more often than you think so.
+[You]: For these merchants. Of course, it depends on the provider
+[You]: on the setup, and a lot of things. But
+[You]: but you would be amazed in that at how much money
+[You]: gets lost in the system, and it's not reconciled.
+[You]: But again, I'm a bit blind on what's the typical type of merchant
+[You]: that's using Pollinate today or that these banks are targeting.
+[You]: And would love to hear more about
+[You]: what's that target segment and what's that segment look like.
+[Remote]: Yeah. So let me just
+[Remote]: pull apart that example. So a payroll
+[Remote]: company let let's say it's
+[Remote]: I've been in and around this example quite recently, like, the care home
+[Remote]: platform, for example, where they're
+[Remote]: taking pay ins from care homes, and they're paying out staff
+[Remote]: on the back end, essentially a payroll type
+[Remote]: company. Is that a good example of
+[Remote]: who you might help?
+[Remote]: When you say payroll,
+[Remote]: do you mean,
+[You]: It's it's a company that that
+[You]: provides payroll cap capabilities to other companies. Yeah.
+[Remote]: Do you
+[Remote]: a general comp
+[You]: It's like Gusto. You know Gusto?
+[Remote]: Okay. Payroll
+[Remote]: Good. So the, delivery type.
+[Remote]: App, isn't it?
+[You]: Gusto's apparel
+[You]: provider. So, basically,
+[You]: they they
+[You]: handle taxes and all the employee information and documentation for you to have
+[You]: payroll in your company.
+[You]: But but, yeah, we help payment processors. We help neobanks. We help banks.
+[Remote]: So so in that
+[You]: So, again, like,
+[Remote]: in that example, as a payroll customer,
+[Remote]: Does the payroll cost
+[Remote]: Hello?
+[You]: Hello?
+[Remote]: Sorry. Yeah.
+[Remote]: No problem again. So the I'll shortcut
+[Remote]: and then we've come back to the example. To to get to your question,
+[Remote]: the the
+[Remote]: type of customer we have a very
+[Remote]: small
+[Remote]: merchant. They're SMBs.
+[You]: From what did
+[Remote]: So
+[Remote]: terms of recon
+[You]: do? Like, what what verticals do you operate with?
+[Remote]: Any any any vertical really
+[Remote]: that is usually
+[Remote]: or has a high street presence, so they're taking in person payments.
+[Remote]: So an example would be
+[Remote]: your your corner store.
+[Remote]: Coffee shop, barber,
+[Remote]: that kind of thing.
+[Remote]: So
+[You]: So for those, I guess, it's more about, like, reconciling
+[You]: if their payment gateways, their premium providers are sending them the correct amounts.
+[You]: Based on an order book,
+[You]: compared against what they're actually getting settled in their bank account.
+[You]: That would be a use case.
+[Remote]: Yeah. Which which is exactly
+[Remote]: what we so we in in the portal today,
+[Remote]: we have
+[Remote]: we have transactions. So what revenue they're doing,
+[Remote]: by store,
+[Remote]: in the transactions tab.
+[Remote]: And they can see the real time transactions.
+[Remote]: Then they see the payouts for
+[Remote]: each of those stores. They can see the transactions minus the charges, minus adjustments,
+[Remote]: what's being paid to schemes, and then the final amounts.
+[Remote]: And then they see their statements as well. So that is
+[Remote]: everything minus their monthly charges, their fees, their one off charges, and their taxes.
+[Remote]: So so then you've got, like, a net amount per
+[Remote]: store in the in the statement as well.
+[Remote]: So so if that if
+[You]: Okay.
+[You]: Like, think I think it's worth
+[You]: if you agree,
+[You]: I think it's worth
+[You]: going deeper into
+[You]: product.
+[You]: And into the needs of the merchants? Because I think
+[You]: it's a bit foggy still to me to understand
+[You]: what's the need that merchants have.
+[You]: What's difficult profile, what's the segment,
+[You]: why did you guys decide to build a reconciliation module inside the platform?
+[You]: And what was the need at that point? What was the discovery you came from?
+[You]: And then see if there's a fit of
+[You]: upgrading that infrastructure with an embedding solution using our platform.
+[You]: Or even being a part as of the marketplace RFI
+[You]: served us to say like, hey, this is the capability we have inside pollinator
+[You]: platform if you wanna go
+[You]: on a two point zero and have
+[You]: transaction level matching and and and, like,
+[You]: more scalability, you can go through our marketplace to the solution, which is direct
+[You]: I think those are the two opportunities I see today, either upgrading
+[You]: the existing capability or
+[You]: offering us in the marketplace as sort of like
+[You]: more complex high volume solution if you wish to.
+[Remote]: Yeah. And I think the the problem
+[Remote]: maybe slightly is
+[Remote]: a lack of understanding between
+[Remote]: what we do and what you guys
+[Remote]: do here.
+[Remote]: Which is
+[Remote]: which is something which I'm struggling with just in terms of
+[You]: Yeah.
+[Remote]: you know, what what you guys
+[Remote]: would help with even above what we do.
+[Remote]: So I think, I'm more than happy to put you in in contact with the
+[Remote]: our products owner, Corvus. I mean, he's incredibly busy with
+[Remote]: deployment at the moment, but
+[Remote]: it's worth talking to him. And then, you know, if you decide, oh, actually,
+[Remote]: this is
+[Remote]: something that
+[Remote]: would be more of a marketplace capability, I'm happy to have another conversation
+[You]: You're the one leading the the marketplace RFI process.
+[Remote]: about this.
+[Remote]: Yeah. But at the moment, I just can't I'm
+[Remote]: sorry, guys, but I can't understand
+[Remote]: what the use case is, and it's really hard for me to
+[Remote]: to to visualize it. Again, it might be the case
+[You]: So I guess, like, just to summarize it, like, the use
+[Remote]: for I need a demo.
+[You]: case is
+[You]: if you guys have merchants that have
+[You]: multiple payment flows, not only, like, one or two, like, I'm
+[Remote]: Right.
+[You]: talking, like, three to five payment flows.
+[You]: That have a high transactionality
+[You]: meaning there's a lot of transactions going through there
+[You]: business every single month, pay ins or pay outs or whatever.
+[Remote]: Yep.
+[You]: Then those merchants are typically
+[You]: tracking not only balance reconciliation, should be some
+[You]: should be doing some sort of transaction level matching.
+[You]: Because at that point,
+[You]: you might be leaving a lot of money on the table.
+[You]: If you're not correctly tracking these things. Because these things fail.
+[You]: Providers do make mistakes.
+[You]: So there might be some merchants in that portfolio
+[You]: which are interested in transaction level matching.
+[You]: The question is how big that segment is.
+[You]: If it's
+[Remote]: Mhmm.
+[You]: big enough, then probably it's something you guys wanna offer inside your portal.
+[You]: Apply for a lot of merchants. And this means a lot of merchants are probably looking
+[You]: for more complex solutions than what you're currently offering.
+[You]: And maybe that's an effort that can again increase the eyeballs
+[You]: the amount of hours that these customers spend on your platform.
+[Remote]: Mhmm.
+[You]: If it's if it's a small segment of your portfolio of merchants, then
+[You]: maybe it's worth
+[Remote]: But but sorry. Going going back to, like,
+[Remote]: just make it tangible for me, though, because
+[Remote]: I saw I know we're we're
+[Remote]: over time.
+[Remote]: But, like, you said you said tracking a transaction
+[Remote]: for multiple pay ins and pay outs.
+[Remote]: Like, what is an what is a good example
+[Remote]: of that where you need to follow it end to end? I'm not
+[Remote]: business owner. I
+[Remote]: I I so I
+[Remote]: have a perspective of what a small business would
+[Remote]: would do in terms of, you know, standard pay ins and reconciliation end of month.
+[Remote]: I'm not so familiar with a kind of corporate or medium sized enterprise
+[Remote]: reconciliation problem you're talking about.
+[You]: So it typically is like let's say you have
+[You]: your merchant
+[You]: which we have an online presence,
+[Remote]: Yep.
+[You]: You have an on premise
+[Remote]: Yep.
+[You]: presence.
+[You]: You also have a wholesale
+[You]: So you have, like, multiple payment flows coming in. Right? You have wholesale.
+[You]: It's probably, like, a wire transfer. You have a payment gateway online.
+[Remote]: Yep.
+[You]: And then you have your point of sale
+[Remote]: Yep.
+[Remote]: Yes. Yep.
+[You]: machines.
+[You]: With an acquirer and settling into your bank account.
+[You]: You're probably wanting to match all those pains
+[You]: against an order book.
+[You]: Which is a ledger you're tracking of the stuff you're selling.
+[You]: Right?
+[Remote]: Yep.
+[You]: And with the amounts.
+[You]: And then you're checking if all these payments actually came through
+[You]: in the right amounts with
+[You]: the right
+[You]: take rates because all these providers cost the money
+[Remote]: Yes.
+[You]: 5%, 50¢, all those business logics.
+[Remote]: Yep.
+[You]: So, basically, it's it's it's it's
+[You]: double checking
+[You]: that you're getting the revenue you should be getting and that you're paying the cost you should be paying.
+[You]: Right? That's conceptually what we would be doing for a merchant.
+[Remote]: And what are you checking about the games?
+[You]: Not only at the
+[You]: not only at the balance level, but at the transaction level.
+[Remote]: What are you checking
+[Remote]: Okay. And what are you checking about against?
+[Remote]: So to verify that it's correct amount?
+[You]: Witching against an internal order book.
+[You]: A should be, a ledger,
+[You]: that they're currently
+[You]: tracking or we should start building.
+[You]: For them.
+[You]: Because if now they're completely blind, if they're just like taking whatever visa settling or whatever,
+[You]: they're doing is like, they're blind.
+[You]: How do they know that's correct?
+[You]: They're not they're just not reconciling.
+[Remote]: Okay.
+[Remote]: Understand. So
+[Remote]: the the other thing the other angle to this, I think, is
+[Remote]: for for your product, it sounds like a medium sized merchant would be more
+[Remote]: than a smaller sized merchant where it's a one store, one person,
+[Remote]: type of
+[You]: I'm sorry. I'm I'm I'm really simplifying it because this means
+[You]: this is only like debit transactions. When you start doing credit,
+[You]: installments, it gets
+[You]: more and more complex. When you do promotions,
+[You]: it gets more and more complex.
+[You]: Right? Because then there should be
+[You]: it's just a Frankenstein of calculations. When you start getting promotions,
+[You]: partnerships, revenue sharing models.
+[You]: Credits, installments, so on and so forth. Like or or even, like, loyalty
+[You]: points. And maybe some of these merchants have some sort of loyalty program.
+[You]: And there's a lot of things that could affect this
+[You]: should be against what's settled.
+[You]: So that's just to say I'm simplifying it, typically these merchants have a lot of complexities built
+[You]: into this process.
+[Remote]: Yeah.
+[Remote]: I which which, again, I think is more applicable for medium sized merch
+[Remote]: who
+[You]: Agreed. Agreed.
+[Remote]: is gonna have more complex want more complex transactions going through. But
+[Remote]: you you know, we might touch the fringes of that,
+[Remote]: I think let's set up some time with our product guy. I'll try and join if I
+[Remote]: can. So but but I think it's important to get a demo
+[Remote]: of what you guys are
+[Remote]: are creating here.
+[Remote]: So we can see it in practice.
+[Remote]: And then maybe we can quickly show you
+[Remote]: what we're also
+[Remote]: building as well, if that that's helpful.
+[You]: Amazing. Let's do that. Let's schedule some time with
+[You]: the product owner, and we're happy to show a demo in that session to compare, go and see what you guys have.
+[You]: And then, again, learn from all the discovery, probably this person did, to understand what are the needs
+[You]: of your merchants. Like, I think deep down, we need to understand if this is a
+[You]: big need, a big pain for them, if they're already doing elsewhere.
+[You]: Because then the cell is
+[You]: we're gonna get them to spend more hours on the pollinator platform. That's what you guys want. Right?
+[Remote]: Yeah. I got it. Yeah.
+[You]: Alright. I'll just follow-up after this. I need to jump
+[You]: with an email to get some time with this person and
+[You]: happy to share anything in the meantime that makes this
+[You]: easier to understand and easier to sell
+[You]: internally. But let's get time on the calendar with this person, and let's
+[You]: show you guys a demo and then see where that takes us.
+[Remote]: Absolutely. Alright. Thanks a lot, guys. Speak to you soon.
+[You]: Thank you, Sam.
+[Remote]: Thanks, Sam.
+[Remote]: Cheers. Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Their background
+
+- Pollinate has built a platform connecting banks with payment processors through three core products:
+  - Onboarding for merchant acquisition
+  - Portal for transaction management (already offers reconciliation capabilities)
+  - Marketplace for third-party integrations
+- Currently operational with all merchants on their platform, including Truth’s merchant portfolio
+- Sam Yates serves as Growth Advisor at Synapto and is leading the marketplace RFI process
+- Target customers are primarily SMBs with high street presence: corner stores, coffee shops, barbers
+- Merchants typically take in-person payments with some online capabilities
+- Portal shows real-time transactions, payouts per store, charges, adjustments, and final settlement amounts
+
+### Pain points and needs
+
+- Low merchant engagement within the portal is their primary challenge
+  - “Our problem isn’t reconciliation. Our problem is engagement within the portal”
+  - Variable uptake on existing reconciliation features
+  - Many SMB merchants only reconcile every few months or at tax year end, not daily
+- Current reconciliation capability is basic:
+  - Balance-level matching only, not individual transaction matching
+  - “It’s comparing balances. Yeah. Got it”
+  - Simple view: “Here are your transactions. Here’s what’s settled. Here are your chargebacks. Here are the disputes”
+- Need to drive more merchant engagement post-onboarding
+  - Looking at marketplace as solution to engage merchants with wider ecosystem
+  - Seeking products and services that banks don’t currently offer
+- Merchants lack visibility into whether they’re receiving correct settlement amounts
+  - “Merchants have no idea if they’re getting the right amount they should be getting”
+
+### Questions or concerns
+
+- Uncertainty about value proposition above their current capabilities
+  - “I can’t understand what the use case is, and it’s really hard for me to to visualize it”
+  - “What you guys would help with even above what we do”
+- Questioned whether transaction-level matching is important for their SMB segment
+  - “I don’t think transaction level is is there to some extent” for their merchant profile
+- Skeptical about ROI if merchants aren’t logging in regularly
+  - “Why would we make the features any richer if they’re not getting any eyeballs?”
+- Wanted to understand specific use cases for complex reconciliation beyond their current SMB focus
+
+### Budget and timeline
+
+- Currently tendering/issuing RFIs for marketplace products and services
+- No specific budget or timeline mentioned
+- Sam noted the product owner is “incredibly busy with deployment at the moment”
+
+### Next Steps
+
+- Schedule demo with Corvus, their product owner who handles reconciliation capabilities
+  - Sam will facilitate introduction despite Corvus being busy with deployment
+- Rexi to demonstrate transaction-level matching capabilities during product meeting
+- Pollinate to show their existing portal reconciliation features for comparison
+- Determine if there’s fit for either:
+  1. Upgrading existing reconciliation infrastructure with embedded solution
+  2. Adding Rexi as marketplace offering for higher-volume, more complex merchants
+- Follow-up email from Ignacio to coordinate scheduling and share supporting materials
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/232b3cd2-4316-4731-bb12-ebcaae29438c](https://notes.granola.ai/t/232b3cd2-4316-4731-bb12-ebcaae29438c)

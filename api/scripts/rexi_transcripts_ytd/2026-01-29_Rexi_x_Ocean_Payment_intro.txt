@@ -1,0 +1,528 @@
+MEETING: Rexi x Ocean Payment: intro
+DATE: 2026-01-29
+ID: not_FQgoyRHvbVyUD5
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Sally <sally@oceanpayment.com.cn>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-01-28T20:30:00-05:00 - 2026-01-28T21:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: This who who who who just got in? Lung?
+[Remote]: His
+[Remote]: my leader and
+[You]: Hello, Lung?
+[Remote]: Yeah. Yeah. He's my leader, so, he want to join us
+[Remote]: together.
+[You]: Okay. So as I was saying,
+[You]: that's basically what we do. Happy to learn about
+[You]: more about you guys about Ocean Payment. And
+[You]: your specific reconciliation needs.
+[Remote]: So you
+[Remote]: a brief introduction about open payment. Right?
+[You]: Yes.
+[Remote]: So
+[Remote]: we are a fine tech company, and we operate
+[Remote]: like, for our customer to, like, acquiring service and
+[Remote]: card issuing service.
+[Remote]: Or e wallets
+[Remote]: set some product
+[Remote]: And but now our customers, like, will
+[Remote]: they were both using
+[Remote]: acquiring service or issuing service, and we need to manage their
+[Remote]: funds
+[Remote]: But they were separate in different system.
+[Remote]: And our balances are
+[Remote]: like, for fund balances are kind of difficult to
+[Remote]: add a map when they were scattered.
+[You]: This is this is Till, my cofounder.
+[You]: We're just talk talking about ocean payment and their reconciliation needs.
+[You]: And so regarding what you just mentioned,
+[You]: what exactly are you guys looking for in terms of like, what does success look like? Right? What type of
+[You]: product are you looking for? What type of pains are you looking to solve with this solution?
+[Remote]: Like, we need
+[Remote]: let me let me think about it.
+[Remote]: We check your website, and we want to know, like, if we have
+[Remote]: bank like, bank bank sheet from our bank account,
+[Remote]: and we have transaction list details. And we have our
+[Remote]: bills from our service providers, and we want to match them
+[Remote]: all
+[Remote]: But we have difficulties in finding the, like,
+[Remote]: they express in different ways. You know? Like, some are detailed, some are just the total sum.
+[Remote]: We want to know if we only have transaction details at a quote price.
+[Remote]: How can we match all of them?
+[You]: Well, guess it depends on
+[Remote]: We have to manually calculate each transaction's
+[Remote]: like, the cost for each transaction and then add them up
+[Remote]: to max the total amount.
+[Remote]: But the pricing quote can be very complex.
+[You]: Yep. I mean, platform basically ingests
+[You]: all these data sources with the transactional files
+[You]: Then there's a whole transformation module in which you just change the format
+[You]: to make sure that those files are easier to match.
+[You]: Then you can figure out the recon logic, which is the different set of rules that you're gonna use
+[You]: to match transactions and compare the different fields of that transaction.
+[You]: Once you do that, we have a module in which you can see the dashboard.
+[You]: Of all the results of the reconciliations you previously configured.
+[You]: And then finally, you have the discrepancy module, which is where
+[You]: you're gonna log in, go and analyze your discrepancies, investigate them,
+[You]: and try to solve them with some additional pattern matching, manner like
+[You]: exceptions, you create journal entries, whatever you need to
+[You]: to match those transactions. And the final thing we can do at Platform as well is
+[You]: we can, connect to your ERP and create the journal entries
+[You]: of all the transactions that are already reconciled. So that would be like our value prop in terms of
+[You]: the product journey and different modules of
+[You]: of a product and how they work, basically.
+[Remote]: Okay. So
+[Remote]: could you show us, like, a demo? We want to know, like,
+[Remote]: how your platform deals with discrepancies.
+[Remote]: Like, what kind of variance analysis does your system perform?
+[Remote]: And how to set up the rules? Like, if we have a
+[Remote]: tiered prices,
+[Remote]: and
+[Remote]: how about the statement like bill billing processing?
+[Remote]: And, like also, we want to know the processing capacity
+[Remote]: capabilities. Like, we have to deal with millions, make millions.
+[Remote]: Of transactions.
+[Remote]: For, like, a week.
+[You]: Okay. So, yeah,
+[You]: maybe, Dude, you wanna show a bit of the platform just like a brief overview?
+[Remote]: Yep. Let me just share screen.
+[Remote]: One second.
+[You]: Just a quick run through to to to show how how it works. But
+[You]: to your questions yes we do have the function
+[You]: of calculated columns, for example, in which you can
+[You]: basically filter certain types of transactions and for those perform a calculation.
+[You]: That you're then going to compare against another field. Those type of operations
+[You]: things we can definitely do in our platform with with no code tooling. Right? So
+[You]: you don't need, software engineers or data engineers to step in
+[You]: and configure all this logic. You can do it yourself
+[You]: with our product. So I guess the answer
+[You]: is yes. And and regarding scalability, we're already working with some customers that are
+[You]: processing tens of millions of transactions every single day.
+[You]: So our platform is scalable in terms of the volume you guys are operating with.
+[You]: And can definitely scale even further with ease. I mean, our architect is is built to scale.
+[Remote]: Perfect. So let me do a quick run through, about the platform. But
+[Remote]: mostly, what we try to do generally is to do an actual demo on
+[Remote]: something
+[Remote]: that
+[Remote]: sort of adapts to the problem you're trying to solve.
+[Remote]: But let me just show a quick demo on the on the platform, a generic demo, and then if you're interested
+[Remote]: we can do one that
+[Remote]: mostly resembles what you're trying to solve
+[Remote]: So, basically, what we do is we automate reconciliation processes.
+[Remote]: We automate that ingestion.
+[Remote]: Different sources, which might be bank statements,
+[Remote]: I don't know.
+[Remote]: Credit card statements, internal databases, processing, whatever.
+[Remote]: And what we do is we automate the ingestion. We automate this
+[Remote]: standardization. For example, you mentioned that you
+[Remote]: manually calculate the fees. We automate that as well. For example, here, we would have the
+[Remote]: what we call, the the
+[Remote]: amount, the transaction amount, and then you could, you know, automate a
+[Remote]: calculation
+[Remote]: fee, you know,
+[Remote]: standardized dates, very calculated
+[Remote]: formulas, filter, split database, or whatever.
+[Remote]: So, basically, here, what we do is we automate ingestion, and we automate those databases.
+[Remote]: Once you have those databases automated, what you do is you create the reconciliation rules,
+[Remote]: Basically, one rule one reconciliation can have
+[Remote]: one rule or more. One rule is
+[Remote]: a basic crossing between two databases.
+[Remote]: So let's do here live
+[Remote]: demo. You create a new reconciliation.
+[Remote]: Select the data sources. For example, this one.
+[Remote]: And this one. And as you mentioned,
+[Remote]: you
+[Remote]: sort of sounded like you have a
+[Remote]: one to one symptoms and one too many.
+[Remote]: Reconciliations. So what you can do here is different runs.
+[Remote]: Do a one to one run. Basically, you look for
+[Remote]: I don't know, maybe these joints between
+[Remote]: some kind of ID or amount sense, or you can do a one too many.
+[Remote]: Is basically, doing
+[Remote]: one transaction from source A,
+[Remote]: matches many transaction for from source b or or vice versa.
+[Remote]: Here, it's just basic
+[Remote]: And then you can do different runs. Maybe the first run you do
+[Remote]: extract.
+[Remote]: And then you do a second run with whatever did that match. You try to match it
+[Remote]: again, maybe using amount.
+[Remote]: And date
+[Remote]: transaction date,
+[Remote]: And, of course, you can add tolerance, for example, 5% or tolerance in days.
+[Remote]: Or seconds and or or minutes, hours, or whatever.
+[Remote]: Then you can do comparisons. This can be used
+[Remote]: either for financial comparisons, for example, calculating fees
+[Remote]: or status comparisons, check that
+[Remote]: these transactions are both approved on this on this platform and on this platform.
+[Remote]: You can make them critical.
+[Remote]: This is an operational reconciliation, making sure that the transaction exists.
+[Remote]: And this one can be a financial operation, making sure that the fee that was applied
+[Remote]: or the date in which it it was liquidated or
+[Remote]: or or or processed is the correct one. They can be, of course,
+[Remote]: conditional, and they can be critical.
+[Remote]: If if it's critical, it means that whatever
+[Remote]: happened here, if
+[Remote]: it does not match,
+[Remote]: that means that the transaction will not be marked as as a reconciled.
+[Remote]: And, of course, we can we standardize information. For example,
+[Remote]: these databases have maybe in one database
+[Remote]: The currency is in USD, and then the other one is
+[Remote]: without caps or
+[Remote]: approved on in different languages, etcetera. We we standardize that.
+[Remote]: And, of course, you can add transformations and calculations for
+[Remote]: reporting matters. So this is a basic reconciliation.
+[Remote]: Live demo, let's name it.
+[Remote]: And once you have
+[Remote]: this
+[Remote]: rule created, you can
+[Remote]: save it.
+[Remote]: And
+[Remote]: of course, what we do is we automate
+[Remote]: but here we're gonna run it manually.
+[Remote]: Basically, what everything we're doing right now is
+[Remote]: automatable. Whatever whatever we we do on this platform is
+[Remote]: automate processes. So
+[Remote]: here, I'm doing it manually. Whatever I'm doing now,
+[Remote]: will be done automatically tomorrow or three times a day or whatever.
+[Remote]: So this is a
+[Remote]: reconciliation results. First first run
+[Remote]: by ID. We got seven matches, for example, and on the second run, whatever did not match
+[Remote]: we tried again with amount and and transaction date. Here, we got
+[Remote]: an an extra. We've got a generic
+[Remote]: dashboard with the generic information, and then, of course,
+[Remote]: we have personalizable dashboards for
+[Remote]: whatever information you or KPIs you wanna you wanna check.
+[Remote]: And, of course, we can export the results
+[Remote]: to whatever database you need in whatever format. It's super easy to use,
+[Remote]: super flexible, and we can also
+[Remote]: automate the creation of accounting statements
+[Remote]: on the
+[Remote]: general letter. So if you're interested in
+[Remote]: automating the creation of these journal entries, we also do that.
+[Remote]: And, of course, we've got the
+[Remote]: exception manager where we check for these discrepancies. We find
+[Remote]: maybe transactions that did not match. We look for
+[Remote]: options. We check if there were duplicates or
+[Remote]: partially reconciled or whatever, and we
+[Remote]: do manual matching as well.
+[Remote]: Here, we do a confirm amount matching, and
+[Remote]: that's it. Of course, there are sometimes transactions that will not match,
+[Remote]: because there may be only one of those databases
+[Remote]: So you can configure
+[Remote]: exception rules
+[Remote]: So whenever transaction has this description or whatever,
+[Remote]: means that it it's gotta be an exception and just
+[Remote]: we automate that as that as well.
+[Remote]: Finally, we've got alarms. We can send daily alarms or
+[Remote]: every time something happens, every every any any trigger that you might configure
+[Remote]: we can send them via email, via Slack, or whatever channel you're interested.
+[Remote]: And, of course, as I mentioned, you can create your your own
+[Remote]: dashboards that are super easy to use and and and flexible. Let's create a widget
+[Remote]: for example, here.
+[Remote]: You can create charts or API cards
+[Remote]: etcetera. That's great. Maybe a stack
+[Remote]: widget. We can also name it.
+[Remote]: Let's create one here.
+[Remote]: Source let's create the
+[Remote]: stack bar.
+[Remote]: Widget title,
+[Remote]: widget
+[Remote]: demo,
+[Remote]: And, yeah, let's just
+[Remote]: keep it this way. Perfect. And like this, you can create your
+[Remote]: widgets, add new ones, etcetera, so you can create your own
+[Remote]: personal dashboards.
+[Remote]: Basically, going
+[Remote]: going back to what we do, we automate reconciliation processes. We
+[Remote]: can do one to one, one to many. We can do dependent reconciliations.
+[Remote]: We automate ingestion. We automate standardization of the data.
+[Remote]: We automate reconciliation, and we automate export either in dashboards
+[Remote]: or to any data like you're using
+[Remote]: or
+[Remote]: in in in accounting format for the general ledger.
+[Remote]: Okay. So could you show us how to, like, set up a
+[Remote]: data source? Like,
+[Remote]: from what I know, you have
+[Remote]: covered with many
+[Remote]: fine tech providers and banks.
+[Remote]: Like, if we use it, like, Bank of America,
+[Remote]: that's we
+[Remote]: do you have, like, imported APIs or something like we have
+[Remote]: we could just log in and they could you could access to our bank
+[Remote]: transactions and the details.
+[Remote]: Exactly.
+[Remote]: We've got integrations with most most of the banks in in United States and most of the big
+[Remote]: FinTechs. But if there's any
+[Remote]: data provider, processor, or partner that
+[Remote]: we would need to do an integration, we're happy to do it.
+[Remote]: It mostly takes us less than a day. So whatever data source
+[Remote]: we need to build an integration, we we will happily do.
+[Remote]: So
+[Remote]: mostly, like, I think you were an English language country, and do you have, like, in Singapore,
+[Remote]: like,
+[Remote]: Singapore, I think there's a bank name UOB, and DBS DBS, like,
+[Remote]: or send a Chartbank if we have accounts like that.
+[Remote]: If you have already made integration to those banks, regional,
+[Remote]: We have we have not, but
+[Remote]: you're interested, we can we can definitely work. Mostly integrations for data
+[Remote]: takes us
+[Remote]: generally less than a day.
+[Remote]: So if you can send us the list of
+[Remote]: integrations mostly from local banks that you would be interested for us,
+[Remote]: to work on. We're happy to do it.
+[Remote]: So if we already
+[Remote]: have an SFTP
+[Remote]: so that it would only take a day, excuse me,
+[Remote]: Yep. If we didn't have an
+[Remote]: data source, like, we have to make it manually download,
+[Remote]: from those banks.
+[Remote]: Do do you, like, also make automation for those
+[Remote]: methods? Or Yes. That would be
+[Remote]: that would be, for example, logging in on their portal.
+[Remote]: And downloading the bank statement directly from the portal.
+[Remote]: Yes. That's I mean, that's something we've done in the past.
+[Remote]: We're happy to have a look at it.
+[Remote]: We tend to prioritize
+[Remote]: direct API or f s or f s
+[Remote]: SFTP integrations, but
+[Remote]: if there is
+[Remote]: no solution for that, we're happy to look into it. Maybe
+[Remote]: talk with the bank via email or
+[Remote]: automate some kind of ingestion
+[Remote]: the portal
+[Remote]: would have
+[Remote]: to talk with our technical team, but, that's
+[Remote]: you're not the first person to
+[Remote]: request that, with similar cases.
+[You]: It's in the road map. Yep.
+[You]: It's in the road map.
+[Remote]: Yeah.
+[Remote]: So do you have a list
+[Remote]: for, like, those you have made already made integration
+[Remote]: with the banking list.
+[Remote]: Like, send a charter, I think you've already made
+[Remote]: some con contact with them.
+[Remote]: Do you have a list for that?
+[You]: Yeah. Yeah. We can send that over. It's it's it's mostly in The US market and in Latin America. We don't have much in in Asia and in, like, in in China.
+[Remote]: So we can
+[You]: But, I mean, there's APIs, our dynamic integrator
+[You]: is as good as connecting to a Chinese API or to a US API. I mean, at the end the day, is a data orchestration platform.
+[You]: And we can plug into any technical data source
+[You]: and connector.
+[Remote]: If if you can send us the list,
+[Remote]: of those banks in Singapore that you would be interested, we can have a look at their
+[Remote]: API documentation and tell you
+[Remote]: whether it would be easy for us to make those integrations.
+[Remote]: So we also have
+[Remote]: our tech team. So
+[Remote]: our clients, most are in China's Mainland.
+[Remote]: So they have to, like,
+[Remote]: we have local regulations and local rules here. So
+[Remote]: is there a way, like, we could
+[Remote]: our tech team could cooperate with your tech team like, embedded some framework of our from ourself.
+[Remote]: Is that possible?
+[Remote]: So we, have two main business models.
+[Remote]: And if I get this straight, you would like to embed our
+[Remote]: solution. Would that be
+[Remote]: I I was
+[Remote]: maybe a few minutes late, so I'm not sure if I got it. But
+[Remote]: you would like to use our platform for your clients as a service,
+[Remote]: That's what you mean by embedding.
+[Remote]: Yeah. It's possible.
+[You]: Or or do you mean the platform living in your infrastructure
+[You]: to facilitate the data connections?
+[Remote]: Yes. Yes.
+[Remote]: So
+[Remote]: some of our customers, mostly those who work with very sensitive data,
+[Remote]: All of our customers do, but some work with very sensitive data.
+[Remote]: And we have a a model, what we call
+[Remote]: the embedded solution. We're basically
+[Remote]: we,
+[Remote]: embed within your infrastructure
+[Remote]: So, basically, the data always lives within your
+[Remote]: your infrastructure and runs, and you process it, but you use our technology to do it.
+[Remote]: We've also got the the standard
+[Remote]: SaaS solution where we
+[Remote]: plug in and it runs in our cloud.
+[Remote]: And and that's the way we work. So if I got it right, you're
+[Remote]: interested in the first one. Right?
+[Remote]: Yes. Mostly, like,
+[Remote]: we could use our your service, and we can use it as APIs to connect
+[Remote]: with to provide it with our clients because they need to, like,
+[Remote]: Chinese language settings, and they need to
+[Remote]: adjust to their using habits.
+[Remote]: So we want to make some justification.
+[Remote]: Perfect. Yep. That's something we we we do as well.
+[Remote]: We've got both
+[Remote]: both models.
+[Remote]: Okay. So
+[You]: Come again. I didn't get it. Sorry.
+[Remote]: Alas, could you please allow us to, like, two minutes where we need to
+[Remote]: discuss a little bit?
+[You]: Okay.
+[Remote]: Of course.
+[Remote]: Okay. So so
+[Remote]: could you hear me now?
+[You]: Yes.
+[Remote]: Yep. Okay. So, like, you mainly work in US and I see Stripe is also one of your clients. Right? I
+[Remote]: see their logo on your website.
+[Remote]: And you must have, like, helped them to match their
+[You]: Yep.
+[Remote]: bank with their statements.
+[Remote]: Like, we also cooperate with Stripe So if we
+[Remote]: want to know if we could use
+[Remote]: something you have already set up with Stripe and Bairbands.
+[You]: Yeah. We're working with Stripe.
+[Remote]: Could we, like, use the
+[You]: Reconciling Stripe data with with some of our customers for sure.
+[Remote]: okay.
+[Remote]: Okay. And also, for Asia,
+[Remote]: like, if we want to
+[Remote]: want to integrate, like, one of
+[Remote]: Chinese land, for instance. Like, we want to
+[Remote]: want to use Chinese band in your platform to
+[Remote]: do we just need to provide you, like, our bank name
+[Remote]: bank account.
+[Remote]: Other information, you would make all the integration process, or we have to, like,
+[Remote]: cooperate together to make the integration
+[Remote]: If you send us the the the bank name, we can have a look at the
+[Remote]: documentation. That will depend on how available the API documentation is online.
+[Remote]: If it's a big bank, most likely, gonna be very easy.
+[Remote]: If it's a regional bank with not very good APIs, we might
+[Remote]: take some trouble, but we're happy to look at it.
+[Remote]: If you if you send it, we're more than happy to look at it.
+[Remote]: And, traditionalized
+[Remote]: how you make it, like,
+[Remote]: access access control and data security
+[Remote]: I'm also kind of interested
+[Remote]: in that.
+[You]: We
+[Remote]: Like, we have many like, we have to
+[Remote]: limits to contact data access
+[Remote]: So our our
+[Remote]: first,
+[Remote]: if if if you mean, like, role control, who can
+[Remote]: modify yeah. Who can ask this? So our platform has three or
+[Remote]: four basic
+[Remote]: four basic permissions. It's admin, auditor,
+[Remote]: operator, and
+[Remote]: I don't remember the last one. You super user.
+[You]: 15.
+[Remote]: But if there's
+[Remote]: any specific data
+[Remote]: you want this user to have
+[Remote]: access to.
+[Remote]: This other user not to have access to,
+[Remote]: we can do it. I mean, we can
+[Remote]: personalize the roles for the users.
+[Remote]: Based on whatever you you guys
+[Remote]: wanted to do it. That that's not
+[Remote]: that's not an issue.
+[Remote]: Okay.
+[Remote]: Could you do you have, like,
+[Remote]: some API files or, like, real demo? Like, we could
+[Remote]: try ourselves.
+[Remote]: We we can we can set up a a a real
+[Remote]: working session where you can send us your files, or we we can
+[Remote]: it it it can be dummy data. No problem. But
+[Remote]: but we we can we can definitely set up a a time to do that for sure.
+[Remote]: That's what
+[Remote]: what we generally do.
+[Remote]: Is, you send us the the the data, the
+[Remote]: can be them dummy data, or you can send an an NDA or whatever works for you.
+[Remote]: And we do a real reconciliation based on what you send us. You send us the data,
+[Remote]: whatever the the the matching keys are and the reconciliation logic is.
+[Remote]: Does that sound okay?
+[Remote]: So do you have a
+[Remote]: file format limit? Like, they were used to using Excel.
+[Remote]: And for CSV.
+[Remote]: But could you also accept PDF? I won't try it.
+[Remote]: PDF format
+[Remote]: Is that possible?
+[Remote]: We don't do PDF yet, but if you send us, we can
+[Remote]: we can have a look at it. Maybe for the demo,
+[Remote]: I would stick with
+[Remote]: CSV, Excel, TXT,
+[Remote]: or API.
+[Remote]: But if
+[Remote]: PDF is something you really need, we can work on it. Nowadays, it's
+[Remote]: not it's not really an issue.
+[Remote]: But for a demo,
+[Remote]: I I would stick with Excel CSV
+[Remote]: API standard.
+[Remote]: Yeah. Yeah. Yeah. Sure. Just just personal in case.
+[Remote]: So Of course. I would ask them, like,
+[Remote]: try to prepare some data for you to make a demo
+[Remote]: demonstration and environment. And so
+[Remote]: want to, like, operate by themselves. So they want to
+[Remote]: take a closer look, like, how it could use it. Because you're
+[Remote]: your system is in English language settings, but most of our
+[Remote]: my colleagues are Chinese people, so they might have some time in
+[Remote]: are you planning to, like, in a language setting?
+[You]: Language setting.
+[Remote]: I mean,
+[You]: We don't have it yet, but
+[You]: if there's interest in moving forward with with a contract, then we see your guys
+[You]: progressing from the demo to a proof of concept and then actually figuring out that this is something you need.
+[You]: We're more than happy to do it, with a quick turnover for you guys.
+[Remote]: Okay. Okay. Lovely. So
+[Remote]: So okay.
+[Remote]: I think there's
+[Remote]: enough for today, and thank you for your time.
+[Remote]: And I'll ask Sally to send you some data of
+[Remote]: through email later.
+[Remote]: Perfect. And you can also, like,
+[Remote]: you could contact her by email.
+[Remote]: Think that's enough. Perfect. So we expect
+[Remote]: most likely, two data files, and what would be the reconciliation logic
+[Remote]: between this. So we replicate that with with your exact data
+[Remote]: Fantastic.
+[Remote]: Okay. Okay.
+[You]: Alright.
+[Remote]: Thank you. Perfect.
+[You]: Thank you for your time. Great meeting.
+[You]: Bye bye. Have everyone.
+
+============================================================
+SUMMARY
+============================================================
+### Ocean Payment Overview
+
+- Fintech company providing acquiring and card issuing services plus e-wallets
+- Customers use both acquiring and issuing services with funds scattered across different systems
+- Fund balances difficult to map when separated across systems
+- Main challenge: matching bank statements, transaction details, and service provider bills
+  - Different formats and levels of detail (some detailed, some just totals)
+  - Manual calculation required for transaction costs with complex pricing quotes
+  - Need to process millions of transactions weekly
+
+### Rexi Platform Capabilities
+
+- Complete reconciliation automation: ingestion → transformation → matching → discrepancy analysis
+- Supports one-to-one and one-to-many reconciliation scenarios
+- No-code calculated columns for fee calculations and filtering
+- Scalable architecture handling tens of millions of daily transactions
+- Integration capabilities:
+  - Existing: US banks, Latin America, major FinTechs including Stripe
+  - Custom integrations: <1 day for new data sources
+  - Portal automation possible for banks without APIs
+- File format support: CSV, Excel, TXT, API (PDF under consideration)
+- Role-based access control with customizable permissions
+
+### Technical Requirements & Next Steps
+
+- Ocean Payment needs Singapore banks (UOB, DBS, Standard Chartered)
+- Embedded solution preferred for Chinese regulatory compliance
+- Chinese language localization needed for local team
+- API integration model for white-label client services
+
+**Action Items:**
+
+- Sally to send sample data files via email for demo preparation
+- Rexi to provide list of Singapore bank integrations
+- Schedule working session with real/dummy data for customized demo
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/20c5d120-f2eb-4a79-937b-652123c76666](https://notes.granola.ai/t/20c5d120-f2eb-4a79-937b-652123c76666)

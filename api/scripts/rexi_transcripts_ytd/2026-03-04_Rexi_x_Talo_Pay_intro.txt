@@ -1,0 +1,494 @@
+MEETING: Rexi x Talo Pay: intro
+DATE: 2026-03-04
+ID: not_52fr0kCgmK9WmA
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Camila Borinsky <camila@talo.com.ar>, Teo <teo@rexi.finance>, Carolina Morawetz <carolina@rexi.finance>
+SCHEDULED: 2026-03-04T11:00:00-05:00 - 2026-03-04T11:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Un par de semanas. Bien.
+[You]: ¿Cómo estás, Camin?
+[Remote]: ¿Cómo va, Nacho? ¿Todo bien?
+[You]: ¿Y vos?
+[Remote]: Todo
+[You]: Gracias por el tiempo. Bueno, te presento a Tego, mi co-founder, por ahí ya estaban ahí charlando.
+[Remote]: Ah, bien.
+[You]: Hablamos la semana pasada
+[You]: nos pusieron en contacto porque
+[You]: con su cofounder están en San Francisco,
+[You]: viendo el sueño, construyendo una
+[You]: AI,
+[You]: Se llama Nodeville,
+[You]: y es una solución para para bill payments, ¿no?
+[You]: En paralelo,
+[You]: ¿Cómo?
+[Remote]: Sí, sí, nada, no dije nada, sí.
+[You]: Bueno, y, en paralelo, ellos previamente armaron tal opaque, como te conté,
+[You]: era
+[You]: como una réplica de Pix en en Argentina, entonces que vos
+[You]: en un comercio físico o a través de ecommerce, puedas pagar directamente tu transferencia bancaria.
+[You]: Justo
+[You]: conectamos más para conocernos, y y Cami me empezó a contar brevemente
+[You]: los dolores de conciliación que tenían, que tienen un
+[You]: automatizado, pero cuando uno se rompe, Cami se tiene que medio meter
+[You]: dos, tres horas a investigarlo, con lo cual
+[You]: automáticamente, dije, che, vale la pena otra conversación,
+[You]: hagamos un poquito de
+[You]: de discovery ahí y ver si hay fit. Así que
+[You]: así que no sé si, Cami, querés que te contemos un poquito más de nosotros o querés
+[Remote]: Cuéntenme, cuéntenme.
+[You]: meternos derecho en en un poquito del dolor que tienen.
+[You]: Dale, bueno, dejame que...
+[You]: A ver si esto está
+[You]: que justo estamos cambiando el deck de ventas y
+[You]: pero vamos con el
+[You]: vamos con el anterior para no tomar
+[You]: mayores riesgos.
+[You]: Un poquito sobre nosotros.
+[Remote]: Sí.
+[You]: Entonces,
+[You]: básicamente estamos trabajando con fintechs, entidades bancarias, procesadores de pagos,
+[You]: con el objetivo de agregar inteligencia artificial en todos estos procesos de fin ops, ¿no?
+[You]: Trabajamos con cualquier player en el stack. Entonces, banks
+[You]: los vast providers, fintech platforms o los proveedores de pagos.
+[You]: Porque un poco la visión de REXi es ser esa capa central entre todas estas
+[You]: contrapartes, ¿no? Porque el problema de conciliaciones lo entendemos nosotros como un problema de coordinación. Hay un
+[You]: hay un desafío técnico de acceso a la información y procesamiento,
+[You]: pero después es mucho más un tema de cómo nos ponemos de acuerdo sobre una única fuente de la verdad,
+[You]: tema de coordinación, con lo cual
+[You]: acelerar el el proceso con inteligencia artificial ataca el síntoma,
+[You]: pero no la no la enfermedad. Para resolver la enfermedad, tenemos que reducir la frecuencia
+[You]: la información y creemos que una capa central
+[You]: es la verdadera
+[You]: solución para este problema, y por eso es que estamos trabajando con
+[You]: los distintos players en el stack, y poco a poco estamos desarrollando la parte colaborativa para que
+[You]: no sé, por ejemplo, ustedes
+[You]: compartan el dashboard con su banco o con el procesador de pagos,
+[You]: para que, entonces, ahí están
+[You]: todas las partes viendo la misma información, considerando con la misma lógica,
+[You]: tiene una herramienta compartida cloud based para resolver las discrepancias en conjunto.
+[You]: Porque si no,
+[You]: se vuelve muy ficcionado el proceso de resolver las diferencias, porque es casi como una negociación,
+[You]: Che, yo veo esto, un poco lo otro, vemos diferencias distintas, ¿cuál es la verdad?
+[You]: Y alguien pierde plata en ese proceso y se pierde tiempo, entonces,
+[You]: es un poquito como lo vemos. Bueno, y nada, y del equipo,
+[You]: arrancamos con esto incubado en Jarrah, en MIT,
+[You]: Teo también hizo un un MVA en Colombia.
+[You]: Y nuestra experiencia, un poquito, yo estuve en consultoría, en Bicho, Teo estuvo mercado pago
+[You]: creó la parte de seguros ahí de cero, y nuestro sitio viene de Naranja X y de Pomelo. Lo cual los tres de de fintech. Acá, bueno, te mencioné un poquito el el founding team.
+[You]: Un poquito sobre la propuesta de valor y y los design principles, me interesa más la parte de la
+[You]: la parte de la izquierda es...
+[You]: Todo lo que está debajo del capo en términos de tecnología, pero ¿cómo lo estamos
+[You]: pensando que sea mucho más fácil de implementar y más flexible y configurable?
+[You]: Es una herramienta que podés usar vos, Camila. Vos, Camila, bueno, sos técnica,
+[You]: pero típicamente se encarga gente no técnica de esto, ¿no? Entonces, que sea alguien
+[You]: sea self serve por
+[You]: gente de finanzas y operaciones que no
+[You]: que no saben mucho de SQL o de de tecnología.
+[You]: Y después la parte de compliance es muy importante. Esto aplica más
+[You]: nada para bancos, compañías de seguros que tienen esos
+[You]: necesidades de compliance.
+[You]: Así que acá, un poquito, ¿cómo nos comparamos con los legacy tools?
+[You]: Conocerás otras herramientas en el mercado.
+[You]: Y acá, para resaltar, es la parte de la flexibilidad y la configurabilidad.
+[You]: Que es más fácil de usar, más fácil de implementar.
+[You]: La parte de AI native
+[You]: es importante, porque la capa de inteligencia realmente
+[You]: acelera mucho el proceso y y agrega muchísima productividad.
+[You]: Y la parte colaborativa, ¿no?, que todavía por ahí la estamos desarrollando de a poco, pero es
+[You]: lo que va a hacer realmente el diferenciador a largo plazo, que nos convertimos en
+[You]: mucho más que ser una herramienta de AI que no va a ser diferenciable, empezamos a agendar los network effects a partir de esa parte colaborativa. Un poquito de los resultados que venimos viendo de nuestros clientes. Inicialmente con la solución que tenemos hoy, bueno, obviamente, eliminar esas tareas manuales, lo cual hace muchísimo tiempo, Ustedes creo que esta parte ya la tienen un poquito más armada, pero bueno, encantado de escuchar un poco más. Y reducir el riesgo de compliance, y después la parte de de write offs. ¿No?, de cosas que no puedes conciliar y que, por ende, para cerrar el libro tenés que los libros, tenés que hacer un write off, que son pérdidas de dinero real por cosas que no podés cuadrar.
+[You]: Algunos casos de éxito con clientes iniciales,
+[You]: un poco que viene. Estamos trabajando mucho en las integraciones dinámicas acelerar la implementación,
+[You]: trabajando también en embedded solutions, en donde, por ejemplo,
+[You]: quizás clientes de tal OPEI les interesa
+[You]: tener una solución conciliatoria,
+[You]: desde el portal de Talloway, entonces, estamos trabajando mucho en esa parte también.
+[You]: Como una solución proveer la infra,
+[You]: Y, bueno, como te dije, la parte colaborativa es es es muy central a lo que hacemos y la estamos testeando y
+[You]: seguimos desarrollándola.
+[You]: Así que eso es un poquito sobre nosotros. Estamos enfocados en el mercado americano, Teo y yo vivimos en Nueva York,
+[You]: pero, obviamente, estamos tomando muchas oportunidades de Latinoamérica que vienen por nuestras redes.
+[You]: Y porque hay una necesidad también y
+[You]: en Estados Unidos está más fragmentado en Argentina y en la
+[You]: Latinoamérica está mucho más concentrado en symmetric, como un claro ganador,
+[You]: pero lo cual nos da a nosotros un wedge viniendo como el startup más reciente, más joven AI nativa,
+[You]: algunas de estas compañías queriendo probar algo más liviano, algo más barato, algo más inteligente,
+[You]: así que estamos viendo mucha atracción ahí también.
+[Remote]: ¿Cuál es el caso de uso que
+[Remote]: que ustedes ven que que mejor resuelven?
+[You]: El caso de uso
+[You]: te te te contesto tipo de compañía, y después el caso de uso creo que se va a dar
+[You]: Hoy tenemos la hipótesis, porque también lo estamos refinando en cuál es nuestra ICP,
+[You]: de que somos muy buenos para servir neobancos, y que el dolor en neobancos es muy grande y es muy alto. ¿Por qué? Porque un neobanco se integra con muchísimos proveedores,
+[You]: en promedio, como entre ocho y diez.
+[You]: Porque vos pensás que hoy casi no desarrollan nada internamente.
+[You]: Lanzar una tarjeta, es con Pamelo, quieren lanzar un producto de remesas, es con Uniteller,
+[You]: quieren lanzar un producto de cash in cash out, tienen que hacer válida directo en Estados Unidos, ¿no?
+[You]: Un programa de tarjeta, digo,
+[You]: todo es un proveedor, eso genera muchísima fragmentación de información y, por ende, el el
+[You]: flujo conciliatorio termina siendo muy
+[You]: muy doloroso. Adicionalmente, neobancos tienen la presión del banco sponsor, que es
+[You]: pide cierto reporte y cierta visibilidad sobre lo que hacen, con lo cual también dificulta el proceso.
+[You]: Y después está el riesgo, porque en estas cuentas ómnibus al final son
+[You]: fondos de clientes que ellos no pueden perder.
+[You]: Te agrego un producto más que es muy complejo, es el de las cuentas remuneradas.
+[You]: Porque vos le estás dando interés a esa gente, pero les permitís operar como si fuese líquido,
+[You]: y esa esa cuenta está en descubierto, lo cual genera también mucha conciliación de ida y vuelta
+[You]: a cualquiera que sea el proveedor que vos estás mandando para generar ese yield.
+[Remote]: Claro.
+[You]: Pero de vuelta,
+[You]: es una hipótesis,
+[You]: también vemos mucha necesidad en compañías de pagos,
+[You]: en compañías de seguros,
+[You]: en billeteras digitales,
+[Remote]: Claro.
+[You]: en cripto. Trabajando con Buenbit en Argentina, por ejemplo,
+[You]: Así que, todavía refinando un poquito el ICP. Vemos mucha necesidad por por muchas verticales distintas,
+[You]: y hoy nuestros clientes y nuestro pipeline está un poquito
+[Remote]: Ok, bien, entiendo, entiendo.
+[You]: diverso.
+[Remote]: Sí, entiendo también conociendo algunos
+[Remote]: sea, entiendo cómo se sumás proveedores, la complejidad también aumenta
+[Remote]: casi exponencialmente.
+[Remote]: Así que sí.
+[Remote]: Bueno, o sea, si quieres, cuento un poco cómo cómo es mi pain,
+[You]: Pero bueno,
+[Remote]: sea, yo le comentaba a Nacho el otro día, porque justo me
+[Remote]: literalmente salí a hacer una conciliación y me sumé al alcohol con Nacho, entonces fue como
+[Remote]: justo lo tenía refresco.
+[Remote]: No sé si es es match con ustedes, pero bueno, o sea,
+[Remote]: feliz de contarles lo que lo que vivo.
+[You]: Audio.
+[You]: Eso es lo, ahí sí estamos. Sí, contamos un poquito cómo
+[You]: primero, como qué es lo que estás conciliando día a día
+[You]: qué proceso tenés actualmente,
+[You]: y cuáles serían los dolores que estás sufriendo con ese proceso.
+[Remote]: Bien, nosotros hoy
+[Remote]: para procesar las transferencias, usamos un servicio de banking as a service,
+[Remote]: que nos da crecium
+[Remote]: que es como un neobanco, incluso les diría que
+[Remote]: pueden hablar con ellos por ahí ellos les sirve también Rexi, porque ellos tienen más proveedores por atrás.
+[You]: Créciame de Estados Unidos.
+[Remote]: No, no, es de Argentina.
+[Remote]: Ellos, básicamente, nos dan
+[You]: Vamos a escribir en crectiva. ¿Sí?
+[Remote]: c r e s
+[Remote]: con s, pero sí.
+[You]: Ok, ¿qué crees?
+[Remote]: Ellos, básicamente, nos dan API
+[You]: La perdimos, ¿no?
+[Remote]: la mandan hoy, ¿la va a escuchar?
+[You]: Ahora sí.
+[Remote]: Ahí voliste.
+[Remote]: Ah. Para crear CVUs, mandar transferencias,
+[Remote]: nos mandan
+[Remote]: para recibir las transferencias, también nos dan API para
+[Remote]: rendimientos, o sea, usamos hoy
+[Remote]: ese proveedor.
+[Remote]: ¿Qué qué qué conciliaciones hago yo? Yo me tengo que fijar cada
+[Remote]: cada x cantidad de tiempo que
+[Remote]: por ejemplo, no haya llegado a ninguna operación y yo no la haya
+[Remote]: yo no la haya procesado, o que ellos no me la hayan mandado. Entonces, eso
+[Remote]: una conciliación que se hace automático y se hace cada quince minutos, por decir algo.
+[Remote]: Después,
+[You]: Ahí exactamente, a ver.
+[Remote]: traigo me traigo las últimas veinte
+[You]: Entre mis archivos.
+[Remote]: sesenta, o sea, me traigo las últimas
+[Remote]: x cantidad de operaciones y me fijo de tenerlas todas.
+[You]: En Gracium y en un ledger propio.
+[Remote]: Sí.
+[Remote]: Y después, lo otro que tengo que hacer,
+[Remote]: que eso es lo que me estaba haciendo el otro día, que es lo más doloroso, es
+[Remote]: comparar que los balances de las cuentas estén iguales.
+[Remote]: El balance teórico, por un lado, y el balance real,
+[Remote]: que tenés claro, el que yo le muestro al usuario en mi
+[Remote]: versus la plata que realmente tiene Crescent registrada que tiene ese usuario.
+[Remote]: Perfecto.
+[You]: Amén, legendary succession.
+[Remote]: Claro, sí.
+[Remote]: El problema ahí es que siempre hay alguna diferencia con algún caso,
+[Remote]: como que, y yo por ahí me doy cuenta, no,
+[Remote]: en el momento que empieza a pasar, sino unos días después.
+[Remote]: Que es lo que te decía justo el otro día que hablamos con Nacho,
+[Remote]: me di cuenta de que a un cliente, Crescent no le estaba cobrando el impuesto al crédito, por
+[Remote]: ejemplo, que sí o sí lo tienen que cobrar.
+[Remote]: Y como que, y nosotros sí. Entonces, yo le estaba mostrando mucha menos plata de
+[Remote]: de lo que en realidad Creation me mostraba. Y la otra dificultad que se suma,
+[Remote]: Crescium en particular, es que ellos son una plataforma en sí misma, no es que son solo proveedores.
+[Remote]: Porque la gente puede entrar a Cresim y pueden entrar a tal,
+[Remote]: tiene que estar sincronizado
+[Remote]: todo el tiempo. No time, sí.
+[Remote]: Claro.
+[Remote]: Hoy no tenemos muchos casos que entren a las dos, por eso no es tan grande el problema,
+[Remote]: en realidad debería estar cien por ciento sincronizado.
+[Remote]: Y no lo está, pero porque, bueno, todavía estamos terminando de resolver algunos casos.
+[Remote]: Y después, por ejemplo, nosotros tenemos en vista
+[Remote]: tener nuestra propia licencia de proveedores pronto,
+[Remote]: y y yo voy a sumar como un segundo proveedor
+[Remote]: para hacer balanceo, o sea, general seguramente usemos el el nuestro y vayamos
+[Remote]: y tengamos de backup o tipo dependiendo el día, es decir,
+[Remote]: algún banco está caído, hacemos uno u otro, vamos a sumar uno
+[Remote]: uno más también de backup,
+[You]: ¿Vas ser licencia?, tu propia licencia de PCP, básicamente.
+[Remote]: Sí, de PSP.
+[Remote]: Así que, y y e igualmente, por ejemplo, todo lo que es
+[Remote]: rendimientos, lo vamos a seguir trabajando con Creation, porque nosotros no vamos a tener esa
+[Remote]: esa esa capacidad. Entonces,
+[Remote]: y ahí voy a tener
+[Remote]: muchos, o sea, al al usuario yo le voy a mostrar un solo balance y va a estar
+[Remote]: distribuida en múltiples proveedores.
+[Remote]: Seguramente.
+[You]: Sí, tú vas a generar redundancia.
+[Remote]: Sí.
+[Remote]: Bueno, ese ese es el pay now, te diría que
+[Remote]: lo que es las operaciones que no se procesan como que yo lo considero como que está resuelto,
+[Remote]: general no
+[Remote]: hay casos raros o cosas que tenga que chequear manual.
+[Remote]: Pero sí, esto de los balances, como que todavía no lo terminé
+[Remote]: resolver, y cada vez que me siento es como que resuelvo algunos casos,
+[Remote]: y me quedan otros.
+[Remote]: Porque cada caso, como encontrar cuál es el problema me lleva mucho tiempo.
+[You]: Esto, por ejemplo, identificar que es el impuesto al crédito,
+[Remote]: Claro, tipo, me tenía que, yo veía que había diferencia de montos, pero
+[Remote]: no sabía si era que había una operación que me faltaba,
+[Remote]: y cuando vi que era la misma cantidad de operaciones dije, bueno, no, claramente acá hay algo en, tipo, lo que se
+[Remote]: está deduciendo de cada operación. Me tengo que fijar el detalle,
+[Remote]: de cada operación y ver qué diferencia hay.
+[You]: El el machine transaccional. ¿Cómo lo hacés?
+[Remote]: Ellos me dan una API que yo puedo consumir de a cincuenta operaciones
+[Remote]: que eso es una cagada, porque es como que
+[Remote]: si me tengo que traer el histórico de un usuario, como que me toca tengo que hacer un montón de
+[Remote]: peticiones para tener todas, y
+[Remote]: y yo tengo en mi ledger interno y las voy comparando por
+[Remote]: por el identificador que tenemos en común.
+[You]: Pero
+[You]: ¿eso cómo lo haces con SQL, con Excel, con algún dashboard?
+[Remote]: Tengo un script en un Jupyter Notebook.
+[Remote]: En Biden. Perfecto.
+[Remote]: No es no es lo ideal igual, me gustaría tener algo más lindo, pero es lo que
+[Remote]: en su momento y hoy me funciona y me da fiaca a hacer otra cosa.
+[You]: Oh, yeah. Oh, yeah.
+[Remote]: Sí, y es
+[Remote]: ese es el que le pega a la API y te trae la cincuenta y le vas pegando varias veces
+[Remote]: Sí. Y
+[Remote]: la la parte del ledger interno es integración directa o le carga
+[Remote]: un CSV o lo que sea?
+[Remote]: El de interno,
+[Remote]: ¿a qué te referís con integración directa?
+[Remote]: Porque vos en el script estás haciendo la la conciliación, ¿no? Entonces,
+[Remote]: estás pegándole a la API del ledger interno o está
+[Remote]: descargándote un Excel y pegándole con el script a al Excel?
+[Remote]: Tengo una API, nosotros usamos Tiny no sé si conocen.
+[Remote]: Es como un click house, pero
+[Remote]: pero hosteado, está está muy bueno, usamos eso que te permite abrir como endpoints para que
+[Remote]: consumir esa data.
+[Remote]: Perfecto.
+[Remote]: Es como que tengo una API, no no no tengo que descargarme
+[Remote]: Buenísimo.
+[Remote]: Así que eso, básicamente ese es
+[Remote]: el pain que nosotros tenemos hoy, no te digo que es gigante porque me encargo solo yo y
+[Remote]: tipo, lo, o sea, debería encargarme más seguido, pero bueno,
+[Remote]: hago cuando
+[Remote]: tengo muchas ganas.
+[You]: Está
+[Remote]: Tengo ganas, pero...
+[You]: No, a ver, creo que
+[Remote]: Pero
+[You]: ¿cómo cómo
+[You]: pienso que podemos...? O sea, primero,
+[You]: el primero es reemplazar el script de Python por un macheo transaccional en la plataforma de
+[You]: eso es lo primero que yo haría.
+[You]: Configurar el flujo, ya sea de
+[You]: ingesta, transformación, procesamiento, y que vos tengas un dashboard diario que te metés y ves
+[You]: el macheo transaccional.
+[You]: En en en transacciones,
+[You]: y la comparación con el monto, ¿no?, porque ahí vas a empezar a ver las diferencias en en balance.
+[You]: Luego tenemos un módulo de
+[You]: problem solver o discrepancy management, donde esas diferencias de balance
+[Remote]: Claro.
+[You]: las vas identificando, las vas marcando,
+[You]: y después eso se se codifica y empieza a aprender.
+[You]: Entonces, por ejemplo,
+[You]: esto del impuesto al crédito es una regla que deberíamos configurar.
+[You]: Para que después no te falle más la comparación de balance.
+[You]: Es una es como un calculated column, donde por ahí estás cambiando el amount que viene de un lado
+[You]: para compararlo y que te cuadre bien con lo otro.
+[You]: Y ahí también corroborás de que te estén cobrando bien el impuesto a crédito, ¿no?, porque a veces te cobran de más, de menos, no sé.
+[Remote]: Sí.
+[You]: Un error ahí.
+[You]: Con lo cual veo valor en la automatización de lo que tenés hoy en Python y la escalabilidad de
+[You]: eso, más si me decís que van a tener la licencia PCP y agregar nuevos proveedores,
+[You]: y después mucho ahorro de tiempo en la investigación y resolución de discrepancias, que lo que hoy
+[You]: te lleva tiempo. Tener que meter en el script, bajar las bases, mirarlas a ojo, entender qué pasó,
+[Remote]: Sí.
+[You]: explicarlo.
+[You]: No sé si tienen alguna necesidad de reporting o de compliance, ¿ustedes con esto?
+[You]: O cuando sean PSP, por ahí sí.
+[Remote]: Cuando seamos PCB, sí.
+[Remote]: Hoy no tenemos, hoy como que eso lo hace Creation,
+[Remote]: lo hacen ellos, su responsabilidad,
+[Remote]: pero, bueno, tengamos el PCP nosotros, ahí sí, eso va a ser nuestra responsabilidad.
+[You]: Ok. Yo veo un caso de uso muy directo, y es exactamente lo que hacemos
+[You]: No sé cómo
+[You]: no sé cómo lo estás pensando vos,
+[You]: cuál es la urgencia o el interés de esto,
+[You]: y cómo pensás un próximo paso. Yo
+[You]: por ahí pensaría como un próximo paso mostrarte una demo o hacerte un walkthrough de lo que tenemos hoy,
+[You]: sé si nos querés mandar archivos reales para que montemos un flujo real,
+[You]: o querés que lo hagamos genérico. Y después, en base a eso, pensar qué tipo de involucramiento vale la pena si están realmente interesados.
+[Remote]: Sí, a mí me queda la duda de qué cosas necesito para poder conectar
+[Remote]: mis cosas a Rexy, porque, por ejemplo, el el endpoint que yo uso para
+[Remote]: consumir de Crecium es algo que tengo yo
+[Remote]: que lo puedo acceder porque estoy local en mi combo.
+[Remote]: ¿Entendés? Pero no sé cómo cómo podría ser
+[Remote]: conectarlo desde algo remoto, yo no puedo abrir ese endpoint públicamente.
+[Remote]: Ok. No, eso lo tendríamos que resolver con el con el
+[Remote]: proveedor de, o sea, con Crescium.
+[You]: No, pero
+[Remote]: No, o sea,
+[You]: ¿meter las credenciales en Rexi y y gestarlo ahí desde Rexi?
+[Remote]: está
+[Remote]: Sí, o sea, tendría que ver
+[Remote]: porque es como que son credenciales
+[Remote]: Sí.
+[Remote]: Que preferiría que no estén en ningún lado, incluso las mías son temporales, ni siquiera es que son
+[Remote]: para siempre. Pero sí, o sea,
+[Remote]: que, entonces, ¿cómo cómo se ingesta a Rexy la data, por ejemplo, por API?
+[Remote]: Y que sí, o SFTP.
+[Remote]: Ok.
+[Remote]: Salvo que, por ejemplo, Kresim tenga un servicio SFTP,
+[Remote]: que suelen tener
+[Remote]: Cuando tienen APIs muy malas, así, tipo a cincuenta,
+[Remote]: se usan para consultas específicas, y si un cliente
+[Remote]: realmente la base entera, le lo suelen hacer con SFTP.
+[Remote]: No sé el caso de creación.
+[Remote]: Ok. No, no creo, porque ellos para mí tienen un API de cincuenta, porque
+[Remote]: o sea, no sé, no,
+[Remote]: muy early todavía.
+[Remote]: Pero pero bueno, déjame que piense cuál cómo sería el
+[Remote]: siguiente paso de su lado. Hacemos una demo,
+[You]: Sí.
+[Remote]: Idealmente,
+[Remote]: nos compartís una una
+[Remote]: archivo de cada una de las bases con x período de tiempo,
+[Remote]: y cuál sería lo los chequeos que hacés, que
+[Remote]: estén todas las transacciones, que el fee sea este porcentaje del del
+[Remote]: del del principal, no sé, que el impuesto deducido sea
+[Remote]: este y demás, y nosotros lo montamos en
+[Remote]: y te mostramos cómo se calcularía, te mostramos básicamente la plataforma y cómo lo automatizaríamos.
+[You]: ¿Qué más?
+[Remote]: Ok.
+[Remote]: Dale,
+[You]: Si nos querés pasar el caso este donde está el agujero por el impuesto de crédito, puede ser interesante.
+[Remote]: Sí, sí, sí, podría ser, o te muestro uno de los que no resolví, a ver si me lo
+[Remote]: Bien, también.
+[You]: También, ¿qué requerimos de un NDA, para que nos compartas esa información?
+[Remote]: Dale.
+[Remote]: Sí, déjame que le pregunto a vos qué necesito.
+[Remote]: Porque yo, ¿viste?, soy técnica, pero la parte legal no
+[You]: No, no, si te digo, o sea,
+[You]: te puedo pasar el template que usamos para todos estos casos con todos nuestros clientes, es un NDA mutuo estándar
+[You]: YC,
+[You]: Revisalo,
+[You]: Después necesitaríamos simplemente nombre de la entidad ilegal,
+[You]: quién firma, cargo del que firma, email del que firma, y te lo
+[You]: mando para firma digital vía clerk y es un toque.
+[You]: Estar seguros, ¿viste?
+[Remote]: Dale, dale, dale, buenísimo.
+[Remote]: Bueno, eso, entonces queda de mi lado la pelota.
+[You]: Te mando, dale, te mando el template del NDA,
+[You]: y firmamos el NDA, y nos comparte la información, y tratamos de agendar una demo en las
+[You]: semana que viene,
+[You]: No sé si vale la pena involucrar a alguien del equipo de Tallow Pay, vos te lo llevás cien por ciento vos.
+[Remote]: Yo lo sumo a Sandy, que
+[Remote]: que también está en el equipo técnico. O sea, es verdad que en mucho en muchas ocasiones
+[Remote]: justo estaba pensando cuando dijiste, en general no lo hace la gente técnica esto,
+[Remote]: y justo estaba pensando que en Gresium lo hace lo hace el de operaciones,
+[Remote]: pero en nuestro caso, digo, lo hacemos cien por ciento los técnicos.
+[Remote]: No sé por qué.
+[You]: Sí, es raro.
+[Remote]: Así que, bueno, lo
+[You]: Es como que el el el es medio huérfano el problema.
+[You]: A veces cae en finanzas, a veces en operaciones, a veces un equipo técnico,
+[You]: Vemos de todo, la verdad. Solo para
+[Remote]: operaciones lo puede revisar, pero después para encontrar qué pasones,
+[You]: Sí, mucho de data engineering. Por eso también
+[Remote]: sí o sí, a la gente técnica.
+[You]: interesante, porque le estamos vendiendo un un producto de automatización a los equipos
+[Remote]: Sí.
+[You]: no técnicos, ¿no?, por eso también hay hay un strong sell ahí y vemos la acción ahí.
+[You]: Porque se independizan, porque, si no, lo que termina pasando es
+[You]: en estas organizaciones, tenés que abrir un ticket con el equipo de sistemas, y hasta que te dan bola y
+[You]: se te retrasa, y mientras vos vivís haciendo cosas en Excel, porque es la única herramienta que sabés usar,
+[You]: y te volvés loco. Entonces, también hay una independización ahí que queremos tener del equipo técnico. Che, para bloquear agenda, jueves o viernes, la semana que viene, ¿podés? La demo?
+[Remote]: ¿Aló? Déjame ver.
+[Remote]: Es hoy, lunes de la semana que viene, sería doce o trece.
+[Remote]: Sí.
+[You]: Che orario
+[You]: te vendría bien, preferís?
+[Remote]: Y este horario está bueno, si quieren
+[Remote]: viernes este horario.
+[You]: Este horario son las
+[Remote]: Ocho,
+[Remote]: ocho, pero para ustedes no sé qué hora es.
+[You]: No, no, no, está perfecto.
+[Remote]: Era una.
+[You]: Perfecto. Dale, hagamos viernes que viene el mismo horario.
+[You]: Yo te agrego a vos y y vos lo agregás a Agustín, dijiste.
+[Remote]: Al Sandy.
+[You]: Santi, perdón.
+[Remote]: Sí, sí, sí.
+[You]: Dale.
+[You]: Ahora te mando para el viernes, ya bloqueamos y ahora te mando por mail el NDA,
+[You]: y y para ya firmar eso y que nos pases la información.
+[Remote]: Dale, buenísimo. Perfecto, Dami.
+[You]: Listo, Cami.
+[Remote]: Hablamos, chicos.
+[You]: Chao, chao, gracias.
+[Remote]: Chao, chao.
+
+============================================================
+SUMMARY
+============================================================
+### Talo Pay’s Current Reconciliation Setup
+
+- Banking-as-a-Service provider: Cresium (Argentine neobank)
+  - APIs for creating CBUs, sending transfers, receiving transfers, yields/returns
+  - API limitation: only 50 operations per request
+- Current reconciliation process runs every 15 minutes
+  - Compares internal ledger vs Cresium data
+  - Uses script in Jupyter Notebook (Python)
+  - Manual investigation required when discrepancies found
+- Most painful reconciliation challenge: balance comparison
+  - User-facing balance in Talo Pay platform vs actual Cresium balance
+  - Recent example: Cresium wasn’t charging credit tax properly, causing balance mismatch
+  - Discovery and resolution takes 2-3 hours of manual investigation
+
+### Talo Pay’s Growth Plans and Complexity
+
+- Obtaining own PSP license soon
+  - Will add second provider for load balancing and backup
+  - Continue using Cresium for yields/returns only
+- Platform synchronization challenges
+  - Users can access both Cresium and Talo Pay directly
+  - Real-time sync required but not fully achieved
+  - Currently few users access both platforms
+- Future state: single user balance across multiple providers
+  - Increased reconciliation complexity expected
+
+### Next Steps
+
+- Rexi to send NDA template for review and signature
+- Camila to involve Sandy (technical team member) in process
+- Demo scheduled for Friday, March 13 at same time (11:00 AM)
+- Talo Pay to provide:
+  - Sample data files from both systems
+  - Specific reconciliation rules and checks
+  - Example of unresolved discrepancy (credit tax case)
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/2107079a-89b0-4579-abb1-8a08cb8fa857](https://notes.granola.ai/t/2107079a-89b0-4579-abb1-8a08cb8fa857)

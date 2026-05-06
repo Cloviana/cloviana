@@ -1,0 +1,511 @@
+MEETING: Rexi x ByMA: reunión técnica
+DATE: 2026-03-05
+ID: not_ZaipbATh8RHsMB
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Georgina Traboni <georgina.traboni@byma.com.ar>, Fabio Baez <fabio.baez@byma.com.ar>, Sebastián García <sebastian@rexi.finance>, Teo <teo@rexi.finance>, Sebastian Arbona <sebastian.arbona@tecval.com.ar>
+SCHEDULED: 2026-03-05T16:00:00-05:00 - 2026-03-05T16:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Segunditos, para ver si se puede unir Guille.
+[You]: ¿Ya lo conocías? ¿Sí va?
+[Remote]: Que
+[You]: Sí.
+[Remote]: Teo sí.
+[Remote]: A Mino.
+[Remote]: No.
+[Remote]: Buenas. ¿Cómo estás? ¿Todo bien, vos? Bien, todo bien.
+[You]: Chongina, ahí, por ahí, antes que se sumen,
+[Remote]: Me alegro.
+[You]: de curioso,
+[You]: de repente arrancaron con toda. Hubo una una una bajada, o sea,
+[You]: juntaron como que era prioridad para el veintidós de abril, o si nos puede dar un poquito más de visibilidad ahí
+[You]: sobre los tiempos y la prioridad que tomó esto de de una semana a la otra?
+[Remote]: Sí, la realidad es que
+[Remote]: pasa que el el veinticuatro de abril,
+[Remote]: creo que las chicas en el primer, yo no estuve en la primer reunión con ustedes, estuve en la
+[Remote]: segunda, que fue la demo,
+[Remote]: les comentaron que hacemos una integración con
+[Remote]: sal de una nueva plataforma que es vMacLearning,
+[Remote]: sale el veinticuatro de abril, y esto quiere, esto, en realidad, se quiere para
+[Remote]: dos días antes para que todo esté
+[Remote]: ingestado y y se pueda conciliar.
+[Remote]: La verdad que yo lo veo, sí, obviamente, es muy
+[Remote]: demasiado rápido, pero bueno, son las necesidades de
+[You]: Está muy bien.
+[Remote]: del negocio que nos apuran a eso.
+[Remote]: Básicamente.
+[You]: No nos habían comentado la fecha, no sabíamos hasta que me mandaste el mail, pero pero sabíamos
+[Remote]: Ah, ok.
+[You]: en proceso de migración. Por eso me sorprendió cuando
+[Remote]: No, pensé que
+[You]: cuando vi la fecha.
+[Remote]: Claro, pensé que en la primera reunión
+[Remote]: habían hablado algo de esto,
+[Remote]: Nosotros vimos la demo nada más que por los que, porque yo le fui
+[Remote]: o sea, tuve con ustedes la demo con Lu, pensé que antes habían hablado de con Aus y Piti el tema de los de las fechas. Así que
+[You]: Tranqui, tranqui, no pasa nada. Y ahí no sé si nos querés contar un poquito más del proceso
+[You]: lo que puedas contar, sé si están evaluando otras alternativas o cómo cómo lo
+[You]: están viendo, cuáles van a ser los factores de decisión más importantes.
+[Remote]: No, o sea, literalmente el factor más importante es es que
+[Remote]: la herramienta cumpla con con lo que necesitamos, que es conciliar
+[Remote]: lo que comentaba, ¿no?, Nasdaq con Bimacash,
+[Remote]: que hoy en día
+[Remote]: no está ingestado en un data lake, y están ingestándolo
+[Remote]: sea,
+[Remote]: pero a niveles exponenciales de rapidez.
+[Remote]: Sea, los chicos están trabajando a pleno, de hecho, reunimos todo el tiempo y todo todos los días,
+[Remote]: para ver cómo va avanzando esto, para que
+[Remote]: quien haga esta conciliación, el proveedor que lo haga,
+[Remote]: se ingesta o toma o toma información de un data lake.
+[Remote]: Para que no sean de de diferentes fuentes, sino que sea una API sola que tal vez
+[Remote]: tenga dentro de esa API algunas fuentes
+[Remote]: externas, como que son, que Vimacash lo que tiene es
+[Remote]: información del banco, básicamente. No maneja extracto bancario, sino que es el
+[Remote]: del banco.
+[Remote]: Entonces, la idea es que ustedes puedan
+[Remote]: ustedes o quien sea, puedan tomar desde una sola API que es
+[Remote]: Data Lake, para que no haya ningún error ni nada en el en el
+[Remote]: flujo de lo de la información. Entonces, es la idea esa.
+[Remote]: Los chicos, a ver, la idea técnica es que Guillermo que es la la parte de arquitectura, haga preguntas puntuales que tal vez nosotras
+[Remote]: no no no sabemos
+[Remote]: cómo es la plataforma, si es SaaS
+[Remote]: o cómo se integra, y demás, que yo estaba escuchando hoy en algunas
+[Remote]: reuniones que tuvimos con los chicos internamente.
+[Remote]: Entonces, bueno, más que nada eso.
+[You]: Está muy bien.
+[Remote]: O sea, lo que sería conciliación en
+[Remote]: realidad, la información que llega
+[Remote]: va a ser
+[Remote]: pura, no va a haber nada extraño, y lo que se lo que se tiene que conciliar
+[Remote]: ahora cuando firmemos en, porque yo le mandé de de legales,
+[Remote]: ustedes van a ver que yo les voy a pasar
+[Remote]: un PUC donde dice, bueno, les envío estos tres Excel
+[Remote]: ya está todo explicado, ¿no?, pero para que entiendan, y que esto va a apachear con esto y con esto y con esto,
+[Remote]: es lo mismo que se va a ver en el data late.
+[Remote]: Es la idea que
+[Remote]: no no tengamos que subir todos los días o todos los meses
+[Remote]: un archivo Excel, sino que esto, que ustedes lo puedan extraer
+[Remote]: automáticamente este data lake.
+[Remote]: Pero la información en sí a conciliar no tiene mayor
+[Remote]: problemática, porque son campos en los que
+[Remote]: se pueden conciliar. Obviamente, yo lo puedo hacer manualmente. Ahora, son tantas transacciones que
+[Remote]: lo hago manual, no termino más.
+[You]: Caro.
+[You]: Ah, no, sí, sí.
+[Remote]: Más que nada, o sea, no es algo complejo en el hecho de de la
+[You]: Volume in?
+[Remote]: conciliación, de poder hacer el
+[Remote]: Lo que tengo es el volumen, claro, o sea, cuando
+[Remote]: ustedes vean lo lo que yo le le voy compartir en
+[Remote]: en OneDrive, se van a dar cuenta que yo les arméalo para que, literalmente,
+[Remote]: se machee rápido.
+[Remote]: Porque se va a machear rápido. Hay cosas que van a quedar sin machearse, pero es por cuestiones, no sé,
+[Remote]: de tiempo, que a lo mejor cae una transacción hoy y mañana,
+[Remote]: es una transacción de hoy y mañana cae en el banco y, entonces, como
+[Remote]: nada más temporario. Entonces,
+[Remote]: eso se va a ver cuando ustedes vean todos los los
+[Remote]: documentos que llamé,
+[Remote]: En base a esto, ¿no?, a estar en Nasdaq, bajar el documento en Excel,
+[Remote]: estar en Bimacash, bajar el documento de Bimacash y poder cruzar, o sea, es lo que yo hago, cruzo
+[Remote]: información que es cruzable. No es algo que es muy
+[Remote]: engorroso o difícil de de, bueno, de hacer el el matching.
+[Remote]: Por eso la el tema nuestro es, tipo, el volumen, lo lo transaccional,
+[Remote]: que tenemos mes a mes, y es ya se vuelve como
+[Remote]: se pierde la trazabilidad de un montón de cosas, porque no se puede. A ver,
+[Remote]: no se venía haciendo. Básicamente, esto es como una herramienta que nos va a llamar a
+[Remote]: a implementar un un proceso nuevo que
+[Remote]: es importante, o sea, esto esta conciliación
+[You]: Sí, sí, sí.
+[You]: Es clave.
+[Remote]: o sea,
+[Remote]: si podemos hacer manualmente, sí, yo lo único que conciliaba
+[Remote]: lo único era inversiones.
+[Remote]: Porque con movimiento de banco, movimientos de de custodia y
+[Remote]: obviamente, los movimientos que tenía inversiones.
+[Remote]: Después todo el resto,
+[You]: Me lo dura.
+[Remote]: no se conciliaba, o sea, era como bueno.
+[You]: ¿Ustedes tienen alguna necesidad regulatoria con esto de compliance o o no afecta?
+[Remote]: Es esto.
+[Remote]: ¿Cómo?
+[You]: ¿Tienen alguna necesidad regulatoria de compliance con esto o o no tiene nada que ver?
+[Remote]: Ahora bien, no te sé decir.
+[You]: No sabes. Ok.
+[Remote]: No te
+[You]: Sí. Y volviendo un poquito a la selección,
+[You]: o sea, el el estándar es que funcione, que que machee, que machee rápido, que machee bien,
+[You]: ya, y
+[You]: y hay un factor más que me podés decir de cómo
+[You]: elegir entre alternativas o o no?
+[Remote]: No, no, la verdad que no, o sea, sí.
+[Remote]: Por cuestiones de de la empresa se eligen
+[Remote]: hay una elección de proveedores donde pasan esta revisión técnica y después, bueno, se se decide entre técnicos y
+[Remote]: y el equipo, bueno, de ¿no?, y nosotras.
+[Remote]: Pero
+[Remote]: la verdad es que no es que haya algún factor más importante que eso, o sea,
+[Remote]: más que nada depende de la porque en en lo técnico sé, Guilla te pregunta cómo cómo se puede conectar,
+[You]: Y de la demo,
+[Remote]: no sé, temas, ¿viste?, muy puntuales en los que yo no no no tengo mucha idea, y ellos
+[Remote]: como que evalúan un montón de posibilidades en cuanto al entorno que manejan y demás.
+[You]: Claro. Sí, y sé que la la demo ya fue hace una
+[You]: semana, pero
+[You]: feedback de eso, ¿qué te pareció?, ¿te
+[You]: no te gustó, comparado a las otras.
+[Remote]: No, no, rebieno, está superintuitiva, de
+[Remote]: fue una de las cosas que hablamos con agua.
+[Remote]: A ver, si bien es
+[Remote]: esta charla técnica, o sea, nosotros no vamos a trabajar con algo tan técnico, nosotros vamos a trabajar con
+[Remote]: conciliar y que sean intuitivo y cualquier persona pueda
+[Remote]: hacer la conciliación y no esté un, no sé, una persona de datos o un
+[Remote]: viendo eso, o sea, cualquier persona que
+[Remote]: tenga conocimiento en lo que tenemos que conciliar
+[Remote]: que lo puede hacer, porque el conocimiento básico, ¿no?, se ve una fórmula de Excel
+[Remote]: ¿el conciliador lo tiene o o tiene el
+[Remote]: la cabeza para poder manejar una una conciliación en una plataforma,
+[Remote]: que es intuitiva, que, tipo, te lleva a poder llegar a a
+[Remote]: a esto, al matching, pero si es muy engorrosa, te, a ver.
+[Remote]: En nuestro lado es tipo, no, la verdad que sí, me me llega tiempo.
+[Remote]: Entender cómo funciona desde el front, digo, no,
+[Remote]: olvídate, o sea, no puedo, pero el front es y todo lo que
+[Remote]: muy intuitivo para mí es
+[Remote]: super. Y los filtros que más recibimos nosotros es que nuestro
+[Remote]: plataforma es muy fácil de usar.
+[Remote]: Muy intuitiva.
+[Remote]: No necesitas una capacitación de meses para poder usarla y configurar tu
+[Remote]: propias automatizaciones.
+[Remote]: Eso se se notó un montón.
+[Remote]: Me parece superimportante.
+[Remote]: Porque, como les digo, cualquier usuario
+[Remote]: la puede utilizar.
+[Remote]: No es para una sola persona que tenga conocimiento de
+[Remote]: o tenga una una capacitación en
+[Remote]: en principio, y y tiene que tener como, bueno,
+[Remote]: algo más estructurado, ¿no?, es como, bueno, yo, a ver, si bien voy a estar yo,
+[Remote]: el día de mañana, le digo a de las chicas, chicas, hay que hacer esto con dos, tres pasos, en un instructivo, sacás una conciliación, porque es fácil y es intuitivo, no es que es algo complejo, entonces me parece reimportante. Estoy viendo a si se suma
+[You]: Dale,
+[You]: No sé qué tal preguntita le podemos hacer a Georgina, antes que se suba al equipo técnico.
+[You]: Sobre todo, preguntas de curioso, pero no sirve para
+[You]: para tener entender cómo lo están pensando ustedes.
+[Remote]: Che, Georgi, tema, me dijiste que tienen todo en un
+[Remote]: data lake, o sea, quieren lo que quieren hacer es migrar todo al data lake para que consumamos directamente ahí
+[Remote]: Perdón, yo me lo mande. Pero sí, la idea es eso, porque hoy en día
+[Remote]: Es un cable de bases de datos, quilombos de cosas, data Claro.
+[Remote]: Hoy en día lo único que está en AWS, que está por una query,
+[Remote]: que es lo que yo bajo, o sea, cuando ven los archivos se van a dar cuenta,
+[Remote]: lo que yo le voy a mandar. Lo de Nasdaq está en una query de AWS,
+[Remote]: Ok. Entonces, la idea es
+[Remote]: que esa misma query migre al data lake que tenemos,
+[Remote]: la misma query de NASDAQ, o sea,
+[Remote]: ese ese dato así, bruto, digamos, o sea, no no nada
+[Remote]: nuevo ni nada, o sea, que sea fácil.
+[Remote]: Porque en realidad nosotros sabemos
+[Remote]: que la información que está
+[Remote]: no es
+[Remote]: rara de de de conciliar, porque tiene
+[Remote]: una una, no sé, una unas trabas con no sé,
+[Remote]: punto y coma, lo sé, no, como que se exporta y es fácil.
+[Remote]: De de conciliar en el tema, como te comentaba el volumen. Ahora,
+[Remote]: lo que no está ingestado en data lake,
+[Remote]: es todo lo de Big Macass. Es sumamente importante. ¿Por qué? Porque es la otra pata, es el espejo. Sí. Entonces, vos podés tener en el data lake pero si no tenés misma cash No podés no podés No podés conciliar. Es la cuenta espejo. Ok. Entonces, lo que están haciendo tiempo récord, literalmente, es tratar de hacer la lo antes posible para que para que cuando hagamos estas pruebas, porque esto es una pregunta que ahora se me vino para ustedes, que seguramente va va le va a preguntar Rishi también.
+[Remote]: Las pruebas,
+[Remote]: que ser en testing para después mandarlas a producción, porque es una
+[Remote]: un volumen de de transacciones muy grandes.
+[Remote]: Y decir, bueno, Georgio, hoy vamos a probar en Desting
+[Remote]: si te parece,
+[Remote]: y Bimacash en pesos. Entonces, listo, somos la PROESO, vemos que va conciliando,
+[Remote]: fantástico.
+[Remote]: Después, segunda instancia, bueno, conciliamos NASDAQ con
+[Remote]: dólares.
+[Remote]: Y esto es así, Bimacash tiene,
+[Remote]: Banco Central, o sea, BSRA,
+[Remote]: y también tiene Jimi Morgan. Entonces, eso es un es una etapa
+[Remote]: aparte. Nosotros queremos conciliar primero
+[Remote]: Central, porque JPMorgan, si bien hay transacciones
+[Remote]: importantes, no son de tanta, y me
+[Remote]: volumen como sí es en el SRA.
+[Remote]: Perfecto. Entonces, nada, necesitamos
+[Remote]: saber eso primero. Si hay un ambiente de testing que ustedes pueden
+[Remote]: proporcionar para para poder hacer esto, o solamente se se yo
+[Remote]: no pregunta, Solamente producción, cuando ustedes, tipo,
+[Remote]: sí, hagan la ingesta con data lake. O sea, ¿eso cómo lo manejan ustedes?
+[Remote]: Para entender, o sea, más o menos.
+[Remote]: O sea, de cómo sacamos la data de su data lake,
+[Remote]: Sí, tipo, lo hacen de directamente de producción o hacen un trabajo en Cuba.
+[Remote]: Se puede hacer
+[Remote]: Dale ambas, y también se puede hacer a través de archivos, o sea,
+[Remote]: si quieren hacer una una prueba de algún tipo de de conciliación con un período chico,
+[Remote]: hacerlo rápido antes de hacer la integración con dos archivos o dos dos
+[Remote]: que los tiran en y los concilian,
+[Remote]: también se puede Claro. Esa esa sería la más rápida, porque podemos,
+[Remote]: justamente, para todo lo que es
+[Remote]: así de probar un flujo de esto que decís vos, Georgi,
+[Remote]: y conciliar y ver qué concilia todo. Después la integración, ¿qué usan de data lake? ¿Qué tienen?
+[Remote]: ¿Zap o qué qué están usando?
+[Remote]: Zap creo, no sé.
+[Remote]: Ok, bueno, eso, ¿sabes dónde están ingestando? Ok, perfecto, no
+[Remote]: ahora nos vamos Es que no sé, es que esa data no no la tengo clara.
+[Remote]: Esa esa parte no hay drama porque, bueno, ahora hay que hablar con los chicos de
+[Remote]: pero deberíamos ver dónde está ese data lake para poder ir a consumir la data.
+[Remote]: Nosotros, de nuestro lado, se habría que una API, o sea, no sé si es API
+[Remote]: Ah, ok, ok, entonces Es directamente una una API.
+[Remote]: No entendí mal en las conversaciones que hemos tenido,
+[Remote]: Ok. Que es de SAP. La idea es en el
+[Remote]: futuro, pero ya futuro, muy futuro, es sí,
+[Remote]: como, bueno, esto, exportarlos
+[Remote]: asientos después a SAP, pero bueno, también en el medio estamos con
+[Remote]: la migración o en la implementación en SAP HANA.
+[Remote]: Pero eso creo que en en julio, o sea, como que es un tema que vamos de a poco
+[Remote]: para ir supliendo cosas.
+[Remote]: Bueno, si es un ¿el link? Porque dice que no le figura.
+[Remote]: Seguramente no vio que era en Google Mix.
+[Remote]: Deme un segundo.
+[Remote]: Tranquila, pásame.
+[Remote]: ¿Qué va salir?
+[Remote]: A ver.
+[Remote]: Aparte, Guille estaba recopado.
+[Remote]: Guise estaba
+[Remote]: una reunión porque estaba tomando
+[Remote]: examen, digo, yo le estaba entrevistando a alguien y me dijo, Jordi,
+[Remote]: a las cinco no puedo. Así que por eso cambiamos.
+[Remote]: ¿Cuándo se dedican a tecnología o lo se vergüenza esa foto?
+[Remote]: Sí, esa esa data es mejor con ellos, ¿viste?,
+[Remote]: yo sé que para mí es por API,
+[Remote]: Imaginé, como dijiste AWS, dije, me la jugué, dije, bueno, vos a ver hasta dónde llega. Sí.
+[Remote]: ¿O que habías alguna? Sí, sí, porque
+[Remote]: yo te digo, SAP no, o sea, no porque estamos
+[Remote]: casi
+[Remote]: llegando con Sabhana,
+[Remote]: y
+[Remote]: estamos ahí con un montón de temas, entonces, con SAP no.
+[Remote]: Ni ahí. Tenemos un SAP ahora que, por ejemplo, yo hoy quise hacer
+[Remote]: el el traspaso de
+[Remote]: traslado, perdón, de de saldos de cuentas patrimoniales
+[Remote]: y se me rompió, porque
+[Remote]: soporta hasta trece dígitos el sub que tenemos,
+[Remote]: tenía catorce
+[Remote]: y se me rompió la transacción, así que me quiero morir, es este mapa.
+[Remote]: Esta
+[Remote]: charla, cuando ingrese ella y empecemos a charlar algo más técnico,
+[Remote]: puede grabar? Porque estaba Sebas. Ahí ahí ahí
+[Remote]: Hola, Hola, Guise, gracias por sumarte.
+[Remote]: Hoy te cobré de hijo, más o menos. No, no, está bien, no hay problema, no hay problema.
+[Remote]: ¿Cómo andas, Bitch? ¿Todo bien?
+[Remote]: Bien, ¿vos?
+[Remote]: Bien, bien grabar.
+[Remote]: Dale, buenísimo. Así después le compartimos a a Sebas que también estaba invitado y es una nota importante,
+[Remote]: también como como hice, pero bueno, para después compartirle y ellos van definiendo.
+[Remote]: Está muy bien.
+[Remote]: Buenísimo.
+[Remote]: Bueno, ahí, chicos, si quieren preguntar.
+[Remote]: Bueno. Guillay estábamos hablando con los chicos
+[Remote]: me preguntaban,
+[Remote]: cuestiones más de de lo que sería la la conciliación y demás de lo que
+[Remote]: vamos a a a tener que ingestar.
+[Remote]: Le estaba comentando de que ellos tienen que tomar la información de un data lake,
+[Remote]: donde va a estar NAFDAQ y VMagic. Lo que me preguntaba Sebastián era si esto estaba
+[Remote]: O sea, que está ahí, si si querés ahí, ella, nosotros te cuento cómo funciona Rec
+[Remote]: o cómo los movemos por acá, y Está bien. Y si querés vos haceme ahí las preguntas para
+[Remote]: para para que vayamos resolviendo. Con cada cliente vamos resolviendo la integración de
+[Remote]: de manera diferente. Tenemos distintos tipos de clientes, tenemos
+[Remote]: banco Fintech, que tienen data accesible, que necesitan encriptar data,
+[Remote]: y hay digital, ahí, entonces, tenemos otra otro otros negocios o otras industrias,
+[Remote]: que no es data sensible, entonces, como que no tienen muchos problemas a nivel datos.
+[Remote]: Toda la data para Rexi viaja encriptada, nosotros hacemos conexiones
+[Remote]: tenemos un integrador automático que nos conectamos a APIs, bases de datos, SFTPs,
+[Remote]: para ir a buscar archivos, nos conectamos a cualquier cosa,
+[Remote]: Eso lo que nosotros hacemos es que ustedes ingresen esas credenciales, esas
+[Remote]: credencial se encriptan, y solamente se utilizan memoria cuando se están ingestando las
+[Remote]: cosas, o sea, eso no vive nunca estas, nosotros usamos AWS,
+[Remote]: tanto los los guardamos todos en el secret manager, y eso se encripta con Fernet,
+[Remote]: entonces tenemos todo encriptado.
+[Remote]: Para data también nosotros somos SOC dos compliance,
+[Remote]: o sea, tenemos esa auditoría para todo el manejo de información. Pero, por ejemplo, para bancos o fintechs habría que ver qué data ustedes tienen que y qué tan sensible es la data. Nosotros siempre les decimos, no ingestemos data sensible que no sea necesaria para conciliar, ¿ok? Por ejemplo, no sé, si tenemos datos de tarjetas, nosotros preferimos filtrar esa data también damos la posibilidad de, si es necesario en algún caso de uso que todavía no pasa y no creo que nadie vaya a comparar, generalmente comparás IDs, no comparás los los datos de la tarjeta de crédito o el PAN, o datos sensibles del cliente, terminás
+[Remote]: macheando keys. Nosotros igualmente tenemos encriptación por columna,
+[Remote]: entonces, la data entra encriptada, pero se puede usar para machear,
+[Remote]: ¿Qué quiere decir esto? Que esa data que encriptamos
+[Remote]: la vez que la encriptamos de vuelta, siempre se encripta con la misma llave.
+[Remote]: Entonces, nosotros podemos encriptar lo mismo y siempre se va a encriptar igual.
+[Remote]: Eso sirve para hacer las técnicas de reconciliación, para conciliar información,
+[Remote]: sin necesidad de guardar el dato en plano, ¿ok?, o sea, data sensible en plano.
+[Remote]: Eso es un poco lo que sería. Ahora estaría bueno saber un poco
+[Remote]: dónde guardan ustedes la información, si es si tenemos que conectarnos a una API de ustedes,
+[Remote]: para entender un poco qué mecanismos de seguridad estaría bueno integrar
+[Remote]: entre Bima y Rexi, ¿no?
+[Remote]: Mirá,
+[Remote]: la realidad es que
+[Remote]: como todo se está construyendo, todavía no tenemos
+[Remote]: Si si vos me dijeras, dame un ejemplo y hacemos una prueba, no
+[Remote]: no podemos, porque todavía no lo tenemos, pero la idea es que
+[Remote]: ustedes accedan a un bucket de s tres, y y de ahí se lleven
+[Remote]: lo que se tengan que llevar.
+[Remote]: Seguramente será en archivo o alguna cosa que que sí.
+[Remote]: Y y y y y nada, eso. ¿No?
+[Remote]: Bueno, sí es un bucket s tres con credenciales,
+[Remote]: ahí no pasa nada, y también estos permit con permisología de read only
+[Remote]: y con los los lo las credenciales que vuelvo a repetir,
+[Remote]: las credenciales nunca pasan por nosotros. La idea de que ustedes gestionen eso a nivel plataforma
+[Remote]: eso se encripta y nosotros nunca vemos nada, pero que eso si es un consumo de un archivo,
+[Remote]: no pasa nada, eso lo hacemos, bajamos el archivo, se ingesta el archivo,
+[Remote]: o cada vez que sube un archivo se ingesta, eso está medio automatizado. Entonces, en cada ingesta
+[Remote]: en el s tres, se sube automáticamente el archivo y eso se ingesta en Rexy para poder ser usado.
+[Remote]: Bien, bien, bien. Ahora,
+[Remote]: cuénteme un poquito, porque
+[Remote]: capaz que ustedes ya lo hablaron, pero como
+[Remote]: como no, yo me perdí la primera parte. Cuéntenme cómo están
+[Remote]: cómo está armado, cuál es la arquitectura, son micro
+[Remote]: servicios, están en la nube, cuéntenme todo más o menos como como
+[Remote]: Dale, tenemos estaría armado.
+[Remote]: Bueno, nosotros, la verdad que somos una plataforma de infodata,
+[Remote]: información, así que tenemos todo en la nube, tenemos todo en AWS,
+[Remote]: usamos Fargate, tenemos un Delta Lake,
+[Remote]: usamos arquitectura medallion, ¿qué quiere decir? Que toda la data que ingestamos
+[Remote]: la la ni bien ingesta esa data, no se toca, o sea, todo lo que ustedes ingestan
+[Remote]: no se toca nunca por un tema de auditabilidad,
+[Remote]: siempre que nosotros, no sé, ingestamos data y queremos transformar esa data, no
+[Remote]: el equipo de finanzas quiere decir, che, esta data que ingestá genial, pero necesito transformarla un
+[Remote]: para usarla, bueno, la data que ingestamos queda igual.
+[Remote]: Nosotros mantenemos auditabilidad de toda la data y el recorrido de la data, y ahí recién pasa esa data a silver,
+[Remote]: con todas las transformaciones que se hacen, y después pasa lo que llamamos el
+[Remote]: que que es la capa dorada de Rexy, que es los resultados de esa conciliación.
+[Remote]: Todo eso lo mantenemos hasta que después, cuando está en ese modo volt, en la
+[Remote]: parte de resultados, ya ahí la podemos exportar la información a donde ustedes quieran.
+[Remote]: Eso puede, abriría su cuenta a sus sistemas o queda en Rexy para lo que quieran.
+[Remote]: Bien. Vea por por ahí.
+[Remote]: Pregunté mal, solo para para confirmar.
+[Remote]: Lo que ustedes están ofreciendo
+[Remote]: es
+[Remote]: una aplicación que correría en WBS, en Premium, donde sea, pero correría en en equipos nuestros o es un servicio o es un No, es un servicio, es un SaaS. Es un servicio, ¿no? O sea, nosotros nos suscribimos, pagamos una una cantidad y ya tenemos acceso Es una cosa una ardiente... Claro. Es como nosotros ustedes. O sea, ustedes nos pasan, o sea, es es como una plataforma que ustedes usan, ustedes tienen un servicio de login, tienen roles, permisos, todo. Está bien. Ahí pueden ustedes poner la misología que quieran dentro de la plataforma, porque estamos hablando de temas de datos, capaz que diferentes equipos, usan Rexy para trabajar la información, obtener los resultados
+[Remote]: El equipo de operaciones igualmente usa a Reiki para dashboards, analítica,
+[Remote]: resolver discrepancias, o sea, eso es más de a nivel producto, toda la
+[Remote]: todo lo que, a ver, no es solo conciliar, sino que el problema o
+[Remote]: el importante y el valor agregado de es cómo resolvés lo no conciliado, de dónde lo sacás,
+[Remote]: encontrar patrones, eso lo ayuda, pero después
+[Remote]: él vuelve la data para que ustedes puedan seguir procesándola, pero ya masticada.
+[Remote]: En sus sistemas. Entonces, toda esa parte toda la parte entra a Rexy,
+[Remote]: se procesa, los equipos de finanzas hacen lo que quieren, y se ingesta, podemos ingestarla de vuelta en un s
+[Remote]: tres dedicado a ustedes. Entonces, ingestamos los resultados a ustedes, entonces, esa data
+[Remote]: procesada queda de su lado.
+[Remote]: Ahí complemento a Sebas para que para que quede
+[Remote]: tal vez un poco claro el instituto,
+[Remote]: de lo que hacemos, es automatizar procesos conciliatorios
+[Remote]: ya sean financieros, operativos o contables,
+[Remote]: para usuarios no técnicos. Entonces, es una plataforma que permite usuarios no técnicos estos procesos de de conciliación de grandes volúmenes de datos.
+[Remote]: Ok, ok, ok.
+[Remote]: Bien.
+[Remote]: Bueno, entonces,
+[Remote]: ya yendo a la
+[Remote]: a la aplicación en sí, ¿no?,
+[Remote]: ¿Cómo cómo funciona? O sea, ¿qué qué qué...?
+[Remote]: Qué ventajas tendría respecto de otro
+[Remote]: conciliador, digamos, en cuanto a la configuración de reglas o o
+[Remote]: sea, ¿cómo cómo es eso?
+[Remote]: Ahí, sí, si querés, yo yo tomo esa
+[Remote]: lo que le comentábamos recién a a Georgina es que
+[Remote]: principalmente, es una plataforma
+[Remote]: muy intuitiva y muy fácil de usar para equipos no técnicos.
+[Remote]: Entonces, cualquier usuario no técnico, ya sea de de operaciones, de finanzas,
+[Remote]: de contaduría, puede automatizar estos procesos
+[Remote]: y no necesita ningún conocimiento técnico, ninguna capacitación, no necesita nada.
+[Remote]: Eso por un lado, eso por la la primer parte que es la
+[Remote]: básica para usabilidad, tiene, obviamente,
+[Remote]: o permite conciliar grandes volúmenes de datos que en
+[Remote]: directamente no se puede y rompería, y aparte los automatiza,
+[Remote]: Y por otro lado, obviamente, nosotros arrancamos hace un año y medio
+[Remote]: somos así, por así decirlo, AI native, donde
+[Remote]: todas las aristas de de
+[Remote]: del negocio, por así decirlo, de la industria de conciliación,
+[Remote]: se potencian muchísimo con con el uso de de inteligencia artificial.
+[Remote]: Básicamente, es la la inteligencia artificial es mucho mejor que nosotros los humanos para
+[Remote]: encontrar estas estas discrepancias, entender la
+[Remote]: entender los grandes volúmenes de datos, la estructura de los datos,
+[Remote]: entender si lo que lo que falta es
+[Remote]: un impuesto que no se aplicó o la discrepancia es porque falta una transacción,
+[Remote]: Eso, nada,
+[Remote]: lo lo fuimos agregando en en todos los módulos de
+[Remote]: están acelerando muchísimo lo los procesos de resolución de estos problemas.
+[Remote]: Así que, entonces, principalmente, suelen esas dos cosas. Una,
+[Remote]: es una plataforma que permite escalabilidad y muy fácil de usar,
+[Remote]: y la segunda, acelera muchísimo los los procesos de de resolución de problema con
+[Remote]: de inteligencia artificial.
+[Remote]: Ok, ok, ok. Y
+[Remote]: suponete que
+[Remote]: digamos,
+[Remote]: por eso, digo, no sé, está bien. Entiendo que que
+[Remote]: tratan de serlo
+[Remote]: lo menos técnicos posibles en en en
+[Remote]: o por lo menos requerimientos técnicos posible para el usuario,
+[Remote]: Sí. ¿Cómo antiguamente, digamos, o por lo menos los conciliadores en general definían una serie de reglas, y esas reglas estaban jerarquizadas, o
+[Remote]: manera, una manera de cascadear y decir, bueno,
+[Remote]: buscame primero todos los macheos que
+[Remote]: te digo, qué sé yo, coincidan por número
+[Remote]: ponele. Después empezás a aflojar, bueno, en donde tenemos el exacto, pero ponele que
+[Remote]: no sé, que aparte sean, no sé,
+[Remote]: gente que coincida por apellido. Después, y así vamos
+[Remote]: vamos pasando con
+[Remote]: Tolerancia, monto, porcentaje. Claro. ¿Cómo configurar
+[Remote]: eso en la aplicación? ¿Cómo se hace?
+[Remote]: Hoy lo configurás así como como dijiste, agarrás las dos bases de datos,
+[Remote]: y vas definiéndolas diferentes, nosotros decimos barridas,
+[Remote]: Obviamente, la primer barrida siempre se busca que sea un ID único o un identificar un único transaccional,
+[Remote]: permite que sea lo que llamamos uno a uno o uno a muchos,
+[Remote]: digo en una interfaz de tipo gráfica, web, voz, etcétera, más o menos.
+[Remote]: Querés compartir pantalla a con alguna de las demos de los
+[Remote]: cosas, así Guille lo ve en
+[Remote]: mirá, comparto, a ver, sí, esto está.
+[Remote]: Logueado. Alguna de prueba, tenemos varias de pruebas,
+[Remote]: Sí, sí, sí, no es necesario que funcione.
+[You]: Los saludo que me tengo que bajar. Perdón.
+[Remote]: Dale, te, dale, necesito Bye bye.
+[You]: Después la sigo con vos, Georgina, y con los chicos.
+[Remote]: Ahí está.
+
+============================================================
+SUMMARY
+============================================================
+### Technical Integration Requirements
+
+-   ByMA migrating to new vMacLearning platform launching April 24th
+    -   Need Rexi integration ready by April 22nd for data ingestion/reconciliation
+    -   Extremely tight timeline - only became priority this week
+-   Data architecture transition in progress
+    -   Moving all data to centralized data lake on AWS
+    -   Currently NASDAQ data in AWS query, ByMA cash not yet integrated
+    -   Target: single API consumption point vs multiple data sources
+-   Integration approach
+    -   Rexi connects to S3 bucket with read-only credentials
+    -   All credentials encrypted, stored in AWS Secret Manager
+    -   SOC 2 compliance for data handling
+    -   Automatic file ingestion when new data uploaded
+
+### Reconciliation Scope & Challenges
+
+-   Primary reconciliation targets
+    -   NASDAQ transactions vs ByMA cash movements
+    -   Bank statements (Central Bank priority over JPMorgan due to volume)
+    -   Currently manual process only covers investments, rest unreconciled
+-   Volume driving automation need
+    -   Manual reconciliation no longer feasible due to transaction volume
+    -   Timing discrepancies (transactions may appear day apart between systems)
+    -   Traceability lost without systematic approach
+-   Testing requirements
+    1.  Staging environment for initial testing
+    2.  Phased approach: peso reconciliation first, then USD
+    3.  File-based testing option available for quick validation
+
+### Platform Evaluation & Decision Factors
+
+-   Demo feedback very positive
+    -   Platform intuitive for non-technical users
+    -   Any team member can perform reconciliation with basic training
+    -   No months-long technical training required
+-   Key differentiators mentioned
+    -   AI-native platform for pattern recognition and discrepancy resolution
+    -   Handles large data volumes with automated rule cascading
+    -   Visual interface for configuring matching rules (exact match → tolerance-based)
+    -   Maintains full audit trail with medallion architecture (bronze/silver/gold data layers)
+-   Technical evaluation pending with Guillermo for architecture questions
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/e2924e57-ee5e-4f25-baf3-fb56d90d9205](https://notes.granola.ai/t/e2924e57-ee5e-4f25-baf3-fb56d90d9205)

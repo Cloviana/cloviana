@@ -1,0 +1,683 @@
+MEETING: Rexi x Resimple S.A:: product demo
+DATE: 2026-04-16
+ID: not_ARICVaWF08Br8o
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Gcorredoira <gcorredoira@seac.com.ar>, Teo <teo@rexi.finance>, Jcruz <jcruz@seac.com.ar>, Vreverberi <vreverberi@seac.com.ar>, Carolina Morawetz <carolina@rexi.finance>
+SCHEDULED: 2026-04-16T14:00:00-04:00 - 2026-04-16T14:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Bueno,
+[You]: ¿Viviana se sumaba o no?
+[Remote]: No, Viviana no, ya es como
+[Remote]: ya hizo su trabajo. Este,
+[Remote]: iba a decir, Ignacio, si querés, este, bueno, presento al
+[You]: Vale.
+[Remote]: al equipo acá presente,
+[Remote]: creo que no, de de nuestro lado, Marcelo, no hacía, no venía más nadie, ¿no?
+[Remote]: Sí, sí, viene Gerardo Ah, Gerardo y se sumaron una foto también. ¿Y Alfonso?
+[Remote]: Bueno, buenísimo.
+[Remote]: Buenas.
+[Remote]: Bueno. ¿Qué tal? Buenas tardes.
+[Remote]: Bueno, tenemos a a Sofía Rossetti,
+[Remote]: es nuestra, este, encargada jefa de conciliaciones,
+[Remote]: ¿sí? Hola, buenas tardes.
+[Remote]: Natalia Estrasera, que es nuestra encargada de de procesos,
+[Remote]: ¿sí? ¿Qué tal? Buenas tardes.
+[Remote]: Gerardo Lipsik es nuestro
+[Remote]: este, director de tecnología. Este, Marcelo Jusid, gerente de IT, y Alfonso este, jefe de IT.
+[Remote]: Y Cristian también, jefe de IT, creo. Así que, bueno, sí, ahí está, no...
+[Remote]: Lo había visto a Cristian Purtot.
+[Remote]: Y bueno, yo soy director de finanzas.
+[Remote]: ¿Sí?
+[You]: Perfecto. Bueno,
+[You]: un gustazo conocerlos a todos.
+[Remote]: Bien.
+[You]: La verdad que yo solo había hablado con con Viviana la vez pasada, así que todas caras nuevas.
+[Remote]: ¿Qué tal? Gracias.
+[You]: Si quieren, también nos presentamos nosotros, estamos acá, Tego y yo,
+[You]: número dos, co-founders de de Rexi,
+[You]: Teo está más en el área de producto y operaciones,
+[You]: yo estoy más en lo que es distribución y el área comercial y más de ventas,
+[You]: Recxi es una compañía que la la la incubamos en MIT,
+[You]: yo estábamos gestionando en Estados Unidos, de hecho, yo estamos basados en Estados Unidos,
+[You]: tenemos al equipo técnico basado en
+[You]: en Argentina, al CTO con todo el equipo técnico basado ahí en Buenos Aires,
+[You]: y
+[You]: y un poco lo que es Rexy, ahora igual vamos a mostrar un poquito más el producto,
+[You]: pero hoy es una plataforma
+[You]: agéntica para automatizar el proceso de conciliaciones.
+[You]: Conciliaciones de cualquier tipo, contables operativas,
+[You]: y
+[You]: comparando cualquier fuente transacción al extracto bancario, una
+[You]: fuente de un procesador, un archivo interno, lo que sea. Al final, Rexy está construido
+[You]: de manera muy agnóstica y muy flexible para ser un orquestador de información.
+[You]: Y con estos agentes uno construye estos flujos de comparación, de validaciones,
+[You]: entonces la idea es que el flujo corra de manera automática,
+[You]: y ustedes simplemente estén revisando las diferencias y estén generando toda esa trazabilidad
+[You]: para todo lo que es la resolución de las diferencias. Ahora,
+[You]: para nosotros las conciliaciones es una puerta de entrada
+[You]: es es el primer producto que estamos construyendo,
+[You]: y lo vemos como una base técnica fundacional sobre la cual después vamos
+[You]: construir otros flujos agénticos, con lo cual siempre digo esto en las reuniones iniciales con
+[You]: con potenciales clientes, si es que
+[You]: nosotros no nos queremos ver como un como un vendor, sino más
+[You]: como un tech partner,
+[You]: ayudar a las compañías con las que trabajamos a implementar inteligencia artificial, ¿no?, y agentes para automatizar esos flujos que por ahí tienen mucha manualidad,
+[You]: tienen mucha ineficiencia y mucho riesgo también de error humano.
+[You]: Entonces, arrancando por consideraciones cómo después nos volvemos un partner
+[You]: tecnológico para hacerle dar esa adopción de
+[You]: inteligencia artificial.
+[You]: Fuera de eso, creo que la idea de hoy era meternos de lleno en
+[You]: en la demo, en en los archivos que nos
+[You]: que nos compartiste, Gustavo. Si les parece bien, hacemos
+[You]: esa parte, ahora te voy compartir pantalla, después, o sea, interrumpanos, obviamente cualquier duda o
+[Remote]: ¿Valvaro?
+[You]: durante la demo.
+[You]: Después al final también podemos también contestar otro tipo de
+[You]: dudas, preguntas y ver cómo seguimos, ¿no?
+[Remote]: Excelente.
+[Remote]: Buenísimo.
+[Remote]: Bueno, muchas gracias, Sofía, por por compartir la información. No estoy seguro si está
+[Remote]: en la reunión, si está ahí. Sí, sí, sí.
+[Remote]: Hola, buenas tardes.
+[Remote]: Creo que ya un poco lo lo charlamos y y ustedes tuvieron la reunión pasada, pero no
+[Remote]: nos dedicamos a automatizar procesos conciliatorios,
+[Remote]: Rexi lo que hace es automatizar esa ingesta,
+[Remote]: de informaciones, es decir, nos conectaríamos al Bindi, a todas las otras fuentes de información que hagan falta,
+[Remote]: la estandarizamos, la preparamos para cruzarse, hacemos las conciliaciones, ayudamos muchísimo en el proceso de de investigación para acelerar esos procesos de de todas esas transacciones que que que no machean o que o que machean, pero simplemente hay una diferencia en el monto, o entender bien qué pasó. Obviamente, permitimos generar dashboards, alertas automatizamos también reportes que no son conciliatorios, pero que sí le sirve mucho muchísimo a muchos de nuestros clientes Estamos en proceso de agentizar todo en en la plataforma, creo que están todas las compañías un poco haciendo lo mismo, buscando dónde incluir agentes, Si hay un mensaje que quiero que se queden respecto a Rexi y al mundo de reconciliaciones,
+[Remote]: es que los agentes son excelentes entendiendo data estructurada en grandes volúmenes
+[Remote]: mucho mejores que los humanos. Entonces, al menos en nuestra industria encontramos un caso de uso muy obvio,
+[Remote]: y muy fácil para agentes, así que si avanzamos con con la
+[Remote]: con con el proyecto, van a van a ver lo bueno que es
+[Remote]: acelerar todos estos procesos con los agentes.
+[Remote]: Bueno, ya de base, ahora lo vemos, esto lo lo lo vemos un poco más adelante, pero
+[Remote]: Rexion es una plataforma colaborativa y nos damos cuenta que
+[Remote]: el uso que le da un usuario del día a día no es lo mismo tal vez que
+[Remote]: el uso que le puede dar un un b p de finance o un COO o
+[Remote]: o una persona de contabilidad. Entonces,
+[Remote]: es todo personalizable. Después, al final, le le decimos acá, digamos,
+[Remote]: queremos
+[Remote]: nos prepara el el home,
+[Remote]: Pero lo que nos compartieron fueron ejercicios conciliatorios del BIN,
+[Remote]: contra
+[Remote]: contra los otros archivos de transferencia de crédito,
+[Remote]: de BIN QR, transferencia de débito y demás,
+[Remote]: yo lo que hice fue ingestarlo, preparar la información y hacer los cruces conciliatorios.
+[Remote]: Todo lo que vamos a hacer hoy
+[Remote]: queda completamente automatizado, la idea es hacerlo una vez y no no tener que hacerlo nunca más,
+[Remote]: Este es el archivo de BIN,
+[Remote]: Yo lo que hice fue dividirlo en cada una de las
+[Remote]: en cada una de la de los códigos de movimiento,
+[Remote]: Básicamente, cualquier transformación que se haga una vez,
+[Remote]: queda guardada para siempre, entonces, próxima vez que se ingesta información de manera automática,
+[Remote]: todas esas transformaciones en cada una de las views
+[Remote]: se se hacen en en el en el orden en que se hayan hecho,
+[Remote]: Básicamente, si hoy están haciendo esto en Excel, por ejemplo, y van haciendo cierto proceso,
+[Remote]: ese proceso se se hace una vez acá y se automatiza.
+[Remote]: Entonces, por ejemplo, la vista default,
+[Remote]: es la información exacta, por ejemplo, donde viene BIN, nunca se modifica.
+[Remote]: Pero si hacemos transformaciones en cada una de estas pestañas, si se
+[Remote]: Yo, por por ejemplo, les muestro un poco lo que hice,
+[Remote]: usé esta funcionalidad de speeding views,
+[Remote]: usé el audio de movimiento,
+[Remote]: load values, y acá te dice en cuántas pestañas
+[Remote]: se se se se abriría. Ahora, por ejemplo, yo
+[Remote]: quiero
+[Remote]: hacerlas de vuelta con con alguna de estas, se hace de manera automática.
+[Remote]: Que usamos son, por ejemplo, la seis tres seis, que voy a cancelar,
+[Remote]: seis tres seis obviamente, yo le estandaricé el formato fecha,
+[Remote]: que los SSBs yo le vení como
+[Remote]: como texto y demás. Pero bueno, la la idea es que se, acá se
+[Remote]: lleven que cualquier transformación de información que que haga falta,
+[Remote]: la hacemos nosotros,
+[Remote]: acá en esta versión demo está para hacer
+[Remote]: con botones, como le decimos nosotros, pero esto es completamente
+[Remote]: agéntico, le decís a la gente qué es lo que necesitás y te las ejecuta.
+[Remote]: Esto cruza con cada una de las diferentes
+[Remote]: bases de datos de acá, por ejemplo, Debit, QR,
+[Remote]: yo también tenía la la original, que la fecha viene como texto, por ejemplo, todo eso generé
+[Remote]: una vista para que siempre eso me lo lea como fecha. Entonces, acá si ven,
+[Remote]: ya te lo leo como fecha. Si tienen, obviamente, se puede modificar,
+[Remote]: acá le modifican de fecha a cualquier otro formato y y demás.
+[Remote]: Una vez que tengo la sources, yo generé las conciliaciones,
+[Remote]: Estas son las cinco conciliaciones que generamos, contratar de TC, tarjeta de crédito,
+[Remote]: contra cargos,
+[Remote]: débito de un QR, transferencia de débito,
+[Remote]: crédito de un QR. ¿Vieron? Acá los números de consigatorios son muy buenos,
+[Remote]: Hablemos acá, por ejemplo,
+[Remote]: este contra t c,
+[Remote]: nos queda del lado del BIN ciento sesenta y cuatro mil transacciones conciliadas, y ciento sesenta y siete de este lado que no conciliaron, setenta y seis que no, o la información que nos que nos compartieron tiene altísimos machos de ratio de de conciliación. Si vamos acá a la configuración, vemos que tenemos, por un lado, el BIN, con la cuenta seis cuatro cinco, y acá tenemos la de transferencia de crédito, y estos son los la lógica conciliatoria. Decimos un one to one estricto, es decir, que
+[Remote]: una transacción solo puede conciliar con una en base al código que pusimos,
+[Remote]: Hicimos dos barridas, esto para probarlo, no no nos lo dijeron, pero lo
+[Remote]: queríamos probar por las dudas, hicimos referencia a Moni con Edith,
+[Remote]: y una segunda, agarré un segundo intento con todo el que no consiguió,
+[Remote]: con esto,
+[Remote]: no le haríamos ningún tipo de verificación, pero si quisiesen hacer comparaciones,
+[Remote]: acá podrían comparar, por ejemplo, importe,
+[Remote]: asegurarnos que el importe es el correcto de los lados, lo podemos marcar como critical,
+[Remote]: es decir, que si
+[Remote]: diferente o está dentro de cierta tolerancia,
+[Remote]: eso no se va a marcar como considerado, puede ser tolerancia a valores absolutos o porcentaje,
+[Remote]: y, obviamente, se pueden hacer calculaciones y demás.
+[Remote]: Quedamos acá, esta,
+[Remote]: Por ejemplo,
+[Remote]: acá,
+[Remote]: tenemos los resultados, obviamente, aperturados por la variable que haga falta, fecha, en este caso,
+[Remote]: y
+[Remote]: acá
+[Remote]: importe,
+[Remote]: Esto pedimos al usuario que lo defina, porque en este caso hay solo un campo fecha,
+[Remote]: pero pueden ser varios. Entonces, nos queremos asegurar de que
+[Remote]: estamos hablando de el el correcto, bueno, en este caso, es solamente un día en treinta,
+[Remote]: y acá tenemos el treinta y
+[Remote]: Y acá tiene el
+[Remote]: match cash, match único que identificar,
+[Remote]: la transacción del
+[Remote]: cómo cruza con la transacción de
+[Remote]: transferencia de crédito.
+[Remote]: Estas son las que conciliaron, obviamente acá se puede filtrar, y vas a las
+[Remote]: a todas las transacciones que no conciliaron de cada uno de los dados.
+[Remote]: También te dice si concilió con la primero barrida, la segunda, la tercera, la cuarta, la quinta y demás.
+[Remote]: Obviamente, estas son conciliaciones simples, se pueden hacer conciliaciones
+[Remote]: complejas, es decir, que tengan una dependiente.
+[Remote]: Se agarre y lo que no consiguió de la primera, y se y y y se use
+[Remote]: eso no considerado o lo considerado de cierto lado para conseguirla con la tercera, cuarta, quinta base,
+[Remote]: así se van automatizando procesos de conciliación complejos.
+[Remote]: Una vez que tenemos todas las conciliaciones fechas Discúlpeme, digo, no,
+[Remote]: este, ahí, cuando vos decís, este, podés ir concatenando
+[Remote]: Sí. Te quedó de un día con el otro, a partir de esa
+[Remote]: de ese flujo o...? No, es así.
+[Remote]: Nosotros siempre vamos a intentar conciliar todo lo que no concilió.
+[Remote]: Entonces,
+[Remote]: si tenemos transacciones de ayer que no conciliaron, va a correr de vuelta el proceso hoy, mañana,
+[Remote]: pasado, y va, siempre se va a intentar reconciliar.
+[Remote]: Que haya entrado ayer o hoy no cambia. Nosotros, si está no reconciliado, vamos a seguir intentando
+[Remote]: que ustedes nos digan,
+[Remote]: que es una excepción, entonces, que no tenemos que intentar más,
+[Remote]: o que concilie.
+[Remote]: Caso contrario, vamos a seguir, entonces, una transacción va quedar a la espera para conciliar,
+[Remote]: hasta que entre la contrapartida de la otra base.
+[Remote]: Un día, dos días, tres días, cuatro días. Y tenemos fecha de vencimiento, entonces,
+[Remote]: tal vez vos sabés que por tres días no van a estar conciliadas,
+[Remote]: y entonces vos solo vas a mirar las transacciones no conciliadas vencidas,
+[Remote]: son las que tienen más de tres días sin conciliar, esas son las que llaman la atención.
+[Remote]: Entonces, todo eso se automatiza acá.
+[Remote]: Hola, Teo, disculpame la consulta. Entonces, esto sería,
+[Remote]: a partir de ese de ese cuarto día, por ejemplo, o el día que se CTE,
+[Remote]: esas transacciones deberían quedar disponibles en algún lugar para que se haga el reclamo Exactamente. Al
+[Remote]: ejemplo, al BIN, si no estaban en el BIN, decir, bueno,
+[Remote]: estas cinco transacciones las venimos consiguiendo hace cinco días, tenés que reclamarlas al BIN,
+[Remote]: porque ya no aparecieron. Exactamente. Es decir, si ustedes tienen algún tipo de contrato
+[Remote]: donde
+[Remote]: las transacciones deberían liquidarse o aparecer a partir de
+[Remote]: temas dos o temas tres,
+[Remote]: van a estar no conciliadas, pero no vencidas hasta temas tres,
+[Remote]: y ustedes van a prestar atención solo a las que están vencidas, es decir, las que están
+[Remote]: esperando a considerar hace más de tres días que significa que algo pasó.
+[Remote]: O se retrasó o hay un error en la información o algo en la operación está llamando la atención.
+[Remote]: Eso va a tener que ver un poco con las condiciones que que tenemos faltadas
+[Remote]: con con el esposo. Exactamente.
+[Remote]: Este seguimiento, con este seguimiento a nivel transaccional de las liquidaciones, la
+[Remote]: compañías suelen encontrar mucha plata de liquidaciones
+[Remote]: tanto de fees que se hacen incorrectamente, o sea, o impuestos que se aplican incorrectos,
+[Remote]: como plata financiera. Me están liquidando en promedio un día después de lo que deberían,
+[Remote]: y entonces estamos encontrando ahí una ganancia financiera que
+[Remote]: estamos dejando sobre la mesa.
+[Remote]: A mí, entiendo, perdón, entiendo que también
+[Remote]: te te indica el, obviamente,
+[Remote]: vos tenés diferencias o que te sobra de un lado o que te sobran de otro, digamos.
+[Remote]: También puede ser, porque a veces esa
+[Remote]: cosa que es contra intuitivo, porque teóricamente no deberían haber más
+[Remote]: transacciones de la que hicieron, pero a veces eso delata un error
+[Remote]: de de procedimiento, o sea, un error o un bug incluso de
+[Remote]: en el Todo se ve. Por ejemplo, si vamos acá a transferencia débito,
+[Remote]: Sí.
+[Remote]: Nosotros tenemos, del lado del BIND,
+[Remote]: tenemos del lado del bind, acá,
+[Remote]: seis mil transacciones macheadas con lo que me dieron,
+[Remote]: setecientas veinticinco que no machearon.
+[Remote]: Y tenemos
+[Remote]: del del otro lado,
+[Remote]: importe,
+[Remote]: esto para verlo mejor, del otro lado, del lado de transferencias débito,
+[Remote]: tenemos seis mil trescientos veintiocho machadas, la misma cantidad, pero seiscientas cuarenta y siete. Entonces,
+[Remote]: siempre que ustedes tengan de los dos lados, significa que
+[Remote]: hay más transferencias de las que tiene el otro lado. Esto es
+[Remote]: todo lo que es BIND, esto es todo lo que es transferencias débito.
+[Remote]: O sea, la la base de datos interna. Entonces,
+[Remote]: pueden haber transacciones que se liquidaron de más, que no tienen ustedes,
+[Remote]: eso lo tienen que ver ustedes.
+[Remote]: Necesitan el detalle, obviamente todo el detalle acá se puede automatizar,
+[Remote]: exportar solamente lo que no consiguió, solamente lo que no consiguió y está vencido,
+[Remote]: es cien por ciento
+[Remote]: decisión operativa de ustedes.
+[Remote]: Este dashboard, ¿cómo lo tienen, Consevi, ustedes?
+[Remote]: ¿Quién lo quién quién tiene acceso a él y de qué manera?
+[Remote]: Los accesos son completamente personalizables, o sea, ustedes pueden tener
+[Remote]: personas que pueden crear ciertos dashboards,
+[Remote]: que pueden ver operar ciertas conciliaciones, ciertas bases de datos,
+[Remote]: todo personalizable de acuerdo a los roles y permisos que tengan ustedes.
+[Remote]: Tal vez uno lo puede ver y no editar,
+[Remote]: vez otro puede ver un dashboard y no otro,
+[Remote]: eso depende de ustedes. Eso, vos tenés una consola de permiso, hay como una especie de
+[Remote]: Exactamente, exactamente. Es en en settings,
+[Remote]: Ah, bueno, obviamente también se puede
+[Remote]: personalizar cómo quieren ver los formatos y demás.
+[Remote]: Personalizar los permisos.
+[Remote]: Ok. Acá tenés los permisos, trece mil treinta y cinco, todo esto es completamente personalizable.
+[Remote]: Y el tema de la exportación, o mejor dicho, de la importación de datos, eso
+[Remote]: sigue siendo una gestión manual, también se podría automatizar en el
+[Remote]: sentido de ser? Se automatiza, es decir, yo acá
+[Remote]: para crear nuevo
+[Remote]: puse CSV,
+[Remote]: ah, no, directamente acá,
+[Remote]: es file,
+[Remote]: ingesté todos los archivos,
+[Remote]: de
+[Remote]: la la capacitación que hicieron, acá los tengo, ReSimple, Por ejemplo, acá tengo
+[Remote]: Mirá, acá se se ingestarían, por ejemplo,
+[Remote]: todos estos archivos que son los que nos compartieron ustedes.
+[Remote]: Y se generan fuentes independientes. Después, si querés unificarlos, yo, obviamente,
+[Remote]: no es que esté cada día por separado, sino que los metí
+[Remote]: cada uno lo
+[Remote]: tres archivos de diferentes días en un en un mismo en un mismo source,
+[Remote]: para tenerlos unificados y tenerlos acá
+[Remote]: por ejemplo, veintiocho, veintinueve, treinta. Entonces,
+[Remote]: acá tengo toda la información de crédito,
+[Remote]: yo ingesté CCB,
+[Remote]: solo para
+[Remote]: temas prácticos y y hacerlo cada tanto, pero nosotros nos dedicamos a automatizar esa ingesta, es decir,
+[Remote]: no tendría que estar nadie metiendo la información, sino que todos los días a las cuatro de la mañana la el semestre automática se procesa automática, se concilia automática, se generan los dashboards, salen las alertas, todo automático. Eso porque a su mix que lo dejaron, lo dejamos en un FTP. Como vi ahí en la opción. Hay varias hay varias opciones. Puede ser SFTP, podemos integrarnos directamente vía API, y hacer nosotros el llamado, podemos también recibir vía email, como como ustedes tengan disponibilidad de la información. Perdón, Teo, ¿y vos le dejás a cada usuario que un agente para que consulte todos los días y genere un pro ni haga la consulta?
+[Remote]: Lo que ustedes prefieran. Obviamente, todo todo es
+[Remote]: completamente agéntico, ahora vemos si quieren
+[Remote]: para que vean, por ejemplo, yo quiero results,
+[Remote]: Esto es para un poco lo vean, esto es un una estancia de demo,
+[Remote]: pero todo se se hace directamente con con la gente, le tirás a la gente
+[Remote]: estandarízame la información, o fijate cómo querés que que concilie estas bases de datos,
+[Remote]: Esto va demorar un tiempo, pero hace el home, va a empezar a generar los widgets, los podés editar, obviamente.
+[Remote]: Y ahora vemos también dashboards completamente personalizables,
+[Remote]: también se hacen con agentes.
+[Remote]: Se hacen creando
+[Remote]: no sé, como decimos nosotros, a la dos mil quince, cliqueando botones, creemos que cada vez menos cada vez menos se va hacer así, O sea, ustedes ya conectados con la API o algo tienen la información, y después cualquier cosa
+[Remote]: nosotros necesitemos buscar, lo podemos generar a través del agente que nos dejan,
+[Remote]: podemos generar la información que necesitemos.
+[Remote]: Se genera la información, se generan los exports automáticos,
+[Remote]: Si es una sola vez, obviamente, puedes consultarlo, si necesitás que todos los días envíe a cierta base de datos,
+[Remote]: también con el formato que ustedes
+[Remote]: quieran y y demás.
+[Remote]: Todo todo Más que nada lo consulto para que sea un proceso que
+[Remote]: para aquellos que no entienden de código, sea fácil de utilizar todos los días.
+[Remote]: Una vez que ya está una vez que ya está hecha y que ya queda la gente,
+[Remote]: que cualquiera puede acceder a la información fácilmente.
+[Remote]: Exactamente. El objetivo de Rexi es
+[Remote]: independizar a equipos no técnicos para automatizar procesos que, si se quisiesen automatizar con tecnología, tendría que
+[Remote]: tendría que ser gente técnica. Entonces Ajá. Hacemos primero, obviamente, con toda la infraestructura, y después
+[Remote]: con todos los agentes esas automatizaciones muy fácil. Obviamente, generar los dashboard también es muy fácil, acá no se está generando Ajá. Este dashboard de de
+[Remote]: nada, lo se puede
+[Remote]: modificar como ustedes quieran. Esto es similar, esto es el dashboard, el home,
+[Remote]: pero si vamos a
+[Remote]: también cada uno puede tener su propio dashboard con todas las conciliaciones en uno solo,
+[Remote]: específico de cierta parte, o ni siquiera conciliaciones, tal vez quieren ver
+[Remote]: información operativa.
+[Remote]: No sé, dólares operados por día, porque ya tenemos la información
+[Remote]: es un centralizador y un orquestador de información. Acá podemos mirar acá. Ejemplo, un dashboard y son widgets, so, pueden ir agrandando, achicando, modificando, compartiéndote equipos, puede ser directo de sources o de reconciliaciones, por ejemplo, tenemos esta, débito, crédito, QR, Esta es una conciliación, que pueden hacer área charts, line charts, tag bar, pivot table, estos nos piden muchísimo porque es una función muy buena de Excel, pero Excel, a partir de las doscientas mil filas, trescientas mil filas, empieza a fallar. Entonces, nosotros tenemos automatizado la generación del PO table, y para base de datos, enormes, o sea, hemos probado arriba de cuatrocientas millones de transacciones y funcionan perfecto
+[Remote]: Va a tardar más o menos lo mismo, cinco filas, que cinco millones.
+[Remote]: ¿Esta información dónde la guardás vos y cómo...? ¿Qué? Todo es infraestructura AWC.
+[Remote]: Ok, nosotros tenemos, o sea, digamos, vos das un
+[Remote]: que yo quiero
+[Remote]: dar información hace tres años, pienso en el futuro,
+[Remote]: Sí. Digamos, vos tenés que te tenés un un límite donde decís, mirá,
+[Remote]: guardamos hasta x cantidad de años y
+[Remote]: No tenemos límite. No tenés límite.
+[Remote]: No. No, y y a nivel de de resguardo de la información está
+[Remote]: se supone que está Nos preguntan a
+[Remote]: todo el tiempo, obviamente te podemos mandar toda la la documentación, somos
+[Remote]: SOC compliant, tenemos todos los procesos
+[Remote]: ahí,
+[You]: Trabajamos con banco, aseguradora.
+[Remote]: Sí.
+[You]: Que nos piden esto. Te puedo mandar documentos, Gerardo, igual,
+[You]: ahora es que te hago por lo
+[Remote]: Bueno, no, no, el el tema, justamente, es
+[Remote]: como computan hacer una información confidencial de la empresa y que tiene
+[Remote]: mucha data, digamos, obviamente, que tenemos que tener
+[Remote]: tranquilidad de que estén esos datos, son tan
+[Remote]: obviamente,
+[Remote]: Todo absolutamente encriptado. Somos muy, muy cuidadosos porque,
+[Remote]: que es la segunda o tercer pregunta que nos hacen
+[Remote]: en cada reunión.
+[Remote]: Ok.
+[Remote]: Y lo último que tenemos, como le comenté, es la
+[Remote]: automatización de reportes, esto pueden ser alarmas que se manda por Slack, o pueden ser bases de datos directamente masticadas o unificadas que quieren que que volvamos a engestar dentro de su propia base de datos, entonces nos usan de motor para procesar, ingestar de vuelta,
+[Remote]: básicamente, lo que quieran de de este lado.
+[Remote]: Estos estos reportes son muy personalizables, es decir, ustedes directamente nos dicen,
+[Remote]: lo que necesitás lo tirás acá y y te lo te lo generamos y lo automatizamos. Entonces,
+[Remote]: estamos
+[Remote]: brindando infraestructura para que ustedes creen sus
+[Remote]: agentes, creen sus propios reportes y automaticen todos los procesos
+[Remote]: que hoy tal vez están haciendo manualmente,
+[Remote]: o que se hacen con menos frecuencia de la que deberían, o se están haciendo tal vez
+[Remote]: de manera global y no transaccional,
+[Remote]: donde perdés visibilidad de qué es exactamente lo que está faltando y dónde.
+[Remote]: O sea, nosotros, te hago una pregunta para saber cómo ustedes trabajan.
+[Remote]: Vos acá tenés el core de la solución, ¿no? Entonces, decís, bueno,
+[Remote]: encuentro una diferencia y que otro en un dashboard de seguimiento de las diferencias.
+[Remote]: Que implican gestiones, implica mandarle, no sé, a
+[Remote]: al bind un mail, un seguimiento de un ticket o lo que sea,
+[Remote]: por ahí te responda dentro de tres semanas y que, sé, bueno, todo lo que implica
+[Remote]: lo tedioso de esta gestión en el día a día. Eso son
+[Remote]: entiendo que son como, entre comillas, módulos que se van enganchando al al Exactamente.
+[Remote]: Eso
+[Remote]: ¿usted lo tiene conseguido para que eso lo haga el cliente, así como que lo hagamos nosotros o ustedes
+[Remote]: nosotros vamos requiriendo a ustedes y ustedes las van metiendo dentro de la aplicación.
+[Remote]: Nosotros hoy
+[Remote]: por ejemplo, automatizamos lo que es la ingesta, estandarizamos, la conciliamos, generamos esos esos reportes y dashboards donde están las diferencias, tenemos el módulo de province order para optimizar eso, para buscar buscar y preguntar, entender la información, no tenemos el envío automático todavía al proveedor. Eso que yo te diga en dos meses estoy seguro que lo vamos a tener o menos,
+[Remote]: pero
+[Remote]: no está. Y si ustedes nos dicen, che, en estos casos queremos que se dispare este mensaje de este proveedor,
+[You]: ¿Cuál es tu pregunta?
+[Remote]: hacemos.
+[Remote]: Pero vamos más y más y
+[You]: A tu pregunta incluye todo, digamos, no te no no es que tenés que ir pidiendo
+[You]: los módulos, digo, nosotros te damos acceso a la plataforma,
+[You]: y con toda su funcionalidad y todos sus módulos, no es que
+[You]: tenés que ir pidiendo y nosotros vamos configurando. Está diseñada para que la openen ustedes también.
+[Remote]: Claro.
+[Remote]: Porque viste que
+[Remote]: digamos, esto termina siendo muy customizada a cada cliente, porque en definitiva cada uno va a adaptar
+[Remote]: el core de esto a
+[Remote]: metodología de trabajo que tenés interna, porque cada vez que tiene su
+[Remote]: forma su forma. Entonces, digo, por ahí tenemos una lógica de donde vos
+[Remote]: bueno, Rick,
+[Remote]: cuando tengo una diferencia, la reclamo por
+[Remote]: tal, determinada manera o con determinado
+[Remote]: canal, o lo guardo o
+[Remote]: o o lo, digamos, o lo mando a pérdida, lo que
+[Remote]: implica, digamos, hay un montón de cosas que vas metiendo en el en el circuito,
+[Remote]: y y entiendo que lo vas haciendo cada vez más el traje a tu medida.
+[Remote]: ¿No?, a nuestra medida. Ahora sí, sí.
+[Remote]: No, no, por eso la duda que a mí me surge es cómo cómo se opera cómo se opera en este
+[Remote]: sentido. Es decir, yo yo entiendo que la herramienta es como única,
+[Remote]: pero yo te voy diciendo, mirá, me gustaría
+[Remote]: hacer un dash de seguimiento y y lo
+[Remote]: y lo metés dentro de la aplicación que nosotros ya tenemos
+[Remote]: Sí. Metí, es decir Ah, en bebido. Claro, es decir, ¿cómo cómo cómo...? Porque esto es mejora continua, digamos, si querés Entonces, ¿cómo es dentro de lo que ustedes, digamos, el concepto de abono que ustedes tienen, yo te voy pidiendo, meteme esto, meteme esto, y vos me lo vas haciendo, o vos me decís, mirá, yo que es completamente autooperable eso que vos me decís, armame un dashboard de x, se lo tirás al prompt y te lo arma. Y así no funciona. Si vos necesitás algo específico, que la que hagamos el setup nosotros, nosotros felices de hacerlo, eventualmente se van a dar cuenta que es tan fácil de operar, tan fácil de crear las
+[Remote]: es tan intuitivo,
+[Remote]: que lo van a hacer, va ser más ágil que lo hagan ustedes, o sea, va, básicamente la decisión está en ustedes.
+[Remote]: Ok.
+[Remote]: Ok.
+[Remote]: O sea, ustedes nos dan, obviamente, la la
+[Remote]: la capacitación necesaria para poder Siempre,
+[You]: En el onboarding hacemos sesiones
+[Remote]: sí.
+[You]: hacemos workshops donde
+[You]: hacemos un walkthrough más
+[You]: más exhaustivo, y después también, una vez que son clientes
+[You]: tenemos un newsletter donde vamos mandando también más videos,
+[You]: y las funcionalidades nuevas que van saliendo, digo, el producto está cambiando semana a semana, entonces,
+[You]: en ese sentido, tanto a nivel recursos y a nivel canal de
+[You]: soporte, siempre van a contar con con nosotros.
+[Remote]: O sea o sea, cada vez que van metiendo mejoras, lo lo van
+[Remote]: disponibilizando
+[You]: Correcto.
+[Remote]: como
+[Remote]: Obviamente, sí.
+[Remote]: Como que la herramienta es única para todos los
+[Remote]: quiero entender como que ustedes tienen una herramienta única
+[Remote]: para todos los clientes, similares a nosotros,
+[Remote]: pero a cada cliente, imagino que cada uno va
+[Remote]: necesitando, pidiendo cosas o va va dándose cuenta de cosas
+[Remote]: pueden seguir creciendo,
+[You]: Se siente como tu propio software, o sea,
+[Remote]: Sí.
+[You]: cada cliente empieza a armar sus propios reportes,
+[You]: propios flujos de información, sus propias conexiones,
+[You]: pero la tecnología de la plataforma es la misma para todos los clientes, simplemente
+[You]: es muy configurable y muy flexible a las necesidades de cada uno.
+[Remote]: Claro.
+[Remote]: Y ahí, obviamente,
+[Remote]: el módulo de power and server, que es el módulo en que más tiempo probablemente
+[Remote]: pase quien esté operando la plataforma,
+[Remote]: va aprendiendo de las resoluciones, va haciendo sugerencias, y si las vas
+[Remote]: aceptando o o rechazando,
+[Remote]: va incorporando eso en su propia memoria. Entonces, sus agentes empiezan a ser expertos en su propia operatoria. Claro. Hay un agente re simple, digamos.
+[Remote]: Sí, pero completamente es así,
+[Remote]: Claro.
+[You]: Pero bueno, en el
+[Remote]: Pero una consulta, mencionaron el el soporte por ahí.
+[Remote]: Suponte, se cae el servicio o o, no sé, queremos hacer algo y no nos sale.
+[Remote]: ¿Cómo es? O sea, es veinticuatro siete, ¿cómo es el tema de soporte?
+[Remote]: A ver, soporte es, obviamente, veinticuatro siete,
+[Remote]: no tenemos gente
+[Remote]: en en India para horarios nocturnos, pero sí estamos completamente
+[Remote]: solemos hacer un canal de Slack con las compañías con las que trabajamos,
+[Remote]: así hay línea directa con nosotros y con gente del equipo. Si hay algo que
+[Remote]: se traba o tiene dudas, obviamente hacemos sesiones de capacitación,
+[Remote]: las que hagan falta y no tenemos
+[Remote]: una política muy estricta, algunos prefieren hacer una y ya está.
+[Remote]: Otros prefieren tener una por semana, hasta estar cómodos.
+[Remote]: Si tiene un requerimiento
+[Remote]: Nosotros, obviamente, cuando empezamos a trabajar con los equipos,
+[Remote]: sesiones de trabajo para entender los requerimientos, asegurarnos de que todo en la plataforma está
+[Remote]: y lo que no está lo incorporamos a medida que vamos incorporando al al cliente,
+[Remote]: pero hay una hay un diálogo muy fluido, si ustedes hay un feature que realmente necesitan,
+[Remote]: dicen y y nosotros lo vamos incorporando en el producto.
+[You]: Y después
+[Remote]: Entiendo. Pero igual lo que me imagino que puede pasar más,
+[Remote]: o sea, que que sea más, lo necesito ya, más que una cosa nueva,
+[Remote]: es lo lo que ya está funcionando, se cayó la
+[You]: Eso.
+[Remote]: no sé, se cayó la plataforma, me imagino, que puede pasar porque todos los sistemas se caen.
+[You]: Tenemos un documento de SLAs.
+[You]: Tenemos un documento de SLA formal, también se los adjunto a después de la llamada.
+[Remote]: ¿Cómo?
+[You]: Los SLAs y lo de seguridad de la información.
+[Remote]: Pero la la comunicación es por
+[Remote]: Slack, como dijo, nada más,
+[You]: Slack, mail, y van a contar con
+[You]: nuestros contactos personales también para llamarnos a cualquier hora del día.
+[Remote]: Bueno.
+[Remote]: Genial.
+[Remote]: Gracias.
+[Remote]: ¿Con qué otra empresa está trabajando del del mercado, o la
+[Remote]: local argentino? Digo, para como referencia, como
+[Remote]: El lunes arrancamos con despegar.
+[Remote]: Bien. Así como cliente grande, y también con con el banco Superbiel,
+[Remote]: de Argentina. Igual, principales clientes están con están en Estados Unidos.
+[Remote]: Ah, ok.
+[You]: Sí, de Argentina,
+[Remote]: En el mercado todavía no están tan metidos.
+[You]: Sí, sí, no, con Buenbit también,
+[Remote]: ¿Cómo?
+[You]: trabajamos con Bitsho en su momento, yo vengo de trabajar en Bitsho Sí, sí, el mundo PSPs lo lo conocemos muy bien.
+[Remote]: Ajá.
+[Remote]: Ok.
+[Remote]: Digamos, nosotros operamos un grupo económico y tenemos varias empresas, eso la plataforma no no le importa, ¿no?, en los procesos de conciliación es, este,
+[You]: No.
+[You]: No, ahí es un tema de los conectores y, obviamente,
+[You]: nos comparta, porque la la oferta nuestra
+[You]: es es un es un precio fijo por la duración del contrato,
+[You]: está basada en una estimación de volumetría, complejidad y cantidad de conectores.
+[You]: Con lo cual, no sé si la estimación que vos me compartiste por mail
+[You]: es solamente para el caso de ReSimple o es para todo el grupo,
+[You]: yo contesté el el el quote que yo te hice fue por
+[You]: la volumetría que me compartiste por mail. Si si el grupo tiene
+[You]: un volumen
+[You]: mucho más grande, lo tenemos que considerar y quizás hacer, armar otra propuesta, porque de vuelta,
+[You]: parte del del costo fijo es
+[You]: nuestra estrategia de ser un tech
+[You]: partner para ayudarlos a acelerar la adopción de inteligencia artificial y construir otras cosas,
+[You]: y por eso lo fijo. Pero de nuestro lado, como bien sabrán, AWB y todo lo que es inteligencia artificial tenemos un montón de costos variables,
+[You]: que absorbemos ese riesgo, pero necesitamos saber la volumetría de antemano para poder hacer una estimación
+[You]: más precisa, con lo cual
+[You]: lo están considerando para todo el grupo, bueno, ahí habría que tener esa estimación
+[You]: global para hacer la propuesta económica.
+[Remote]: Sí, tal vez lo tenemos
+[Remote]: son como unidades de negocios que tienen cierto lugar de vínculo,
+[Remote]: pero que tienen otra lógica. Uno es una lógica
+[Remote]: son dos lógicas tradicionales, pero una tiene más que ver con con el mercado
+[Remote]: digamos, de pagos, y otro con
+[Remote]: los otros negocios que nosotros tenemos, que es carga virtual y todo lo que es la recarga de
+[Remote]: de celulares, etcétera, que tiene también una lógica de recaudación en puntos de venta,
+[Remote]: pero bueno, que también hacemos conciliaciones de todos los clientes que depositan
+[Remote]: plata con a nosotros y nosotros se los acreditamos a los clientes.
+[Remote]: Entonces, ahí también es interesante
+[Remote]: obviamente es una segunda etapa, pero es interesante
+[Remote]: conceptuarlo para decir, bueno, esto podría también avanzar por ese lado.
+[Remote]: Bien. Tienen también, perdón, el el, pensando eso, el
+[Remote]: la forma de ustedes leer? Nosotros también
+[Remote]: con los clientes, nos no es no es en esto de Red Simple, pero estoy pensando para el otro negocio también, que nos
+[Remote]: llega, los clientes nos mandan información de los depósitos bancarios que son en efectivo en este
+[Remote]: en una en una unidad de negocio, nos mandan los tickets
+[Remote]: a través de WhatsApp, etcétera, los tickets que han depositado en el
+[Remote]: en el banco, y después nosotros los conciliamos contra los los los distintos bancos que que
+[Remote]: que nos van informando.
+[Remote]: O sea, usted ahí abrió un módulo nuevo, que sería la lectura de los tickets
+[Remote]: Nosotros estamos haciendo pruebas sobre eso, pero bueno,
+[You]: No lo estamos trabajando actualmente,
+[Remote]: pregunto si ustedes ya lo tienen pensado o o tal vez
+[You]: pero bueno, eso sería una de las cosas que afectaría el precio, ¿no?, porque deberíamos construir un
+[You]: un método de conexión distinto. Hoy hoy justo le
+[You]: lector de de WhatsApp, no,
+[You]: no tenemos.
+[Remote]: sí lo tenemos, por por eso, si nosotros tenemos, podríamos enganchar nuestra parte esa al al
+[You]: Ah, obvio.
+[You]: Si eso baja a archivo estructurado, y nosotros podemos tomar ese archivo estructurado, genial,
+[Remote]: Completamente.
+[Remote]: Perfecto. Claro, Gerardo, ahí, si nosotros le proveemos el archivo, para ellos es una
+[Remote]: más.
+[Remote]: Contra, después, contra los saldos de los bancos, contra el resumen de los bancos.
+[Remote]: Sí, lo que pasa es que hay una parte que es
+[Remote]: Sí, está bien, hay que conseguirlo, porque es un una acreditación online y una cancelación posterior.
+[Remote]: Pero no importa, ¿se entiende?
+[You]: Bueno, ahí en el interés del tiempo que nos fuimos un poquito y quiero
+[You]: cuidar el tiempo de todos acá,
+[You]: Creo que estuvo estuvo muy buena la conversación, muy buena la charla.
+[You]: Creo que hay interés. Lo que
+[You]: lo que quedaría por ver es, uno, les voy a compartir el documento de los SLAs,
+[You]: justo estaba preguntando Cristian, el tema de la seguridad de la información que estaba preguntando Gerardo.
+[You]: Y el tercer punto sería, Gustavo, entender si la volumetría que me compartiste para la estimación del precio es
+[You]: solamente resimple o acapara todos los casos de uso que le estarían dando, para asegurar de que estamos
+[You]: alineados en ese frente.
+[Remote]: No, eso volumetría es de resimples, el
+[Remote]: la pasé yo, Ignacio, la volumetría es resimples únicamente.
+[You]: Ok, bueno.
+[Remote]: Se pasó.
+[You]: Si me pueden compartir la la volumetría total
+[You]: que se estaría conciliando dentro de la plataforma, yo, igual,
+[You]: después le mando por correo, sería
+[You]: conectores
+[Remote]: Igual creo que
+[Remote]: Ignacio, igual creo que inicialmente se, iríamos, Gustavo,
+[Remote]: con, me parece que inicialmente va resimple, ¿no?
+[Remote]: Sí, correcto. Segunda etapa, como decías Gerardo, hay otras cosas que hacer. Sí, sí, sí.
+[Remote]: Un montón de, sí, sé que no
+[Remote]: Si bien, este, bueno, este, uno se pone ambicioso viendo la la
+[Remote]: la presentación de ustedes y ver toda la la potencialidad y
+[Remote]: reducción de tareas que tenemos, tenemos que focalizarnos en Resimple, donde hoy
+[Remote]: tenemos un volumen, este, que no que, bueno,
+[Remote]: nos nos desborda y que, bueno, es un poco la
+[Remote]: la idea de más allá de las herramientas que hoy tenemos,
+[Remote]: este, de de haberlos contactado a ustedes, ¿sí?
+[You]: Perfecto.
+[Remote]: Que, bueno, sí, a ver,
+[Remote]: como como decirle, le pasamos nosotros para la demo, un solo caso de uso,
+[Remote]: y porque como bien, bueno, decían en la nota, después, bueno,
+[Remote]: tenemos varias conciliaciones que tienen que ver con
+[Remote]: con los distintos procesadores y demás, pero están dentro de la volumetría que les pasó hoy.
+[Remote]: ¿No?
+[Remote]: Lo que vimos acá es que, bueno, se pueden
+[Remote]: hacer distintos dashboard y
+[Remote]: y y no no no no afecta en ese aspecto.
+[Remote]: A lo a lo que es una cotización, ¿no?, la que nos pasaron el principio.
+[You]: Perfecto, sí. Bueno, entonces,
+[You]: así quedamos, yo les mando los SLAs, le aseguré la información y después me contacto Gustavo Viviana, ver
+[You]: cómo seguimos, si
+[You]: si quedo alguna pregunta grande por responder, alguna duda, o si ya
+[You]: nos ponemos a pensar por algún próximo paso.
+[You]: ¿Les parece?
+[You]: Buenísimo.
+[Remote]: Sí, sí, perfecto, Ignacio. Este, quedamos así.
+[You]: Bueno, muchas gracias a todos.
+[Remote]: Bueno, un gusto, Ignacio, un gusto, Leo. Perdón, disculpa.
+[You]: No, no, muchas gracias y un gusto enorme.
+[Remote]: Un placer.
+[Remote]: Oh, un placer, un placer, sí, sí, justo Sensi vos. Gracias, Muchas gracias.
+[Remote]: Chau, adiós. Hasta luego.
+
+============================================================
+SUMMARY
+============================================================
+### Team Introductions
+
+- Resimple S.A. team:
+  - Sofía Rossetti - jefa de conciliaciones
+  - Natalia Strassera - encargada de procesos
+  - Gerardo Lipszyc - director de tecnología
+  - Marcelo Jusid - gerente de IT
+  - Alfonso - jefe de IT
+  - Cristian Courtot - jefe de IT
+  - Gustavo Corredoira - director de finanzas
+
+### Product Demo Results
+
+- Reconciliation performance with provided data:
+  - TC (credit card): 164,000 transactions reconciled, 167 unreconciled
+  - Debit transfers: 6,000 matched, 725 unmatched from BIN side
+  - QR transactions: Strong match ratios across all categories
+- Automated transformations:
+  - Date standardization from text format
+  - Movement code splitting (636 code example)
+  - All transformations saved permanently for future automation
+- Multi-day reconciliation capability:
+  - Continues attempting to match unreconciled transactions daily
+  - Configurable aging thresholds (e.g., 3-day rule)
+  - Expired unreconciled items flagged for investigation/claims
+
+### Platform Capabilities
+
+- Data ingestion options:
+  - SFTP, API integration, email reception
+  - Automated daily processing at 4 AM
+  - No manual file uploads required in production
+- Agent-driven operations:
+  - Natural language commands for data standardization
+  - Automated dashboard generation
+  - Custom report creation through conversational interface
+- Infrastructure & security:
+  - AWS-based, SOC compliant
+  - No data retention limits
+  - Encrypted storage, works with banks/insurers
+- User management:
+  - Customizable role-based permissions
+  - Personalized dashboards per user type
+  - Collaborative Slack channels for support
+
+### Business Discussion
+
+- Pricing scope clarification needed:
+  - Current quote based on Resimple volumetry only
+  - Group has additional business units (virtual recharge, cellular top-ups)
+  - Second phase could include WhatsApp ticket reading for cash deposits
+- Reference clients:
+  - Despegar (starting Monday)
+  - Banco Supervielle
+  - Buenbit, Bitsho (previous experience)
+- Support structure:
+  - 24/7 availability via Slack, email, personal contacts
+  - Formal SLA documentation
+  - Weekly training sessions available during onboarding
+
+### Next Steps
+
+- Ignacio to share:
+  - SLA documentation
+  - Security information details
+- Gustavo/Viviana to discuss:
+  - Implementation timeline
+  - Any remaining technical questions
+  - Formal next steps decision
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/4544ed56-b063-42ec-bc60-48ce0d642efc](https://notes.granola.ai/t/4544ed56-b063-42ec-bc60-48ce0d642efc)

@@ -1,0 +1,559 @@
+MEETING: Rexi x Tiendanube : discovery
+DATE: 2026-04-28
+ID: not_aog5Zplclw0PhR
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Catalina Rizk <catalina.rizk@gmail.com>, Catalina Rizk <catalina.rizk@tiendanube.com>, Agustin Calonge <agustin.calonge@tiendanube.com>
+SCHEDULED: 2026-04-28T14:00:00-04:00 - 2026-04-28T14:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Hola, Catalina, ¿cómo estás?
+[Remote]: Hola, Nacho. ¿Te dice Nacho? ¿Puedes decir Nacho?
+[You]: Sí, Nacho, Nacho, está perfecto.
+[Remote]: ¿Cómo va todo bien?
+[Remote]: Bien todo tranquilo.
+[Remote]: Ahí, seguramente, sumé a uno de los chicos de mi equipo que
+[Remote]: los va a estar ayudando con
+[Remote]: con el ejemplo que trajimos, para ver si podemos armar algo.
+[You]: Excelente.
+[You]: Se iba a sumar Teo, pero al final no.
+[You]: Es el que lidera por ahí más estas implementaciones y productos, pero bueno,
+[You]: justo estábamos corriendo con con otras cosas, pero no pasa nada.
+[You]: Si querés, andaba contándome un poquito de los requerimientos
+[You]: y el y el y el contexto
+[You]: después cuando se sume
+[Remote]: Dale.
+[You]: la persona
+[You]: nos metemos en los detalles.
+[You]: ¿Cómo es el dolor, proceso, qué es lo que chequean?
+[Remote]: Dale.
+[Remote]: A ver, ¿qué nos pasa hoy en día? Nosotros
+[You]: Las bases?
+[Remote]: lo que es todo el la unidad de neusa
+[Remote]: de envío en U en Argentina es cien por ciento tercerizada.
+[Remote]: Nosotros nos manejamos con varios correos. Trabajamos con Adrián y con un correo argentino,
+[Remote]: y después por ahí en Cyber, cuando tenemos muchos paquetes, salimos a contratar correos para para poder cubrir la demanda. ¿Cómo es hoy en día el flujo? El merchant tiene su tienda, tiene todos sus productos y
+[Remote]: cuando carga los productos tiene que cargar también las dimensiones de esos productos,
+[Remote]: sea, peso, altura, eso.
+[Remote]: No tiene una validación, o sea, ellos cargan lo que quieren,
+[Remote]: y después, ¿qué es lo que nos pasa? Nosotros cotizamos en base a esa
+[Remote]: carga de información,
+[Remote]: y le cargamos un markup, o sea, le cargamos un
+[Remote]: un porcentaje de ganancia y nos damos vuelta
+[Remote]: y
+[Remote]: se lo pasamos al correo. El correo hace, en el caso, por ejemplo, de Adriani, hace
+[Remote]: varios repesajes y nos factura en base al repesaje, no a lo que nos
+[Remote]: le enviamos,
+[Remote]: Claus. Hola. Hola, Ignacio, ¿cómo estás? Un gusto.
+[You]: ¿Cómo estás, Agustín? Un gusto enorme.
+[You]: ¿Todo bien?
+[Remote]: Todo bien, por suerte.
+[Remote]: Ahí le estaba contando un poco el el flujo.
+[Remote]: Bueno, nosotros recibimos la la información del
+[Remote]: con eso le cotizamos y le cobramos el envío,
+[Remote]: en base al peso y la distancia, y después nos damos vuelta
+[Remote]: se lo damos al correo, ellos nos hacen los repesajes y nos cobran su factura.
+[Remote]: ¿Qué está pasando? ¿Eso no se está conciliando hoy en día?
+[Remote]: Y, por ejemplo, en el caso de Andrani, estamos teniendo mucha pérdida, porque
+[Remote]: hay muchos merchants que ponen, no sé, pesos bajos para que el costo sea bajo, y y, efectivamente, el costo de envío es bajo, pero después nosotros nos cobran el el costo real. Entonces, primero hay que diseñar esa conciliación, porque es o sea, la conciliación es por etiqueta, y hay un volumen bastante grande de etiquetas, y después ver cómo podemos refacturar todo eso, o sea, porque cómo es nuestro, y segundo punto es cómo es nuestro flujo de facturación. Nosotros al merchant le vamos, o sea, ellos van cargando
+[Remote]: los que son prepago van cargando saldo y van consumiendo el saldo a medida que van generando las etiquetas
+[Remote]: de envío.
+[Remote]: Y a fin de mes, ¿qué pasa? Nosotros vemos todas las etiquetas que ellos
+[Remote]: consumieron y se le emite una factura.
+[Remote]: Pero bueno,
+[Remote]: si tenemos una diferencia entre la cotización de esa etiqueta,
+[Remote]: y lo que efectivamente nos cobró el correo, nosotros tenemos ahí una
+[Remote]: que habría que refacturar y
+[Remote]: ir a buscar al Merchant para que nos pague, por ejemplo, la
+[Remote]: por el ochenta por ciento son prepagos, entonces,
+[Remote]: cargan y consumen el saldo. Entonces, ahí sería ir a buscarlos para que nos
+[Remote]: paguen la diferencia.
+[Remote]: También va a ser un dolor.
+[Remote]: Hay un veinte por ciento de merchants que son o menos
+[Remote]: ponle un diez por ciento que son pospago, que son, no
+[Remote]: tiendas evolución que manejan un volumen supergrande, y por ahí se le hace
+[Remote]: como un seguimiento. Pero en en general, así como
+[Remote]: ley
+[Remote]: uno en Tiendanube, es todo que
+[Remote]: primero cobramos y después facturamos. Nosotros no tenemos un área de
+[Remote]: cobranza, entonces,
+[Remote]: nada.
+[Remote]: Como línea general, siempre lo hacemos todo prepago.
+[You]: ¿Cómo se dijo, Pablo? Serían los los
+[Remote]: Así como
+[You]: más grandes que pagan contra la factura, digamos?
+[Remote]: Claro, el pospago ellos generan etiquetas
+[Remote]: etiquetas, y al fin de mes se dice, che, bueno, gastaste esta cantidad, este volumen en etiquetas,
+[Remote]: te genero esta factura, y ahí tienen treinta días para pagar.
+[Remote]: Sea, eso son clientes que se le da ese beneficio,
+[You]: Pero ahí, cobrar es exactamente lo que te cobro
+[Remote]: Igual,
+[You]: el correo.
+[You]: Con el marca ustedes, pérdida.
+[Remote]: igualmente podría ser así, pero no tenemos la conciliación o
+[You]: ¿O sí?
+[You]: Ah, claro.
+[Remote]: hoy en día le cobramos lo que cotizamos nosotros, no tenemos integrada en ningún lado, vemos
+[Remote]: recién ahora estamos pensando en decir, che, bueno, el el
+[Remote]: el negocio no para de tener etiquetas y tenemos un margen negativo
+[Remote]: Empiecen a analizar un poco en vez de crecer, porque
+[Remote]: nada.
+[Remote]: No, no está funcionando. Entonces, más allá de que los
+[Remote]: se lo facture después de de realizado el envío,
+[Remote]: Todavía no tenemos la información del correo aparte,
+[Remote]: igual no está diseñado como esa conciliación para facturarle
+[Remote]: el saldo real.
+[You]: Perfecto. Tengo un par de preguntas. Entonces,
+[Remote]: Sí.
+[You]: toda esta información la tenemos a nivel etiqueta, ¿verdad?
+[You]: Cada etiqueta,
+[You]: tenemos, a nivel de etiqueta, lo que cargó el usuario y tenemos, a nivel de etiqueta, lo que me manda el correo.
+[Remote]: Claro, nosotros, o sea, nuestras bases,
+[Remote]: tenemos todo lo que cargó el usuario y qué fue lo que se le facturó
+[Remote]: y qué pasa con los correos, nos nos mandan o una prefactura, lo llaman,
+[Remote]: o un detalle de lo que nos facturan, y está abierto por etiqueta y por peso.
+[You]: Hay un identificador único para unir las etiquetas de ambos lados.
+[Remote]: Entiendo que sí. Sí, sí, sí,
+[Remote]: Hay hay, perdón, sumo, en en
+[Remote]: hay diferentes bases sería una que es la de orders,
+[Remote]: que es más lo que nosotros vemos ahí, etiqueta generada, lo que vemos
+[Remote]: según...
+[Remote]: Lo que el propio merchan carga,
+[Remote]: otra que es la que decía Cata de estas preinvoices o estas prefactories,
+[Remote]: donde ahí sí tenemos el costo real o lo que el correo ve.
+[Remote]: Hay un hay hay un cruce en base a un order ID,
+[Remote]: básicamente.
+[You]: Perfecto.
+[You]: ¿Cuántas etiquitas estamos hablando por mes?
+[Remote]: Nosotros tenemos alrededor de doscientos cincuenta mil envíos.
+[Remote]: Aprox por mes, el último mes, recuerdo.
+[Remote]: ¿No?
+[Remote]: Yo creo que estamos por ese número.
+[You]: ¿Esto no aplica a los otros países?
+[Remote]: O sea, la realidad, no sé cómo está funcionando en
+[Remote]: en Brasil. En Brasil, ahí está, no es únicamente tercer y
+[Remote]: sino que tenemos una empresa que se llama Mandae,
+[Remote]: que es un correo en sí, o sea, compramos un correo y lo tenemos in house.
+[Remote]: Así que algún tipo de conciliación por ahí mayor a la que tenemos nosotros,
+[Remote]: seguro tengan.
+[Remote]: Pero se, o sea, nosotros
+[Remote]: desarrollado en Bionue, lo tenemos en Argentina, en Brasil es supergrande,
+[Remote]: y en México es como en Argentina y es
+[Remote]: bastante pequeño.
+[Remote]: Sí.
+[You]: También tercerizaba México.
+[You]: Ok. Con lo cual, digo, esto podría tener una implementación en los tres países
+[Remote]: Podría.
+[Remote]: O sea, si querés, lo llevo para ver bien cómo están haciendo en Brasil, si tiene...
+[Remote]: Yo sé que que tienen, o sea, que tienen problemas parecidos,
+[Remote]: por ahí algo desarrollado a nivel conciliatorio tienen porque es mucho más grande,
+[Remote]: la parte de logística, empezó mucho antes que en Argentina,
+[Remote]: pero seguramente puntos de mejora tienen.
+[You]: Ok. Y hoy no no están conciliando, hoy ven diferencias y
+[You]: si ahí se asume la pérdida.
+[Remote]: No, o sea, ¿qué pasó en un principio, cuando
+[Remote]: cuando empezaron a existir estas diferencias? Nosotros trabajábamos casi
+[Remote]: no sé, como decirte el noventa por ciento con correo argentino,
+[Remote]: y no sé por qué estas diferencias nos daban ganancia, o sea, nosotros siempre le cobramos de más al merch,
+[Remote]: que lo que efectivamente después nos cobra a correo.
+[Remote]: En las primeros, como de decirte, no sé,
+[Remote]: no sé, en los primeros meses se hizo varias veces este análisis y bueno, estamos en ganancia, enfoquémonos a crecer. ¿Qué pasó? Empezamos a crecer y empezamos a necesitar de de de otro correo, más allá de correo argentino, empezaron a trabajar más con Andreani y
+[Remote]: mejor Andreani. Entonces, no sé, para las fechas como cyber o
+[Remote]: o fechas que explotaban los paquetes,
+[Remote]: como respondía mejor Adriani, fue tomando más mercado a Adriani, y
+[Remote]: lo que pasó ahora es que con Andreani tenemos bastante pérdida, o sea, el análisis que se está haciendo es que sus repesajes no dan para para el otro lado, entonces, empieza a tener un un poco más de materialidad este tema, que al principio la la la unidad de negocio cien por ciento enfocada a crecer en paquetes, o sea, era cien por ciento eso. Más allá de si ganan o o o pierdan plata.
+[You]: Claro.
+[You]: De curioso, nomás, ¿cuántas pérdidas, o sea,
+[You]: digo, ¿cuál es la diferencia? ¿Cuánto está perdiendo de plata por mes por esto?
+[Remote]: Mirá, el otro día justo hablamos con Ferros, no sé si te acordás a vos,
+[Remote]: exacto el número, pero nos hablaban
+[Remote]: algo de cuarenta millones de pesos mensual.
+[Remote]: La verdad que no sé, tampoco sé esa esa esa ata qué tan qué tan confiable es
+[Remote]: para este O sea, porque está recién claro, es lo que te digo.
+[Remote]: Por por eso por ahí es un punto de que dijimos, bueno, es un
+[Remote]: es un una buena prueba para hacer, porque no no lo estamos haciendo internamente, se empezó a a
+[Remote]: un un par de cruces con el equipo de data para para empezar a armar
+[Remote]: este dash y y empezar a tener un poco más claro
+[Remote]: cuánta plata se está perdiendo y cuáles son los merchants más significativos, pero
+[You]: Y no están recobrando nada,
+[Remote]: exacto, no me acuerdo.
+[You]: hoy.
+[You]: A los clientes.
+[Remote]: Hoy, o sea, el otro día justo hablamos con el
+[Remote]: con el chico que está, que maneja bastante la b u,
+[Remote]: lo que dijo fue como, bueno, van a ser como
+[Remote]: los diez merchants más significativos y refacturarles manualmente como para decirle, chicos,
+[Remote]: sea, esto tienen que ajustar sus precios, por eso nosotros no podemos entrar a su tienda
+[Remote]: mismo tampoco tenemos el producto que venden. Ellos tienen que reajustar sus medidas y
+[Remote]: y peso para que se cotice bien. Le iban a hacer como una factura manual
+[Remote]: supertedioso para el volumen de merchant que manejamos nosotros,
+[Remote]: y decirle como medio de warning,
+[Remote]: para ver si podíamos, aunque sea con los merchants más significativos, los que tienen más volumen,
+[You]: Fantastico.
+[Remote]: que ajusten esa información.
+[You]: Creo que la oportunidad es clarísima.
+[You]: O sea, el primer punto es
+[You]: un sistema que concilie
+[You]: ¿Ustedes esta información la tienen a nivel diario?
+[Remote]: Sí, ahí, Augus, ahora, si querés,
+[Remote]: te muestra un poco las bases que tenemos, o sea, te trajimos la información,
+[Remote]: Sí,
+[Remote]: por ahí te mostramos y me decís, necesito más cosas,
+[You]: Claro, cuénteme cómo
+[Remote]: podemos darnos vuelta y seguir buscando. Esto fue medio
+[You]: Claro. O sea, ahora me me encantaría entrar en el detalle de
+[You]: las fuentes de información, de dónde vienen, porque
+[You]: idealmente, para configurar un flujo automático necesitamos conectarnos a la
+[You]: información y que esté
+[You]: ingestando las tablas
+[You]: los días, no sé, cuando estén disponibles, si es diario, si es semanal, ¿entendés?, como que
+[You]: ingesta, corre la conciliación y te escupe las diferencias.
+[You]: Y después vos podés armar una vista
+[You]: por cuenta de cliente,
+[You]: cuánto es el delta que te debe, para que después, para refacturar,
+[You]: vos puedas directamente desde Rexi también escupir un PDF que sea exactamente la factura
+[Remote]: Sí.
+[You]: por etiqueta, diciendo, mirá, esta etiqueta, vos dijiste que
+[You]: pesabas cinco kilos, pesó diez. La diferencia que nos debés es tanto, ¿sí?, pum, y
+[You]: además después el detalle. Después, ya la solución de tesorería de salir a cobrar,
+[Remote]: Sí.
+[You]: No sé, pero nosotros le podríamos armar toda la
+[You]: toda la conciliación automática y todo el output de las facturas que necesitan para cada uno de los
+[You]: clientes.
+[Remote]: A ver, ¿cuál es el limitante claro que tenemos? Como
+[Remote]: punto uno? Es que nosotros, o sea, la información nuestra la podemos armar
+[Remote]: hablamos con data y la disponibilizamos la información de los correos
+[Remote]: dependemos de ellos, entonces, por ahí el primer punto es hablar con
+[Remote]: la gente de la BU y decir, che, ¿tienen algo algo para que nosotros nos conectemos
+[You]: Internet, no?
+[Remote]: en vivo con Andreani algo?
+[You]: Con correo argentino Gravity.
+[Remote]: No lo sé, por eso.
+[Remote]: Eso eso, o sea, Adriani seguro, porque tiene un montón más de
+[Remote]: de flexibilidad, correo argentino es superduro y nos manda la información
+[Remote]: quince días del mes siguiente. Entonces, ver qué tienen para,
+[Remote]: porque, si no, también tener la información
+[Remote]: a los quince días del mes siguiente,
+[Remote]: termina siendo supertedi, o sea, la idea es tener al, o sea, armar una conciliación para tenerlo más en vivo,
+[Remote]: y mismo, no sé, todos esos repesajes
+[Remote]: por ahí.
+[Remote]: Se puede hacer un ajuste antes del cierre. Entonces, porque nosotros
+[Remote]: esperamos al cierre y se hace un cierre de envío nube
+[Remote]: de todas las etiquetas emitidas en el mes,
+[Remote]: y se le emite la factura. Si yo los repesajes los tengo en vivo,
+[Remote]: se le puede como adicionar a todo lo que ya se le
+[You]: Sí.
+[Remote]: de etiquetas el el repesaje, digamos.
+[You]: Eso sería para los que
+[You]: porque para los que es prepago,
+[Remote]: No, a lo prepago también y
+[You]: ¿sería cobrando?
+[Remote]: y y le le genero ese saldo a pagar en la tienda.
+[Remote]: Y si no pagan ese saldo, no pueden emitir más etiquetas.
+[Remote]: Ponele. No sé, se me ocurre ahora, pero
+[You]: Ah, le pegas el le pegas en la wallet,
+[Remote]: claro. Entonces, la wallet está en negativo, si no cargas
+[Remote]: saldo, no podés emitir ninguna etiqueta más.
+[You]: Eso lo veo mucho más como un tema, ¿cómo ustedes, quién sería cobrar? Lo veo
+[Remote]: Obvio, sí, sí, sí, cien por ciento nuestro.
+[You]: un tema de experiencia de un tema de experiencia de ustedes.
+[You]: Pero la disponibilidad de la información, sí, esos serían dos
+[You]: puntos que que me ayudaría mucho si si me ayudan con eso, entender si
+[You]: Adrián, claramente,
+[You]: la base propia no me preocupa, ustedes deben tener un data lake o algún tipo de
+[You]: de governance de data que sea muy fácil de ingestar ese esa información por etiqueta.
+[You]: Hay que hay que ver el tema de los correos. Si
+[You]: cómo les cómo les mandan la información y entender cómo la ingestaríamos nosotros.
+[You]: Si correo argentino y Andreani tienen APIs,
+[You]: nos conectamos por API y lo ingestamos. Usted pone sus credenciales y se ingesta
+[You]: directo a Rexy muy fácilmente. Si ustedes ya lo están ingestando
+[You]: una base propia, entonces, nosotros nos conectamos a esa base propia para traernos los archivos. No sé, lo
+[You]: mejor sea, pero ese es un punto que tenemos que que definir ahí.
+[Remote]: Dale, si querés, eso me lo llevo yo para preguntarle a los chicos, a ver si si podemos hablar con los
+[Remote]: correos, a ver si tenemos la información más en vivo,
+[Remote]: te va a mostrar la información que recibimos hoy, que es como, bueno,
+[Remote]: cuando cerró el mes o días después de que cerró el mes.
+[Remote]: Vale, así que si quieren les
+[You]: Este proceso, ¿qué lo hacen? ¿Una vez por semana, por mes,
+[Remote]: comparto también eso.
+[Remote]: No se hace el proceso, o sea, no existe.
+[You]: todos los días?
+[You]: Ok.
+[Remote]: Sí se hace a nivel, porque no está desarrollado, no no, nadie lo hace.
+[You]: A nivel delta.
+[You]: A fin de mes, nada más.
+[Remote]: Sí, a nivel, che, sí, sí, pero no es que que
+[Remote]: medio de toma decisiones, no es que hay un proceso que efectivamente
+[Remote]: estamos refacturando, recién ahora estamos pensando en hacerlo.
+[You]: Claro.
+[You]: Esto es una oportunidad enorme,
+[Remote]: Sí, sí.
+[Remote]: Sí.
+[Remote]: Ok, ahí se ve, ¿no? Sí.
+[You]: Se ve, perfecto, sí.
+[Remote]: Perfecto. Bueno, ahí nosotros
+[Remote]: como como decís,
+[Remote]: ingestamos diferentes bases
+[Remote]: de la que te decía, por ejemplo, esta es la de las órdenes, que nosotros en cada uno
+[Remote]: vamos a tener
+[Remote]: un ID
+[Remote]: esto también termina siendo nuestra nuestra llave de cruce
+[Remote]: para ir a buscar a a a otras.
+[Remote]: Lo que te quería mostrar, más que nada,
+[Remote]: es esta base
+[Remote]: que es la de las prefacturas o de la de las preinvoices,
+[Remote]: entonces,
+[Remote]: acá el punto clave, por lo menos, de lo que es costo, bueno, por supuesto,
+[You]: ¿Está bien de Cornea Argentina o de Andreani?
+[Remote]: la la info, entiendo que esto lo tiene
+[Remote]: consolidado, porque, por ejemplo, este este caso que te estuvimos mostrando de ejemplo, aunque viene,
+[You]: Alright.
+[Remote]: igual todo, entiendo que es de Brasil.
+[Remote]: Así que la estructura
+[Remote]: es de es es la misma en esta base. Por lo que comentaba Kata, claramente,
+[Remote]: está mucho más disponible
+[Remote]: en esta base todo lo que venga de Andreani.
+[You]: Ah, pero, entonces, esto quiere decir que ya
+[Remote]: ¿Sí?
+[Remote]: Que
+[You]: están ingestando las bases y que hay alguien de data de tienda nube
+[You]: generando este archivo.
+[Remote]: Por eso, empezó a hacerse la semana pasada, o sea, la semana pasada
+[Remote]: yo me junté con este chico y justo me dijo, mirá, esta semana
+[Remote]: como reactivo los números del último cierre, se hizo un un cruce para ver cuál eran los números reales
+[Remote]: y en cuáles eran estos diez merchan que más
+[Remote]: perdíamos plata. Entonces,
+[Remote]: armaron esta base y dijimos, oh, nos viene bárbaro, pásanos la información, así hablamos con la gente de Rexy con esta data.
+[You]: Ah, fantástico.
+[You]: Entonces, acá tenés... ¿Cuál es el identificador, por ejemplo, este
+[Remote]: El editor es este.
+[You]: Perfecto.
+[Remote]: El I ID, es el de es el de tigre.
+[You]: Eso está en el sistema interno y está en la base de
+[Remote]: Después,
+[Remote]: en el de primos, exactamente que
+[Remote]: debe ser consumido de desde desde fuera.
+[You]: Y después, una escribimos por eso,
+[Remote]: El lot
+[You]: vamos a estar comparando la, eso, la columna g, el charged value, ¿no?
+[Remote]: Exactamente. Este este campo
+[Remote]: es el costo según
+[Remote]: el propio correo.
+[Remote]: ¿Sí? ¿De dónde sale esto?
+[Remote]: Porque también esto termina comparando con las medidas de el producto.
+[Remote]: Alto, largo, etcétera, etcétera, etcétera.
+[Remote]: Los dos puntos clave, después tenemos algunas otras,
+[Remote]: Este es el order ID que yo
+[Remote]: decía antes, este es el que
+[Remote]: cruza con la
+[Remote]: la base de orders,
+[Remote]: ¿sí?
+[Remote]: Pero, básicamente, tenemos
+[Remote]: diferentes puntos, a veces
+[You]: Pensé que era el ID, el que estaba en la columna b, o sea,
+[Remote]: provincia también.
+[Remote]: ID, no, este es el de
+[Remote]: es el de la línea, el que cruzará contra nuestra order
+[Remote]: va a ser este order ID acá.
+[You]: Ah, ese es interno del correo, el de la b, es otra cosa.
+[Remote]: Exactamente, entonces
+[Remote]: Otro punto de de, además de de de
+[Remote]: cruzar lo que sería el repesaje en sí,
+[Remote]: otro punto que que me parece que sería interesante, nosotros, ¿cómo es
+[Remote]: el pricing que que tenemos en la BU?
+[Remote]: Todo todas las semanas, y hay veces todos los días, dependiendo, no sé,
+[Remote]: el momento,
+[Remote]: o Adrián y vos correo, nos tiran, bueno, no sé,
+[Remote]: según los descuentos o lo o lo que sea, este va a ser el costo,
+[Remote]: y este va a ser el markup que ustedes van a poder tener.
+[Remote]: Eso nadie lo chequea si, efectivamente, después nos cobran
+[Remote]: según el precio de esa semana, o sea, ¿cómo van van van siendo
+[Remote]: según la semana, y obvio el destino y el peso, pero según esa semana el costo
+[Remote]: es este. Y después no hay como una revisión de
+[Remote]: de de ese presupuesto que nos fueron compartiendo.
+[You]: Cien por cien.
+[Remote]: Por un lado, sería la conciliación de pesos
+[You]: Eso
+[Remote]: y por el otro lado que efectivamente, che, se acordó para esta semana este precio, porque mismo
+[Remote]: ellos llaman, che, Andreani me dio esto, bueno, correo esto,
+[Remote]: bueno, y lo van negociando todo el tiempo, pero después no hay como, efectivamente, che, me cobraste
+[Remote]: y al ser un volumen enorme, se pasa. Entonces, también estaría bueno hacer una
+[You]: Esto, sí, sería otra consideración
+[Remote]: dentro de la conciliación meter eso.
+[You]: totalmente, es agarrar y decir, che, este es el contrato, entonces, me debería saber
+[You]: esto y te lo concilio contra lo que efectivamente me cobraste. ¿Me cobraste lo correcto? ¿Sí o no?
+[You]: Esto, vuelvo a decir, porque intuiste que va haber debe haber mucha diferencia también, y
+[You]: se deben equivocar seguido,
+[Remote]: O sea, generalmente,
+[Remote]: nosotros manejamos volúmenes muy grandes, entonces,
+[Remote]: como que yo creo que hoy en día están todos enfocados en el
+[Remote]: y nadie en el control, y me parece que es un punto de decir, bueno, che, vamos a enfocarnos en
+[Remote]: controlemos todo.
+[Remote]: Controlemos los pesos, controlemos los acuerdos.
+[Remote]: Me parece.
+[You]: No, cien por ciento, cien por ciento.
+[You]: Pero pero, de vuelta, por eso te preguntaba, más de curioso, de
+[Remote]: No, me parece que en un mes tuviste
+[You]: lo que vos decís es es un volumen tan grande, que si hay un
+[Remote]: acuerdos.
+[You]: error mínimo, es un montón de plata.
+[Remote]: Claro.
+[Remote]: Claro, si en un mes tuviste diecisiete acuerdos de precios diferentes,
+[Remote]: me me me hace ruido que
+[Remote]: todos se cumplan perfectamente.
+[Remote]: No sé, los revisaría aunque sea.
+[You]: Total,
+[Remote]: Adentro de los controles que tendría, los revisaría.
+[You]: total, eso se arma otra conciliación dentro de REXi
+[You]: con los cálculos correspondientes y y lo chequeamos, sin dudas.
+[You]: Sin dudas.
+[Remote]: Perdón, Augus te corté, pero justo me acordé eso para sumarlo. No, no,
+[Remote]: eso, porque la la verdad son son son los campos claves, acá yo te estoy
+[Remote]: sumando
+[Remote]: un solo caso, obvio, pero en la en en la info que te pasaremos,
+[Remote]: creo que no se la compartimos todavía,
+[Remote]: Es una base con muchísimos casos como para que
+[Remote]: para que la rompan un poco.
+[You]: Clarísimo. Me parece, a ver, es un caso súper,
+[You]: straightforward, de hoy no hay un control y quieren establecer un control, un control que escale
+[You]: que
+[You]: ustedes han pensado crecer mucho. Hoy son doscientos cincuenta mil de etiquetas. No sé si para fin de año
+[You]: o los los los meses de cyber debe llegar al doble o al triple.
+[You]: Entonces,
+[Remote]: No, o sea, en tengo un crecimiento abismal.
+[Remote]: ¿No? Realmente es muy grande,
+[Remote]: y y, bueno, nada, me parece que en algún punto ellos tienen que empezar a
+[Remote]: a controlar y y y y
+[Remote]: y a a manejar un poco mejor los números.
+[You]: total. Mirá, bueno, yo lo que propongo es lo siguiente,
+[You]: el NDA ya quedó firmado, ¿no? Sí.
+[You]: Hagamoste una cosa. Agustín, si vos me podés compartir
+[You]: estos archivos
+[You]: los que hay que conciliar para lo que es el control de de etiquetas,
+[Remote]: ¿Eso mismo?
+[You]: Y si me quieres pasar también un ejemplo del control de
+[You]: de los acuerdos de precios,
+[You]: En el correo, obviamente, además de ponerme los archivos,
+[You]: poneme ahí dos, tres bullets con la lógica un poco, así no nos volvemos locos nosotros.
+[You]: Y hacemos una demo, ¿les parece? Y les muestro cómo funcionaría en Rexi, para que vean también
+[You]: cómo sería
+[You]: operar este flujo de control
+[You]: con la plataforma, lo fácil que es, los distintos dashboards, los
+[You]: controles, las reglas. Se puede poner alarmas también, por ejemplo,
+[You]: si la diferencia
+[You]: supera el cinco por ciento, que te saque una alarma por Slack de tipo, che, algo está roto,
+[You]: acá hay un cliente que está... O, ¿entendés?, como que se pueden configurar muchas cosas para que sea realmente un
+[You]: control
+[You]: automático
+[You]: y escalable, y que a vos ya después directamente, si querés, te armamos
+[You]: todas las facturas por cliente de la diferencia para que les puedas
+[You]: en su cuenta de
+[You]: de la wallet y les puedas pegar al balance, ¿no?, para que
+[You]: ellos después, che, ¿qué pasó con balance? Van, se meten, está el PDF,
+[You]: exacto. Mirá, todas estas etiquetas vos dijiste tanto y fue tanto, y este es el saldo de la diferencia,
+[You]: el total, te pegué el total.
+[Remote]: Sí, por ahí esa parte también va a ser importante, ¿no?
+[Remote]: Ver si como lo que tira la la herramienta se puede
+[Remote]: fácilmente integrar con con el desarrollo de producto que manda los cargos a
+[You]: Cien por ciento.
+[Remote]: O sea, me parece que eso sería, va a ser un punto clave, porque para que
+[Remote]: al momento al día y cuando emitemos la factura, ya tengamos esa
+[Remote]: esa revalidación, y si hay que facturarle algo, ya emitirlo directamente.
+[You]: Tenemos todo un esquema de
+[You]: que es
+[You]: cien por ciento configurable a lo que ustedes necesiten, PDF, mail,
+[You]: con la formato y la estructura que necesiten, a dónde lo necesiten. Si lo están en un data lake,
+[You]: en alguna API, en algún sistema,
+[You]: lo instan por mail, por Slack, es es superconfigurable, así que sí, ahí, por ahí,
+[You]: una charla más con el equipo de producto, es decir, decime cómo lo necesitás,
+[You]: dónde,
+[You]: y te configuramos el de punta a punta.
+[Remote]: Bueno,
+[Remote]: perfecto. Yo, de mi lado, me llevo la parte de hablar con con los
+[Remote]: chicos por el tema de la API de de los correos, y además pasarte la
+[Remote]: que arman ellos para el al
+[Remote]: para la parte de precios, y ver cómo lo podés llegar a meter eso también en la conciliación, que estaría bueno
+[You]: Dale, compárteme los archivos, averiguame el tema de las APIs,
+[You]: se ingestaría la data de los correos.
+[You]: Y con eso tratamos de armar una demo la semana que viene, ¿les parece?
+[You]: ¿Cuándo podrían? Así ya la dejamos agendada. Asumiendo que
+[You]: entre hoy y mañana nos mandan los archivos.
+[Remote]: Sí, los archivos, Abu, ya los tienen para mandar ya te los comparto, me que viene, nosotros
+[Remote]: en cierre generalmente complicados, ¿no?, lo que sigue.
+[Remote]: Si puede ser la otra, mejor, la verdad que vamos a estar más tranquilos.
+[You]: Dale, quieren hacerla el
+[You]: martes, doce?
+[You]: ¿A qué hora les viene bien?
+[Remote]: Dale, bárbaro. A ver, ya te digo.
+[You]: Y los incluyo
+[You]: ustedes dos o quieren que incluya a alguien más?
+[Remote]: Inicialmente, si querés, sumenos a nosotros dos, y seguramente llames
+[Remote]: Claro, sumo a alguien de de envío nube y por ahí Guille también se quiere sumar.
+[Remote]: ¿A las dos? ¿A las
+[You]: Las dos, dale.
+[Remote]: Vale.
+[You]: Listo.
+[You]: Bueno, Catelyn, Agustín, un gustazo. Mil gracias por el tiempo.
+[You]: Una oportunidad enorme, la verdad que estas son las cosas que que me ilusionan mucho.
+[You]: Decir, che, hay una diferencia de cuarenta millones de pesos y nosotros decir, o sea, mí me la sensación de que quiero, en plan
+[You]: implementárselos ya, para que dejen de tener esa diferencia de g
+[You]: perder esa plata, y ni me imagino las cosas que vamos a encontrar con los chequeos de precio, ¿sí? Que, la verdad,
+[You]: Pero bueno,
+[You]: un pasito a la vez, les mostramos la herramienta el doce, ya, si hay interés, vemos cómo seguimos después de eso, ¿le parece?
+[Remote]: Dale.
+[Remote]: Dale. Va, bueno, no hay choferitos, hablamos.
+[You]: Dale, muchas gracias.
+[Remote]: Adiós. Muchas gracias. Adiós. Hasta luego.
+[You]: Chau, chau.
+
+============================================================
+SUMMARY
+============================================================
+### Current Shipping Process & Pain Points
+
+- Envío Nube: fully outsourced shipping (Andreani and Correo Argentino)
+- User uploads product dimensions (weight, height, etc.) without validation
+- Tiendanube quotes and charges shipping based on user input
+  - Adds markup percentage for profit
+  - Passes order to courier who does reweighing and invoices actual cost
+- Need to reconcile real cost vs user-presented dimensions by individual label
+- 250k shipments per month in Argentina
+- Geographic scope:
+  - Brazil: owns Mandae courier company (in-house + outsourced)
+  - Mexico: fully outsourced like Argentina
+  - Could implement solution across all three countries
+
+### Financial Impact & Current Losses
+
+- Previously profitable with Correo Argentino (users typically underestimated weights)
+- Shifted to Andreani for better performance during peak periods (Cyber Monday, etc.)
+- Now losing money: Andreani’s reweighing results in higher actual costs
+- Current losses: 40M ARS per month
+- No reconciliation process exists today
+  - Only review differences at month-end
+  - Assume losses without recovery attempts
+- Payment structure creates collection challenges:
+  - 90% prepaid clients: load balance, consume as they generate labels
+  - 10% postpaid clients: invoice at month-end with 30-day payment terms
+
+### Data Structure & Next Steps
+
+- Bases available for reconciliation:
+  - Orders (internal base): user-input data per label
+  - Pre-invoices (from couriers): actual costs per label
+  - Cross-reference via Order ID
+- Additional reconciliation opportunity: verify courier pricing agreements
+  - Weekly/daily price updates from couriers
+  - No current validation that invoiced amounts match agreed rates
+  - High volume makes manual checking impossible
+- Agustín to provide:
+  - Sample data files for label reconciliation
+  - Courier API availability information
+  - Pricing agreement reconciliation examples
+- Demo scheduled: Tuesday, May 6 at 2:00 PM
+  - Include Catalina Rizk, Agustín Calonge
+  - Potentially add Envío Nube team and Guille
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/1bc35205-fbfb-48bf-ac88-41c969dd0ed6](https://notes.granola.ai/t/1bc35205-fbfb-48bf-ac88-41c969dd0ed6)

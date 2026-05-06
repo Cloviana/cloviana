@@ -1,0 +1,376 @@
+MEETING: Rexi - One618
+DATE: 2026-03-12
+ID: not_CCjZTqUSP49CAJ
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Teo <teo@rexi.finance>, Carolina Morawetz <carolina@rexi.finance>, Diego Ramallo <dramallo@one618co.com>, Juan Bautista Zorraquin <jbzorraquin@one618co.com>
+SCHEDULED: 2026-03-12T16:00:00-04:00 - 2026-03-12T16:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Hasta nosotros trabajamos mucho lo que son, lógicamente, operaciones de títulos,
+[Remote]: Juan Cruz, todo lo que fondos.
+[Remote]: Y siempre estamos conciliando desde especies hasta plata,
+[Remote]: todo. Los procesos en general son bastante manuales,
+[Remote]: no salen de alguna macro. Con con Cruz intentamos
+[Remote]: estamos intentando automatizar
+[Remote]: y con y con Dali también algunos procesos como
+[Remote]: no sé,
+[Remote]: con APIs, con con Python, con algo de
+[Remote]: desde Claude hasta ChatGPT.
+[Remote]: Pero, digamos, no es cien por ciento automatizado el proceso que tenemos, ¿no? O sea,
+[Remote]: requiere de una parte manual, de una parte de ingesta de datos que a veces es bastante tediosa,
+[Remote]: Digamos, yo lo lo primero que te preguntaría es, bueno, ¿cómo es la ingesta de datos?
+[Remote]: En este caso?
+[You]: Sì.
+[Remote]: Ahí ¿A qué se a qué se conecta, digamos?
+[Remote]: ¿Cómo lo hace?
+[Remote]: Construimos la, nos dedicamos a automatizarla en qué estado también, o sea,
+[Remote]: la idea es que cuando estén conciliando con nosotros,
+[Remote]: nosotros vayamos a buscar directo la información y no tengas que estar descargando un archivo, un
+[Remote]: reporte del banco, lo que sea. Entonces, ahí
+[Remote]: una de las primeras preguntas que hacemos, Joel, siempre es,
+[Remote]: bueno, ¿qué base de datos están conciliando
+[Remote]: y qué opciones tenemos para para integrarnos. En el camino feliz,
+[Remote]: tiene las APIs y nos integramos, ingestamos,
+[Remote]: Hemos encontrado caminos peores, que son tal vez que te mandan un mail
+[Remote]: y y tenemos que absorber de ese mail, eso no es ningún problema,
+[Remote]: incluso peor, donde directamente tenemos que automatizar la ingesta vía
+[Remote]: portal.
+[Remote]: Así que, bueno, depende un poco de de ustedes o o de qué información están
+[Remote]: consumiendo
+[Remote]: pero nosotros nos dedicamos a automatizar esa ingesta.
+[Remote]: Juan,
+[Remote]: Sí. Nosotros, más allá de, o sea, tenemos varios varias varias bases diferentes que tendríamos que consultar en algunas las mejores APIs, formatos API que tienen todas credenciales diferentes, bueno, sistemas bancarios, etcétera, que tienen unas redes de seguridad bastante rigurosas en eso. Y por otro lado, tenemos varios sistemas enlatados, llamándolos mal pronto, los cuales no permiten el acceso a esa información de forma directa, más allá de entrar por base de datos de forma directa y armar la la codificación por atrás. Ahí con con ese tipo de sistemas, ustedes ya tuvieron experiencias en enlatados? Por ejemplo, Ahí, si querés, respondo, yo te digo,
+[Remote]: Si es una base de datos directo, o sea, habría que ver el motor, pero no hacemos con, o sea,
+[Remote]: hay hay integraciones que son muy fáciles y muy rápidas, que es por APIs,
+[Remote]: o por base de datos directa, o sea, si el enlatado tiene una base directo,
+[Remote]: tipo, las credenciales las cargan ustedes a nivel plataforma,
+[Remote]: eso no pasa por nosotros si la conexión se hace muy sencilla,
+[Remote]: y ustedes transforman toda la data ya dentro del sistema,
+[Remote]: Y después, como dice Teo, hay hay hay de todo,
+[Remote]: en el en el mercado, todo, no son los únicos que tienen enlatados o lo que sea,
+[Remote]: pero habría que entender cuál es, qué es lo que tienen, ¿sí?, una base de datos
+[Remote]: atrás, no creo que sea difícil, nos conectamos directamente a la base de datos,
+[Remote]: y se agarra la información en crudo, eso se ingesta automáticamente en
+[Remote]: y ustedes ahí hacen todas las transformaciones, todo el manejo de data,
+[Remote]: después lo pueden exportar directamente a la misma base de datos.
+[Remote]: La manera Ahí ahí lo voy a dejar a dar igualmente que vea esa parte, pero
+[Remote]: claro, es una base de datos que tampoco puede ser consultada de forma masiva, ahí te lo dejo a dar y
+[Remote]: para que hable de ese punto.
+[Remote]: Dale.
+[Remote]: Ahí te ahí le hago una consulta también.
+[Remote]: La información
+[Remote]: ¿dónde se aloja, digamos, Rexi?
+[Remote]: Digamos? Rexi es es una plataforma
+[Remote]: está en la nube, es de ustedes,
+[Remote]: entra entra dentro de nuestra
+[Remote]: plataforma, ¿cómo...?
+[Remote]: Bueno, hay varios modelos. El modelo SaaS, que es
+[Remote]: el que estamos hablando ahora, donde nosotros alojamos la data a nuestra
+[Remote]: está en AWS, está en la nube, estamos en US East Dos, Es Un Gran Delta Lake, Rexi, ¿entendés? Entonces, nosotros manejamos una plataforma de datos.
+[Remote]: Su organización está totalmente por tenant por organización, entonces
+[Remote]: totalmente desacoplado del dato de todas las organizaciones,
+[Remote]: Nosotros no manejamos credenciales, como le dije recién, o sea, ustedes las cargan, pero eso viaja
+[Remote]: encriptado y sola, y y se guarda encriptado, o sea, nunca está
+[Remote]: volando en texto plano. Nosotros también tenemos SOP dos,
+[Remote]: somos compliance con SOP dos, es decir, tenemos
+[Remote]: toda esa parte toda esa parte de de seguridad de los datos la tenemos mapeada,
+[Remote]: Sin embargo, también hay tema, hay cuestiones, también tenemos el modelo licencia,
+[Remote]: entra en su infraestructura,
+[Remote]: y no entra en la nuestra, ¿no? Entonces, ahí, dependiendo lo que se quiera o
+[Remote]: tipo de se quiera usar, también puede ser como un enlatado.
+[Remote]: Con el tema del enlatado, si ustedes quieren tener Rexi como enlatado y eso hace que corran su infra,
+[Remote]: los temas de escalabilidad de data, de de que los fierros
+[Remote]: tipo, escalen cuando hay más procesamiento de data. Lo que pasa con estas
+[Remote]: este software es que se van acumulando, ¿viste?, cuando vos conciliás,
+[Remote]: se va acumulando lo no entonces es como que
+[Remote]: cada vez tenés que, la infraestructura tiene que ir progresando a medida que
+[Remote]: pasando el tiempo con el uso de la herramienta. Ese en ese modelo de licencia se encarga de ustedes, en el modelo toda la parte de infraestructura nos encargamos nosotros.
+[Remote]: Perfecto.
+[Remote]: Ahí, si nos pueden,
+[You]: ¿Algún comentario sobre eso? Perdón.
+[You]: El modelo de licencia, nosotros lo trabajamos y lo ofrecemos porque, para algunas compañías, tiene mucho sentido.
+[You]: Pero siempre tratamos de que haya una una razón
+[You]: para que eso suceda, porque, obviamente, implica
+[You]: tipo de proceso de onboarding, de deployment y de soporte. Entonces,
+[You]: típicamente, es para compañías donde la información es realmente sensible y
+[You]: y y no podemos trabajar de otra manera,
+[You]: o donde quizás para la compañía, al ser algo tan cora lo que hacen,
+[You]: quieren realmente ser dueños del capability y no estar atado a un vendor Entonces, como que simplemente subirle la vara y dedicar una razón fuerte.
+[Remote]: No. E.
+[Remote]: Y una cosa importante sobre el modelo de licencia es que tienen que tener un equipo de
+[Remote]: asociado a mantener esa infraestructura, ¿no? O sea, que cuando eso
+[Remote]: se baje... Pero bueno, están las dos opciones. Sí, pero bueno,
+[Remote]: respecto a la pregunta que era el manejo de data, nosotros, en nuestro modelo,
+[Remote]: todos en la nube, AWS, por Tenant, por organización,
+[Remote]: en en US East Dos, así que ahí tenemos SOC dos,
+[Remote]: compliance a todo lo que es seguridad de datos.
+[Remote]: Perfecto. ¿Nos puede
+[Remote]: comentar un poquito cuáles cuáles son los los
+[Remote]: los principales flujos que que están buscando conciliar o o automatizar?
+[Remote]: Las operaciones de mesa o Tenemos, ahí tenemos un montón,
+[Remote]: solo para hacer un
+[Remote]: pequeño comentario, bueno, Diego, un poquito tarde, perdón,
+[Remote]: Quizá la pregunta anterior, que no sé si lo contrao o no, es, no sé
+[Remote]: ¿ustedes están trabajando con alguna o con alguna sociedad gerente? O sea, que son dos
+[Remote]: negocios regulados, dos negocios que
+[Remote]: mucha dependencia de mercados organizados, digamos, de la de Bima, de
+[Remote]: digamos, los mercados que operan en Argentina.
+[Remote]: Donde mucha transaccionalidad tiene como punto de partida los sistemas de los mercados,
+[Remote]: y sistemas enlatados que la mayoría de las agencias tienen,
+[Remote]: son, digamos, el primary, sistemas que hoy
+[Remote]: setenta por ciento de Zalix trabaja con eso o la sociedad de gerentes,
+[Remote]: porque es, obviamente, la realidad de de
+[Remote]: nuestro negocio es muy común entre todas las empresas, digamos.
+[Remote]: No no tanta diferencia.
+[Remote]: Si ustedes ya tienen trazado ese camino con alguna sociedad gerente o una
+[Remote]: obviamente que eso nos va a servir,
+[Remote]: si seríamos lo primeros, es algo
+[Remote]: para aprender, entre comidas.
+[Remote]: Pero como decía Mariana recién, ¿no?, o sea,
+[Remote]: y Juan Cruz también. El flujo nuestro es un flujo
+[Remote]: de transaccionalidad con mercados,
+[Remote]: de de, digamos, de transaccionalidad con clientes
+[Remote]: y de y de reconciliación con clientes,
+[Remote]: de bancos, porque la plata fluje fluye por banco, los títulos fluyen por
+[Remote]: mercado de valores o por, digamos, banco de valores o caja de valores,
+[Remote]: este,
+[Remote]: son los mismos interlocutores en toda la industria, como cual
+[Remote]: estamos un poco, entre comillas, atados.
+[Remote]: A ellos en en lo que es la la la flexibilidad que podemos tener hacer algo distinto,
+[Remote]: ¿no?
+[Remote]: Pero bueno, el detalle, obviamente, lo tiene Mariana, lo tiene
+[Remote]: Juan Cruz, Darío. Si quieren, cuéntenme los principales
+[Remote]: procesos, pero todos son procesos diarios, todos los días tenemos que reconciliar.
+[Remote]: Solo todos los días cerramos con el mercado, todos los días tenemos que hacer una evaluación de los fondos,
+[Remote]: los días hay que publicar una evaluación, como que yo cierro balance todos los días,
+[Remote]: este,
+[Remote]: y y eso es un proceso diario, que, comillas,
+[Remote]: lleva bastante tiempo y equipos dedicados, ¿no?
+[Remote]: Mariano con Cruz, la
+[You]: Pues, ya. Sí, responder,
+[You]: Dale.
+[Remote]: realidad de cada negocio?
+[Remote]: Yo quería, por ahí, preguntarle a los chicos algún ejemplo con
+[Remote]: digamos, como como para empezar a bajarlo a tierra, ¿no? Nosotros tenemos un montón
+[Remote]: tenemos del blocker de la mesa
+[Remote]: que nosotros lo llamamos, es un es un Excel que
+[Remote]: termina siendo un sistema en sí mismo hasta, digamos, todas las operaciones del BAC, la tesorería del BAC. Bueno, ahí Silvina puede aportar más también, pero digamos,
+[Remote]: sí.
+[Remote]: Por eso quería por ahí escuchar algún ejemplo, digamos, de de
+[Remote]: de qué que hayan trabajado en otro Alic o
+[Remote]: El clásico, Alic no no tenemos ninguna, pero sí trabajamos con los bancos con los que trabajan las
+[Remote]: las y ahora, de hecho, estamos ahí
+[Remote]: por tener un kick off con con EBIMA,
+[Remote]: Por lo general, nos suele contactar un equipo dentro de las empresas,
+[Remote]: y una vez que contratan el software, empiezan todos los equipos a empezar a querer automatizar sus propios
+[Remote]: procesos, ya sea primero operaciones, después contabilidad, después finanzas,
+[Remote]: Entonces,
+[Remote]: cuando me me preguntás un poco de de contexto de qué es lo que tal vez
+[Remote]: si va tu pregunta, ¿qué es lo que podemos conciliar dentro de Rexi?
+[Remote]: Concilamos todo. Básicamente, somos una orquestador de información.
+[Remote]: Cualquier cosa que puedas hacer en Excel, lo puedes hacer dentro de Rexi, automatizándolo
+[Remote]: y escalable. O sea, el Excel a partir de la
+[Remote]: doscientas mil filas rompe,
+[Remote]: a Rexy, obviamente, tenemos clientes con millones de transacciones por día.
+[Remote]: Así que pensarlo como uno como un orquestador de información.
+[Remote]: Cualquier conciliación que quieras hacer, pensá que tenemos conciliaciones de seguros,
+[Remote]: no tienen nada que ver tal vez con una conciliación de presentados versus liquidada de tarjetas.
+[Remote]: Ahí, perdón. Entonces, Alix y sociedad de gerentes de fondos, no, ni siquiera en los en las que son bancarias,
+[Remote]: ¿estamos de acuerdo ahí? En bancos fue para otras áreas que no son mercado de capitales.
+[You]: Estamos trabajando con Bima. Argentina con Bima, con Superbiel,
+[Remote]: Claro.
+[You]: con buen beat,
+[You]: y ahora justo estamos empezando a trabajar con despegar.
+[Remote]: Okay. We
+[You]: Eso en Argentina. Teo y yo estamos basados en en
+[You]: Nueva York, y y acá también trabajamos con bancos, procesadores de pagos y y fintechs.
+[Remote]: Claro, ahí, imagínense que
+[Remote]: para despegar estamos conciliando, por un lado, tarjetas, y por otro lado, vuelos.
+[Remote]: Un vuelo no tiene nada que ver con un seguro, por ejemplo, pero
+[Remote]: en el fondo a nosotros no nos interesa, no nos importa eso,
+[Remote]: porque es una línea transaccional.
+[Remote]: Donde encuentra valor cualquier compañía dentro de es
+[Remote]: alta transaccionalidad, alta regulación
+[Remote]: y y alta complejidad operativa.
+[Remote]: Sí, ahí ahí creo que la consulta más de que hacía Diego recién va
+[Remote]: a, si ustedes ya habían trabajado con una
+[Remote]: una o una sociedad gerente, ya saben cuáles son los los
+[Remote]: input de datos que tienen todos los mercados, tanto Bima como Mae, Map,
+[Remote]: en nuestro caso, por ejemplo, Bima no es nuestro mercado principal, es MyClear,
+[Remote]: tenés las las regulaciones de los custodios, que
+[Remote]: no están apificados en en en
+[Remote]: la gran mayoría o uno solo que puede ser
+[Remote]: solamente, y esas amplificaciones tampoco son del sistema completo.
+[Remote]: Entonces, es como que entiendo igualmente que el
+[Remote]: el sistema de ustedes
+[Remote]: tiene
+[Remote]: formas ilimitadas o inputs ilimitados de de de las diferentes bases, portales, el
+[Remote]: PDF, la de cualquier cuestión, de cualquier input,
+[Remote]: que podamos meterle. Yo eso lo entiendo, pero bueno,
+[Remote]: entendemos también del lado de que si ya habían laborado con una leak o
+[Remote]: o una gestora, el camino estaba más allanado. Nosotros
+[Remote]: con otros otros aplicativos, otras, bueno, empresas,
+[Remote]: ya hemos hecho el camino de de
+[Remote]: ser los pioneros en ese sentido para los desarrollos,
+[Remote]: No estamos marcándolo como un problema eso, pero bueno, queríamos saber si
+[Remote]: ya ya habían tenido alguna alguna experiencia previa.
+[Remote]: Ahí, Juan, te respondo, lo más cercano es Bima, que
+[Remote]: recién arrancamos con Bima, o sea, es como la primera etapa.
+[Remote]: Pero con respecto a las integraciones que
+[Remote]: quizás cuando se contó, creo que uno de los diferenciales de Rexi es, yo
+[Remote]: creo que lo lo planteamos. Nosotros hay distintos canales, ustedes
+[Remote]: APIs, SFTP, un mail podría ser, lo que sea.
+[Remote]: Nosotros esas integraciones, a diferencia de capaz que otros players en el mercado,
+[Remote]: que hay un tiempo para integrarse y y y todo, nosotros tenemos un integrador
+[Remote]: imagínate que que que que Rexy tiene que hacer un gap enorme de
+[Remote]: posiblemente infinitas integraciones, y tenemos un integrador dinámico y una integración no nos cuesta
+[Remote]: más que dos días o tres días, dependiendo el vendor con el que
+[Remote]: nos enfrentamos. Vos recién no hablaste si es una base de datos. Por eso tenemos que ver, no sé,
+[Remote]: si ustedes nos dicen, che, este es el flujo, estos son los vendors, esto es lo que está disponible.
+[Remote]: ¿Qué pueden hacer? Nosotros agarramos, y eso es lo que llamamos como una segunda etapa,
+[Remote]: de entender esa primer POC para ver todas las challenge
+[Remote]: hay dentro de sus integraciones, que esa es como la parte de ingestar data.
+[Remote]: Cuando la la data ya está ingestada, que vuelvo a repetir, no nos cuesta
+[Remote]: más que una o dos semanas con este integrador dinámico, porque no es que hacemos
+[Remote]: la integración y queda sólida, sino que es muy dinámico todo.
+[Remote]: Dejamos las APIs, ustedes nos dicen dónde es, y eso queda andando. Cuando esté ingestada la data, ya se
+[Remote]: transforma y se maneja dentro de Pero bueno, eso habría que entender ustedes
+[Remote]: un caso de uso para probar valor y ustedes lo puedan ver rápido, quizás en una semana,
+[Remote]: con hasta DataDami, ¿no?, probando Nosotros
+[Remote]: nosotros ahí, Seba, para para que tengan también un poco el el
+[Remote]: insight nuestro desde ese lado, desde la la la la parte de aplicación,
+[Remote]: Pensá que nosotros tenemos, desde conciliaciones básicas, entre comillas, de
+[Remote]: punta a punta de custodio con nuestro sistema enlatado,
+[Remote]: ahí tenés una sola base en cada una, o sea, API
+[Remote]: del custodio, en este caso, caja valores contra enlatado, posición y, bueno, algunas
+[Remote]: aristas que hay que tener en cuenta para la la posproducción de la Eso eso esa ese tipo de conciliaciones, nosotros tenemos muchas, pero son sencillas, o sea, ya tenemos sistemas si bien no como englobados, digamos, de una misma manera, diferentes aplicativos armados para hacer eso. Entonces, ahí no está nuestro no está el punto de valor no está el Paint tan fuerte en ese punto. ¿En dónde está el Paint? Quizás en dónde. Los input de esa información se conforman de seis bases diferentes, en donde son todas ingresos, como te digo, si alguno está amplificado como formato banco, pensá que una
+[Remote]: habilitación de API de un banco tarda
+[Remote]: de tres semanas en adelante si el banco ya lo tiene desarrollado.
+[Remote]: En muchos casos, para nosotros tuvimos que hacer parte de los desarrollos de esos bancos.
+[Remote]: Entonces, esta esta
+[Remote]: aplicación, que vos me decís que eres máximo
+[Remote]: una, dos semanas o dos, tres días en en en conforme,
+[Remote]: pensá que esos tiempos se estiran desde ese lado, desde la parte
+[Remote]: regulatoria y credencial de bancos.
+[Remote]: Hay algunos que, obviamente, ya tenemos nosotros apificados, y si no es apificado, tenemos otros
+[Remote]: input que manejás. Te mandan el boleto, tienen cada uno de sus portales web,
+[Remote]: sino directamente los tenés
+[Remote]: con sus bases de sus propios sistemas enlatados, que es siempre el mismo, como dijo Diego, si
+[Remote]: primary.
+[Remote]: Escobolsa o Escofondos. Entonces,
+[Remote]: eso es como, ya lo, esa parte la tenemos mapeada en ese sentido. No te,
+[Remote]: Pero hay, todo eso, sé,
+[Remote]: lateraliza, por decirlo de alguna manera, con la operatoria propia de mercado
+[Remote]: de
+[Remote]: miles de minutas o millones de minutas por minutos. Ahí leí a
+[Remote]: a a Ignacio, que que marcó que estuvieron laborando con Balance, que hicieron un
+[Remote]: un real demo, digamos, con ellos,
+[Remote]: También eso está está bueno como caso ejemplo, pero para hacer la la comparativa, balance
+[Remote]: es una lead masiva.
+[Remote]: De info. Entonces,
+[Remote]: el input tampoco, ni la necesidad ni el input es el mismo. O sea, está está bueno que ya hayan tenido ese caso
+[You]: No, las necesidades conciliatorias,
+[Remote]: ejemplo?
+[You]: son
+[Remote]: Total.
+[You]: únicas, específicas y particulares,
+[You]: de cada compañía.
+[Remote]: Sí,
+[You]: Eso lo sabemos muy bien. Por eso, nosotros, la infraestructura la construimos como un orquestador de información flexible. Está está totalmente válido el punto de que no no no hemos mucho con Alix todavía y que es una operatoria muy particular.
+[Remote]: sí, sí, sí.
+[Remote]: Hasta
+[You]: Lo que lo que propongo quizás como un próximo paso, si hay interés,
+[You]: armamos una demo y ven la capacidad de la plataforma, también para entender de si
+[Remote]: Sí.
+[You]: esa configurabilidad y esa flexibilidad con la cual hemos construido el producto
+[You]: les interesa. Y después vamos paso por paso también
+[You]: felices de armar una prueba piloto, donde por ahí el producto está más conectado aún
+[You]: y lo prueban de manera sin costo alguno y ven el valor. Digo, acá,
+[You]: no sé, no, digo,
+[You]: hay que testearlo. Entiendo que, del dicho al hecho, hay un gran trecho, pero pero lo mejor es testearlo,
+[You]: y compararlo contra cualquier solución que tengan hoy,
+[You]: o cualquier otra solución que haya en el mercado, y, función de eso, decidir.
+[Remote]: Ahí te hago una pregunta, quizás una pregunta para
+[Remote]: bueno, Diego y Silvina, que
+[Remote]: entiendo que un poquito de dolor tenemos en las conciliaciones bancarias de la LIC.
+[Remote]: ¿Cómo ven eso, Diego? Vos que estás muy metido ahí.
+[Remote]: ¿Dónde están los puntos de dolor? Y los notas de la aseguranza.
+[Remote]: Cerca de
+[Remote]: Escuchá.
+[Remote]: Sí, sí, sí. Ah, ¿qué tal? Sí, sí.
+[Remote]: Nosotros,
+[Remote]: que respecta a la conciliación y a la parte de los gastos, no tenemos como inconveniente
+[Remote]: ese punto.
+[Remote]: Entiendo que acá le puede servir más a la gente de back office para lo que es la la operatoria
+[Remote]: de toda la transferibilidad que pasa por
+[Remote]: por los bancos, de las cuentas comités. Sí, sí, sí, yo yo sé que, bueno, ahí
+[Remote]: el tiene un proceso diario
+[Remote]: que le insume tiempo, digamos, y Sí, el más completado es
+[Remote]: banco de valores que me, que, digamos, por el volumen que tiene
+[Remote]: de
+
+============================================================
+SUMMARY
+============================================================
+### One618 Operations Overview
+
+- Securities operations focus with significant manual processes
+  - Currently using Excel macros for most workflows
+  - Exploring automation with Claude, APIs, Python, ChatGPT
+  - Process still requires manual data ingestion - described as “tedious”
+- Daily reconciliation requirements across multiple systems
+  - Securities flow through market/bank custody systems
+  - Cash flows through banking systems
+  - Balance sheet closure required daily
+  - Fund valuations published daily
+
+### Current System Architecture & Pain Points
+
+- Multiple data sources requiring reconciliation
+  - Various APIs with different credentials
+  - Banking systems with rigid security protocols
+  - Several “canned” systems without direct API access
+  - Direct database access needed for some integrations
+- Primary systems used across industry
+  - Primarily and Escofondos as standard platforms
+  - 70% of fund managers use similar setups
+  - Limited flexibility due to market infrastructure dependencies
+
+### Rexi Integration Capabilities
+
+- Data ingestion approaches
+  1. API integrations (preferred path)
+  2. Direct database connections
+  3. Email-based data extraction
+  4. Portal automation as last resort
+- Dynamic integrator reduces setup time to 2-3 days
+- AWS cloud infrastructure (US East 2)
+  - SOC 2 compliant
+  - Tenant-based data organization
+  - Encrypted credential storage
+- Licensing model available for on-premise deployment
+
+### Market Experience & Positioning
+
+- Current Argentina integrations
+  - Working with Byma, Supervielle, Brubank
+  - Starting engagement with Despegar
+  - Various reconciliation types: cards, flights, insurance
+- Limited experience with fund managers (ALICs)
+  - Byma integration just beginning
+  - No prior ALIC or fund management company experience
+  - Banking integrations focused on non-capital markets areas
+
+### Next Steps
+
+- Demo scheduled to showcase platform flexibility
+- Pilot program proposed at no cost
+- Focus areas for evaluation
+  - Banking reconciliation pain points for back office
+  - Daily transfer operations through committee accounts
+  - Bank of Values processes (highest volume area)
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/614f9a55-37aa-4107-b6be-75e601645dd8](https://notes.granola.ai/t/614f9a55-37aa-4107-b6be-75e601645dd8)

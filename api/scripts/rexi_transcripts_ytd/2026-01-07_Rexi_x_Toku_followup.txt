@@ -1,0 +1,555 @@
+MEETING: Rexi x Toku: followup
+DATE: 2026-01-07
+ID: not_Vx6Ih44IDko2Va
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Nrosengaus <nrosengaus@trytoku.com>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-01-07T16:00:00-05:00 - 2026-01-07T16:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Hola, Natalie.
+[Remote]: ¿Qué tal? Muy bien, ¿y tú?
+[You]: Muy bien, muy bien, feliz año nuevo.
+[Remote]: Igualmente. Oye, perdón que te tuve que mover la sesión de ayer, pero es que ya
+[Remote]: me iba a agarrar en un Uber y dije, no, está mejor moverla.
+[You]: Sí, sí, tranqui, tranqui, tranqui, está con mucho laburo.
+[Remote]: Pues, ya no eres como que regresé
+[Remote]: entonces, que quedaron muchas cosas pendientes, que estamos como medio catching up.
+[Remote]: De de fin de año. ¿Ustedes qué tal?
+[You]: Bien, con la verdad que
+[You]: reactivando también con todo, creo que nuestra plataforma es como algo que
+[You]: hacía fin de año nadie quiere priorizar,
+[Remote]: Sí, claro, ahorita no necesito moverle.
+[You]: para implementar. Entonces,
+[You]: sí, como que es, it got slower
+[You]: the last weeks of the year, y ahora enero todos los que ya saben que tienen un ping con
+[You]: lo están empezando a priorizar para el cuentonces.
+[You]: Muchas conversaciones están empezando a convertir ahora, lo cual es bueno, así que contentos.
+[Remote]: Happy for you.
+[You]: Gracias. ¿Cómo fue la prueba con Symmetric?
+[Remote]: Pues, mira, la verdad, ahí vamos, vamos bien.
+[Remote]: Este, estamos ya como que procesando varias cosas,
+[Remote]: Estuvimos revisando también, sorry, como que también a fin de años en los
+[Remote]: se nos
+[Remote]: sabes, todo se nos acumuló, pero sí lo hablamos a finales del año,
+[Remote]: lo que estábamos viendo es si
+[Remote]: o sea, nos gustaría hacer una prueba
+[Remote]: para un cliente un gateway, o sea, para tampoco cargarles a ustedes muchísimo la
+[Remote]: la mano, digamos, o que sea como que algo razonable.
+[Remote]: Pero queríamos ver, o sea, como que si estarían dispuestos a hacer como que un one month free
+[Remote]: o sea, para nosotros como que entender un poco si funciona o no funciona.
+[Remote]: Si lo que nos preocupa y quisiéramos ver como que es
+[Remote]: tamaño de archivos pueden recibir, ¿no? O sea, si te puedo mandar un archivo con
+[Remote]: miles, o sea, son cinco millones de líneas a la semana o como que si hay como limitaciones de ese lado, un poco entender como que cómo están los flujos con ustedes. Este, y por otro lado también, o sea, como que vimos las tres como opciones que habías mandado como de cómo podría funcionar el si fuera white label o no white label, pero creo que no nos acabo de quedar muy claro exactamente cómo price sean. Como que si es por conciliación, si es por línea, si es por, o sea, como que no nos quedó como superclaro eso, creo que esos son los como dos puntos que nos gustaría como revisar con ustedes
+[You]: Va, buenísimo.
+[Remote]: ahorita.
+[You]: De escalabilidad, mirá, tenemos un cliente que procesa
+[You]: catorce millones de transacciones por día con nosotros.
+[Remote]: Okay.
+[You]: Con lo cual, tema de escalabilidad es algo que
+[Remote]: Va.
+[You]: que hemos solucionado el el Qo anterior,
+[You]: la infraestructura nueva, y ahora tenemos una infraestructura
+[Remote]: Escalable.
+[You]: que escala realmente, sí, sí, a infinito, y la verdad que procesa muy rápido.
+[You]: Para que tengas una idea,
+[You]: Procesamos con esta compañía americana, es una un wallet de estado
+[You]: Unidos, procesamos catorce millones de transacciones por día,
+[You]: across seven different reconciliation workflows.
+[Remote]: Okay.
+[You]: Y corre en menos de trece segundos.
+[You]: Que es algo que
+[Remote]: Love it.
+[Remote]: Mhmm.
+[You]: o sea, ellos venían de un proveedor viejo,
+[You]: y y cambiaron al nuestro justamente, porque el proveedor viejo tardaba, creo que era tres horas y media en correr.
+[You]: Con lo cual,
+[Remote]: Okay.
+[You]: scalability no creo que sea un issue.
+[You]: Para nosotros.
+[Remote]: Va, va, va.
+[You]: Pricing, déjeme ubicarme un poquito en
+[You]: cuál es la visión acá y cuál es el objetivo. El objetivo es
+[You]: cien por ciento un embedded solution for Tocus customers, ¿no?
+[You]: No,
+[Remote]: Sí, eso sería lo ideal. O sea, que, bueno, esa es la manera en lo que le estamos
+[Remote]: pensando ahorita si fuéramos a trabajar con ustedes, que fuera como un
+[Remote]: sí, que fuera como white label dentro de Toco.
+[You]: Va.
+[Remote]: Ok, fuera
+[Remote]: usar la plataforma, o sea, su plataforma como
+[Remote]: procesamiento, y luego nosotros hacer como que
+[Remote]: como proyectar eso a nuestro web app, digamos,
+[Remote]: serían como que las dos opciones.
+[Remote]: Pero creo que white label sería lo
+[Remote]: no sé, sabíamos el pricing,
+[Remote]: siento que la mejor manera de hacerlo sería white label, pero evidentemente, pues,
+[Remote]: como que de la parte de front end hay muchas cosas que, pues, como que
+[Remote]: tienen que quedarse iguales, entonces, no sé si sería exactamente
+[Remote]: funcional.
+[Remote]: Pero veamos, ajá.
+[You]: Perfecto.
+[You]: Acá, mirá, nosotros estamos muy flexibles.
+[You]: Quizás también para situarnos competitivamente contra Symmetric,
+[Remote]: Sí.
+[You]: estamos en otro stage,
+[Remote]: Sí.
+[You]: lo cual nos permite tener mucho más
+[You]: flexibilidad de juego de cintura en armar algo mucho más custom for toku.
+[You]: Con lo cual
+[You]: I see this motor as a long term partnership rather than us
+[You]: selling a solution to you guys and and just run with it. No?
+[Remote]: Perfect.
+[You]: Embedding, el embedding route, y y lo queremos explorar activamente.
+[You]: Con lo cual,
+[You]: como setting the tone y setting the the platform,
+[You]: hay mucho interés en nuestro lado en colaborar con ustedes
+[You]: lo cual para ustedes es un gran beneficio por el lado de pricing y por el lado de la flexibilidad que
+[You]: tener hacia
+[You]: el producto, la experiencia y la tecnología
+[You]: como lo quiera tener.
+[You]: Acá un poco es
+[You]: yo lo lo lo lo puse en tres opciones de de white label,
+[You]: que están en función de la experiencia, ¿no? Backend API es
+[You]: you guys build all the front end, y le pegan una API nuestra para mandarnos los
+[You]: nosotros los procesamos y devolvemos un resultado, con lo cual ahí estarían solo usando nuestro
+[You]: engine, ¿no?
+[You]: Hay un gran trabajo de su lado ahí de
+[You]: todo el front end y la y y mucho trabajo entre los equipos técnicos para la configuración de cómo cruzan estos archivos. Ojalá estos archivos haya mucha economía de escala, sentido de que casi todos los archivos se procesen de manera igual, si no, ahí entran los paints, y tendríamos que ver cómo escala eso, ¿no? Ahí lo que decimos nosotros es, para ese modelo es, el pricing es un fixed platform fee, que ahí tenemos que sentarnos con ustedes a que nos digan una estimación de cuántos clientes, cuántas transacciones, y y ahí we can figure out a flat fee por por por poder pegarle a esa API y por construir esa API y todo ese flujo, más un usage based fee.
+[Remote]: Okay.
+[You]: Usage based fee
+[You]: es un poco
+[You]: nuestros costos variables, nuestros costos variables de de cloud, ¿no? Que tenemos de
+[You]: almacenamiento y de procesamiento, con lo cual ahí hay supertransparencia también,
+[You]: Una vez que pasen estimaciones de volumen, nosotros les podemos pasar un quote de
+[You]: cómo funcionaría ese ese volume based
+[Remote]: Right.
+[You]: fee. Lo que tiene de flexible eso ustedes es que si los clientes lo usan,
+[You]: le están generando valor y el invoice es más grande, pero si no lo usan, sería solamente el el
+[You]: fee, que la idea es usarlo
+[You]: ponerlo en un
+[You]: valor que
+[You]: que no sea tan doloroso para ustedes, pero que para nosotros por lo menos nos justifique
+[You]: el mantenimiento de SAP y el mantenimiento de toda la y la
+[Remote]: Sí.
+[You]: estructura y los SLAs, etcétera.
+[Remote]: Este usage fee sería
+[Remote]: por transacción conciliada, por
+[You]: Registro.
+[Remote]: revisada, por ok.
+[You]: Registro. Entonces, porque gran parte de los costos vienen de
+[You]: procesamiento.
+[You]: Le llamamos un registro?
+[You]: Si yo tengo una base a,
+[You]: diez transacciones y una base b de diez transacciones, ahí hay veinte registros.
+[You]: Es la sumatoria de todas las líneas que estamos procesando.
+[Remote]: Ok, sí, ya.
+[Remote]: Línea de del Excel, ok, o del texto, ajá. Ok,
+[You]: Exacto. Y obviamente
+[You]: eso no escala lineal, ¿no? Tiene un
+[You]: tiene discounts con volumen, ¿no? Digo, no sé, las primeras diez millones de líneas
+[You]: primeras cinco millones de líneas tienen un precio, después las segundas cinco, y eso va bajar, De igual, en una escala
+[You]: linealmente ni exponencialmente, porque nosotros también encontramos economías de escala en
+[Remote]: Okay.
+[You]: batch processing y tenemos algunas cosas de nuestro back end que nos permite optimizar costos
+[Remote]: Oh, yeah.
+[You]: a escala, ¿no?
+[Remote]: Oh, yeah.
+[You]: La opción b es
+[You]: un embedded UI,
+[You]: entonces hay como una especie de componente de dentro de la plataforma de Toku, y acá hay una especie de configuración en ese módulo. Cuando ustedes tengan el módulo dentro de la plataforma de Toku, usuario tiene que ir y configurar un poquito el flujo, desde conectar las fuentes, las llaves conciliatorias, si quiere poner tolerancias, esto le agrega mucho más funcionalidad. Al usuario final. Eso también hay mucho discovery acá que tenemos que hacer con los clientes de ustedes de cuáles son las necesidades. Porque nosotros tenemos si yo vendiera directo a Toku, nuestra plataforma, tenemos un montón de funcionalidades
+[Remote]: Mhmm.
+[Remote]: Mhmm.
+[You]: increíbles, desde
+[You]: rangos de tolerancia, case management, pattern
+[You]: suggestion. Nosotros tenemos un montón de AI machine learning capabilities,
+[You]: después está todo lo del lo del output,
+[You]: Tenemos unos dashboards impresionantes, tenemos un export module que
+[You]: genera cualquier tipo de reporte,
+[Remote]: Okay.
+[You]: que es compliant con con cualquier framework
+[You]: compliance o de regulatorio, no sé, en Argentina, por ejemplo,
+[You]: hacemos todos los reportes del BSRA a nivel diario, en Estados Unidos también hace
+[You]: los reportes del CSPV para lo que es
+[You]: banca,
+[You]: Entonces, tenemos ahí mucho reporting a Doc y Custom que el cliente puede llegar a usar.
+[You]: Y la otra parte de output es
+[You]: la parte contable.
+[You]: Nosotros tenemos un módulo de accounting que permite generar asientos contables
+[You]: de todas las transacciones ya conciliadas.
+[Remote]: Okay.
+[You]: Esto solo para darte un paneo de funcionalidad adicional podríamos disponibilizar en la opción b dentro del módulo de Toku, ¿no? Dentro de la plataforma de Toku. Y ahí de vuelta, se arregla un fixed platform fee más usage based fees. Fixed platform fee poquito más alto, pero usage based fee muy parecido. Y la opción c es directamente reseller partnerships, digamos, ¿no? Como que
+[Remote]: Mhmm.
+[Remote]: Hello?
+[Remote]: Que sería el front de de Rexy, nada más nosotros vamos a ir vender.
+[Remote]: ¿No? Sí, creo que eso no es como que una opción que estamos considerando
+[You]: Noise.
+[Remote]: por el momento.
+[You]: Okay.
+[Remote]: No. O sea, que te diría que me quedaría con
+[Remote]: con opción a y b,
+[You]: Y esto de vuelta no es, digamos, esto no es rígido,
+[Remote]: Pensaba pensar
+[Remote]: No,
+[You]: Esto yo simplemente como para mapear las opciones,
+[You]: pero luego la idea es sentarnos con ustedes y tener estas sesiones de trabajo para entender
+[You]: la necesidad del cliente y cuál es la mejor experiencia que le podemos brindar al cliente. Pues, nosotros felices de
+[Remote]: Sí, creo que es algo que que podemos como que ver
+[Remote]: después, pero sí sí creo que como que a y b s se parecen
+[Remote]: pues están como más alineados a lo que estamos buscando, digamos.
+[You]: Va.
+[Remote]: Porque justo ya tenemos como, o sea, sí tenemos como parte del front
+[Remote]: ya avanzado, entonces, eso te digo que maybe
+[Remote]: no sé, igual opción a sería algo que
+[Remote]: no sé, veamos, ¿no?
+[Remote]: Entonces, para hacer como una cotización,
+[Remote]: nada más para tener como que idea de los precios, te paso
+[Remote]: como un volumen
+[Remote]: deja ver como que cómo saco los los volúmenes que estabas manejando ahorita,
+[Remote]: Pero bueno, antes de eso, que sí nos gustaría primero
+[Remote]: entender como
+[Remote]: exactamente cómo funciona y como que si se adapta al flujo
+[Remote]: trabajo que estamos manejando ahorita, digamos.
+[Remote]: Entonces, como que
+[Remote]: estarían dispuestos o no a ser como que una
+[Remote]: te digo, como free trial one month, o sea, no cargarles mucho, literal,
+[Remote]: de que un cliente con dos archivos, ¿sabes? O sea, como que
+[Remote]: uno de ERP y uno como del reporte del gateway,
+[Remote]: como que entender un poco los flujos cómo funciona y como que
+[Remote]: que sería como nuestro primer step,
+[Remote]: que creo que ese quedaría como un poco más de, no tanto del lado de lo
+[Remote]: de los devs, pero más como de nuestro lado de probar el producto como make sure that it works,
+[Remote]: que es alinea con con la visión que tenemos.
+[Remote]: Y ya de ahí,
+[Remote]: if we like the product, if we like how it's going,
+[Remote]: podemos, digamos, o sea, lo que creo que es una buena opción es que estamos
+[Remote]: a principios de mes y que podemos
+[Remote]: empezar como que con enero, digamos, ¿no? O sea, que let's give it a try
+[Remote]: todo enero y nos sentamos la primera semana de febrero, o sea, digo, obviamente,
+[Remote]: podemos conversar como que en las semanas, pero como
+[Remote]: if we like it, así creo que en un mes podríamos como que
+[Remote]: empezar a hablar un poco más del pricing y de y ver como
+[You]: Vale, sí, sí, sí.
+[Remote]: si funciona o no.
+[Remote]: ¿Será
+[You]: Felices, nosotros felices de armar un, o sea, algunas pogs
+[You]: ¿sabes? Viste que es un continuo, es como que al final algunas, a veces, dimos pruebas de concepto de tres
+[You]: meses, a veces hacemos free trials de un mes más cortas,
+[You]: Lo importante acá es estar superalineados en en los distintos
+[You]: escenarios, ¿no? Y y ahí lo que digo es, we can definitely do a one month free trial, pero
+[You]: alineemos bien cuáles son los
+[You]: criterios de éxito a nivel funcional y a nivel tecnológico,
+[You]: y cuáles son los purchasing criteria for you guys, cosa de que armemos
+[You]: esa ese mes
+[You]: to set it up for success, ¿no? Y así nosotros estamos sabemos bien
+[You]: cómo podemos trabajar para que ese mes sea un rotundo éxito y y logramos
+[You]: transicionar hacia ya una propuesta comercial, ya sea hace algo más.
+[You]: Escalable a futuro. Con lo cual ahí, no sé, preguntarte a vos,
+[You]: cómo te imaginas ese free trial. Tengo un par de preguntas.
+[You]: La primera es, nos conectamos a las fuentes
+[You]: y las ingestamos de manera asincrónica y automática todos los días,
+[You]: o nos vas a estar mandando archivos
+[You]: and we're gonna be feeding it manually.
+[Remote]: por el momento les lo estaríamos como mandando
+[Remote]: archivos manualmente, nada más porque,
+[Remote]: de nuestro lado,
+[Remote]: el cliente con el que estaríamos haciendo este
+[Remote]: trial tampoco estamos conectados directamente yet, o sea, también estamos como que
+[Remote]: starting fresh este proyecto, entonces estamos nosotros recibiendo los
+[Remote]: los documentos así.
+[You]: Buenísimo. ¿Y esto sería a nivel diario?
+[Remote]: Tengo una junta con ellos
+[Remote]: el martes, y ya se definiría ese proceso, pero sí la idea sería
+[You]: En el diario, días de semana, asumo, no no fines de semana.
+[Remote]: fuera diario.
+[Remote]: Sí, sí, lunes a viernes.
+[You]: Y calculo que el del lunes va a venir batched
+[You]: con lo del fin de semana o algo así.
+[Remote]: Sí, creo que más, en el martes viene batch
+[You]: Ah, va.
+[Remote]: como de viernes a domingo, algo así.
+[You]: Buenísimo. Con lo cual va a ir un daily file, que we feed it manually,
+[You]: y y ahí un poco
+[You]: si me podés contar más detalles sobre cómo cuáles serían los requerimientos
+[You]: funcionales.
+[Remote]: Uno es como entender
+[Remote]: o sea, como qué qué tanto
+[Remote]: qué tantas transformaciones le tenemos que hacer el
+[Remote]: al documento y cuántas permite hacer
+[Remote]: como que su plataforma, ¿no? O sea, uno de estos documentos
+[Remote]: es un Excel y otro es un TXT, que
+[Remote]: al día de hoy apenas nos nos mandaron como que cómo está dividido, entonces,
+[Remote]: obviamente, lo tenemos que como que dividir en columnas, make sure that that works,
+[Remote]: La siguiente sería
+[Remote]: las reglas de conciliación,
+[You]: Mhmm.
+[Remote]: o sea, que que cuántos
+[Remote]: pues sí, cuántas reglas le podemos poner para para conciliar,
+[Remote]: Después de eso, o sea, como que qué tan fácil está
+[Remote]: o sea, por ejemplo, hoy,
+[Remote]: que esto es para otro cliente, ¿no? O sea, digamos que no sería como
+[Remote]: lo que aplica para este free trial, pero sí me gustaría entender, o sea, es algo que salió literal
+[Remote]: hoy, hace un par de horas, entonces, como que,
+[You]: Mhmm.
+[Remote]: por ejemplo, ellos cuando quieren conciliar,
+[Remote]: o sea, digamos que ya conciliaron y tienen las transacciones que no concilian y que faltan de
+[Remote]: aplicar, ¿no?
+[You]: Mhmm.
+[Remote]: Entonces,
+[Remote]: suben como un documento a su plataforma como
+[Remote]: de batch de todo lo que está, que tiene como un formato muy específico.
+[Remote]: Entonces, como que, ¿qué tanto podemos hacer? O sea,
+[Remote]: ¿qué tanto nos permite el data out? ¿No? O sea, como que el
+[Remote]: resultado de la conciliación, qué podemos hacer con esos datos,
+[Remote]: digamos, creo que eso también sería relevante para mí.
+[Remote]: Y
+[Remote]: pues, digo, creo que me quedé un poco tranquila con lo que acabas, me acabas de decir de la de la escalabilidad,
+[Remote]: y como de la rapidez, ¿no? O sea, que
+[Remote]: como que sí nos tenía como que, digo, sabiendo que son un story-up y que están empezando como que
+[Remote]: qué tanto podemos consumir, pero
+[Remote]: creo que a ese lado me quedo tranquila.
+[Remote]: Entonces, creo que esas serían para mí las las primeras consideraciones.
+[You]: Va.
+[Remote]: Digamos.
+[You]: Buenísimo.
+[You]: Y
+[You]: no sé, por ejemplo,
+[You]: What are you liking? What are you not liking?
+[Remote]: Were
+[Remote]: de mi lado, creo que ha sido un poco lento,
+[Remote]: o sea, está como un poco complicado hacer, te digo, las transformaciones de los documentos,
+[Remote]: Como que digo, ya ahorita ya tenemos como que los formatos un poco más armados y
+[Remote]: y así, entonces, que, este, no, pero el initial setup has been
+[Remote]: a bit of a hassle, entonces, como que estar agregando nuevos gateways
+[Remote]: has been a bit slow.
+[Remote]: Y luego, digo, todavía no hemos visto la parte de como
+[Remote]: conexiones directas, nada más porque también nosotros estamos como que haciendo
+[Remote]: corriendo pruebas con estos clientes, entonces, eso es como en una siguiente etapa,
+[Remote]: pero, pues, tampoco entendemos, o sea, como que no acabamos de
+[Remote]: ver cuál es como la mejor manera de conectarnos y estar consumiendo esa data
+[Remote]: diario o a qué hora o cómo que cómo
+[Remote]: se corren estas conciliaciones, como que once it's automatic,
+[Remote]: Por otro lado, creo que las reglas
+[Remote]: de conciliación sí nos están funcionando bien, nos estamos conciliando
+[Remote]: arriba del noventa y nueve punto cinco por ciento
+[Remote]: casi todos los días, entonces, como que that's been working pretty well.
+[Remote]: Sería como que mis pros y los contras, por now.
+[You]: Va, buenísimo.
+[You]: Y
+[You]: vos vos estás en producto, ¿no? O en operaciones.
+[Remote]: No, estoy en producto, pero digamos que
+[Remote]: estoy como happy half ahorita, porque estamos como que implementando a new product, entonces,
+[You]: Va.
+[Remote]: estoy haciendo como mitad de mitad.
+[You]: Y un poco para entender como que cuál es el el el strategic vision
+[You]: de conciliaciones para Toku going forward. O sea, estoy dando de de adelantar
+[You]: Toku build towards that product vision.
+[Remote]: O sea, mira, lo estamos pensando en qué
+[Remote]: como que una manera más de convertirnos
+[Remote]: en lo que a nosotros nos gusta hacer como un operating system,
+[Remote]: O sea, que sea como que los que estamos corriendo el
+[Remote]: setenta, ochenta por ciento de lo de los payments de nuestros customers, y creo que esto
+[Remote]: una manera de ayudarlos
+[Remote]: un paso más, que estamos como que llevando
+[Remote]: varios productos como que son
+[Remote]: relevantes a los pagos, que nos
+[Remote]: ayudar como que a consolidar esas relaciones con los clientes, ¿no? Entonces, como que
+[Remote]: that's the way we're thinking about it, o sea, como que no nos va a convertir en nuestro
+[Remote]: core product, pero sí creo que es algo que como que especialmente ya
+[Remote]: sea, como que es algo que los clientes los han pedido mucho y creemos que como que podemos agregar valor ahí.
+[You]: Va.
+[Remote]: ¿No?
+[You]: Excelente. ¿Y es algo que ustedes quieren ofrecer
+[Remote]: ¿No?
+[You]: ofrecer directo, o sea, porque
+[You]: pensando si hay una una de las visiones de Rexy, te cuento,
+[You]: para nosotros conciliaciones, first and foremos es un tema
+[You]: coordinación colaborativa, porque I'm always compelling my source of the truth against divorce.
+[You]: No? And when I mean yours, it's a third party. This is
+[You]: la manera de realmente crackear conciliaciones es de vuelta
+[You]: una herramienta compartida. Ustedes ya tienen el beneficio de que el cliente
+[You]: está en la plataforma de Toku y está conciliando en Toku con Toku.
+[You]: ¿No? Entonces, you're bridging that gap.
+[You]: Pero, ¿qué pasa con todos los flujos que ese cliente opera por fuera de Toku?
+[Remote]: Eso es justo, o sea, como que
+[Remote]: que está dentro de toku, digamos, que está
+[Remote]: conciliado ish, y esto es como que
+[Remote]: justo lo estamos viendo para clientes que currently
+[Remote]: no tienen todos sus métodos de pago con nosotros, y entonces que los podemos ayudar a conciliar ahí y empezarlos a como que y de mover a a pasarelas de pago de Toku o de plano, como que es como, oye, nosotros te vamos a procesar esto y te vamos a ayudar a conciliar estos pagos por temas nada más quedan fuera, ¿no? O sea, temas de efectivo, temas de, ¿ya sabes? Entonces, que that's the way
+[You]: O sea, ¿les interesa conciliar
+[You]: nontoku flows?
+[Remote]: Nos interesa mucho conciliar más profiles.
+[You]: Ok,
+[You]: como un como un incentivo o un approach para ganar share of wallet.
+[Remote]: Agreed.
+[You]: Básicamente.
+[You]: Amazing. Y y last question is,
+[You]: entonces vos sos la que estás liderando esta iniciativa, ¿no? Como el lado de producto y
+[Remote]: Sí, sí, este, justo creo que habías hablado con Andrés,
+[You]: ops.
+[You]: Y y
+[Remote]: pero Andrés ya está en otro producto y yo estoy viendo esta.
+[You]: No sé si era Andrés, era
+[Remote]: ¿Más?
+[You]: Tomás.
+[Remote]: Sí, ya, Tomás se acaba de quedar como
+[Remote]: head de product, pero de Chile, y entonces ya
+[Remote]: nos quedamos con el head de product de México, digamos.
+[You]: Va. No, y la última pregunta más táctica que quería hacerte es,
+[You]: No. I'm thinking about this as a partnership.
+[You]: That can help us grow
+[You]: both of us.
+[You]: Tienen ya en la cabeza o o
+[You]: está empezando a armar el business case de de pricing on this o el business model on this,
+[You]: tenés en la cabeza un número que me decís,
+[You]: is the ballpark range you're willing to pay for this,
+[You]: it's not gonna fly or or to any unestimado business case.
+[Remote]: La verdad, no te voy mentir, estamos en eso, como que we're reading haven't found like a
+[Remote]: pricing,
+[Remote]: como en específico, o sea, estos, o sea, ahorita como que a los clientes
+[Remote]: con los que estamos haciendo, este, como initial approach,
+[Remote]: han sido como bundled up con el resto de los productos de Toku, Entonces, como que
+[Remote]: estamos justo tratando de entender nosotros también de ese lado how much como que
+[Remote]: we can charge for como que este vertical, ¿no? Separado de como
+[Remote]: el procesamiento y el resto de de los productos de toco. Entonces,
+[Remote]: fuera eso, el pricing de Symmetric tampoco queda muy claro porque lo usamos para otras cosas dentro de Toku, no necesariamente como client facing, o sea, como internas también, entonces, que estamos también como que hopping a ese contrato, entonces, como que tampoco hemos podido como dividir muy bien como los pricings de lo que estamos procesando nosotros versus the rest of the company. Entonces, creo que si tú me ayudas, más o menos, como que con los pricings que has tenido, más o menos cómo está, para que nosotros nos demos una idea de cómo how much how much are COGS, y luego como que cuánto podemos moverle ahí o como
+[Remote]: dices, o sea, si el plan me dices como que, oye, el Tixty son
+[Remote]: ten thousand dollars a month, te digo como que, ah, no, hoy fue there, ¿sabes? O sea, como que,
+[You]: Okay.
+[Remote]: estamos nosotros también de nuestro lado, no tenemos el pricing al cien.
+[You]: Va. Bueno, vayamos conversándolo a medida que avancemos en
+[You]: este en este free trial, obviamente, a medida que hagan esas cuentas y y qué sé yo.
+[You]: Related to pricing,
+[You]: ¿vos ves más viable un modelo? Porque nosotros con clientes
+[You]: solemos trabajar con tres modelos distintos. A veces hacemos un plan fijo,
+[Remote]: Mhmm.
+[You]: full previsible, next twelve months, this is the price per month.
+[Remote]: Okay.
+[You]: Porque algunos algunos clientes prefieren esa previsibilidad y esa estabilización de costos
+[You]: Con los otros tenemos algo híbrido, donde hay de vuelta
+[You]: un platform fee, más in usage base fee, y con algunos tenemos cien por ciento variable.
+[You]: Cien por ciento variable tiene el beneficio de que si no se usa es un invoice bajo, pero esa esta
+[You]: invoice puede escalar bastante
+[You]: si de repente hay mucho usage on the platform. Entonces, entender un poco cómo
+[You]: qué modelo ves vos más viable para este setup.
+[Remote]: Creo que me gusta la parte de que
+[Remote]: sea como free
+[Remote]: usage based, nomás porque
+[Remote]: creo que sí nos podría dar como un poco más de flexibilidad,
+[Remote]: pero maybe, o sea, como que la la manera en la que estoy pensando,
+[Remote]: sería como que si hubiera manera de hacerlo como por tiers,
+[Remote]: que nos podía dar como un poco más de flexibilidad, ¿no? De como de cero a diez mil, pero
+[Remote]: de que, oye, si procesas cinco mil transacciones, son mil dólares, si procesas más de diez a ventas, o sea, que para nosotros tener como una idea de como como un poco más o sea, quiero decir fijo, pero como que a little bit more of an idea de como dónde quedaríamos.
+[You]: O sea, ¿le te gusta la variabilidad?
+[You]: Pero no que sea cien por ciento variable, sino como más por tiers.
+[Remote]: Exacto.
+[You]: Va.
+[You]: Carísimo. Bueno,
+[You]: ¿cómo te parece seguir? O sea,
+[You]: our side, te digo, ya mismo, nos interesa hacer ese free trial, con lo cual
+[You]: no sé si vale la pena tener otra reunión, quizá
+[You]: principio de semana que viene, para que ya
+[You]: nos compartas los archivos y empecemos ese mes.
+[Remote]: Sí, mira, tengo
+[Remote]: llamada con este cliente el
+[Remote]: martes en la mañana,
+[You]: Mhmm.
+[Remote]: donde esperamos como que recibir
+[Remote]: ya información de enero.
+[Remote]: O sea, no sé, creo que va a ser el doce, algo así, enero,
+[Remote]: que podríamos como
+[Remote]: maybe
+[Remote]: tener un call el miércoles, ¿puede ser en la tarde?
+[You]: K.
+[Remote]: O miércoles? Como que ya que habíamos como que recibido y como que habíamos
+[Remote]: where we're at, y de ahí seguir. Eso me
+[Remote]: me parecía era razonable. ¿That work?
+[You]: Listo, amazing. Ahí te mando un invite para el para el miércoles a la tarde, después si no lo movemos.
+[You]: Así medio a modo kick off para ya
+[Remote]: Va.
+[Remote]: Ah, claro, sí, pues, miércoles en la tarde es perfecto.
+[You]: dale, para ya ver
+[You]: si si llegó el archivo y meternos ya en the width of it.
+[Remote]: Okay.
+[You]: Other than that, no sé si hay algo más.
+[Remote]: No, déjame, entonces, nada más, este, como que
+[Remote]: qué packed with the team de lo que hablamos hoy.
+[You]: Vale, buenísimo.
+[You]: Tranquila, vamos a al al pace en la que las cosas sucedan.
+[You]: What last comment?
+[Remote]: Mhmm.
+[You]: Explorar ese uso interno, ¿no? Que hoy están con Symmetric.
+[You]: I can it's another meeting, pero nosotros
+[You]: básicamente, hacemos lo mismo de una manera mucho más
+[You]: eficiente, ágil,
+[You]: inteligente y barata, y y quizás hay un play ahí para hacer.
+[Remote]: Entiendo que no es necesariamente
+[Remote]: un tema de conciliación, es más como de cruce de otros datos.
+[Remote]: I think. Pero I'll look into it internally, porque
+[Remote]: See, I'm pretty sure they're not using it for reconciliation.
+[Remote]: I think it's another,
+[You]: Accounting
+[Remote]: no sé bien, outlook it, la verdad, no tengo idea.
+[You]: Va, tranqui. Bueno,
+[Remote]: Sé que hay otros equipos que lo usan.
+[Remote]: So let me out y te aviso.
+[You]: dale. Bueno, have a great rest of your day, y estamos ahí en contacto, te mando el invite
+[You]: para el miércoles, y si no funciona, lo podemos.
+[Remote]: Perfect.
+[You]: Thank you. Bye.
+[Remote]: Thank you.
+
+============================================================
+SUMMARY
+============================================================
+### Initial Concerns and Scalability Discussion
+
+- Concerns raised about scalability and pricing models
+- Rexi confirmed handling 14 million transactions daily for US wallet client
+  - Processes across seven different reconciliation workflows in under 13 seconds
+  - Previous provider took 3.5 hours to run same volume
+- Infrastructure redesigned in previous quarter to scale infinitely
+
+### One Month Free Trial Setup
+
+- Manual file submission process during trial period
+  - Daily files Monday-Friday (batched Tuesday delivery for weekend transactions)
+  - Two file types: Excel and TXT format
+- Functional requirements assessment needed:
+  1. Document transformations
+    - Excel file processing capabilities
+    - TXT file column division and formatting
+  2. Reconciliation rules
+    - Number of rules platform can handle
+    - Comparison and tolerance settings
+  3. Discrepancy management
+    - Data output options for unmatched transactions
+    - Export and reporting capabilities
+
+### Current State and Product Vision
+
+- Toku’s experience with current solution:
+  - Document transformations complicated and slow
+  - Initial setup was a hassle
+  - Adding new gateways has been slow process
+  - 99.5% matching rate achieved with reconciliation rules
+  - Haven’t tested direct connections yet
+- Strategic vision for Toku:
+  - Become operating system for 70-80% of customers’ payment processing
+  - Consolidate client relationships through additional payment-related products
+  - Conciliate non-Toku flows to gain share of wallet
+- Pricing considerations:
+  - Still developing business case internally
+  - Currently bundling reconciliation with other Toku products
+  - Using Symmetric for other internal purposes (non-client-facing)
+  - Prefers usage-based model with tier structure rather than continuous variable pricing
+
+### Next Steps
+
+- Natalie has client call Tuesday morning to receive January data
+- Kickoff call scheduled for Wednesday afternoon to begin trial implementation
+- Separate exploration of internal Symmetric replacement opportunities
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/dad7e96a-62e9-472c-a830-544c6277e9a8](https://notes.granola.ai/t/dad7e96a-62e9-472c-a830-544c6277e9a8)

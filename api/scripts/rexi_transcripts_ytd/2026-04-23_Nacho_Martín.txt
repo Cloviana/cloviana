@@ -1,0 +1,648 @@
+MEETING: Nacho <> Martín
+DATE: 2026-04-23
+ID: not_xkRGq3iQt5g0XV
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Martineserios <martineserios@gmail.com>
+SCHEDULED: 2026-04-23T17:30:00-04:00 - 2026-04-23T18:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Sense to anyone else. It makes
+[Remote]: you happy. That's all that matters. None of
+[Remote]: us are getting out of here alive. Consider all that. Just wanna do what you want.
+[Remote]: Have a good day.
+[You]: ¿Cómo está, Maldín?
+[Remote]: ¿Cómo es, Nacho? ¿Todo bien?
+[You]: ¿Vínimos?
+[You]: En en Buenos Aires, ¿no?
+[Remote]: Todo tranquilo.
+[Remote]: Buenas tardes, así es, estoy en casa. ¿Vos?
+[Remote]: ¿San Francisco?
+[You]: Sí, es de Francisco,
+[You]: me vine de lunes a viernes, volviendo para Nueva York mañana. Así que nada, intenso, de acá para allá, pero pero muy bueno, la verdad que es impresionante todo lo que está pasando acá, y ya me saqué pasaje para volver dentro de poco.
+[Remote]: ¿Piensas, Francisco, como mucho más movimiento que que Nueva York? O sea, como que
+[Remote]: ¿Por qué le decís?
+[You]: El el ecosistema tech en tamaño debe ser parecido al
+[You]: es que en Nueva York se diluye con un montón de otras cosas, digo.
+[You]: Nueva York hay mucho finanzas, hay mucho
+[You]: legales, hay mucho arte,
+[You]: Acá es es como una concentración de gente que
+[Remote]: Ah, ok.
+[You]: en AI y tecnología, que
+[Remote]: Good.
+[You]: que es fascinante, ¿entendés?
+[You]: Obviamente, no viviría acá,
+[You]: ni en pedo, me parece en un me parece en una burbuja que creo que te volvés un poco loco, pero
+[You]: la realidad es que
+[You]: cuando estás haciendo algo de tecnología, estar acá tiene tiene mucho sentido, y
+[You]: y, en mi caso,
+[You]: por lo menos tratar de venir una vez cada tanto, una vez por q,
+[You]: creo que va a tener sentido, y, de hecho, creo que la próxima quiero volver con alguno de mis cofounders o hasta
+[You]: una que estoy delirando ahí, es por ahí venir un mes, sacar un Airbnb, traer a todo el equipo de
+[You]: Argentina y estar acá un mes construyendo.
+[Remote]: Mirá,
+[You]: No sé,
+[You]: porque, honestamente, creo que
+[You]: como que si no te perdés de mucho, ¿viste?, acá están
+[You]: muy con lo último,
+[You]: hay un talento infernal,
+[You]: y yo creo que el talento argentino es muy bueno, técnicamente,
+[Remote]: Sí.
+[You]: el talento técnico argentino es muy bueno.
+[You]: Es muy kamikaze,
+[You]: no he tenido nada, se tira de cabeza, resuelve, arma, ejecuta,
+[You]: Tenemos esa parte cultural muy, muy buena,
+[You]: que acá por ahí no tienen, pero acá sí tienen algo que
+[You]: que creo que en Latinoamérica no tenemos, que es
+[You]: como el el el el
+[You]: thinking y el pensar
+[You]: tres pasos adelante, como que
+[You]: esto que Argentina es más kamikaze, se tira de cabeza, resuelve, va,
+[You]: y está muy bueno para algunas cosas, pero creo que tener un balance de alguien que pueda como
+[You]: pensarlo a nivel sistema, entender dónde van a estar los cuellos de botella,
+[You]: antes de tirarse a hacer algo, ¿viste?, por ahí pensar cinco pasos adelante y decir, che, no,
+[You]: vamos por este camino, no vamos a chocar con esto en algún momento,
+[You]: Y más con AI, que está cambiando tanto
+[You]: tanto y tan rápido todo,
+[You]: tener alguien que pueda pensar así como la arquitectura y el sistema
+[You]: bueno, ¿viste? Pero
+[You]: pero nada, fascinante. Contame, más vos, ¿en qué andás exactamente?
+[You]: ¿Estás haciendo laburo?
+[Remote]: Y ya estoy parado con la AI, pero a full, la verdad.
+[Remote]: O sea, ya
+[Remote]: es como que el cloud es parte de mi
+[Remote]: o sea, trabajo con cloud, yo que ando, o sea, ya armé mi, por ejemplo, mi propio sistema encima de cloud,
+[Remote]: el que gestiono mi proyecto, me ayuda a programar bien con eso y uno va
+[Remote]: viste que Cloud tiene como esa capa de personalización, que después te tus tus archivos,
+[Remote]: ellos tienen como
+[Remote]: el CloudMD, los hooks, tienes rules, tienes memory, tienes un montón de de de
+[Remote]: que Claude te da para que vos puedas personalizarte y, aparte, como un cloud un poco más orientado.
+[Remote]: A lo que vos estás haciendo. Entonces, yo empecé a jugar con eso y, ¿viste?, empezás a, che, bueno, a mí me gusta conocer
+[You]: Inicialmente, ¿no?
+[Remote]: Yo era, o sea, no, o sea, soy ingeniero civil,
+[Remote]: después me hice desarrollador, pero, bueno,
+[Remote]: o sea, orientó a datos, se escribía código, pero no era un desarrollador de
+[Remote]: por ejemplo. No, bueno, sí, escribía código, o sea, todas las APIs, todos los modelos, o sea,
+[Remote]: hoy en día soy, o sea, me me divierte este rol end to end porque
+[Remote]: es como que hizo un pequeño zoom out, y solo no te voy estar escribiendo el código y el algoritmo.
+[Remote]: Porque eso la verdad que yo lo digo en clock, ¿entendés? Sí tengo que estar encima y estar pensando,
+[Remote]: bueno, quiero armar este sistema, que que tengo que tener en cuenta todo esto.
+[Remote]: Esa arquitectura, si es los costos, si son viables,
+[Remote]: cómo diseñás arquitecturas, ahí la puedes optimizar, hay mil formas de hacer las cosas.
+[Remote]: Entonces, empezás como a comandar a tu ejercicio.
+[Remote]: Agentes. Entonces, ya como que a mí me dedicarte un poco más porque
+[Remote]: no sé, resolvés otros problemas, o sea, antes estaba pensando quizás más
+[Remote]: en el código puntual, que a mí me divertí a programar, pero ahora que estoy como un poco más arriba, como que
+[You]: Vos estuviste el programa, lo repasado antes,
+[Remote]: empezando otras cosas.
+[Remote]: Sí, sí, o sea, yo hasta
+[You]: programabas.
+[Remote]: hace
+[Remote]: dos años escribiendo código, digamos, o sea, que por ejemplo,
+[You]: Más vaquén, más
+[You]: o o más data?
+[Remote]: No, no, o sea, era
+[Remote]: data tirado a backend, porque arranqué con data, arranqué con data science, ¿viste?, que hacés
+[Remote]: bueno, un modelo en un Outlook, entrás un modelo todo un mundo y no podés decir, che, el otro lo otro, lo quiero llevar a producción.
+[Remote]: Ahí ya tenés otro tipo de problemas, chequeo que respondan tanto tiempo,
+[Remote]: el peso, o sea, hay un montón de cosas cómo le desplegás, las instancias,
+[Remote]: el tamaño del modelo, el tipo de modelo, hay un montón de cosas, o sea,
+[Remote]: en mi en mis laburos yo era un poco como el
+[Remote]: el implementador que sea, produció un modelo y que se reentrenás,
+[Remote]: funcione en tu máquina, pero después ya la producción es otra cosa.
+[Remote]: Hay que monitorearlo, los los datos, o sea, hay como un drifting en el modelo que
+[Remote]: un poco el universo de datos a lo que está enfrentado, y entonces, el modelo responde distinto, porque
+[Remote]: fue entrenado con con otra cosa, ese es un seguimiento. Bueno, hay toda una una
+[Remote]: un mundo de, ¿qué se llama?,
+[Remote]: ML Ops, es como la la gestión de los modelos de machine learning,
+[Remote]: que, bueno, ahí laburé bastante tiempo. Me faltó un poco de ingeniería de datos que me que me divierte, hice un par de cosas
+[Remote]: pero bueno, ahí no tuve como la
+[Remote]: en la cancha cancha con eso, eso también es algún que me divierte,
+[Remote]: Y, bueno, y ahora en día ya, o sea, si bien hago el código y todo,
+[Remote]: ya no estoy programando el código porque, nada, la verdad que esta es la guía la mejor que yo.
+[Remote]: Yo lo que sí hago es
+[Remote]: guiarla, la la vas orientando, quiero hacer esto, lo otro, vas vas como un un rol más como de
+[You]: Okay.
+[You]: Y, perdón que interrumpa. Una pregunta, ¿y vos ahora estás con mucho perfil personal, con muchas
+[Remote]: Sí.
+[You]: cosas en paralelo?
+[Remote]: Tengo personal, tengo uno.
+[Remote]: Que es un un agente IA para distribuidores de Gilmes,
+[Remote]: estamos encerrando, que ya lo armé, o sea, ya ya está andando, estamos con los con los primeros clientes.
+[Remote]: Que eso es más de mantenimiento, y después agarro cosas que me decían de freelance.
+[You]: Y, en tu caso,
+[Remote]: O sea, que es un poco con lo con lo lo que tiene más más movimientos.
+[You]: con tu perfil y tu talento te habrán llegado
+[You]: mil ofertas de mercado libre,
+[You]: Globant, Pomelo,
+[You]: ¿Por qué no?
+[You]: Hacer lo que
+[Remote]: No, porque esas mercado libre, o sea, te te, o sea, o sea, yo la
+[Remote]: soy muy full remoto, sea, a mí la verdad que
+[Remote]: trabajo un montón, me encanta estar en la computadora todo, lo tengo acá tengo a hermano y mi
+[Remote]: mi setup tengo mis dos pantallas, o sea, mí me gusta tener
+[Remote]: verdad, la libertad de de poder estar acá en mi casa, y si tengo que trabajar hasta doce de la noche lo hago,
+[Remote]: y si tengo que ir la mañana al gimnasio y tengo que arrancar a las nueve, que no me esté
+[Remote]: corriendo con que tengo que estar. A mí me gusta un poco mi mi libertad. Mucho trabajar y así como que
+[Remote]: trabajo sábado y domingo porque el freelance es un poco eso, che, tengo un proyecto y ya no hay
+[Remote]: un día a la semana, ¿entendés?, es es hacerlo. A mí me gusta mi libertad, también sé que
+[Remote]: le meto bastante, entonces, digo, bueno, yo acá estoy cómodo, y esas empresas, por lo general,
+[Remote]: exigen tipo una
+[Remote]: un horario. Digo, yo lo entiendo,
+[You]: te perdí.
+[You]: Te perdí.
+[Remote]: trabajo que a mí, la verdad que hoy en día no me
+[Remote]: no me copa tanto, ¿viste?, que me que tenga que ir todos los días a la a la oficina.
+[You]: Te me refiero?
+[You]: Ahí voliste.
+[Remote]: Ah, perdón, a ver.
+[Remote]: Ahí volví.
+[You]: Sí, te está fallando el sentá, boludo.
+[Remote]: Ahí volví.
+[Remote]: Estás local, tienes razón.
+[Remote]: No, te decía que digo, mi cuñado trabaja mercado libre, está copado,
+[Remote]: La verdad que hay un ecosistema en el Mercado Libre, como hay mucha
+[Remote]: como buena vibra, ¿viste?, la gente está como entusiasmada.
+[Remote]: Bueno, obviamente, ellos tienen su, no sé, la presencialidad les importa, ¿viste?, como
+[Remote]: el horario estricto les importa. Yo prefiero como quizás trabajar más,
+[Remote]: y tener la flexibilidad de, nada, de un poco más movimiento, trabajar financiando de molestia. Entonces,
+[Remote]: la verdad que sí, a mí me llama falta de de empresas que son
+[Remote]: no son remotas,
+[Remote]: ya mero como que las, salvo que sea superinteresante o un
+[Remote]: híbrido,
+[You]: ¿En qué parte de Buenos Aires me dijo?
+[Remote]: pero si no, como que medio las descarto, la la verdad.
+[Remote]: Está bien, Cibro.
+[Remote]: Ahora estoy acá, en la Calabria, no sé si ubicas.
+[Remote]: Cerca del hipódromo.
+[Remote]: Eso un poco lo lo es lo lo que me pasa. Y también una cosa que me pasa, y te soy sincero, es que
+[Remote]: no estudié computación,
+[Remote]: ni la carrera formal,
+[Remote]: y tuve un montón de procesos que me me pasa bastante que
+[Remote]: me quedo en en la entrevista técnica.
+[Remote]: Porque te haces así un algoritmo, porque te dicen, che, codíame en vivo,
+[Remote]: y yo la verdad estoy súper, o sea, te lo cuento porque estoy muy tranquilo con con con
+[Remote]: con mi capacidad, digamos, pero yo sé que es una persona que
+[Remote]: resuelve cosas y y y sé cómo hacer el código, pero
+[Remote]: no me pidas que te haga un short bubble, porque nunca lo hice en mi vida, porque no me interesa hacerlo
+[Remote]: porque nunca me lo hace la IA.
+[Remote]: A mí me gusta eso, tío, un pequeño zoom out y y gestionar cosas y y escribir código y hacer
+[Remote]: en tu end.
+[Remote]: A mí me hace un ejercicio de tipo de de programación y y
+[Remote]: saco agua, ¿entendés?, porque en el momento lo, ya agarro, me siento, busco, pum, pum, ahora con I a
+[Remote]: distinto, pero en su momento
+[Remote]: buscás entenderlo así, lo resolvía, y o me me fue bien, pero bueno, ¿viste?, la
+[Remote]: técnicas son un poco duras con eso,
+[Remote]: y la verdad que eso eso también me me fue una sobre todo para más que nada
+[Remote]: las empresas que yo apunté y las empresas de afuera.
+[Remote]: Que la empresa de afuera tenés esa técnica dura,
+[Remote]: algunas son un hands on con con el tipo mirándote, o sea, un poco
+[Remote]: compartido pantalla en vivo y tenés que estar ahí y
+[Remote]: bueno, ahí eso esa parte también costó. Nada, yo sí me he puntado un poco más
+[Remote]: las empresas afuera,
+[Remote]: que como tengo un inglés que, o sea, que
+[Remote]: que puedo trabajar para afuera y todo, la la verdad que prefería, decía,
+[Remote]: afuera ya es como medio, das das por sentado que es remoto, entonces, ya como que
+[Remote]: las empresas acá, bueno, de Argentina como que las
+[Remote]: nada, las las minaba un poco más de
+[Remote]: de reo. Me interesaba como otro mercado, digamos.
+[Remote]: Y nada, y ahora como que
+[Remote]: a raíz de eso, ¿viste?, uno va buscando, buscando, y depende el freelance y algo propio me me empezó a cerrar.
+[Remote]: Y nada, estoy estoy entretenido con eso. Ahora que el freelance como
+[Remote]: cuenta que te enfrentas a desafíos un
+[Remote]: quizás no no tan desafiantes.
+[Remote]: Porque no tenés un cliente ahí que te esté que te esté pintando la pelota, no tenés un deadline muy muy
+[Remote]: muy duro, entonces, es como que
+[Remote]: Nada, y, bueno, a ver, si si puedo elegir, prefiero que estar un poco más desafiado,
+[Remote]: así voy aprendiendo, así me mantengo entrenado, o sea, esto avanza muy rápido.
+[Remote]: Tengo que estar todo el día mirando lo que sale, chat y todo el día, LinkedIn.
+[Remote]: Todo el tipo sale en cosa nueva, te que tal, actualizándote, y bueno, un poco me
+[Remote]: estrategia es
+[Remote]: tratar de pegar laburos donde que estén alineados con cómo avanza la tecnología, que
+[Remote]: y como ahorita me me gusta, entonces, voy por por decir, camino, si agarro un laburo que es
+[Remote]: sé, ponerme a, no sé,
+[Remote]: full entrenamiento de módulos de machine learning más clásicos,
+[Remote]: está bueno, es divertido, o sea, me me entretiene lo que lo he hecho.
+[Remote]: Pero me estoy estoy yendo en una dirección distinta de cómo avanza todo, hoy en día sea el
+[Remote]: así tradicional ya está medio muriendo.
+[Remote]: O sea, eso eso es otro nicho, mí me darte un poco más y con la
+[Remote]: con las cosas nuevas. Entonces, ahí es como que voy
+[Remote]: navegando un poco el
+[Remote]: todo el las las oportunidades que hay,
+[Remote]: Nada, eso.
+[You]: Bueno, bueno.
+[You]: Yo te cuento un poco
+[You]: qué estamos buscando nosotros hoy y y a ver si te
+[Remote]: Vale.
+[You]: explorarlo.
+[You]: Nosotros hoy estamos en un momento
+[You]: acelerando muchísimo, teniendo mucha atracción,
+[You]: y el equipo no está quedando un poco chico, ya los chicos están laburando
+[You]: mucho,
+[Remote]: Sí.
+[You]: mucho, demasiado, insostenible,
+[You]: Y y ya, aparte, como que empiezan a se empiezan a generar riesgos, ¿viste?, con clientes que
+[You]: que tenemos que romperla, tenemos que
+[Remote]: Sí, hay que hay que pisar fuerte ahí.
+[You]: son los primeros clientes, y la verdad que tienen que
+[You]: funcionar.
+[You]: Sí. En ese momento, igual,
+[Remote]: Cuando tenés el, los primeros años tenés que estar plantadicio.
+[You]: son los, estos próximos meses es el momento de pisar fuerte y todo,
+[You]: de acelerar,
+[You]: bueno.
+[You]: Manos, o sea, la realidad es que manos.
+[You]: Porque también
+[You]: lo que pasa con nuestro producto, al ser infraestructura, es que vos
+[You]: lo construís, lo armás, lo testeás, todo muy lindo, pero es como construir un barco en tierra, ¿viste?,
+[You]: solo te das cuenta si flota cuando tiras al agua.
+[Remote]: Exacto, sí.
+[You]: Y, entonces, hoy, el noventa por ciento de nuestro
+[You]: está en implementaciones y en bug fixing y en feature development para
+[You]: lo cual no nos permite seguir avanzando mucho en el roadmap que queremos avanzar. Entonces,
+[You]: tenemos que agrandar el equipo, esa es la esa es la verdad.
+[You]: Y estamos buscando dos tipos de roles. Si querés, alguien
+[You]: técnico que pueda apoyar en implementaciones,
+[You]: y que lleve la relación con el cliente, ¿viste?, el famoso Ford de engineer, de Palantir.
+[Remote]: No lo tengo
+[You]: Bueno,
+[Remote]: mapeado.
+[You]: es es como un nuevo término que está muy de moda acá, que es
+[You]: alguien de un desarrollador, un dev, pero con relación con el cliente. Que va a las oficinas, que producto, que si hay que hacer desarrollitos adicionales para implementar lo hace, porque es técnico, y a la vez es muy bueno llevando esa relación y después haciendo el upselling. Ese es un tipo de error que estamos buscando, apoyar a las integraciones, Y el otro tipo de error que estamos buscando es bandwidth en el equipo técnico, en el equipo core. Para el equipo core,
+[Remote]: Sí.
+[Remote]: Ok.
+[Remote]: Sí.
+[Remote]: ¿Eso para el road map o para o para eso, perdón?
+[Remote]: Para el, esto que me decías del
+[Remote]: ahora estos bug fixes o lo que están ahora con el cliente, lo caliente.
+[You]: No, por por eso te estaba por decir, el equipo core
+[Remote]: Sí.
+[You]: tienen que poder hacer de todo.
+[You]: La el la división interna, la la
+[You]: manejando el CTO,
+[You]: pero hay muchísimo ownership y hay muchísima autonomía.
+[You]: Y y, obviamente,
+[You]: uno de los chicos que trabaja nosotros está haciendo cosas muy importantes, con un impacto directo.
+[You]: No te ponen a hacer algo chiquito, ¿viste?, como que
+[You]: te cargás un módulo entero, ¿entendés? Por ejemplo, una uno de los templates que estamos
+[You]: a desarrollar es el de accounting, y de repente te puede pasar, Martín, tenés que volver redonda en un mes, ¿viste?
+[You]: Se baja en PRD, ahí, dos y vueltas, pero son grandes, cosas grandes,
+[Remote]: Okay.
+[Remote]: Okay.
+[You]: qué sé yo, si te gusta ese tipo de desafíos, estamos en un momento divertidísimo, porque
+[You]: es el cero a uno, ¿viste?
+[Remote]: Sí.
+[You]: Donde tenés
+[You]: influencia directa en cosas muy importantes del producto de la
+[You]: plataforma, a nivel de arquitectura, a nivel frontend, a nivel backend, digo,
+[You]: todo.
+[You]: Y, obviamente, todo el producto es agéntico con lo que esté montado en una estructura
+[You]: muy AI native,
+[You]: y
+[You]: y eso va a requerir de muchísima iteración, muchísima optimización,
+[You]: por cuestiones de latencia y performance.
+[You]: En algún punto, no es una prioridad hoy,
+[You]: de costos también.
+[You]: Porque eso
+[Remote]: Sí, obvio, sí.
+[You]: a ser importante también. Con lo cual, creo que vos encasillas...
+[You]: Encasilla entrarías mucho más para el equipo court
+[You]: court, ¿no? Alguien que pueda entrar y
+[You]: y hacer de todo.
+[You]: Ese equipo core, la realidad es que es muy técnico, Si alguien que por ahí se puede dar el lujo de ser un poquitito menos técnico es el de integración, el equipo de es muy técnico. Y y queremos que así sea, y la vara está realmente muy alta. La gente técnica que tenemos es muy, muy buena, No solamente en en capacidades técnicas, que en las redes que hoy importan menos, sino más en ese drive ese pensamiento crítico, esa capacidad de ejecución, ¿viste?, las cosas más humanas, si querés. Obviamente, un par de outliers a nivel skill técnico,
+[Remote]: Sí.
+[You]: pero, pues, nosotros los tenemos un par de que que no son
+[You]: cracks a nivel teórico,
+[You]: pero tienen mucho empuje y son muy buenos ejecutando.
+[You]: Y la realidad es que necesitamos alguien más para ese equipo.
+[You]: Entonces, ese es un poco el requerimiento, es medio es medio amplio, pero es
+[You]: sumarte al core team a
+[You]: desarrollar módulos nuevos,
+[You]: asegurar la escalabilidad de la plataforma,
+[You]: te digo, hacer un poco de todo, los chicos, la verdad.
+[You]: Frontend, backend, data,
+[You]: AI,
+[Remote]: Y
+[You]: Tenemos alguien que lidera data y AI,
+[Remote]: Sí.
+[You]: pero esa persona, por acción y idea, también mete mano en el código.
+[You]: Prueba cosas y desarrolla, implementa.
+[You]: Entonces, hoy meten todos mano, y tenés que tener la capacidad de meter mano.
+[You]: O o sea, es con Claude, ¿no?, pero
+[You]: ahí es donde yo no estoy entendiendo bien si
+[You]: el hecho de que te trabes en las entrevistas técnicas por ahí es un limitante o no.
+[You]: Entonces, eso es un poquito lo que buscamos, y después, obviamente, buscamos alguien que
+[You]: a
+[You]: quiera meterse en este barro del cero a uno, porque es un barro, es un barro en el sentido de
+[You]: somos muy kamikazes,
+[You]: se rompe todo, todo el tiempo,
+[You]: no le tenemos miedo a eso tampoco,
+[You]: Se está laborando muy fuerte, y yo creo que los próximos doce, dieciocho meses,
+[You]: se va a laborar muy fuerte,
+[You]: Entonces,
+[You]: pero te tiene que motivar, uno, el equipo, el nivel del talento del equipo es
+[You]: excepcional. O sea, yo, honestamente,
+[You]: no no entiendo cómo hicimos armar un equipo de de tanto
+[You]: nivel,
+[You]: no, lo hicimos a propósito.
+[Remote]: Fue buscado, fue buscado y logrado.
+[You]: Pero...
+[You]: Pero
+[You]: se tiene que
+[You]: sí, te tiene que te te tiene que motivar eso, te tiene que motivar, obviamente, la misión de lo que estamos
+[You]: construyendo,
+[You]: que si quizás a nivel simbólico estamos hablando del mejor equipo de IA de de la región de Latinoamérica.
+[You]: El mejor.
+[You]: Y a nivel marca lo vamos a
+[You]: a empujar de esa manera,
+[You]: Y después,
+[You]: una compañía que va a ser líder en en términos de implementaciones
+[You]: agénticas en servicios Financieros, Tanto En La Región Como En Estados Unidos,
+[You]: Construida por latinos, atendiéndolo
+[You]: O sea, es global, del día uno, hoy mucho foco en Américas,
+[You]: Estados Unidos y
+[You]: y Latinoamérica.
+[You]: Pero en una misión de transformar la manera en la que se opera
+[You]: los servicios financieros, se operan en el back end, ¿no?, todas las operaciones back end de los servicios financieros.
+[You]: Arrancando por conciliaciones, pero después la visión es
+[You]: que las conciliaciones sean, o sea,
+[You]: no me acuerdo cuánto hablamos de la tesis de Rexi, pero hay dos tesis. Uno, como como
+[Remote]: Sí.
+[You]: resolver las conciliaciones,
+[You]: es muy interesante, porque lo queremos hacer una solución interconectada entre los distintos entes
+[You]: participan de un flujo de dinero,
+[You]: De esa manera, no solo resuelvenlo el
+[You]: challenge de data engineering con AI, sino, además, empiezo a generar network effect,
+[You]: y a resolver realmente el last mile que duele, que es de las diferencias,
+[Remote]: Sí.
+[You]: Y la visión más en largo plazo de es trascender conciliaciones, que conciliaciones es una puerta de entrada a
+[You]: primero, porque es un terror crítico hoy, y segundo, porque
+[You]: con las consideraciones, yo lo que estoy haciendo es construir un system of record
+[You]: que concilia la multiplicidad de fuentes, y sobre esa base
+[You]: conciliada universal y central,
+[You]: que yo puedo agentes para otros procesos de de finanzas y operaciones.
+[You]: Porque si yo hoy quiero un agente,
+[You]: Exacto, es como la base fundacional, porque si hoy yo quiero
+[You]: un agente sobre qué lo monto, sobre el ledger interno, sobre el extracto bancario, sobre el archivo del procesador,
+[You]: tengo que elegir o tengo que hacer que el gente esté...
+[You]: Consumiendo data de distintas fuentes, sin saber cuál es la
+[You]: cuál es la verdad o cuál es la precisa. Entonces, es como
+[You]: es un es un es un stepping stone hacia después convertirnos
+[You]: como en un palantir, no sé si conocés palantir, pero
+[Remote]: Sí.
+[You]: como una compañía de AI que va a deployar agentes para servicios financieros.
+[You]: Y esa visión te tiene que motivar, porque es una visión, va,
+[You]: si te querés sumar, ¿no? Es muy grande, digamos, el tamaño y el mercado es
+[You]: enorme,
+[You]: Y, en ese sentido, sería una apuesta por un equipo que todavía está en la etapa cero a uno,
+[You]: pero con un norte claro de que te querés quedar construyendo con nosotros los próximos
+[You]: no sé, diez, quince años. Que esto te lo tomes como, ¿viste?,
+[You]: por ahí te lo digo en
+[Remote]: Sí, sí, sí. All in.
+[You]: dejar de tomar así mucho proyecto y como
+[You]: changuear y decir, che, voy a ir all in en Rexxi,
+[You]: y Rexi va a ser el el el trabajo de mi vida, porque todos los que estamos acá,
+[You]: lo pensamos así, estamos hablando de una compañía para los próximos diez, quince años, y queremos que así sea. Y, obviamente, cómo hacemos para que te quedes diez, quince años, también es una responsabilidad nuestra. Yo creo que la gente se termina quedando mucho tiempo en una compañía cuando suceden tres cosas. Una, la cultura te representa y es un lugar que te sentís a gusto y la gente que te rodea es increíble, eso es importantísimo. Lo segundo es cuando vos estás constantemente desafiado, y lo que hacés tiene tiene un impacto directo en el negocio, y en el valor que le agregas a los clientes, eso quiere decir que tenés ownership, que tenés
+[You]: control, que tenés impacto, que estás estás aprendiendo todo el tiempo,
+[You]: Cosas así, de che, yo le tiro el otro día a Uri,
+[You]: che, te tenés que cargar el accounting module.
+[You]: No sabe de contabilidad, ¿entendés? Imaginate eso como
+[You]: un mes de, tipo, hacerte experto primero, hablar con
+[You]: con contadores, después entender la necesidad, entender cómo
+[You]: dentro de esta plataforma se se va a conectar y desarrollarlo y probarlo y iterarlo,
+[You]: Para mí, la gente se queda cuando tiene ese tipo de
+[Remote]: Desafíos.
+[You]: de de alto aprendizaje,
+[You]: el tercer punto, que es muy importante,
+[You]: es ownership.
+[You]: Equity.
+[You]: Porque eso hace que realmente tengas
+[You]: la camiseta puesta,
+[You]: Hay un incentivo económico donde todo ese trabajo se va a ver retribuido directamente, no
+[You]: a través de un sueldo o un bono, como en compañías de mercado libre, es decir,
+[You]: acá tenés equity, o sea, realmente tenés un pedazo significativo de una compañía que
+[You]: que tiene una ambición de convertirse en algo realmente muy grande.
+[You]: Eso lleva tiempo de construir, por eso te tenés que quedar diez, quince años, ¿no?, y verla entera.
+[Remote]: Obvio.
+[You]: Parte de la creación de esa cultura, de ese valor,
+[You]: con un montón de momentos
+[You]: buenos y un montón de momentos malos, porque es parte del camino.
+[You]: No es un camino lineal, y
+[You]: y eso es un poquito, por ahí, el framing que te hago.
+[You]: Te te te soy honesto con dos cosas, me preocupa
+[You]: esto que me decís, que te trabajás con con con entrevistas
+[You]: técnicas y de que por ahí no es tu fuerte,
+[You]: le digo porque te contacto con mi CTO y
+[You]: y y va a pasar, ¿me entendés? Para ahí entender
+[You]: si por ahí
+[Remote]: No, obvio, por eso yo ya también te lo cuento para, porque
+[You]: mal,
+[Remote]: yo yo lo sé eso que me ocurre. De vuelta, yo
+[Remote]: estoy tranquilo, digo, o sea,
+[Remote]: entiendo también el valor que puedo entregar, pero bueno, es una cosa que me que me pasa para que también para que lo
+[Remote]: lo sepas.
+[You]: Obvio.
+[Remote]: Entiendo el nivel de excelencia que están buscando, me parece espectacular, porque
+[Remote]: vos hablar así de tu empresa y de la la visión que tiene y cómo cómo lo viven,
+[Remote]: algo pagado, porque decís, che, bueno, es realmente es como a mí me gusta tomar las cosas, ¿entendés?, es como que es
+[Remote]: está muy bueno, entonces, está bueno esta esta instancia de de sinceridad.
+[You]: Obvio.
+[You]: Me preocupa eso, y lo otro que me preocupa es la parte de
+[You]: de remoto. Te explico por qué.
+[You]: Esto soy yo, principalmente,
+[You]: nuestro, mi CTO,
+[You]: no piensa tan así,
+[You]: Y, de vuelta, está en construcción todo esto.
+[You]: Pero yo soy un fanático, no sé si soy un fanático del trabajo en persona,
+[You]: detesto el trabajo remoto, posiblemente las dos al mismo tiempo.
+[You]: Y más en esta etapa, me parece que
+[You]: es muy importante que nos veamos en persona. Nosotros,
+[You]: como compañía, vamos a tener siempre dos hubs, uno en Nueva York y uno en Buenos Aires,
+[You]: y en esos dos hubs vamos a invertir para que haya un espacio para que la gente vaya.
+[Remote]: Right.
+[You]: Vamos a tener reglas como las compañías de que tenés que ir sí o sí tres No, jamás.
+[You]: Y va a haber full libertad.
+[You]: Pero sí a nivel creación de cultura, sí a nivel productividad,
+[You]: sí a nivel
+[You]: creación de memoria, boludo. Nosotros ahora, de repente, estamos
+[You]: semanas enteras laborando hasta las tres de la mañana,
+[You]: y es mucho más llevadero, y te cagás de risa, y te vas a acordar el día de mañana, cuando estábamos
+[You]: cuando estás en la oficina comiendo pizza, boludeando con la gente con la que estabas pasando la
+[You]: ¿me entendés?
+[Remote]: Sí.
+[You]: En tu casa mañana solo, sí, tendrás el mejor setup del mundo, pero te juro que
+[You]: no es sostenible. Entonces,
+[You]: a nivel cultura, a nivel productividad,
+[You]: el en persona es algo que que queremos empujar mucho, y y me preocupa
+[You]: por lo menos a mí personalmente. Mi CTO se va,
+[You]: dice todo, dice, buenísimo, sí, tenemos que tener una oficina, pero yo
+[Remote]: Sí.
+[You]: no voy a obligar a nadie,
+[You]: y me dice, te voy decir una cosa, los desarrolladores muchas veces son más productivos en sus casas,
+[You]: que en la oficina.
+[You]: Porque nadie los jode, porque tienen focus time, porque van deep, porque, ¿viste?,
+[You]: bien, perfecto. Y y lo respeto, y la realidad es que el equipo técnico, yo también lo lo
+[You]: lo considero su equipo y que él maneje esa dinámica, yo le confío todas esas cosas a él. Pero, René, te voy mentir que me preocupa que me digas,
+[Remote]: Pero, pará, perdón, te interrumpo ahí un toque.
+[Remote]: O sea, vos
+[Remote]: o sea, ustedes, por ejemplo, tendrían un esquema híbrido, o sea, de ir
+[Remote]: o sea, de ir
+[You]: No no
+[Remote]: sea, yo a mí lo que me lo que me mata es tipo la la estructura de, che, tiene acá de
+[You]: No, no,
+[Remote]: los días a las ocho y media.
+[Remote]: Bueno,
+[You]: no va haber no va haber esquema, no va haber estructura, y tampoco va haber horarios.
+[Remote]: es
+[Remote]: Ok.
+[You]: Pero sí va a haber un lugar
+[You]: donde vas a poder llamar
+[You]: no casa, pero un lugar donde Rexi te sientas
+[Remote]: No, eso eso
+[Remote]: ahí entiendo, te entiendo, y, de hecho, estoy de acuerdo con vos en
+[You]: ojalá,
+[You]: y que ojalá, en realidad, lo que yo más quiero crear, que hoy no lo tenemos,
+[Remote]: Sí.
+[You]: ojalá que la gente quiera ir.
+[Remote]: Está bueno.
+[You]: Para juntarse con con los otros, porque son
+[You]: te cagás de risa y porque trabajás mejor,
+[You]: y porque también por ahí querés salir de tu casa, y o porque el lugar de trabajo
+[You]: tiene que estar increíble, porque ahí te, por ahí armate un setup. Yo lo que más quiero es que vos por ahí me decís,
+[You]: che, a mí el setup me importa un mucho,
+[You]: tomaste presupuesto, ponete diez pantallas, el mejor
+[You]: tipo, armátelo, ¿entendés? Yo lo que más quiero es que vayas, y más si vos pensás que el día de mañana si si te sumás,
+[You]: de mañana vos te vas a compartir en un líder dentro de la compañía.
+[You]: Y y lo que yo también estoy buscando este tipo de roles es que vos tengas la capacidad también de
+[You]: atraer y desarrollar talento.
+[You]: Y yo creo que eso se da en persona, conociendo, generando esa confianza, enseñando, liderando
+[You]: boludeces,
+[You]: en maneras de ser, y
+[You]: y lo que yo quiero es hacer todo lo posible, justamente, para generar un incentivo natural y orgánico. Yo no voy a
+[You]: nadie a hacer nada, y nuestro sitio tampoco.
+[You]: Pero yo sí voy a invertir en crear un lugar
+[You]: donde que ojalá todo mundo quiera pasar mucho tiempo.
+[You]: Con total flexibilidad, te querés decir a las diez de la mañana, querés volverte a las
+[You]: dos de la tarde, querés no ir No sé, irás viendo. Pero si vos, si ya me arrancás y me decís, che, yo no voy nunca, no me gusta ir, y eso me preocupa, ¿me entendés?
+[Remote]: No, no, no, te he podido, Rodrigo.
+[Remote]: Ver, yo yo estoy estoy alineado con tu, o sea,
+[Remote]: a mí me gusta me gusta el remoto, me gusta esta que te que te conté,
+[Remote]: También sé que la presencialidad es saberte,
+[Remote]: aunque sea con este esquema más más flexible, es
+[Remote]: es importante, es es esencial.
+[Remote]: No puedes construir una cultura, una compañía con otra gente que está
+[Remote]: repartida por el por el planeta, o se pierde toda esa
+[Remote]: esas ganas de estar ahí de de pertenecer de coparte que
+[Remote]: lo verás con un buena mano.
+[Remote]: A Milka, sí es un sí es un esquema así, como me decís que hay un lugar y
+[Remote]: y vamos yendo, incluso, dice, che, todos los todos los miércoles a la tal hora, hay una una reunión, dale de una, voy, no.
+[Remote]: No tengo drama, ¿entendés? Eso sí me, lo que no lo que no podía hacer yo, me diera como estar
+[Remote]: fijo cinco a esa semana en la oficina.
+[Remote]: Es con flexibilidad o
+[Remote]: algunos días, una un estimado, me me cambia absolutamente la cuestión, o sea, es
+[Remote]: es otra cosa, digamos. Es en ese lado creo que estoy
+[Remote]: ahí estamos más alineados, lo, sí, lo lo la parte técnica te entiendo perfecto,
+[Remote]: Nada, lo que yo siempre pienso es, o sea, si como para validarlo, pues entiendo que eso vende que
+[Remote]: un...
+[Remote]: Es una decisión importante, es
+[Remote]: sí, como que me me pueden dar un un un un problema, un ejercicio con con una
+[Remote]: con tiempo de de resolución, y yo sé eso, entre y lo defiendo, y es lo que
+[Remote]: me parece como... A ver, es como es como yo laburo que es como digo el chelina, vos me decís,
+[Remote]: hace tal cosa, un mes, en una semana, en tres días.
+[Remote]: Yo lo tengo que entregar, es como el delivery, y en mi en este caso, en en
+[Remote]: como para validarlo es defender lo que yo hice y cuando me preguntes, che, Kimi, ¿qué es esta punto acá? Y yo te puedo decir,
+[Remote]: este punto está por esto, ¿me das? Esto como para
+[Remote]: por si querés, para para sanear esa parte de la parte técnica, que la la veo es superválida,
+[You]: Ok.
+[Remote]: no, y después yo también te te la comenté, digo, porque me parece que está bueno hacer ser transparente con eso.
+[You]: Sí, yo tengo que
+[Remote]: Y después, a ver, sí.
+[You]: un minuto, pero
+[You]: yo te propongo lo siguiente,
+[You]: esta charla yo me la tomaría más informal, creo que es la segunda vez que charlamos nosotros.
+[You]: Yo lo que necesito entender de esta charla es si si
+[You]: interesa avanzar
+[You]: en hablar con el CTO o no.
+[Remote]: Okay.
+[You]: Si lo que te acabo de te motiva, te interesa,
+[You]: y
+[You]: y lo ves,
+[You]: o no,
+[You]: y en base a eso,
+[You]: yo te hago intro con nuestro CTO,
+[You]: diciéndole,
+[You]: esta limitación. Si querés,
+[You]: bajame esa limitación más por WhatsApp, porque si no, voy a cagar yo en qué le voy a decir,
+[You]: Bajame la limitación de, realmente, tipo, donde te sentís
+[You]: por ahí más
+[You]: limitado y dónde está tu fuerte, y yo con eso se lo mando al CTO,
+[Remote]: Vale.
+[You]: y entre vos
+[You]: Seba vemos si vale la pena que se conozcan y y avanzar.
+[Remote]: Vale, vale.
+[You]: Pero primero decime vos, ¿viste?
+[Remote]: No, no, sabrá, lo que me contaste me me me me me me
+[Remote]: supermotivó, o sea, es un poco lo que uno tiene que tenían a escuchar o por lo menos yo tengo que escuchar.
+[Remote]: Así que de ese lado, se me mis ganas están
+[Remote]: y yo te bajo te bajo así por escrito, así así lo puedes reenviar,
+[Remote]: Lo lo que yo siento, digamos, esto que te estaba comentando un poco más
+[Remote]: escrito, así.
+[Remote]: Queda por escrito. Y nada, después te
+[Remote]: decidan, si quieren, yo feliz de con solo Sebas, de de charlar, de hablar con él, que me que él quiera. Yo soy super transparente con eso, así que Ah, eso, yo ahí te ahí te mando eso si querés y por mí avancemos, vos fijate qué te qué te parece y ya lo que me aconsejas y si querés, hoy en día ahí presencialmente a la oficina, no sé si un día o un día ya la tienen a oficina y me junto con él, hermano, y y charlo, no tengo ningún problema.
+[You]: Vale, listo, quedamos así, entonces. Mándame eso, y yo te aviso si si
+[You]: armamos la reunión con Seba o no.
+[You]: Y nada, mil gracias, Muy bien, chau, habla con vos.
+[Remote]: Vale, espectacular, lo mismo digo.
+[You]: Agrazo.
+
+============================================================
+SUMMARY
+============================================================
+### Martín’s Background & Current Work
+
+- Civil engineer turned developer, now focused on data/backend
+- Transitioned from traditional ML to AI-native development using Claude
+- Built custom system on Claude for project management and coding assistance
+- Currently freelancing + running AI agent for Quilmes distributors
+  - Agent already deployed with first clients
+  - Mostly maintenance work now
+- Previously worked in ML Ops - model deployment, monitoring, data drift management
+- Strong preference for remote work flexibility
+  - Declined offers from MercadoLibre, Globant due to office requirements
+  - Lives in Palermo near hipódromo
+
+### Technical Profile & Limitations
+
+- Self-taught developer without formal CS degree
+- Struggles with traditional coding interviews (algorithms, live coding)
+  - Failed multiple technical interviews for international companies
+  - Prefers take-home projects with time to research and implement
+- Strong in end-to-end problem solving and system architecture
+- Uses AI heavily for coding - less focused on manual algorithm implementation
+- Comfortable with: data engineering, backend, ML deployment, system design
+- Interested in staying current with AI/tech evolution vs traditional ML
+
+### Rexi Opportunity Overview
+
+- Two role types available:
+  1. Forward Engineer - client-facing technical role for implementations
+  2. Core team - full-stack development on main platform
+- Core team focus: accounting modules, scalability, AI-native architecture
+- High ownership model - developers own entire modules end-to-end
+- Zero-to-one stage with significant individual impact
+- Long-term vision: 10-15 year commitment, equity participation
+- Culture emphasis on in-person collaboration (flexible but encouraged)
+
+### Concerns & Next Steps
+
+- Ignacio’s concerns:
+  - Martín’s technical interview struggles
+  - Strong remote work preference vs company culture goals
+- Martín interested in advancing to CTO discussion
+- Will send written summary of technical limitations via WhatsApp
+- Potential intro to Seba (CTO) pending Ignacio’s assessment
+- Possible in-person office visit if process continues
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/8eccc741-8806-4f13-8448-a767a9510498](https://notes.granola.ai/t/8eccc741-8806-4f13-8448-a767a9510498)

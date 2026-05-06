@@ -1,0 +1,511 @@
+MEETING: Rexi x Albert: intro
+DATE: 2026-03-19
+ID: not_jPQhfa55bu3Iba
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Josh Islas <josh.islas@albert.com>
+SCHEDULED: 2026-03-19T18:00:00-04:00 - 2026-03-19T18:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Maybe we can do something in person.
+[Remote]: Okay.
+[You]: When that
+[You]: I was just trying to circle back how it got introduced.
+[Remote]: Yeah. It was through through Kelly I used to work with a colleague here at Albert. Let me just take a
+[Remote]: the context here.
+[You]: Oh, it's David Ma.
+[Remote]: She
+[Remote]: yeah, she she knows David Ma who suggests she might
+[Remote]: he might get some value out of this conversation.
+[Remote]: For context, just to add too. So I'm I'm pretty new here at Albert. I joined about a month ago almost exactly.
+[You]: Okay.
+[Remote]: Taking into the the the director of treasury role here. So
+[Remote]: it's a new role trying to figure out kinda where it lies with with operations and finance.
+[Remote]: But, basically, you know, given the reconciliation you can do and how much
+[Remote]: we're going we have going to Albert,
+[Remote]: you know, she kinda just asked if it made sense to have a conversation. So
+[Remote]: I think that's the best approach right now is, obviously, I'm still new trying to figure out what's going on here.
+[Remote]: Don't think we need a full
+[Remote]: very thorough, you know, exact use case walk through.
+[Remote]: But what would be helpful is just to kinda get an idea of what the platform does
+[Remote]: and then as I develop and and, you know,
+[Remote]: pick up the role, I can keep you in the back of my mind for anything that that might make sense for
+[Remote]: collaboration.
+[You]: Got it. A 100%. You say you joined a month ago?
+[Remote]: Yes. Yes.
+[You]: And how's the onboarding going?
+[Remote]: It's good. It's interesting. I mean, I think that there
+[Remote]: hours come pretty quickly right now, but for a very long time, it was a very small
+[Remote]: company, you know, under a 100 employees. So I think it's the first time they're expanding out and adding people
+[Remote]: So I think it interesting.
+[Remote]: It for my last company.
+[You]: Very, very interesting. Cool.
+[Remote]: Yep.
+[You]: Your last company was Figure?
+[Remote]: Thank you. That's right.
+[You]: Bigger start up?
+[Remote]: Yeah. I heard of it before.
+[You]: I did not hear figure before.
+[Remote]: Okay.
+[You]: But it does ring a bell, though. I'm seeing here
+[You]: capital markets with blockchain.
+[Remote]: Yeah. We just IPO ed last September, but I was there for about six or seven, six and a half years, before I left here.
+[You]: Wow.
+[Remote]: Yeah.
+[You]: Wow. Congratulations. That's a run up. Right?
+[Remote]: Yeah.
+[Remote]: Yeah. Quite a quite a ride. I was definitely started days of
+[Remote]: to the API. So it was cool to see the whole thing. That's kind of the appeal of
+[Remote]: guess, of myself to Albert. It's just they're trying to kinda get that same kind of trajectory. So
+[Remote]: it'd be cool to kinda take a company
+[Remote]: early stage in
+[You]: Wow. Well, I'm sure I'm sure there's a lot of learnings there, but I feel this time is gonna
+[Remote]: get to IPO again.
+[You]: be different with AI. Right?
+[Remote]: Yeah. It's a different kind of environment now for sure. So I'm I'm
+[Remote]: to see how it develops differently because, we had a very, I would say, traditional route more or less with Figure.
+[Remote]: Where, you know, the AI boom was kinda starting to hit
+[Remote]: last year, but, is is in full swing now. So, yeah, it should be a pretty different approach.
+[You]: Got it. Got it. And just a couple of questions regarding Allvert. So it it's a personal financial
+[You]: Of course, it's powered by AI.
+[You]: And it does move money.
+[You]: It's it's it's sitting on top of a certain bank as a sponsor bank.
+[Remote]: Yeah.
+[You]: It has multiple payment products, cash in, cash out, and ACH, and so
+[Remote]: That's right. So, if
+[You]: It has a card program.
+[Remote]: there's a few partner banks we use that's part of the kind of the appeal of a regulation like this.
+[Remote]: Because it's not just Sutton. We also work with other banks like
+[Remote]: Wells Fargo as well, a smaller bank called Evolve.
+[Remote]: There are a lot of accounts that do one single thing at these banks.
+[Remote]: And oftentimes, they're redundant across different banks just built it on purpose.
+[Remote]: So, you know, you can have one activity that's happening primarily at, say,
+[Remote]: Wells Fargo,
+[Remote]: but you have some small ancillary pieces that do the same function at
+[Remote]: Sunbank, for example. So I think one use case for this kind of installation would be something that
+[Remote]: can
+[Remote]: help us track all different activity happening different banks.
+[Remote]: The same kind of, same product.
+[Remote]: And make sure that we're pulling in across these
+[Remote]: or four banks
+[Remote]: is what we expect.
+[You]: Amazing. Amazing. Yeah. Multiple banks is typically
+[You]: a great use case for our platform because that's when stuff actually gets complex, right, and starts
+[Remote]: Right.
+[You]: really
+[Remote]: Right.
+[You]: getting under fire. So thank you for the context. Great meeting you, and thank you for the time.
+[You]: Congratulations again on the figure.
+[You]: Run up and and the new role at Albert. A huge fan of what you guys are doing all
+[You]: Just click
+[You]: intro on us. We
+[You]: incubated this this this company in in Harvard and MIT.
+[You]: I did this incubator program at MIT, which I ended up winning at the demo day.
+[You]: That's when I got the first set of
+[You]: safes
+[You]: and so on, and we started building a company with my cofounder.
+[You]: We quickly developed good relationships with design partners that converted
+[You]: paying customers. We then raised our pre seed round.
+[You]: And our team of nine people
+[You]: We have more than 15 paying customers in production.
+[You]: And and we're getting a lot of pull in the market for for this type of setup. Right? Multi
+[You]: bank, multi entity,
+[You]: When there's multicurrency, it becomes even more complex, multiproduct, multi integrations. That's when
+[You]: reconciliation actually
+[You]: becomes really, really complex in our platform at the tunnel value. Because if not,
+[You]: just
+[You]: you need to build these Excel or SQL queries or these
+[You]: processes that, as you know, they're static, they break, they require
+[You]: maintenance, they require engineering work, and
+[Remote]: Right.
+[You]: it just doesn't make sense. So
+[You]: it comes also from my personal experience. I know if you know this
+[You]: fintech company called Comune based in New York.
+[Remote]: Hadn't heard them up.
+[You]: It's a banking for Latino start up. I I was there
+[You]: at the seed stage as chief of staff. We didn't have CFO.
+[You]: And I built the whole reconciliation process there.
+[You]: And after that, I was like, I'm building a company out of this.
+[You]: So that's sort of, like, where it all came from.
+[You]: Of course, our mission is, I think
+[You]: reconciliation has been
+[You]: a problem a growing problem the past
+[You]: three to five years if I would be pitching a reconciliation start up
+[You]: ten years ago, it wouldn't be a problem. So it comes from
+[You]: the level of abstraction we've been building in the fintech
+[You]: stack, right, the past decade. Just a lot of layers in the middle between the
+[You]: banks, multiple banks, ledgers, multiple providers,
+[You]: it's become a mess. And all and this this whole ecosystem is not regulated, and therefore,
+[You]: that's why there's no standards for data processing, for data
+[You]: formatting, data sharing. That's why recognition becomes particularly complex. Right?
+[You]: Some of these banks are not even operating real time. They're operating batch
+[You]: transactions. So, like, for companies like Albert tracking money,
+[You]: has become incredibly hard. So we're building sort of, like, the platform we wish
+[You]: we had, the longer term vision for us
+[You]: is becoming sort of like the clock code for FinOps processes
+[You]: Right? We're starting by recon,
+[You]: because it's critical pain today, and we're seeing a lot of pull in the market today for that. But for us, it's more of a
+[You]: as a wedge because we're getting access to transactional data, therefore, that
+[You]: earns us the right to build build additional workflows on top of that. Right?
+[You]: So there are two reasons why we're studying by by recon.
+[You]: Today, we're working with, neo banks like Comune with payment processors
+[You]: crypto wallets, banks,
+[You]: payment companies. Anyone in in in the financial services stack has a big pain with GreenCon.
+[You]: Also exploring insurance in marketplaces because at the end of the day,
+[You]: any company
+[You]: operating multiple payment flows and with high transactionality has a pain with reconciliation.
+[You]: So
+[You]: basically, what we do is that our our product is is a SaaS product.
+[You]: It's a web application.
+[You]: Which connects straight to the sources, so no preprocessing required on your side.
+[You]: We go straight to the raw files.
+[You]: That has two reasons. The first one is because we have the technical capabilities to do all the parsing
+[You]: and the preprocessing inside the platform.
+[You]: And the second reason is because of traceability and auditability.
+[You]: It's really important in these
+[You]: workflows to be able to chase it back to the raw file if something goes wrong.
+[You]: Right, and create those versions on top of
+[You]: all the processing we're doing. So that's why I wanna control the outcome end to end.
+[You]: So we connect to the sources. If there's APIs, great.
+[You]: If we need to set up SFTPs, we do that.
+[You]: If we need to grab CSV files from portals or pick up
+[Remote]: Yep.
+[You]: PDFs from emails, we also do that.
+[You]: We go straight source and ingest the raw files. And then inside the platform,
+[You]: we basically first all the information,
+[You]: is basically changing the formats to make sure we're comparing the right columns and the right amounts.
+[You]: Then we
+[You]: configurate the the recon logic
+[You]: which is the different sets of rules, and that's a combination of you
+[You]: sharing with us or with the platform, not even with us, with our with agents platform,
+[You]: the business logic behind how these files work. And then the agents also do some work
+[You]: to identify additional patterns, additional rules that may optimize the match
+[You]: ing ratio. Right? Because the job to be done there is
+[You]: matching as much as you can.
+[You]: A high degree of of, of course, of
+[You]: you know, like, safety and
+[You]: And then finally, you you might know this, which is reconciliation once
+[You]: you build the workflow that's basically automated and matching transactions,
+[You]: most of the time is spent on
+[You]: investigating and closing differences. Because as you might know, these things never match a 100%.
+[You]: So that's when, again, we have a problem which has
+[You]: a genetic technology to basically cluster transactions, identify the root cause, and propose
+[You]: So you log in every single day,
+[You]: and with a few clicks, you take the matching ratio from
+[Remote]: Got it.
+[You]: ninety seven ninety eight to ninety nine point nine.
+[You]: And and the interesting thing about the problem solver is that, again, that's when we start
+[You]: we we have this data flywheel in which it starts learning about the process, and it
+[You]: it gets better over time. And it also learns about
+[You]: your actions, about the user actions.
+[You]: Approving, denying. It understands the thresholds.
+[You]: It starts understanding which are exceptions in these files because these are mantle money movements that are
+[Remote]: Sure.
+[You]: to Albert.
+[You]: And that's
+[You]: we call the business policy.
+[You]: The user policy. We start building that, and that's when the agents gain more and more autonomy
+[You]: and the system really becomes more and more
+[You]: automated. Finally, we have the output schemes in which
+[You]: you can create your dashboards, your reports,
+[You]: You can even drop the the the reconciled files in any bucket that you want.
+[You]: And we also plug into the main ERPs to create the journal of stuff that's already
+[Remote]: Okay.
+[You]: results we've been seeing with initial customers are, first,
+[You]: workflow automation. So a lot of time saved in in reconciliation. That's the first one.
+[You]: The second one is,
+[You]: reducing the write offs.
+[You]: I don't know if you had this at figure, but
+[You]: many companies that are not able to reconcile the differences
+[You]: end up doing just balance sheet write offs. We've been working with companies that have twenty twenty five k, 30 k every single month of stuff they
+[Remote]: Yep.
+[You]: really don't know what's going on. So we're we've reduced that by 95% in the
+[Remote]: Okay.
+[You]: we're working with.
+[You]: So a lot of savings there. And the last one is regarding, compliance and regulatory risk.
+[You]: Reconciliation sometimes has some reporting requirements.
+[You]: To comply with a certain compliance framework or with a regulator and giving
+[You]: we automate DASA as well.
+[You]: Enables companies to remain compliant in a in a robust way. Right?
+[You]: And and not enduring any
+[You]: any fines,
+[You]: any risk of you losing a license or or something. One of the banks we've been working with in
+[You]: in South America, for example,
+[You]: had a fine with the central bank for the past eighteen months worth
+[You]: more than 150 k. And in less than a month, we were able to
+[You]: close that requirement and and avoid that fine going forward.
+[You]: So it's it's about workload automation, reducing the losses, and reducing risk.
+[You]: And the last thing I'll say is I'm sure Albert and this is probably one of the reasons you joined Albert,
+[You]: has pretty aggressive growth plans for 2026. Right?
+[Remote]: Yep. That's right.
+[You]: Probably meaning
+[You]: not only additional volume,
+[You]: but also additional product verticals, right, which will only make the reconciliation process more
+[You]: complex. So having a tool that basically is easy to set up
+[Remote]: Right.
+[You]: additional workflow, easy to connect the new data source
+[You]: for these teams is is critical. Because if not, we we've seen teams that
+[You]: have the product, the technology ready to launch,
+[You]: and suddenly for a weird reason, finance or 15 or 20% of the customer support tickets where customers
+[You]: opening a ticket because they couldn't see their money reflected in the wallet.
+[You]: And that was just because it didn't have, like, a live daily recon
+[You]: that would impact the wallet. You know what I mean?
+[You]: Those are just
+[You]: examples of of indirect value that
+[You]: a platform like ours
+[You]: creates.
+[You]: Other than that, I don't know if you have any specific questions. Would love
+[You]: to deep dive more into
+[You]: how are you currently managing reconciliation at Albert or if you haven't done the work
+[You]: yet or who manages it and and
+[You]: what are the pains you've identified?
+[Remote]: Yeah. So there's again, it's a limited month. But so from what I've come in on right now,
+[Remote]: seems like
+[Remote]: either don't exist or they exist in a very primitive fashion on Looker.
+[Remote]: So we just bring in bank data for the most part, data from our partners, like,
+[Remote]: for example, Gataleo,
+[Remote]: we reconcile that. So we say, here's the file that went out to, one of our our vendors or whatever.
+[Remote]: It was for
+[Remote]: 100 k. And then the the looking at the bank activity for the prior day,
+[Remote]: does it line up? So it's very it's very rudimentary. You know?
+[Remote]: And and it works, I think, for now. But but to your point, if you're trying to scale up here,
+[Remote]: standard verticals, it might not be sufficient.
+[Remote]: My concern too is that it's not very user friendly.
+[Remote]: Right? So it it's one person who who coded that leaves.
+[Remote]: I'm not sure that there's enough knowledge to
+[Remote]: easily update that correctly and and go from there. Right? So that's my take on it.
+[Remote]: One of things that I've been doing coming in is finding the ones that don't exist is and helping them build them out.
+[Remote]: And those exist kind of primarily through Excel,
+[Remote]: you know, with macros or or Google's sheet scripts, things like that.
+[Remote]: The point being it's very manual or very basic.
+[Remote]: In Looker. Right? That's where we currently stand. Again,
+[You]: Mhmm.
+[Remote]: still very early on. I might come in here and learn more and figure out what what I know yet, but
+[Remote]: as of right now, it's fine. It should take after looking at the data for about a month.
+[Remote]: Questions I did have actually. So I I wrote a few down here. So
+[Remote]: sounds like, you know, you said you have a handful of customers right now.
+[Remote]: And you're you're growing, obviously. But do have any that are are public yet, or are they all private companies still?
+[You]: We have public. It's an interesting question. You're the second person this day that act
+[You]: ask the same question. Is that because is that because of compliance?
+[Remote]: Yeah. That's that's what I'm thinking about. So if if we are
+[Remote]: eyeing an IPO in the next, call it, year or two, right,
+[Remote]: wanna make sure that our policies are gonna stand to muster not just as a private company, but
+[Remote]: as a public company, we get audited. We're not gonna have to change everything to a one eighty on that. So
+[Remote]: wanna show every build now is gonna be good for that
+[Remote]: eventual public statuses company potentially. So that's why I'm asking.
+[You]: Yeah. We are working with a public
+[You]: company. That's the name of the company. It's the biggest, ecommerce platform to buy airfare tickets.
+[Remote]: Okay.
+[You]: And hotels.
+[You]: In Latin America.
+[Remote]: Okay.
+[You]: They have a fintech arm. They sell again,
+[You]: it's like kayak.com or Google Flights.
+[You]: And they have a fintech arm, and they also sell hotels, car rentals, etcetera.
+[Remote]: Okay.
+[Remote]: Okay.
+[You]: So that's the that's the only public company we're working with, but
+[You]: but it's interesting question. And regarding compliance, we are SOC two type two certified.
+[Remote]: Okay.
+[You]: We are in the process of getting SOC one type two and ISO
+[Remote]: Great.
+[Remote]: Okay.
+[You]: 27,001. So
+[You]: yeah, we know we work with with sensible data, with important data, and
+[You]: security, privacy,
+[You]: and those type of things are front and center of what we do. I'll add one more thing, which is
+[Remote]: Okay.
+[You]: for our biggest enterprise customers, we have an option which is the
+[You]: customer managed option.
+[You]: Which basically means we it's like a calendar model where we
+[You]: build this intermediate infrastructure, which is
+[You]: owned by the customer but operated by us,
+[Remote]: I see.
+[You]: and that means that data never leaves their infrastructure.
+[You]: But to do that, we really want to hear
+[Remote]: Okay.
+[You]: really strong reason
+[You]: just because it it it it's harder to provide support. It's harder to
+[You]: provide the upgrades. Again, we're a tech startup.
+[You]: And we're evolving a platform every single week. Like,
+[Remote]: Right.
+[You]: progress is just huge. And deploying the
+[You]: deploying the product in other infrastructure just means we need to be maintaining that and
+[You]: ensuring that we are providing the latest.
+[Remote]: Yep.
+[You]: If there's a big
+[You]: big reason to do it, we're willing to do it. And the pricing model is also different. Right? Because then
+[Remote]: Yeah.
+[Remote]: Figured. That makes sense.
+[Remote]: Okay.
+[Remote]: And then one thing so a lot of these these banks that
+[Remote]: we've worked with for this payment processing, and I'm sure other smaller companies do as well.
+[Remote]: Our
+[Remote]: they do a lot, but they're not very sophisticated. Right? So they they're they're really
+[Remote]: poor data
+[Remote]: timing. You they might not connect to APIs.
+[Remote]: Do you deal with these banks that
+[Remote]: they provide bank data, but maybe it's a few days late? There's some delays there. There's some
+[Remote]: weird formatting that they use. Like, how do you how do you work around the
+[You]: That's the tribal knowledge that you were previously mentioning that's probably
+[You]: concentrated in the person that coded the Looker
+[You]: Looker's head. Right? That person has all that knowledge, and that's something
+[Remote]: Exactly. Yep.
+[You]: we know because we were operators before, and we were
+[You]: reconciling these money. Like, when I was in común,
+[You]: I was reconciling with Piermont Bank, CFSB Bank,
+[You]: We know Coastal Community Bank.
+[You]: FB Bank, Dark Bank, these sponsored banks in The US. We know a lot of them, and we know the
+[You]: quality of the information we're working with.
+[Remote]: Yep.
+[You]: What I'll say is is the following.
+[You]: These systems is garbage in, garbage out.
+[You]: So it's about getting creative to understand that garbage and do the best you can with that garbage.
+[Remote]: Yep.
+[You]: But the system learns and gets better,
+[You]: And what we do need to do in the implementation process or even if we do some sort of pilot is
+[You]: codify that into the platform.
+[You]: Whatever you're doing and you're figuring out in Looker or this person is figuring out in Looker,
+[You]: brexi agents should be able to learn and get it quicker and better.
+[Remote]: Got it.
+[You]: And that's the end state here. Right? Because you're currently doing it. I mean,
+[You]: whomever built that on Looker understands these files.
+[You]: So it's just about codifying into into the system.
+[Remote]: Yep.
+[Remote]: Okay. Let me
+[Remote]: right. Okay. Makes sense.
+[Remote]: And then last question I had, and I won't look into this
+[Remote]: question because I know it depends. But what's typical setup time and and cost
+[Remote]: look like for integrating this?
+[You]: So, for set up time,
+[You]: it depends on on on the connectors.
+[You]: Because sometimes it doesn't depend on us. If it's APIs, we can go live in under a week.
+[You]: I mean, we have a dynamic integrator which we can
+[You]: we have native integrations on one side, and on the other side, we have this
+[You]: dynamic integrator that can plug into any API
+[You]: in in
+[You]: minutes. I'm just gonna say hours and days because we like to test it out and just
+[You]: try the data because we know that API docs are not always updated.
+[You]: But
+[You]: we can low go
+[You]: live in in less than a week. That said, that's to build the connectors.
+[You]: I would say an additional two or three weeks to get the business logic, configure the whole workflow, and get to, like, a steady state where
+[You]: we know we're reconciling automatically every single day.
+[Remote]: Yep.
+[You]: With performance thresholds that we are comfortable with. And then it's just a platform
+[You]: optimizing itself and the user
+[You]: getting better and better at using it over time. We do not charge
+[You]: for implementation.
+[You]: What we do
+[You]: is interesting and it's something we're testing out right now, is
+[You]: we charge a five k
+[You]: upfront implementation
+[You]: which we then give back
+[You]: if we are live in under a month.
+[Remote]: Okay. Interesting.
+[You]: That's just to, like, generate that commitment, that's
+[You]: speed.
+[You]: With the with our customers and make sure that time to value is not diluted and
+[You]: and we are
+[You]: quickly up and running.
+[Remote]: Okay. Interesting.
+[You]: Because we know we can move fast, but we had experiences with customers in the past where
+[You]: implementation just took, like, three months and a half.
+[You]: Because there was no responsiveness. They were not paying for that process.
+[Remote]: Right.
+[You]: They had other priorities. So it's about, like,
+[You]: getting that commitment locked in with with an economic incentive.
+[Remote]: Right.
+[You]: Because we know on our side we can get it done in under a month.
+[Remote]: Right. You mean buy in from the the actual company to
+[You]: Yeah.
+[Remote]: be there and talk to you and meet with you. Yeah. Makes sense.
+[You]: Yep.
+[Remote]: Okay.
+[Remote]: Got it. And it's all I had right now. I I think what you have sounds very
+[Remote]: intriguing, obviously, and sounds like you're really scaling up a lot here.
+[Remote]: But like I said, I I think the timing isn't a 100% right now.
+[Remote]: Just given that I'm still wrapping up myself. I'd like to have a very firm knowledge of it myself before I look to
+[Remote]: do any kind of integration. But I think there's nothing here to discuss in, you know, a matter of
+[Remote]: some months maybe. So that's my initial take here, but everything you're saying around, you know,
+[Remote]: the compliance
+[Remote]: part of it, the timing of of setup, all that sounds good to me. So,
+[Remote]: think it makes sense to stay in touch, and I'll reach out to you, you know, call it in a few months once I'm I'm ramped up and see if it makes
+[You]: Cool. Sounds great.
+[Remote]: sense to move forward.
+[You]: You said you were in San Francisco?
+[Remote]: That's right.
+[You]: I'll be there
+[Remote]: Yep.
+[Remote]: Okay.
+[You]: the week of April 20, so in exactly a month.
+[You]: Maybe
+[Remote]: I believe
+[You]: are you guys going to the office or just remote?
+[Remote]: we're remote. We're remote. But
+[Remote]: but I I'm pretty close to downtown, so I'm not I'm not huge issue for me.
+[You]: Maybe we could catch up there.
+[You]: That week, see where you're at, and see if it makes sense
+[You]: to do a demo that week or something.
+[Remote]: Yeah.
+[You]: Because I understand you just joined and you just
+[You]: ramping up, and it does make sense for you to really grasp it before you automate it.
+[Remote]: Right.
+[You]: So
+[You]: do that. I'll just circle up
+[You]: closer to that day to block some time that week.
+[Remote]: Okay.
+[You]: Maybe we could grab coffee, do a live demo, and then see where that takes us.
+[Remote]: Yeah. Sounds good to me.
+[You]: Amazing, Josh. Alright.
+[Remote]: Great.
+[You]: Congrats again for all the track record and and and the new job.
+[You]: Hopefully, this this onboarding is is good
+[Remote]: Thank you.
+[You]: easy for you and not stressful.
+[You]: And we'll keep in touch. Thank you for your time.
+[Remote]: Yeah.
+[You]: Bye.
+[Remote]: That's good. Likewise, have a good day.
+[Remote]: Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Albert’s Current Reconciliation Setup
+
+- Uses Looker for basic reconciliation
+  - Brings in bank data and partner data (e.g., Galileo)
+  - Very rudimentary: checks if $100k file matches bank activity
+  - Works for now but not scalable
+- Major concerns with current system:
+  - Not user-friendly
+  - If the person who coded it leaves, knowledge is lost
+  - Very manual processes using Excel macros and Google Sheets scripts
+- Josh building out missing reconciliations since joining
+  - Primarily through Excel with macros
+  - Still very early in understanding full scope
+
+### Albert’s Business Context & Growth Plans
+
+- Josh joined as Director of Treasury \~1 month ago (new role)
+- Company expanding rapidly after being <100 employees for long time
+- Uses multiple partner banks: Wells Fargo, Evolve, Sutton Bank
+  - Redundant accounts across banks for same functions
+  - Need to track activity across 3-4 different banks
+- Aggressive growth plans for 2026
+  - Additional volume and product verticals expected
+  - Eyeing IPO in next 1-2 years
+- Josh’s background: 6.5 years at Figure (IPO’d September 2025)
+
+### Next Steps
+
+- Josh wants to fully understand current processes before considering new solutions
+- Ignacio visiting San Francisco week of April 20th
+  - Plan to meet for coffee and live demo
+  - Josh will reach out in few months once ramped up
+- Albert operates remotely but Josh close to downtown SF
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/27985e52-cbbd-40a0-8c7e-0f199d08b879](https://notes.granola.ai/t/27985e52-cbbd-40a0-8c7e-0f199d08b879)

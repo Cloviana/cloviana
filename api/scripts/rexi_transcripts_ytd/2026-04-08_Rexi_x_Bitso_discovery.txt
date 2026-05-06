@@ -1,0 +1,526 @@
+MEETING: Rexi x Bitso: discovery
+DATE: 2026-04-08
+ID: not_wixUN7whKQZzvx
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Sebastian Contreras <sebastian.contreras@bitso.com>
+SCHEDULED: 2026-04-08T09:30:00-04:00 - 2026-04-08T10:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: So, es Argentina, entonces,
+[Remote]: No te preocupes, no hay problema.
+[Remote]: Urbaño.
+[Remote]: Pero en realidad viví siempre en Argentina, así que
+[Remote]: mientras no me escuchen, sí, sí, bastante argentino.
+[You]: ¿Estás viviendo en Buenos Aires o estás en México?
+[Remote]: No, Buenos Aires, sí, sí.
+[You]: ¿Y hace hace cuánto estás en Bicho?
+[Remote]: Basado en Buenos Aires.
+[Remote]: Voy a cumplir
+[Remote]: cuatro años en agosto.
+[You]: Un
+[You]: o sea, desde veinte veintidós,
+[Remote]: Correcto, sí, sí.
+[You]: mirá, yo
+[You]: en
+[You]: Bueno, yo renuncié en veinte veintitrés, ahora que lo pienso,
+[You]: Por ahí nos cruzamos. Pasa con vos en el training desk, está muy separado de beach.
+[Remote]: Claro.
+[You]: O compañía, ¿no?
+[Remote]: Totalmente. Y te diría que en veinte veintidós, cuando entre,
+[Remote]: estábamos súper,
+[Remote]: en la nuestra estábamos
+[Remote]: haciendo, tipo, prop trading, y hoy en día estamos mucho más
+[Remote]: integrados con Bitsop, porque le damos muchos, o sea, muchos servicios hoy en día.
+[Remote]: Con lo de business, estamos metidos con
+[Remote]: todo lo que es OTC,
+[Remote]: etcétera, etcétera. Entonces,
+[Remote]: hoy estamos mucho más conectados que hace cuatro años, seguro.
+[You]: Mira, buenísimo. Vos sabés que te cuento una cosa, chunifre
+[You]: jefe, va, jefe de mi jefe,
+[You]: Yo arrendí cuando Chuni estaba haciendo Bitsso Alpha, Fede Size le reportaba a Chuni y
+[You]: trabajaba con Fede Size. Después, Chuni se fue al trading desk, Fede fue creciendo la organización en otros roles,
+[You]: yo lo fui siguiendo a Fede, pero Chuny fue uno de mis primeros
+[You]: jefes, si querés. Y, bueno, fue un placer reconectar ahora.
+[Remote]: Vos estabas en, tipo, haciendo producto?
+[You]: Yo arranqué primero en estrategia con Fede,
+[You]: creamos el equipo de estrategia,
+[You]: y después me me fui a productos, sí, a trabajar con Santi Alvarado.
+[You]: Fui product manager del equipo de pagos.
+[You]: Nacé pagos con QR, después fui el equipo que lideró la la construcción del MPC wallet,
+[You]: Así que sí. Y después ya me fui, estoy en un MVA, y, bueno, ahora estoy con
+[You]: con Rexi, que es que es mi emprendimiento. Si querés,
+[You]: cuento un poquito más de Rexi, de lo que hacemos, y después me encantaría entrar en más detalle también en
+[You]: un poco más la operatoria sobre la mesa de
+[You]: de trading de de Bitso, y ver si hay una necesidad ahí por cubrir Lexi, te cuento un poco sobre la visión, digo, sobre lo que estamos haciendo hoy y después la visión. Lo que estamos haciendo hoy es una plataforma de conciliaciones. ¿Capaz conoces Symmetric? Bueno, básicamente, hoy es un SaaS que vos le conectás tu fuente de información crudas, tus archivos crudos, y el sistema lo que hace es hace todas las transformaciones todo el procesamiento, que es el matching de transacciones, comparación de balances, tiene un módulo de investigación y resolución de diferencias, y después tenemos todo el módulo de output que tenés, dashboards, reportes,
+[Remote]: De una.
+[Remote]: No.
+[You]: y también conexiones a los ERP para generar las entradas contables.
+[You]: Eso es lo que hacemos hoy. Entonces, básicamente automatizamos el proceso conciliatorio de punta a punta.
+[You]: Típicamente, trabajamos con compañías que tienen
+[You]: múltiples flujos de dinero, de pagos,
+[You]: y una transaccionalidad alta.
+[You]: Ahí es donde realmente se vuelve complejo el proceso conciliatorio. Entonces,
+[You]: bancos, aseguradora, fintechs, visitors digitales,
+[You]: ese tipo de compañías donde vemos más feed hoy.
+[You]: Obviamente, todo con tecnología agéntica y AI, tenemos agentes que te hacen desde el conector a la font de información,
+[You]: las transformaciones, entendiendo cuál es el el el formato más productivo para
+[You]: hacer los cruces,
+[You]: para codificar la logia conciliatoria, también tenemos un agente. Después,
+[You]: la conciliación se hace de manera determinística, porque ahí no podemos tener
+[You]: alucinaciones. Y después, en el problem solver también es muy interesante el uso de la
+[You]: agente para investigar y resolver diferencias. Entonces, agrupa transacciones por clusters,
+[You]: por causa raíz, propone soluciones, y con eso
+[You]: la verdad, tardás muchísimo tiempo en investigar y resolver las diferencias manualmente.
+[You]: La visión a futuro es
+[You]: convertirnos como en el cloud code for FinOps, ¿no? Entonces,
+[You]: arrancando por conciliaciones, porque es un dolor muy grande hoy,
+[You]: y porque es la base técnica y fundacional para el cual
+[You]: después puedo construir otros workshops agénticos. Si yo te hago un
+[You]: proceso agéntico
+[You]: autónomo para un proceso de finanzas,
+[You]: ese agente está montado sobre una base que no está conciliada y, bueno, tenés riesgos ahí de
+[You]: la gente va a escupir
+[You]: cosas que no son reales, cosas que tienen, no tienen precisión, etcétera. Entonces, la primer
+[You]: paso es decir,
+[You]: hagamos este system of record conciliado y, sobre encima de eso, construimos agentes para automatizar las funciones de finanzas y de operaciones. Esa es un poco la gran tesis. Hoy,
+[You]: muy enfocado en conciliaciones, empezando a mojarnos los pies en lo que es acá accounting,
+[You]: pero
+[You]: pero con el foco en conciliaciones. Si querés, contame ahí desde el trading desk
+[You]: qué tipo de necesidad tienen hoy relacionado a conciliaciones, si
+[You]: concilian, si no concilian, si es una necesidad que queda en Bitsoy y cómo lo hacen y si
+[You]: dolores que por ahí los podemos ayudar a a
+[You]: a solucionar.
+[Remote]: Perfecto.
+[Remote]: No, primero, está buenísimo lo que están haciendo, o sea, la verdad que creo que sí es un
+[Remote]: big pain en lo que es operaciones,
+[Remote]: Especialmente, te diría que en equipos,
+[Remote]: relativamente chicos, donde no tienen, como, ¿viste?, un
+[Remote]: ejército de personas que estén mirando,
+[Remote]: con lo cual sería como el caso del desk,
+[Remote]: que si
+[Remote]: o sea, honestamente, en operaciones estoy solo, o sea, no no hay nadie más.
+[Remote]: Que esté haciendo operaciones. Ahora, hace poco, entró un chico
+[Remote]: a darme una mano, pero
+[Remote]: a medida que va creciendo la operación se, obviamente, se hace más complejo, ¿no?
+[Remote]: Y y a medida que vas agregando flujos,
+[Remote]: necesitás tener un tracking
+[You]: Gente,
+[Remote]: Sí, sí, sí,
+[You]: o una herramienta,
+[Remote]: una herramienta que te permita, digamos, no dedicarle
+[Remote]: mucho tiempo a, justamente, lo que decís vos, resolver
+[Remote]: distintos tipos de breaks, de decir,
+[Remote]: yo operé esta cantidad de plata, pero después veo que me entró
+[Remote]: un poco menos, digamos, ¿dónde está el gap?
+[Remote]: Ah, el gap es porque nos quedó plata en Lead Bank,
+[Remote]: o lo que sea en el banco o en este exchange, ese tipo de cosas,
+[Remote]: es supersuperimportante, y nos fuimos dando cuenta que era
+[Remote]: importante de trackear,
+[Remote]: con lo cual te diría que hoy la complejidad más grande que tenemos en el desk es que
+[Remote]: tenemos
+[Remote]: distintos counterparties que que son
+[Remote]: pueden ser o bancos,
+[Remote]: o brokers u otros ¿no?
+[Remote]: O TC Desk, por ejemplo.
+[Remote]: Entonces,
+[Remote]: nosotros tenemos todo bastante
+[Remote]: el el flujo del capital a través de Fireblogs,
+[Remote]: pero la la realidad es que nosotros a veces tenemos que operar directamente en las plataformas de
+[Remote]: algún banco,
+[Remote]: eso sí es un proceso un poco más manual, ¿no?
+[Remote]: Mover ese capital, porque
+[Remote]: tenemos algunos
+[Remote]: algunos partners que no nos ofrecen APIs, entonces,
+[Remote]: hoy en día como buscándole la vuelta.
+[Remote]: Para que no sea algo tan
+[Remote]: tan manual.
+[Remote]: El
+[Remote]: Honestamente, o sea, siendo cien por ciento transparente, hoy Cloud Code
+[Remote]: ayuda muchísimo,
+[Remote]: este tipo de cosas, o sea, yo que estoy solo, digo, bueno, en el
+[Remote]: tiempo extra que tengo, donde no estoy
+[Remote]: resolviendo operaciones o apagando algún incendio, digo, che, a ver,
+[Remote]: le le pido a Cloud Code cómo me puedo conectar a esto sin tener una API, por ejemplo,
+[Remote]: y me lo ha ha logrado resolver en algunos casos,
+[Remote]: Entonces, como que eso, ese pain
+[Remote]: por ahí tenía hace seis meses, hoy va disminuyendo un poco más,
+[Remote]: gracias a herramientas de de inteligencia artificial.
+[Remote]: Entonces,
+[Remote]: pain principales es, bueno, trackear dónde está la plata,
+[Remote]: Si bien yo tengo los balances
+[Remote]: en cuenta a, b, c, d,
+[Remote]: a veces es difícil entender
+[Remote]: ok, ¿esta plata de de qué es? ¿Es de estas operaciones?
+[Remote]: Esto es lo que nos entró por el settlement con el counterparty, esto fue lo que operamos como
+[Remote]: todo ese matching de como buen tracking de la plata, ese es un pain.
+[You]: ¿Qué bachías, por ejemplo?
+[Remote]: Y tenemos que matchar, por ejemplo, tenemos
+[Remote]: operaciones en Colombia y en Brasil, y
+[Remote]: nos nos tiran, y tenemos algunos agreements de revenue sharing, entonces nos tiran sus
+[Remote]: sus
+[Remote]: sus transacciones, digamos, lo que ellos
+[Remote]: dicen que operamos, y lo comparamos con nosotros, y ahí manchamos todos los
+[Remote]: todos los flujos,
+[Remote]: para asegurarnos de que
+[Remote]: de que estamos hablando, digamos, de lo mismo, de los mismos volúmenes, las mismas operaciones.
+[You]: Pero ahí comparas, entonces, como un ledger o un archivo
+[You]: de lo que debería haber sucedido y comparás contra tu banco de si entró o no entró.
+[Remote]: Claro, exacto.
+[Remote]: Exacto. Y lo mismo con con con, por ejemplo, la cuenta de Bitso's, tipo, che, operamos, con un counterparty y le compramos cien millones de pesos mexicanos, bueno, ver
+[Remote]: cuánto nos entró realmente. Nos entraron cien millones de pesos mexicanos. Perfecto, listo.
+[Remote]: Ahí te macheo.
+[Remote]: Y cuando él no me machea, ahí lo levanto con un
+[Remote]: con el counterparty y le digo, y y tratamos como de resolver esas diferencias que
+[Remote]: a ver, la data está y
+[Remote]: y y como que todos hablamos de lo mismo, pero a veces
+[Remote]: el el output de cómo se ve la información o la
+[Remote]: las time windows de los settlements es distinto, entonces, eso a veces
+[Remote]: se rompen algunas reconciliaciones.
+[You]: ¿Cuál sería la parte más,
+[Remote]: Sí, sí, sí, sí.
+[You]: para vos? ¿La la parte de las diferencias?
+[You]: ¿Cuántas cuántas diferencias tenés?
+[Remote]: Sin dudas.
+[You]: Por día o por mes?
+[Remote]: Mirá, hace
+[Remote]: hace un mes o hace dos meses,
+[Remote]: ponele, sí, hace dos meses, principio de febrero, estaba
+[Remote]: estaba apareciendo porque
+[Remote]: estamos empezando a ordenarnos un poco. No sé, tenía
+[Remote]: cuatro o cinco diferencias todos los días.
+[Remote]: Esas diferencias,
+[Remote]: le tenga que llegar media horita, como para entender.
+[Remote]: Después le vas le vas cerrando la mano y te vas dando cuenta de
+[You]: Si entendés la casuística, ahí ya sabes qué pasa después.
+[Remote]: de los
+[Remote]: Exacto, exacto, como que vas entendiendo, ah, el sistema lo que hace es esto,
+[Remote]: por eso me sale la diferencia. Eso se fue reduciendo, pero hoy en día,
+[Remote]: tenga
+[Remote]: cuatro o cinco breaks por por semana, te diría.
+[You]: ¿Cuánto tiempo significa eso?
+[Remote]: Que a nivel
+[Remote]: a nivel transaccionalidad no es mucho.
+[Remote]: Y, pues,
+[You]: Para vos por semana?
+[Remote]: sí, puede ser unas dos horas por semana.
+[Remote]: Sí.
+[Remote]: Hoy en día, la verdad que se se redujo bastante,
+[You]: O sea, la parte de la conciliación de matchata es una inteligencia automatizada,
+[You]: y el mayor es
+[You]: esta parte de las diferencias.
+[Remote]: Sí, que, a ver, de nuevo, no somos
+[Remote]: como un high algorithmic trading firm, entonces, no es que tenés
+[Remote]: quinientos trades, mil trades por día, con la contraparte que tenemos que matchar uno a uno,
+[Remote]: sino que es más como el agregado de lo que operamos hoy
+[Remote]: si macheo o no machea.
+[You]: Perfecto. Y y la parte del matching, ¿te quiere decir
+[You]: un script de SQL, Excel?, ¿cómo cómo lo macheás?
+[Remote]: Bueno,
+[You]: Encontrar la diferencia, en primer lugar.
+[Remote]: es muy buena tu pregunta. Hoy, Cloud Code es el el gran
+[Remote]: solver de estas diferencias,
+[Remote]: ya lo tenemos conectado como, de nuevo, digo, la
+[Remote]: las cosas que tienen API y que funcionan, tipo, los input de data van solos,
+[Remote]: eso ya
+[Remote]: ahí está perfecto. Después teníamos otros brokers que no nos ofrecían APIs, pero Cloud Code
+[Remote]: con Cloud Code resolví como
+[Remote]: No me preguntes, yo no soy developer, pero yo le pregunto a Cloud Code
+[Remote]: che, necesito loguearme acá
+[Remote]: entrar a esta parte de la página, bajarme las transacciones,
+[Remote]: y y y hazte todo solo. Entonces, es un script
+[Remote]: te diría que de de Python, lo más probable, o sea, si miro el
+[Remote]: como el la carpeta de donde vive
+[Remote]: el proyecto de cloud es es todo Python, pero sí son scripts.
+[You]: Perfecto.
+[You]: Y quizás ahí preguntarte,
+[You]: cómo son los planes del trading desk y cómo pensás que va a cambiar esto.
+[You]: Digo, ¿se va a complejizar?, ¿se va a volver a prender fuego?
+[Remote]: No.
+[You]: ¿Cómo lo tienen pensado para veinte veintiséis?
+[Remote]: Se va se va a complejizar
+[Remote]: sin dudas, porque vamos incorporando, digamos, nuevos flujos, nuevos currencies, no counterparties,
+[Remote]: es una infraestructura que hoy
+[Remote]: hoy funciona y es
+[Remote]: yo personalmente, digamos, estoy trabajando como
+[Remote]: de alguna forma, en tratar de que escale
+[Remote]: ¿no?, esa infraestructura, ¿no? Entonces,
+[Remote]: yo lo que me estoy armando es como una especie de web app, obviamente,
+[Remote]: pero modular, donde, de alguna forma, yo pueda
+[Remote]: decirle, che, este es el nuevo counterparty que tenemos que incorporar,
+[Remote]: la lógica es a b c,
+[Remote]: y y como que entra.
+[Remote]: ¿No?
+[Remote]: Obviamente,
+[Remote]: trial and error,
+[Remote]: hay hay bugs por logger, o sea,
+[Remote]: un día me funciona, el otro día veo que no funciona, y le y le digo a Cloud,
+[Remote]: che, Cloud no me funciona, ¿y qué pasó? Y él y me contesta.
+[You]: Anísimo.
+[Remote]: Y lo vamos, claro, lo vamos arreglando así,
+[Remote]: pero te diría que hoy
+[Remote]: el, como el biggest
+[Remote]: pain a a a, digamos, a modo
+[Remote]: concrecimiento es que vamos a crecer mucho quizás en
+[Remote]: como más bancos
+[Remote]: regionales que no son, no tienen una infraestructura, tecnología tan
+[Remote]: robusta, entonces, yo voy a tener que hacerlos agentes para loguearme y y y va ser todo el
+[Remote]: el download de información,
+[Remote]: y nada, ir incorporando todo eso en un
+[Remote]: en un como cluster centralizado para que
+[Remote]: toda esa información esté disponible,
+[Remote]: etcétera, etcétera.
+[Remote]: Yo no sé hoy
+[Remote]: de acá a seis meses, si
+[Remote]: ejemplo, lo que estoy logueando de información va a ser una bomba de datos, ¿entendés?
+[You]: ¿Con tal?
+[You]: Bueno, muy interesante. Gracias, pero, perdón, mí te te
+[You]: diré la metralla ahora de preguntas, pero me sirve para matear un poquito del
+[You]: el pain y ver si hay fit ish, no hay fit, ¿no?
+[You]: Creo que acá hay hay dos puntos. Primero está el punto de, chelo,
+[You]: construyo internamente o meter algún vendor,
+[You]: que es una discusión que hemos estado teniendo también bastante, y después hay otro punto alrededor del timing.
+[You]: De cómo evoluciona esto y si eso cambia la respuesta del primer punto.
+[You]: Primer punto de
+[You]: buy versus build,
+[You]: muchas compañías tecnológicas, digo, como Bitso, como ustedes, que
+[You]: dicen, che, voy a hacer algo internamente, porque voy con Claude, lo están poniendo a armar. Y y creo que está
+[You]: está están
+[You]: muy bueno, está perfecto, pero ahí hay hay dos cosas para remarcar,
+[You]: de por ahí por qué nosotros tenemos sentido.
+[You]: Lo primero es si es el mejor uso de tu tiempo, ¿no?
+[You]: Calculo que en operaciones estás explotado de cosas para hacer y
+[You]: la pena que vos estés metido pegándote con Claude todos los días, todas las
+[You]: semanas, optimizando esto, porque también lo que pasa es, no es algo estático,
+[Remote]: Total.
+[You]: cambia todo el tiempo. Entonces, al final le estás dedicando un
+[You]: par de horas por semana a Claudia a mantener este flujo andando.
+[You]: ¿Es el mejor de tu tiempo? ¿Sí o no? Esa es la primer pregunta.
+[You]: Y la segunda pregunta es,
+[You]: nivel tecnológico,
+[You]: nosotros obviamente siempre lo que decimos es que tenemos que ser mejor que Cloud.
+[You]: Y somos mejores que Cloud en muchos sentidos.
+[You]: Principalmente porque por por cómo funciona la plataforma y cómo corre
+[You]: de manera síncrona, y más importantemente es
+[You]: el agente de cloud, obviamente, va a aprender de tus flujos y aprende en el
+[You]: pero aprende solo de tus flujos y de tus casuísticas, eso es una parte importante, pero
+[You]: vos pensás que nuestros agentes están entrenados con context Windows de todos nuestros clientes y de todas las casuísticas.
+[You]: Posiblemente, también hay casuísticas en común. Entonces, si a vos se te rompe algo con FireLocks, no
+[You]: gente ya sabe, porque operamos con buen bit, que también usa
+[You]: y sabemos la lógica de FireLocks y cuando cambia algo, cómo optimizarte eso de manera dinámica. Sin que vos tenés que meter en cloud y decir, che, ¿qué pasó que no funcionó acá? Y hasta que llegues a entender qué pasó y cambiarlo, por ahí sí le dicaste dos horas un martes, ¿me entendés?
+[You]: Y lo tenías que hacer, porque era urgente, porque, si no, no
+[You]: lo ese día, y ahí ya pensás una bola de nieve que decís, si no lo hago hoy,
+[You]: empiezas a tomar riesgo también. Entonces, está la parte
+[You]: si es mejor uso tu tiempo, está la parte también de
+[You]: que, técnicamente, nosotros vamos a ser mejores, porque tenemos agentes y tecnología especialista en conciliaciones, ¿no?
+[Remote]: Claro.
+[You]: Está el punto del timing, que ahí también, de vuelta, afecta mucho el primer punto, porque
+[You]: mientras no esté prendido fuego, mientras no sea lo suficientemente complejo,
+[You]: yo soy el primero que te dice, perfecto, que tengas alguna macro en Excel o algo
+[You]: en cloud, porque digo,
+[You]: es sobrevivir,
+[You]: y hoy te requiere poco tiempo y conlleva poco riesgo.
+[You]: En esa senda de crecimiento,
+[You]: donde si vos crecés en transaccionalidad y además crecés en
+[You]: flujos de dinero, que eso es lo que es lo más doloroso, cuando ya tenés varios bancos,
+[You]: y varias partners,
+[You]: bueno, ahí la dedicación de tiempo empieza a subir,
+[You]: y y y y el stretch del se vuelve un poquito más de... Ok, ahora sí,
+[You]: son varias horas por semana y tengo que o contratar a alguien o contratar una herramienta, ¿no?
+[You]: Y ahí es donde de vuelta entra a decir,
+[You]: bueno, por ahí, ya tener una herramienta, un sistema,
+[You]: que sea más eficiente, más rápido, más escalable,
+[You]: y me ahorra tiempo a mí, y me ahorra contratar a una persona
+[You]: y me posiciona de cara al futuro seguir creciendo y agregando partners,
+[You]: sin agregar riesgo ni ni complejidad,
+[You]: empieza a tener más sentido. Habiendo dicho todo eso,
+[You]: Creo que es interesante el timing y todo lo que me contás,
+[You]: Yo veo mucho feed, honestamente, es lo que hacemos.
+[You]: Obviamente, Bitso, yo habiendo trabajado ahí, creo que hay una relación que
+[You]: que podemos tratar de hacerlo funcionar para ambas partes. Obviamente, probando valor, yendo paso a paso, pero
+[Remote]: Obvio, sí.
+[You]: lo que estoy pensando es, si te interesa,
+[You]: podemos o hacer una demo o hacer una prueba piloto directamente.
+[You]: La diferencia entre una demo y una prueba piloto es la demo, la controlo yo,
+[You]: en donde te te te muestro cómo funciona no sé agendar
+[You]: espacio la semana que viene, te muestro un poco
+[You]: cómo funciona los distintos módulos, dónde te impactaría más a vos en base a lo que acabo de
+[You]: y ahí vos, obviamente, decís, bueno, a ver, me interesa, me interesa. Lo que siempre pasa con las demos es
+[You]: es un ambiente controlado por mí,
+[You]: y es un ambiente que va a ser
+[You]: exitoso
+[You]: por diseño. Entonces, siempre la duda de tu lado, eché, el día que
+[You]: lo empiece a usar, esto me va a funcionar, ¿viste?
+[You]: La prueba piloto es un poquito más poderosa porque lo conecto,
+[You]: digo, monto sobre
+[You]: todas las bases que voy a tener ingestadas y te lo dejo usar un par de semanas,
+[You]: que veas a ver, che, es mejor que Claude, es mejor que Claude,
+[You]: y cómo me permite esto
+[You]: no solamente atajar la necesidad de hoy, si me reduce tiempo hoy,
+[You]: sino... Y y de vuelta,
+[You]: reduciendo horas, que por ahí le podés dedicar a otro proceso mayor al agregado,
+[You]: sino también cómo permite atajar a futuro.
+[You]: Dado que tenemos mapeado a agregar estos bancos, agregar estos flujos de dinero, subir la transacción al IH, esto es algo que me me
+[You]: estoy
+[You]: de manera preventiva preparando para ese crecimiento, ¿sí o no?
+[You]: Preguntarte qué es mejor.
+[You]: Todo bajo el paraguas, ¿no?, está haciendo bitcoin, compañía de
+[Remote]: Sí.
+[You]: trabajé, habiendo trabajado con Chuni también y todos.
+[You]: Puedo armar algo que sea low risk, low cost para ustedes,
+[You]: y y realmente sea un win-win para ambas partes.
+[Remote]: Cien por ciento, mirá, o sea,
+[Remote]: o sea, sí, sí, cien por ciento lo quiero probar,
+[Remote]: como para darte contexto y por
+[Remote]: qué yo empiezo a armar esto también. Yo, lo que
+[Remote]: digamos, del lado de operaciones,
+[Remote]: medida que fue creciendo la operación, dije, necesito tener
+[Remote]: algo más robusto que unas spreadsheets de Excel,
+[Remote]: porque porque sí, o sea, y también para dar visibilidad al resto de los
+[Remote]: stakeholders, digamos, o sea, como
+[Remote]: las spreadsheets están buenísimas para llevar el el day to day uno mismo, pero
+[Remote]: yo soy el que entiendo las spreadsheet, ¿no entiende?
+[Remote]: El otro, ¿entendés? Es muy difícil como controlar eso, entonces, bueno,
+[Remote]: armar como un panel de control
+[Remote]: ¿no?, de, bueno, vemos counterparty risk,
+[Remote]: vemos métricas de settlements, vemos cómo venimos con los
+[Remote]: trades operados, bla, bla, volumen, etcétera. Dije, bueno, acá voy a empezar a meter lo de reconciliaciones, porque porque sí, al tener las está buenísimo, pero cero visibilidad. A mí me ayudaría muchísimo, lo más probable. Como decís vos, hoy le dedico muchas horas a cloud, porque me divierte pero si vas al valor real de, como decías vos, buy versus build, y puede ser que puede ser que que Rexy nos haga muchísimo sentido.
+[Remote]: A mí me va a ayudar un montón, especialmente, de nuevo,
+[Remote]: para escalar.
+[Remote]: Así que
+[Remote]: yo estoy cien por ciento in,
+[Remote]: Si querés, nos juntamos, ¿no?, la semana que viene.
+[You]: Te por mail ilo ce l'accon Ciuny. Te mando
+[You]: las dos opciones, o hacemos una demo
+[You]: o hacemos directo una prueba piloto. La demo la podemos armar una de dos maneras.
+[You]: Contarme una demo genérica,
+[You]: que para mí no agrega mucho valor, pero te da un mapeo general y podés ver
+[You]: la plataforma.
+[You]: Una demo real,
+[You]: firmo un acuerdo con sinceridad, un NDA, me mandás
+[You]: archivos de un día,
+[You]: y te muestro, mirá, así sería la conciliación del trade inglés de Bitso el día
+[You]: seis de abril de veinte veintiséis. Y estas son las diferencias que me arroja,
+[You]: así resolvería las diferencias, bla, bla, bla.
+[Remote]: ¿Y eso te quería
+[You]: O una prueba piloto,
+[You]: que es un costo simbólico,
+[You]: y realmente la usás
+[Remote]: Perfecto.
+[You]: un par de semanas.
+[Remote]: Te quería preguntar eso de de cómo funciona, en realidad. Entonces,
+[Remote]: ¿cómo cómo carga los datos Rexy? O sea, yo
+[Remote]: que conectar Rexi a donde yo estoy conectado o
+[Remote]: es una ingesta de de base de datos? ¿Cómo es?
+[You]: Re hiciste la ingesta vos, ¿no?
+[Remote]: ¿Y decís, tipo, internamente?
+[You]: Claro, para usar Cloud Code ya estás ingestando todos esos archivos y
+[You]: en algún repositorio.
+[Remote]: Sí.
+[You]: Usen
+[Remote]: No,
+[You]: alta bricks,
+[You]: Bueno,
+[Remote]: databricks.
+[You]: yo me conecto por API vencida donde están las tablas,
+[You]: y Rexin gesta esas tablas
+[You]: los días, de manera síncrona.
+[You]: Las tablas actualizadas. Después, Rexy, una vez con esas tablas, corre la conciliación diaria, o sea, hay toda una lógica de de y de procesamiento, te metés diariamente simplemente diez, quince minutos a ver y resolver las diferencias,
+[You]: y puedes hacer cualquier tipo de output, desde
+[You]: quedarte tu dashboard en Rexy, dashboard cien por ciento ad hoc, tenemos unos widgets ahí que te harán más tu dashboard, crear reportes también, te armás el reporte que vos quieras y te lo escupe directamente por mail, por Slack, o por directamente lo puedo dejar en Databricks también.
+[You]: Me conecto al ERP para hacer las entradas contables, también si necesitas hacer eso.
+[You]: Y, pues, a todo el sistema de alarmas y de alarmas, donde el
+[Remote]: Están, se se conectan en
+[Remote]: con AWS, porque tenemos un servicio que se llama Elasticsearch,
+[Remote]: que ahí logueamos un montón de información.
+[You]: Sí.
+[Remote]: Listo.
+[Remote]: Más probable es que ese sea el que nos sirva.
+[Remote]: Sacarlo directo de de
+[Remote]: del sistema del training desk. Pues yo hago como un
+[You]: El día de Sí. El día de mañana, digo, hoy hoy tenemos las suerte de que vos ya hiciste el burrito de ingesta y ya lo tenés en Databricks o en o en este de Amazon,
+[You]: este paquete de Amazon,
+[You]: Entonces, para para el concepto es más rápido directamente sacarlo ahí. El día de mañana,
+[You]: hay que construir los conectores directos a Rexy, lo hacemos nosotros, eso,
+[You]: Tenemos un integrador gigámico, mismo que viste con Claude, lo hacemos nosotros en en un toque. Pero para que Rexy realmente quede conectado directo a la
+[You]: y te escupas si quieres en Databricks todo lo conciliado o cualquier tipo de log
+[You]: de reporting de output que necesites, pero nosotros controlar la ingesta de archivos crudos
+[You]: nos ha pasado en el pasado con otros clientes que cuando ellos controlan la ingesta,
+[You]: es como que agrego un punto de falla más y yo no controlo el outcome, ¿me entendés?
+[Remote]: Sí.
+[You]: Porque se rompe el pipeline de y ahí yo automáticamente tengo que levantar
+[You]: escribirle al cliente, tipo, che, se me rompió el pipeline de Snowflake, fijate que las tablas están viendo mal.
+[You]: Prefiero controlar a nosotros y automatizarte el flujo
+[You]: en tu end. Pero la prueba de concepto,
+[You]: nos sirve y nos da mucha velocidad que ya lo tengas todo ingestado.
+[Remote]: Perfecto, listo. Dale, sí, mandanos un mail a y a mí y
+[Remote]: y seguimos.
+[You]: Vale. Bueno, Sebastián, un gusto enorme.
+[You]: Justo estoy en Buenos Aires ahora, pero me veo el viernes la próxima, quizás no puedo juntar en persona y te conozco.
+[Remote]: De una,
+[You]: Y y nada, un placer, un gusto enorme.
+[Remote]: Igualmente, Ignacio, un gustazo, así que nos quedamos en contacto.
+[You]: Dale, ahora se vende.
+[Remote]: Adiós.
+[You]: Chao.
+
+============================================================
+SUMMARY
+============================================================
+### Bitso Trading Desk Operations Overview
+
+- Sebastian is the only person in operations
+  - Recently hired one additional person to help
+  - Growing operational complexity as they scale
+- Current infrastructure setup
+  - Most flows centralized through Fireblocks
+  - Multiple counterparties: banks, brokers, exchanges, OTC desks
+  - Some banking partners require manual operations (no APIs available)
+- Claude Code currently helps significantly with operational tasks
+  - Sebastian uses it to build Python scripts for data extraction
+  - Creates automated solutions for partners without APIs
+  - Pain points reducing due to AI assistance
+
+### Reconciliation Process and Pain Points
+
+- Primary challenge: tracking where money is located across systems
+- Current reconciliation workflow
+  - Operations in Colombia and Brazil
+  - Partners send transaction files for comparison against internal records
+  - Match all flows between ledger/files and bank statements
+  - Same process for Bitso account reconciliations
+- Current volume and time investment
+  - 4-5 differences daily (reduced from previous months)
+  - \~30 minutes per difference initially
+  - Now 4-5 breaks per week = 2 hours weekly
+  - Casuistic mapping reduces investigation time over time
+- Resolution method: Claude Code scripts handle most matching
+  - APIs connected where available
+  - Python scripts built for non-API sources
+
+### Growth Plans and Scaling Challenges
+
+- 2026 outlook: significant complexity increase expected
+  - New flows, currencies, and counterparties
+  - Building modular web app for scalability
+- Biggest anticipated pain: regional banks with limited tech infrastructure
+  - Will require more automated agents for login/data extraction
+  - Centralized data cluster needed for information availability
+  - Potential data volume explosion within 6 months
+- Sebastian expressed strong interest in Rexi pilot program
+  - Wants to move beyond Excel spreadsheets for stakeholder visibility
+  - Building control panel for counterparty risk, settlement metrics, trade volumes
+  - Recognizes value in buy vs. build decision for reconciliation tools
+
+### Next Steps
+
+- Ignacio to send email with demo vs. pilot options to Sebastian and Chuni
+- Two potential approaches discussed:
+  1. Demo with real Bitso data (requires NDA)
+  2. Direct pilot program with symbolic cost
+- Integration would connect to existing Databricks/Elasticsearch infrastructure
+- Potential in-person meeting when Ignacio returns to Buenos Aires
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/c8501480-ca1b-4a54-985a-aa72210fdb1d](https://notes.granola.ai/t/c8501480-ca1b-4a54-985a-aa72210fdb1d)

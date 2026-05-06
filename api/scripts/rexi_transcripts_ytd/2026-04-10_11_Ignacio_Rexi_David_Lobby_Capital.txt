@@ -1,0 +1,451 @@
+MEETING: [1:1] Ignacio (Rexi) <> David (Lobby Capital )
+DATE: 2026-04-10
+ID: not_giMrNlL5m9ZSXr
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, David Hornik <hornik@lobby.vc>
+SCHEDULED: 2026-04-10T12:30:00-04:00 - 2026-04-10T13:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: I'm on
+[Remote]: You're on the East Coast.
+[You]: I'm in Argentina, actually, traveling back to New York, tonight.
+[Remote]: Amazing. Then I have no idea what time it is in our
+[Remote]: but good to meet you.
+[You]: You're in San Francisco. Right?
+[Remote]: Yeah. I split my time between, Palo Alto and, New York City.
+[Remote]: Some sort of bi bicoastal.
+[You]: Okay. Very cool. But paste in?
+[You]: Or just literally strip it in?
+[Remote]: Hey. Based in Palo Alto mostly, I'd say two thirds of the time in Palo a third of the time in New York.
+[You]: Got it. Got it. Well, maybe next time when you're in New York, we can meet in person. That would be awesome.
+[Remote]: And is that headquarters if there is such a thing?
+[You]: We have two hubs. So
+[You]: one of my cofounders and myself based in New York, and then
+[You]: the third cofounder and the tech team based in Argentina.
+[Remote]: Gotcha.
+[Remote]: Cool. Perfect.
+[You]: And that also reflects both of our markets. But, well, thank you for the time.
+[You]: Great connecting.
+[You]: We got connected via Jeff Bus gang which
+[You]: I'm sure you know from from the VC ecosystem or or where?
+[Remote]: Yeah. I've known him a long time.
+[Remote]: So he so we he and I met
+[Remote]: I don't know what the first instance, but we've been in the in the sort of VC world and
+[Remote]: blogging and talking and working together for twenty some years. So
+[You]: Awesome. Awesome.
+[You]: Well,
+[You]: a big fan of what of what you guys are doing at LobbyVC, and definitely a cover a couple of port
+[You]: codes that
+[You]: could be interesting prospects for Rexy.
+[You]: So I guess
+[You]: I know how much you know about Rexy. Can do, like, a short
+[You]: sort of, like, pitch of who we are, what we do.
+[You]: And then explore both.
+[You]: If there's something to do together or not, whether
+[You]: I don't know.
+[You]: Getting more serious conversations,
+[You]: light of our
+[You]: upcoming seed round in the second quarter of the year.
+[Remote]: Yeah. Perfect.
+[You]: Or if we better fit
+[You]: or if there's a better fit with maybe some of the
+[You]: port goals that could be also part of a diligence process for you guys.
+[Remote]: Cool.
+[You]: So, Rexy, who we are? The
+[You]: three of us we're the three of us are Argentinians. I
+[You]: started building the company while I was studying at Harvard. I did an MBA there.
+[You]: I in the middle of my MBA, I did a summer internship at a fintech company called Comun. I don't know if you heard about them. It's a neobank
+[Remote]: Okay.
+[You]: targeting in The US.
+[Remote]: Yep.
+[You]: It was it was seed stage by then. This was summer twenty four.
+[You]: And I was the chief of staff there.
+[You]: So whatever that means. Right? Being a chief of staff of the seed stage company.
+[You]: There was no there was no CFO, so a couple, like,
+[You]: most of my time was dedicated to finance processes, and we were growing
+[You]: 30% week over week.
+[You]: Like, new account openings, TPV, was it was catching fire at that time.
+[You]: And one of the things that that starts breaking when you start acquiring that
+[You]: scale is, at least in in financial institutions is,
+[You]: reconciliation processes. Right?
+[You]: At that time, Camun had a debit card product, had remittances, had cash in
+[You]: cash out.
+[You]: Of course, Zelle, ACH, and all those money transfers.
+[You]: So already operating multiple payment flows and
+[You]: and and at a decent volume at that time. And and the CTO came to me saying, hey.
+[You]: I'm running this sort of, like, manually, just, a high level check at the end of every week.
+[Remote]: Yep.
+[You]: And I'm starting to find some gaps I can't explain, and I figure
+[You]: this is the right time to build a robust process to monitor this. Right?
+[You]: So he was like, this is your task for your remaining part of the internship.
+[You]: So when I started doing this at Camun, three things happened. And and just
+[You]: a quick note here. Before
+[You]: my MBA, I started my career in management consulting.
+[You]: Working for the big banks here in in South America. And then
+[You]: I worked for Bitso, which is, the coin base from Latin America. It's the biggest crypto exchange.
+[You]: When I was there, I was product manager for the payments fleet,
+[You]: and I had the opportunity to build, launch, and skilled two full products.
+[You]: Payment products.
+[You]: And so I had already indirectly seen the pain of reconciling money
+[You]: although it was not my
+[You]: first responsibility, my direct responsibility. It was a payment ops team taking care of that.
+[Remote]: Yep.
+[You]: So it's not like a new process for me, but this was the same time I was responsible for it.
+[Remote]: Yep.
+[You]: The first time I was yeah.
+[You]: And so when I was doing it in Camun in New York that summer,
+[You]: three things happened. The first one is
+[You]: I was amazed at at how hard, technically, it was to build a reconciliation process.
+[You]: Like getting ahold of the files, transforming them,
+[You]: processing them, making sense of the differences.
+[You]: Making sure that then
+[You]: that's correctly mapped to your ERP and your accounting system. Like, it was really hard technically. Like,
+[You]: it's not like
+[You]: you could build, like,
+[You]: SQL script or a Python script, it was done. Like, it really required you
+[You]: understanding the files, transforming the files, collaborating with external parties,
+[Remote]: Come back.
+[You]: I'm back.
+[Remote]: Oh, there you are. Sorry. I I lost you briefly.
+[You]: Okay.
+[Remote]: You you were saying that it was that was a harder harder to manage the reconciliation process
+[Remote]: process, tracking down the documents, etcetera.
+[You]: Exactly. Like, there there was a big
+[You]: pain on the data engineering side
+[You]: The second mind blowing moment was the low level of visibility and
+[You]: control that these fintechs have over their money flows.
+[You]: One of those moments that makes you wanna withdraw all your money from these fintechs
+[You]: really.
+[Remote]: Yes.
+[You]: And and even at and even at Camun, which
+[You]: had really high standards for, like, technology, security, and monitoring. Right?
+[You]: So I was like
+[You]: if comun is, like,
+[You]: top decile in these things, I can't imagine what other
+[You]: fintechs and payment companies are doing with this.
+[You]: And then the third thing that happened was Synapse.
+[You]: And this all happened during the same time period.
+[You]: So I came back to my second year at HBS,
+[You]: with really high conviction that I had to build a company out of this.
+[You]: First of all, because of like
+[You]: the mission of saying, hey,
+[You]: who lost the money from these Synapse scandal? It's not like people
+[You]: I mean, it's it's bottom of the pyramid people, right, that don't have access to traditional financial services.
+[You]: And so it's like,
+[You]: okay, we've been innovating on the application layer to democratize access, but now
+[You]: it's been at the cost of some risk. And the people losing the money because of these
+[You]: infrastructure issues are
+[You]: are the
+[You]: the most vulnerable. Right? And so
+[You]: that was one thing. The other thing was saying,
+[You]: the data engineering part
+[You]: it's perfect for AI. So it's like there's a huge timing thing on on this one.
+[You]: And the third part was doing a
+[You]: exhaustive analysis on competition and and realizing that there was no
+[You]: there was no solution out there
+[You]: that was easy to use, easy to implement, and that was actually solving for the root cause and not just
+[You]: alleviating symptoms. So
+[You]: I
+[You]: signed up for this incubation program at MIT,
+[You]: called FinTech Ventures led by Matt Rhodes. You know Matt?
+[Remote]: Yep. Yep.
+[You]: I did
+[You]: the fintech ventures for at MIT. It was a cross register because I was at Harvard.
+[You]: I ended up winning the demo day,
+[You]: and I ended up winning two other competitions in Harvard, Parex,
+[You]: and FX fast.
+[You]: With that initial set of grand safes,
+[You]: AWS credits, I was like, I'm building out I'm I'm starting to build a solution with this.
+[You]: So January 1, my first cofounder joined. We
+[You]: incorporated the company and started building with some design partners.
+[You]: Those design partners then converted to paying customers,
+[You]: We raised a pre seat round in July 2025.
+[You]: 1,200,000.0 led by underscore Flybridge Pair and FX,
+[You]: Textbook and Carao.
+[You]: And of course some friends and family there.
+[You]: And ever since then,
+[You]: we onboarded a third cofounder or CTO,
+[You]: We build out the engineering team here in Argentina,
+[You]: ever since, we've been building the platform and and selling it.
+[You]: A couple more things I wanna mention regarding our our our vision. Right?
+[You]: The first one is understanding reconciliation as a coordination problem.
+[Remote]: Yeah.
+[You]: And not as a technical problem. Because, I mean, there is a big challenge around data
+[You]: engineering in this process.
+[You]: But we all know that's gonna get solved at some point. I mean,
+[You]: the the pace of tech innovation right now is just so big that at some point someone's gonna crack it.
+[You]: Hopefully, it's us. So then it's gonna be about
+[You]: cracking the actual coordination problem, which is
+[You]: reconciliation is just comparing my source of the truth against yours. The reason it's a pain
+[You]: is because these systems are not connected enough.
+[You]: Not only the systems and the technology, but also the people.
+[You]: Because when you run reconciliation, you match transaction
+[You]: and then you go to the differences,
+[You]: there's a there's a bit additional work to do there to really clean out the
+[You]: differences. But at the end of the day, there's gonna be 10, 20, I don't know, depending on your volume.
+[You]: Transactions that are just actually missing.
+[You]: They need to actually pick up the phone, call your bank, call your payment process,
+[You]: say, like, hey. What the hell? What's going on with this? Right? And that back and forth takes a lot
+[Remote]: Yep.
+[You]: lot of time. So
+[You]: one of the one of the key innovations we're building at Rexy to really nail the reconciliation problem is for Rexy to be a connected solution.
+[You]: In which the bank, the fintech, the ledger,
+[You]: the payfac, whom all the parties involved
+[You]: in that money flow are onboarded into Rexi. And so,
+[You]: they're using the same information reconciling with the same logic, and then they have a shared tool
+[You]: to collaborate on discrepancies. That's how you generate
+[You]: a system of record where everybody is signing off
+[You]: over a centralized platform. Right?
+[You]: And so that's regarding reconciliation. Second thing I wanna mention is
+[You]: our sort of longer term vision here.
+[Remote]: Yep.
+[You]: I I think we've seen already the first wave of AI automation with customer support.
+[Remote]: Yep.
+[You]: And I think waves two and three are gonna attack the other enablement errors
+[You]: companies. And I think it's gonna be finance and operations.
+[You]: Because, I mean, these are
+[You]: hygiene functions. They are which are
+[You]: like,
+[You]: low leverage but highly critical. It can kill you, but it's not
+[You]: gonna make you win against competitors and have a better product.
+[You]: And so that's why it's perfect for AI automation because it's
+[You]: not only about efficiency and and
+[You]: bottom line optimization, but also about
+[Remote]: Yep.
+[You]: technology being better than humans doing it. Right? It's not
+[You]: only about efficiency. And so
+[Remote]: Yep.
+[You]: in that sense,
+[You]: what we've what we've seen is reconciliation for us is just a wedge.
+[You]: It's the first step.
+[You]: For two main reasons. The first one is
+[You]: it's a critical pay. Did I lose you, or are you there?
+[You]: Are you back?
+[Remote]: Nope. I'm here. Thank
+[Remote]: yep.
+[You]: Okay. I was saying, reconciliation is just to wedge for two reasons. Right? The first one is
+[You]: it's a critical pain point today.
+[You]: That we can build a business out of,
+[You]: and there's a lot of pull in the market from different verticals.
+[You]: For a solution like ours.
+[You]: But the second reason and most importantly, it's building towards that
+[You]: ecosystem
+[You]: a system of record by which you can build agentic processes on top of.
+[You]: Right? If we wanna automate financing operations,
+[You]: with agents, the first step is having a source of truth.
+[Remote]: Yep.
+[You]: Because if you're gonna be building agents on top of of a ledger that is not reconciled
+[You]: reconciled and it's not
+[You]: it's not reflecting reality and it's not precise enough, then the agent is gonna
+[You]: be operating at the same level of
+[Remote]: Yeah.
+[You]: reliability and position. Right?
+[You]: So
+[Remote]: Yep.
+[You]: that's that's gonna be our longer term vision. So, like, building the clock code for FinOps starting by recon because it's a pain today and because it's the necessary foundation
+[You]: to build all these workflows on on top of it. Right? And so
+[Remote]: Yep.
+[You]: when we're selling today with our customers,
+[You]: and it also has to do with how we price reconciliation today. Right?
+[You]: Most of our competitors are pricing
+[You]: reconciliation as a product based on
+[You]: transactional volume. We're pricing it fixed fixed.
+[Remote]: Yep.
+[You]: For two reasons. First one is because we're owning the outcome
+[You]: and today, it's a fixed cost for you, so it should be a a fixed cost thereafter. Right?
+[You]: Because today, you're solving it with the people, and that's a fixed cost.
+[You]: And so we just do an estimation on the volume and on the complexity and number of
+[You]: connectors and so on, and we really quote a fixed price for the duration of the contract.
+[You]: Which reflects
+[You]: not only owning the outcome, but also
+[You]: longer term vision of saying, hey. I wanna be a tech partner for you.
+[You]: Gonna help you
+[You]: accelerate adoption to AI,
+[You]: really optimize your finance and operations teams with with agents. Right? And so
+[You]: let's start by this.
+[You]: We're already developing the beta version of our accounting module because it's very adjacent to
+[You]: reconciliation.
+[You]: And then after that, thinking which are the additional work
+[You]: flows we can also be building on top of this
+[You]: reconciled source of truth.
+[Remote]: Yep. Yep.
+[You]: I guess that's just a a summary. And I know it was a
+[You]: sprint sort of pitch, but, hopefully, it painted the picture on on
+[Remote]: Bien.
+[Remote]: That looks great. And so tell tell me a bit more of a you know, obviously,
+[Remote]: these do feel like the sorts of,
+[Remote]: you know, sorts of agentic or not agentic of
+[Remote]: of, AI use use cases that make sense.
+[Remote]: Can you talk a bit about
+[Remote]: know, sort of how you're going about that? Is there a particular
+[Remote]: LLM that's that is critical? Are you building your own using
+[Remote]: open source? Like, what is the what is the path
+[Remote]: that that has led to the technology working?
+[You]: Yeah. So in terms of models,
+[You]: we're now using OpenAI and Anthropic.
+[You]: But we do have a vision of this becoming multi model.
+[You]: Adding a layer that optimizes
+[You]: the performance of each one of the tasks. Right? And and changing over
+[You]: time because we know these models are also changing week after week. And so
+[You]: we cannot be married to a single model or just a few models. We need to be
+[You]: connected to all of them
+[You]: and be constantly optimizing for performance. Performance and at some point,
+[You]: not a relevant discussion today, but at some point in the mid to longer term future,
+[You]: thinking about unit economics as well. Right? Because
+[You]: that is this is gonna definitely drive the margin of this product if
+[You]: if we're gonna have agents operating and executing tasks.
+[You]: So
+[You]: for us, right now, it's it's multi model, and it's way more about two things.
+[You]: Our AI strategy. It's about
+[You]: really nailing these
+[You]: these outcomes and these tasks with specific agents that are great at those
+[You]: tasks. Right? That's why we've started by reconciliation. Now we're building the accounting.
+[You]: And and and the way to do that has has two parts.
+[You]: Of course, there's a lot of knowledge we have on how to up
+[You]: these workflows that we're pouring into these context windows.
+[You]: But then there's two things that need to happen. We are training a context window
+[You]: across our portfolio of customers,
+[You]: so that our agents are experts in reconciliation. That's a typical
+[You]: conversation I have with some of our customers that are like,
+[You]: I'm gonna build this in Claude. And and and and
+[You]: okay, fine.
+[You]: But your agent is not is never gonna be as good as mine because
+[You]: we are trained across a wider set of edge cases and things that can go wrong.
+[You]: So the time you're gonna be dedicating to Claude or to the process you're building
+[You]: is is just higher because you are always gonna be discovering new edge cases and new things that go wrong.
+[Remote]: Yep.
+[You]: Maybe I already know and our agents already know.
+[Remote]: You're right. Right?
+[You]: That context window and the second one is the
+[You]: company specific context window. Because reconciliation, you might know,
+[You]: is an incredibly nuanced workflow.
+[You]: And this applies to the other workflows inside finance and operations. These are nuanced. Because it has a lot of business logic coded into it. It has a lot of tribal knowledge concentrated in people's heads. It has regulatory requirements, compliance requirements. It depends on your integrations. It's just so that we need to be developing what we call the business logic, the business policy. Sorry. The business policy is basically the context window specific to that company. Which the system both absorbs from the structured files also absorbs from user actions in the platform. As users start approving and rejecting what agents do,
+[You]: start codifying what they need the job to be done,
+[You]: that business logic is basically the foundation by which the model
+[You]: the the platform begins autonomy.
+[You]: And the users need today to get less and less time to reconciliation, I
+[You]: some point,
+[You]: in in the near future, reconciliation is just something that runs in the back
+[You]: background, and people are not even worrying about.
+[You]: They only worry about when there's when there's an issue. Right? And they need to really dive in and say, okay.
+[You]: There's a gap here. Need to call your bank.
+[You]: But if we have the connected solution, then our agents are gonna
+[You]: be able to coordinate with the agents of the bank and close that quickly.
+[Remote]: Yeah.
+[Remote]: Yeah.
+[Remote]: No. I think that all makes sense. And, you know, by the way, my my partner, Eric, and I have been
+[Remote]: in, you know, investing in the fintech space for twenty years at
+[Remote]: cross of range of the, you know, Avant, a big bang
+[Remote]: big lender that my partner backed when it was $0 and is now a
+[Remote]: you know,
+[Remote]: you know, billion dollar plus, you know, lending platform. Bill.com, which I funded when it was moving, you know, $70,000 know, in payments and is now a trillion dollars in payments
+[Remote]: 1% American GDP. So we definitely have seen
+[Remote]: like, the scale and the how this problem evolves.
+[Remote]: So super super interesting.
+[Remote]: You have just a
+[Remote]: some kind of summary deck or executive summary that I can share with my partner, Eric, who's
+[Remote]: of the most relevant here. I think the probably the next most logical step is for you to
+[Remote]: with Eric because he'll have he's a former public company CFO and will have many opinions.
+[Remote]: Like, you know,
+[You]: That'd be amazing. Of course. I I can send something over today and and and
+[You]: speak with Eric. Would be more than happy to.
+[You]: Just to
+[You]: sort of, like,
+[You]: tell you more about the context where we are today. So I said we raised our pre seed round $12,000,000 in July.
+[Remote]: Yep.
+[You]: Right now, we're heads down building and selling.
+[You]: Given these
+[You]: sales cycles, as you might also know, they're long.
+[You]: Like, four to six months, and that we had a
+[You]: decent product to sell by September.
+[You]: This quarter, we're really running on implementations,
+[You]: and and our traction is gonna be jumping significantly.
+[You]: But that said, I'm really focused on making these initial
+[You]: big contracts
+[You]: success cases.
+[You]: And so I'm gonna be really
+[You]: with our customers, building beside them, making sure
+[You]: making sure it's it's just, again, success cases and they're really loving our product.
+[You]: And and depending on it going forward.
+[You]: So I think our seed fundraise, given we also, like,
+[You]: having the team in Argentina makes us very cost efficient.
+[You]: We have more than twelve months of runway left.
+[You]: Assuming zero revenue, and we already are having revenue and revenue is growing a lot.
+[Remote]: Yep.
+[You]: So
+[You]: I think the fundraise is gonna come
+[Remote]: Yeah.
+[You]: later in the quarter or beginning of
+[You]: q three.
+[Remote]: Yep.
+[You]: But that said, I would love to speak with Eric. I just wanted to put that out there.
+[You]: And
+[You]: those are like, you mentioned some of the companies, but I remember talking to Jeff And and this these are the companies I saw in your portfolio that I think could
+[You]: definitely
+[You]: make good use of of our platform. And and if you feel
+[You]: there's a fit, would love to meet them.
+[You]: Pay near me, Bill,
+[Remote]: Yep.
+[You]: top hatter, and shop runner.
+[You]: Those are the three that I've seen
+[You]: could greatly benefit, are tightly
+[You]: focused around our ICP and and would be great to
+[You]: meet them and and explore our solution together.
+[Remote]: Cool. No. That sounds great.
+[Remote]: Awesome to meet you, and we'll
+[Remote]: be continued. Have a good have a good trip home.
+[You]: Okay. You too. Thank you so much.
+[Remote]: Alright.
+[You]: Bye.
+[Remote]: See you.
+
+============================================================
+SUMMARY
+============================================================
+### David Hornik Background & Lobby Capital
+
+- Founding Partner at Lobby Capital
+- Splits time between Palo Alto (2/3) and NYC (1/3)
+- 20+ year relationship with Jeff Busgang in VC ecosystem
+- Portfolio includes relevant fintech companies for Rexi’s ICP
+
+### Lobby Capital Portfolio Opportunities
+
+- Potential customer prospects identified:
+  1. PayNearMe
+  2. [Bill.com](http://Bill.com)
+  3. TopHatter
+  4. ShopRunner
+- All align with Rexi’s ICP for reconciliation solutions
+- David open to facilitating introductions if good fit
+
+### Technology & AI Strategy Discussion
+
+- Multi-model approach using OpenAI and Anthropic
+  - Vision to optimize performance across different tasks
+  - Future consideration of unit economics for agent operations
+- Two-layer AI training approach:
+  1. Portfolio-wide context window across all customers
+  2. Company-specific business logic and policies
+- Competitive advantage: trained on wider edge cases vs. individual Claude implementations
+- Autonomous reconciliation goal: background processing with exception-only human intervention
+
+### Investment Context & Timing
+
+- Pre-seed: $1.2M raised July 2025 (Underscore, Flybridge, Pair Ventures, FJ Labs, Textbook, Carao)
+- Current runway: 12+ months assuming zero revenue
+- Revenue already flowing and growing
+- Seed round timing: Q2 or early Q3 2026
+- Sales cycles: 4-6 months typical
+
+### Next Steps
+
+- Ignacio to send executive summary deck today
+- David to share with partner Eric (former public company CFO)
+- Meeting setup with Eric for detailed discussion
+- Potential portfolio company introductions pending fit assessment
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/8189df5b-ccc4-4657-93eb-213762e7abbf](https://notes.granola.ai/t/8189df5b-ccc4-4657-93eb-213762e7abbf)

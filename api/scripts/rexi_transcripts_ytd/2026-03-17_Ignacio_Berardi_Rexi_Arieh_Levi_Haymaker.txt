@@ -1,0 +1,694 @@
+MEETING: Ignacio Berardi (Rexi) / Arieh Levi (Haymaker)
+DATE: 2026-03-17
+ID: not_vRQiDnEdmGA1Le
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Arieh <arieh@haymaker.com>
+SCHEDULED: 2026-03-17T10:30:00-04:00 - 2026-03-17T11:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Hello?
+[You]: Hello, Ariel. How's it going?
+[Remote]: Hi, Ignacio. How are you?
+[Remote]: I'm doing well. Where are where are you calling from?
+[Remote]: Oh, very nice.
+[You]: New York, Bryant Park. How about you?
+[Remote]: I am in
+[Remote]: New Jersey.
+[Remote]: Right across the bridge. So
+[Remote]: nice to meet you.
+[You]: Nice to meet you too. Do you come to New York often or not much?
+[Remote]: Occasion. I think I'll be there on Thursday.
+[Remote]: I think I'll be there on Thursday for
+[Remote]: a coffee with someone. But, generally,
+[Remote]: I
+[You]: Okay.
+[Remote]: I stay in New Jersey.
+[Remote]: Yeah.
+[You]: Got it. Well, thank you for for reaching out.
+[You]: I love the background in Cross River. I think it's very
+[Remote]: Yes.
+[You]: relevant to what we're building. Right?
+[Remote]: That's why that's actually why I reached out.
+[You]: Were you doing
+[Remote]: So
+[You]: it says corporate development manager.
+[You]: How close were you to these internal processes around reconciliation and then operation
+[Remote]: saw them.
+[Remote]: I wasn't like, I wasn't on the finance team.
+[Remote]: I worked closely with the finance team on a lot of things.
+[Remote]: My job was more on the
+[Remote]: venture m and a capital raising functions.
+[You]: Okay.
+[Remote]: But we definitely
+[Remote]: you know,
+[Remote]: we definitely were aware of these things because we had to help with budgeting and all that sort
+[Remote]: of stuff.
+[Remote]: But
+[Remote]: but yeah. I so so
+[Remote]: I know that there's a lot of you know, one of the things that
+[Remote]: crossover was dealing with for sure was
+[Remote]: they were onboarding
+[Remote]: merchants and, like, gateways, and then those merchants had submerchants. So for instance, like,
+[Remote]: Stripe is the master account, and then underneath Stripe are all these
+[Remote]: submerchants.
+[Remote]: And reconciliation sort of, like,
+[Remote]: actually pricing the right thing
+[Remote]: was was a challenge for crossover.
+[Remote]: Like, it always so
+[Remote]: so simple to actually
+[You]: Yep.
+[Remote]: tell a company how much they owed.
+[Remote]: So
+[Remote]: that's, that's the story.
+[You]: It's a challenge it's a challenge for
+[You]: I I would just increase that definition to say it's a challenge for anyone integrating
+[You]: payment flows and with a high transactionality.
+[You]: That's what it becomes painful. Or at least you need to build out a process that
+[You]: is scalable, is robust, and catches stuff
+[Remote]: Yeah.
+[You]: early.
+[You]: Not real time, but
+[You]: pretty quickly.
+[You]: Because things do fail and things do change and things do
+[You]: fall in the cracks pretty quickly.
+[You]: We'd love to hear more about, like, the thesis around haymaker
+[You]: check size, what type of companies do you like to invest in, and so on. Then I can just share a quick
+[Remote]: Sure.
+[You]: overview of Rexy and where
+[You]: where we're at today.
+[Remote]: Yeah. So we are
+[Remote]: a fintech focused fund.
+[Remote]: Check size anywhere from 2 to 10,000,000
+[Remote]: We are investing out of our first fund today. It's a $112,000,000 fund. We have
+[Remote]: about 25 left to invest.
+[Remote]: Into new companies, and then we have
+[Remote]: reserves.
+[Remote]: Three investors,
+[Remote]: small team, seed series a is where we like to invest, and
+[Remote]: the fund spun out of Teal Capital. So Peterfield's family office. And, they're the all being the funds.
+[You]: And and why did it spin out of the foundation?
+[Remote]: Just to just to start their own. Like, the GP here just wanted to start on funds.
+[You]: And how does this
+[You]: is there any overlap with Founders Fund?
+[Remote]: There's no real overlap with Founders Fund. No.
+[You]: Because of the stage?
+[Remote]: So so we're we're fintech specific.
+[Remote]: Founders Fund is not.
+[Remote]: Founders Fund is, like, a multistage firm at this point.
+[Remote]: And
+[Remote]: yeah. Like, like, there's not a way over that. So so Peter's husband met
+[Remote]: Matt Denzisen, is an adviser to our firm.
+[Remote]: So
+[Remote]: whenever we have, like, a whenever we bring a company to IC,
+[Remote]: and we wanna invest in the company, we'll bring him in.
+[Remote]: And ask him for his thoughts for the company.
+[Remote]: So that's, like, the main overlap at this point, but
+[Remote]: you know,
+[Remote]: And then there's the anchor LP in the fund, but there's no
+[Remote]: you know, there's connectivity, but there's no real overlap.
+[You]: Okay.
+[You]: Got it.
+[You]: Interesting.
+[You]: It's a big fun to be a first one on early stage
+[You]: that so so congratulations on that one.
+[You]: Exciting times. A lot of company building, I'm sure, on your side as well.
+[You]: Even though you've been investing for over two years now?
+[Remote]: The fund or or
+[Remote]: me personally?
+[You]: The fund.
+[Remote]: Yeah. The fund has been around since 2022.
+[You]: Okay. Interesting.
+[Remote]: So this is actually the last year we have to make new investments out of the fund.
+[Remote]: And then we have then we can make additional
+[Remote]: follow on investments over the next couple years.
+[You]: Okay.
+[You]: Thank you for the context. I can go over
+[You]: go whole different points around Rexy starting by the team.
+[You]: The three cofounders,
+[You]: The three of us are Argentinian. Three of us come from
+[You]: FinTech and Financial Services. Myself,
+[You]: I did I started out at Bain, actually, then worked for Bitso, which is Latam's largest crypto
+[Remote]: Yep.
+[You]: exchange.
+[You]: And then worked for a fintech company here in New York. You may
+[You]: you may know them at Común, the Banking for startup,
+[Remote]: No. No. I don't know that.
+[You]: series a led by Red Point,
+[You]: I I I was there
+[You]: early stage,
+[You]: Chief of Staff,
+[You]: and that's where everything started, basically. I had to build reconciliation there myself.
+[You]: Saw the pain,
+[You]: Saw the risk.
+[You]: Saw the timing around AI, and said there's there's a business to build out of this.
+[You]: Just around reconciliation. But then, of course, the vision and as we
+[You]: started deep diving into the different processes around FinOps, we we start
+[You]: developing a bigger thesis, but that's where it all started. I
+[You]: My my second cofounder, Dale, he's he's leading product and operations. He
+[You]: was previously building insurance
+[You]: and cross border trading products for Mercado Pago, which is
+[You]: the fintech arm of Mercado Libre. I don't if you know
+[You]: you know them.
+[Remote]: Ya.
+[You]: And he also saw the pain there. He was involved in one of the biggest
+[You]: reconciliation losses
+[You]: public losses, I think.
+[You]: $27,000,000 they lost in 2012, it was.
+[You]: He was there when that when that happened. It's on the four one k. It's it's public.
+[You]: Information.
+[You]: And then the third cofounder, our CTO, Sebastian, he was founding engineer of
+[You]: Pomelo.
+[You]: Pomelo is the largest issuer processor of Latin America.
+[You]: Backed by Gasek.
+[You]: Recently raised a huge round as well.
+[You]: He was a founding team there, and and and when when he left, he was
+[You]: basically the second person in the engineering team. It was the CTO in him.
+[You]: And then we hired four founding engineers. We're a team of
+[You]: 7.5 right now. We have a fractional person helping us with growth.
+[You]: We raised 1,200,000.0 July 25.
+[You]: And we're getting ready to raise the seaground
+[Remote]: Yeah.
+[You]: in the next couple months.
+[You]: Q two.
+[You]: So what we're building for so the first part is is sort of like
+[You]: understanding that companies with this AI
+[You]: wave, are just gonna have humans developing
+[You]: differential value, authentic organic value for stuff that
+[You]: actually gonna make them different. Everything else, all the enabled errors are gonna be automated by
+[You]: AI, right, by agents.
+[You]: We've already seen the first wave with customer support. I think
+[You]: the next wave is gonna be FinOps.
+[You]: Finance and operations. Because
+[You]: not a single company
+[You]: gonna win
+[You]: a market
+[You]: a customer
+[You]: because of having better
+[You]: financial reporting, better
+[You]: reconciliation processes, better
+[You]: I know, payment ops teams and so on. So
+[You]: sort of, like, the bigger thesis, which
+[You]: I think is a bit obvious for everyone right now.
+[You]: So what we're building is, in terms of vision, the product vision is we're building a
+[You]: the cloud code for FinOps. Right? A platform in which
+[You]: we have many different templates for different functions inside these departments.
+[You]: Where CFOs and COOs can build these agentic workflows for these
+[You]: tasks and processes. Right? Acknowledging that
+[You]: a,
+[You]: it's more cost effective to have an agent do it rather than a human,
+[You]: and b,
+[You]: it's even better, more precise, and more robust.
+[You]: And even more when we're talking about money. Right?
+[You]: So
+[You]: we've chosen to start
+[You]: in financial services.
+[You]: Mainly because
+[You]: finance and ops departments are particularly relevant in these companies.
+[You]: And then within
+[You]: financial services, we've decided to start by reconciliation.
+[You]: The first reason is
+[You]: there's a business to build out of it today,
+[You]: because the big pain point
+[You]: for banks, payment processors,
+[You]: fintech platforms,
+[You]: and so on.
+[You]: And the second part is
+[You]: strategically, it gives us access to the most valuable data and financial services, which is transaction
+[You]: data.
+[You]: We go straight to the source,
+[You]: We get
+[You]: the transaction files.
+[You]: And we reconcile them, and that gives us
+[You]: a sort of sort of, like, a data mode to build
+[You]: the other workflows on top of it. Once you're the glue of all these systems,
+[You]: and providing that centralized source of truth,
+[You]: there's a big wedge. That's a big wedge to build
+[You]: other workflows on top of it.
+[You]: But right now, super laser focused on reconciliation. We're seeing
+[You]: huge opportunity not only in financial services, but in other verticals as well, as I said.
+[You]: Any company integrated multiple payment flows and with
+[You]: a high high transactional volume has has a pain with this process.
+[You]: And and so that's that's where we are. We have we have a product
+[You]: a live product in production with paying customers.
+[You]: Half of our pipeline is
+[You]: in Latin America because of our networks.
+[You]: The other half is in The US.
+[You]: And we're seeing great results. Today, it's a data orchestration play.
+[You]: As I said, we connect straight to the sources.
+[You]: We normalize the data. We do the processing. We do the
+[You]: discrepancy management, which is both investigating and closing the differences, which
+[Remote]: K.
+[You]: the most time consuming part of the process today.
+[You]: And then we also have all the output schemes, which is
+[You]: creating the dashboards, creating the reports, plugging into ERP
+[You]: create journal entries, and then
+[You]: if a company wants us to deposit the the tables
+[You]: in their own data lake, we also do that as well.
+[You]: And so that's that's sort of, like, where we stand today.
+[You]: Going forward, there's a lot of
+[You]: product development yet to do. Reconciliation is incredibly nuanced.
+[You]: And specific workload that has a lot of edge edge cases that
+[You]: our agents and our context windows need to acquire as we
+[You]: continue building and progressing with our customers.
+[Remote]: Yep.
+[You]: And then
+[You]: at some point,
+[You]: continue down the path of
+[You]: AI powered suggestions to actually AI powered
+[You]: Right? Like, have agents handling reconciliation.
+[You]: Surfacing the differences and maybe even
+[You]: collaborating with other agents to close those differences.
+[You]: Why are we better than an internal build? There's two reasons. The first one is
+[You]: of course, our agents have context windows across our portfolio of customers.
+[You]: Meaning we have a wider set of edge cases. We have a wider set of solutions
+[You]: and we have a a systemic view of how these
+[You]: work because, of course,
+[You]: it's it's a
+[You]: pretty
+[You]: list of systems, but then
+[You]: when you start working with these companies, there's a lot that are
+[You]: the same. Right? Modern Treasury, Stripe,
+[You]: Treasury Prime,
+[Remote]: Why do you why do we even bring that up? Are you concerned that he will build this in
+[Remote]: sales?
+[You]: I bring that up because that's a conversation we have with customers all the time.
+[You]: And and and we're seeing
+[Remote]: Is that, like, because of log code, or that's because, like, they just they just said, like, we already built this
+[Remote]: internally?
+[You]: I think it's because of cloud code.
+[Remote]: Really?
+[You]: It is yeah.
+[Remote]: The same. Because I'll be honest with you, like, then I think you're targeting the wrong
+[You]: Yep.
+[Remote]: customer set.
+[Remote]: Because I think there's a world of companies
+[Remote]: that
+[Remote]: will have no idea how to use cloud code and won't ever wanna use it.
+[Remote]: And
+[Remote]: like, just go after them.
+[You]: Yeah. Well, that's that's true.
+[You]: The ICP is something we're we're still grappling with. We still try to nail.
+[You]: We're definitely trying to target less tech institutions, as you said,
+[You]: they're never gonna be able to catch up, and they're never gonna get their hands on
+[You]: Claude, basically, because they're not tech savvy, and second, because they're afraid of it as well.
+[You]: It's a risky process.
+[You]: So they're willing to hire a vendor that's
+[You]: expert subject expert in it and and can
+[You]: create the value
+[Remote]: Or alternatively,
+[Remote]: you just go like, I think the question for you is
+[Remote]: like, maybe there's another angle, which is, like, you just offer this
+[Remote]: as, like, a CLI tool for whoever wants it, and they can build with it.
+[Remote]: And your value is like, well, we know what this likely
+[Remote]: what this transaction likely is.
+[Remote]: And here's our context and our knowledge via a
+[Remote]: CLI tool, and we charge you on a
+[Remote]: you know, per API call basis.
+[Remote]: And, you know, you don't have to bullish yourself, and it's cheap.
+[Remote]: You know? Like, they need those two ways you approach it.
+[You]: I think there's value in in actually stepping
+[Remote]: And maybe like that.
+[You]: in and building alongside them.
+[You]: What what I'm
+[You]: mostly interested in today because I see the value
+[You]: specifically, like, talking with big banks
+[You]: example, Latin America, which are really not tech savvy and have really old systems.
+[You]: More like the Palantir model in which we step in and
+[You]: implement these agente workflows for them and creating huge value.
+[You]: Huge value. Because the the the point of departure is just so old and so bad.
+[Remote]: Yeah.
+[You]: And and and and that that just gives us a very high willingness
+[You]: to pay because when we do the business case, it's sort of like, okay. Now this this is
+[You]: we'll take a third of the savings. That's
+[You]: maybe half $1,000,000.
+[You]: And and we're just stepping in with maybe one or two for deployed engineers implementing these agentic workflows, which automates
+[You]: 10 people, 15 people,
+[Remote]: Right.
+[You]: at a time.
+[Remote]: Right.
+[You]: You're right on the ICP, and that's something
+[You]: that's one of the key things we're still
+[You]: yet to define before going out to to raise our seat.
+[You]: Is a good thing and a bad thing. Right? The good thing is
+[You]: there's pull in the market for a reconciliation solution across many different verticals.
+[You]: For us, it's been a bad thing because then our customer said it's a bit all over the place. And as you said,
+[You]: with some
+[You]: we are
+[You]: fighting against that internal competitor.
+[You]: And with others, we're fighting against
+[You]: for example, with a big bank,
+[You]: we're fighting against, oh, you're an early stage startup. Just show me you're working with a bank before working with me.
+[You]: I don't wanna be the first one.
+[You]: So
+[You]: a lot of the
+[You]: and and also the product. Right? The product is very different. For example, with with the top five Argentinian bank
+[You]: we are deploying
+[You]: customer managed solution because, again, data is very sensitive. So we're
+[You]: building an infrastructure which is owned by them, controlled by us,
+[You]: so that the data lives in their infrastructure and there's no
+[You]: security or privacy concerns with the data. That's what made us think about the
+[You]: model more and more.
+[You]: Because these companies that do need to catch up and are now we're looking at it with
+[Remote]: I'm sorry.
+[You]: with wider sets of eyes.
+[Remote]: Sorry about that. I got
+[Remote]: do I turn that off?
+[Remote]: How do I not have it ring on my computer?
+[Remote]: There it is. Focus. Okay.
+[Remote]: Sorry, Nacio.
+[You]: So, yeah, there we are. I mean,
+[You]: building and selling. Heads down, building and selling. Not fundraising right now, but but
+[You]: the good thing I think for us is
+[You]: I think there's a lot of startups preset stage that
+[You]: are still trying to find the problem. We have a big problem.
+[You]: Solve. It's about execution. It's about focus for us.
+[You]: So we're we're we're trying to nail those things
+[You]: to forgo out and and and raise a second round of funding.
+[You]: And the team we've built. Right?
+[Remote]: But I think I think on the ICT question though. Right? Like, I think that's sort of what you
+[Remote]: should know down.
+[Remote]: First.
+[Remote]: Because I feel like if you find
+[Remote]: 10 design partners in different industries,
+[Remote]: and you're like,
+[Remote]: negotiating arrangement with them. And
+[Remote]: they're in satellites appropriately to, like,
+[Remote]: make what you're building work for them. Maybe they have, like, equity, and they have upside or
+[Remote]: like, whatever.
+[Remote]: Then you have, like, 10 archetypes of your products for 10 different industries at the end of it.
+[Remote]: And you also have, like, data on who actually wants your product
+[Remote]: more than
+[Remote]: someone else.
+[You]: You think that's a good thing that we don't still know our ICP?
+[You]: I
+[Remote]: I think it's a good thing. I think it's a normal thing. Like, I I think that's sort of, like,
+[Remote]: any company. But my my point is, like,
+[Remote]: it's not good or bad. I think just to figure out
+[Remote]: who your ICP is, like, maybe
+[Remote]: I think you need get creative around, like,
+[Remote]: you know,
+[You]: Yep.
+[Remote]: discovery.
+[Remote]: Right?
+[Remote]: And
+[Remote]: there's a couple ways to do that. Like, one way that I saw recently was, like, a company that created
+[Remote]: with AI. Obviously, they created, like,
+[Remote]: 150 versions of their landing page for different industries, and they just, like,
+[Remote]: ran ads against that
+[Remote]: you know, against
+[Remote]: those landing pages to figure out, like,
+[Remote]: where was there actually market pull for their product.
+[Remote]: Right?
+[Remote]: Now your product is a little bit more specific so that might not work for you.
+[Remote]: But then the other approach is, like, you know, when I was at
+[Remote]: Crossover, we invested in this company.
+[Remote]: And I'll put it in the chat here.
+[Remote]: And their approach was they they the
+[Remote]: first thing they did, it was a bunch of
+[Remote]: product guys and engineers,
+[Remote]: first thing they did was they found 15 design partners,
+[Remote]: They negotiated a deal with us where they gave us, like, a little bit of equity.
+[Remote]: And we paid them, a nominal amount. And in exchange,
+[Remote]: we, as in crossover, had to, like, give them feedback on their product
+[Remote]: over the course of
+[Remote]: six months to a year, and they would build us a product that worked for us.
+[Remote]: So, like,
+[Remote]: we weren't incentivized to make it work because we had paid them. We had equity.
+[Remote]: And then
+[Remote]: you know,
+[Remote]: we were obligated to give them our time.
+[Remote]: And at the end of it,
+[Remote]: don't even think crossover moved forward with the company
+[Remote]: as a customer, but they have equity.
+[Remote]: And,
+[Remote]: Coverbase, the company in question, have, like, 20 archetypes of their
+[Remote]: they had 20 design partners. They had 20 versions of their products.
+[Remote]: And then they could sell it to, like,
+[Remote]: the the companies behind those that look similar.
+[You]: Yep.
+[Remote]: Right?
+[Remote]: So I think I think, like, instead of
+[You]: Yep.
+[You]: Yep.
+[Remote]: instead of building the plane and then taking it for a flight, like,
+[You]: Yeah. Of course.
+[Remote]: wanting you to start flying and build the plane as you as you fly.
+[Remote]: You know?
+[You]: Of course.
+[You]: And we do have customers that are very different right now. So
+[You]: I guess that's what we're doing.
+[You]: But maybe we could do it in a more creative way in which we're running sort of, like, parallel
+[You]: experiments and extracting single from each one of those.
+[You]: And iterating those in parallel so that
+[You]: at some point in time, you have a good product for each one of those
+[You]: Right? That's sort of what you're saying. Right? Like saying, with AI today, you can run many different parallel processes at
+[You]: the same time and maybe not even have to choose and focus and nail down
+[You]: an ICP, but just serve
+[You]: five or seven different segments at the same time because you've iterated those processes and you've went through the iteration
+[You]: loops.
+[You]: In parallel. Right?
+[Remote]: Well, it's also never been cheaper to build software or, like,
+[Remote]: you know,
+[You]: It's true.
+[Remote]: as cheap as
+[Remote]: so, like,
+[You]: But these are the yeah.
+[Remote]: in other words, like, what that means though is that
+[Remote]: that's an advantage for you, but it's also a disadvantage because it means, like, whoever you compete with
+[Remote]: is going to probably offer something similar to what you offer
+[Remote]: in the near future, and you will offer something similar to them.
+[Remote]: So that means that, like, the way to get ahead of that is just to
+[Remote]: get as much market coverage and distribution as possible.
+[Remote]: As fast as possible, which means that
+[Remote]: you just need to launch, like,
+[Remote]: different versions of your product for different industries.
+[You]: Yeah. I think this is a style thing as well. I think
+[You]: I'm more a believer of
+[You]: focused DAWs payoff even today.
+[You]: And I feel like if you're running so many process in parallel,
+[You]: there's a human cognition behind that that you cannot
+[You]: stay
+[You]: on top of, right, at some point on the learnings of seven different processes at
+[Remote]: Yeah.
+[You]: same time.
+[You]: And there is value of us becoming really
+[You]: experts in a specific vertical
+[You]: And I feel right now, today at the preset stage,
+[You]: it's really not about going as fast as we can, more about
+[You]: extracting as much signal as we can
+[You]: and then accelerate.
+[You]: Once we find something that we can pour jet fuel into something.
+[You]: I don't think that's the stage today for us.
+[Remote]: Yeah. It's fair.
+[You]: I think we're a bit
+[You]: earlier, in that sense.
+[You]: And also because
+[You]: reconciliation is a present problem.
+[You]: This is not a future looking company. I'm not anticipating a problem
+[You]: the future. This is a problem a burning pain today.
+[You]: And and so then the question is,
+[Remote]: My my only slide is, like,
+[You]: why has
+[Remote]: find those customers that have that burning pain right now and just say, like,
+[Remote]: we're here. We're here to build whatever you want.
+[Remote]: You know?
+[You]: course. Of course. Of course.
+[You]: But then, like, the question is, why hasn't anyone solved it yet?
+[You]: Right? Because this is the burning pain that's been existing for the past, at least,
+[You]: five to seven years.
+[You]: Think before that, not. But
+[You]: recursive vision has been a pain ever since we started
+[You]: innovating in the application layer of of financial services and
+[You]: a lot of data fragmentation started happening. But
+[You]: and and the answer to that is execution.
+[You]: And we have an angel investor that sold his reconciliation startup
+[You]: to Intuit.
+[You]: And and there's a lot of learnings coming out of that, but it's it's a hard it's a hard workflow.
+[You]: Both on integrations, nuances,
+[Remote]: Yeah.
+[You]: the risk that it has
+[You]: how replicable is that solution across many different customers, or are you gonna have to just jump in
+[You]: and develop a lot of ad hoc functionality for each customer? There's there's a lot of things
+[You]: that make this process specifically
+[You]: painful, and that's why I think not only because of my style, but also because of the problem space,
+[You]: Right now, it's
+[You]: it's better to go through this
+[You]: phase in which we we learn
+[You]: and really figure out a product that is
+[You]: 10 x better, right, than other existing solutions. Because
+[You]: it's very easy to fall in the trap of saying,
+[You]: I'm gonna build something different. And then as you start building, just develop the same thing competitors is doing.
+[You]: Right?
+[You]: And fall fall just in the same
+[Remote]: Right.
+[You]: Same traps around scalability of data connectors, around implementations,
+[You]: around
+[You]: ad hoc developments for processing and for reporting,
+[You]: and so on and so forth. And so
+[You]: yeah, that's how we're thinking it of it.
+[Remote]: Ok.
+[You]: And then and then for the for this like, question for you is,
+[You]: and just to bounce the idea here.
+[You]: Given we're getting ready for a seed raise, I think it's gonna happen in q two.
+[You]: First startup, like, ours for the problems problems space we are building for.
+[You]: What do you guys like to see in terms of
+[You]: seat pitch?
+[Remote]: Mean, I think you you could probably guess. Like, I wanna see that you have
+[Remote]: that you know what your customer wants. Like, I don't expect you to have a lot of customers
+[Remote]: but I wanna see that, like, you've identified a problem and you're
+[Remote]: customers agree on that problem and that you are that problem.
+[Remote]: Or you want to solve that problem. That's what I wanna see at Seed.
+[Remote]: I don't wanna see I care about your products.
+[Remote]: And I care about your products, but I only care about your product as much as your customers carry your products.
+[Remote]: Your customers don't carry your product, then I don't carry your products.
+[Remote]: You know I mean?
+[You]: Got it. So for your
+[You]: the seed rounds you participate in, it's 80% of the diligence is talking with the customers.
+[Remote]: Well, I think I think the best the best seed pitches I've got are, like,
+[Remote]: I mean, it's it's sort of funny because, like,
+[Remote]: the the best seed stage companies look like series a companies and the best
+[Remote]: b series a companies look like series b companies. You know?
+[Remote]: But
+[Remote]: like, I wanna see that that
+[Remote]: at seed that, like,
+[Remote]: that you have market pull.
+[Remote]: You know?
+[Remote]: And then I wanna see at series a that you've
+[Remote]: sort of, like,
+[Remote]: gotten the the sales going.
+[Remote]: So seed is market pull. But however you wanted to find that, that's what I wanna see.
+[You]: Got it.
+[Remote]: And, obviously,
+[You]: Got it.
+[Remote]: I don't I'm not gonna care if it's market pull in a $5,000,000 industry.
+[Remote]: I wanna see market pull in large industry.
+[Remote]: Because I need a large outcome as a venture capital investor. Like, that's what
+[You]: Yep.
+[Remote]: that's the business. Right?
+[You]: You guys typically lead or colead or you don't care?
+[Remote]: We don't care. We typically need.
+[You]: Got it.
+[Remote]: We'll we'll we'll do both, but generally, we need.
+[You]: Got it.
+[Remote]: What do you think? What do you is
+[Remote]: is what I is anything of what I'm saying resonating with you or you're sort of like
+[You]: It does. It does. I mean, nothing surprises me, but
+[Remote]: this guy's
+[Remote]: yeah.
+[You]: I do ask that question because I think that seed stage is a bit more
+[You]: well, you you know this. It's a bit more fluffy, and so each investor looks at
+[You]: or or weighs stuff differently. Right?
+[You]: But I like I mean, it's it's it's just it's just it's personal.
+[You]: And as I get ready, it's good to understand
+[You]: how investors like you guys, which are, again, fintech focused,
+[You]: like, as we think about choosing partners, of course, we're gonna choose partners that can
+[You]: actually open the stores.
+[You]: Given the problem space does depend a lot on distribution as well. Right? Like,
+[You]: opening up doors with with with
+[You]: banks or
+[You]: or financial institutions that really have this pain is gonna be helpful for us.
+[You]: Not only that, but all the knowledge expertise you have.
+[Remote]: Yeah.
+[You]: Of being a Cross River and probably your your partners have.
+[Remote]: But that's but that's but that's a muscle that, like, nobody else
+[Remote]: is gonna be able to
+[Remote]: to solve for you. You know what mean? Like, it's, like,
+[Remote]: it's like one of those it's like one of those
+[Remote]: like, when when when you have two options in front of you, the easy way and the hard way to do the
+[Remote]: way. You know?
+[You]: Because you need to develop your train yourself to it.
+[Remote]: Like, you need to be able to sell. Like, that's
+[Remote]: that's the business and, like,
+[Remote]: you need to figure out a way to, like, get into these
+[Remote]: companies now even if you have nothing.
+[Remote]: And that because that shows me that, like,
+[Remote]: if you can do it now, you could for sure do it when you have a product.
+[You]: Of course. Of course.
+[Remote]: Know what I mean?
+[Remote]: And so I I would really
+[You]: Of course.
+[Remote]: focus on, like, how and, like, what the pitch is now to get design partners. That's
+[Remote]: I wanna see that at Seed.
+[Remote]: Because so much of what you're building depends on, like,
+[Remote]: you having the right relationships with
+[Remote]: with your data providers effectively, which are these these payment companies
+[Remote]: PSPs, and these banks.
+[You]: Yep.
+[Remote]: You know what I mean? Because you're not gonna get the data unless you have those relationships.
+[You]: A 100%. A 100%. Yep.
+[You]: Yep.
+[Remote]: Yeah.
+[You]: Again, yeah,
+[You]: mean, nothing surprises, but I like the approach.
+[You]: It's good talking with someone that knows the space and knows the the problem.
+[You]: Because many of the investors, when I talk about recon,
+[You]: they're just too far away from it. So it's good to talk to someone that that knows his space.
+[Remote]: And and, like,
+[You]: Other than that, let's keep in touch. As I said,
+[Remote]: Ignacio, like, I really think that if you went to
+[Remote]: if you went to these companies and said, we'll give you a piece of equity in exchange for, like, a structured deal,
+[Remote]: and you're you'd be a design partner, they would do it.
+[Remote]: You have to just
+[Remote]: go to the right team and, like,
+[Remote]: do that and not be to give away. You might give away, like, you know,
+[Remote]: 25 bits of common shares. Like, okay.
+[Remote]: Fine.
+[Remote]: But then you have, like, 10 customers, and those are, like, your initial customers.
+[Remote]: You know?
+[You]: Yep.
+[You]: Yep.
+[You]: Definitely.
+[You]: Interesting.
+[You]: Well, I have to jump, but but great connecting. Great to meet you. Thank you for
+[You]: out. Again, it's a pleasure to speak with with people that that know this space like we do.
+[You]: And, yeah, let's keep in touch as as we get prepared for that seed race.
+[You]: If you guys are interested.
+[Remote]: Yeah. For sure. Please keep us posted.
+[You]: Alright?
+[Remote]: Nice to meet Ignacio.
+[You]: Thank you.
+[You]: Bye bye.
+[Remote]: Bye bye.
+
+============================================================
+SUMMARY
+============================================================
+### Haymaker Fund Overview
+
+- Fintech-focused fund with $112M first fund
+  - Check size: $2-10M for seed/Series A
+  - $25M remaining for new investments (last year to deploy)
+  - Spun out of Teal Capital (Peter Thiel’s family office)
+  - Matt Danzeisen (Founders Fund) serves as advisor
+- Team: 3 investors, small focused team
+- Fund timeline: Active since 2022, final deployment year
+
+### Investment Philosophy & Approach
+
+- Seed stage focus: “Seed is market pull in a large industry”
+  - 80% of diligence involves customer conversations
+  - Best seed companies look like Series A companies
+  - Must demonstrate market pull in large addressable market
+- Lead/co-lead agnostic, typically follow
+- Distribution/sales capability critical
+  - “Nobody else can solve sales muscle for you”
+  - Must prove ability to get design partners without existing product
+  - Relationships with data providers (PSPs, banks) essential
+
+### Strategic Advice for Rexi
+
+- ICP definition suggestions:
+  - Consider design partner approach: equity + nominal payment for 6-month feedback commitment
+  - Reference: Coverbase model with 15 design partners across different verticals
+  - Alternative: CLI tool/API approach for tech-savvy customers
+- Market approach debate:
+  - Arieh: Parallel experiments across multiple verticals using AI efficiency
+  - Ignacio: Focused approach to extract maximum signal before scaling
+- Recommended next steps: Structured design partner deals with 10 companies
+  - Offer equity stakes for structured feedback relationships
+  - Build multiple product archetypes simultaneously
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/151b3b01-af44-4d09-8b16-242d5ec5cecb](https://notes.granola.ai/t/151b3b01-af44-4d09-8b16-242d5ec5cecb)

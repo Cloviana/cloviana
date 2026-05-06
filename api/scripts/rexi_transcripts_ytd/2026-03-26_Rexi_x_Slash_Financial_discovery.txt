@@ -1,0 +1,490 @@
+MEETING: Rexi x Slash Financial: discovery
+DATE: 2026-03-26
+ID: not_jXyeMyzs6YZWct
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Natalia <natalia@slash.com>
+SCHEDULED: 2026-03-26T17:00:00-04:00 - 2026-03-26T17:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Belarus sense, Police, yes.
+[You]: Ok, ok, ok,
+[You]: ok, because I was about to speak to you in Spanish. I'm from Argentina.
+[Remote]: Oh, wonderful.
+[You]: Have you been in Argentina before?
+[Remote]: Not yet.
+[Remote]: It's definitely on my bucket list, but the work is so huge to travel around.
+[You]: It's too big, and it's far away from from Poland. Right?
+[Remote]: Yeah. It's
+[Remote]: I mean, yes and no. It depends how you look at it.
+[Remote]: Definitely closer than Australia.
+[You]: You wanna go to Australia? That's why you mentioned it.
+[Remote]: No. It's on my bucket
+[Remote]: as well. Like, I was supposed to go earlier this year, but I had injury.
+[Remote]: Long story. Long story. I love to travel. Argentina is definitely
+[Remote]: on my back at least. So are you are based in original right now?
+[You]: No. I actually I live in New York.
+[You]: And right now exactly, I'm in in Miami on my way to our
+[You]: Argentina this night. So
+[Remote]: Oh, nice.
+[You]: we'll be back home tomorrow morning, if god forbids.
+[You]: But, well, again, thank you for meeting. Thank you for the time.
+[You]: I can give you a short intro on on what we do at Rexy.
+[You]: I know if if your colleague,
+[You]: who did I speak with before I spoke with?
+[Remote]: I was kneecopperally.
+[You]: Yeah. Nico. Exactly.
+[You]: You have to deal with Latin Americans God save you.
+[Remote]: I know. It's it's so much fun. It's so much fun.
+[You]: Awesome. Well, I spoke with Nico and
+[You]: and he suggested we spoke. So I'll do a short intro on Rexy what we do today.
+[Remote]: Perfect.
+[You]: And then we'll love to hear more about
+[You]: how are you currently handling the reconciliation process
+[You]: are the main pain points, and see if we can help you
+[You]: solve it. If we're not able to solve it, you have my commitment. I
+[You]: not try to sell you Rexy. I will point you towards what I think is the best solution.
+[You]: Because it's all about a win win situation here.
+[You]: So about Brexit and about myself. Again, I'm Argentinian based in US.
+[You]: We're building Rexi for The US market. Today
+[You]: is a reconciliation platform. So, basically, connect
+[Remote]: Yeah.
+[You]: to your data sources ingesting the raw files.
+[You]: And then it does the the the preprocessing, which is all the transformation
+[You]: or all the reformating, the parsing, understanding which columns we wanna compare and so
+[You]: on. Then we do the reconciliation, which is the processing.
+[Remote]: Okay.
+[You]: In which we configure a recall logic
+[You]: like, say, are we gonna be matching base dot amount, on date,
+[Remote]: Yeah.
+[You]: there a is there a unique identifier? Is it a combination
+[You]: of everything? Is it one to one, one to many, many to one? I mean, all things you probably know already.
+[You]: That reconciliation logic is both configurated by you.
+[You]: You have all the knowledge, and then we have an agent that that supplements that
+[You]: logic to add more patterns and more rules that are gonna push your matching ratio
+[You]: upwards. Then finally, we have the the problem solver, which is
+[You]: you're gonna log in every day.
+[You]: To investigate and solve the discrepancies. The problem solver has, again,
+[You]: AI technology to build clusters of transactions.
+[You]: By root cause, and it suggests
+[You]: resolutions. So maybe, for example, with one of our customers, one of our neobanks, we
+[You]: found out that the first remittance
+[You]: for every user was for free.
+[You]: So it's never gonna match against the ledger that was recording revenue for
+[You]: those transactions, those type of things. And the cool thing about that is that the agent learns from your actions,
+[You]: and so it gains autonomy, and it can configure that as a rule
+[You]: for the next day. So it doesn't pop up on your
+[You]: discrepancy dashboard. And then the last thing is all the output
+[You]: schemes. Right? We have a very nice dashboard that you
+[You]: configurate and build for your
+[You]: for your own needs at Slash. We have reporting
+[You]: which again is a 100% configurable
+[You]: and ad hoc to your needs. If you need to send a report to a regulator or you need to send a report to account
+[You]: accounting or you need to send a report internally, you can build whatever report you like.
+[You]: Can also push the reconciliation results to
+[You]: a data lake that maybe plugs into Looker or whatever other BI tool you guys are
+[You]: using.
+[You]: And then the last and interesting thing is
+[You]: we have integrations with the main ERPs.
+[You]: So NetSuite, QuickBooks, Odu, all these bigger
+[You]: RPs, and we basically automate the
+[You]: generation of the journal entries of stuff that's already
+[You]: So basically, we automate the process end to end.
+[You]: Right? I know if there's
+[You]: like, and and just one last thing we'll mention is, our big slogan is becoming, the cloud
+[You]: code for FinOps.
+[You]: So we wanna be a platform so that
+[You]: operators like you
+[You]: can automate their workflows with these different templates. Right? We're starting by reconciliation because
+[You]: it's a big pain point in the market, and we're generating a lot of traction with this product.
+[Remote]: Yep.
+[You]: The second big part for us is gonna be accounting, and then we're gonna continue doing
+[You]: reporting. We're gonna do compliance, ledgering, etcetera. But for now,
+[You]: we're specialized and focused on reconciliation because we're seeing a
+[You]: a huge pull in the market. And and regarding the road map going forward for
+[You]: second quarter of the year, it's the platform is gonna become more and more agentic over time. So it's gonna become really autonomous, with the right guardrails of a approvals that you give the platform. So it learns from your actions. It learns from your files. It learns from the business policy you guys operate with. And it gets more and more autonomous over time. Having said that, any questions, concerns, comments of what I just said?
+[Remote]: Yeah. So for example, I know there are some reconciliation tools
+[Remote]: available at the market right now, like black line, like
+[Remote]: how do you differentiate with, like, I've never used black line. Like, I think I
+[Remote]: I was so, basically,
+[Remote]: few things about myself. Like, I am control at slash, but, basically, my
+[Remote]: primary goal and, basically,
+[Remote]: what I'm driven by is, like, automation and building tools and connections and integrations
+[You]: I love it.
+[Remote]: and
+[Remote]: and making sure that whatever system we are going to implement has
+[Remote]: API, and our engine can use it, blah blah blah. So
+[Remote]: this is why I'm able to close our books on day one, and I was able to do it
+[Remote]: most of the time by myself. Right?
+[Remote]: So I've been talking with, like, a
+[Remote]: different tools, different platforms.
+[Remote]: Most of them
+[Remote]: are doing whatever I am doing in Google and they want to charge me $100,000 per year.
+[Remote]: Basically, I didn't find a tool that will actually
+[Remote]: make my work, like, faster, more smooth, less
+[Remote]: prone to errors. It seem like,
+[Remote]: how do you differentiate with all of the tools that are available at the market right now?
+[You]: Did you do a demo with Black Lane?
+[Remote]: No. Not really. Like, I
+[Remote]: I I heard they are super expensive, I didn't even talk to them.
+[You]: Okay. Well, the first thing is
+[You]: it's horrible. It's legacy software. I mean,
+[Remote]: Yeah.
+[You]: they're serving the big banks, and they're serving the big banks since 1980.
+[You]: So the the platform is really horrible. It's legacy technology is just
+[Remote]: Katia.
+[You]: very rigid. It takes a lot of time to process. It's not even
+[You]: native, I think. I mean, it's it's just
+[You]: don't go for BlackLine. BlackLine is for
+[You]: really big old banks. It's not for slash.
+[You]: The first thing I'll say. Now,
+[You]: regarding our differentiation with I I think differentiation with the blockchain is
+[You]: very clear. I mean, we're we're an AI native company, and and it's it's it's it's way different than just thinking
+[You]: experience, the processing, the AI that's plugged into it, etcetera.
+[You]: How do we differentiate, against other tools in the market?
+[You]: And I'm happy to point you towards other
+[You]: tools in the market for you to take a look at.
+[You]: One that I really like is is ledge.
+[You]: Have you heard about ledge?
+[Remote]: Nope.
+[You]: That's an interesting one.
+[You]: So, again,
+[You]: I like to I like to talk good about my competitors. But how do we appreciate it? The first one is
+[You]: AI native.
+[You]: So for us,
+[You]: agentic technology and artificial intelligence is great at doing all the parsing work,
+[You]: the processing, and solving discrepancies, which are the three most time
+[You]: parts of the process.
+[You]: So we automate those three parts.
+[You]: The second thing I'll say is our business model.
+[You]: So for us, as I was mentioning earlier,
+[You]: reconciliation is a wedge.
+[You]: It's not the main business driver for us going forward.
+[You]: Why? Because, again, first, it's a critical pain point today that we
+[You]: wanna solve. And second, our vision is becoming a cloud code for FinOps.
+[You]: So you are saying you were automating and building all these tools and integrations.
+[You]: We want this to become your cloud code.
+[You]: Right? And if you can build a lot of
+[You]: on top of the reconciliation. Why is reconciliation an interesting wedge?
+[Remote]: I know.
+[You]: Because the first thing you need to do
+[You]: is create a system of record.
+[You]: It's what's the truth across all these systems. Once you have that,
+[Remote]: Yep.
+[You]: all of the other workflows can be easily automated.
+[Remote]: I I, like, I know. I keep repeating to everyone. Like,
+[Remote]: closing the books is actually easy.
+[Remote]: Getting the proper data, like, how do you know that the data you're getting
+[Remote]: is the proper data, the quality data? How how
+[Remote]: do you how do you make sure that you that it's
+[Remote]: deal desk sends you all of the contracts? Like, how like, I think this is the struggle actually for
+[Remote]: accounting, not actually posting, like, journal entries. This is easy part. Like,
+[Remote]: I can do debit and craze with my closed eyes on paper. Like, I don't like,
+[Remote]: but
+[Remote]: data quality
+[Remote]: does the challenge. So for example, right now,
+[Remote]: we have unfortunately, we ran out of reconsue
+[Remote]: on Excel.
+[Remote]: Because we are pulling data
+[Remote]: from multiple diff from multiple different systems.
+[Remote]: And sometimes we don't we don't even know what's the source of truth.
+[Remote]: So we are reconciling different datasets against each other, and we find the
+[Remote]: And then we decide
+[Remote]: which
+[Remote]: system has proper data, and then we usually the we usually have to debug with our end
+[Remote]: team because we are, like, transactional transactional business.
+[Remote]: So
+[Remote]: sometimes whatever is on the bank statement is true,
+[Remote]: Sometimes whatever is in our database is true. Some like,
+[Remote]: you never know. Like, I, like, I don't have as, like,
+[Remote]: single social truth. Like, I I don't have it. Right?
+[Remote]: So
+[Remote]: mentioned that you're actually, like, working on those two and I love working with startups because you're flexible, you move fast,
+[Remote]: you listen to customers,
+[Remote]: Like, I will never ever, for example, go with, like, black line because they've been
+[Remote]: so long at the market. And I know my friends
+[Remote]: using BlackLine and the way how they describe to me how
+[Remote]: they use it. I'm like, this is waste of your time, waste of your money. Most of the companies
+[Remote]: I'm hearing, the way the way the way how they use black line is, like, by basically, a check
+[You]: Yep.
+[Remote]: list.
+[Remote]: Because the tool is so complicated, it
+[Remote]: so complex, I think no one actually know how to implement it.
+[Remote]: But for the audit purposes,
+[Remote]: and, like, process for process, yes, we have black line. We have tech leads. Like, great. Like, for
+[Remote]: 100 of that, like, whatever. So if you, for example, could help
+[Remote]: us with those, like, t d
+[Remote]: reconciliations because sometime like,
+[Remote]: in theory, let's say, we have ERP, we have bank match,
+[Remote]: we have bank feed, transactions are flowing between the we
+[Remote]: both systems. But at the end of the month, there is always a discrepancy. Always. Right?
+[You]: Always.
+[Remote]: So
+[Remote]: like, I actually don't understand why it
+[Remote]: happening. Is it because some transaction
+[Remote]: was rejected, was pending, and ERP pulled it, like,
+[Remote]: I have no idea why. But every single month, there's, like, a some discrepancy, which and we do
+[Remote]: reconciliations manually because
+[Remote]: we don't know actually what happened. Like, we don't know
+[Remote]: which system
+[Remote]: has proper data. So if you, for example, could help us with that so for example, we can feed
+[Remote]: all of the transactions from our ERP, all of the data from our database
+[Remote]: if we can find
+[Remote]: discrepancies
+[Remote]: seconds, minutes, not hours,
+[Remote]: will be huge.
+[You]: That's
+[Remote]: And we had it
+[Remote]: And it's not only for bank because we also have
+[Remote]: so like, we have so much money movement. We have
+[Remote]: oh my like, 10 plus
+[Remote]: Jill accounts with transactional data that we need to reconcile monthly.
+[You]: That's exactly what we do. I mean, the the the
+[You]: the platform matches transactions ones one by one. It runs in seconds. I mean,
+[You]: we were doing, for example,
+[You]: we're working with a big wallet in The US that has 14,000,000 transactions a day.
+[You]: 14,000,000 transactions a day,
+[You]: and we replaced a ReconArt. That's another it's like a black line in The US.
+[You]: And
+[You]: recon art took three hours and forty seven minutes to run the daily recon.
+[You]: Our platform took under three minutes.
+[Remote]: Holish. Wow. That's impressive.
+[You]: So our our engine is is truly scalable. Our architecture is is
+[You]: is awesome. It's built for scale. So no worries on scalability and on
+[You]: It runs in seconds and minutes.
+[You]: Depending on the volume.
+[You]: That's that's a nonissue for us.
+[You]: For us, the the main issue we wanna solve is get your job done.
+[You]: Which is by the end of each month or by the end of each day depending on what's your requirement,
+[You]: making sure
+[You]: that stuff is reconciled. And if it's not reconciled, then we have a clear explanation
+[You]: or a hypothesis on what's happening.
+[You]: That's the job to be done here. And we're using a genetic technology to
+[You]: really solve that. So it's it's
+[Remote]: Yeah.
+[You]: it's a productivity multiplier for you,
+[You]: and then you have the scalability part and the precision part.
+[You]: And then the last thing is about risk. We have full trace
+[You]: ability and auditability so that by the time you get an audit or have a compliance thing,
+[You]: you can go to the Dorexi, generate the report you need, and every single
+[You]: is there. All the way from the raw file
+[You]: with all the transformations and all the processing.
+[Remote]: Love it. Love it. Do you have, like,
+[Remote]: demo or something? Can I see how it works?
+[You]: Let's do something like our typical
+[You]: next step, if if you're very interested, would be a demo, of course.
+[You]: And we give two options for the demo.
+[You]: We can do a generic walkthrough of the platform
+[You]: show you how it works with synthetic data.
+[You]: Or we can sign an NDA
+[You]: get real data from you,
+[You]: and do a real demo.
+[You]: On real files. And that way, you can compare. Okay. Let's say
+[You]: March 25. I was reconciling this, and this is the results I got in Google Sheets.
+[You]: What are the results on Rexy?
+[You]: And how can I explain the differences on
+[You]: and so you can better compare
+[You]: what's the process today versus what would be the process with the reqsy, and that gives you a
+[You]: more information and more visibility on
+[You]: on on what would be the impact in your in your daily work?
+[Remote]: I like this second option because, literally, I could
+[Remote]: send you, let's say,
+[Remote]: I think February we have some
+[Remote]: balanced accounts that are not yet reconciled for February. So maybe I can send you February data.
+[Remote]: And we can run live demo
+[Remote]: we
+[Remote]: we are going to have more products, more revenues
+[Remote]: more volume, and I think,
+[Remote]: basically, more issues because
+[Remote]: the way how the call is written really impacts
+[Remote]: other stuff because then it triggers
+[Remote]: money movement. And if something is
+[Remote]: not working with the call, then it will really
+[Remote]: our bank statements and and and money movement.
+[Remote]: So, yeah, let's do that.
+[Remote]: The only challenge for me right now personally
+[Remote]: is that
+[Remote]: I need to, finalize taxes.
+[Remote]: Tax return by April. I have, like, three weeks left, and
+[Remote]: don't know if you saw by, Victor's announcement, but we are
+[Remote]: profitable. So I really need to get into, like, tax strategy to make
+[Remote]: that we are doing things right. So probably
+[Remote]: I will not be able to send you the files because I want to make it right. I want I pro
+[Remote]: we also need to send
+[Remote]: sign NDA, so I need to run it by GC, and he will have questions.
+[Remote]: Or
+[Remote]: so let's keep the ball rolling. But can we
+[Remote]: maybe
+[Remote]: let me look at the calendar.
+[You]: Schedule some time.
+[Remote]: Yeah. Or if you could
+[Remote]: or maybe I will set myself a reminder around, like,
+[Remote]: April 10.
+[You]: April's month.
+[Remote]: Yeah. To get you the role to to start
+[Remote]: with NDA because
+[Remote]: our team will ask me, hey, Natalia. What is that? Why do we need it?
+[Remote]: Like, team doesn't have to ask permission to spend
+[Remote]: 100 of thousand dollars on AI, but I have to ask permission for everything. Right?
+[You]: Let's
+[Remote]: Okay.
+[You]: put a placeholder for April 10.
+[Remote]: Yeah.
+[You]: In the calendar.
+[Remote]: Okay.
+[You]: I guess, given you're in Poland early morning for
+[You]: me is better for you. So maybe, like,
+[You]: I don't know.
+[You]: We can do
+[You]: 9AM eastern
+[Remote]: Yeah. I I'm usually
+[Remote]: I usually work evening hours. I prefer that. So during the day, I can do my stuff.
+[You]: So what what what time do you prefer?
+[Remote]: So, actually, it doesn't really matter.
+[Remote]: On
+[Remote]: Let's see.
+[Remote]: Oh,
+[Remote]: my friends have wedding on Friday,
+[Remote]: Uh-oh. I forget. Okay.
+[Remote]: So let's do
+[Remote]: let's do Tuesday, the fourteenth.
+[You]: Okay.
+[You]: What time?
+[Remote]: 9AM eastern works. It can be later as well. Whatever
+[Remote]: you have
+[You]: Awesome. Great. Let's schedule that as a product demo.
+[Remote]: Okay.
+[You]: And we'll we'll take it forward via email to get the NDA, the files, the logic.
+[Remote]: Yeah.
+[You]: We'll get prepared for that session.
+[Remote]: Yeah. Let's
+[You]: Does it make sense?
+[Remote]: let's do that. Yes.
+[You]: Amazing, Natalia.
+[You]: Has been great, very effective. I think we got everything done in
+[You]: in twenty minutes. The last thing I'll say is,
+[You]: or question is regarding
+[You]: urgency. This is something you wanna get in the second quarter of the year.
+[You]: Because it can it's getting more and more complex over time. Right?
+[Remote]: We are growing like crazy. So
+[Remote]: my priority right now is
+[Remote]: tax. Like, I need to file for extensions. I need to figure out
+[Remote]: strategy. So that is my top priority.
+[Remote]: Number two, we are adding new revenue streams, so I need to make
+[Remote]: sure that I account for them properly. So I would say it will be my
+[Remote]: third priority in terms of, like,
+[Remote]: Like, definitely, it's it's something something that is important to me.
+[Remote]: Because I usually had to hire someone to help me with reconciliations because I didn't have time.
+[Remote]: And every single month, there was, like,
+[Remote]: $100 off, thousand bucks off. I'm like, oh my gosh. Why? Right?
+[Remote]: I'm losing BankMart. I'm using bank feed. Like, where where is this crepancy coming from? Right?
+[You]: You should not hire
+[You]: someone. You should hire a rexy.
+[Remote]: I mean, we are also, like, 250 mil company. Like, I think we can
+[Remote]: for 200 tons. Like, I don't know.
+[Remote]: How many companies you know that are being run
+[Remote]: Like, that they have only one person within accounting and finance team. So it was high time. It was high time.
+[You]: Alright. And and the second thing I wanted to ask was
+[Remote]: So
+[You]: budget. You said a 100 k seems too much. What what's, like, a range you would be comfortable with?
+[Remote]: I I I don't know. I honestly
+[Remote]: I'm not really prepared in in terms of the budget. I think it will depend
+[Remote]: on how much time we can save.
+[Remote]: So let's say
+[Remote]: yeah. I will I literally would have to, like,
+[Remote]: recalculate it because number one is time how much
+[Remote]: how much time we save. Number two,
+[Remote]: is, like,
+[Remote]: I could focus on things, and I wouldn't have to, like, keep
+[You]: Yep.
+[Remote]: context switching you. That that makes sense.
+[Remote]: So
+[You]: How much time do you dedicate to recon today?
+[Remote]: let's
+[Remote]: I don't. Like, I have a person doing that right now.
+[You]: It's it's
+[Remote]: So at
+[Remote]: yeah.
+[You]: it's in your team, or is it consultant, external consultant?
+[Remote]: No. No. No. He started, in February.
+[Remote]: Right? Yeah. In February. So it's he's like
+[You]: Time doing recon.
+[Remote]: second Not only, like, basic an accountant, but he's
+[Remote]: anything that I can I can outsource or delegate to him is usually usually around three Right? So he's building all of the stuff, within within Excels and Google Sheets.
+[Remote]: So I also told him, like, don't focus on
+[Remote]: automating recon because we are going to bring some
+[Remote]: Like, we we we need more tooling.
+[Remote]: We have some
+[Remote]: AI agents that our CTO build, but they are mostly for, like,
+[Remote]: support team and end team.
+[Remote]: And reporting, not really for reconciliation, but maybe
+[Remote]: some point, we'll also have something internally. But I wouldn't count on it
+[Remote]: because they are really they really want to bring
+[Remote]: builds new new revenue streams. Okay. Cool. So, and the
+[Remote]: we'll figure out, the budgets. Like, I honestly I know.
+[You]: No worries. No worries. The budget question
+[Remote]: I know.
+[You]: we can we can solve it later after the demo. So I don't think that's a pressing topic.
+[You]: The product demo is already scheduled.
+[You]: Let's take it via email to get the NDA signed and the files over and get really
+[You]: prepared for that demo on on April 13.
+[Remote]: Perfect. Love it. Love it. Love it. Okay.
+[Remote]: Yeah. We can definitely do temp credits. So I will just
+[Remote]: data from our ERP system, our database, and then
+[Remote]: yeah. Let let's see how it works because it's messy.
+[You]: I'm sure
+[Remote]: It is messy. So I wonder
+[You]: I know. I've been there. We're we're building a company out of person
+[You]: experience, so so we know how it works. Trust us.
+[Remote]: that's good. That's good.
+[Remote]: And that's amazing. Okay. Wonderful. Thank you so much for your time.
+[Remote]: Safe travels to Argentina. I hope Miami there's a great weather in Miami right now, and I will will touch base over email.
+[You]: Amazing, Natalia. Great meeting as well. Thank you for your time.
+[Remote]: Thank you. Bye bye.
+[You]: Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Slash Financial Background & Current Reconciliation Challenges
+
+- Natalia is Controller at Slash, 250M company with single-person accounting/finance team
+- Currently doing manual reconciliation in Excel/Google Sheets
+  - Pulling data from multiple systems without single source of truth
+  - Monthly discrepancies always occur between ERP, bank statements, database
+  - Takes hours to resolve, often $100-1000 off each month
+  - Recently hired accountant (started February) to handle basic reconciliation work
+- 10+ payment accounts with transactional data requiring monthly reconciliation
+- Growing rapidly with new revenue streams being added
+- Prioritizes automation, API integrations, building tools/connections
+- Closes books on day one most months
+
+### Rexi Platform Differentiation & Capabilities
+
+- AI-native reconciliation platform vs legacy tools like BlackLine
+- Processing speed: 14M transactions/day in under 3 minutes (vs competitor’s 3h 47min)
+- Three core components:
+  1. Data preprocessing (parsing, transformation, formatting)
+  2. Reconciliation engine with configurable matching logic
+  3. AI-powered problem solver with clustering and resolution suggestions
+- Agent learns from user actions, gains autonomy over time
+- Full traceability and auditability for compliance
+- Integrations with major ERPs (NetSuite, QuickBooks, Odoo)
+- Vision: becoming “no-code for FinOps” platform beyond just reconciliation
+
+### Next Steps
+
+- Product demo scheduled for April 14, 9AM Eastern
+- NDA required before sharing real February data files
+  - Natalia needs GC approval for NDA process
+  - Will use actual unreconciled February accounts for live demo
+- Current priorities blocking immediate implementation:
+  1. Tax filing and strategy (due April, company is profitable)
+  2. Accounting for new revenue streams
+  3. Reconciliation tooling (third priority)
+- Budget discussion deferred until after demo
+- Follow-up via email to coordinate NDA and file sharing
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/b5cf3a0b-6487-494e-89ef-978c42784326](https://notes.granola.ai/t/b5cf3a0b-6487-494e-89ef-978c42784326)

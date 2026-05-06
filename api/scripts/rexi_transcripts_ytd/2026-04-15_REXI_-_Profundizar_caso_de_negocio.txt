@@ -1,0 +1,416 @@
+MEETING: REXI - Profundizar caso de negocio
+DATE: 2026-04-15
+ID: not_6BJHGjUBhZYMJA
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Peralta Eduardo Ulises <eduardo.peralta@supervielle.com.ar>
+SCHEDULED: 2026-04-15T15:00:00-04:00 - 2026-04-15T16:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Por ahí lo que te pido,
+[Remote]: y nos juntamos con los equipos o lo que entiendan que se necesita, porque
+[Remote]: sé que es mucha incertidumbre, se me podría decir cualquier cosa.
+[Remote]: Mirá, yo estimo que, por los títulos que me diste, por los volúmenes que me contestan,
+[Remote]: tus procesos, no me acuerdo, ahora identificaron cinco que son los que
+[Remote]: el caso de uso que salen veinte mil dólares. ¿Los otros treinta? Le voy ir número.
+[Remote]: Sale sesenta mil dólares de sesenta, y sale tengo idea, diez mil dólares por mes el fee. Cualquier cosa, no
+[Remote]: tengo ni la más remota idea de lo que te estoy diciendo.
+[Remote]: Eso
+[Remote]: yo lo debería proponer para decir, mirá, tengo estos treinta candidatos después del piloto,
+[Remote]: y más o menos estamos hablando de ese presupuesto, pero lo que tengo que hacer
+[Remote]: entre vos y yo, es conseguir lo que hay de Paco de esa plata.
+[Remote]: Sujeto a que el piloto se exitó, o un montón de if, pero yo
+[Remote]: en realidad, lo que voy detrás es, Paco, autorízame,
+[Remote]: esta bolsa de plata, y yo con esa bolsa de plata te bajo cualquier cosa.
+[Remote]: Treinta procesos, cinco, veinte, los que entendamos que nos sentimos cómodos,
+[Remote]: en la etapa siguiente al piloto. Esa es la aprobación que busco.
+[Remote]: Porque, si no le pongo ese número, me va decir Paco, bueno, pero dame cargué. ¿De de qué estamos hablando? No no me va a firmar un cheque en blanco. Más sensate que yo le diga, mira, voy a te aseguro que todo lo que haga se repaga, tiene un beneficio, etcétera, etcétera, necesita abrir la billetera y me va a decir, cuesta plata. Entonces, yo lo que debería es, perfecto, la primera instancia, supersimplifico siempre, veinte mil dólares por cinco, seis, cuatro, no me acuerdo cuáles eran los casos que consideramos. Y el resto, esos treinta que vos mencionás ahí como candidatos o
+[Remote]: o veinte o cuarenta, no importá, y, más o menos, hablás de, no tengo idea,
+[Remote]: cincuenta mil dólares de setup y y veinte mil dólares de RAM o lo que fuera.
+[Remote]: Para que se haga una idea de presupuesto y
+[Remote]: me diga, ok, o no, o hace la mitad.
+[Remote]: Yo creo que no va a decir que no, me va a decir, bueno, no no vayamos tan rápido, la mitad porque no puedo
+[Remote]: todo o alguna cosa por el estilo. Ojalá a medida que siga todo.
+[Remote]: Nada, eso era
+[You]: O sea, lo entiendo, mira, te cuento te cuento un poco, te contesto sobre ese, pues si querés me me
+[Remote]: si si querés,
+[You]: seguís contando.
+[You]: De los treinta, la verdad te soy honesto, de los treinta procesos que nos mencionaron,
+[You]: siento que ahí como que se abrió un poco la
+[You]: ¿vos le dijiste a a a tus reportes?
+[You]: Tiren todo lo que les duele,
+[You]: y se abrió un poco y, por más de que encontramos, fuimos
+[Remote]: La cajilla de Pandora.
+[You]: un montón, claro, sobre la caja de Pandora encontramos un montón de oportunidad de
+[You]: para implementar inteligencia artificial y automatizar procesos,
+[You]: hoy hay muchos de esos que hoy REXI no resuelve.
+[Remote]: Ok.
+[You]: Sí.
+[You]: Entonces, hoy somos un un testador de datos, que conciliamos flujos de dinero, estamos desarrollando otros módulos dentro de te soy honesto que hoy no los tenemos, con lo cual yo te diría mucho más si querés, hoy, a ver, después es una decisión del futuro, si Lexi quiere meterse en el banco
+[You]: a armar un proyecto específico para el banco Superbiel,
+[You]: con agentes que hoy no tenemos, pero sería
+[You]: en modalidad desarrollo, en modalidad consultora.
+[You]: Pero eso, como tiene un gran signo de pregunta, porque no no es algo que ofrezco hoy,
+[You]: y lo tendríamos que evaluar nosotros también del otro lado,
+[You]: lo que yo te propongo que le que les lleves a Paco es decir, mirá, estos chicos tienen un orquestador de
+[You]: información que permite automatizar los flujos conciliatorios con inteligencia artificial.
+[Remote]: Okay.
+[You]: Identificar los primeros seis, nos quedan
+[You]: los de medios de pago, que dejamos totalmente afuera porque están con esto de smart open,
+[You]: hay que ver si los queremos meter ahí o no,
+[You]: y qué otros flujos conciliatorios hay dentro del banco,
+[You]: y y, en base a eso, yo te puedo pasar un Ahora,
+[You]: hoy lo que ofrecí son veinte mil dólares, seis flujos,
+[You]: dos meses de período de prueba.
+[You]: Si eso decidiéramos avanzar en un contrato anual,
+[You]: lo primero que decir es
+[You]: esos veinte mil dólares, que no está en la propuesta, te lo tengo que agregar, lo acreditamos contra el contrato anual.
+[Remote]: Ok, o
+[You]: Para que también para ustedes sea como
+[You]: un aporte de entrada. Es algo típico que se hace en esta industria y y nosotros lo hacemos también para
+[Remote]: Sí, sí, sí, sí.
+[Remote]: Está claro.
+[You]: para también que no sea como un costumdio para ustedes.
+[You]: Ahora, dentro de lo que es conciliaciones,
+[Remote]: Sí.
+[You]: decir, che, hoy tenemos estos seis y después identificamos
+[You]: otros más,
+[You]: Se gana mucha economía de escala,
+[You]: en estas cosas, ¿no?, porque la integración con Pantotal es una.
+[You]: La integración con algún sistema propio es una, con SharePoint es una.
+[You]: Después configurar nuevos flujos para nosotros, cuando yo te voy a hacer la
+[You]: estimación del del precio de un del flujo número siete,
+[You]: mucho más baja que el primero.
+[You]: Porque ya tengo todo armado, es simplemente configurarlo y quizás cobrarte
+[You]: el costo variable que a mí me genera en la nube de procesamiento y almacenamiento.
+[You]: Si querés, para
+[You]: ponerle un tope y un orden de magnitud,
+[You]: yo no creo, Eduardo, que esto les cueste a ustedes más de
+[You]: cuarenta mil dólares por mes.
+[Remote]: Okay.
+[Remote]: Ok.
+[You]: Y acá te digo, porque esto ya tiende a ese número en donde
+[Remote]: Lo planteo
+[Remote]: te lo planteo al revés, para
+[Remote]: bajarte la incertidumbre de de del mundo que estás diciendo,
+[Remote]: podríamos hablar de hacer desarrollos hasta cuarenta mil dólares.
+[Remote]: O incorporar flujos hasta llegar a los cuarenta mil dólares, donde, tentativamente, hablamos de no tengo idea. Seis, ocho casos, diez flujos, no sé. Lo lo que dé esos cuarenta mil dólares, como para dar una idea de magnitud.
+[You]: Esto incluiría muchos flujos más, Digo, la propuesta sí haríamos
+[Remote]: Ok. Ah, bueno, eso eso lo conocé, listo.
+[You]: la propuesta, si haríamos estos seis iniciales, sería mucho más baja. Yo te digo,
+[You]: cuarenta mil dólares es esa es esa asíntota donde digo, yo no creo que perfore más de eso,
+[Remote]: Okay, listo.
+[You]: de tener, no sé, veinticinco flujos de conciliación, todos los flujos de conciliación del banco, no debería costarles más de eso. Porque, de vuelta, hay economías de escala en esto, te cuestan mucho los primeros seis, pero después ya tengo la integración con Ban Total y sentarme con el equipo, enseñarle cómo cómo cierran y lo empiecen a
+[Remote]: Sí.
+[You]: ¿me entendés? No
+[Remote]: Ok. La la otra cosa, perfecto.
+[Remote]: ¿Qué grado de autonomía tenemos?
+[Remote]: O cuántas horas tengo, si no tengo autonomía?
+[Remote]: Por la evolución dentro de lo que esté corriendo.
+[Remote]: Por ejemplo, no sé, me aparece un evento nuevo, abro una
+[Remote]: cuenta nueva, el producto decide contabilizar de otra manera alguna cosa,
+[Remote]: y yo tengo que remapear la conciliación, a
+[Remote]: el evento, la evolución que haya, etcétera,
+[Remote]: ¿Qué grado de autonomía tendría para eso?
+[Remote]: O
+[Remote]: al revés, lo los
+[Remote]: cuarenta mil dólares incluyen, no sé, cien horas de mantenimiento, cincuenta, veinte.
+[You]: Bueno, al al estar en
+[Remote]: Eso más que nada. Entendré esa parte.
+[You]: al estar en la nube, todas las
+[You]: todos los módulos nuevos los tendrían automáticamente disponible.
+[You]: Eso eso de base, no van a tener que pagar por ningún producto nuevo,
+[You]: que quieran tener un modelo nuevo. Ahora,
+[You]: a tu pregunta,
+[You]: Nosotros
+[You]: en la prueba piloto,
+[You]: Eduardo, vamos a estar muy involucrados, muy,
+[You]: sea, de ir a las oficinas, hacer sesiones de trabajo con los equipos, enseñarles a usarlas,
+[You]: y y y probar ese valor.
+[You]: Vamos, dentro de esas sesiones hay sesiones de training, hay workshops donde realmente se les
+[You]: muestra cómo usa la plataforma para que ganen autonomía.
+[You]: Con lo cual,
+[You]: el producto y el approach lo estamos
+[You]: construyendo de manera que los equipos
+[You]: sean dueños de su flujo si lo puedan usar y configurar como configura y usa en Excel.
+[Remote]: Okay.
+[You]: Porque la plataforma es realmente muy intuitiva.
+[Remote]: Okay.
+[You]: Después, si querés, te puedo mostrar, es
+[You]: casi como hablar con ChatGPT, o sea, es muy fácil, vos le conectás a junta y
+[You]: te construye lo que vos quieras.
+[You]: Ahora,
+[You]: después van a suceder dos cosas,
+[You]: hay hay canales de soporte
+[You]: totalmente gratuitos, no te los voy a cobrar,
+[You]: que tenemos mail, Slack, y te van a tener, no sé, podemos salvar un grupo de WhatsApp,
+[You]: lo que lo que ustedes quieran, un grupo de Teams, y y digo, ahí van a
+[You]: que confiar en nosotros, en que vamos a ir
+[You]: realmente a fondo y asegurar de que haya un soporte
+[You]: de primera clase,
+[You]: y después, si viene una transformación
+[You]: en cómo contabiliza todos los flujos el banco,
+[You]: y tienen que literalmente rearmar todos los flujos de cero,
+[You]: y me decís, che, esto es un proceso de un mes, tengo que, necesito que vuelvan al banco,
+[You]: y vuelvan a reconfigurar todo, y bueno, ahí
+[You]: tendrá que robarse una discusión entre vos y yo y decir, che, bueno,
+[Remote]: No, está claro, está... No, no no no imagino
+[You]: veámoslo.
+[Remote]: ese escenario, que si se da claramente
+[Remote]: es es algo atípico y nos sentaremos como cuando arrancamos como ahora, digamos, che,
+[Remote]: cualquier cosa, cambie el coro, o cambie un motor y tengo que replantear la contabilidad o los
+[Remote]: eventos que que me generan
+[Remote]: ¿cómo se llama?, el proceso. Ahora,
+[Remote]: lo mío es más
+[Remote]: en la diaria,
+[Remote]: hay productos que
+[Remote]: suelen tener nuevos eventos que generan una contabilidad
+[Remote]: o no sé, el área contable decide hacer alguna cosa o
+[Remote]: decide algo que iba a pérdida, lo pasa a otro lado, lo que fuera,
+[Remote]: hay ajustes, no es permanente, pero el el banco está vivo en
+[Remote]: y permanentemente lo van mejorando, perfeccionando,
+[Remote]: acomodando números, ponle el título que quieras.
+[Remote]: Y y existen remapeos. Esa parte es la que yo digo
+[Remote]: tengo las herramientas para ser autónomo, listo, tendré que aprenderlas, haré los cursos, etcétera.
+[You]: Cien por ciento. El producto está
+[Remote]: Listo, listo, listo. Olvidate.
+[You]: diseñado para eso. Nosotros sabemos que las conciliaciones cambian todo el tiempo,
+[Remote]: Entonces.
+[You]: los equipos van a tener la autonomía para hacerlo, y no solo la autonomía nuestra,
+[You]: autonomía de sistemas, Eduardo, eso es lo más importante.
+[Remote]: Sí, sí, sí, sí, tal cual. Acá, hasta ahora has dado cuenta que estamos buscando
+[Remote]: algún camino paralelo, sin sin infringir las
+[Remote]: de ir por afuera, pero cuando ellos nos dan el ok, tratamos de buscar alguna herramienta que se hace
+[Remote]: y que nos baje todo este tema.
+[Remote]: Me me quedo tranquilo, después escribamos algo en la propuesta para que yo lo pueda formalizar
+[Remote]: ahí ante Paco, de de toda esta visión de
+[You]: Y te agrego, entonces, a ver, cambios
+[You]: cambios a la propuesta. Primero, te cambio el costo empleador,
+[Remote]: Eso eso es menor, eso es una tontería.
+[You]: que lo calculé un poquito por arriba,
+[You]: te agrego
+[Remote]: Eso no me preocupa tanto.
+[You]: te agrego un barrafito, si querés, sobre esto de el costo
+[You]: orden de magnitud que tendría la herramienta,
+[Remote]: Sí, a partir de lo que viste. Sí, sí, sí.
+[Remote]: Y algún párrafo que aclare la
+[Remote]: que tendría el banco para
+[Remote]: mantenimiento, la customización, etcétera,
+[You]: Los volúmenes de dinero también,
+[You]: que pediste que me los pasen, así también decimos, che, mirá,
+[Remote]: eso es para el riesgo inherente, o sea, yo lo que quiero decir es,
+[Remote]: en algún caso hay bajo volumen de transacción o de
+[Remote]: o de...?
+[Remote]: Imputaciones no conciliadas, pero el volumen que se concilia a mano
+[Remote]: en plata es muy alto, y el que te va a pasar Wilma es más alto todavía.
+[Remote]: Porque tiene la mesa de dinero detrás. Entonces,
+[Remote]: ahí lo que yo quiero dar visibilidad es, guarda que tengo varios miles de millones que los
+[Remote]: concilio todos los días a mano, Entonces, ese riesgo
+[Remote]: que no está sopesado en ningún lugar, lo estaría bajando con esta solución.
+[Remote]: Ese, para mí, es el disparador que a Paco le va a servir a los ojos.
+[Remote]: Este, porque es un dolor para él eso, o sea,
+[You]: Mauricio.
+[Remote]: ¿vije?, él él lo manifestó en la reunión diciendo, che,
+[Remote]: me pueden hacer algún fault, estoy incómodo con esto, demasiada manualidad y demás.
+[Remote]: Así que yo creo que, por por eso hice hincapié en que los chicos compartan
+[Remote]: para que en la propuesta figure lo que no está sobre la mesa
+[Remote]: allá de que todos dicen, sí, es un riesgo con Silvia a mano.
+[Remote]: Nadie lo palpa en cuanto a plata.
+[Remote]: Este, era el objetivo.
+[Remote]: Bueno, esto, si si aclaramos esas cositas, está bárbaro.
+[Remote]: El otro tema, que puedo ir en paralelo, no tengo drama, pero
+[Remote]: nos va a generar algún dolor en algún momento,
+[Remote]: Tenemos que entender
+[Remote]: cómo te acercás formalmente al banco.
+[Remote]: Cómo una empresa del exterior
+[Remote]: o como una empresa del exterior que tiene una subsidiaria acá o una empresa acá por la
+[Remote]: cual lo va a facturar. Porque eso, en en breve,
+[Remote]: o tras la reunión con Paco, pero de igual, va a ser en breve, no sé, entre
+[Remote]: cuatro semanas, no no mucho más allá de eso, vamos a tener que empezar a hablar con agente de compras.
+[Remote]: Y compra te va a decir, ok, dame tu balanza y quién sos,
+[Remote]: empleados hay, mostrémoslos a vos. Empieza toda la sanata de cosas formales para hacer
+[Remote]: proveedor del banco,
+[Remote]: Si yo, de deterioro, honestamente, no sé qué pomo piden,
+[Remote]: hay proveedores del exterior, no es que no los haya,
+[Remote]: Si sos de acá, sí te digo lo que te van a pedir,
+[Remote]: si no abriste una empresa y la vas a abrir, si lo vas a hacer como que, no sé,
+[Remote]: ponés a alguien que venda el producto acá, este, y ese es el que le facturo,
+[Remote]: qué qué qué modalidad va a haber para charlar con la gente de compras
+[Remote]: para vivir de ese canal? Porque son las primeras cosas que me preguntan.
+[Remote]: Si no lo tenés pensado, lo estás viendo, miralo, pero en breve va a arrancar eso.
+[You]: Hola, lo tengo,
+[You]: Lo tengo lo tengo pensado, mirá.
+[Remote]: ¿Dale?
+[You]: Si ya tienen ustedes proveedores del exterior, me encantaría hacerlo funcionar de esa manera.
+[Remote]: Ok.
+[You]: Si eso llega a ser un blocker,
+[You]: y realmente no no hay manera, nosotros tenemos una solución con the local go,
+[You]: que nos hace de merchant of record,
+[You]: entonces cobramos todo a través de ahí. No tengo entidad local en Argentina por lo pronto,
+[You]: tratando de evitar tenerla,
+[You]: pero de vuelta, si empiezan a traccionar estas conversaciones con con ustedes,
+[You]: con Payway... Digo, pasa que muchos de estos clientes en Argentina también nos pueden facturar afuera,
+[You]: no no tenemos problema en ese sentido, pero si de repente tengo
+[You]: mucha atracción en Argentina que requiere una facturación local, posiblemente
+[You]: consideremos abrir una entidad local.
+[You]: Pero eso, para ser honestos, no lo veo veinte veintiséis, lo veo
+[Remote]: Okay.
+[You]: por ahí veinte veintisiete, fatiarlo lo más posible. Así que
+[Remote]: Okay. So
+[You]: lo que puedo, lo que te lo que te propongo ahí es
+[You]: ¿por qué no vas en la intro con compras?
+[Remote]: Ok.
+[You]: Y le voy preguntando qué necesitan de mí y me voy adelantando de de para ser un proveedor del exterior?
+[Remote]: Ok.
+[Remote]: So, me encargo que los chicos te vayan presentando al agente de compras y que vayan viendo la
+[Remote]: para ser un proveedor. Teníamos proveedor al exterior, le pagamos directamente afuera
+[Remote]: no pasa nada.
+[Remote]: ¿Hay algún quilombo con los impuestos, detalles?
+[Remote]: Ojo,
+[Remote]: ojo con eso, te soy honesto.
+[Remote]: He tenido mucho ruido,
+[Remote]: porque vos me decís veinte mil dólares, sí.
+[Remote]: Pero si yo te pago veinte mil dólares, no sé, el estado te saca el cincuenta por ciento.
+[Remote]: Por decir algo. No la tengo clara cuál es el porcentaje, pero es gigante lo que
+[Remote]: o sea, la factura queda superreducida,
+[Remote]: si no se plantean bien los contratos, etcétera.
+[Remote]: Hay una carga impositiva feroz.
+[Remote]: Así que nada, porque ya he tenido problemas con otro acreedor, y cuando
+[Remote]: yo no contestaba tecnología, había varios del exterior,
+[Remote]: y no sabía cómo nos puteaban, porque
+[Remote]: acordábamos un, como vos me dijiste, che, bueno, listo, veinte mil, cuando también no importa el número que sea,
+[Remote]: y cuando te llegaba la, yo te, venía el afectado por cuarenta mil dólares, yo te la pagaba,
+[Remote]: que cuando restaba los impuestos no te quedaba nada. Así que nada,
+[Remote]: es para, te anticipo ese detalle solamente.
+[Remote]: Pasa lo mismo si estuvieras acá, La diferencia es que, cuando te quieres llevar los dólares, te
+[Remote]: o sea, el drama es cuando te llevas los dólares del país. Si
+[Remote]: sacás los veinte mil o veinte mil, van netos de IVA y todos los impuestos, pero cuando los querés sacar, hay una carga impositiva, no soy el experto, que a veces es interesante.
+[You]: Ahí hay manera, ¿qué hago con una contadora una vez?
+[Remote]: Bueno, nada.
+[Remote]: Ok.
+[You]: Sobre este tema?
+[You]: Donde se puede, por ejemplo, es
+[Remote]: Sí.
+[You]: distinta a la tratación impositiva si es
+[You]: un producto de software SaaS en la nube,
+[You]: o si es como un desarrollo puntual. Si se
+[You]: le puede dar un tratamiento con un desarrollo puntual, no sé, hay hay maneras. Por eso,
+[You]: quizás, si me hacés la intro con compras y yo lo veo directo con ellos, sería un un golazo.
+[Remote]: Dale, ningún problema.
+[Remote]: Andá a fondo el experto de tu empresa, igual, a fondo del tema de impuestos, porque
+[Remote]: estando fuera, ya te digo, no es un problema, el banco paga afuera, gira divisas, incluso
+[Remote]: costaba el corralito, los bancos estaban exceptuados de de no girar fondos al exterior,
+[Remote]: porque casi todos los proveedores son de afuera, los grandes sobre todo,
+[Remote]: pero está hasta carga impositiva
+[Remote]: que daba vergüenza. Pero bueno, nada, dicho esto,
+[Remote]: avancemos en estos detalles que nos quedan. Yo me llego al tema de que te contactemos
+[Remote]: con la gente de compras. Ah, una cosa más que escribí
+[Remote]: que no sé si quedó claro,
+[Remote]: No me queda claro, si me conviene contratarte un como un
+[Remote]: servicio o contratarte como una solución en la nube.
+[Remote]: Básicamente, no es lo mismo
+[Remote]: Si fuera un servicio tecnológico,
+[Remote]: aparece la de auditoría del Banco Central, etcétera, con algunos requerimientos.
+[Remote]: Si fuera un servicio que yo te paso datos y vos me contestás la conciliación, y yo no me entero, lo hiciste
+[Remote]: con una herramienta, etcétera,
+[Remote]: qué sé yo, ¿me conciliaste?, te pago por servicio de conciliar.
+[Remote]: Nada, tenés que charlar con la gente de compra ilegales de acá, a ver
+[Remote]: cómo lo ven.
+[Remote]: Porque
+[Remote]: vos todavía no trabajas con un un banco de acá, ¿no?
+[Remote]: Sino con la central, ¿viste?, empieza con algunas cosas,
+[Remote]: sos el primer proveedor y el primer banco nos hinchan un poco,
+[Remote]: de datos que están en la nube, en un en un tercero, etcétera, etcétera,
+[Remote]: y pide alguna algunas cosas
+[Remote]: a veces no son drama y a veces son dolor.
+[Remote]: Por eso no sé si encuadrarlo como un servicio, eso es lo que lo tengo que echar acá con
+[Remote]: legales y con la gente de compras. Pero eso es un tema más mío y, a lo sumo, lo que voy a decir yo es
+[Remote]: yo les digo a los archivos y hay veinte nanitos atrás que me lo concilian y me contestan otro archivo.
+[Remote]: Oh, no, yo contrato un servicio formal al que entro, parametrizo, etcétera.
+[You]: Lo que te puedo ayudar, avísame.
+[You]: Tenemos de vuelta una contadora en nuestro lado que nos nos está ayudando con
+[You]: estas cosas y te le puedo mandar cualquier pregunta también.
+[Remote]: Ok. Si
+[Remote]: tenés algo basado en algún banco de acá,
+[You]: No,
+[Remote]: cosa que hayas contactado Banco Central,
+[You]: não.
+[Remote]: No, pero Payway no estaba abarcado por Banco Central, este,
+[You]: No, estamos con global processing, con despegar,
+[Remote]: Ok. Bueno,
+[Remote]: No.
+[You]: bueno, ahora arrancando con Payway, Banco Macro,
+[Remote]: Todo eso está
+[You]: conversaciones, Banco Industrial,
+[Remote]: Ah, bueno, banco, cuando avances con ello, te va a pasar lo mismo con nosotros,
+[Remote]: Este, el primero es el que paga un plato roto.
+[Remote]: El resto allá nada, dicen, igual que el de al lado, y y pasan.
+[You]: Perfecto.
+[Remote]: Pero primero a veces se pone un poquito más duro. Bueno,
+[Remote]: nada, la charlaré estas cositas.
+[Remote]: Yo ahora me quedo con el tema de que te contacten con agente de compras ir avanzando y viendo
+[Remote]: qué papeles formales hay que presentar y demás.
+[Remote]: Vayamos por el camino que sos proveedor exterior, si se hace muy cuesta arriba
+[Remote]: lo replanteamos nada del otro mundo. Y
+[You]: Vale, yo me llego a hacerte la b
+[You]: de la propuesta con estos cambiecitos y te la mando hoy mismo.
+[Remote]: Sí, sí, tranquilo, con eso. Este, que los chicos te mandan Vilma,
+[Remote]: creo que todavía no te mandó, por ahí no me copió de lo
+[Remote]: de su parte, y
+[Remote]: ya con eso creo que está la mayoría de lo que
+[Remote]: hace falta de nuestro lado. Bueno, estimado,
+[Remote]: muy buen laburo, Ahora solo nos queda
+[You]: Gracias, Eduardo, muy muy lesionado. Sigamos empujando que que viene bien.
+[Remote]: Tal cual, sí, sí, va a salir bien, va a salir bien.
+[Remote]: Bueno, abrazo grande, estamos en contacto.
+[You]: Abrazo, gracias.
+[Remote]: Cuidate, chau, chau.
+
+============================================================
+SUMMARY
+============================================================
+### Proposal Updates & Pricing Structure
+
+- $20k pilot fee credited against annual contract
+- Employer cost calculation needs adjustment (minor)
+- Maximum cost ceiling: $40k/month for all reconciliation flows
+  - Covers 25+ flows with economies of scale
+  - Initial 6 flows much cheaper than full implementation
+- Risk mitigation focus: billions in daily manual reconciliations
+  - Wilma to provide volume data for proposal
+  - Emphasize operational risk reduction to Paco
+
+### Team Autonomy & Support Framework
+
+- Platform designed for user independence
+  - Intuitive interface (ChatGPT-like interaction)
+  - Teams own their flows like Excel configuration
+- Pilot phase includes extensive hands-on support
+  - On-site sessions and workshops
+  - Training for platform adoption
+- Ongoing support structure
+  - Free channels: email, Slack, WhatsApp, Teams
+  - Routine changes handled autonomously
+  - Major transformations require separate discussion
+
+### Vendor Setup & Compliance
+
+- Procurement process through external provider route
+  - Eduardo arranging introduction with purchasing team
+  - Bank has existing foreign vendors
+- Tax implications require attention
+  - Significant withholding on foreign payments
+  - SaaS vs. service classification affects compliance requirements
+  - First bank client faces additional Central Bank scrutiny
+- REXI has accounting support for structuring
+
+### Next Steps
+
+- Ignacio: Updated proposal with changes today
+- Eduardo: Connect with purchasing team for vendor requirements
+- Wilma: Send volume data for risk assessment
+- Both: Explore optimal contract structure (service vs. SaaS platform)
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/85be60e3-5844-46d8-9a30-9821ebef53dc](https://notes.granola.ai/t/85be60e3-5844-46d8-9a30-9821ebef53dc)

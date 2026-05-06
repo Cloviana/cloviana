@@ -1,0 +1,573 @@
+MEETING: Clara <> Rexi (Technical meeting)
+DATE: 2026-05-04
+ID: not_ucA0gvgx23nU55
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, David Vasquez <david.vasquez@clara.team>, Gledys Scache <gledys.scache@clara.team>, Daniela Vieira <daniela.vieira@clara.team>, Nathalia Levenstein <nathalia.levenstein@clara.team>, Carolina Morawetz <carolina@rexi.finance>, Sebastián García <sebastian@rexi.finance>, Sebastian Miranda <sebastian.miranda@clara.team>, Matias Salazar <matias.salazar@clara.team>, Erick Villa <erick.villa@clara.team>, Jesus Bandala <jesus.bandala@clara.team>, Yenni Roa <yenni.roa@clara.team>, Yennyfer Rodriguez <yennyfer.rodriguez@clara.team>
+SCHEDULED: 2026-05-04T16:10:00-04:00 - 2026-05-04T16:45:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Descaró. Che, estas estas reuniones
+[Remote]: Hola.
+[You]: ¿Cómo estás? Es técnica, O sea, vamos a hablar de conecto
+[Remote]: Sí, ya sé.
+[Remote]: Ya sé, pero igual me queda un ratito hasta llegar acá
+[You]: Vale, vale.
+[Remote]: al buquebus y me desconecto.
+[Remote]: Siempre se aprende de estas cosas también, así que
+[You]: Buenísimo.
+[Remote]: ¿Todo bien?
+[You]: ¿Men y vos?
+[Remote]: Bien, todo bien.
+[Remote]: Pero,
+[You]: Ah, estás bien, ¿enferma?
+[Remote]: ya volviendo a casa.
+[Remote]: Uy,
+[Remote]: todo el fin de semana, todos estos días acá en Punta Del Este, Mario y yo,
+[Remote]: empestadísimos, nos salimos casi, nos salimos de casa.
+[Remote]: Por eso laburé.
+[You]: Ok, sí, acá.
+[Remote]: Y un carro.
+[Remote]: Sí, pero bueno, no importa, hacía mucho frío también.
+[You]: El cambio de clima, ¿no?, el famoso el famoso cambio de clima.
+[Remote]: Total.
+[Remote]: Sí, ¿sabes cuándo nos agarró el domingo de la muestra de cola
+[Remote]: ahí en Palermo, que estuvimos como los que me quedaba dos cuadras de casa,
+[Remote]: caminando, y justo ese día cambió el clima tremendamente,
+[Remote]: ahí arrancamos.
+[Remote]: Y acá terminamos de de matarnos.
+[Remote]: Porque hacía mucho frío punta.
+[Remote]: Mucho viento.
+[Remote]: Sí.
+[You]: Que estoy acá. Bueno,
+[Remote]: Sí, todo bien, todo todo tranquilo.
+[Remote]: Ahora en un ratito, ya estamos en Montevideo, así que en un ratito ya llegando a Busque Bus. Ahí te mandé un par de cositas, después mañana la
+[You]: Espectacular.
+[You]: Dale.
+[Remote]: bien.
+[Remote]: Ahí poné el Slack.
+[You]: Dale.
+[Remote]: ¿Vale?
+[Remote]: A ver a ver si se suman estos chicos.
+[You]: Vale.
+[Remote]: Hoy justo me escribió la
+[Remote]: la mi contacto de Loreal,
+[Remote]: para, no había visto el mail que yo le había mandado con algunas
+[Remote]: preguntas, me dice, ¿cuándo ponemos la fecha que queremos juntarnos y entender qué
+[Remote]: hace Rex y qué sé yo. Así que ahí le pedí que
+[Remote]: que viera el mail, que yo estaba esperando que me lo contestara, pero bueno, está
+[Remote]: interesados aparentemente en por lo menos conocer, así que apenas me contestan.
+[Remote]: El mail con las preguntas,
+[Remote]: ahí vemos cómo conviene avanzar, si hay
+[Remote]: solo solo yo o o vos te sumás o algo así.
+[Remote]: Quiero ver quién se suma del lado de ellos también.
+[You]: Ok.
+[Remote]: ¿Ok?
+[You]: Ok, interesante.
+[You]: Interesante.
+[Remote]: Sí. Sí. Interesante que me hizo follow up,
+[Remote]: porque realmente se ve
+[Remote]: se quedó esperando que agendara la reunión y no vio el mail que yo
+[Remote]: le había mandado pidiendo cierta información como
+[Remote]: para personalizar mejor la, y para yo le dije para ver de de
+[Remote]: lado también aquí en Zoom, y personalizar mejor la presentación y la charla,
+[Remote]: así que apenas me conteste, ahí ya veo de poner fecha.
+[You]: Dale.
+[You]: Fantastico.
+[Remote]: ¿De este lado se suma Sebas?
+[You]: Sí.
+[Remote]: O
+[You]: Sí.
+[You]: A ver, la movieron diez minutos.
+[You]: Bueno, yo me quedo por acá igual.
+[Remote]: Bueno, me pongo acá, me motreo por las dudas que has
+[Remote]: que haga ruido,
+[You]: Dale.
+[Remote]: ¿cómo están?
+[Remote]: Hola, Matías, ¿cómo estás?
+[You]: Guten Tag, Diaz.
+[Remote]: Bien, ¿y ustedes?
+[You]: Muy bien, por suerte.
+[Remote]: Bien, todo bien.
+[Remote]: Qué bueno.
+[Remote]: Hola.
+[You]: Ya subidos a la llamada, porque no, vimos después que era
+[Remote]: Oi.
+[You]: diez minutos más tarde.
+[Remote]: Ah, disculpa, se le atrasé un
+[Remote]: porque estaba estábamos terminando otro call. Sorry.
+[You]: Sí, no pasa nada, supuse, supuse.
+[Remote]: No pasa nada.
+[Remote]: Sí, sí.
+[Remote]: O posiblemente me bajen un ratito, porque estoy en el auto
+[Remote]: viajando,
+[Remote]: pero bueno, es va va a ser más técnica de todas formas, así que ahí
+[Remote]: Nacho y Sebas las van a la van a liderar con ustedes.
+[Remote]: Buenísimo. Gracias, Carmen.
+[Remote]: Buenas, ¿cómo andan?
+[Remote]: Buenas, todo bien.
+[Remote]: Hola.
+[Remote]: ¿Cómo andan, chicos? ¿Todo tranqui?
+[Remote]: Todo bien. Todo bien. ¿Tebas? Creo que no.
+[You]: Matías, creo que
+[Remote]: No te conocía el equipo, ¿no?
+[Remote]: No, no, no, es la primera vez que me sumo con ellos. ¿Cómo andan, chicos?
+[Remote]: Muy bien.
+[You]: Matí se va a nuestro CTO.
+[You]: CTO de de Rexy.
+[Remote]: Ah, mucho gusto.
+[Remote]: Chau.
+[Remote]: Toda la parte técnica. Como era técnica al meeting, me dijeron que
+[Remote]: Yo igual pregunté qué qué qué van a necesitar, así vengo preparado.
+[Remote]: Buenísimo.
+[You]: Buenísimo.
+[You]: todos?
+[Remote]: Creo que creo que sí, creo que lo suficiente para empezar, si quieren,
+[Remote]: Si puedes dar un contexto antes de empezar, Nacho, vi que mandaste que eran dos reuniones una
+[Remote]: más técnica y otra más funcional, pero no me quedó muy claro, o sea, las expectativas cada una. Solo dar una intro, como para estar seguro que están todos acá, que deberían.
+[You]: Vale, buonissimo.
+[You]: Bueno,
+[You]: creo que acá
+[You]: hay varios que por ahí habíamos conectado o no, pero bueno, si no, acá estamos tres de récord
+[You]: Caro lidera go to market en Latinoamérica.
+[You]: Seba es nuestro CTO, yo soy CEO, así que
+[You]: nos presento ahí el equipo de Rexy. Estuvo charlando con Matías ya hace varias semanas,
+[You]: con la para la posibilidad de hacer una prueba piloto.
+[You]: De usar la plataforma de Rexi. La plataforma de Rexi es
+[You]: una plataforma agéntica para automatizar procesos de conciliación
+[You]: otros procesos de
+[You]: finanzas y operaciones, pero arrancando por conciliaciones,
+[You]: y la idea era elegir hacer una prueba piloto con el equipo de de Clara,
+[You]: sobre un scope limitado,
+[You]: para que puedan probar la herramienta en un estado productivo,
+[You]: en un estado real, y puedan evaluarla para ver si vale la pena escalarla a
+[You]: los procesos conciliatorios que tiene Clara.
+[You]: Las dos reuniones, Matías, mi idea era
+[You]: antes de arrancar la la prueba piloto, era tener primero una reunión más técnica para
+[You]: entender cómo íbamos a acceder a la información para la prueba piloto,
+[You]: y definir eso con el equipo,
+[You]: Ahí la idea es no hacer ningún tipo de desarrollo adicional
+[You]: tratar de movernos rápido sobre lo la estructura ya existente,
+[You]: y si hay que hacer un desarrollo, un conector,
+[You]: hacerlo más adelante, una vez ya tomada la decisión de
+[You]: en una implementación, con lo cual acá la la idea es tratar de mover
+[You]: lo más rápido posible para hacer una prueba piloto acotada en un tiempo limitado,
+[You]: y que ustedes puedan ver valor y usar la herramienta en un estado productivo.
+[You]: Con lo cual, esa es la idea de esta reunión más técnica, entender cómo vamos a acceder a la información,
+[You]: y la reunión más funcional es sí, ya sentarnos con los equipos
+[You]: operativos o de finanzas o de contabilidad, que son los que están conciliando actualmente,
+[You]: para meternos más en los archivos, las necesidades de
+[You]: los requerimientos funcionales,
+[You]: las lógicas de output.
+[You]: Para empezar a mapear eso y poder presentarles quizás fin de esta semana
+[You]: un plan de trabajo de la prueba piloto, de qué va
+[You]: suceder cada semana, con las sesiones de entrenamiento, con, digo, las distintas
+[You]: distintos hitos que nosotros vamos a ir planificando en la prueba piloto.
+[Remote]: Sí.
+[You]: Así que es un poquito el contexto.
+[Remote]: Y y ahí solo un punto... No sé, ¿te acuerdas que la última vez que
+[Remote]: estábamos pensando cuál sería con el mejor proyecto para que se
+[Remote]: fuera este piloto, y habían dos alternativas, ¿no?, como
+[Remote]: la reconciliación bancaria directamente en NetSuite, ¿no?, que es básicamente como
+[Remote]: cómo automatizar esa reconciliación de
+[Remote]: múltiples fuentes fuentes que integran a NetSuite
+[Remote]: que son de nuestro de nuestro estado de cuenta de los clientes,
+[Remote]: ¿no? Eso versus
+[Remote]: los movimientos bancarios, básicamente, ¿no? Ese sería un dolor, ese dolor
+[Remote]: es replicable todos los países, porque, en fin,
+[Remote]: todos los países tienen que hacer reconciclización bancaria, toda empresa, en fin, etcétera.
+[Remote]: Y el otro era más focado en un producto específico que tenemos,
+[Remote]: que es la parte de banking en Brasil, que es básicamente a reconciliar dos fuentes de datos, un
+[Remote]: que son, es la procesadora con el banco, ¿no? Creo que inicialmente te había dicho para
+[Remote]: por esta, pero después hablando con los equipos, etcétera.
+[Remote]: Entendemos que esta parte de de de la reconciliación bancaria
+[Remote]: ya hemos avanzado internamente con el equipo de
+[Remote]: etcétera. Entonces, yo creo que la que se tendría un impacto
+[Remote]: mayor pensando en el dolor que están resolviendo y y también pensando como
+[Remote]: en en la aplicabilidad para otros mercados, acaba siendo la
+[Remote]: bancaria, ¿no?, que era el otro proyecto que teníamos ahí. Es solamente darte ese contexto, o sea, hago
+[Remote]: cambio de plan dentro de los proyectos, porque creemos que es el que puede
+[Remote]: ser mejor en este momento.
+[You]: Esto no es el digital account reconciliation, ese es lo
+[Remote]: No, se
+[You]: Y, entonces, vamos a hacer conciliación bancaria
+[Remote]: el otro, exacto.
+[You]: para qué país, específicamente Brasil.
+[Remote]: O sea, ¿aquí y qué realmente, sea, si
+[Remote]: pudiéramos, ahí dinos tú, o sea, si pudiéramos hacer más de un país,
+[Remote]: estaría
+[Remote]: buenísimo. Si si tenemos que priorizar un un un único mercado,
+[Remote]: sí, creo que ahí escogemos qué mercado, el que tenga, digamos,
+[Remote]: la mayor cantidad de cuentas, no solamente la cita, sea, donde sea el mayor dolor, podemos decidir dónde empezar
+[Remote]: Pero, si es posible, más en un mercado estaría sería lo ideal.
+[Remote]: Ahí, Matty, ahí lo importante es entender un poco
+[Remote]: o sea, si nosotros definimos bien por dónde llegan esos archivos, o sea, o cómo nos vamos
+[Remote]: mover con los archivos, no no sé qué tipo de archivos estamos hablando, había que entender un
+[Remote]: la información. La idea es que sea medio self serve, nosotros les abrimos la
+[Remote]: para que ustedes lo puedan hacer. La plataforma es agéntica
+[Remote]: entonces, es como que ustedes ingestan la data,
+[Remote]: nosotros vemos esa data, porque capaz que cada cada empresa tiene como
+[Remote]: medio custom, ¿viste?, cada cada cada, hay tantos
+[Remote]: casos de uso de data como infinitas posibilidades. Entonces, es entender un poco esa data
+[Remote]: Después capaz que es medio diagnóstico al país la data, capaz que lo único que cambia, entonces podemos hacer para todos los
+[Remote]: países, ¿ok?, o sea, no debería haber problema. Y la idea de un
+[Remote]: del piloto es dejarles abierto para que ustedes también jueguen, prueben,
+[Remote]: básicamente, podrían tener esa posibilidad. Pero si definimos, voy a
+[Remote]: che, vamos a hacer este caso de uso, vemos nosotros la información ahí, la
+[Remote]: procesan Nacho, Teo, el equipo de integraciones de Rexi, revisamos bien,
+[Remote]: vemos cómo es esa conexión, capaz que ustedes lo suben a un SFTP, la data,
+[Remote]: capaz que quieren ingestarlo por CCB, o sea, descargan la data, no se la tienen en un Excel, la
+[Remote]: descargan y la suben ustedes, la subimos nosotros, la compartimos,
+[Remote]: la idea de lo que dice Nacho es, liberémonos rápido esa parte para tener la data ingestada
+[Remote]: que ustedes pueden ver
+[Remote]: puedan ver realmente la plataforma andando. La conciliación
+[Remote]: la creación de reglas, las matching rules, la la estrategias,
+[Remote]: y después toda la parte interesante de que es el problem
+[Remote]: para toda esa parte que no machea, que puedan entender cómo gestionarla ustedes.
+[Remote]: Perfecto. Ok,
+[Remote]: Y sí, los procesos son muy parecidos, ¿no? O sea, toda la información, hoy tenemos algunas
+[Remote]: que son iguales por país, ¿no?, que es básicamente información que influye
+[Remote]: de las procesadoras, ¿no?, y que entra en y después
+[Remote]: todo lo que son bank statements, básicamente, se sube
+[Remote]: ahí un un un archivo Excel con con el bank statement, ¿no? Entonces,
+[Remote]: creo que muy pareció esto a nivel país. Perdón, me queda claro, o si tu comentario va a
+[Remote]: que es como, entiendo que la la la plataforma, pero lo que dices, puede ayudar
+[Remote]: múltiples países, porque es el mismo proceso, pero, entonces, en ese caso,
+[Remote]: ¿inclodaríamos los tres países como este piloto o
+[Remote]: o lo que es es hagamos uno y que
+[Remote]: después sería fácilmente replicable a los otros, dado que funciona el proceso parecido.
+[Remote]: No me quedó claro cuál de los dos era.
+[Remote]: Si querés, veamos para hacer, haría uno, probemos cómo es su
+[Remote]: uno, muéstrenos toda la data, ahí hay un laburo de
+[Remote]: entre los dos equipos entender la información, y nosotros le decimos,
+[Remote]: lo que no queremos tampoco es que capaz que la prueba piloto se
+[Remote]: un montón haciendo todos los casos de uso. Entonces, la idea de la piloto es que ustedes vean el impacto
+[Remote]: de cuando más cuanto más rápido eso,
+[Remote]: para mejor para los dos equipos. Pero capaz, no vi la data, pero capaz
+[Remote]: que la data es muy igual en todos, entonces capaz que armamos el de un país bien segregado
+[Remote]: y después hasta ustedes se pueden meter a armar lo de los otros países, porque la idea es que ustedes también
+[Remote]: esto les queda a ustedes, no necesitan, la idea de Rexy es que no necesitan un equipo de integraciones
+[Remote]: cada vez que tengan que armar un flujo nuevo, eso es importante, no, no es que van a estar dependientes
+[Remote]: de nosotros, a ustedes ya les queda una plataforma donde pueden armar nuevo flujo.
+[You]: Yo, veamos las
+[You]: veamos las fuentes de información, y en base a eso decidimos si
+[You]: hacemos solamente un país o podemos hacer todos de una, va a depender de eso.
+[Remote]: Perfecto, buenísimo.
+[You]: No sé ahí quién nos ayuda el
+[You]: que nos quiere mostrar un poco
+[You]: cómo accederíamos a la información de cada país.
+[Remote]: Ah, ok.
+[You]: Y qué es lo que estaríamos
+[Remote]: Ay, no sé, o sea, Gladys, si si quieres como mostrar
+[Remote]: ¿no? Digo porque, Jenny, creo que entraste
+[Remote]: como último minuto, no estás preparándose, que tal vez ahí
+[Remote]: pues,
+[Remote]: si querés compartir, o sea, yo creo que compartiría
+[Remote]: cómo es el proceso actual, ¿no?, cómo funciona la reconciliación hoy en NetSuite,
+[Remote]: y
+[Remote]: y y y y das un ejemplo, ¿no? O sea, ¿qué está reconciliando contra
+[Remote]: qué y y a dónde viene la fuente de la información de esos datos?
+[Remote]: Y y y entiendo que por ahí,
+[Remote]: hay
+[Remote]: el proceso puede ser un poco diferente, si estamos hablando de cobranza o de
+[Remote]: payments o de liquidaciones, o sea,
+[Remote]: escojamos, creo que en la cobranza, que debe ser el más complejo, me imagino.
+[Remote]: Yes. I I would turn to English.
+[Remote]: Sorry. Again, no problem.
+[Remote]: Okay. So
+[Remote]: I will share
+[Remote]: You like just let me close some windows there.
+[Remote]: There's a lot of things opened.
+[Remote]: Yes. You we use this Slack.
+[You]: Matías, quizás después te mande un invite y hacemos un canal en conjunto para el
+[You]: cubrir estos detalles, si hay una comunicación más
+[You]: más fluida.
+[Remote]: Perfecto.
+[Remote]: Ok.
+[Remote]: So I will share, basically, the
+[Remote]: the
+[Remote]: bank account to where where we receive the
+[Remote]: the collections. I think there's the
+[Remote]: more more complicated
+[Remote]: But I think that we
+[Remote]: can download in another format, but
+[Remote]: today, we did it in an Excel file.
+[Remote]: Perfect.
+[You]: Where does this come from?
+[Remote]: It's not
+[You]: Where do you download it from?
+[Remote]: NetJet.
+[Remote]: Right? No. No. This is a bank
+[Remote]: statement that we download from the bank, Internet Banking app. Okay.
+[Remote]: So you you download the file from the bank
+[Remote]: and you have to undo the process with Excel.
+[Remote]: Yeah. Yeah. Okay. Perfect.
+[Remote]: Yeah. And
+[You]: You log in to the bank every day to download the report?
+[You]: Or you are already receiving it automatically
+[Remote]: No. I go to the bank.
+[You]: in some shape or form?
+[Remote]: To download.
+[Remote]: Perfect. Every time you have to do it. Every time you have one order comes from
+[Remote]: Yeah.
+[You]: Okay.
+[Remote]: You you do this
+[Remote]: daily? You go to the bank or do it, or you have, like, every
+[Remote]: reconciliation of one week, one per week.
+[Remote]: One per week.
+[Remote]: Okay. Okay. Perfect.
+[Remote]: We do it weekly. And
+[Remote]: from NetSuite, we have
+[Remote]: some entries
+[Remote]: came from Minsight. That's our processor.
+[Remote]: Yeah.
+[Remote]: And here we have
+[Remote]: a book. Yeah. The yeah. We've
+[Remote]: the the integration entries.
+[Remote]: So here, we can download it
+[Remote]: in an Excel file too.
+[Remote]: As we have the bake statement in Excel file,
+[Remote]: actually, we we do the reconciliation
+[Remote]: just in an Excel file, but we can share with you
+[Remote]: the better way
+[Remote]: Okay. So I think the on
+[Remote]: on the bank account and also in the
+[Remote]: NetSuite, we can extract
+[Remote]: in CSV.
+[Remote]: And Excel as well. So
+[Remote]: I think it might be interesting for you guys.
+[Remote]: Yeah. Yeah. Yeah. If we have the the file formats in CSV or XO
+[Remote]: that that's, like, the main type of file that we
+[Remote]: make, but we also ingest a PDF
+[Remote]: or TXT or the that that's it.
+[Remote]: Not not a problem with Rexy. What would be a nice
+[Remote]: quite challenge for us
+[Remote]: is that we
+[Remote]: will want to automate the process
+[Remote]: of you going to the bank statement and download the information
+[Remote]: And I know that Ignacio asked
+[Remote]: for that because we want a design partner to do that that that feature.
+[Remote]: In order to help you not to go every we want you you do this one per week
+[Remote]: but I know that with Rexy, you can do this daily.
+[Remote]: Okay, and with an automated process. So you don't have to go there, download the
+[Remote]: the the file. But, well, for the pilot process,
+[Remote]: we I think that it would be better that we have the files in CSV or Excel
+[Remote]: We ingest that in We do the reconciliation process
+[Remote]: and then you can check all the information in the platform.
+[Remote]: Okay.
+[Remote]: Great.
+[Remote]: And I think we can
+[Remote]: create a folder and update this this information
+[Remote]: daily for you.
+[Remote]: Perfect. Perfect. So perfect. So if if you have the
+[Remote]: what what you can do is, like,
+[Remote]: showing us what are the files, like, examples of the files
+[Remote]: that we have to reconcilate this with this
+[Remote]: Okay? Source a, source b, and you have that files with us.
+[Remote]: And you can what clients do is that this is the process.
+[Remote]: We go to the bank statement. We below this file. This is here, the file. Then we go with
+[Remote]: here, and then we do this Excel with the reconciliation process manually.
+[Remote]: You can also give us that Excel because with that, we can replicate it there that
+[Remote]: within Rexy. And when you and when you
+[Remote]: generate the rule or the matching, the conciliation in Rexy,
+[Remote]: that is automate automatically done when you just view data
+[Remote]: okay, in Rexy, that automatic automatically runs
+[Remote]: and you don't have to do anything else. So if you can share us the process, like,
+[Remote]: reading down, and how do you do it manually today,
+[Remote]: That's the best option for us to integrate quickly, and you can see the impact in Red Sale.
+[Remote]: It's very Gladys, it's very close
+[Remote]: An example that we do with external audit,
+[Remote]: that we have to walk through the process so we
+[Remote]: here, and then you go there and there and there. And the last
+[Remote]: step is the Excel. So
+[Remote]: basically,
+[Remote]: they have to
+[Remote]: reperform
+[Remote]: the process.
+[Remote]: Yeah. Perfect. We can we can do that on the word
+[Remote]: with this the screenshots and send to you
+[Remote]: I think it's better for the time. I don't know. What do you think?
+[Remote]: And then we can reschedule for tomorrow
+[Remote]: two days.
+[Remote]: Upfront Yeah. To
+[Remote]: review
+[Remote]: about the questions and thoughts. What do you think?
+[Remote]: Perfect. If you can share us the the files.
+[Remote]: The process. Like, for exam one example to do the a big a quick
+[Remote]: ingestion in Brexit with with Clara and you can enter, and we can show you how to
+[Remote]: make the rules and everything. You can share us the manual process. We
+[Remote]: try to understand. If you have any question with the on the integration team,
+[Remote]: we can share it with you guys. And if you use Slack,
+[Remote]: natural, we can do the Slack channel to
+[Remote]: to make questions offline so we don't have to make a a meeting.
+[Remote]: And you can share us the files there when you have the process, the doc,
+[Remote]: and everything. If we have the instructions, we can do it in Brexit. So
+[Remote]: if you do that for us, that will be great.
+[Remote]: Okay. Perfect.
+[Remote]: It's good to me. Matty, Gladys, what do you think?
+[Remote]: Okay. Whatever works better.
+[Remote]: Yeah. Yeah. And we can do a sync. Yeah. So
+[Remote]: the channel is the best option for sure. We can do it as in yeah. Did did you guys
+[Remote]: saw the platform running or not? No. I know.
+[Remote]: You show us just show them the the
+[You]: Yeah. We we did a demo.
+[You]: Need a demo. I think I think
+[You]: Glaze was here for sure.
+[You]: David as well,
+[Remote]: Yeah. I was there. Yep. Yep. Yeah. I was not
+[You]: I think everyone. Right?
+[You]: I know, Gladys, no?
+[Remote]: was not, but I I watched the the the record.
+[Remote]: The video. Yeah. Okay. But they they saw the Ashantik platform or not that? Nacho, I don't know if we
+[You]: I'm not sure which version.
+[Remote]: you showed up. But no problem. I don't remember, but
+[You]: I'm not sure which version.
+[Remote]: We can keep it as a surprise when we ingest
+[Remote]: and then you get because we we made, like, a
+[Remote]: a very good tuning for on the platform, and that will
+[Remote]: with you guys, get surprised. So we can ingest the data,
+[Remote]: and then when we have make a meeting to show the platform the just the data,
+[Remote]: we can show you the authentic platform and the that stuff that's
+[Remote]: very good for work and the daily basis of you.
+[You]: So just to make sure we're all aligned, in terms of data ingestion,
+[Remote]: Perfect.
+[You]: we're gonna be continue working with whatever you're downloading from the portals and ingest everything
+[You]: manually into for the pilot test. And then, Matías, if we
+[You]: wanna move forward, we can then think about building the direct
+[You]: connectors with the banks to
+[You]: ingest the data automatically. Makes sense?
+[Remote]: Sí.
+[Remote]: Yes. And and about that, like, how that that works?
+[Remote]: I mean, is through an API? It depends if
+[You]: And at the back.
+[Remote]: the if the bank has, like, open banking
+[You]: Depends on depends on the bank.
+[Remote]: It
+[Remote]: okay.
+[You]: If the bank has APIs, it's the best of all worlds. If not, we need
+[You]: to build an SFTP, and then
+[You]: that's where you need to unblock us.
+[Remote]: If you put us in the file, what types of
+[Remote]: where do you get the information from, we can also
+[Remote]: start investigating. If we have the connector of the we have to do it,
+[Remote]: and we can explore if there is an API
+[Remote]: or we have to make a nation to go get information
+[Remote]: The main idea is you guys, you don't need to
+[Remote]: download manually the data. Okay?
+[Remote]: It's easy, but the main idea is to automate all the process.
+[Remote]: So we have to dig in there. But, Matthias, for your question,
+[Remote]: if we had to do something to automate, it it is not hard for us.
+[Remote]: So if we need to do something, we try to make the project and
+[Remote]: and tell what is the challenge, but I think it's it's probably we can do it.
+[Remote]: And then, Dave, I know that you have been working, you know,
+[Remote]: on the treasury side also to to find partners, you know, like,
+[Remote]: to get that information. Maybe, like, not right now, but
+[Remote]: if we move forward, etcetera, thinking the best way, you know, to not handle, someone, you know, like,
+[Remote]: getting the consolidating the bank information from one side and then Brexit from another side. You know?
+[Remote]: How we optimize this, you know, to be only one, which is the best?
+[Remote]: And and works, like, you know, for not only a fresher perspective, also for for accounting reconciliation, and so on. Yeah.
+[Remote]: Perfect. Perfect.
+[You]: That's part of the that's part of the functional
+[You]: meeting we have. I think it's tomorrow, which is understanding the whole
+[You]: end to end customer journey. Right? All the way from the raw files, which
+[You]: what we just saw now,
+[You]: all the requirements related to reconciliation, and then if there's a
+[You]: some sort of output scheme or reports or accounting,
+[You]: that you guys need to map that out and see if we're gonna be doing it in the pilot or not.
+[Remote]: I don't have the meeting.
+[Remote]: Actually.
+[Remote]: But but if for for for the pilot purposes, we're
+[Remote]: gonna go ahead and do only Brazil. Is that correct?
+[Remote]: And then we move forward once we done that with the pilot.
+[Remote]: The I mean,
+[Remote]: what they said is that they won't check, you know, like, based on the files that we share if it's
+[Remote]: possible to do for all the countries. If so, then the idea is
+[Remote]: to be, like, for all the countries. If not possible, if it's too different, if it's too complex,
+[Remote]: then, yeah, let's start with Brazil. But,
+[Remote]: I would say, like, even if we start with just Brazil, maybe it will be good, like, the input
+[Remote]: someone from the team, you know, we share the information for Slack.
+[Remote]: You know? Like, I would say, like, 80% probably the same process, but
+[Remote]: the 20% there is different. You know? Good maybe, like, to share with the team what are
+[Remote]: what is different. You know? I know, like like, in the case of Mexico,
+[Remote]: I have any specific bank that works like that or
+[Remote]: whatever. You know? So so, like, the team can be mapping, you know, like, the the full
+[Remote]: even though not gonna be implementing for all the accounts at the same time, but it's already mapping, you know, like,
+[Remote]: for a global level. Right? Like, the needs.
+[Remote]: Perfect. If you have all the information that you have guys of your current process,
+[Remote]: that is wait for Brexit. And we're agentic
+[Remote]: Our agents or your organization agents will start learning about your processes
+[Remote]: and what you do. So that is like the memory we ingest
+[Remote]: in Brexit of you. So they know what to do and all that
+[Remote]: stuff. So everything you have, like, go ahead and and tell us in a document.
+[Remote]: And share us in Slack, and we'll try to make
+[Remote]: if we have any question, we will go through Slack, and we'll try to solve it there.
+[Remote]: Awesome. Perfect.
+[You]: I was just checking the calendar. There's no second meeting, Matías.
+[Remote]: No. There is
+[You]: So maybe
+[Remote]: it is on on Thursday.
+[You]: There's in Thursdays. No. Sorry. So sorry. You're right. You're right. Okay.
+[Remote]: Yeah.
+[You]: Perfect.
+[Remote]: Yeah. And I see, Dave, that you're gonna you're gonna be out of office, but don't worry. Like,
+[Remote]: I feel like it will be, like, more focused in Brazil. But, yeah,
+[Remote]: I would add also Jesus and Jenny. Like, if
+[Remote]: they need to join so they can attend.
+[Remote]: So no problem. Yeah. Thanks.
+[You]: Got it. Then
+[You]: the timeline is as follows. So this week, we have
+[You]: the Slack
+[You]: We have the meeting on Thursday.
+[You]: With that, we will put together
+[You]: a work plan for the pilot test, which we will present next week.
+[You]: Go back and forth on it, align on it, and then the kickoff date would be
+[You]: May 1118. In which we actually start configurating everything and and and
+[You]: and working with with the teams.
+[You]: Just to set the the expectations there.
+[Remote]: Okay.
+[Remote]: Perfecto.
+[You]: Alright, team.
+[You]: Thank you so much. Great meeting the ones I hadn't met before, and very excited about this
+[You]: pilot together.
+[Remote]: Thank you. Thank you, guys. Thank you, Dina. You're fine. I appreciate it.
+
+============================================================
+SUMMARY
+============================================================
+e
+
+### Project Pivot & Scope
+
+- Cambio de rumbo: hacer la conciliación bancaria instead of digital account reconciliation
+- Focus on bank reconciliation across multiple countries (Brazil priority)
+  - More replicable pain point across all Clara markets
+  - Higher impact than product-specific reconciliation
+- Pilot scope: Start with one country, expand if data structure allows
+  - Weekly process currently: download bank statement from portal
+  - Manual Excel reconciliation between bank statements and NetSuite entries
+
+### Technical Integration Approach
+
+- Data sources for reconciliation:
+  1. Bank statements (downloaded weekly from internet banking)
+  2. NetSuite entries from Minsight processor
+- File formats: CSV/Excel preferred for pilot (PDF/TXT also supported)
+- Manual ingestion for pilot phase
+  - Clara to provide example files and current manual process documentation
+  - Rexi team will replicate existing Excel reconciliation logic
+- Future automation: Direct bank connectors via API or SFTP after pilot success
+
+### Next Steps & Timeline
+
+- This week: Slack channel setup for ongoing communication
+- Thursday meeting: Functional requirements with operations/finance teams
+- Next week: Rexi presents detailed pilot work plan
+- Kickoff date: May 18th for actual configuration and implementation
+- Clara deliverables:
+  - Process documentation with screenshots
+  - Example reconciliation files
+  - Manual process walkthrough for audit-style review
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/accfd4cb-069b-4835-9846-d825aa3e0105](https://notes.granola.ai/t/accfd4cb-069b-4835-9846-d825aa3e0105)

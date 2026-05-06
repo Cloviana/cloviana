@@ -1,0 +1,586 @@
+MEETING: Stuart Cook and Ignacio Berardi
+DATE: 2026-01-16
+ID: not_4PFc2LhbKsxErc
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Stuart <stuart@stack.vc>
+SCHEDULED: 2026-01-16T14:30:00-05:00 - 2026-01-16T15:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Post to work.
+[Remote]: Hi there. How are you?
+[You]: Good. And you?
+[Remote]: Doing well. Thanks. Nice to meet you.
+[You]: From New York?
+[Remote]: Am I from New York?
+[You]: We know New York.
+[Remote]: No.
+[Remote]: Yeah. I'm in I'm in New Jersey.
+[Remote]: At home today, but I'm normally in New York. Yeah.
+[You]: Okay. Got it. But originally from The UK. Right?
+[Remote]: Yeah.
+[Remote]: Yeah. I've been
+[Remote]: I'll give you a quick temperature. Yeah. I grew
+[Remote]: grew up in the The UK,
+[Remote]: early part of my career there. I've been in financial services twenty five years. Worked to the big bank there.
+[Remote]: And then left
+[Remote]: built a start up,
+[Remote]: Visa invested.
+[Remote]: And I moved to The States, like, 2009. Been there ever since.
+[Remote]: But slowly migrating back. So I was in California for about seven years, and I'll still
+[Remote]: Texas. And now, been here about four years. I mean,
+[Remote]: on the on the East Coast.
+[Remote]: So a couple of star
+[You]: I need to head back to The UK or not?
+[Remote]: My wife's German.
+[Remote]: My youngest daughter's living in London at the moment. I mean,
+[Remote]: don't know about The UK, but
+[Remote]: we have a we have a small house in France. That's probably where I'd go.
+[Remote]: I went back.
+[You]: Nice. Nice. Over inch, like,
+[Remote]: Where are you?
+[You]: I'm based in New York, originally from Argentina.
+[You]: Lived all over Latin America, Mexico, Venezuela,
+[You]: and Argentina. And then I moved to The US almost three years ago to study
+[Remote]: Yeah.
+[You]: at Harvard, my MBA. And I graduated May 2025 and have been building Rexy since.
+[You]: We got connected via Donald for pollinate.
+[Remote]: That's right. Yeah. Yeah. Who
+[Remote]: he's
+[Remote]: it was Chris. Right?
+[Remote]: I've I knew Chris from
+[Remote]: years ago.
+[You]: Chris Gardner?
+[Remote]: Yeah.
+[You]: He's our biggest investor.
+[Remote]: Yeah.
+[Remote]: Oh, really?
+[You]: Yep.
+[Remote]: Oh, that's interesting. I'll check that with you. I haven't spoken to him.
+[Remote]: Fifteen years probably. It was the last time I saw him. But yeah.
+[Remote]: I knew him I knew him back in the day.
+[You]: I like the financial services veteran club you guys formed with Donald, Chris, and yourself. I'm sure there's
+[Remote]: Yeah.
+[You]: so many learnings, so many hair loss
+[You]: building for financial services. But,
+[You]: yeah, a lot to learn from you guys. So thank you for the for the space and the time.
+[Remote]: Yeah.
+[Remote]: You're welcome. Yeah. So
+[Remote]: at the last bank, started
+[Remote]: The venture.
+[Remote]: Division there or capabilities. So I was at Valley Bank Like, it's a regional bank.
+[Remote]: We had a $100,000,000 fund.
+[Remote]: But I left the bank about eighteen months ago, probably,
+[Remote]: and then have been
+[Remote]: last year or so, I've been building a new venture fund with a
+[Remote]: couple of partners. So one's a month.
+[Remote]: Chama, he was,
+[Remote]: Cat one Ventures. So he was there from the beginning, actually. Basically, the
+[Remote]: cofounder, if you like. And then Pete Casella, who
+[Remote]: started point seventy two ventures for for Steve Cohen. And, basically, it's it's what you're talking about.
+[Remote]: So all of us have been in financial services for a long time.
+[Remote]: And, you know, quite often,
+[Remote]: people think
+[Remote]: it's it's very it's it's very arcane.
+[Remote]: So from the outside, it looks simple to solve.
+[Remote]: When you've lived on the inside, like, you start to understand why things
+[Remote]: work a certain way.
+[Remote]: And you know that they can change in the way but it's the
+[Remote]: you have to understand, like, the value streams, where all the incentives are, like, all the politics,
+[Remote]: like, tech adoption cycle, all that kind of stuff.
+[Remote]: So that's our view is that, like, if you're if you're an insider,
+[Remote]: and, again,
+[Remote]: the the
+[Remote]: the interesting thing is if you sort of from a venture point of view,
+[Remote]: most of the exits in fintech are like m and a.
+[Remote]: And they're in the sort of
+[Remote]: $202,150,000,400 million type range. And so, like, if you know that
+[Remote]: the outcome,
+[Remote]: and you can be very demand led, like, you know all the players,
+[Remote]: not just who buys the software, but then who buys the companies.
+[Remote]: Then we think you can create a bit of alpha that way.
+[Remote]: So, you know, construct a portfolio that's
+[Remote]: that's genuinely solving problems that we know people will buy even if it's out over the horizon
+[Remote]: And that we know you can create value
+[Remote]: because we know all the the kind of
+[Remote]: what all these exit paths are there. So it's not like
+[Remote]: it's not like we need one to IPO.
+[Remote]: And so Pete's last
+[Remote]: vintage at point seventy two was like a
+[Remote]: 7% loss ratio.
+[Remote]: You know? But it was
+[Remote]: it's yeah. It's not surprising. Right? When you look at that's
+[Remote]: basically a hedge fund, so they applied a lot of that methodology to venture.
+[You]: Interesting. Definitely a different model.
+[You]: You think about it that way.
+[Remote]: Yes.
+[You]: But and then it's it's I mean, it's pretty obvious you guys can move the needle
+[You]: companies like us, because you not only know the
+[You]: incentives and all the bureaucracy that plays inside these systems, but also
+[You]: I'm sure your connections are are pretty
+[You]: amazing for all these startups to get in and start testing POCs and
+[You]: then scaling up their solutions. Just give you
+[You]: a overview about Rexy and what we're doing. I know if
+[You]: you had the ability to read what I had sent over via Donald or not, but,
+[You]: we're talking
+[Remote]: Yeah. Go for it. Give me
+[Remote]: give me the give me the ones ones over. That'd be great.
+[You]: Yeah. We're tackling the the big
+[You]: hairy problem of reconciliation. Right?
+[You]: Specifically coming from FinTech and that FinTech bank partnership, but it basically applies to any financial institution that's operating multiple payment flows and a high transactionality. They have teams of FinOps doing these dismantled work of ingestion
+[You]: transformation, processing, and then investigating and closing discrepancies, which is just
+[You]: incredibly frustrating. I did this at a at a NeoBank here in New York. I did this at a crypto
+[You]: exchange in Latin America.
+[You]: And it just needs to be done differently, of course.
+[You]: Up until today, I think no one has actually cracked
+[You]: this problem from a software perspective or technology perspective just because
+[You]: incredibly nuanced. I'm sure you know. Like,
+[You]: this this workflow just changes so much
+[You]: in in these different setups, the different providers, the different ways of operating,
+[You]: the different reporting requirements, the different teams involved. It's just
+[You]: very, very, very nuanced. That's why teams just hire people to build the internal workflows. Now
+[You]: does it make sense? I don't think so. And think we're going to a future in which
+[You]: these sort of like hygiene workflows are gonna get automated by
+[You]: AI agents. To me, it's just pretty obvious. And then companies are just gonna focus on
+[You]: building organic value and stuff that's actually gonna set them apart from other companies. So
+[You]: for us is we know reconciliation is a big
+[You]: point today. There's a lot of pull in the market for a solution that is
+[You]: easy to implement, that's cheap, and then it works. And then it's a wedge
+[You]: to build other workflows on top of that as we
+[You]: progressively start replacing all these big fan finance and
+[You]: operations teams with agents. Right? But right now,
+[You]: laser focused on cracking reconciliation. And the way we're gonna crack it is
+[You]: we have two big thesis at Brexit. Right?
+[You]: The first one is, of course, the application of AI to this workflow. The product needs to
+[You]: feel and look like you're building your own software because, again,
+[You]: it's an incredibly nuanced workflow, and it's gonna be very hard for us to build
+[You]: a product that is a one size fits all and serves every different need. So
+[You]: we're using AI served like as a business model enablers
+[You]: so that these teams can build their own workflows for reconciliation. Right?
+[You]: Course, in the back end, we're using AI to parse
+[You]: the data, to find the most productive reconciliation logic, to find
+[You]: additional patterns on discrepancies, to generate reports,
+[You]: to generate dashboards, so on and so forth. But it's way more about building your own software sort of
+[You]: thesis. Now what that enables us
+[You]: and now I'm talking about competition is
+[You]: there's really good products in the market. Right? Like in The US, there's black line
+[You]: you have Ledge, Arkham, Duco. There's a lot of really good products out there, but
+[You]: they're very expensive. And I know this because I've sourced these when I was
+[You]: working at these companies before. It's very hard to get one of these products
+[You]: with an ACV lower than 200, two fifty ks.
+[You]: On a recurring basis. Right? And then you have the implementation cost.
+[You]: Which typically rounds between fifteen and twenty five k.
+[You]: Why is that? Because again it's very nuanced
+[You]: So these products need a lot of tailoring, need a lot of implementation, need a lot of
+[You]: ongoing support, and and they need to cover those costs. So that's why they're so expensive. That
+[You]: basically is price excluding
+[You]: huge chunk of the market that continue to do so
+[You]: with a patchwork of Excel, SQL queries, Python scripts,
+[You]: because they cannot pay 250 k for for a solution like that. So for us, it's like
+[You]: how can we use AI as a business model enabler to go after that
+[You]: huge long tail of non consumption, what we call non consumption. I'm not gonna
+[You]: go and replace black line at a bank. At some point, yes,
+[You]: But for now, I wanna build a a light touch solution
+[You]: at an ACV closer to 50, 60, 70 k.
+[You]: And then go after those teams of two or three people
+[You]: that don't wanna keep on hiring more people to do this
+[You]: very manual workflow. So it's it's it's about the
+[Remote]: So what would that ICP look like? Those teams
+[Remote]: at the at the sort of neo banks, like, the
+[Remote]: on the platforms, on the marketplaces,
+[You]: Paidbacks.
+[Remote]: those sort of areas?
+[You]: Yeah. Pay Payfax, NeoBanks, crypto exchanges,
+[You]: everyone in the FitTech stack, BTG, any player, you know,
+[You]: cross border payments,
+[You]: issuers, processors,
+[Remote]: K.
+[You]: yeah, anyone in the fintech stack. For now, we're holding off on selling into banks.
+[Remote]: Yeah.
+[You]: Because it's a longer sales cycle over appreciate stage
+[You]: company. We need to build the business first. But at some point, I wanna target the
+[You]: banks because that takes me to the second thesis, which is
+[You]: the nature of reconciliation. Right? Why has it become a pain in the ass?
+[You]: Inserted for my language? Essentially, reconciliation, when you think about
+[You]: it conceptually, it's it's a coordination issue. Right? It's comparing my source of truth against yours.
+[You]: What should have happened versus what actually happened. There's a disconnection there in these data systems and
+[You]: fragmented information. So the way to act
+[You]: actually and technically solve this problem is to bring those things together.
+[You]: They should be connected, right? And so our vision is that Rexy should sit in the middle. It should be a shared tool between the bank and the fintech partner.
+[You]: So that they they're both seeing the same data
+[You]: reconciling the same logic, then collaborating together on the differences and on the discrepancies. Right?
+[You]: And so that's why at some point, we need to target the banks.
+[You]: Not today. I'm starting those conversations, it's not the distribution focus today.
+[You]: At some point, we need to because they are the ones that can actually
+[You]: push our solution to the rest of the ecosystem.
+[You]: Because they are pressured by
+[You]: regulators and by these frameworks. So they need some sort of
+[You]: control and monitoring capabilities over what their fintech
+[You]: partners are doing. And this comes from the Synapse scandal in 2024, right, which
+[Remote]: Yep.
+[You]: of course, this administration, we cannot expect any new regulation to come out, but
+[You]: at some point, these partnerships are going to get regulated. Like, don't know,
+[You]: what's your opinion on this, but the way these bank
+[You]: FinTech partnerships are working in The US, it's not safe.
+[You]: Many of these setups are really not safe.
+[You]: And and not working correctly. So at some point,
+[You]: either the banks are gonna get serious about
+[You]: getting tighter controls and visibility, or the regulators are gonna step in
+[You]: and do some sort of, framework that will
+[You]: force them to comply. That's just going to speed up distribution for us.
+[You]: In either case, reconciliation is still a big problem.
+[You]: Yet unsolved. And and conceptually speaking, AI and technology in general
+[You]: should solve this problem going forward. And that's what we're tasked to do. And then
+[You]: after that because regasolisia is an interesting wedge because you get access
+[You]: access to the transactional data. Right? And on top of that, you can build a lot of other workflows
+[You]: and build that sort of, like, centralized platform view where
+[You]: you are connecting all these data points and generating value from it.
+[You]: So that's what we're doing. Long long pitch, but
+[You]: as of today, we have live paying customers in production.
+[You]: We're a team of seven. Me and my cofounder here based in New York.
+[You]: We have the technical team based in Argentina.
+[You]: And we raised a preseed round in July.
+[You]: And since then, just building and selling, building and selling, building and selling.
+[You]: I know a lot of the VC funds today
+[You]: particularly on AI companies, are looking for, like,
+[You]: skyrocketing growth.
+[You]: I think this is a long standing problem that it's not gonna be a first mover sort of advantage. It's who's actually gonna crack it.
+[You]: And and cracking the problem will come from iteration. So
+[You]: We're iterating
+[You]: learning a lot from customers, improving the product day by day,
+[You]: and when I'm ready, when I find something that's actively scalable.
+[You]: I'll raise a seed ground.
+[You]: Probably this year.
+[Remote]: Yeah.
+[You]: But our burner is low because half of the team is based in Argentina.
+[You]: We're scrappy, building fast, lean, and so we have a lot of
+[You]: flexibility and freedom on that end.
+[Remote]: That's good. How much did you raise in the precede?
+[You]: 1.2.
+[Remote]: And
+[Remote]: and your go to market at the moment is
+[Remote]: so you had some design partners, and now you're just trying to
+[Remote]: move from from there. Is that where you are? Or
+[Remote]: a bit further along?
+[You]: A bit further along. Mean, we have already paying customer
+[You]: in production. And
+[You]: still figuring out what's the best go to market ocean. Today, it's a combination of
+[You]: outbound, very targeted outbound. I don't need a 100 or 200 customers today. Need
+[You]: need 25, 30, 40 that are actually in love with the product.
+[You]: And so it's it's very targeted companies I know will have this problem that are in the right stage
+[You]: in which they either need to hire people
+[You]: or figure out a more scalable solution to this problem.
+[You]: That have regulatory pressure coming in,
+[You]: So it's very targeted outbound. Inbound, we're gonna
+[You]: start doing some some press releases, some articles, and a blog.
+[You]: And then just, you know,
+[You]: conference roadshow and city roadshow.
+[You]: Presumably, I'm talking about, like, more traditional financial services institutions
+[You]: going there face by face, having these meetings in person,
+[You]: just increases our conversion conversion ratios too much.
+[You]: So this year, a lot of traveling,
+[You]: particularly on on the bank side.
+[You]: And and the more traditional financing institutions.
+[You]: That's pretty much it. As of today, distribution counter led
+[You]: myself doing, as I said, inbound, outbound, and row shows.
+[Remote]: We need to describe that product. You're, like,
+[Remote]: it's interesting. Right? Because I was talking to
+[Remote]: one of these partner banks.
+[Remote]: So there's a few that I'm
+[Remote]: pretty close with.
+[Remote]: And we were just, you know, chatting about
+[Remote]: how
+[Remote]: how they might
+[Remote]: use AI through their stack.
+[Remote]: And, actually,
+[Remote]: I met I met somebody
+[Remote]: operations team because he asked me to spend just spend some time so I could hear some of the problems.
+[Remote]: So what's interesting then is
+[Remote]: they
+[Remote]: part of them part of their proposition out
+[Remote]: to their fintech partners is it's not one size fit
+[Remote]: all. Right? It's like we'll understand your business and we'll
+[Remote]: build the
+[Remote]: the process. And so, you know, I was like, okay. That's
+[Remote]: I get it. You've probably want some archetypes. Right? You probably wanna be, like,
+[Remote]: like, we do these ones really good.
+[Remote]: And you get
+[You]: Templates.
+[Remote]: yeah, yeah, 80% Yeah. And you're only doing 20%. Now one of the things I was saying to him is, like,
+[Remote]: what's interesting
+[Remote]: I don't know when it will happen. Right? But the
+[Remote]: SaaS
+[Remote]: software, as you'll describe as you were describing, like,
+[Remote]: for all the reasons you were talking about, might not be the right
+[Remote]: solution for
+[Remote]: for his problem. Like, wants to automate something. And I'm and if I'm like,
+[Remote]: at some point here, you you are gonna there are these
+[Remote]: I've already seen some platforms that let you build
+[Remote]: a solution to your
+[Remote]: to your problem. And I think what you're saying is, like, in in this domain,
+[Remote]: because we understand it,
+[Remote]: we can help you do that. And you you were talking about something that's
+[Remote]: interesting. So the pattern I always see with these banks
+[Remote]: is that they want to
+[Remote]: like,
+[Remote]: tech enable their existing process. And so this
+[Remote]: shift of, like, what should the process
+[Remote]: be?
+[Remote]: With all this capability as opposed to, like, what do we do
+[Remote]: now?
+[Remote]: Tends to be quite a hard one for them to
+[You]: Digest.
+[Remote]: to figure out
+[Remote]: Yeah. That's a that's a different skill set rather than, like, here's the process.
+[Remote]: Tick off the things in the process. Well, I
+[Remote]: think I'm hearing with you is
+[Remote]: you should design a
+[Remote]: you got an opportunity to redesign a process that takes
+[Remote]: that uses these software capabilities in a in a diff
+[Remote]: a different way. Have I heard that right? Is that, like, some of your proposition?
+[You]: Yep.
+[Remote]: And so
+[Remote]: today, as you brought these folks on, like, how
+[Remote]: much of this is services? Like, how like,
+[Remote]: how do they do it? Like, are they are you talking to people that get it?
+[Remote]: And therefore they just start playing and they figure it out?
+[Remote]: Are you spending time with them as they
+[Remote]: do this and, like, spotting where the patterns are and what's happening? Like,
+[You]: Well, of course, today, we're doing a lot
+[Remote]: help me just
+[You]: of stuff that doesn't scale, right, as any early stage company.
+[You]: But you were spot on on something, and and I'll tell you
+[You]: I'll tell you an experience I I I we're recently having.
+[You]: We're in process of onboarding the top three bank in Argentina.
+[You]: And we're testing out
+[You]: a a new model for us, which might mean a big pivot.
+[You]: It's not a SaaS model. It's a licensing model.
+[Remote]: Mhmm.
+[You]: So we basically grab our product
+[You]: configure it and implement all the reconciliation workflows,
+[You]: and then plug it in their infrastructure.
+[You]: And then they continue paying a retainer
+[You]: a low licensing fee, for whatever support
+[You]: upgrade, update, or whatever
+[You]: need, the configuration, they pay for us separately.
+[You]: And I'm starting to think and this comes from
+[You]: two key insights the first one is
+[You]: particularly traditional financial institutions have a big thing around
+[You]: data privacy and data security, and that's why they're very jealous on hiring external vendors.
+[Remote]: Yeah.
+[You]: And that's why you go through these huge procurement processes and so on.
+[You]: So it might make sense that if we want to sell to banks,
+[You]: this licensing model is better. It's faster.
+[You]: And it just kills a lot of blockers we get into when when speaking with them.
+[You]: The second reason why this might make sense is
+[You]: a lot of these companies are
+[You]: phasing out these incumbents. Let's say BlackLine or
+[You]: TrinTech, Arkham Duco, like all these other incumbents. And why?
+[You]: Basically, because they have become very expensive. And we're talking about, like, there's there's a big player in our
+[You]: in Latin America called Symmetric. I don't know if you heard of them.
+[You]: They're funded by Goldman Sachs. They're entering The US market now.
+[You]: Symmetric costs
+[You]: north of $1,000,000 a year for medical power.
+[You]: Why?
+[You]: Because it's a very critical and sensible workflow
+[You]: in which one you once you own it, you can charge whatever.
+[You]: Because it's very hard for them to replace. So they're sort of, like, held hostage
+[You]: on a very critical workload. So that's another reason. Then
+[You]: they wanna just like churn from this provider and build something internally, which
+[You]: also doesn't make sense because they're not in the business of building internal tooling for reconciliation.
+[You]: It's just a hygiene thing. They're in the business of growing, building product features, so on.
+[You]: So that's another reason for us to say maybe the model
+[You]: for reconciliation is a licensing model in which
+[You]: we are experts, we know how to build it, we can
+[You]: configure it and then leave it in your infra for you to control.
+[Remote]: Yeah.
+[You]: And it's for you, it's such a a big one off cost of the first year
+[You]: and then just a very low licensing fee afterwards. But you control it.
+[You]: And you're not held hostage by a by a vendor.
+[You]: What are your thoughts on that model? Absolutely for the banking industry.
+[Remote]: I mean, the the the
+[Remote]: that's basically how they sell calls. So
+[Remote]: the
+[Remote]: banks will they they know
+[Remote]: know that model. They like it.
+[Remote]: Yeah. I was thinking as you were talking because
+[Remote]: the other
+[You]: In the same region, white palate interior worked with this model.
+[You]: Because they sell to government agencies. There's no way government agencies are gonna have an external SaaS
+[You]: that lives on an external AWS infrastructure, you know? Save for banks, save for insurance.
+[Remote]: Yeah. I mean, banks from
+[Remote]: banks have got there on a, you know, a few different areas. You're you're right, though. Like, the
+[Remote]: in reconciliation, there might get a bit more
+[Remote]: precious. I mean, we bought plenty of cloud based
+[Remote]: SaaS stuff and always there. The, like, the the thing
+[Remote]: so what were they like? They'd like
+[Remote]: they like predictability.
+[Remote]: Right? So
+[Remote]: the challenge quite often with the SaaS stuff in banks is, like, the annual budget cycle
+[Remote]: and, like, how much, you know, how much is this gonna cost
+[Remote]: me? So that sort of predictability around that, they like reliability and all that kind
+[Remote]: of thing. So if you were like, this is what you're doing. You pay for this license. You get this
+[Remote]: support. You pay for this license. You get that support. It's very
+[Remote]: very familiar
+[Remote]: It's interesting, because as I think about, like,
+[Remote]: some of the
+[Remote]: AI capabilities in market, like, my view is
+[Remote]: that it we will have to get to outcome based
+[Remote]: pricing.
+[Remote]: On this stuff. So I think, like, one of the questions I have is,
+[Remote]: you know, do you cut like,
+[Remote]: well, if your license is to them, then they're paying for
+[Remote]: the tokens and all that kind of stuff. You know, any of the compute
+[Remote]: that that gets used, you probably wanna carve out. Or or
+[Remote]: and I don't know how ready they're gonna be for this with the sort of outcome based stuff.
+[Remote]: I've got some port codes that are
+[Remote]: you know, the more adjacent to where you are. They're selling to financial services. We've got
+[Remote]: one that
+[Remote]: just recently
+[Remote]: actually went for some of that outcome based
+[Remote]: stuff. It's always an interesting discussion because it's like
+[Remote]: it depends on the sophistication of the
+[Remote]: the actual person you're talking to quite often.
+[Remote]: But also the organization. Right? How
+[You]: And then
+[Remote]: how ready the organize
+[You]: and if you put yourself the of a VC investor,
+[You]: is this a type of model you like or you try to stay away from?
+[Remote]: Well, my like, my big
+[Remote]: thesis is that
+[Remote]: we're moving into
+[Remote]: a really interesting
+[Remote]: moment in financial services because we've gone
+[Remote]: know, the, like, last fifty years have built on
+[Remote]: customer inertia and
+[Remote]: like, opacity in the system and latency and back
+[Remote]: files and all that kind of stuff. And then I'm like, you've got
+[Remote]: especially now, you've got this kind of
+[Remote]: regulation catching up with the tech.
+[Remote]: Around tokenization. So you got all this tokenization
+[Remote]: happening in market. You've got the AIKG You've got real time payments. You got and it's all
+[Remote]: it's all basically attacking the foundation of
+[Remote]: fractional reserve banking.
+[Remote]: So it's all going on at the moment with the Clarity Act and, you know, Brian Armstrong trying to
+[Remote]: you know,
+[Remote]: get rewards. So we're gonna see narrow banks. It's gonna be a really, really interesting
+[Remote]: time. So my view is that
+[Remote]: those forces create a lot of
+[Remote]: opportunity because
+[Remote]: the thing you're talking about, like, banks are too it's too
+[Remote]: like, why does it cost so much to run a bank? You look at all the bank's efficiency ratios, and they're
+[Remote]: fucking ridiculous. Right? They're, like it's not unusual to be running a bank.
+[Remote]: You know, and to make
+[Remote]: you know, cost you 70¢ to make a dollar. Like, that doesn't make any sense to me in this
+[Remote]: day and age. Right? And so
+[Remote]: you have to imagine that you should better get these institutions to
+[Remote]: 30 odd percent efficiency ratio. You should better get a much higher return on
+[Remote]: equity and and assets, but it does
+[Remote]: them to, like, adopt some of these
+[Remote]: tech
+[Remote]: So my view on this is always, like,
+[Remote]: you know, as you size that market and you think
+[Remote]: about
+[Remote]: I I I'm not so worried about, like, the
+[Remote]: AC ACV if it's highly repealed. Like,
+[Remote]: I mean, I think we're gonna take a click on every fucking
+[Remote]: reconciliation that happens in the world, well, yeah, I'm I'm in.
+[You]: Well, very interesting.
+[You]: Just in interest of time here, we have one more minute left.
+[You]: I don't know if this conversation should continue more on the
+[You]: potential investor route or just partners stay connected as an adviser or or mentor.
+[You]: I'll just say one thing.
+[You]: If any of these banks you have relationship with
+[You]: you think could get good use at an AI powered reconciliation
+[You]: platform, send them over. Happy to send any materials that help you forward those
+[You]: conversations. And then
+[Remote]: Yeah. I mean,
+[Remote]: when I was just talking about that that might be in
+[Remote]: interesting, you know, I'm just, you know, I've got a good friend there, and I'm helping them
+[Remote]: where are you in the
+[You]: What's the name of the bank? Valley Bank?
+[Remote]: it's not valley. No.
+[Remote]: Yeah. Let me let me talk to them first, and I'll let you know. But they're they're actually a
+[Remote]: they're they're a
+[Remote]: so
+[Remote]: know, the
+[Remote]: when you look at our landscape of the banks,
+[Remote]: the only I'd like we could probably I can probably
+[Remote]: write your list of the banks I'd go talk to because they understand how to work with a fintech.
+[Remote]: At your stage, I mean. Right? And so
+[Remote]: like, a valley, really hard to get
+[Remote]: in there and get the right appropriate airtime and the right sponsor and the right tolerance
+[Remote]: for you doing. Not impossible. Like, I've got
+[Remote]: series a company that actually ended up building
+[Remote]: you know, a nice relationship with with Valley.
+[Remote]: But it's just not great. It's great at it.
+[Remote]: Then you get these profiles of banks that are, like, privately owned.
+[Remote]: And the privately owned banks.
+[Remote]: Tend to move faster
+[Remote]: You know? They they just feel less turgid.
+[Remote]: But your sales cycle and everything you're talking about is very real.
+[Remote]: Where are you in like, so normally, I'm
+[Remote]: we have an office in
+[Remote]: in Dumbo in in Brooklyn.
+[Remote]: When I'm in the city, I'm normally hanging out there. But, I mean, one of the things you do is you just come over and meet.
+[Remote]: You know? You should meet a man.
+[Remote]: Meet some of the team. We'll just talk
+[Remote]: talk some more on it.
+[You]: Would love to do. I'm in Williamsburg, so let me know. Happy to drop by
+[You]: any day next week or or whenever you you have a time.
+[Remote]: Okay. I'll send you a few times. So just come over, like,
+[Remote]: have a coffee, me and me and Marin. So
+[Remote]: anyway, we can just
+[Remote]: we'll take we'll just take it from there. You know? Happy to help, of course.
+[Remote]: On some of this. But, yeah, I'll talk to I'll talk to my man
+[Remote]: I'm not sure they're quite ready yet, but they will be, and it won't you know, it will be this
+[Remote]: this half of the year.
+[You]: Amazing. Alright. I'll just
+[You]: follow-up after this call with with those things. And and, again,
+[You]: thank you for the time. A great meeting. A lot to learn from you.
+[You]: So happy we're connected. And and, hopefully, this takes us
+[You]: to further conversation.
+[Remote]: Yeah. Sounds good. Alright.
+[Remote]: Nice to meet you.
+[You]: Have a good one. Have a nice weekend.
+
+============================================================
+SUMMARY
+============================================================
+### Stuart’s Background & Stack VC
+
+- 25 years in financial services, originally from UK
+- Built startup after big bank experience, Visa invested, moved to US in 2009
+- Previously ran $100M venture division at Valley Bank, left 18 months ago
+- Building new venture fund with partners:
+  - Moin Chama (Cat One Ventures cofounder)
+  - Pete Casella (started Point 72 Ventures for Steve Cohen)
+- Fund thesis: Financial services insider knowledge creates alpha
+  - Most fintech exits are M&A in $200-400M range
+  - Know buyers, value streams, incentives, politics
+  - Pete’s last vintage had 7% loss ratio (hedge fund methodology applied to venture)
+
+### Reconciliation Market & Business Model Discussion
+
+- Stuart validated market need through partner bank conversations about AI implementation
+- Current incumbents (BlackLine, Arkham, Duco) charge $200-250K ACV plus $15-25K implementation
+- Pricing excludes long tail market doing manual processes
+- Rexy’s licensing model for banks discussion:
+  - Configure product, implement in bank’s infrastructure
+  - Low ongoing licensing fee vs retainer model
+  - Addresses data privacy/security concerns
+  - Prevents vendor lock-in (banks being “held hostage”)
+- Stuart’s perspective on outcome-based pricing trends in AI
+- Banks moving toward 30% efficiency ratios from current 70¢ cost per dollar earned
+- Privately owned banks tend to move faster than large institutions
+
+### Next Steps
+
+- Stuart to send meeting times for coffee in Dumbo office
+- Meet Stuart and Moin next week
+- Stuart will discuss with partner bank contact (name withheld until further conversation)
+- Ignacio to follow up with materials after call
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/70799843-e8bc-43de-96b6-9017c938db41](https://notes.granola.ai/t/70799843-e8bc-43de-96b6-9017c938db41)

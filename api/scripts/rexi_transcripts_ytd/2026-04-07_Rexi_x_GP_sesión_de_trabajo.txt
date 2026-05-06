@@ -1,0 +1,910 @@
+MEETING: Rexi x GP: sesión de trabajo
+DATE: 2026-04-07
+ID: not_d2Xd0pGKyhSYs0
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Agustin Suares <agustin.suares@globalprocessing.com.ar>, Alejandro Delbuono <alejandro.delbuono@globalprocessing.com.ar>, Edgardo Marinaro <edgardo.marinaro@globalprocessing.com.ar>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-04-07T09:00:00-04:00 - 2026-04-07T09:45:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Deme un minutito.
+[You]: Está Alejandro.
+[Remote]: Ah, ok.
+[You]: Hola, Alejandro, ¿cómo estás?
+[Remote]: Buenas. ¿Cómo andan? Buenos días. Hola, buen día, Ale.
+[Remote]: Todo bien.
+[Remote]: Muy bien.
+[You]: Y ahí está
+[You]: Ricardo, faltaría Agustín.
+[You]: Hola, Edgardo.
+[Remote]: Hola. Días.
+[Remote]: Hola, hola No, se te escucha, se te escucha bien.
+[Remote]: Escucho.
+[Remote]: Tal? ¿Cómo andan? Ah, bueno, ahí está ahí está Ale, que
+[Remote]: hoy la pieza fundamental, Ignacio, que esté Alejandro.
+[Remote]: Sí, sí.
+[You]: Ya los habíamos conocido, Alejandro, ¿no? Sí.
+[Remote]: Está muteado, Ale.
+[Remote]: Sí, sí, me habían conocido la otra vez en en la primera presentación que hicieron la de
+[You]: Ahí va. ¿Agustín se suma o arrancamos?
+[Remote]: No, arranquemos porque
+[Remote]: este, Agustín está en otra reunión hoy, así que no no va a poder sumarse.
+[Remote]: Igualmente, acá lo importante es que esté Ale, así que si en algún momento nos bajamos, Mary o yo,
+[Remote]: este, el usuario que va
+[Remote]: darnos el ok o no de de de la herramienta, ahí sale, así que
+[Remote]: va a ser el el el líder que lo va a tomar.
+[You]: Buenísimo. Bueno,
+[You]: bueno, buenísimo. Espero la hayan vuelto de
+[Remote]: Bueno.
+[You]: de las vacaciones y la semana santa, no esté tan prendida fuego esta semana.
+[You]: Pero
+[You]: pero bueno, ya tuvimos varias conversaciones con con Mariela, con Edgardo, sobre un poco lo lo
+[You]: términos comerciales, y creo que estamos, llegamos a un un preacuerdo, obviamente, ahora
+[You]: a demostrar valor con estas interacciones.
+[You]: La idea del RMIC de hoy, Alejandro, era
+[You]: hacerla como una sesión de trabajo, meternos realmente... Ya tenemos firmado el el NDA, ¿verdad? ¿Sí?
+[Remote]: Sí.
+[You]: Firmado el NDA.
+[You]: Tenemos el el preacuerdo comercial, digamos, alineado más o menos los términos y el costo,
+[You]: con lo cual la idea, Alejandro, es meternos de lleno en
+[You]: eso que nos comentaron en aquella reunión inicial, que no estaba
+[You]: firmado el NDA, con lo cual fue todo medio high level,
+[You]: pero meternos ya verdaderamente en los archivos, en el
+[You]: proceso conciliatorio y empezar a pensar juntos cómo podemos armar
+[You]: ya sea un camino de
+[You]: o ya directamente lanzarnos a automatizarlo.
+[You]: Pero pero la idea era un poco
+[You]: meternos en el detalle, que por eso también está Teo acá,
+[You]: que es el que lidera producto y operaciones en en en
+[You]: en
+[You]: y
+[You]: y y, entonces, sería como el encargado de
+[You]: codificar esto en en la plataforma.
+[You]: Así que, si te parece, Alejandro, o sea, el el objetivo de la reunión de vuelta es ese, y salir de la reunión con
+[You]: una idea clara de hacia dónde avanzar. Si es una demo con archivos,
+[You]: si es una prueba piloto o ya meternos directo a implementar
+[You]: la solución, con un mapeo general de
+[You]: cuáles son los archivos a conciliar
+[You]: una idea general de cuál es la lógica y dónde están los principales puntos de falla,
+[You]: y cuál sería el output esperado, ¿no?
+[Remote]: Bien. Ahí agregó algo, Ignacio. No sé si le llegó los archivos que me habían pedido,
+[Remote]: para tener una idea inicial.
+[Remote]: Yo les mandé la semana pasada
+[You]: A ver,
+[Remote]: Me habían pedido ustedes el formato de archivo y eso, yo se los pasé por mail.
+[Remote]: ¿Puede ser?
+[You]: Sí, acá estamos. Sí, sí, te das razón, acá están, ya los tenemos.
+[Remote]: Ok.
+[You]: ¿Vos, todos los tenés?
+[Remote]: Está está muteado, Tego. Ahí, Ale, me los había pasado en OXXO, ¿sabes?
+[Remote]: Vos estabas de vacaciones, Enoc me pasó los formatos, le digo, bueno, para que ellos lo vayan.
+[Remote]: Analizando. ¿Me lo podrán retirar? Yo yo no sé si lo tengo.
+[You]: Sí, acá está.
+[You]: Sí, sí, los tenés, ahora te los reenvío.
+[You]: Igual, pero sí, sí, estás estás copiado en el
+[You]: Ahí te los reenvié.
+[You]: Incluir los archivos del mail.
+[You]: Si no incluye, avísame de hoy y te lo vuelvo a reenviar.
+[You]: ¿Te llegó?
+[You]: Y si no, ahí te reenvié directamente
+[You]: el mail inicial de de Edgardo que tiene los archivos.
+[You]: Bueno, de todas maneras, mientras mientras ahí los vamos
+[You]: los vamos revisando juntos, Ale, no sé si nos querés compartir pantalla e ir haciéndonos el paso por
+[You]: paso de cómo funciona el proceso.
+[Remote]: Dale, dale, la verdad yo no sabía qué hay
+[Remote]: les habían pasado y no tenía nada preparado porque no me dijeron
+[Remote]: no me no me dijeron que era una demo mía en sí.
+[Remote]: Dijeron que me iban a mostrar el el
+[Remote]: cómo cómo funcionaba la herramienta, no con lo que yo tenía que mostrar, pero ahora déjame ver y lo
+[Remote]: y veo veo qué qué puedo preparar.
+[Remote]: Dame un segundo.
+[You]: Dale.
+[Remote]: Principio, lo que nosotros hacemos es recibir de la marca el settlement,
+[Remote]: ¿sí?, que es lo que nos va a pagar de la parte de que quiere entrar a lo a lo primero,
+[Remote]: el de la marca,
+[Remote]: parte de Visa, parte de Mastery, parte de Amex,
+[Remote]: lo cual nos va a decir
+[Remote]: cuánto nos va cuánto le va a pagar a CODELSA,
+[Remote]: ¿sí?
+[Remote]: Y nosotros después tenemos
+[Remote]: un archivo que es el que les pasó a Edgardo, que
+[Remote]: es el t veintidós cero tres,
+[Remote]: ¿sí?, el cual debe debe o debería
+[Remote]: conciliar
+[Remote]: contra ese archivo,
+[Remote]: ¿sí?, contra lo que dice la marca,
+[Remote]: Nosotros tenemos tres compensaciones distintas, la que es con la marca,
+[Remote]: la que es con
+[Remote]: con el comercio, ¿sí?
+[Remote]: Y después tenemos también una agenda de pagos
+[Remote]: se va armando a futuro, que tiene que ir coincidiendo con los pagos a comercio del
+[Remote]: de posteriores días, ¿sí?
+[You]: Okay.
+[Remote]: Pero pero esas son las tres las tres partes,
+[Remote]: que que realizamos en base al settlement de la marca, que
+[Remote]: dice el neto que nos va a cobrar,
+[Remote]: a pagar,
+[Remote]: y el
+[Remote]: y después tenemos la conciliación con cada uno de los comercios o agrupadores que es lo que que tiene que ir coincidiendo en base a
+[Remote]: puede haber alguna diferencia, que eso se levante internamente,
+[Remote]: ¿sí?
+[Remote]: Hay diferencias que se generan,
+[You]: No sé si ya ahí pudiste abrir los archivos, si nos podés compartir pantalla, y nos vas haciendo el el
+[You]: el walk through sería ideal.
+[Remote]: Sí, sí, sí, ahí estoy estoy abriendo.
+[You]: Ah, perfecto.
+[You]: Y después, la idea de esto, justamente, Alejandro, es ir mapeando
+[You]: que nos vayas contando vos
+[You]: cuando nos vas mostrando los pasos,
+[You]: en esto pierdo mucho tiempo, en esto no tanto,
+[You]: esto siempre me genera retrabajo, porque la mitad de las veces
+[You]: mal, como que no vayas dando sus comentarios de
+[You]: de cómo funciona en el día a día, para nosotros también entender cuál es el
+[You]: el el tamaño de la oportunidad, ¿no?
+[Remote]: Está bien, está bien.
+[Remote]: Ahora, ahí le comparto pantalla.
+[Remote]: Bueno, me dice compartir pantalla completa.
+[Remote]: Alright.
+[Remote]: Permíteme cuando lo estén viendo.
+[Remote]: Ahí se ve.
+[Remote]: Entonces, lo que nosotros recibimos
+[Remote]: primero, por de parte
+[Remote]: de la marca, de más te recibimos
+[Remote]: los distintos
+[Remote]: los distintos settlement, por ejemplo, hoy recibimos
+[Remote]: veintidós ciento ochenta, que es
+[Remote]: ¿quién lo que no va a pagar estos un millón
+[Remote]: cuarenta y dos mil pesos no va a pagar de una parte,
+[Remote]: ¿sí?, y por el otro, nosotros en Mastercard tenemos dos ICAs, que es el sería el
+[Remote]: el número de de asociado a la marca, ¿sí?, el número de cliente sería de la marca,
+[Remote]: ¿sí?
+[Remote]: Y este no va a pagar, en este otro icono va a pagar tres mil cuatro millones. ¿Sí?
+[Remote]: Esto es lo que nosotros tenemos que conciliar con el archivo t veinte dos cero tres,
+[Remote]: debería coincidir
+[Remote]: este monto en la parte de pesos, y después el settlement que
+[Remote]: un poco más tarde, a eso de las once de la mañana,
+[Remote]: la parte de dólares con la parte correspondiente de dólares del
+[Remote]: del mismo t veintidós cero tres, ¿no?, cuando tienen
+[Remote]: el
+[Remote]: El archivo, ¿sí? Este es el, se procesa acá,
+[Remote]: Bueno,
+[Remote]: Sí, por ejemplo,
+[Remote]: se trae el archivo, se parcea, ¿sí?
+[Remote]: Ahora va a entrar solamente
+[Remote]: Acá se carga se carga el archivo en la parte del t veintidós cero tres,
+[Remote]: completo, ¿no? Pero
+[Remote]: pero como ya esto es pasado y no está
+[Remote]: voy a tenerme
+[Remote]: todo lo del, esto es todo pesos, y tiene la moneda de de compensación
+[Remote]: la moneda de compensación es pesos, ¿sí?,
+[Remote]: de ¿sí?,
+[Remote]: Acá se carga el archivo, se importa con el parseador correspondiente al archivo,
+[Remote]: ¿sí?
+[Remote]: Y acá tenés la, y esta es la fecha
+[Remote]: de pago,
+[Remote]: que es la fecha de pago al comercio.
+[Remote]: ¿Sí?
+[Remote]: Esto, una cosa es cuando nosotros
+[Remote]: cobramos de la marca,
+[Remote]: otra cosa es cuando pagamos al comercio.
+[Remote]: ¿Sí?
+[Remote]: Por ejemplo, ahora estamos teniendo un un negocio
+[Remote]: es
+[Remote]: nosotros cobramos de la marca, pero no pagamos al comercio, entonces, y le
+[Remote]: o o al día siguiente o a
+[Remote]: ocho días o a diez días, ¿sí?,
+[Remote]: y eso hace tener un negocio financiero, ¿sí?, o sea, esta
+[Remote]: te quedas con la plata y la tenés diez días.
+[Remote]: ¿Sí? ¿Cómo te da te das cuenta de que si le pagas o no al comercio?
+[Remote]: Una vez que nosotros consideramos este archivo, tenemos otro archivo que es el t tres mil trescientos,
+[Remote]: ¿sí?
+[Remote]: El t tres mil trescientos lo que hace es
+[Remote]: todo lo liquidado al comercio, todo lo que vos le pagas al comercio y tenés la obligación de pago al
+[Remote]: ¿sí?
+[Remote]: Cobres o no cobres la plata del de la marca.
+[Remote]: ¿Sí?
+[Remote]: Entonces,
+[Remote]: si vos
+[Remote]: Acá número de liquidación, ¿sí?
+[Remote]: Si dice cero,
+[Remote]: es que no está liquidado, o sea, que en el archivo t
+[Remote]: mil trescientos no va a aparecer.
+[Remote]: ¿Sí?
+[Remote]: Entonces,
+[Remote]: ahí en el en el, por eso digo, hay dos conciliaciones, primero con la
+[Remote]: que es todo el archivo sin discriminar nada,
+[Remote]: ¿sí?
+[Remote]: Después con el t tres mil trescientos, que es lo que le vas a
+[Remote]: tener la obligación de pagarla al comercio, que es
+[Remote]: el mismo archivo del día
+[Remote]: con el número de liquidación distinto de cero, ¿sí?
+[Remote]: Más lo que vengas arrastrando de días anteriores
+[Remote]: que
+[Remote]: se va a generar un archivo del día que se llama t veintidós cero seis.
+[Remote]: Si el t veintidós cero seis tiene transacciones
+[Remote]: que aparecieron en algún t veintidós cero tres anterior,
+[Remote]: pero que
+[Remote]: pero que vos estás pagando en el día de la fecha.
+[Remote]: ¿Sí?
+[Remote]: ¿Se entendió? ¿O
+[You]: Sí, o sea, una
+[You]: es entre la marca
+[You]: el y, o sea, todo lo que llega versus todo lo que tienen ustedes en el en el sistema,
+[You]: después es la marca contra lo que realmente tienen que liquidar los comercios.
+[Remote]: En realidad, no, en realidad es la marca, contra GP,
+[You]: ¿Sí?
+[You]: Por eso.
+[Remote]: ¿sí?
+[Remote]: Y otro de GP con los comercios, o sea, ya ahí no interviene la marca con
+[Remote]: con lo entre al comercio, la marca no llega.
+[Remote]: ¿Sí?
+[Remote]: Siempre la marca nos paga a nosotros y nosotros le damos la orden a Coelsa,
+[Remote]: para que pague a los comercios.
+[Remote]: ¿Sí?
+[Remote]: O sea,
+[Remote]: no no tiene intervención la marca con el comercio directamente, ¿sí?
+[You]: Perfecto.
+[You]: Y ahí, entonces, tenemos, de archivos a conciliar, tenemos el de la marca, que son,
+[Remote]: Veintidós cero tres te debería conseguir tanto la parte de empresas
+[You]: veintiocho.
+[Remote]: en dólares con la marca, ¿sí? Y después tenés, por la parte en dólares, tenés el
+[Remote]: veintidós cero tres, con la moneda de reconciliación en ocho en treinta y dos, y el t veintidós cero seis, y para aparte de dólares, tenés el t veintidós cero tres, el de armonía de reconciliación ocho cuarenta, y el t veintidós cero cuatro. ¿Sí? Porque te va a pasar lo mismo en la parte de dólares, vas a tener operaciones vos cobres hoy en dólares en el exterior, ¿sí?,
+[You]: Pero ¿eso son archivos internos o de la marca?
+[Remote]: Estos son archivos internos nuestros. El único archivo de la marca es con el que se concilia, que es
+[Remote]: el que el el la liquidación que te manda la marca.
+[Remote]: ¿Sí?, que es el
+[Remote]: en la parte de Visa sería el b s ciento diez,
+[Remote]: y en y en Master sería la
+[Remote]: el el la liquidación que te llega por mail.
+[You]: A ver, perdón, hagamos el listado bien. Entonces, de los internos tengo
+[You]: para lo que es pesos,
+[You]: había dos archivos,
+[You]: t
+[Remote]: T veintidós cero tres y t veintidós cero seis.
+[You]: Perfecto. Y para lo que es dólares, también había dos.
+[Remote]: Te vendió cero tres y te vendió cero cuatro.
+[You]: Ah, son distintos filtros en el cero tres.
+[You]: En uno,
+[Remote]: Claro, tiene la moneda de reconciliación treinta y dos por
+[Remote]: y ocho cuarenta por dólares. Acá ya está separado en dos tablas distintas
+[Remote]: que es mensual dólar y mensual peso, pero en la realidad cuando vos parciás el
+[Remote]: original,
+[Remote]: va a una sola tabla
+[Remote]: el diario va a una sola tabla, después nosotros lo dividimos
+[Remote]: admirando el filtro, ¿no? Pero
+[You]: Claro, en realidad archivos distintos, veintidós cero tres, veintidós cero cuatro y veintidós cero seis.
+[Remote]: Exacto, sí, son tres archivos distintos, nosotros lo que hacemos es parciarlos
+[Remote]: parciallos y dividirlos por monedas. ¿No?
+[Remote]: Archivo este que nos compartieron, el parceador, es donde ustedes hacen ese cruce, ¿no?
+[Remote]: Ya, es es, obviamente, será el veintidós cero trece que te compartías.
+[Remote]: Sí. Perfecto.
+[You]: Y de la marca, tenés Visa, que era b s
+[Remote]: BSS ciento diez. Y ciento quince,
+[You]: y máster,
+[Remote]: Master no tiene no no llega por mail, o sea, es archivo de
+[Remote]: un aviso de liquidación.
+[Remote]: Con el número de referencia. Pero no llegaste este, o sea, detallado por día, ¿ves?, o sea, te hice los días, lo que corré cada monto, pero no te no te este sería el neto que te va a pagar, ¿no?
+[You]: Ok.
+[You]: Entonces, la la conciliación, que es marca contra GP,
+[You]: estoy considerando este archivo de la marca,
+[You]: el BSS y el de master que llega por mail, contra los t veintidós cero tres veintidós cero cuatro, veintidós cero seis, ¿correcto? Y cuando es GP contra
+[Remote]: Sí, exacto.
+[Remote]: Andeleano, Andeleano, perdón, ahí. Vos lo que estás haciendo es los archivos de la marca, contacté veintidós cero tres nada más. El t veintidós cero cuatro y el veintidós cero seis es contra el comercio.
+[You]: Ah, y después es es
+[You]: el veintidós cero tres. Ok, entonces, en uno es
+[You]: veintidós cero tres
+[You]: contra marca, y en el otro es
+[You]: t veintidós cero tres, contra veintidós cero cuatro y veintidós cero seis.
+[Remote]: En realidad sería en conjunto veintidós cero tres más veintidós cero cuatro más veintidós cero
+[Remote]: seis, conta tres mil trescientos de tres mil trescientos.
+[Remote]: Que es el archivo de liquidación a comercios.
+[You]: Ah, se suma el veintidós cero tres
+[You]: más el veintidós cero cuatro más el veintidós cero seis,
+[You]: y se cruza contra t tres mil
+[You]: Perfecto.
+[Remote]: Que sería el archivo a liquidar a comercios, que es lo obligado en el pago, ¿no?
+[Remote]: Ese de liquidación a no nos lo compartieron, no sé si lo vamos a
+[Remote]: nosotros
+[Remote]: Ahí, Edgar,
+[You]: Sí.
+[Remote]: Igual, si no, después se los paso, pero
+[Remote]: Perfecto.
+[You]: O sea, que tú
+[Remote]: No, no hay problema.
+[You]: Perfecto. Y ahí,
+[You]: la siguiente pregunta es, ¿todos estos archivos
+[You]: que son, a ver,
+[You]: tengo dos de la marca,
+[You]: tres internos, cinco, más t tres mil trescientos, son seis archivos en totales.
+[Remote]: Exacto, sí, sí, sí, usamos sí, más los más los
+[Remote]: archivos incoming de la marca, que serían los IPMs y los CTFs,
+[Remote]: que de ahí sacamos, digamos, sacamos lo que son el b s
+[Remote]: ciento quince, ¿no?
+[Remote]: Y los IPMS es de máster.
+[Remote]: ¿Sí? Y después, bueno, lo que es Amex,
+[Remote]: lo que es Amex también tiene un t veintidós cero tres,
+[Remote]: ¿Sí?
+[Remote]: Pero Amex solamente manda al neto por mail de lo que te va a pagar, no manda ningún detalle ni ninguna
+[Remote]: archivo entrante, o sea, no
+[Remote]: no te da mucho detalle, solamente el monto a pagar en el día,
+[Remote]: así que solamente contra eso que usás,
+[Remote]: más te divisas por ahí tenés un poco más de detalle.
+[Remote]: Para poder cruzar.
+[You]: La pregunta es, todos tus archivos, ¿dónde dónde viven?, digamos, porque
+[You]: ahí una de las primeras cosas que tenemos que pensar es,
+[You]: ¿cómo hacemos para que Rexi ingeste estos archivos de manera síncrona?
+[You]: Los días, para que corra automáticamente.
+[Remote]: Sí, eso hay que ver una carpeta compartida con la gente de
+[Remote]: operaciones o de cosas, cuando corran el proceso te dejen los
+[Remote]: directamente en esa carpeta y ustedes los puedan levantar diariamente.
+[You]: Hacemos un SFTP. ¿Qué usan ustedes de base de datos?
+[Remote]: Claro.
+[Remote]: Exacto.
+[Remote]: De base usamos, bueno, de access,
+[Remote]: y después Excel.
+[You]: Access, o sea, SharePoint, haríamos una carpeta compartida de SharePoint, algo así.
+[Remote]: Realidad, nosotros usamos una nube en Amazon, que lo usamos para
+[Remote]: para procesar
+[Remote]: para tener los datos, porque SharePoint no acepta access.
+[You]: Debería ser, claro, Amazon s tres.
+[You]: Que nos vamos a conectar, ¿no?
+[Remote]: En realidad, no, se va, ustedes
+[Remote]: a ver, ustedes pueden hacer una carpeta directamente
+[Remote]: porque directamente tomarían los archivos TXT, ¿no?, no tomarían el access.
+[Remote]: Directamente del archivo TXT,
+[Remote]: ¿sí?, el cual el cual no
+[Remote]: no se se puede hacer todo
+[Remote]: por cualquier medio, ¿no? No sé, después bien cuál es la configuración
+[Remote]: no sé si está,
+[Remote]: ya está está muteado.
+[Remote]: Para hacer la configuración esa.
+[Remote]: De donde ustedes tomarían los los datos, ¿sí?
+[Remote]: Si es un SharePoint o si es un
+[Remote]: SFTP o
+[Remote]: o ver cómo cómo cuál es la mejor opción.
+[Remote]: Hay hay como herramienta técnica, se usa el SFTP,
+[Remote]: Nosotros, nuestro core lo tenemos, ¿viste?, en en la nube,
+[Remote]: con Oracle, y y los los archivos de procesamiento se pasan a través de ese
+[Remote]: SFTP. Pero, bueno, eso es
+[Remote]: vemos con ustedes después cómo
+[Remote]: cuál es la mejor manera, pero alternativas, digamos, hay, no hay ningún problema.
+[Remote]: O sea,
+[You]: Ok, eso es algo clave, o sea, ese FTP lo tenemos que construir
+[You]: para poder tomar todas estas bases.
+[You]: Y automatizar el proceso.
+[Remote]: O sea, el el proceso habíamos quedado, no no, recordame, Ignacio, era tipo SaaS,
+[Remote]: ¿no?, que, o sea, los archivos
+[Remote]: los, ustedes los tomarían, digamos, se procesa en el ambiente de ustedes, de la nube, supongo, y después nos lo devuelven el el conciliado, digamos.
+[You]: Sí.
+[You]: Sí, podemos devolverles cualquier cosa que necesiten. La idea de
+[You]: que
+[You]: tanto Alejandro como Agustín y el equipo empiece a consumir Rexi también como herramienta de
+[You]: entonces,
+[You]: salir de estos archivos de Excel y que todo pase por A nivel operativo,
+[You]: si ustedes necesitan
+[You]: reportes o lo que sea, podemos
+[You]: generarlos
+[You]: totalmente custom a las necesidades de ustedes y los depositamos donde necesiten ustedes.
+[You]: Bueno, entonces, ya me quedó claro los archivos.
+[You]: Ya me quedó claro los conectores, va haber que construir un SFTP, posiblemente a
+[You]: Amazon o Microsoft, hay que definir eso.
+[You]: Y ahora, el proceso,
+[You]: No sé si ya empezaste a hablar de cómo hacés el cruce, si tenés una macro o cómo lo estás haciendo hoy.
+[Remote]: Hoy, de esto salen
+[Remote]: a ver, de acá salen distintas
+[Remote]: distintas
+[Remote]: digamos, tirar la base y esto se pega,
+[Remote]: directamente en un en un en un Excel,
+[Remote]: Ahora no van a tirar nada porque está vacío, ¿sí?
+[Remote]: El archivo,
+[Remote]: a ver si
+[Remote]: Arroba algo de
+[Remote]: El de ayer estaba así, yo, bueno.
+[Remote]: Por ejemplo, de ayer,
+[Remote]: en la base de máster,
+[Remote]: Sí, acá está donde se pega la base que trae directamente del
+[Remote]: de, ¿cómo se llama?, del t veintidós cero tres.
+[Remote]: Del día, ¿sí?
+[Remote]: Ya sé que esto le parece un poco rústico, pero
+[Remote]: pero, bueno, no,
+[Remote]: Y lo del t veintidós cero seis,
+[Remote]: ¿sí?
+[Remote]: Que es lo que vino de días anteriores,
+[Remote]: ¿sí?
+[Remote]: Y completa todo
+[Remote]: acá lo que hace es, nada, poner todo lo los signos y
+[Remote]: y tomar todas las transacciones,
+[Remote]: Y
+[Remote]: acá esta parte le agrega lo del t tres mil
+[Remote]: que serían todos los impuestos.
+[Remote]: Digamos, de todo lo que es, porque el t dos veintidós cero tres te dice lo de la marca, pero no te
+[Remote]: dice la parte impositiva, digamos,
+[Remote]: Entonces, acá le agarré yo a la parte de impuestos.
+[Remote]: ¿Sí? Como un enriquecimiento. Claro.
+[Remote]: Va tomando por número de liquidación y por y por comercio,
+[Remote]: comercio y número de liquidación,
+[Remote]: del día, te va agregando
+[Remote]: todos los impuestos de cada uno.
+[Remote]: Este, en este comercio, que es la suma la suma la suma de todo,
+[Remote]: te tiene que dar contra la liquidación, que es hasta tres mil trescientos. Y la diferencia tiene que ser cero. ¿Sí?
+[Remote]: Por ahí a veces da algún centavo de de diferencia que se lo
+[Remote]: porque es por diferencia de redondeo de un archivo a otro,
+[Remote]: lo redondeamos,
+[Remote]: y acá lo que comparamos es el
+[Remote]: de la marca, es lo que nos pagó la marca,
+[Remote]: con la agenda del exterior, que es lo que tenemos que pagar,
+[Remote]: de lo que nos pagaran, lo que nos paga la marca en dólares, nosotros lo tenemos que pagar en pesos,
+[Remote]: ¿Sí?
+[Remote]: Tenemos una agenda,
+[Remote]: del exterior, después ahora se la muestro,
+[Remote]: y acá está el total de lo que nos tiene que
+[Remote]: lo que nos que lo que tendríamos que pagar.
+[Remote]: Y después tenemos, este, tres mil trescientos,
+[Remote]: ¿sí?, que es lo que nosotros tenemos que pagar a los comercios,
+[Remote]: y lo que es pago a futuro, que es lo que le mostré recién, lo que tiene todo, viene en el
+[Remote]: día, pero tiene liquidación, la liquidación en cero.
+[Remote]: Que nosotros lo vamos a cobrar de la marca, pero no se lo vamos a pagar al cliente.
+[Remote]: ¿Sí?
+[Remote]: Y esto es lo que vino del t veintidós cero seis.
+[Remote]: Eso siempre termina dando
+[Remote]: una diferencia, ¿sí?,
+[Remote]: que es esta que está acá,
+[Remote]: ¿Sí?
+[Remote]: Y termina en doscientos setenta y cinco. Eso es por algo que
+[Remote]: hay un problema en la marca de Mastercard, que todos los días nos da una diferencia,
+[Remote]: y eso lo mandamos a una cuenta de diferencia de Mastercard,
+[Remote]: ¿sí?, hasta que no se resuelva el problema para la marca.
+[Remote]: ¿Sí?
+[Remote]: Pero acá nos dan importe de operación y
+[Remote]: en el IVA, intercambio de FO, y más y más el IVA del FO,
+[Remote]: ¿Sí? Nos da, no, este, nos dan doscientos setenta y cinco mil pesos de diferencia.
+[Remote]: ¿Sí?
+[Remote]: O sea, no termina de conciliar en cero con tal
+[Remote]: pago a los comercios, con tal con todo, digamos, no lo que tenemos anterior.
+[Remote]: Y después tenemos que ver hacer el mismo día y llegar al mismo monto, ¿no?, o sea, y
+[Remote]: después ir viendo viendo el proceso,
+[Remote]: Pero es desde octubre del año pasado estamos
+[Remote]: teniendo diferencias
+[Remote]: empezó a tener diferencia de Mastercard, porque Mastercard quiso implementar algunas cosas
+[Remote]: y se confundió en la implementación.
+[Remote]: Y nunca la terminan de arreglar y estamos con, reclamos a la marca por el sistema,
+[Remote]: Así que
+[Remote]: ends up
+[Remote]: ese es el cuadro, digamos,
+[Remote]: que nosotros
+[Remote]: parciamos a ver ahora.
+[Remote]: Esto del t del t cuatro mil
+[Remote]: el t cuatro mil es el archivo que se le manda a a digamos,
+[Remote]: pero, digamos, no pasaría por la contribución nuestra, sino que se lo archivo que se le manda a Coelsa que es lo que le tiene que pagar a cada banco. O sea, Coelsa lo que va a hacer es
+[Remote]: plata de Mastercard,
+[Remote]: y le y nosotros le vamos a decir, esa plata
+[Remote]: ese neto que recibiste de Mastercard
+[Remote]: pagaselo, no sé, al Banco Industrial, al Banco Galicia o al Banco Nación, ¿sí?
+[Remote]: No,
+[Remote]: Y es es, o sea, todo ese conjunto tiene que ser lo mismo que la
+[Remote]: ¿sí?
+[Remote]: Y el resto
+[Remote]: transferírmelo a mi cuenta, nosotros lo que decimos es,
+[Remote]: transferirle eso a cada banco y y el y lo que te y lo que te sobe
+[Remote]: me la transferís a mi cuenta.
+[Remote]: ¿Sí? Que enlace debería ser la ganancia que vos te deja la operatoria.
+[Remote]: ¿Sí?
+[Remote]: Entonces, acá tenés el t tres mil trescientos,
+[Remote]: ¿sí?
+[Remote]: Acá está lo que es el t cuatro mil, que nosotros pegamos a
+[Remote]: y el tráiler de lo que es el t cuatro mil, y después tenemos el b n a,
+[Remote]: ¿sí?
+[Remote]: El BIN y el Columbia,
+[Remote]: ¿sí?
+[Remote]: Y lo que
+[Remote]: sería
+[Remote]: estos
+[Remote]: algo que se que se le arma, digamos, se le manda a la
+[Remote]: esta al Banco Columbia, Master está por el Banco Columbia, entonces, que le decimos es lo que te
+[Remote]: decía antes, el neto que va a cobrar a la marca,
+[Remote]: lo que tiene que pagar
+[Remote]: lo que tienen que cobrar el Banco de Colombia, ellos mismos, si
+[Remote]: a los comercios que tengan ellos asociados,
+[Remote]: Y lo que tenemos que cobrar nosotros
+[Remote]: digamos,
+[Remote]: esto lo que tiene que pagar Coelsa, que no lo va no lo va a ver,
+[Remote]: esto es lo que tenemos que cobrar
+[Remote]: nosotros, ¿no?
+[Remote]: De de la cuenta.
+[Remote]: ¿Sí?
+[Remote]: Y esto es lo que cobramos de cada uno de los ICAs.
+[Remote]: ¿Sí? Se lo pega lo que tú se cobró de cada uno de los de las liquidaciones que te dijo la marca.
+[Remote]: ¿Sí? Y acá, bueno, y acá le damos un detalle
+[Remote]: qué tiene que hacer con cada uno de estos puntos, ¿no?
+[Remote]: O sea, es
+[Remote]: es lo que tiene que hacer, en qué cuenta acreditarlo, debitarlo,
+[Remote]: dependiendo cuál sería la la ocasión. ¿Sí?
+[Remote]: Esto tiene una macro que nada más tocado acá te genera el PDF, que
+[Remote]: le envía al banco, ¿no? No,
+[Remote]: Pero de eso después,
+[Remote]: digamos, si acá tenés un control
+[Remote]: ¿sí?, que una vez que pegas el t cuatro mil y el t tres mil trescientos, lo que te hace
+[Remote]: es decir,
+[Remote]: qué es lo que le estás pagando a cada banco
+[Remote]: coincide con el archivo que vos estás generando.
+[Remote]: ¿Sí?
+[Remote]: Acá está controlled in.
+[Remote]: Control de trailers, control de los de lo de la parte impositiva.
+[Remote]: ¿Sí?, y te y te va de cada uno de los bancos, según lo que vos le vas
+[Remote]: poniendo en cada uno de estos,
+[Remote]: ¿sí? Acá tenés los clientes,
+[Remote]: En cada uno, ¿sí?, tenés todo lo
+[Remote]: la razón social de los clientes de los comercios,
+[Remote]: y eso te tiene que coincidir
+[Remote]: digamos, con lo que con lo que vos
+[Remote]: Esto es un primer control que se hace
+[Remote]: al principio de la mañana para para poder llegar a decir, bueno,
+[Remote]: lo que le estoy diciendo a Coelsa,
+[Remote]: coincide con que yo estoy liquidando a a los
+[Remote]: ¿sí? Y se arma la carta tanto para Visa como para Master,
+[Remote]: uno va a Galicia, otro va
+[Remote]: a Columbia, ¿sí?
+[Remote]: Se le dice qué tiene que hacer con cada uno.
+[Remote]: Con Gavisa es distinto el sistema, puede ser que tiene que cargar una transferencia
+[Remote]: directamente de la página de ellos,
+[Remote]: y mandar una carta si tenemos que cobrar algo, ¿sí?
+[Remote]: Son distintos, pero el funcionamiento más o menos
+[Remote]: es el mismo, ¿no?, o sea, termina siendo lo mismo.
+[You]: ¿Y qué pasa con vos?
+[Remote]: Sí.
+[You]: ¿Cuándo hay diferencias?
+[Remote]: Sí, me
+[Remote]: Se levantan cuando hay
+[Remote]: una diferencia o falta una transacción en el archivo o...?
+[Remote]: O
+[Remote]: ¿cómo se llama?, ¿o no?
+[Remote]: Sí, falta una transacción en el archivo entrante,
+[Remote]: que es el t veintidós cero tres o algo, lo que hacemos es levantar un ticket a
+[Remote]: app support acá interno de GP, digamos, y lo que hacen es
+[Remote]: verificar esas transacciones
+[Remote]: y si no y si la marca la
+[Remote]: o pasó algo, lo que hacemos es, ellos lo que hacen es
+[Remote]: volver a enviarla a la marca y va a venir en el día siguiente, o sea, se debería compensar en el día siguiente
+[Remote]: esa transacción.
+[Remote]: O sea, a nosotros nos va a quedar como diferencia y al día siguiente debería compensarse.
+[You]: Claro, se cierra. Pero ese tracking de las diferencias, ¿cómo la hacés?
+[Remote]: Y manual. O sea,
+[Remote]: hoy te va a dar una diferencia y mañana te debería dar la diferencia inversa, ¿no?
+[You]: O sea, ¿lo lo lo lo anotás vos en algún lado y te asegurás que el de siempre entre?
+[Remote]: Claro, lo tenemos lo tenemos lo tenemos en
+[Remote]: en cuenta, pero no
+[Remote]: pero bueno, no no es que
+[Remote]: en día tenemos un sistema que dice, bueno, tenés una diferencia,
+[Remote]: la arrastro hasta que venga del parte de la marca. ¿No?
+[You]: Ok.
+[You]: Ok.
+[You]: No sé si, te quiero dejar terminar, no sé si falta algo mostrarnos.
+[Remote]: Dame un segundo.
+[Remote]: Este es esto donde termina todo, ¿sí?
+[Remote]: Este es el archivo, digamos,
+[Remote]: donde se termina de pegar todo lo que es la el armado de lo que
+[Remote]: fuiste haciendo los otros archivos, se termina en este,
+[Remote]: porque tarda tres horas en abrir,
+[Remote]: Entre Azure tendríamos que hacer mensual, pero, bueno, lo tenemos
+[Remote]: anual por ahora.
+[Remote]: Bueno, este es el asiento que arma el sistema, ¿sí?
+[Remote]: Esto es lo que se importa la parte contable.
+[Remote]: ¿Sí? Nosotros acá vamos
+[Remote]: bueno, hoy no hay nada cargado, ¿no?, pero si yo pongo
+[Remote]: por ejemplo, ese, y ya me da más todo a a las
+[Remote]: cuentas que tienen que ir con
+[Remote]: las partes, después hay que completar acá abajo los settlement de las marcas,
+[Remote]: Lo la parte
+[Remote]: la parte que es a diferencia de Mastercard y lo que es las campañas de Visa, que son otras
+[Remote]: particularidades que tenemos.
+[Remote]: Que así que entramos en
+[Remote]: otra parte más. Nosotros nosotros a Visa le pagamos
+[Remote]: campañas en pesos a comercios acá y no y cobramos dólares de
+[Remote]: del exterior,
+[Remote]: Pero, bueno, eso es un favor que le hacemos a la marca.
+[Remote]: Lo tenemos que tener en cuenta porque no es parte de nuestro operatorio. ¿Sí?
+[Remote]: Y termina todo en esto,
+[Remote]: en este cuadro acá se termina regando todo, que lo que arma todo, el accidente,
+[Remote]: el asiento, la agenda y todo. ¿Sí?
+[Remote]: Que está que está por día,
+[Remote]: por número de liquidación,
+[Remote]: por marca,
+[Remote]: ¿sí?
+[Remote]: Bueno, el número de el el número y la descripción del agrupador de comercio.
+[Remote]: ¿Sí? Y el importe y el importe por por
+[Remote]: liquidación, ¿no?, que sería el importe el importe bruto,
+[Remote]: el intercambio, el el IVA. ¿Sí?
+[Remote]: Esto debería coincidir con toda la marca,
+[Remote]: y el arancel y baranceles lo que le lo que le vos le retenés.
+[Remote]: O le cobrás al comercio.
+[Remote]: ¿Sí?
+[Remote]: Con todo
+[You]: Hay un
+[You]: Esto esto ya es una dependencia con el equipo de contabilidad, ¿verdad?
+[Remote]: En realidad, estos esto lo tenemos nosotros y lo que nosotros hacemos
+[Remote]: es armar el asiento
+[Remote]: y pasárselo a la gente de contabilidad.
+[Remote]: Acá lo de contabilidad acá no no ingresan.
+[You]: Ok.
+[Remote]: ¿Sí?
+[Remote]: Después lo que tenemos es esto, que esto lo que nos llama es la fecha de tag,
+[Remote]: lo que nosotros, yo te nombraba de la el número de liquidación en cero,
+[You]: Sí.
+[Remote]: ¿sí? Acá está lo que
+[Remote]: yo cobro, por ejemplo, el dos del tres,
+[Remote]: pago el doce del tres. También lo cobro el dos del tres, pero lo pago el dieciséis del tres.
+[Remote]: Esto es como una agenda de pago a futuro que nosotros nos tiene que ir coincidiendo por eso, por lo que no
+[Remote]: viene.
+[Remote]: Archivos posteriores.
+[Remote]: ¿Sí?
+[You]: Sí, sí, sí.
+[Remote]: No lo vamos a hacer con esto, porque esto es para armar el asiento nada más,
+[Remote]: en el asiento vos vos tenés acá arriba
+[Remote]: lo que cobrás y lo que y lo que
+[Remote]: pagas se va cancelando la misma cuenta, o sea, debería ir si vos
+[Remote]: terminarías la operatoria en algún momento, entonces tendría que quedar en cero.
+[Remote]: ¿Sí?
+[Remote]: Bueno, acá tenemos una una esto para
+[Remote]: que Agustín en su sepa cuánto cómo cómo va evolucionando
+[Remote]: este negocio de lo que es la diferencia entre lo que cobramos y lo que pagamos,
+[Remote]: cómo va evolucionando, ¿sí?, esto no está actualizado.
+[Remote]: Si si lo actualizo a lo que
+[Remote]: Ahí está.
+[You]: Corre bastante bien el Excel,
+[You]: para el volumen.
+[Remote]: Para el volumen que tienes, sí, corre, anda, anda, funciona bien.
+[You]: Pregunta ahí,
+[You]: Alejandro, sí, porque, digo, nos nos quedan ahí unos minutitos.
+[You]: Dirías vos que son los principales puntos de dolor
+[Remote]: Y el proceso de archivos en la en realidad, o sea, el
+[Remote]: traspaso proceso, una vez teniendo
+[Remote]: las bases, ya es mucho más fácil para nosotros y la
+[Remote]: conciliación después, bueno, hay que ir viendo hay viéndola en vivo, ¿no? O sea,
+[Remote]: después si querés podés sumar, podés sumar, si querés hacer un
+[Remote]: un ejercicio más práctico, puedo sumar al equipo mío, digamos, que es
+[Remote]: hace realmente este punto, así te dicen bien el paso a paso.
+[Remote]: Lo hubiera sumado hoy, pero como te dije, gente no sabía que era un
+[Remote]: que era el
+[Remote]: era que era así.
+[Remote]: Pero justo volví ayer de vacaciones yo, pero
+[Remote]: pero, bueno, si querés podemos armar una siguiente, si ustedes tienen el
+[Remote]: el los parceos de los archivos,
+[Remote]: y te paso el tres tres mil trescientos que te faltaba,
+[Remote]: y vemos el paso a paso bien con el equipo.
+[You]: Si querés pasarme el t tres mil trescientos, buenísimo, así
+[You]: nos aseguramos que tenemos todo a nivel muestra.
+[You]: Y después,
+[You]: Ok, entonces, el principal punto de dolor es
+[You]: conseguir el archivo y el y el parceo. Después, como que esta macro en
+[You]: o en Access corre bastante bien, no hay tanto dolor acá, decís.
+[Remote]: Claro, lo que yo lo que yo siempre
+[Remote]: tengo pensado con estos nuevos este nuevo negocio es
+[Remote]: lo que estaría bueno es tener una base histórica,
+[Remote]: de la cual con el tres veintidós cero tres se agrega esa base histórica,
+[Remote]: y con el t veintidós cero cuatro y t veintidós, que yo le iba a hacer en access,
+[Remote]: pero bueno, un sistema lo podría hacer diez veces más fácil. ¿No?
+[Remote]: Lo que lo que sería sería una base histórica,
+[Remote]: el cual veintidós cero tres agregue, y el veintidós cero cuatro y el veintidós cero tres,
+[Remote]: actualicen esa base, ¿sí?
+[You]: Okay.
+[Remote]: Porque el no podés, el t veintidós cero tres veintidós cero cuatro y veintidós cero seis
+[Remote]: no deberían agregarse a la base, porque
+[Remote]: son transacciones que ya veinte vinieran en un pasado. ¿Sí?
+[Remote]: Entonces, si vos solamente
+[Remote]: hacés por
+[Remote]: ID de consumo y número de liquidación y comercio,
+[Remote]: una un una relación,
+[Remote]: con el veintidós cero cuatro y el veintidós cero seis, podés
+[Remote]: actualizar esa base histórica y por
+[Remote]: fecha de pago directamente tendría lo que te tendría que dar contra la
+[Remote]: lo que pagas a a en el día contra el tres mil trescientos. ¿Sí?
+[Remote]: No sé si se entendió, pero
+[You]: Sí, sí.
+[Remote]: pero sería algo más sencillo de lo que hacemos hoy, que es trabajar los tres archivos por
+[You]: Claro.
+[Remote]: separado, en sí.
+[Remote]: O sea, yo hoy te puedo mostrar el proceso de lo que hacemos,
+[Remote]: pero esa, mi idea
+[Remote]: es tener esa base histórica, pero un no se la banca, ¿no?
+[Remote]: O sea, tendría que verlo de otra forma, un no se banca a una base de
+[Remote]: tres meses para atrás o dos meses para atrás,
+[Remote]: Entonces, lo que
+[Remote]: estaría bueno es un sistema que tenga toda la base y con el ir
+[Remote]: alimentando con los distintos archivos para que vayan actualizando el número de liquidación lo que debería actualizarse.
+[Remote]: Deje de ser cero
+[Remote]: y cuando aparezcan entre tres mil trescientos es ese ese consumo de pase de cero a a a mil doscientos, ponele, y y coincida con lo que dice el de tres mil trescientos,
+[Remote]: en por fecha de pago.
+[You]: Perfecto. Ahí
+[Remote]: Sí, eso sería el
+[Remote]: la lógica más aceptable de todo y te debería coincidir.
+[Remote]: Por fecha de carga, digamos, el tres veintidós cero tres de la fecha te debería
+[Remote]: con la marca, y todo ese conjunto que se hace para la actualización por fecha de
+[Remote]: te debería coincidir con tal de tres mil trescientos y ahí tendría las dos conciliaciones.
+[You]: Excelente.
+[You]: Ahí preguntarte, Alejandro, y también por ahí, Mariela, Edgardo, a ver qué piensan
+[You]: Si quieren,
+[You]: que hagamos una etapa intermedia de una demo con los
+[You]: archivos que nos mandaron,
+[You]: o, si quieren, que ya nos metamos derecho a
+[You]: a implementar Yo pienso que
+[You]: creo que el el el caso es, no no es simple, es complejo,
+[You]: pero es exactamente lo que hacemos,
+[You]: Y
+[You]: y quizá nos valga la pena ahorrarnos ese espacio intermedio, ir directo allá,
+[You]: construir los conectores,
+[You]: y empezar a armar de manera automática y corra por detrás.
+[You]: Pero, como quieran ustedes, lo dejo abierto a
+[You]: a cómo lo quieran ir llevando.
+[Remote]: Ahí creo yo,
+[Remote]: Ale, te, porque ya una vez que ustedes darles el ok, es
+[Remote]: muchacho aceptamos la propuesta y manos a la obra, me parece a mí, ¿no?
+[Remote]: Por ahí, hoy
+[Remote]: no, hoy no, el jueves tenemos una reunión de staff interna, no sé,
+[Remote]: sé si Ale vos querés que lo hablemos con con Agustín. Agustín, sí.
+[Remote]: Claro. Y ahí ver el estadio para
+[Remote]: adelante, ¿no? Decir, bueno, a ver, avanzamos, estamos de acuerdo con,
+[Remote]: No sé si a vos, Aleth, alcanza un poco lo que estuvimos lo que estuvieron hablando hoy como para decir,
+[Remote]: ¿te sentís tranquilo con la herramienta? Un poco
+[Remote]: esa es la intención, ¿no? Yo acá me tengo que poner la gorrita de compra y decir,
+[Remote]: tenemos esta propuesta, tenemos otra más. Bueno, a ver, Alex, con cuál
+[Remote]: te sentís cómodo y y podemos pedirle al proveedor
+[Remote]: ya que empiece a avanzar, o quizás hace falta
+[Remote]: alguna otra certeza para que Ale esté tranquilo, ¿no?, y decir, bueno,
+[Remote]: este, la decisión viene por este lado.
+[Remote]: ¿El el jueves lo hablamos? Lo charlamos. Bueno.
+[Remote]: Y vemos a cero
+[You]: Dale, nosotros, feliz día dos, meternos llamando a la a la
+[Remote]: Bien.
+[Remote]: Perfecto.
+[You]: a la obra o hacer una demo con los archivos que nos nos faltaban
+[Remote]: O hacer una demo.
+[You]: el t tres mil trescientos.
+[Remote]: Bueno. Ahí yo tengo una consulta
+[Remote]: más para para hacerte, Ignacio y y Teo, y y por ahí Ale también,
+[Remote]: Con respecto a la infraestructura que salió el temita acá del SFTP,
+[Remote]: Ahí, Ale, viste que nosotros en realidad tenemos certificación PCI, ¿no?
+[Remote]: El hecho de que, este, estuviéramos transfiriendo archivos
+[Remote]: a un proveedor en este caso.
+[Remote]: O sea, ¿vos te llega la la auditoría PSI, o sea, el control?
+[Remote]: Que hay que hacer por PSI,
+[Remote]: tenemos que tener algo en cuenta.
+[Remote]: Con Ignacio como para
+[Remote]: certificar esto?
+[Remote]: ¿Abono? Yo no lo sé. Desconozco, debería haber Ok. Integraciones eso.
+[You]: Mandar un cuestionario de ciberseguridad o o de la
+[Remote]: Sí.
+[You]: equipo de sistemas, mándenlo. Nosotros tenemos certificaciones
+[You]: hasta también podemos hacer manipuleos con la información para asegurar que
+[You]: esa información no nos llega o nos llega encriptada o
+[You]: Hemos hecho esto lo pasado.
+[Remote]: Bien.
+[Remote]: Ok, bien, bien. Bueno, para tenerlo en cuenta, porque
+[Remote]: al ser que nosotros estamos
+[Remote]: Porque una cosa era que la la aplicación estuviera instalado en nuestra infraestructura.
+[Remote]: O sea, ahí por lo que acabo de entender, digamos, otra íbamos transfiriendo
+[Remote]: los archivos o ustedes los toman, distinto,
+[Remote]: pero lo llevarían a su plataforma y después lo disponibilizan.
+[Remote]: Con lo cual, digamos, estaría saliendo de la empresa
+[Remote]: Sí, yo entiendo que ahí lo que se puede hacer, Naro, en el caso de avanzar,
+[Remote]: Sí. Es es incorporar al equipo de seguridad informática, como para que después vean
+[Remote]: si se arma un SFTP, dónde se depositan los archivos en un SFTP, cómo hacemos con
+[Remote]: nuestros clientes, digamos, o se hace a través de DataGovern, no lo sé.
+[Remote]: Pero en el caso de avanzar, se arma un equipo de
+[Remote]: proyectos donde participan las áreas que tienen que participar, y ahí darán su mirada
+[Remote]: en cuanto a la seguridad de la información, cuál es la mejor forma
+[Remote]: de compartir estos archivos.
+[Remote]: En el caso de Ignacio, que se requiera alguna
+[Remote]: algún tema particular por esto de PCI, ¿ustedes estarían dispuestos, digamos, a
+[You]: PSI no la tenemos,
+[Remote]: o sea, quizás la tengan la certificación, no lo sé, pero
+[You]: pero tenemos SOC dos tipo dos, y estamos ya en proceso de auditoría para
+[Remote]: Ok.
+[You]: SOC uno, tipo dos, y para ISO veintisiete mil uno.
+[Remote]: Okay.
+[You]: Pero con compañías que teníamos el tema de PCI,
+[Remote]: Bueno,
+[You]: y lo que hicimos fue
+[You]: métodos de de encriptado o de hashing.
+[You]: También, para asegurar que esa información se preserva. Así que eso, digo, no se preocupen lo que hacemos,
+[Remote]: Ok, es implementable. Bien,
+[You]: y le, sí, sí, recontra y se le encuentra la vuelta.
+[Remote]: bien.
+[You]: Eso te dije, seguramente el equipo de ciberseguridad tiene un cuestionario
+[You]: tipo RFP, que le mandan a cualquier proveedor con quien
+[You]: trabajar. Si quieren mandárnoslo, y nosotros ya lo empezamos a llenar feliz.
+[Remote]: Dale, bueno. Bueno, por ahora, entonces, sería eso.
+[Remote]: Nos juntamos nosotros internamente el jueves. No sé si Ale o Ignacio necesitan
+[Remote]: pasarse algún otro archivo. Yo los archivos que disponibilicé fue lo que
+[Remote]: en ausencia de Ale, me pasó un colaborador de él, si hace falta algo más para que ustedes Eso, asegúrenos que el único que nos falta es el
+[Remote]: tres mil, porque nosotros tenemos tres, el tenemos cuatro archivos en realidad.
+[Remote]: Comparto pantalla un segundo, aprovechemos estos minutos que quedan.
+[Remote]: Porque ahí qué puede pasar, que por ahí el jueves,
+[Remote]: Ale, hablando con Agustín, diga, no, mirá, avancemos primero con una demo,
+[Remote]: entonces ustedes tienen que tener, digamos, el el mapeo
+[Remote]: punta a punta para poder armar algo, ¿no? Y
+[Remote]: pantalla.
+[Remote]: ¿Ahí están viendo? Ale, ¿estás viendo?
+[Remote]: Sí.
+[Remote]: Se ve.
+[Remote]: Estos son los archivos que tenemos nosotros. El que faltaría, que tenemos identificados, es el tres mil
+[Remote]: y alguno más para
+[You]: ¿Y el de las Margaret?
+[You]: No, Ale.
+[Remote]: Claro, sí, los de la marca no los tienen,
+[Remote]: y en, bueno, lo de máster es difícil
+[Remote]: pasárselos, en lo de Visa lo de el de Visa después se los paso,
+[Remote]: y falta y le faltaría el t tres mil trescientos, que sería lo que nos
+[Remote]: nosotros tenemos que pagar a la Mac. Perfecto.
+[Remote]: Les paso todo del mismo día, ese, el veintiséis, el tres y listo.
+[Remote]: Así es, queda el día completo. Espectacular.
+[You]: Listo. Bueno, tengo la
+[Remote]: Bueno, muy bien.
+[You]: ahí después por mail, así alineamos estos estos pendientes que quedaron, y
+[You]: tratamos de avanzar y tener una respuesta, no sé si esta semana o para
+[You]: arrancar la semana que viene, o ya sea con una demo o empezar a pensar en la implementación.
+[Remote]: Seguramente, nosotros jueves a la tarde nos juntamos, es
+[Remote]: así que ahí van a tener ya
+[Remote]: entre jueves y viernes le estamos dando feedback.
+[You]: Listo. Bueno, María, Edgardo, Ale.
+[Remote]: Es como
+[You]: Muchas gracias.
+[Remote]: Muchas gracias. Igualmente. Dale, buenísimo, gracias. Chau chau.
+
+============================================================
+SUMMARY
+============================================================
+### Reconciliation Process Overview
+
+- Two main reconciliation processes required:
+  - Brand vs GP: T2203 files against brand settlement files
+  - GP vs merchants: T2203 + T2204 + T2206 against T3300 (merchant liquidation file)
+- Current process uses Access macros and Excel
+  - Works well for current volume
+  - Main pain point: obtaining and parsing source files
+  - Takes approximately 3 hours to process monthly files
+
+### File Architecture and Sources
+
+- Internal files (6 total):
+  - Pesos currency:
+    1. T2203 (filter: currency code 32)
+    2. T2206 (previous day transactions)
+  - Dollars currency:
+    1. T2203 (filter: currency code 840)
+    2. T2204
+- Brand settlement files:
+  - Visa: VSS110 and VSS115 files
+  - Mastercard: liquidation notice via email (no detailed file)
+  - Amex: only net payment amount via email, no detailed files
+- Merchant liquidation file:
+  - T3300 (what GP owes to merchants via COELSA)
+
+### Technical Integration Requirements
+
+- Data connectivity:
+  - SFTP connection needed to single information source
+  - Options: Amazon cloud or Microsoft infrastructure
+  - GP uses Oracle core system with Amazon cloud for file processing
+- Security considerations:
+  - GP has PCI certification requirements
+  - Rexi has SOC 2 Type 2, pursuing SOC 1 Type 2 and ISO 27001
+  - Security questionnaire needed from GP’s cybersecurity team
+  - Encryption/hashing methods available for sensitive data
+
+### Outstanding Issues and Next Steps
+
+- Mastercard reconciliation problem:
+  - Daily difference of \~275,000 pesos since October 2025
+  - Brand implementation error causing persistent discrepancies
+  - Ongoing claims with Mastercard to resolve
+- Missing files for demo/implementation:
+  - T3300 merchant liquidation file
+  - Brand settlement files (Visa and Mastercard samples)
+- Decision timeline:
+  - GP internal staff meeting Thursday with Agustín Suares
+  - Feedback expected Thursday-Friday on whether to proceed with demo or full implementation
+  - Alejandro Delbuono (Clearing & Invoicing Leader) will be primary decision maker
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/24f827ba-aa2c-4967-9f70-c1bc279971e1](https://notes.granola.ai/t/24f827ba-aa2c-4967-9f70-c1bc279971e1)

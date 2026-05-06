@@ -1,0 +1,367 @@
+MEETING: Rexi x Supervielle: RPA para ingesta
+DATE: 2026-04-21
+ID: not_EV5p6V5XkEwPww
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Sebastián García <sebastian@rexi.finance>, Peralta Eduardo Ulises <eduardo.peralta@supervielle.com.ar>, Papa Kevin Nahuel <kevin.papa@supervielle.com.ar>, Serrenho Pfefferkorn Lucas Gonzalo <lucas.serrenho@supervielle.com.ar>
+SCHEDULED: 2026-04-21T14:00:00-04:00 - 2026-04-21T14:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: ¿Cómo estás, Kevin?
+[Remote]: ¿Cómo va? ¿Todo bien?
+[You]: Muy bien, ¿y vos? Un gustazo conocerte.
+[Remote]: Bien.
+[Remote]: Igualmente. Sí, quiero, yo
+[Remote]: ya estuve una reunión, creo que hiciste con Ed en la presentación.
+[You]: Ah, mira.
+[Remote]: Sí, sí, sí, sí. Así que, bueno, nada.
+[You]: Bueno.
+[You]: Seguramente
+[You]: Hola, Lucas, ¿cómo estás? Un gusto saludarte.
+[Remote]: ¿Cómo va?
+[You]: ¿Todo bien?
+[You]: A ver, dame un segundito, que si estaba por sumar nuestros
+[Remote]: Dale.
+[You]: CTO, que me interesa que que participe él para
+[You]: que te den mejor dirección en esto.
+[Remote]: Sebastián, ¿no? Sí, yo lo voy a
+[You]: Sí.
+[You]: Ahí está.
+[Remote]: Sí,
+[You]: Sí, está.
+[You]: ¿Cómo está, Seba?
+[Remote]: Buenas, ¿cómo andan?
+[You]: ¿Todo bien?
+[Remote]: Hola, ¿cómo estás?
+[You]: Bueno,
+[Remote]: ¿Chicos?
+[Remote]: Todo tranqui.
+[You]: nada, obviamente, se va nuestro es cofounder y
+[You]: CTO en en Rexy, así que quería que esté acá para responder estas preguntas.
+[You]: Pero dado que estamos, le estoy robando tiempo a Seba, y Seba está corriendo con diez mil cosas a la vez. Seteó un poquito el contexto, así también tratamos de ser bien eficientes y productivos. La idea nosotros estamos a punto de lanzar una prueba piloto con el banco en muchos procesos de conciliación para automatizar esos procesos. Para automatizar esos procesos de conciliación necesitamos acceder a ciertos archivos que cada uno de los ocupos me estuvo mostrando y los bajan de distintos lados. De distintos sistemas. ¿Sí? Siempre una una de las partes es va en total, que nos mostraron como un cartelito que sale donde ellos dicen qué información quieren y se descargan el archivo, bla.
+[Remote]: Sí.
+[You]: Nosotros, inicialmente, dijimos, bueno, para la prueba piloto,
+[You]: digo, si ya lo están descargando,
+[You]: que lo dropeen ahí. De hecho, les habilitamos un SFP para que lo dropeen ahí, después nosotros ya
+[You]: tenemos ahí. Pero Eduardo dijo, che, si lo vamos a automatizar,
+[You]: bien. Así que creo que la idea con vos, Kevin, es ver de qué manera podemos armar
+[You]: un RPA para que esos anjistos, esos esos archivos viajen de
+[You]: esos sistemas a ¿no?
+[Remote]: Ok, sí, perfecto. Bueno, primero, nos gustaría saber con Luke digamos, qué herramientas, porque siempre, cuando pregunté, nadie me supo decir,
+[Remote]: digamos, con qué herramientas ustedes trabajan. Me dicen, tienen unos motores, unos motores de trabajo de conciliación, sí, pero ¿cuáles? ¿Qué
+[Remote]: sistema? Entonces, nada, le gustaría primero entender eso un poco, ponernos en contexto,
+[Remote]: y ver de qué manera nosotros los podemos ayudar.
+[Remote]: Dale, te contesto yo, si querés, ahí Dale. ¿Cómo es?
+[Remote]: ¿Es papá Kevin? No, Kevin Papa, como suena. Es Sí, papá. Ah, ok.
+[Remote]: Pero es apellido, me imagino. Sí, es apellido, apellido. Bye bye.
+[Remote]: Kevin, mirá, te cuento, nosotros somos una plataforma SaaS,
+[Remote]: que corre, o sea, todas las cosas que nosotros ingestamos source y que puede ser
+[Remote]: por SFTP, puede ser vía API, por cualquier tipo de source,
+[Remote]: nosotros las ingestamos, se configuran en esta plataforma,
+[Remote]: y nosotros ingestamos automáticamente. Después, esto corre todo en AWS,
+[Remote]: nuestra plataforma, está todo en cloud, en cloud, así que
+[Remote]: nada, lo que necesitaríamos ahora, y lo que entiendo de Nacho, es
+[Remote]: hay una forma de ingresar data de manera manual que vos agarras
+[Remote]: un CSV, ponele, o este archivo que dice,
+[Remote]: de total, que vos lo podés ingestar, entrás a la
+[Remote]: plataforma, lo ingestás. Es como uploadar un archivo, ¿viste?, upload file,
+[Remote]: le metes y eso lo ingesta la plataforma. Entiende lo que quieren el equipo de Super Bill,
+[Remote]: es que eso sea automático y no tengan una persona subiendo, entrando a la plataforma, todo lo
+[Remote]: días descargando el archivo y subirlo. Ahí nosotros
+[Remote]: le, si quieren, para para contarles cómo hacemos con otros clientes, es
+[Remote]: generalmente, los clientes habilitan un SFTP,
+[Remote]: donde ellos cargan los archivos ahí, y y Rex sí se conecta al SFTP,
+[Remote]: obviamente, de manera privada, y ustedes nos pueden white-listear la IP para que esto sea de manera segura,
+[Remote]: y nosotros quedamos conectados al SFTP,
+[Remote]: y lo único que tenemos es un curso en los archivos. Entonces, cuando alguien sube un archivo nuevo al SFTP,
+[Remote]: automáticamente, Rexi lo lee y lo ingesta en la plataforma.
+[Remote]: Entonces, no sé cómo lo hacen ustedes generalmente, pero esa se
+[Remote]: para mí la ideal, ¿no? Porque entiendo que Super Bill no estuve viendo los archivos de Super Bill, pero entiendo que
+[Remote]: maneja mucho archivo, porque nos estuvieron subiendo cosas a los a las
+[Remote]: a las carpetas nuestras, pero creo que lo más óptimo sería que ustedes
+[Remote]: habiliten un SFTP, nos dicen, nos whitelistean nuestra IP para que solo nosotros podamos
+[Remote]: ingresar. Nosotros nos conectamos a, digamos, ese CFTP dedicado para Rexi,
+[Remote]: podemos cargar los archivos y queda automatizado.
+[Remote]: Decí, no sé, hay cosas que sí podemos hacer, hay cosas que no por permiso de seguridad.
+[Remote]: Que tenemos que pedírselo a asegurar accesos, y ahí es tu tuyo.
+[Remote]: Tal cual, o sea, lo que sería descargar una fuente
+[Remote]: sea Dynamics o en total o el sistema que hayan escuchado nombrar,
+[Remote]: eso se puede hacer y es
+[Remote]: relativamente sencillo,
+[Remote]: Obviamente, como dice Kevin, va a requerir que alguien de
+[Remote]: seguridad le dé los accesos a un bot para hacerlo, que es lo que hacemos todos los días.
+[Remote]: Pero si lleva su tiempo,
+[Remote]: a su vez,
+[Remote]: no trabajamos con SFTP con ningún otro caso,
+[Remote]: no creo que sea un problema, es algo bastante estándar, pero de vuelta.
+[Remote]: Una parte de seguridad
+[Remote]: y de networking, que son justamente los que van a asegurarse de
+[Remote]: que el canal exista, que sea seguro, que ustedes estén en el el
+[Remote]: lugar para consumirlo, así que
+[Remote]: todo eso son
+[Remote]: factores ajenos a nosotros,
+[Remote]: que idealmente debería
+[Remote]: tomarnos el mismo usuario.
+[Remote]: Decir, el usuario a veces es el que tiene que gestionar estas cosas y nosotros consumirlas,
+[Remote]: de la misma forma que ustedes consumen, por decir,
+[Remote]: Entonces, ahí va a ser un trabajo un poco en conjunto,
+[Remote]: pero
+[Remote]: no creo que sea un problema. Sí, obvio, tenemos que poder ver caso por caso, ¿no?, tipo,
+[Remote]: de dónde
+[Remote]: a dónde van, dónde lo ponen, dónde lo sacan, pero no mucho más.
+[Remote]: Pregunta, chicos, para entender, ¿ustedes en qué área están?
+[Remote]: ¿De seguridad, de de? No, nosotros, mirá, es
+[Remote]: es un híbrido, un híbrido de TI y un híbrido de operaciones. Estamos en operaciones, pero hacemos cosas de TI.
+[Remote]: Pero la solicitud de por controles de posesión la tiene otro
+[Remote]: sector en el cual vos tenés que cargar un un ticket, un CRM, un reclamo,
+[Remote]: y lleva su tiempo.
+[Remote]: Para que des una idea, como mínimo diez días. Ok, increíble. Y mirá, eso es somos internos, así que imagínate. No, no, me quiero imaginar todo por eso, los entiendo, chicos, no hay problema. Yo les digo un poco nosotros cómo nos manejamos, pero entiendo que esto, Nacho, viene del lado de
+[Remote]: Edu, que te mandó acá a tener esta conversación,
+[Remote]: Bueno, yo le diría a Edu que lo más eficiente es que lo
+[Remote]: chicos carguen manualmente en la plataforma los archivos,
+[Remote]: y evitemos todo este proceso burocrático, si queremos ser eficientes.
+[Remote]: Ahora, si me preguntan a mí, lo del SFTP me parece que es lo más estándar, y lo del la del de la IP nuestra es lo que solemos hacer por temas de seguridad, pero ahí, díganos ustedes, capaz que están acostumbrados a otra manera de transferir archivos, y nosotros medio que tenemos varias, o sea, solamente tienen que decirme, y nosotros medio que nos ajustamos. No, ahí te ahí hay alguna aclaración, que por ahí Luke no sabe por qué, digamos, hablé... Dependemos también
+[Remote]: de Eduardo, O sea, entiendo que ustedes estuvieron con Vilma, con
+[Remote]: y con Mariano García. Ajá.
+[Remote]: Lo que me pidió Eduardo es, porque dependemos de Eduardo,
+[Remote]: es que
+[Remote]: tal como indicaste vos y indicó Nacho, es, che, toda la parte de descarga de información de la
+[Remote]: no quiero que la haga más una persona, sino quiero que la haga un con RPA.
+[Remote]: Nosotros, la verdad que en el banco tenemos procesos mucho más grandes, y la verdad que descargar información para
+[Remote]: es algo muy sencillo, pero
+[Remote]: esta es la única troca que tenemos, en ir y decir, che, dame el acceso,
+[You]: Hagamos eso, creo que ustedes pueden hacer el pueden hacer el RPA de descarga, y después de a nuestros FTP, y automatizan esa esa parte estaba de su lado, ¿no?
+[Remote]: Exactamente, eso es lo que nos pidió Eduardo. Pero si momentáneamente ustedes necesitan con urgencia esta información, el usuario y la
+[Remote]: puede descargar
+[Remote]: a mano, se las va pasando donde ustedes están van trabajando. Obvio. Paralelamente, nosotros como
+[You]: No. No. No. No. No.
+[You]: Te doy ahí contexto que, no, el el el proyecto
+[Remote]: gestionando,
+[Remote]: Sí.
+[You]: como todavía en en aprobación, están están hablando con Paco y están validando internamente, con lo cual tenemos
+[Remote]: Ah, ok.
+[You]: unos días, con lo cual me parece espectacular.
+[You]: Que usemos esta semana como prioridad
+[You]: que ustedes automaticen esa parte,
+[You]: pero de nuestro lado sería simplemente lo el el el SFTP que ya disponibilizamos, ¿no?, se va.
+[Remote]: Yo, lo que los chicos que necesiten, a mí me da igual, nosotros,
+[Remote]: imagínense que tenemos un montón de clientes y cada uno medio que se adapta.
+[Remote]: Tenemos un montón de cajitas de herramientas, y es, yo les propongo la de SFTP, porque me parece la más
+[Remote]: obvia y la más limpia, pero si ustedes me dicen, che, Seba, te lo tenemos lo
+[Remote]: tenemos que depositar en este otro método, lo revisamos, vemos si los tenemos, y, si no, lo lo armamos nosotros ahí. Como que medio ajútense también si ustedes están armando RPAs ahí por todo Super Bill, nos ajustamos un poco a lo que ustedes necesiten para para acelerar. Ahí, Luke, no sé, ¿te necesitas evaluarlo vos para ver qué es lo mejor o? Una
+[Remote]: un mecanismo bastante normal. Hay un proceso que
+[Remote]: diferencia de este, en vez de poner datos en un STTP, los baja, por lo cual en algún lugar
+[Remote]: en un otro lugar del banco lo vayan dando.
+[Remote]: No creo que que sea algo demasiado raro.
+[Remote]: O sea, sería descargar ArmandRPA para que descargue y los use SFTP,
+[Remote]: y que nosotros solo lo podamos consumir como read nada más, o sea, con esos permisos,
+[Remote]: y los podemos descargar para ingestarlo. Eso es lo que nosotros hoy, por ejemplo, si ustedes arman,
+[Remote]: hacer las pruebitas de nuestro lado es una boluda, es porque está como medio automatizado toda la carga de
+[Remote]: de SFTP. Pero si ustedes quieren ir por ese approach, si quieren bajen la estrategia,
+[Remote]: compártanla, la comparten por mail, y yo les digo si estamos y lo vemos.
+[Remote]: Dale. Primero necesitaría saber
+[Remote]: procesos, digamos, necesitan con urgencia, o sea,
+[Remote]: los tres, pero ¿cuál es...?
+[Remote]: El por el que podamos avanzar?
+[You]: No, ninguno tiene más urgencia que el otro. La propia piloto va a contemplar las tres áreas
+[You]: dentro de las tres áreas había
+[You]: Son cinco o seis procesos, dos, dos y uno,
+[You]: creo que era dos, dos y uno, cinco.
+[You]: Los chicos, mirá, yo te voy a poner, si querés, te pongo en copia ahora,
+[You]: porque los chicos me me compartieron los archivos.
+[You]: Entonces, yo te voy a en cada uno de esos threads,
+[You]: que vos veas exactamente con los chicos cuáles son los archivos que ellos bajan y necesitan
+[You]: para conciliar, y después ya ahí vos trabajas con ellos para armar ese
+[You]: ese cron job, ¿no?
+[Remote]: Okay.
+[Remote]: Perfecto. Perdón, ¿son cinco fuertes de datos distintas, Nacho, o siempre va en total o por...?
+[You]: No, siempre es van total y después siempre es alguno otro, pero otro sistema interno.
+[Remote]: Sí, igualmente, por más que sea total,
+[Remote]: cada
+[Remote]: ustedes con cada equipo que hablaron son, si bien dependen de una misma gerencia, pero son equipos distintos, y los
+[Remote]: permisos están segregados de acuerdo a las funciones. Entonces, son
+[Remote]: cinco permisos distintos, por ejemplo, para un total. Si fuera Dynamics,
+[Remote]: entiendo que es ese que menciona Eduardo puntualmente, es otro permiso distinto,
+[Remote]: y, además, algo de Sislea creo que también tocaba, o sea, son para una iniciativa, son tres permisos de tres sistemas distintos que tengo que pedir. Ok, perfecto. No, ahí Kevin, la verdad que para nosotros tenemos que hacer las tres cosas, o sea, Edu va a pedir los tres.
+[Remote]: No, no es que va a decir, empecemos. Si quieren, empecemos con uno para probar el punta a punta,
+[Remote]: recomiendo eso, así hacemos un punta a punta con nosotros,
+[Remote]: y cuando está armado un caso de uso entero, replicamos todo en los otros.
+[Remote]: Dale. Yo ahí les diría, porque no sé qué iniciativas trataron,
+[Remote]: díganme ustedes cuál es la más sencilla o qué de, no
+[Remote]: requiere solamente descarga de información de Banco Tal,
+[Remote]: díganme cuál es, yo me doy vuelta, lo veo con esa persona,
+[Remote]: empiezo a gestionarlo. Digo ir del más simple, el más complejo, como para que ustedes
+[Remote]: no se les hayan no se les haga un cuello de botella.
+[You]: Tenemos tenemos esta semana y la que viene.
+[You]: Con lo cual la, bueno,
+[You]: no es que no no sé si me parece lo más eficiente que intermedies a través de mí. Yo te puedo conectar, pero
+[You]: como que...
+[You]: Me parece mejor que vos vayas con Santiago Mesina, con Mariano García.
+[You]: Con Vilma, y alinees con ellos cuáles son los archivos y la fuente de información, y
+[You]: construyas con ellos los los RPAs.
+[Remote]: No, no, no, sí, yo voy con voy con ellos, o sea,
+[Remote]: no hace falta que estés vos. Si no, te digo es, de esas iniciativas que
+[Remote]: evaluaste, ¿cuál crees que es la más
+[Remote]: simple de descarga de información?
+[Remote]: ¿Si ya vieron las cinco iniciativas?
+[Remote]: Porque yo no sé qué qué presentaron.
+[Remote]: Ahí, Kevin, creo que nosotros nunca entramos a la plataforma donde descargan. Entonces,
+[Remote]: creo que te van a poder contestar más ellos. Yo me juntaría con los tres al mismo tiempo,
+[Remote]: y revisaría cuál es el mejor
+[Remote]: el más fácil de todos para arrancar con eso, hacer un punto a punta.
+[Remote]: Ok. Poder construir esto. Porque a nosotros nos llegaron solo los archivos,
+[You]: Sure.
+[Remote]: Kevin.
+[Remote]: Ok. Y pero, ¿y se juntaron con ellos para ver qué
+[You]: Sí, sí, sí.
+[Remote]: hacían en cada tarea o todavía no?
+[You]: Ya lo tenemos bien bien mapeado.
+[Remote]: Sí, pero eso es.
+[Remote]: Eso es desde que tenemos el file para adelante, no de
+[Remote]: lo que hay que hacer ahora en esta tarea, ¿se entiende? Ok, perfecto.
+[Remote]: Sí, sí, sí.
+[Remote]: A nivel output, ¿cómo comunican ustedes el resultado de la conciliación?
+[Remote]: Por ahora, a por por ahora, a nivel output, para la prueba piloto, lo tenemos todo en la plataforma.
+[Remote]: Así que la gente, todos los resultados y todo eso se va a comunicar a través de la
+[Remote]: Pero después, por ejemplo, tiene algunos módulos de exports, donde se exportan a
+[Remote]: archivos y se pueden exportar, pero no entraría en ese proceso, porque también hay que
+[Remote]: configurar la parte de ese y depositamos en un SFTP, por ejemplo,
+[Remote]: de Super Bill para tener los reportes, pero generalmente todo se puede descargar de la plataforma también, chico.
+[Remote]: Entonces, no no no deberíamos entrar. Para lo que es la prueba piloto,
+[Remote]: deberíamos tener que configurar después a nivel output.
+[Remote]: Ok, o sea, que hoy en día el usuario tiene acceso a la plataforma y puede ver el resultado, como
+[Remote]: esté.
+[Remote]: ¿No? Exactamente. Obviamente, estas son tres
+[Remote]: áreas, cada uno puede ver solamente los archivos que subió,
+[Remote]: dentro de la plataforma. Ahí es una cuestión de roles y permisos dentro de la plataforma.
+[Remote]: O sea, más allá de que es toda la misma organización dentro de Rexy y Superbill, tienen áreas y permisos, que es lo que gestiona Nacho con los equipos.
+[Remote]: Ok, ok.
+[Remote]: Y una consulta, ¿el desarrollo de ustedes es estático o dinámico? Es decir, si cambian a una
+[Remote]: cosas
+[Remote]: que ir y tocar los cambios o...?
+[Remote]: Se se reentrena en en el proceso, por así decir?
+[Remote]: Perdón, no no entendí ahí, Lucas, qué querés
+[Remote]: ¿Cómo enfrentarían un cambio en algo que tiene que ser el proceso?
+[Remote]: Porque a veces pasa que te dan una definición,
+[Remote]: lo hacés,
+[Remote]: seis meses después,
+[Remote]: el archivo cambió o hay que contemplar un nuevo caso o hay un subtipo,
+[Remote]: ¿Cómo?
+[Remote]: Manejan ustedes modificaciones?
+[Remote]: Lo que es, si es
+[Remote]: un cambio en el proceso, por ejemplo, van total cambió la UI y ustedes hicieron una
+[Remote]: que va a esa claro. No, eso sí era a ustedes, digo.
+[Remote]: Nosotros en Rex y todo lo que es tema de es una plataforma de data, tenemos un
+[Remote]: de data quality, que, cuando se ingesta el archivo, si viene con un distinto esquema
+[Remote]: o cambió algo de las propiedades de la data, eso avisa, y hay un warning
+[Remote]: que no se solucione y se pueda ingestar nuevamente la información.
+[Remote]: Porque como es, pero imagínate que vos cambiás, no sé, venías recibiendo un reporte, cambió ese reporte,
+[Remote]: y después vos seguís ingestando, que es una plataforma de conciliaciones.
+[Remote]: Entonces, si vos ingestás data nueva a otros objetos, no podés, vas a conciliar peras con manzanas.
+[Remote]: Trabás todo porque el esquema cambió hasta que el usuario venga, lo adapte,
+[Remote]: eso es manual, y después el proceso sigue.
+[Remote]: Ok.
+[Remote]: Un un punto de base de datos, ok.
+[Remote]: Claro, porque nosotros injetamos el archivo, imagínense, no sé lo que es lo
+[Remote]: Novi los reportes van total, pero si son tablas, son CCBs o lo que sea, como se
+[Remote]: llega al archivo, eso se ingesta como si fuera una entidad en una base de datos nuestra,
+[Remote]: y si ese esquema cambia o el tipo de dato cambia o lo que sea Sí, sí, papá.
+[Remote]: Ahí necesitamos interacción del humano. Nosotros, en nuestra plataforma, hacemos la
+[Remote]: la sugestión necesaria, pero necesitamos el human in the loop
+[Remote]: que dé el ok, ¿no?, para seguir el proceso, porque cambió algo de raíz, de estructura.
+[Remote]: ¿Y esto mismo lo puede cambiar el humano o igual necesita interacción de ustedes?
+[Remote]: No, no, lo cambia el humano directamente.
+[Remote]: Ok.
+[Remote]: O sea, todo lo que es el proceso de la del tratado de data, de la información de la data,
+[Remote]: todo lo hace el equipo de estos equipos.
+[Remote]: Es bastante user friendly, es como que
+[Remote]: es como si fuera un Excel. Nosotros lo dejamos disponibles como si tuviera un Excel,
+[Remote]: pero lo que pasa es o sea, son miles de datos, millones de datos, y un Excel más de doscientas mil filas,
+[Remote]: empieza a explotar, esta plataforma se banca un billion y no pasa nada.
+[Remote]: Ok.
+[Remote]: ¿Bien?
+[Remote]: Ok.
+[Remote]: Perfecto.
+[You]: Como te dije, Kevin y y Lucas, si nos pueden ayudar con esto,
+[You]: esta semana y la que viene sería ideal, así para cuando ella se apruebe todo y estemos
+[You]: para lanzar la prueba piloto, esto ya esté construido.
+[You]: Sería
+[You]: fenomenal. Ahí yo estoy armando un mail, Kevin,
+[You]: y Lucas, con los tres, con Mariano García,
+[You]: Santiago Mesina y con Vilma Furlán, para que después ustedes vayan y coordinen con ellos
+[You]: las fuentes y los archivos automatizados, ¿parece?
+[Remote]: Perfecto, sí.
+[Remote]: Sí. Nada,
+[Remote]: tengan paciencia. O sea, si hay algo que se demora, no es de mi parte, sino es de seguridad de acceso,
+[Remote]: voy a tratar de traccionarlo y hablar con Eduardo, para ver de qué manera nos puede ayudar.
+[Remote]: Y acelerar un poco más los tiempos.
+[Remote]: Los accesos, y con eso estaríamos. Pero ya te digo,
+[Remote]: mientras tanto, tengo gente de vacaciones,
+[Remote]: el banco se estuvo reestructurando, nos sacaron tres personas del equipo,
+[Remote]: así que estamos ahí un poco colapsados. Ténganme paciencia, que vamos a
+[You]: Dale.
+[Remote]: a dar una mano en cuanto podamos.
+[Remote]: Dale, dale, chicos. Ahí ustedes,
+[You]: Y si necesitás desbloquear algo interno, apóyate en nosotros y
+[Remote]: Es
+[You]: lo elevamos con Eduardo, así desbloqueamos.
+[Remote]: que con Eduardo movemos un poco todo, o sea, no no no
+[Remote]: nada, avisanos ahí si necesitás una mano. Lo mismo para ver las pruebas,
+[Remote]: avísennos y yo, tipo, nos conectamos, chicos, y y lo vemos en conjunto.
+[Remote]: ¿Dale?
+[Remote]: Dale, perfecto.
+[Remote]: Dale, chicos. Bueno, gracias. Vale, quedamos hablando Hasta luego.
+[You]: Chao, gracias.
+
+============================================================
+SUMMARY
+============================================================
+### RPA Implementation Overview
+
+- Kevin Papa and Lucas Serrenho from Supervielle operations/IT hybrid team
+- Goal: Automate file downloads from various systems (Van Total, Dynamics, Sislea) to eliminate manual processes
+- Current state: Users manually download files and upload to Rexi platform
+- Target: RPA bots download files automatically to SFTP for Rexi ingestion
+
+### Technical Architecture Discussion
+
+- Rexi’s preferred approach: SFTP connection with IP whitelisting
+  - Standard method used with other clients
+  - Rexi connects with read-only permissions
+  - Automatic ingestion when new files appear
+- Supervielle constraints:
+  - Security approval process minimum 10 days
+  - Separate permissions needed for each system (Van Total, Dynamics, Sislea)
+  - Three different permission requests required for five total processes
+
+### Process Scope & Complexity
+
+- Five processes across three teams: two processes each for two teams, one for third team
+- Each team has segregated permissions despite same management
+- Systems involved:
+  1. Van Total (multiple instances)
+  2. Dynamics
+  3. Sislea
+- Recommendation: Start with simplest process for end-to-end testing before scaling
+
+### Platform Capabilities & Change Management
+
+- Rexi platform runs on AWS cloud
+- Data quality monitoring detects schema changes automatically
+- When file structure changes:
+  - System flags warning and stops ingestion
+  - Human intervention required to approve schema updates
+  - Users can make changes directly in user-friendly interface
+- Platform handles millions of records (vs Excel’s 200k limit)
+
+### Next Steps
+
+- Ignacio connecting Kevin/Lucas with three team leads: Mariano García, Santiago Mesina, Vilma Furlán
+- Timeline: Complete RPA setup within 2 weeks before pilot approval
+- Kevin will coordinate directly with teams to identify simplest starting process
+- Eduardo Peralta can help escalate security access requests if needed
+- Current constraints: Supervielle team reduced by 3 people, some on vacation
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/932f9467-a81b-463c-bdab-5178b6e6492b](https://notes.granola.ai/t/932f9467-a81b-463c-bdab-5178b6e6492b)

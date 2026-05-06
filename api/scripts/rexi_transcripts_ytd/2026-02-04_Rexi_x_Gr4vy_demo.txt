@@ -1,0 +1,920 @@
+MEETING: Rexi x Gr4vy: demo
+DATE: 2026-02-04
+ID: not_uIfydP56uEWX0q
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Sebastian <sebastian@rexi.finance>, Teo <teo@rexi.finance>, Jules <jules@gr4vy.com>, Zubin <zubin@gr4vy.com>, Masih <masih@gr4vy.com>
+SCHEDULED: 2026-02-04T09:00:00-05:00 - 2026-02-04T09:45:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Hello.
+[Remote]: Hello.
+[You]: Hello, How are you?
+[Remote]: Yeah. All good. How are you?
+[You]: Doing good. Thank you. Were you
+[You]: are you turning in from?
+[Remote]: I'm originally from Iran.
+[You]: Currently based in London. Okay. Amazing.
+[Remote]: Currently based in London.
+[You]: And you do engineering at gravy?
+[Remote]: Yes. I'm a software back in the engineer.
+[You]: Nice. Nice. You've always lived in London or just
+[You]: for a few years?
+[Remote]: No. Just for a few years, maybe.
+[Remote]: It did three years.
+[Remote]: Morning.
+[Remote]: And morning.
+[You]: Well, great.
+[You]: How are you legging London?
+[Remote]: Yeah. I like it.
+[Remote]: Yeah. Especially for the kids. They like the schools and
+[Remote]: the education system.
+[You]: I thought it's
+[Remote]: So
+[Remote]: as long as they're happy, we are happy.
+[You]: makes sense. Makes sense. There's good public schools or private?
+[Remote]: That's good.
+[Remote]: Yes. Public schools.
+[Remote]: Private schools are extremely expensive. So
+[You]: Same here in the in The US.
+[Remote]: no.
+[Remote]: You,
+[You]: But me and Teo were from Argentina.
+[You]: And down there, it's very different. Probably schools are
+[You]: not good and so there's a bigger market of private schools that are
+[You]: accessible. You know? Hey, Jules. How's it going?
+[Remote]: All good. How are you?
+[You]: Doing good. Thank you.
+[You]: Are we waiting for someone else?
+[Remote]: No. I think and
+[Remote]: Chris it's six it's 6AM for. He just messaged me if we could
+[Remote]: if we could record this this meeting. That would be great.
+[Remote]: I think he will touch base with you at some other point in time.
+[You]: Got it.
+[Remote]: More commercial side of things.
+[Remote]: I think today, let's do let's do the demo.
+[Remote]: Then
+[Remote]: I'll ask Zoom in to contact you separately for for more of the commercial side of things.
+[Remote]: Fantastic.
+[You]: Very cool. Alright. Let me just share my screen. I have a couple of slides prepared just to set the stage
+[You]: here, and then I'll let Theo show the magic
+[You]: Oh, I don't
+[Remote]: I don't think we have to nice of us, Dan. Hi. How are you?
+[You]: exactly.
+[Remote]: Me too. Hi, guys. How are you?
+[Remote]: All good.
+[You]: Sorry for the admission. Sorry?
+[Remote]: Everybody pays in support?
+[Remote]: Sorry?
+[Remote]: Is everybody based in New York on your side?
+[You]: Tell on myself, yes. Sebastian is in monotitis.
+[Remote]: Nice. Buenos Aires, Argentina.
+[Remote]: Yeah.
+[Remote]: Right. I'm I'm close well, relatively close to where you are. I'm based in Brazil.
+[Remote]: Brazil. Right? Oh. But I'm I'm based in Brazil.
+[Remote]: And we have a whole bunch of Argentinians working in gravy.
+[Remote]: So Nice. Hope you
+[You]: How is that working for you guys?
+[Remote]: Good talent, hopefully.
+[Remote]: It's no. It's good.
+[Remote]: It's good.
+[You]: Amazing.
+[Remote]: It's good. Yeah. I mean,
+[Remote]: yeah. No. It's it's it's fine. I mean, we we have a lot of Brazilians and Argentinians, so it's
+[Remote]: always a bit of a battle about which which language gets spoken more.
+[Remote]: Oh, it's okay. I think one of the Brazilians left last week, so now it's
+[Remote]: Spanish again. So
+[Remote]: it's like they are conquering, like, the language. Yeah.
+[Remote]: Windows today is Aussie.
+[Remote]: If you wanna introduce yourself, Mazi.
+[Remote]: Yeah. Very nice to meet you all. I'm Mazi, originally from Iran.
+[Remote]: Currently based in London.
+[Remote]: I'm a back end engineer in one of the teams.
+[Remote]: Called Groot.
+[Remote]: I guess that's it. I'm I'm here.
+[Remote]: So I I I invited Mazi because
+[Remote]: Mazi has helped out with a lot of implementations on on the settlement boarding side.
+[Remote]: And
+[Remote]: well, we
+[Remote]: all these implementations quite often when when we look at data
+[Remote]: pipelines, that's where
+[Remote]: that's where the questions arise. Right? So you'll be connecting to the PSP is
+[Remote]: fine, you know, setting up an s at b, etcetera. That that's alright.
+[Remote]: But then the moment the data comes in, that's where the questions arise.
+[Remote]: Right? Like, okay. But what does this actually mean?
+[Remote]: How is this calculated? How do we
+[Remote]: you know, how do we explain that to the merchant? And I think that's
+[Remote]: why it's interesting to have Mazi onboard today. It's like, okay. Let's see
+[Remote]: from the POC
+[Remote]: if we're aligned on on what these you know, what
+[Remote]: what we're trying to expose to the merchant and how how we translate that.
+[Remote]: From the raw files. So in this case, I think, we're looking at
+[Remote]: checkout today. Mhmm.
+[You]: Yep. And, yeah, exactly, you nailed
+[You]: I mean, we we encounter the same problem. Right? We're we're
+[You]: connecting directly to these merchants to reconcile their transactions.
+[You]: And so we we basically encountered the same bottlenecks you guys are are encountering
+[You]: on both
+[You]: building the connectors and then building the
+[You]: parsing layer, which is, as you said, getting the data and then translating it so that it's
+[You]: easier to process and reconcile transactions.
+[You]: So just a a quick overview of where we stand.
+[You]: And what we heard on previous meetings. It's about
+[You]: cracking, both of these bottlenecks. Right? On on the left side, it's
+[You]: it's building the connectors to that long tail of PSPs.
+[You]: You mentioned a metric in previous meetings that
+[You]: there's, like, 80% of customers that cannot use your reconciliation module because
+[You]: they need an integration that Gravy currently doesn't support.
+[You]: And that that's just gonna take you too much time. Right? That's
+[You]: that's a big number of customers that cannot use
+[You]: a key component of a platform. Right? Then there's your data formatting,
+[You]: bottleneck. As you said, it's not only getting the data, but also
+[You]: making good sense of it and and understanding the different columns
+[You]: so that then it's easier to to use and process. And then
+[You]: this is about saying this is about a growth vector. Right? Like, because
+[You]: for Gravy as an orchestration platform, correct me if I'm wrong,
+[You]: The reconciliation module is is something that will drive share of wallet. Right?
+[You]: These merchants using Gravy more than other solutions because now they have all their PSC
+[You]: all their payment providers inside Gravy reconciling
+[You]: money movements. And then so then
+[You]: why not also use gravy for additional products or even
+[You]: additional payment pipelines. Right?
+[You]: So this is, like, sort of the mapping of how we see
+[You]: the collaboration happening. Right? Rexy sitting in the middle, hacking these
+[You]: scalability issues around data connections and data normalization.
+[You]: Right? So we
+[You]: can build all these integrations, and then we we're gonna be parsing
+[You]: that data and providing with Gray Read the report that you guys need to actually reconcile, transactions and and and and with data that useful for you guys on whatever you wanna do afterwards. So just sitting at the middle, and cracking both of those bottlenecks. Right? On and that's too two big bottlenecks that we're gonna be cracking. First is the integration layer connecting to that long
+[You]: tail of PSPs.
+[You]: I think we all know here that it's not always API.
+[You]: There's SFTPs, and there's sometimes other stuff like
+[You]: PDFs coming via email or even downloading CSVs from portals.
+[You]: And, again, this sits
+[You]: at the core of what we do. Right? Because we're we're connecting directly to our customers
+[You]: and ingesting all this data.
+[You]: We believe we can handle this and crack this
+[You]: this bottle that you guys have on on just connecting to that long tail of providers.
+[You]: And then the second part is standardizing data, right, the normalization layer.
+[You]: Because, again, these these files come in many different formats.
+[You]: With different names of the different columns, and we need to make a sense of what
+[You]: those mean, how those are calculated to actually
+[You]: make it useful to process and to reconcile. I'm sure
+[You]: is something Masique, has done a lot. And
+[You]: what typically happens in these companies is that that becomes like tribal knowledge.
+[You]: I'm I'm sure Masig is the one that knows these files inside out.
+[You]: And it's just inside his head. So that's that's where most of the time is is is lost.
+[You]: Once you get the data actually understanding the different columns,
+[You]: and translating that into a gravy standard report, that is then useful to
+[You]: to reconcile. So, again,
+[You]: this sits at the core of what we do, and we're building next gen technology for it.
+[You]: We're building a parsing engine that basically
+[You]: automatically detects columns and suggests mappings with confidence scores.
+[You]: And as we add more and more providers,
+[You]: the system's learned. Right? Because we already have the standard gray report,
+[You]: and we can
+[You]: really understand what we're looking for in those
+[You]: column mappings.
+[You]: So at the end, today is just to show a product demo and then
+[You]: probably align a bigger scope of a pilot test
+[You]: maybe handle some real integrations that you guys need and see
+[You]: that takes us. But as of today, let's just go through the
+[You]: the the demo that the that the team has prepared and then see how we
+[You]: wanna continue.
+[You]: That said,
+[Remote]: Alright.
+[You]: said,
+[Remote]: Yeah. If there is any questions,
+[Remote]: we can address them. If not, I can just
+[Remote]: go through the product, and then we can
+[Remote]: take it from there.
+[Remote]: Alright. So
+[Remote]: this is screen I wanna share.
+[Remote]: Basically, as Nat just said,
+[Remote]: what Rexi does is
+[Remote]: it automates
+[Remote]: basic basically, FinOps processes. We automate ingestion. We automate standardization. We automate reconciliation with which you already know, of course, and we automate report generation. So exactly what what seems to be needed in this case. So first,
+[Remote]: to go through the
+[Remote]: automated report creation,
+[Remote]: These are two examples of
+[Remote]: structured data coming from checkout.com.
+[Remote]: This would be merchant a, merchant b. This is
+[Remote]: what the actual data coming from looks like and and the format.
+[Remote]: This is
+[Remote]: a transactional report, a settlement report,
+[Remote]: that does not
+[Remote]: it's not in the same structure as as as you need.
+[Remote]: Basically, what we do is we automate the ingestion,
+[Remote]: and we have one,
+[Remote]: one source with we call them source
+[Remote]: one source per per merchant.
+[Remote]: So let's say we've got these
+[Remote]: two merchants both using checkout.com and both having the information in the same
+[Remote]: in the same format.
+[Remote]: We go to the
+[Remote]: reporting
+[Remote]: Yep. Here. We go to the reporting module, and we
+[Remote]: create one report.
+[Remote]: So
+[Remote]: reports can be structured and based on sources,
+[Remote]: One per, I don't know, merchant a, one per merchant b,
+[Remote]: source a, source b, or whatever.
+[Remote]: Or
+[Remote]: can use one same report
+[Remote]: that automates the creation based on several
+[Remote]: sources.
+[Remote]: Most most likely coming from the same API. For
+[Remote]: example, checkout settlement report, it's the same
+[Remote]: structure coming from
+[Remote]: different merchants. So we use this one,
+[Remote]: Of course,
+[Remote]: in order for for this to work, you need to make sure that you're using the same structure
+[Remote]: like, the same origin structure
+[Remote]: And then, you've got, of course, the available columns. These are coming from
+[Remote]: checkout.com APIs.
+[Remote]: And then you've got the the actual report you wanna build.
+[Remote]: So here, you're gonna, of course,
+[Remote]: add them manually.
+[Remote]: And create it manually.
+[Remote]: Of course, there's a smart prompter here for the to to help you speed up the process or actually
+[Remote]: build the process because this
+[Remote]: these reports are not always as intuitive, and and it's not
+[Remote]: it is it's not exactly the column that comes from checkout.com, which
+[Remote]: want here. Maybe it's, like,
+[Remote]: you know,
+[Remote]: sparse field or or or a
+[Remote]: constructor column.
+[Remote]: You can also, upload a CSV
+[Remote]: and so, basically, you can upload
+[Remote]: the template that you already know and you already work with, and that's
+[Remote]: what you're gonna need for everyone.
+[Remote]: And so here, I upload it. And, for example, this is the the template that
+[Remote]: that you sent us.
+[Remote]: As I mentioned, these are the
+[Remote]: the columns that you need.
+[Remote]: And what we need now is to map it or
+[Remote]: construct it based on the available columns from checkout.com.
+[Remote]: For example,
+[Remote]: here we've got the for checkout to speak with the gravy settlement report structure. We've got this exact template that you sent us. And we just drop it here and let's we let the AI select what in within the available columns would be the reference that's speaks with this. And, of course, you can do this with with every, column or you can directly type when the client reference is not null. Then result is one. Otherwise,
+[Remote]: it's
+[Remote]: zero.
+[Remote]: And you could just
+[Remote]: generate the, formula that would make the report
+[Remote]: speak with with the available columns for
+[Remote]: for checkout.com. First, you can preview the the report. This is exactly, of course,
+[Remote]: none of the formulas are none none of the data actual data coming from the source is zero.
+[Remote]: So here, we go with with the formula we created, it's all one.
+[Remote]: But let's just keep it as
+[Remote]: we did originally and keeping the reference. So now we've got the
+[Remote]: reference
+[Remote]: created in the report.
+[Remote]: We get next. Of course, put here
+[Remote]: daily or whatever name for the report.
+[Remote]: This is a a preview of the report with the with the data we already have.
+[Remote]: So description, and then
+[Remote]: what triggers the report? There's three different triggers you can use.
+[Remote]: One, when the matching source when when a matching source
+[Remote]: is uploaded or updated,
+[Remote]: basically, if new data comes to the source for for this merchant,
+[Remote]: then that triggers the the report automatically.
+[Remote]: We can schedule it if we want it to be done automatically every day at
+[Remote]: 4AM, 5AM.
+[Remote]: Mondays, Sundays, or whatever,
+[Remote]: That can be done. Or, of course, we can do
+[Remote]: manual only and create it.
+[Remote]: In this case, for for the demonstration, we're gonna do
+[Remote]: when the the source is updated.
+[Remote]: And, of course, the output can be
+[Remote]: VSFTP.
+[Remote]: Basically, we can we can dispose the the the
+[Remote]: file in in any sort of
+[Remote]: address that that that you you desire. We can
+[Remote]: actually use our SFTP services. We
+[Remote]: we can dispose it in any of your services that's
+[Remote]: basically up to you.
+[Remote]: Or, we've got our API documentation if you wanna
+[Remote]: hit our API and get it yourselves.
+[Remote]: Let me just
+[Remote]: put the actual data here so that we see it working.
+[Remote]: One second. I need to get the credentials.
+[Remote]: Here.
+[Remote]: Well, while still is
+[Remote]: looking for the credentials, I think that the most important part of the reporting module
+[Remote]: is, like,
+[Remote]: we we we created in order you to prompt everything.
+[Remote]: So you send us, Jules, I think, a report, template
+[Remote]: that we're mapping the columns in checkout.com to gravy reports, and you you put, like,
+[Remote]: how the the value should be generated, and that's our prompts.
+[Remote]: For us. So if you just take that,
+[Remote]: and put it on Rexy, and and the formula is generated.
+[Remote]: So you you don't have to, like, generate the formula or anything.
+[Remote]: To prompt it and and generate, and that's the the
+[Remote]: we think that that improves the process a lot.
+[Remote]: So here here's the the path, and, of course, we've got a webhook
+[Remote]: let you know if you're interested whenever a new report has been delivered.
+[Remote]: And we just save the report.
+[Remote]: And, of course, let's go
+[Remote]: now sources.
+[Remote]: And let's manually update one of the sources. For example, check out merchant b. Let's say
+[Remote]: now
+[Remote]: check out
+[Remote]: update is this
+[Remote]: Here we go.
+[Remote]: And this is reference.
+[Remote]: We update the data.
+[Remote]: And this should trigger
+[Remote]: automatic generation of the report.
+[Remote]: I think, Till, if you can wait here,
+[Remote]: I think that if we can also try when we ingest
+[Remote]: the data from checkout.com or the report, we can do, like, a lot of
+[Remote]: free transforms to the data. Okay? So we can
+[Remote]: we have, like, a lot of features here that you can use
+[Remote]: And when when we are set setting up the the sources that we are ingesting,
+[Remote]: that you can use to, I don't know, group by filter,
+[Remote]: or or normalize the data.
+[Remote]: Basically, what every customer we we have does here is the data.
+[Remote]: So
+[Remote]: they all have several banks, several processors, several partners,
+[Remote]: and they all send the data in very different formats.
+[Remote]: Here, what we do is we we give them many tools for them to
+[Remote]: standardize, organize the data in a in a format that
+[Remote]: helps them
+[Remote]: take that data and reconcile it with the with the
+[Remote]: other database that they they need to reconcile with.
+[Remote]: And whatever you do here,
+[Remote]: gets automated and gets done
+[Remote]: automatically every day or every time
+[Remote]: new transactions get added to this source.
+[Remote]: Of course, they can be
+[Remote]: as flexible as you need.
+[Remote]: Basically, it's
+[Remote]: as flexible and even more than whatever you can do in
+[Remote]: in Excel.
+[Remote]: So
+[Remote]: once we've updated this checkout merchant b, we go to reporting.
+[Remote]: And we should be
+[Remote]: seeing here the report already generated.
+[Remote]: Of course, can, check the APIs. You can download it, but
+[Remote]: we should be able to see it.
+[Remote]: At the
+[Remote]: SFTP location that we mentioned.
+[Remote]: I don't know, sir, if you have it there because it's your account. But, otherwise,
+[Remote]: basically, this is a report we just generated.
+[Remote]: I can open it with a minute.
+[Remote]: Yep.
+[Remote]: So, basically, what we do, going over
+[Remote]: what we just said, we automate integrations. We automate data ingestion
+[Remote]: We automate any type of transformation that you need to do.
+[Remote]: We standardize reports based based on tax or based on
+[Remote]: APIs.
+[Remote]: And we automate the generation of that, report and send it
+[Remote]: via API
+[Remote]: or via SFTP, wherever you guys need it.
+[You]: So, yeah, I guess just, like, to round it up,
+[You]: the true value add here the true unlock is is
+[You]: cracking both bottlenecks. Right? On on the connector side, how can we
+[You]: connect to new PSPs faster and more
+[You]: efficiently or just do heavy lifting for you guys?
+[Remote]: Right.
+[You]: And then doing the parsing. Right? Automating all the
+[You]: transformations, normalizations, the parsing
+[You]: so that then we spit out a report that's easy for gravy to consume
+[You]: and reconcile with. Right?
+[You]: If if and and and this operates under the
+[You]: assumption that the reconciliation module for you guys
+[Remote]: Alright.
+[You]: very important to drive share of wallet, and that that's gonna generate additional
+[You]: business for for Gravy. Right?
+[Remote]: Yeah.
+[Remote]: And I think that's that's absolutely sort of the
+[Remote]: the main goal of what we're trying to achieve here.
+[Remote]: From, like, a from from a user
+[Remote]: perspective. Right? So say, for example, we have
+[Remote]: a large merchant that's currently using
+[Remote]: Stripe and Igen.
+[Remote]: Fine. We've already built those integrations. So
+[Remote]: maybe I can actually show it
+[Remote]: One second. I'm just gonna have a
+[You]: Sure. No rush.
+[Remote]: oh, there you go.
+[Remote]: What we what we do in our
+[Remote]: side. So maybe a thing to to sort of think about as well is
+[Remote]: merchants use
+[Remote]: gravy as sort of their centralized hub for payment process.
+[Remote]: Right? So, usually, what what happens is they are ex
+[Remote]: already emerging using a PSP, but they wanna diversify
+[Remote]: and they're looking into orchestration. Right?
+[Remote]: So they have a direct integration with Ijen, but they wanna add
+[Remote]: Stripe and Checkout to the mix so they come brave into second. Well,
+[Remote]: can you can you enable that via one portal?
+[Remote]: One second. Just gonna share my screen here. So this is
+[Remote]: this is what Revit looks like.
+[Remote]: This is a test account. Right?
+[Remote]: So you have always
+[Remote]: all these different tabs, but I think the interesting thing is
+[Remote]: we have this connections catalog
+[Remote]: where you can bring your own credentials and then
+[Remote]: you know, whatever you've set up, you can then start
+[Remote]: roofing your transaction through via via this roofing engine.
+[Remote]: So merchants bring their own credentials, and then
+[Remote]: you know, that's sort of it.
+[Remote]: Like, they wanna use this as a centralized hub and
+[Remote]: what we've done with regard to settlement reporting is, like, okay. Well,
+[Remote]: you have, for example, for example, again, you need to have separate credentials to
+[Remote]: pull the settlement report. And so
+[Remote]: we've we've sort of enabled or
+[Remote]: we've created these toggles within the connectors to say, okay. Well, if
+[Remote]: you wanna use settlement report and enable it over here for, like, your credentials if needed.
+[Remote]: Now when we move into a
+[Remote]: Rexi is gonna pull that data,
+[Remote]: do we need the merchant to fill out their credentials in your
+[Remote]: portal, or can we have, like, a a a push
+[Remote]: to your APIs that say, okay. Well, these are the credential. These fetch
+[Remote]: the data on behalf of the merchant.
+[You]: Yeah.
+[You]: API, 100%. I think it's just more straightforward and leaves the customer
+[You]: experience more need for you guys. Doesn't make sense to have them
+[You]: log in to another platform to input the credentials. So we can figure out a way
+[You]: to get the credentials from you guys. It's gonna be way easier and a better customer experience.
+[Remote]: Right.
+[Remote]: So that's that's one. Okay. So each merchant can
+[Remote]: fill out their own credentials, then
+[Remote]: within Rexy,
+[Remote]: are we gonna have
+[Remote]: one how's that how's that gonna work?
+[Remote]: So we're gonna have one sort of gravy environment with
+[Remote]: merchant specific settlement reports. Exactly.
+[Remote]: Right. So if a merchant
+[Remote]: if merchant a uses
+[Remote]: you know, checkout and trust me,
+[Remote]: and merchant b uses trusty and Bluesnap.
+[Remote]: Will the Trustly report have
+[Remote]: both
+[Remote]: those merchant settlement details, or will there be
+[Remote]: two trusty reports for each merchant? I mean, we can we can work
+[Remote]: to organize the reports. Yeah. So I think that's your I mean,
+[Remote]: for the moment, that would be four different reports.
+[Remote]: But we we can organize them, whichever way
+[Remote]: you're I think I think that's more also a question for for, like, for for Mazi.
+[You]: Yeah. I guess the answer for that is what's more efficient for data transfer?
+[Remote]: It's, like,
+[Remote]: Okay.
+[You]: If we can add a column if we can add a column that basically
+[Remote]: No. Okay. So
+[Remote]: yeah.
+[You]: separates the merchant,
+[You]: and just do one big file for each, PSP,
+[You]: Maybe that's more efficient on on the on the back
+[You]: side of things, on the back end side of things. But if you guys wanna report
+[You]: that's unique for each merchant provider,
+[You]: can also do that. I mean, platform is flexible enough to offer both ways.
+[Remote]: Right. Okay. I I think she'll start
+[Remote]: main idea is that
+[Remote]: the the the operation team use uses Rexi to set up the report of
+[Remote]: checkout.com. And just for that, we we need to set up the clients
+[Remote]: in order to your merchants don't have to put the credentials again
+[Remote]: the platform. So there is a process of setting up
+[Remote]: the credentials that you already have
+[Remote]: Okay? So you have we have to look do a, like, an
+[Remote]: setup process
+[Remote]: for the clients in order to start ingesting the settlement reports
+[Remote]: every day. And then your your team
+[Remote]: or the operational team should make this report, okay, for the
+[Remote]: checkout.com settlement breakdown report. This is the template.
+[Remote]: And all of the clients that you ingested that use that settlement report
+[Remote]: will use that configuration that you make in the back office of Rexy and then we output that whatever you need
+[Remote]: to consume it on you when you are on when you're merchant.
+[Remote]: Are eating gravy and click a link to download the settlement report,
+[Remote]: you, just go to Rex's app to to download it.
+[Remote]: Yeah. So I I think what we would do
+[Remote]: is we would probably
+[Remote]: pull the report on a daily basis.
+[Remote]: So right now, what we do is we actually,
+[Remote]: we have a twenty four hour sort of
+[Remote]: full mechanism. So throughout the day, we just
+[Remote]: pull reports wherever wherever it's available.
+[Remote]: Right? And then the subsequent day, we actually use whatever we've pulled over the
+[Remote]: previous twenty four hours to create the gravy side settlement report.
+[Remote]: So there is actually a small delay in
+[Remote]: in settlement report creation. Yes. Usually because of data availability.
+[Remote]: But I think that's that's how we would do that. So we would just wait
+[Remote]: twenty four month not wait. We would just pull
+[Remote]: or call Rexy throughout the day, see whatever is available, and then it's
+[Remote]: subsequent day, we would create the report on the base of what we've moved. We'll
+[Remote]: we also have webhooks. So you can we you can just put
+[Remote]: API there on your URL.
+[Remote]: And we can notify you when the reports are done.
+[Remote]: For each merchant in order you to know when you can
+[Remote]: I don't know, notify the the merchant that the settlement report is is
+[Remote]: is ready? Right?
+[Remote]: Okay.
+[Remote]: Can we I I don't know. Mazi, is there any are there any
+[Remote]: questions?
+[Remote]: I would I would like to
+[Remote]: Just to confirm, for each merchant, we are going to
+[Remote]: create a new source via API
+[Remote]: for every PSP that
+[Remote]: they want to have the settlement report for.
+[Remote]: That's right.
+[Remote]: Yes. At the moment, it is like that. I mean,
+[Remote]: if there's any other structure that you would like, we can
+[Remote]: definitely look into it. But for the moment, it does work like that.
+[Remote]: I I think it's that that's the best
+[Remote]: structure in order to keep the data very atomic
+[Remote]: and not, like, shining data that not messing with the same client
+[Remote]: a a lot of data there. So we we think that one or
+[Remote]: organization, Gravy, and you have all there
+[Remote]: to in order to create templates of reporting and
+[Remote]: the main idea is, like, we help you to create these reports now
+[Remote]: but then you're, like, self serve.
+[Remote]: Like, your team should have to if you want to make a
+[Remote]: update in the the gravy settlement report, you can
+[Remote]: update it there, and the new reports will generate with the with the new report
+[Remote]: Like, we are trained to use Brexit like that.
+[Remote]: So for for each PSP, we created
+[Remote]: template and
+[Remote]: for each merchant, we create a separate source
+[Remote]: with that template for that payment service.
+[Remote]: Yes. Each merchant has, like, each
+[Remote]: source of the merchant has, like, a tag.
+[Remote]: That tag that we use them to know that, well, all the sources with this
+[Remote]: tag use this template.
+[Remote]: Okay? So that that's the main idea. Like, we are
+[Remote]: trying to shine you can set up, like, five tags per source.
+[Remote]: In order to know if you have to make some changes or make it report
+[Remote]: you can do, hey, all with the checkout.com settlement report tag.
+[Remote]: Should make should use this template for recording.
+[Remote]: So Rexie goes look for all the sources that use that.
+[Remote]: And when the report and the source is out ingested,
+[Remote]: the it generates a report that is using this tag.
+[Remote]: Okay. Cool. That makes sense. Thank you.
+[Remote]: Can we have a look at the
+[Remote]: checkout file? They did you did you create an output
+[Remote]: on the basis of of sort of the the gravy
+[Remote]: file template. I wanna see how that how that looks
+[Remote]: We what the one we just did,
+[Remote]: we only included the first ID. Okay.
+[Remote]: But we we we can do it. I mean, it's it's around 30 columns or
+[Remote]: we can send it over.
+[Remote]: We can do it. We can do it. I I I I done it.
+[Remote]: We we we thought that in order to the POC purpose
+[Remote]: it doesn't we don't it's like fifteen minute process because
+[Remote]: you have, like, a conditional, like Right. Things there. So
+[Remote]: but with prompting, it's very bad. There are some things that we need
+[Remote]: your your knowledge. But I think that, Taylor, we can we can
+[Remote]: show there. Like, I I can show it.
+[Remote]: To you.
+[Remote]: So we can I know? I think I think that would be
+[Remote]: Let's see. Also that we can sort of gauge
+[Remote]: like, okay. Okay. So you are seeing the my screen. Right? Yeah.
+[Remote]: So you handle us a template
+[Remote]: So I will just
+[Remote]: like, track and drop your template here.
+[Remote]: And as we said, we have, like, a suggestion here with AI
+[Remote]: that have quite a confidence, but it's not not always, that's the thing.
+[Remote]: But what you've done, Jules, I think that it was you,
+[Remote]: You gave us here, like, a
+[Remote]: Like, these are prompts for us.
+[Remote]: Like, how to use. So
+[Remote]: don't know. For the first one, payment service transaction reconciliation ID, I use this prompt.
+[Remote]: I will go here, and
+[Remote]: put the prompt here, and it just use the reference.
+[Remote]: Okay. So as still show it, we use reference and
+[Remote]: for the first one was so then the second one
+[Remote]: you put available on
+[Remote]: column. Yeah. I see. That's the the posted ad date. I don't know why it's
+[Remote]: Sorry? No. So that's it's a it's a different
+[Remote]: I don't know what Yeah. Because because
+[Remote]: what the the ones add this one, yours. Right?
+[Remote]: Right. Yeah. Okay. We we we got some Dave, because that's
+[Remote]: the the post to that date, sort of the booking date of when the report says the transaction
+[Remote]: was settled? Yes. We when you put not apply,
+[Remote]: we we we we just
+[Remote]: do the do the template without without that columns.
+[Remote]: But for this one, for example, you have, like you it has
+[Remote]: to start with a I a c t underscore
+[Remote]: And, well, this has to be, like, prompted. I don't know how to how you put this.
+[Remote]: But this is
+[Remote]: this starts with ACT action. That's like a Comcast
+[Remote]: Yeah. If you just prompt
+[Remote]: concat ACT plus unique ID or whatever, it's gonna work.
+[Remote]: Yeah. And I don't know, Jules, if you know which
+[Remote]: column do we should use for this.
+[Remote]: For the reference?
+[Remote]: We use, like, Comcast act act plus reference or whatever.
+[Remote]: And it's gonna create it. Let me see. Action ID unique
+[Remote]: you know, type b.
+[Remote]: I don't know, but I well, what
+[Remote]: when like because we check out .com.
+[Remote]: If you want to make a concat, like, with a c t underscore and
+[Remote]: another one, like, you just prompted here. I it can use this
+[Remote]: create this formula in order you can see the results here.
+[Remote]: Here in the show per view.
+[Remote]: And now
+[Remote]: we have this type of result.
+[Remote]: Well, like,
+[Remote]: in all with AI,
+[Remote]: when the prompt is better, the better the results. Right?
+[Remote]: So if, the that reference that you made as Jules is, like, great.
+[Remote]: Yeah. I I think I think the if yeah.
+[Remote]: So if I look at the space
+[Remote]: of the settlement breakdown report Mhmm. That this is an interesting
+[Remote]: because it's actually an optional field. So I don't know whether it's in there by default.
+[Remote]: But the the field name is simply called
+[Remote]: action ID. So I guess that the the column name for
+[Remote]: what I would like to see in there is just called action ID.
+[Remote]: Action ID? Yeah. Okay. So we
+[Remote]: action ID here.
+[Remote]: I'm not sure if that's now because it's an optional field, I guess.
+[Remote]: That that's the main things when I try to make, like, the the mapping
+[Remote]: I I I I like what's encountering with that.
+[Remote]: But as I said, if you put hey. You have to conquer
+[Remote]: this with the reference
+[Remote]: reference Mhmm. ID. I don't know.
+[Remote]: This is a prompt. And when when you got this
+[Remote]: you can do the the the the prompting.
+[Remote]: Right. Okay? So journal type, this I think this is better.
+[Remote]: I think journal type was, like, type
+[Remote]: Yeah.
+[Remote]: And you have, like, here, if it's
+[Remote]: I don't know. If some name refunded, you have to under
+[Remote]: you have to put in in not common case.
+[Remote]: So that type of map mapping temp well, we also can do it, like,
+[Remote]: type.
+[Remote]: But
+[Remote]: all
+[Remote]: in CamelGase. I don't know.
+[Remote]: So you can put okay. So use
+[Remote]: type colon
+[Remote]: in
+[Remote]: comp.
+[Remote]: Case.
+[Remote]: Okay. So you can use this to set up
+[Remote]: every column that you have here.
+[Remote]: I thought that it was
+[Remote]: showing the screen. Sorry.
+[Remote]: Like, use type
+[Remote]: column
+[Remote]: with
+[Remote]: uppercase.
+[Remote]: And you can set up all the formula that you need in the format you need,
+[Remote]: So well, the the you have to, like, go
+[Remote]: with every type of column. But the main thing shows here is that you set up
+[Remote]: this report for one client for one Yeah. Exactly. So Months
+[Remote]: and all the sources that are connected here will just check out.
+[Remote]: Just use the same plate, and that's it.
+[Remote]: Yeah.
+[Remote]: I don't know if you want Jules to be if not that you keep doing this or
+[Remote]: No. I mean, I think I think
+[Remote]: this is sort of what I was trying to what I was trying
+[Remote]: to see. Right? So for example, the the the
+[Remote]: the journal type Mhmm. Of journal
+[Remote]: you so you see we have journal type in in con
+[Remote]: in what was it? It it should go back to your, to your portal.
+[Remote]: Yeah. And so we have journal type and raw journal type.
+[Remote]: And the raw journal type is
+[Remote]: really just the type.
+[Remote]: Perfect. And the journal type is sort of a mapping of that
+[Remote]: broad journal type into a gravy standardized journal type. Perfect. Oh, that's
+[Remote]: if, you know, if there is a journal type saying,
+[Remote]: captured in, in in the checkout report,
+[Remote]: we would like to map that to
+[Remote]: our journal type settlement. Because what happens in our system is when it's
+[Remote]: journal type, it will sync it into our database, and we'll
+[Remote]: actually create a data entry for
+[Remote]: the specific transaction in the database.
+[Remote]: Right? So
+[Remote]: Perfect. So So you have you have these type of
+[Remote]: prompts that you can okay.
+[Remote]: Yeah. You you can you can use this to map
+[Remote]: that. Okay? Okay. If site is captured, you can use captured
+[Remote]: because you're I don't know. You're the you're missing after that. That's how that's it.
+[Remote]: And this can be, like, a formula in Excel.
+[Remote]: Right? Right. You you can and shit. So you you can do that.
+[Remote]: Okay.
+[Remote]: Very nice.
+[You]: And the cool thing about this
+[Remote]: So that so one more question. So
+[Remote]: for example, the if I go to the checkout
+[Remote]: documentation over here, right,
+[Remote]: and this is a thing that we run into ourselves as well.
+[Remote]: So
+[Remote]: I'm just gonna quickly share my screen.
+[Remote]: This it's the settlement breakdown report that we're interested
+[Remote]: in. Right? So we were looking at that. And over here, you have all these optional fields.
+[Remote]: And some of it is actually interesting or
+[Remote]: even relevant. Right? So this is the action ID.
+[Remote]: Oh, hi. There it is. There it is.
+[Remote]: Right? So I guess what happens, and it's the same with with
+[Remote]: certain data and log in,
+[Remote]: and with Stripe as well is that it's not by default enabled.
+[Remote]: So the merchant has to enable it for
+[Remote]: you know, for for you guys or for us to actually ingest it.
+[Remote]: Yeah. Our documentation, what we do is when whenever a merchant is integrating, this
+[Remote]: specifically say, please enable these columns because we need that to
+[Remote]: Do you guys do that as well?
+[Remote]: Yeah. Yeah. I think that this has been with
+[Remote]: we have to see the APIs for the settlement report.
+[Remote]: But if it's if it's
+[Remote]: if you say that you have to ask for this prompt, we can add it.
+[Remote]: Of course. Yeah. Thank you. Yeah. Yeah.
+[Remote]: We use it the
+[Remote]: the file that the the demo file that he tasked
+[Remote]: checkout.com. Right. So perhaps it doesn't have the action ID, so that's why
+[Remote]: we are not seeing it. It's it's very likely why that
+[Remote]: not Okay. Deal book if if the merchant okay. So that then has to be sort of
+[Remote]: not not sort of. It has to be specifically called out in in the documentation that
+[Remote]: these are optional fields, but please enable it because
+[Remote]: completes the data. What Yeah. Is
+[Remote]: happens in your system if a merchant doesn't do that?
+[Remote]: So say, for example, that we create a template
+[Remote]: with the action ID Yeah. And the merchant action
+[Remote]: enabled that. So we say, okay. Well, this merchant, here are the credentials,
+[Remote]: go to check up all their settlement breakdown reports.
+[Remote]: And then it doesn't have back what happens?
+[Remote]: I I think that there, we should use, in the prompt
+[Remote]: that when the action ID is not there, we should put, like, a null or a known
+[Remote]: in order to capture that error. Okay? Okay.
+[Remote]: I I I understand what you're saying. Like, this
+[You]: We can also configure alarms.
+[Remote]: yeah. The structures could be different between those
+[Remote]: but on the same report. But, yeah, I don't
+[Remote]: it it it does not gonna have an error in the report.
+[Remote]: But that field will not map because it we don't have the data.
+[Remote]: If the merchant don't available that data to us,
+[Remote]: I think we can as you are setting up the clients,
+[Remote]: that that fields, it's not for the merchant to
+[Remote]: check, but you in gravy, we can, like,
+[Remote]: set up the clients with all that Yeah. All that fields
+[Remote]: in order to ingest it. And when we have it, we we we use it.
+[Remote]: Yeah.
+[Remote]: So so you
+[You]: Regardless, we can also type from checkpoint.
+[You]: Sorry. We can also configure it, like, alarms and also, like,
+[You]: doing, like, a status update of the normalization phase. So, like, say,
+[You]: we correctly ingest it and then add another stage where we can say green
+[You]: healthy, we are mapping all the columns correctly where map where a mapping is missing
+[You]: and and and we can also provide that information to you guys.
+[Remote]: Nice.
+[Remote]: So like I said, I'm I'm still waiting
+[Remote]: for actually, I received some trusty reports yesterday.
+[Remote]: So I'm gonna have a look at that today, see if, if I can get that over to you.
+[Remote]: That makes sense. I mean, it's it's from one of our merchants already.
+[Remote]: Actually live data.
+[Remote]: You can if if you want, you can, like, transform it to dummy dummy data.
+[Remote]: In order to Right. Yeah. I think I think we'll do that,
+[Remote]: just We need the structure, like like, the the the correct data.
+[Remote]: And then BlueSnap, I'm still waiting for for that.
+[Remote]: One of the main things that we thought about the this POC
+[Remote]: to to have the end to end is, like,
+[Remote]: I don't know if you have, like,
+[Remote]: a a credentials of
+[Remote]: one client or something that It's a good
+[Remote]: that's what I'm thinking of actually maybe doing next.
+[Remote]: So you can see so you can see the the the automatic ingest
+[Remote]: of that integration. Right? That that that
+[Remote]: couldn't we we couldn't show that because we don't have the credentials.
+[Remote]: Okay. I I think that might be an interesting next step to do. Yeah.
+[Remote]: Of course. Actually, getting a client of ours, see if they're interested in in doing this pilot
+[Remote]: and then
+[Remote]: yeah, going going full end to end.
+[Remote]: So, I mean, you guys run into the same problem as we do is the moment you you
+[Remote]: just do sandbox data, you're you're not getting anywhere. So you actually have
+[Remote]: to do most of it by just running live data.
+[Remote]: Alright. So I think I think one there there's there's a a step in between that
+[Remote]: we need to do internally, which is
+[Remote]: the moment we start sharing this data with
+[Remote]: with you guys, that means that
+[Remote]: merchants need to be aware that we're gonna share the data with another third party.
+[Remote]: I was talking to Zubin about this. He says it should be pretty easy because we're actually
+[Remote]: saying that we're sharing data with third parties. We just need to add you guys
+[Remote]: sort of to the merchant agreement. Mhmm.
+[Remote]: So let me get back to Zoom in on that. But I think a good next step would be, like, okay. Let's
+[Remote]: let's just grab a merchant.
+[Remote]: If they're okay with it, let's
+[Remote]: try to do you know,
+[Remote]: checkout and
+[Remote]: trust me. I think trust me would be an interesting one. Merchant is
+[Remote]: really waiting for it. So
+[Remote]: could be an interesting one. I actually check out for the same merchant, but I don't think they have any
+[Remote]: live One of the things that I'm thinking
+[Remote]: is that we have a Brexit, like,
+[Remote]: that is we we have to secure all the data in Brexit. Like, we are
+[Remote]: a data platform. Mhmm. So I think, like, we are
+[Remote]: just mapping
+[Remote]: values, not seeing, like, the values
+[Remote]: So one of the things that we make in Rexy is, like, the all the data comes obfuscated, but we need the structure for this project. Like the the report. So we don't have the data. Here in the at Brexit. We just had got the the struct
+[Remote]: the columns, you need to generate the reports. So
+[Remote]: one of our clients asked for that, and we done into them.
+[Remote]: But if you need that, also, it's very possible
+[Remote]: we are just using the templates to generate the reports.
+[Remote]: I think I think the main problem would be if there is BII or PCI data
+[Remote]: which Yeah. Yeah. Yeah. Of course. Typically, isn't in
+[Remote]: data. It's just financial information. So
+[Remote]: I I don't really foresee any issues near the. So
+[Remote]: should be fine. But it's it's more a thing that we need to
+[Remote]: sort of do contractually internally to make sure that, you know, that we don't
+[Remote]: overwhelm merge. Oh, by the way, we've shared your data with an
+[Remote]: thing. So
+[Remote]: let me do that, David, David, and see if that's if that's all good. And then
+[Remote]: let's try to indeed move forward with an actual merchant and and
+[Remote]: do one of these integrations. I think that makes sense.
+[Remote]: Perfect.
+[Remote]: Well,
+[You]: Sounds good. I'll just follow-up via email. I'll send over
+[You]: the presentation. If you want us to sort of, like,
+[You]: do some video and also send it over on on a specific part of the demo,
+[You]: feel free to ask. And if not, we'll just wait for your
+[You]: indications on
+[You]: do you wanna go about this thing.
+[Remote]: Let's do
+[Remote]: one thing that we, from our side, need to think about
+[Remote]: is is more sort of the integration towards you.
+[Remote]: Like, what are we actually gonna do? Are we gonna contact connect
+[Remote]: your STP? Are we gonna do it via API? I think,
+[Remote]: yeah, me and and the rest of the team will have a look
+[Remote]: at your documentation and think about what's, what's sort of the best solution for
+[Remote]: sort of yeah. For for proof of concept. Right? That's
+[Remote]: try to get something out quickly.
+[You]: Yep.
+[Remote]: I'm I'm a good feeling about it, but let's see what's
+[Remote]: the rest of the team says. Are those do you do you guys use
+[You]: We also like,
+[Remote]: Slack by any chance? Because we can create a a Slack
+[Remote]: I think that's that makes perfect sense to do that.
+[Remote]: Let's do it. It's great. Slack channel.
+[You]: I'll share over an invite. And then, Jules, as you said, like,
+[You]: with these infra layered things, you don't actually see the value
+[You]: until you start using them. So that let's I think the best way forward is let's let's figure out
+[You]: proof of concept with real use cases so you can actually see the
+[You]: magic and the value that it would add to you guys and the and the savings in time and and and the
+[You]: scaling and all that.
+[Remote]: And one of the main things that I think is important is that you
+[Remote]: like,
+[Remote]: think how do you want to receive the data and so that's
+[Remote]: We want to have the data in our SFTPs or Rexies SFTPs.
+[Remote]: We will go into for you to your APIs.
+[Remote]: And we gave you the the documentation in order to do that. Yep.
+[Remote]: Okay? But that that's something we'll have a think about.
+[You]: Amazing, Joel.
+[Remote]: Perfect.
+[Remote]: Alright.
+[You]: Alright, Matthew Jules. Thank you for the time. We're very excited, and I'll
+[Remote]: Thank you.
+[You]: just follow-up via Slack and email.
+[You]: Thank you. Bye bye.
+[Remote]: Guys.
+[Remote]: Bye bye.
+
+============================================================
+SUMMARY
+============================================================
+ine
+
+### Rexi Platform Demo
+
+- Automates FinOps processes: ingestion, standardization, reconciliation, report generation
+- Demonstrated [checkout.com](http://checkout.com) settlement report transformation
+  - Takes raw merchant data from checkout APIs
+  - Maps to Gravy’s settlement report template using AI prompts
+  - Generates standardized reports automatically
+- Report creation process:
+  - Upload CSV template or build manually
+  - AI suggests column mappings with confidence scores
+  - Custom formulas for complex transformations (e.g., “when client reference is not null, result is 1”)
+  - Preview functionality before deployment
+- Trigger options: source updates, scheduled (daily/weekly), or manual
+- Output delivery: SFTP, API, or webhooks for notifications
+
+### Technical Integration Architecture
+
+- One source per merchant per PSP for atomic data organization
+- Template-based approach with tags for report standardization
+  - All [checkout.com](http://checkout.com) merchants use same template
+  - Updates to template automatically apply to all tagged sources
+- API credential management:
+  - Gravy provides merchant credentials to Rexi via API
+  - No separate merchant login required
+  - Maintains better customer experience
+- Data security: obfuscated data processing, only structure mapping visible
+- Optional field handling: prompts return null/empty when data unavailable
+
+### Gravy’s Current Reconciliation Challenges
+
+- 80% of customers cannot use reconciliation module due to missing PSP integrations
+- Long tail PSP connector development bottleneck
+- Data parsing complexity becomes tribal knowledge (Masih as subject matter expert)
+- 24-hour polling mechanism for settlement reports
+- Manual credential setup for optional fields (action ID, etc.)
+
+### Next Steps
+
+1. Jules to handle merchant agreement updates for third-party data sharing
+2. Identify pilot merchant using [checkout.com](http://checkout.com) and Trustly
+3. Create Slack channel for ongoing collaboration
+4. Gravy team to review Rexi API documentation
+5. Determine integration method (SFTP vs API) for data delivery
+6. Jules to provide Trustly and BlueSnap sample reports for template creation
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/e65b3787-ad8f-4f8b-af02-e82ab3cbb5fc](https://notes.granola.ai/t/e65b3787-ad8f-4f8b-af02-e82ab3cbb5fc)

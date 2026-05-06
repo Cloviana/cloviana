@@ -1,0 +1,507 @@
+MEETING: Rexi x Tiendanube: discovery
+DATE: 2026-04-13
+ID: not_oJWxHGuV7DBfEy
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Catalina Rizk <catalina.rizk@tiendanube.com>, Guillermo Caseiras <guillermo.caseiras@tiendanube.com>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-04-13T11:30:00-04:00 - 2026-04-13T12:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Yo volví de licencia ahora, así que
+[Remote]: seguramente, por ahí, si hablaste con alguien, yo no estaba.
+[You]: Ah, perfecto, perfecto.
+[You]: Hablamos con Luz Ameijeira,
+[Remote]: Sí.
+[You]: y
+[You]: ¿Vos trabajas con ella o no tanto?
+[Remote]: No, yo estoy en el equipo de controlling, Luz,
+[You]: Ah,
+[Remote]: es como la head de Pago Nube.
+[Remote]: Yo trabajo para
+[You]: Perfecto, Guillermo Caseira.
+[Remote]: Claro.
+[You]: Caseiras.
+[You]: Excelente.
+[Remote]: Él es el VP de finanzas.
+[You]: ¿Sabés si Guillermo se suma? Porque no contestó el invite.
+[Remote]: Por ahí se suma en un ratito, ahí le mando. Igual, si querés, arrancá
+[Remote]: porque tiene un par de
+[Remote]: a ver si tiene...
+[Remote]: Por eso se mueve un ratito. Ahí le ahí le mando igual, pero
+[You]: Perfecto. Bueno,
+[You]: Si querés, nos presentamos, porque la verdad que la reunión pasada fue más con Guilla y con Luz, y como vos acabaste
+[Remote]: Dale.
+[Remote]: Dale.
+[You]: licencia, no sé no sé qué tanto contexto te dieron.
+[Remote]: En
+[Remote]: No tanto, Guille me contó un poco de de lo que funcionaba su su su herramienta, pero si querés contame un poco y y vamos charlando.
+[You]: Dale, obvio.
+[You]: Estoy pensando si te proyecto a pantalla o no,
+[You]: Voy a voy a proyectar porque siempre me sirve un poco
+[You]: A ver,
+[You]: Bueno, un poco es el equipo fundador, acá está Teo,
+[You]: Teo es co-founder y y COBO de Rexi, y también está detrás del producto que hemos
+[You]: construido y cómo, y maneja todo ese roadmap de nuevos features y nuevas implementaciones,
+[You]: Falta acá Sebastián García, nuestro CTO. Este es el el
+[You]: el funding team, digamos, y
+[You]: y solo acá compartirte que nosotros estuvimos de ese lado,
+[You]: Ahí está, Guillermo. Hola, Guillermo, ¿cómo estás?
+[You]: Bien, ¿y vos?
+[Remote]: Hola, ¿qué tal? ¿Cómo andan? ¿Todo bien?
+[Remote]: Bien, perdón la demora, pero quería sumarme para participar.
+[You]: Buenísimo. Bueno, gracias por el tiempo.
+[You]: Le estaba haciendo una intro a Catalina porque no nos conocíamos, creo que la reunión inicial no estuvo y
+[You]: y le quería hacer un poquito
+[You]: dentro sobre quiénes somos. Estaba contando de nosotros, del equipo,
+[You]: un poco dónde nació la compañía, nosotros incubamos
+[You]: Rexy en en MIT, hicimos una incubadora de de Fintech Ventures,
+[You]: que terminamos ganando el demo day, luego ganamos dos
+[You]: competencias más en hardware, él está estudiando en hardware, él está en Colombia,
+[You]: y ya después cuando nos recibimos, levantamos nuestra primer ronda de capital.
+[You]: El problema, es un problema que conocen ustedes seguramente muy bien, estando de lado
+[You]: el área de controlling y de finanzas, y es
+[You]: la fragmentación de información que hay en sistemas financieros y cómo eso complica
+[You]: primero y principalmente, el proceso de conciliaciones de los flujos de dinero que operan,
+[You]: ahora con con Pago nube,
+[You]: Y y luego también cómo impacta otras áreas, ¿no? No es solamente el área de finanzas
+[You]: y de operaciones, sino también
+[You]: cómo las conciliaciones pueden impactar a producto, la velocidad en la que pueden construir y lanzar nuevas
+[You]: integraciones, cómo puede integrar, cómo también puede
+[You]: al área de operaciones en cuestiones como soporte al cliente,
+[You]: o customer success, en donde, no hay una conciliación automática y real time,
+[You]: eso puede impactar en la experiencia del usuario.
+[You]: Quizás contarles un poquito la visión de Rex y también
+[You]: si si vamos a evaluar algún tipo de partnership por algún tipo de relación, está bueno que sepan hacia dónde vamos.
+[You]: Nosotros, Rexi,
+[You]: lo estamos construyendo lo lo estamos construyendo en un primer paso como una plataforma de conciliaciones
+[You]: automática con tecnología agéntica,
+[You]: pero para nosotros eso es solamente la puerta de entrada. La visión de
+[You]: es volvernos un un tech partner, por ejemplo, de
+[You]: de tienda nube,
+[You]: para implementar agentes en otros procesos de finanzas y operaciones.
+[You]: Una plataforma bien agnóstica, en donde vos, Catalina, vos, Guillermo, pueden
+[You]: agentes para distintos workflows que hoy quizás hacen con
+[You]: con equipos y con gente dedicada, y que en realidad es muy automatizable,
+[You]: si existe un agente con él
+[You]: contexto correcto y con la con las
+[You]: reglas de negocio correctas para operar ese flujo, ¿no? Las
+[You]: en un primer paso, porque si yo te construyo un agente y lo conecto a alguna de estas fuentes fragmentadas que no están conciliadas, el agente va a escupir un
+[You]: con la misma cantidad de precisión
+[You]: y de reliability que esa misma fuente. Entonces, las conciliaciones son ese primer paso
+[You]: es decir,
+[You]: consolido todas mis fuentes de información,
+[You]: en una fuente
+[You]: unificada que refleje la realidad operativa, y a partir de eso,
+[You]: como base fundacional, construyo agentes para automatizar otros flujos de finanzas y de operaciones.
+[You]: Pero un poco hoy es una es una plataforma agéntica
+[You]: para automatizar las conciliaciones, de principio a fin, ¿no?, desde ingesta
+[You]: ingestar los archivos crudos transaccionales que vienen de PSPs,
+[You]: de adquirentes, de procesadores de pagos, de tu extracto bancario, o mismo de algún sistema interno de ledgering, hasta todos los flujos de reportería, que puede ser crearte un dashboard, crear un reporte totalmente
+[You]: custom para lo que visiten ustedes,
+[You]: nos conectamos a los ERPs para generar entradas contables, digamos, como idea es tener agentes corriendo
+[You]: in the background
+[You]: automatizando todo el flujo de conciliaciones. Y acá son algunos de los desarrollos iniciales que vale la pena mencionar.
+[You]: El integrador dinámico, que nos permite levantar archivos de cualquier tipo, de cualquier lado,
+[You]: El data que es cómo la plataforma con el tiempo se vuelve
+[You]: mejor y más autónoma,
+[You]: en las operaciones de pago nube,
+[You]: porque aprende de los archivos estructurados y también aprende de los
+[You]: de las acciones de los usuarios. Entonces, Catalina, te vas a estar metiendo a la plataforma
+[You]: configurando cosas, aprobando, rechazando cosas, y el sistema con eso aprende, porque empieza armar el context
+[You]: window,
+[You]: específico de pago nube, ¿no?
+[You]: Y después el problem solver, que para mí es
+[You]: es lo más interesante que hemos construido, hemos innovado, y es
+[You]: cuando uno concilia, ya tiene un proceso de conciliación semiautomático donde
+[You]: se pierde la mayor cantidad de tiempo y dinero,
+[You]: es en la investigación y resolución de diferencias.
+[You]: Ahí tenemos un agente específico que mira las diferencias, agrupa
+[You]: por causa raíz y propone soluciones.
+[You]: El usuario después rechaza o aprueba las soluciones,
+[You]: y eso después se codifica en la regla conciliatoria para que ya no me aparezca más.
+[You]: Ejemplos de esto, duplicados,
+[You]: cambios de horario en los archivos, particularmente ustedes que operan en
+[You]: entiendo que en México, Brasil y Argentina, ahí tienen diferencias de horario, entonces, se no va a cuadrar nunca.
+[You]: Esas son las cosas que el problem solo detecta para
+[You]: realmente acelerar lo que es la resolución de discrepancias.
+[You]: Así que algunos de los productos. Después,
+[You]: simplemente para contarles a alguno de los clientes con los que ya estamos trabajando,
+[You]: despegar global processing cashier en Latinoamérica, entre otros. También estamos trabajando con
+[You]: con Banco Superviel, con Buenbit,
+[You]: y ahora lanzando algunas algunas aseguradoras en México también.
+[You]: Y en Estados Unidos, Teo y yo estamos basados en Nueva York, después tenemos parte del equipo técnico en
+[You]: en Argentina.
+[You]: Con lo cual operamos ahí en en ambos mercados. Y los resultados han sido los que
+[You]: ya se imaginan, ¿no? Primero, ahorro de tareas manuales y tiempo,
+[You]: Segundo, reducción de pérdidas y reconciliables.
+[You]: Entonces, todas esas cosas que uno no puede cuadrar a fin de mes y tiene que
+[You]: cerrar los libros, entonces, por ende, toma la pérdida, eso es un dinero real que se pierde.
+[You]: También hemos recuperado mucho dinero. Teo justo hace poco desarrolló un módulo que se llama revenue leakage,
+[You]: en donde yo puedo ir chequeando contra cada uno mi flujo de pago,
+[You]: si verdaderamente
+[You]: pagué las comisiones que tenía que pagar y me pagaron a mí el revenue que
+[You]: que me tenían que pagar, y hemos encontrado discrepancias enormes, con lo cual
+[You]: para algunos de nuestros clientes, el producto se termina pagando solo porque recuperamos mucho dinero.
+[You]: Y después está todo el tema de las auditorías y el riesgo regulatorio de compliance, ¿no?
+[You]: Cómo tener un flujo automático
+[You]: con un reporte que sale
+[You]: todos los días con seguridad totalmente conciliado, te permite
+[You]: evitar cualquier tipo de multa o riesgo de perder una licencia de pagos,
+[You]: en los países donde operan, con lo cual termina siendo una mezcla de eficiencia
+[You]: productividad
+[You]: reducción de riesgo,
+[You]: y después ahorro de dinero tangible, ¿no?, en en reducción de pérdidas y
+[You]: y y detección de revenue leakage.
+[You]: Esto
+[You]: no sé si vale la pena, creo que prefiero
+[You]: por ahí, ahora dejar de compartir pantalla y que nos metamos más en
+[You]: en en volver a descubrir
+[You]: dónde están parados y qué tipo de soluciones están buscando ahí. Por ahí,
+[You]: dando el contexto de la reunión anterior,
+[You]: yo sé que en en Brasil es el primer país donde ya tiene la
+[You]: licencia PSP propia y ya están operando.
+[You]: Y que ya tenían un proceso consimétrico bastante avanzado para la conciliación de ese flujo,
+[You]: y que en Argentina planeaban lanzar la licencia PCP a mediados de veinte a Veintiséis, Con Lo Cual No Sé Si Por Ahí Esta Reunión Nace A Partir De Decir, Che, Ya Estamos Por Lanzar Argentina,
+[You]: una herramienta conciliatoria para Argentina, preguntarles ahí.
+[Remote]: Vale, te doy un poquito de contexto. Lo que dijiste hasta ahora estaba perfecto.
+[Remote]: Es en los países en donde operamos y la
+[Remote]: lo que es su adquirencia en Brasil ya lo estamos haciendo y ya tenemos lanzado un
+[Remote]: Brasil, ya
+[Remote]: con Symmetric.
+[Remote]: Pero no así en Argentina. El
+[Remote]: el
+[Remote]: proyecto de PCP está en
+[Remote]: valga la redundancia, en proceso todavía,
+[Remote]: con un
+[Remote]: con una fecha de lanzamiento todavía
+[Remote]: no tan clara, ese ese mediados de año me parece que va a ser más
+[Remote]: fin de año. O sea, todavía estamos evolucionando, ¿viste?, no no no es
+[Remote]: que ya está definitivo,
+[Remote]: creo que es la mejor oportunidad o, por lo menos, la
+[Remote]: oportunidad más cercana que tenemos como para poder sumarlos,
+[Remote]: y y testear, y ver si hay algo que podamos hacer juntos.
+[Remote]: Nosotros ya tenemos la experiencia de Symmetric de antes del año pasado,
+[Remote]: porque Cata lideró un proyecto de implementación en donde
+[Remote]: incluyó, por ejemplo,
+[Remote]: nuestras transacciones bancarias, todos los medios de pago
+[Remote]: plataformas, ¿viste?, tipo Mercado Pago y demás, y ya tiene un un uso y un conocimiento de la herramienta muy profundo, por eso también le invité, No sé si va a dar para que hablemos en detalle, pero ahí creo que vale la pena, si querés, después hacerle una intro a Cata con alguien del equipo de ustedes, que ver por ahí algunas funcionalidades más en detalle. Yo lo, tenía un par de preguntas para hacerles, no sé si quieren que agarren luz por ahí o o si no pregunten todo lo que ustedes quieran como para entender mejor qué nos imaginamos, No no creo
+[Remote]: no creo que lo lancemos ya,
+[Remote]: pero sí tal vez transmitirles el mensaje de que lo sé.
+[Remote]: Digamos, queremos testear con ustedes y que muy probablemente sea en algún momento
+[Remote]: este año, pero más segundo half.
+[Remote]: Eso es lo que me imagino más razonable.
+[You]: Quizás,
+[Remote]: Decile.
+[You]: la única pregunta que tengo, después me encantaría que ustedes nos hagan todas las preguntas que quieran, es
+[You]: en qué estado está la implementación de Symmetric en Brasil y si hay
+[You]: por ahí, un espacio para
+[You]: compararnos, ¿viste?, palo y palo ahí, y que ustedes decidan cuál les parece mejor
+[You]: más eficiente, más productiva, y también entender ahí el modelo de pricing, doctora, después
+[Remote]: Bien.
+[You]: hacer un doble clic sobre eso y contarles cómo pensamos nosotros el pricing, porque
+[You]: con muchos clientes estamos reemplazando simplemente por
+[You]: por el modelo de partnership que nosotros ofrecemos y no tanto de vendor.
+[Remote]: Bien.
+[You]: Pero la pregunta es esa, ¿cómo están con Symmetryc en Brasil?, ¿viene funcionando?, ¿no viene funcionando?, ¿cómo
+[You]: funcionando?
+[Remote]: Mira, Doe no está lanzada, si
+[Remote]: con eso ya te puedo dar una buena imagen de dónde está.
+[Remote]: Está en los plazos que habíamos programado,
+[Remote]: la verdad que la expectativa es que esté productiva,
+[Remote]: de acá a treinta días,
+[Remote]: no no sé si, ¿viste?, va a tener sentido.
+[Remote]: Analizar un cambio ahora, justo.
+[Remote]: En general, te diría,
+[Remote]: la verdad que no hemos tenido grandes
+[Remote]: issues en cuanto a performance y la solución, ¿no? O sea, Cata, corregí mi voz,
+[Remote]: vos sabés más que yo en ese sentido, pero viene cumpliendo lo que prometió, ¿cierto?
+[Remote]: Hasta ahora?
+[Remote]: Sí, o sea, la verdad que la la herramienta funciona, sí hay puntos
+[Remote]: o sea, hay un montón de puntos de mejora, que por ahí sería lo que les consultaría a
+[Remote]: ustedes cómo funcionan a nivel, no sé, configuración,
+[Remote]: simétrico, hubo como todo un período de aprendizaje donde nos
+[Remote]: fuimos viendo cómo configurar todas las conciliaciones, ahí ustedes como
+[Remote]: cómo trabajan. Eso también es independiente, nosotros podemos ir a
+[Remote]: todas las reglas de configuración, o
+[Remote]: o lo vemos una vez con ustedes y queda ahí fijo, cómo lo manejan?
+[You]: Nosotros, la experiencia es totalmente agéntica,
+[You]: entonces, vos tenés una interfaz conversacional. Después, si querés, hacemos una demo
+[Remote]: Dale.
+[You]: también te mostramos en más detalle, pero
+[You]: la experiencia energética quiere decir que vos tenés una interfaz conversacional
+[You]: con un agente de Rexxi, en donde le conectás tus fuentes de información
+[You]: y vos le vas volcando todo ese conocimiento que vos tenés sobre los archivos, sobre la lógica de negocio,
+[You]: y el agente configura automáticamente en logic conciliatoria.
+[You]: Después vos la tenés que aprobar, una vez que sugiere esa lógica, la
+[You]: que aprobar, porque por ahí le decís, mirá, no tenés que matchear por fecha
+[You]: y por monto, porque puede haber ambiguo de ahí, o el sistema lo detecta también,
+[You]: pero el punto es decir, la logia conciliatoria la crea la gente,
+[You]: y vos no tenés que meterte a armar las reglas ni armarte nada, si es one to one, one to many,
+[You]: esa lógica se optimiza en el tiempo
+[You]: con lo que te contaba del problem solver y el manejo de las diferencias, porque
+[You]: muchas veces nos pasa con clientes es que llegamos a un noventa y cinco, noventa y seis por ciento de macheo
+[You]: con reglas,
+[You]: pero luego en el problem solver encontramos un montón de edge cases que se pueden codificar como regla.
+[You]: Lo cual me lleva de noventa y seis, noventa y siete a noventa y nueve coma nueve
+[You]: y esas diferencias son realmente las que hay dinero que falta
+[You]: que por ahí sí tenés que levantar el teléfono y llamar a tu adquirente o a tu procesador de pagos, ¿me entendés?
+[You]: Porque el job que hoy dan acá es
+[You]: que concilie, y, si no concilias, a ver
+[You]: es lo que no concilia para que yo pueda
+[You]: hablar con con un tercero para entender qué pasó, ¿me entendés? Lo que queremos evitar son las horas perdidas
+[You]: en investigación y resolución de diferencias, y eso el sistema es muy bueno.
+[You]: Con lo cual te diría el primer diferencial
+[You]: es que toda nuestra arquitectura es AI native, y es una interfaz
+[You]: cien por ciento agéntica.
+[You]: Lo cual permite que ustedes tienen tengan
+[You]: muchísima independencia de autonomía, configures vos, Cata, tu
+[You]: propios flujos, tus propios dashboards, tus propios reportes,
+[You]: no necesites ayuda ni de un equipo interno técnico ni en un mundo ideal, ni siquiera de nosotros.
+[You]: O sea, es una interfan, dicho, mucho más intuitiva y amigable
+[You]: y por eso también la implementación es más rápida, ¿no?, y no requiere tanto mantenimiento ni nuestro ni de ustedes.
+[Remote]: Hoy en día,
+[Remote]: se puede operar en Rexy de las dos maneras,
+[Remote]: a la dos mil quince, como le decimos nosotros, apretando botones, configurando las reglas y demás, también de la de la manera agéntica, yo creo que en cuestión de meses queda completamente obsoleta la experiencia dos mil quince. Los agentes se han vuelto
+[Remote]: extremadamente poderosos, son equivalentes a cien analistas humanos.
+[Remote]: Más rápido probando cosas, entendiendo la información y demás,
+[Remote]: así que va a terminar siendo
+[Remote]: casi que solamente agente y va
+[Remote]: ¿Qué qué modelos usan?
+[You]: Muy
+[Remote]: Ahora principalmente a Tropic. Tropic.
+[Remote]: O sea, está usando
+[You]: Pero multi multi, o sea, estamos integrados con todos y
+[Remote]: Sí.
+[You]: hay un layer de optimización para cada uno de los tasks, porque de vuelta,
+[You]: modelos están cambiando tanto semana a semana que
+[You]: no podemos casarnos con uno.
+[Remote]: ¿Y cuál
+[Remote]: Perdón, última cosa respecto a eso, cualquiera que que que trabaje mucho con con Claude sabe que se cae
+[Remote]: todos los días, entonces no podemos quedar atados a un
+[Remote]: solo en ningún momento, porque hay mucho riesgo para la operación.
+[Remote]: Ok.
+[Remote]: Y y te hago una consulta, ¿cómo la la, digamos,
+[Remote]: ¿cómo cómo está pensado la parte de reconcilación, propiamente, dicha
+[Remote]: O sea,
+[Remote]: me imagino que no estás ingestando ese millones y millones de transacciones.
+[Remote]: Para hacer la reconciliación, sino que hay que tenés una estructura más estándar para la
+[Remote]: O sea, claro. Te hace las reglas.
+[Remote]: Una mezcla, en realidad. Nosotros, obviamente, arrancamos usando el motor de reconciliación
+[Remote]: de Rexi,
+[Remote]: pero nos dimos cuenta, obviamente, que eso también era una forma vieja de
+[Remote]: por así decirlo, entonces creamos el script engine. Básicamente, permitirle a la gente que
+[Remote]: cree cree scripts,
+[Remote]: pruebe cosas, corra y termine optimizando mucho mejor y tal vez,
+[Remote]: una empresa tiene cierta operación que requiere alguna funcionalidad que Rexi no tiene,
+[Remote]: y hoy la tecnología está para que con
+[Remote]: script lo corra y lo automatice y sea así, y entonces estamos implementando eso.
+[Remote]: Y todo el tema de hosting, de las tablas y demás, lo hacés vos también.
+[Remote]: Todos los treinadores volumen de datos grande y también siendo caro, ¿no? Ok.
+[Remote]: Mucho volumen. Entendí.
+[Remote]: Ok.
+[Remote]: Es que iba a hacer una consulta más si se me fue de la cabeza.
+[Remote]: Yo hago una consulta, a nivel reportería, o sea,
+[Remote]: cuando la conciliación está cerrada,
+[Remote]: ¿tienen como algún tipo de tableros como para ver las diferencias, como
+[Remote]: Tenemos y eso también es manejable, lo...
+[Remote]: Sí.
+[Remote]: Perdón, sí.
+[Remote]: No, que también es manejable, como que es algo que se ve rápido, porque al fin del día, cuando automatizó
+[Remote]: todo, lo que quiero ver es eso y y conciliar
+[Remote]: no sé, con billing las las cobranzas que no me llegaron.
+[Remote]: Decirte algo.
+[Remote]: Perfecto, sí. A ver, todo es
+[Remote]: completamente automatizable y personalizable,
+[Remote]: Obviamente, tenemos nuestro módulo de de dashboards,
+[Remote]: vimos que creamos dashboards también, un trabajo muy manual, así que lo agenizamos también,
+[Remote]: así que tenemos los resultados estándar de cualquier conciliación,
+[Remote]: los datos personalizables, incluso personalizamos el home,
+[Remote]: Nos dimos cuenta que el home
+[Remote]: no era lo mismo si se metía un CFO, que alguien que opera todos los días y demás. Entonces,
+[Remote]: es todo completamente personalizable.
+[Remote]: ¿Y tenés al...? O sea, ¿estás pensando en hacer un MCP o ya lo tenés?
+[Remote]: Tenemos, obviamente, sí, sí, sí. Ok, o sea, pensando en consumirlo directamente desde otra en fases,
+[Remote]: podría. Ok. Che, ¿y me contás un poquito de pricing para entender esa parte?
+[Remote]: Porque lo mencionaste vos, Ignacio.
+[You]: Sí.
+[You]: Sí, sí, está bueno. De vuelta, como la visión de es
+[You]: volvernos un tech partner de ustedes, tuyo, Guillermo, y tuyo, Catalina, para ser agentes para otros workflows y para nosotros la conciliación es una puerta de entrada,
+[You]: lo mucho más outcome based.
+[You]: Es decir, Rexi se encarga de que a vos te concilian los flujos de dinero, y cobramos por eso.
+[You]: Ese costo para vos hoy es fijo,
+[You]: entonces, no debería ser variable para nosotros. Entonces, como yo me hago cargo de eso,
+[You]: me lo cobro fijo. Entonces, lo que se hace es
+[You]: hacemos una estimación basado en volumetría,
+[You]: porque como bien vos dijiste, eso requiere procesamiento
+[You]: y storage de mi lado y me genera costos variables,
+[You]: una vez hecha la estimación, yo te paso un quote fijo, y por la duración del contrato, el módulo
+[You]: de conciliaciones a vos te sale fijo.
+[You]: Y sobre esa plataforma fundacional,
+[You]: es que yo luego, el futuro, q tres, q cuatro, voy a empezar a construir otros flujos
+[You]: que ustedes dos puedan seguir automatizando flujos dentro de finanzas y operaciones, y eso se va ir cobrando por separado.
+[You]: También, outcome based.
+[Remote]: Sí.
+[Remote]: Te hago una consulta, si me cobrás fijo, tenés un riesgo grande de que, o sea,
+[Remote]: crecimiento de cantidad de transacciones o yo estoy todo el día usando tu
+[Remote]: agente para crear reglas nuevas y te consumo un
+[Remote]: o sea, un billón de tokens por día, ¿cómo lo manejás eso?
+[You]: Correcto. Es un riesgo que estoy puesto a correr
+[Remote]: Ok.
+[You]: porque me quiero meter con pago nube y con tienda nube en general,
+[Remote]: Okay.
+[You]: para no solo
+[You]: correr conciliaciones, sino otras cosas. Si querés, a nivel producto,
+[You]: lo estamos bien, pero si querés,
+[You]: si es un loss leader, yo estoy dispuesto a que sea un loss leader para nosotros las conciliaciones.
+[Remote]: Ok, y después el tema de
+[Remote]: con RPs a medianamente lo tenés resuelto, o sea, nosotros usamos NetSuite, por
+[Remote]: ejemplo. NetSuite ya tiene una MCP, así que me imagino que es una para no hacerlo.
+[Remote]: Ya estamos.
+[You]: Tenemos.
+[Remote]: Con NetSuite ya estamos enterados.
+[Remote]: Tata, ¿tenemos algún flujo que podamos darle a a a Rexi?
+[Remote]: Para testear antes del PCP en Argentina? Porque eso no va estar por
+[Remote]: meses.
+[Remote]: O sea, tenemos todo lo envío en v, que está
+[Remote]: del lado de producto de envío nube, pero las conciliaciones de los pesos, ¿viste?,
+[Remote]: eso todavía no está automatizado y, por ende, no lo estamos facturando.
+[Remote]: Es lo de entiendo, ¿vue, sorry?
+[Remote]: ¿El país? ¿Merchant? No, no, no. En lo que
+[Remote]: o sea, los merchan cargan unos pesos y eso después se devuelve a
+[Remote]: en los en los correos, y hay una diferencia entre lo que le
+[Remote]: facturamos a los merchants y después lo que los correos nos facturan a nosotros.
+[Remote]: La conciliación, el número siempre las provisiones de costo que tenemos son
+[Remote]: un poquito horribles.
+[Remote]: Claro. Ok. ¿Y hay y y ves un caso de uso o
+[Remote]: ¿tenemos la información lo suficientemente estructurada como para intentar hacer algo?
+[Remote]: No, pero puedo hablar con el equipo de de envío nuevo, es algo que se está
+[Remote]: está está haciendo material mes a mes, porque lo todos los correos están haciendo repesajes y
+[Remote]: muchas diferencias contra lo facturado, pero no lo tenemos automatizado, por ende, no sé.
+[Remote]: Ajusta.
+[Remote]: Ok. Ignacio, Teo, lo de PCP en Argentina, me encantaría testearlo con ustedes, pero estamos hablando en
+[Remote]: así que con Cata vamos a buscar algún caso de uso que por ahí va ser más chiquito,
+[Remote]: pero para hacer algo antes juntos y probar un poco. Bien, la verdad que
+[Remote]: lo que me contaron me encanta,
+[Remote]: Después en la cancha se ven los pingos,
+[Remote]: pero pero suena superrazonable, y la verdad que si mete
+[Remote]: ata bajo régimen, pero Symmetry que es todavía más
+[Remote]: no no dos mil quince, como decía pero será dos mil veinte.
+[Remote]: Sea, es más tipo no code, arrastrando campos,
+[Remote]: y demás, pero no hay realmente una solución
+[Remote]: más, tipo agent, para que te ayude
+[Remote]: Hoy día es lo que más le, o sea, lo que más le reclamamos.
+[Remote]: Bien. Ok. Estamos confiados en que hoy ya
+[Remote]: los pasamos como post en temas agénticos y
+[Remote]: para fin de año va ser muy fuerte la diferencia.
+[Remote]: Dale. Bueno, hagamos una cosa, nos quedamos la pelota en nuestro lado,
+[Remote]: no sé, después díganme con quién quieren que sigamos
+[Remote]: más los detalles, porque
+[Remote]: digamos, Cata por ahí va a necesitar hablar con alguien del equipo
+[Remote]: más el la especificidad,
+[Remote]: me encantaría que
+[Remote]: aunque sea probar con algo y y arrancar antes de de PST.
+[Remote]: ¿Sí?
+[You]: Fantastico.
+[Remote]: Y, bueno, después pricing lo charlamos, pero me imagino que va a ser algo que va tener una volumetría
+[Remote]: no va a ser el cien por ciento de volumetría, así que va a ser un test por ahí.
+[Remote]: Chiquito que lo que es usual para que en el lunes, ¿sí? De último, después eso lo charlamos más tranquilos.
+[Remote]: Cuando tengan más info. ¿Les parece?
+[You]: Fantástico. Ahí quizás algo que nos podemos sacar encima de ventas también es un NDA,
+[You]: para cualquier cosa que nos quieran compartir,
+[You]: asegurar que estamos
+[Remote]: Sí.
+[You]: protegidos de ese lado.
+[Remote]: Necesitaría entender por ahí
+[Remote]: no ahora necesariamente, pero temas de compliance, ¿no?, cómo hacen el tratamiento de datos y demás.
+[Remote]: Para que
+[Remote]: legal se quede tranquilo. Pero
+[Remote]: pero me imagino que si ya lo están haciendo con unos clientes que me mostraron,
+[Remote]: ya estará cubierta esa parte, así que no veo que sea un problema, ¿vale?
+[You]: Dale, yo igual, si querés, te paso ahora en un mail posta reunión
+[You]: nuestro trust center, donde ves nuestras certificaciones y todas esas cuestiones de ciberseguridad, por si ya querés
+[You]: mandándoselo a alguien.
+[Remote]: Vale, perfecto.
+[You]: Que vayan chequeando.
+[You]: Por lo pronto, entonces, esperamos ustedes
+[Remote]: Ok.
+[You]: a ver cómo cómo podemos armar algo antes de la PCP con lo de envío en web.
+[Remote]: Sí, sí, porque PCP va vamos a estar hablando de eso en tres, por ahí, y la verdad que no quiero esperar tanto tiempo. Me gustaría ya, digamos, seguir testeando y si tan bueno como me dicen, no tengo dudas de que sí, evaluarlo, decirle al agente Simétrico que un contrato nos algo mejor llega o el caso.
+[Remote]: Así que
+[Remote]: nada,
+[You]: Buenísimo.
+[Remote]: hagamos algo juntos.
+[You]: Dale.
+[Remote]: Te acolá. Bueno.
+[Remote]: Creo que nada más, por ahora. Cata, ¿te quedás vos con de de seguir hablando con los chicos para
+[You]: Ok, están los dos
+[Remote]: para poder avanzarlo?
+[Remote]: Dale, sí. Por ahí, no sé, con alguien de producto y y vemos por ahí el
+[Remote]: flujo completo, no sé, y hay varias consultas adicionales que por ahí hoy no no hice.
+[You]: Okay.
+[Remote]: Dale. Así que coordino una reunión.
+[You]: Ahí
+[You]: los dos en Buenos Aires.
+[Remote]: Sí. Sí.
+[You]: Órale, fantástico.
+[Remote]: Sí, o sea, Kata Kata es la dueña de todo controlling, de
+[Remote]: todos los países habla hispana, o sea, Torbén no es Brasil, Cata lo lidera,
+[Remote]: y yo lidero todo, incluyendo Brasil,
+[Remote]: y tesorería, controlling tax,
+[Remote]: estoy coordinando guerra. O sea, hay un millón de cosas de
+[Remote]: reconciliaciones que podríamos hacer juntos, así que arranquemos con algo y que sea un éxito y después
+[Remote]: vamos ahí agarrando cosas nuevas, ¿vale?
+[You]: Dale. No, Lo Bueno, Ustedes Les Preguntaba Porque Por Ahí En El Mundo Estaría Bueno Verlos En Persona, El Equipo Está Muy Aires y seguimos si decidimos hacer una prueba de piloto
+[Remote]: Obvio.
+[You]: siempre nos gusta ir a las oficinas y ir creando esa relación.
+[Remote]: Muy bien.
+[Remote]: 10 por cien son superbenvenidos a venir a la oficina, de hecho, tengo gente de and drop
+[Remote]: acá dando charlas hoy y todo el día, así que
+[Remote]: nada, más que bienvenidos a comentarla.
+[You]: Andati.
+[You]: Bueno, la seguimos por mail, entonces. Muchas gracias por el tiempo y un gusto, Catá.
+[Remote]: Dale. Bueno,
+[Remote]: Dale, un gusto, gracias a ustedes. Adiós. Chicos por el tiempo. Que tengan buen día.
+
+============================================================
+SUMMARY
+============================================================
+### Tiendanube Current State & Symmetric Implementation
+
+- Brazil sub-acquirer operations already live with Symmetric
+  - Implementation took 3+ months with significant learning curve
+  - Going live in next 30 days after extended setup period
+  - Performance meeting expectations but requires manual configuration
+- Argentina PSP license delayed to end of 2026 (not mid-year as originally planned)
+- Catalina led Symmetric implementation project
+  - Integrated banking transactions and payment platforms (Mercado Pago, etc.)
+  - Deep knowledge of tool functionality and limitations
+- Current pain points with Symmetric
+  - Manual rule configuration process
+  - Requires technical team involvement for setup changes
+  - “2015-style” button-clicking interface
+
+### Envío Nube Testing Opportunity
+
+- Shipping cost reconciliation currently unautomated
+  - Merchants pay shipping fees, later reconciled with courier invoices
+  - Significant differences between merchant billing and courier charges due to reweighing
+  - Monthly material impact on provisions
+- Guillermo doesn’t want to wait for Argentina PSP launch
+  - Wants to test Rexi with Envío Nube before PSP implementation
+  - Smaller volume pilot to evaluate platform capabilities
+- Catalina to coordinate with Rexi product team for detailed flow review
+- NetSuite ERP integration already available
+
+### Next Steps
+
+- Rexi to send trust center documentation and certifications via email
+- NDA execution for data sharing
+- Catalina to schedule follow-up meeting with Rexi product team
+  - Review Envío Nube reconciliation workflow
+  - Address additional technical questions
+- Potential in-person meeting at Tiendanube Buenos Aires office
+- Pricing discussion for pilot program (reduced volume vs full implementation)
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/3a9cc8cf-7da9-47b0-a26d-cf0d40be1627](https://notes.granola.ai/t/3a9cc8cf-7da9-47b0-a26d-cf0d40be1627)

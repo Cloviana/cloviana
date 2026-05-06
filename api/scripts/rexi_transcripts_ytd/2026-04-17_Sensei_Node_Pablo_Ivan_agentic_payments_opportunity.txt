@@ -1,0 +1,512 @@
+MEETING: Sensei Node (Pablo+ Ivan): agentic payments opportunity
+DATE: 2026-04-17
+ID: not_prDe1vCTfa428R
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Ivanszeftel <ivanszeftel@gmail.com>, Pablo Larguia <pablo@senseinode.com>
+SCHEDULED: 2026-04-17T11:30:00-04:00 - 2026-04-17T12:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Sí, sí, Nacho.
+[Remote]: ¿Verdad?
+[Remote]: Nacho, Nacho. ¿Cómo andas?
+[You]: Muy bien, ¿y vos? Qué bueno verte.
+[Remote]: Bien también, gracias. Lo mismo. Hola, Iván.
+[You]: ¿Cómo estás, Iván?
+[Remote]: ¿Qué hacés, Pablo? ¿Qué hacés, Nacho? ¿Todo bien?
+[Remote]: Todo bien.
+[You]: Un gusto. No nos habíamos conocido, ¿no?
+[Remote]: Cursamos juntos en Ditella, yo yo me fui a intercambio con Felo, Osana,
+[You]: Ah, boludo, yo te dije, Iván, te estaba buscando en LinkedIn, porque es que yo este pibe lo conozco.
+[Remote]: Sí, yo me fui con con Pelo ahí hace un par de años, ya
+[Remote]: como ocho años de de nuestra época en Ditella, pero creo que cursamos juntos, no nos conocíamos ahí,
+[Remote]: pero vi que ibas a ir ahí a
+[Remote]: Argentina a week y le dije a Pablo, che, hablen, capaz surgió algo interesante.
+[Remote]: Sí, buenísimo. Lo, justo lo que nos pasó,
+[Remote]: es que nos pusimos a hablar, y viste que nos creo que nos vino a buscar Julia o alguien para la foto grupal,
+[Remote]: y Sori queda ahí como en todo el quilombo,
+[Remote]: después no no no nos dio tiempo de
+[Remote]: de de hablar con más en detalle, pero bueno, sí, no no nos conocimos ahí, estuvo buenísimo.
+[You]: Buono, te Oliatti, ciao, ciao, bene, stavo con il
+[Remote]: La verdad.
+[You]: entre los dientes, ¿viste?, dando a conocer la máxima cantidad de gente posible
+[Remote]: Sí, sí, sí, estábamos todos iguales, pero bueno,
+[Remote]: Te te cuento que tenemos media hora
+[Remote]: El tema es así, en
+[Remote]: sensei, desde sensei node, viendo distintos temas de
+[Remote]: infraestructura, hay hay un cuello de botella que es el
+[Remote]: que creo que es la oportunidad que vos estás
+[Remote]: estás siguiendo con Rexi,
+[Remote]: entonces entonces, o te o te digo yo un poco de contexto
+[You]: Vale.
+[Remote]: y y contame vos si es así. En definitiva,
+[Remote]: lo que siento es que hay
+[Remote]: están saliendo muchas
+[Remote]: l uno, como plasma, plasma que es
+[Remote]: Tether, Tempo de Stripe,
+[Remote]: arc de circle. Y entonces, el stack es mucha
+[Remote]: l uno, muchos
+[Remote]: wallet stack tipo o get
+[Remote]: para, o o varias más. Y después hay otro
+[Remote]: stack, que es el card issuer, que uno se, que está por su
+[Remote]: y otro se llama x,
+[Remote]: creo que es o algo así, si no te lo paso ahora, no sé si lo conocés.
+[Remote]: X, no sé si lo conocés, pero bueno, te lo paso por las dudas.
+[Remote]: Creo que es de de Asia. Bueno, y por otro lado están todos los
+[Remote]: y sí,
+[Remote]: nosotros viendo cómo podríamos
+[Remote]: ayudar a estas l uno, sobre todo que tenemos vínculo,
+[Remote]: veíamos el tema de
+[Remote]: conciliación o financial control layer,
+[Remote]: porque no está... Acá te paso lo de straits.
+[Remote]: Que es un card issuer, porque
+[Remote]: fuimos a un ejemplo concreto, que es el de Exactly, que o Exact, que
+[Remote]: app, que es Gabriel Gruber, que también estaba en New York, no sé si los llegaste a conocer,
+[Remote]: Y, claro,
+[Remote]: tienen un caos total, es decir, ellos emiten la
+[Remote]: es un neobanco, digamos, EGSA,
+[Remote]: le invirtió Kasek, y ellos tienen
+[Remote]: Rey le pasa todos los días las transacciones manualmente,
+[Remote]: y no tienen, no hay un un third party neutral settlement,
+[Remote]: es decir, van y vienen con esta sí, esta no,
+[Remote]: pero al final me dice que, al final el que dice la última palabra es Visa, si Visa te dice
+[Remote]: a mí me entró esta transacción, págamela como sea, o sea, no hay tu tía,
+[Remote]: En fin, en definitiva, hay un caos en en conciliación cripto
+[Remote]: Entonces, primero para entender, ¿es esa la oportunidad
+[Remote]: estás vos o ahora seguís comentame vos acerca de Rexi?
+[You]: Exactamente, eso es que hacemos hoy.
+[You]: La visión es un poquitito más grande y es, tiene un approach diferenciado, pero
+[You]: otros players que ya están en el mercado, pero pero ese es el problema que nos solemos
+[Remote]: Como Symmetrics, ¿no? O sea, Symmetrics sería un competidor.
+[You]: Sí, tenemos un approach distinto que simétrica en muchos sentidos. Primero, a nivel cómo queremos resolver la conciliación, con una herramienta que termina estando interconectada entre todos los parties, entonces, de esa están trabajando todo sobre la misma información, considerando una misma lógica, y tiene una herramienta para resolver las diferencias. Y después, a nivel visión y modelo negocio, para mí la conciliación es una puerta de entrada,
+[You]: para hacer esa base fundacional técnica sobre la cual después te hago agentes automatizar otros procesos de finnops. Entonces, la manera en que yo el producto de la plataforma y modelo de negocio es muy simple asymmetric, no lo hago, por ejemplo, por seats, no lo hago por volumen transaccional, y estoy mucho más cómodo de si conciliaciones es un loss leader para mí, porque yo juego mucho más un rol de land and expand una que llegó, Conciliación, lo interesante es tiene muchas adyacencias alrededor, de procesos que también son muy manuales, cascadea, dolores en todos lados por la conciliación. Entonces, por eso decimos, te hago esta primer parte que te la automatizo con con tecnología agéntica,
+[You]: y después me siento con que cobro los equipos a decir, ver, contame qué haces manualmente, strategic file,
+[You]: reporting, legending,
+[You]: digo, cualquier flujo o operación que estén haciendo SP y A,
+[You]: mismo accounting, es un
+[Remote]: ¿Tenés tenés armado o o un deck o una demo que podamos ver ahora
+[You]: A ver,
+[Remote]: diez minutos?
+[Remote]: Digo, para para
+[You]: a ver si tengo acceso
+[Remote]: y y esa esa es una, eso, y dos,
+[Remote]: o sea, lo que leí en Rexi punto
+[Remote]: es como que el cliente es el neobank, ¿o o ya estás
+[Remote]: contacto con Reign o con estas chains que mencioné, o no hace falta, o
+[Remote]: o cómo tu modelo?
+[You]: Yo estoy trabajando con
+[Remote]: Yo
+[You]: bancos
+[You]: procesadores de pagos y aseguradoras, y no bancos también, obviamente.
+[You]: Mirá, muestro un poquito la plataforma hoy. Hoy es una plataforma de
+[You]: El primer producto que estamos desarrollando
+[You]: por encima de esto es toda la parte
+[You]: de de accounting.
+[You]: Entonces,
+[You]: la la experiencia es completamente agéntica,
+[You]: Nivel, vos entrás y esto es lo que ves, y podés armarte tu home como vos quieras.
+[You]: Por ejemplo, es una gran diferencia de tu Symmetry, que vos tenés que conectarla
+[You]: fuente, configurar la lógica, esa lógica la
+[You]: que ir adaptando, se te rompe, tenés que hacer manipuleos antes de tu información para poder usar Symmetric.
+[You]: Acá es
+[You]: conectáme al archivo crudo,
+[You]: de que puedes conectar bolígrafo, o después te da un CSV, podés
+[You]: conectar una API, conectar una database, lo que vos quieras. La idea es que
+[You]: se configure un conector de ingesta asynchrony automática,
+[You]: Después, configuras tus conciliaciones,
+[You]: que de vuelta acá también, esto
+[You]: si te querés meter a hacerlo manualmente, a tocar botones tipo SaaS, podés,
+[You]: pero la realidad es que esto está pensado de una manera cien por ciento agenticad,
+[You]: y lo interesante de esto es que tenés un agente que te va autooptimizando
+[You]: esa conciliación constantemente, porque uno de los dolores es la
+[You]: la conciliación es que vos hacés armás algo estático automatizado, te soluciona este semana, la semana que ves te rompe.
+[You]: O que te cambie un archivo o te cambie un proveedor la manera en la que te cambies la estructura del
+[You]: archivo, no puede ser algo estático. Entonces, yo tener un
+[You]: que le digo qué es lo que necesito y cuál es el requerido, me permite que
+[You]: ante cualquier cambio, optimiza y se adapta.
+[You]: ¿Sí?
+[You]: Y después, para mí, la parte que es una bomba es esta parte de acá, que es el problem solver,
+[You]: porque la realidad es que una es que yo tengo algo automático, que a través
+[You]: después sigo teniendo equipo de gente
+[You]: que lo que hacen es
+[You]: investigar y resolver discrepancias en Excel.
+[You]: O sea, trabajo con neobancos, con
+[You]: con bancos, con profesores de pago que tienen equipos de ocho o diez personas,
+[You]: todos los días están en Excel trackeando diferencias.
+[You]: ¿Entendés? Acá, de vuelta, tengo un agente que lo que hace es agrupa
+[You]: agrupa transacciones por causa raíz,
+[You]: acá tengo un case management system también colaborativo, donde vos
+[You]: podés ir tagueando a quién es el indicado, la maduración de estos casos,
+[You]: y te agrupa por causa raíz y te propone soluciones.
+[You]: ¿No? Entonces, por ejemplo, acá,
+[You]: dismiss or apply,
+[You]: apply,
+[You]: y te aplica la solución, y después se te lo retroalimenta, es apply, pum, ya está resuelto,
+[You]: y eso te lo retroalimenta a lógica porque empieza a aprender
+[You]: que hay algunos, por ejemplo, transacciones duplicadas del BIN que te lo postea dos veces por el tema contable,
+[You]: no sé, todos los nuances que se terminan automatizando porque tenemos agentes para esto,
+[You]: Y después toda la lógica de, bueno, te armás tus dashboards como vos quieras,
+[You]: no te voy a decir yo el dashboard que vos tenés que armar,
+[You]: te lo armás vos acá,
+[You]: agregás un data widget de lo que vos quieras,
+[You]: con el gráfico que vos quieras,
+[Remote]: Y un ejemplo concreto de
+[Remote]: con un neobanco que esté trabajando para conciliar con quién, por ejemplo. O sea, tenés el caso exactly, Rain, pero con
+[You]: Ahora estamos trabajando
+[Remote]: no sé, x con taqueros, con que que que
+[Remote]: conciliar con
+[Remote]: con
+[Remote]: Visa o qué?
+[You]: Sí, exactamente. Entonces, algunos no bancos no trabajamos, trabajamos con, bueno, con buen bit,
+[You]: trabajamos con Bitso, trabajamos en su momento también con
+[You]: bueno, acá en Estados Unidos trabajamos con Común Y Contera, que son dos neobancos, También, misma lógica, están montados arriba en banco sponsor, están integrados con Visa para un producto o tarjeta,
+[You]: están integrados con otros proveedores para remesas, cashing, cash out, etcétera.
+[Remote]: Buen pitch.
+[You]: Así que, sí.
+[Remote]: Buen bit con este, Fede Oyé, ¿lo conocés? ¿No?
+[You]: Sí, sí, obvio, fue mi colegio, lo lo conozco muy bien.
+[Remote]: Ah, buenísimo. Sí, muy es muy amigo.
+[Remote]: Bueno, perfecto, ahí ya hay esos dos
+[Remote]: dos claros ejemplos, eso, de... Perfecto.
+[Remote]: Bueno, entonces, la oportunidad de la semana que viene
+[Remote]: es que el lunes
+[Remote]: tenemos call con este que se llama scale
+[Remote]: que te pasé, no sé si lo lo regaste a ver. ¿Querés comentar un poco más, Iván, vos?
+[Remote]: Sí, básicamente,
+[Remote]: yo creo acá, Nacho, que vos estás más enfocado en, como dijiste,
+[Remote]: bancos, aseguradoras, empresas que tienen quilombos grandes y equipos grandes con
+[Remote]: con
+[Remote]: todo el tema de conciliaciones. En el mundo cripto,
+[Remote]: hablando mucho hoy en día de authentic payments, o sea, un agente que te resuelva
+[Remote]: la conciliación es lo que hacés vos,
+[Remote]: hoy en día los pagos en cripto los van a hacer agentes, digamos, o sea, se está hablando mucho de eso.
+[Remote]: No lo van a hacer más las personas. Entonces,
+[Remote]: con Google, con un montón de players enormes,
+[Remote]: están sacando varios protocolos, uno se llama cuatro cero dos, otro se llama MPP,
+[Remote]: donde agentes van a poder directamente hacer los pagos
+[Remote]: on chain
+[Remote]: veinticuatro siete, ¿no?
+[Remote]: Hoy en día los volúmenes son enormes, pero las transacciones son
+[Remote]: de centavos, digamos, o sea, son pagos muy, muy pequeños, pero un montón de pagos.
+[Remote]: Y creemos que este problema también se va a replicar en en on chain,
+[Remote]: para los agendic payments.
+[Remote]: Esta este protocolo scale hizo un pivot hace
+[Remote]: cinco, seis meses, y en lugar de ser una blockchain
+[Remote]: tradicional, están enfocando en todo lo que es agentic payments.
+[Remote]: Lunes tenemos call y les queríamos presentar, ellos están
+[Remote]: habilitando a que el mundo se mueva por pagos agénticos,
+[Remote]: no tienen toda una operación atrás donde van a se va a poder, efectivamente, controlar que esos
+[You]: Ya están operando.
+[You]: ¿Cómo lo resuelve el mail?
+[Remote]: Sí, ya están operando y no sabemos, no sé,
+[Remote]: No, no, no, no tiene una solución.
+[Remote]: Por eso.
+[You]: Que lo, tipo, o no están conciliando o tienen equipo haciéndolo en Excel,
+[Remote]: No sé, no sé,
+[Remote]: no creo que, creo, supongo que no están conciliando como todo eso un chain
+[Remote]: no sé si después golpean contra Visa, no sé si tienen esa solución.
+[Remote]: De quién
+[Remote]: está el otro lado del pago,
+[Remote]: lo que hacen ellos es, y lo vamos a, es una call más de
+[Remote]: exploratoria el lunes, ellos te habilitan a que vos hagas el pago, digamos,
+[Remote]: sea, que habilites tu agenda payments y haces el deployment,
+[Remote]: pero después quién lo controla, cómo lo controla, creo que está a cargo de cada empresa que usa el blog para ¿Cómo cómo...? Claro, claro. Exacto.
+[You]: una solución que ellos quieren dar a sus clientes,
+[You]: Encanta. Sí, en el mundo payments, el embedded route
+[You]: algo que estamos viendo mucho.
+[You]: Donde tienen un caso de uso interno, obviamente, siempre,
+[You]: más que nada compañías procesadoras y agregadoras, pero después
+[You]: lo que más les interesa, la segunda reunión siempre es con alguien de producto, de che, mirá, me
+[You]: llaman todo el día mis clientes,
+[You]: tienen quilombos conciliatorios con mis archivos, y es algo que me gustaría
+[You]: Ahí lo interesante es que, por ejemplo, compañías como DLocal no van a poder
+[You]: monetizar nunca un módulo adicional de conciliaciones. Entonces, un partnership con nosotros
+[You]: en donde hay un revenue share model, les permiten monetizar algo indirectamente, que de otra manera
+[You]: de manera directa, no podrían monetizar nunca. Entonces,
+[Remote]: Exacto.
+[You]: Así que, nada, yo feliz. Esta gente,
+[Remote]: ¿A de local estás hablando?
+[You]: Sí, sí, estamos hablando.
+[You]: Estamos hablando hace bastantes, son conversaciones que vamos, ¿viste?, nurturing en el tiempo,
+[You]: ellos están usando Symmetric,
+[You]: no están muy contentos ni con la solución ni con las facturas de Symmetric,
+[You]: entonces, estamos ahí siempre al
+[You]: Honestamente, esas conversaciones donde ya está symmetric implementado, yo
+[You]: trato de dedicarle no mucho tiempo, porque no es muy eficiente el uso de mi tiempo en ese
+[You]: casos, ¿viste? El reemplazo, el replacement play
+[You]: es un ciclo de venta mucho más largo. Yo prefiero ir tras las compañías que hoy tienen equipos de diez personas en el
+[You]: y hay una oportunidad enorme, no sabes la cantidad de, digo,
+[You]: buen bit antes de nosotros ni conciliaban, ni siquiera estaban trackeando su flujo, ¿me entendés?
+[Remote]: Claro.
+[You]: Entonces,
+[You]: hoy esas son las conversaciones que estoy tras
+[You]: más tratando de buscar como esta que me plantean, digo, hoy no tienen nada, vamos ahí.
+[Remote]: Mirá, el tema es así, el lunes tenemos dos, acá están los de skate,
+[Remote]: el lunes tenemos... No, porque la otra es ver si podemos
+[Remote]: como con estos players, nosotros por ahí, por por
+[Remote]: de nodos y eso,
+[Remote]: nos conviene, nos gusta y nos conviene estar cerca, esto es lo que es
+[Remote]: scale for agents,
+[Remote]: cien por cien van a agents, y, bueno, sí, me imagino que les conviene
+[Remote]: empezar ya desde el inicio con un
+[Remote]: Mi
+[Remote]: 2,000,000,000 transactions
+[Remote]: Entonces, lo que se me ocurre es
+[Remote]: lo que se me ocurre es,
+[Remote]: quizás si llegamos a un tipo de partnership o si vos tenés algún tipo de
+[Remote]: de de revenue sharing establecido con
+[Remote]: con leads partners,
+[Remote]: ahí tanto como otra que es
+[Remote]: se llama layer zero, no sé si la conocés, pero es
+[Remote]: layer zero en cripto es enorme, ahora te la comparto también.
+[Remote]: Es como
+[Remote]: eso, como quieren ser el settlement network de
+[You]: Pero ahí ustedes
+[Remote]: de de
+[Remote]: sí, también de payment,
+[You]: serían como una especie de referral,
+[You]: o o hay algo técnico funcional de la
+[You]: experiencia que sería a través de SenseiNode?
+[Remote]: Sí, buena pregunta. ¿Estamos
+[Remote]: yo no no estoy
+[Remote]: seguro, pero si parte de la data
+[Remote]: que llegan a necesitar
+[Remote]: pueda venir de nuestra infra
+[Remote]: de nuestra infra, no
+[Remote]: la verdad que es superexploratorio, digamos. Entonces buena pregunta.
+[Remote]: Una buena pregunta esa, porque yo te quería preguntar, Nacho, si ya trabajan con algún
+[Remote]: alguna empresa cripto,
+[Remote]: y coinciden algún pago que en lugar de de ser off chain, o sea, que
+[Remote]: impacte on chain la transacción, digamos, porque
+[Remote]: la data on chain, Sensei, yo creo que ahí sí se puede meter y extraerla.
+[Remote]: De una blockchain.
+[You]: Mira, estamos integrados con FireBlock,
+[You]: para los neobancos que tienen cripto, entonces, ingestamos esa data y conciliamos esa data. De todas maneras, no no no creo que sea un limitante, digo, hoy conectarse a las blockchains, no sé, díganme ustedes, yo sin saber sabiendo poco de mi época en dicho, para Rexi, no creo que sea un limitante muy grande, es decir, che, necesito alguien que me dé
+[You]: la la integración con las blockchains para ingestar la información.
+[You]: Por eso pensaba más si del lado experiencia hay algún beneficio
+[You]: hacerlo a través de Sensei no tenga sentido.
+[You]: Yo creo que a nivel de integración,
+[You]: no sé, corríjanme ustedes, es muy complejo,
+[You]: o no tanto?
+[Remote]: No, no, no, la verdad que no.
+[Remote]: No.
+[Remote]: Los a los otros nos nos va muy bien, pero en en
+[Remote]: otro tipo de infra, que es staking, ¿no?, validators.
+[Remote]: Corremos validadores para muchas protocol foundations, para
+[Remote]: para Lido, de liquid staking más grande en Ethereum,
+[Remote]: para Securitize, para OpenSepelling, pero
+[Remote]: acá no nos hemos metido. La verdad que es algo que estamos
+[You]: Sí, digo, justo habló
+[Remote]: explorando. Estos son los de email.
+[You]: es bastante fácil de integrar. Vos vos no sabés las cosas que me integro yo.
+[Remote]: Claro.
+[You]: El core bancario de Superdial van total es
+[Remote]: Sí.
+[You]: eso es difícil.
+[Remote]: Sí.
+[You]: Estas cosas tecnológicas, tenemos un integrador dinámico, y si hay una API,
+[You]: sale en minutos, digo, y no
+[Remote]: Sí, sí, sí, sí, no no creo que
+[Remote]: a priori, no me, segura, no creo que sea necesario, salvo que el
+[Remote]: nos lo pida.
+[Remote]: Entonces,
+[You]: Pero déjame decir una cosa, dos dos cosas. Uno,
+[You]: me interesa muchísimo, siempre siempre supe que en este mundo cripto
+[You]: la proliferación de stablecoins y agentic payments con cripto,
+[You]: es algo que tenemos que estar cerca, yo creo que es el futuro de los próximos
+[You]: diez años, y y si Rexi va a ser orquestado la información para conciliar flujo de dinero,
+[You]: tenemos que tener un footprint fuerte en estas cosas,
+[You]: que por ahí hoy están incipientes, pero van a crecer,
+[You]: con lo cual el primer punto es, me interesa muchísimo
+[You]: El segundo punto es
+[You]: tengamos la llamada exploratoria, ya sea con scale, con layer zero,
+[You]: nada, y ahí confíen en mí, que después entre nosotros
+[You]: encontraremos encontraremos el arreglo que mejor tenga sentido. Si hay una experiencia superadora,
+[You]: para hacer para hacer a través de Sensei Node, haremos, y si no,
+[You]: digo, trataremos de hacer la mejor experiencia para el cliente final,
+[You]: y después se se compensará a cada parte
+[You]: por el valor agregado. Digo, eso, en ese sentido, no
+[You]: digo, hay, no hay confianza, pero hay confianza, van a tener que confiar un poco en mí también.
+[Remote]: Claro, claro.
+[Remote]: Sí, yo me imagino así, algo así, porque como
+[Remote]: muy sobre la hora, digamos, de de que son el lunes las dos reuniones,
+[Remote]: y me parece que
+[Remote]: que hace sentido que
+[Remote]: que estés. Yo lo que siento es que después vemos
+[Remote]: medimos un poco el mercado con con estos dos.
+[Remote]: Después tengo mucho vínculo con
+[Remote]: estas l uno cien por cien para stablecoin, así que es
+[Remote]: si le llegamos a decir a tempo de Stripe, che, acá tengo tu control, financial control layer, for agentic economy, Si llegamos a ser el partner, después, ¿entendés?, después usa Tempo, por ejemplo, socia de Newbank, ¿no? O sea,
+[Remote]: le
+[Remote]: eligió como partner o uno de los partners en en Nubank.
+[Remote]: Después Visa también, ¿viste?, el venture capital de Visa te tendría que
+[Remote]: y de Mastercard, ¿viste?, como
+[Remote]: seguramente en un futuro, ¿viste?, cuando
+[Remote]: tomes más volumen. Entonces, creo que, justamente,
+[Remote]: Sensei, de de ese lado cripto de
+[Remote]: si si hay feed con estos dos o vemos cómo
+[Remote]: por ahí no dicen, ya lo tenemos recontra resuelto con otra startup o lo que sea,
+[Remote]: pero, ¿viste?, hay trescientos neo banks
+[Remote]: entonces, a ver, muchos tenemos llegada, entonces creo que
+[Remote]: si ayudamos a Rexy a hacer
+[Remote]: a a como de alliance,
+[Remote]: Finance,
+[Remote]: bueno, quizá comienza medio como un
+[Remote]: eso, como un
+[Remote]: revenue partner, y pero que ojalá sea el primer paso
+[Remote]: cada que después a vos, no sé, por decir algo, che, sale de una nuevo protocolo
+[Remote]: acá en New York y hace falta
+[Remote]: node operator o están buscando, entonces,
+[Remote]: chat,
+[Remote]: que sea un ida y vuelta eso, me parece que que sí, que
+[Remote]: estamos como muy
+[Remote]: Pero bueno, tened esta oportunidad el lunes, aprovechémosla a las dos y vemos.
+[You]: Obvio, obvio, paso a paso.
+[You]: Si, digo, el el el el valor potencial está, yo también lo veo,
+[You]: en tanto el partnership como también Rexy metiéndose en el mundo este
+[You]: de cryptostable con Slayer Ones,
+[You]: etcétera, con lo cual el valor potencial está, vayamos descubriéndolo paso a paso y vayamos encontrando ese
+[You]: acuerdo que sirva para más partes, obvio.
+[Remote]: Claro, a a nosotros lo que nos pasó es
+[Remote]: eso que todos, estuve ahí en New York cuando nos vimos,
+[Remote]: fui a las oficinas de Tempo,
+[Remote]: y nada, ya los conozco desde
+[Remote]: el team antes estaba en ahora la que es la gente partnerships
+[Remote]: de todo Stripe Crypto es muy amiga. Entonces,
+[Remote]: es como
+[Remote]: que me sería muy fácil
+[Remote]: a Sensei, o sea, el el, todo esto comenzó porque fue,
+[Remote]: surgió como una evolución
+[Remote]: natural de Sense. Me empezaron a preguntar, che,
+[Remote]: vos que hacés infra, ¿no podés ayudarlo a la conciliación?
+[Remote]: Y lo que dijimos con Iván es como,
+[Remote]: ok, lanzamos esta unidad de negocios y ahí cuando
+[Remote]: vimos a Rex, dijimos, no, no tiene
+[Remote]: tiene sentido eso que con la, eso,
+[Remote]: si ya hay un player haciéndolo,
+[Remote]: mejor vender Sensei by Rexi o
+[Remote]: o Rexi cripto es con no sé, ¿viste?, los inventamos después un buen
+[You]: No, y ahí de vuelta, si no ven,
+[Remote]: una buena comunicación,
+[You]: si lo si en algún momento tuvieron la conversación de decir, che, esto es un producto que debíamos tener,
+[You]: entonces, el el partnership mucho más hacia hacia ese lado de embedding,
+[You]: Yo feliz,
+[You]: para que ustedes también le le extraigan valor. Ahí lo que termina pasando es lo que te decía antes,
+[You]: Pregunta para ustedes, ¿ustedes creen que Sensei Node puede monetizar
+[You]: un módulo adicional de conciliaciones o no?
+[Remote]: Lo, sí, sí, lo puede
+[Remote]: más que nada, creo que
+[Remote]: si
+[Remote]: pensé, no no hace falta para el lunes esto, pero si vemos bien
+[Remote]: con Tempo, Plasma y
+[Remote]: que son una, ¿viste?, de Circle, de Tether y de y de Stripe,
+[Remote]: Si esas tres, cien por cien stablecoin, l uno networks, No están con un control layer podemos podemos hacer que el directory de ellos sea Rexy, o sea, Rexy el el el como el preferred partner o algo así para todos los neobanks que van a usar esa esas blockchains. Algo algo así. Pero a lo que voy es que sumarlo como módulo, como Siento que, bueno, sí podríamos, pero casi que sería En realidad, no no quiero forzar algo que ya es con Rexi, o sea, haría la intro y
+[You]: Meo lejos del port,
+[Remote]: no sé, veamos
+[You]: Claro, por eso digo que termina siendo mejor el
+[Remote]: tiempo, tiempo, te manejo los nodos en Latinoamérica,
+[Remote]: y te agrego un control layer. Sí, puede ser, pero en realidad tu producto es como
+[Remote]: sí puede ser un add on, pero
+[Remote]: cuando yo lo salga a vender, no voy a salir vender que lo hago yo,
+[Remote]: a seguir a vender que lo hace Rexi, porque no, o sea, no, ¿se entiende? Como
+[Remote]: me parece.
+[You]: Bueno, el potencial está carísimo y me interesa muchísimo.
+[Remote]: Pero, me quiero, tipo, es una guidance,
+[Remote]: ¿Cómo?
+[You]: No, no, que digo que el potencial
+[You]: está clarísimo, lo veo igual que ustedes, y y me interesa muchísimo incursionar en este
+[You]: en este espacio. Así que, primero que nada, gracias.
+[You]: Gracias por tenerlos en cuenta y por contactarme. Y después, díganme qué necesitan de
+[You]: mí para el para el lunes, si tengo que presentar o presentarme a ustedes,
+[Remote]: Sí, hagamos una cosa, hagamos una presentación
+[Remote]: Iván, hacele un briefing de
+[Remote]: de layer zero y de scale,
+[Remote]: y y y vayamos con el
+[Remote]: draft deck, Iván, que me
+[Remote]: que preparaste para scale, hacelo con Rexi, ¿se entiende? O sea,
+[Remote]: decí, presentamos el solution,
+[Remote]: sensei by rex, y no sé, nos inventamos algo así que sepan
+[Remote]: ellos confían en nosotros, como que, ah, el provider de infraestructura
+[Remote]: ya maneja $1,000,000,000 stake it,
+[Remote]: ya tiene experiencia en infraestructura, se asoció con Rexy para
+[Remote]: para todo
+[Remote]: conciliación con las network. Después, por suerte, después vemos nosotros, ¿viste?,
+[Remote]: under the hood, si hay algún tipo de integración posible, pero
+[Remote]: de acá al lunes vayamos a las dos diciendo, un potencial implementation partner y también go to market partner en LATAM,
+[Remote]: scale y para
+[Remote]: y para layer zero. Al final ellos también,
+[Remote]: como que les interesa llegar a LATAM, aunque el producto de por supuesto es global,
+[Remote]: El nuestro también, nosotros también tenemos nodos en Estados Unidos y Europa,
+[Remote]: sea, es muy fácil
+[Remote]: este, pero bueno, no, como que nos significan mucho como el partner para LATAM,
+[Remote]: para descentralizar
+[Remote]: ellos las redes con con no Latinoamérica, somos el único provider.
+[Remote]: Entonces, fijate una narrativa, mandale esta tarde, Iván, un deck de que van a ser casi copy paste.
+[Remote]: Layer zero, con layer zero y otro con scale, mandale a
+[Remote]: a
+[Remote]: pásale ya el calendario de los dos
+[Remote]: de los dos, a qué horas son los dos calls, a ver si
+[Remote]: ojalá puedas ir a los dos, que sería importante,
+[You]: Dejo dejo mi WhatsApp, Iván, me
+[Remote]: A vos.
+[You]: por cualquier cosa, sí, luego charlando el cine también.
+[Remote]: Sí, sí, me lo pasaste, se lo pasaste vos ahí, armón ya un grupito,
+[Remote]: hacemos todo por ahí, listo. Armagí, Pablo, dale, grupo en
+[Remote]: WhatsApp, solo te comparto la presentación que hice para para
+[Remote]: en PPA, PPA, Iván, Iván,
+[Remote]: tenés que, tenemos que revisarla toda, esperá y hacela y hacela de vuelta.
+[Remote]: Sí, sí. No no
+[Remote]: vamos en, ahora yo tengo un call con con otra l uno,
+[Remote]: que está Nacho y me tengo que conectar, que están en París ellos con
+[Remote]: con otro partner.
+[Remote]: Te mandamos todo en dos dos, tres horas,
+[Remote]: Nacho, juntémonos en una hora, Iván, hablamos y Dale.
+[You]: Listo.
+[Remote]: Bien. Y ahí vamos a Dale, gracias. Nacho, buenísimo.
+[You]: Muchas gracias, por la oportunidad. Ahí la seguimos.
+[Remote]: Gracias, chicos.
+[Remote]: Vamos, dale, hasta luego. Chao, chao.
+
+============================================================
+SUMMARY
+============================================================
+### Crypto Infrastructure Partnership Opportunity
+
+- SenseiNode identified reconciliation bottleneck in crypto payment infrastructure
+  - L1 networks emerging: Plasma (Tether), Tempo (Stripe), Arc (Circle)
+  - Card issuers like Straits creating settlement chaos
+  - Example: Exactly app has manual daily transaction reconciliation with Rey
+  - Visa ultimately decides transaction validity, no neutral third-party settlement
+- Agentic payments trend accelerating
+  - Agents will handle crypto payments 24/7 instead of humans
+  - High volume, small transaction amounts (cents)
+  - Google and major players developing protocols (402, MPP)
+
+### Scale and LayerZero Partnerships
+
+- Llamada con Scale el lunes
+- LayerZero partnership potential
+- SenseiNode has strong connections to L1 stablecoin networks:
+  - Tempo
+  - Plasma
+  - Arc
+- Scale pivoted 5-6 months ago to focus on agentic payments
+  - Already operating but lacks reconciliation solution
+  - Enables agentic payment deployment without backend control systems
+- Partnership model discussion
+  - Revenue sharing arrangement preferred over seat/volume pricing
+  - SenseiNode as referral partner vs technical integration TBD
+  - Potential “Sensei by Rexi” or “Rexi crypto powered by SenseiNode” branding
+
+### Next Steps
+
+- Monday calls with Scale and LayerZero (Iván to share calendar invites)
+- Iván preparing presentation decks for both meetings
+  - Copy-paste approach: one for LayerZero, one for Scale
+  - Positioning as implementation and go-to-market partner for LATAM
+- WhatsApp group creation for coordination
+- Follow-up in 2-3 hours with presentation materials
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/02ab39c9-ef39-4739-8940-fdb68fd669b8](https://notes.granola.ai/t/02ab39c9-ef39-4739-8940-fdb68fd669b8)

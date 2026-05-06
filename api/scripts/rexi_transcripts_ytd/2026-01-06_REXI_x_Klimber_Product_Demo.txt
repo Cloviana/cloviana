@@ -1,0 +1,1083 @@
+MEETING: REXI x Klimber: Product Demo
+DATE: 2026-01-06
+ID: not_hplT6X2iuF9GNG
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Federico Lemos <federico.lemos@klimber.com>, Ignacio Allende <ignacio.allende@klimber.com>, Daniel Moussatche <daniel.moussatche@klimber.com>, Nicolas Kuzminski <nicolas.kuzminski@klimber.com>, Octavio Miretti <octavio.miretti@klimber.com>, Martin Risso <martin.risso@klimber.com>, Daiana Gomila <daiana.gomila@klimber.com>, Sebastián García <sebastian@rexi.finance>, Teo Zavalia Gahan <teo@rexi.finance>, Franco <franco@rexi.finance>
+SCHEDULED: 2026-01-06T10:00:00-05:00 - 2026-01-06T11:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Y conmigo,
+[Remote]: que se fue ya, digamos, el screening
+[Remote]: con un poco más de
+[Remote]: de cercanía al negocio y a la operación.
+[Remote]: De nuestra parte,
+[Remote]: Y ahora,
+[Remote]: pasamos al nivel tres.
+[Remote]: Ahora trajimos a los especialistas que realmente pueden
+[Remote]: evaluar y diseñar
+[Remote]: un piloto de Rexi más Climber, ¿no?
+[Remote]: Yo hago una una introducción ahora del equipo de Rexi lo pueden complementar con
+[Remote]: con
+[Remote]: con explicaciones, información o lo que haga falta,
+[Remote]: pero el equipo de Raxi se se dedica a hacer
+[Remote]: con inteligencia artificial,
+[Remote]: diferentes soluciones para los procesos de conciliación
+[Remote]: industrias como la nuestra fintech,
+[Remote]: y SurTech, Fanca, además.
+[Remote]: Entonces,
+[Remote]: yo al principio escuchando en la entrevista dos, digamos, en la reunión dos,
+[Remote]: la anterior a esta,
+[Remote]: ¿verdad? Esta es la principal oportunidad de probar si si tenemos energía,
+[Remote]: en en donde tenemos el mayor quilombo de cierres mensuales
+[Remote]: Bifar, Que Es Chile.
+[Remote]: Nosotros tenemos una operación con
+[Remote]: con MetLife Chile, nuestro
+[Remote]: tenemos ahí varios negocios implementados, algunos con mucho volumen,
+[Remote]: y tenemos un cierre mensual de aseguradora, un cierre contable mensual, que
+[Remote]: nos
+[Remote]: nos complica mes a mes.
+[Remote]: Ahora le voy a pasar directamente, les digo quiénes son las personas
+[Remote]: están acá y por qué son importantes, y
+[Remote]: dejar que los expliquen ellos, pero lo voy aplicar mejor.
+[Remote]: De cara al negocio, a la parte operativa,
+[Remote]: peleemos
+[Remote]: se conectó, es
+[Remote]: el que lleva todo el negocio en Chile y el que conoce
+[Remote]: nuestro drama operativo ahí mejor que nadie.
+[Remote]: Después, Martín Rizo es nuestro líder de funcionales y
+[Remote]: está desde hace mucho buscando una solución a a a los
+[Remote]: vamos a decir, limitaciones que muestran nuestra plataforma
+[Remote]: frente a alguno de estos desafíos que implican contabilidad, conciliaciones y cierre.
+[Remote]: Así que es importante su mirada también.
+[Remote]: Tenemos
+[Remote]: a a Daisha la conocen,
+[Remote]: nuestro del equipo de seguridad,
+[Remote]: Nástra equipo
+[Remote]: bueno,
+[Remote]: ya sabés, está para buscar problemas.
+[Remote]: Y y Dani,
+[Remote]: nuestro CTO, es nuestro arquitecto de plataforma y
+[Remote]: fundamental que Dani
+[Remote]: entienda, nos ayude a a diseñar y nos dé el
+[Remote]: la forma de llevar esto adelante y la factibilidad de de llevar esto adelante. Entonces,
+[Remote]: esto, no quiero monopolizar la reunión, yo recomendaría que, de nuestro lado,
+[Remote]: Fede haga una explicación de cuáles son los
+[Remote]: dinámica del problema, pero abro en realidad también
+[Remote]: a que enriquezcan este este arranque de la charla desde cualquiera de los equipos.
+[You]: Espectacular. Y gracias, gracias por la intro, Octavio.
+[You]: Creo que poco, la la idea que habíamos planteado nosotros para reunión era
+[You]: product demo. Ahí Teo estuvo preparando algo algo muy bueno para mostrarles.
+[You]: Hablarles un poquito de caput y mostrarles cómo funcionaría la plataforma en base a lo que escuchamos,
+[You]: también, muy atado a los pain points que que tomamos nota de las reuniones pasadas.
+[You]: Y después también me habían pedido armar
+[You]: la suerte de, no sé si propuesta comercial tan afinada, porque todavía nos falta muchísima
+[You]: información, pero
+[You]: un poco cómo trabajaríamos y nuestra propuesta de cómo involucrarnos
+[You]: de manera progresiva, arrancando con un alcance por el más limitado, probando el valor y después si es
+[You]: escalando algo más integral.
+[You]: Pero pero sí, una de las cosas que sí teníamos anotado nosotros era
+[You]: escucharlo a a Fede,
+[You]: que nos cuente en en lujo y detalle
+[You]: cómo es ese proceso de conciliaciones y cuáles son los principales dolor
+[You]: Así también por ahí ahora, cuando mostremos la demo,
+[You]: podemos ajustar
+[You]: algunas cositas para mostrar cosas más relevantes.
+[You]: Así que
+[Remote]: Bueno, buenas, un gusto, Ignacio, ¿cómo andan?
+[Remote]: Les cuento un poquito, tomando, como decía Octa Recién, Chile como referencia y por qué lo usamos como referencia y las problemáticas que que solemos tener.
+[Remote]: Nuestro core lo lo que hace, básicamente,
+[Remote]: es identificar transacciones con libros mayores contables.
+[Remote]: ¿Sí?
+[Remote]: Nosotros nos integramos a la compañía aseguradora no informando transacciones
+[Remote]: disparan asientos contables, sino ya informando un libro mayor.
+[Remote]: O sea, aún debe una ver
+[Remote]: con un control operativo.
+[Remote]: Tenemos diversos productos en este site,
+[Remote]: diversos ramos y diversos formas de hacer la contabilidad.
+[Remote]: ¿Sí?
+[Remote]: Un producto tiene un tipo de vengo, otro producto tiene otro tipo de vengo,
+[Remote]: una forma de contabilizar diferente entre un medio.
+[Remote]: Entonces, nos nos enfrentamos en dos, con dos categorías de problemas.
+[Remote]: Diría tres, si se quiere.
+[Remote]: Una vez la generación de si el asiento no
+[Remote]: Es a veces se arreglan negocios complejas para determinar
+[Remote]: cómo brindar una prima o cómo reconocer una ganancia en la tarde,
+[Remote]: ¿ok? Que convienen con otras formas, entonces,
+[Remote]: en la base, en nuestro
+[Remote]: en nuestra base de datos,
+[Remote]: de de contabilidad empiezan a quizás persistir o a
+[Remote]: convivir algunos problemas de generación del asiento,
+[Remote]: el problema tipo uno, digamos,
+[Remote]: el problema tipo dos es
+[Remote]: cómo interfaciamos con la aseguradora.
+[Remote]: Nos generamos un asiento, lo tenemos en nuestro código, lo tenemos en la base de datos,
+[Remote]: y después, para interfasar con la aseguradora,
+[Remote]: hoy trabajamos en interfaces,
+[Remote]: pero no quiero limitar la problemática a una interpack
+[Remote]: sino a una conexión. Puede ser, hoy son archivos,
+[Remote]: que consoliden información y que muestran un un libro mayor y un control,
+[Remote]: pero bien podría ser API también.
+[Remote]: Entonces, tenemos a veces asientos entre mil comillas,
+[Remote]: mal generados,
+[Remote]: a veces, asientos bien generados, pero que no lo podemos transcribir bien.
+[Remote]: A cómo interfaciamos con la aseguradora,
+[Remote]: El error tipo tres más complejo que requiere de mucha manualidades,
+[Remote]: la coherencia de datos.
+[Remote]: Ustedes saben que en momentos de un cierre contable,
+[Remote]: es solamente un cierre contable, sino que es un cierre consolidado de la operación en sí. Ahí es donde uno ve,
+[Remote]: si la operación es correcta o no, si hay datos buenos, datos malos, si
+[Remote]: una cosa consiste con otra, no.
+[Remote]: Por lo cual, cuando cruzamos y hacemos control de ecosistema,
+[Remote]: consistencia entre
+[Remote]: lo que yo digo que emití y lo que tenía derecho por cobrar y lo que efectivamente cobre,
+[Remote]: como el código del asiento no vincula un hecho con el otro necesariamente,
+[Remote]: empiezan a abrir consistencias.
+[Remote]: Recontable donde vemos, acá fallamos, quizás, o hubo un bug,
+[Remote]: en la generación del asiento. Acá está bien generado el asiento, pero lo pude, lo interfací mal.
+[Remote]: Este asiento está bien, está bien, pero no compres uno con otro, deberían conversar.
+[Remote]: Por ejemplo, si yo digo qué provisione las primas que demito,
+[Remote]: y cobro cien por ciento, el libro este tiene que subir al libro este, y a veces no coincide.
+[Remote]: ¿Por qué puede no coincidir? Porque
+[Remote]: el asiento a se genera con código propio, el asiento a veces es otro código propio.
+[Remote]: Conceptualmente, deberían ser muy parecidos y a veces no no están consistentes.
+[Remote]: No quiero acá en el detalle de de de un error, pero si lo tengo que
+[Remote]: clasificar son esos, consistencia de datos,
+[Remote]: generación del asiento en algunos casos,
+[Remote]: por la complejidad de los diferentes tipos de contabilidad que tenemos,
+[Remote]: y cómo interfaciamos o cómo consolidamos la data, que quizás está bien correcta,
+[Remote]: pero, bueno, empezamos a agregar un montón de información, volumen,
+[Remote]: y casuísticas,
+[Remote]: empezamos quizás a tener mayor probabilidad de falla.
+[You]: Carissimo, no, sì, che ci contiene una pregunta a Ipiro.
+[You]: O sea, de lo que de lo que acabo de escuchar,
+[You]: casi que el orden para resolver sería al revés, ¿no?
+[You]: Lo primero es el problema tipo tres, la coherencia de datos tiene que estar
+[You]: mega clara. Si después se generen los asientos con las reglas de negocio que mencionaste,
+[You]: después se interfasea con la aseguradora.
+[You]: Pero si lo primero está mal,
+[You]: se cascadea las otras dos.
+[Remote]: Sí, en un sí, algunos casos que hablamos en otra.
+[Remote]: Lo que tiene el dato es que la integralidad de la data es ahí importante Fede O sea, que que la data esté bien para poder crear bien los asientos contables.
+[Remote]: Ni hablar.
+[Remote]: Ni hablar. Sí, no es un problema en interior de la data, o sea, nosotros tenemos transacciones
+[Remote]: en la vía de seguro
+[Remote]: y si bien, como como todo
+[Remote]: como todo código que crece semana a semana, porque en realidad crecemos semana
+[Remote]: a semana en en lo que administramos,
+[Remote]: podemos hacer un error en la base de datos de la transacción, pero eso es parte de nuestro vago, si querés. Claro.
+[Remote]: Problema es cuando la operación tenemos a
+[Remote]: cien pólizas, y yo reflejo
+[Remote]: ciento uno noventa y nueve noventa y ocho noventa y siete.
+[Remote]: La operación per se puede
+[Remote]: tener, yo esperé cobrar una de más y no la cobré.
+[Remote]: Tengo que ir fijarme por qué, no sé,
+[Remote]: ayer con el de pago. No cobró y pensó que sí, no cobré. Eso
+[Remote]: ¿lo saco de broma de contabilidad?
+[Remote]: Bien es el momento lo detectamos porque ahí se ve toda la operación como como un cierre, estamos de acuerdo,
+[Remote]: Ese error, digamos, donde en la base no tengo tal transacción,
+[Remote]: no es el que no nos
+[Remote]: nos surge hoy.
+[Remote]: Parte de nuestro trabajo, yo te digo, tema es que lo que esté en la base, como transacciones
+[Remote]: altas, bajas, cobranzas, de primas, siniestros, rescates o todo lo lo
+[Remote]: que tengamos según nuestros productos,
+[Remote]: esté trasladado a la contabilidad.
+[Remote]: Entiendo. ¿Pico?
+[You]: Carissimo.
+[Remote]: Ajá. Bien.
+[Remote]: Aí, sei se já te eu, queres mostrar pouquinho que é isso?
+[Remote]: Quieres si quieres vamos así no
+[Remote]: no aprovechamos el tiempo.
+[Remote]: Nada, lo primero es, agradezco que haya gente de
+[Remote]: equipos, porque, como les comenté la última vez, nos suele contactar un equipo, un
+[Remote]: dentro de una empresa, puede ser operaciones o contabilidad o finanzas,
+[Remote]: termina siendo una plataforma compartida entre todos, que que que centraliza y hace que que se
+[Remote]: alinee,
+[Remote]: todo, así que espectacular por ese lado.
+[Remote]: Yo acá preparé una demo para ponerle
+[Remote]: un poco de
+[Remote]: patas y cabeza a a lo que es la plataforma de Rexy,
+[Remote]: estuve varios años en Insurtech, desde el principio, en en mercado pago,
+[Remote]: así que la la preparé, más o menos,
+[Remote]: los problemas que teníamos nosotros de conciliación del otro lado del mostrador,
+[Remote]: creo que ustedes tienen algunas tecnicidades de del momento en el que hacen
+[Remote]: asiento contable que
+[Remote]: no se condice exactamente con cómo lo hacía marcado Pago, pero bueno, ahora vemos la plataforma y después cualquier cosa lo adaptamos. Básicamente, Rexy se dedica
+[Remote]: a automatizar procesos conciliatorios operativos
+[Remote]: y financieros, y ahora también procesos
+[Remote]: conciliatorios de contables. Entonces,
+[Remote]: automatizamos la ingesta de datos, todo lo que es Oursys,
+[Remote]: estandalizamos los datos, o sea, nos conectamos a toda la fuente de datos,
+[Remote]: a cualquiera de sus partners, por ejemplo, mercado pago o donde esté la data,
+[Remote]: estandarizamos esa información, porque suele venir en formatos muy, muy diferentes,
+[Remote]: creamos reglas, cruce datos entre dos, fuente de datos básicos,
+[Remote]: Reconciliaciones, una una de reconciliaciones
+[Remote]: sumatoria de uno o más reglas, por lo general,
+[Remote]: un flujo de dinero o un flujo de venta de póliza,
+[Remote]: tener más de un paso, primero se concilia con esta y después con esta con esta. Entonces, una conciliación
+[Remote]: es una agrupación de uno más reglas,
+[Remote]: Después tenemos todo un módulo de de de manejo de
+[Remote]: excepciones para llevarlas al día a día, simplemente
+[Remote]: meterse todas las mañanas, seguir limpiando y tenerlo para llegar al cierre contable con
+[Remote]: cero diferencias,
+[Remote]: y un sistema de alarmas y reportes
+[Remote]: nada, que me que he mandado por Slack, por por mail y demás.
+[Remote]: Entonces,
+[Remote]: yo lo que hice acá fue generar dos bases de datos
+[Remote]: típicas, un caso de uso típico de que que puede ser de de Climber, que es
+[Remote]: la base de datos interna del lector de Climber,
+[Remote]: y de alguno de sus proveedores, por ejemplo, lo que puede ser mercado pago.
+[Remote]: Entonces,
+[Remote]: queriendo llevarlo más, un paso más allá,
+[Remote]: a la a la contabilidad, vamos a hacer un un
+[Remote]: enriquecimiento primero de esta fuente de datos,
+[Remote]: nosotros
+[Remote]: automatizamos la ingesta y se estandariza y se hace
+[Remote]: de manera automática todos los días,
+[Remote]: ahora lo vamos a hacer de manera manual por primera vez, para que después quede corriendo. Entonces,
+[Remote]: lo que hagamos ahora, ustedes lo van a ver, lo voy a hacer manualmente,
+[Remote]: nuestra plataforma se dedica a automatizar eso. O sea,
+[Remote]: suceda todos los días o tres veces por día o con la frecuencia que que haga falta.
+[Remote]: Entonces, si de de esta conciliación queremos después que
+[Remote]: asientos contables, necesitamos enriquecer con algún un poco de información,
+[Remote]: información que nos mandan de mercado a pago. Entonces, hacemos un un VLOCAP y traemos del
+[Remote]: diccionario contable
+[Remote]: nos traemos
+[Remote]: cuenta débito,
+[Remote]: cuenta crédito,
+[Remote]: subsidiaria,
+[Remote]: ID centro de costo,
+[Remote]: y department.
+[Remote]: Y, obviamente, tenemos que poner los criterios,
+[Remote]: concepto extracto,
+[Remote]: y, obviamente, país, por si quieres hacerlo con
+[Remote]: más de más de un país.
+[Remote]: Lo que estamos haciendo acá es enriquecer la fuente de datos que nos envía el proveedor
+[Remote]: para que después
+[Remote]: lo conciliado se pueda generar
+[Remote]: pueda generar asientos contables correctamente dentro de
+[Remote]: sea que sea su su proveedor. Acá tenemos todos los
+[Remote]: todos los datos enriquecidos,
+[Remote]: y ya tenemos la fuente de datos preparadas y estandarizadas para
+[Remote]: para generar una una
+[Remote]: Entonces, como les dije, una regla,
+[Remote]: policies live,
+[Remote]: demo.
+[Remote]: Una regla es un cruce entre
+[Remote]: uno más, entre dos o más, puentes de datos,
+[Remote]: entonces acá seleccionamos
+[Remote]: policies,
+[Remote]: y acá seleccionamos
+[Remote]: insurer, la que vendría a ser de mercado pago, por ejemplo,
+[Remote]: Obviamente, nosotros siempre buscamos
+[Remote]: recomendaciones, muchas veces las empresas no saben exactamente cómo conciliar,
+[Remote]: y, en este caso,
+[Remote]: hacemos un primer cruce operativo con
+[Remote]: con policy number o policy ID o cualquiera que sea,
+[Remote]: el número, podemos agregar múltiples, o sea,
+[Remote]: idea de toda la plataforma es que
+[Remote]: cualquier cruce conciliatorio puede hacerlo un equipo no técnico. Entonces, independizar equipos no técnicos de contabilidad, finanzas, operaciones, hacer cruces contables que, por lo general, requieren conocimientos técnicos, por ejemplo,
+[Remote]: hacer un script de Python.
+[Remote]: Obviamente Teo pregunta. Sí.
+[Remote]: Acá comparo una base con otra.
+[Remote]: Sí.
+[Remote]: Problemática está en lo que yo envío.
+[Remote]: Sí. O sea,
+[Remote]: que estoy viendo ahora es más lo que hace mi socio, del otro lado,
+[Remote]: que tiene su fuente transaccional,
+[Remote]: que le hizo de forma argumentaria,
+[Remote]: Entre mil comillas, me pidió hasta mí para armar su fuente de datos
+[Remote]: con las que va a comparar,
+[Remote]: y creo que este es el seguro que están haciendo ellos, que que bien, ni haciendo contable, bien interfaz en este
+[Remote]: caso, puede ser un asociado en Excel,
+[Remote]: Bueno, lo que pasa acá en esta herramienta, digo, corregime si me equivoco, y agarran sus,
+[Remote]: fuente de datos, ponemos plan de cuenta y se enganche.
+[Remote]: Si hay algo que está sobrando o faltando.
+[Remote]: Te diciendo bien. Obrando o faltando o está en diferente estatus y demás, sí, correcto.
+[Remote]: Ok.
+[Remote]: Ok.
+[Remote]: Perfecto. Bueno, obviamente,
+[Remote]: podemos agregar tolerancia, y en fecha, en monto y demás, y agregar segundas barridas, terceras barridas,
+[Remote]: con todo lo que no machó.
+[Remote]: Después, como como dijiste recién, le podemos agregar comparaciones, podemos hacer que estas
+[Remote]: sean críticas al comparison, es decir,
+[Remote]: asegurarnos de que, si esa comparación falla, no se no se marque como conciliado,
+[Remote]: En este caso, vamos a hacer
+[Remote]: dos critical comparisons,
+[Remote]: una es por importe, asegurarnos que el importe sea exactamente el correcto,
+[Remote]: lo marcamos con critical,
+[Remote]: y haríamos otra critical comparison para asegurarnos que el estatus
+[Remote]: sea el correcto.
+[Remote]: Obviamente, como a esta base de datos
+[Remote]: suelen venir en diferentes formatos,
+[Remote]: le agregamos lo que le vamos a nosotros equivalencias, es decir, por ejemplo,
+[Remote]: acepte
+[Remote]: y
+[Remote]: Perdón, Déjame que reviso acá
+[Remote]: active y canceled, y de este lado tenemos
+[Remote]: activa y cancelada. Entonces, hacemos una normalización de los datos,
+[Remote]: Activa,
+[Remote]: active,
+[Remote]: Estas dos son equivalencias y agregamos otro
+[Remote]: cancel
+[Remote]: cancelada.
+[Remote]: Entonces, acá nos aseguramos, por ejemplo, de que las pólizas estén siempre en el mismo estado, en las dos
+[Remote]: en el estado correcto, en las dos fuentes de datos.
+[Remote]: Y, obviamente, se pueden hacer transformaciones o chequeos de fees,
+[Remote]: chequeos de fecha, se me liquidó en el día correcto, etcétera.
+[Remote]: Acá creamos la regla,
+[Remote]: póliza y, como dije, una
+[Remote]: una reconciliación
+[Remote]: es
+[Remote]: una sumatoria de uno o más reglas, entonces, policies, la
+[Remote]: demo, Se pueden ir agregando diferentes conciliaciones dependientes que que van armando toda el el flujo conciliatorio, Y, como dije al principio, todo se automatiza. La idea de esta plataforma es automatizar procesos conciliatorios, que todas las mañanas llega una notificación por Slack, diez pólizas ayer están desalineadas, por monto, por fecha, por por fin, lo que sea, noventa y nueve están alineadas. Entonces, acá queda una la la conciliación. Obviamente, tiene carpeta, suele ser empieza con un equipo que la que la usa y la empiezan a generar un montón de equipos, entonces, está bueno organizar la las conciliaciones en en carpetas.
+[Remote]: Ahora, directamente, la ejecutamos de manera manual.
+[Remote]: Levanta la mano, comento y doy a deep dive sobre las problemáticas,
+[Remote]: para ver qué solución
+[Remote]: Hasta ahora, lo que entiendo
+[Remote]: que nos puede decir para nuestra problemática es comparar
+[Remote]: Nosotros no estamos en en en la situación de comparar una compañía con otra,
+[Remote]: como en el caso de mercado de pago.
+[Remote]: Que tenemos un cierre, tenemos otro y tenemos que comparar.
+[Remote]: Entiendo que que quizás el ejemplo va más para ahí.
+[Remote]: Sí tenemos que comparar,
+[Remote]: el registro de un asiento versus un registro de una transacción.
+[Remote]: Ahí podría asemejarse a esto, decir, bueno, ok,
+[Remote]: vos estás diciendo que tenés
+[Remote]: cien pólizas cobradas en este mes, fijate que tengas cien asientos de recaudación.
+[Remote]: Exactamente. Ahí puede, o sí dice reconciliaciones. Tenemos un posible check, ok.
+[Remote]: Perfecto. O sea Mi pregunta es,
+[Remote]: el que más nos duele, quizás es parte de la demo, te digo, Pero pero me adelanto y pregunto.
+[Remote]: Hay una parte en la que yo tengo una transacción y toca ver si yo lo contabilicé correctamente.
+[Remote]: Y del punto a, transacción, lo conocemos en seguros el día a día, al punto
+[Remote]: b, que es el cierre contable,
+[Remote]: había lógica,
+[Remote]: energía contable,
+[Remote]: incluso a veces actuarial porque el devengo según cómo lo definen el actuario. Entonces,
+[Remote]: hay algo en en la herramienta que esté o se pueda armar o se pueda pensar que diga,
+[Remote]: mirá, si vos me dijiste que tenés cien pólizas coradas,
+[Remote]: según tu plan de cuentas, tus productos activos tenés que tener asientos, treinta asientos así,
+[Remote]: veinte así y otros cincuenta de esta forma.
+[Remote]: O sea, ¿qué quiero decir? Mi pregunta de base es,
+[Remote]: en la plataforma,
+[Remote]: está intrínseco o o se puede agregar la lógica contable,
+[Remote]: más que comparar
+[Remote]: dos escenarios.
+[Remote]: Nosotros, o sea, lo lo lo nos dedicamos es a comparar
+[Remote]: base de datos. Entonces, si necesitamos comparar la base de datos interna con
+[Remote]: lo que son los asientos contables, eso lo hacemos, y de hecho es a lo que nos dedicamos.
+[Remote]: Después, generar escenarios teóricos y compararlos con el real,
+[Remote]: no lo no lo hacemos.
+[Remote]: Lo que lo que hacemos es, primero hacer la comparación y después, bueno,
+[Remote]: acá automatizamos la generación de asientos contables,
+[Remote]: Ustedes están
+[Remote]: un paso atrás, por así decirlo, o sea, genera el asiento contable y después lo comparan,
+[Remote]: a eso está enfocado la persona. Bien,
+[Remote]: No, en realidad, que dice, espere, es
+[Remote]: lo operativo contra lo contable, básicamente. Exacto.
+[Remote]: No no no es teórico, digamos, son
+[Remote]: toda la operación por un lado y lo contable por el otro y, bueno, conciliando eso.
+[Remote]: Sí, bueno, nosotros para otros clientes
+[Remote]: sí hacemos exactamente ese chequeo, comparar una base de datos que es el ledger,
+[Remote]: contra la base de datos operativa,
+[Remote]: No sé si a eso iba la pregunta.
+[Remote]: Sí, pero mi pregunta es, para esta comparación, necesitás hacer el asiento, simularlo o saberlo cómo
+[Remote]: voy voy un ejemplo, te digo, bien práctico para que me para que no
+[Remote]: estemos alineados a ver si vemos lo mismo. Sí. Tengo un acento que es provisión de prepa.
+[Remote]: El asiento de provisión de prima no hay una única condición que lo defina.
+[Remote]: Quiere decir, no es que una alta mejore una provisión. Yo tengo que darle de alta una póliza,
+[Remote]: ver cómo terminó el mes, y si en el mes yo cobré tal vigencia, tengo que ver las
+[Remote]: vigencias que tengo para cobrar.
+[Remote]: Si no cobré tal vigencia que ya está terminada o empezada, no importa la regla,
+[Remote]: debo generar una provisión.
+[Remote]: Si la cobré,
+[Remote]: no genero. Entonces estoy diciendo, tengo que ver estado de la póliza,
+[Remote]: y estado de los pagos.
+[Remote]: Son dos bases de datos diferentes o una enriquecida.
+[Remote]: Más columnas o dos bases.
+[Remote]: En base a n condiciones, en este caso, su variable de dos,
+[Remote]: ¿no? ¿Tú vas dejar un asiento de provisión o no?
+[Remote]: Entonces, una lógica contable y y concertante de decir, pará,
+[Remote]: Screamper me está mostrando en la base a que tiene estas pólizas activas.
+[Remote]: En la base B que cobró estas pólizas, en base A
+[Remote]: más b,
+[Remote]: generar el acento provisión para estas pólizas y para estas no. Flinto lo generó, comparo.
+[Remote]: Que tenía que haber pasado,
+[Remote]: básicamente estoy repitiendo el código, ¿no? Me fue raro. Lo que tenía que haber pasado, que es
+[Remote]: generar provisión para n y casos, según las condiciones que describí recién,
+[Remote]: pues son las que generé.
+[Remote]: Es nuestra, uno de nuestros problemas, por ejemplo.
+[Remote]: Ahí ahí ahí hay dos cosas, Fede. Primero, la generación de asientos
+[Remote]: acuerdo a una condición, a una lógica de negocio. De hecho, si pasan estas dos cosas en dos
+[Remote]: orcis diferentes, yo termino generando el asiento. Eso es una lógica de negocio de generación de asiento
+[Remote]: que en Rexi tenemos generación de asientos después que es la generación de asientos se hace después de hacer la reconciliación. O sea, primero aseguramos la integridad de la data y después hacemos los asientos, esa parte de lógica de cuándo hago, o sea, si esto está así, así, entonces el asiento es este, está buenísimo, igual, agregarlo como feature, o sea, está, o sea, está está bueno agregar esa lógica de negocio en voz de qué asiento genero. Hoy no nos toca un cliente que necesite eso, pero se puede construir, Ahora, lo que vos tenés la otra parte es, che, yo ya generé los asientos, porque hoy tienen un
+[Remote]: de contabilidad, creo. Entonces, yo te la tengo los asientos y tengo las sources, y ahí comparo
+[Remote]: Ahí lo único que había que hacer es ingestar la data de esa sistema
+[Remote]: contable que ustedes tienen, que puede ser API, cualquiera, irex y soporta cualquier tipo de source,
+[Remote]: y comparar con las sources que ya tienen ingestadas. Entonces, ahí puedes hacer un doble chequeo de calidad
+[Remote]: de si tu sistema contable hoy funciona bien. Pero la idea es
+[Remote]: Rexy, medio que se termine ocupando de todo, después de hacer la integridad de la data y el haciendo
+[Remote]: los asientos se generen de acuerdo a tu lógica de negocio, ¿ok? Entonces, ya
+[You]: Es como armar otra conciliación.
+[Remote]: te liberás medio de
+[You]: Sería armar otra carpetita que ese día
+[You]: teórico,
+[You]: asiento teórico versus asiento verdadero, y los comparo.
+[You]: ¿Me entendés?
+[Remote]: O sea, tranquilamente podría ser, lo único que hoy no está, pero corregíme, Teo,
+[Remote]: era lo de la lógica de negocio de, yo construyo este asiento cuando sucede
+[Remote]: esto y esto, y se dan estas condiciones, ¿no? Porque vos ahí vas a ir a abrir
+[Remote]: a a cualquier tipo de casuismo.
+[Remote]: Exactamente.
+[Remote]: Pero bueno, si quieren, nada, le muestro un poco más la plataforma como para que
+[Remote]: le sigan dando pies y cabeza, y después vemos cómo cómo adaptaríamos
+[Remote]: el el proceso. Ahí lo que hicimos fue generar la
+[Remote]: la generación de estos asientos que comentaba Seba recién de manera automática, y ahora vamos un poco a las métricas de lo que lo que consigamos recién, Son dos bases de datos, obviamente, la la la del interno de Climber con la la del proveedor, en este caso, pero puede ser base de datos de interna con con el ledger, apertura por vida, cantidad de de de de pólizas o otras movimientos de dinero que hubieron en el día, cuántas marcharon, cuántas no marcharon, apertura aperturado por base de datos, por base de datos. Acá, Fede, te podés imaginar, por ejemplo, esa segunda parte de doble
+[Remote]: check, donde comparás contra el ledger, o sea, de ustedes, versus lo que tenían las sources,
+[Remote]: esto también tiene alarmas, o sea, si puede haber, no sé, esta
+[Remote]: que decías vos, de que a veces me da ciento uno, noventa y nueve, noventa y ocho, tengo que ir a ver qué pasó,
+[Remote]: o sea, en vez de ir todos los días a chequear o no sé cada cuánto lo hacen,
+[Remote]: nosotros tenemos alarmas o la la plataforma te da y te dice, che, fallaron estas y después tenés
+[Remote]: como el problem solver para ver qué hacer con esas que fallaron y dónde está el problema.
+[Remote]: Bueno, en ese caso, y el ejemplo, si fuera un un laburo, una una integración diaria,
+[Remote]: yo te pasara todos los días las
+[Remote]: cobranzas, por decirte de alguna forma,
+[Remote]: Después, Nacho, hará sus sus preguntas de cómo pasar los correos electrónicos de los clientes, porque tenemos ya el detalle del cliente,
+[Remote]: Pero si yo pasara todos los días
+[Remote]: se me está quedando sin material a compu. Las cobranzas vos podrás decirme,
+[Remote]: cobraste cien y quedaste noventa cientos.
+[Remote]: Lo que nos pasa a veces. A veces hay una transacción que no queda sin su contabilidad,
+[Remote]: qué seguía estaba exployando, ese día estaba, entonces,
+[Remote]: un día queda, después tenemos al equipo manualmente haciendo un barrido de, ah, me faltan tantos asientos,
+[Remote]: Imagino que podría ser algo así tipo. Es eso, es es tal cual eso. Bueno, acá
+[Remote]: nada, en en esta comparación de dos fuentes de datos tenemos cuántos marcharon, cuántos no marcharon,
+[Remote]: Esto a nivel operativo, faltaban diez, y después las critical comparison, que hicimos
+[Remote]: asegurarnos que el importe sea el correcto y que el estatus sea el correcto,
+[Remote]: tenemos veintisiete que fallaron, las tenemos acá abajo,
+[Remote]: que fallaron, o porque el monto es ligeramente diferente, seis cuarenta y uno contra seis sesenta y seis,
+[Remote]: o porque tienen diferente estatus. Active la tengo, mi proveedor la tiene activa, y yo en mi base de datos
+[Remote]: la veo cancelada o lo que sea.
+[Remote]: Eso a nivel chequeo de de conciliaciones diarias,
+[Remote]: obviamente tenemos reportes, métricas y demás, también algo que nos piden bastante es la posibilidad de exportar los resultados o en formato contable, que es lo que vimos recién, que ahora lo revisamos de vuelta, o simplemente una base de datos para alimentar dashworks internos. Todos los días mandándome una, alimentame esta fuente de datos con estos datos y y masticado de esta manera, con columnas enriquecidas o o generar, nada, tiene una flexibilidad tremenda para que el reporte que se envía en base a esta conciliación sea exactamente lo lo que usted puede llegar a necesitar. Después, obviamente, como como dijo Seba, tenemos alarmas que que
+[Remote]: pueden mandar diariamente, cada una hora o lo que sea,
+[Remote]: con también la información que necesitan. Cuestión de que
+[Remote]: toda esa lógica conciliatoria que hoy tal vez puede rehacerse manual o o se
+[Remote]: haciendo una vez por mes o una vez por semana, sea de manera automática una vez por día.
+[Remote]: Y
+[Remote]: pregunta, digamos,
+[Remote]: ¿cuán compleja puede ser? Ahí vimos que era como una comparación a uno, ¿no?
+[Remote]: Pero, ¿cuál lógica puede ser la comparación en términos de agredaciones o
+[Remote]: de O sea Sí, eso.
+[Remote]: Complica. Nosotros, obviamente, en el mundo ideal son
+[Remote]: una lógica uno a uno, o lo que llamamos one to one, con un ID,
+[Remote]: eso suele
+[Remote]: más o menos el cincuenta por ciento de los casos, después tenemos muchos casos que no tienen un ID,
+[Remote]: entonces nosotros cruzamos por
+[Remote]: número de tarjeta, hora, fecha y segundo, y monto,
+[Remote]: segunda barrida de con tal vez algo de tolerancia, y después tenemos los casos de one too many, que
+[Remote]: si quieren acá, les mostramos, tenemos la estrategia de one to many, que
+[Remote]: básicamente
+[Remote]: permite que que haya un un join entre
+[Remote]: un un dato del source con varios del source b. Si queremos hacer un lo que llamamos
+[Remote]: el famoso many to many, ya así tendríamos que ir a sources,
+[Remote]: abrimos, por ejemplo, una de las fuentes de datos,
+[Remote]: lo agrupamos, agrupamos la fuente de datos
+[Remote]: en base al criterio que haya que agrupar. No sé, por ejemplo,
+[Remote]: país y, no sé, número de cuenta, número de proveedor o lo que sea.
+[Remote]: Eso ya lo genera una agrupación y se se compara el menu tu tu tu menu.
+[Remote]: Acá una cosa, a nivel data e información,
+[Remote]: la idea es que
+[Remote]: data se ingeste, pero después se transforme toda y se trabaje sobre esa data
+[Remote]: masticar un poco la data, la información, para poder consumirla, que es un poco lo que
+[Remote]: mostró Ateo. Y también imagínense, esto que mostró Teo de creación de la rico, ¿lo hacés una vez? O sea, nosotros generalmente, los clientes ahora los estamos ayudando, las generan y después esto va solo, ¿no? Y después vas agregando flujos de conciliación, más chequeos y todo. Pero
+[Remote]: Sobre ese resultado y este
+[Remote]: puede ser un canva enorme, Nico, ahí, con lo que sea,
+[Remote]: y finalmente vos estás haciendo toda la consignación final.
+[Remote]: Acá estaban los los asientos contables. Algunos clientes nos
+[Remote]: piden que primero se se genere la, o sea, que que
+[Remote]: requiera una aprobación de humanos, otros prefieren que directamente se generen los asientos
+[Remote]: de manera automática. Esto vendría a ser los asientos que generamos recién.
+[Remote]: Y después tenemos todo lo que el exception manager, básicamente, ir atajando todas las diferencias
+[Remote]: lo antes posible. Entonces, tenemos la el la base de datos de del Core de Climber acá,
+[Remote]: tenemos la del proveedor, pero pueden ser obviamente cualquier dos bases de datos,
+[Remote]: y acabamos macheando uno por uno, por ejemplo, esta,
+[Remote]: la uno cero cero cero cinco, está acá, pero tiene un importe diferente, entonces,
+[Remote]: básicamente, acá, lo manchamos y hacemos un un
+[Remote]: un macheo uno por uno para ir siempre teniendo al día todo conciliado y que cuando llegue el momento del cierre
+[Remote]: básicamente acá no quede nada. Y obviamente, la
+[Remote]: posibilidad de marcar como excepción, hay veces que hay movimientos manuales de un lado y demás que no van a tener su control
+[Remote]: contrapartida,
+[Remote]: directamente
+[Remote]: marcamos como excepción,
+[Remote]: y ahí mantenemos la casa siempre ordenada en en en todo momento.
+[Remote]: A grandes rasgos, eso es la eso es la plataforma, básicamente nos dedicamos a
+[Remote]: automatizar ingesta, automatizar estandarización, automatizar cruces conciliatorios,
+[Remote]: y después output o a una base de datos de ustedes
+[Remote]: o output de generación de asientos contables automática.
+[Remote]: Y, obviamente, con todas las alarmas y reportes que que
+[Remote]: Bien. ¿Tú qué? Para hablar.
+[Remote]: Para hacer preguntas. ¿Yo? Vos que estás primero, sí. Bien.
+[Remote]: A ver, chicos, quiero pasar en limpio
+[Remote]: un poco el conocimiento que que que vamos armando.
+[Remote]: A ver, primero, veo que el
+[Remote]: me había quedado estar con la impresión la la vez anterior de que ustedes actuaban como
+[Remote]: consultores también en nuestro proceso de conciliación. Ese no es el caso, ustedes brindan una solución, es una plataforma
+[Remote]: puede ser un software service, entiendo,
+[Remote]: y nosotros operamos.
+[Remote]: En su plataforma. Eso es correcto, ¿no? Solo para
+[Remote]: un usuario de conciliación mío con tu herramienta.
+[Remote]: Exacto, la idea es que sea totalmente self-service, la herramienta, pero bueno,
+[Remote]: ahí para ayudar y todo, nosotros tratamos también un poco de integración
+[Remote]: después esto deberías quedar andando.
+[Remote]: Bien. Les hago una pregunta, ustedes en el
+[Remote]: hago todas preguntas cortas y rápidas para para ponerme
+[Remote]: ponernos de acuerdo. ¿Ustedes en qué momento de madurez del producto están? Es decir,
+[Remote]: ¿esta es una herramienta que ya la consideran completa o está
+[Remote]: agregando funcionalidades y pueden tomar a un cliente como Cleanver vemos oportunidades de crear funcionalidades como una oportunidad para
+[Remote]: robusteciendo su producto, ir agregando funcionalidades, hacerlo más más grande.
+[Remote]: ¿O o piensas que la solución ya está de una forma
+[You]: No, el producto está en constante evolución.
+[You]: Constante evolución.
+[You]: Está muy robusta igual, tenemos clientes de de de muchas necesidades distintas,
+[You]: pero
+[You]: pero sí. El modelo en bloqueamiento, como dijo Zeva, es, obviamente, la visión es que se hace el ser,
+[You]: pero hacemos mucho trabajo con con nuestros clientes de implementación, de customer success,
+[You]: y después siempre esa esa wish list de requerimientos ahí
+[You]: adicionales que van surgiendo, nosotros priorizamos en el RoamBub y van saliendo en función de la complejidad.
+[Remote]: Brillante. Bien.
+[Remote]: Concepto, lo que yo entendí,
+[Remote]: sin entrar en supermedia detalle, nosotros les cargamos a ustedes
+[Remote]: tanta información de movimientos de negocio como lo
+[Remote]: lo propiamente lo la información contable que vamos generando. Las dos cosas se las podemos sin gestar.
+[Remote]: Van haciéndole todas las validaciones automatizadas, automatizamos validaciones, entonces, vamos a tener
+[Remote]: en definitiva
+[Remote]: un sistema preventivo de alertas
+[Remote]: estamos
+[Remote]: teniendo desvíos, ¿verdad?
+[Remote]: Exactamente.
+[Remote]: Entonces, que la plataforma tendría dos output posibles. Una es
+[Remote]: sistema de alerta para que nosotros vayamos generando las correcciones en nuestro sistema.
+[Remote]: Y y vayamos
+[Remote]: supongo, reconciliando después, interactivamente con usted, hasta que todo vaya cuadrando,
+[Remote]: o ustedes podrían también directamente hacer nuestros reportes contables,
+[Remote]: eso no es una opción?
+[Remote]: Los reportes contables, nosotros los que
+[Remote]: generamos son los asientos contables. Acientos.
+[Remote]: Claro. Exactamente, para uno de nuestros clientes generamos los asientos,
+[Remote]: Tenían un trabajo manual
+[Remote]: tenía un trabajo con valor muy muy duro y nosotros lo automatizamos en generación.
+[Remote]: Octavio, ¿a qué le llamás reporte contable? ¿Es a lo que vos le tenés que dar a nivel regulatorio?
+[Remote]: Nosotros somos, opa.
+[Remote]: Está yo, porque mi pregunta iba ahí.
+[Remote]: ¿El asiento tiene un una cuenta de estimada, cuenta origen,
+[Remote]: saben, es una viña, pero después se expresa quizás hoy en día en un Excel,
+[Remote]: que te genere la línea por crédito o débito.
+[Remote]: O sea, si ese Excel lo sumo, suma cero, porque comienzan a ver, pero ese reporte que dice en interfaz, ¿cuál
+[Remote]: Excel, mañana puede ser un API, es el que termina siendo nuestro entregable de cara a la aseguradora.
+[Remote]: Me pregunta yo también por ahí, ¿qué pasa si
+[Remote]: superagresivo comercialmente y solamente para entender las capacidades o las posibilidades
+[Remote]: digo,
+[Remote]: ¿sabes qué? Rex, si yo te paso transacciones,
+[Remote]: te paso base de datos, cinco tablas,
+[Remote]: cobranzas, altas, bajas, siniestras, etcétera, etcétera,
+[Remote]: con toda la definición que te di
+[Remote]: A saber, a ver, tirame los reportes contables, o sea, el entregable final,
+[Remote]: que es la contabilidad expresada en interpasca, para que la consuma
+[Remote]: la herramienta contable de aseguradora.
+[Remote]: Exactamente. Bueno, ahí nosotros tenemos ese módulo
+[Remote]: sea, cuando vos tenés toda la data ingestada en redes y hiciste los procesos de reconsideración,
+[Remote]: nosotros tenemos un módulo de output, que es, che, toda la data que tenés ahora y que la trabajas
+[Remote]: trabajaste, ¿cómo la querés ingestar? Y la idea es que ese módulo de output vos podés crear las
+[Remote]: columnas que querés, imagínate, lo quieren ingestar en una base de datos,
+[Remote]: por poner en base de datos o también después, bueno, descargarlo.
+[Remote]: Nosotros los clientes que tenemos hoy generalmente dicen, che,
+[Remote]: este resultado lo queremos ingestar en nuestra base, porque ellos toman decisiones, ¿viste? Les llega capaz que
+[Remote]: esto no concilió, entonces, quiere decir que el cliente nuestro no tiene la plata, entonces, le tengo que mandar una una
+[Remote]: notificación. Veo que el el caso de uso que tenemos hoy con los clientes es eso, pero
+[Remote]: esa data de output que ustedes generan a partir de la data,
+[Remote]: es un poco el entregable de Rexy, ¿no? O sea, vos te podés quedar en reportería como
+[Remote]: hacen algunos clientes, o, sí, con todo esto que procesaste, dame esta data de esta forma,
+[Remote]: muy gusto, me hizo posta el módulo de de de export, es
+[Remote]: totalmente custom de ustedes lo que quieran. Con esta información, estos valores,
+[Remote]: ingestamela para que yo la pueda consumir, en este caso, para ustedes para armar el report.
+[Remote]: Y algunos clientes, o sea, lo lo consumen
+[Remote]: para hacer dashboards y otros directamente lo meten en su línea operativa.
+[Remote]: ¿Qué? Cuando está desfasada esta póliza con esta póliza en esta dos bases de datos,
+[Remote]: ejecutame esto, reactívamela o o darme de baja esta otra, y demás.
+[Remote]: No, me quiero saltear mis mis compañeros que tienen preguntas ahí
+[Remote]: pero para cerrar esto del
+[Remote]: justo mes,
+[Remote]: tomá, úsalo o justo mes, chicos, le hago una llamada, les explico lo que quiero, les paso el ejemplo,
+[Remote]: me pasan esto.
+[Remote]: Si me si si, o sea, lo está armado totalmente
+[Remote]: custom. Si no lo podés hacer, nosotros como que siempre tratamos de hacer que
+[Remote]: puedan ser muy self serve y sea la plataforma lo más
+[Remote]: agnóstica posible. Por eso también nosotros metemos un poco de AI en toda la plataforma,
+[Remote]: para que vos puedas contarle al AI lo que querés y
+[Remote]: el sistema lo lo ejecute automáticamente, sea, que no tengas que estar
+[Remote]: configurando botones, todo manualmente. Pero ahí, Fede, nada, sí, sí,
+[Remote]: que a veces necesitan cosas que no está como feature, entonces nosotros medio que lo priorizamos,
+[Remote]: y si tiene sentido armarlo, lo metemos como recién con Dona Chito, pero la idea es que
+[Remote]: que ustedes, después de esto, no generen ese solo único
+[Remote]: o sea, la idea es que ustedes entiendan el potencial de Rexi en uno de sus
+[Remote]: flujos, y después digan, che, esto lo puedo replicar, como nos pasó con otros clientes, en un montón de procesos,
+[Remote]: y hay varios equipos, no solo uno. Es como que nos contacta un equipo para algo,
+[Remote]: después lo terminan haciendo otros equipos la plataforma. Entonces, es un poco
+[Remote]: que sea self serve, estamos tratando de que no estén atados a nosotros
+[Remote]: ni a nuestra disponibilidad de tiempo.
+[Remote]: Ahí, Daniel, José. Sí, sí, ok. Entonces,
+[Remote]: yo voy un poquito más ya a a la parte de tecnología y plataforma.
+[Remote]: ¿Sí? Más allá de que, bueno, pongamos que el caso de uso
+[Remote]: Fe y Opta lo están lo están viendo,
+[Remote]: Cuénteme un poquito en qué en en qué es dónde está basada la
+[Remote]: plataforma, cuáles son los, un poquito de la seguridad, los SLA, los compliance,
+[Remote]: y todo, porque estamos con la necesidad de usar información sensible, ¿no?
+[Remote]: Está bien.
+[Remote]: Esteban, que es nuestro CTO, pero
+[Remote]: nada, nosotros básicamente nos dedicamos a automatizar procesos conciliatorios
+[Remote]: principalmente alto volumen,
+[Remote]: alta complejidad y
+[Remote]: alta altos requerimientos de compliance. Ese es el
+[Remote]: el el mundo en donde nos movemos, así que es una pregunta que nos hacen todas las reuniones.
+[Remote]: Se va ver si querés contar un poquito
+[Remote]: Sí, cuento. Ahí, Dani, a nivel tecnología,
+[Remote]: bueno, no sé, yo vengo de de Pomelo, que Pomelo si la conocen, pero en en Argentina es uno de los proveedores de
+[Remote]: tecnología a nivel banco Fintech, y lo que armamos con Rexi es esta
+[Remote]: capa
+[Remote]: de seguridad, y tenemos todo sobre AWS,
+[Remote]: nosotros manejamos data sensible, es más, nosotros estamos laborando con
+[Remote]: con algunas fintechs que tienen datos de tarjeta, por ejemplo,
+[Remote]: y nosotros lo que hacemos con Rexy es, como nosotros usamos para reconciliar y tenerlo,
+[Remote]: tratamos dos cosas. Primero, de que la data que se ingere
+[Remote]: o sea, nosotros cuando nos conectamos con ustedes, que después la ingesta se hace automática, sea,
+[Remote]: cuando vos ya hacés la conexión todos los días se va gestando la data,
+[Remote]: nosotros tratamos de que la data que no se va a reconciliar o no se quiere usar,
+[Remote]: que directamente no entre a la plataforma. Y si de alguna forma mantenemos datos sensibles, que me imagino
+[Remote]: ustedes por aseguradora tienen deben tener variables PII,
+[Remote]: que son información personal sensible, por ejemplo, nombre, apellido,
+[Remote]: documento, que tampoco que que eso no tiene que tener un
+[Remote]: un un tratamiento seguro, nosotros tenemos cifrado de datos,
+[Remote]: Entonces, vos, al momento de configurar la ingesta automática de esas
+[Remote]: lo que hacés es che esta columna, viaja cifrada. Nosotros voy
+[Remote]: guardamos ese cifrado, esa llave, digamos, en nuestro secret manager,
+[Remote]: y después podemos comparar el cifrado, por ejemplo, hay que comparar entre sources y eso,
+[Remote]: no comparamos el value en plano, sino comparamos el dato cifrado.
+[Remote]: Después también, si se quiere descifrar la data para tenerla y utilizarla,
+[Remote]: eso lo tenemos auditado para que vos tampoco dejamos hacer descifrado masivo
+[Remote]: dejamos que alguien pueda entrar, pero podemos descifrar, se puede descifrar internamente
+[Remote]: en la plataforma la data para que vos puedas ver el texto plano, pero eso queda auditado en un log.
+[Remote]: Después nosotros tenemos todos los permisos de IAM, tipo tipo
+[Remote]: roles, permisos, admin, quién puede dar qué cosa, qué qué qué
+[Remote]: qué qué permisos tiene sobre la plataforma y no,
+[Remote]: ahí de acuerdo a lo que ustedes quieran.
+[Remote]: Después, a nivel tecnología, te puedo dejar pana, pero usamos todo para como es
+[Remote]: mucho, es
+[Remote]: masivo de data y de procesamiento, imagínese que hay clientes,
+[Remote]: que tenemos que procesan un millón por día, entonces,
+[Remote]: usamos todo lo que es Delta Lake, usamos toda tecnología WC, RDS, para base de datos, pero más de nuestro lado, pero
+[Remote]: después ingestamos todo con con Delta Lake, en nuestra
+[Remote]: plataforma, para poder consumirlo y también para ver reportes y demás.
+[Remote]: Ok. A nivel certificaciones,
+[Remote]: Estamos hondo ready en certificaciones.
+[Remote]: PCI, PCI, no, por este tema de de de que, por ejemplo, no sé,
+[Remote]: salvo que haya un caso que haya que comparar tarjetas, PCI lo que te
+[Remote]: reclama es que vos tengas todo lo que es ese bebé y los datos de tarjeta
+[Remote]: en una bóveda asegurado con
+[Remote]: con los componentes que que necesitabas, nosotros tratamos de, no necesitamos PCDI porque
+[Remote]: esos datos, salvo que lo necesitemos reconciliar,
+[Remote]: no no estén ingestados en nuestra plataforma, entonces no tendríamos que tener ese requerimiento.
+[Remote]: Ok, SOC dos.
+[Remote]: SOC dos, sí.
+[Remote]: Ok.
+[Remote]: Tipo dos, tipo dos.
+[Remote]: Dos, tipo dos.
+[Remote]: Ok. ¿En qué? O sea, están en A doblez, entendí bien.
+[Remote]: Yo. Y los RDS, ¿En Qué Región Están? Van A Estar En Ohayo, creo.
+[Remote]: ¿En?
+[Remote]: US EAS dos, en Ojave. EAS dos,
+[Remote]: Ok. ¿No tuvieron problema con el compliance de datos?
+[Remote]: No. ¿Con exportar datos?
+[Remote]: No, nada.
+[Remote]: Ok.
+[Remote]: ¿Cómo bien?
+[Remote]: Pregunta, ¿cómo sería el flujo, entonces? ¿Cómo me imaginan que sería? Nosotros
+[Remote]: tenemos que que mandar toda la base o mandaríamos? No, mandemos por API solo los movimientos, eso es así.
+[Remote]: Ahí no no sé ustedes que tienen como source,
+[Remote]: ahí estaría bueno que que ustedes nos digan, che, esto lo tenemos en una base de datos,
+[Remote]: esto lo tenemos, es una API que consumimos, para entender un poco
+[Remote]: cuál es el método de integración que tenemos que tener, pero cuando tenemos eso,
+[Remote]: ustedes lo lo lo Hay algunos clientes, por ejemplo,
+[Remote]: que nos hacen tablas específicas de Riddle,
+[Remote]: tienen ya la data como, che, esto es lo que quiero conciliar, entonces nos preparan esa data,
+[Remote]: nos y nosotros ingestamos totalmente de ahí,
+[Remote]: por ejemplo, nos pasa con una fintech, y agarramos esa data, y después
+[Remote]: volvemos a escribir sobre esa base de datos, sobre esa source.
+[Remote]: Ahí, de acuerdo a lo que tengas, hay algunas hay algunos clientes que tienen, no sé, proveedores, Stripe, Entonces, tenemos que ir a hacer pegadas a la API, a Stripe, para ir a buscar las transacciones del día, esto es diario, entonces vamos a inquietar diariamente, les hacemos, no sé, con Stripe o Modern Treasury o Treasury Prime, Son todas llamadas a las APIs. O a los SDKs respectivos. Pero después también no tenemos base de datos, tipo Snowflake, tenemos también con BigQuery, que vamos directo a la base, pero, bueno, nos generan capaz que esa esa capa interna donde Che, usá esto, Rex, sí, ¿te entendés?
+[Remote]: Sí, no se acerca que lo diga el equipo técnico Tincho, Dan y Nico, cuál sea la mejor forma de ingestarle exi,
+[Remote]: si si y si es compliance y si estamos ok con eso, no sé.
+[Remote]: Hola, chicos. A ver, no no me voy a meter tanto en la parte ahí de de compliance, que
+[Remote]: no no soy especialista, por eso ya Dan hizo sus preguntas ahí. Yo
+[Remote]: te planteo todo un flujo de operación, y vos decime,
+[Remote]: si es ficción o estamos cerca estamos cerca de la realidad.
+[Remote]: Nosotros hoy en día ya estamos generando interfaces de salida, que son las que le mandamos a
+[Remote]: nuestros partners, ¿sí? Ya tengo el, tengo el reporte,
+[Remote]: de altas de ventas y tengo el reporte que tiene que ver con los asientos contables
+[Remote]: relacionados a la recaudación de de las primas de esas ventas.
+[Remote]: ¿Ok? Entonces, yo ya tengo mis bases de comparación internas,
+[Remote]: Acá no vamos a tener la una base del partner, porque
+[Remote]: nosotros le damos la información a ellos, sería redundante. Entonces, son todas comparaciones internas.
+[Remote]: Entonces, yo le paso a Rexi, mi base
+[Remote]: de de ventas, mi base de recaudaciones de esas ventas,
+[Remote]: y la de los asientos contables que mi sistema genera automáticamente
+[Remote]: basado en las reglas de negocio de todo programadas.
+[Remote]: Lo que no me terminó de quedar claro de minutos atrás es si
+[Remote]: ustedes tienen o no la funcionalidad de
+[Remote]: establecer las reglas de negocio que en
+[Remote]: su momento, creo, no sé si Fede Ocda dijo
+[Remote]: que estamos casi programando en Rex y las reglas de negocio para poder
+[Remote]: comparar, sí,
+[Remote]: los asientos contables se me generaron en función de las altas que yo
+[Remote]: yo hice, que esa es la la comparación que a veces no falla. Bien, si ustedes ya tienen eso,
+[Remote]: ¿Qué tan lejos estamos de que si yo te digo, che,
+[Remote]: todo esto nosotros el se lo pasamos al partner, porque
+[Remote]: el partner termina importándolo en su software de control de asientos contables, de
+[Remote]: PeopleSoft, que es bastante estándar global,
+[Remote]: si ya tenemos toda esa información y ya sabemos cuál es el formato de salida,
+[Remote]: ustedes ya pueden
+[Remote]: directamente darnos lo que tiene que salir para entregarle al cliente y saltearnos los
+[Remote]: pasos intermedios.
+[Remote]: Yo ahí no sé si veo la necesidad de integrarme por APIs,
+[Remote]: o o que ustedes tengan la la
+[Remote]: la vista de lectura de la base de datos directamente. Si nosotros ya estamos
+[Remote]: generando interfaces y las bases las podemos proveer a ustedes. Eso después lo lo
+[Remote]: definimos ahí, Dani, no sé qué qué qué opinás, pero como que
+[Remote]: ya estamos entregando esa información, lo que necesitamos es
+[Remote]: verificar
+[Remote]: si lo que armamos está bien, y una vez que se identifica el delta,
+[Remote]: ahí sí vemos, si nosotros le damos acceso a ustedes, a APIs nuestras,
+[Remote]: para que nos inserten esa información
+[Remote]: No, no, no, no sé si a la a la base
+[Remote]: no, no, bueno, no insertás, no, lo mandan son las alertas y operaciones toma de recaudo
+[Remote]: sobre las alertas, o cómo vas bien. Me me digas, ¿sabe? Automatizar todos,
+[Remote]: o sea, me pegás en la alerta y yo genero el asiento donde me está faltando, este último.
+[Remote]: O sea Equipo. Eso eso nos ayudaría a resolver, seguramente nos ayudaría a mitigar
+[Remote]: quilombos que tenemos hoy. Eso, sería la estrategia de mitigación.
+[Remote]: Ahora, yo lo que digo es, estamos verificando de equipo clíndver,
+[Remote]: estamos cada vez más haciendo negocios en los cuales no generamos fondos contables.
+[Remote]: Quedamos, nos queda, digamos, un legado de negocio con con asientos contables, y vamos a elegir de aquí en más
+[Remote]: no me torno más en ese quilombo cada vez que esté en nuestro en nuestro poder no hallazgo.
+[Remote]: En una definición de una empresaria. Ahora,
+[Remote]: nos quedan nos quedan el ochenta por ciento del negocio
+[Remote]: asientos contable,
+[Remote]: yo lo que, si llego a ver la posibilidad de que reemplacemos nuestro módulo de contabilidad y que nosotros trabajemos como
+[Remote]: mucho idea y digamos,
+[Remote]: enviando movimiento de negocio y que la conciliación no las haga un proveedor especializado, eso sería interesante para mí.
+[Remote]: Eso, por por lo que mencionaste, Martín, serían, entonces,
+[Remote]: a grandes rasgos, tres bases de datos diferentes,
+[Remote]: una que es lo de la de, efectivamente, la base de ventas
+[Remote]: por así decirlo, otra es la de cobranzas y otra es la de los asientos contables.
+[Remote]: Para este único flujo que se me ocurrió, en realidad es n cantidad de bases, porque
+[Remote]: No, no, no sé, para un flujo tendríamos, o por ejemplo,
+[Remote]: nosotros ya de base,
+[Remote]: el de cobranzas con el de movimientos, eso ya de base lo
+[Remote]: pasa ahora y lo ponemos a conciliar y ya eso no no no debería tener ni un problema técnico. Después, la de caso de negocio que vendría a ser, la de la de ventas con la de los asientos contables, eso tendría que revisarlo, me encantaría ver a nivel técnico cuál es el caso de uso, no solo
+[Remote]: obviamente tenemos bastante flexibilidad, pero puede haber algún caso de uso ahí que tengamos que que que modificar algo.
+[Remote]: Pero de vuelta, nosotros, por lo general, la forma en la que operan nuestros clientes es
+[Remote]: agarran la base de datos de ventas,
+[Remote]: agarran la base de datos de cobranzas,
+[Remote]: concilian, y lo que concilia genera los asientos contables, solamente una vez que se concilia.
+[Remote]: Eso es como como suele como como suelen operar. Pero si queremos
+[Remote]: Ahí ahí lo que dicen los chicos que para mí es agregar esa lógica de negocio,
+[Remote]: creo que también lo que hay que adaptar, Martín, por lo que dijiste, es ese export, ese output,
+[Remote]: para que finalmente, o sea, entender cuál es, si ustedes tienen bien definido cuál es el output, o sea, el
+[Remote]: entregable final, eso se construye, eso lo hacemos, eso se puede hacer, y después, bueno,
+[Remote]: eso, entiendo que ustedes se lo mandan a sus clientes,
+[Remote]: no es, o sea, no es para ustedes como el reporting, digamos,
+[Remote]: de Claro, nuestros datos ya los generamos, ya está, ya lo tenemos,
+[Remote]: Ahora, eso eso más que un reporte es una interfase, porque ellos
+[Remote]: utilizan otras plataformas que importan esos esos files,
+[Remote]: Ahí va. Entonces, lo los procesan y
+[Remote]: disparan n cantidad de flujos internos, ya los desconozco, es una caja negra para mí.
+[Remote]: Entonces, para mí lo importante es que los datos que yo le estoy pasando
+[Remote]: tengan ya esa coherencia. El caso de uso y
+[Remote]: con esto, tiro como un ejemplo más, con un nivel más de complejidad, como para asegurarme de que
+[Remote]: tengamos más o menos todas las cubiertas. A mí me interesa mucho la
+[Remote]: parte esta de las definición de las reglas de negocio para poder
+[Remote]: de alguna forma, a ver si tienen la capacidad de
+[Remote]: proyectar cuál es el deber ser de la información que yo te estoy mandando
+[Remote]: en relación, por ejemplo, a un reporte de ventas. Porque para la parte contable,
+[Remote]: yo no puedo conciliarlo de forma inmediatamente con la recaudación, porque tengo mucha
+[Remote]: muchísimos flujos que son asíncronos a a mes vencido, por ejemplo,
+[Remote]: recibo recaudaciones o, no sé,
+[Remote]: a decir una para flujos de cancelaciones con reembolsos a los sesenta días
+[Remote]: escenarios bastante complejos y que se estiran mucho en el tiempo. Entonces,
+[Remote]: esas conciliaciones son, me me imagino que
+[Remote]: bastante difíciles, pues están alejadas del tiempo, yo no tengo
+[Remote]: los dos o bases para comparar,
+[Remote]: Ahí, Martín, es lo mismo que lo que pasa en tarjetas con transacciones
+[Remote]: y presentación, que la presentación puede tardar hasta noventa días en llegar,
+[Remote]: vos tenés que terminar conciliando la transacción que hizo ese usuario en un día con presentaciones. Entonces,
+[Remote]: es como se va a terminar conciliando, pero vos vas a tener un bache ahí de
+[Remote]: transacciones que todavía no consignan, porque tienen un período de noventa días
+[Remote]: o bueno, tu caso no se capaz de sesenta días, donde van a estar, siempre vas a tener un remanente
+[Remote]: ¿entendés? Porque van a estar esperando, ¿de acuerdo? A lo que es el flujo y la lógica del negocio del flujo.
+[Remote]: Y consulta interna ahí un poco
+[Remote]: Fede, sin entrar mucho en detalle, hoy día, cuando tenemos esos flujos
+[Remote]: que son de, voy con el más cortito, de a mes vencido, de recaudaciones,
+[Remote]: o los que son de las de las las cancelaciones de las primas devengadas
+[Remote]: que son la las rutinas automáticas que me generan los
+[Remote]: los asientos, esos que van por show,
+[Remote]: ¿Cómo lo están manejando hoy eso para para la parte de conciliación? O sea, ¿cómo
+[Remote]: vos sabés que van a ocurrir, pero todavía no existen,
+[Remote]: ¿cómo está cómo estamos haciendo esa comparación?
+[Remote]: Acordás? Eso, muchos lo vemos a final de mes, cuando tenemos la la información necesaria para ver si
+[Remote]: se genera o no.
+[Remote]: Ok.
+[Remote]: Incluso estamos haciendo a veces mucho por base.
+[Remote]: Como sucede una vez al mes,
+[Remote]: tema de provisiones bajas,
+[Remote]: no tenemos cómo ir evaluando en el tiempo
+[Remote]: qué va pasando, ir preparando, viene a viene o no.
+[Remote]: Yo los precios que hacemos, le hacemos de la mitad de los asientos, porque para nosotros no nos
+[Remote]: nos falta información para hacerlo.
+[Remote]: Claro, yo me imaginé en el escenario acá donde vos, capaz
+[Remote]: se puede definir en recia alguna regla, que
+[Remote]: que me permite saber que esos asientos van a existir,
+[Remote]: y yo ya tengo una una base que se
+[Remote]: crear como una proyección, y después comparás lo que generaste a fin de mes
+[Remote]: lo que se supone que debería haberse generado
+[Remote]: Ese, no sé si eso está Sí, pero herramientas de configuración, ¿no? Ahí al equipo de Rexy.
+[Remote]: ¿Lo del mes vencido?
+[Remote]: No, o sea, por
+[Remote]: lo general, cuando tenemos que comparar
+[Remote]: transacciones o movimientos que tienen diferentes fechas de liquidación o presentación o lo que sea,
+[Remote]: de un lado quedan como no como no conciliadas,
+[Remote]: nosotros seguimos tratando de conciliarlo,
+[Remote]: hasta que entra la transacción del otro lado,
+[Remote]: y en ese, cuando entra la transacción del otro lado, se hace la comparación. Entonces, vos querés comparar
+[Remote]: que la fecha de esta sea igual a esta más
+[Remote]: siete días o más x período de días.
+[Remote]: Es la la conciliación que haríamos nosotros.
+[Remote]: Yo creo que
+[Remote]: generar la pregunta a partir de lo que dijo Tincho. Hay otros casos de uso que no mencioné, porque
+[Remote]: íbamos a detalle.
+[Remote]: Hay mucho para que funcione bien y en el escenario de de Okta, digamos, bueno, Resi como que me genera el asiento de la interfaz, ya lo sumo, yo primero controlo. Nuestra lógica de negocio, con nuestro nuevo cable, controlamos. Más que cruce data, mucho know how contable, de seguros y mucha casuística, una palabra que le gusta mucho, Dani.
+[Remote]: Todo es diferente,
+[Remote]: un producto funciona de una forma, para otro de otra, para otro de otro.
+[Remote]: La pregunta es si tenemos la flexibilidad o o o podemos pensar en algo de, bueno, yo te voy a dar las
+[Remote]: treinta definiciones que tengo, diez para un producto, quince para otro,
+[Remote]: otros cinco para otro,
+[Remote]: creo que funciona así.
+[Remote]: Veamos. Capaz que hay que hacer una prueba, vamos a ver qué bases se necesitan,
+[Remote]: pero sí sepamos que hay mucha complejidad en
+[Remote]: para hacer un asiento, que estar viendo cinco fuentes de datos.
+[Remote]: Por eso nosotros tenemos el ruido, no no porque no no podamos, sino porque a veces decimos, pará.
+[Remote]: Esto es complejo con mucho volumen de datos, en la medida que crecemos se va a complejizando sus controles,
+[Remote]: manualidad, etcétera, etcétera, etcétera. Eso que decís, Fede, nada, nosotros
+[Remote]: que que sean cinco fuente de datos, no no nos preocupa nada, porque, obviamente, pongo
+[Remote]: enriquecer la la cantidad de de
+[Remote]: datos que hagan falta,
+[Remote]: pero sí estaría bárbaro ver eso, cuáles son esas casuísticas,
+[Remote]: yo las bajo un poco a tierra y entender si se alejan mucho o o se acerca. Nosotros tenemos
+[Remote]: un montón de funcionalidades, estamos hace un año y medio abriendo el capó a empresas diferentes,
+[Remote]: es bastante flexible la plataforma. Pero me encantaría primero ver exactamente qué es lo que necesitan,
+[Remote]: bajado a tierra, bajado a un caso de uso y ver si se aplica o no.
+[Remote]: Claro, yo ahí lo lo lo que haría, y trayendo un poco lo que dijo Fede,
+[Remote]: es entender, traigamos un caso de uso como hacemos y hacemos una
+[Remote]: podemos podría hacer una poco, ¿no? Tipo ahí que tenga algo medio completo,
+[Remote]: pero tampoco que nos lleve tanto tiempo para poder ver, tipo, las bondades
+[Remote]: que ustedes estén tranquilos de que Rexy cumple las expectativas.
+[Remote]: Pondría como, che, esto tiene que pasar acá, esto tiene que pasar acá, antes de generar los asientos tiene que ver esta
+[Remote]: lógica de negocio para poder generarlo. El export tiene que ser así,
+[Remote]: tiene que ser data. Es más, muchas veces hacemos data dummy,
+[Remote]: no tiene que ser data posta, podemos hacer algo muy chiquito,
+[Remote]: y y que ustedes definan, che, quiero que pase esto. Y nosotros un poco volvemos
+[Remote]: che, armamos esto, les mostramos lo que hay, lo que no hay, lo que había que construir,
+[Remote]: y en base a eso ustedes pueden ver un poquito más el potencial.
+[Remote]: Me parece que Lo mejor para que vean si funciona o no para lo que ustedes necesitan hoy.
+[You]: Aprovecho eso de Seba, ahí veo en mi pantalla.
+[Remote]: Equipo, va, va a hacer un break, porque yo a la una en punto ya tengo otra reunión.
+[Remote]: Yo le le propongo lo siguiente, buenísimo, tiene ingreso preparado,
+[Remote]: pero no nos va a dar tiempo, y y creo que primero todavía
+[Remote]: yo personalmente lo que quiero hacer ahora es
+[Remote]: dejar al equipo que asiente esta esta idea y
+[Remote]: agarrarlos mañana en la semana a a mi equipo y escucharlos a ver
+[Remote]: cómo ven la la viabilidad, la conveniencia de
+[Remote]: del producto y demás. En función de eso,
+[Remote]: hablar un poco sobre esto, sobre sobre la forma de
+[Remote]: de de cómo cobran ustedes, de cómo podemos, este,
+[Remote]: yo me imagino, acá hay una, yo personalmente me llevo esta duda,
+[Remote]: siento que hay cosas que
+[Remote]: el producto off the shelf ya
+[Remote]: el que self-service también, como dijeron ustedes, nos
+[Remote]: nos provee, que es lo más lo más de de de mitigación y de prevención de
+[Remote]: discordancias,
+[Remote]: veo que hay otra
+[Remote]: hipótesis de trabajo que que se ha
+[Remote]: más completa, la de que ustedes generan hasta los los los asientos contables, y que esa
+[Remote]: saca a ustedes un poco del modelo self-service, usen la la cosa como es.
+[Remote]: Los involucra mucho más y requiere crear otro compromiso, probablemente de otra forma de
+[Remote]: de partnership y y demás. Entonces,
+[You]: Cien por ciento.
+[Remote]: son todas hipótesis, no sé si entendí bien, yo no soy experto en esto,
+[Remote]: Perfecto. Entonces,
+[Remote]: quiero charlar con el equipo mío las dos variables, vamos a dejar con
+[Remote]: Fede, con Pincho, con con todo, con Dani, todo. Y
+[Remote]: volver a ustedes, con poco más claridad, en en dónde en dónde puede estar nuestro apetito, y ahí sí
+[Remote]: quizás hablar de
+[Remote]: de Guita, de condiciones de partnership, de de todo esto, ¿no?
+[Remote]: Así que el que es, ahora ponlo con usted la semana que viene, para no
+[You]: Obvio.
+[Remote]: Octavio, lo único que te sumo es esto de self serve, la idea es que ustedes después, o sea, sean
+[Remote]: tipo, no no dependan de otro equipo, ¿no? Para poder
+[Remote]: participar, que su operación escale, ¿no? Esa parte
+[Remote]: Entonces, capaz que es esta primera parte, la de, che, entendamos el flujo entero,
+[Remote]: Che, si esto lo puede resolver, nos resuelve la vida, nosotros lo vemos con Rexi,
+[Remote]: y después eso debería quedar andando y ya el feature está, digamos, dentro de la
+[Remote]: plataforma para que ustedes lo puedan lograr. Por eso, para mí, la la idea eso de
+[Remote]: entender las bondades y la la de lo que reside el potencial,
+[Remote]: es lo que yo me sacaría las dudas. Entendiendo un caso de uso que esté completo con
+[Remote]: lo que necesitan ustedes, ¿no? Haciendo contable, la lógica de negocio prehaciendo contable y el reporting final. Brillante. Sí, imagínense que nosotros estamos pensando, bueno, entrar en una persona especializada que trabaje en esto, si podemos evitar eso, para nosotros hay una ganancia. Si si en lugar de tener una persona especializada, y un travel shooting que involucra muchos equipos de muchos recursos de diferentes equipos, Podemos tener una una solución que, como vos decís, un esfuerzo de implementación, de consultoría de implementación, de desarrollar la solución, de adaptarla Pero una vez que quedan dando, es algo self-service que me lo puede atender un b a, No, la idea de Rexy y por qué fue creado, fue
+[Remote]: para que los equipos de operaciones no tengan que escalar.
+[Remote]: O sea, ese es el un poco el core de
+[Remote]: ¿no? Que que puedan escalar con tecnología y no con personas como viene haciendo
+[Remote]: desde acá hace muchos años. No, todo igual, pero cuando la guía nos reemplaza todo, quién va a comprar cosas,
+[Remote]: va a tener dinero?
+[Remote]: ¿No? No, no. Bueno. Chicos. Va a reemplazar, chicos.
+[Remote]: Hay que hay que saber usarla nada más.
+[Remote]: De reunión. Si quieren, no sé con quién punto contacto, Nacho,
+[Remote]: obviamente queda abierto a a cualquier deep dive que es así.
+[You]: Hablemos, hablemos. Volvé volvé conmigo cuando cuando tengan una definición más clara.
+[You]: Sí, quizás por ahí remitito un poco, siempre que caen cositas
+[You]: fuera de lo que tenemos hoy, nosotros lo vemos como parte del proceso de implementación,
+[You]: y nos interesa mucho trabajar con ustedes y que estaremos dispuestos a hacer también esas inversiones.
+[You]: Cuanto al modelo de involucramiento,
+[You]: como dijo Seba, arranquemos con algo chico para probar valor rápido antes que usted tenga
+[You]: tengan que meterse en un contrato con nosotros de largo plazo, con
+[You]: con otro tipo de scope. Arrancamos con algo chico que hoy duela,
+[You]: agregamos valor inmediatamente, después ya tienen ustedes
+[You]: más información del valor que les agrega para tomar una decisión si avanzamos en un contrato más grande.
+[Remote]: Me encanta esa enfoque, excelente, Nacho. Vale. No,
+[Remote]: el tema que viene, cualquier cosa lo pueda escribir, son, no,
+[You]: Dale.
+[Remote]: si se se pasan los días, escribirme sin problema, dale.
+[You]: Gracias a todos. Buena semana.
+
+============================================================
+SUMMARY
+============================================================
+### Their background
+
+- KLIMBER Digital Insurance operates insurance products across multiple countries with significant operations in Chile through MetLife Chile
+- Federico Lemos (Head of Program Management) leads business operations in Chile and understands their operational challenges best
+- Current core system identifies transactions with general ledger accounting books
+- Multiple product lines with different accounting methods - each product has different revenue recognition and accounting rules
+- Operates diverse business lines and payment methods requiring different accounting treatments
+- Currently generates automated accounting entries based on programmed business rules for 80% of their business
+- Planning to move away from generating accounting entries for new business lines going forward
+
+### Pain points and needs
+
+**Monthly Closing Process:**
+
+- Monthly insurance company closing process creates significant complications each month
+- Chile operation with MetLife represents their biggest monthly closing challenge
+
+**Three Categories of Accounting Problems:**
+
+1. **Accounting Entry Generation (Type 1 Problem):**
+  - Complex business rules for determining premium recognition and profit recognition timing
+  - Different products require different accounting treatments
+2. **Interface with Insurance Companies (Type 2 Problem):**
+  - Currently work with file-based interfaces but considering API integration
+  - Issues transcribing well-generated entries to insurance company systems
+3. **Data Coherence (Type 3 Problem):**
+  - Most complex issue requiring manual work
+  - Inconsistencies between operational data and accounting entries
+  - Example: “If I say I provisioned premiums I issued and collected 100%, the ledger should match, but sometimes doesn’t coincide”
+
+**Technical Challenges:**
+
+- Need to cross-reference multiple data sources (up to 5 databases) to generate single accounting entry
+- High complexity with high data volume creates increasing probability of errors
+- Different business logic and actuarial requirements across products
+- Current system generates entries but comparison against operational data reveals discrepancies
+
+**Specific Use Cases Mentioned:**
+
+- Premium provisioning entries require checking policy status and payment status across multiple databases
+- Must verify collections against policy vigencias (coverage periods) to determine provisioning needs
+- Need to validate that accounting entries match operational reality across policy sales, collections, claims, and cancellations
+
+### Questions or concerns
+
+**Platform Maturity and Customization:**
+
+- “Are you consultants or do you provide a platform solution?” - Confirmed as platform/SaaS solution
+- “What stage of product maturity are you at? Can you take a client like KLIMBER and use opportunities to create functionalities to strengthen your product?”
+- Concern about whether business logic rules can be configured in the platform for their complex accounting scenarios
+
+**Technical and Compliance Requirements:**
+
+- Daniel Moussatche (CTO) specifically asked about technology stack, security, SLAs, and compliance
+- Need to handle sensitive information with proper data governance
+- Asked about data residency (confirmed US East-2 region, Ohio)
+- SOC 2 Type 2 certification confirmed
+- Encryption capabilities for PII data confirmed
+
+**Integration Approach:**
+
+- How to integrate with their existing systems - API vs database access vs file-based interfaces
+- Whether REXI can generate final deliverable reports directly for insurance companies
+- Concern about dependency on REXI team vs. self-service capabilities
+
+### Budget and timeline
+
+**Cost Considerations:**
+
+- Currently evaluating hiring a specialized person for reconciliation processes
+- Octavio Miretti noted: “If we can avoid hiring someone specialized, that’s already a gain for us”
+- Preference to avoid manual processes that involve multiple teams and resources
+- Looking for solution that provides implementation effort upfront but becomes self-service afterward
+
+**Decision Timeline:**
+
+- Octavio scheduled to discuss internally with team this week
+- Plans to reconvene next week with clearer appetite and scope definition
+- No specific budget figures mentioned, but clear cost-benefit analysis mindset
+
+### Next steps
+
+**Internal KLIMBER Review:**
+
+- Octavio to discuss with internal team (Federico, Martin, Nacho, Daniel) to assess:
+  - Technical viability and suitability of REXI solution
+  - Two potential approaches: mitigation/prevention tool vs. full accounting entry generation
+  - Determine appetite for different partnership models
+
+**Proof of Concept Planning:**
+
+- REXI team proposed starting with small, limited scope to prove value quickly
+- Suggested using Chile/MetLife operation as pilot case
+- Plan to define specific use case with complete requirements including:
+  - Business logic rules
+  - Data sources needed
+  - Expected output format
+- Could use dummy data initially to test functionality
+
+**Follow-up Meeting:**
+
+- Scheduled for next week after KLIMBER internal discussions
+- Will cover commercial terms, partnership conditions, and pricing
+- Octavio (budget approver) and Daniel (technical approver) key decision makers
+- Contact: Ignacio Berardi available for any technical deep dives needed
+
+**Key Stakeholders Identified:**
+
+- Daniel Moussatche: Technology and compliance approver
+- Octavio Miretti: Sponsor/budget approver
+- Federico Lemos & Martin Risso: Primary product users
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/d1cfacb6-5a99-4149-b28e-533f5372a603](https://notes.granola.ai/t/d1cfacb6-5a99-4149-b28e-533f5372a603)

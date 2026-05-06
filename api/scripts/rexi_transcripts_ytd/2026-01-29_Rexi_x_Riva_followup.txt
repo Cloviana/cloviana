@@ -1,0 +1,435 @@
+MEETING: Rexi x Riva: followup
+DATE: 2026-01-29
+ID: not_Ujt4vWlJ0c6FpP
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Robert Macdonald <robert.macdonald@rivamoney.com>, Mk <mk@rivamoney.com>, Sachin Chandani <sachin.chandani@rivamoney.com>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-01-29T10:30:00-05:00 - 2026-01-29T11:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Okay. Thanks, man.
+[You]: Hello, Andrew. Nice to meet you.
+[Remote]: Hey. Nice to meet you too. Thanks for doing this.
+[You]: No. Thank you for the time. Is it
+[You]: is Mahendra the right way to to pronounce your name?
+[Remote]: Yes. That's correct.
+[You]: Amazing. Amazing. You're also faced there in The UK with Robert or not.
+[Remote]: Correct. Yes.
+[You]: Great. Great. Is someone else trading, or should we just kick it off?
+[You]: Got it. I'll just do some context here.
+[Remote]: I think we can get started.
+[You]: Tail is my cofounder. I think he didn't meet, the previous meeting we had with you, Robert.
+[You]: He's the one leading more, like, product operations and customer success.
+[You]: And doing all the magic behind the demos.
+[You]: So so I guess the idea here, just let me know if
+[You]: this is the right way of of making use of the time, is to do a
+[You]: quick run through on the platform, a generic run through, try to show
+[You]: what we do, how we do it, and then
+[You]: get a bit a little bit more insight and detail
+[You]: on on the reconciliation needs you are seeing on your side and see if
+[You]: if there's a fit here to explore.
+[Remote]: Yeah.
+[You]: Is that the right way to go about this, do you want to spend more time on other questions or other things
+[Remote]: Yeah. No. That sounds good. I think just one thing to uncover before you start would be, like,
+[Remote]: who are your sort of
+[Remote]: current customers? Like, who do you target at the moment just so that we understand
+[Remote]: like, what kind of
+[Remote]: product features are relevant.
+[You]: Yeah. Sure. So we're working with mainly financial services institutions. Right? And all the way
+[You]: everyone in the stock. Right? We have traditional banks,
+[You]: We have sponsor banks. We have banking as service providers. We have payment processors, pay facts,
+[You]: We have crypto wallets. We have fintech platforms.
+[You]: We're starting to have conversations with a Mastercard
+[You]: Delocal wise, these these big cross border companies as well.
+[You]: So, basically, anyone in the stack we're working with right now
+[You]: Going forward, we might start to target a little bit of a
+[You]: more specified segment. But as of today, we're working with anyone in the stock.
+[You]: Because at the end of the day, we're a data orchestrator. Right? We can plug into
+[You]: all these different data sources with transactional files.
+[You]: And we're just matching transactions and providing a really good experience to automate this workflow.
+[You]: I I'll just like to mention two things.
+[You]: On on how we sell at different models we offer. So
+[You]: we basically solve the internal reconciliation need
+[You]: But for some companies that have a reconciliation pain with their
+[You]: and would like to offer some sort of reconciliation tool for their customers, we're also exploring
+[You]: white labeling and embedding routes. Right?
+[You]: That could be something interesting to explore as well. The other thing is
+[You]: we operate under a SaaS, dynamic,
+[You]: where everything is hosted in our infrastructure and our cloud.
+[You]: We do have, the highest security data security standards with SOC
+[You]: two type two compliance, and we're working on other frameworks as well.
+[You]: But if this is something that could be a blocker and that you guys wanna control the infrastructure
+[You]: or the cloud, we're also offering
+[You]: like an on premise solution in which we
+[You]: configure it, implement all the solution in our end, and then we just make it a zip and deploy it
+[You]: your infrastructure for you to control.
+[You]: The business model there is quite different. It's a big one off cost in the beginning.
+[Remote]: Okay.
+[You]: And then just a really little retainer for support in SLAs.
+[You]: And then whatever upgrade
+[You]: or additional module you wanna build,
+[You]: you can either manipulate the code the code yourself,
+[You]: or we can just sell the documentation and also the implementation to make sure you're
+[You]: getting the newest upgrades to our platform. So those are two different business models and two different product models we operate with. I just wanted to get that out there.
+[Remote]: Yeah.
+[You]: To see if you're interested.
+[Remote]: Yep. Sounds good.
+[You]: Alright. Amazing. So I guess then let's let's do a product run through
+[You]: sort of, like, end to end to what we have today. So
+[You]: the different modules and different values we add, and then
+[You]: we'd love to hear more about how you're thinking about this and and and what you're interested in
+[You]: about our solution.
+[Remote]: Yeah. So I think once you do the work through,
+[Remote]: I'll better understand, like, what the product is, and I can explain you, like, how we are doing
+[Remote]: the similar things, and we can see, like, if it fits in.
+[You]: Sure. Let's do it.
+[Remote]: Yeah.
+[Remote]: Alright. Perfect. So
+[Remote]: let me share screen.
+[Remote]: You see my screen?
+[You]: Yes.
+[Remote]: Yes.
+[Remote]: Alright. So, basically,
+[Remote]: we do is we automate reconciliation processes
+[Remote]: and that means that we automate that ingestion from
+[Remote]: very diverse sources. We we basically
+[Remote]: pulling data from
+[Remote]: whatever
+[Remote]: database you need or wherever your reconciliation needs are.
+[Remote]: These databases tend to come in very, very different
+[Remote]: formats. And and so there there's a
+[Remote]: a standardization process that we do automatically. So we
+[Remote]: automate ingestion, and we automate standardization,
+[Remote]: then we automate dereconciliation. We're gonna
+[Remote]: do a a small reconciliation now so that that you have a look. Whatever we do now,
+[Remote]: gets done automatically
+[Remote]: with whenever you want, as many times as you want per day, etcetera.
+[Remote]: Then we've got the exception manager where you would basically check
+[Remote]: for those discrepancies and and find solutions and
+[Remote]: tune in and improve those reconciliations.
+[Remote]: With that.
+[Remote]: And we've got very custom we've got custom dashboards
+[Remote]: so that you can have all your information within one dashboard.
+[Remote]: In the way and format that you're interested.
+[Remote]: Yeah. So understood.
+[Remote]: Here, what I did is a basic reconciliation x
+[Remote]: We've got invoices versus bank statements. You've got
+[Remote]: your database on one side, and then the bank is sending you the information on the other side.
+[Remote]: Here, you're able to modify or
+[Remote]: adapt these reconciliations or or these databases or standardize them.
+[Remote]: In whatever format that you need.
+[Remote]: You can basically do anything that you can do in in any other
+[Remote]: database, platform or or even Excel
+[Remote]: you can do it here. And then
+[Remote]: whenever you get new transactions and and the database gets updated,
+[Remote]: this
+[Remote]: transformations get done automatically as well.
+[Remote]: So The matching process.
+[Remote]: What?
+[Remote]: How do you how do you do the matching process?
+[Remote]: We're gonna do that right now. So, basically,
+[Remote]: reconciliations are
+[Remote]: let's do this, invoices.
+[Remote]: Versus bank statement.
+[Remote]: Mhmm.
+[Remote]: One rule is a basic reconciliation between two the the databases
+[Remote]: and then
+[Remote]: one reconciliation can be
+[Remote]: a chain of reconciliations, a chain of rules. So it
+[Remote]: can have either one rule or more.
+[Remote]: Here, we're gonna do a basic one, invoices
+[Remote]: versus bank statement
+[Remote]: These reconciliations can be either one to one when it's one to one, and you
+[Remote]: your joint configuration. If we find some ambiguous like,
+[Remote]: some ambiguous data or more than one option,
+[Remote]: that would not be marked as reconciled. This will only allow one transaction be matched
+[Remote]: against one transaction from the other database.
+[Remote]: It can be a one to many where that that can happen as that can happen.
+[Remote]: It could be that.
+[Remote]: Our database says, let's say, $100 Bank statement says 99. For 1 and $1 for some fees. So you're able to sort of match them together.
+[Remote]: Yep. Exactly. That would be a what we call a one too many.
+[Remote]: Yeah. Makes sense.
+[Remote]: In this case, it's
+[Remote]: we're gonna just do a one to one exercise. The the joint configuration
+[Remote]: is gonna depend a lot on the way you operate.
+[Remote]: Most companies tend to have an ID.
+[Remote]: In this case, it's extra.
+[Remote]: And sometimes this ID either fails or or
+[Remote]: or is not present a 100% of the time. So you can you can do
+[Remote]: what we call a second sweep for dependent mismatches.
+[Remote]: So whatever did not match with ID, you can try to match
+[Remote]: it maybe with with amount.
+[Remote]: Maybe you can add some tolerance in percentage or absolute values.
+[Remote]: And with a transaction date, for example, you can also add
+[Remote]: tolerance, I don't know, in days, seconds, minutes, depends on on on your operation.
+[Remote]: Maybe
+[Remote]: card number or last four digits or name or
+[Remote]: it depends on on your data, actually.
+[Remote]: And then you can do comparisons. So, basically, this is what we call the
+[Remote]: operational, reconciliation. We make sure the transaction exists.
+[Remote]: Mhmm.
+[Remote]: And here, we, check that the fees are
+[Remote]: The amounts are okay. The dates are okay. Are are they paying
+[Remote]: when they should? Are they paying late?
+[Remote]: Or is the status, approved on my database
+[Remote]: but rejected on their database? Is there an issue there?
+[Remote]: So this is where we we check all that. We can mark them as critical
+[Remote]: So one comparison
+[Remote]: one noncritical comparison is just
+[Remote]: for reporting issues.
+[Remote]: If we mark them critical and the comparison fails,
+[Remote]: then that transaction will not be marked as reconciled.
+[Remote]: You can check what what's
+[Remote]: what's going on. Of course,
+[Remote]: these comparisons are very flexible. Maybe you wanna check the
+[Remote]: the
+[Remote]: currency is let's do currency is the same.
+[Remote]: Yeah. And you can normalize them. For example, sometimes in one database, they are
+[Remote]: in
+[Remote]: gaps and on the other one not. So
+[Remote]: we're gonna check that they are the same. We can
+[Remote]: know, mark them as critical. We've got Mhmm.
+[Remote]: I think this makes sense. And what about the sources? Like, what kind of sources you have configured so far?
+[Remote]: And what's on the road map?
+[Remote]: We we have, like,
+[Remote]: most of what we do is, work on that ingestion.
+[Remote]: And standardization. That's, like,
+[Remote]: 90% of the of the of the work. So we we can
+[Remote]: pull data from whatever you you need
+[Remote]: So what I mean is do you have direct connections with, let's say, banks,
+[Remote]: FX brokers where Yep.
+[Remote]: Yeah. Okay. Exactly.
+[You]: Yeah. And everyone's like yeah. We do have a long list
+[Remote]: Processors, banks,
+[You]: of integrations. If we don't have them, we're building a dynamic integrator on our back end.
+[You]: Which basically enables us to build these connections in literally less than
+[You]: I I wanna say one day, but just to be conservative, it's, like, two or three days rather than
+[Remote]: Yeah.
+[You]: two to three weeks, which tends to take us, before
+[You]: we have this integrator. What it does, it's basically it builds the data integrations, dynamics,
+[You]: for each customer rather than building it on our
+[Remote]: Yeah.
+[You]: back end code. Right? And so that way,
+[Remote]: But I think the
+[Remote]: the lag is not on your side. The lag is on on the bank side or, like, the
+[Remote]: broker side because they move really slow.
+[Remote]: So
+[You]: Well, it's a SSCVs, yes.
+[Remote]: meaning you might
+[You]: When it's APIs, we can go way quicker. Right? And that's when
+[You]: if we need to connect to any of your or your providers in which we need to set up an SFP
+[Remote]: Mhmm.
+[You]: SFTP. You can help us, coordinate that meeting and that effort.
+[You]: Which tends to make the time faster. Right? And and and that
+[You]: in that case, we can explore two ways. Either we build the
+[You]: directly to your data link, and then we connect
+[You]: API to your data link to ingest the data, or we connect directly. But that's
+[You]: probably data you already want in your data lake anyways.
+[Remote]: Yeah.
+[You]: So we just build that intermediary layer and connecting the API to our data lake is really, really
+[You]: quickly. So we can help you guys build those SFTPs with your providers.
+[Remote]: Yep.
+[You]: And that way your providers are gonna respond way quicker to you than to us. Right? Of course.
+[Remote]: Yeah. Makes sense. No. No. Super cool. So
+[Remote]: I built this exact thing for wise. We didn't like, I didn't build the UI.
+[Remote]: So we didn't have it like, we had all the rules in sort of written in code.
+[Remote]: But so this was two years back. So if you were pitching
+[Remote]: to me this, like, two years back, like, would say a 100% we need this.
+[Remote]: Because it was a pain point for Wise. So we had a big team, you know, like, working on these
+[Remote]: links. So linking these two transactions, and the rules were changing quite
+[Remote]: rapidly. Like, Morgan Stanley suddenly changes a tag, and then someone needs to make
+[Remote]: a release. And every quarter, I was posting a metric that
+[Remote]: 10% of our development time time goes into this.
+[Remote]: Which result in, like, a lot of dollars Adapting those reconciliations
+[Remote]: already built
+[Remote]: Yes. Yes. Because, I mean, you can imagine. Right? Like, Wise has
+[Remote]: a lot of connections with different banks, and also then the subsidiaries of those banks
+[Remote]: and everyone sends, data quite differently.
+[Remote]: And also their formats keep changing as well, like
+[Remote]: I mean, obviously, not every day, but three months, six months, that.
+[Remote]: Yeah. So this is, like, super useful. I think
+[Remote]: so I'll tell you how we are doing it. So at the moment,
+[Remote]: the way we have built this is
+[Remote]: we have, like, direct API connections with banks, and we are able to match transactions ourselves.
+[Remote]: And the reason we are able to do that
+[Remote]: today is because we are working with, like,
+[Remote]: four or six different, counterparties
+[Remote]: So it's not many as as wise would have, like, hundreds of them.
+[Remote]: So it's in it's in control at the moment. But I think where this becomes interest
+[Remote]: for us is, once we launch our product, once we have some sales going,
+[Remote]: and once we start to start to sort of expand our counter
+[Remote]: list in terms of who we are trading with, who who we are banking with,
+[Remote]: I think that's when the Spain becomes more relevant for us.
+[Remote]: So
+[Remote]: like, just given where we are, so we'll proceed
+[Remote]: It's been one year. We have been sort of live.
+[Remote]: We recently launched our product. Now is when we are starting our sales cycles.
+[Remote]: Our product road map is pretty much locked because we we now need to achieve traction. So
+[Remote]: But I think once we are through this in next six to eight months,
+[Remote]: then we would again be sort of adding more and more partners, more and more banks
+[Remote]: That's when this becomes, like, super relevant for us.
+[You]: Correct.
+[You]: And thank you for sharing that that that vision and that road map.
+[You]: I guess my question is, we're also a pre seed stage company.
+[Remote]: Yeah.
+[You]: It's good to partner with another pre seed stage company on these things. I think we both can gain value
+[Remote]: Yeah.
+[You]: from, our offerings.
+[You]: So what I'm thinking and want to hear your thoughts about this is
+[You]: if it makes sense to maybe engage right now, that I know it's under control,
+[You]: but you're plugging in something that's automated and ready to go by the time
+[You]: you scale to 10 plus providers. And we can figure out some sort of
+[You]: low touch, really low cost engagement
+[Remote]: Yeah.
+[You]: that enables you to automate the small thing you have right now and most importantly enables you to be
+[You]: ready to scale when the time comes. Right?
+[You]: Just figuring out if it makes sense to think about some sort of engagement
+[You]: for the next six to eight months. Really low touch, low cost,
+[Remote]: Yeah.
+[You]: That is a win win for both sides. Right? You automate what you have today,
+[Remote]: Yep.
+[You]: and we gain value out of iterating the platform with you guys with just some feedback.
+[Remote]: Yeah.
+[You]: And then we're ready to scale when the time comes.
+[Remote]: Yeah.
+[You]: What what do you think? Of course,
+[You]: this would require zero resources on your side. We're gonna be the ones implementing
+[Remote]: Yep.
+[You]: We just need you guys to unlock us on some things and do the knowledge transfer, but it's
+[Remote]: I think it'll be good
+[You]: zero development work on your side.
+[Remote]: to get some sandbox from you. So at least we have it
+[Remote]: the side, and we can at least have a look in terms of and then we can start to think, like,
+[Remote]: when and how we wanna integrate.
+[Remote]: I would say, like, realistically, just this quarter and the next,
+[Remote]: like, we are super low on resources. So even spending a day like, for my engineers, like, it'll be very hard at this stage.
+[Remote]: But you send your proposal,
+[Remote]: Let's maybe set up a sandbox so at least we can have a look at the product more.
+[Remote]: And I can get my engineers familiar with this as well. And, probably in,
+[Remote]: second or third quarter, maybe it's the right time to sort of add this. Because
+[Remote]: it just we have other things going at the moment, which are more
+[Remote]: priority, like, which are related to, like, direct customer getting onboarded.
+[Remote]: And also supporting them operationally. So
+[Remote]: it just it won't be fair basically putting this
+[Remote]: on higher priority at the moment. But, definitely, like, six months time, this this makes sense.
+[Remote]: Make an introduction to wise as well. So, I mean, I can't make any promises because
+[Remote]: obviously, I'm not leading any efforts there now. But I know people
+[Remote]: I don't know if they'll respond, but I know the right people. I can make an introduction.
+[Remote]: And then let's see.
+[You]: That would be amazing and and and have great help for us. So thank you for that.
+[You]: Just one last thing and one last push, and it
+[You]: if you think it's better to engage, forward, then then great.
+[You]: Our tool is built for non technical users. So
+[You]: I know we're going to need some unlocking from the engineering team,
+[You]: but ideally, if we decide to do something low touch in the next few months,
+[You]: we're working directly with Robert or the people from who whomever is
+[Remote]: Yep.
+[You]: leading operations or finance. And and and and we're
+[You]: figurating everything with this nontechnical person, the technical team were just, like, stealing them fifteen minutes every week on that person unlocking us
+[Remote]: Yeah.
+[Remote]: Yep.
+[You]: technically to make sure we're connecting the data sources and we're plugging the platform in.
+[Remote]: Yeah. No. I mean, look. All
+[Remote]: all of all of our guys in sort of every like, all of us are
+[Remote]: technical. So it's not about sort of just the engineers.
+[Remote]: I mean, Rob is, like, doing six things at this time as well as
+[Remote]: So it will be very hard, to be honest, like, to have the integration going.
+[Remote]: And
+[Remote]: also, like, from value addition point of view,
+[Remote]: don't think we'll be able to give you feedback as well at this stage. But I think once we are actually using the product,
+[Remote]: it'll be much more engagement at that point than today, to be honest.
+[Remote]: Because we wanna help you build a better product as well. So but if you're not able to give you feedback, then what's
+[You]: Got it.
+[Remote]: what's the point anyway?
+[You]: Got it. Okay. Perfectly understandable. We will
+[Remote]: And to be honest, like,
+[Remote]: this is what I built advice, so I would have a lot of insights as well too.
+[Remote]: Sort of just give you feedback on.
+[You]: That would be that would be amazing. So okay. Let us go back to
+[You]: we're just gonna build a proposal for you to take a look at. If it's it doesn't work, then then okay.
+[Remote]: Yep.
+[You]: And we would love to get both
+[You]: your knowledge, your feedback in some sort of form.
+[You]: And and then the interest to wise would be amazing.
+[Remote]: Yep. Hello. Happy to do that.
+[You]: Other than that,
+[You]: great meeting you guys. We do have some cross border payment needs
+[Remote]: Yeah.
+[You]: so send over any materials or onboarding links you have.
+[You]: We'll take a look and see if it makes sense for us as well. We have a contract
+[Remote]: Yep.
+[You]: team in Argentina, which we're sending them money via Dollar App.
+[You]: So I did a Dollar App business account, and I basically fund that
+[You]: with, ACH and then disperse
+[You]: the money via Dollar App because our contractors all have Dollar App personal accounts.
+[You]: I think there's a better way to do this, and you might help us. So that that's also something interesting to explore.
+[Remote]: Yeah. No. No. We we're able to do 50 plus currencies.
+[Remote]: In terms of payouts and six plus currency accounts. So if you have needs
+[Remote]: to have accounts in different currencies and
+[Remote]: we would be much cheaper than wise and revolute out there.
+[Remote]: Not fully sure about Dollar App, but we can we can check.
+[You]: Okay. Amazing.
+[Remote]: Yeah.
+[You]: Alright then. I'll just follow-up via email on why we talked and and and we'll take it from there.
+[You]: Other than that, thank you so much for the time. Great meeting, and hopefully, we can collaborate closer together as we are
+[Remote]: Yeah. Let's do it.
+[You]: the same precede stage trying to gain traction. You know?
+[Remote]: For sure. Thanks, guys.
+[Remote]: Okay, guys. Thanks so much. Thank you. Bye.
+[You]: Amazing. Thank you so much.
+
+============================================================
+SUMMARY
+============================================================
+### Their background
+
+- Mahendra (Mk) works at Riva Money, a pre-seed stage fintech company that has been live for one year
+- Robert Macdonald is Strategy and Operations Manager at Riva Money
+- Sachin Chandani also works at Riva Money
+- Riva Money recently launched their product and is now starting sales cycles
+- Company operates in cross-border payments space, supporting 50+ currencies for payouts and 6+ currency accounts
+- Currently works with 4-6 counterparties/banking partners
+- Has direct API connections with banks and can match transactions internally
+- Mahendra previously built similar reconciliation systems at Wise, giving him deep domain expertise
+- Product roadmap is locked as they focus on achieving traction
+
+### Pain points and needs
+
+- Reconciliation challenges will become critical as they scale beyond current 4-6 providers
+- “At Wise, 10% of development resources went to reconciliation workflows” - significant resource drain
+- Frequent format changes from banking partners create ongoing maintenance burden
+  - “Morgan Stanley suddenly changes a tag, and then someone needs to make a release”
+  - Formats change every 3-6 months requiring developer intervention
+- Rules engine changes required rapid development cycles at Wise
+- Anticipates needing automated reconciliation solution once they expand counterparty list
+- Current manual approach won’t scale: “once we start to expand our counter list in terms of who we are trading with, who we are banking with, I think that’s when the pain becomes more relevant for us”
+
+### Questions or concerns
+
+- Timing concerns: extremely resource-constrained in current quarter and next
+- Even spending one day of engineering time would be “very hard at this stage”
+- Prioritization challenge: customer onboarding and operational support take precedence
+- Concern about providing meaningful feedback: “if we’re not able to give you feedback, then what’s the point anyway?”
+- Need to focus on direct customer acquisition over infrastructure improvements
+
+### Budget and timeline
+
+- No specific budget figures mentioned
+- Timeline constraints: current and next quarter are locked due to resource limitations
+- Realistic engagement window: “second or third quarter, maybe it’s the right time to sort of add this”
+- 6-8 months timeframe mentioned for when reconciliation becomes priority
+- Willing to explore “really low cost engagement” but not until resource situation improves
+
+### Next Steps
+
+- Rexi to send proposal for Riva Money to review
+- Set up sandbox environment so Riva team can evaluate the product
+- Mahendra offered to make introduction to contacts at Wise (though cautioned he can’t make promises about response)
+- Riva Money to send materials/onboarding links for their cross-border payment services
+- Potential collaboration as both companies are pre-seed stage seeking traction
+- Follow-up via email to continue discussions
+- Rexi interested in using Riva Money services for Argentina contractor payments (currently using Dollar App)
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/8503e9d5-b0b6-48cc-ba7e-47bc1f4d05d3](https://notes.granola.ai/t/8503e9d5-b0b6-48cc-ba7e-47bc1f4d05d3)

@@ -1,0 +1,495 @@
+MEETING: Rexi x Santander US: intro
+DATE: 2026-03-16
+ID: not_cG278dApfiQvMl
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Icastro <icastro@santander.us>
+SCHEDULED: 2026-03-16T12:30:00-04:00 - 2026-03-16T13:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Frank, die dag, ik dag, ik dag, ik dag, dag, dag,
+[You]: Hola, Ignacio, ¿cómo estás?
+[You]: Hola, hola.
+[You]: ¿Cómo estás?
+[Remote]: Hola, ¿qué tal, Ignacio? Buenas.
+[Remote]: Bien,
+[You]: ¿Cómo, por dónde andas?
+[Remote]: En Boston,
+[You]: Ah, en Boston. Bueno, hace mucho que vives ahí.
+[Remote]: Sí, sí, ya tengo
+[Remote]: rato, como quince años, tenemos que estar aquí por acá.
+[You]: Ah, bueno. ¿Y dónde originalmente?
+[Remote]: De Costa Rica.
+[You]: Costa Rica.
+[You]: Qué bueno, qué bueno. Bueno, bastante distinto el Clima De Boston al de San José, ¿no?
+[Remote]: Totalmente, totalmente, Ignacio. ¿Y tú dónde estás, Ignacio?
+[You]: Yo estoy en Nueva York y soy argentino, pero, bueno, tuve la
+[Remote]: Ok.
+[You]: posibilidad de visitar Costa Rica varias veces, me encantó.
+[You]: Y más recientemente viví dos años en Boston, estuve haciendo un MBA ahí en Harvard, en Cambridge.
+[Remote]: Ah, qué bien, qué bien.
+[Remote]: Sí, se se
+[Remote]: bueno, con la excepción del clima, pues se se la pasa, hay uno aquí.
+[You]: Sí, total, total. Bueno, no te
+[You]: no te robo más tiempo, me encantaría hacer ahí una intro, pero para para alinear bien
+[You]: la agenda, la idea es es contarte una breve intro sobre mí y sobre lo que hago en Rexi,
+[You]: y luego explorar a ver de qué manera tú crees que podemos colaborar.
+[You]: Con Santander. Estuvimos hablando con Santander Argentina,
+[Remote]: K.
+[You]: pero
+[You]: pero bueno, entiendo que vos estás más en la sede de Estados Unidos, ¿verdad?, o global.
+[Remote]: No, de de Estados Unidos, pero te puedo dar un poco
+[Remote]: más de insights, digamos, de cómo
+[Remote]: de de cuál, pues, el path ahí para
+[Remote]: para entrar en el grupo.
+[You]: Va, buenísimo. Bueno, ahí nos puse en contacto
+[You]: fue
+[You]: Jenny, de underscore,
+[Remote]: Sí, correcto.
+[You]: Solo para así tener contexto ahí, Jenny bueno, underscore b c es nuestro lead investor, con lo cual
+[You]: tenemos ahí una muy buena relación, y yo trabajo muy cerca con Chris no sé si lo conoces,
+[Remote]: Excellent.
+[Remote]: Sí, claro.
+[You]: Él es él es como nuestro
+[You]: biggest investor y y mentor mío particularmente. Lo conocí en MIT haciendo una aceleradora y
+[You]: y
+[You]: y, bueno, ya desde entonces estamos trabajando juntos y muy posiblemente el líder
+[You]: nuestra ahora
+[You]: en Q2. Pero bueno, no no me está dejando compartir pantalla
+[You]: pero bueno, no hay problema. Te cuento un poquito de de de Rexi.
+[Remote]: Oh, tal vez te puedo dar, sí, o sea, sabes que el banco es supercomplicado. De hecho,
+[Remote]: por eso que
+[Remote]: pasarnos aquí, porque no me dejaba conectarme con Google.
+[Remote]: Ya te dice presentador, creo.
+[You]: Ahí va.
+[You]: Ahí está.
+[You]: Bueno, entonces, en ese este, ¿ahí ves mi pantalla?
+[Remote]: Sí, ya lo veo.
+[You]: Va. Bueno, entonces, un poco,
+[You]: ¿qué es Rexi? Rexi es este Financial Control Layer Powering Modern Money Movement, así le decía
+[You]: Creemos que
+[You]: en el mundo financiero, particularmente, bueno, en el mundo fintech y en el sistema bancario, en los últimos diez años se innovó muchísimo en el application layer,
+[You]: pero no tanto en el infra layer. Lo que causó esto es muchísima fragmentación de información,
+[You]: Me imagino vos en tu día a día consumís información de muchos
+[You]: sistemas diferentes, y muchas veces estos sistemas no están conciliados.
+[You]: Porque uno es una fuente bancaria, uno no es un archivo de un proveedor externo y el
+[You]: otro por ahí es un ledger propio. Con lo cual, bajo ese esquema, es que Rexy lo que lo que pretende ser a largo plazo es como el club
+[You]: ¿sí? Queremos que los equipos de finanzas y operaciones
+[You]: tengan la plataforma
+[You]: y las herramientas para construir workflows agénticos para sus funciones, ¿sí?
+[You]: We're starting by financial services, porque dentro de financial
+[You]: las áreas de operaciones y de finanzas son particularmente críticas y relevantes.
+[You]: Y dentro de servicios financieros nos estamos enfocando hoy en conciliaciones,
+[You]: por dos motivos,
+[You]: Primero, porque es un es un proceso muy doloroso hoy,
+[You]: no hay banco, no hay fintech, no hay procesadores pagos con el que hables,
+[You]: y no te digan que reconciliation is a pain.
+[You]: ¿Por qué? Porque de vuelta se trabaja con múltiples sistemas,
+[You]: con formatos diferentes, estructuras diferentes, sistemas que cambian,
+[You]: no podemos explicar las diferencias, se pierde dinero,
+[You]: montón de gente haciendo tareas manuales en Excel, digo,
+[You]: hay muchos dolores asociados al proceso. Y la segunda razón es que
+[You]: nos da acceso a la información transaccional para luego construir
+[You]: el resto de los productos y de los templates para los otros procesos, ¿sí?
+[You]: Entonces,
+[You]: un poco
+[You]: lo que venimos a hacer hoy es una plataforma que es una
+[You]: es un orquestador de información. Nos conectamos a las distintas fuentes
+[You]: al banco, al procesador de pagos, al ledger,
+[You]: y a un proveedor externo, ingestamos
+[You]: esos archivos crudos y a partir de ahí resolvemos el problema end to end, ¿sí? Entonces, primero,
+[You]: normalizamos toda la información
+[You]: para que sea fácil de procesar,
+[You]: luego la procesamos,
+[You]: luego analizamos y resolvemos las diferencias, y y el
+[You]: cuarto paso es tenemos un montón de output schemas
+[You]: para ya sea
+[You]: generar asientos contables, generar reportes custom,
+[You]: generar dashboards para analytics y qué sé yo,
+[You]: y de esa manera
+[You]: no solamente damos muchísima
+[You]: precisión y eficiencia al proceso, sino que también
+[You]: reducimos riesgo, ¿no? Porque
+[You]: no sé, en el Caso De Santander, al ser un banco, seguramente tenga que presentar reportes a ciertos reguladores,
+[You]: con cierto formato,
+[You]: con cierta información, y bueno.
+[You]: Automatizar todo ese flujo
+[You]: reduce un montón de riesgo, porque
+[You]: porque se puede hacer a escala
+[You]: sin la necesidad de de tener humanos haciéndolo, que, bueno, además de ser ineficiente, conlleva
+[You]: muchísimo error humano, ¿no? Esto es un poquito los
+[You]: los early results que estuvimos teniendo con nuestros
+[You]: paying customers. El primero, obviamente, es el error de automatización, ¿sí?
+[You]: Hemos reducido las horas manuales dedicadas a este proceso en un ochenta por ciento,
+[You]: y y lo queremos aumentar aún más,
+[You]: Redujimos los write offs, que son las pérdidas irreconciliables,
+[You]: ese journal entry
+[You]: de las cosas que uno no puede explicar
+[You]: y, por ende, tenemos que generar la
+[You]: la partida contable
+[You]: de de esas pérdidas,
+[You]: y luego está el riesgo regulatorio de compliance.
+[You]: ¿No? Nuestros customers tuvieron cero
+[You]: cero incidentes relacionados a compliance, a ODET, o a o a reporting con los principales reguladores, por justamente el flujo está completamente automatizado y tiene muchísima precisión. Ahora, obviamente, en el mercado hay soluciones de esto, quizás en el mundo bancario te suena black line, Trintech, estos sistemas más grandes, más por ahí viejos. Entonces, how how we
+[You]: is different is the big question, no?
+[Remote]: Sí.
+[You]: La primera es, obviamente, we're AI native.
+[You]: Entonces, mucha de lo que hacemos lo hacemos con AI. Eso hace que el producto sea mejor,
+[You]: que además el business model sea más barato.
+[You]: Porque todo lo que BlackLine resuelve con servicios profesionales,
+[You]: y consultoría, nosotros lo resolvemos con producto, con tecnología.
+[You]: ¿Sí? Luego, lo importante es que es dinámico, no es una lógica estática,
+[You]: Los flujos de conciliaciones se rompen todo el tiempo porque
+[You]: un proveedor le cambia algo, cambió la estructura, el formato,
+[You]: o ahora estamos operando el producto de una distinta manera. Entonces,
+[You]: tener un workflow estático que funcione para siempre.
+[You]: Ahora, cuando vos le agregas AI a eso que puede detectarlo,
+[You]: cambios y optimizar por esas diferencias todo el tiempo,
+[You]: tenés un proceso que nunca se rompe y estás siempre iterándose para optimizar el match
+[You]: ratio y optimizar el
+[You]: el tiempo dedicado a este proceso, ¿no? Y los otros puntos son
+[You]: que sean muy plug and play, que el time to value no
+[You]: sea un heavy process
+[You]: heavy lifting que requiera trabajo de ustedes y dure como seis meses, sino la idea es que sea mucho más
+[You]: plug and play y configurable y
+[You]: y fácil de usar para que el time to value sea más corto,
+[You]: y luego está la parte de que, obviamente, con AI es self learning,
+[You]: ¿no? A medida que ustedes lo usan y operan sobre la plataforma,
+[You]: tenemos un agente con un context window específico para Santander,
+[You]: lo cual hace que el sistema aprende
+[You]: sus policies, de sus thresholds, de de sus necesidades de reporting,
+[You]: y se vuelve mejor y mejor over time, porque ya entiende un poco la lógica de negocio que
+[You]: está asociada a este proceso.
+[You]: Esto es un poco
+[You]: más sobre nuestro enterprise grade architecture,
+[You]: ya tenemos SOC dos type two, estamos en el proceso de tener SOC
+[You]: uno Type Two y hay SOC veintisiete mil uno,
+[You]: Luego trabajamos con lógicas de encryption y de y de hash,
+[You]: para mantener toda esa información privada y segura,
+[You]: y después, bueno, todos los SLA relacionados al uptime,
+[You]: y al availability. Obviamente, como somos un early stage company,
+[You]: eso tiene algo bueno, que es
+[You]: hay relación directa con los founders,
+[You]: estamos yendo
+[You]: ese extra mile con count of nuestros initial customers,
+[You]: y eso quiere decir, no solamente a nivel soporte y SLA, sino también
+[You]: ciertos products or features
+[You]: por ahí Santander necesita específicamente, we can prioritize in the roadmap and do it for you guys.
+[You]: ¿No?
+[You]: Esos son poquito los beneficios de del estadio en el que estamos.
+[You]: Having said that, me gustaría de
+[You]: dedicarle esto del tiempo a a a que me cuentes un poco
+[You]: no sé qué tan cerca estás de este proceso,
+[You]: qué tanto lo conocés, los principales dolores,
+[You]: cómo lo están resolviendo hoy, y que que entramos en detalles sobre esto para ver si hay fit.
+[You]: ¿No? Porque si no hay fit,
+[You]: puede ser el primero que voy a decir, mirá, Ignacio, creo que no hay fit,
+[You]: recomiendo estas otras herramientas. Pero si hay fit, quizás podemos pensar ya en un next step hacia el final de la llamada.
+[Remote]: Correcto.
+[Remote]: Y me hace unos algunos comentarios, bueno,
+[Remote]: no estoy cerca, que eso, pues, uno de los primeros
+[Remote]: data points relevantes.
+[Remote]: Y en el caso de ustedes, o sea,
+[Remote]: claramente, ya
+[Remote]: debería existir un proveedor que hace, les ayuda hasta
+[Remote]: a estos usuarios de que que hacen el proceso de de construcción,
+[Remote]: existente, ¿no?, o sea, deberían
+[Remote]: o sea, en en lo que me están diciendo ustedes,
+[Remote]: parte del value proposition es que vienen a reemplazar
+[Remote]: un proveedor existente.
+[You]: En en
+[You]: algunos casos sí y en otros no. Vemos que hay un montón de compañías
+[You]: servicios financieros o de pagos o fintechs,
+[You]: que no tienen nada, que no tienen en Excel,
+[Remote]: Okay.
+[You]: o que lo tienen con SQL,
+[You]: o que dependen de de equipo también, la otra es, muchas veces dependen del equipo de engineering,
+[You]: que es lo que más queremos. Nosotros queremos darle a finanzas y a operaciones
+[You]: mucha independencia de engineering, queremos darle una plataforma
+[You]: that is owned and operated by you guys, para no tener que
+[You]: creando esos tickets internos, que luego sabemos que nunca
+[You]: que siempre se retrasan, porque esto nunca es prioridad.
+[You]: Para la compañía, y etcétera.
+[Remote]: Voy a
+[Remote]: No sé si viste en mi en mi LinkedIn, yo tengo dos perfiles, ¿no?
+[Remote]: O sea, tengo el de
+[Remote]: el de, bueno, está con Santander, tengo
+[Remote]: pues, diez, quince años estar con Santander, en diferentes capacidades,
+[Remote]: Pero, a la vez, desde que salí de Sloan, he estado muy metido con startups
+[Remote]: y
+[Remote]: apoyando, sobre todo, la las etapas tempranas de
+[Remote]: del desarrollo de estas de estas
+[Remote]: de estas startups,
+[Remote]: me voy a quitar el el Sombrero Santander y va a poner más el de founder.
+[Remote]: El de el de mentor, digamos. Este,
+[Remote]: el los clientes que ustedes tienen ahorita, ya sea en
+[Remote]: en pilotos pagados o pilotos sin pagar, ¿qué
+[Remote]: qué tamaño de instituciones financieras tienen?
+[You]: Tenemos a un banco top cinco en Argentina,
+[You]: tenemos a despegar punto com, una empresa pública de ecommerce
+[You]: de de vuelos. Tenemos estamos empezando a trabajar con Callea, una de las compañías
+[You]: más grandes de pay, buy now pay later en en Sudamérica,
+[You]: Estamos trabajando con PayLiance acá en Estados Unidos, una una procesadora de pagos.
+[You]: Tenemos a a Tera, un global payroll company. Hoy tenemos
+[You]: poquito de servicio financiero tradicionales y fintech, pero es poco.
+[You]: Pero algunas con volúmenes muy relevantes.
+[Remote]: And
+[Remote]: La pregunta te la hago por lo siguiente,
+[Remote]: un banco como Santander,
+[Remote]: digamos, el el hecho es que
+[Remote]: no sé si estás, estoy asumiendo
+[Remote]: por la conversación que que iniciamos teniendo, pero
+[Remote]: pero podemos tener otro tipo de conversación. Si estás pensando en Santander como potencia,
+[Remote]: al cliente en este momento, creo que es un error.
+[Remote]: Por lo menos en Estados Unidos. O sea, el hecho de que me digas que
+[Remote]: estás hablando con Santander en Argentina, ahí sí tiene todo sentido, porque, bueno, si
+[Remote]: trabajando con un banco allá en Argentina,
+[Remote]: pues, obviamente, hay un
+[Remote]: hay una reputación, o sea, tienes, este, credibilidad, vas
+[Remote]: poder entrar y vas a poder, o sea, tener una conversación con gente
+[Remote]: a la cual le vas a poder decir que conoce el banco de Argentina y decir, mira, ya entramos con esta, ok, eso
+[Remote]: es relevante para mí. Si vienes a mí y me dices, ¿está trabajando en un banco de Argentina?
+[Remote]: Para mí me da igual, o sea, no me sirve nada.
+[Remote]: Y en y en Estados Unidos, típicamente, lo que vas a ver es,
+[Remote]: organizaciones que
+[Remote]: creo que con el tema de ahí hay
+[Remote]: puede estar cambiando un poco, pero, típicamente, vas a encontrar
+[Remote]: los ejecutivos de de
+[Remote]: de instituciones financieras
+[Remote]: muy
+[Remote]: risk averse, proveedores pequeños y startups. Vamos a ver, no
+[Remote]: van a querer hablar con Rexy cuando ya hayan pasado por
+[You]: Sí, sí, totalmente de acuerdo que
+[You]: totalmente de acuerdo que hoy por ahí no es nuestro focus, porque son longer sales
+[You]: cycles, our ability to win es muy bajo, pero bueno, esto vino por una intro
+[You]: de de nuestros inversores y y why not? ¿No? Como que si hay una oportunidad,
+[You]: having an intro meeting is is never never hurts.
+[Remote]: No, de acuerdo, de acuerdo. Por eso usted decía que
+[Remote]: que te te doy, digamos, el contexto adicional,
+[Remote]: Algo interesante con Santander, por ejemplo,
+[Remote]: es, este, lo lo, o sea, yo, si te interesa Santander como
+[Remote]: Obviamente, Santander es un banco atractivo, porque, bueno, estamos en, no sé,
+[Remote]: ocho,
+[Remote]: ocho grandes mercados, tanto en
+[Remote]: Latinoamérica, Estados Unidos, Europa.
+[Remote]: Y, lo que sí, a lo que yo he estado
+[Remote]: expuesto es a
+[Remote]: tenemos un grupo dentro de Santander que se dedica
+[Remote]: a encontrar estos startups, que ya están trabajando con un banco en
+[Remote]: en México, en algún lado, y darles exposición para que
+[Remote]: puedan presentar lo que la solución que ellos tienen,
+[Remote]: con otros bancos en otros en otras regiones, ¿no?
+[Remote]: Si me dices, ya teniendo una conversación en en
+[Remote]: Porque, bueno, lo otro es que
+[Remote]: obviamente, en estado, y, bueno, en Estados Unidos ya te voy a dar otro dato interesante,
+[Remote]: Tiene unas unas particularidades que la hacen más complicado,
+[Remote]: pero en estos otros bancos, en en Latinoamérica, sobre todo, creo que el tema de
+[Remote]: de entrar como proveedor, pues no no tiene tantos controles y tantas
+[Remote]: tanto burocracia, digamos, creo,
+[Remote]: que siempre igual debe ser burocrático, pero
+[Remote]: En caso de Santander, Tiggo, no sé si has visto las noticias, pero
+[Remote]: acabamos de comprar un banco, Webster Bank, y, entonces, eso, en los próximos dos años,
+[Remote]: no hagamos nada, porque vamos a estar totalmente enfocados en
+[Remote]: la integración de los dos bancos y, cualquier cosa, inclusive muchas de las cosas que
+[Remote]: estamos haciendo hoy,
+[Remote]: las hemos parado porque
+[Remote]: básicamente, tenemos que definir cuál es el plan de integración con este nuevo banco.
+[Remote]: Entonces,
+[Remote]: esos son otros de los factores que hay que considerar.
+[Remote]: Ahora,
+[Remote]: y, bueno, con el parte de lo que lo
+[Remote]: te decía, bueno, con con, y y te digo estas cosas como feedback en general, para que los
+[Remote]: en cuenta, mí me imagino que ya lo ya lo lo debes saber bien, en todo caso, pero
+[Remote]: el el onboarding nuestro es es una locura, es pesado,
+[Remote]: Tendemos a tener mucho cuidado con con ofertas cloud,
+[Remote]: bueno, tenemos que tener el control de la de los datos,
+[Remote]: sobre todo en temas financieros. O sea, nosotros tenemos un army de gente haciendo
+[Remote]: y haciendo reportes financieros, porque
+[Remote]: todo, no sé si si la, depende de cómo estés viendo el tema de reconcilación, pero
+[Remote]: pero nosotros tenemos todo el tema de, no sé si se llama así
+[Remote]: pero hay hay un todo un equipo que se llama Zicar,
+[Remote]: se, que tiene todo el tema de reporte financiero a reguladores,
+[Remote]: y eso es superdelicado y
+[Remote]: claro, que yo creo que hay otras reconciliaciones en otros grupos, como tú dices, en
+[Remote]: operaciones y finanzas,
+[Remote]: donde hay hay temas que podrían ser interesantes.
+[Remote]: Pero cuando me dices que ustedes integran con todas estas fuentes de datos y
+[Remote]: hacen todo este proceso,
+[Remote]: Lo primero que me salta la cabeza es el tema de onboarding, el tema de integración,
+[Remote]: que, aunque me digas que es plug and play, en el Banco Banco Santander nada es
+[Remote]: es plug and play, desafortunadamente. Entonces, hay que
+[Remote]: hay que, pues, adaptarme un poco a esa realidad.
+[Remote]: Pero, bueno, tal vez para para pensar en algo más
+[Remote]: propositivo de valor, Ignacio, te digo que
+[Remote]: creo que sí hay un pad interesante cuando ya estás trabajando con
+[Remote]: un banco del del grupo,
+[Remote]: esto que me dices de Santander, creo que es es valioso.
+[Remote]: Y una vez que que tengas algo en concreto con
+[Remote]: ya sea con el de Argentina o algún otro banco,
+[Remote]: podemos también hacer la conexión con este grupo que tenemos en el banco, que
+[Remote]: que ayuda a hacer el scouting de los de los vendors y proveedores que tenemos,
+[Remote]: para otros países, eso te lo te lo dejo ahí, para que
+[Remote]: ahí al tanto de
+[Remote]: de cómo avanza eso.
+[Remote]: Y en el Mercado De Estados Unidos, sí, creo que es es un poco el
+[Remote]: el derecho de piso que llamamos, decir, o sea, vas a tener que trabajar con
+[Remote]: con credit unions, con bancos, este, regionales,
+[Remote]: ir ganando terreno, ir ganando reputación, y luego ir a a bancos más grandes.
+[You]: Obvio.
+[Remote]: Te decía que creo que está cambiando un poco
+[Remote]: todo el tema de AI es interesante porque los ejecutivos están
+[Remote]: bueno, asustados, están presionados,
+[Remote]: y están viendo a ver cómo hacen para integrar esta esta tecnología.
+[Remote]: Cuando normalmente,
+[Remote]: tú ni siquiera volvías a ver a un proveedor pequeño con
+[Remote]: sea, creo que en esta época,
+[Remote]: podría haber apertura
+[Remote]: pero es un poco hit or miss, ¿no? O sea, te parece, tenés que encontrar a alguien
+[Remote]: en el banco que que realmente esté súper,
+[Remote]: interesado en temas de AI y que, bueno, que haya un
+[Remote]: un interés de esa persona y que sea el champion que puedas tener,
+[Remote]: para meterlos a ustedes como un proveedor que que
+[Remote]: que no necesariamente es la carta segura,
+[Remote]: pero que, por traer todo el tema de inteligencia artificial, se pueden arriesgar a explorarlo,
+[Remote]: claro, ahí tienes el también el el riesgo de que puede ser que
+[Remote]: hablar contigo solo para aprender, ¿verdad? O sea, vulgar querer es
+[Remote]: saber qué les estás ofreciendo y qué les puedes dar, pero pero no necesariamente porque están interesados, simplemente
+[Remote]: porque quieren aprender del
+[Remote]: de las posibilidades, ¿verdad?
+[Remote]: Entonces, bueno,
+[Remote]: el último lo último que te iba a decir, pues, ya se nos
+[Remote]: nos va ir el tiempo,
+[Remote]: es teniendo underscore como
+[Remote]: inversionista,
+[Remote]: estaría, bueno, yo yo soy parte de un grupo de ángeles en, aquí, en Boston, que se llama TV Angels,
+[Remote]: no sé si ustedes ya están
+[Remote]: post, o sea, ¿a qué nivel de inversión están? Yo sé que underscore es
+[Remote]: es es early, pero
+[Remote]: veces participan en rondas más later stage,
+[Remote]: ¿Ustedes en qué en qué nivel están con
+[Remote]: con el tema de de fundraising?
+[You]: Nosotros levantamos una pre seed en julio veinte veinticinco de uno punto dos millones.
+[Remote]: Okay.
+[You]: And we're getting ready for a seed raise, ahora en Q2, entre tres y seis vamos a levantar.
+[Remote]: Okay. K.
+[Remote]: Sí, digo, ya puede ser que esté
+[Remote]: fuera de alcance para para el grupo este Ángel. El ellos
+[Remote]: usualmente, les gusta participar en esa
+[Remote]: esa de ese tipo, con
+[Remote]: un lead como underscore y con y con
+[Remote]: claro, son cheques pequeños, pero bueno, es una es un network
+[Remote]: interesante de de
+[Remote]: de
+[Remote]: de de
+[Remote]: de de operadores experimentados,
+[Remote]: coexits, que que les gusta ver este tipo ronda.
+[Remote]: Pero, bueno, creo que el caso de ustedes, pues, ya está fuera de
+[Remote]: de alcance en
+[Remote]: el caso de ti y de Angels. Pero, bueno, sí,
+[Remote]: si eso
+[Remote]: fuera de interés, también ahí te lo
+[Remote]: te lo dejo como para que, si te interesara, lo podemos
+[Remote]: lo podemos explorar.
+[You]: Dale. Bueno, ¿cómo te parece que sigamos ahí? Como mencionaste, muchas
+[You]: muchas oportunidades. Creo que la la la que por ahí
+[You]: suena más interesante es el grupo interno del banco, en donde
+[You]: hacen el scouting de los vendors y después lo empujan y nosotros empezamos
+[You]: con credit unions, community banks más chicos, and we're we we start earning our way up. Eso me
+[Remote]: Sí.
+[You]: encantaría. ¿Cómo te ayudo para eso?
+[Remote]: Bueno, no, en realidad, el el tema es que, más bien, me tienes que
+[Remote]: ahí al tanto de de cómo vas avanzando con
+[Remote]: con estos potenciales deals con con bancos de Santander?
+[Remote]: Fuera de Estados Unidos.
+[Remote]: O cuando ya vayas avanzando con las credit unions, los bancos originales, ahí
+[Remote]: también que me cuentes cómo va todo y te puedo decir, bueno, sí, ahora ahora
+[Remote]: hay mucho más
+[Remote]: track record y podemos aventurarlos a hacer un
+[Remote]: una introducción a alguien a alguien del banco, ¿no?
+[You]: Oh, sorry. Wait.
+[Remote]: Lo que pasa que no
+[You]: With what I mentioned today, no te parece enough para hacer la
+[You]: la intro.
+[Remote]: Todavía no, o sea, como te digo, o sea, el
+[Remote]: porque lo que lo que quiero evitar
+[Remote]: Ignacio, es es es meterte en una ruta que va ser una
+[Remote]: pérdida de tiempo en este momento, pero cuando
+[Remote]: el término de de del timing de esto es
+[Remote]: es importante, y lo que te digo es,
+[Remote]: cuando tengas un pie adentro en Santander,
+[Remote]: eso se te va abrir, y te puedo ayudar a abrir puertas
+[Remote]: pero antes de eso, pues es es complicado, o sea, es ese
+[Remote]: es un... Sobre todo porque
+[Remote]: porque yo estoy aquí, Estados Unidos, y, realmente, el el lugar natural donde meterte
+[Remote]: sería Estados Unidos,
+[Remote]: yo tratarte de ir a meter a a algunos tus places donde yo no estoy
+[Remote]: realmente es un es un long shot y
+[Remote]: o sea, probablemente no agrego muchísimo, digamos, del punto de vista de
+[Remote]: de mi conexión, porque son conexiones
+[Remote]: débiles, ¿no?
+[Remote]: En Estados Unidos, como te digo, es es conforme vayas avanzando con con el
+[Remote]: financieras,
+[Remote]: ver cómo, aun así, voy a
+[Remote]: Si tienes información que me puedas pasar,
+[Remote]: lo que puedo hacer también es compartirla con con personas, digamos, de
+[Remote]: o y y poner poco atención en los temas de reconciliación,
+[Remote]: y compartir lo que usted me pases, y ver si ellos están interesados
+[Remote]: en tener una conversación. Eso te lo ofrezco sin sin compromiso, porque sería un
+[Remote]: un ¿no?, o sea,
+[Remote]: les pasé la información, y si ellos, puede ser que
+[Remote]: no no estén interesados. Entonces,
+[Remote]: ¿y algo más que decir
+[You]: Dale, hagamos eso, entonces, yo te
+[You]: te te comparto ahora un poquito más de información nuestra, el one pager en blurb,
+[You]: y y we can take it from there, ¿te parece?
+[Remote]: Sí,
+[You]: Dale, Ignacio. Bueno,
+[You]: perdón que tengo que saltar, pero bueno, muchas gracias por por el espacio, un gusto con
+[Remote]: Tranquilo.
+[You]: y estamos ahí en contacto por por email.
+[Remote]: Excelente, guys, que está muy bien.
+[You]: Igualmente, gracias.
+[Remote]: Nos vemos. Chao.
+
+============================================================
+SUMMARY
+============================================================
+### Icastro Background & Santander Context
+
+- Based in Boston for 15 years, originally from Costa Rica
+- Dual role: Santander executive (10-15 years) + startup mentor/advisor since MIT Sloan
+- Santander US currently integrating Webster Bank acquisition
+  - All new vendor initiatives paused for 2+ years during integration
+  - Focus entirely on bank merger execution
+
+### Market Entry Strategy Feedback
+
+- Current Rexi customer base insufficient for Santander US approach
+  - Top 5 Argentina bank, [Despegar.com](http://Despegar.com), Callea, PayLiance, Tera
+  - Argentina bank reference irrelevant for US market entry
+- US financial institutions extremely risk-averse with startup vendors
+  - Recommended path: credit unions → regional banks → larger institutions
+  - Need established track record before approaching major banks
+- AI angle creating some openness but still requires internal champion
+  - Risk of “learning meetings” vs genuine interest
+
+### Potential Collaboration Paths
+
+- Internal Santander vendor scouting group exists
+  - Helps startups working with one Santander entity expand to other regions
+  - Requires proven success with Santander bank first (Argentina deal)
+- Icastro offered to share Rexi info with reconciliation-focused contacts
+  - No commitment, exploratory only
+- TV Angels investor group mentioned
+  - Typically invests at pre-seed level
+  - Likely outside scope for upcoming $3-6M seed round
+
+### Next Steps
+
+- Ignacio to send one-pager and additional company information to Icastro
+- Icastro to share materials with internal contacts (no guarantees)
+- Future connection to Santander vendor scouting group once track record established with other Santander entities
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/87651151-ec31-40fc-92e8-27ab817c0f97](https://notes.granola.ai/t/87651151-ec31-40fc-92e8-27ab817c0f97)

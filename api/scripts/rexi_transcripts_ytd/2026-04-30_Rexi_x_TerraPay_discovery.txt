@@ -1,0 +1,286 @@
+MEETING: Rexi x TerraPay: discovery
+DATE: 2026-04-30
+ID: not_nzQK5MECqczNT7
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, John R <john.r@terrapay.com>
+SCHEDULED: 2026-04-30T12:00:00-04:00 - 2026-04-30T12:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Tuve que hacer una pila de cosas ahí, disculpa por la demora.
+[You]: Te preocupes, ¿cómo estás?
+[Remote]: Bien, bien, gracias, gusto, disculpe, estoy tarde.
+[Remote]: Me pasé un poquito en una llamada, y después, cuando entré, no me
+[You]: No, no, pues nada.
+[Remote]: me dejaba, entonces tuve que entrar por otra vía. Entonces,
+[Remote]: ¿cómo está todo? Gracias por tu llamada. Disculpa que tengo solamente quince minutos, pero fue que
+[Remote]: que que me pasé.
+[You]: No te preocupes.
+[You]: Cuéntame.
+[You]: ¿Tú estás en en TerraPay?, ¿en en qué área?
+[Remote]: Mira, yo estoy en la parte de ventas,
+[Remote]: yo quizás no tengo el acceso directo para aplicar el, o sea, el el
+[Remote]: el valor que tú puedes agregar, ¿no?, pero sí la idea era tener una idea
+[Remote]: para yo presentarte internamente, ¿no?
+[Remote]: Porque, básicamente, lo que es lo que nosotros hacemos,
+[Remote]: está integrado de lo lo que es el sistema y y lo que ofrecemos de por parte de ¿Qué va
+[Remote]: pagos transfronterizos en tiempo real,
+[You]: Okay.
+[Remote]: ¿verdad?,
+[Remote]: Entonces, estoy
+[Remote]: más bien, integrando lo que lo que es el programa Swift,
+[Remote]: lo lo que es el el standard, ¿no?, de de la ISO doscientos veintidós,
+[Remote]: para mensajes transfronterizos, ¿no?, usando
+[Remote]: un RMA, que es básicamente management account, un big code,
+[Remote]: para accesar corredores, ¿no? Entonces, eso se lo ofrecemos a los
+[Remote]: bancos para que, o sea, puedan conectarse con nosotros.
+[You]: Ok, ahí va. Bueno,
+[You]: cuento un poquito de Rexi. Rexi, déjame mirar, te voy a mostrar unos unos slides.
+[You]: Que creo que están buenos.
+[You]: Entonces, si querés, nosotros lo que hacemos, este es un poquito el equipo fundador,
+[You]: y el gran problema que
+[You]: que descubrimos es que
+[You]: en el mundo fintech, el application layer evolucionó muchísimo,
+[Remote]: Sí.
+[You]: pero el infrastructure layer underneath tiene que pop, ¿no? Entonces, por eso hoy
+[Remote]: Sí.
+[You]: conciliar estos flujos de dinero es muy, muy doloroso, porque hay muchas capas de abstracto
+[You]: muchas fuentes de información,
+[Remote]: Sí.
+[You]: que están en distintos formatos, distintos idiomas, distintas estructuras, y es muy distinto y muy
+[You]: hoy en día
+[You]: tener trazabilidad completa sobre una transacción across the stack.
+[You]: Entonces, ¿qué han hecho las compañías con el tiempo con este problema de data
+[You]: de de data fragmentation? Generaron procesos,
+[You]: procesos en donde usan estas herramientas tipo Excel, SQL,
+[You]: script de Python o Axis Consultores o herramientas internas,
+[You]: y es una mezcla de gente con herramientas que
+[You]: generan costo riesgo
+[Remote]: Va.
+[You]: y fricción, ¿no? Costo, porque a medida que escala la operación,
+[Remote]: Right.
+[You]: que agrandar este equipo,
+[You]: entonces, como que no tenés
+[You]: no tenés eficiencia. Riesgo, porque
+[You]: estos procesos están sujetos a errores humanos y los errores en estos procesos cuestan dinero.
+[You]: Cuestan alguna licencia o alguna penalidad con algún regulador?
+[You]: Y fricción, porque es un área
+[You]: o es un workflow que afecta a otras áreas dentro de la compañía, puede
+[You]: a producto, puede afectar a operaciones, puede afectar a un partner externo.
+[You]: Entonces, tiene muchas dependencias
+[You]: y si no se hace bien, puede también generar mucha fricción operativa.
+[You]: La visión de Recy es
+[You]: crear esa base consolidada
+[You]: que básicamente lo que está haciendo es consolidando toda tu fuente de información,
+[You]: en un formato común,
+[You]: conciliándolas,
+[You]: desde el macheo de transacciones hasta la explicación de las diferencias,
+[You]: Y luego, la visión de largo plazo es que esa base conciliada sirva de
+[You]: foundation para deployar agentes en otros procesos de fin ops.
+[You]: Entonces, te automatizamos la conciliación de los flujos de dinero, y luego
+[You]: agentes para
+[You]: treasury ops, FP and A, accounting, strategic finance, estos otros procesos
+[You]: están muy asociados a la conciliación y hoy también
+[You]: siendo muy manuales dentro de las compañías.
+[Remote]: Correcto, sí, sí.
+[You]: Hoy, de vuelta, nuestra plataforma es una plataforma de conciliación, es un orquestador de datos.
+[You]: Nos conectamos a la fuente de información transaccional,
+[You]: hacemos todo el parsing, todo el processing, investigamos y resolvemos las discrepancias,
+[You]: y hacemos todos los mecanismos de reporting, ya sea reportes,
+[You]: boards, o mismo nos conectamos a los ERPs
+[Remote]: Mhmm.
+[You]: para generar las entradas contables.
+[You]: Este es el equipo fundador. En mi caso, yo vengo del mundo fintech, vengo
+[You]: consultoría también, estudié un MBA en Harvard,
+[You]: Teo, nuestro CEO, Go, hizo un MVA en Colombia y viene de Mercado Pago, y del fondo y un fondo de Venture Capital. Y Sebastián García, nuestro CTO, viene de
+[You]: de ser director de ingeniería en Pomelo, no sé si conocés, un issuer
+[Remote]: Sí, lo conozco bien,
+[You]: muy conocido en Latinoamérica. Bueno,
+[You]: Y ahí y ahí
+[Remote]: Claro. Sí, yo trabajaba con Visa Direct, yo yo trabajando con Visa Direct en Google.
+[Remote]: O sea, con esto, fintech, paytech,
+[Remote]: efectivamente, sí, ellos tenían relaciones también con algunos.
+[You]: Exacto. Bueno, y ahí están nuestros inversores
+[You]: que son VCs de Estados Unidos principalmente. El único que tenemos en Latinoamérica es Escarao.
+[You]: Algunos de los clientes con los que estamos trabajando, estamos trabajando en Latinoamérica Estados Unidos, yo estoy basado en Nueva York,
+[You]: tenemos al equipo técnico en Argentina, con lo cual estamos serving The Americas,
+[You]: El foco igual está en Estados Unidos,
+[You]: y un poco el el impacto que hemos generado es
+[You]: reducción de tareas manuales, que genera muchísima eficiencia.
+[You]: Reducción de pérdidas,
+[You]: por pérdidas de dinero, por
+[You]: cuestiones irreconciliables, y reducción de riesgo de compliance
+[Remote]: Sí,
+[Remote]: Sí.
+[You]: y operativo, como te mencionaba antes. Y hay algunas
+[You]: con las que ya estamos trabajando.
+[You]: Después esto, bueno, obviamente, la encriptación de los datos y la seguridad de los datos se
+[You]: front and center,
+[You]: y no mucho más Con lo cual, típicamente, me encantaría ver
+[You]: si podemos conectar
+[You]: en con alguien del equipo
+[You]: de finanzas o de operaciones que está
+[Remote]: Vale.
+[You]: actualmente liderando y llevando a cabo el proceso de conciliaciones.
+[You]: Creo que esa es la persona indicada para que
+[Remote]: Vale.
+[You]: nos oriente si dolor, si no es un dolor, y y podamos explorar el uso de la
+[Remote]: Sí.
+[You]: ¿no?
+[Remote]: No, claro, no, yo estoy mirando también mi punto de vista del
+[Remote]: Fíjate, algo que puede ser interesante también, Ignacio. Tú sabes que los bancos que están incorporando ahora billeteras,
+[Remote]: para efectuar interoperabilidad
+[Remote]: esos bancos van a tener que tener infraestructura.
+[You]: Cien por ciento.
+[Remote]: Y, entonces, yo estoy mirando también el front end,
+[Remote]: o sea, cómo tú puedes hacer, no el enlace como habilitador, sino
+[Remote]: enlace para el banco que, usa Swift,
+[Remote]: estos pagos transfronterizos que ahora que ahora habilitamos a través del
+[Remote]: del BIC, ¿no?, del RMA de nosotros, de Swift. ¿Cómo ellos pueden incorporar eso dentro de su esquema?
+[Remote]: Entonces, yo yo voy a hacer eso, más bien,
+[Remote]: como así de referrals, ¿no?, en caso que yo tenga esa opción. Una pregunta,
+[Remote]: tú manejas esto desde Argentina, me imagino, ¿no?
+[You]: No, Estados Unidos, vivo en Nueva York.
+[Remote]: O
+[Remote]: en New York. Esto lo manejamos desde New York. Perfect, perfect, ok.
+[Remote]: Favor. Si me puede mandar este resumen, ok, yo lo voy
+[Remote]: incluir internamente. Lo otro que quiero ver contigo es, ¿tú trabajas con, o vas en...?
+[Remote]: Trabajas con fintechs en este momento, pero esos fintechs
+[Remote]: quieren enlazar a pagos transfronterizos en tiempo real a cuentas y a billeteras.
+[Remote]: ¿Eso te interesa? ¿Te interesa enchufar eso, más bien, para
+[Remote]: para, más bien, que tengan ellos el acceso?
+[You]: Sí, cien por ciento.
+[Remote]: Trabajamos directamente con ustedes, pero pero tú haces la tú haces la, lo estás
+[Remote]: el el el friend.
+[You]: No, no, cien por ciento me interesa. Hay hay un re caso de uso ahí.
+[Remote]: Ok, let's do that. Mándame eso,
+[You]: Cien por ciento.
+[Remote]: yo te voy a comunicar, y y y fíjate,
+[Remote]: ¿tú trabajas con bancos en Estados Unidos hoy?
+[You]: Sí.
+[Remote]: ¿Ya ya tienes relaciones con bancos donde tú ofreces tu servicio?
+[You]: Sí.
+[Remote]: Excellent.
+[Remote]: Entonces, esos bancos, la idea es
+[Remote]: dependiendo del tamaño, si son medium size, o sea, si
+[Remote]: son community banks, regional banks,
+[Remote]: ¿cómo tú pudieras enlazar
+[Remote]: lo que tú haces
+[Remote]: para que ellos se
+[Remote]: cuando envíen mensajes, ¿no?, de de transferencia,
+[Remote]: de pagos transfronterizos de bajo valor, lo pueden hacer a través de TRP, pero que tengan todo ese
+[Remote]: ya anticipada adelante.
+[You]: Cien por ciento, eso es lo que más me interesa, porque esos bancos quieren adoptar tecnologías
+[Remote]: Right.
+[You]: como las de ustedes, pero uno de los miedos que tienen es no poder conciliarlo,
+[You]: el riesgo operativo de poder de de operar ese tipo de productos,
+[Remote]: Perfect. Perfect.
+[You]: Entonces, necesiten este tipo de infraestructura para poder acelerar la adopción
+[Remote]: Perfect.
+[You]: soluciones como la de ustedes.
+[Remote]: Entonces, el punto aquí es que tú le puedes ofrecer al banco, mira, a través de TheraPay, yo te puedo, vaya, te puedo hacer una presentación un poquito más detallada, si tú quieres después lo podemos lograr, ¿no?, para que yo te presente. Si tú tengas esto ya listo, para ofrecer este concepto a los bancos donde tú haces la integración. Y le manejas todo en lo que es a través de un API, si quieres, o o si ellos hacen el negocio a través de Suite y originando el mensaje, que lo hagan, pero que tú tengas la manera tecnológica de de monitorear eso.
+[You]: Cien por ciento, cien por ciento.
+[You]: Me encantaría. Así que ahora te mando un mail con el deck,
+[Remote]: Sì.
+[You]: con un blurb también, para que vos puedas, both,
+[Remote]: Sí.
+[You]: forward internally with the finance team and forward externally with any
+[You]: bank, fintech, or company you're you're working with.
+[Remote]: Perfecto.
+[You]: Que crees que pueda dar un fee ahí. ¿Te parece?
+[Remote]: Va, me parece. Y yo, si tú ves también bancos,
+[Remote]: que quieren operar y necesitan accesar estos pagos de
+[Remote]: o sea, y competir más bien también con los Syntax. Yo los puedo habilitar en forma
+[You]: Dale,
+[Remote]: muy eficiente a través de
+[Remote]: Yo soy el enlace de yo soy yo soy el enlace de ellos de Swift.
+[You]: Listo, entonces lo lo tengo en cuenta también.
+[Remote]: Vale, hablamos. Y vamos a hacer una llamada
+[Remote]: Hazme un favor, si si me puedes poner ahí, con la agenda, para la semana del del
+[Remote]: ya que te tengo full time aquí, ya en Google,
+[Remote]: la semana del del once de de mayo,
+[Remote]: anytime, ahí en la, cuando tú digas, para yo
+[Remote]: presentarte, dame cuarenta y cinco minutos, te voy a presentar el value added proposition inside de nosotros,
+[Remote]: y y que veas exactamente cómo esto puede ser una oportunidad para los bancos.
+[Remote]: Mira, los bancos no están en este en este negocio.
+[Remote]: Si quieres ver algo un poquito más de lo que estoy hablando, yo hice un podcast
+[Remote]: no no, es de quince minutos a veinte minutos, con David Burnett,
+[Remote]: si lo quiere buscar en LinkedIn, David Burnett,
+[You]: Okay.
+[Remote]: y y y yo explico el esquema de por qué los bancos están entrando a eso, donde yo
+[Remote]: puedo hacer el enchufe para para el negocio, ¿ok?
+[You]: ¿Cuál sería el el enfoque de la reunión, entonces?
+[You]: Mandando un invite.
+[Remote]: Ok.
+[Remote]: Mi presentación a ti, de del servicio Swift de TheraPay.
+[You]: Ok, para que yo lo pueda
+[You]: presentar a algunos clientes con los que trabajamos.
+[Remote]: Sí, y y y que tengas idea de lo que ofrezco para que vea
+[Remote]: ahí exactamente cuál es el valor agregado donde
+[Remote]: iniciar. O sea, esto esto está conectando muy bien con los bancos, pero yo lo que quiero es que tú lo veas
+[Remote]: y el punto es, si podemos bancos con este servicio usándote a ti,
+[Remote]: perfect.
+[You]: Como é que se chama? Swift com
+[Remote]: Esa es la idea.
+[Remote]: Swift,
+[Remote]: hizo doscientos veintidós.
+[You]: Entonces, John presenta a Swift, hizo
+[Remote]: Doscientos veintidós.
+[You]: doscientos
+[Remote]: Real time cross border payments.
+[You]: veintidós
+[Remote]: Yep.
+[You]: Cross border banks.
+[You]: Listo, ahí va el invite para lunes,
+[Remote]: Gracias, gracias, Ignacio. Muy amable,
+[You]: once de mayo.
+[You]: Vamos a seguir en contacto. Abrazo.
+[Remote]: Y y disculpa que estuve tarde en la llamada, de nuevo. Pero sí,
+[You]: No te preocupes, Pedro.
+[You]: Chao, chao.
+[Remote]: you guys, hablamos. Chao.
+
+============================================================
+SUMMARY
+============================================================
+### TerraPay Overview
+
+-   John R from TerraPay sales team
+-   TerraPay provides real-time cross-border payments
+    -   Integrated with Swift system and ISO 20022 standard for cross-border messaging
+    -   Uses RMA (management account) and BIC codes to access corridors
+    -   Offers connectivity to banks for cross-border payment infrastructure
+
+### Partnership Opportunities
+
+-   Banks adopting digital wallets need infrastructure for interoperability
+-   TerraPay can enable banks to access cross-border payments through Swift
+-   Two potential collaboration models:
+    1.  Direct fintech integration - TerraPay enables fintechs to access real-time cross-border payments
+    2.  Bank enablement - Help US banks (community/regional) integrate cross-border payment capabilities
+
+### Rexi Value Proposition for Banks
+
+-   Banks want to adopt new payment technologies but fear operational risk
+-   Reconciliation challenges prevent banks from adopting solutions like TerraPay
+-   Rexi’s infrastructure could accelerate bank adoption of cross-border payment solutions
+-   Banks need technological monitoring capabilities for Swift-originated messages
+
+### Market Context
+
+-   Banks entering cross-border payments to compete with services like Syntex
+-   TerraPay serves as Swift liaison for banks
+-   John has podcast with David Burnett (LinkedIn) explaining bank entry into this space
+
+### Next Steps
+
+-   Ignacio to send presentation deck and summary to John
+    -   For internal forwarding to TerraPay finance team
+    -   For external sharing with banks/fintechs John works with
+-   Scheduled follow-up meeting: May 11, 2026 (45 minutes)
+    -   John to present TerraPay’s Swift ISO 20022 real-time cross-border payments service
+    -   Focus on how Rexi can present this to existing bank clients
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/de7a3875-a52a-4865-9e55-2959defd714f](https://notes.granola.ai/t/de7a3875-a52a-4865-9e55-2959defd714f)

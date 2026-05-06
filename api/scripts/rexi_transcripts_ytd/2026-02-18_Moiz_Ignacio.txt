@@ -1,0 +1,515 @@
+MEETING: Moiz <> Ignacio
+DATE: 2026-02-18
+ID: not_YLlH2wTOC3TVyH
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Moizsaleem8080 <moizsaleem8080@gmail.com>
+SCHEDULED: 2026-02-18T16:00:00-05:00 - 2026-02-18T17:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Hello
+[Remote]: Hi.
+[Remote]: Can you hear me?
+[You]: yes
+[You]: how's it going?
+[Remote]: Yeah. I can hear you.
+[Remote]: All good. All good.
+[You]: Oh, great to meet you.
+[You]: I think you were gonna show me a bit of
+[You]: some use cases of go to market.
+[You]: And and distribution or not?
+[Remote]: Actually, the the the things that I build for the companies
+[Remote]: so I'm not able to, but I will I'm sharing you a one medium blog for the
+[Remote]: AI and automated CRM, which is a go to market product.
+[Remote]: That is able to send or the leads and all
+[Remote]: able to send them into
+[Remote]: send that leads, refund that leads, and send send the messages and complete
+[Remote]: complete communication.
+[Remote]: By human in the loop into that. So here's a here's a one medium globe that I wrote
+[Remote]: when I was completed that. Just give me a minute. Just give me a minute.
+[Remote]: This is a type of type of GDM.
+[You]: Are you showing me something?
+[Remote]: I'm sending you the link of my medium.
+[You]: Where?
+[Remote]: You can get away yeah.
+[Remote]: In the chat.
+[You]: Ok.
+[You]: What's the superbase?
+[Remote]: Superbase is kind of a Postgres database.
+[Remote]: But, it is online.
+[Remote]: And we can manage the
+[Remote]: old processes for our APIs through this directly as well.
+[Remote]: And it's more useful for the automation perspective
+[Remote]: So what's the thing is
+[Remote]: is elaborated in this? Basically,
+[Remote]: it is able to refine the leads by getting from the
+[Remote]: It is a hybrid orchestrator. Like, one is from the and one is
+[Remote]: on the
+[Remote]: So, basically, it is able to start the campaigns
+[Remote]: give us the insights along with us, etcetera,
+[Remote]: the replies to the Slack for the human validation and complete
+[Remote]: awareness of the threats.
+[Remote]: And it has a complete memory for each for each lead.
+[Remote]: So it provides us the best things that we are able to achieve in our
+[Remote]: in our complete campaign.
+[You]: Ok.
+[You]: I'm gonna tell you what I need, and then I'd be more than happy to hear a proposal
+[You]: from you on on how you could help.
+[Remote]: Sure. Sure.
+[You]: So, basically, the first step of the process
+[You]: is, building the hit list. Right?
+[Remote]: Okay.
+[You]: So
+[You]: the hit list is the companies I wanna target
+[You]: this month or this week. Right? Right now, for example, I'm running a sprint
+[You]: which I'm targeting 25 companies per week. Right?
+[You]: For that, first, I need to build that hit list, which requires research
+[You]: requires, a lot of things. Ideally,
+[You]: that that hit that hit list is built
+[You]: on learnings from the sales process. Right? As soon as I start getting
+[You]: better and have, like, conversion metrics in which
+[You]: I'm better to sell into neobanks than to sell to Payfax,
+[You]: then the hit list should learn from that. Right?
+[Remote]: Like, reinforcement learning.
+[You]: Yeah.
+[Remote]: Okay.
+[You]: To build the hit list better suited to where we excel.
+[You]: Where we excel depends on KPIs from the sales funnel.
+[You]: So the first part is building a hit list. The second part is
+[You]: getting the buyer personas from that hit list.
+[You]: And that's who is the specific person we need to talk to at that
+[You]: company, we need to target at that company in order to get an intro meeting, in order
+[You]: start talking about this process. Right?
+[Remote]: Ok.
+[You]: And that depends on the type of company. It's not the same person in a bank,
+[You]: It's not the same person in a fintech, but that's also
+[You]: stringing out who are the
+[Remote]: Oh, it's a me
+[Remote]: regarding the company, we have several different work persons that we have target.
+[Remote]: Just like for the for the IT sector companies, we have the most
+[Remote]: on the CEO.
+[Remote]: That the more targeted person that we are targeting for
+[Remote]: for any proposal. For the health care, we
+[Remote]: we have more sides on the CEO who's
+[Remote]: able to decide the things. So it it is on the of the orchestration
+[Remote]: things that is decided on behalf of the needs
+[Remote]: about our interest.
+[Remote]: So it is it it is the it it it would be written in the prompts.
+[You]: Yeah. Exactly.
+[Remote]: The CEOs.
+[You]: So then once we have the hit list
+[You]: and the buyer personas for each one of those companies, which
+[You]: I'm now looking for 10 personas. I'm looking for the
+[You]: two or three that I really need to target, that I really need to talk to. Right?
+[You]: Then this the the the third step of the process is the reach out. Right?
+[Remote]: Okay.
+[You]: And I'll add one more sorry. One step behind.
+[You]: For the hit list and for the buyer personas, I want
+[You]: the system to prioritize companies
+[You]: where I know people, companies that are potential leads that I know people,
+[You]: because I didn't get an intro. And when building the hit list,
+[You]: of people, like, one so, like, the
+[You]: build the list of based on where I can get intros,
+[You]: and then when selecting the buyer personas, also use that criteria. Right? Like, if I
+[You]: connections there,
+[You]: either first order connections or second order connections, the idea is for that
+[You]: by personal list, and the company needs to be built based on that.
+[You]: Then the third step of the process is the outreach.
+[You]: If it's an intro,
+[You]: I need to ask for that intro.
+[Remote]: Okay.
+[You]: To the person. If it's not an intro and it's called outreach,
+[You]: then
+[You]: I need to figure out a strategy for that outreach. Is it gonna be linked
+[You]: Is it gonna be email?
+[You]: Both.
+[You]: With what frequency, and what's the message I'm gonna send?
+[You]: Right?
+[You]: Which needs to be ultra tailored to the company
+[You]: and to the the persona. Right? Like,
+[You]: it has to research, I don't know, the background of that person,
+[You]: and and make reference to that. And then, of course,
+[You]: that call that reach template or or message
+[You]: doesn't need to be aggressive. I have a lot of blog posts
+[You]: which I can share in that initial message, like, saying, hey,
+[You]: I don't wanna spam you. I just wrote out this blog post. Take a look at it, and we'd happy
+[You]: we'll be more than happy to share exchange notes about this problem space. Right?
+[You]: But it's iterating the message to increase conversion. Right?
+[You]: What we're trying to look there is response rate and then a schedule rate.
+[Remote]: What's the thing is here we can also implement that tracker.
+[Remote]: Tracker on behalf of the emails.
+[Remote]: Because the best thing is the email, not the LinkedIn to reach out for the for our work on behalf of
+[Remote]: the personas.
+[Remote]: So we need to, implement that tracker just like the mail run.
+[Remote]: So it would be helpful for us that is it is our mail is
+[Remote]: spammed? Is our mail is opened? Is our mail is closed or touched?
+[Remote]: Or deleted. So this kind of this kind of insights will also help
+[Remote]: for us
+[Remote]: to breaking our our our journey. Along with it, I completely understand the thing
+[Remote]: and it is also called up just to be called AI and automated thing.
+[Remote]: That that is more that covers the more part on the getting the
+[Remote]: from from the from the from the from the
+[Remote]: profile just like we use the LinkedIn and web and the website. These two things.
+[Remote]: All these two things provide us the much more information for the company's perspective.
+[Remote]: Okay? Let's suppose we have the just the URLs. We have the
+[Remote]: We have just the URLs that we are able to give to the to our agent.
+[Remote]: Just just as an example. Then our agent is able to dig
+[Remote]: to get the information from the website and from the LinkedIn on behalf of that.
+[Remote]: And on behalf of that, the gather information, we are able to decide
+[Remote]: is it right
+[Remote]: company, you know, homepage where targeted or not?
+[Remote]: And then we are moving towards getting the persons.
+[Remote]: On behalf of from each company.
+[Remote]: And then we are if we have the persons, then we are able to get the emails
+[Remote]: We have many different APIs that provide us
+[Remote]: emails on behalf of the separate different
+[You]: I used Bitscale. I used
+[Remote]: Yeah. Good scale is our
+[You]: Perfect. Okay. So then and and then the final step is
+[Remote]: So yeah.
+[You]: for many of these messages, either intros
+[You]: or called outreach, there's no response.
+[You]: There there needs to be some sort of follow-up strategy and make sure we're not
+[You]: losing those those leads. Right?
+[Remote]: Yeah.
+[You]: So
+[Remote]: That's the good point. I want to cover it. The follow ups perspective.
+[You]: ideally ideally,
+[You]: ideally we configure everything, all of this,
+[You]: in an n eight h in a
+[You]: n eight eight n flow.
+[Remote]: Anita Anita.
+[You]: N a 10 and an n a 10 flow in which
+[Remote]: Yeah.
+[You]: every single day it spits out, tas,
+[You]: for me to do. Like, hey, follow-up with this person on LinkedIn because it's been three days since we sent the message, and we haven't received response. Or the same via email.
+[You]: Via email, I already have a tool that helps me with that. But, ideally, this flow
+[You]: basically runs the outreach every single Monday,
+[You]: the new lead outreach, and then every single day, it gives it spits me out
+[You]: the the the follow ups I should be executing. Right?
+[You]: And then, finally, everything needs
+[You]: to be tied together with a reinforced learning, right, in terms of
+[You]: what's working in our sales pipeline
+[You]: what's working as an outreach message and what's not.
+[You]: And what's working in terms of buyer personas. Those are the three things we need to be
+[You]: constantly iterating and improving. So based on that,
+[You]: we have an
+[You]: an an eight ten Workspace
+[You]: hosted in our infrastructure, which is great.
+[You]: Because it can leverage our
+[You]: learnings and our context windows to drop the messages, to
+[You]: you know, like, it's gonna be it's gonna be learning over time with our
+[You]: information. It's hosted. It's we we're using the open source version in our infra.
+[You]: So
+[You]: question for you is, can you build a proposal to build this out for me?
+[You]: How much hours would it take and what would be the cost?
+[Remote]: Actually,
+[Remote]: I will I propose you the the thing that
+[Remote]: why not we are starting from a single flow first?
+[Remote]: Like, without reinforcement learning?
+[Remote]: And then you will probably saw the results that
+[Remote]: that highlights the things even though the the the medium blog that I shared you
+[Remote]: you have to must read this because it covers all the aspects that you are interested in.
+[Remote]: That I already built. So it's a
+[Remote]: proposal from my end that I already have experience
+[Remote]: build the to build the system.
+[Remote]: So it's actually a kind of a the
+[Remote]: kind of the testing.
+[Remote]: Where we are getting the Apollo rates. But you you but
+[Remote]: your proposal is to just shift it towards the companies, not the persons.
+[Remote]: So we have to add one more point in upfront of this, and it will
+[Remote]: it will generate all the things on behalf. And other thing is for the follow-up perspective,
+[Remote]: that follow-up details are also mentioned. Let's suppose you are starting one campaign. Let's
+[Remote]: suppose you just give extra cheat
+[Remote]: on on starting the thing. And in extra sheet, there are the 20 companies URLs.
+[Remote]: Just the URLs and their names. Nothing else.
+[Remote]: The campaign. This is a campaign.
+[Remote]: And whenever it started, it will provide it will get
+[Remote]: all the things and give you that all the information on the dashboard.
+[Remote]: Dashboard, we will build it in the on the airflow or on the front end.
+[Remote]: So you can better understand the progress, and, also, it's able
+[You]: If you can wait. If if you can build a dash
+[Remote]: yeah.
+[You]: dashboard for me, that would be amazing.
+[You]: Like, hey.
+[You]: This is the batch of this week, and this is how it's performing. This is the batch of this
+[You]: week, and this is how it's performing. And these are the tasks you should be following for each one of these leads.
+[You]: Yeah.
+[Remote]: Exactly. And also for the follow-up perspective,
+[Remote]: our agent must be the the the blogger shared it
+[Remote]: Here, the agent is able to
+[Remote]: create the follow-up messages.
+[Remote]: And also send that messages to your Slack. So we will
+[Remote]: place that replace that platform, like, Slack to the WhatsApp or Telegram.
+[Remote]: You can get the notification. Oh, I got a email.
+[Remote]: This is the follow-up that I got. And you can
+[Remote]: edit that follow-up and resend it.
+[Remote]: It will resend to our our our workflow, and that's then our workflow will
+[Remote]: send that message to the to the lead, prospective lead.
+[You]: Amazing.
+[Remote]: So it will it is comp
+[Remote]: automated and the human in the loop agent
+[Remote]: So workflow. Sorry. And it is almost a nine workflows
+[Remote]: that that we're building that and covers all the perspectives
+[Remote]: all the educations that we consider.
+[Remote]: From the search perspective, from the memory, even though, you know, if
+[Remote]: we have the we have a thread. A thread means the complete conversation with the single person
+[Remote]: and there is a thread, like, message IDs.
+[Remote]: Per lead.
+[Remote]: It is able to remember that particular thing as well, that what we are talking about and what is our
+[Remote]: previous
+[Remote]: previous thing that we talked about, and it generate the replies accordingly.
+[Remote]: According to his memory.
+[Remote]: So so, yeah, I I think
+[Remote]: already covered all the specs in in the medium blog that I shared,
+[Remote]: even though you can see the the engagement on that blog,
+[You]: Sounds great. Can you can you build the proposal for me?
+[You]: In terms of how how many hours, what would be the cost,
+[You]: how would the engagement work, if you're gonna leave it running in my
+[You]: because I need it running in my infra if you can build it in my infra
+[You]: and how would that work.
+[Remote]: who can I call your name?
+[You]: Ignacio.
+[Remote]: The proposal is for is
+[Remote]: from my end is I was able to start it
+[Remote]: from tomorrow or whenever you want.
+[Remote]: But I'm not sure the
+[Remote]: actual time because what's the thing is
+[Remote]: we have to make the reinforcement learning into that.
+[Remote]: That reinforcement learning will take I don't know how many
+[Remote]: what time because that's a completely new thing in that particular domain.
+[You]: Ok.
+[Remote]: But for the simple version thing, it will take
+[You]: Let
+[You]: let's let's start
+[You]: let's start without reinforcing learning. Let's start with just the
+[You]: agent workflow and the automation, and then we can figure out
+[You]: when we add reinforcing, learnings and and so on.
+[You]: And I I I know it's hard for you to estimate, but if you can give me a range,
+[You]: because, you know, we're a pre seed stage company, and
+[Remote]: What's your brain?
+[You]: budget for us is is is very little.
+[Remote]: Okay. I'm
+[You]: And so
+[Remote]: what's your range?
+[You]: give me a range, and and then, ideally,
+[You]: we can kick it off.
+[You]: Sometime, I don't know, maybe depending on the budget.
+[You]: We can kick it off
+[You]: tomorrow or on Friday.
+[Remote]: Yeah. Sure. Sure. Sure.
+[Remote]: Can you please give me a highlight of the budget? So
+[Remote]: can define the perspectives into that or
+[Remote]: that behalf on that basis.
+[You]: What do you mean?
+[Remote]: I want to get your
+[Remote]: your I I want to give you the product.
+[Remote]: Not just because of the pricing thing.
+[Remote]: My pricing is much higher
+[Remote]: on the if I'm going to that particular thing.
+[Remote]: But I want to build that product for you so because I know
+[Remote]: how potentially I build that product previously.
+[Remote]: And it currently handles their complete CRM, thoughts of that.
+[Remote]: I want to give it to you, but not just for the pricing
+[Remote]: perspective. Because if I give you the high price and you said you think that it is
+[Remote]: much higher than our budget,
+[Remote]: it's not probably the good the good thing.
+[Remote]: So
+[Remote]: what's your budget? It will be if it it's it's good move for me.
+[Remote]: I'll I'll give you the okay thing.
+[Remote]: And give you the complete development plan for this.
+[You]: I don't know.
+[You]: I I don't know. You said $25 an hour.
+[You]: If you said you already billed it,
+[You]: it should take us, I don't know, less than twenty hours. So,
+[You]: $500 or less.
+[Remote]: That product
+[Remote]: having the is on the is on the client server.
+[Remote]: Are not able to popping that.
+[You]: No. But you have the know how. So you you already know how to build it.
+[Remote]: And that no call is not compiled into the $20 that even though I am
+[You]: That's my point.
+[Remote]: building the thing,
+[Remote]: from scratch, it will take a one month for me.
+[Remote]: Even though I had experience to hold the thing because I have to join the links. I have to build the
+[Remote]: version of that. I'm not able to clone their and use that.
+[You]: Okay.
+[Remote]: But I have the clear yeah.
+[You]: Okay. How how many hours do you think it will take you?
+[Remote]: It will take for the first product. It will take me a month.
+[Remote]: To give you a complete product.
+[You]: And what's the budget for that?
+[Remote]: Of 4,000. Yeah.
+[You]: 4,000?
+[You]: Oh, no. That's that's too much for us.
+[You]: Unfortunately.
+[You]: There's no way you can do it lower
+[Remote]: So what's
+[You]: Like, for a thousand,
+[Remote]: It has
+[Remote]: it has many components, and there's not I sell that product on the $1,010,000 dollars.
+[Remote]: But I gave you the 4,000 because I already build it
+[Remote]: I have the complete knowledge.
+[Remote]: I sell that product on the 10,000.
+[Remote]: And it's currently for the French company, even though
+[Remote]: you can say the name, the sales agent sales intelligent,
+[You]: No. I mean, 4,000 is just way out of budget. I can do a thousand tops.
+[Remote]: Ok.
+[You]: Today,
+[You]: I mean, today, it's it's it's not out of hand.
+[You]: I'm doing a lot of manual work that doesn't scale.
+[You]: But I can continue to do it. I mean, it's not under fire. It's not a urgent priority.
+[You]: Just something that would hack my productivity,
+[You]: but not a burning pain right now. So,
+[You]: if you can do it for a thousand or less, then great. And if not,
+[You]: let's just circle back whenever there's more budget for this.
+[Remote]: Sure. Sure.
+[Remote]: You need to just set the bag because my budget is
+[Remote]: is because I am building the products in a more handsome way.
+[Remote]: Rather than the markets. My clients are are are
+[Remote]: most of the clients are from my US that are the companies.
+[You]: Yeah.
+[Remote]: And in my company, I'm in Pakistan based
+[Remote]: but my company is registered registered in The US just because of this thing.
+[Remote]: So I am open to it, and I build a
+[Remote]: products, not just for the scamming products.
+[Remote]: That products get generates the millions of records at the same time.
+[You]: Yeah.
+[Remote]: If you know about the companies like the Mindhive,
+[Remote]: the VA clinic, the the clogged,
+[Remote]: These are these are my clients, and they are getting the automation perspectives.
+[Remote]: I am charging them the
+[Remote]: 60 to $70 per hour.
+[Remote]: Because it's mine, and I'm proficient in building this kind of stuff.
+[Remote]: It's all up to you.
+[You]: Got it. No. Just said, I mean, I think we're we're too far apart.
+[You]: Unless you're you... You're interested in in the long term relationship,
+[You]: I don't think it's it's it's gonna work for us right now.
+[You]: If you're interested in in the long term if if you're interested in the long
+[Remote]: Yeah. Sure.
+[You]: term relationship and willing to do it for 1,000 or less,
+[You]: then amazing. I'm I'm sure a lot of
+[You]: work will follow after this one.
+[You]: But if not, I'll just have to have more budget for this in the future.
+[Remote]: Actually, what's the thing is
+[Remote]: I am currently facing the thing is
+[Remote]: to I'm able I I'm here just for the I'm
+[Remote]: saying you that I am available for the $25 per hour.
+[Remote]: Just because of this, if it will take less time, you are not going to
+[Remote]: me on the monthly basis or on the on the on the proposal basis.
+[Remote]: Need to hire me on the hourly basis and how much time it will take
+[Remote]: I will give you the the the updates on the daily basis that this product
+[Remote]: is this kind of thing that we already build.
+[Remote]: And we are now here.
+[Remote]: Maybe it will take the week. Maybe it will take two weeks.
+[You]: The thing is the thing is I think
+[Remote]: I'm not sure.
+[You]: I think you're over complexifying what needs to be built.
+[You]: In my in my in my mind, it's it's very simple.
+[You]: At least this first version, and shouldn't take you more than twenty hours.
+[You]: That's why I said $500.
+[You]: And why I took the meeting. Because when you said $25 an hour, I was like, okay,
+[You]: This this might work. Because what I need, I think, is not more than twenty hours.
+[You]: I think you're overcomplexifying a bit, and and, to be honest,
+[You]: don't have the budget today.
+[You]: For that.
+[Remote]: Maybe I'm complexifying
+[Remote]: your points are more on the automation side.
+[You]: Yeah,
+[Remote]: So if there is an agent automation, if there is an
+[Remote]: authentic automation, then it's it's obviously a complex.
+[Remote]: You are just seeing the things that you have to just
+[Remote]: But for generating the follow-up,
+[Remote]: what what kind of and how we are handling the memory sizes.
+[Remote]: That the nodes are not available in the end of the even.
+[You]: Forget about the follow ups. Forget about the full like,
+[Remote]: End the of of
+[Remote]: of the
+[You]: the only thing I mean, I think we can simplify it for this first version. Like, for example,
+[You]: only give me the follow ups, of LinkedIn.
+[You]: Because the one via email, I already have a tool built into my Gmail that builds the follow ups automatically.
+[You]: So just
+[You]: put me daily reminders on people that haven't responded
+[You]: via LinkedIn or haven't accepted my
+[You]: my connection request via LinkedIn?
+[You]: And just put me a daily reminder, and I can log in to the dashboard and see
+[You]: the list of LinkedIns that have either not or not accepted my investigation,
+[You]: and then I go manually and and just try to do the follow-up myself. I mean, I think we can really simplifying for this version.
+[Remote]: This one, I will charge the $5,500.
+[Remote]: For this single workflow. For there, you can get on a dashboard
+[Remote]: on that dashboard, our our agent is able to get the things that
+[Remote]: how many persons are giving you the replies
+[Remote]: and how many persons are not giving you
+[You]: But that's that's an integration that's an integration with Apollo. That's not
+[You]: your agent.
+[Remote]: Oh, okay. The Apollo is not able to give us the reminders on behalf of that.
+[Remote]: We have to build the agent that is able to get the things
+[You]: Yeah. But, I mean,
+[You]: it's it's it's it's not it's not hard today, and you know it. That's what that's what I mean.
+[You]: If you can build the whole workflow I mentioned, which is
+[You]: building headlist of companies, finding the personas,
+[You]: both of them with a criteria of, do I have intros to those people and to those companies?
+[You]: Then building out the the outreach strategy.
+[You]: Is it gonna be mail, LinkedIn, or email and LinkedIn, and drop the messages for each
+[You]: adding the blog post and whatever. And then
+[You]: x... And then I can I can execute the emails? If you just
+[You]: put all that, I can then just do copy, and execute all the emails.
+[You]: Gonna be a 100 per week. I can do that. And then all the follow ups via email already have a tool, and you just build out the follow-up for LinkedIn. If you could build that for $500, I'm very interested.
+[Remote]: No. Sorry. I think
+[Remote]: are far apart, and it will obviously take much time from my end.
+[Remote]: So
+[Remote]: I'm sorry for this.
+[You]: Okay. No worries. Then let's let's catch up in in in the near future. Thank you, Moys.
+[You]: Great meeting you.
+[Remote]: Thank you. Have a nice day.
+[You]: Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Moiz’s AI CRM Solution Overview
+
+- Builds automated CRM/go-to-market products for companies
+- Shared medium blog demonstrating AI-powered lead management system
+  - Uses Supabase (online Postgres database) for API management
+  - Hybrid orchestrator combining multiple data sources
+  - Automated campaign management with Slack integration for human validation
+  - Complete memory system per lead for personalized follow-ups
+- Currently sells similar product for $10,000 to US companies
+  - Clients include Mindhive, VA clinic, and others
+  - Charges $60-70/hour for enterprise automation work
+
+### Ignacio’s Go-to-Market Automation Requirements
+
+- Current process: 25 companies/week manual outreach
+- Desired workflow automation:
+  1. Hit list building with reinforcement learning
+    - Learn from sales conversion data (neobanks vs Payfax performance)
+    - Prioritize companies with existing connections (1st/2nd degree)
+  2. Buyer persona identification
+    - 2-3 key contacts per company
+    - Different personas by industry (CEO for IT, healthcare)
+  3. Outreach strategy execution
+    - Intro requests for connections
+    - Cold outreach via LinkedIn/email with personalized messaging
+    - Include blog posts in initial outreach
+    - Email tracking (open rates, spam detection)
+  4. Follow-up management
+    - Daily task generation via n8n workflow
+    - LinkedIn follow-ups (already has email tool)
+- Dashboard requirement: Weekly batch performance tracking with actionable tasks
+
+### Budget Mismatch & Next Steps
+
+- Moiz’s pricing: $4,000 for full solution (1 month development)
+  - Simplified LinkedIn-only version: $500
+- Ignacio’s budget: $1,000 maximum
+  - Based on $25/hour rate, estimated 20 hours max
+  - Not urgent priority, currently managing manually
+- Agreement to reconnect when budget increases
+  - Moiz open to long-term relationship discussion
+  - Ignacio willing to consider future engagement with higher budget
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/b19cd18a-8329-4eb3-b460-e6e027f92cd7](https://notes.granola.ai/t/b19cd18a-8329-4eb3-b460-e6e027f92cd7)

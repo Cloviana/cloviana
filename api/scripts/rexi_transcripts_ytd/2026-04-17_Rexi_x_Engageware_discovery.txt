@@ -1,0 +1,397 @@
+MEETING: Rexi x Engageware: discovery
+DATE: 2026-04-17
+ID: not_ARpUQ8IXGYzYUy
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Sliebman <sliebman@engageware.com>, Mmolinos <mmolinos@engageware.com>
+SCHEDULED: 2026-04-17T13:00:00-04:00 - 2026-04-17T13:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Okay. Let me do the full
+[You]: description then. So, Rexy is basically an agentic platform,
+[You]: built to automate reconciliation processes for
+[You]: banks, payments, insurance companies, marketplaces, and retail.
+[You]: We are based in New York. We have our tech team. Our
+[You]: Argentinians, so that's that's a fun fact, based in New York, and then we have our tech team based
+[You]: down in Argentina.
+[You]: We're serving currently serving both markets, LatAm and and and The US.
+[You]: Reconciliation, we have a different approach to reconciliation.
+[You]: Firstly, because of our AI native architecture, of course, we automate it end to end.
+[You]: Secondly, because we take a more collaborative approach, in terms of
+[You]: having multiple teams internally
+[You]: helping solve discrepancies, accounting, finance, operations. We know we're
+[You]: touches many different teams inside an organization.
+[You]: And then certainly, which is also the biggest, I think, vision for Rexy on how to solve reconciliation,
+[You]: When we think about reconciliation's biggest
+[You]: there's a data engineering side, which is getting a whole of the data, transforming it, and processing it.
+[You]: And then the second pain, which is the one spending more time and resources,
+[You]: taking more time and resources, is the coordination pain, which is when I need to pick up
+[You]: the phone, call my bank, call my processor, what's going on with these 10 transactions.
+[You]: Which is the long tail of
+[You]: solving the differences. And in that sense, Rexy is a connected solution.
+[You]: In which every single party involved in a money flow is on Rexy.
+[You]: And dumping the data there. And what happens the benefits of doing that is, first,
+[You]: technically, everyone's working with the same data, which is very important.
+[You]: They're all reconciling with the same logic,
+[You]: And thirdly,
+[You]: they have a shared tool to collaborate on discrepancies, which is when we act
+[You]: actually bridge that gap and solve the workflow end to end with, again, with a gentic
+[You]: technology build
+[You]: built underneath, which
+[You]: went through in terms of productivity,
+[You]: efficiency, speed, and precision. Right? So
+[You]: currently working with banks,
+[You]: Payfax, insurance companies,
+[You]: with both with different models. Right? We have
+[You]: the first one is, a direct model in which we sell them
+[You]: our our solution, which lives in our infrastructure. And so it's sort of like a SaaS model.
+[You]: We don't charge based on seats. We charge
+[You]: just a fixed outcome fee.
+[You]: Which
+[You]: it doesn't depend on the number of transactions, and it doesn't depend on the number
+[You]: seats. We just do an estimation based on the complexity and the volume
+[You]: and we give you a fixed pricing quote.
+[You]: Because, again, what I wanna do is create those network effects in which
+[You]: it becomes a shared and connected tool across all these companies.
+[You]: And and and the the other deployment model that we have is
+[You]: the embedding model, which is particularly relevant for payment companies that
+[You]: would love to have a recon module to serve their clients.
+[You]: And so in that sense, we're exploring partnerships to embed the product in their portal,
+[You]: or even do some sort of reseller partnership in which they can monetize
+[You]: a value add that I don't think they would be able to monetize
+[You]: via their experience.
+[You]: And then the third deployment model is when we
+[You]: build a solution tailor made for a bank, and we deploy it in their infrastructure.
+[You]: For that third option,
+[You]: we typically require really
+[You]: important reason to do that because it's
+[You]: harder to implement, longer to build, and and harder to maintain thereafter.
+[You]: Because it requires another
+[You]: type of support
+[You]: upgrades, and so on.
+[You]: So
+[You]: I would say 95% of our business is on the cloud task model where
+[You]: everything lives in our infrastructure and because we have the highest
+[You]: security standard certifications
+[You]: Most of the companies we work with trust us with that information.
+[You]: And and we also have other encryption and hashing methods to make sure
+[You]: the data is secure and safe.
+[You]: Other than that, happy to answer any questions and where you see if we could collaborate.
+[Remote]: So are you guys just doing
+[Remote]: the reconciliation, or are you also
+[Remote]: doing, like, journal entry and stuff like that?
+[You]: We also do accounting because
+[You]: reconciliation is very hard to decouple from accounting. Right?
+[Remote]: Absolutely.
+[You]: Reconciliation has the operational part, which is the daily
+[You]: monitoring workflow of of of the money flows.
+[You]: And then there's the end of the month accountant that comes in and reconciles the balances and needs to close the books.
+[You]: So we quickly realized it was hard to decouple, and so we're building both of them inside the platform.
+[Remote]: Got it.
+[Remote]: I I sold, or I ran some teams selling closed automation software.
+[Remote]: For large companies as well. So
+[Remote]: I've got the pretty good handle on the on the whole process. How many clients do you guys have?
+[You]: We have, like, 12, 15 customers. We're a preset stage company.
+[You]: So we raise the pre seed around 1,200,000.0 led by Flybridge underscore, n f x, and pair.
+[You]: This was July 2025.
+[You]: And given the the acceleration and traction we're seeing this quarter, we're gonna be raising by the end of
+[You]: quarter our seed round, somewhere between
+[Remote]: That's great.
+[You]: Yeah.
+[Remote]: Wonderful. So, you saw us down in,
+[Remote]: down at Fintech Americas.
+[Remote]: You want me to walk you through our solution set at all, and what we're doing? Or
+[Remote]: you know, how
+[You]: Yeah.
+[Remote]: you know, obviously, you know, we're both calling on dates, which would be great.
+[You]: I'd love to.
+[Remote]: But okay. Let me let me walk you through a couple slides.
+[Remote]: Just to show you what what we've done.
+[Remote]: Alright.
+[You]: Yep.
+[Remote]: Alright. Can you see that?
+[Remote]: Wonderful.
+[Remote]: Okay.
+[Remote]: So
+[Remote]: I'll I'll skip ahead just to this is where we play. We're in 25% of the
+[Remote]: top 50 banks in The Americas, 24% of the top wealth firms in The US.
+[Remote]: 20% of the telecom providers in The Americas,
+[Remote]: 600 or so customers across 20 countries.
+[Remote]: About 80% of our revenue is from regulated industries, and, again, that's telcos.
+[Remote]: Which would be interesting to understand if you're working with
+[Remote]: you if you have a plan to go to to telcos, insurance companies, wealth managers, and bank
+[Remote]: We've got about a 180 global employees, most of which are very similar to you.
+[Remote]: United States and Argentina.
+[Remote]: These are some of our clients. Again,
+[Remote]: 80% of our business is in, retail or, I mean, in
+[Remote]: regulated industries. However, we do have a a healthy, retail crowd as well.
+[Remote]: We go to market
+[Remote]: automating the entire customer experience lifecycle.
+[Remote]: So from attraction to conversion, you know, is our appointment managing
+[Remote]: product. Think about, you know, putting,
+[Remote]: consumer with the right expert at one of these financial institutions.
+[Remote]: Automatically, and then booking into Salesforce or whatever their CRM system is as well as their calendaring system.
+[Remote]: Completely automated so that there's it reduces the the operational friction
+[Remote]: especially around, you know, cancellations, reschedules, and things like that.
+[Remote]: From attraction to conversion, we then go to our our AI agents.
+[Remote]: Can help with onboarding and any type of customer service issues and day to day things like, hey.
+[Remote]: Wanna sell, Zelle $50 to Ignacio, anything like that.
+[Remote]: It can be automated as well through our AI agents. And, again, not just
+[Remote]: you know, answering questions or deflecting calls, but actually performing a workflow and taking that
+[Remote]: you know, freeing up those agents to to focus on on
+[Remote]: selling and and more important issues.
+[Remote]: Then we have, a marketing system that will help
+[Remote]: push promotions as well as engage the clients.
+[Remote]: Again, connected to an agent on the back end.
+[Remote]: So think about, you know, a bank that wants to promote, you know, CDs for the
+[Remote]: fourth quarter, but then a client says, yes. I'm interested.
+[Remote]: We can go ahead and automate that workflow for them as well, and and
+[Remote]: completely, remove the human from the loop, driving revenue, and we've got plenty of
+[Remote]: examples of that.
+[Remote]: And then, the last point is employee knowledge
+[Remote]: management. So think about arming with those agents.
+[Remote]: With an AI tool that's going to, give them the right answers very quickly so that they can reduce the
+[Remote]: average handling time and take care of clients, you know, in a thoughtful way.
+[Remote]: So those are the four solutions, set
+[Remote]: that we go to market with. There's variations of all of them, and I'll just touch briefly on those.
+[Remote]: We are, you know, award winning in our space.
+[Remote]: You know, major providers and analysts are covering us all the time.
+[Remote]: We're pretty proud of that, and that that adds some, obviously, some legitimacy
+[Remote]: to, you know, what we're doing.
+[Remote]: We are a multi agent
+[Remote]: architecture, so think channels. We can sit in any of our customers' channels.
+[Remote]: We've got our UX on the back end for each one of these solutions.
+[Remote]: It's connected to an orchestration layer as well as two agents.
+[Remote]: Then as I mentioned, you know, to their back end systems,
+[Remote]: we respond to the users. We execute workflow. We update records. We perform
+[Remote]: tasks. And then as I mentioned, we have outbound campaigns.
+[Remote]: That can work both inbound and outbound.
+[Remote]: These are some of the use cases that we solve, you know, banking across
+[Remote]: the top.
+[Remote]: Horizontally, then telco agents in the middle, some of the use cases that we're handling in workflows.
+[Remote]: On the bottom is insurance.
+[Remote]: And then on the far right is our appointment scheduling and our knowledge management. So
+[Remote]: quite a big, a laundry list of things that we've, done for our clients.
+[Remote]: All critical workflows, touching critical systems,
+[Remote]: And the idea is to remove the human from the loop so that
+[Remote]: customer can get served when they want, where they want, whatever channel they want.
+[Remote]: Without a burden on on, the financial institution, telco.
+[Remote]: Or insurance company.
+[Remote]: Some of our success stories, Bank of Kamafi, should sound very familiar to you.
+[Remote]: It's one of our first customers.
+[Remote]: They've got an 80%, first interaction resolution rate.
+[Remote]: Got a 91 NPS. It is the most used
+[Remote]: highest volume and highest NPS channel they have is the virtual assistant they put in place
+[Remote]: with Sofia.
+[You]: Yep.
+[Remote]: Are you familiar with Sofia?
+[Remote]: Okay. So then you you know us very well.
+[Remote]: What I think people realize is is the bottom low level, though.
+[Remote]: You know, in the first year, they originated 4.5 or
+[Remote]: four and a half thousand loans, and then
+[Remote]: also
+[Remote]: that's not 5,000 channels. That's 5,000
+[Remote]: investments. I should change the I gotta change that text. I I forgot about that.
+[Remote]: So very successful for them.
+[Remote]: American Mobile, the largest telecom in The Americas, 350,000,000 customers.
+[Remote]: In the first year, we've got an iterative pilot phase really going with them.
+[Remote]: They took 3,300,000.0 of cost out of their operations center.
+[Remote]: Just by putting us in place. They bumped their retention, meaning
+[Remote]: keeping people in the same channel by 15%. Their NPS from their customers went up
+[Remote]: 50%. In some cases, they had an egg negative NPS, and we
+[Remote]: brought them well into the positive. Eighty five percent first resolution rate,
+[Remote]: significant, number of sessions at 10,000,000. And, again, we're we're only in
+[Remote]: a fraction of their countries and a fraction of their workflows.
+[Remote]: And we'll be expanding that out with them, you know, in the coming years. So very successful there.
+[Remote]: Regions Bank, which is a top 35 US bank,
+[Remote]: This is our appointment scheduling. So this is the attraction and conversion.
+[Remote]: This is the some of the, stats that they've been able to see.
+[Remote]: You know, forty nine thousand hours scheduled.
+[Remote]: Annually across 1,250 branches. They saw a $6,470,000, you know, increase in,
+[Remote]: revenue in the first year, 75% of SAP staff time saved per appointment. So, again, that's the the operation
+[Remote]: friction that we moved, and a 30% year over year increase in appointment. So
+[Remote]: very strong results there with that solution.
+[Remote]: Then, this is the, employee knowledge management solution.
+[Remote]: And what we were able to do with them, which is really just, again, serving clients faster,
+[Remote]: boosting, employee morale because they can get access to answers.
+[Remote]: And and do it in a quick way, but also, you know, a single source
+[Remote]: truth so that they know that they're getting the right answer every time.
+[Remote]: So those are some of our solutions.
+[Remote]: What you know? And that was pretty quick, so I hope it wasn't too fast. But
+[You]: I guess
+[You]: I guess I'm interested in in understanding of
+[You]: because I think here,
+[You]: we both do different things for the same customers. Right?
+[Remote]: Yep.
+[You]: Is there any example in the past where you've you're where you've
+[You]: partnered with a start up
+[You]: to maybe augment
+[You]: your
+[You]: portfolio solutions or
+[You]: I don't know, provide a referral for the customer, like,
+[You]: you tend to do these things given
+[You]: it's hard to sell into these customers and you guys clearly are
+[You]: have those relationships and have the brand to do it. This is something we are
+[You]: struggling with right now. We're trying to build over time, but it takes time, as you might know.
+[You]: Mean, you're an expert in sales.
+[You]: So,
+[You]: I mean, for us, it would be amazing to partner with a company like EngageWare.
+[You]: And see how we can help
+[You]: your customers with our solution, which is, I think,
+[You]: very different from what you guys offer.
+[You]: But I'm sure it's a pain across all your customers.
+[Remote]: Yeah. To be honest, typically, we are
+[Remote]: partnering with organizations, and we do have all different types of of relationships
+[Remote]: referral being one of them. Typically, we're looking for people to refer clients to us.
+[Remote]: So I haven't run a
+[Remote]: across one where we're referring to other solution provider. I mean, we do that normally when we
+[Remote]: we're in a partnership, of course. But I'd have to
+[Remote]: you know, what they've done down in Latin America because I don't believe we have anything like that in The US.
+[Remote]: So I'd have to understand that a little bit more
+[Remote]: how that might work.
+[Remote]: But I'm happy to to chase that down and and pursue it. I mean, again, given your roots,
+[Remote]: you know, and your solution that is
+[Remote]: complementary to, you know, the same customer.
+[Remote]: We'd like to help you. I mean, if if there's a way, if our company's game, you know,
+[Remote]: we'd love to help and and see your guys' growth and and
+[Remote]: and hopefully, you know, have a a two way street where, you know,
+[Remote]: some of the customers that you might have that we don't
+[Remote]: you're referring us in as well.
+[You]: Sure. 100%. How do you think we could we could work towards that?
+[Remote]: I need to talk to my leadership team. So I'd report to our CRO,
+[Remote]: and, you know, our CEO. So I would talk to both of them and just say, hey.
+[Remote]: Do we have anything like this in place now? How do you guys feel about it?
+[Remote]: And, you know, there's this company that we met at FinTech of America's that got the same foot
+[Remote]: footprint and the reach that we do. And, you know,
+[Remote]: there a there there?
+[You]: Cool. All right. What do you need from me? I'm I'm
+[You]: like, a blurb or some sort of one pager and more information.
+[Remote]: I would love that. I think that would help me just frame it out a little bit.
+[Remote]: Adi, did you have any other ideas about you know? I think that's the first step. Right?
+[Remote]: I mean and do you know That's the first step.
+[Remote]: I think that we
+[Remote]: don't have
+[Remote]: like,
+[Remote]: I mean, we have been referring our clients, but for
+[Remote]: professional services. Other companies that can do development, implementation,
+[Remote]: integrations for our clients. I think that we don't
+[Remote]: we we have not requested
+[Remote]: for this type of services because we are not identify
+[Remote]: as experts in your area. But I think that we
+[Remote]: need to have a conversation
+[Remote]: to consider it.
+[Remote]: With
+[Remote]: our managers. I do have information that you shared
+[Remote]: with me, Ignacio.
+[Remote]: I I can send that to Steve and
+[Remote]: then we can set out a meeting, an internal meeting to
+[Remote]: to let you know if this can be a possibility for us.
+[You]: Sure. Yeah. Yeah. Would be great. I mean, again,
+[You]: I think we're both targeting the same customers, and
+[You]: I know how how how close
+[You]: mean, because they're probably different teams, but I'm sure maybe
+[You]: the people owning the relationship with these customers know that they're
+[You]: having trouble with reconciliation. These are the fin off workflows.
+[You]: So I'm sure it's a pain they've they've recognized and identified. Now it's
+[Remote]: So is that
+[Remote]: is the relationship that you guys are going after, is it sitting in treasuries? It
+[Remote]: sitting in operations? Where does it usually sit? An accounting?
+[Remote]: Okay.
+[You]: Yeah. It's it's it's accounting or treasury.
+[You]: Account or treasury or
+[You]: I mean, in in fintechs, it's more like
+[You]: operations, but in in traditional management services, it it's more like finance, accounting,
+[You]: Within finance, accounting, or treasury. Yep.
+[Remote]: That is that that is a good point. I mean, that's the thing is we're not crossing over with finance and accounting.
+[Remote]: And so we are we are mixing with the, COO
+[Remote]: So I'm trying to understand
+[You]: Maybe there's a pitch I mean, I'm sure they're they know about this problem.
+[Remote]: you know,
+[Remote]: Oh, you
+[You]: And they're feeling it.
+[Remote]: I guess I'm just trying to think of if if we make a great case for you guys to the COO,
+[Remote]: and he refers it to the, you know, head of treasury or head of accounting,
+[Remote]: is that gonna carry any weight? That that's that's the we've gotta think about, from our perspective.
+[You]: Or maybe the COO is the one owning this. That's a that
+[You]: a curious part of Recon. As I said, it's hard to decouple from accounting, but it has the operational side of it
+[You]: as well.
+[Remote]: Shared service environment, I would imagine is the COO has something to do with it.
+[You]: Yeah. A 100%.
+[Remote]: It's not for service. You know?
+[Remote]: It would be something different. But
+[Remote]: again, let's I'm happy to have a conversation on
+[Remote]: your behalf and see if there's something that, you know, we can do. If nothing else,
+[Remote]: I think we should, you know, introduce them to and you you said you're selling into Latin America, are you most
+[Remote]: focused on The United States?
+[You]: Fox in The United States. Yeah.
+[Remote]: Got it. Okay. Because I was gonna say it may
+[Remote]: would be a great contact for him, but,
+[You]: Mathias?
+[Remote]: okay.
+[Remote]: He's our CRO of the Latin America team.
+[Remote]: And he's been in the business, you know, for
+[Remote]: quite a while, and he's just very, very well connected across Latin America.
+[You]: Okay.
+[Remote]: Matías de Foglio.
+[Remote]: Is his name.
+[You]: Alright.
+[You]: Other than that, it was great to meet, great to share our story, great to get yours. I love what
+[You]: you're doing. I'm I'm sure you're generating a lot of impact with these customers.
+[You]: And so, yeah, let's see how we can help each other. I'll send more information to a follow-up via email,
+[Remote]: That'd be wonderful. And, again, best of luck
+[You]: and let's take it from there.
+[Remote]: Wish you all the best of luck getting, you know, your seed round done and, and growing
+[Remote]: fast.
+[Remote]: Good to meet you.
+[You]: Amazing. Thank you so much.
+[You]: Have a great weekend.
+[Remote]: You too. Thank you.
+
+============================================================
+SUMMARY
+============================================================
+### EngageWare Company Overview
+
+- 25% of top 50 banks in Americas, 24% of top wealth firms in US, 20% of telecom providers
+- 600+ customers across 20 countries, 180 global employees (US & Argentina)
+- 80% revenue from regulated industries (banks, telcos, insurance, wealth management)
+- Four solution areas:
+  1. Appointment management - automated scheduling into CRM/calendar systems
+  2. AI agents - onboarding, customer service, workflow automation
+  3. Marketing automation - promotions with agent handoff
+  4. Employee knowledge management - faster response times for agents
+
+### Customer Success Examples
+
+- Bank Kamafi (Sofia): 80% first interaction resolution, 91 NPS, 4,500 loans originated year 1
+- American Mobile: $3.3M cost reduction, 15% retention increase, 50% NPS improvement, 85% first resolution rate
+- Regions Bank:
+  - Appointment scheduling: $6.47M revenue increase, 75% staff time saved per appointment
+  - Knowledge management: faster client service, improved employee morale
+
+### Partnership Discussion
+
+- EngageWare typically receives referrals rather than making them
+- No current US partnerships for outbound referrals to solution providers
+- Sliebman needs leadership approval (reports to CRO and CEO)
+- Different customer touchpoints:
+  - EngageWare: COO level
+  - Rexi: Finance, accounting, treasury teams
+- Potential challenge: COO referral to treasury/accounting may lack weight
+
+### Geographic Focus & Contacts
+
+- Rexi primarily focused on US market (also serves LatAm)
+- Matías de Foglio - EngageWare CRO Latin America, well-connected in region
+- Both companies have US/Argentina team structure
+
+### Next Steps
+
+- Ignacio to send one-pager/detailed information via email
+- Sliebman to discuss partnership possibility with leadership team
+- Mmolinos to share Ignacio’s information internally and schedule management meeting
+- Follow-up on partnership feasibility
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/d2aac4c7-26e8-47f6-9ff8-86816c0fe011](https://notes.granola.ai/t/d2aac4c7-26e8-47f6-9ff8-86816c0fe011)

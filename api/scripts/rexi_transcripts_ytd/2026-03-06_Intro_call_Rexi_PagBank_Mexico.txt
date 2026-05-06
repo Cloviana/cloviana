@@ -1,0 +1,478 @@
+MEETING: Intro call Rexi & PagBank Mexico 
+DATE: 2026-03-06
+ID: not_tY5BGVp0oaP5rk
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Carolina Morawetz <carolina@rexi.finance>, Teo <teo@rexi.finance>, Edulopez <edulopez@pagseguro.com>
+SCHEDULED: 2026-03-06T13:30:00-05:00 - 2026-03-06T14:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Principales, ahora te presento a a Nacho y a Teo, y que ellos también hablen, ¿no? Pero
+[Remote]: Ajá. Por un lado, como le decía a los chicos, vos tenés mucha
+[Remote]: experiencia en este ecosistema, porque venís de
+[Remote]: porque estuviste en Symmetric.
+[Remote]: Y porque ahora estás liderando en
+[Remote]: estás liderando toda la estrategia de
+[Remote]: de formación y crecimiento en México de una cuenta
+[Remote]: superinteresante y importantísima.
+[Remote]: Y por otro lado, bueno, para que conozcas a Rexys, yo sé que vos
+[Remote]: me dijiste en el intercambio de mensajes que estás
+[Remote]: armando la estructura, ¿no?, y que están arrancando de a poco, y que tenés todo un dogma
+[Remote]: productos que vas a ir lanzando, que por ahí ahora te estamos enfocando en temas de cross border.
+[Remote]: Eso también queremos entender un poco
+[Remote]: para ver si podemos acompañarte en ese
+[Remote]: en ese crecimiento y en ese armado de estructuras, ¿no?, que nos tengas en el radar y en la
+[Remote]: cabeza, que sepas quiénes somos, y que a medida que vos vas construyendo ese road map,
+[Remote]: de nuevos productos y vas
+[Remote]: realmente armando las bases sólidas de de
+[Remote]: en en México,
+[Remote]: podamos acompañarte. Perfecto, Caro. No, pues muchas gracias por la intro y feliz
+[Remote]: ahí también por la integración a Rexi. Rexi, gran fichaje, que hicieron
+[Remote]: este saben. Felicidades a vos.
+[Remote]: Bueno, ahí sí, no sé si se quieren presentarte hoy, Nacho,
+[You]: Dale. Yo soy de de Rexi.
+[Remote]: Vale.
+[Remote]: Papás de Rexi.
+[You]: Estamos, estoy basado en Nueva York, pero, bueno, yendo y viniendo
+[You]: mucho a Argentina para estar con Caro y con Seba y con el resto del equipo.
+[You]: Pero con base acá. La distribución comercial
+[You]: enfocada tanto en Estados Unidos como en Latinoamérica Y y, bueno, yo estoy más
+[You]: avocado a lo que sería
+[You]: distribución, ventas, growth, marketing, ahí, con Caro.
+[Remote]: Excelente, perfecto, Nacho, un gusto.
+[You]: Gustazo.
+[Remote]: Y Y paso por
+[Remote]: Ay, perdón, porque Lalo conoce también, que era una cuenta potencial nuestra en
+[Remote]: que Nacho estuvo en Bitch,
+[Remote]: Ah, ¿en Ok. Del equipo de pagos de, o sea, estás más en la
+[You]: Sí, manager ahí, del equipo de pagos.
+[Remote]: tema operativo, comercial?
+[You]: Producto, era product manager.
+[Remote]: Producto.
+[You]: Sí.
+[Remote]: Ah, ok, ok.
+[Remote]: Ahí era producto y ahí sintió el dolor de de todo este
+[Remote]: tema, y así,
+[Remote]: casi que que nace la idea de Rexy, un poco
+[Remote]: a raíz de ese dolor vivido también, ¿no?
+[Remote]: Ahí estuve en Bicho, también en pláticas, en su momento, con Gabriele Zulani.
+[Remote]: Del área comercial.
+[You]: Pasa que
+[Remote]: Es brasileño. Ahí en México, ¿No?
+[You]: tres años, han cambiado mucho, pero
+[You]: no me suena, creo que no
+[Remote]: No, no, Él era como el chief commercial of
+[Remote]: Le reporté directamente a
+[You]: Ah, mira.
+[Remote]: al founder.
+[Remote]: Sí, sí, sí, Berobicho. Ah, interesante.
+[Remote]: Lo que están haciendo. Ahorita los tengo de de proveedores,
+[You]: Muy bien, muy bien.
+[Remote]: aquí, a Bitso.
+[Remote]: Ok.
+[Remote]: Y
+[Remote]: Sí, bueno, como te comento un poco Caro, yo estoy más
+[Remote]: en diseño y desarrollo de de producto y en operaciones
+[Remote]: integraciones, acompañando a los clientes ya onboardados en
+[Remote]: Ok.
+[Remote]: Y a nivel experiencia,
+[Remote]: vengo de Mercado Pago, muchos años en Mercado Pago.
+[Remote]: Ahí no Ok.
+[Remote]: Diapositivas,
+[Remote]: Sí, ahí empiezo a mostrar, pero para para que sea
+[Remote]: conversacional, hay mucho de lo que de lo que está acá en estas diapositivas, que Lalo vos
+[Remote]: conocés, porque ya venís de la industria, entonces, todo el problema,
+[Remote]: el por qué, ¿no?, de este tipo de soluciones, eso vos ya lo tenés más
+[Remote]: claro, y también por ahí la la necesidad de cada industria.
+[Remote]: Nos sirve para que también nos des feedback en ese sentido, pero
+[Remote]: pero, bueno, Mercado Pago también era otra cuenta que seguro vos la
+[Remote]: Lola, la tenías muy en el radar, tanto
+[Remote]: desde Cusky como, bueno, con Symmetric. Quizá no te tocaba tanto a vos por
+[Remote]: pero
+[Remote]: pero la escuchamos nombrar mucho, ¿no?
+[Remote]: Ok. Y dígame algo, Rexi, como tal,
+[Remote]: ¿estás resolviendo el mismo dolor que resuelve, simétrico, o hay diferencias?
+[Remote]: A ver, el el dolor,
+[Remote]: es el mismo, principalmente,
+[Remote]: de grandes volúmenes de de datos transaccionales en
+[Remote]: principalmente, automatización de
+[Remote]: de todos estos procesos que suelen ser muy manuales,
+[Remote]: la forma de resolverlo, tenemos varias diferencias que fueron surgiendo
+[Remote]: en base a diferentes
+[Remote]: necesidades o formas de enfocar lo que que fuimos viendo.
+[Remote]: Ok, excelente. Y también son son no-code o
+[You]: Sí, ahí para
+[Remote]: cómo funcionan ahí? Un por ciento no code,
+[You]: Lo que dice Teo, creo que hay tres principales diferencias. Lo primero es
+[You]: trabajamos con archivos crudos, entonces, no hay necesidad de que ustedes estén manipulando la información antes de
+[You]: para poder usar la plataforma, digamos, nos conectamos al extracto bancario directo,
+[You]: y trabajamos con esos archivos crudos,
+[You]: El segundo punto es que la herramienta, al ser AI native, es mucho más
+[You]: configurable y se ajusta mucho más a las necesidades que tengan ustedes, sabiendo que conciliación es un workflow
+[You]: tan específico y tan particular de cada setup,
+[You]: queremos que vos, Eduardo, puedas construir tu propio flujo.
+[You]: Con tus necesidades,
+[You]: ya sea con tu lógica de conciliatoria, tus
+[You]: rangos de tolerancia, tus reportes custom, etcétera.
+[You]: Es mucho más configurable y fácil de usar, obviamente con una dinámica no code para que
+[You]: gente como vos, Eduardo, o gente de equipo de finanzas y operaciones, que por ahí no tienen muchas
+[You]: muchos conocimientos técnicos, puedan construirse su propio flujo.
+[You]: Lo de los archivos crudos, configurable, y después, obviamente, está la parte de
+[You]: de la inteligencia artificial, ¿no? A diferencia de symmetric al CRAI native, nosotros agregamos
+[You]: capas de inteligencia en cada parte del proceso que hacen
+[You]: que la experiencia sea mucho más productiva, ¿no? Y te doy algunos ejemplos, desde
+[You]: transformación de los datos para que sea más fácil de de procesar,
+[You]: hasta configuración de la lógica conciliatoria que se optimiza con AI, AI para
+[You]: para conseguir un
+[You]: matching ratio más elevado,
+[You]: Y después, la parte de la gestión de discrepancias, ¿no?, que, como bien vos sabrás,
+[You]: no es solamente conciliar, sino después investigar y resolver las diferencias, ¿no?
+[Remote]: Sí, totalmente.
+[You]: Entonces, ahí, en ese módulo, hicimos todo un problem solver con inteligencia artificial y machine learning,
+[You]: que
+[You]: aumenta dramáticamente la productividad y reduce el tiempo, porque
+[You]: arma clusters de transacciones, en donde sugiere un root
+[You]: y una posible solución,
+[You]: y el usuario va tomando acciones sobre esas propuestas, y esas
+[You]: empiezan a codificar en la hoja conciliatoria. Entonces, se retroalimenta
+[You]: y hay un flywheel con la información que hace que Rexy se vuelva con el tiempo, cae mejor para tu
+[You]: mismo detectando anomalías,
+[You]: cuando un conector se rompe,
+[You]: o con cuando hay algo raro en el negocio.
+[You]: Levanta alarmas y se vuelve muy bueno con el tiempo. Con lo cual esa te diría son las tres
+[You]: grandes diferencias. El trabajaron archivos crudos
+[You]: es mucho más flexible y configurable y fácil de implementar,
+[You]: y toda la parte de AI native, que
+[You]: que sí genera un performance diferencial versus los principales competidores, ¿no?
+[Remote]: Y en cuanto al, todo el tema de reglas
+[Remote]: conciliatorias y todo, también son muy flexibles para poder cambiarlas, si de pronto cambia algo en la
+[You]: Exacto.
+[Remote]: operación.
+[You]: Exacto, eso es
+[Remote]: Ok.
+[You]: como bien vos sabés,
+[You]: no se configura una sola vez y después ya corre, porque el proveedor te cambia una columna, te
+[You]: cambia un conector, te cambia el archivo y se te rompe. No es no es una
+[You]: por eso ahí a la izquierda, si te fijas abajo de todo, dice
+[You]: hard coded, configured by the client, requires updates and maintenance.
+[You]: Nuestra lógica es dinámica,
+[You]: Entonces, el detecta esas anomalías
+[You]: y y optimiza la lógica para que el flujo pueda correr siempre, sin que se rompa.
+[You]: ¿No?
+[Remote]: Está buenísimo.
+[Remote]: Ok, perfecto. Si quieres, ahorita pasamos a más dudas que podría tener.
+[Remote]: Pero les cuento un poquito acerca de
+[Remote]: cuál es mi situación actual en en PAC Bank, PAC seguro.
+[Remote]: Este, y les cuento dónde podría ser ahí, a lo mejor, más
+[Remote]: más útil que tengamos estas conversaciones, ¿no? A ver,
+[Remote]: en México,
+[Remote]: tenemos un road map, ¿no? Yo, actualmente, comencé en
+[Remote]: noviembre, diciembre, a finales de noviembre del año pasado,
+[Remote]: este, con con la empresa, y tenemos un road map muy
+[Remote]: estructurado, ¿no? Ahorita tenemos una operación de pagos cross border,
+[Remote]: que estamos poniendo a disposición de clientes
+[Remote]: muy buenas relaciones con gaming, con casas de apuestas,
+[Remote]: y que están llegando ahorita muy fuerte para el mundial.
+[Remote]: Sin embargo, tenemos pocos clientes,
+[Remote]: ¿no? Son, no son muchos clientes. Es
+[Remote]: ¿por qué?, porque yo estoy ahorita enfocado en construir la operación doméstica,
+[Remote]: en toda la parte legal, regulatoria, todo lo necesario para
+[Remote]: poder tener, este, Operación De Pagos Digitales En México.
+[Remote]: Todo esto lo, nuestro road map es para junio, julio, salir live con con la operación doméstica, y, pues, h dos va a ser
+[Remote]: completamente ya el desarrollo del equipo comercial para
+[Remote]: empezar a traer revenue doméstico y y seguir creciendo el cross border al mismo tiempo.
+[Remote]: De cara al dos mil veintisiete, ya es, a lo mejor, traernos
+[Remote]: cuestiones más netamente bancarias, que pueden ser,
+[Remote]: los las las TPVs para transacciones, este,
+[Remote]: en sitio, ¿no?, las transacciones con tarjeta presente.
+[Remote]: Este, y ya de ahí, pues, igual vamos viendo qué
+[Remote]: bancarios. Pero eso ya es un poquito más hacia el largo plazo, ¿no?
+[Remote]: Ahorita, para el corto plazo, necesito poner a
+[Remote]: en funcionamiento la parte
+[Remote]: doméstica, pero sí, o sea, ahorita
+[Remote]: las transacciones que tenemos son muy pocas,
+[Remote]: En pinups están está todo centralizado en Brasil,
+[Remote]: está utilizando Symmetric, un, digo, les comento lo
+[Remote]: poco que sé, que, este, hubo un un, este, downgrade
+[Remote]: de, no sé,
+[Remote]: uno punto siete millones de dólares que estábamos pagando de ARR anual, bajó a, no sé, la mitad más o menos, ¿no? Sí fue un un downgrade ahí fuerte. Y por cosas que se dejaron de utilizar de symmetrical ser una herramienta que considera el el banco demasiado caro. Entró un nuevo CEO, Mawat, Mahwad trae mucho... Ya sabes, cuando entra un nuevo CEO,
+[Remote]: el el el bajar pricing, bajar costos,
+[Remote]: Entonces, pues sí, una de las primeras herramientas que fue, este,
+[Remote]: impactada fue Symmetric. Yo ahí veo una oportunidad,
+[You]: ¿Eso cómo reemplazaron
+[Remote]: sin embargo, este es
+[You]: lo que estaban haciendo en Symmetric y dejaron de hacer?
+[Remote]: Es es es muy buena pregunta, lo
+[Remote]: lo poco que sé, como, queda, el noventa
+[Remote]: y tantos por ciento de de estos casos de uso son propios del banco brasileiro,
+[Remote]: porque imagínate, es el segundo Banco Digital Más Grande De Brasil,
+[Remote]: detrás de New Bank. Este, tienen millones de usuarios.
+[Remote]: ¿No?, millones de transacciones. Entonces, volvieron a, lo
+[Remote]: lo que sé es que volvieron a tener por ahí una, este, operación manual,
+[Remote]: que están utilizando, creo, ciertos macros,
+[Remote]: No te sé el detalle, no no me he metido mucho a eso.
+[Remote]: Para nosotros, pues, te te te digo, tenemos
+[Remote]: en México tenemos como diez clientes cross border, no no es
+[Remote]: mucha implicación. Tenemos un área de de FinOps que
+[Remote]: está, nos saca los reportes manualmente,
+[Remote]: Pero el tema bancario, sí, yo creo que ahí habría una
+[Remote]: muy interesante, que yo yo les podría,
+[Remote]: ahí ayudar con la, a ver quiénes son las personas adecuadas y, este,
+[Remote]: y y que y les puedan dar una reunión para platicar ya detalles, ¿no?
+[Remote]: Yo es como Porque de ahí, hacerlo, o sea, pasar de, me imagino, lo que estaría en
+[Remote]: para pagar ese con Symmetric.
+[Remote]: Pensar que lo pasen a manual no me lo imagino.
+[Remote]: Pero seguramente no tienen, bueno, seguramente habrán evaluado ahí cuál
+[Remote]: en Brasil y no les habrá tampoco convencido ni por precio ni por flexibilidad,
+[Remote]: Yo creo que acá, y y y
+[Remote]: vuelvo un poquito para atrás en lo que preguntabas a a Nacho, y a Teo, diferencias, ¿no? Y yo lo primero que que sentí cuando
+[Remote]: cuando los escuché y cuando vi cómo cómo performa el producto,
+[Remote]: en las demos, y lo que más está atrayendo
+[Remote]: a los potenciales clientes a los cuales les estamos haciendo demos,
+[Remote]: a diferencia de Symmetric, es
+[Remote]: uno, es esa, el haber sido construido de de inicio en un
+[Remote]: IA, que viste que Symmetric... Yo no sé hoy cómo están, pero ¿te acordás
+[Remote]: estaban con todo ese, bueno, vamos a empezar a a integrar ya, y era el bot,
+[Remote]: era como, eran partecitas, que al final decíamos, bueno, pero eso no es realmente
+[Remote]: no sé hoy qué tanto habrán evolucionado en ese sentido, pero acá ya es
+[Remote]: ya native. Entonces, eso hace con que
+[Remote]: todo el todo el proceso y todo el la
+[Remote]: con con el cliente sea diferente, sea una experiencia distinta.
+[Remote]: Y creo que lo fundamental, la diferencia principal, cuando los chicos me decían,
+[Remote]: esto, ¿no?, de que se alimenta de
+[Remote]: en bruto, cruda, que no
+[Remote]: ese heavy lifting de parte del cliente, que por más que
+[Remote]: en Symmetric también había todo un tema de self-service, de autogestionable, pero
+[Remote]: al final del día sabíamos que era un dolor
+[Remote]: porque las implementaciones, las integraciones, la preparación de la información por parte del cliente,
+[Remote]: tomaba su tiempo, y al final del día, cuando el cliente
+[Remote]: firmaba el contrato y se daba cuenta todo lo que tenía que hacer después,
+[Remote]: era un pain, ¿no? Y acá eso se elimina.
+[Remote]: Sí. Y el costo, al eliminarse eso, también baja muchísimo el costo,
+[Remote]: todo el las ciento y tantas personas que vienen
+[Remote]: que teníamos de professional services en en Symmetric a
+[Remote]: a a los clientes, acá no se requiere.
+[Remote]: O sea, no no es necesario, ves que ahí dice implementation cost free, porque realmente es
+[Remote]: es es rápido, es automático y es
+[Remote]: de verdad, muy autointuitivo. Entonces, el equipo acompaña al principio
+[Remote]: si tiene que acompañar un poco, vendemos y y largamos,
+[Remote]: pero ahí hay un diferencial enorme.
+[You]: Pero ahí,
+[You]: Perdón, perdón que te interrumpa, Caro. Me me encantaría escuchar más, Eduardo, que nos cuentes
+[Remote]: ¿Sí?
+[You]: entonces,
+[You]: más sobre ese proceso actual y y si ves o no una oportunidad de dónde.
+[You]: Creo que, por lo que mencionás, pareciera haber una oportunidad, por lo menos, para tener
+[Remote]: Así.
+[You]: una charla con el equipo de Brasil, que hizo el downgrade de Symmetric,
+[You]: Y después, más caso, en México, ¿Cómo están pensando armarlo en México?
+[Remote]: Sí.
+[Remote]: Nosotros, todo este tipo de herramientas, estamos
+[Remote]: un una compañía demasiada centralizada en Brasil.
+[Remote]: O sea, todo lo que ellos toman decisión de este tipo de herramienta...
+[Remote]: Nos preguntan a nosotros,
+[Remote]: para ver cuáles son los dolores que estamos teniendo.
+[Remote]: Te te digo, de mi parte, ahorita, en México,
+[Remote]: las transacciones no no son muchas, el equipo
+[Remote]: este, tenemos un equipo de tesorería y otro equipo de
+[Remote]: de data data insights, este, que actualmente, bueno,
+[Remote]: tenemos ahí un BI que está están teniendo las
+[Remote]: diarias, nos envían el el el, nos envían los reportes, ellos
+[Remote]: hacen, este, un tipo de de de validación ahí, semimanual,
+[Remote]: No sé el detalle, fíjate, no no me he metido mucho por lo mismo de que no no, ahorita no es
+[Remote]: como que un dolor de cabeza la la la las
+[Remote]: operativas en México, por el tamaño de la operación.
+[Remote]: Sí te dirían, o sea,
+[Remote]: seguro, el noventa por ciento de la operación está en
+[Remote]: o sea, o no incluso más. O sea, todo todo el movimiento
+[Remote]: Por eso es una empresa demasiado centralizada en Brasil, además de que fue fundada ya
+[Remote]: Todo el todo este tipo de herramientas, este, lo controlan ellos, ¿no?
+[Remote]: La gente de Brasil, la gente de Finnops de Brasil, este,
+[You]: Qué hicieron con toda la parte que se sacaron de
+[You]: no no tenés mucho detalle.
+[Remote]: No tengo el detalle, lo que sé es que están automatizando ahí con macros.
+[Remote]: Haciendo ahí un ciertos desarrollos internos.
+[You]: Sí.
+[Remote]: Para, este... Pero si yo,
+[You]: Yo creo que oportunidad grande, porque ese mundo de macros
+[You]: o sea, creo que los va a sacar del apuro en el corto plazo para
+[Remote]: Sí, sí, sí.
+[You]: bajar el contrato de Symmetric, pero pero en una escala.
+[Remote]: No, no, no, totalmente, van a haber muchas discrepancias que no
+[Remote]: en este mundo de las ventas, siempre, digo yo, hay dos tipos de necesidades, las implícitas y las
+[Remote]: explícitas, ¿no? Las explícitas es cuando ya te dicen que tienen la necesidad, y la implícita es cuando
+[Remote]: la están viendo, y ahí hay que hacérselas ver. Totalmente, miren,
+[Remote]: yo tengo una reunión a la semana con estas áreas. Déjeme, este,
+[Remote]: preguntarles bien, bien quiénes son, quiénes, quién sería el área
+[Remote]: encargada para, este, yo tener una conversación con ellos y podérselos presentar, este,
+[Remote]: tan abiertos totalmente.
+[You]: En esa conversación, dos cosas para
+[Remote]: Ajá.
+[You]: resaltar,
+[Remote]: Sí.
+[You]: porque, obviamente, la primer pregunta que te van a hacer es,
+[You]: cómo son diferentes a Symmetric, ¿no?, porque no se quieren volver a meter en un sistema parecido de los mismos costos.
+[You]: Yo resaltaría dos cosas. Obviamente, son la nueva solución AI native, con lo cual
+[You]: más inteligente,
+[You]: y más y dos, eso eso nos permite un modelo de negocio
+[You]: que es significativamente más económico, porque claramente acaba a pesar mucho el precio.
+[Remote]: Sí, no, totalmente, es un es un
+[You]: Y
+[Remote]: event para para PagaBank ahorita el
+[Remote]: el tema de pricing. Imagínense estar pagando uno punto siete millones de dólares.
+[You]: No, no, o sea, te estoy hablando realmente
+[Remote]: Al año,
+[You]: una fracción, una fracción muy chica de
+[You]: y más porque también
+[Remote]: Sí.
+[You]: nosotros
+[You]: estamos en un momento donde partners como Paco Bank o Pac Seguro los veríamos como strategic partners,
+[You]: podemos armar una especie de partnership en donde el pricing realmente sea muy
+[You]: muy atractivo,
+[You]: los primeros meses y el primer año, con tal de crecer con
+[You]: en la operatoria de Brasil, y ahora que están lanzando México y apoyarlos en
+[You]: mientras sigan escalando.
+[Remote]: En en, sí, en términos de otros países, estamos en México,
+[Remote]: Colombia, Chile, Perú y Brasil.
+[Remote]: Son esos cinco países en donde estamos. Este, pero sí te digo que, o sea,
+[Remote]: México, Chile, Perú y Colombia representamos
+[Remote]: ni siquiera el cinco por ciento, te diría yo, del
+[You]: Pero,
+[Remote]: del volumen transaccional que tiene.
+[You]: pero pero pero vamos a ganar ese share, ¿o no? De lo
+[Remote]: Totalmente, ¿no?, sí, para eso estamos.
+[Remote]: Para eso estamos, para hacer crecer la empresa acá, en en la región.
+[You]: Espectacular.
+[Remote]: Y Aparte aparte, lo que
+[Remote]: puede, no sé si me ocurre que también podemos proponer
+[Remote]: si si nos presentás a ese equipo y quieren
+[Remote]: probar o testear, empezar por ahí, por México, y, ¿viste?,
+[Remote]: como ir escalando, como que hay muchas
+[Remote]: posibilidades que de hacer
+[Remote]: como
+[Remote]: entrar a a la cuenta de distintas maneras, ¿no? Y es como también
+[Remote]: en en Symmetric con pequeños casos de uso por ahí al inicio, pero que
+[Remote]: realmente vaya tomando confianza a la cuenta y vaya viendo que que es una oportunidad.
+[Remote]: Ahí, con Brasil, que sabemos que es complejo, porque
+[Remote]: Brasil va a decir, bueno, pero estos
+[Remote]: son argentinos, ¿y dónde están?, y blablablá.
+[Remote]: Vos acordate que, o sea, si dicen, tienen equipo en Brasil, sí, soy yo, hablo portugués y para ellos soy una brasilera. Entonces, ahí
+[Remote]: aunque parezca tonto, ¿te acordás?, hace una diferencia el tema ese Totalmente. O
+[Remote]: tratar en nativo,
+[Remote]: parece un detalle menor, pero es es
+[Remote]: fuerte. No, sí, es significativo. Yo ya me metí a, estuvo en aula tu portugués,
+[Remote]: Me imagino. Sí, sí, sí.
+[Remote]: No, sí hace la diferencia totalmente, porque
+[Remote]: ellos muchas veces no, o sea,
+[Remote]: yo,
+[Remote]: te puedo decir que con los brasileños que estoy,
+[Remote]: este, teniendo relación ahorita, el cincuenta por ciento no habla ni inglés ni español.
+[Remote]: Ya me toca ahí, este, defenderme en portuñol ellos. Entonces, sí hace totalmente la diferencia, claro. Seguramente, esta estas áreas estoy
+[Remote]: seguro de que son
+[Remote]: de cien por ciento,
+[Remote]: ¿vale? Déjame, me quedo con tarea. Y otra otra
+[Remote]: cosa que les quería preguntar es, en términos de qué clientes tienen actualmente,
+[Remote]: como credenciales,
+[You]: Estamos trabajando principalmente con compañías en Estados Unidos,
+[Remote]: Ajá.
+[You]: de Latinoamérica, estamos trabajando con buen beat, y tenemos
+[You]: algunas conversaciones que, digo, no no las quiero confirmar todavía
+[You]: pero creo que van a convertir en las próximas semanas,
+[You]: Y luego,
+[You]: clientes en Estados Unidos. Como te dije, estamos basados acá y estamos trabajando con clientes acá.
+[Remote]: Porque ahí ahí también, Caro, les haría mucho sentido
+[Remote]: mucho a los clientes que yo traía aquí, en México.
+[Remote]: Que no se no se cerraron con O sea, está
+[Remote]: Chedraui, por ejemplo, que nunca les hizo sentido el pricing,
+[Remote]: este, bueno, a Palacios se los dejé cerrados y
+[Remote]: otro tema ahí ¿Palacio? Sí, sí,
+[Remote]: sí, o sea, sí se cerró Palacio de Hierro y y la
+[Remote]: salió más cara que el
+[Remote]: que el, este, propio ARR del de la solución.
+[Remote]: Y la está haciendo el Lloyd. Este, y y ese es un dolor
+[Remote]: que ahí ustedes también sí son, viví ahí en sus slides, que tienen mucha
+[Remote]: agilidad con el tema de las integraciones. Una
+[Remote]: dolencia muy grande que tiene Symmetric es la integración.
+[Remote]: Si bien ellos te manejan que tienen los
+[Remote]: le llaman ellos, Carlos? Los bloques, los block, building blocks. Blocks. Blocks.
+[Remote]: Los building blocks, a la hora de integrarse, era un dolor de cabeza y
+[Remote]: entonces, pueda pueda haber una oportunidad.
+[Remote]: Déjame ver, le voy a mandar un mensaje a Alberto, el el de Chedraui, a ver si
+[Remote]: si sigue ahí evaluando, qué onda, porque al final creo que les dijo que no.
+[Remote]: Este, y algunos bancos también,
+[You]: Va.
+[Remote]: con los que tengo relación, ahí se los puedo presentar.
+[You]: ¿Qué necesitás de nosotros para para poder
+[Remote]: Con gusto.
+[You]: facilitar esas conversaciones, tanto la la interna con el equipo de Brasil y estás con
+[Remote]: Mándame una, este, una
+[You]: con los
+[Remote]: ahí, que esta presentación, yo creo que me serviría ahí,
+[Remote]: con eso y, este,
+[Remote]: yo yo, este, con eso, o sea, no más
+[Remote]: decir, a ver, este,
+[Remote]: escuchémoslo y, este,
+[Remote]: una solución que puede traer ahorros y
+[Remote]: y un cost significativamente mayor a lo que actualmente tienen
+[You]: Si quieres dar rango,
+[Remote]: Symmetric, ¿no? Yo creo que
+[You]: podemos ser
+[You]: entre ochenta y noventa por ciento más baratos, o sea, ese ese es ese es el gap.
+[Remote]: Ok, perfecto.
+[You]: De costos.
+[Remote]: No, excelente, pues cuénteme, cuénteme con ello. Vándeme una
+[Remote]: presentación, one pager, no sé cómo ustedes decidan, y de ahí
+[You]: Dale, listo. Bueno, ahí Caro te manda los materiales
+[Remote]: de ahí partimos.
+[Remote]: Sí.
+[You]: y la seguimos por correo, Eduardo, un gustazo.
+[Remote]: Sí, claro, claro, igualmente, un gusto.
+[Remote]: Ahí estamos en contacto, Eduardo. Claro, qué gusto saludarte. Ahí lo seguimos por mail, entonces.
+[Remote]: Órale, perfecto.
+[Remote]: Estés muy bien. Feliz fin de semana. Igualmente.
+
+============================================================
+SUMMARY
+============================================================
+### PagBank Mexico Operations & Roadmap
+
+- Current status: Started November 2024, building domestic operations infrastructure
+- Cross-border payments live with \~10 gaming/betting clients ahead of World Cup
+- Domestic launch timeline: June/July 2026 go-live
+  - H2 2026: Commercial team development for domestic revenue growth
+  - 2027: Banking products expansion (TPVs, card-present transactions)
+- Mexico represents <5% of total transaction volume vs Brazil (90%+ of operations)
+- Current reconciliation: Semi-manual process via BI team, manageable due to low transaction volume
+
+### Symmetric Downgrade Opportunity
+
+- PagBank Brazil downgraded from $1.7M ARR to \~$850K due to cost concerns
+  - New CEO focused on cost reduction, Symmetric considered too expensive
+  - Replaced with internal macros/manual processes (unsustainable at scale)
+- Decision-making centralized in Brazil for all tool selections across 5 countries (Mexico, Colombia, Chile, Peru, Brazil)
+- Eduardo has weekly meetings with FinOps areas, can facilitate introductions
+- Key differentiators to emphasize:
+  - AI-native solution vs Symmetric’s bolt-on approach
+  - 80-90% cost reduction potential
+  - Raw file processing (no data manipulation required)
+  - Implementation cost-free vs Symmetric’s heavy professional services
+
+### Mexico Market Opportunities
+
+- Potential clients Eduardo can reconnect with:
+  - Alberto at Chedraui (pricing was barrier with Symmetric)
+  - Palacio de Hierro (integration costs exceeded solution ARR)
+  - Various banks in his network
+- Integration speed advantage over Symmetric’s building blocks approach
+- Strategic partnership potential given Rexi’s growth stage and PagBank’s expansion plans
+
+### Next Steps
+
+- Carolina to send presentation materials and one-pager to Eduardo
+- Eduardo to identify and introduce Brazil FinOps contacts for Symmetric replacement discussion
+- Eduardo to reach out to Alberto at Chedraui about renewed evaluation
+- Follow-up via email for additional client introductions
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/5c4ff81f-2e1f-4ae1-9e91-756c4e7c4291](https://notes.granola.ai/t/5c4ff81f-2e1f-4ae1-9e91-756c4e7c4291)

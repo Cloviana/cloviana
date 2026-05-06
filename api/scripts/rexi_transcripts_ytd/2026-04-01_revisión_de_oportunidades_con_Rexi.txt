@@ -1,0 +1,970 @@
+MEETING: revisión de oportunidades con Rexi
+DATE: 2026-04-01
+ID: not_kPDJILwvRXcYVW
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Teo Zavalia Gahan <teo@rexi.finance>, Peralta Eduardo Ulises <eduardo.peralta@supervielle.com.ar>, Arandia Julio Eugenio <julio.arandia@supervielle.com.ar>, Araujo Leandro Jose <leandro.araujo@supervielle.com.ar>, Garcia Mariano Alejandro <mariano.garcia@supervielle.com.ar>, Robles Rodrigo Amadeo <rodrigo.robles@supervielle.com.ar>, Messina Santiago Ezequiel <santiago.messina@supervielle.com.ar>, Furlan Vilma <vilma.furlan@supervielle.com.ar>
+SCHEDULED: 2026-04-01T15:00:00-04:00 - 2026-04-01T16:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Buenas.
+[Remote]: Buenas, buenas.
+[You]: ¿Cómo andan?
+[Remote]: Hola, buen día, buenas tardes.
+[Remote]: ¿Vilma? ¿Para, Ignacio?
+[You]: ¿Bien ustedes?
+[Remote]: Bien.
+[You]: Me alegro. ¿Julio estás en reconquista?
+[Remote]: Sí, señor.
+[You]: Muy bien, muy bien.
+[You]: Ahí está Teo.
+[You]: Bueno, estuvimos revisando ahí un poco la presentación que nos mandaron, pero
+[Remote]: ¿Qué tal?
+[You]: ¿Cómo estás, Vilma? Creo que no nos habíamos conocido.
+[Remote]: No, te te te digo así, Sacho. Cuenta caras nuevas. Buenas, ¿cómo están? Bien.
+[You]: Espectacular.
+[You]: Mariano, Kevin,
+[You]: un gusto.
+[Remote]: En la oficina, Julio?
+[Remote]: Sí, señor.
+[Remote]: José,
+[Remote]: algunos barrios llovió, ¿no?
+[Remote]: Porque Sí, acá llovió y salió el sol ahora.
+[Remote]: No sé.
+[Remote]: Acá estamos en la en la oficina de Edu, donde se...
+[Remote]: Se esconde y está todo negro, pero en un momento no se veía nada. Después,
+[Remote]: Acá, claro. Sí, es raro, acá se se pone negro, sale el sol,
+[Remote]: bueno.
+[Remote]: Buenas tardes a todos.
+[Remote]: ¿Cómo te va en falta?
+[Remote]: Santi, ahí lo sumo ahí lo sumo.
+[Remote]: Ahí, Rodrigo.
+[Remote]: Ahí, Rodri, sí.
+[You]: Bueno.
+[You]: Para los que no conozco, nos nos podemos ir presentando mientras
+[You]: se suman los que faltan.
+[You]: Rodrigo, ¿cómo estás? Un gusto.
+[Remote]: ¿Cómo andan?
+[You]: Bien, ¿y vos?
+[Remote]: Dime, Em, un gusto.
+[You]: Me alegro. Bueno, acá, para presentarnos un poco brevemente,
+[You]: con Teo somos los cofounders de de Rexi,
+[You]: Rexi es una plataforma
+[You]: de inteligencia artificial que automatiza procesos de finanzas y de operaciones.
+[You]: Comenzando por el famoso y dolorosísimo proceso de conciliaciones.
+[You]: Bancarias, transaccionales, contables.
+[You]: Trabajamos con bancos, adquirentes,
+[You]: de pagos, billeteras digitales,
+[You]: compañías de seguros, marketplaces, justamente en esto, ¿no?
+[You]: Automatizando las conciliaciones con tecnología agéntica.
+[You]: Quizás la visión más de largo plazo es
+[You]: comenzar por esto,
+[You]: para luego construir otros templates u otros workflows
+[You]: también con tecnología agéntica. Pero
+[You]: creemos que Conciliaciones es la puerta de entrada, es el primer paso fundacional,
+[You]: porque porque la IA es muy buena, pero si uno no le está
+[You]: alimentando con con información que represente la realidad y que esté conciliada, al
+[You]: lo que va a salir es
+[You]: igual o menos preciso. Entonces,
+[You]: como primer paso es decir,
+[You]: con con
+[You]: concentremos toda esta multiplicidad de fuentes en una sola fuente que está conciliada
+[You]: y, partir de ahí, construir con IA distintos flujos agénticos para automatizar procesos.
+[You]: Así que eso es un poquito lo que hacemos. Estuvimos en conversaciones con
+[You]: con Eduardo, con Julio, con Mariano, ya ya hace bastante tiempo, explorando por medios de pago.
+[You]: Pero bueno, ahora, como
+[You]: recalibrando todo, y y creo que el objetivo de la reunión es un poco repasar la
+[You]: la la presentación. O decime vos, Eduardo, repasar la presentación que nos compartieron y
+[You]: y alinear juntos.
+[You]: Cuáles queremos priorizar para una prueba de concepto, ¿no?
+[Remote]: Exacto. En en rigor,
+[Remote]: nosotros habíamos preparado, despedí, habíamos preparado, los chicos prepararon,
+[Remote]: un resumen a alto nivel de todos nuestros puntos de dolor,
+[Remote]: no nos concentramos, honestamente, solo en lo que
+[Remote]: surge de una conciliación un punto punto dolor en general,
+[Remote]: sea, hay cosas que coinciden, que pueden arrancar con la conciliación, hay otra cosa que no tiene nada que ver,
+[Remote]: son puntos dolores genuinos.
+[Remote]: Porque
+[Remote]: como bien vos lo decís, siempre dijiste es la puerta de entrada de, y por ahí encontrás otra cosa que se
+[Remote]: bueno, si bien esta no es una puerta de entrada, esto dio valor y podría arreglarlo
+[Remote]: resolverlo o ayudarlo de alguna manera.
+[Remote]: Así que, de ese lado,
+[Remote]: hicimos una recopilación en una presentación, y yo ya se las compartí a ellos para que la vaya
+[Remote]: viendo, no la recorrimos, solo dieron los títulos.
+[Remote]: Por eso lo cara entusiasmado, me imagino.
+[Remote]: Y el objetivo de esta charla es
+[Remote]: tome contacto
+[Remote]: Acá están todos mis reportes, Cada uno de los que está acá, que sino una o más hojas de la presentación. Con temas, recordamos tenemos una hora como objetivo, tal vez un poquito más, pero en la feta creo que puse una hora, La idea es asociar la cara de la persona, el nombre con el tema, después profundice con una o dos charlas, el que ustedes consideren, y esto para todos, le voy a sacar candidatos para después, no sé, un un un primer entregable,
+[Remote]: acuerdo de concepto, llamémoslo como quieran.
+[Remote]: Hacer una especie de caso de negocio,
+[Remote]: presentárselo a Paco,
+[Remote]: y, si está de acuerdo, avanzar con eso,
+[Remote]: como la punta del hambre, digamos. Con eso rompemos el hielo y después
+[Remote]: iremos evolucionando e incorporando más cosas.
+[Remote]: Originalmente, lo que
+[Remote]: el lunes a la tarde, me clavaron todo el lunes con un montón de reuniones, no hablan
+[Remote]: no conseguí espacio de agenda, no quería pasarla el martes.
+[Remote]: Porque
+[Remote]: prefería hacerla hoy para la ponga
+[Remote]: El el acuerdo me ha gustado hacerlo caracal, hay que charlemos, integremos de otra manera, pero nada,
+[Remote]: la semana que viene
+[Remote]: ustedes se encontrarán preguntitas donde corresponda y
+[Remote]: e irán trabajando.
+[Remote]: No mucho más.
+[Remote]: O sea, yo lo que es, les propongo es presentémonos
+[Remote]: después recordamos muy por encima la presentación,
+[Remote]: Si tienen alguna duda por la cual no pueden dormir, decimos, mirá, lo que hay detrás de ti,
+[Remote]: yo sé esto y esto y esto, lejos de pretender que acá salgan con un hiperdetrace y
+[Remote]: resuelvan algo,
+[Remote]: Y la propuesta es la semana que viene, agenden con cada uno,
+[Remote]: lo que dan candidatos más interesantes,
+[Remote]: para ir explorando, haciendo doble clic y demás,
+[Remote]: Por lo menos, para tener una primer visión, acercamiento y lo
+[Remote]: negocio. No sé, con cinco candidatos, cuatro candidatos, seis candidatos de
+[Remote]: temas, me refiero, este, para ir, incluso,
+[Remote]: No, les quiero robar mucho más tiempo,
+[Remote]: No sé si si quiere hacer una rondita de presentación, pega
+[Remote]: para lo la gente del Onco, Sí, sí.
+[You]: Que salió de la reunión pasada, Eduardo, es
+[You]: a la hora de empezar a pensar en estos candidatos, creo que es una es es una matriz de bueno, primero, nosotros hacemos conciliaciones, con lo cual tendría que ser un un rubro de conciliaciones, hoy, ¿no? Después podemos explorar otras cosas. Pero pero una matriz de qué proceso hoy duele mucho, para mostrar ese impacto grande, ¿no?, y de inmediato, Y hay un tema de gobernanza de datos, entonces, que sea un problema de eficiencia, en donde por ahí la información ya está, no la estamos procesando bien y no la estamos optimizando bien, o de manera eficiente. Porque si nos tenemos que meter a construir conectores a a otras
+[You]: fuentes de información o tenemos que pedirle, involucrar sistemas para que nos ayude con la cobranza de datos,
+[You]: se va a trabar mucho el el proceso, y queremos encontrar algo, una mezcla entre
+[You]: que tenga de impacto alto
+[You]: pero que hoy ya la disponibilidad de información esté
+[You]: disponible y fácil de levantar.
+[Remote]: Sí,
+[Remote]: Bueno, el comentario, volvé mencionárselos,
+[Remote]: Nos pidió la gente de tecnología
+[Remote]: que justamente basáramos por el camino donde
+[Remote]: no no sé, un stock por tecnología para, no sé, conseguir un tablero, armar un archivo, lo que fuera,
+[Remote]: que siempre que sea posible,
+[Remote]: dentro de los candidatos,
+[Remote]: la solución sea lo más autónoma del área de TI, del banco.
+[Remote]: En pos de la velocidad, por otra cosa.
+[Remote]: Alineados ahí.
+[Remote]: Ok, bueno.
+[Remote]: Si quieren, hacemos una ronda y se van presentando, así empiezan a asociar
+[Remote]: nombres. Y si no, podemos hacer una cosa que te parece
+[Remote]: hacemos la presentación y va bien mismo, no hay problema.
+[Remote]: Sí.
+[Remote]: ¿Quieren que comparta ahí? Mulito, lo que te pido,
+[Remote]: o o sos superbreve o te ponés al final. Oye, soy el último, tranquilo.
+[Remote]: Sí conozco.
+[Remote]: Like like to do, Peralta.
+[Remote]: Fera like to do.
+[Remote]: No. Cómo te puso,
+[Remote]: Tal cual. Ah, que acá justo no está, estaba acá.
+[Remote]: Acá está el mío, lo voy a pasar.
+[Remote]: Tú y yo, Marianito.
+[Remote]: Bueno, ¿cómo andan? Me presento, mi nombre es Mariano.
+[Remote]: Tengo a cargo la parte operativa de los productos garantizados y seguros.
+[Remote]: Los productos garantizados son leasing, hipotecas
+[Remote]: prendarios y, bueno, todo lo que son los seguros del banco.
+[Remote]: Ahí puse tres puntos de olor, que son los más grandes,
+[Remote]: y que estaban un poco relacionados con esto que decían ustedes. Primero, nosotros
+[Remote]: hace, desde enero nos dieron, nos nos pasaba una nueva tarea, que es la
+[Remote]: de todo lo que es los rubros contables de leasing.
+[Remote]: Para que sepan, hoy leasing
+[Remote]: corre sobre un programa
+[Remote]: que no es el core del banco, no corre sobre Ban Total,
+[Remote]: el préstamo ni toda la vida de ese leasing, sino que corre en otro sistema que interactúa con
+[Remote]: Total, que es el sistema Accord del banco. El problema que tenemos nosotros es que esa
+[Remote]: información a veces no cruza, no concilia, hay errores y demás.
+[Remote]: La gente de producto y con sus desarrolladores,
+[Remote]: trabajando, nosotros tenemos ese control a partir de enero,
+[Remote]: y, a su vez, tenemos otro control, también contable y de conciliación, que es
+[Remote]: todas las facturas que yo cargo en el sistema,
+[Remote]: que concilien con las facturas que pagó pago proveedores en el sistema.
+[Remote]: ¿Sí? O sea, ahí son cruces contables. Parece fácil
+[Remote]: rápido, obviamente empiezan a jugar las notas de crédito, las notas de débito,
+[Remote]: que él está nulo, que él no te da nulo y demás.
+[Remote]: Eso en la parte de las facturas y en la parte de lo que es la contabilidad propia de la vida del leasing,
+[Remote]: no hay tanto ruido en lo que es la parte de
+[Remote]: intereses, no tenemos eso, pero sí el leasing tiene asociado a un montón de gastos, y
+[Remote]: infracciones, patentes, seguros, gasto de de
+[Remote]: los escribanos y demás, que ahí sí, a veces hay
+[Remote]: descoordinación entre lo que dice un sistema y lo que dice el otro.
+[Remote]: Ahí nosotros estamos empezando a laburar y a entender la tarea, porque no las
+[Remote]: pasaron recién ahora,
+[Remote]: qué controles podemos sumar y demás, pero ahí tenemos como una gran cantidad de tiempo
+[Remote]: donde yo siempre siempre, al que hablamos con Edu, digo, yo estoy mirando lo que está bien y lo que
+[Remote]: mal, y pierdo un montón de tiempo mirando cosas que ya sé que
+[Remote]: que no sé, que están bien, pero tengo que mirarlas igual porque no tengo ningún proceso que
+[Remote]: me diga, che, esto está bien, te queda esto para mirar. Entonces, no solo que
+[Remote]: miramos lo que está malo, analizamos y corregimos, sino que pierde un montón
+[Remote]: de tiempo conciliando y diciendo, ah, bueno, esto ya está bien, no lo tengo que mirar.
+[Remote]: Eso con respecto a leasing, ¿sí? Obviamente,
+[Remote]: para para hacer rápido y darle lugar a todos los chicos, como muy por arriba, después, con seguro, tenemos como dos patas también, Nosotros tenemos un bróker, que es superseguro, que que es parte del grupo. Nosotros ahí tenemos dos grandes problemas. Primero, el que dice ahí, reporte seguro, todo lo que es la reportería, cómo obtenemos los datos, de dónde,
+[Remote]: o sea, está está está todo, no es que no está, pero
+[Remote]: no llega y hay un recontra-rechequeo de la data, porque
+[Remote]: no cruza. Entonces, yo lo cruzo, lo cruza superbién seguro,
+[Remote]: demás, y hay un montón de tiempo que perdemos haciendo esos reprocesos y
+[Remote]: chequeos, y después viene la conciliación en Sí. Cuando hablamos de conciliación, hablo de el proceso de cuando tengo un siniestro,
+[Remote]: y a mí me pagan ese siniestro. Entonces, yo tengo por un lado el movimiento esperando cobrar ese seguro, ese siniestro que tuve, y después la de ese siniestro. Entonces, yo tengo que matar la partida contable que tiene el banco esperando a cobrar ese siniestro, con la plata que realmente me paga la compañía de seguro. Ahí hay todo un proceso que que estamos un montón y demás, pero también que es todo manual, todo cruce nuestro, hay inconsistencias la información, que estamos laburando en eso, pero yendo a buscar lo mismo. Decir, hay hay cosas que te van a quedar pendiente siempre, porque hay un proceso largo que no es
+[Remote]: no es de un mes, sino que tardan dos, tres meses en en cobrar y demás,
+[Remote]: pero no tenemos nada automático. Acá lo mismo, todo lo que está bien, lo tengo que mirar,
+[Remote]: preparar,
+[Remote]: demás. Acá, un poco, lo que también pensamos es,
+[Remote]: bueno, lo que está bien, yo lo tendría que, un proceso tendría que
+[Remote]: y me tendría que decir, acá está el archivo para que proceses,
+[Remote]: listo. Bueno, todo eso yo lo armo cruzando manualmente millones de cosas,
+[Remote]: tardamos millones de de días en hacerlo todos los meses.
+[Remote]: Así que, bueno, nada, un poco muy por arriba, esos son los los puntos de dolores que tenemos.
+[Remote]: Yo, un un solo comentario,
+[Remote]: miren, con cariño a Marieno, creo que de acá vamos a sacar un par de casos.
+[Remote]: Agrego que
+[Remote]: por la naturaleza, la tarea que tiene
+[Remote]: sobre todo con lo que tiene que ver con seguros,
+[Remote]: Además, no requiero hacerlo histéricamente en el día o al día siguiente.
+[Remote]: Sea, normalmente son mes calendario las cosas.
+[Remote]: Yo informo la base de qué tengo que asegurar,
+[Remote]: calendario, yo recibo una vez por mes los pagos, el señor. O sea,
+[Remote]: no no es todo que tengo que, al fin del día, tenerlo todo cerrado y cruzado y tener un API
+[Remote]: que me dé en línea la información, etcétera, con lo cual
+[Remote]: además,
+[Remote]: tengo el espacio, porque la naturaleza del negocio de seguros es así, como para
+[Remote]: capturar el dato, esperar que esté en el sistema que tiene que estar, tomarlo de ahí,
+[Remote]: bien, etcétera.
+[Remote]: Sí, y y leasing también, Edu, no tenemos necesidad de hacer esa conciliación diaria, porque
+[Remote]: también el pago de las facturas es una semana después de que yo cargué los gastos y demás,
+[Remote]: Todos estos puntos no es algo que tiene que ser en en el día,
+[Remote]: y, por la parte de seguro, nosotros lo hacemos mensualmente, la mayoría de las cosas,
+[Remote]: y la parte de leasing la hacemos semanalmente, un poco para seguir el contexto este que que está diciendo Edu.
+[You]: Perfecto. Solo comentar ahí, en el tema seguros, hubo
+[You]: un incidente, ¿no?, hace unas semanas, hace o hace un mes,
+[You]: con un descalce grande,
+[Remote]: No meteré. No, con un descalzo, no, ¿te preferís a un incendio o un siniestro?
+[You]: No sé si fue un siniestro o
+[You]: o un, digamos, un descalce de conciliación que que
+[You]: encontraron una diferencia grande entre, no sé, en un asiento contable y lo que, bueno, no sé, por ahí entendí mal.
+[Remote]: No Quizá puede ser
+[Remote]: ser lo de tarjeta, viene hace un par de meses, Edu, que venimos viendo y demás, pero
+[Remote]: Ah, claro, puede ser, sí. Puede ser algo que estaba sobre la
+[Remote]: una suma asegurada inferior al valor real del cliente.
+[Remote]: Un crédito hipotecario. Hipotecario, sí.
+[Remote]: Pero nada, ahí ahí
+[Remote]: infinidad de temas, Cualquier cosa que diga, saca algún problema, sí.
+[Remote]: Podemos discutir seis grandes o no, porque hay otra más grande que ese no se capaz de irlotar.
+[Remote]: Pero bueno.
+[Remote]: Próximo
+[Remote]: Ahí voy.
+[Remote]: Voy a cronometrar el tiempo para después hacer el descargo,
+[Remote]: Por favor, Qué tapiz. Ahí, ahí, ahí. Voy, ahí.
+[Remote]: Viste?
+[Remote]: Le estás compitiendo con el
+[Remote]: Te querés sacar el puesto. No, no voy a hacer pasar el que voy a hacer, puedo desintecirlo.
+[Remote]: Cualquier cosa, después le mando un un WhatsApp a Nacho.
+[Remote]: Bueno, buenas. Creo que vengo yo, ¿no?
+[Remote]: Sí. Bien. Soy Santiago, del equipo de operaciones activas. Tenemos la parte operativa de los productos. Y paso a listar préstamos, acuerdos, plafones, descuento de facturas, descuento de cheques, refinanciaciones, reestructuraciones y rendiciones de estudios. Estos últimos tres están en vías de automatización, por eso no están incluidos acá, son los que más impacto tengo en en capacity, Los otros, que no hay soluciones previstas en horizonte, son los que puse acá. Que, bueno, paso paso a comentar. El primero salta de plafones. El plafón, ¿sabe lo que es? ¿A qué le llamamos plafón nosotros? No, no no miro qué es. Bueno, acá acá, Plafón, le llamamos a la línea crediticia aprobada que tiene el cliente.
+[Remote]: Créditos le le hace una una validación, una aprobación,
+[Remote]: y le dice, de
+[Remote]: para préstamos, podés sacar un millón, para acuerdos, podés sacar
+[Remote]: quinientas lucas, para, bueno, así, listadito de de de
+[Remote]: de cada producto, eso da un total del platform, total de calificación del cliente,
+[Remote]: y todo eso lo tenemos que volcar nosotros en un sistema, en nuestro
+[Remote]: sistema accord, es Ban Total, a mano, obviamente,
+[Remote]: nos llega por mail una carátula, que es la carátula de créditos
+[Remote]: que que con la que se manejan,
+[Remote]: en un mail,
+[Remote]: pegado como imagen, ni siquiera en PDF.
+[Remote]: O sea, de ahí nosotros leemos y
+[Remote]: línea por línea.
+[Remote]: Ese es el primero.
+[Remote]: Después, control contable, tenemos nosotros
+[Remote]: el control contable de unos rubros de préstamos y de factoring.
+[Remote]: Factoring es descuento de cheques y de facturas.
+[Remote]: Son rubros transitorios y rubros de capital, en caso de préstamos, en en algunos casos.
+[Remote]: Tenemos ya semi, semiautomatizado, digamos,
+[Remote]: en un Excel con macros, nosotros volcamos una el el listado de movimientos del día,
+[Remote]: y nos dice si hay diferencias o no, y en, cuando hay diferencias, ahí hay
+[Remote]: una persona que tiene que entrar uno por uno y empezar a investigar y fijarse dónde está la
+[Remote]: la
+[Remote]: por qué se generó esa diferencia, quién la generó, y, en el caso de que sea uno
+[Remote]: humano, digamos, le mando un correo o un chat para
+[Remote]: preguntarle qué pasó y pedir que regularice la diferencia.
+[Remote]: Ahí pregunta sobre esa, ¿cuáles vendrían a ser la la
+[Remote]: dos bases que se comparan? ¿Quiénes son los que generan cada una de estas bases?
+[Remote]: No, es una sola la base, es es el listado de movimientos del rubro
+[Remote]: tiene que dar siempre cero.
+[Remote]: Ah, ok. Sí, el rubro tiene...
+[Remote]: Cuenta y operación, generalmente. Vos, para la cuenta,
+[Remote]: ejemplo, de Santiago Mesina, qué soy yo, con operación uno dos tres,
+[Remote]: tiene que haber créditos y débitos, y tiene que haber siempre Perfecto.
+[Remote]: Si queda en uno, bueno, hay que ver cuál es el movimiento que ve la diferencia,
+[Remote]: y avisarle a esa persona para que lo Perfecto.
+[Remote]: Completamente contable. Exactamente.
+[Remote]: Después, este préstamo con código de descuento
+[Remote]: es un producto que no está vigente ahora, pero quieren que resurja.
+[Remote]: Esto es así. Voy a tratar de resumirlo lo más que pueda.
+[Remote]: Se daba a empleados de la municipalidad de Mendoza, creo,
+[Remote]: y eran clientes que no tenían cuenta en el banco, se les daba un préstamo
+[Remote]: y
+[Remote]: la entidad le descontaba las cuotas en el desde el recibo de sueldo.
+[Remote]: Nos lo transfería a una cuenta interna nuestra,
+[Remote]: nos da un archivo todos los meses con
+[Remote]: los datos de cada cliente, qué qué importe pagó del préstamo, y había que darse vuelta ahí
+[Remote]: ir cancelando.
+[Remote]: Cuota por cuota, en base al archivo este que nos había mandado la entidad.
+[Remote]: Debitando de la cuenta interna.
+[Remote]: Para el
+[Remote]: nada, además de la manualidad de hacer cuota por cuota,
+[Remote]: había que hacer también un cruce contable o un cruce contable, no, pero contabilizar bien la cuenta de que,
+[Remote]: siempre quede en cero, si hay diferencias, ver si
+[Remote]: cobró alguna cuota mal, si hay un una cuota que no nos llegó.
+[Remote]: Una una manualidad muy grande, quieren resurgir ahora el producto,
+[Remote]: y
+[Remote]: nada, como para que esté ahí, sobre la mesa también,
+[Remote]: este producto seminuevo.
+[Remote]: Y el último, carga de préstamos y acuerdos a empresas.
+[Remote]: Esto también lo hacemos a mano,
+[Remote]: Hoy nos llega por por una bandeja de un sistema que tenemos que se llama gestar.
+[Remote]: Lo estamos migrando a otro sistema que se llama CRM, que es un poquito mejor.
+[Remote]: Nosotros recibimos el pedido con la la la el PDF,
+[Remote]: con la solicitud firmada por el cliente y todos los datos del préstamo del acuerdo
+[Remote]: según sea el producto que soliciten, nos damos vuelta y lo cargamos también en
+[Remote]: sistema accord del banco, que es Juan Total,
+[Remote]: dato por dato, la cuenta del cliente, el importe que solicita, la primer cuota, la tasa,
+[Remote]: la cantidad de cuotas y demás, y desembolsamos.
+[Remote]: En el medio puede haber una excepción crediticia, hay que derivarlo a crédito, puede haber una
+[Remote]: de tasa, hay que derivarlo a un a un área interna del banco.
+[Remote]: Y una vez que está todo aprobado, se contabiliza y se liquida.
+[Remote]: Después, con eso, nosotros tenemos que hacer la subida a Tux, Tux es el repositorio documental que tiene el banco.
+[Remote]: Esto, con la migración a CRM, ya lo tendríamos resuelto al al nuevo sistema de bandeja.
+[Remote]: Pero bueno, todo lo demás no.
+[Remote]: Ese sería el cuarto punto.
+[You]: Ese es un, o sea, es un tema de de carga de información.
+[Remote]: Es carga operativa, sí, sí, sí. Cada información, o sea, y
+[Remote]: otra cosa que no aclaré, validación de la documentación que adjuntan y control de firmas.
+[Remote]: Quien firme y, está autorizada esa persona en en otro sistema de firmas que tenemos nosotros,
+[Remote]: para ver si está habilitada esa persona para solicitar, por ejemplo, un préstamo para esa empresa.
+[Remote]: A ti, hijo. Guise rápido.
+[Remote]: Más o menos.
+[Remote]: Venís escolta.
+[Remote]: Finanzas. Bueno, me toca a mí,
+[Remote]: Bueno, mi nombre es Vilma Forlán,
+[Remote]: estoy a cargo
+[Remote]: del back office de mesa de dinero.
+[Remote]: También somos la sociedad depositaria de los fondos con una inversión.
+[Remote]: Los productos que manejamos son títulos, call money, plazos fijos,
+[Remote]: remuneradas y suscripciones y rescates por parte de fondos.
+[Remote]: Todos estos productos son con clientes institucionales, contrapartes o
+[Remote]: clientes específicos.
+[Remote]: No irme mucho por las ramas,
+[Remote]: y en base a lo que comentaron de las conciliaciones,
+[Remote]: sea, voy a explicar el punto dos y el cinco, porque lo demás es un
+[Remote]: requieren desarrollos y también, bueno, gente de sistemas, que entiendo que no lo
+[Remote]: no es lo que se va a ver en principio.
+[Remote]: Bueno, en el dos tenemos cuentas
+[Remote]: remuneradas con clientes institucionales. La idea es mejorar un poco el circuito.
+[Remote]: Nos manejamos con un Excel que tiene la mesa de dinero,
+[Remote]: y Mails, que recibimos.
+[Remote]: Los pagos los tenemos automatizados, pero un poco es
+[Remote]: ver qué se puede mejorar en en ese proceso, que seguro se puede mejorar,
+[Remote]: evitar errores, evitar reprocesos,
+[Remote]: y, bueno, nada, agilizar la operatoria.
+[Remote]: Y por la parte de fondos comunes de inversiones,
+[Remote]: ahí, un poco, es revisar todo lo que se carga en visual fondos,
+[Remote]: contra lo de Ban Total.
+[Remote]: Hoy en día tenemos unas macros,
+[Remote]: todo esto de desconciliación de diaria online en la
+[Remote]: en el cierre y durante el día. También y ver qué forma podemos agilizar esos procesos.
+[Remote]: No puse nada de control contable, pero bueno, hay algunas cosas que también
+[Remote]: después, cuando tengamos alguna charla más,
+[Remote]: directa... Perdón que tengo la gata acá.
+[Remote]: Podríamos revisarlo también.
+[You]: Vilma, ahí, perdón, pero el punto cuatro dice conciliación.
+[Remote]: Sí. ¿Por qué no lo digo eso? Porque beam a clearing se va
+[Remote]: lo tenemos para el Veinticuatro De Abril, Eso Sea, Es Un Nuevo Sistema De De Lima que que se va a implementar recién a fines de abril. O sea,
+[Remote]: antes de eso, o sea, vamos a tener una nueva una nueva conciliación o adaptación.
+[Remote]: De de las conciliaciones.
+[Remote]: Eso yo lo dejaría, digamos, para más adelante.
+[You]: Ok, pero va a necesitar un
+[Remote]: Tampoco sé si eso se va a demorar.
+[You]: Pero va va a necesitar de un proceso automático.
+[Remote]: ¿Cómo?
+[Remote]: Sí, sí, porque hoy en día
+[Remote]: más allá de que tengamos este sistema, que es el mercado,
+[Remote]: nosotros tenemos conciliaciones con macros o con bots,
+[Remote]: pero, bueno, ahora vamos a tener que readaptar todo.
+[Remote]: Ese es el último punto que que vería después de de que la implementen, digamos.
+[You]: Perfeito.
+[Remote]: ¿Puedo acotar algo con respecto a eso?
+[Remote]: De hecho, por ahí te hace un poco de ruida, pero Vilma tiene
+[Remote]: la parte de control contable. Como yo tengo el medio de pago, ella la tiene de
+[Remote]: de finanzas, y Santi tiene también otra parte de control contable. O sea que
+[Remote]: por ahí de lo que vos viste con nosotros, cuando nos relevaste,
+[Remote]: eso aplica al motor también para esto.
+[You]: Perfecto.
+[Remote]: Concertalmente, cada uno consigue a su producto.
+[Remote]: A su conjunto de producto.
+[Remote]: Por mi parte, digamos, ya estaría, sí. Ok, bien.
+[Remote]: Bueno, ¿cómo anda? Mi nombre es Rodrigo Robles,
+[Remote]: Yo creo que soy el único de todos que no tiene parte contable, con el cual
+[Remote]: no sé cómo les puede servir o cómo ustedes nos van a poder ayudar con esto, pero les cuento. Gracias, Rodrigo.
+[Remote]: Sabemos que te pasamos control contable a vos.
+[Remote]: Bueno, no, yo lo que tengo que es
+[Remote]: es distinto a lo de los chicos, pero no menos importante, es la parte de las aperturas de cuenta
+[Remote]: A ver, ¿entendés?, son dos focos. Uno es aperturas de cuenta de todos los segmentos de empresa del banco, desde las PIBs chiquitas,
+[Remote]: las cuentas de banca corporativa. Ahí los otros humanos, que están analizando la documentación
+[Remote]: que, por normativa del Banco Central, presentan los
+[Remote]: los los nuevos clientes o los prospect que van a ingresar al banco,
+[Remote]: y damos de alta todas esas cuentas, incluyendo
+[Remote]: dentro del alta está esta parte
+[Remote]: es el punto número dos, que es la bonificación de cuentas, que
+[Remote]: generalmente, el banco suele dar cuentas bonificadas, por lo menos en un
+[Remote]: primer año, o según el momento o campañas comerciales que tenga,
+[Remote]: para algún subsegmento estratégico, lo que hace es dar bonificación en lugar de por ahí doce meses
+[Remote]: meses o veinticuatro meses, y todo eso es una carga
+[Remote]: manual que, al cierre de cada día,
+[Remote]: entrar al sistema core del banco de Ban Total, seleccionar aprobarse
+[Remote]: seleccionar aprobar. Obviamente que hay que revisar que esté correctamente cargada la
+[Remote]: o que esté correctamente el el plazo de bonificación acorde al
+[Remote]: segmento en el cual sea de alta la empresa.
+[Remote]: Pero yo lo, sí lo puse como punto de dolor, porque, bueno, pensaba que
+[Remote]: hace cotidianamente y y que entiendo, podríamos prescindir de un humano para esta carga y a
+[Remote]: vez, nos nos permitiría a nosotros reducir la la parte de de roles humanos, ¿no?
+[Remote]: Y el otro foco que tenemos muy grande es en permitir que
+[Remote]: esto ya no tiene que ver con el flujo, sino con el stop, ya tiene que ver con
+[Remote]: básicamente, permitir que los que los clientes de empresas
+[Remote]: puedan operar, que puede hacer cualquier tipo de operación con el banco, que es justamente
+[Remote]: la carga de las facultades en en uno de los sistemas que nosotros tenemos, que es design, que es
+[Remote]: lógicamente, actualización de mandato, carga de poderes,
+[Remote]: carga de figura de representante legal de las empresas, vencen los mandatos, hay que actualizarlo. Nosotros trabajamos con un estudio jurídico externo que genera dictámenes,
+[Remote]: y luego tenemos humanos que generan la carga manual de esas facultades,
+[Remote]: en el sistema, ¿no? Es, leen facultad tres, abrir cuenta corriente,
+[Remote]: y lo que hacen es tipearlo en el sistema y permitir la habilitación de una por una las las cargas.
+[Remote]: Este punto uno yo lo yo lo cargué como un punto del otro, la realidad es que nosotros ya estamos,
+[Remote]: trabajándolo hace un tiempo.
+[Remote]: Y estamos avanzando en, bueno, la incorporación de inteligencia artificial para poder cargar esto de manera automática, pero bueno,
+[Remote]: lógicamente, lo que hice fue volcarlo acá con un punto de dolor, porque todavía
+[Remote]: está en en veremos, ¿no? Pero, bueno, básicamente, estos son los dos
+[Remote]: que trabajamos, altas de cuenta, y en la posventa, permitir que los clientes
+[Remote]: empresas puedan operar acorde a la normativa, ¿no?, del del Banco Central, y que esté en
+[Remote]: actualizados todos sus sus facultades en sistema.
+[Remote]: Ahí, por eso no no por eso, al no tener nada
+[Remote]: contable, al no tener nada relacionado a conciliación, creo que por ahí
+[Remote]: se va a hacer un poco esquivo que ustedes nos puedan ayudar, por lo menos en una primera etapa,
+[Remote]: pero nunca está de más comentarlo, ¿no?
+[You]: Por isso,
+[Remote]: Sí, acá hay comentarios,
+[Remote]: Si no me has dicho que corte en tu sistema o en la puerta de entrada de la conciliación,
+[Remote]: Rodrigo es la tentación de todo lo que trabaja con IAAP, porque él
+[Remote]: documento tiene que traer información de documento, un estudio jurídico,
+[Remote]: pues lo tiene que cargar. Todo el mundo viene
+[Remote]: todo lo que venden ahí, diga, dicen, ah, esto te lo puedo mejorar, esto te lo puedo hacer. De hecho,
+[Remote]: dos o tres proyectos que están competindo entre sí para hacer eso,
+[Remote]: o gratis o no tan gratis, no importa. Sí, sí.
+[Remote]: Es la puerta de entrada de las otras empresas que quieren
+[Remote]: introducirse con alguien normal.
+[Remote]: Sí, es es es esas empresas, Rodrigo.
+[Remote]: Sí, incluso nosotros ya ya estamos trabajando hace unos tres años, empezamos a trabajar
+[Remote]: en incorporar inteligencia artificial para crear esos
+[Remote]: esos dictámenes para, es decir, para volcarle, por ejemplo, el estatuto o el contrato social de una empresa,
+[Remote]: o una herramienta, se lo genere un dictamen
+[Remote]: sin que ese sin que esa documentación tenga que viajar al estudio
+[Remote]: jurídico externo para que un humano analice todo el documento,
+[Remote]: genere el dictamen, nos lo envíe a nosotros y, lógicamente, tenga el costo que tenga, ¿no?
+[Remote]: Con lo cual eso ya se viene trabajando para algunos tipos societarios,
+[Remote]: bueno, ahora estamos avanzando quizás un poquito más en profundidad.
+[Remote]: Pero sí, como dice Eduardo, quizás somos la puerta de entrada para para lo que tenga que ver con inteligencia artificial.
+[Remote]: Así que en una de esas se puede trabajar en algo por ese lado.
+[You]: Espectacular.
+[Remote]: Hola, buenas tardes. Mi nombre es Leandro Araujo.
+[Remote]: Estoy a cargo de la parte de email office cash.
+[Remote]: Y cash. Sacando, digamos, la premisa de la parte contable, lo mío
+[Remote]: también son puntos de dolor, pero netamente
+[Remote]: sistemáticos, o sea, que necesito la intervención de
+[Remote]: sistemas o que se mejoren los sistemas como para, digamos,
+[Remote]: aplicar al proceso
+[Remote]: de plan sueldos, al proceso de débito directo,
+[Remote]: y a judiciales, donde es todo una carga manual,
+[Remote]: justamente por no tener nada sistematizado, ¿no?
+[Remote]: Generalmente, apunta a esto como tener archivos masivos de carga,
+[Remote]: y
+[Remote]: y que se procesen en forma automática sacando la manualidad.
+[Remote]: Netamente, digamos, pasa por esto que de cada uno de estos puntos, ¿no?
+[Remote]: La parte de plan sueldo, tengo algunos archivos generados,
+[Remote]: que levantan un lote de sueldos, lo que no tienen esos archivos que
+[Remote]: son validaciones de cantidad de registros
+[Remote]: y y total. Entonces, cualquier proceso que haga,
+[Remote]: tengo que tener la suma precaución de no duplicar el proceso,
+[Remote]: y generar, digamos, una mala información en cuanto
+[Remote]: a la calidad de lo que se procesa.
+[Remote]: En plan sueldo me pasa lo mismo, en en débito directo,
+[Remote]: también son
+[Remote]: procesos, digamos, de de carga que de archivos,
+[Remote]: y que tengo el mismo pesar con el tema de la carga manual.
+[Remote]: Con respecto a la parte de operaciones cash,
+[Remote]: la otra
+[Remote]: slide,
+[Remote]: que sigue.
+[Remote]: También es el proceso de recaudaciones.
+[Remote]: Donde
+[Remote]: el sistema no me va no me no me tiene en cuenta, digamos, que para cerrar una cuenta recaudadora me tiene
+[Remote]: cerrar la cuenta corriente, si no me quedan
+[Remote]: un producto abierto mientras que van en sí de la mano, ¿está?
+[Remote]: Esto también acarrea que después las cuentas corrientes
+[Remote]: me generen gastos administrativos y tengan andar haciendo un externo por eso.
+[Remote]: Todo, digamos, desventajas manuales para mitigar error.
+[Remote]: Y sería un punto de control sistémicos, ¿verdad?
+[Remote]: Nada,
+[Remote]: nada de otro mundo, pero sí que hoy por hoy no lo podemos desarrollar.
+[Remote]: En la parte de comercios,
+[Remote]: el proceso también tengo
+[Remote]: no me validan la parte de cierre de cuenta con la
+[Remote]: la vinculación del comercio, y eso trae descalces y posibles pérdidas hacia el banco.
+[Remote]: Hoy, a nivel sistémica, no tengo nada que me que me indique
+[Remote]: cuándo, dónde baja un comercio, que lo hace el cliente, y no me viene ninguna novedad hacia hacia el banco.
+[Remote]: Por ende, en verdad, ahí me queda, o la cuenta cerrada con anticipación,
+[Remote]: o el comienzo descalzado con la cancelación de comercio.
+[Remote]: Y tengo todo un proceso de ligaciones rechazadas,
+[Remote]: también, pero la contabilidad, generalmente, me queda en cero, porque lo que procesa
+[Remote]: generalmente, como rechazo, me genera la
+[Remote]: y da, generalmente, voy a dar en cero, no tengo diferencias contables.
+[Remote]: Eso es todo, de mi parte.
+[Remote]: Bueno, me toca a mí.
+[Remote]: Voy a esmerarme en hacer dos minutos.
+[Remote]: A ver. ¿Página integral de tarjeta?
+[Remote]: Nosotros estamos buscando hace años tener un motor único,
+[Remote]: que me entre de todos lados. ¿Qué quiere decir eso?
+[Remote]: Que me entre fallecidos de Anses, que me entre la baja voluntaria de un cliente
+[Remote]: ya sea por cualquiera de los canales, y me entre la baja
+[Remote]: de por decisión del banco.
+[Remote]: Esa baja, si entra ese motor, tiene que ver las distintas casuísticas y entender
+[Remote]: si esto hay que seriarla, si hay que boletinarla, si hay que bloquearla.
+[Remote]: Para cerrarla.
+[Remote]: Esto es algo que venimos pidiendo desde el año veintidós con
+[Remote]: Edu, que veníamos con tema de la migración de YouDo, siempre se priorizó esto
+[Remote]: esa eficiencia de de dos recursos,
+[Remote]: ¿sí?, y no logramos que se automatice. Si ustedes
+[Remote]: tienen la posibilidad de ayudar mejor esto, sería fantástico.
+[Remote]: Después, el tema de reverso de pagos es
+[Remote]: hoy esto debía de ser algo
+[Remote]: que las reglas debían estar en el CRM,
+[Remote]: y poder
+[Remote]: fijarse toda la revisión que hacemos, que eso es es un de todos los días,
+[Remote]: que que cumple unas reglas, ¿sí?, que no se que no lo cargue un cliente, que
+[Remote]: no sea uno que ya ya sea devuelto y que reúna los requisitos.
+[Remote]: El tercer punto, desconocimiento de consumo de TCI y TD.
+[Remote]: Esto es
+[Remote]: son seis recursos, por lo cual es una carga enorme.
+[Remote]: En el caso DTC, TD, tiene diferencia, porque en el DTC se adelanta el desconocimiento,
+[Remote]: esto es de la toma de
+[Remote]: de la denuncia del cliente, que desconoce esos
+[Remote]: esos consumos, que debiera aparecer directamente para
+[Remote]: que los marque
+[Remote]: y no tener que que tipearlo.
+[Remote]: Boletinar el plástico, pedir una reimpresión,
+[Remote]: verificar que
+[Remote]: la resolución de la procesadora, si es favorable, desfavorar al cliente.
+[Remote]: Pero siempre se hace un crédito transitorio y después depende si es
+[Remote]: local o internacional, depende de los plazos, viene la resolución,
+[Remote]: y por ahí, si es desfavorable, se le saca el se le hace el débito en en la tarjeta.
+[Remote]: En el caso de débito, no se ajusta
+[Remote]: va el tiempo de resolución,
+[Remote]: y hoy estamos haciendo todo un proceso manual con unas macros, porque si vos hacés
+[Remote]: cinco desconocimientos,
+[Remote]: en realidad el reclamo no se cierra,
+[Remote]: hasta que el el quinto reclamo esté finalizado, pero hoy lo que hacemos es si
+[Remote]: primero llega a los cinco días, la devolvemos,
+[Remote]: si corresponde, y vamos guardándole esa macro
+[Remote]: qué es lo que tiene hasta terminar los cinco y por y dar por finalizado.
+[Remote]: Y dije, para el final, la flechita del postre,
+[Remote]: que es el orquestador el paquete de productos,
+[Remote]: hoy el banco no tiene un sistema
+[Remote]: que figure, que tenga la forma de
+[Remote]: conectar los distintos, corta en todo de tarjeta,
+[Remote]: de crédito, que es smart open,
+[Remote]: como aval total, que es el correo bancario, por lo cual
+[Remote]: todos los días debería tomar la foto y decir, bueno, Nacho tiene estos productos.
+[Remote]: Estos productos son todos Tanalón. Si estos productos, Tanalón,
+[Remote]: conforman algún paquete,
+[Remote]: lo paquetizo
+[Remote]: le tengo que cambiar las condiciones y tiene un pricing único.
+[Remote]: ¿Sí?
+[Remote]: Por otro lado es
+[Remote]: Nacho tiene
+[Remote]: un paquete
+[Remote]: ¿sí?,
+[Remote]: premium, da de baja un producto, y puede ser
+[Remote]: que rompa paquete y no haya ninguno
+[Remote]: que funcione,
+[Remote]: entonces eso
+[Remote]: me tiene que generar un una novedad para cada uno de los productos.
+[Remote]: Para despaquetizar y empezar a cobrar esta alarm.
+[Remote]: O puede ser que tenga un paquete y pueda hacer un upgrade
+[Remote]: y aspirar a un paquete mejor,
+[Remote]: o un downward en el caso de que tenga algo menor.
+[Remote]: Esto es
+[Remote]: ni siquiera fue priorizado, se ve como un monstruo.
+[Remote]: Pero es algo
+[Remote]: que los que estuvimos en otro lado sabemos que es implementable
+[Remote]: y es solamente conversar entre los core y sacar la foto y revisar.
+[Remote]: ¿Alguna duda para aclarar?
+[Remote]: El concepto del paquete conjunto de productos bancarios, si tenés
+[Remote]: paquete, una cantidad mínima,
+[Remote]: el precio, en teoría, conviene,
+[Remote]: que tenemos suelto,
+[Remote]: pasa que esa foto, esa concepción, en el momento de la alta,
+[Remote]: te asigna, tenés el paquete a b c, no importa,
+[Remote]: Después, durante tu vida en el banco,
+[Remote]: adquirís más productos que te podrían dar un beneficio a un paquete de
+[Remote]: más beneficios o te da de baja en algún producto
+[Remote]: que te deberían de empaquetizar, pero esa foto está desarticular.
+[Remote]: Vos quedaste clavado con un paquete y no hay ningún proceso
+[Remote]: que revise que sigue vigente tu paquete porque no tocaste tu cantidad de producto.
+[Remote]: Y eso está contando la parte más beneficiosa, porque si debe bajar la cuenta,
+[Remote]: no le cobramos absolutamente nada y tiene el resto de los
+[Remote]: gratis de por vida, ¿no? Sí. A ver,
+[Remote]: conceptualmente,
+[Remote]: la la figura del paquete,
+[Remote]: es una foto en el momento del alta y queda así.
+[Remote]: Si vos en tu vida subiste y bajaste el producto, y quedó hoy capaz que te beneficio capaz que te
+[Remote]: perjudico.
+[Remote]: Porque te estoy cobrando un paquete que no debería,
+[Remote]: que te podría cobrar por cada producto, te sigo cobrando por un paquete, nada.
+[You]: Este es un
+[Remote]: Esto no no esto no es algo estático, es dinámico.
+[Remote]: Y debiéramos asegurarnos que
+[Remote]: este este orquestador continúe y vea la
+[Remote]: dinámica que tiene, y, en base a eso, es el cobro.
+[You]: Sí, sí, tradición.
+[Remote]: Ok.
+[You]: Me pasó en Galicia, si decido la experiencia personal.
+[Remote]: O sea, si Galiza tiene ese problema, la cruzara, súper.
+[You]: No, que saqué un producto nuevo y lo estaba pagando,
+[You]: en realidad me correspondía un paquete que me lo bonificaba.
+[Remote]: Sí, sí, sí.
+[Remote]: Bueno, con con eso repasamos
+[Remote]: todos los temas
+[Remote]: que que tenía la presentación. No sé si de lo que ustedes habían visto tienen preguntas o dudas.
+[Remote]: O quieren entrar en alguno en particular.
+[You]: No, a ver, clarísimo, gracias a todos por las presentaciones.
+[You]: Y estuvo bueno también ponerle nombre, cara y rol a a cada una de las personas.
+[You]: De lo que yo acabo de escuchar, fui tomando nota, hay dos o tres muy obvios
+[You]: sobre creo que, sobre los cuales creo que
+[You]: la pena por ahí agendar reuniones específicas
+[You]: con él o la responsable para entrar en más detalle y armar
+[You]: un poco el alcance y el scope de lo que sería una prueba de concepto para ese proceso.
+[You]: Como dije, hoy estamos muy enfocados en conciliaciones,
+[You]: hoy Rex es un orquestador de información que ingesta
+[You]: múltiples fuentes de información,
+[You]: y las compara y las cruza, con cualquier tipo de lógica,
+[You]: Entonces, todo lo que es control contable
+[You]: bueno, ya ya lo venimos charlando con Julio, con Mariano, es algo que hacemos.
+[You]: Todo lo que sería validación en distintas, entre distintas fuentes de datos también,
+[You]: se configura lógica conciliatoria, comparaciones, y después
+[You]: creo que fue Mariano, que decía que
+[You]: al final, todo lo que está bien, no debería gastar ni un segundo,
+[You]: a cuadrar automáticamente y le enfoco solamente a lo que está mal para investigar y resolver.
+[You]: También tenemos tecnología gentica para
+[You]: agilizar ese proceso.
+[You]: No sé si quieren que
+[You]: estos últimos minutitos alineemos en eso
+[You]: y te doy complementame ahí.
+[You]: Un poco los que yo
+[You]: de lo que escuché recién, ¿no?
+[You]: Está la parte de de leasing,
+[You]: con Mariano, que tiene
+[You]: bueno, tiene leasing y seguros, en ambos casos hay una conciliación ahí por hacer, eso es un caso
+[You]: típico lo que nosotros hacemos,
+[You]: con lo cual podemos avanzar y hacer una reunión ahí con Mariano, porque la semana que viene, para entrar en más detalle,
+[You]: cuáles son las fuentes,
+[You]: si ya están disponibles.
+[You]: Cómo son los cruces, las reglas de cruce, y y y plantear ahí lo que sería una prueba de concepto en esa parte.
+[You]: Después
+[You]: tengo, a ver,
+[You]: en lo que presentó Santiago,
+[You]: operaciones activas,
+[You]: está el control contable,
+[You]: que ahí tienen Excel con macros,
+[You]: que vale la pena meternos ahí a tratar de reemplazar eso, pero también
+[You]: dejar de gastar tiempo en las cosas que están bien y agilizar mucho lo que está, la investigación de lo que está mal.
+[You]: Mismo
+[Remote]: Ahí agrega, Nacho,
+[Remote]: seguros,
+[Remote]: parece bastante on point de de lo que hacemos hoy.
+[Remote]: Lo que es la conciliación de FCI.
+[Remote]: Fondos como una inversión.
+[You]: Exactamente.
+[You]: Con lo cual sería tratar de agendar la semana que viene con Mariano, con Santiago,
+[You]: y la FSI con Vilma.
+[You]: ¿Correcto?
+[You]: En el caso de Rodrigo,
+[Remote]: Thanks.
+[You]: hoy, un poquito fuera de scope, vemos mucha oportunidad ahí con AI, pero sí ya están ahí, cosas buenísimo.
+[Remote]: Agrego agrego uno, el desconocimiento de consumos también
+[Remote]: parece bastante lo que hacemos nosotros, faltaría agregar la pata de la
+[Remote]: de la de de todo el la identificación y demás,
+[Remote]: que nosotros lo podemos automatizar. Creo que, bueno,
+[Remote]: nosotros
+[Remote]: y el es de que muchos o casi todos estos procesos
+[Remote]: se pueden automatizar con tecnología. Entiendo que están hablando con otras compañías que hacen agentes,
+[Remote]: Nosotros
+[Remote]: hacemos agentes porque hacemos conciliaciones, y nos volvimos expertos en hacer agentes las conciliaciones. Obviamente, estamos viendo oportunidad por todos lados, pero
+[Remote]: está buenísimo que arranquemos por donde somos expertos, que es la parte de conciliaciones.
+[You]: Me quedó la duda, si también deberíamos hablar con Leandro.
+[You]: Porque mencionaste que también tenés
+[You]: Leandro, una parte de control contable,
+[Remote]: Sí, tengo una
+[Remote]: de control contable y la parte de rechazo, dedicación de cupones de comercios.
+[You]: Eso es una
+[Remote]: Sí, sí, lo que pasa que lo que se queda, digamos, es
+[Remote]: siempre tienda cero, muy muy difícilmente... Tengo una diferencia de veinticuatro horas, entre el rechazo y lo que se procesa. Tengo bots para esto, y al momento de de generar consulta, me queda generalmente en cero. Pero no lo veo como un dolor exactamente, hoy por hoy, esa parte contable.
+[You]: ¿ves como un dolor urgente por resolver?
+[You]: Ok. Y y en lo que es mi del office cash,
+[You]: ¿me perdí de algo o no hay ninguna oportunidad de conciliación?
+[Remote]: La realidad la realidad es que no tengo
+[Remote]: es más netamente operativo y de control de archivos que manejo,
+[Remote]: para que el mismo, digamos, el mismo sistema core me los valide.
+[Remote]: Y me dé un resultado diciendo, está ok o tiene diferencias o
+[Remote]: o no procesarlo, ¿está?
+[You]: Perfeito.
+[Remote]: Son manipulación, perdón, es manipulación de archivos,
+[Remote]: lo que genera el riesgo de de error.
+[You]: Ok.
+[Remote]: Lo que pone, ponga puntos generalmente son a a robots
+[You]: Clarísimo.
+[Remote]: de de de imputación, más que de
+[You]: Excelente. Y en el caso de julio, bueno, obviamente, están con lo de smart open, ¿no?, para lo que es
+[Remote]: de conciliación.
+[Remote]: Sí.
+[You]: con lo cual tampoco veo algo de corto plazo para para meternos.
+[Remote]: Ajá.
+[Remote]: Perdón, Julio, lo mío también
+[Remote]: surge de smart open,
+[Remote]: la parte operativa y la parte contable es de
+[Remote]: de
+[Remote]: del
+[Remote]: A lo que a lo que dice Nacho, Lean, es
+[Remote]: la migración de smart open a anywhere tiene el módulo contable.
+[Remote]: Por eso nosotros dejamos, pusimos standby lo que veníamos laborando con Nacho y equipo.
+[Remote]: Ah, está bien, está bien.
+[Remote]: Perdón, discúlpame, esa parte no la sabía.
+[You]: Bueno, entonces, Eduardo, si te parece bien,
+[You]: los busco a Mariano, Santiago y a Vilma para agendar un espacio la semana que viene, ahora después
+[You]: les disparo correos
+[Remote]: Olá,
+[You]: a los tres por separado, que siendo
+[You]: copiando a Eduardo, para buscar un espacio y meternos en detalle. Creo que hay mucha oportunidad lo que
+[Remote]: Sí. Totalmente, para los chicos, para los chicos, en realidad, este tema es prioritario, tratemos de en esta etapa de exploratoria, rápidamente, abordamos lo que haya acabado de ir y contemos lo que ha de contar para encontrar los casos que nos puedan ayudar. Y después, nada, pues, veremos presupuesto, tiempos, etcétera, vayan pensando desde el punto de vista, como un caso de voz, O sea, lo que sí, el, este, al tanto más de ayudar con hacer una conciliación rápida, inteligente, son expertos en eso, tener la más remota idea de cuánto nos ahorramos. Por tener esa conciliación. O sea, nosotros tenemos que
+[You]: y vale la pena hacerlo
+[Remote]: aparte del caso negocio del ahorro, del beneficio,
+[Remote]: qué riesgo, mitigo y bajo, porque esa masa de plata está conciliada más
+[Remote]: etcétera.
+[Remote]: Te te pido para los casos, no, para todos, porque no van a terminar nunca, para los casos que se elijan,
+[Remote]: ya ir teniendo
+[Remote]: cuánta gente involucra en esto, qué volumen de plata hay,
+[Remote]: qué grado de certeza voy a tener sobre ese monto, qué me va bajar el riesgo, etcétera, etcétera.
+[Remote]: Como para poner, el caso de negocio, el beneficio que me trae a hacer esta tarea.
+[You]: Total,
+[Remote]: O cuánto antes se entre al banco que cerró todo, qué sé yo, no sé.
+[You]: Total, total.
+[Remote]: Todo lo que sea insumen para el caso de negocio.
+[You]: Total.
+[Remote]: Perfecto, terminamos este parámetro.
+[You]: En particular, sí, ahí yo, solo para,
+[Remote]: No no no tenías fe, esperanta,
+[Remote]: No, os tengo que decir que me sorprendiste.
+[You]: No, sí, el caso de negocio cien por ciento.
+[You]: La semana que viene, además, hacer doble clic es empezar a
+[You]: armar esa hojita para después
+[You]: con las tres áreas, un poco lo que estoy pensando, Eduardo, y también para que vayamos ahí
+[You]: expectativas, por ahí fin de la semana que viene, yo entregarte a vos un documento,
+[You]: con estas tres áreas, las oportunidades que identificamos,
+[You]: los
+[You]: ahorros estimados que pensamos que se pueden llegar a
+[You]: los business cases de cada uno de los procesos,
+[You]: para tener una aprobación inicial sobre una prueba piloto para correr
+[You]: en cada una de esas áreas. Y después, ya con los resultados de la prueba piloto,
+[You]: arma el business case entero y se piensa en
+[You]: un una implementación más integral.
+[Remote]: Una duda menor. Julio,
+[You]: ¿Les parece?
+[Remote]: ¿ellos firmaron el D.A. Cuando estuvieron con el caso nuestro o no? No, nosotros lo que hicimos fue Sí, todo es personalizado, yo me acuerdo. Tal vez, nos puedes ayudar para que vayan firmando algún documento Porque acto seguido, a ver si pasa de decirme lo mismo de Guilio en julio, bueno,
+[Remote]: pásame el dato para que yo te muestre que esto, efectivamente, concilia o no concilia, no importa,
+[Remote]: y despersonalizamos es más trabajo que
+[Remote]: firmamos un documento, digo, bueno, tomás firmás un documento, no disclaimer, y chau,
+[Remote]: Teníamos un tema, que no sé si cambió el estatus.
+[Remote]: De que ustedes tenían la empresa dedicada afuera,
+[Remote]: No sé si eso cambió Nacho o Teo.
+[You]: No, eso no cambió, pero pero ya
+[You]: solucionamos la parte de, eventualmente, el pago lo lo tenemos solucionado por un proveedor local.
+[Remote]: ¿Ahí lo tenemos que ver?
+[Remote]: Hay, pero el exterior no, o sea, en
+[Remote]: deberíamos firmar, no importa que sea del exterior,
+[Remote]: Después tenemos que ver
+[Remote]: en tecnología hay, pero desde que se paran, se paga directamente con comercio
+[Remote]: de la fodera,
+[Remote]: Acá, no sé,
+[Remote]: si va a haber
+[Remote]: si me va a facturar una empresa local, el contrato tengo que ser
+[Remote]: con ellos, ¿no? Bueno, ese detalle tenemos que verlo.
+[You]: Más adelante, más adelante. Nosotros
+[Remote]: Pero sí, tal cual.
+[Remote]: Nada, tengo que estarla con la gente de compras, ¿sí?
+[Remote]: Por lo otro, desde el exterior hay, le pagamos a gente del exterior,
+[Remote]: cuesta más hacer los contratos, cuesta más algunas cosas,
+[Remote]: pero
+[Remote]: puse, hay mucho proveedor de TI de este libro de
+[You]: Dale. Avancemos sobre el NDA y sobre las reuniones la semana que viene, y ya después vamos
+[Remote]: ¿Sale?
+[You]: cuando regrese en paralelo.
+[Remote]: Perfecto.
+[You]: Bueno, un gusto por Gracias.
+[Remote]: Álvaro. Gracias por todo.
+[Remote]: Muchas gracias, gracias. Semana. Chao. Chao. Hasta luego.
+
+============================================================
+SUMMARY
+============================================================
+### Opportunity Overview
+
+- Eduardo framed the meeting as: match each area owner to their pain points, then select 2–5 candidate use cases for a proof of concept
+- Selection criteria agreed upfront:
+  - Must be a reconciliation or contable control use case (Rexi’s core)
+  - High operational pain today
+  - Data already available and accessible — no need to build new connectors or involve IT heavily
+  - Solution should be as autonomous from the bank’s IT area as possible (explicit request from technology team)
+- Each participant owns the accounting/reconciliation layer for their own product set
+
+---
+
+### Pain Points by Area
+
+### Mariano García — Leasing, Hipotecas, Prendarios & Seguros
+
+- Conciliación rubros contables de leasing
+  - Leasing does not run on BanTotal; runs on a separate system called Accord that interacts with BanTotal
+  - Data between the two systems frequently doesn’t reconcile — errors and mismatches
+  - Second control: invoices loaded in system vs. invoices paid by accounts payable
+  - Leasing also carries associated costs (infractions, patents, insurance, notary fees) — mismatches between what each system reports
+  - Today: large amount of time spent reviewing items that are already correct, instead of focusing on exceptions
+- Conciliación seguros (Supervielle Seguros — internal broker)
+  - Process: match open accounting entry (expected claim payment) against actual payment received from insurer
+  - Entirely manual, inconsistencies in the data
+  - Same problem: too much time spent on items that are fine; wants to focus only on exceptions
+- Cadence: no need for daily reconciliation
+  - Leasing: weekly
+  - Seguros: monthly
+
+### Santiago Messina — Operaciones Activas
+
+- Products in scope: préstamos, acuerdos, plafones, descuento de facturas y cheques
+- Control contable (préstamos y factoring)
+  - Semi-automated today via Excel with macros: loads daily movement list, flags differences
+  - Rubro must always net to zero (account + operation level)
+  - When differences appear, one person investigates each one manually and contacts the responsible party to regularize
+- Préstamo con código de descuento
+  - Product for municipal employees (Municipalidad de Mendoza) — no bank account required
+  - Installments deducted from payroll by the employer entity, transferred to an internal bank account
+  - Manual process: match each installment from the entity’s file against the internal account, then debit
+  - Product currently discontinued but the bank wants to revive it
+- Carga de préstamos y acuerdos a empresas
+  - Requests arrive via a workflow system (migrating from Gestar to CRM)
+  - All data entered manually into Accord/BanTotal: client account, amount, first installment, rate, number of installments
+  - Exceptions (credit or rate) require manual routing to internal areas before disbursement
+  - Post-disbursement: upload to Tux (document repository) — this step will be resolved by the CRM migration
+
+### Vilma Furlan — Back Office Mesa de Dinero & Sociedad Depositaria FCI
+
+- Products: títulos, call money, plazos fijos, cuentas remuneradas, suscripciones y rescates de fondos comunes de inversión (FCI)
+- All with institutional clients, counterparties, or specific clients
+- Cuentas remuneradas (clientes institucionales)
+  - Managed via Excel and email today
+  - Payments are automated, but process has room to reduce errors and rework
+- Fondos Comunes de Inversión (FCI)
+  - Reconciliation: BanTotal vs. Visual Fondos
+  - Currently uses macros; daily reconciliation at open, close, and intraday
+- BYMA Clearing
+  - New system going live \~24 April — will require a new reconciliation/adaptation process
+  - Deferred: Vilma flagged this as a post-implementation item
+- Control contable: additional items flagged for a follow-up conversation
+
+### Rodrigo Robles — Onboarding / Apertura de Cuentas Empresas
+
+- No reconciliation or accounting control use cases — out of scope for this phase
+- Two main pain points noted for context:
+  - Bonificación de cuentas: manual daily entry into BanTotal core to apply account fee waivers (12–24 month campaigns)
+  - Carga de facultades en Design: manual loading of legal powers, mandates, and authorized signatories from external law firm dictámenes
+- AI for document processing (estatutos, contratos sociales → auto-generate dictámenes) already in progress internally for \~3 years
+- Eduardo noted Rodrigo’s area is typically the entry point for other AI vendors — already has competing projects
+
+### Leandro Araujo — Middle Office Cash
+
+- Control contable: liquidaciones rechazadas generally net to zero within 24 hours; bots already handle this — not seen as an urgent pain point today
+- Remaining pain points are operational/systemic rather than reconciliation:
+  - Plan sueldos: file validation (record count vs. totals) to prevent duplicate processing
+  - Débito directo: same manual file-loading risk
+  - Operaciones cash: closing a collection account requires closing the current account separately — generates unnecessary admin charges
+  - Comercios: no system notification when a merchant cancels their service, causing timing mismatches and potential bank losses
+- Assessment: use cases are more about file manipulation and systemic controls than reconciliation — lower priority for this phase
+
+### Julio Arandía — Medios de Pago (Tarjetas)
+
+- Baja integral de tarjeta de crédito
+  - No unified motor today to handle all inbound cancellation triggers (ANSES deceased, voluntary client cancellation, bank-initiated)
+  - Motor needs to evaluate each case: serialize, bulletin, or block the card
+  - Requested since 2022; never prioritized
+- Reversa de pagos de TC
+  - Rules should live in CRM; today the daily review is fully manual
+- Desconocimiento de consumos TC y TD
+  - 6 resources dedicated to this process — high capacity cost
+  - TC: provisional credit issued, then resolved based on processor outcome (local vs. international timelines differ)
+  - TD: 5-day resolution window; macros used to track partial closures until all 5 claims are finalized
+- Orquestador de paquetes de productos
+  - No system today takes a daily snapshot of a client’s full product set across cores (SmartOpen, BanTotal, etc.)
+  - Package assignment is a one-time snapshot at onboarding — never updated dynamically
+  - Consequences: clients may be over- or under-charged; bank may be waiving fees it shouldn’t, or charging for packages that no longer apply
+  - Seen internally as a complex problem; Eduardo confirmed it’s implementable
+- Note: Julio’s area is mid-migration (SmartOpen → Anywhere, which includes an accounting module) — contable reconciliation work paused pending migration; no short-term opportunity here
+
+---
+
+### Prioritized Candidates for Proof of Concept
+
+- Three areas identified as most aligned with Rexi’s reconciliation core:
+  1. Mariano García — leasing (Accord vs. BanTotal) and seguros (siniestros conciliation)
+  2. Santiago Messina — control contable préstamos y factoring (replace Excel/macros)
+  3. Vilma Furlan — FCI reconciliation (BanTotal vs. Visual Fondos)
+- Teo added: desconocimiento de consumos (Julio’s area) also looks on-point — would need to add the identification/dispute layer
+- Rodrigo’s area: strong AI opportunity but outside reconciliation scope for now
+- Leandro’s area: not a reconciliation pain point; systemic/operational issues better suited to other solutions
+
+---
+
+### Commercial & Legal
+
+- Rexi entity is incorporated abroad — payment routed through a local provider (already resolved)
+- Contract counterparty question open: if invoicing via a local entity, contract must be with that entity
+  - Needs to be reviewed with procurement (compras)
+- NDA: Eduardo asked whether participants had signed an NDA from a prior session; needs to be confirmed and circulated before sharing any data
+- Eduardo’s framing for business case (to present to “Paco”):
+  - Number of people involved in each process
+  - Volume of money at stake
+  - Degree of certainty/accuracy improvement
+  - Risk reduction from having reconciled data
+  - Cost savings or efficiency gains
+
+---
+
+### Next Steps
+
+- Ignacio Berardi
+
+  - Send separate emails to Mariano García, Santiago Messina, and Vilma Furlan (cc Eduardo) to schedule individual deep-dive sessions next week
+  - Target deliverable: by end of next week, send Eduardo a document covering the 3 prioritized areas — identified opportunities, estimated savings, and a business case per process — to seek initial approval for a pilot in each area
+  - Follow up on NDA status and circulate for signature before any data is shared
+
+- Eduardo Peralta
+
+  - Brief “Paco” on the shortlisted candidates and obtain approval to proceed with a pilot
+  - Coordinate with procurement (compras) on contract structure given Rexi’s foreign entity setup
+
+- Mariano García, Santiago Messina, Vilma Furlan
+
+  - Prepare for individual follow-up sessions next week: map available data sources, reconciliation rules, volumes, and people involved — inputs needed for the business case
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/00fabaf3-60de-4b57-90e2-d301026a9247](https://notes.granola.ai/t/00fabaf3-60de-4b57-90e2-d301026a9247)

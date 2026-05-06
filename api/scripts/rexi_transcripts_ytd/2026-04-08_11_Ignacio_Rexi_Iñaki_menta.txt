@@ -1,0 +1,527 @@
+MEETING: [1:1] Ignacio (Rexi) <> Iñaki (menta)
+DATE: 2026-04-08
+ID: not_PuvJr4EvPiJbJG
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Iñaki Sánchez López <inaki@mentatech.io>
+SCHEDULED: 2026-04-08T13:00:00-04:00 - 2026-04-08T13:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Gracias, querido.
+[Remote]: ¿Cómo está, Nacho? ¿Todo bien?
+[You]: ?Vien, y vos?
+[Remote]: Bien, gordo, me vine acá afuera
+[Remote]: que arrancó el calor en Italia, así que hay que aprovecharlo.
+[You]: Kelin, ¿dónde estás?
+[Remote]: Yo vivo en Mirán,
+[Remote]: no sé si estuviste acá en el Norte.
+[Remote]: Te empecé escuchar un poco bajo de golpe.
+[You]: A ver, pará.
+[Remote]: Ahora, hablaba.
+[You]: Hola, hola.
+[Remote]: Creo que está agarrando el
+[Remote]: el auricular de la el de la combo en vez de los outputs, creo.
+[You]: Agora, venga.
+[Remote]: Sí, sí, bien. Qué mal se lleva, no
+[You]: Sí.
+[Remote]: AirPods con con Google Meet, bueno?
+[You]: Tremendo. ¿Ya hace mucho? ¿Estás en Milán?
+[Remote]: Estuve
+[Remote]: back and forth, con Italia hace tres años, que uno de nuevo con
+[Remote]: con Clara.
+[Remote]: Que es de acá, de ella es italiana.
+[Remote]: Así que caí en la misma que rama doce, boludo.
+[Remote]: Y pero viviendo, viviendo, me mudé en
+[Remote]: fines de diciembre del año pasado, o hace, nada, hace cuatro meses, nada, tan poco.
+[You]: ¿Y cómo vienes ahí, Nanninga, con todo el team en en Argentina?
+[Remote]: La verdad que bastante bien, porque
+[Remote]: Menta nace conmigo viajando mucho para acá,
+[Remote]: entonces, o sea, ya en el momento que
+[You]: Oh, yeah.
+[You]: Te cuento te cuento lo que estamos haciendo hoy y te cuento la visión a futuro
+[You]: Hoy lo que estamos haciendo, tenemos un producto de conciliaciones,
+[You]: entonces es una plataforma agéntica
+[You]: que se conecta a tus fuentes de información, ya sea un extracto un ledger o
+[You]: un procesador de pagos,
+[You]: y te machea todas esas transacciones para asegurar que tu flujo de dinero están conciliados desde
+[You]: la ingesta, la transformación, el procesamiento y la resolución de discrepancias, y después todas las
+[You]: lógicas de ya sea
+[You]: reportes, dashboards, creación de asientos contables,
+[You]: etcétera. Porque hoy te automatizo el proceso de conciliación. ¿Para quién es? Para bancos,
+[You]: compañías de pagos, compañías de seguros y marketplaces.
+[You]: Estas son compañías que tienen múltiples de dinero,
+[You]: y una transaccionalidad alta, que suelen ser el cuadrante donde conciliaciones se vuelve un pain y
+[You]: equipos contratan gente y empiezan a armar un patchwork de
+[You]: Excel Macros, SQL, Python, que es un quilombo,
+[You]: una escala, genera riesgos, genera pérdidas,
+[You]: Entonces, hoy estamos
+[You]: básicamente, automatizando con AI el proceso de conciliaciones.
+[You]: La visión a futuro es conciliaciones
+[You]: wedge,
+[You]: Primero, porque es un critical pain point hoy, que me permite montar un negocio hoy,
+[You]: la segunda y más importante es la base técnica sobre la cual yo luego creo
+[You]: construir una plataforma
+[You]: para automatizar otros procesos dentro de finanzas y operaciones.
+[You]: Y volverme como el cloud code, pero para fin ops.
+[You]: ¿Sí?
+[You]: La plataforma que tengan CFOs y COOs,
+[You]: arrancando por conciliaciones como system of record,
+[You]: qué otros agentes puedo construir para optimizar otros flujos, como ser
+[You]: accounting, treasury, reporting, account receivables,
+[Remote]: Sí.
+[You]: todos esos flujos de de fin ops o de payment ops que hoy son equipos de gente tecleando en
+[You]: Excel, ¿me entendés?
+[You]: Así que esa es la visión del largo caso. Ya estamos empezando a mojarnos los pies
+[You]: un poquito en en accounting, pero hoy muy enfocados en conciliaciones.
+[Remote]: Sí. Y la y la integración con los sistemas, ¿eso ya lo tenemos hecha? Por ejemplo, yo te digo, yo uso Mercury de local, y ya está en Bob Vos, tres como un library de un montón de integraciones, y
+[Remote]: voy como poniéndome API key o mi usuario, o yo tengo que integrarlo con algo mío.
+[You]: Tengo una librería nativa y
+[You]: integraciones, pero después que lo que lo que construimos, que para mí es más interesante aún, porque
+[You]: si no es un juego de suma cero, que no escala, siempre lo tengo que hacer integraciones nuevas,
+[You]: Tenemos un integrador dinámico, que básicamente para cada uno de nuestros clientes genera las integraciones
+[You]: necesarias para ese cliente y no viven en nuestra biblioteca.
+[You]: Es integrado dinámico, de cuentas, un agente que
+[You]: construye, o la conexión API,
+[You]: o el SFTP, o baja un CSM de un portal, o relevante un PDF de un mail,
+[You]: cualquier cosa lo hace y construye el conector de manera dinámica.
+[You]: Eso es lo que nos va a permitir escalar de que no venga cualquier cliente siempre y me pida una integración que no tengo.
+[Remote]: Ok.
+[You]: ¿Entendés?
+[You]: Pero sí, el primer paso es conectarme a la fuente
+[You]: de información y es un pain in button that tenemos que resolver. Hoy estamos experimentando con este integrador dinámico,
+[You]: bastante bien,
+[You]: pero son los primeros pasos para poder conectar la plataforma, sí.
+[Remote]: Sí, sí, te pregunto eso porque sentí que
+[Remote]: ser como uno de los paints,
+[Remote]: más importantes a la hora de go to market, porque al fin y al cabo, tipo,
+[Remote]: a nosotros también nos ha pasado, que siempre cuando es B2B,
+[Remote]: la parte de integrarte o intentar de que los las dos sistemas hablen el mismo idioma,
+[Remote]: es la parte más paja, ¿viste?, porque es como esa es la inversión más allá del
+[Remote]: del o lo que sea que le cobres, que como que
+[Remote]: que es es difícil de cuantificar tiempos, ahí es cuando entras en, tipo,
+[Remote]: te tengo que priorizar por encima de todo este mundo de cosas que tengo que hacer,
+[Remote]: y y y tenés que pelear
+[Remote]: tipo, a la par de un mundo de productos que están en otras categorías que el tuyo,
+[Remote]: pero si al final requiere rep time de su lado,
+[Remote]: entra a pelear por por igual en todo, ¿oíste?
+[You]: No, no, la idea es todo, depender el sistema,
+[Remote]: Creo que, para mí,
+[You]: de independizar a los equipos de fin ops de sistemas, porque hoy también
+[You]: cualquier proceso conciliatorio que tienen,
+[You]: tienen alguien de sistemas ayudándolos con los data con la
+[You]: las macros, con el SQL, y eso no escala, o sea, es es
+[You]: tremendo cualquier botella. Bueno, de hecho, hablé con el pelado y con María hablé con El Pelado y con María Gonzalo, estuvimos testeando la plataforma con ustedes.
+[Remote]: Sí, sí, es es una paja, un solo paja, ¿no?
+[You]: En algún punto llegamos a la conclusión de que
+[You]: no había mucho dolor hoy, no había mucho willingness to pay hoy, quedamos
+[You]: más adelante, pero hay todo un dolor conciliatorio en la penatoria de de menta.
+[You]: De pay ins y pay outs.
+[Remote]: Sí, claro, nosotros tenemos... Y, bueno, por ahí puede ser que, de verdad, en un futuro, puede ser que no
+[Remote]: sirva, porque nosotros ahora que estamos empezando a agregar muchos sistemas,
+[Remote]: ¿sí?, me me lo me lo imagino funcionando en venta en el en el mediano plazo.
+[You]: Sí, sí.
+[Remote]: Sí, a a Soro pasa mucho, boludo, que el pelado
+[Remote]: rompe las bolas con con pedidos, por
+[Remote]: El pelado, tipo, pide, tiene pedido necesidades
+[Remote]: que que solamente puede puede, o sea, me me paso en lo algo mejor de Internet, porque creo que
+[Remote]: tiene ocho dólares.
+[Remote]: Donde el que el pelado tiene necesidades específicas de base de datos,
+[Remote]: o que solo el sitio o el equipo de backend puede resolver,
+[Remote]: y es tipo, agarro para la bola, resolvelo,
+[Remote]: como puedas, le crearon un MCP con Claude para ver cómo mierda lo puede él empezar a
+[Remote]: armar sus propios artifacts y empezar a dar a resolver a un lado.
+[Remote]: Creo que está funcionando, pero es verdad que
+[Remote]: es un es un patch que por ahí al al mediano plazo
+[Remote]: se va a romper por todos lados, o te empieza a pasar que de golpe
+[Remote]: le pifiaste con un número, y y se le fueron veinte Lucas a un lugar que no tenía
+[Remote]: que ir, hay que hay que ir a reponerlo, abajo.
+[You]: Sí, sí, total.
+[Remote]: A ver, lo que lo que lo que yo creo que para mí
+[Remote]: tipo, que a lo mejor no funcionó mucho, es
+[Remote]: es encontrar, tipo,
+[Remote]: cómo podemos encontrar partners de distribución. Eso fue lo que aumenta la
+[Remote]: mucho para crecer, ¿no?
+[Remote]: Básicamente, el equivalente a un par de distribución sería
+[Remote]: cualquier tipo de empresa,
+[Remote]: de alguna manera, acumulen muchos ICPs, ¿no?
+[Remote]: Eso, en en el caso de venta, te cuento cómo funciona con venta,
+[Remote]: Meta sabés lo que hace, ¿no? Tipo, te lo explico el pelado,
+[You]: Sí.
+[Remote]: Ok.
+[Remote]: Básicamente, ¿qué pasa? Nosotros
+[Remote]: nuestro nuestro objetivo era ir a al sistema de ticketing,
+[Remote]: tipo TicketEx, por ejemplo, tiqueteras, ¿no? Y lo que descubrimos es que ahí sí,
+[Remote]: hay empresas que se dedican, que son como Shopify, que arman, tipo,
+[Remote]: tipo backenders, tipo CRM de ticketing,
+[Remote]: donde muchas tiqueteras de estilo Ticketerc generan sus nuevos sistemas.
+[Remote]: Lo dijimos fue tipo, che, pará,
+[Remote]: integrémonos en ese tique de la madre,
+[Remote]: y ya automáticamente cualquiera de los cientos de sistemas de tickets que están por debajo,
+[Remote]: pueden usar Meta automáticamente, como con un clic, ¿no?
+[You]: Tipo en vez de
+[Remote]: Exacto.
+[Remote]: Entonces, nos enteramos con, y fue un laburo tremendo, porque fue, tipo,
+[Remote]: mucho al fin de cerrar, integrarse con un sistema así tan grande,
+[Remote]: pero en el momento que logramos después de muchos meses de laburo,
+[You]: muchos clientes en una,
+[Remote]: teníamos todo un grilla,
+[Remote]: que no requería
+[Remote]: tipo, una venta técnica, era solamente ir al al al pain de negocio.
+[Remote]: Tipo, era como
+[Remote]: tipo,
+[Remote]: querés reventa, tenés estos, estos pain de sí, me encantaría, pero es una... No, no,
+[Remote]: literalmente, apellaste botón,
+[Remote]: y ya te lo tenés andando en tu sistema.
+[Remote]: El equivalente a eso me imagino que sea, por ejemplo,
+[Remote]: Bueno, esperá, lo ideal para eso es, primero, como bien dijiste, vos me dijiste que un cuadrante,
+[Remote]: imagino que ya tenés un ICP bastante bien identificado,
+[Remote]: identificar muy claramente ese ICP, y tipo, ¿qué es ese ICP?, ¿no?, tipo,
+[Remote]: cómo respira?, ¿qué qué empleados tiene?, ¿cómo se llaman los empleados?
+[Remote]: Yo siempre jodí, yo siempre jodía con el concepto de ponerle nombre
+[Remote]: los decision makers, a los blockers, no es tipo
+[Remote]: el el operador de la billetera se llama Alexis, el el CFO se llama Esteban,
+[Remote]: poníamos nombres agarrando de tipo un nombre de tiquetera con la que íbamos hablando,
+[Remote]: y empezar a definir, tipo, cómo se hace perfiles, armar cuadrantes dentro de esas empresas,
+[Remote]: y y armamos una estrategia de auto market de tipo,
+[Remote]: como el título es tipo, nadie nos puede decir que no. Entonces, tipo,
+[Remote]: era foco en, tipo, un número de cliente que queríamos cerrar,
+[Remote]: y era tipo, che, tenemos a estos cuarenta clientes
+[Remote]: y tipo, si alguien nos decía, tipo, che, ¿podemos pasar la call del martes al miércoles? Tipo,
+[Remote]: ¿por qué pasó esto? Donde me decían a avisar, tipo, ¿cómo nunca más tiene que pasar eso? Bueno,
+[Remote]: lo que nos confundimos fue que
+[Remote]: dimos la opción, que no pase esto, y le dimos... Entonces, como ir muy al, tipo, no aceptar
+[Remote]: que nada salga mal en nada, entonces, como que
+[Remote]: yo soy un happy pass, y todo lo que se diferencia a ese happy pass
+[Remote]: tipo, y, tipo, modificarlo,
+[Remote]: Eso cuando ya sabíamos que nuestro producto tenía un un una
+[Remote]: de ser, ¿no? Que vos para ahí, en algún lado, lado de tu corazón,
+[Remote]: sentís que tu producto de configuración
+[Remote]: por ahí no es el go to, también está bueno que escuches y veas que otra cosa
+[Remote]: tipo, por ahí un pain más fácil de resolver en el corto plazo, ¿no?
+[Remote]: Identifico, che, mirá, no, tipo,
+[Remote]: ya me están pagando algunos, es por acá, es simple hecho que
+[Remote]: tengo que ver la manera de distribuirlo mejor, entonces, creo que tenés que ponerte ese objetivo más claro de tipo,
+[Remote]: este es el ICB, ellos son la gente que está en este tipo de empresa,
+[Remote]: hecho de happy birth, que yo tengo que lograr, hacer un una clara lista de cincuenta
+[Remote]: empresas a cual hay que destacar,
+[Remote]: que ninguna
+[Remote]: te vaya a decir happy pass. Y a medida que se te empieza a ir,
+[Remote]: a identificar muy bien por qué,
+[Remote]: ser tipo muy
+[Remote]: exigente y mala onda en por qué pasó, tipo,
+[Remote]: he tenido momentos de
+[Remote]: éramos yo y otro más, éramos dos, de tipo,
+[Remote]: mala onda,
+[Remote]: de tipo, che, ¿qué pasó?, que tipo, te lo pasó para el miércoles. Digo, no, boludo, no pasa nada. No, boludo,
+[Remote]: Tipo, afuera de happy path,
+[Remote]: pasó? No, bueno, pasó esto. Che, bueno,
+[Remote]: nunca más tengo que pasar esto, tengo que hacer esto y esto y lo otro,
+[Remote]: Entonces, empezó a pasar, por ejemplo, de
+[Remote]: llegar hasta el punto de, no sé, por ejemplo, la gente, yo tengo que hacer alcohol con vos,
+[Remote]: decimos tipo, ¿cuándo podés? ¿Lunes? Dale, el lunes perfecto.
+[Remote]: ¿Qué horario podés?
+[Remote]: Y tipo, ¿no me respondés?
+[Remote]: Tipo, ok,
+[Remote]: ¿qué mensaje tenemos que mandar para que me vuelva a responder me vuelva a responder el horario?
+[Remote]: Y seguir rompiendo las bolas, che,
+[Remote]: pasó? ¿Qué estuvimos mal ahí? Y bueno, le le definiste día y no horario. Bueno, entonces dale
+[Remote]: directamente día y horarios.
+[Remote]: A la próxima vez es tipo, che, el lunes estoy estoy hecho, ¿cuál podés?
+[Remote]: Bueno, vamos con esto, ¿entendés?
+[Remote]: Ahí ya nos cerramos ese ida y vuelta, ese punto, y así como ir
+[Remote]: cada partecita del circuito, ¿no?
+[You]: Claro. Quizás eso eso es como el táctico
+[You]: dentro del sales panel, ¿no?, una que sea
+[You]: generaste el lead, ¿no?
+[Remote]: ¿Vos oís la parte del self funnel también? ¿No estás pudiendo armarlo bien?
+[You]: Y te
+[You]: No, lo que te quería más preguntar a vos era qué canales
+[You]: te sirvieron muy muy bien a vos para generar ese demand generation, ¿no?
+[Remote]: Fue encontrar
+[Remote]: tipo,
+[Remote]: qué de estos distribuidores
+[Remote]: contenían muchos ICPs,
+[Remote]: ir directamente a hablar con ellos. Entonces,
+[Remote]: sé, un ejemplo se me ocurre es, tipo,
+[Remote]: che, ¿qué qué tipo de tipo...? No sé,
+[Remote]: poné de que vos,
+[Remote]: identificás que muchos de los ICPs usan mercuries.
+[Remote]: Bueno, ¿cómo podés meterte de marketplace y de mercury?, ¿entendés? Y de ahí ya ir a todos los clientes,
+[Remote]: todos los usuarios que usan Mercury,
+[Remote]: para ir y atacar esa solución.
+[Remote]: Me cuesta pensar en un en un producto distribuidor para vos, haría que
+[Remote]: no conozco también tu tu mundo, pero es tipo, ¿qué distribuidor
+[Remote]: puede contener varios ICPs con el que vos puedas ir, integrarte
+[Remote]: y contarle a través, darle por ahí un un un cat
+[Remote]: de revenue sharing agreement a ese a ese distribuidor,
+[Remote]: No sé, puede ser, por ejemplo,
+[Remote]: una una un un un consultor,
+[Remote]: como Accenture o que tipo
+[Remote]: estén consultando a muchas empresas que te interesarían a vos trabajar con,
+[Remote]: y decirles, che, mirá, paraís, yo tengo ese producto,
+[Remote]: tenés un listado de empresas que pensás que podía servir para esto, y mirá, sí, estas,
+[Remote]: ¿qué te parece si hacemos un training engineer agreement? Si vos me presentás,
+[Remote]: y, tipo,
+[Remote]: bueno, sí, ¿entendés? Eso puede ser una buena idea,
+[You]: Ahí, no sé si tuviste tuviste vos algún pushback de
+[Remote]: Intentar de pensar
+[You]: competitivo, de si Price estaba queriendo desarrollar una solución similar,
+[You]: o mismo
+[Remote]: Sí,
+[You]: estos backenders que vos decís no querían tener una infra,
+[Remote]: Sí, ahí ahí,
+[You]: en algún momento?
+[Remote]: lo que pasa empieza a pasar mucho en B2B es
+[Remote]: ahí empecé a pensar,
+[Remote]: en que tu value proposition lo tenés que contar de una manera distinta al distribuidor,
+[Remote]: que al el usuario final, ¿no? Entonces, por ejemplo,
+[You]: El distribuidor tiene que conseguir más ventas, es upside.
+[Remote]: ¿qué qué pasaba con otro...?
+[Remote]: Y también que
+[Remote]: ellos, te cuento el miedo,
+[Remote]: ellos lo que descubrimos es que ellos le cobran un un un SaaS,
+[Remote]: por ticket vendido, ticket emitido. Entonces, por ejemplo, imagínate, yo soy, tipo, este, Shopify de ticketing,
+[Remote]: y vos sos tiquetec. Yo te cobro a vos un dólar por ticket vendido.
+[Remote]: Cualquier feature por arriba que yo te ponga de la venta de tickets,
+[Remote]: tipo, les costaba un montón cobrarlo por arriba de ese dólar, tipo un montón.
+[Remote]: Y también pasando que ellos empezaron a agregar, tipo, features a su a su de soluciones,
+[Remote]: porque aparecían otros Shopify que venían con más features,
+[Remote]: un raise
+[Remote]: the button para ellos de tipo,
+[Remote]: yo lo vivo por ganar plata es por tiquete metido. Después todos estos features por encima,
+[Remote]: razón por la cual me eligen a mí en vez de un competidor.
+[Remote]: Entonces,
+[Remote]: lo que Menta le fue a decir, tipo, che, mirá, usá Menta,
+[Remote]: yo voy a cerrar un deal con cada uno de tus clientes,
+[Remote]: Entonces, ¿qué pasa?
+[Remote]: Eso yo puedo cerrar un bill por afuera de tu sistema,
+[Remote]: cobrar cobrar plata por eso, y yo esa plata que cobro te doy un revenue generating agreement.
+[Remote]: Plata que
+[Remote]: y vos desarrollarías el producto de renta, no podrías ganar, porque quedaría en esa
+[Remote]: de features que no puedes cobrar, básicamente, ¿no?
+[Remote]: Digo, para dar
+[Remote]: nos tuvimos que dar cuenta, ¿oíste?, a veces llegar a ese punto, ¿no? Fue tipo,
+[Remote]: semanas de entender por qué por qué pija esta gente,
+[Remote]: les convendría ir con venta, no, y no con vos,
+[Remote]: Termina pasando que
+[Remote]: tenés dos clientes, es tu cliente distribuidor,
+[Remote]: que por ahí no te da un revenue directo, sino que este le aporta revenues,
+[Remote]: al cual tu a por él,
+[Remote]: cambia un montón del otro. Entonces,
+[Remote]: ahí
+[Remote]: el el inmediato es
+[Remote]: revenue sin trabajo,
+[Remote]: Básicamente, único trabajo es comercial, no tenés que desarrollar nadie yo.
+[Remote]: Eso hoy en día con Claude y todo, creo que empieza a ser un poco menos poderoso,
+[Remote]: o menos long term,
+[Remote]: porque lo que te pueda decir sí, buenísimo, pero si yo ya empiezo a ver
+[Remote]: un montón de guita a ganar,
+[Remote]: te te te pontea el chabón, ¿ves?, porque él es el quería la la relación con estas empresas.
+[Remote]: Bueno, eso puede ser uno para el go to market, pero tenés que pensar
+[Remote]: long term benefits para ese
+[Remote]: uno puede ser, por ejemplo,
+[Remote]: puedo armar soluciones que concilian
+[Remote]: para vos como consultor, y que no sé qué, no sé cuánto,
+[Remote]: Sorry, no, la verdad que no conozco tan bien, boludo, la industria como para darte ejemplos concretos,
+[Remote]: pero para que veas, tipo, el value prop nuestro,
+[Remote]: empezó a a despegar con lo distribués de manera sacada. Una vez que
+[Remote]: cubrimos
+[Remote]: ese benefit de tipo
+[Remote]: Esa gente no puede cobrar cada fichero nuevo que saca, con menda
+[You]: Para servirle.
+[Remote]: tipo, puede ganar un montón de ida, ¿me entendés?
+[Remote]: Y hay hay ahora B2Bs,
+[You]: ¿O se lo cobrás vos?
+[Remote]: claro,
+[You]: Claro.
+[Remote]: claro, porque yo soy el que cierra el deal con cada uno de sus clientes.
+[Remote]: Por ahí, golpe, puede decir lo mismo, puede decirle a a Price, tipo, vos podés cobrar un montón de guita por ahí, por el consulting fee, el one off fee,
+[Remote]: pero después te cuesta mucho cobrarle
+[Remote]: el SaaS por encima de ese one off, porque ya le le hiciste pagarte cien mil dólares.
+[Remote]: Cobrale tu one one off fee,
+[Remote]: pero después me preguntás a mí, y yo te doy un RCA, que tenés tu bueno,
+[Remote]: No, boludo, boluda, está funcionando ahí, y para nada, tranca.
+[Remote]: Mi take es que
+[Remote]: al menos que tengas una integración nativa
+[Remote]: con los
+[Remote]: los sistemas,
+[Remote]: que eso, tipo, como que
+[Remote]: eso a un CFO le da mucho más tranquilidad, a un sitio le da mucho más tranquilidad,
+[Remote]: El hecho de que haya un middleware como funcionando de una manera no tan nativa con los sistemas,
+[Remote]: por ahí le da un poco de intranquilidad, ¿no? Ahora, si vos me decís, che, estoy en el marketplace de
+[Remote]: tipo, de los bancos,
+[Remote]: o de de los CRMs, en en aparece
+[Remote]: Rexy en el marketplace.
+[Remote]: Lo activan y ya funciona, eso sí, el sitio no va a estar preocupado porque está como
+[You]: Claro.
+[Remote]: vouched by the system, ¿entendés?
+[You]: Es un camino más largo de producto y de ingeniería del lado de usted, del lado mío,
+[You]: pero a la hora te desbloquea
+[You]: y te te hace escalable
+[You]: de una.
+[You]: Hace un salto
+[Remote]: Y sí,
+[Remote]: a ver, obviamente, esto es cuando, nuevamente,
+[Remote]: se, tipo, colisionan, ya tenés como esos tendillos claros de de market fit,
+[Remote]: ¿no? Tienes dicho, tipo, la verdad que no no tengo bien claro si esto va por acá o no,
+[Remote]: y no te hagas esto, si cambio unos gigantes,
+[Remote]: porque puedes ir directo a ese camino, tenés todo, y no agarras un mango, nadie te lo usa, ¿me entendés?
+[You]: Oh, yeah. Oh, yeah.
+[Remote]: En la parte de trabajando,
+[You]: Sí tiene que estar muy validado también el
+[Remote]: Y sí, validado,
+[You]: el paint para el backender.
+[You]: Sí. No, no, y el paint para el backender, ¿no?, digo, para para tu partner.
+[You]: Decir, che, yo puedo acknowledge that this is a big enough pain for my customers.
+[Remote]: Sí.
+[You]: Que yo no voy a poder construir nunca,
+[You]: y poner de sentido partner with someone.
+[Remote]: No, o sí lo puedo
+[You]: Che, ¿y canales?
+[Remote]: o sí lo puedo construir, o lo puedo construir,
+[Remote]: por estas razones que me está dando, que tienen sentido, no me conviene, o sea,
+[Remote]: yo soy un consultor, cobro mi one off consulting fee, y y tu tu RCA te llama ahí, ¿me entendés? O, por ejemplo, otra razón por la cual
+[Remote]: Menta
+[Remote]: que esto ahora, que pienso, puede tener que ver,
+[Remote]: Menta es el merchant of record,
+[Remote]: para todo.
+[Remote]: Significa? Tipo, mentas estar corriendo un regulatory
+[Remote]: risk y somos el de todo lo que pasa en ese country market.
+[Remote]: Y para, y los B2Bs, los Shopify, otros distribuidores,
+[Remote]: ni en pedo están a UpToDate, ¿entendés?
+[Remote]: Lo que pasando es que ese ese beneficio es muy grande para los tiqueteras, para los rights holders,
+[Remote]: de de entretenimiento. Luego, por ahí, vos ahí el consulto le podés decir,
+[Remote]: estoy corriendo un riesgo gigante, que a no te conviene correr, que es
+[Remote]: tipo, estoy validando cada transacción, estoy siendo el que consolida,
+[Remote]: tipo, yo puedo firmar por eso,
+[Remote]: vos como consultor te conviene quedarte por, tipo, en en en lo en
+[Remote]: en las líneas afuera de la del liability,
+[Remote]: porque estás corriendo un río gigante como empresa, ¿entendés?, que no te conviene.
+[Remote]: El upside no es tan grande para por el risk, ¿entendés?
+[You]: Claro, claro. Che, ¿y canales para llegar a estos partners? O sea, que cuando dijiste, che, tenemos que hacer partnerships
+[You]: me imagino que hiciste una lista, hiciste algún tipo de outreach, o cómo llegaste a
+[You]: cerrar esas conversaciones.
+[Remote]: Por lo general, hablar con estos distribuidores es muy fácil, porque
+[Remote]: oh, they do this for a living, tipo estar acostumbrados a ser
+[Remote]: tipo, deals or distribution deals or founders founders fees deals, finercy deals,
+[Remote]: por general, estos youtubers tienen algo que se llama
+[Remote]: director of partnerships o, tipo, algún rol similar,
+[Remote]: o vendo, no sé cómo, ¿qué va tener más que ver con partnerships?
+[You]: Sí, que contestan todo el que reciben todo.
+[Remote]: Claro, que debo su trabajo es eso,
+[Remote]: O, si también, al ser empresas tan grandes, lo que está pasando es que, tipo,
+[Remote]: por ahí no están acostumbrados a ese tipo de deals, pero, tipo,
+[Remote]: siempre hay alguien a quien puede saber de esa gran empresa, ¿entendés? Es mucho más fácil que hablarle a una empresa tipo Meta.
+[Remote]: Tipo, por ahí Meta no te responde un outreach, pero son de esas tan grandes
+[Remote]: encontrar
+[Remote]: termina termina siendo que, tipo, venderlo, buscar un distribuidor, venderlo un distribuidor y todo, también haciendo, tipo,
+[Remote]: otro deck, otro funnel, otro proceso de venta, que era otro, ¿entendés?
+[You]: Che, no te quiero sacar más tiempo, pero mega mega insightful, la verdad que tremendo.
+[You]: Me dejás pensando mucho sobre estrategia de partnership, es algo que
+[You]: lo tengo mapeado para hacer este Q, pero ahora que me lo decís, por ahí le le debería dedicar un poquito más de energía, porque
+[You]: porque sí puede desbloquear y hacer un step up discreto en en la atracción de Rexi.
+[You]: Ahí, bueno, quizá no es el momento en un preside de vuelta, por la madurez del producto y la madurez de la marca también, no sé si estos
+[You]: partners te abren la puerta diciendo, che, eso es un
+[You]: cuatro de copas todavía, por ahí te esperé un poquito más,
+[You]: pero sin duda,
+[Remote]: Sí, a ver, boludo, pensá que por ahí, a ver,
+[You]: algo para explorar.
+[Remote]: un partner puede ser un estilo de tipo una especie de QuickBooks, una empresa de ese estilo, ¿viste?
+[Remote]: Esas empresas, por ahí tienes que buscar un QuickBooks más tipo
+[Remote]: que los que ya tengan, tengo un lindo
+[Remote]: funnel de, no sé, o un lindo portfolio de de, no sé,
+[Remote]: doscientas empresas que se asemejen mucho a tu
+[Remote]: por ahí podemos buscar, tipo, en el en el en el portfolio de startups
+[Remote]: ya de badges pasados, competidores de
+[Remote]: competidores de empresas similares a las que hoy son muy grandes,
+[Remote]: por ahí no no son enormes, pero tienen tipo un portfolio de cien, doscientas
+[Remote]: mil empresas, que se asemejan mucho a tu ICP,
+[Remote]: son como ventas, pero con una serie a esa cerrada, una serie b,
+[You]: Ahí tengo tengo miedo de
+[Remote]: eso puede ser una manera interesante.
+[You]: miedo de overlap, pero sí hay hay que realizarlo bien el el tipo de página.
+[Remote]: El overla, boludo, cada vez más, que que
+[Remote]: empezaste a meter en B2B, te empezás a dar cuenta que
+[Remote]: sí agarra
+[Remote]: re puede pasar que
+[Remote]: esas empresas tengan un en su road map, pero si cae vos, con un buen value proposition,
+[Remote]: viendo un laburo, qué sé yo. A ver, es como siempre, vos te podés meter por ahí,
+[Remote]: después ellos por ahí, si no le agregas suficiente valor en el en el mediano plazo,
+[You]: ¿Recordan?
+[Remote]: te van a cortar o copiar, pero bueno, vas a tu trabajo, ahí empieza el countdown de tipo,
+[Remote]: justamente, mí todo lo, mí es superlo lindo de B2B es que tipo, to killer lo tenés muy cerca, ¿entendés? ¿Entendés?, que es tu distribuidor. Si vos no sos bueno areando valor, te va a matar, entonces ahí tenés te empieza a hacer mucho más claro el road map que tenés que tener, para que el chavón que hoy se está dando negocio no te copie, ¿entendés? Entonces, para mí es justamente lo contrario, para mí es al revés, estate cerca, de ese que te tiene en road map, que tiene a Rexy en su road map,
+[You]: Sí.
+[You]: Sí.
+[Remote]: da cero,
+[Remote]: y, tipo, empezá a a nadar, ¿viste?, rápido para que te que no te pueda
+[Remote]: hacer un boat alrededor de lo que acabaste de hacer, ¿entendés?
+[You]: Sí, sí, sí, sí.
+[You]: Bueno, querido, no tengo que sacar más tiempo, yo tengo que saltar a otra reunión, pero increíble
+[You]: charlar. Quedemos nomás conectados, creo que varios steps
+[You]: y tengo mucho para aprender de vos, así que seguramente por WhatsApp te siga mandando algunas preguntas boludas.
+[You]: Mientras sigo construyendo este camino. Así que nada, mil gracias por el tiempo, de vuelta.
+[Remote]: No, bueno, Bloyd, un placer haber hablado y nada.
+[Remote]: Te felicito por la empresa, me gusta la idea, me gusta que te hayas mandado a Emprandar, ¿verdad?
+[You]: Ahí vamos, con todas.
+[Remote]: Difícil, Es difícil, es difícil.
+[Remote]: Chau, amigo, cuidado, bro. Hablame cuando quieras.
+[You]: Hello?
+[You]: Dale,
+
+============================================================
+SUMMARY
+============================================================
+### Rexi Product Overview & Vision
+
+- Current product: AI-powered reconciliation platform for banks, payment companies, insurance companies, and marketplaces
+  - Connects to data sources (statements, ledgers, payment processors)
+  - Automates transaction matching and discrepancy resolution
+  - Handles reporting, dashboards, and accounting entries
+- Dynamic integrator capability
+  - Builds custom integrations for each client automatically
+  - Creates API connections, SFTP, CSV downloads, PDF email parsing
+  - Eliminates need for pre-built integration library
+- Long-term vision: Become “cloud code for fin ops”
+  - Start with reconciliations as wedge product
+  - Expand to other finance/operations automation (accounting, treasury, reporting, accounts receivable)
+  - Target CFOs and COOs as primary platform users
+
+### Go-to-Market Strategy: Partnership Distribution
+
+- Armar el happy path approach:
+  1. Create list of 50-100 target companies that must be closed
+  2. If anything deviates from expected process, understand exactly why
+  3. Learn from deviations and prevent repetition
+- Partnership distribution as key growth lever
+  - Find providers that serve your ICP and contain many potential customers
+  - Offer revenue sharing agreements rather than direct sales
+  - Partners benefit from upsell opportunities without product development investment
+- Partner value proposition requirements:
+  1. Product too complex for partner to build internally
+  2. Partner lacks necessary talent/expertise
+  3. Not partner’s core business focus
+  4. Partner doesn’t want liability risk of signing off on reconciliations
+- Integration benefits for end customers
+  - Improves user experience significantly
+  - Simplifies Rexi onboarding process
+  - Reduces biggest B2B pain point: system integrations
+
+### Partnership Execution & Risks
+
+- Reaching potential partners:
+  - Target Director of Partnerships roles - they always respond
+  - Large companies typically have someone handling partnership deals
+  - Much easier outreach than direct customer acquisition
+- Partnership sales requirements:
+  - Different deck and funnel than direct sales
+  - Separate value proposition focused on partner benefits
+  - Revenue sharing model where partner earns without direct billing
+- Risk management:
+  - Partners may eventually copy or cut you out
+  - Stay close to potential competitors in their roadmap
+  - Swim fast to build moat before they can replicate
+  - Use competitive pressure as roadmap clarity tool
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/9466637d-b5d7-4351-91a0-9785b62c6492](https://notes.granola.ai/t/9466637d-b5d7-4351-91a0-9785b62c6492)

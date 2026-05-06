@@ -1,0 +1,652 @@
+MEETING: Mahendra Katoch and Ignacio Berardi
+DATE: 2026-02-16
+ID: not_lM785RK0bWhkrN
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Mk <mk@rivamoney.com>
+SCHEDULED: 2026-02-16T10:00:00-05:00 - 2026-02-16T10:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Hey, Ignacio. How are you?
+[You]: Hey, Mahindra. How's it going?
+[Remote]: All good. Sorry for being late.
+[You]: Oh, no.
+[You]: London. Right?
+[Remote]: Yes. Yes. Yes. Where are you?
+[You]: I'm in The US and New York.
+[Remote]: Okay. Nice.
+[You]: Well, thank you for taking the time. I guess, like,
+[You]: one of the things that I wanted to get out of this meeting was I have a bunch of questions for you.
+[Remote]: Yeah.
+[You]: Just get all your learnings on on the reconciliation problem at
+[You]: Wise. Because we spoke with your with your friend the other
+[You]: day, and it was incredibly
+[You]: insightful conversation, but I also wanna get your
+[You]: your point of view on this one.
+[You]: Don't know if you wanna, like, just, like, open up on on what was your experience building this at why
+[You]: what's your take on the problem, and and how are you gonna handle it
+[You]: at Reva? Because I guess, like, very soon, as soon as you start scaling,
+[You]: you're gonna hit some sort of
+[You]: moment where
+[You]: you're gonna need to build some sort of reconciliation mechanism. Right?
+[You]: So just, like, get your open thoughts on on the problem and how do you think you're gonna manage it this time at Reva.
+[Remote]: Yeah. So, I mean, I would not
+[Remote]: say much from Riverside because we haven't
+[Remote]: like, we haven't really we're not working that much with the legacy
+[Remote]: partners at this stage.
+[Remote]: The panel of vendors that we are working with
+[Remote]: today
+[Remote]: are pretty much part of, very crypto native web three. So
+[Remote]: reconciliation with them is pretty smooth. But then
+[Remote]: once we start to increase our panel of banks and liquidity partners,
+[Remote]: this starts to become problem because not everyone in the industry is sort of equipped
+[Remote]: to give you this in a straightforward manner. So what I mean is
+[Remote]: not everything would come by API. There will be SFTP folder
+[Remote]: it'll be, like, you know, logging into their dashboard, downloading Excel, and then
+[Remote]: making it work that way.
+[Remote]: So hard to say from Reva's point of view without having
+[Remote]: clarity in terms of what these partners would be in requirements.
+[Remote]: But I can just talk from my experience advice because
+[Remote]: that is a live problem with real examples.
+[Remote]: So
+[Remote]: first problem was that
+[Remote]: the the sort of mechanism to get
+[Remote]: data
+[Remote]: which helps reconcile on daily basis.
+[Remote]: Comes from various different sources. So like I said, SFTP folders
+[Remote]: where these files would be dropped,
+[Remote]: Second was APIs.
+[Remote]: Third was you know, the XML. So
+[Remote]: communication.
+[Remote]: Fourth one was
+[Remote]: actually, like, logging into dashboards and sort of
+[Remote]: downloading the CSVs.
+[You]: Yep.
+[Remote]: And then the
+[Remote]: fifth one was actually going to our bank accounts and downloading the bank statements in PDF
+[Remote]: forms.
+[You]: Very big.
+[Remote]: So these were the
+[Remote]: main sources. So it was very, obviously, difficult to manage these because
+[Remote]: all of different variety and different mechanisms of how they work.
+[Remote]: They have their own challenges in terms of
+[Remote]: what is needed from maintenance point of view.
+[You]: So the connectors was the first pain point.
+[Remote]: Yes. Yes.
+[Remote]: And the maintenance. Because as you can imagine, everything
+[Remote]: based on the spectrum
+[Remote]: it's it becomes hard to easy, essentially.
+[Remote]: Yeah.
+[You]: That was the main the main pain point.
+[Remote]: So, like, I'm just moving, like, down the chain. So this was
+[Remote]: the first one in terms of, you know, the input types.
+[Remote]: Any questions you have on this?
+[You]: No. No. No. I mean, that's something we see every single day, and it's it's very, very painful.
+[You]: Yes, I I agree a 100%.
+[Remote]: Okay.
+[Remote]: Makes sense. And then and then second one was
+[Remote]: mapping.
+[Remote]: The fields.
+[Remote]: To our own internal mapping so that then reconciliation becomes easier.
+[Remote]: So
+[Remote]: as you can imagine, I've told you, like, five different connectors
+[Remote]: That means five or more different types of file formats.
+[Remote]: And how you parse them, XML to PDF to CSV.
+[Remote]: And then some bank statements are probably
+[Remote]: but with, like, images, which you can't really extract type
+[Remote]: text out of, so you need to use some sort of OCR.
+[Remote]: So data mapping
+[Remote]: was the second challenge, essentially.
+[Remote]: And then once we have done the
+[Remote]: data mapping, the third challenge was
+[Remote]: the third challenge was that we had built
+[Remote]: internal system that based on this data mapping, based on the schedules,
+[Remote]: it would basically run the connectors, do the data mapping, and then
+[Remote]: would create transactions on our ledger
+[Remote]: which then would be
+[Remote]: sort of
+[You]: Matched against
+[Remote]: link
+[Remote]: yeah, linked to the actual transaction that we've done internally
+[Remote]: which then says, okay. These are these are sort of linked. That means
+[Remote]: as long as there is one link exists,
+[Remote]: fine. That means we have our ledger.
+[You]: Okay.
+[Remote]: Now
+[Remote]: within this, there are multiple problems. One is
+[Remote]: when you're creating these links,
+[Remote]: not every amount would exactly match
+[Remote]: The reason would be that sometimes there are bank charges, sometimes
+[Remote]: irregular settlements. So you need to build one certain tolerance
+[Remote]: And second,
+[Remote]: the links needs to be adaptive enough that it actually links
+[Remote]: to not just one transaction, sometimes more than one as well.
+[Remote]: And maybe sometimes even do netting
+[Remote]: And based on netting, it does the the sort of linking.
+[You]: The payment is one to many.
+[Remote]: Yeah.
+[Remote]: Exactly.
+[Remote]: So that was the other one. And then
+[Remote]: and then, obviously, in this whole
+[Remote]: series of things,
+[Remote]: the major time spent by our developers was essentially
+[Remote]: changing the data model
+[Remote]: every few weeks because
+[Remote]: for some reason, like, it was always changing for some bank or the other.
+[You]: Yeah. They changed the format, the name of the column.
+[Remote]: Yep.
+[Remote]: Yeah.
+[Remote]: So I would say I think these were all the problems. Exactly. Like,
+[You]: On the engineering side, right, then
+[Remote]: yeah.
+[You]: once you build the process, these things never match a 100%.
+[You]: And then the ops team did spend a lot of time investigating and closing discrepancies. Right?
+[Remote]: Yeah. Correct.
+[You]: And those discrepancies were typically
+[Remote]: Correct.
+[You]: data mistakes or money actually missing?
+[Remote]: Вот.
+[Remote]: So money missing would be, you know, there are bank charges. That's why it's not reconciling.
+[Remote]: Data changes because someone some bank decided to change the format.
+[You]: Ok.
+[You]: And
+[You]: when I was speaking to your friend,
+[You]: Sorry. I'm taking notes here. She told me that
+[You]: for WISE, it was really obvious that they should build that internally.
+[You]: Because you guys started out as a
+[You]: cross currency, cross border payments platform, so you had to reconcile from day one So it was it made total sense that you had to build internally. But now that you're building Riva, and you see this problem, like, happening probably in a couple months or in a couple years,
+[You]: how do you think about
+[You]: these things? Because one of the things we're we're seeing a lot is sometimes we see some pushback
+[You]: from the engineering teams, like saying we should build something internally for this.
+[You]: How do you think about that as a CTO?
+[Remote]: No. So, I mean, we we are very clear in terms of
+[Remote]: how we think about buy versus build.
+[Remote]: Like, at the end of the day, we wanna run teams very lean.
+[Remote]: Not everything we wanna build in house, especially
+[Remote]: places where we know
+[Remote]: the the space is going to change rapidly. So we'd rather rely on
+[Remote]: companies who are building the solution
+[Remote]: just focused on this
+[Remote]: are adapting to those changes themselves so that we don't have to focus on
+[Remote]: sort of things that are not core to what we are doing
+[Remote]: We rather focus on things like that are actually core to us.
+[Remote]: We are very clear in terms of buy versus build that way. So that's what we think every time
+[Remote]: we need to either build or buy, and that's how we are making decisions.
+[You]: So one of them is that the the space is gonna be changing a lot, so you don't wanna be
+[You]: maintaining that with internal teams.
+[You]: And do you think this is gonna continue to be a problem in fintech?
+[You]: Or something is gonna solve it?
+[Remote]: I mean, it's very hard to build something that solves everything, like a super app.
+[Remote]: So I don't think
+[Remote]: I don't think it's reasonable to say that
+[Remote]: this problem will disappear.
+[Remote]: Like, there is always going to be fragmentation
+[Remote]: There is always going to be more and more people building different tools.
+[Remote]: And there is always going to be space for people who will be bridging that.
+[You]: Got it. Got it. And
+[You]: so, basically, you another thing you said
+[You]: when thinking about buy versus build is if this is a core thing in your infrastructure. So you
+[You]: see this as, like, a back office tool, not a core infrastructure thing.
+[Remote]: Yeah. Correct.
+[You]: And why is that?
+[Remote]: I mean,
+[Remote]: this is not revenue generating thing for us. Like, we'd rather focus on things that is revenue generating
+[Remote]: back office is obviously good to have.
+[Remote]: We can always do it manually. So
+[Remote]: I would not spend my own resources doing that.
+[Remote]: Especially at the early stage when we don't have that much resources.
+[You]: And and
+[You]: why do some companies decide to build this internally? Because they underestimate the complexity or why?
+[Remote]: I think two things. One is
+[Remote]: the one you said, which is underestimating the complexity, and second is
+[Remote]: humans. Right? So some people need to just
+[Remote]: their titles or what they're doing.
+[Remote]: So based on the role, whether they it's it's product or engineering, who's driving it,
+[Remote]: it would be by versus based on that as well.
+[You]: But in your in your mind,
+[You]: for any fintech company, doesn't make sense. Unless it's a core thing like Wise. Or at Wise, you would have not billed internally.
+[Remote]: I mean, sometimes it's hard,
+[Remote]: when you're building it from scratch and you don't come from the same domain because you haven't seen it before.
+[Remote]: So then sometimes people would rather build it themselves
+[Remote]: to to make themselves learn about
+[Remote]: the problem space better,
+[Remote]: which which then takes them few years of
+[Remote]: them actually spending money to build themselves. And then they realize, okay.
+[Remote]: You know what? We should have probably bought it from outside, but it's not their
+[Remote]: because they didn't know
+[You]: It's a learning curve. Yeah.
+[Remote]: that they didn't have the clarity on busy.
+[Remote]: Yeah.
+[You]: Got it. And and and regarding, like,
+[You]: the job to be done here,
+[You]: You as CTO, when you wanna, like, buy buy one of these
+[You]: solutions and you need to sort of, like, build the business case around it,
+[You]: Is this more like a automation play? Like,
+[You]: instead of having engineers spending time there or amount of hours of the ops
+[You]: team, or is this a risk thing, how do you like, what's the mental model to sell it internally?
+[You]: If you were, to buy Rexy and you need to sell it to your CFO or to your cofounder,
+[Remote]: Yep.
+[You]: What's what's the sell?
+[Remote]: So saving time
+[Remote]: would be definitely key because that's that equates to save saving money.
+[Remote]: Then
+[Remote]: second, I mean, risk
+[Remote]: being in fintech, being regulated, we always have to think about risk.
+[Remote]: So we just, last week, did a lot of regulatory submission.
+[Remote]: And we have to list every vendor that we're working with, and we have to
+[Remote]: list down their ISO certification, their SLAs with us, their vendor agreement,
+[Remote]: their sort of resilience programs,
+[Remote]: and what our backup strategy is if that vendor was to go down.
+[Remote]: So from risk perspective, we have to do a lot of scrutiny for every vendor we integrate just because our regulator expects us to do that, and every quarter we have to report
+[Remote]: it.
+[You]: But but this affects
+[You]: implementing reqsie. This doesn't affect you know, like, reducing risk
+[You]: by having reqsie. That's my point. You're selling it as a as a
+[You]: time saving thing, not a risk reduction thing.
+[Remote]: Correct. True.
+[You]: Okay.
+[You]: Okay.
+[Remote]: Unless, obviously,
+[Remote]: if your pitch and feature offering is around those risks,
+[Remote]: that we don't really have to then think about risks ourselves,
+[Remote]: Meaning, you're already
+[Remote]: you've already built a product
+[Remote]: that has everything that satisfies the regulatory requirement from
+[Remote]: sort of
+[Remote]: resilience perspective.
+[Remote]: At the same time, it also removes
+[Remote]: our own operational risks as well.
+[Remote]: I mean, to a certain degree, you're already doing.
+[You]: Yeah.
+[You]: And and and regarding so you said, like, the main
+[You]: cell is saving time, which is money. Right?
+[You]: How do you think about willingness to pay? Like, what's what's the range
+[You]: that would you would be what's the willingness to pay, and whatever pricing model
+[You]: do you prefer for these tools? Like,
+[You]: because I I guess it's it's hard to measure the willingness to pay.
+[You]: When you're talking about I mean, when you're talking about time, it should be easy because you can do a quick business
+[You]: case on the amount of hours spent by the ops team or the engineering team and could do a quick business case there.
+[You]: But when we talk about, like, reducing risk, it's it's an intangible, and it's hard. So
+[You]: how do you think about about willingness to pay for these tools
+[You]: and and what type of pricing model do you prefer?
+[Remote]: Yeah. I mean, it's hard one, but I guess some sort of
+[Remote]: monthly. I don't know how that
+[Remote]: should be structured because there is no
+[Remote]: per se tweak model here
+[Remote]: but it could be based on connectors, I guess.
+[Remote]: Yeah. I think so. So I I guess subscription based on number of connectors
+[Remote]: would make sense.
+[You]: Not not at volume, not amount of transactions.
+[Remote]: Yeah. I mean, I think the more granular it is,
+[Remote]: the more it makes the
+[Remote]: pricing complex for us to digest.
+[Remote]: So the simpler the pricing, the better it is.
+[Remote]: Because, technically, if I'm only integrating with you for two connectors,
+[Remote]: how many how many transactions I would do anyways?
+[Remote]: Because that if I'm doing only two connectors, that means
+[Remote]: that's the size of the firm I have got, which means that's the
+[Remote]: is a there is a ceiling to how many transactions I will be doing given the stage I'm at.
+[You]: Yep.
+[You]: Yep. And and and regarding willingness to pay, like,
+[You]: what what's the threshold in which you say,
+[You]: gonna build this internally. Because I know if you've been
+[You]: sort of, like, asking for our
+[You]: fees for these tools, but some are very expensive. Like, they charge you
+[You]: 10 k for an implementation, and then they charge you 5 to 10 k a month.
+[You]: For these things.
+[You]: Or even more. I mean, there's this player in in in Latin America,
+[You]: called Symmetric serving the big fintechs.
+[You]: Like Mercado Pago, you know,
+[You]: Rappi, Nubank, et cetera, and they're charging them on millions a year.
+[You]: On the millions, like $5,000,000.
+[Remote]: Yeah. But then, I mean, the number of connectors they would have is insane as well. Like, Wise alone.
+[Remote]: I mean, I don't have the number top of my head, but
+[Remote]: it's it's it's a lot of connectors.
+[Remote]: Like, just Morgan Stanley, I think they were probably
+[Remote]: five or six different types.
+[You]: Just with one bank.
+[Remote]: That's, one bank.
+[Remote]: Yeah.
+[You]: Five or six different connectors.
+[Remote]: Yeah. But, I mean, look, to answer your question around appetite to pay, right,
+[Remote]: Hard to say because
+[Remote]: I don't have a reference point.
+[Remote]: But if I were to think, I would think about
+[Remote]: like, we're quite early stage. Right? So I I can I can quite easily think what what would be my
+[Remote]: cloud bill be because I'll have to spin up a new service
+[Remote]: probably a database and whatnot?
+[Remote]: Is the cost for that per month?
+[Remote]: So that's one data point. And second is I can probably think about what
+[Remote]: developer time spent would be.
+[Remote]: Third would be the the time to build internally because, obviously,
+[Remote]: I'm spending two months building that,
+[Remote]: also time lost in terms of saving
+[Remote]: of ops time. So I could I could gauge both ops and engineering time that way.
+[You]: Yeah.
+[You]: Interesting. Interesting. And and this problem typically is owned by
+[You]: the engineering teams or the finance team or or who exactly, like,
+[You]: is responsible for this?
+[Remote]: I mean, I think totally depends on scale of the company. But for a scale of Wise,
+[Remote]: it's going to be
+[Remote]: this is going to be a back office thing, so treasury finance would be making a decision.
+[Remote]: Within that, it'll be product
+[Remote]: and engineering making it making the decision together. I think it depends
+[Remote]: how tech focused the company is.
+[Remote]: The more tech focused the company is, the more decision
+[Remote]: would would move towards engineering, but there's definitely going to be product
+[Remote]: who's going to
+[Remote]: lay like, lean in heavily on that as well.
+[You]: Y
+[Remote]: Because product are like, product people are the ones who are managing relationship with
+[Remote]: with the banks on treasury finance side of things, but they would understand quite a lot in terms of the life cycle of these things would be, would actually be the ones who will be doing a lot of impact analysis for this, not engineers.
+[You]: They understand the nuances.
+[Remote]: Yeah.
+[You]: Of these files, the life cycle of the transactions,
+[Remote]: Yeah. Yeah.
+[You]: Treasury Finance is the ultimate responsible one.
+[You]: And engineering leans in because it's it it touches their
+[Remote]: Yep.
+[You]: if they need to build something. Right? But they're not, like, owners of a solution. I mean, it's just like
+[Remote]: Yep.
+[Remote]: Yep.
+[You]: you always are gonna give your opinion, and you have a strong
+[You]: opinion because you can always say, I can build this.
+[You]: But but you're not the one responsible at the end of the day. Right?
+[Remote]: Yeah. Correct.
+[You]: But it's
+[You]: Ok, just two last questions. One is,
+[You]: related to implementation.
+[You]: I don't know if you had the experience of implementing a tool at Wise or at Reva, but
+[You]: some of these platforms or products are hard to implement. Right?
+[You]: And what have been what have been your learnings there? How can we accelerate implementations
+[You]: Because then there's also time to value
+[You]: on these things. You're, like, buying external solution, but then if it takes
+[You]: three to six months to implement, it's it it hurts. It's painful. Right?
+[Remote]: Yep. I mean, for companies like Wise, it it moves
+[Remote]: the
+[Remote]: the action item moves between between a lot of teams
+[Remote]: legal would be looking at contracts. They'll give their sign off.
+[Remote]: And some product lead or engineering lead would give their sign off. So
+[Remote]: it moves through a lot of hoops before it's actually gone through
+[Remote]: gone to actual implementation. And then, obviously,
+[Remote]: based on the other priorities of the engineering team,
+[Remote]: they would then take their own sweet time as well. So
+[Remote]: for for a integration like this, I would say a quarter,
+[Remote]: is what I would estimate for Wise.
+[Remote]: For companies like us,
+[Remote]: we could do it, like, in a less than less than a week.
+[Remote]: The whole thing.
+[Remote]: Decision making would be also, two to three days, probably a week.
+[Remote]: So one week for decision commercial discussion, one week for implementation. Normally,
+[Remote]: what I've seen is
+[Remote]: the vendor are a bottleneck as well a lot of the times because
+[Remote]: so a lot of the times, vendors move really slow in terms of, you know, opening up staging environment,
+[Remote]: opening up API docs, resolving issues, coming back quite slow,
+[Remote]: on the Slack channel. Sometimes some vendors actually don't even do
+[Remote]: Slack channel. It'll be emails or even slower the communication.
+[Remote]: So a lot of the times, vendors actually start to become bottleneck as well.
+[You]: Interesting. Again, it depends on the stage of the company. Right? For for
+[You]: smaller tech teams, it's it's quicker to implement.
+[Remote]: Ya, correcto.
+[You]: Got it. Got it.
+[You]: So, like... And and and, okay, just
+[You]: one last question. Two two last questions. One one is, secondly, like,
+[You]: one of the things we're starting to see with this workflow is that
+[You]: in this sort of, like, discussion between building internally or buying,
+[You]: there's always two things that they take into account. The first one is sensible data.
+[You]: For some of these banks, they don't like sharing the transactional data, so
+[You]: so there's one there. And the other one is they try to avoid vendor lock in.
+[You]: And even though this is not, a critical piece of infrastructure, it's a back office
+[You]: tool that is very important and that
+[You]: they know that once they hire it,
+[You]: they feel, like, blocked in because the switching costs are are high.
+[You]: So there's some companies that try to build internally because of those two things.
+[You]: Because of data sensibility and because they wanna avoid vendor lock in and then paying $5,000,000 for a recon SaaS. Right?
+[You]: So we're charting we're to experiment with the on premise model.
+[You]: Meaning,
+[You]: we configured everything, we implement everything, and we deployed in your
+[You]: infrastructure so that you control it. There's a higher
+[Remote]: Yeah.
+[You]: upfront fee, sort of like a Palantir model, and then a very low retainer afterwards.
+[You]: But you avoid data sensibility and you avoid vendor logging. What do you think about that model?
+[Remote]: Yeah.
+[Remote]: Yeah. So
+[Remote]: I think I missed that point. It does make a lot of sense
+[Remote]: from data point of view. I had rejected a lot of vendors for
+[Remote]: like, different things advice because we had to share
+[Remote]: store our data on their platform, and then
+[Remote]: it just increases our work because then we need to vet
+[Remote]: a lot of extra things before we can build comfort, no one really has time to do do that. So
+[Remote]: you'd rather just not do it.
+[Remote]: Think the the on prem model, which you're saying, makes sense.
+[Remote]: For example, we use
+[Remote]: a back office UI
+[Remote]: within our firm
+[Remote]: which is basically, you know, clicks and it creates screens, and it can create hook up to your APIs.
+[Remote]: We we pay per seat.
+[Remote]: And then it allows us to it it gives us a key,
+[Remote]: which then we can download that whole thing
+[Remote]: host it ourselves on Kubernetes, inject the key, and it activates the product.
+[Remote]: Then
+[Remote]: we host everything.
+[Remote]: Control the data. If it's everything is inside our cloud,
+[Remote]: and we are just paying them for
+[Remote]: you know, the subscription essentially of using it.
+[You]: So you you you like it. You see it as an
+[You]: interesting selling point for some of these companies, particularly on data sensibility.
+[Remote]: Yep. Yep.
+[You]: What are you worried about the product side? What are the risks
+[You]: of this model, disadvantages?
+[Remote]: Mean, the risk would be, like, debugging.
+[Remote]: Basically, if there are issues, like, how easily do you make it debuggable?
+[Remote]: Easier to seek support from vendor,
+[Remote]: As long as you solve it, I think it should be okay.
+[You]: And and you're willing in in a in a tool like this one, you're willing
+[You]: to do a higher upfront investment?
+[You]: To control the tool and have it hosted on your infrastructure rather than
+[You]: paying like a SaaS?
+[Remote]: Yeah. Because, I mean, hosting things these days is quite
+[Remote]: cheap in terms of getting up getting up and running as long as there's a
+[Remote]: there's a Docker image, you can host it quite easily on on
+[Remote]: alongside your other applications. Most companies will have already a
+[Remote]: infrastructure pipeline where they can add new services quite easily.
+[Remote]: It's not that much cost, at least for companies like us. Even for like, they had
+[Remote]: their platform pretty sorted. Spinning up new services wasn't a challenge.
+[You]: Interesting. Interesting.
+[You]: Okay. And then the last question is
+[You]: one of the one of the things we're trying to test at Rexy is
+[You]: that to actually solve this problem, because reconciliation at its core is a coordination
+[You]: as you just said.
+[You]: These are many different connectors. There's no standards for data sharing.
+[You]: No standards for the formats or the schemas of these files, and that's why it's painful.
+[You]: So, basically, in an ideal world, the solution for this is
+[You]: everyone is sharing data with the same connectors. Everyone is sharing data with the same
+[You]: Right? And we know that's not gonna happen. That's a really big overhaul over the whole industry.
+[You]: So what we wanna add is we wanna become that intermediate layer
+[You]: which is parsing everything. Right? And then the fintech
+[You]: the bank, the ledger, everyone is consuming rexy.
+[You]: To reconcile their data, because reqsi gives their gives the data
+[You]: already in a format that's easier to process, easier to match, easier to compare against internal
+[You]: information. And in that way, we become a multi party system all the way from the bank
+[You]: the ledger, the fintech platform, and the payment providers. Everyone everyone in
+[You]: integrated in the stack. And and the cool thing about that is that we start creating network effects.
+[You]: Right? Because there's a benefit. There's a shared benefit
+[You]: for everyone to be on Rheksi, right? Because operationally, it just becomes way easier
+[You]: to manage this data. Do you think
+[You]: this is a plausible vision? Do you think this is a solution to the problem? What are gonna be the main
+[You]: hurdles to achieving that? Meaning, like,
+[You]: at some point, we need to target the banks, for example, that we all know are very hard
+[You]: to sell into. But
+[Remote]: Yeah. But I think I mean, obviously, it's
+[Remote]: it's it's a uphill battle.
+[Remote]: Given the size of the firms you'll be needing to
+[Remote]: get your foot in the door. But I think you can you can
+[Remote]: you can start quite easily with the smaller fintechs who are not banks,
+[Remote]: but work like a bank who you would need to integrate with anyways.
+[Remote]: For as long as you can start
+[Remote]: that way, I'm sure
+[Remote]: then slowly you can get other other sort of bands as well onboard.
+[You]: Got Got it. Well, thank you so much, Mahindra.
+[You]: This has been amazing. Just just to close it out, like,
+[You]: if we were to work together in the future, when this becomes a pain at Riva,
+[You]: what would you need to see from Rexy to actually take it seriously and and and
+[You]: consider hiring our our product, our platform?
+[Remote]: I think the things we discussed in this call in terms of pinpoints as well as
+[Remote]: posting, data issues,
+[Remote]: I think if we solve those, then I don't see any concern.
+[You]: Got it.
+[You]: Well, Mahindra, thank you so much. If you know, like, I'm sure you guys
+[You]: like, CTOs have these forums with other fintech CFOs.
+[You]: CTOs, and and and you have a lot of connections. So if you know, like, of other small fintechs that you just
+[You]: mentioned that might be dealing with this pain,
+[You]: and you have some referrals for us, that would be amazing. I'm more than happy to
+[You]: to get some, like, referral incentive for you in place or some sort of reseller agreement. I'm
+[You]: you're very well connected in the fintech industry, and and we're
+[You]: selling to those exact fintechs that are, like, rebar or a bit
+[You]: a bit bigger and already suffering this this
+[You]: reconciliation process. So if you have someone to refer to us, please send them over.
+[You]: And if you have a lot, we can also sit down to to sign some sort of referrals and
+[You]: incentives that you are also compensated for for those opportunities you'll be sending to us.
+[Remote]: Yeah.
+[You]: But let me know.
+[Remote]: No. No. I mean, look, happy to help. I mean, we don't even have to talk about incentive. Like, happy to help fellow
+[Remote]: entrepreneurs. So if I meet someone looking for this
+[Remote]: I'll I'll definitely send them your way.
+[You]: All right, Mahendra. Thank you so much for your time. This has been very insightful, and, also, thank you for the connection
+[Remote]: Yep.
+[You]: you made to your friend at Wise. Also a very interesting conversation.
+[You]: Let's keep in touch with Riva. We were talking with Robert. I
+[You]: think today there's a fit for us to use your services, but, in the near future, there might.
+[You]: So, yeah, let's keep in touch.
+[Remote]: So what's the reason? Like, it's not of it today?
+[You]: Because today, we have four contractors in Argentina, and, basically,
+[You]: my steps are BREX, dollar app, and in dollar app, I just disperse
+[You]: all the payroll. Right? And I be
+[You]: saving a step using Reva. I would just replacing dollar app with Reva.
+[You]: And today, dollar app is free. Like, the first transaction is free, and the other ones are
+[You]: free. And with you guys, I need to pay some banking fees that you're just, like,
+[You]: sending over. You're not making money out of them, I know.
+[You]: But it's like, I'm not saving a step, and I'll be paying some fees that today I'm not paying. So
+[You]: I don't know if today makes sense.
+[You]: If if dollar app at some point starts charging fees,
+[You]: or if this actually gets out of hand because we hire more contractors, then maybe yes.
+[You]: But as of today, because of our operation, I don't think there's there's much of a fit.
+[Remote]: And where do you plan to hire next
+[Remote]: Like, what locations? Is it only going to be Argentina or more?
+[You]: Is it gonna it's only gonna be Argentina or The US?
+[Remote]: Okay.
+[You]: We're trying to keep it in two hubs.
+[Remote]: Makes sense. Okay. Cool. No worries.
+[Remote]: Very much.
+[You]: Thank you so much, Magendal. CEO.
+
+============================================================
+SUMMARY
+============================================================
+### User background
+
+- Mahendra Katoch (MK) is CTO at Riva Money, a fintech company working primarily with crypto-native web3 partners
+- Previously worked at Wise where he built reconciliation systems and experienced the challenges firsthand
+- Currently at Riva, they haven’t hit the reconciliation problem yet due to working mainly with crypto-native partners who provide smooth reconciliation
+- Expects reconciliation to become a major pain point as Riva scales and adds more traditional banking partners and liquidity providers
+
+### Current product usage
+
+- Most of Riva’s current partners are crypto native (web3), making reconciliation relatively smooth
+- Plans to increase panel of banks and liquidity partners, which will trigger reconciliation challenges
+- Currently operates with lean teams and clear buy vs build philosophy
+- Uses back office UI tools that can be self-hosted with per-seat pricing model
+
+### Positive feedback and pain points
+
+- Pain points experienced at Wise with reconciliation systems:
+
+  1. **Data source variety**: Multiple mechanisms to get reconciliation data
+    - SFTP folders where files are dropped
+    - APIs
+    - XML communication
+    - Logging into dashboards to download CSVs
+    - Downloading bank statements in PDF format from bank accounts
+    - Very difficult to manage different mechanisms with varying maintenance requirements
+  2. **Data mapping challenges**: Mapping fields to internal systems
+    - Five or more different file formats to parse (XML, PDF, CSV)
+    - Some bank statements contained images requiring OCR for text extraction
+  3. **Transaction matching complexity**:
+    - Amounts don’t match exactly due to bank charges and irregular settlements
+    - Need to build tolerance levels for matching
+    - Links must be adaptive to support one-to-many relationships and netting
+  4. **Constant data model changes**: “Major time spent by developers was changing the data model every few weeks because for some reason, it was always changing for some bank or the other”
+  5. **Operational overhead**: Ops teams spent significant time investigating and closing discrepancies
+    - Discrepancies typically caused by bank charges (money missing) or format changes (data mistakes)
+
+- Implementation challenges:
+
+  - At large companies like Wise: one quarter implementation time due to legal signoffs, engineering signoffs, and team priorities
+  - Vendors often become bottlenecks with slow staging environments, API documentation, issue resolution, and poor communication channels
+  - “Sometimes some vendors actually don’t even do Slack channel. It’ll be emails or even slower communication”
+
+### Impact of the product
+
+- Buy vs build decision framework at Riva:
+
+  - “We want to run teams very lean. Not everything we want to build in house, especially places where we know the space is going to change rapidly”
+  - Prefer companies focused on the solution to adapt to changes rather than internal teams
+  - Focus resources on core, revenue-generating activities
+  - Views reconciliation as back office tool, not core infrastructure: “This is not revenue generating thing for us”
+
+- Reasons companies build internally:
+
+  - Underestimate complexity
+  - Human factors: people need to justify their titles and roles
+  - Learning curve: “Sometimes people would rather build it themselves to make themselves learn about the problem space better”
+
+- Business case considerations:
+
+  - **Primary selling point**: Saving time equals saving money
+  - **Willingness to pay**: References cloud costs, developer time, and time to build internally
+  - **Preferred pricing**: Subscription monthly based on number of connectors - “The more granular it is, the more it makes the pricing complex for us to digest”
+  - **Risk considerations**: As regulated fintech, must vet every vendor with ISO certifications, SLAs, vendor agreements, resilience programs, and backup strategies
+  - Example: Morgan Stanley alone required 5-6 different connectors
+
+- Decision-making ownership:
+
+  - Treasury Finance ultimately responsible for back office reconciliation tools
+  - Product and Engineering participate in decisions
+  - “Product people are the ones who are managing relationship with the banks on treasury finance side… would actually be the ones who will be doing a lot of impact analysis”
+
+### Next steps and follow up
+
+- On-premise deployment model feedback:
+
+  - “It does make a lot of sense from data point of view”
+  - Previously rejected vendors due to data sharing requirements and vetting overhead
+  - Hosting costs are low and infrastructure setup is straightforward with Docker images
+  - Main risk concern: debugging and vendor support accessibility
+  - Willing to pay higher upfront investment to control tool and host on own infrastructure
+
+- Multi-party network vision feedback:
+
+  - Acknowledges it’s “an uphill battle” given the size of firms needed
+  - Suggests starting with smaller fintechs who aren’t banks but work like banks
+  - “As long as you can start that way, I’m sure then slowly you can get other bands as well onboard”
+
+- Requirements for future consideration:
+
+  - Self-hosting capability
+  - Resolution of data issues discussed
+  - “If we solve those, then I don’t see any concern”
+
+- Referral opportunity:
+
+  - MK offered to refer other small fintechs dealing with reconciliation pain
+  - “Happy to help fellow entrepreneurs. So if I meet someone looking for this I’ll definitely send them your way”
+
+- Implementation timeline at Riva:
+
+  - 1 week for commercial discussion
+  - 1 week for implementation
+  - Much faster than larger companies due to lean decision-making structure
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/fdb2ca90-5846-4b98-a782-bec5ab603c25](https://notes.granola.ai/t/fdb2ca90-5846-4b98-a782-bec5ab603c25)

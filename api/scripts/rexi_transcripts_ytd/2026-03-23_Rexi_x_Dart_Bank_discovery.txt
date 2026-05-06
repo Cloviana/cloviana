@@ -1,0 +1,499 @@
+MEETING: Rexi x Dart Bank: discovery
+DATE: 2026-03-23
+ID: not_8RnpwZOoFqCWx2
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Adaniel <adaniel@dartbank.com>, Dbull <dbull@dartbank.com>, Mbrafford <mbrafford@dartbank.com>
+SCHEDULED: 2026-03-23T15:30:00-04:00 - 2026-03-23T16:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: 200420132013. Okay. Yep. I think Danielle's
+[You]: Hung up.
+[You]: Congratulations. That's a long run.
+[Remote]: felt the same as me. Twelve almost thirteen years for me. So yeah.
+[You]: Amazing. Well, thanks
+[You]: thanks for the time. Great meeting.
+[You]: Given we had not met before, I can go
+[You]: like, a quick overview and intro of myself, what we do at Rexy,
+[You]: and then would love to deeper
+[You]: go deeper into
+[You]: reconciliation processes at Dark Bank and what
+[You]: got you guys interested in having this meeting. Does that sound right? Or
+[You]: were you thinking of of using the time in
+[You]: some other way?
+[Remote]: Everything is good.
+[You]: Awesome. Alright. So
+[You]: I'm Ignacio, cofounder and CEO of Rexy.
+[You]: Rexy is an AI native startup.
+[You]: Building financial operations workflows for banks.
+[You]: Fintechs, payment companies, and crypto wallets.
+[You]: We are starting by the reconciliation process because we know this is a very, very painful
+[You]: process.
+[You]: Particularly for any any company integrating multiple payment flows
+[You]: and with high transactional volume,
+[You]: but specifically in financial services. The three cofounders we come from financial services are
+[You]: We were building in fintech before.
+[You]: And we were from the ops teams and the finance teams.
+[You]: Carrying the burden of of reconciling money movements and now
+[You]: we're building a company for it. We started a year and a half ago
+[You]: We're based in The US. I'm based in New York.
+[You]: Right now, I'm in Miami. Sorry for all the
+[You]: back and forth. I got stuck on this, like, warrior thing this morning.
+[You]: But I can be I'm gonna be in Miami for the week.
+[You]: For a conference. But, originally,
+[You]: based in New York.
+[You]: And as I said, working with banks,
+[You]: fintechs,
+[You]: and payment companies to basically automate the process end to end. So
+[You]: our platform is a web application,
+[You]: which basically connects straight to the data sources.
+[You]: Bank statements, ledgers,
+[You]: payment processors, cards, our programs,
+[You]: whatever
+[You]: source of transactional data, and then we automate the process end to end
+[You]: all the way from ingestion, transformation, processing,
+[You]: and then discrepancy management.
+[You]: And then finally, you have all the output schemas, which
+[You]: you can build your own dashboard in the platform. You can build custom workflows
+[You]: for reporting, and we also plug into the main
+[You]: ERP systems to generate the journal entries and stuff that's already reconciled.
+[You]: Just to round it up, some of the impact we're seeing with with
+[You]: with our customers today are the first one is, of course,
+[You]: automation of manual tasks.
+[You]: Those processes are today typically live in Excel.
+[You]: Or some sort of SQL script or
+[You]: just people looking over and over these transactions that going back and forth to try to understand the differences.
+[You]: We automate automate all that work, and it generates
+[You]: mean, the early results we're seeing with customers is 80% of those
+[You]: manual task hours are are being automated.
+[You]: The second one is
+[You]: everything associated to write offs. So
+[You]: I don't know if
+[You]: in the banking sector is not so common, in payments and in in fintechs,
+[You]: there's this journal entry of stuff that's called
+[You]: unreconcilable transactions.
+[You]: Or losses, unreconcilable losses.
+[You]: And that, depending on the TPV, can be very
+[You]: like, you know, a lot of big numbers. It can be a really high number.
+[You]: We've reduced that by 95% of the companies we're working with,
+[You]: So that's major significant
+[You]: dollar say serve savings
+[You]: that we've been generating for our customers.
+[You]: And then the last one is regard regarding risk.
+[You]: I'm sure you guys as a bank
+[You]: have some sort of reporting requirements, compliance requirements,
+[You]: regulatory reporting you need to
+[You]: you need to abide to.
+[You]: And the platform by automating the whole processing
+[You]: to end enables you guys to be
+[You]: safer on that front as well. So it is sort of a risk reduction
+[You]: tool because we like to say
+[You]: reconciliation is not gonna make or break I mean, it's not gonna make your company, but it can for sure break it.
+[You]: Right? If it's not done correctly, there's a lot of money gonna be lost there.
+[You]: So it's about it's a hygiene thing. It's about having a robust process in place
+[You]: that ensures that money is correctly accounted for
+[You]: and that we're correctly tracking money directions and money amounts.
+[You]: So
+[You]: that was a bit of a long
+[You]: intro.
+[You]: Hopefully,
+[You]: happy to answer. Hopefully, it was clear enough. Happy to answer any questions, doubts, concerns.
+[You]: And then if not, we'd love to hear more about how are you currently handling it
+[You]: at at Dartbank and and
+[You]: what type of improvements are you looking to introduce this quarter?
+[Remote]: I do think just the first question is, is
+[Remote]: how did you get, hooked up with Have you worked
+[Remote]: together previously? Or
+[You]: No. So, basically, one of our
+[Remote]: you know, how did we how did we get to this point where we get to have a demo with you?
+[You]: yeah. A 100%.
+[You]: Great question. So one of our our our lead investor underscore v c, Chris Gardner, knows this guy named Doug Hurst.
+[Remote]: Mhmm.
+[You]: And Doug Hurst knows
+[Remote]: Okay.
+[You]: And I think had mentioned
+[You]: to Doug that you guys were looking
+[You]: to either improve or solve some pain points around
+[You]: and that's when Doug spoke with Chris.
+[You]: Saying, like, hey. I know you guys have a start up in your portfolio that auto bases with AI.
+[You]: Maybe it's worth the conversation. And that's how we got in touch.
+[Remote]: Sure.
+[Remote]: So then, with your existing clients right now, what type of
+[Remote]: reconciliations are you doing?
+[You]: So our tool is is a data orchestrator.
+[Remote]: Currently?
+[You]: It's pretty flexible.
+[You]: Because it works, again, as a data orchestrator. We ingest files
+[You]: and we transform stuff, and we match
+[You]: transactions, and then we surface discrepancies and provide a
+[You]: no code tooling and UX
+[You]: for you guys to go over the differences and solve them
+[You]: rather quickly. But some examples are
+[You]: course, bank reconciliations, accounting reconciliations, money flow reconciliations,
+[You]: Because as I said, like, at the end of the day, we're ingesting transactional files, and we're doing the transformation, the process
+[You]: to ensure that money is moving in the correct directions and correct amounts.
+[Remote]: Okay. So do you have the ability like, if you're matching transactions,
+[Remote]: do you have the ability to then also, like, take it down a level?
+[Remote]: If you have a pool of money and then there's, like, individuals within that pool of money that have
+[Remote]: you know, essentially a piece of that. Like, are you able to track that?
+[Remote]: And reconcile it down
+[Remote]: to almost like a virtual account level?
+[You]: A 100%. Yeah. Because we work with ledgers.
+[You]: Are you talking about probably, like, do you guys have, like, a BaaS partner which serves fintechs?
+[Remote]: Yeah.
+[You]: And that's what you're looking to reconcile. Right? Like, the subaccounts of those fintechs.
+[Remote]: Yeah.
+[You]: Exactly. Yep.
+[You]: Yep.
+[You]: I worked for a fintech company here in place in The US called Comun.
+[You]: Which works with CFSB Bank and Bank. So
+[You]: we know that structure very well.
+[Remote]: Okay.
+[Remote]: And then what about, like, all the different payment types?
+[Remote]: You know, we're talking ACH, wire, like, all of that.
+[Remote]: So how does that work within your platform?
+[You]: Same as as with the bank reconciliation or a program
+[You]: I mean, we ingest the raw data files, which you're probably already working with,
+[You]: There's my go.
+[Remote]: Oh, yeah. Hey, Michael.
+[Remote]: Hello. Sorry.
+[You]: Hello, Michael. How's it going?
+[Remote]: No. You're good.
+[Remote]: Not bad. How's everybody?
+[You]: Doing good. Doing good.
+[Remote]: Good.
+[You]: We were going over well, I did I I did a short intro of myself.
+[You]: About what we do at Rexy.
+[You]: And we were just going over the reconciliation needs you guys have at Dart.
+[You]: To see if our platform
+[You]: is able to solve those those things.
+[You]: So you were saying, Danielle, the the payment methods, ACH for sure. We do card.
+[You]: We do remittances. We do
+[You]: we used to do Zelle.
+[You]: For for the for the fintechs. Now now not not anymore.
+[You]: Basically, anything, like cash in cash out with one of our fintechs
+[You]: partners. We do vanilla direct, which is a cash in cash out provider.
+[You]: Like, again, we go straight to source, means just profile, and then it's just and then it's just
+[You]: about rec like,
+[You]: configuring the business logic in the platform so we can automate the matching.
+[Remote]: Okay.
+[Remote]: So then,
+[Remote]: you know, how does your program work? Like, how does it match up all of the things? How do you get
+[Remote]: you know, your exceptions? What are we
+[Remote]: you know? And then also, you do reconciling of both
+[Remote]: of the transaction? So you while you're coming in maybe to, like,
+[Remote]: Federal Reserve account, then does it match it over to the partner
+[Remote]: like, the fintech account? You know, just trying to understand the whole process
+[Remote]: and, you know, how that would work and maybe benefit us.
+[You]: To that last question, yes. We do a two way reconciliation
+[You]: Many of the fintech
+[You]: platforms we work with, they really need to reconcile first the bank and then the ledger.
+[You]: Or third party. So it's it's really two steps that we do.
+[You]: And and basically how it works. So, again, we first, in
+[You]: we connect to the data sources and ingest the raw files.
+[You]: Right?
+[You]: We need to build connectors. That's the first one. We have a long list of native integrations, but if not, we'll build
+[You]: SFTPs.
+[You]: Or do cron jobs to pull CSVs from
+[You]: portals or PDF from emails. Wherever the information is, we go straight to source.
+[You]: The second step of the process is doing the transformations.
+[You]: Figuring out which columns are we gonna be comparing,
+[You]: if we need to do some currency transformations, if we need to alter the dates,
+[You]: whatever you need to do, it's like the preprocessing before you start matching transactions.
+[You]: Once you start matching transactions, you need to configure what we call the reconciliation logic, which is
+[You]: are we matching based on an identifier
+[You]: Are we using date? Are we using amount? Are we using a combination of a couple of these things?
+[You]: And that's where two things happen. The first one is
+[You]: we absorb the business logic that you guys already know because you're currently reconciling yourselves.
+[You]: And then the other part is we have an agent that goes over these files and proposes additional rules.
+[You]: Basically maximize the matching ratio. So we find additional patterns,
+[You]: And then as you and reject and take actions on the platform,
+[You]: the agent starts learning.
+[You]: From these anomalies, from these exceptions, from these rules.
+[You]: It gets better and better over time. Again, data flywheel in which we learn from
+[You]: not only the structured data coming in, but also the actions our user takes.
+[You]: Once the recon logic is configurated and the pre
+[You]: processing is configurated, that runs automatically.
+[You]: So our users just log in every single day to take a look at the differences. Right?
+[You]: In the differences, our agents, what they do is they cluster transactions
+[You]: by by root cause. Right?
+[You]: And for each root cause, it suggests
+[You]: a solution.
+[You]: They need to reject or approve.
+[You]: For example,
+[You]: it finds duplicates. It finds manual money movements that are never gonna match
+[You]: on the other side.
+[You]: It finds data date mistakes. It finds
+[You]: thresholds that if you if you're matching by amount and you relax
+[You]: the exact match by plus minus 2%,
+[You]: then it finds that that
+[You]: for example, one of our customers, the first remittance
+[You]: was always free for the users. So that's some a pattern that the agent again
+[You]: and is able to push through those discrepancies to maximize the matching ratio.
+[You]: Then there's always gonna be
+[You]: a small remnant of transactions that is just money missing.
+[You]: That's when you need to contact
+[You]: someone, either your partner or your bank, to really understand where that money is.
+[You]: Or
+[You]: we need to wait a couple of days, one or two days for those transactions
+[You]: to settle, come in, and match. Right?
+[You]: And so you do all that
+[You]: case management inside the platform.
+[You]: That's basically how it works. And, again,
+[You]: there's a data flywheel and everything because our agents are learning
+[You]: from your actions
+[You]: your business policy,
+[You]: and your thresholds
+[You]: and it's also learning from these
+[You]: from these files coming in.
+[You]: So that's pretty much how I don't know if they're answering the question or not.
+[Remote]: Yeah. It does.
+[Remote]: So then I know you mentioned a lot of different parameters. Like,
+[Remote]: can search by or you can, like, enter a threshold, and it could be based
+[Remote]: on amount. So then, I would assume and I'm
+[Remote]: based on kind of what you're saying. Like, we could take that
+[Remote]: down to an account number or take it down to, like, even more, like,
+[Remote]: granular information where it's gonna, like,
+[Remote]: transaction numbers match up or something along those lines.
+[Remote]: Because we have lots and lots of transactions that are coming through, and
+[Remote]: Andrew could probably speak a little bit more eloquently as far as, you know, can
+[Remote]: she has a lot of formulas. We're doing a lot of it manually. Not manually, but
+[Remote]: she's writing formulas in Excel. But our concern is we're gonna hit a transaction
+[Remote]: level at some point where it's gonna be bigger than what we can, you know,
+[Remote]: than what Excel can do.
+[Remote]: Yeah. I, would agree with that. I'm
+[Remote]: have a I think just about as automated as
+[Remote]: it possibly can be and have, you know, translations from different data dumps
+[Remote]: where it's matching up the exact transactions and spitting out what the discrepancies are. But
+[Remote]: as Danielle mentioned, our bigger concern, it it doesn't take a lot of time to
+[Remote]: currently reconcile them, but we're concerned about the number of transactions that you can get on there before
+[Remote]: Excel's the loan are working for you.
+[You]: What's the volume guys are managing right now?
+[Remote]: Me open up one of the just one of our bigger
+[Remote]: accounts right now and take a look at how many transactions Michael might know just off the top of his head.
+[You]: Limited.
+[Remote]: You're we can't hear you.
+[Remote]: Yeah.
+[Remote]: By day, by week, by month, what how do you wanna look at it?
+[You]: Whatever. Whichever number you have top of your head.
+[Remote]: It's probably 5,000 to 10,000 transactions a day.
+[You]: Okay. We can we can
+[Remote]: Across all I mean, ACH wire
+[Remote]: we don't have a lot of RTP.
+[Remote]: I
+[Remote]: well, let me say that differently. It's probably five to 10 across
+[Remote]: is probably five to 10 across our partnerships.
+[Remote]: It's the it's Danielle and Andrea's if they wanna expand it into other areas.
+[Remote]: To support. But, I mean, we you probably got five to 10,000 transactions flowing through
+[Remote]: our FedLine our fed master account right now.
+[Remote]: Pretty regularly.
+[You]: Got it. Yeah. Yeah. That's one of the main reasons
+[You]: most of our customers come come to us. Like, at some point, they hit a threshold in which whatever they have with,
+[You]: Excel,
+[You]: SQL, or even Python just starts breaking. It's not robust, not scalable.
+[You]: You need to have a lot of people, like, really digging into the numbers, understanding your files, and and
+[You]: and then
+[You]: and then there's a lot of concentration in that team. Right?
+[You]: So
+[You]: threshold is definitely a point where
+[You]: we start selling into into customers.
+[You]: Just to give you an idea, we have a customer transacting 14,000,000 transactions a day.
+[You]: This is just to provide some evidence on on the scalability of the platform
+[You]: has, and it runs in under three minutes for that volume.
+[You]: So it's it's it's pretty quick. We we tend to to
+[You]: run it daily. That's that's the best practice for Rigon.
+[You]: And then you were asking Danielle about can we take it to the account level? Like,
+[You]: the best the best practice on these things is as granular as you can get.
+[You]: Because then it's easier to explain the differences and solve them. Right?
+[You]: A lot a lot a lot of companies, when they hit that threshold in which they cannot process
+[You]: that volume anymore in whatever tool they're using,
+[You]: they start doing balanced recon
+[You]: And that's when it gets messy because then
+[You]: understanding the differences which transactions are missing becomes even more and more painful and more time
+[You]: consuming.
+[You]: So
+[You]: as granular as we can get, we think it's the best. Account level, transaction level,
+[You]: So then it's very clear
+[You]: where to investigate and close the differences.
+[Remote]: Hey, Nancy. Have a quick question for you. So
+[Remote]: we are supporting
+[Remote]: three different
+[Remote]: partnership verticals, three different fintech verticals.
+[Remote]: One is the crypto industry,
+[Remote]: One is third party payments
+[Remote]: processing. So, like, a point of sale, a large point of sale,
+[Remote]: or merchant acquiring.
+[Remote]: Industry thesis and things like that.
+[Remote]: And then the third is
+[Remote]: don't do a lot of banking as a service.
+[Remote]: We do have some today.
+[Remote]: The model or the system you have
+[Remote]: talk about agents and things like that learning
+[Remote]: It's not one that tries to
+[Remote]: because the the payment volumes, the rules,
+[Remote]: what we're doing inside of
+[Remote]: third party payments is very different than what we do in
+[Remote]: in, the crypto space.
+[Remote]: And so can we build tailoring to say, alright.
+[Remote]: Crypto
+[Remote]: we need to have
+[Remote]: daily reconciliation, and there should be no outages.
+[Remote]: Whereas TPP prepared payment processing, maybe it's
+[Remote]: you know, one to two day delay
+[Remote]: is okay for us.
+[Remote]: And we're okay with a 90% match. I mean, I'm making stuff up, but
+[Remote]: you see what I'm saying? Like, it's different. It's tailored to the vertical, not necessarily
+[Remote]: one that
+[Remote]: everything that we do.
+[You]: A 100%.
+[You]: We can do that in many different ways in the platform. We can either set those as different
+[You]: We can set those as different organizations if you guys wanted to. Like,
+[You]: it's just about how you structure it inside
+[You]: Rexy.
+[You]: How you wanna data well, how you want the data flowing and the different controls and mechanisms. But it's it's
+[You]: it's a UX thing. I mean, the the the platform is definitely able to manage those three different
+[Remote]: But then
+[You]: cases. And you can set the different sets of alarms,
+[You]: threshold and reporting. It can be set, like,
+[You]: almost as if it were, like,
+[You]: three different customers for us.
+[Remote]: Okay.
+[Remote]: Okay.
+[Remote]: Because that's I think that's an important thing for us because
+[Remote]: again, the crypto industry is very different than the GPP is different than the BaaS. It's
+[Remote]: different than our everyday
+[Remote]: know,
+[Remote]: ACH processing for our traditional business.
+[You]: What are guys what are you guys using for BaaS?
+[Remote]: Where
+[You]: Working with for BaaS?
+[Remote]: we're not using an outsource, so you don't have to worry about sync Tara.
+[You]: Okay. Amazing.
+[You]: Okay. Yeah.
+[Remote]: So
+[You]: I know there are any
+[Remote]: Danielle, Andrea, I'm not trying to take I'm not trying to take over your meeting. No. It's fine.
+[Remote]: But, I mean, what would what's next steps, Ignacio?
+[You]: I see I see it.
+[You]: A tremendous fit.
+[You]: From what you from what Danielle and Andrea just mentioned. I think it's through the next
+[You]: step would be to do a product demo, a live demonstration of how the product works.
+[You]: And that can go either of two ways. We can do a generic walk through on
+[You]: similar use cases we've been working with for other banks.
+[You]: If not, we can try to sign an NDA.
+[You]: And you guys can send over
+[You]: either real data or just the
+[You]: of some of these files, and we can just fill it in with synthetic data.
+[You]: And then we can do a real demo.
+[You]: That way,
+[You]: guys can
+[You]: really tangibly see
+[You]: how it works for a specific process you guys are running at Dartmank.
+[You]: Whatever whatever works best.
+[You]: Happy to do, like, we can do a generic walkthrough, a real demo,
+[You]: We tend to like real demos just because then it's
+[You]: easier for you guys to really see how it will work.
+[You]: And you can compare against what you're currently doing. So for example,
+[You]: if Andres running this on Excel macros for a given day,
+[You]: she can share those files with us and compare the results.
+[You]: And and, like, just, like, really compare how much
+[You]: time did it take, what were the differences, what was the matching ratio, and what was the reasons behind those differences.
+[You]: And see how see how
+[You]: finds those things quicker
+[You]: and and and really provides value to the process.
+[Remote]: Danielle, Andrew, any?
+[Remote]: It's up to y'all. Yeah. I think maybe we'll chat off
+[Remote]: offline about that and kinda decide. I think a demo is definitely the
+[Remote]: step that we'd like to see, but whether we do it as general,
+[Remote]: or something that's a little bit more tailored to ours, or maybe we do both,
+[Remote]: know, maybe we see what you have to you know? And then so, let's
+[Remote]: do that, and then, we will
+[Remote]: kinda come back and
+[Remote]: communicate with you what the next steps would be if that works.
+[You]: Okay. Amazing. Just one last question before
+[You]: close out here is
+[You]: how urgent is this for you guys? Like, is this, like, a burning pain right now? Is this
+[You]: something you wanna get tough this quarter or it's good enough or could be better?
+[You]: Does that fall?
+[Remote]: Depends on who you ask on this call, probably.
+[Remote]: Andrea probably feels like it's
+[Remote]: burning, maybe not.
+[Remote]: Others of us may say we've got a little bit more time.
+[Remote]: No. I think, largely, what we're doing is working
+[Remote]: So it's not something that has to be solved, you know, today.
+[Remote]: But, you know, just kinda looking forward to how we can
+[Remote]: make it more efficient and
+[Remote]: scalable for moving forward.
+[You]: It's more like of of a future proofing thing. You guys are worried when this
+[You]: start scaling more and more, it's gonna really become a burning pain.
+[You]: Okay. Got it.
+[Remote]: Yeah. I would say that's accurate.
+[Remote]: Mhmm.
+[You]: Alright. I'll just follow-up after this with a short email
+[You]: summarizing what we talked about. And then, Danielle, I'll hear back from you whether you wanna do a
+[You]: generic demo or a real demo.
+[Remote]: Yeah. That sounds good. And then just so you're aware, I'm gonna be out of the office Thursday, Friday, and next week.
+[Remote]: So I will put it on my list, but just in case I don't get
+[Remote]: to you by Wednesday end of day, I'll it's it will be a priority, though.
+[You]: Okay.
+[Remote]: You know? It might not be this week, but it will be as soon as I'm back.
+[You]: Maybe we can try to just block some time for the week you're back this week.
+[Remote]: So
+[Remote]: k.
+[You]: In that demo. That would be an interesting objective.
+[Remote]: That sounds good.
+[You]: Alright.
+[Remote]: Yeah.
+[You]: Great meeting. Thank you so much for the time, and, yeah, we'll be in touch.
+[You]: Sorry for the sorry again for the agenda back and forth. Today was a crazy day for me.
+[Remote]: Great. Thank you. So much. Appreciate it.
+[Remote]: Mhmm.
+[Remote]: No worries. Thanks.
+[You]: Sorry.
+[You]: Bye bye.
+[Remote]: Thanks.
+[Remote]: Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Dart Bank’s Current Reconciliation Setup
+
+- Processing 5,000-10,000 transactions daily across Fed master account
+- Three distinct partnership verticals requiring different approaches:
+  - Crypto industry: needs daily reconciliation, zero outages acceptable
+  - Third party payments (POS/merchant acquiring): 1-2 day delays acceptable, 90% match rate sufficient
+  - Banking as a Service: some current activity, different requirements
+- Current process heavily Excel-based with formulas (Andrea’s work)
+  - Automated as much as possible within Excel limitations
+  - Main concern: hitting transaction volume ceiling where Excel breaks
+  - Currently working but not scalable long-term
+
+### Rexi Platform Capabilities & Process
+
+- Data orchestrator connecting to all transaction sources
+  - Bank statements, ledgers, payment processors, card programs
+  - Native integrations or custom SFTPs/cron jobs for CSVs/PDFs
+- Three-step automation process:
+  1. Data ingestion and transformation (currency, dates, preprocessing)
+  2. Reconciliation logic configuration (ID, date, amount matching)
+  3. AI agent learns patterns and proposes additional rules
+- Handles granular matching down to account/transaction level
+- Two-way reconciliation capability (bank to ledger)
+- Exception management with root cause clustering
+- Scalability proven: 14M transactions/day processed in under 3 minutes
+- Can structure as separate organizations for different verticals
+
+### Next Steps
+
+- Demo scheduled after Danielle returns from vacation (out Thu-Fri and next week)
+- Two demo options discussed:
+  - Generic walkthrough with similar bank use cases
+  - Real demo with Dart Bank data (requires NDA, can use synthetic data)
+- Timeline: Not urgent burning pain, more future-proofing for scale
+- Ignacio to follow up with summary email
+- Danielle to decide on demo format upon return
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/443902ac-ff16-4b17-83bd-83ad30fe79d5](https://notes.granola.ai/t/443902ac-ff16-4b17-83bd-83ad30fe79d5)

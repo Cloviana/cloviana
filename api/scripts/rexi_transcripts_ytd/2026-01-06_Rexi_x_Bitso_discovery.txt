@@ -1,0 +1,743 @@
+MEETING: Rexi x Bitso: discovery
+DATE: 2026-01-06
+ID: not_Ab7QDKdJOdSEnw
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Cono <cono@bitso.com>, Teo <teo@rexi.finance>, Bernardo Afflitto <bernardo.afflitto@bitso.com>, Alan Torres <alan.torres@bitso.com>
+SCHEDULED: 2026-01-06T14:00:00-05:00 - 2026-01-06T14:45:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: What would happen
+[Remote]: Hello?
+[You]: ¿cómo estás, Kono?
+[Remote]: ¿Bien, tú?
+[You]: Muy bien, qué bueno haberle dado tiempo. Bernie, feliz año.
+[Remote]: Pode ser.
+[Remote]: Navidad, feliz Darwin,
+[Remote]: Feliz todo.
+[You]: Feliz, estuve con Isidoro en DC hace
+[You]: ya tres semanas con diciembre.
+[You]: Él fue el que me contó un poquito y me dijo, tenés que hablar con Conos y o sí, así que
+[You]: con Bernie ya habíamos hablado varias veces, me contó un poco de de, ah, bueno,
+[You]: lo pongo en contexto. ¿Te hago es mi cofounder?
+[Remote]: Mhmm.
+[You]: Cono
+[You]: no sé exactamente qué rol, pero ahora, más o
+[You]: operaciones, ¿no? Pero Kono hizo de todo en Bitsho, operaciones, estrategia, finanzas, estuvo por todas partes. Pero operaciones Ahí va, buenísimo. Y Bernie como product manager también en equipo de operaciones. Bernie fue al colegio San Andrés también,
+[Remote]: Sí, sí.
+[Remote]: Y de regreso en casa.
+[You]: un año de tu año, creo,
+[You]: y está basado en Argentina.
+[You]: Yo no laureé con ninguno de los dos directamente, yo estaba más en equipo de operaciones,
+[You]: y, digo, con equipo de producto, perdón, y estrategia antes,
+[You]: pero bueno, obviamente los conocía ahí en algún que otro workflow nos cruzamos.
+[You]: Con Berni, cuento un poco más, charlamos un par de veces, no sé si Bernie le contaste, yo lo que tengo entendido es que
+[You]: que, y y resume un poco de dónde viene esto, así nos cuentan después, nos encantaría escucharlos ustedes, pero
+[You]: Bicho invirtió en desarrollo propio,
+[You]: más que nada para la parte transaccional,
+[You]: que les llegó, no sé si uno, dos años en
+[You]: construir, y y ya lo tienen live, y obviamente lo siguen iterando y mejorando.
+[You]: Hay mucho que dependen de
+[You]: proveedores externos con webhooks malos,
+[You]: o APIs malas, con lo cual la la herramienta está un poco ilimitada de ese lado.
+[You]: Lo que, con lo cual, con Bernie siempre fue, che, mirá, tenemos esta herramienta propia, no creo que tengamos
+[You]: una herramienta externa, con lo cual sigamos hablando a ver si en algún momento hay una necesidad, pero por ahora
+[You]: let's park
+[You]: the conversation. Pero cuando fui a DC, Isidoro me comentó de que
+[You]: la parte de AUM sigue siendo doloroso y que
+[You]: sigue con I chasing the differences
+[You]: at the end of the month, o no sé, cuando hagan el cierre.
+[You]: Que sigue habiendo mucho dolor por ese lado. Con lo cual ahí ahí me dijo,
+[You]: worth a talk, y ahí fue donde te busqué con hoy, y dije, bueno, me encantaría escucharlos,
+[You]: en en función de, uno, cuáles son los paints,
+[You]: todavía tienen, aún con la herramienta interna,
+[You]: y si esos paints los ven
+[You]: como algo que va a resolver la herramienta interna eventualmente, o
+[You]: si no la ven y estarían abiertos a explorar una solución como la nuestra.
+[You]: Me dejo la parte de la solución nuestra para, por ahí en otra llamada
+[You]: una demo, pero ahora me gustaría escucharnos más un poco sobre cómo
+[You]: están dealing con estos paints.
+[Remote]: Claro que
+[Remote]: quieres, yo empiezo, y luego me corriges, si yo hago una tontería o o si ya no me faltó.
+[Remote]: La parte transaccional, a ver, creo que no está perfecta todavía, pero
+[Remote]: la llevamos a un lugar donde estamos cómodos y donde la prioridad doy por mucho ese
+[Remote]: ¿no? Los principales retos de AUM, son, o el, te diría el el principal es
+[Remote]: ¿cómo haces para que todos los balances que tomas de todos de todos los wallets y luego de todas las
+[Remote]: las vaults de los usuarios, o sea, que son millones y millones de vaults,
+[Remote]: ¿Cómo te aseguras de que están tomadas en el mismo momento
+[Remote]: en el tiempo, ¿no? Y y que no pasa mucho tiempo de
+[Remote]: que tomas la primera, que tomas la última, para que puedas comparar con
+[Remote]: los liabilities, que luego también los liabilities,
+[Remote]: pueda reconstruir ese momento en el tiempo, ¿no? Entonces,
+[Remote]: ese te diría hoy como que el el que todas las fuentes de balance
+[Remote]: tengan exactamente o lo más cercano posible de de snapshot de de balance,
+[Remote]: diría que quizá es el reto más grande. ¿Estás de acuerdo, Bernie, o
+[Remote]: o estudios actualizados?
+[Remote]: Ok.
+[Remote]: Y y, bueno, y luego tienes tienes ya creo que retos más
+[Remote]: puntuales, ¿no? Pero pero te diría que eso, o sea, el el
+[Remote]: el peor dolor de cabeza que tenemos ahora es es es el lograr que todas las fuentes de balance
+[Remote]: que tomamos tengan el mismo punto en el tiempo o un punto en tiempo muy muy muy muy parecido,
+[You]: Eso porque van una por una y entonces después tienen un time lag.
+[Remote]: para que
+[Remote]: Exacto.
+[Remote]: Entonces, quizá llegó un depósito de un usuario a una vault que
+[Remote]: ya habíamos tomado el balance, pero para cuando terminamos
+[Remote]: llego a ese depósito y sale una discrepancia, obviamente lo que
+[Remote]: la principal finalidad es
+[Remote]: que, o sea, que deberían de hacer estos sistemas es que
+[Remote]: en en me cuando me sale una discrepancia,
+[Remote]: sea muy probable que sí haya un problema, ¿no? Y que no sea, además, tema de lag.
+[Remote]: Si no estamos todo el tiempo revisando cosas que no tienen
+[Remote]: sentido y termina siendo como Pedro y él lo
+[You]: No se puede hacer
+[You]: todo el check, todo el estatus de una?
+[Remote]: Ahí, a Bernie, le le dejo la palabra ahorita para que nos cuente un poco como cuál
+[Remote]: son las cosas que se ha que se ha topado.
+[Remote]: O sea, lo lo que pasa hoy con con IBM, más que nada,
+[Remote]: es que nuestro approach original y con el
+[Remote]: que trabajamos cuando hice la la
+[Remote]: la versión que está funcionando hoy de IBM,
+[Remote]: eso,
+[Remote]: hay cosas que se toman distinto tiempo,
+[Remote]: Lo que entendimos ahora, mejor
+[Remote]: es
+[Remote]: saber cuál es el
+[Remote]: el momento en que cada proveedor
+[Remote]: Impacta cada transacción
+[Remote]: balance que nos muestra, o sea, lo que llamamos un settlement time.
+[Remote]: O sea, el momento verdadero en el que esa transacción
+[Remote]: afecta el balance que después el proveedor te da pedándole por una app y
+[Remote]: cuando vos ves en home banking?
+[Remote]: Y hay varios problemas con eso,
+[Remote]: El primero,
+[Remote]: muchas veces es que el proveedor
+[Remote]: no tiene, no hace disponible ese momento,
+[Remote]: no es que es un evento,
+[Remote]: de de
+[Remote]: cuándo se creó la transacción o de cuándo se procesó, lo que sea,
+[Remote]: veces que no existe el evento en el cual la transacción verdaderamente impactó en el proveedor.
+[Remote]: Otro problema es que el proveedor a veces
+[Remote]: y esto es más con movimientos internos,
+[Remote]: no impacta al mismo tiempo las cosas, o sea, por decirte,
+[Remote]: suponé te movemos dinero de una wallet a otra,
+[Remote]: las dos de Bitso,
+[Remote]: La el dinero puede salir de una wallet,
+[Remote]: y por ahí tardar diez minutos en aparecer en la otra.
+[Remote]: Y eso, obviamente, genera un problema, porque te es un hueco
+[Remote]: y no hay nada para
+[Remote]: ni evento ni nada para decir, bueno, este dinero está como en tránsito, lo que sea.
+[Remote]: Y mismo porque el proveedor, eso, no no no no lo muestra en ningún lado.
+[Remote]: Esos son
+[Remote]: los problemas. Y, por otro lado, el tercer problema más grande, y este ya es interno de Viso,
+[Remote]: o mismo el proveedor,
+[Remote]: Nosotros
+[Remote]: el approach que estamos tomando implica
+[Remote]: tener todas las transacciones que ocurren en en en
+[Remote]: con el proveedor, ¿no?
+[Remote]: Y vos quizás recordás que hay transacciones que en Mitsubishi no se registran,
+[Remote]: Por ejemplo, puede ser un top up en algún proveedor o lo que fuere,
+[Remote]: Porque algunas de estas de estos movimientos mismos se
+[Remote]: se inician manualmente desde la consola del proveedor o, o sea,
+[Remote]: desde el home bank que proveedor,
+[Remote]: y eso supone un hueco,
+[Remote]: Por ejemplo, en pesos argentinos, nosotros tenemos top ups y overflows,
+[Remote]: que
+[Remote]: Teo, no sé si sabe, pero, Nacho, seguro te acordás que uno es como
+[Remote]: movimiento básicamente tener una una wallet y la otra.
+[Remote]: Y tenemos los soft flows, pero no los top ups. Entonces,
+[Remote]: ¿qué pasa? Si yo eso se lo tiro al al engine de reconciliación,
+[Remote]: va a decir que falta dinero uno de los dados, pero en la realidad,
+[Remote]: está el dinero en en en, vamos, o sea, se movió correctamente.
+[Remote]: Y del lado Itzho, hoy por hoy, no no hay forma de
+[Remote]: de registrar el evento del top up.
+[Remote]: Entonces, eso
+[Remote]: es un problema, no te iría enorme, pero sí, o sea, cuando dependés,
+[Remote]: que estén todas las transacciones para poder calcular bien los fees y demás,
+[Remote]: no puedes saltearte ninguna,
+[Remote]: Y cuando la rampa no crea ciertas transacciones, a veces agrede,
+[Remote]: es es un tema.
+[You]: Pero ahí te metiste en el mundo transaccional, me parece, ¿no?
+[Remote]: Sí, no, porque en el fondo
+[Remote]: en lo que estamos haciendo, estamos reconstruyendo el balance, o sea, decimos,
+[Remote]: tomamos este punto de referencia,
+[Remote]: media hora lo chequeamos de nuevo,
+[Remote]: vemos cómo cambió el el el la app y suponete el el
+[Remote]: del proveedor, pero a la vez con las transacciones internas nosotros deberíamos poder reconstruir
+[You]: I'll expect it.
+[Remote]: ese movimiento.
+[Remote]: Claro. O sea, eso, o decís tipo corté acá,
+[Remote]: tuve diez transacciones, tres depósitos, siete withdrawals, tiene que coincidir.
+[You]: O sea, la conciliación de AUM es
+[You]: exactamente eso, es reconstruir por un lado ustedes, pegarle a una API y compararlo.
+[Remote]: Dice.
+[You]: Y los dolores vienen de ambos lados.
+[You]: Del lado de pegarle a la API y consumir el balance en el tiempo exacto,
+[You]: y del lado de
+[You]: del lado transaccional para poder construir ese balance.
+[Remote]: Sí.
+[You]: Entonces, básicamente, dolores de AOMED están muy relacionados a las transaccionales.
+[Remote]: Hoy por ahí sí.
+[Remote]: Pero, bueno, hay hay hay cosas que no podés
+[Remote]: resolver
+[Remote]: si no es
+[Remote]: pidiéndole al proveedor que coopere, porque no, o sea,
+[Remote]: el el caso de yo te dije la transacción que desaparece,
+[Remote]: pasa con con ¿Cómo se llamaba?
+[You]: Firefox.
+[Remote]: Si pasa en Farlock, pasa con todo lo que es dólares,
+[Remote]: tipo ACH,
+[Remote]: no tiene, eso era, no me acuerdo.
+[Remote]: Hay hay dinero que desaparece durante
+[Remote]: en todos los movimientos internos desaparecen por entre un minuto y dos,
+[Remote]: y lo que es
+[Remote]: en dólares
+[Remote]: el dinero movemos por USDC,
+[Remote]: a una cuenta de dólares físico, ese dinero suele desaparecer por entre quince y treinta minutos.
+[Remote]: Y no, o sea, eso no no puede ser nada.
+[You]: ¿Cómo están pensando? O sea, entiendo todos los dolores.
+[You]: Olvídense de Rexy, ¿cómo están pensando ustedes resolver estos problemas?
+[Remote]: O sea,
+[Remote]: alguno de estos
+[Remote]: problemas que, honestamente,
+[Remote]: no se van a poder resolver o
+[Remote]: va a ser muy complicado, va a ser algo con lo que vamos a tener que vivir,
+[Remote]: A ver, por decirte, qué sé yo, hasta se ha hablado de cambiar de proveedores,
+[Remote]: cosas así.
+[Remote]: Pero hay hay cosas que no podemos cambiar o que quizás pone Farlocks,
+[Remote]: podríamos ver de reconciliar contra la blockchain, eso podría ser un caso.
+[Remote]: Una manera de resolverlo.
+[Remote]: Pero lo que es lo de dólares y demás, hoy por hoy no no tengo una
+[Remote]: solución o, porque no existe tal evento, porque si yo estuviera el evento, podría
+[Remote]: crear
+[Remote]: un evento de entrada y un evento de salida.
+[Remote]: En en en ese momento en que la transacción desaparece.
+[Remote]: Si yo tuviera eso, yo podría inventarme una línea en que diga,
+[Remote]: este dinero está en en un limbo, por ahora.
+[Remote]: Pero no puedo,
+[Remote]: Eso lo va a tener que ver a alguien sí o sí.
+[Remote]: Hasta que veamos qué podemos hacer, o pedirle al proveedor que cree
+[Remote]: un evento para esta cosa, pero eso no no se puede.
+[Remote]: Después, de las transacciones que creamos o no en Bitsos, sí,
+[Remote]: está más en nuestro control.
+[Remote]: Se me ocurre, pone lo de los top ups en NARS,
+[Remote]: entiendo que no se va poder, literal, entonces, lo que por ahí está viendo con el equipo es que
+[Remote]: cuando reconstruyamos los balances se fije el total y no las
+[Remote]: wallets individuales,
+[Remote]: y eso ya está, te lo resuelve.
+[Remote]: Y después no sé qué más te dije.
+[You]: Daim
+[Remote]: Sí.
+[You]: Sí, o sea,
+[You]: hay muchas fuentes de de dolor, claramente.
+[You]: Estoy tratando de, o sea, sigo pensando si
+[Remote]: Sí, sí, sí.
+[You]: para todos están usando la herramienta propia, ¿no?
+[You]: Y la siguen desarrollando.
+[Remote]: Sí.
+[You]: ¿Y cómo están pensando en el
+[You]: ROI de haber construido algo propio?
+[Remote]: Yeah.
+[Remote]: Acá, por ahí es algo más para cono, pero yo el valor que le veo a esto
+[Remote]: es que es muy flexible para nosotros, podemos hacer lo que querramos,
+[Remote]: querramos y ajustarlo al a lo que es Bits o no? O sea, nosotros
+[Remote]: al menos con lo que es los proveedores de las rampas, hemos
+[Remote]: tenido un montón de problemas para pedirle cosas simples,
+[Remote]: y cada uno tiene su, vos sabés,
+[Remote]: cada sistema de pagos tiene sus sus aristas, su
+[Remote]: son mundos totalmente distintos a veces,
+[Remote]: y por tener una herramienta propia,
+[Remote]: nos permite ajustar a cualquier cosa. Yo creo que si dependiéramos de
+[Remote]: un proveedor,
+[Remote]: a veces sería muy complicado
+[Remote]: ajustar esos mundos, ¿no? Hacerlos
+[Remote]: sí, reconciliar esos mundos de un modo.
+[Remote]: Esto nos permite armar mismo
+[Remote]: todas las transacciones de dicho y demás, queramos, y poder ajustar a lo que sea,
+[Remote]: o a los procesos internos de Bitsho, sea, qué sé yo, cómo cómo le explicas, a un proveedor lo que es un admin a Jasmine, lo que es un PTS,
+[Remote]: Un admin adjustment, ahí puede ya existir en otras empresas, pero no es tan simple, o sea, está bueno tener esa flexibilidad.
+[You]: Sí. Y después,
+[You]: Bernie, vos llegás a equipo de de
+[You]: de ingenieros,
+[You]: que están como desarrollando toda esta infrapropia e implementando la
+[Remote]: Sí.
+[You]: Y después el equipo de payment ops, ¿no? Que mira las diferencias, las investiga y las cierra,
+[You]: Pero hay un equipo.
+[Remote]: Yo yo no dirijo al equipo de payment ops.
+[Remote]: Sí, sí, sí.
+[Remote]: Son mis amigos.
+[You]: Claro, casi que la herramienta es como un producto para ese equipo, ¿no?
+[Remote]: Para ellos.
+[Remote]: Es para ellos. Y la idea también, que vos me preguntás, ¿cómo resolvería unos problemas?
+[Remote]: Hay problemas que no vas a poder resolver desde el lado técnico tan fácil y
+[Remote]: idea es hacer que la herramienta hace lo suficientemente fácil para que ellos puedan revisar
+[Remote]: y descartar cualquier cosa rápido.
+[You]: ¿Cuáles son esos problemas técnicos que no van a resolver nunca?
+[Remote]: También.
+[You]: ¿Estos relacionados más a proveedores?
+[Remote]: Sí, sí, sí, eso yo.
+[You]: Que no tienen APIs buenas, entonces,
+[Remote]: Sí,
+[You]: la ingesta es como que nunca va va a ser tan straightforward, etcétera.
+[You]: No hay ningún tipo de inteligencia que se pueda armar del lado de
+[Remote]: Claro.
+[You]: interno para
+[You]: para trabajar around
+[You]: esa imperfección,
+[Remote]: Capaz sí, capaz no, pero también involucra procesos manuales.
+[Remote]: O sea, qué sé yo, por decirte top up, yo le
+[Remote]: le sugerí al equipo de de de Ranger si quería
+[Remote]: que cuando se crea un top up de forma manual,
+[Remote]: en en en la console, en el home banking de Bin, que haya un proceso en admin,
+[Remote]: para que
+[Remote]: el operador pueda decir que se creó un top up y que haya
+[Remote]: poner un maker checker system, y que eso cree la transacción interna que en Bitsubishi nunca haiga
+[Remote]: existir de otro modo, porque no viene un payload del proveedor ni nada.
+[Remote]: Pero es
+[Remote]: hablando del aire, es muy falopa, es
+[Remote]: agregar trabajo manual y
+[You]: k.
+[Remote]: no sé,
+[Remote]: puede hasta concierge un chanchullo, ¿no?
+[Remote]: Es
+[You]: Quizás esté a step back,
+[Remote]: Es
+[You]: Cono, pregunta para vos.
+[You]: Veinte veintiséis.
+[You]: What's the
+[You]: biggest burning problem related to this topic you wanna solve this year?
+[Remote]: Para mí,
+[Remote]: lo que, o sea, lo que dije hace rato, el el el que la mayoría de las alergias que recibamos de discrepancia sea porque
+[Remote]: sé que hay un problema real, ¿no? O sea, a mí
+[Remote]: a ver, si si me voy tres pasos para atrás, ¿para qué queremos
+[Remote]: reconciliations? Bueno, reconciliation sirve para identificar
+[Remote]: ¿no? Y alertar cuando puede haber un problema,
+[Remote]: y qué es lo que ha pasado, de que los timestamps están separados,
+[Remote]: tan separados que las monedas que se mueven mucho, que hay muchos depósitos,
+[Remote]: retiros, etcétera, es muy común y hacemos runs cada hora, en algunos casos incluso cada media hora.
+[Remote]: ¿Y y qué es lo que lo que pasa? Pues que hoy,
+[Remote]: la mayoría de los runs, de estas monedas que mueven mucho,
+[Remote]: pues, discrepancias que además cambian cada vez, ¿no? No es que siempre sea la misma, siempre es la misma, bueno,
+[Remote]: pues es otro
+[Remote]: otro problema que hay que resolver, ¿no?
+[Remote]: Pero cambian todo el tiempo, entonces es imposible tener que mi equipo sepa
+[Remote]: si hay un problema real o no.
+[Remote]: ¿No? Porque hay sesenta currencies,
+[Remote]: y todas cada media hora están están, este, diciendo que en este
+[Remote]: estrepancia, ¿no? Entonces, el el, o sea,
+[Remote]: es lo que quiero? Porque que que realmente
+[You]: Las discrepancias sean reales.
+[Remote]: Exactamente, eso es lo que quiero, ¿no? Y y que sí,
+[You]: ¿Y cuál es la hipótesis de cómo lograr eso?
+[You]: ¿Cuál es la hipótesis de cómo lograr eso?
+[Remote]: ¿Perdón?
+[Remote]: Mira, como yo lo veo ese
+[Remote]: el el tema es que de, yo como lo tengo pensado hasta ahora,
+[Remote]: creo que puede funcionar, pero tiene un límite y no, o sea, si si
+[Remote]: si crecemos mucho y hay diez veces, cien veces más depósitos financieros, entonces,
+[Remote]: deja de funcionar, pero yo lo que creo lo que creo que nos olvida a nosotros es
+[Remote]: hacer, o sea, que el que
+[Remote]: una manera de hacer un run y que si no hay si no hay un match, si si no hay un match inmediato,
+[Remote]: hacer otro inmediatamente después, o cinco minutos o diez minutos o lo que sea, para ver si
+[Remote]: discrepancia sigue igual, creció, si es más chica, desapareció o lo que sea,
+[Remote]: y entonces ya alertar, ¿no? ¿Por qué? Porque
+[Remote]: a pesar de que
+[Remote]: tenemos muchos movimientos, tampoco es que tengamos tantos que
+[Remote]: si logramos tener diferencias de un segundo entre el primer time time stamp y el segundo,
+[Remote]: la mayoría de los runs van a estar bien, ¿no? Y y creo que podemos llegar a un lugar donde
+[Remote]: donde
+[Remote]: estos este tema de los traen
+[Remote]: timestamps no sea un problema tan grande, vamos a tener, porque, pues,
+[Remote]: siempre puede haber un retiro, un depósito, un overflow, un top up.
+[Remote]: Una consolidación o lo que sea en ese segundo, pero
+[Remote]: pero no, hombre, no no es no va a ser tan tan probable, ¿no? Y si de alguna manera
+[Remote]: podemos leer
+[Remote]: transacciones y ver cómo
+[Remote]: ok, sí hay discrepancia, pero coincide con este monto que es justo de un
+[Remote]: una transacción que va de aquí para acá o lo que sea,
+[Remote]: estar más tranquilos, ¿no? Pero para mí la la el
+[Remote]: el
+[Remote]: un tema que mencionó Bernie que es bien importante es el tema de flexibilidad, ¿por qué?
+[Remote]: Por qué importa? Por ejemplo, tenemos unos, o algunos de nuestros proveedores,
+[Remote]: cuando, o sea,
+[Remote]: cuando tú sacas la foto del balance, incluye transacción
+[Remote]: que ya se enviaron, pero que no han tenido una confirmación, por decirte un ejemplo, ¿no?
+[Remote]: Y depósitos que ya tienen cuatro confirmaciones.
+[Remote]: Lo que sea. Y luego otro proveedor lo maneja
+[Remote]: distinto, ¿no? Ya no aparece en el balance
+[Remote]: desde que se crea la transacción y está en el mempool, ¿no?
+[Remote]: Entonces, poder nosotros configurar todo eso,
+[Remote]: para
+[Remote]: para para que no, para que el problema no sea, pues, algo que ya sabemos.
+[Remote]: ¿No? Y que y que se puede
+[You]: Oh, yeah.
+[You]: Sí, es es es es uno de los desafíos de
+[You]: de de de Rexi, digamos, que
+[You]: conciliaciones es a very nuanced
+[You]: problem space. Depende mucho del setup, depende mucho del proveedor de la
+[You]: necesidades regulatorias y de control de cada uno de los de las compañías, etcétera.
+[You]: Esta herramienta la estamos haciendo muy configurable y muy flexible justamente como por eso, porque si no,
+[You]: cada cliente que bombardeamos tenemos que estar
+[You]: cambiando el producto en
+[You]: shape or form.
+[You]: Mira, yo
+[You]: creo que hay valor,
+[You]: Creo que de vuelta nos nos chocamos con con
+[You]: de del desarrollo propio, que les debe estar funcionando muy bien,
+[You]: Lo que escucho
+[You]: Cono, en en términos de tus hipótesis para resolver los problemas que identificaron,
+[You]: suenan a quick wins que van a poder resolver con la herramienta propia.
+[You]: Esto de, no sé, correrlo tres veces seguidas, si falla tres veces seguidas, entonces ahí sí alertar,
+[You]: o tratar de achicar el timestamp
+[You]: el time lag entre el primer check y el último para no tener diferencias de tiempo,
+[You]: Suenan a a a como configuraciones o iteraciones que pueden hacer sobre lo que tienen actualmente para
+[You]: resolverlo.
+[You]: Entonces, honestly, no sé si ahí por ahí
+[You]: ven valor en en probar una herramienta
+[You]: externa. Si me decís sí veo valor,
+[You]: nosotros feliz de hacer una demo o una prueba de concepto mismo,
+[You]: las podemos conectar para lo de iumem o para lo transaccional,
+[You]: para que vean cómo funciona y hasta la consideren si
+[You]: quieren, por ahí, transicionar todo a Rexy.
+[You]: La idea ahí, un poco lo que la tesis que nosotros traemos es
+[You]: de vuelta, flexibilidad y configuración
+[You]: cien por ciento, eso es muy, muy importante, si no, no agrega valor o nos va a llevar
+[You]: tiempo empírmitarla,
+[You]: Muchísima automatización, una herramienta que sea usada por el equipo de payment ops o el equipo de ops
+[You]: directamente,
+[You]: donde puedan meterse y tener
+[You]: full visibilidad en tu end de cada una de las transacciones, de cada uno de
+[You]: los flujos y con granularidad
+[You]: al nivel transaccional de qué falta y qué nos falta.
+[You]: Corriendo asincrónicamente
+[You]: a la hora que ustedes quieran,
+[You]: cada cuánto quieran, puede correr cada minuto, cada media hora, cada hora.
+[You]: Necesidad que haga falta, y después con todo el toda la parte de
+[You]: reporting, alarmas,
+[You]: exception manager. Tenemos como una especie de problem solver module
+[You]: en donde analizamos las discrepancias justamente para lo que decís vos o no,
+[You]: porque al final, these things never match. Y en el mundo de discrepancias tenemos estos
+[You]: dos mundos que vos mencionabas. Tenemos
+[You]: errores de información, que si, if we dig deeper, we're gonna find the match.
+[You]: Y tenemos diferencias reales. Esto debería ser cero, porque si no esto es waste time,
+[You]: de de payment ops, people looking at it manually, haciendo VLOUCAPS, en
+[You]: Excel o en plataformas buscando la transacción hasta que la encuentra.
+[You]: Es lo que realmente queremos el equipo de payment payment ops
+[You]: investigando, ¿no? Cuando es realmente plata que falta, que tenemos que llamar a Fireblocks, tenemos que comunicarnos con un provider, etcétera.
+[You]: Etcétera.
+[You]: La segunda derivada,
+[You]: de nuestra propuesta de valor
+[You]: y acá me encantaría tener sus thoughts de cómo funcionaría, pero es
+[You]: sea una plataforma compartida.
+[You]: Porque, ¿qué pasa?
+[You]: Hay diferencias reales con o, usted seguramente lo que hacen es levantan el teléfono y llaman al proveedor.
+[You]: O le mandan un mail.
+[You]: Se comunican. Y después hay un back and forth until you actually solve what's going on.
+[You]: Si ese gap tardó dos semanas en resolverse, por ahí tienen un snowball effect,
+[You]: grande, ¿no? Una transacción que encontraron un gap en una semana y la
+[You]: dejaron correr catorce días, de repente es una suma de dinero más importante y y genera un liability, un
+[You]: costo y un riesgo.
+[You]: Cual, la gran tesis de Rexi para resolver conciliaciones es que sea la
+[You]: plataforma compartida entre Bitso y sus proveedores, ¿no?
+[You]: ¿Por qué? Primero,
+[You]: facilita la ingesta,
+[You]: porque both sides are dumping information in Rexy.
+[You]: Después facilita todo lo que es la transformación y el procesamiento,
+[You]: porque nosotros estamos transformando todo a un formato común y la estamos proceso
+[You]: procesando con una lógica compartida.
+[You]: Cuando ambas partes procesan
+[You]: con lógicas distintas, llaves de conciliación distinta, tolerancias distintas,
+[You]: a llegar a distintas discrepancias, y por eso el back and forth, cuando tenemos una discrepancia, lleva tanto tiempo y de
+[You]: ineficiente.
+[You]: Y, por último, tenemos una plataforma compartida para
+[You]: resolver discrepancias.
+[You]: ¿Sí?
+[You]: Un Google Drive, donde yo lo puedo arrobar a Bernie, le llega una notificación a Bernie, Bernie contame
+[You]: o sea, take a look at these transactions, por favor, updateame la base o
+[Remote]: Tengo que salir rapidísimo,
+[Remote]: estoy solo en casa y están entregando el súper. Perdón, yo puedo puedo quedarme, si ustedes pueden, unos minutos más a ocho después de la una y media
+[You]: Tranquilo, tranquilo.
+[You]: Dale.
+[You]: Entonces,
+[You]: vuelta, después tiene una herramienta compartida ahí para
+[You]: para resolver discrepancias con las contrapartes.
+[You]: Un poquito la segunda derivada de lo que estamos queriendo hacer. No sé ahí, Bernie, ¿cómo la ves? ¿Si hay
+[You]: para armar una prueba de concepto o o mismo una demo,
+[You]: o si o si directamente no la ves.
+[You]: Yo acá el el otro comentario que le iba a hacer a cono también es,
+[You]: que por ahí es un poquito más sensible,
+[You]: te lo digo a vos porque tengo confianza, pero es
+[You]: cuánta gente tiene Bits hoy haciendo conciliaciones.
+[Remote]: No, hoy conciliando,
+[You]: Diez personas, ocho personas,
+[Remote]: Sí, hay un equipo de
+[Remote]: entre ocho y doce personas. Obviamente, están haciendo el
+[Remote]: todo el tiempo, todo el día.
+[Remote]: Pero
+[Remote]: mismo hoy hoy te diría, al menos lo que es transaction reconciliation,
+[Remote]: el el problema no es la cantidad de gente ni
+[Remote]: antes, digamos, te digo, miles de mis machis, y era imposible, y necesitaba estar veinticuatro siete con eso,
+[Remote]: metemos
+[Remote]: cinco mis machis al día y y
+[Remote]: es manejable.
+[Remote]: Pero
+[Remote]: o sea, eso, si si me preguntás,
+[Remote]: del punto de vista de de cuántas horas
+[Remote]: de trabajo nos ahorraríamos y demás,
+[Remote]: Hoy hoy por la cantidad, al menos en translation, no muchas,
+[Remote]: me hablas de son infinitas. Pero también un poco es lo que estamos construyendo, ¿no?
+[Remote]: Para evitar
+[Remote]: eliminar eso.
+[You]: Después te doy las horas de los desarrolladores, ¿no?
+[Remote]: Sí, ni hablar.
+[You]: O sea, ¿cuánto invirtió Bitso en la herramienta propia?
+[You]: Hasta hoy,
+[You]: es en más de tres palos.
+[You]: Más de cinco palos, no sé.
+[Remote]: Ni idea, pero puede ser
+[You]: Y y, going forward, el costo recurrente de todas esas horas.
+[Remote]: Sí.
+[You]: Es una decisión más conceptual, entiendo que están en una posición difícil porque eso ya se invirtió,
+[Remote]: Eso, quiero decir,
+[You]: pero la pregunta es going forward.
+[Remote]: es un costo hundido, en cierto punto, ya está.
+[You]: Bueno, pero entonces justamente está la la la teoría del Costundido, que
+[You]: going forward, que es mejor,
+[You]: seguir manteniendo una herramienta propia,
+[You]: o contratar una externa? Y dedicar estos recursos a construir producto, a
+[You]: crecer, a
+[You]: no sé, o hasta optimizar la estructura.
+[Remote]: Sí.
+[You]: Para que hagan otras cosas en mayor valor agregado. Porque hoy AUM me infinitas horas, esto es literalmente gente de PaymentOps, que se mete en Excels a hacer
+[Remote]: Sí, sí, es
+[You]: No tiene sentido.
+[Remote]: trabajo chino.
+[Remote]: Pero si te soy honesto, no sé ni cuánto
+[Remote]: es que si me preguntás, yo no puedo hacer ese tipo de de apreciación tampoco, no sé ni cuánto
+[Remote]: cuesta Rexi al mes.
+[You]: No, no, olvidate, pero pero, o sea,
+[You]: yo te di, te te puedo decir un rango. Nosotros
+[You]: una plataforma como como Bitso, le podemos cobrar
+[You]: algo entre
+[You]: cuatro mil y ocho mil dólares por mes. Que es una persona de payment ops, tiene doce.
+[Remote]: El tema de golf
+[Remote]: qué sé yo,
+[You]: No sé, es es, obviamente, es difícil la posición,
+[Remote]: ¿Cuál los vas a necesitar?
+[You]: Sí, pero no doce.
+[You]: Y ningún dev.
+[You]: No estoy ni hablando de todo el dev
+[You]: investment en construir y seguir construyendo esta herramienta.
+[Remote]: Y depende, porque
+[You]: Que no es core para Bitsubis, aparte, digo, como que
+[You]: ¿Cómo estás con
+[You]: Estábamos teniendo una una discusión más conceptual de
+[You]: y esto, digo, viene también de porque tenemos confianza, ¿no? Pero
+[You]: como que acá y esto se se
+[You]: relaciona un poco con las charlas que yo he tenido con Bernie antes. Lo lo que se choca acá un poco es la inversión que ya
+[You]: se hizo en construir una herramienta propia, ¿no?
+[You]: Y ese sunk cost, de decir, bueno, ahora
+[You]: let's make it work.
+[You]: But going forward,
+[You]: que es lo que nosotros vendemos, ¿no? Como decir,
+[You]: should pizza have
+[You]: eight, 12 people doing reconciliations,
+[You]: O por ahí se puede hacer con AI, con agentes, y con una
+[You]: plataforma más inteligente,
+[You]: en la que aumento la productividad de una persona veinte x, instead of 12 people I have
+[You]: two.
+[You]: ¿No?
+[You]: And maybe though, the dev investment
+[You]: de construir la herramienta propia.
+[Remote]: Sí, a ver, para mí, y así
+[Remote]: si si tú me dices, oye,
+[Remote]: la herramienta de
+[Remote]: de Rexy tienen, va a dar mejores resultados que lo internan,
+[Remote]: O sea, yo no estoy casado con con ninguna, ¿no?
+[Remote]: Este, yo, pues, feliz de la vida pongo a todo ese equipo a hacer otra cosa, si si
+[Remote]: se puede hacer mejor. Como que lo que mí todavía no me queda claro es que
+[Remote]: todos estos retos que te platicamos que si es algo que
+[Remote]: se resuelve con tu herramienta, ¿me explico? O sea,
+[Remote]: nada más tercerizar por tercerizar,
+[You]: Oh, yeah. No. No. How are you?
+[Remote]: tampoco, ¿no? Pero sí,
+[Remote]: como nosotros nos dedicamos a hacer esto, y esto es la naturaleza de mi negocio, etcétera,
+[Remote]: yo me conecto contigo y en
+[Remote]: dos meses vamos a tener unas conciliaciones donde
+[Remote]: no vamos a tener todo lo que dices, las alertas van a ser
+[Remote]: este, principalmente reales, y luego cuando no va a haber una explicación, etcétera,
+[Remote]: yo soy feliz de explorarlo, ¿no?
+[You]: Sí, la pregunta es quizás
+[You]: in the extreme case where we deliver the same performance and we have the same pain points.
+[You]: En ese escenario en donde we're not better.
+[You]: We're at the same
+[You]: situation, the same context,
+[You]: And if
+[Remote]: Lo estás viendo como un como un estático. ¿No? O sea, yo yo por qué preferiría tenerlo interno en ese en ese ejemplo, porque yo le puedo decir a mi equipo qué hacer. Y y van a hacer lo que yo diga y no van a tener que estar priorizando junto con lo que otros clientes están pidiendo y ver qué hacen primero, etcétera. Digo, lo vemos con con proveedores todo el tiempo, ¿no?
+[You]: if
+[You]: hay un vendor dependence, obvio, cien por ciento.
+[Remote]: Entonces, exacto, yo sé dónde vive Bernie, y
+[Remote]: no lo arregla, voy y lo busco.
+[You]: Sí, la pregunta es cuánto vale eso.
+[You]: Cuánto vale el vendor dependence.
+[Remote]: A ver,
+[Remote]: hasta que no funcione AUM reconciliations, como quiero
+[Remote]: que funcione, vale
+[Remote]: lo que sea.
+[Remote]: O sea, si te si si si
+[Remote]: nuevo, si si estuviéramos en un lugar donde, oye, ya funciona bien,
+[Remote]: ¿no? Funciona al noventa y ocho por ciento donde lo quiero,
+[Remote]: I can live with that 2%.
+[Remote]: ¿No? Y contigo,
+[Remote]: sería lo mismo, ¿no? El el mismo noventa y ocho por ciento, maybe,
+[Remote]: o sea, a lo mejor lo considero,
+[Remote]: Si estamos al cincuenta por ciento,
+[Remote]: y yo quiero, para mí es prioridad, llevar llegar del cincuenta al noventa y
+[You]: See, bracing investment over here.
+[Remote]: Yo quiero hacerlo en interno, y vale, lo que vale es squad y más, ¿no? Porque
+[Remote]: al final es el sistema que me va a avisar de cuando usted haya un problema y me va a ayudar
+[Remote]: prevenir que perdamos
+[You]: ¿Hoy en qué etapa están?
+[Remote]: un montón de dinero, ¿no?
+[Remote]: No, cincuenta.
+[You]: ¿Cincuenta o noventa y ocho?
+[You]: Ah, yo pensé que lo tenían bastante más resuelto.
+[Remote]: No. Transaction on c, AUM no.
+[Remote]: AUM
+[Remote]: La la realidad es que no, o sea, si lo voy, si lo mido en número of currencies, pues igual y sí, pero
+[Remote]: pero si realmente mido el el el reconciliation engine,
+[Remote]: cómo está performing right now versus cómo queremos que it performs,
+[Remote]: Todavía todavía estamos lejos.
+[You]: Y ese cincuenta noventa y ocho lo preferís hacer en Internet.
+[Remote]: Sí, sin duda.
+[You]: Con lo cual,
+[You]: if there's an opportunity here, sería para lo transaccional.
+[Remote]: No, más bien sería
+[Remote]: si si if you if your product can have a better performance than mine.
+[You]: Okay.
+[Remote]: Lo llevamos a un lugar donde no está perfecto, pero ya está en ese noventa y ocho.
+[Remote]: Y yo ahorita quiero que nos enfoquemos en AUM,
+[Remote]: completamente.
+[You]: Okay.
+[You]: Tiempo, energía y dinero en que nos metamos a tratar de crack AUM with you guys, or or not?
+[Remote]: You you you tell you if it turns out that with your product, I'm at 95%.
+[Remote]: O sea, no con promesas de qué vamos a hacer y tal y tal, porque también eso nos ha pasado mucho,
+[Remote]: Happy to switch,
+[Remote]: Lo que pasa es que no sé qué tan no sé qué tan real sea eso.
+[Remote]: O sea, sí tendría que haber una diferencia sustancial en el performance
+[Remote]: con ustedes que interno,
+[Remote]: para que a mí me valga la pena
+[You]: Oh, yeah.
+[Remote]: pues sí, hacer ese cambio, ¿no? Obvio, yo no, de de nuevo, a mí me es muy difícil
+[Remote]: decirte, te vale la pena a ti,
+[Remote]: Roxy, Rexy, perdón,
+[Remote]: How how sure are you that it's gonna perform
+[Remote]: substantially better?
+[You]: Claro, no, sí, quizás mi pregunta era más tipo, porque yo tampoco te puedo prometer hoy que
+[Remote]: No. It it
+[You]: Porque de vuelta, el de los pain points que mejoran,
+[You]: o sea, muchos son ambiguos, necesito ir y ver las APIs, ir y ver los archivos. Entonces,
+[You]: quizás my question to the point, es más,
+[You]: should we structure up
+[You]: proof of concept proposal
+[You]: si estamos en cincuenta como ustedes,
+[You]: o estamos en noventa y ocho,
+[You]: ¿Hay interés en armar un proof of concept? Yo puedo preparar una propuesta
+[You]: y y la discutimos la semana que viene o cuando sea
+[You]: me decís,
+[You]: no sé, no creo, entonces,
+[You]: so be
+[Remote]: No, de de mi lado, cien por ciento, o sea, no no
+[You]: so
+[Remote]: he no he platicado con Berna y con Eddy, es el engineering manager de
+[Remote]: equipo que está viendo esto, pero
+[Remote]: pero si existe la posibilidad de que
+[Remote]: digo, el cincuenta me lo inventé y el noventa y ocho también, obviamente, pero
+[Remote]: existe la posibilidad de que
+[Remote]: con ustedes tengamos ya un performance sustancialmente mejor y además
+[Remote]: resulta que planchamos todos los temas de flexibilidad, configuración, lo que sea,
+[Remote]: yo no le voy a poner una traba de eso. Yo no estoy casado con hacerlo interno, pero simplemente no hemos
+[Remote]: una herramienta externa y hemos evaluado un par.
+[Remote]: Con Simetric hicimos todo un proof of concept, etcétera, y al final, pues,
+[Remote]: decidimos no no ir con ellos,
+[Remote]: O sea, I'm happy to explore this, ¿no? Pero sí quiero ser bien claro que,
+[Remote]: tiene que ser una diferencia sustancial y no marginal,
+[Remote]: para que des actually becomes a business,
+[You]: Obvio, cien por ciento.
+[You]: Y ahí, hagan, solo lo vamos a ver probándolo.
+[Remote]: Exacto.
+[You]: In the playing film.
+[Remote]: Bueno,
+[Remote]: puedo preguntar, ¿qué no le gustó de de las otras herramientas que que probaron?
+[Remote]: Bien, la verdad es que cuando cuando se se evaluó Symmetric, yo no llevaba las rampas
+[Remote]: y lo hizo James Pope,
+[Remote]: ya no está en Bitsun, donde ni siquiera le puedo preguntar.
+[Remote]: Pero ahí voy a, puedo buscar, hey, un mensaje en Slack de eso y
+[Remote]: puedo buscar qué dijo, pero
+[Remote]: vez que no lo entiendo muy muy bien, yo no yo no llevaba las rampas en ese momento.
+[You]: Bueno,
+[You]: Entonces, no no sé si ya prepararon una propuesta y se las mando o quieren charlar o
+[You]: ustedes, charlen con Eddie y me dicen si hay interés en hacer una POC y armamos una POC.
+[Remote]: Perfecto, damos chance de
+[Remote]: ahora que regrese, Eddie, de vacaciones, no sé qué día. ¿Tú sabes qué día regresa a venir?
+[Remote]: Creo que el doce o el trece, algo así.
+[Remote]: Danos chance para no hacerlos trabajar en balde, que regrese Eddie, nos
+[Remote]: juntamos ver, Nedí, Val y yo, y y ya te dicen,
+[Remote]: sí, venga, hagamos el poco, ¿no? Para que tampoco desperdicien tiempo si es que
+[Remote]: yo yo a lo mejor a lo mejor estoy muy abstraído de de la
+[Remote]: situación actual más reciente de esto,
+[Remote]: sí me gustaría tener el input de de
+[Remote]: del resto del equipo y de ver
+[You]: Vale, listo. Bueno, Conno, Bernie, qué bueno verlos
+[You]: con uno a reconectar. Ojalá terminemos trabajando juntos y si no saben que
+[You]: que igual estamos ahí cheering for for pizza on the sidelines y
+[You]: nada, es increíble lo que siguen haciendo y construyendo en Latinoamérica. Así que
+[You]: nada, me me anoto ahí, por ahí follow-up con ustedes en en
+[You]: una o dos semanas, si no escucho de ustedes, y si no, bueno,
+[You]: ahí avanzamos en función de lo que les diga Eddie y decidan ustedes ahí.
+[Remote]: Perfecto.
+[You]: Abrazo.
+[Remote]: Un placer,
+
+============================================================
+SUMMARY
+============================================================
+### AUM Reconciliation Pain Points
+
+- Primary issue: all balance snapshots from different wallets and vaults aren’t synchronized in time
+  - Millions of vaults require simultaneous data capture
+  - Time lag between first and last balance check creates false discrepancies
+  - Most alerts are timing-related, not real problems
+- Secondary challenges with provider dependencies:
+  - Fireblocks: internal transfers disappear for 1-2 minutes
+  - USD movements via USDC: money missing 15-30 minutes during transfers
+  - No settlement time events available from providers
+  - Missing top-up transactions in ARS (manual console entries not captured)
+
+### Current Internal Tool Assessment
+
+- Transactional reconciliation: \~98% solved, manageable workload
+- AUM reconciliation: \~50% performance vs target
+- 8-12 person payment ops team handling discrepancies
+- Flexibility advantage: can customize for Bitso’s specific provider quirks and internal processes
+- ROI considerations: 3-5+ million USD already invested in development
+
+### Bitso’s Resolution Strategy
+
+- Technical improvements planned:
+  - Run reconciliation multiple times if discrepancies found
+  - Minimize timestamp gaps between balance checks
+  - Focus on total balances vs individual wallets for ARS top-ups
+- Acknowledged limitations: some provider issues unsolvable without vendor cooperation
+- Priority: achieve 95%+ performance on AUM reconciliation
+
+### Next Steps
+
+- Cono will discuss with Eddie (engineering manager) and team after Eddie returns from vacation (January 12-13)
+- Rexi to prepare proof of concept proposal if Bitso team shows interest
+- Decision criteria: substantial performance improvement required to justify switching from internal tool
+- Follow-up in 1-2 weeks if no response from Bitso team
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/4ab7d273-dbff-4f2c-a805-56c0548a82fb](https://notes.granola.ai/t/4ab7d273-dbff-4f2c-a805-56c0548a82fb)

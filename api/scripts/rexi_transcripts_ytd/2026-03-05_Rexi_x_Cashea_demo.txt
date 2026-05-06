@@ -1,0 +1,797 @@
+MEETING: Rexi x Cashea: demo
+DATE: 2026-03-05
+ID: not_cCrff1qIdbsDfZ
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Nicole <nicole@cashea.app>, Andresvalongo <andresvalongo@cashea.app>, Luissarmiento <luissarmiento@cashea.app>, Teo <teo@rexi.finance>, Sebastián García <sebastian@rexi.finance>, Carolina Morawetz <carolina@rexi.finance>, Ivanamedina <ivanamedina@cashea.app>, Lorenazalazar <lorenazalazar@cashea.app>, Sebastianmonti <sebastianmonti@cashea.app>, Santiagobernal <santiagobernal@cashea.app>, Williameckerleben <williameckerleben@cashea.app>, Enger <enger@cashea.app>, Matiasveron <matiasveron@cashea.app>, Pablolagger <pablolagger@cashea.app>, Victorialippolis <victorialippolis@cashea.app>, Daniela Virginia Avendaño Quintero <daniela@cashea.app>, Giuliana <giuliana@cashea.app>, Leonardogomez <leonardogomez@cashea.app>
+SCHEDULED: 2026-03-05T09:00:00-05:00 - 2026-03-05T09:45:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Vamos a esperar ahorita que se vayan conectando y hago una presentación
+[Remote]: masiva de de nuestro equipo,
+[Remote]: porque habemos personas de
+[Remote]: ambas unidades de negocio y de diferentes funciones. Entonces,
+[You]: Excelente.
+[You]: Que grabemos también?
+[You]: Dale.
+[Remote]: Sí, por
+[You]: Ya arranco así, no me olvido
+[Remote]: Pues para que nos llegue
+[You]: Dale. Y voy dejando, voy voy a
+[You]: por algunos decks al principio, por por unos slides al principio, solo para dar contexto, y después
+[You]: puro puro demo.
+[Remote]: Buenísimo.
+[You]: Prometo, no
+[You]: no voy a gastar mucho tiempo en esto. Lo dejo acá compartido y cuando
+[Remote]: A ver acá.
+[Remote]: Mira,
+[You]: ustedes me digan, arranco.
+[You]: Calculo que se suma más gente, ¿no?
+[Remote]: si yo estoy viendo aquí ahorita, bueno, del team,
+[Remote]: del team de Dani, ¿hay alguien del team de Dani presente?
+[Remote]: De tesorería, ¿no? Ok. Bueno, igual
+[Remote]: cualquier cosa lo vemos después, sí, pero bueno, comen
+[Remote]: porque ya hay varias personas ya conectadas, entonces,
+[Remote]: cualquier cosa, nosotros le
+[Remote]: les comentamos o vean la grabación.
+[You]: Espectacular.
+[Remote]: Así que si quieres procedamos, Nacho. Bueno, dime.
+[You]: Dale, buenísimo. Bueno,
+[Remote]: Nacho, déjame aprovecho y presento aquí a todo el mundo, o sea,
+[You]: Dale.
+[Remote]: les presento a los founders de de de Rexy,
+[Remote]: ¿ok?, que es una de las opciones que hemos estado evaluando hasta el momento para como una herramienta
+[Remote]: de conciliación para el wallet,
+[Remote]: Teo también es co-founder de la
+[Remote]: Ignacio y Teo son cofounders de de Rexy hace
+[Remote]: a Sebastián lo estoy conociendo hoy, ahorita lo presentarán.
+[You]: Sebastiano da Menesco Founder, è nostro CTO.
+[Remote]: Ah, perdón, Sebastián, es que no nos había no habíamos estado en otra reunión antes, por eso no
+[Remote]: no no conocía. Pero bueno, un placer
+[Remote]: gracias por su tiempo de hoy. Y bueno, del lado del team de cachea, como vieron,
+[Remote]: una una lista bastante grande, tuvimos una reunión el otro día de
+[Remote]: de tres sesenta, que lo llamamos, que es como toda esta visión de
+[Remote]: de contable financiera de de de la organización,
+[Remote]: y y, bueno, básicamente, les planteamos que
+[Remote]: queríamos ir con ustedes y y a raíz de eso se sumaron
+[Remote]: equipos también del buy now pay later, o sea, de de las
+[Remote]: personas que gestionan las consideraciones y la
+[Remote]: contabilidad de vaina o pay later, el squad que está dedicado a muchas personas del squad
+[Remote]: está dedicado a eso. Y bueno, ya
+[Remote]: de nuestro lado también de wallet se
+[Remote]: conectados varias personas también del team de ingeniería,
+[Remote]: Entonces, un poco hoy lo que queremos es un refresh del demo,
+[Remote]: de que ustedes nos mostraron a nosotros,
+[Remote]: y y, bueno, mucho q and a de de temas de
+[Remote]: cómo después los vamos a integrar con el ERP, que es Odoo,
+[Remote]: y
+[Remote]: bueno, que que, al menos de primera impresión, ¿qué quedaría de cada lado
+[Remote]: para que esto fuese algo exitoso.
+[You]: Excelente.
+[Remote]: Bueno, ya ahí les dejo la palabra
+[You]: Dale.
+[Remote]: a ustedes. Gracias.
+[You]: Andrés, un gusto saludarlos a todos. Solo quiero pasar cinco minutos por algunas láminas para también
+[You]: el el el stage de quiénes somos, qué hacemos y hacia dónde vamos, ¿no? Porque
+[You]: somos un startup en evolución constante. Semana a semana cambia tanto todo que
+[You]: que está bueno también contar un poquito sobre nuestra misión y y el futuro
+[You]: En este partnership que se está planteando con Cachea, nos interesa estar muy alineados en ese sentido.
+[You]: Esto es un poquito sobre el problema, creo que ustedes ya lo conocen, lo viven en el día a día.
+[You]: Es una cuestión de fragmentación de información, de riesgo de compliance y regulatorio.
+[You]: De cómo
+[You]: juega un rol la inteligencia artificial y la automatización de estos procesos.
+[You]: ¿No?, que no solamente genera efectividad y mejor
+[You]: en profitability, sino también
+[You]: como una conciliación automática diaria
+[You]: a nivel transaccional impacta en otras áreas. Vemos desde cosas de producto
+[You]: tener productos listos para lanzar, pero operaciones o finanzas, todavía no va a haber
+[You]: desarrollado el flujo conciliatorio y, por ende, no poder lanzar ese producto.
+[You]: Vemos impacto en operaciones y en customer support, un cliente que todavía no ve su dinero acreditado,
+[You]: en realidad, ese dinero ya llegó a la solución bancaria.
+[You]: También vemos costos financieros, si hay algún proveedor que no te está liquidando
+[You]: en tiempo y forma, y por ende queda una cuenta en algún descubierto. Digo,
+[You]: la conciliación, muchas veces uno la piensa como un como un flujo
+[You]: solamente de operaciones y finanzas, y la realidad es que impacta en muchas otras áreas.
+[You]: Tiene costos operativos mayores, más allá del tiempo dedicado
+[You]: o lo que llamamos también las pérdidas irreconciliables. Un poquito sobre el equipo.
+[You]: Y nuestra misión, Rexy la incubamos en
+[You]: en Harvard y en MIT,
+[You]: ahí es donde arrancamos a construir esta solución.
+[You]: Un poco sobre nuestra experiencia, yo estuve trabajando en común y en Bitso, capaz conocen,
+[You]: seguramente conozcan. Tego estuvo en Mercado Pago, y acá se va nuestro
+[You]: CTO, fue funding team de de Pomelo, con lo cual los tres fintech operators en el pasado y
+[You]: muy bien este problema y lo hemos vivido estando de del otro lado.
+[You]: Nuestros inversores, principalmente VCs de de de Estados Unidos,
+[You]: y yo estamos basados en Nueva York.
+[You]: Sebastián, con el equipo técnico, están en Argentina.
+[You]: De hecho, sé que muchos de ustedes están en Buenos Aires, en Argentina, con lo cual
+[You]: más que encantados si este partnership evoluciona de
+[You]: pasar tiempo en persona, visitar las oficinas y trabajar muy de cerca con ustedes. Creemos que se
+[You]: trabajo en persona no solo genera una muy buena relación, sino
+[You]: hay una productividad más alta cuando estamos ahí.
+[You]: Codo a codo. Esto, bueno, un poco sobre los tres que estamos acá.
+[You]: Que ya hablamos.
+[You]: Y acá, un overview general de cómo funciona Rexy. Rexy es un orquestador de información.
+[You]: Entonces, los pasos
+[You]: son son cuatro o cinco, quizás acá nos falta uno y tenemos que editar esta lámina. Pero
+[You]: siempre el primer paso es una conexión a la fuente de información, vamos directo a la fuente, trabajamos
+[You]: con archivos crudos.
+[You]: No hay una necesidad de que ustedes transformen
+[You]: o manipulen la información para trabajar con Rexi.
+[You]: Luego, está la parte de transformación. Todos sabemos que estos archivos vienen en distintos formatos, quizás no
+[You]: y hay que hacer todo un trabajo de transformarlo
+[You]: antes de poder procesarlo, que ahí tenemos una capa de inteligencia también que permite
+[You]: automatizar ese proceso y, además, con herramientas no code para que
+[You]: los operadores también puedan hacer esas transformaciones.
+[You]: Luego está la lógica conciliatoria, que ahí entra, hay un Frankenstein hermoso de
+[You]: de reglas, barridas, rangos de tolerancia,
+[You]: y cosas que también se van a optimizar en el tiempo, porque esos archivos cambian,
+[You]: que también, de vuelta, tenemos una capa de inteligencia
+[You]: que optimiza ese proceso, y después está
+[You]: lo que lleva más tiempo
+[You]: más fricción, que es lo que es la investigación y la resolución de discrepancias. Porque, como bien sabemos,
+[You]: estos archivos nunca al cien por ciento. Entonces, hay todo un trabajo ahí de
+[You]: resolución de discrepancias. A la derecha es un poco nuestros design principles,
+[You]: cómo estamos diseñando y construyendo Rexy. El primer punto es que sea plug and play, que la integración y la implementación sea
+[You]: en semanas.
+[You]: No queremos estos procesos de meses, donde el time to value se termina haciendo un check,
+[You]: y demora mucho tiempo. La plataforma es muy flexible, es muy configurable,
+[You]: y si ustedes realmente
+[You]: trabajan con nosotros, esto se puede implementar realmente en semanas.
+[You]: El segundo punto es que sea self-service. La idea de esta herramienta es que sea una herramienta de ustedes,
+[You]: controlada por ustedes, construida por ustedes.
+[You]: Lo cual les va a dar independencia de nosotros
+[You]: no tienen que estar todo el tiempo dependiendo de nosotros, sino también
+[You]: dependencia interna
+[You]: equipos técnicos.
+[You]: Finanzas y operaciones gana autonomía e independencia sobre este flujo.
+[You]: Y lo controla cien por ciento. Y el tercer punto siempre es, obviamente, riesgo de compliance y
+[You]: ¿no?
+[You]: Queremos que Rexy sea ese stamp
+[You]: y esa confiabilidad
+[You]: para que ustedes puedan cumplir con las necesidades y los frameworks con los que trabajan.
+[You]: En las distintas regiones donde trabajan. Entonces, Rexy te permite armar
+[You]: flujos de reporting custom,
+[You]: preparación también de de de asientos y esas cosas, que ahora nos vamos a meter un poquito más
+[You]: de lleno.
+[You]: Acá está la parte de vuelta de integración a la fuente de información, pasa por
+[You]: después el tercer punto, que es el que mencionaba Andrés, que es la parte del ERP.
+[You]: Entonces,
+[You]: lo que permite esto es configurar un diccionario contable dentro de la plataforma,
+[You]: y todo lo que ya está conciliado
+[You]: pasa por ese diccionario,
+[You]: y se escribe en el ERP.
+[You]: Ahí tenemos integraciones con con muchos ERPs, y, si no, también tenemos un integrador de dinámico que nos permite construir esa integración en
+[You]: en horas. Así que eso también
+[You]: para mencionar. Y y, un poco, ahora hablando, y con esto
+[You]: cierro, que es la visión a futuro.
+[You]: La visión a futuro de Rex, obviamente, es que es una plataforma
+[You]: Estamos comenzando por conciliaciones
+[You]: pero luego nos vamos a expandir a otros a otros workflows.
+[You]: Como lo vemos, queremos que
+[You]: los de finanzas o de operaciones usen Rexi como una plataforma
+[You]: para construir sus flujos de trabajo de manera agéntica,
+[You]: Así como hoy los desarrolladores quizás usan Claude, o todos usamos Claude,
+[You]: que Rexis sea para los equipos de finanzas y operaciones con mucho domain expertise sobre
+[You]: flujos, para pero para que ustedes puedan construir sus flujos agénticos dentro de la plataforma.
+[You]: De una manera superconversacional,
+[You]: superconfigurable, estos flujos de operaciones y de finanzas sabemos que son muy específicos y particulares,
+[You]: a cada compañía, a cada setup,
+[You]: entonces esto se tiene que sentir como que ustedes están construyendo su propio software.
+[You]: Hacia eso vamos.
+[You]: Hoy, enfocados en conciliaciones, pero en un futuro cercano,
+[You]: expandiendo a otros flujos. Por eso
+[You]: encaramos esta relación como un partnership. Yo lo otro día decía, Andrés, queremos ser el partner de ustedes en todas estas implementaciones de IA,
+[You]: para procesos financieros y operacionales.
+[You]: Un poco sobre cómo nos comparamos con la competencia.
+[You]: Ya lo mencioné, lo de la integración más rápida
+[You]: No cobramos la implementación, justamente, porque es más rápida y se puede hacer de manera self serve.
+[You]: Y el hecho de que trabajamos con archivos crudos y vamos directo a la fuente.
+[You]: Muchos de los
+[You]: nuestros competidores requieren un esfuerzo muy grande de los equipos de data
+[You]: de procesar y transformar la información,
+[You]: para poder usar la herramienta. Eso, en nuestro caso,
+[You]: no sucede. Y después, lo de la la la
+[You]: la lógica conciliatoria, que se adapta. ¿Por qué es importante esto? Porque
+[You]: en un flujo de conciliación, el dolor más grande es que los
+[You]: proveedores te cambian algo y se te rompe todo el flujo, te cambian una nomenclatura, una columna, te
+[You]: cambian cómo te comparten el archivo y vos tenés un script en SQL o en BigQuery o lo que sea, y
+[You]: eso se te rompe, o tenés una macro en Excel y se te rompe porque te cambió el input.
+[You]: La lógica conciliatoria de Rexy es dinámica y se adapta continuamente a esos cambios.
+[You]: Con agentes que detectan las anomalías, detectan
+[You]: cualquiera de esos cambios y optimizan automáticamente la logia conciliatoria para que
+[You]: siga corriendo y no haya
+[You]: riesgo en la operación, porque se rompió el flujo conciliatorio.
+[You]: Un poquito de los de los resultados que vimos con clientes, pero la voy a pasar a
+[You]: no demoro más, y algunos casos de éxito que tuvimos
+[You]: que valen la pena mencionar.
+[You]: Pero
+[You]: creo que eso es un poquito
+[You]: hacia dónde vamos y es un buen paneo
+[You]: para set the stage.
+[You]: Voy a hacer una pausita acá y ver si alguien quiere por ahí hacer una
+[You]: pregunta, antes de que nos metamos realmente a ver el producto.
+[You]: Encantado de contestar, y, si no, ya
+[You]: Tego empieza a mostrar
+[You]: la nave, como nosotros la llamamos.
+[Remote]: ¿Vámonos?
+[You]: Dale, démosle, entonces.
+[Remote]: Gracias, Nocho.
+[Remote]: Buenísimo. Gracias, Nacho.
+[Remote]: Bueno, algunos tal vez de este llamado ya vimos
+[Remote]: la plataforma, pero
+[Remote]: lo que hicimos acá fue un
+[Remote]: clásico, una preparación de un clásico ejercicio de
+[Remote]: de conciliación entre lo que dice el extracto bancario
+[Remote]: versus lo que dice el ledger interno. Por ejemplo, un un cliente paga una cuota
+[Remote]: en el ledger interno dice que la cobramos,
+[Remote]: la idea es ver si efectivamente acá
+[Remote]: lo llegamos a
+[Remote]: a verificar.
+[Remote]: Entonces,
+[Remote]: acá tenemos lo que vendría a ser un un extra un extra
+[Remote]: toda la información que se ingesta se automatiza, y
+[Remote]: queda una una versión default que no no se modifica,
+[Remote]: entonces siempre hay un seguimiento exacto de qué es lo que hay en en cada una de las
+[Remote]: en en cada una de las versiones, y se pueden generar diferentes
+[Remote]: Entonces, una una vista, por ejemplo, es
+[Remote]: la información original con algún tipo de modificación o estandarización para
+[Remote]: cruces conciliatorios con otras
+[Remote]: con otras
+[Remote]: ¿Hay una pregunta ahí?
+[Remote]: No, no, estaba comentando que que
+[You]: Et non,
+[Remote]: que estamos viendo fue con un file que le enviamos nosotros de data a dummy, entonces, para que todos estuviesen
+[Remote]: contexto de que es con datos que le que nosotros le hicimos llegar ustedes. Exacto.
+[Remote]: Entonces, por ejemplo, acá tenemos lo que vendría a ser una nueva vista, y si queremos generar
+[Remote]: diferentes fuentes de datos, tal vez aperturada por banco de origen,
+[Remote]: se puede, por ejemplo, hacer un splitting views,
+[Remote]: ponemos acá banco origen,
+[Remote]: cargamos los valores, vamos a tener cinco bases de datos independientes,
+[Remote]: y creamos la las vistas que se van a empezar a crear acá
+[Remote]: una por una. Entonces, tenemos siempre la información ingestada automáticamente
+[Remote]: completamente
+[Remote]: mantenida sin modificaciones para para hacer seguimiento exacto,
+[Remote]: pero podemos hacer estandarizaciones y y
+[Remote]: organizaciones, filtros, grupos o diferentes tipos de
+[Remote]: de de modificaciones en la información,
+[Remote]: en diferentes vistas que van a funcionar,
+[Remote]: información preparada para los diferentes cruces. Entonces, por ejemplo,
+[Remote]: Acá, Teo, si querés, te agrego una cosa. Acá lo importante, Rexi, es un poco lo que trajo Nacho,
+[Remote]: Nosotros
+[Remote]: cuando la data de ustedes ingesta Rexi, mantenemos la data
+[Remote]: tal cual llega, y esa data no se toca, por un tema de auditoría.
+[Remote]: ¿Ok? Ustedes tienen que saber cuando esa data alguien la transforma, alguien de su equipo la transforma,
+[Remote]: tienen que saber la trazabilidad de eso, ¿no?, por si después hay problemas de información, se toquete o algo de la
+[Remote]: Entonces, esa data es la default. Cuando, hoy lo lo que vieron recién es que
+[Remote]: hizo una vista, dijo, bueno, hago una vista por banco. Se generaron esas tabs
+[Remote]: bancos por arriba, que están ahí arriba, y cuando se ingeste la vista principal,
+[Remote]: automáticamente va a cascadear la nueva información a cada vista.
+[Remote]: ¿Ok? Entonces, eso, como cuando está en el proceso automatizado de ingesta,
+[Remote]: todos los días, por ejemplo, si se carga la nueva información, esas vistas se van a ir actualizando y ustedes no
+[Remote]: que hacer nada, y directamente trabajan con las vistas.
+[Remote]: La vista default siempre queda para armar nuevas vistas, lo que quieran, y esa como que
+[Remote]: no se toca. Después nosotros para usar las reconciliaciones,
+[Remote]: hacemos vista que son ahí trabajadas de de que ahora Teo va a mostrar.
+[Remote]: Exactamente. Y obviamente todas las modificaciones que querramos hacer están acá,
+[Remote]: básicamente agrupaciones, filtros,
+[Remote]: obviamente, columnas
+[Remote]: para casos de uso tremendamente complejos acá, cualquier tipo de
+[Remote]: de caso de uso modificación que se quiera hacer, que sea muy compleja y que
+[Remote]: tal vez no esté dentro de las otras opciones,
+[Remote]: se puede hacer directamente con una fórmula, nosotros decimos Excel like,
+[Remote]: que puede ser con toda la flexibilidad que necesitemos,
+[Remote]: obviamente, con ayuda de un AI generator que acelera la generación de esas
+[Remote]: fórmulas, sin errores muchísimo. Organizar, parciar los los
+[Remote]: lo los campos, transformar la fecha,
+[Remote]: cuando, con, parcial los campos tenemos también estandarización o
+[Remote]: conversiones de tipo de cambio, tal vez tenemos tipo de cambio
+[Remote]: incluido dentro de la base, o también tiene que usemos un tipo de cambio ¿para el mercado? Parece seguro.
+[Remote]: Lo que lo está haciendo, entonces Bien, llegó. También le hacemos verificación que los tipos también estén o
+[Remote]: dentro de un rango esperado un poquito. Split in view, que lo que hicimos.
+[Remote]: VLOOKAPP, enriquecer tal vez esta fuente de datos la queremos enriquecer con otra fuente de datos
+[Remote]: antes de hacerle la conciliación con una tercera,
+[Remote]: y esto es una funcionalidad que se hace mucho, que es
+[Remote]: conciliación de balances. Básicamente, tengo el balance en el banco,
+[Remote]: tengo todos los movimientos en mi base de datos,
+[Remote]: quiero generar una una hoja de balance para ver si el balance esperado es
+[Remote]: equivalente al balance del del banco
+[Remote]: el balance que que recibimos en el banco. Entonces,
+[Remote]: una vez que tenemos las las fuentes de datos
+[Remote]: ingestadas y estandarizadas y preparadas para hacer esas esa esos cruces, generamos una una conciliación. Entonces, por ejemplo, acá vamos a la configuración de esta básicamente, hicimos un un cruce entre la el el ledger y el bancario, y lo hicimos con tres, nosotros decimos sweeps, que son barridas, básicamente. Entonces, por lo general, la primera barrida de todas es la barrida más más exacta o o más exigente. Entonces, hicimos con referencia, fecha y monto, exacto, sin tolerancia. Entonces, ahí nos llevamos la parte de las de las de lo de los cruces conciliatorios. Hicimos una segunda, tal vez con monto y fecha, porque tal vez viene sin referencia o la
+[Remote]: está errónea o o hay algún problema por ahí,
+[Remote]: y una tercera con referencia, fecha y monto con una tolerancia de uno coma
+[Remote]: cinco por ciento de monto y un día en fecha. Entonces, de esa manera vamos haciendo un una especie de
+[Remote]: en un embudo y nos vamos quedando
+[Remote]: cada vez con menos transacciones que no cruzaron.
+[Remote]: Una vez que la ejecutamos, ahí la las transacciones, la las consideraciones se pueden ejecutar
+[Remote]: de tres maneras diferentes,
+[Remote]: Una es por alguna de las data sources,
+[Remote]: entonces, tal vez entra información en una data source,
+[Remote]: eso dispara, disculpen que me están llamando.
+[Remote]: Una transacción entra en una de las sources, eso dispara la conciliación,
+[Remote]: y de manera automática, la otra es
+[Remote]: un
+[Remote]: un cron job que dejamos seteado, por ejemplo, que corra todos los días a la
+[Remote]: cuatro de la mañana, cinco de la mañana,
+[Remote]: la tercera, obviamente, es ejecutarla de manera manual.
+[Remote]: Los resultados los tenemos, por un lado, en la hoja de resultados,
+[Remote]: que es simplemente toda la información en una tabla
+[Remote]: pueden, obviamente, descargar y y manipular de de la forma que quieran, con el estatus
+[Remote]: si la transacción está conciliada, si si si consiguió en la primer barrida, en la segunda, en la
+[Remote]: en la cuarta, lo que haga falta,
+[Remote]: y toda la información de la primer base de datos con toda la información de
+[Remote]: la segunda, el ledger interno.
+[Remote]: Conciliado.
+[Remote]: Y tenemos las métricas genéricas de cualquier conciliación,
+[Remote]: Acá no importa qué sea lo que estén que están conciliando,
+[Remote]: estas son las métricas generales, y acá si queremos aperturarlo, por ejemplo, por
+[Remote]: fecha,
+[Remote]: y monto, esto es porque, por general, hay muchos campos
+[Remote]: fecha, hay muchos campos monto, entonces le pedimos al usuario que lo defina. Tenemos toda la información de la
+[Remote]: del ledger interno,
+[Remote]: total de transacciones por día, cuántas de estas marcharon,
+[Remote]: cuántas no macharon, y lo mismo en valores, este campo monto, nosotros definimos, bueno, este es el campo que yo
+[Remote]: quiero, es el es estándar en la moneda local o es la o es el dólar,
+[Remote]: entonces, total monto,
+[Remote]: total conciliado y todo en lo conciliado. Y lo mismo, obviamente, se puede hacer
+[Remote]: por el otro lado, si ponemos acá
+[Remote]: fecha valor y monto,
+[Remote]: aplicamos y vamos a tener la información
+[Remote]: de el extracto bancario con con lo los números, que pueden obviamente ser
+[Remote]: ligeramente diferentes. Acá tenemos
+[Remote]: por ejemplo, seis transacciones que no conciliaron y acá tres, eso significa que hay seis
+[Remote]: transacciones en el extracto
+[Remote]: no fueron registradas en el ledger.
+[Remote]: Una vez que tenemos
+[Remote]: estandarizada la información y reconciliada, tenemos los resultados y tenemos obviamente, el exception manager, acá es para para
+[Remote]: conciliaciones de manera manual o investigaciones que se quieran llegar a hacer,
+[Remote]: marcar excepciones, automatizar ese marcado de excepciones, tal vez
+[Remote]: siempre que hay una una un movimiento que que
+[Remote]: fue manual viene sin ID, entonces,
+[Remote]: sabemos perfectamente que nunca va a estar dentro de la otra fuente de alta, entonces directamente lo marcamos con ese
+[Remote]: eso lo podemos hacer de manera manual o generar una regla para automatizar eso.
+[Remote]: El problem solver, que es lo que habíamos visto recién,
+[Remote]: Esto
+[Remote]: creo que si si están en el mundo de de de fintech
+[Remote]: y y de la tecnología,
+[Remote]: entenderán el poder y lo lo que acelera el proceso de investigación
+[Remote]: de discrepancia es tener ayuda de un LLM,
+[Remote]: nosotros lo estamos viviendo en primera mano,
+[Remote]: hasta hace dos años en en el mundo conciliatorio,
+[Remote]: algo no cerraba, el proceso de investigación podía llegar a ser muy muy a entender si
+[Remote]: si era un fee correcto o un impuesto que no se había aplicado, si era transacción faltante.
+[Remote]: Básicamente, ahora apenas corre la la conciliación,
+[Remote]: nosotros ya nos ponemos a investigar las discrepancias. En este caso, por ejemplo,
+[Remote]: directamente nos dice
+[Remote]: que tenemos seis transacciones que están solamente en un lado y que
+[Remote]: es legítimamente
+[Remote]: timing difference o missing data. O sea, no hay
+[Remote]: forma de considerar esas transacciones porque directamente no están en la otra base de datos.
+[Remote]: Si fuese a hacer el caso donde
+[Remote]: hay hay información transaccional
+[Remote]: en los dos lados,
+[Remote]: pero directamente los cruces que hicimos nosotros no lo no permitieron hacer
+[Remote]: ese macheo, entonces acá te lo sugeriría, te diría, estas transacciones parecen ser las correctas,
+[Remote]: solamente que por x motivo no cumplen los requisitos de macheo.
+[Remote]: Y, obviamente, todo eso te lo sugiere y te ayuda, le puedes pedir
+[Remote]: ejemplos para clarificar y demás. Esto es un un módulo muy poderoso que
+[Remote]: en el que creemos que el usuario va a terminar pasando el noventa por ciento del tiempo.
+[Remote]: Tenemos alarmas,
+[Remote]: que se pueden mandar de manera diaria o o cuando
+[Remote]: cuando se dispara algún trigger vía email, Slack,
+[Remote]: Tenemos dashboards, como les comenté, en las conciliaciones,
+[Remote]: tenemos las métricas genéricas de una conciliación,
+[Remote]: pero tal vez ustedes quieren
+[Remote]: no sé, aperturarlo por alguna variable o o hacer algún filtro
+[Remote]: de fecha o o de alguna otra variable. Entonces,
+[Remote]: lo los dashboards que que
+[Remote]: que dan la los resultados genéricos tal vez no no les alcanzan.
+[Remote]: Diseñamos todo un módulo de de
+[Remote]: de dashboard para que generen cualquier tipo de de
+[Remote]: de métrica que les haga falta, o incluso Pivotal. Pivotal es una herramienta que
+[Remote]: que
+[Remote]: muy poderosa en Excel,
+[Remote]: pero que, pasás las doscientas mil, trescientas mil filas, como saben, Excel ya no
+[Remote]: no procesa, rompe. En cambio,
+[Remote]: acá tenemos posibilidad de hacer con millones de
+[Remote]: Entonces, es una especie de tremendamente poderosa.
+[Remote]: Vamos a generar, por ejemplo, un API card como para que vean, le podemos poner
+[Remote]: total
+[Remote]: más
+[Remote]: transactions,
+[Remote]: y le ponemos acá count distinct,
+[Remote]: Acá, mientras Teo muestra cómo se crea el el widget,
+[Remote]: justo estamos todos en proceso. Este, Cuba, estamos sacando tres agentes, uno de los
+[Remote]: es el de dashboard para que ustedes puedan crear widgets
+[Remote]: no configurándolos manualmente, sino mediante el chat,
+[Remote]: y que digan que necesito, no sé, KPI, sobre todo los unmatch,
+[Remote]: y el mismo agente sabe los los los los widgets que te tiene que armar,
+[Remote]: te los va presentando y es como algo iterativo donde hay un human in the loop en el medio,
+[Remote]: diciendo que acepta o no acepta ese widget, y te ayuda a armar el dash.
+[Remote]: O sea, estamos como llevando todo a que sea todo todo con
+[Remote]: instrucciones y no de manera manual.
+[Remote]: Todo Rexy va a estar funcionando así.
+[Remote]: Va a acelerar el proceso y, obviamente, también si necesitamos entender algo de un de un
+[Remote]: de un gráfico o o que nos muestre algún algún detalle, o quiero saber
+[Remote]: el el primero de marzo, el segundo de marzo tuve dos me los mostrás,
+[Remote]: y te los trae como que acelera mucho el proceso de conciliación y el proceso de descubrimiento de
+[Remote]: entendimiento de la información. Y, obviamente, las compañías no suelen tener solo una conciliación.
+[Remote]: Tener veinte, treinta, cien
+[Remote]: entonces, tal vez un dashboard centralizado con las los KPIs más importantes de cada una viene
+[Remote]: muy útil para
+[Remote]: tal vez, para un para
+[Remote]: un dashboard compatible a otros equipos o al management y demás.
+[Remote]: Tenemos también toda la sección de reporting,
+[Remote]: muchos de nuestros clientes tienen procesos de reporting semanales o mensuales,
+[Remote]: que son muy manuales,
+[Remote]: y nos dimos cuenta de este lore, así que les generamos un un
+[Remote]: un módulo de reporting donde básicamente digestamos la información que haga falta, ya sea de
+[Remote]: de diferentes sources o diferentes conciliaciones,
+[Remote]: la organizamos en la manera en la que necesitan,
+[Remote]: automatizamos la generación de ese reporte con un output hacia
+[Remote]: un un archivo o vía email o una base de datos en la que nos
+[Remote]: nos soliciten. Y por último, los exports
+[Remote]: para alguno de nuestros clientes nos piden que los exports, o sea, que
+[Remote]: ingestemos la información, la estandaricemos, la conciliemos,
+[Remote]: y la volvamos a exportar para alimentar a su su propia fuente de datos,
+[Remote]: así que todo eso se configuraría acá completamente de de manera no-code y
+[Remote]: para cualquier usuario no técnico puede generar un export de de la información y automatizar ese
+[Remote]: ese export.
+[Remote]: Entonces, para para ya ir cerrando, que nos quedan unos minutos,
+[Remote]: automatizamos la ingesta completamente de manera no-code,
+[Remote]: estandarizamos, permitimos la la diversificación y división de esa base de datos en
+[Remote]: vistas, pero mantenemos la información original siempre, Cristina, Reconciliamos
+[Remote]: ayudamos en la resolución de de los problemas, discrepancias, entendimiento de esa información
+[Remote]: conciliatoria, que puede ser un poco
+[Remote]: abrumadora a veces,
+[Remote]: Obviamente que permitimos conciliaciones manuales, marcado de ese
+[Remote]: automatización de esas marcado de excepción,
+[Remote]: alarmas, dashboards muy personalizables y fácil de usar,
+[Remote]: y reporting y exports para cada
+[Remote]: para cada una de las conciliaciones o
+[You]: Quizás antes de cerrar, Teo, estaría genial si contás un poquito sobre nuestro product roadmap, ¿no?
+[Remote]: Ahí no sé si
+[You]: Pensando en un partnership de largo plazo, hacia dónde estamos queriendo ir a nivel a nivel producto.
+[Remote]: Sí, a ver, como como dijo Nacho, nosotros
+[Remote]: generando lo que llamamos nosotros el reconciliation engine. El reconciliation engine
+[Remote]: se se se enfoca en dos partes, quizás
+[Remote]: que son clave,
+[Remote]: que una es la escalabilidad, como les comenté, hoy se puede conciliar en
+[Remote]: Excel, pero pasadas las doscientas mil filas,
+[Remote]: rompe y
+[Remote]: obviamente, no no no es muy fácil o o amigable para automatizar,
+[Remote]: y, obviamente, la otra es el el poder y la flexibilidad conciliatoria.
+[Remote]: Una vez que tuvimos eso ya terminado, ahora estamos agentizando todo el el proceso,
+[Remote]: Conciliaciones es un universo
+[Remote]: el el, básicamente,
+[Remote]: los LVMs impactan de lleno y aceleran mucho el proceso. O sea, hay industrias donde
+[Remote]: los LEMS no tienen tanto lugar o es difícil encontrarles,
+[Remote]: y hay otras donde conciliaciones directamente
+[Remote]: es impresionante lo lo que lo que ayudan en
+[Remote]: en en todas las partes, ya sea en la ingesta, en alarmas de
+[Remote]: en entendimiento de los formatos de la de la de la información de cada una de las diversas
+[Remote]: fuentes de datos,
+[Remote]: todo lo que es la generación de esas conciliaciones,
+[Remote]: la optimización de esas conciliaciones, porque muchas veces
+[Remote]: vienen compañías y no no nos nos dicen cómo conciliar,
+[Remote]: y nosotros con nuestros agentes nos damos cuenta que hay mejores formas de conciliar,
+[Remote]: tal vez con una tolerancia de uno por ciento terminamos conciliando cinco por ciento más,
+[Remote]: la la resolución de discrepancias o o el entendimiento de esa información.
+[Remote]: La automatización de de generación de de reportes, dashboards. Así que
+[Remote]: básicamente, para para fin de de este mes,
+[Remote]: todos nuestros módulos van a ser completamente genticos.
+[Remote]: Buenísimo.
+[Remote]: Bueno, Teo, muchas gracias por por el demo.
+[Remote]: Nada, todo superinteresante también a nivel de roadmap,
+[Remote]: Sí, en efecto, ya veo el Nacho, lo que comentabas de lo del
+[Remote]: solver, que sí ya hace una experiencia también distinta, que eso no lo vimos en la
+[Remote]: en el demo anterior, o sea, que ya tienes a alguien además que te está a nivel de los datos.
+[Remote]: Pero bueno, nada, entonces, de resto, team, bueno, lo que
+[Remote]: quiero abrir el aquí ya el foro para cualquier pregunta que tengan,
+[Remote]: sobre sobre la solución. Yo
+[Remote]: una primera que sí tengo es en un tema de seguridad,
+[Remote]: porque he visto que aquí vamos a estar conectando datos muy delicados de nuestra wallet,
+[Remote]: queremos entender, digamos, cómo
+[Remote]: cómo está planteado todo este tema de seguridad y
+[Remote]: cómo lo podemos trabajar en conjunto para que todo quede blindado siempre.
+[Remote]: Dale, si querés, esa la tengo, la tomo yo. Todo con respecto a seguridad, nosotros
+[Remote]: que laboramos con bancos y fintechs y toda esa data,
+[Remote]: La idea es que a todo entre encriptado, nosotros somos
+[Remote]: dos compliance, o sea, tenemos los mayores estándares de calidad del procesamiento de datos,
+[Remote]: pero la idea de nosotros tenemos, y siempre es lo que ponemos como premisa, es
+[Remote]: no se suelen reconciliar datos de tarjetas, o sea, el el pan de la
+[Remote]: o los CVV, que suelen ser los PIA, estas esa esa parte de información sensible,
+[Remote]: Entonces, o hacemos dos cosas, o esa data no entra a
+[Remote]: entonces no hay no hay problema, porque no terminás
+[Remote]: conciliando los planes de las tarjetas. Generalmente, conciliás un ID de la tarjeta,
+[Remote]: un ID único, otras referencias, o, si no, si tienen la necesidad de llegar a
+[Remote]: si tienen la necesidad de tener esa data en la plataforma,
+[Remote]: se encripta y se concilia lo encriptado, la llave.
+[Remote]: Entonces, de una u otra forma, la data en
+[Remote]: esa data que, salvo que sea, no tuvimos casos que necesiten, digamos, conciliar planes ni data,
+[Remote]: tan sensible como la información de las tarjetas, ustedes nosotros proponemos eso, de entrada,
+[Remote]: que entre encriptada, o directamente hacer un filtro antes de ingresar la data,
+[Remote]: y que esa data no entre a la plataforma. Entonces, nos
+[Remote]: salvamos de problemas de seguridad, de manejo de información,
+[Remote]: de entrada y de salida, ¿no? Entonces, nada, nos nos ahorramos esa partecita.
+[Remote]: Ok.
+[Remote]: Buenísimo.
+[Remote]: Gracias, Sega.
+[Remote]: Ay, creo que iba Willy primero.
+[Remote]: Sí, no se se ahí el el lugar, Julie.
+[Remote]: Ah. Este, no, mi pregunta iba un poquito a entender si la congelación llega
+[Remote]: hasta el
+[Remote]: la fase de lo que administrativamente resolvería en tesorería o conecta a la solución
+[Remote]: contable también. Porque, generalmente, pues, se concilia desde el módulo administrativo
+[Remote]: y no conecta con con lógicas de contabilidad.
+[Remote]: Y, pues, en el caso particular de cache A, la contabilidad va a tener como espejo unas cuentas con los usuarios, ¿no?
+[Remote]: Que vamos a tener que que conciliar. Actualmente, allí para ver un poquito la
+[Remote]: la solución completa, nosotros tenemos una lógica contable que
+[Remote]: al banco, se identifica los cobros. Entonces, ¿en qué medida pudiésemos aprovechar
+[Remote]: este, esa identificación que se haría a través de esta herramienta?
+[Remote]: Hacia el espejo contable, pues.
+[You]: ¿Quieres tomarla, Deo?
+[Remote]: Sí,
+[You]: Estás muteado,
+[Remote]: ahí, obviamente, nosotros nos nos nos conectamos a a
+[Remote]: toda la fuente de información que que ustedes requieran,
+[Remote]: es para ingesta de de información contable y lo tomamos,
+[Remote]: eso para conciliar con el sistema contable.
+[Remote]: Ahora, si también, creo que lo charlamos un poco la vez pasada, si también tienen necesidad de que automatice
+[Remote]: la generación de asientos contables y que nosotros
+[Remote]: obviamente, con todos los procesos de aprobación necesarios, generemos esos asientos contables
+[Remote]: en en en Odoo, por ejemplo, eso lo hacemos también.
+[Remote]: Ok, gracias.
+[Remote]: Ahí se va Willy.
+[Remote]: Nomás, ¿qué tal? Yo tengo unas
+[Remote]: cuantas preguntas. La primera, ¿ya llegaron a integrarse con
+[Remote]: con Odo?
+[Remote]: Todavía no tenemos hecha la integración, tenemos
+[Remote]: con otros CRPs contables.
+[Remote]: Así que tendríamos que
+[Remote]: juntarnos nosotros, entender
+[Remote]: qué necesidades tienen, qué caso de uso tienen, para asegurarnos de que nosotros lo los
+[Remote]: Obviamente, eso vendría a ser parte de de
+[Remote]: de lo que nos llamamos nosotros para desarrollar,
+[Remote]: pero teniendo ya el módulo contable, creo que no no debería ser muy complicado.
+[Remote]: Ahí ahí ahí te agrego, Teo, que
+[Remote]: como contamos en el principio, el Rexy lo que tiene es un integrador dinámico,
+[Remote]: que se armó y Odoo tiene APIs externas que ofrece. Entonces,
+[Remote]: nosotros teniendo las APIs podemos conectarnos, obviamente ahí hay un proceso de
+[Remote]: nosotros para conectarnos y tener la interacción necesitamos credenciales,
+[Remote]: que las interacciones son infinitas, ¿no? Entonces, nosotros viene un cliente y dice, che, tengo estos
+[Remote]: Nosotros, si teníamos que hacer una integración por cada proveedor cada vez que viene un cliente, eso
+[Remote]: es un cuello de botella enorme para Rexy, armamos el integrador dinámico que nosotros en un día estamos
+[Remote]: con, si tiene, lo más el más fácil es cuando tiene APIs, ¿viste?, cuando tiene APIs externas,
+[Remote]: lo que necesitamos son las credenciales. Entonces, capaz que pueden generar unas credenciales de sandbox,
+[Remote]: nosotros probamos la conexión con ustedes y en dos días podemos tener
+[Remote]: ya probando capaz que en un ambiente de sandbox o ambiente productivo
+[Remote]: el integrador andando con la información, y cuando ya está conectado, ya se integra dentro de la
+[Remote]: plataforma de RXi.
+[Remote]: Ya. Y la la otra consulta es,
+[Remote]: no sé qué día habían conversado con Gustavo cuál era el plan, si es
+[Remote]: que
+[Remote]: la data que va a consumir Rexy va a ser de Odoo
+[Remote]: se va a quitar de Odu o va a ser de
+[Remote]: desde
+[Remote]: desde backend, de
+[Remote]: lo general, como suele, no, va a depender mucho de la operatoria y de lo que prefieren ustedes.
+[Remote]: Como suelen operar otros clientes, es
+[Remote]: primero se consume de backend y de los diferentes, desde las diferentes
+[Remote]: fuentes, que puede ser, por ejemplo, el el extracto bancario,
+[Remote]: Una vez conciliado y entendida bien la operatoria qué sucedió
+[Remote]: exactamente, qué no o qué falta, ahí recién se generan los asientos contables que reflejan esa realidad,
+[Remote]: y eso se ingesta en Odoo para
+[Remote]: para los los asientos diarios.
+[Remote]: Porque ahora ahora mismo nosotros tenemos
+[Remote]: Odu ya está integrado y recibe todos los
+[Remote]: el extracto bancario, todas las líneas.
+[Remote]: Y dentro de Odo también tienen, se hacen las las reconciliaciones.
+[Remote]: Entonces, ahí lo que yo creo que es
+[Remote]: ustedes van a consumir data de banco
+[Remote]: nosotros también ya consumimos esa data de banco,
+[Remote]: se reconcilia en Rexy, pero Oru también necesita que se reconcilie.
+[Remote]: Y cada
+[Remote]: cada línea de extracto bancario ya genera también un asiento bancario.
+[Remote]: Que luego se reconcilian con otros asientos bancarios.
+[Remote]: Entonces, ahí lo que yo creo que tenemos que
+[Remote]: ver cómo sería
+[Remote]: esa esa integración
+[Remote]: para que, porque todo todo lo reconciliado desde
+[Remote]: tiene que estar reconciliado en Odoo también.
+[Remote]: No sé si... Y él,
+[Remote]: si nos mandarían, por ejemplo, el ID del del extracto
+[Remote]: bancario con el que fue reconciliado y
+[Remote]: y eso Se puede. Eso eso es lo que me hizo me hizo ruido.
+[Remote]: Sí, ahí te
+[Remote]: tendríamos que hacer un una especie de sesión de trabajo para entender bien el
+[Remote]: flujo que tienen actualmente,
+[Remote]: pero cualquier
+[Remote]: básicamente, la la plataforma de Regis tiene flexibilidad, si necesitan que nosotros
+[Remote]: después de conciliar
+[Remote]: enviemos mediante el módulo de export la información a ODU,
+[Remote]: en cierto formato, los IDs, lo que haga falta todo eso se puede, y, de hecho,
+[Remote]: es muy muy fácil de hacer. Así que
+[Remote]: deberíamos juntarnos y y entender bien el proceso actual y ver cómo lo lo adaptamos
+[Remote]: con la nueva plataforma.
+[Remote]: Sí, ahí a a, hago un paréntesis, perdón,
+[Remote]: rápido, que específicamente este es el proceso como se
+[Remote]: ahorita buy now pay later, ¿ok? Nosotros para wallet
+[Remote]: sí vemos la necesidad de crear un flujo distinto para
+[Remote]: nuestra salida y nuestras necesidades, lo
+[Remote]: lo aplicamos, mas sin embargo, sí me es importante, y gracias, William, por plantear esta
+[Remote]: esta necesidad, porque si vemos
+[Remote]: a estas son las necesidades de la organización, en Google tendremos una
+[Remote]: específicas, porque saldremos como nosotros lo diseñemos,
+[Remote]: pero nuestro team de buy now pay later también tiene unas necesidades actuales, pues,
+[Remote]: cómo operan. Aprovecho, Andrés, y
+[Remote]: porque nos pasa también, hay como siempre que vamos con Rexy, como muchos equipos
+[Remote]: internamente que van a usar Rexi para flujos distintos y son operan
+[Remote]: distinto y tienen distintos flujos, ¿no? Entonces capaz que trabajamos con estos equipos,
+[Remote]: dentro de una misma empresa. Rezy está pensado para que varios equipos estén tocando, pero
+[Remote]: que cada uno esté en su flujo de trabajo. Entonces, no sé, the wallet, the wallet,
+[Remote]: tendrán un flujo específico, sus exports o no tendrán el
+[Remote]: o se conectan con Odu, o no, y después de buy now pay later,
+[Remote]: va a tener otro flujo y va a usar sus conciliaciones. Y también la idea es
+[Remote]: ustedes puedan tener
+[Remote]: para no cruzarse, pero usar la misma plataforma,
+[Remote]: que capaz que no puedan toquetear la información de las otras de las
+[Remote]: áreas, ¿no?, que no puedan entrar al source de y y puedan, digamos, esos permisos y roles
+[Remote]: estén muy divididos entre ustedes en después, puedan organizar su organización dentro de Rexy pero lo bueno de esto es que todos usan una misma herramienta, y quizás hay una source
+[Remote]: quieren usar para hacer una reconciliación, no la pueden tocar a nivel configuración, pero pueden usar los datos.
+[Remote]: Entonces, capaz que querés conciliar con algo de wallet,
+[Remote]: y por tener un ejemplo, y podés usar los datos para hacerla,
+[Remote]: es como que va a haber una colaboración más organizacional, como una de toda la plataforma.
+[Remote]: ¿Bien? Ok, Gracias, Edgar.
+[Remote]: Bueno, ahí un poco, iba,
+[Remote]: iba a decir justamente eso, ¿no? Más que nada para para Julie, ahí para comentarles, chicos,
+[Remote]: bueno, yo estoy como group product manager de de toda la parte de fintech ops,
+[Remote]: de que hoy es como una vertical core enablers, que
+[Remote]: hoy damos servicio a obviamente estamos creando la capa de servicios para
+[Remote]: todo lo lo que se viene como esto de wallet,
+[Remote]: Ahí, Willie es nuestro líder técnico do de de la parte de contabilidad,
+[Remote]: está Julie, que es la head de de contabilidad operativa, ¿no? Está Leo Gómez también, que no sé si lo conocían por las dudas, pero bueno,
+[Remote]: es de la parte de tesorería, ¿no? Y la tenemos a Lore, que es la manager de contabilidad, y, bueno, está Enger, que es también nuestro consultor funcional, ¿no?, de Odu. Es nuestro nuestro traductor, ¿no? Así con eso para para que también los conozcan a lo
+[Remote]: los chicos. Porque también nosotros nos estamos metiendo ahora, justamente, como dice Andrew, ¿no?
+[Remote]: La idea no es modificar el flujo, vamos a decir,
+[Remote]: ustedes ya tienen planteado, la idea no no no es esa para poder darles
+[Remote]: va, la la velocidad que que que que necesitan para la salida del producto,
+[Remote]: Sí entender, es como todo, ¿no?, yo siempre digo lo mismo, es
+[Remote]: si ustedes nos dicen,
+[Remote]: o sea, es, vamos a decir, todo, no solamente en happy path,
+[Remote]: sino también cómo tiene que quedar, vamos a decirlo, no conciliado,
+[Remote]: que es lo más importante. Hoy les comparto cuál es el problema que hoy tenemos en contabilidad, que
+[Remote]: que nos da tanto dolor de cabeza. Son los edge cases.
+[Remote]: ¿Qué pasa cuando, en el caso de tenemos cuando una compra
+[Remote]: devuelve, cuando hay, digamos, una
+[Remote]: una persona que paga en otra cuenta. Bueno, acá es lo mismo,
+[Remote]: no no, obviamente, no va pasar eso a que pague en otra cuenta, porque es un edge case bien de bien piel,
+[Remote]: en el caso de conciliación bancaria es simplemente necesitamos
+[Remote]: que nos digan cómo ustedes van a llevar, más allá de Happy Path,
+[Remote]: cómo llevan los no conciliados,
+[Remote]: cómo llevan, por ejemplo, vamos a decir, justamente,
+[Remote]: fondos que quedan on hold, qué se hace con eso, ¿no?, qué qué decisión
+[Remote]: nivel de negocio, eso, Danrick, más tuyo, más de ustedes, pero qué decisión de negocio se tiene,
+[Remote]: ¿es algo que cashback puede contar, que puede usar?, ¿es algo que no se puede tocar?, porque legalmente
+[Remote]: es un dinero que tiene que quedar inmovilizado. Eso es el input
+[Remote]: le tenemos que dar como al equipo de contabilidad de negocios de Juliana, ¿no?
+[Remote]: Si tenemos eso bien documentado, para nosotros después
+[Remote]: poder traernos long, no estoy diciendo que que simple, ¿no?, pero digo, es como ya tenemos el input de ese
+[Remote]: para nosotros decir, ok, me está llegando todo esto,
+[Remote]: y están como estos asientos, vamos a decir, ¿no? No, cuando digo asientos, no no no miré logo,
+[Remote]: miren a nivel lógica, ¿no? Tengo que crear este asiento, este otro, este otro, ¿no?
+[Remote]: Llevarlo de esa manera. Si llegamos a ese punto, yo creo que después
+[Remote]: no no no no no hay mucho más, digamos, que
+[Remote]: que
+[Remote]: digamos, dale, seguirle dando, ¿no? Después, obviamente,
+[Remote]: a medida que que Wallet siga funcionando, después veremos si
+[Remote]: nos lo traemos directamente en Odoo, lo seguimos manejando así, eso, y podemos dónde evoluciona. ¿No? Pero yo creo que con ese primer puntapié vamos a tener suficiente. Buenísimo. Sí, ahí creo que hay varias definiciones que que entran más de su lado que de nuestro, sobre todo a nivel contable y regulatorio, qué se hace con la no conciliada. Nosotros podemos diferenciar esa esa información y generar los asientos contables diferentes, la información conciliada generada a estos asientos contables, lo no conciliado genera estos otros. Cuando este asiento contable, cuando esta transacción se se baja la, bueno, se se debita de esta y se acredita en en esta, todo eso se puede configurar
+[Remote]: solamente que necesitamos de su lado la definición, y después nosotros nos damos vuelta y lo
+[Remote]: y les mostramos que estos son los asientos contables que genera este tipo de ejercicio.
+[Remote]: Ese es el mejor business case, o sea, que ustedes sepan lo que quieren hacer
+[Remote]: Pero no suele pasar, pero cuando saben lo que quieren hacer y dicen, che,
+[Remote]: esto es nuestro, o sea, lo mejor que nos podría pasar
+[Remote]: nosotros nos damos vuelta, lo integramos en Rex y lo impactamos, y se lo
+[Remote]: podemos mostrar. No, che, estas son las lo que tenemos, y hasta les podemos decir,
+[Remote]: esto no lo tenemos, pero nos sirve mucho tenerlo, porque capaz que Claro. Un caso de uso, eso
+[Remote]: nosotros también buscamos design partners, ¿no? O sea, gente, o sea, los problemas ustedes
+[Remote]: son los que van vamos resolviendo a lo largo de otras compañías. Entonces,
+[Remote]: capaz que hay unos casos de uso muy interesantes que ustedes nos pueden plantear
+[Remote]: a nosotros nos reinteresa, entonces, los podemos ir metiendo. Pero bueno, nada, esa parte es
+[Remote]: nosotros impactarla y mostrarles una demo con
+[Remote]: superfuncional es lo que más vale.
+[Remote]: Sí, sí, eso ya, y quédense tranquilos, que creo que con nosotros van a tener de sol
+[Remote]: información para para ustedes, porque tengan en cuenta que que nuestro CEO quiere que seamos
+[Remote]: uno de Venezuela, así que creo que vamos a ser concentradores de
+[Remote]: de muchas operaciones.
+[Remote]: Y, bueno, nada, que tienen la suerte de que acá está Shully, que que es
+[Remote]: muy crack, muy crack de lo suyo contable, y tiene mucho conocimiento del marco regulatoriamente de Venezuela a nivel contable y fiscal, vamos a decir.
+[Remote]: Bueno, Leo, obviamente, por la parte de tesorería, así que tenemos ese equipo
+[Remote]: simplemente es eso, que sí, como decía Anahí, ¿no?, armar esa mesa después,
+[Remote]: y empezar a hablar de eso, ¿no?, che, tenemos este grupo de no conciliados y empezar
+[Remote]: a ver de los edge cases qué es lo que se debería hacer.
+[Remote]: Bien, Tim, ahí yo yo sí quería mencionar
+[Remote]: para el caso de buy now pay later, con con la demo que vi,
+[Remote]: cuando quieran, ahí cuadramos esa otra sesión, para
+[Remote]: explicarles el flujo de cómo es la conciliación actual.
+[Remote]: Este, pero con lo que vi, y luego me alineo contigo, Julie, yo creo que
+[Remote]: creo que se le puede dar una vuelta con con Rexi al tema de
+[Remote]: la información que se carga hoy en Odu, para evitar una doble reconciliación.
+[Remote]: Pero primero vamos a a tener esa sesión para explicarles cómo es el flujo a
+[Remote]: y ahí le damos la vuelta, pero chévere.
+[Remote]: Chévere.
+[Remote]: Buenísimo. Bueno, ¿alguna otra pregunta?
+[Remote]: Del team?
+[Remote]: Bueno.
+[You]: Espectacular. Bueno, ahí la
+[Remote]: Listo.
+[You]: sigo con vos, Andrés, debemos de organizar esa sesión de trabajo, y
+[Remote]: Dale.
+[You]: me pongo en contacto contigo para ver qué necesitan para para los próximos pasos. ¿Les parece?
+[Remote]: Excelente, buenísimo.
+[You]: Gracias a todos, un gustazo. Gracias por el tiempo.
+[Remote]: Bueno.
+[Remote]: Un placer, Muchas gracias, Wendy. Abrazo. Chau, chau.
+
+============================================================
+SUMMARY
+============================================================
+### Rexi Platform Demo
+
+- Comprehensive walkthrough of reconciliation platform capabilities
+  - Automated data ingestion from raw files without transformation requirements
+  - Multi-view data organization while preserving original audit trail
+  - Three-sweep reconciliation logic: exact match → partial match → tolerance-based matching
+  - AI-powered Problem Solver for discrepancy investigation
+  - Custom dashboard creation and reporting automation
+- Product roadmap: Full agent-based platform by end of March 2026
+  - Conversational workflow building for finance/ops teams
+  - Dynamic reconciliation logic that adapts to provider changes
+  - Expanding beyond reconciliations to broader financial workflows
+
+### Cashea Integration Requirements
+
+- Current Odoo ERP integration needs assessment
+  - Rexi has dynamic integrator for API-based connections
+  - Can build Odoo integration within days using existing APIs
+  - Sandbox testing available for proof of concept
+- Data security protocols established
+  - Encrypted data transmission and storage
+  - PII filtering at ingestion to exclude sensitive card data
+  - SOC 2 compliance standards maintained
+
+### Team Structure & Edge Cases Discussion
+
+- Key Cashea stakeholders identified:
+  - Sebastian Monti: contabilidad (accounting operations)
+  - Leonardo Jose Gomez: treasury operations
+  - Julie: head of operational accounting
+  - William: technical lead for accounting systems
+- Edge cases identified as major pain points
+  - Non-reconciled transaction handling procedures needed
+  - On-hold funds treatment (legal/business decision required)
+  - Refund and alternative payment scenarios
+  - Buy Now Pay Later (BNPL) reconciliation complexities
+
+### Multi-Team Implementation Strategy
+
+- Wallet team: Custom reconciliation flow design
+- BNPL team: Existing Odoo reconciliation process integration
+  - Current double reconciliation issue (Rexi + Odoo)
+  - Need session to map current BNPL reconciliation workflow
+- Platform designed for multiple teams with role-based access
+  - Separate workflows per business unit
+  - Shared data sources with permission controls
+  - Cross-team collaboration capabilities
+
+### Next Steps
+
+- Andrés to coordinate working session on business logic requirements
+- William to schedule BNPL reconciliation flow walkthrough
+- Security and compliance documentation review
+- Sandbox environment setup for Odoo integration testing
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/91d945b9-d5ab-4958-b088-2ba6e5338996](https://notes.granola.ai/t/91d945b9-d5ab-4958-b088-2ba6e5338996)

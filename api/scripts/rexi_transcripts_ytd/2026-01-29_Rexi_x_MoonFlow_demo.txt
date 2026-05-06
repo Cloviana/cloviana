@@ -1,0 +1,590 @@
+MEETING: Rexi x MoonFlow: demo
+DATE: 2026-01-29
+ID: not_CREIVE55FGaeyb
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Jose <jose@moonflow.ai>, Teo <teo@rexi.finance>, Facundo Turconi <facundo@moonflow.ai>, Agustin <agustin@moonflow.ai>, Manuel <manuel@moonflow.ai>
+SCHEDULED: 2026-01-29T11:00:00-05:00 - 2026-01-29T11:45:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: और आ जो Buenas.
+[You]: Buenas buenas, ¿cómo
+[You]: Agustín, un gusto.
+[Remote]: Hoy venimos en la cantidad.
+[Remote]: ¿Cómo?
+[Remote]: Tomó?
+[You]: No, no, preguntaba si eran del equipo técnico.
+[Remote]: De de producto, de producto.
+[You]: De producto, genial. ¿Fedrico se suma o o le damos
+[Remote]: Esperemos un minuto a ver si se
+[Remote]: suma Facu.
+[Remote]: Porque no avisó que no podía, así que esperemos un minuto.
+[Remote]: Porfa, y ahí, si quiere, se presentan, Agus y Manu, siguen presentarse,
+[Remote]: ellos trabajan en en producto, pero, bueno, por ahí.
+[Remote]: Que se presenten y después
+[Remote]: Teo también, así lo lo conocemos.
+[You]: Are you?
+[Remote]: Vale.
+[Remote]: Dale, hermano.
+[Remote]: Bueno, ¿cómo están? Manuel, trabajando en muflos hace ya casi un año,
+[Remote]: Soy bueno, me acabo de recibir de
+[Remote]: de, bueno, una carrera de data science,
+[Remote]: y estamos acá en Mounflow desarrollando un poco lo que
+[Remote]: es todo lo que es la la inteligencia artificial,
+[Remote]: creando agentes y
+[Remote]: y incrementando un poco la inteligencia artificial
+[Remote]: para los clientes, y ahora va a ser cross
+[Remote]: Sí. Bueno, yo también perfil es muy similar, somos amigos de la facultad,
+[Remote]: así que muy similar.
+[Remote]: Y también estamos acá en el equipo de producto,
+[Remote]: pero más que nada laburando
+[Remote]: across toda la empresa, desarrollando todo lo que se puede, todo todo lo que nos da el tiempo.
+[Remote]: Buenísimo. Hacemos un poco funcional, también
+[Remote]: también, este, reforzando en estos días más que nada lo que es agentes y demás.
+[Remote]: Buenísimo.
+[Remote]: Y yo no sé si Nacho les habrá contado, soy el socio de Nacho,
+[Remote]: estoy más con el desarrollo de la plataforma,
+[Remote]: desarrollo también de de de los clientes ya ya borreados y demás.
+[Remote]: Buenísimo.
+[Remote]: Buen
+[Remote]: Buenísimo. A ver, bueno, fue que uno escribió nada de esta demora, así que
+[Remote]: empecemos.
+[Remote]: Nacho, así no,
+[You]: Vale,
+[Remote]: no atrasamos
+[You]: para para por ahí setear el el contexto y el stage,
+[You]: la reunión inicial con Federico, vino y con José,
+[You]: me comentaron un poco de de lo que hace Moonflow y de un poco
+[You]: los dolores que que nacen de cuando los clientes no pueden
+[You]: conciliar correctamente sus sus facturas y sus pagos,
+[You]: ende, Federico y José estaban interesados en explorar, primero, bueno, obviamente, ver cómo funciona
+[You]: nuestra plataforma y explorar si
+[Remote]: es Facundo, por las dudas. Facú, en periférico.
+[You]: ah, segundo,
+[You]: Perdón, perdón, perdón.
+[You]: Disculpas. Entonces, me comentaron un poco que
+[You]: básicamente, Moonflow muchas veces les pasa, tienen
+[You]: un dolor que salen a cobrar facturas que ya están pagadas, porque el cliente no puede
+[You]: conciliar correctamente esas facturas. Con lo cual,
+[You]: ofrecer una herramienta que permita al cliente
+[You]: considerar mejor sus facturas va a permitir que Moonflow opere sobre información
+[You]: más precisa y más relevante, para asegurar que salen a perseguir esos esas
+[You]: collections que realmente no están pagas, ¿no?
+[You]: Creo que inicialmente la idea es explorar una oportunidad de reseller para
+[You]: por lo menos, poder iterarlo más rápido y tener señal más rápida. Pero en algún futuro creo que tanto José como Facundo estaban interesados en, de repente, explorar un white labeling o o ver si
+[You]: se puede meter esta herramienta dentro de de Moonflow.
+[You]: Lo cual, es un poquito el el stage. Fuera de eso, que
+[You]: idea era mostrar un poquito lo que tenemos hoy,
+[You]: y ver si piensan que podría resolver la necesidad de los clientes. De nuestro lado,
+[You]: yo estoy bastante seguro que puede resolver las necesidades de
+[You]: porque somos un orquestador de información, digamos, podemos ingestar cualquier tipo de base de datos ahora te voy a mostrar más, transformar formatos y machar transac con con muchísima flexibilidad y configurabilidad, ¿no? Y la idea final es justamente es
+[Remote]: ¿Te te molesta si grabo para mostrarle a Facu después? Porque es una pena que no
+[Remote]: no pueda participar.
+[Remote]: Obvio.
+[Remote]: Vale.
+[You]: ¿Te deja grabar o te pones yo la grabación?
+[Remote]: Perdone.
+[You]: Listo, ahí arrancó.
+[You]: Ahí estamos.
+[You]: Bueno, nada, por eso,
+[You]: te dejo a Teo que nos muestre un poquito de de la nave que estuvo armando.
+[Remote]: Dale, arrancamos. Les comparto pantalla,
+[Remote]: Vamos a hacer un un pequeño ejercicio
+[Remote]: tal vez un un poco genérico y típico de de conciliación, pero la idea es que se lleven un pantallazo general de cómo funciona Rexy,
+[Remote]: Como dijo Nacho, Rexy, básicamente, que hace es automatizar
+[Remote]: procesos conciliatorios
+[Remote]: nosotros nos solemos centrar en
+[Remote]: quizás la intersección entre
+[Remote]: tres grandes universos, que es
+[Remote]: alta complejidad,
+[Remote]: alto volumen y alta regulación o o sensibilidad de datos. Entonces,
+[Remote]: cualquier proceso conciliatorio que que
+[Remote]: esté en esa intersección,
+[Remote]: que ya empiece a ser tedioso, ser, que que que lleve
+[Remote]: mucho tiempo manual, que sea complejo y demás, nosotros lo automatizamos para que
+[Remote]: el tiempo se libere
+[Remote]: se dedique a encontrar esos problemas reales
+[Remote]: donde realmente hay que hacer un un un
+[Remote]: ejecución, una corrección o o un reclamo,
+[Remote]: y no estar haciendo la la tarea operativa diaria, que aparte
+[Remote]: en muchos casos, o no se hace o se hace mal,
+[Remote]: o se hace con muy poca frecuencia cuando ya es tarde para
+[Remote]: para cualquier tipo de reclamo. Entonces,
+[Remote]: básicamente lo que hacemos es
+[Remote]: integrarnos a la fuente de datos, donde sea que esté la información, nosotros nos integramos
+[Remote]: automatizamos esa ingesta, es decir, que todos los días a las tres de la mañana ingestemos la información de las
+[Remote]: transacciones de ayer,
+[Remote]: tres veces por día, con la frecuencia que que haga falta,
+[Remote]: Después, esta información suele venir
+[Remote]: en formatos muy diferentes,
+[Remote]: no te la manda el banco de la misma manera que te la puede mandar
+[Remote]: por ejemplo, tu propia base de datos interna o un ERP o lo lo que sea,
+[Remote]: entonces nosotros también lo que hacemos es automatizar
+[Remote]: la estandarización de esa información, estandarizamos las fechas,
+[Remote]: estandarizamos los montos,
+[Remote]: cualquier tipo de pretransformación que haya que hacer, por ejemplo,
+[Remote]: calcular un t más dos,
+[Remote]: lo estandarizamos también. Entonces, la próxima vez que ingestemos la información,
+[Remote]: cualquier pretransformación que se puede que que se haga para
+[Remote]: hacer los cruces conciliatorios, para que se preparan la información,
+[Remote]: hace también de manera automática. Entonces,
+[Remote]: en este caso, tenemos un un
+[Remote]: una base de datos dummy de de de lo que podría podrían ser
+[Remote]: invoices, facturas de ustedes, en en
+[Remote]: monedas, porque entiendo que operan en diferentes países,
+[Remote]: mucho campo o monto,
+[Remote]: tenemos subtotales, impuestos, invoices y demás,
+[Remote]: y y estatus.
+[Remote]: Por el otro lado, tenemos todo lo que son
+[Remote]: bank bank payments, básicamente lo que tenemos que cruzar con con las invoices,
+[Remote]: también en en diferentes formatos, diferente
+[Remote]: por ejemplo, amount, esto
+[Remote]: lo podemos poner como
+[Remote]: set value column,
+[Remote]: básicamente, como estas fuentes de datos tienen muchos campos amount,
+[Remote]: Cuando terminamos la conciliación y queremos ver qué porcentaje machó en dólares,
+[Remote]: en cualquier moneda, lo que sea,
+[Remote]: nosotros tenemos que identificar cuál es el campo que nos interesa,
+[Remote]: que sea ese ese genérico de de de valor, porque como tienen muchos, nosotros no podemos
+[Remote]: tomar la decisión por ustedes.
+[Remote]: Entonces,
+[Remote]: una conciliación, una regla,
+[Remote]: es un cruce básico entre dos fuentes de datos, y una conciliación puede tener
+[Remote]: una o más reglas dentro. Entonces, ponemos
+[Remote]: invoices versus bank
+[Remote]: y creamos la primer regla, invoices versus bank.
+[Remote]: Básicamente, una regla es un cruce básico entre dos fuentes de datos
+[Remote]: pueden ser one to one o one too many. Cuando hay one to one,
+[Remote]: en base a los criterios, nosotros buscamos el match, y si hay ambigüedad
+[Remote]: es decir, si hay más de una transacción posible
+[Remote]: para, si es one to one, nosotros no lo permitimos. Entonces, a plaguearlo,
+[Remote]: y marcarlo como lo que nosotros llamamos duplicates y no lo vamos a negociar,
+[Remote]: cuánto vene sí permitiría eso. Entonces, seleccionamos acá las invoices,
+[Remote]: y hacemos un cruce con bank payments.
+[Remote]: Esto es lo que les comentaba para, por motivo de reporting, vamos a seleccionar
+[Remote]: acá.
+[Remote]: Y después el join configuration. Nosotros hacemos
+[Remote]: automatizamos reconciliaciones
+[Remote]: operativas
+[Remote]: financieras y contables. Entonces, lo primero es ver operativamente que estas transacciones
+[Remote]: estén. En este caso, yo lo hice los cruces
+[Remote]: por invoice invoice ID,
+[Remote]: que
+[Remote]: cruza
+[Remote]: acá con invoice
+[Remote]: ID hint,
+[Remote]: entonces vamos a hacer ese cruce,
+[Remote]: invoice ID,
+[Remote]: invoice ID hint,
+[Remote]: pero no siempre las compañías tienen
+[Remote]: este ID que va y viene referenciado,
+[Remote]: Entonces, también estos cruces pueden ser, por ejemplo, por fecha, monto,
+[Remote]: puede haber una primer barrida por ID, y todo lo que no no macheó hace
+[Remote]: una segunda barrida, por ejemplo, por
+[Remote]: fecha y monto,
+[Remote]: y agregar una tolerancia a cinco días, cinco minutos, cinco segundos o o lo que sea,
+[Remote]: número de tarjeta o cualquier otro
+[Remote]: que se les ocurra.
+[Remote]: Eso es para asegurarnos que la transacción esté operativamente, pero es
+[Remote]: queremos chequear diferentes cosas. Por ejemplo, queremos
+[Remote]: asegurarnos que
+[Remote]: el amount sea el correcto,
+[Remote]: ejemplo, que nos hayan liquidado
+[Remote]: acá tenemos Digo, perdóname, no sé si las preguntas
+[Remote]: las hacemos al final o te o tengo No, voy a interrumpiendo, esto esto es un para que
+[Remote]: La primera duda que tengo es si esto, digamos, lo lo va a hacer cada vez
+[Remote]: cada conciliación o lo que estamos haciendo es presetear, digamos, la herramienta para que después
+[Remote]: No, no,
+[Remote]: Importantísimo esa pregunta,
+[Remote]: Todo lo que, esta herramienta es una herramienta de automatización de procesos conciliatorios. Entonces,
+[Remote]: todo lo que hacés, la idea es que lo configures y que no lo tengas que hacer nunca más.
+[Remote]: Salvo que haya, por ejemplo, una renegociación en contrato, entonces, ahora
+[Remote]: vez de liquidar a los tres días, tienen que liquidar a los dos o a los cinco,
+[Remote]: entonces, venís acá y la modificás eso temas dos o temas cinco, y listo.
+[Remote]: Pero sí, obviamente no vas a estar haciendo esto cada vez, no tendría ni
+[Remote]: ni el sentido.
+[Remote]: Entonces, acá comparamos el amount, queremos
+[Remote]: chequear que el amount esté correcto, amount net,
+[Remote]: y también se puede agregar
+[Remote]: otro tipo de validaciones, por ejemplo, queremos que la la occurren si
+[Remote]: sea la correcta, entonces, por ejemplo, ponemos currency y
+[Remote]: base de datos suelen venir en diferentes formatos, entonces, por ejemplo, algunas pueden venir en minúscula,
+[Remote]: perdón, en minúscula,
+[Remote]: la ocurre en sí,
+[Remote]: y yo quiero que chequee
+[Remote]: que, este, que sea pesos de los dos lados,
+[Remote]: entonces esto me lo toma como equivalentes, o a veces viene débito,
+[Remote]: en una base de datos, en la otra el equivalente es debit,
+[Remote]: entonces lo agregás como lo que le llamamos nosotros es equivalent group.
+[Remote]: Eso es, nada, una normalización típica de herramientas conciliatorias.
+[Remote]: Te he tratado, o sea, con una pregunta, una una consulta.
+[Remote]: Sí.
+[Remote]: ¿Ah? Está
+[Remote]: esto sería collar con las bases como de alguna forma depuradas, ¿no? O sea, si tenemos que hacer
+[Remote]: hay que hacer algunos filtros o algunas modificaciones a la base, ya habría que hacerla antes,
+[Remote]: Ok.
+[Remote]: Cualquier modificación de la base que quieran hacer,
+[Remote]: se hace en la parte de sources,
+[Remote]: que es la que hemos hecho para
+[Remote]: a ver, guardo esta, y termino esto un segundo y vamos rápido a Sí, sí, está bien,
+[Remote]: Si vos embarcás como critical comparison, esto hace que no
+[Remote]: que si falla esta comparación, es decir, si el amount, por ejemplo, acá no es igual,
+[Remote]: lo que habíamos encontrado a nivel operativo no se marque como conciliado.
+[Remote]: Y si no la marcamos con Critical, nosotros te vamos a avisar, vamos a flaguear,
+[Remote]: che, esto falló el el amount,
+[Remote]: sí va a seguir marcado como como
+[Remote]: como macheado.
+[Remote]: Transformación, cualquier tipo de cálculo de fi y demás, puede ser condicional, si el
+[Remote]: país es México,
+[Remote]: calcula con fee igual al tres por ciento o lo que sea.
+[Remote]: Y acá creamos la regla.
+[Remote]: Obviamente, todas las
+[Remote]: conciliaciones pueden tener sus conciliaciones dependientes.
+[Remote]: Le podemos agregar
+[Remote]: una segunda barrida, por ejemplo, comparar esta base de datos de todo lo que no macheó,
+[Remote]: con otra base de datos y demás, y se vuelven cada vez más complejas la la base de datos. Y como dijimos,
+[Remote]: esto es una herramienta de automatización, entonces podemos
+[Remote]: marcar
+[Remote]: todo como
+[Remote]: todos los días y los horarios en los que queremos que que corran estas reconciliaciones.
+[Remote]: La guardamos,
+[Remote]: Claro, es como setear en un pipeline, por decir algo.
+[Remote]: Setear una automatización de un un proceso.
+[Remote]: Excelente. Ahora vamos a ejecutarla de manera manual, pero como dije,
+[Remote]: nosotros nos nos dedicamos a
+[Remote]: automatizarlo, entonces,
+[Remote]: los días a las cuatro de la mañana corre
+[Remote]: y directamente al día siguiente ves todo lo que no ha hecho.
+[Remote]: Entonces,
+[Remote]: en este caso, a nivel general, tenemos ochenta y nueve macheados, obviamente
+[Remote]: son
+[Remote]: son
+[Remote]: información de mí,
+[Remote]: acá están los comparison details. Acá, en en este caso, comparamos los amounts,
+[Remote]: y
+[Remote]: el cien por ciento venía venía igual, así que todas pasaron
+[Remote]: el el el comparison,
+[Remote]: y acá tenemos el metric summary.
+[Remote]: Básicamente, un dashboard genérico, de información conciliada, todo lo que es invoices, todo lo que es bank payments, tenemos cantidad de invoices por día, de estas cuántas te le reconciliaron y cuántas no tenemos una, por ejemplo, de veinticuatro que no mancheo de este lado, y lo mismo del otro lado, en en todo lo que es bank payments. Esto se puede exportar o a una base de datos que ustedes nos digan, en el formato preseteado que que que les parezca a ustedes, y y hoy con con un montón de flexibilidad, con los campos que quieran, columnas enriquecidas y demás, como para que
+[Remote]: ya les quede en su propia base de datos interna,
+[Remote]: Se puede también automatizar la generación de asientos contables,
+[Remote]: automatizamos ese proceso también, que suele ser muy manual y tedioso.
+[Remote]: Y también tenemos todo lo que es dashboards,
+[Remote]: Básicamente, nosotros tenemos esa información métricas que vieron genéricas,
+[Remote]: pero
+[Remote]: compañía tiene su operatoria, entonces, o muchas reconciliaciones, entonces,
+[Remote]: permitimos la
+[Remote]: conciliación, la la la creación de
+[Remote]: de dashboards personalizables para conciliaciones. Por ejemplo, acá creamos un gráfico de barras con
+[Remote]: test recon
+[Remote]: con la información que querrábamos, el el la
+[Remote]: filtro de fecha que querramos y demás.
+[Remote]: Estos dashboards son completamente personalizables, le agregamos, no sé, un
+[Remote]: KPI card,
+[Remote]: y acá se van personalizando cualquier
+[Remote]: información que quieran.
+[Remote]: KPI.
+[Remote]: Perfecto. ¿Y esto se puede diferir por cliente?
+[Remote]: Esto
+[Remote]: todos es diferible por por cliente, obviamente. Si usted
+[Remote]: estamos hablando en el contexto en el que bebimos esta
+[Remote]: esta plataforma,
+[Remote]: para uso de sus clientes, ¿no?
+[Remote]: O Claro, y y va a ser la misma pregunta acá.
+[Remote]: Podemos, tenemos clientes muy variados, algunos que son muy precarios y no
+[Remote]: no no los veo
+[Remote]: en condiciones para configurar algo así, y a otros pocos que sí.
+[Remote]: Pero ahí será tomar una decisión en conjunto, a ver cómo lo manejamos,
+[Remote]: le damos, este, apertura, quizás solo de los gráficos, pero no del del
+[Remote]: de las reglas de conciliación, lo que veíamos recién, o si le damos todo,
+[Remote]: o y y también va a depender si está embebido o si va a ser, este,
+[Remote]: casos casos de ventas puntuales, porque
+[Remote]: Mumflo en realidad es una es una fuente de información,
+[Remote]: pero esto o lo podemos administrar nosotros o cederlo al al cliente, eso habrá quedado después
+[Remote]: contractualmente. Pero si estuviera bueno
+[Remote]: embebido, que también te pueda generar sus reportes,
+[Remote]: sería genial, pero tengo que analizar los clientes nuestros qué quiénes están
+[Remote]: en condiciones de hacerlo, porque no, la veo difícil.
+[Remote]: Perfecto.
+[Remote]: Ok. Ahí, nada, cualquier ayuda que necesiten,
+[Remote]: nuestro lado para
+[Remote]: para con sus clientes, nosotros felices de de dar una mano en la configuración.
+[You]: ¿Por qué por qué pensás que lo van a poder, José?
+[Remote]: Mirá,
+[Remote]: no no sé no sé cómo por dónde es, porque no quiero ser malo tampoco con nuestros clientes, pero
+[Remote]: tenemos clientes muy variados, tenés, este,
+[Remote]: un responsable de de la cobranza en un cementerio,
+[Remote]: que apenas apenas sabe manejar un Excel,
+[Remote]: y después tenés, este, un grupo de de entero de
+[Remote]: de cobranzas en en un banco. Entonces, son diferentes uno de otro,
+[You]: Sí.
+[Remote]: y habría que ver
+[Remote]: lo que es B2B, todos van a necesitar conciliar, y es más,
+[Remote]: el que más necesita conciliar, el que más necesita esta herramienta es el más precario,
+[Remote]: pero yo no sé si es el que está en condiciones de configurarla.
+[Remote]: Pero bueno, a esos son ejercicios que tendremos que hacer,
+[Remote]: y ir viendo cliente a cliente, cómo cómo manejarlo.
+[You]: Pero esto confirma que
+[Remote]: Por ejemplo,
+[You]: esto confirma que este sería una herramienta que resolvería
+[You]: el caso para para uno de sus clientes, el dolor que ustedes identificaron?
+[Remote]: Sí, sí, sí, definitivamente, pero la la pregunta que que hacía vos será,
+[Remote]: si esto, más allá de que lo podamos hacer por cliente,
+[Remote]: mejor dicho, yo completaba la pregunta de él era, ¿a quién le damos la potestad de de
+[Remote]: administrar la configuración o de o de generar sus gráficos?
+[Remote]: Si se lo generamos nosotros en
+[You]: Si nosotros
+[Remote]: y se lo dejamos fijo,
+[You]: obvio, si nosotros los entrenamos a ustedes de cómo usar la plataforma,
+[You]: y ustedes luego brindan ese servicio a sus clientes, porque les interesa
+[You]: mantener esa relación y esa y ese valor agregado,
+[You]: no son los felices. También digo, habrá que ir resolviéndolo al andar. Yo, una de las cosas que puse en el
+[You]: inicial y charlamos en la primer charla, si me preguntan para mí ahora,
+[You]: yo trataría de arreglar algún tipo de reseller agreement,
+[You]: y nos enfocamos en dos o tres merchants que tengan
+[You]: ustedes, que saben que les está doliendo,
+[You]: hasta quizás es interesante probar que esos dos o tres merchants sean distintos, ¿no?
+[You]: Por ahí que uno sea un banco, pero que otro sea muy precario y
+[You]: otro sea un intermedio. Probamos tres casos de uso distintos.
+[Remote]: Yeah.
+[You]: Y si quieres nos metemos los dos a implementar,
+[You]: y después con los aprendizajes de eso vemos cómo seguimos. Si ustedes ya quieren después manejar la implementación ustedes
+[You]: o dejársela al cliente o dejarla de nuestro lado,
+[You]: lo vamos explorando. Pero yo
+[You]: creo que el valor siempre yace de de probar e iterar. Si ya saben que está el dolor
+[You]: y que esto lo podría resolver, yo me tiraría de cabeza a elegir dos, tres merchants y
+[You]: distintos para probar los casos de uso y meternos ahí en el en el barro
+[Remote]: Sí, de hecho, es hasta ahora es un es un terreno donde
+[You]: resolverles el problema.
+[Remote]: nos habíamos metido poco y nada por
+[Remote]: por no resolver la la casuística, precisamente.
+[Remote]: Perfecto.
+[Remote]: Ahí nada, les comento también la herramienta tiene diversos roles,
+[Remote]: entonces, si quieren
+[Remote]: cierto cliente darle rol de edición o creación, y otros solamente de de de
+[Remote]: auditor o de ver,
+[Remote]: también se puede.
+[Remote]: Y termino el recorrido rápido, tenemos obviamente alarmas,
+[Remote]: se mandan diariamente, ahora con la frecuencia que quieran, con la información que quieran,
+[Remote]: al canal que quieran, por medio, Slack,
+[Remote]: y todo lo que es el módulo de exception manager para todas las, primero,
+[Remote]: exception rules, básicamente hay veces que hay movimientos manuales y demás
+[Remote]: van a estar solamente en una base de datos y nunca van a tener su contrapartida,
+[Remote]: eso se configura acá.
+[Remote]: Básicamente, cuando viene sin ID,
+[Remote]: marcá medio como excepción,
+[Remote]: y listo,
+[Remote]: con la condición que que querrábamos. Obviamente, puede ser cualquiera de estas condiciones.
+[Remote]: Y después tenemos todo lo que es
+[Remote]: búsqueda, por ejemplo, de duplicados, que es lo que comentaba
+[Remote]: en este caso no hay ninguna, pero
+[Remote]: cuando hay ambigüedad o si queremos directamente
+[Remote]: marcar esta dos tres dos seis,
+[Remote]: corresponda a esta,
+[Remote]: no tenía el invoice ID correspondiente, pero sabemos que es esta,
+[Remote]: la marcamos como machada,
+[Remote]: listo.
+[Remote]: Y ahí bajamos de once a diez matches.
+[Remote]: Y después tenemos Lo que te está acá es es lo que tenés que hacer la la
+[Remote]: revisión manual.
+[Remote]: Perfecto. Exactamente, para ajustes manuales y demás.
+[Remote]: Creo que estamos. Entonces, básicamente, a nivel
+[Remote]: general automatizamos la ingesta,
+[Remote]: automatizamos la estandarización, que es lo que me preguntaron, cualquier tipo de
+[Remote]: columna que querían agregarla, agrupación, campo calculado,
+[Remote]: transformar, estandarizar fechas,
+[Remote]: dividir la base de datos en en, o sea, hay veces que viene una
+[Remote]: genérica y la queremos dividir en base a esta columna, esta variable, enriquecerla, traerme a esta base de datos, siempre esta información de esta otra y demás, Todo se hace acá y se automatiza la próxima vez que entren transacciones nuevas. A la base de datos, se va a hacer de manera automática. Estandarizamos las reconciliaciones, las excepciones, la el output, ya sea en dashboards, alarmas o generación de asientos contables, y el output hacia cualquier base de datos que que ustedes nos nos lleguen a pedir. Sí, acá yo bueno, terminar de entender después dónde, si la información está en tabla de ustedes, en la nube, dónde
+[Remote]: está, porque básicamente lo que necesitamos llevar es, nosotros vamos a tener
+[Remote]: dos dos registros, ¿no? Uno de Monthro,
+[Remote]: va ser un formato fijo siempre igual, otro de los clientes que va a ser esto que estamos diciendo que
+[Remote]: que es lo variable, ¿no? Y lo difícil
+[Remote]: en reconocer uno con el otro, pero después es llevarnos la marca,
+[Remote]: de los registros de Moonflow
+[Remote]: cuáles fueron reconciliados. Más que nada,
+[Remote]: porque, entonces, ahí se termina la gestión para ese cliente, que lo que buscamos, lo que decía como intro
+[Remote]: Ignacio, Nacho, es que no queremos molestar al cliente si ella pagó.
+[Remote]: Entonces, ahí la marca de de la base que esté, nos la llevamos
+[Remote]: va a decir, este registro es un flor listo, ya está ya está Se me culminado.
+[Remote]: Perfecto. Genera varios varias cosas internas dentro de de la plataforma, pero básicamente
+[Remote]: termina la
+[Remote]: la gestión.
+[Remote]: Perfecto.
+[Remote]: Otro que veo es es datos calculados, se va a usar mucho también, porque lo
+[Remote]: nos pasa con algunos clientes, que dependiendo del país y la industria,
+[Remote]: ellos tenían que pagar mil, pero hay una percepción, entonces, vos tenés que
+[Remote]: hacer, tenés que asumir
+[Remote]: según la percepción de cada país, que el el que va a pagar un poco más
+[Remote]: y si y entonces de esa forma lo macheas. En vez de mil, él tiene que pagar mil doscientos diez,
+[Remote]: porque tiene el IVA.
+[Remote]: Porque tiene una percepción, porque está anotado como inscrito, lo que sea, ¿no?
+[Remote]: Entonces, entonces, ahí tenés que asociar que mil doscientos diez corresponde a mil,
+[Remote]: todo ese tipo de de de datos calculantes, ahí generás una nueva variable y decís, listo, es esto,
+[Remote]: O, por ejemplo, crear una fórmula estimado,
+[Remote]: estimado neto, estimado bruto, y puede ser condicional,
+[Remote]: If el país es tal, entonces, es el valor del neto por
+[Remote]: punto dos o algo así. Y también, obviamente, los cruces conciliatorios, como les mostré,
+[Remote]: puede agregar tolerancia. Por ejemplo, tolerancia del dos por ciento o uno por ciento, porque no sabemos el número exacto,
+[Remote]: Claro, un rango.
+[Remote]: Exactamente.
+[Remote]: Un rango, está muy bien.
+[Remote]: Bueno, no sé, chicos, hagan preguntas,
+[Remote]: Yo me me queda claro
+[Remote]: por ahí la
+[Remote]: la ansiedad de tomar un caso y empezar a y empezar a jugar, de de avanzar en ese sentido.
+[Remote]: Ahí ya eso lo lo tengo que definir con
+[Remote]: con como
+[Remote]: cómo seguir. Quizás tengan una pequeña charla a ustedes, Nacho, y
+[Remote]: y vos, y
+[Remote]: definir un poco la
+[Remote]: estrategia y cuándo empezar y
+[Remote]: y cuál es el tipo de acuerdo.
+[Remote]: Mí me gusta, me parece que
+[Remote]: como como decíamos, no son muchos clientes, pero los los pocos
+[Remote]: que tenemos les es un dolor muy fuerte,
+[Remote]: y para nosotros, o sea, si supiéramos que hay un competidor nuestro que
+[Remote]: resuelve este tema, perdemos el cliente, sencillamente. Entonces,
+[Remote]: es un
+[Remote]: es una prioridad también.
+[You]: Vectabular. Sí, creo que
+[You]: de vuelta, yo la conclusión que saco por por las reacciones también es
+[You]: eso, creo que como próximo paso, ahora le escribo a Facu y
+[You]: y que nos traigan dos o tres clientes
+[You]: vemos bien los perfiles para asegurar que nosotros nos podemos servir bien y qué sé yo,
+[You]: en función de, sabemos que a estos tres les duele mucho,
+[You]: Sabemos, con estos tres tenemos buena relación, con lo cual nos van a escuchar,
+[You]: Digo, les mandamos un mail, los van a escuchar, porque pero trabajando
+[You]: con ellos hace bastante y hay relación cercana. Y tercero, son tres casos distintos para proveer tres
+[You]: casos de uso, para después decir, che, mirá,
+[You]: en el mundo banking es es una bomba y les recontra sirve el
+[You]: contrato es más grande, con lo cual nos sirve a todos.
+[You]: Como esto es exploratorio y para aprender, yo creo que si los tres son distintos nos va a dar
+[You]: mucha más
+[You]: visibilidad y señal.
+[Remote]: Yeah.
+[Remote]: A nivel plataforma tengo una duda más que es
+[Remote]: por ahí no, no sé si
+[Remote]: si lo saltearon, porque era más complejo demostrar, pero ¿cómo es que llegamos al dato?
+[Remote]: Hay algunos que te dicen, bueno, yo, en este banco,
+[Remote]: entrar directamente porque tiene un API, te te das
+[Remote]: el, y en este otro necesito sí o sí bajar un PDF todos los días. Entonces,
+[Remote]: eso no no no llegué a verlo, pero bueno, supongo que está que está resuelto, ¿no? Meter un archivo manual
+[Remote]: oigo de eso.
+[Remote]: Sí, no, obviamente, se puede siempre meter archivos manuales, pero
+[Remote]: el espíritu de Rexy es siempre automatizar estos procesos,
+[Remote]: Entonces, nosotros, donde nos digan, nos integramos, y todavía no tenemos hecha la integración
+[Remote]: integración,
+[Remote]: nos suele demorar para todo lo que es ingesta menos de un día,
+[Remote]: una integración, no no no son complejas,
+[Remote]: Si hay alguna que no tiene APIs,
+[Remote]: ahí sí nos tenemos que poner a ver cómo podemos automatizar. Tal vez tiene un servicio
+[Remote]: en el que te lo mandan por mail y nosotros, en que estamos directo del mail o o
+[Remote]: algo así,
+[Remote]: pero felices de ver cada cada caso.
+[Remote]: Bueno, Manu, Augus, ¿alguna pregunta? Si no, ya los los liberamos a los chicos porque
+[Remote]: está claro para mí.
+[Remote]: No, no, no.
+[Remote]: De nuestros clientes a los que
+[Remote]: consideraríamos si cada uno tendría su workspace dentro de
+[Remote]: o o o
+[Remote]: es un ok.
+[You]: Sí, inicialmente sí, como estamos, digo, para estos dos, tres casos de uso, como vamos a ser
+[You]: una especie de reseller agreement para poder iterar rápido, sí,
+[Remote]: Okay.
+[You]: Ya en el futuro, con esos aprendizajes, si definimos que la experiencia quieren que sea
+[You]: manejada por Moonflow,
+[You]: Por ahí es una recesión dentro de Moonflow y Moonflow con
+[You]: arma las conciliaciones para acá uno de sus clientes dentro de Moonflow. O
+[You]: si queremos que sea embedded con un white labeling solution dentro de Moonflow, bueno, ahí hay
+[Remote]: Alright.
+[You]: un desarrollo de experiencia de producto que va a haber que hacer. Pero lo haría una vez
+[You]: que aprendamos de estas primeras iteraciones. Para estas primeras tres,
+[You]: lo mantendría como está para poder iterar rápido y ganar señal,
+[You]: y trataría de de vuelta, meternos en el barro y aprender ahí
+[Remote]: Perfect. I got it. Perfect.
+[You]: Por eso un reseller agreement tiene menos fricción, digo,
+[Remote]: Bye.
+[You]: hay una presentación, una intro de parte de Moonflow,
+[You]: Moonflow nos acompaña en todo el proceso de de de implementación y de
+[You]: configuración y también de de customer success.
+[You]: Somos un cryseller agreement, pero nosotros también firmamos con el cliente.
+[You]: Y después de eso, ve cómo sigue.
+[Remote]: Claro, lo que sí conocemos es que del de lo que es datos de en la base
+[Remote]: de Mounflo,
+[Remote]: la la estructura va a ser siempre igual, porque nosotros tenemos una misma plataforma para todos. Sí.
+[Remote]: Entonces, una parte que al resolverla, ya está. Lo mismo el el aplicar el
+[Remote]: el el match reconocido, todo lo que se gestiona atrás, ya está.
+[Remote]: Lo que va ser diferente, como explican ustedes, es
+[Remote]: es el mundo de cada uno de los clientes con con sus datos y la forma en que vienen sus datos.
+[You]: Perfecto.
+[Remote]: En fin.
+[Remote]: Bueno,
+[You]: Por ahí los busco y y la seguimos con con Facu y con José.
+[You]: Parece Manu, Agustín, un gusto conocerlos y también seguimos ahí tirando juntos.
+[Remote]: Vale. Igualmente. Ya. Bueno, muchas gracias.
+[You]: Gracias por el tiempo.
+[Remote]: Gracias.
+
+============================================================
+SUMMARY
+============================================================
+### Their background
+
+- Moonflow operates as a debt collection platform serving B2B clients across multiple countries
+  - Handle various client types ranging from cemetery billing staff with basic Excel skills to sophisticated bank collection departments
+  - Serve diverse industries with different complexity levels and technical capabilities
+  - Currently focused on collection services but identify reconciliation gaps as major business risk
+- Facundo Turconi serves as CEO at Moonflow
+- Product team includes Jose, Agustin, and Manuel working on AI agents and cross-functional development
+  - Manuel has data science background, recently graduated, working on AI development for clients
+  - Agustin has similar profile, also faculty friends with Manuel, working across entire company on product development
+
+### Pain points and needs
+
+- Critical reconciliation problem causing operational inefficiency
+  - “We go out to collect invoices that are already paid because the client can’t reconcile their invoices correctly”
+  - Lost clients to competitors who solve this reconciliation issue: “If we knew there was a competitor that resolves this issue, we lose the client, simply”
+  - High-priority problem: “It’s a priority for us too”
+- Client capability variations create implementation challenges
+  - “We have very varied clients, you have a billing manager at a cemetery who barely knows how to handle Excel, and then you have an entire collections group at a bank”
+  - “The one who most needs to reconcile, who most needs this tool is the most precarious one, but I don’t know if they’re in a position to configure it”
+- Complex multi-country operations with different currencies and regulations
+  - Deal with various tax calculations and withholdings by country: “Depending on the country and industry, they had to pay a thousand, but there’s a withholding, so you have to assume according to each country’s withholding that they’re going to pay a bit more”
+  - Different data formats from banks vs internal systems vs ERPs
+
+### Questions or concerns
+
+- Implementation approach and client capability management
+  - “Who do we give the authority to manage the configuration or to generate their reports? Do we generate them ourselves and leave them fixed?”
+  - Questioned whether to give editing/creation roles to certain clients vs auditor/view-only access
+- Data integration and automation capabilities
+  - Asked about manual file uploads vs API integrations
+  - Concerned about automating data ingestion from various sources with different formats
+- Workspace structure for multiple clients
+  - “Would each \[client\] have their workspace within or is it an ok?”
+
+### Budget and timeline
+
+- No specific budget figures mentioned
+- Timeline focused on rapid iteration and learning
+  - Preference for quick reseller agreement to “iterate faster and have faster signal”
+  - Suggested starting with 2-3 diverse merchant clients for testing different use cases
+
+### Next Steps
+
+- Immediate actions planned by note-taker:
+  - Contact Facundo to select 2-3 diverse client profiles for testing
+  - Ensure good relationship clients who “will listen to us because we’ve been working with them for a while and there’s a close relationship”
+  - Target three different use cases: banking, precarious/basic, and intermediate clients
+- Implementation approach decisions needed:
+  - Establish reseller agreement structure
+  - Determine whether Moonflow handles implementation or delegates to clients
+  - Define roles and responsibilities for client training and ongoing support
+- Future exploration after initial testing:
+  - Evaluate white labeling or embedded solution within Moonflow platform
+  - Assess whether to expand to full product integration vs maintaining reseller model
+  - Analyze results from diverse client testing to inform scaling strategy
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/7b9dcea7-24ff-4025-9105-bb5a01146ef8](https://notes.granola.ai/t/7b9dcea7-24ff-4025-9105-bb5a01146ef8)

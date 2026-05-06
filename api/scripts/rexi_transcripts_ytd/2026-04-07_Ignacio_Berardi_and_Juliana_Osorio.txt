@@ -1,0 +1,643 @@
+MEETING: Ignacio Berardi and Juliana Osorio
+DATE: 2026-04-07
+ID: not_BHMH8GFqS9g5eI
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Juliana Osorio Roldan <josorio@getontop.com>, Jsanchez <jsanchez@getontop.com>, Pfuentes <pfuentes@getontop.com>
+SCHEDULED: 2026-04-07T16:30:00-04:00 - 2026-04-07T17:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Bueno, Juliana, Pablo, un gusto
+[Remote]: Listo.
+[You]: conocerlos.
+[You]: Estuve en una charla
+[You]: ayer con Julián,
+[You]: creo que fue muy fructífera, estuvo muy buena,
+[You]: conté un poquito más sobre lo que hacemos, y
+[You]: y creo que, bueno, dijo, creo que en la oportunidad para que hables con Juliana.
+[You]: Yo sé que... Voy a
+[You]: quieren, un poco lo que yo pensaba para esta reunión es
+[You]: les hago una breve intro sobre nosotros, qué es lo que hacemos, y después me encantaría hacer un
+[You]: clic sobre
+[You]: cómo está manejando este proceso actualmente, cómo lo está empezando a futuro.
+[You]: Ya tengo el contexto que arrancaron con Symmetric, con una parte del proceso, y estaban viendo implementar la segunda parte y seguir avanzando, Pero, bueno, ahí después yo les hago el pitch de how are we there? Y ver si quizás hay una oportunidad de correr una prueba de una prueba piloto en paralelo y poder comparar ambas plataformas y después decidir sobre cuál lo que le lo que charlábamos con Julián es
+[You]: no tiene sentido tener dos
+[You]: una para unos procesos, otra para otro,
+[You]: pero dado que todavía están en esa parte de implementación y todavía queda mucho
+[You]: proceso manual, quizás es interesante ver de
+[You]: avanzar con dos en paralelo, y después elijan cuál va ser la plataforma central.
+[You]: ¿Les parece si usamos así el tiempo? Yo les les presento un poquito sobre Rexy, qué es lo que hacemos,
+[You]: luego me cuentan ustedes, ¿o pensaban usarlo de otra manera?
+[Remote]: No, me me parece que está Cien por ciento.
+[Remote]: Ajá.
+[You]: Espectacular. Entonces, déjenme que acá
+[You]: comparto pantalla,
+[You]: Ahí ven la presentación, ¿verdad?
+[Remote]: Ya la vemos, ajá.
+[You]: ¿La están viendo full screen?
+[Remote]: No, estamos viendo to Google Meet,
+[Remote]: pero, pues, vemos tu pantalla, pero la presentación no.
+[Remote]: Sabemos tu, como tu browser y
+[You]: Vamos así más fácil. Ahora sí, ¿no?
+[Remote]: Mi solpa, sí.
+[You]: Va, perfecto. Bueno,
+[Remote]: Vemos tu equipo fundador.
+[You]: sí, presentales primero quiénes somos, ¿no?, que me parece muy importante.
+[You]: Es el de founding team, los tres venimos de fintech, de Latinoamérica.
+[You]: Yo estuve en Bicho, también estuve en consultoría estratégico,
+[You]: en Bain, y más recientemente estuve en común, a fintech, en Estados Unidos.
+[You]: Teo, nuestro COO y CPO, viene de Mercado Pago, y más reciente
+[You]: estaba haciendo un programa de entrepreneur in residence and FJ Labs.
+[You]: Y nuestro CTO, Sebastián, founding engineer de Naranja X, de Pomelo.
+[You]: El issuer processor. No sé si ustedes tienen la tarjeta con con Pomelo.
+[You]: Ah, no tienen tarjeta.
+[Remote]: No.
+[Remote]: No, no la tenemos.
+[Remote]: O sea, sí tenemos tarjeta Sí, tenemos tarjeta, pero no estamos con Pamelo.
+[You]: Ah, ok. Bueno, igual,
+[Remote]: Ajá. Los los los estuvimos evaluando,
+[Remote]: o sea, igual los conocemos todo, pero
+[Remote]: habían unos temas ahí
+[Remote]: que solo, o sea, habían algunos países en donde ya estábamos ofreciendo, donde no podíamos con ellos y
+[Remote]: pues, básicamente, eso fue parte de la decisión de por qué no nos fuimos con pomelo.
+[You]: Perfecto. Bueno, lo único que quiero resaltar del equipo fundador es que
+[You]: creo que
+[You]: Rexi nace a partir de experiencias personales, ¿sí? Los tres estuvimos del otro lado,
+[You]: donde están ustedes hoy,
+[You]: y vimos los dolores
+[You]: asociados, no solamente a conciliaciones, sino también a otros procesos dentro del mundo
+[You]: que siguen siendo muy manuales, muy tediosos,
+[You]: y que uno pensaría, bueno, es una ineficiencia que tengo ya, pero no, la verdad que tiene un impacto en
+[You]: áreas, tiene impacto en la velocidad de la compañía,
+[You]: y, más importantemente, tienen riesgos económicos y muchas veces regulatorios, ¿no?, y de compliance.
+[You]: Con lo cual
+[You]: viendo todo eso, dijimos, vamos a armar una compañía para resolver esto.
+[You]: Sabiendo que el timing es perfecto con
+[You]: con el avance de la de de AI,
+[You]: otras tecnologías que hacen un gran caso de uso para
+[You]: todo el análisis de data estructurada. Al final, todo lo que es finanzas y operaciones
+[You]: se basa en analizar información estructurada, ¿no?
+[You]: Un poquito más sobre la historia nuestra. Nosotros incubamos la compañía en MIT,
+[You]: hicimos un
+[You]: program de fintech,
+[You]: MIT, que terminó en un demo day, que terminamos ganando.
+[You]: Luego también ganamos otras pitch competitions, y con ese funding inicial, que
+[You]: una mezcla de grants, saves y créditos de AWS,
+[You]: Arrancamos a construir la compañía en enero de veinte veinticinco,
+[You]: Ya después, cuando terminamos el MVA, te o yo, levantamos la primer ronda de capital,
+[You]: levantamos uno punto dos millones, en julio del veinte veinticinco, estos fueron los inversores,
+[You]: verán, principalmente de Estados Unidos,
+[You]: El único de LATAM es Carabo, que no sé si los conocen, pero
+[You]: pero esto es solo para reflejar que del funding team, Teo y yo
+[You]: basados en Nueva York,
+[You]: y Sebastián, con el equipo técnico, están basados en Argentina. Tenemos dos hubs,
+[You]: también refleja que hoy atendemos mercado americano y también mercado en LATAM.
+[You]: Ahora, un poco el problema identificado, no me quiero demorar mucho en este slide,
+[You]: ustedes realmente seguramente lo viven en el día a día, pero
+[You]: en en lo que es particularmente servicios financieros, pero también en cualquier compañía que
+[You]: que opere múltiples flujos de dinero y con una transaccionalía de alta, se empezó a dar un problema los últimos
+[You]: cinco a siete años, la última década,
+[You]: de la multiplicidad de fuentes. Hay demasiadas fuentes de información,
+[You]: reflejando el mismo flujo de dinero, pero no sabemos cuál es la verdad.
+[You]: ¿Sí? Las compañías poco a poco fueron creando procesos para esto,
+[You]: utilizando herramientas como Excel, como Python, como SQL, o hasta
+[You]: a veces consultoría o
+[You]: construían herramientas internas, pero todo eso empezó a generar costo, riesgo y fricción.
+[You]: Costo, porque a medida que crece la operación, habría que crecer el equipo.
+[You]: Conciliaciones particularmente, y el equipo de en general. Por ahí es un equipo que inicialmente no existe y puede seguir
+[You]: contratarlo.
+[You]: Riesgo por un tema de que, justamente, cuando estos procesos no
+[You]: ejecutados de manera robusta y precisa, se pierde dinero.
+[You]: Y muchas veces, no es solamente una un riesgo económico, sino también, como mencionaba antes,
+[You]: y de compliance, de
+[You]: no puedo construir el reporte adecuado para presentar al regulador y eso me genera penalidades o
+[You]: riesgo de perder licencias, ¿no?
+[You]: Y después fricción, como decía antes, son procesos que
+[You]: impactan muchas áreas. Creo que muchas compañías se concibe
+[You]: a finos, a finanzas y operaciones, simplemente como
+[You]: como enablement areas, que trabajan en silos,
+[You]: pero al final están muy conectadas a las otras áreas de producto y de operaciones,
+[You]: y generan fricción, y eso afecta directamente la velocidad de la compañía. Teo tiene anécdotas en
+[You]: Mercado Pago, donde por ahí
+[You]: tenían un producto entero listo para lanzar,
+[You]: y no lo lanzaban porque el equipo de payment ops todavía no había construido el flujo para poder conciliarlo.
+[You]: Y esos ejemplos hay millones, piensen en iniciativas nuevas, integraciones nuevas,
+[You]: crecimiento, o simplemente
+[You]: quieren crecer cinco x este año, bueno,
+[You]: repente, FinOps puede decir, che, tenemos que crecer más lento, porque no tenemos los procesos
+[You]: para keep up with that growth, ¿no?
+[You]: Entonces, esa fricción que va generando en otras áreas también es algo
+[You]: que hemos identificado.
+[You]: Ahora, creo que si si si vamos a trabajar juntos en algún
+[You]: momento, es importante que sepan sobre nuestra visión, ¿no?, y sobre cómo estamos
+[Remote]: Lo perdimos, un
+[You]: ¿Me escuchan?
+[Remote]: era yo, pero no.
+[You]: Escuchan ahora?
+[Remote]: Ignacio te Ajá.
+[You]: Buenísimo.
+[You]: Entonces, lo que les decía,
+[Remote]: Perdimos
+[Remote]: los últimos
+[Remote]: dos minutos,
+[Remote]: Ay, ¿no se escuchas?
+[You]: Ah, bueno, no sé en qué parte me perdieron, pero... Sí, sí, yo los escucho.
+[Remote]: Si quieres, empecemos desde Sitelite, porque fue desde que empezaste a hablar acá.
+[Remote]: Ajá.
+[You]: Va, buenísimo. No, no, lo que decía es, básicamente, si
+[You]: decidiéramos trabajar juntos, es importante que conozcan nuestra visión de largo plazo.
+[You]: Hacia dónde queremos llevar ¿no?
+[You]: Y, para nosotros, ahí, el mensaje principal que quiero transmitir es conciliaciones
+[You]: es una puerta de entrada, es un wedge.
+[You]: La gran visión de Rexi es convertirlos en una plataforma
+[You]: sobre la cual equipos como finanzas y operaciones, finanzas y operaciones y finnops,
+[You]: pueden construir agentes para automatizar muchos de los procesos que hoy siguen siendo muy manuales. ¿Sí? Conciliaciones es un wedge para eso por dos motivos. Primero, porque es un pain point enorme hoy, y segundo, porque es la base técnica sobre la cual luego puedo construir esos workflows agénticos. Porque si yo pongo un agente hoy y no tengo una fuente unificada de la verdad y conciliada,
+[You]: esa gente sobre cuál, sobre qué base trabaja.
+[You]: Sobre qué contexto trabaja.
+[You]: Si le estoy feeding
+[You]: información que no es precisa y no refleja la realidad, el agent va
+[You]: a operar con el mismo nivel de precisión y de realidad. Entonces,
+[You]: vemos las conciliaciones
+[You]: como la creación de ese system of record, sobre el cual luego se pueden construir otros workflows.
+[You]: Agénticos, de vuelta. Entonces, es un poquito la visión. Ahora,
+[You]: muy importante, luego,
+[You]: volver a aterrizar y decir qué ofrecemos hoy, y así también direccionamos la charla.
+[You]: Tenemos una plataforma agéntica para automatizar las conciliaciones, ¿sí?
+[You]: Desde la ingesta trabajamos con archivos crudos,
+[You]: directo a la fuente de la información, construimos SFTPs, APIs,
+[You]: lo que haga falta, Chrome Jobs para bajar cosas de mails,
+[You]: para meternos en portales y bajar CSVs. Lo que haga falta para ir directo al archivo crudo,
+[You]: Luego hacemos todo lo que es la traducción, que es la transformación de sus archivos antes de procesarlo, por
+[You]: como bien ustedes saben, vienen siempre en nomenclaturas distintas, formatos distintos, esquemas distintos.
+[You]: Y antes de procesar, hay que entender cuáles son las columnas y etcétera.
+[You]: Luego está el procesamiento, que hay una lógica conciliatoria que ustedes
+[You]: la conocen muy bien, porque conocen esos archivos de principio a fin y la tienen que volcar en
+[You]: Y luego también,
+[You]: son asistidos por agentes de Rexi que encuentran patrones adicionales y optimizan esa lógica con usted,
+[You]: ¿no?
+[You]: A medida que analizan,
+[You]: a medida que esos archivos van cambiando, la gente los va ayudando a optimizar esa lógica.
+[You]: Luego están los últimos dos partes del proceso, que es
+[You]: investigación y resolución de discrepancias,
+[You]: que es el proceso con más fricción, porque una vez que uno configura una lógica conciliatoria, el proceso corra
+[You]: automáticamente.
+[You]: La mayor cantidad de tiempo se pierde en las diferencias.
+[You]: So, ahí, de vuelta, tenemos tecnología agéntica para
+[You]: lo que hace es, agrupa transacciones en clusters,
+[You]: causa raíz, y propone soluciones.
+[You]: Estas son excepciones, estas son duplicados, estos fueron movimientos de dinero manuales
+[You]: por tesorería.
+[You]: Y ustedes aprueban y rechazan esas sugerencias, con lo cual resuelven la diferencia de una manera
+[You]: dramáticamente más rápida,
+[You]: Y no solo eso, sino que esas acciones que ustedes van tomando en la plataforma
+[You]: empiezan a grabar en el context window,
+[You]: de ustedes. Entonces, el sistema aprende en el tiempo, no solamente
+[You]: los archivos, sino también de las acciones de los usuarios.
+[You]: Y se vuelve cada vez más autónomo.
+[You]: Y el último punto es el módulo de reportería.
+[You]: Tenemos dashboards, ustedes pueden crear sus propios dashboards,
+[You]: pueden crear sus propios reportes,
+[You]: podemos write
+[You]: en un database de ustedes los resultados,
+[You]: Estamos conectados a los principales ERPs para generar las entradas contables.
+[You]: Podemos generar alarmas de Slack, alarmas por mail, cualquier tipo de output
+[You]: sobre este proceso
+[You]: tenemos ahí de manera muy flexible.
+[You]: Y quizás ahí algunos puntos para resaltar de módulos que tenemos hoy es el
+[You]: el integrador dinámico, que nos permite conectarnos a las distintas fuentes de información de manera
+[You]: muy rápida y muy eficiente,
+[You]: Segundo, el data flywheel que comentaba de cómo el sistema aprende en el tiempo
+[You]: a partir de esa información y de las acciones de ustedes,
+[You]: Y el tercer punto es el problem solver, que esto, diría, es
+[You]: nuestro nuestro moneymaker, porque es donde realmente se dan los ahorros
+[You]: de corto plazo, que es, de vuelta, el motor para investigar y resolver diferencias.
+[You]: Algunos de los clientes con los que estamos trabajando hoy, simplemente por poner un par de logos, como
+[You]: dije, estamos separados en Latinoamérica y Estados Unidos,
+[You]: y el impacto que hemos visto en estos clientes
+[You]: hemos visto ochenta por ciento de reducción en tareas manuales,
+[You]: noventa y cinco por ciento de reducción en pérdidas irreconciliables, esa entrada
+[You]: contable de las pérdidas que uno tiene mes a mes por no poder cerrar los flujos de dinero,
+[You]: y tuvimos cero auditorías rechazadas por conciliaciones.
+[You]: En en nuestros clientes. Que, por ejemplo, en el caso de Bank, tenían, estaban pagando una penalidad hace dieciocho meses que venían arrastrando
+[You]: no tener el reporte correcto, conciliado y histórico.
+[You]: Los ayudamos a cerrar eso y se ahorraron un montón de fees en en penalidades.
+[You]: Último, cierro un poco con los distintos esquemas que tenemos, pero rápidamente
+[You]: obviamente, el más popular es Cloud SaaS. Operamos sobre nuestra infra. Tenemos embedded solutions también, esto es para clientes donde tener un módulo de conciliaciones les parece interesante para sus clientes, por ejemplo, clientes de Ontop, tengan lío con las conciliaciones, si ustedes quieran tener un módulo de conciliaciones en el en el portal,
+[You]: lo que sería un embedded solution.
+[You]: Después tenemos la la el customer deployed, que sería
+[You]: nosotros desarrollamos la la solución específicamente para su operatoria,
+[You]: la deployamos en la infra de Ontop.
+[You]: Para este último, lo típico,
+[You]: necesitamos una razón muy fuerte para para
+[You]: porque tiene otro tipo de implementación, otro tipo de soporte y actualización
+[You]: Es un poquito más doloroso el proceso,
+[You]: pero tenemos la flexibilidad para poder hacerlo.
+[You]: Y cierro con la seguridad de la información, que es fundamental.
+[You]: Tenemos ahí todas las certificaciones, y además tenemos estándares internos
+[You]: y frameworks internos para asegurar que la
+[You]: que la información está
+[You]: protegida, privada y es seguro
+[You]: usar a Rexy como orquestador de información.
+[You]: Con eso cierro, para no demorarme tanto.
+[You]: De vuelta, quizás para remarcar un poco, dado que sé que están trabajando con Symmetric
+[You]: para un poquito las diferencias,
+[You]: Primero y principal, es una herramienta
+[You]: mucho más agéntica, más AI native, eso quiere decir que es más flexible.
+[You]: Entonces, ustedes pueden construir su propios flujos,
+[You]: dentro de Rexi, no se tienen que adaptar a una lógica
+[You]: hard coded de de un SaaS platform,
+[You]: la la el uso y la intuición y la experiencia es mucho más
+[You]: agéntica y más fácil de usar por gente que no es técnica, entonces evitamos
+[You]: el involucramiento de gente de sistemas.
+[You]: El segundo punto es que, obviamente, con AI somos mucho más
+[You]: productivos y más rápidos y más eficientes.
+[You]: Eso impacta no solamente en la cantidad de tiempo que ustedes dedican a consideraciones, sino también en el costo de la plataforma.
+[You]: Porque nosotros automatizamos mucho de lo que Symmetric, por ejemplo, hace con
+[You]: consultoría o con agencias,
+[You]: Y el tercer punto, obviamente, es nuestra visión,
+[You]: ¿no?, la visión de largo plazo, que es
+[You]: arrancar por conciliaciones y luego ser un partner tecnológico para ustedes, para
+[You]: seguir automatizando flujos
+[You]: de fin ops, ¿no?, con agentes. Ese, diría, son los tres ejes de diferenciación.
+[You]: Un poco, de vuelta repito,
+[You]: AI, en términos de usabilidad y
+[You]: experiencia, AI, en términos de performance,
+[You]: y, por último, la visión de de AI también beyond
+[You]: recon.
+[Remote]: Perfecto.
+[You]: Así que, habiendo dicho eso, me encantaría
+[You]: nos metamos de lleno en
+[You]: cómo lo están haciendo hoy, qué proceso ya tienen en Symmetry, qué proceso todavía queda manual.
+[You]: Y explorar juntos de qué manera por ahí podemos hacer una prueba piloto para que, por lo menos, nos prueben
+[You]: puedan comparar y puedan decidir cuál quieren que sea
+[You]: la herramienta conciliatoria. Hay una de las cosas que dijo Julián, que también es verdad,
+[You]: que le interesa mucho a él trabajar con early stage startups, porque
+[You]: para nosotros ustedes serían muy importantes, como todos los clientes que estamos ahora.
+[You]: Eso quiere decir que nosotros
+[You]: que ustedes, como clientes, tendrían mucho mucha influencia sobre el road map.
+[You]: Entonces,
+[You]: como ese espíritu de design partner en donde
+[You]: por ahí, cosas específicas que necesitan ustedes, nosotros las priorizamos, mientras que Symmetric ya
+[You]: es un es un enterprise SaaS
+[You]: que no creo que adapten mucho al road map
+[You]: acorde a las necesidades de ustedes.
+[Remote]: Perfecto.
+[Remote]: Pues,
+[Remote]: si quieres, yo te cuento un poco cómo vemos nosotros el tema,
+[Remote]: Ignacio. Nosotros en este momento
+[Remote]: al tener
+[Remote]: varias plataformas de conciliación, estamos iniciando nuestro proceso
+[Remote]: con las cinco más relevantes, y eso empieza desde el banco principal que tenemos nosotros, que trabajamos con JP Morgan,
+[Remote]: Esa es una de las principales cuentas que tenemos que conciliar,
+[Remote]: y es una de las principales que tiene mayores movimientos
+[Remote]: nuestro funcionamiento y por la estructura en que nosotros
+[Remote]: creamos cada una de las de los trabajadores,
+[Remote]: una de esas es JP Morgan. El resto de cuenta
+[Remote]: son otras plataformas que también tienen un alto volumen de, pues,
+[Remote]: de transacciones. Y lo que estamos haciendo ahorita con Symmetric es
+[Remote]: poco a poco, implementando las conexiones SFTP,
+[Remote]: primero, de la plataforma que tenemos nosotros,
+[Remote]: que es nuestra plataforma de control, a Symmetric, y que la
+[Remote]: información pase de una manera muy fluida, y que no haya como
+[Remote]: procesos de cargar datos asymmetrics, sino que, de una vez,
+[You]: È automatica.
+[Remote]: pase la información bajo un formato establecido para que
+[Remote]: lo pueda empezar a analizar.
+[Remote]: Entonces, adicional a eso, y aquí se unió Yes, que es
+[Remote]: la persona que está liderando todo el proceso con Symmetric, porque es la accounting manager,
+[Remote]: Si quieres,
+[Remote]: Jess, te doy la palabra. No sé si estás ocupada, porque sé que estabas
+[Remote]: No, acabo de entrar, perdón.
+[Remote]: Ah, no te preocupes, ¿no? Preocupes, Jess.
+[Remote]: Pero Jess
+[Remote]: Ajá. Si quieres le te doy la palabra a Jess para que tú sigas comentando un poco
+[Remote]: todo el proceso que estamos elaborando con Symmetric para
+[Remote]: darle como un overview muy general a Ignacio, de cómo vamos.
+[Remote]: Le estaba comentando que teníamos, pues,
+[Remote]: empezar con el proceso a través de cinco de cinco plataformas, que una de las plataformas principales que tenemos es JP Morgan,
+[Remote]: y y ahí quedé.
+[Remote]: Si quieres
+[Remote]: continuar tú.
+[Remote]: Vale. Hola, Ignacio, ¿cómo estás?
+[Remote]: Bueno, básicamente, nosotros en
+[Remote]: momento, con Symmetric, estamos en el proceso de implementación de cinco
+[Remote]: plataformas, que son JP Morgan, local payment, BB and G.
+[Remote]: Toons, y otra BB and K, y Stripe, perdón.
+[Remote]: Son las plataformas, como las plataformas principales que tenemos para
+[Remote]: pago, y nuestra idea es poder automatizar en simétrico la conciliación,
+[Remote]: de ahí hacer implementación de traductor contable y que esto viaje a NetSuite.
+[Remote]: Esto, pues, las conexiones, la idea es a través de conexiones SFTP,
+[Remote]: para que nosotros no tengamos que alimentar Symmetric de manera manual y, pues, que
+[Remote]: disminuya, pues, toda nuestra como carga operativa que se hace
+[Remote]: hoy día, se hace manual. La idea es que podamos automatizarla,
+[Remote]: y podamos sentarnos ya a a hacer análisis, realizar conciliaciones, y demás, y, bueno, que esto viaje a a Eso está grande lo que hoy tenemos implementado con Symmetric, y en lo que estamos en este momento. Tal cual. Ignacio, ahí ahí, solo para complementar a Jess, que creo que son cositas que tenemos
+[You]: Perfecto.
+[Remote]: tener superclaras. Pues uno, como ya dijo el equipo,
+[Remote]: son cinco plataformas las que estamos, hoy en día, trabajando con Symmetric, pero que te hagas una idea,
+[Remote]: de la cantidad de transacciones y cosas que nosotros tenemos, pues,
+[Remote]: no sé si conozcas cómo funciona el negocio de Ontop, me imagino.
+[Remote]: Que William también te conta un poco, pero tenemos la parte de payroll,
+[Remote]: tenemos la parte de financial services. Escogimos las
+[Remote]: principales plataformas con Symmetric, entendiendo que financial services, pues,
+[Remote]: específicamente payouts, es lo que más
+[Remote]: transaccionalidad tiene, que te hagas una idea. Un cliente puede tener, no sé,
+[Remote]: cien, doscientos workers. El cliente nos paga una sola transacción por todos sus workers.
+[Remote]: Pero el worker, de ahí, se puede multiplicar
+[Remote]: no solo por el número de workers, sino por n
+[Remote]: transacciones que quiere hacer el workers, porque a mí
+[Remote]: como tal, nosotros le la plata al
+[Remote]: en su wallet, pero de ahí yo, Juliana, puedes ir
+[Remote]: una parte mandársela a un tercero, porque pagué el de
+[Remote]: de mi casa desde Ontop,
+[Remote]: otra mi cuenta bancaria, otra hice una compra, bueno,
+[Remote]: etcétera, etcétera. Entonces, eso en cuanto a payouts, como ves, pues
+[Remote]: tiene un multiplicador gigante. Hoy en día estamos
+[Remote]: en total con todas las plataformas que tenemos operando alrededor de
+[Remote]: treinta y dos mil transacciones mensuales
+[Remote]: que lo pongas como en perspectiva. Y de ahí,
+[Remote]: esas cinco plataformas son los principales, pero tenemos en total
+[Remote]: activas como que unas a veces se prenden y se apagan, dependiendo, pues, de lo que pase en la operación,
+[Remote]: Tenemos casi que cuarenta plataformas o, pues,
+[Remote]: como Disponibles. Wallets o cuentas disponibles. Entonces, si ves,
+[Remote]: lo que estamos trabajando por con Symmetric es, pues, un par
+[Remote]: digamos que como un ochenta veinte, pero ese otro veinte
+[Remote]: por ciento se divide en un montón de plataformas. Lo que decía Jess,
+[Remote]: que si bien ya tenemos como el conciliador conectado
+[Remote]: a estas plataformas, estamos ahora como en la segunda parte UIT del proyecto, que es cómo esto viaja también a
+[Remote]: nuestro ERP y concilia, pues,
+[Remote]: todo el tema, estamos ahí. Y si te soy
+[Remote]: también como cien por ciento honesta, hoy estamos superabiertos a explorar cosas,
+[Remote]: pero, pues, con Symmetric nosotros, en este momento, al menos, tenemos un
+[Remote]: contrato y todo que está hasta
+[Remote]: por lo menos, este año, si no me equivoco, agosto, octubre. O sea,
+[Remote]: yo como finanzas, y creo que lo dijiste muy bien desde que empezamos la conversación, pues,
+[Remote]: no va a tener
+[Remote]: tres plataformas activas lo mismo, ¿cierto? Entonces,
+[Remote]: superabiertos, pues, obviamente, como a tener una prueba, explorar,
+[Remote]: pero yo decirte que me voy cambiar mañana, pues, de entrada, no va a pasar,
+[Remote]: sí como que quiero que empecemos la conversación teniendo, pues,
+[Remote]: como superclaro estas cosas que que, pues,
+[Remote]: como te digo, quiero ser supertransparente con vos en no hacer algo de mañana, pero, pues, siempre
+[Remote]: superabiertos a explorar y analizar otras plataformas
+[Remote]: si nos dan más valor, pues, bienvenidas sean a futuro.
+[You]: Total, total.
+[You]: Bueno, esa es la idea. Allí, no sé, es una decisión por ahí,
+[You]: más de su lado, ustedes me dirán si ese remaining veinte por ciento que que
+[You]: queda por fuera del scope de Symmetric es
+[You]: lo suficientemente doloroso como para meter rexi,
+[You]: y que ustedes de acá a agosto a octubre puedan comparar las dos
+[You]: y después elegir con cuál quieren unificar
+[You]: todo, las cuarenta plataformas, ¿no? Y de vuelta, lo mismo, desde ingesta
+[You]: conciliación y traducción al ERP, ¿no?, de qué es lo que estamos haciendo nosotros. Con lo cual,
+[You]: decirles que, si ustedes me dan la oportunidad de acá a agosto, octubre,
+[You]: demostrarles
+[You]: cómo somos diferentes, ya sea
+[You]: a través de una prueba piloto para esas treinta y cinco plataformas, o elegir esas treinta y cinco remanentes, cuáles son las cinco más grandes, al igual que Symmetric, y y implementar Rexy para eso,
+[You]: No sé, ahí me dirán ustedes si están dispuestos y abiertos a hacer como una especie de prueba piloto,
+[You]: que sea.
+[You]: Low risk,
+[You]: low cost también,
+[You]: y que y que les agregue valor.
+[Remote]: Ahí, Ignacio, literalmente, yo creo que, pues, creo que Jazz no estuvo en la primera parte.
+[Remote]: De la conversación, que creo que era superimportante como entender esto.
+[Remote]: Pero yo creo que ahí como
+[Remote]: steps que que nos puedas mandar más para que Jess lo analice, porque creo que en este momento yo ya no te puedo dar una respuesta de
+[Remote]: sí es lo que nos sirve, queremos probarlo, hacer un
+[Remote]: piloto, ¿no?, pero si quieres como mandarnos más como una milita de todo lo que nos
+[Remote]: explicaste y no sé si tenés demos o como
+[Remote]: cómo funciona más o menos la plataforma para poderlo revisar con Jessica internamente.
+[Remote]: Y de ahí ver si podemos continuar la conversación y te decimos, hey, Ignacio,
+[Remote]: sí queremos un piloto, no podemos hablar en tres meses, pues de ahí
+[Remote]: obviamente, pueden pasar muchos caminos, pero creo que eso es lo que te pediría para poder
+[You]: Sí, obvio, obvio, no no no esperaba una decisión de esta llamada, de esta,
+[You]: simplemente introductoria, digo, es las primeras que nos conocemos. Típicamente, después de esta llamada,
+[You]: introductoria, donde entramos en más detalle,
+[You]: nosotros armamos una demo. Entonces, quizás
+[You]: vez de mandarles materiales o un videíto, si están interesados,
+[You]: podemos hacer una demo corta, en donde pueden ver en vivo
+[You]: la plataforma y cómo funciona. Y si ya están usando Symmetric, aparte,
+[You]: a ser muy tangible comparar ambas
+[You]: soluciones.
+[You]: Para la demo,
+[You]: si es que... Dale, Jessica, no sé si querías decir algo.
+[Remote]: Nope.
+[You]: Para la lo que lo que usualmente
+[You]: proponemos son dos opciones, o hacemos una demo genérica,
+[You]: donde nosotros no hacemos archivos sintéticos,
+[You]: lo llenamos de información sintética y mostramos un walkthrough de la plataforma de cómo funciona,
+[You]: o una opción es firmar un acuerdo de confidencialidad,
+[You]: y ustedes nos comparten archivos reales,
+[You]: y hacemos una demo real.
+[You]: Entonces, les mostramos la conciliación de
+[You]: local payment, por ejemplo.
+[You]: De un día.
+[You]: Entonces, ahí pueden ver exactamente
+[You]: comparar contra el proceso interno o el proceso que tienen en
+[You]: en en Symmetric, y ahí tiene mucha más visibilidad.
+[You]: Encantado de hacer cualquiera de las dos opciones, lo que ustedes prefieran.
+[Remote]: Pues, o sea, ahí, Ignacio,
+[Remote]: para una, te diría que con, o sea, ahorita,
+[Remote]: pues vamos a seguir con Symmetric, como te digo, igual hasta octubre. O sea, yo te diría como
+[Remote]: algo muy genérico, nos podría servir para
+[Remote]: analizar y ver si continuamos, pero, tampoco quiero
+[Remote]: como que el equipo ponga un
+[Remote]: montón de tiempo en este momento. O sea, créeme que igual con
+[Remote]: temas de AI y automatizaciones y todo, pues tenemos
+[Remote]: full capacity hoy en día en todo el tema, pues,
+[Remote]: tanto de Symmetric, con muchos otros proyectos que están saliendo. No sé si Julián te contó, pero
+[Remote]: ahorita estamos haciendo lanzamientos de productos
+[Remote]: no uno, sino como casi que cinco al tiempo,
+[Remote]: y Génesis y su equipo están
+[Remote]: como te digo, full capacity. Entonces, como que esa es la parte que me
+[Remote]: preocuparía como de decirte, tomemos una demo de dos horas y, pues, creo que hoy en día no no no podemos, entonces, diría como,
+[You]: No,
+[Remote]: hagamos lo genérico y de ahí continuamos la conversación.
+[You]: Dale, dale, hagamos una demo genérica, media hora, no más de treinta minutos,
+[You]: lo hacemos rapidito, les mostramos los principales puntos de diferenciación y ahí vemos cómo seguir, pero
+[You]: pero quizás sí para alinear expectativas
+[You]: ¿ustedes ven un escenario en donde
+[You]: podemos correr para los procesos que
+[You]: quedan por fuera de symmetric en paralelo en los próximos meses,
+[You]: o no, o van a seguir con Symmetric y los procesos quedaron fuera de Symmetric y están completamente despriorizados, y no van a hacer nada de eso.
+[Remote]: No, o sea, Ignacio, hoy en día, con Symmetric
+[Remote]: que decimos fue empezar por los cinco, pero eso no quiere decir que con Symmetric no vayamos
+[Remote]: a tener como las otras plataformas. O sea, de hecho,
+[Remote]: con Symmetric, el proceso, pues, como tal,
+[Remote]: de hecho, también es un un poco autónomo, o sea, hay
+[Remote]: me puede corregir, pero una de las cosas que nos decías es
+[Remote]: una cosa es la implementación como inicial, pero de ahí ya con las plataformas
+[Remote]: que sigan casi que las podemos implementar.
+[Remote]: Nosotros mismos con lo que hemos aprendido con ellos y, pues, que ellos te dan también
+[Remote]: todo un tema de de, ¿cómo te digo?, de
+[Remote]: no tanto soporte, sino como como education,
+[Remote]: decirlo así. O sea, tienen un montón, pues, como de
+[Remote]: herramientas y y como de estudio,
+[Remote]: para que también uno se vuelva un poco autónomo. Entonces,
+[Remote]: decirte que, o sea, no no es que estemos cerrados a
+[Remote]: probar otro, porque creo que sí hace sentido
+[Remote]: si las otras no nos funcionan por symmetric, tener otro conciliador,
+[Remote]: claro que sí, pero que hoy en día te pueda
+[Remote]: sí, Symmetric no es la solución para esa, no puedo hacerlo porque apenas estamos
+[Remote]: en estas cinco, pero con campo abierto,
+[Remote]: a que las cuarenta estén por ese lado.
+[You]: Sí, sí, obvio. La pregunta es si de acá
+[You]: a, por ejemplo, si en el próximo q,
+[You]: ves un escenario donde está
+[You]: symmetric
+[You]: avanzando en la implementación de los cinco flujos prioritarios,
+[You]: y REXi haciendo una prueba piloto super low cost y low risk,
+[You]: sobre lo que quedó fuera. Si si eso lo es,
+[You]: feliz es seguir invirtiendo y demostrar valor.
+[You]: Ya me decís ahora, no lo veo por
+[You]: el equipo está enfocado en esos cinco en esas cinco plataformas, y, además,
+[You]: después vamos a seguir con ellos en la implementación de las otras treinta y cinco,
+[You]: Entonces, nada, quizás mejor hablar más adelante cuando tengan más
+[You]: visibilidad, es decir,
+[You]: Symmetric me funcionó muy bien o no me funcionó muy bien, y quiero buscar otras
+[You]: ¿no? Para para no hacerle perder el tiempo a nadie, digo.
+[Remote]: Sí, no, de acuerdo. O sea, ahí, Jess me corregirá.
+[Remote]: Creo que el equipo está full capacity ahorita, de hecho, estamos buscando otro analista
+[Remote]: contable. Entonces, yo te diría como,
+[Remote]: creo que de pronto podríamos más bien hacer la demo de hablar en unos tres meses,
+[Remote]: que ya estemos como un poco más, o sea,
+[Remote]: como aquí, literal, nuestra controller se fue hace dos meses y esa es su primera posición, se fue otra persona del equipo, o sea,
+[Remote]: obvio, siempre pueden haber cambios, pero hoy en día estamos
+[Remote]: full capacity, como con todo el equipo contable.
+[Remote]: Sí, Ignacio, apoyando lo que dice Julie, es que nosotros tenemos
+[Remote]: como reto q dos,
+[Remote]: enfocarnos cien por ciento en symmetric, más otras
+[Remote]: todo el tema de ella que nombró Julie. Entonces, sí estamos a full
+[Remote]: capacity, y como dice Julie quizás en unos tres meses,
+[Remote]: o sea, ya esté finalizado q dos cuando ya tengamos symmetric
+[Remote]: con las cinco plataformas andando, quizás ahí ya podamos decir, bueno, pues,
+[Remote]: para las otras treinta y cinco, como que vale la pena estudiar otra cosa. Pero a hoy, sí, es estamos cien por ciento enfocados en poder cumplir ese ese reto, que hoy hoy tenemos, y es lograr esas cinco iniciales.
+[You]: Espectacular.
+[You]: Quizás ahí el nuevo comentario que les hago es, y esto,
+[You]: vuelta va más del punto de vista personal,
+[You]: haber hablado con muchas compañías en la misma situación que ustedes, es
+[You]: este tipo de sistemas tienen tienen un cost, ¿no? Entonces,
+[You]: también hay una parte de
+[You]: lo más probable es que cuando hayan avanzado sobre los cinco, estén mucho más inclinados a avanzar sobre los treinta y cinco que faltan y no de cambiar de herramienta. Entonces, en ese sentido, por ahí, el momento de evaluar una alternativa que sea más AI native, más cost efficient y más productiva, a pensar que es ahora, pero eso es una opinión personal y, obviamente, I'm very biased. Así que tampoco quiero como poner presión de este lado.
+[Remote]: No, y y te entiendo te te entiendo perfectamente, y que no ha sido yo ahí,
+[Remote]: creo que lo que te propondría es, si quieres hagamos un follow up más bien,
+[Remote]: un mes, no no no tres meses,
+[Remote]: como tal, y ahí te podemos decir como
+[Remote]: con más certeza si si vamos a evaluar o no.
+[Remote]: Porque sí, creo que hoy, hoy, hoy, no
+[Remote]: no luego, pues,
+[Remote]: no llegaríamos como tan lejos a a hacer una prueba piloto.
+[Remote]: Y más, como te digo, por cómo tenemos al equipo hoy en día,
+[You]: Sí, sí.
+[Remote]: que tampoco quiero que pierda foco.
+[You]: Perfecto,
+[You]: clarísimo. Quizás unas preguntitas ahí, solamente de timing.
+[You]: El contrato de Symmetric dura hasta agosto.
+[Remote]: Déjame confirmar, porque no se me acuerdo si es agosto,
+[Remote]: pero es alguno de los dos.
+[Remote]: Te lo lo lo valido y
+[Remote]: te confirmo.
+[You]: Ok.
+[Remote]: En en el thread que ya tenemos.
+[You]: Y
+[You]: la implementación la están haciendo ustedes
+[You]: o la la pagaron? ¿Cómo funciona esa parte?
+[Remote]: Sí, ahí, digamos, ellos
+[Remote]: tienen unos partners como tal. O sea, creo que funciona mucho como tipo Oracle, ¿sabes?
+[Remote]: Y en este momento estamos trabajando también full
+[Remote]: con el partner de ellos, pues, como haciendo toda la implementación.
+[You]: Que les cobran, tipo, cuatro mil, cinco mil dólares de implementación, ¿no?, algo así.
+[Remote]: Sí, depende, o sea,
+[Remote]: obviamente, dependiendo también como de todas las herramientas que
+[Remote]: quisiéramos como acompañamiento, dependía de eso.
+[You]: Claro.
+[You]: Pero es
+[You]: Va, Bueno,
+[Remote]: Ajá. Telescope, exacto.
+[You]: nada, obviamente, tiene sentido que sigan con Symmetric, dado que ya firmaron hasta
+[You]: agosto, octubre, see it through y después evaluar si si quieren pasar o no.
+[You]: Un par de comentarios que les dejo, y creo que va en línea con lo que decía Julián.
+[You]: De vuelta.
+[You]: AI native,
+[You]: nos permite ser mucho más intuitivos y más, y y mejor performance,
+[You]: la implementación no la cobramos, it's fully on us, y la hacemos nosotros, we do all the heavy lifting,
+[You]: y la hacemos nosotros, los cofounders. Entonces, todo el beneficio que trae también
+[You]: es decir, estamos trabajando con una compañía que está early stage, en
+[You]: y va a ir above and beyond to make sure it works, and make sure it works
+[You]: specifically for Ontop. No?
+[You]: Entonces, creo que ese es un poco el el espíritu y el mensaje que quiero que se lleven,
+[You]: de que si en algún momento te deciden reabrir la conversación es trabajar con un early
+[You]: startup que va a estar ahí
+[You]: al lado de ustedes construyendo el workflow que necesitan.
+[You]: Sin tener que pagar implementaciones y sin costos exorbitantes.
+[You]: Y, obviamente, con una propuesta mucho más AI native,
+[You]: que permite más usabilidad y un y un performance mejor.
+[You]: Así que hagamos eso. Yo yo no me metería a hacer una demo y y avanzar esas conversaciones,
+[You]: les quiero sacar bandwidth, están con otras prioridades, así que
+[You]: mejor
+[You]: let's put this on the parking lot.
+[You]: Y yo me anoto volver con con vos, Juliana, en, no sé, en un mes, en un mes y medio,
+[You]: a modo catch up, para ver cómo vienen.
+[You]: Si están contentos o no, y ahí vamos testeando la
+[You]: la temperatura de la conversación, si vale reengaging that.
+[You]: Moment, o si Patia López para
+[You]: agosto, octubre, cuando hagan la evaluación completa, porque
+[You]: lo lo que seguramente pase es en agosto, octubre, tengan que renovar el contrato, y ahí van a tener
+[You]: mayor visibilidad sobre cómo seguir.
+[Remote]: Sí. No, y y también por eso te digo cómo hagamos un follow up en en un mes, porque
+[Remote]: seguramente hacerlo ya en agosto, pues ya es muy tarde para evaluarlo,
+[Remote]: pero faltando dos
+[Remote]: tres meses para para que tengamos la renovación, yo creo que vale la pena
+[You]: Listo, dale, no le saco más tiempo, perdón que nos nos
+[Remote]: hacer un catch up.
+[You]: de tiempo, me acabo de dar cuenta.
+[Remote]: Tranquilo.
+[You]: Me anoto, boludo, con ustedes,
+[You]: y hablamos en un mes o o en dos meses. Un gustazo conocerlos, y gracias por el tiempo.
+[Remote]: Gracias, Ignacio. Gracias.
+[You]: Chau, chau.
+
+============================================================
+SUMMARY
+============================================================
+### Ontop’s Current Reconciliation Setup
+
+- Primary bank: JP Morgan (highest volume account to reconcile)
+- Working with Symmetric on 5 main platforms:
+  - JP Morgan
+  - Local payment
+  - BB&K
+  - Stripe
+  - Another BB&K account
+- Implementing SFTP connections from internal control platform to Symmetric
+- Contract runs until August/October 2026
+- Using implementation agency for setup
+
+### Business Context & Transaction Volume
+
+- Two main business lines:
+  - Payroll services
+  - Financial services (payouts with highest transaction volume)
+- 32,000 transactions monthly across all platforms
+- 40 total platforms available (some activate/deactivate based on operations)
+- Current Symmetric implementation covers \~80% of volume
+- Remaining 20% spread across 35 other platforms
+- Transaction multiplier effect: one client payment can generate hundreds of worker transactions
+
+### Team Capacity & Implementation Status
+
+- Currently at full capacity with accounting team
+- Recently lost controller (2 months ago) and another team member
+- Hiring additional accounting analyst
+- Q2 goal: complete Symmetric implementation for 5 platforms
+- Multiple product launches happening simultaneously (5 products)
+- Second phase: connecting Symmetric to NetSuite ERP
+
+### Next Steps
+
+- Follow-up call scheduled in 1 month to reassess capacity and progress
+- Potential evaluation window: 2-3 months before contract renewal
+- Open to piloting alternative solutions for remaining 35 platforms once initial 5 are stable
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/683d13bd-2942-4af7-aaef-6db761475ac4](https://notes.granola.ai/t/683d13bd-2942-4af7-aaef-6db761475ac4)

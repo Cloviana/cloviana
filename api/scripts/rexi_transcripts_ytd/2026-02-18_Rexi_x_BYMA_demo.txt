@@ -1,0 +1,579 @@
+MEETING: Rexi x BYMA: demo
+DATE: 2026-02-18
+ID: not_rAVXClR6mm0nyG
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Pilar Martinez <pilar.martinez@cajadevalores.com.ar>, Lucia Palomeque <lucia.palomeque@byma.com.ar>, Maria Rodriguez <maria.rodriguez@byma.com.ar>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-02-18T14:00:00-05:00 - 2026-02-18T14:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Dos Dos.
+[Remote]: Bien, todo bien, suerte.
+[You]: Dime largo.
+[Remote]: Pine largo, sí.
+[You]: Miércoles prendió.
+[Remote]: Más o menos, pero miércoles
+[Remote]: digamos, como que en vez de descansar creo que todos estamos más
+[Remote]: más cansados.
+[Remote]: Pero pero bueno.
+[Remote]: ¿Ustedes qué tal?
+[You]: Bien, nosotros
+[You]: la verdad, bueno, nosotros tuvimos ahí una coordinación interesante, el lunes fue
+[You]: feriado acá en Estados Unidos,
+[You]: Nosotros estamos en Nueva York, conteo.
+[Remote]: Ah, ok.
+[You]: Así que ahí
+[Remote]: Bien.
+[You]: Y tenemos parte del equipo en Buenos Aires, así que hubo una coordinación de feriados estuvo buena. Buenas,
+[Remote]: Hola, ¿cómo
+[Remote]: Eso sí.
+[Remote]: ¿Cómo andan? Un gusto.
+[You]: Gustavo.
+[Remote]: Placer.
+[Remote]: Ahí se suma, vi que estábamos en otra reunioncita recién.
+[Remote]: Yorzi también es del equipo de contabilidad, como Pili.
+[You]: Ah, excelente.
+[Remote]: Todos.
+[You]: Exactamente.
+[Remote]: ¿Cómo está, Pilar?
+[Remote]: Buenas, ¿cómo andan? Hola, PD. ¿Todo bien? ¿Bien, bien? Todo bien.
+[You]: ¿Y ustedes?
+[You]: Bueno, se suma
+[You]: María Rodríguez no sé quién es.
+[Remote]: Creo ¿no?
+[Remote]: Ahí le pregunto.
+[Remote]: Sole es la gerenta.
+[Remote]: De administración y y contabilidad, así
+[Remote]: que, si se suma, está día bueno, y, si no,
+[Remote]: después le contamos nosotras.
+[You]: ¿Quieren que grabemos si se lo muestran después?
+[Remote]: Sí, dale.
+[Remote]: Dale.
+[You]: Vale. Pero vamos, empezamos, que que hay mucho por mostrar.
+[Remote]: Dale.
+[You]: Bueno,
+[You]: antes de empezar, quería hacer como un breve catch up de lo que escuchamos la vez pasada para
+[You]: asegurarnos de que de que estamos atacando los los dolores correctos, ¿no?
+[Remote]: Dale.
+[You]: Hoy tienen una conciliación
+[You]: que se basa en una comparación de balances totales,
+[You]: no lo tiene a nivel transaccional, con lo cual ese es un dolor, porque luego, pondáis
+[You]: diferencias toca ir y meterse en los archivos a buscar qué transacciones faltan,
+[You]: Obviamente, en alguna de estas conciliaciones
+[You]: por ejemplo, en lo que es
+[You]: payouts, hay IDs únicos, pero lo que es pay ins no,
+[You]: con lo cual también se dificulta un poquito el macheo de eso,
+[You]: También tenemos cuestiones de one too many,
+[You]: de transacciones que que son como que agregan todo
+[You]: uno y hay que matchearlo contra muchas de otro lado,
+[You]: eso también agrega como dolor y y trabajo manual,
+[You]: Después, nada, que el el hay un tema de volumen,
+[You]: acá tengo un número anotado, setenta y ocho mil transacciones por día,
+[You]: ¿puede ser?
+[Remote]: Eso eran líneas, o sea, que transacciones serían la mitad.
+[You]: Ah, ok, perfecto, treinta mil, tienes razón.
+[Remote]: Porque tuviera
+[Remote]: claro, eso era debe haber.
+[You]: Perfecto.
+[You]: Y después que estar en el medio de una transformación del ERP,
+[You]: con lo cual ustedes lo veían como un buen momento para arrancar como un proceso de cero.
+[You]: Para armar un proceso más automatizado y asegurarnos de que nos conectamos
+[You]: a esa nueva implementación de ERP para generar los asientos contables.
+[You]: No sé si íbamos a hablar de cuál ERP están usando.
+[Remote]: O sea, cambiamos a un SAP for HANA ahora.
+[You]: Perfecto, ok.
+[You]: Buenísimo, anotado. Bueno, así que, nada, la idea es un poquito hacer como un
+[You]: especie de de demo genérica,
+[You]: para hacer como un pro walk through de lo que sería
+[You]: una conciliación transaccional, un matching sin IDs únicos,
+[You]: como también hacemos esto de de los grouping y el batch transactions.
+[You]: Ver temas de volumen y de performance también, porque sé que tienen planes de
+[You]: este año, entonces quieren una plataforma que se la pueda bancar con ese volumen,
+[You]: lo cual es importante. Y después, si quieren, lo último, voy a charlar un poquito cómo sería
+[You]: un camino de implementación con ustedes, para también entender los tiempos
+[You]: y las necesidades. No sé si hay algo que me olvidé,
+[You]: o que entendí mal, que quieran aclarar ahora antes de que Teo se meta
+[You]: con el producto?
+[Remote]: No, no, me parece que
+[Remote]: los ítems más importantes los nombraste, así que estaríamos de última si nos vamos dando cuenta lo
+[Remote]: lo levantamos.
+[You]: Dale, te voy preparar algo para mostrarles que que, nada, que está muy bueno.
+[Remote]: Perfecto.
+[Remote]: Dale, comparto con mensaje, ¿ah?
+[Remote]: Bueno, yo un poco
+[Remote]: preparé una demo
+[Remote]: aplicado a cómo sería una conciliación de ejemplo de ustedes
+[Remote]: pero bueno, más allá de los datos en sí, el principal objetivo es que entiendan cómo se genera automatizaciones de conciliaciones completamente de manera no code, que es a lo que nos nos dedicamos, O sea, nos dedicamos a a automatizar la ingesta, automatizar la estandarización de esa información, porque viene de, no sé, cuatro bancos diferentes, ustedes tienen, ejemplo, la data interno de operaciones y demás, en estos formatos muy diferentes. Nosotros ingestamos esa información automáticamente, la estandarizamos la generamos, la la conciliación, y después generamos todos los los siguientes outputs que ahora vamos a dar. Esto vendría a ser, por ejemplo, la información de cuatro bancos, a nivel transaccional, acá tenemos
+[Remote]: y payouts.
+[Remote]: Este, le ponemos la la columna valor y la columna fecha, esto
+[Remote]: solamente para motivos de reporting y demás. Y acá puse información, por ejemplo, El Santander, Banco Galicia,
+[Remote]: BBVA y demás.
+[Remote]: Está realizado todo en lo que sería una data source,
+[Remote]: pero como ven, acá pueden tener, tenemos clientes que tienen hasta veinte, treinta, cincuenta data source
+[Remote]: independientes, así que va a depender mucho de cómo quieran ustedes
+[Remote]: organizarse internamente para las conciliaciones.
+[Remote]: Y esto vendría a ser otra base de datos,
+[Remote]: en este caso, la de el el data lake,
+[Remote]: con también los PIDs y POPs y demás.
+[Remote]: Y, bueno, una vez que
+[Remote]: tenemos la data engestada, se
+[Remote]: Yo acá, en este en este caso, ya la tengo estandarizada, pero bueno, los campos fecha a veces le vienen
+[Remote]: lo van a, bueno, probablemente ya lo hayan visto, pero de repente viene con
+[Remote]: cinco de septiembre de dos mil veintiséis, a veces viene fecha mes,
+[Remote]: a veces viene mes fecha y demás. Todo eso, toda la cualquier transformación que quieran hacer,
+[Remote]: cualquier transformación que se pueda hacer en Excel se puede también hacer en Rexy y automatizar, columnas calculadas, columnas con fórmulas, filtros, transformaciones, agrupaciones. Se hace mucho, enriquecer esta base de datos, establezco la información interna de cliente, lo que sea y demás. Y, obviamente, tenemos flexibilidad infinita con ayuda de AI, tal vez quieren decir si la operación es tal, y el monto es menor a tal, y la fecha es tal, yo necesito esto, todo eso se lo tiran al al AI y le va dar una fórmula y van a tener ahí cualquier tipo de masticación de la data que necesiten, se hace en Rexy y se automatiza.
+[Remote]: Ok.
+[Remote]: Una vez que tengamos la información, vamos a hacer un ejercicio de conciliación.
+[Remote]: Que es lo que vendría a ser
+[Remote]: el data lake,
+[Remote]: versus bank report,
+[Remote]: le ponemos acá, y una reconciliación puede ser
+[Remote]: un cruce entre dos bases de datos o más. En este caso, vamos a hacer un cruce básico entre dos bases de datos, pero
+[Remote]: voy a mostrar cómo se puede ir armando
+[Remote]: primero que crucen estas dos, y después, lo que no, cruzó de esas bases, se
+[Remote]: con esta tercera, y cuarta y quinta con la base de los voided o o
+[Remote]: rechazadas y demás.
+[Remote]: Generamos acá,
+[Remote]: statement
+[Remote]: Se puede hacer todo lo que sea one to one, one to many,
+[Remote]: many to one o many to many. Esto va a definir la estrategia y cómo reaccionarnos nosotros
+[Remote]: a la hora de elegir la información y cruzarla, y si permitir
+[Remote]: más de un match por transacción, o no permitirlo, que es el caso de one to one,
+[Remote]: si hay ambigüedad, nosotros no lo vamos a matchar, vamos a a flaguearlo,
+[Remote]: informar al usuario.
+[Remote]: Ustedes, en este caso, están haciendo lo lo
+[Remote]: un una especie de many to many, o sea, un agrupado general,
+[Remote]: siempre el ideal
+[Remote]: a nivel conciliatorio, es llegar a ese punto de one to one para no tener ni un tipo de ambigüedad.
+[Remote]: Obviamente, no es el caso de siempre, muchos clientes
+[Remote]: tienen la necesidad de arrancar primero con un one too many o many too many,
+[Remote]: y después se va trabajando hacia ese estadío ideal de
+[Remote]: una conciliación
+[Remote]: a nivel transaccional. Acá seleccionamos la columna monto,
+[Remote]: para motivos de reporting, si queremos ver cuánto consiguió en pesos,
+[Remote]: y no solo en cantidad de transacciones, esto nosotros acá le decimos al
+[Remote]: sistema cuál es la columna valor,
+[Remote]: nos interesa, porque suelen venir con muchas columna valor, monto neto, bruto, fee y demás,
+[Remote]: Y ahora hacemos el cruce conciliatorio.
+[Remote]: Ustedes nos comentaron que tenían para payouts un ID,
+[Remote]: Sí.
+[Remote]: Y para todo lo
+[Remote]: es no, entonces acá yo lo tengo todo junto, se puede separar la bases y hacer
+[Remote]: dos separadas.
+[Remote]: Podemos hacer barridas. Entonces, una primera que trate de matcharlo con con ID,
+[Remote]: y todo lo que no machea, vamos a una segunda barrida,
+[Remote]: cruzando
+[Remote]: número de banco,
+[Remote]: fecha de operación,
+[Remote]: esto puede tener tolerancia en días,
+[Remote]: horas, minutos, segundos, va a depender mucho de de sus reglas internas.
+[Remote]: Monto,
+[Remote]: que también puede tener tolerancia,
+[Remote]: porcentaje o en valor absoluto,
+[Remote]: dirección.
+[Remote]: Esto es solo un ejemplo para que vean que podés agregar la cantidad de
+[Remote]: cruces y con la flexibilidad y tolerancia que que haga falta.
+[Remote]: Esto lo que hace es la del cruce operativo
+[Remote]: identificar cuál es la transacción que machea con cuál.
+[Remote]: Pero una vez la tenemos identificada, muchas veces se quieren hacer chequeos extras,
+[Remote]: por ejemplo, verificar que estatus esté aprobada o procesada en ambos lados,
+[Remote]: o verificar el fee, verificar que la fecha sea la correcta. Muchas veces
+[Remote]: la la la las las empresas
+[Remote]: les liquidan tal vez un día más tarde, en vez de temas dos, temas tres, temas
+[Remote]: cuatro, y eso es una ganancia financiera que
+[Remote]: está haciendo el proveedor sobre sobre su propia operatoria y demás,
+[Remote]: eso se compara acá,
+[Remote]: donde podemos elegir los campos que queremos comparar y demás,
+[Remote]: y marcar como critical.
+[Remote]: Si lo marcamos como critical,
+[Remote]: cualquier join que se haya hecho acá
+[Remote]: no se marca como como conciliado, si falla la conciliación acá.
+[Remote]: Y, obviamente, se
+[Remote]: normalizar esa información, a veces viene en un en una base de datos
+[Remote]: en mayúscula, en otra vez en minúscula, o quiero asegurarme qué día procesado de un lado y aprobado del otro, entonces, eso se se haría acá. Por ejemplo, que venga en una mayúscula, y
+[Remote]: pesos en la otra,
+[Remote]: como a cada proveedor, yo los normalizo acá y verifico que
+[Remote]: si en una base de autodisciders, en la otra asegúrate que diga pesos y no
+[Remote]: y, por ejemplo, USD dólares.
+[Remote]: Eso es solo para mostrarle
+[Remote]: se se normaliza la información y los cruces y y las conciliaciones.
+[Remote]: De de esa misma manera, también se puede hacer, por ejemplo,
+[Remote]: que el monto sea el correcto o que sea
+[Remote]: menor a, no sé, cero punto uno por ciento de evaluación y demás.
+[Remote]: En este caso, es solamente un cruce operativo, ¿qué vamos a hacer?
+[Remote]: Y último, quizás es una transformación para el motivo de reporting, si queremos verificar el fee,
+[Remote]: y demás.
+[Remote]: Es una una una operación matemática.
+[Remote]: Creada la regla de cruce entre estas dos bases de datos,
+[Remote]: se puede agregar, obviamente, de dependientes, como les dije, y se va armando una más
+[Remote]: compleja, que donde primero corre un proceso, después otro, después otro,
+[Remote]: En este caso, solamente un cruce básico entre dos fuentes de datos,
+[Remote]: y se puede ejecutar de manera automática
+[Remote]: o con un horario definido por el usuario,
+[Remote]: o cada vez que se
+[Remote]: se actualiza una de las fuentes de datos, por ejemplo, recibo la información del proveedor,
+[Remote]: eso corre la reconciliación automáticamente,
+[Remote]: o la tercer forma que puede correr es la que vamos a hacer ahora, que es
+[Remote]: ejecutarla de manera manual.
+[Remote]: Entonces,
+[Remote]: estandarizamos el la ingesta de la información,
+[Remote]: automatizamos la ingesta de la información,
+[Remote]: automatizamos la de la información,
+[Remote]: y automatizamos todo lo que son los postes conciliatorios entre estas dos fuentes de datos.
+[Remote]: Ahora está terminando de correr la conciliación,
+[Remote]: y vamos a ver los resultados.
+[Remote]: Los resultados nosotros los mostramos primero
+[Remote]: en resultados Genéricos, Que Es Sin Importar Cuál Sea Tu Conciliación, Si Estás Conciliando Póliza, Si Estás Conciliando Operaciones De Mercado, Demás, Esta Es La Información Que Que Que Resulta Esa De Esa Conciliación. Obviamente, Tenemos Bueno, En La Primer Barrida Que Hicimos Con Los IDs, Tenemos Dos Mil Cuatrocientos Treinta Y Ocho Que Conciliaron Y Quedaron Solo En Lima,
+[Remote]: dos mil quinientos sesenta y dos, y solo en los bancos
+[Remote]: dos mil cuatrocientos, y tenemos la segunda barrida que hicimos con Toast y Toast Joints,
+[Remote]: y encontramos dos mil doscientos más, quedaron solamente doscientos ochenta sin conciliar,
+[Remote]: en la operation side.
+[Remote]: Y ciento treinta y uno en todo lo que es
+[Remote]: los cuatro bancos que que tenemos.
+[Remote]: Estas son las métricas que les comentaba, las genéricas de cualquier conciliación. Lo lo que es la base de datos a, base de datos b, cuánto consiguió cada una entre ellas, y por día, por ejemplo, total de transacciones mil doscientas treinta y nueve el diecisiete de febrero,
+[Remote]: machearon mil ciento sesenta y dos y quedaron setenta y siete sin conciliar.
+[Remote]: Y lo mismo con el con el source bank, información de los bancos,
+[Remote]: mil doscientos dos transacciones al ver,
+[Remote]: mil ciento sesenta y dos conciliar y cuarenta cinco conciliar.
+[Remote]: Por último, esto se puede, obviamente,
+[Remote]: exportar en el formato que quieran, se puede
+[Remote]: descargar la información siempre en todo momento a nivel transaccional y demás,
+[Remote]: se puede exportar ya masticado, por ejemplo, quiero que la información
+[Remote]: de este banco salga de esta de esta manera, con estas columnas,
+[Remote]: y se la mando a mi partner o a esta otra área y demás,
+[Remote]: o quiero enriquecerla o agruparla o armar columnas derivadas,
+[Remote]: podemos estandarizar el reporte que les haga falta
+[Remote]: acá,
+[Remote]: lo lo estandariza una vez, después, cada que corre la consignación, se genera ese reporte y les llega por mail. Les alimenta cualquier fuente de datos de manera automática. Después tenemos todo lo que es el el exception manager,
+[Remote]: que acá se automatiza cualquier excepción. Por ejemplo, a veces vienen
+[Remote]: transacciones que solo van a venir en una base de datos, eso son movimientos manuales o lo que sea,
+[Remote]: sabemos que no van a tener su contrapartida en la otra base de datos,
+[Remote]: acá se se se genera esa regla de excepción,
+[Remote]: Entonces, siempre que viene SynAID,
+[Remote]: es porque el ID fue un movimiento interno, y yo quiero que me lo me lo saque del sistema, me lo marques como
+[Remote]: como excepción,
+[Remote]: directamente podemos ver qué pasó acá,
+[Remote]: encontrar cuál es la
+[Remote]: cuál es el
+[Remote]: el problema por el que no conciliaron unas transacciones,
+[Remote]: obviamente, es un trabajo de investigación y va a depender mucho de de su propia operatoria, pero
+[Remote]: acá los dos bancos, te van a quedar diez transacciones de ayer y vas a ver
+[Remote]: si hay una diferencia al monto o lo que sea.
+[Remote]: Por último, tenemos
+[Remote]: alarmas que se mandan diariamente vía
+[Remote]: mail, Slack o o el mecanismo de comunicación que que les haga falta,
+[Remote]: Por ejemplo, a las cinco de la mañana corre la conciliación y se manda un mensaje
+[Remote]: corre la conciliación, ayer hubieron
+[Remote]: transacciones,
+[Remote]: matchearon novecientos noventa y siete, y estas son las tres que no consiguieron o que debían
+[Remote]: revisar manualmente y demás. Todo eso se puede configurar, se puede mandar siempre o solamente
+[Remote]: cuando supera cierto threshold te
+[Remote]: de cantidad de transacciones o de porcentaje. Y lo último que les comentaba es
+[Remote]: vimos mucha necesidad de generar dashboards propios, tal vez
+[Remote]: tenés veinte conciliaciones si querés un solo dashboard operativo con todas las conciliaciones, o
+[Remote]: con filtros, o quiero ver un dashboard por banco, lo que sea,
+[Remote]: entonces, desarrollamos todo lo un módulo de
+[Remote]: completamente personalizable, con con widgets y demás,
+[Remote]: se pueden organizar de la manera que quieran, obviamente,
+[Remote]: agrandar, achicar, generar, vamos a generar una acá solamente para mostrarles.
+[Remote]: Podemos generar, por ejemplo, un pie chart con la información
+[Remote]: le ponemos live demo, la información de esta conciliación,
+[Remote]: rango de fechas y demás, o con filtros,
+[Remote]: o diferentes métricas
+[Remote]: para compartir internamente entre equipos y demás.
+[Remote]: Esto es muy fácil de generar y se actualiza, obviamente,
+[Remote]: cada vez que se actualiza la información de los o corre las conciliaciones.
+[Remote]: Y lo último, reporting,
+[Remote]: esto no tiene que ver con las conciliaciones, sino que esto viene directo de los reportes
+[Remote]: o de la base de datos de los bancos. Si ustedes
+[Remote]: hoy tienen algún proceso o algún proceso de reporting
+[Remote]: que hacen siempre, por ejemplo, con la información que le viene del banco,
+[Remote]: para CRMs o lo que sea,
+[Remote]: nosotros se lo podemos automatizar.
+[Remote]: Lo podemos agarrar la información y la organizamos y la generamos,
+[Remote]: de la manera que que quieran ustedes, básicamente,
+[Remote]: estandarizando tal vez de los cinco bancos viene una información muy, de los cuatro bancos viene una información muy diferente, nosotros la estandarizamos y les generamos el reporte que necesiten todos los días, obviamente.
+[Remote]: Le pueden tirar el prompt acá al AI y se los va a generar de manera automática.
+[Remote]: Y lo último que charlamos, y ya termino,
+[Remote]: es la generación de los asientos contables para alguno de nuestros clientes. Nosotros
+[Remote]: estamos automatizando esa parte también, es decir,
+[Remote]: corre la conciliación,
+[Remote]: tenemos
+[Remote]: todas las transacciones que conciliaron, las que no conciliaron y con todas sus variables,
+[Remote]: definimos
+[Remote]: tipo de operaciones cada una y qué, con qué
+[Remote]: criterios se generan esos asientos contables,
+[Remote]: obviamente, con con un sistema de de aprobación y y de de rechazo,
+[Remote]: para que no tengan que estar haciendo esos asientos contables en Excel y cargándolos en el
+[Remote]: sistema cada vez, o como sea que los hagan, sino que se configuren de manera
+[Remote]: automática en Rexi.
+[Remote]: Entonces, repasando, automatizamos la ingesta, nos conectamos a a
+[Remote]: toda la fuente de información, digestamos todo, lo estandarizamos,
+[Remote]: hacemos las conciliaciones,
+[Remote]: y generamos todos los reportes, dashboards, asientos contables y alarmas
+[Remote]: a ustedes les hagan falta.
+[Remote]: Bárbara.
+[Remote]: No sé si tienen alguna duda, quieren ver algo más en detalle o...
+[Remote]: No, hay, o sea, capaz mi duda repaga, perdón, ¿no?,
+[Remote]: Pero ¿cómo es el tema? Porque, o sea, esto sería para nosotros diario, ¿no? O
+[Remote]: sea, todos los días deberíamos como ingresar datos
+[Remote]: por lo menos del caso que estoy pensando ahora, serían como
+[Remote]: dos archivos.
+[Remote]: Después probablemente sean más, ¿no?, porque se van a más bancos y todo, pero
+[Remote]: ponele que en principio sean dos grandes archivos.
+[Remote]: Es eso? Se sube todos los días y se va guardando, se elimina y
+[Remote]: se
+[Remote]: Eso es como en
+[Remote]: una source,
+[Remote]: ponele que vos tenés un archivo, que es la la la la información operacional. Sí.
+[Remote]: Esta es la información de toda la operación desde, no sé, el dos mil
+[Remote]: lo que haga falta, o del período de tiempo que quieran. Ah, se va como rellenando todos los días
+[Remote]: sobre la misma base, digamos. Sí, vos y
+[Remote]: tenemos dos cosas. Una es
+[Remote]: que nosotros siempre buscamos que esa ese relleno, esa actualización se haga de manera
+[Remote]: automática, o sea, nosotros nos integramos
+[Remote]: a donde está la información y la chupamos nosotros de manera automática. Si ustedes quieren
+[Remote]: de manera manual cargar información
+[Remote]: un archivo todas las mañanas,
+[Remote]: también se puede tirar sacar la información, y eso
+[Remote]: va a tirar, va a disparar las conciliaciones y todos los procesos que van detrás.
+[Remote]: Nos dedicamos a automatizar, o sea, si nos si nos dicen nosotros, nos nos dedicamos a
+[Remote]: ir y buscar la información nosotros.
+[Remote]: Bien, bien, bien.
+[Remote]: Ok, o sea, todos los días, a determinada hora, se corre esto de ir
+[Remote]: buscar la información, ¿no?, que debería ser al, no sé, primera hora del día siguiente,
+[Remote]: Exacto. Puede llenar ambas bases y crúzalo del día.
+[Remote]: Sea, porque lo lo anterior ya está conciliado, o puede quedar en
+[Remote]: transacciones del día anterior no conciliadas,
+[Remote]: Eso. Buscar.
+[Remote]: Nosotros todo lo que ya concilió no lo procesamos de vuelta,
+[Remote]: si hay transacciones de hace tres días que no conciliaron,
+[Remote]: y entra información nueva en una de las bases de datos, nosotros vamos a cruzar
+[Remote]: todo lo que no está marcado como conciliado. Ok. Siempre.
+[Remote]: Salvo que o se marque Concepción o se consigue, si no vamos a estar siempre tratando de conciliarlo con la
+[Remote]: información nueva que entra.
+[Remote]: Bien.
+[Remote]: Pero ahí pregunta, si no ponemos esa condición,
+[Remote]: de más menos tres días que mostraste, que podían ser días o diez minutos,
+[Remote]: por ejemplo, la fecha. Lo va a tomar igual, por ejemplo, si no tenemos esa
+[Remote]: lo va a tomar como no conciliado o tenemos que sí poner sí o sí poner esa condición de
+[Remote]: No, no, la una cosa es la condición
+[Remote]: que hace que se que se marque como conciliado o no,
+[Remote]: Y otra cosa es,
+[Remote]: una transacción que no está considerada, que si intente considerar o no.
+[Remote]: Si una transacción no está conciliada,
+[Remote]: nosotros vamos a intentar conciliarla
+[Remote]: todos los días. Bien. Y una vez que entre a su contrapartida,
+[Remote]: si respeta esa regla de rango de fecha, se va a marcar como conciliada.
+[Remote]: Ahora, si el partner la envió
+[Remote]: o la procesó
+[Remote]: siete días más tarde del del período pactado,
+[Remote]: nosotros no la vamos a marcar como conciliada, directamente le vamos a decir a ustedes, che,
+[Remote]: el partner no está respetando las reglas,
+[Remote]: acá están liquidando tema siete en vez de tema dos,
+[Remote]: estas son las transacciones que les están liquidando con retraso.
+[Remote]: Y tienen ahí la lista de transacciones.
+[Remote]: Ok, ok.
+[Remote]: Bueno.
+[Remote]: No, no sé si sí tengo alguna otra... Georgi, algo que se llame.
+[Remote]: No, la verdad que superclaro. A ver, en la teoría está buenísimo.
+[Remote]: También lo lo bueno es que esto, la las alarmas y el tema de la
+[Remote]: aprobación de los asientos que se suban,
+[Remote]: son importantes. O sea, por lo menos que haya o alguien un
+[Remote]: alguien que controle el asiento antes de subirlo a la plataforma que sea, que estamos
+[Remote]: implementando, o al ERP que tenemos o lo que sea, porque
+[Remote]: eso te puede también generar problema a la hora de conciliar
+[Remote]: contabilidad. Entonces, está buenísimo eso de las alarmas.
+[Remote]: La aprobación, como
+[You]: Sí, después también
+[Remote]: Perfecto.
+[Remote]: El tema cientos en teoría no iría por acá,
+[Remote]: o sea, el tema de cientos es lo que nosotros vamos a estar generando en los middleboard que ya tenemos,
+[Remote]: entonces, el asiento no vendría por acá. Acá justamente vamos a hacer la
+[Remote]: pero sí, obviamente que
+[Remote]: nosotros va a quedar de nuestro lado de que básicamente
+[Remote]: el asiento cruce con la información que estamos subiendo acá, digamos, de
+[Remote]: sería como... Ustedes no sé si se puede hacer
+[Remote]: algún dato de, no sé no sé si se puede, por ejemplo, sobre las bases hacer tipo controles
+[Remote]: decir, bueno, que todos los movimientos que entraron en esta base en el día de hoy sumen cero, por
+[Remote]: O esto,
+[Remote]: Ok, bien. Sí, sí, sí.
+[Remote]: Se puede hacer todo tipo de, eso sería un una configuración de balances,
+[Remote]: que que se puede hacer,
+[Remote]: Y después, bueno, si nosotros empezamos a trabajar juntos, y ponele que empezamos
+[Remote]: automatizando todos los procesos conciliatorios,
+[Remote]: y un día nos dicen, che, queremos probar que también nos automaticen la generación de asientos,
+[Remote]: podemos también, y eso dejarlo más para para futuro.
+[Remote]: Ok.
+[Remote]: Sí, sí, sí, de una, se se puede analizar
+[Remote]: temas que, bueno, son, bueno, hay que ver, hay que ver de de
+[Remote]: qué ganamos y qué perdemos con respecto a lo que lo que estamos planteando ahora o cómo se está haciendo ya ahora.
+[Remote]: Pero no, superclaro,
+[Remote]: y y quizás lo que queríamos, lo que necesitamos era esto, un primer pantallazo como para imaginarnos
+[Remote]: qué nos sirve y qué no nos sirve toda nuestra información y nada, como dice Jordi, la teoría está buenísimo.
+[Remote]: Obviamente, como sabrán ustedes siempre, creo que depende de la calidad de
+[Remote]: y de la cantidad que que tenemos nosotros de nuestro lado,
+[Remote]: pero bueno, está bueno empezar a verlo
+[Remote]: nada, sabiendo cómo funciona y
+[Remote]: cómo lo podríamos usar,
+[Remote]: Pero bueno, creo que
+[Remote]: creo que puede estar puede estar buena.
+[You]: Ahí
+[Remote]: Me imagino que se me ocurre una sola duda ahí,
+[Remote]: por ejemplo, una de las bases va a tener como
+[Remote]: bueno, pero creo que es igual que lo que planteaste. Una de las bases tiene, por decirte, como mucho
+[Remote]: bancos con los cual cruzar. Se puede hacer que esa base
+[Remote]: filtre por decirte un banco y concilie con un banco, bien.
+[Remote]: Todo En vez de sumar los cuatro bancos y, ok, bien. Los otros
+[Remote]: bueno, muchas de las empresas tienen eso,
+[Remote]: entra en una sola base y una de las funciones que más usamos se llama
+[Remote]: database, que básicamente se divide en base a una variable, por ejemplo, banco,
+[Remote]: y se generan cuatro sources independientes
+[Remote]: se alimentan cada vez que se alimenta esa original.
+[Remote]: De manera automática.
+[Remote]: Así que sí, cualquier tipo de transformación, organización de la información,
+[Remote]: se puede hacer.
+[Remote]: Buenísimo.
+[Remote]: Bueno, buenísimo.
+[You]: Ahí para para agregar
+[Remote]: Creo que no,
+[Remote]: Sí.
+[You]: obviamente que la implementación, nosotros, digo, nos compartimos en una extensión del equipo de ustedes,
+[You]: en semanas lo podemos sacar. Si tenemos
+[You]: a la información y los conectores son fáciles, la configuración debería llevar muy poco tiempo. Después, obviamente, hay una curva de aprendizaje, porque al final del día el objetivo con herramienta que la vieron es intuitiva, no requiere código, es todo con con botones, tiene mucho AI assistance, etcétera, la idea es que la usen ustedes, que en algún punto ustedes se adueñen la herramienta y sea la herramienta que ustedes usan para automatizar todo ese trabajo manual que vienen haciendo, y para escalar a futuro, si deciden agregar agregar productos, si van a escalar mucho en volumen, eso por un lado. Por otro lado, siempre hay un tema con la calidad en
+[You]: información, pero si vos no tenés un proceso de macheo transaccional,
+[You]: no podés flaggear ese tema tampoco, porque no no tenés cómo
+[You]: saber si estás trabajando con información
+[You]: precisa o no precisa. Cuando vos empezás a machar transaccionalmente, te aseguro cuando
+[You]: si es que avanzamos una implementación,
+[You]: vamos a encontrar lo que llamamos gato encerrado, vamos a encontrar muchísima cosa rara,
+[You]: pero justamente ahí ese proceso permite iterar para limpiar los conectores,
+[You]: y empezar a tener realmente un control y una visibilidad de de todas las transacciones, ¿no?
+[Remote]: Así integra.
+[Remote]: Sí, sí, cien por ciento que ese es el plan.
+[You]: Pero
+[Remote]: La idea es es eso, es ir a la a la transacción por transacción para
+[Remote]: detectar, digamos, ese esos errores o esas cosas que, nada, se te
+[Remote]: pueden pasar en los globos que por ahí
+[Remote]: nada, no terminan de ser del todo exacto.
+[You]: Sí. ¿Usted tiene algún requerimiento regulatorio con esto o no?
+[Remote]: No.
+[You]: Ningún reporte que tienen que presentar a nadie ni internamente, nada.
+[Remote]: No, no, no.
+[Remote]: No, no, no, no, no. No.
+[Remote]: No, es cien por ciento, nada, de de control y de de
+[Remote]: tener esto que te decimos como una exactitud en cuanto a a casos. La realidad es
+[Remote]: que, nada, hoy en día se hace así por por globo y sí se va a buscar, pero es como
+[Remote]: la idea de ese día que sea más automático y que nos salte más
+[Remote]: visible todos los días, che, estas cinco no te cruzan en este, estas cinco no te cruzan en este, y que
+[Remote]: sea como un circuito mucho más fácil,
+[Remote]: y no estar medio equipo buscando cosas o eso, o ese
+[Remote]: tipo de cosas, pero no, así como regulatorio de que no
+[Remote]: sé, tenemos que cruzar transacción por transacción a un determinado regulador, no. No. No, no, para nada.
+[You]: Perfect.
+[You]: Perfecto. Bueno, ahí, como dijo Georgina, o sea, es verdad que en estas demos
+[You]: cuando hacemos genéricas, es como que parece todo muy mágico, y después decís, che, yo el
+[You]: mañana jueves me levanto y estoy persiguiendo transacciones en
+[You]: ¿y quién me ayuda? Y, ¿viste?, obvio, lo entendemos.
+[You]: Nosotros proponemos de otro lado, estamos dispuestos a armar con ustedes una especie de prueba piloto, están interesadas.
+[You]: En donde
+[You]: se firma un NDA para asegurarnos que estamos
+[You]: seguros con el tema de la información, construimos los conectores,
+[You]: y la ponemos a andar, y corre en paralelo a lo que ustedes estén haciendo tampoco arreglar, para
+[You]: no agregar riesgo operativo, lo corremos medio shadow
+[You]: y cuando ustedes se sientan comas de decir, sí, la verdad que esto es
+[You]: sustancialmente mejor lo que estamos haciendo y y nos permite a b c,
+[You]: armamos el caso y ya si después si quieren transicionamos y
+[You]: armamos un contrato más largo. Pero nosotros sí podemos, y tenemos la flexibilidad, armar una prueba piloto de
+[You]: uno o dos meses a un precio simbólico,
+[You]: cosa que ustedes puedan probar y ver el valor también.
+[Remote]: ¿Bueno? Buenísimo.
+[Remote]: Bueno, genial. Ahí, bueno,
+[Remote]: no seríamos ninguna de las otras tres por ahí las que La que decíamos, sí,
+[Remote]: Así que si nos quieren pasar por ahí la propuesta, no
+[Remote]: sé, por mail o más formal de de cómo sería esta prueba piloto, que incluye obviamente el
+[Remote]: costo y todo, nosotros lo lo elevamos a Sole, que igual ahí
+[Remote]: no lo dije, pero me había dicho que no se iba a poder sumar, que le contemos nosotras cuando salgamos,
+[Remote]: Si nos quieren pasar por mail y y seguimos por ahí,
+[Remote]: sí, yo creo que estaría estaría buenísimo ya ir a como una
+[Remote]: segunda instancia, ¿sí?, ya con un info más real. Sí, obvio.
+[Remote]: Y nada, de eso. Y la última pregunta que me quedó, igual supongo que obvio que sí,
+[Remote]: pero vieron que nosotros dijimos que para lo que serían los payout tenemos
+[Remote]: un un código.
+[Remote]: Bueno, ese código, ese ID no está del todo en la en esa base,
+[Remote]: es como que hay que hacerme una triangulación con otra base, o sea, eso tipo
+[Remote]: lo hacen ustedes, o sea, si puede traer tres bases, hacemos como un y, bueno, sí,
+[You]: Cien por ciento.
+[Remote]: me imagino que sí, pero por las dudas. Ok,
+[You]: Sí, podemos enriquecer la base con cualquier base adicional.
+[Remote]: Ok,
+[Remote]: Bueno, bueno, la conexión sería la misma porque entiendo que es del mismo lugar, pero es como otra información
+[You]: Sí, sí, no hay no hay problema, no hay problema. Eso
+[Remote]: hay que ver ahí.
+[You]: lo hacemos con muchos clientes, de hecho, porque, como decís, últimos cuatro dígitos de tarjeta y
+[Remote]: Claro.
+[You]: que traerme el CUIT de acá y el y son tres bases distintas,
+[You]: después con la esa esa que ya tengo toda 11 con soledades, ¿no?
+[Remote]: Exacto.
+[Remote]: Bueno.
+[Remote]: Genial.
+[Remote]: Dale.
+[Remote]: Dale.
+[Remote]: Solea.
+[You]: Ahí me cuentan cómo quieren seguir. De nuestro lado, súper entusiasmados y y vemos mucho valor.
+[Remote]: Bueno, dale. Muchísimas gracias.
+[You]: Gracias.
+[Remote]: A ambos. Gracias. Gracias. Adiós. Adiós.
+
+============================================================
+SUMMARY
+============================================================
+### BYMA Current Reconciliation Process & Pain Points
+
+- Manual balance-level reconciliation vs transactional matching needed
+- Volume: \~30,000 transactions daily (78k lines including debit/credit entries)
+- Payouts have unique IDs, pay-ins don’t - complicates matching
+- One-to-many transaction groupings require manual investigation
+- Mid-ERP transformation to SAP HANA - opportunity for clean process implementation
+
+### Rexi Platform Demo & Capabilities
+
+- Automated data ingestion from multiple sources (4+ banks)
+  - Standardizes different formats automatically
+  - Handles date/amount variations across providers
+- Reconciliation engine features:
+  - One-to-one, one-to-many, many-to-many matching strategies
+  - Tolerance settings for dates (days/hours/minutes) and amounts (percentage/absolute)
+  - Multi-pass matching: first by ID, then by bank number + date + amount + direction
+- Post-reconciliation validation:
+  - Status verification (approved/processed)
+  - Fee checking and settlement timing analysis
+  - Critical field comparison with normalization
+- Automated outputs:
+  - Exception management for known one-sided transactions
+  - Daily email/Slack alerts with configurable thresholds
+  - Custom dashboards and reporting
+  - Optional accounting entry generation with approval workflows
+
+### Implementation Discussion
+
+- Pilot program proposal: 1-2 months at symbolic cost
+  - NDA protection for data security
+  - Parallel operation to existing process (no operational risk)
+  - Real data testing vs theoretical demo
+- Technical requirements confirmed:
+  - Multi-source enrichment capability (triangulation across 3+ databases)
+  - Bank-specific filtering and separate reconciliation streams
+  - Balance validation controls (daily sum-to-zero checks)
+- No regulatory reporting requirements - purely internal control focus
+- BYMA team to review proposal and escalate to Sole (manager)
+
+### Next Steps
+
+- Rexi to send formal pilot proposal via email including costs
+- BYMA team (Pilar, Lucia, Maria) to present to Sole and provide feedback
+- Potential second meeting with actual data for proof of concept
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/780a94ef-8636-4f3c-8830-20a389e93ca3](https://notes.granola.ai/t/780a94ef-8636-4f3c-8830-20a389e93ca3)

@@ -1,0 +1,488 @@
+MEETING: Rexi x Riva: intro
+DATE: 2026-01-23
+ID: not_OauByMJPcQ5joF
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Robert Macdonald <robert.macdonald@rivamoney.com>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-01-23T09:00:00-05:00 - 2026-01-23T09:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Hello, Robert?
+[Remote]: Hi, Ignacio. How are you doing?
+[You]: Good. You?
+[Remote]: Yeah. All good. Thanks, man.
+[You]: Good Friday. Right? Long week?
+[Remote]: Yeah. As always, but, yeah, glad to be coming to the end of the week.
+[Remote]: Yourself.
+[You]: Doing good. Very long week, but
+[You]: but busy. Good busy. A lot of opportunities lining up.
+[Remote]: Yeah. As always.
+[You]: We did, like, our first LinkedIn post and so on and then generated a
+[You]: lot of inbound. So
+[You]: So good.
+[Remote]: Nice. Nice.
+[You]: Good. Building and selling.
+[Remote]: Are you based are you based in New York?
+[You]: Based in New York. You're in The UK. Right? London?
+[Remote]: Yeah. Correct. London. Yeah. Yeah.
+[You]: You already
+[You]: is that accent from London?
+[Remote]: No. It's not. I'm I'm originally from South Africa.
+[You]: Look at me. I I have my my accent
+[You]: detector really fine tune.
+[Remote]: Yeah. And I'm I'm I'm originally from South Africa. That's just sort of where I grew up.
+[Remote]: And I moved over to London about two years ago. So yeah.
+[You]: Got it. I was about to say I was about to be mistaken, actually.
+[You]: Was about to say more like Liverpool, Manchester, something like that. It's more like a closed accent.
+[Remote]: No. No. South African. Yeah.
+[You]: Very cool. Well,
+[You]: great to meet, man.
+[You]: You for for taking the time and being open to meeting someone out of the blue and over LinkedIn.
+[Remote]: No. No. No worries.
+[You]: The story is actually
+[You]: this is Dale, my cofounder, which I thought was
+[Remote]: Just
+[Remote]: Hi, Robert. That's
+[You]: for him to join.
+[Remote]: Gotcha. Hi, Joe. How are you doing?
+[Remote]: All good. And you?
+[Remote]: Yeah. All good. Thanks. Nice to meet you.
+[You]: Robert is, strategy and ops manager at at Riva Money.
+[Remote]: Nice to meet you.
+[You]: And well, basically, Leonardo Fernandez contacted me over over LinkedIn for for another thing.
+[Remote]: Okay.
+[You]: And then
+[You]: and then, basically, I was like, hey.
+[You]: I took a look at Riva money.
+[You]: And I was like, I think there's there's an opportunity here for our solution
+[You]: and then he was like I actually left deriva money but you should talk with Robert and that's how I
+[Remote]: Okay. I can
+[You]: went ahead and and connected with you. Then
+[You]: that's how it all started.
+[Remote]: Okay. Yeah. See. Yeah. Leo left a couple months ago.
+[Remote]: Pajale, thanks for reaching out. I did sort of
+[Remote]: read through your guys' website before
+[Remote]: before coming onto the call. So
+[Remote]: sort of
+[Remote]: have a brief
+[Remote]: understanding of of what you guys are trying to do here, but, yeah, it would be great to
+[Remote]: to, you know, hear from you guys and dive a little bit deeper into exactly what
+[Remote]: what you guys can offer us.
+[You]: Sure. Let me let me share my
+[You]: screen. I think one of slides is gonna make it easier.
+[You]: I'm a I'm I'm a next consultant, so I have a bias towards slides as well.
+[Remote]: Perfect.
+[You]: So
+[You]: we basically we work with fintech companies, anywhere in the stock, right, all the way from
+[You]: sponsor banks, fast providers, the platform, and even the payment providers.
+[You]: And what we do is our platform basically automates
+[You]: the whole reconciliation process. The operational one, the daily
+[You]: tracking of money movements, making sure that money is moving in the right directions and right amounts.
+[You]: And then also the accounting and treasury side of it in which we reconcile balances at the end of the month,
+[You]: and create the journal entries for finance teams to have full control over over the money flows as well.
+[You]: A bit a bit about us, these are our initial set of customers we've been working with all the way
+[You]: from. We have crypto wallets. We have digital wallets. We have global payroll companies.
+[You]: We have payment companies. We have banks, neo banks.
+[You]: Credit cards,
+[You]: a bit of everything today, as we narrow our focus and continue scaling our
+[Remote]: Okay.
+[You]: solution. And this is our our our set of investors,
+[You]: last year. This is the team. Town and myself here, you're missing the CTO, Sebastian.
+[You]: We all come from FinTech, FinTech in The US and Latin America mostly.
+[You]: But, again, this is a problem we dealt with when we were at the other side of the counter
+[You]: where you are. There was building a Macau Bau And Saw The Same Pain. I Had A Similar Role To Yours At A Fintech In The US called Komoon.
+[You]: And dealt with this as well. I'm gonna ask you more about
+[You]: in a minute because I don't know if you
+[You]: directly handle reconciliation or if it's another team, but
+[You]: you gotta be able to tell me better.
+[You]: Regarding our solution, of course, a lot of AI infrastructure to solve this problem all the way from
+[You]: data ingestion, connecting to all these data sources,
+[You]: transforming the formats. We know all these files come in
+[You]: many different shapes and forms.
+[You]: And then the processing side, is how do we match transactions and find
+[You]: the money movements in in in the different systems. Right? Which
+[You]: are do we have a unique identifier? Do we need to match using date and time
+[You]: or even amount? All that processing side, all
+[You]: use it AI agent. And then
+[You]: you must know once you match transactions,
+[You]: these things never match a 100%, so the workflow becomes
+[You]: about investigating the differences and try to solve them.
+[You]: So that's the last technology component in our
+[You]: platform, which is the discrepancy resolution module.
+[Remote]: Okay.
+[You]: Now our design principles, how we're designing the product in our vision, we want this to be plug and play.
+[You]: And almost like a like an application sort of
+[You]: value prop in which we just gave you the tool and you build your own workflow.
+[You]: Of course, we help you out. We do a lot of hand holding and implementation today.
+[You]: But our our vision is for this to be really
+[You]: like, a self serve tool, right, where you can build your own workflow because we believe
+[You]: reconciliation and workflow, that should be
+[You]: owned and controlled by the teams and not by a SaaS vendor. Right? That then
+[You]: has a a bit of a hostage situation in which I can
+[You]: increase price and you're not gonna
+[You]: churn me because it's a critical workflow and it's very hard to replace once it's
+[You]: working. Right? But that's why we want our solution to be, like, owned and controlled by you so that that never happens.
+[You]: And then, of course, compliance ready. Reconciliation has a lot of
+[You]: compliance needs as well. So we
+[You]: have frameworks to build the necessary reports
+[You]: and and work closely with with the regulators in your geography.
+[You]: Is a little bit of how we differentiate from competitor
+[You]: I can send this over afterwards. I don't wanna bore you with these slides.
+[Remote]: Yeah. That that'll be great.
+[You]: And then the results we've been having with our
+[You]: with our initial set of customers. I do wanna talk about this because it's basically our value prop. Right?
+[You]: The first one is workflow automation. We eliminate a lot of the manual tasks
+[You]: related to reconciliation. That's 80% of the work.
+[You]: We've been seeing with with our customers.
+[You]: Compliance risk. This is also something we eliminate. Some of the banks we work with have been in
+[You]: compliance issues which have cost time and money.
+[You]: And with all the customers we are working with, they had zero regulatory audits triggered due to poor reconciliation workflows.
+[You]: Then the last one is write off savings, stuff that you cannot reconcile at the end of the month,
+[You]: and you therefore need to close with
+[You]: out of the pocket money. Right? We've reduced that by 95%.
+[You]: And we're we really wanna take that to a 100%, sometimes it's about
+[You]: data and it just exceeds
+[You]: our ability to find those discrepancies. Some case studies
+[You]: what's next on our roadmap. We're going to continue working on integrations.
+[You]: We're exploring embedded solutions. I don't think this applies to RivaMoney, but
+[You]: or maybe. I don't know. But for some payment processors, they wanna offer this
+[You]: solution to their customers. So we're we're thinking about going
+[Remote]: Okay.
+[You]: that embedding route and that way wide labeling solution.
+[You]: And this the last one is is very important. Right? This collaborative workflow, which is
+[You]: both internal and external. Internally, we figured out that,
+[You]: reconciliation involves two teams. Right? The ops team,
+[You]: and the accounting team. So we really wanna make this
+[You]: a shared platform between both teams so they're both working on the same dataset
+[You]: under the same logic, and they have a centralized tool
+[You]: to collaborate on the differences. Right? And then externally, you're reconciling, you're always
+[You]: always comparing your source of the truth against an external provider. Right?
+[You]: And so the same applies there. We want this to be a shared tool between you and your partners.
+[You]: So that you can, again, see the same information, reconcile the same logic, and have
+[You]: a shared tool to collaborate on discrepancies.
+[You]: So that's sort of like the very
+[You]: quick and condensed overview of what we do.
+[You]: I've I've been reading a lot about Reva Money, recently. You guys
+[You]: do basically cross border payments, b to b. I don't know if
+[Remote]: Yeah.
+[You]: you're using oh, you're using crypto, and I'm sure you're also using, at some point,
+[You]: some fiat rails, but I'm very
+[You]: in learning more about your operation and if reconciliation is a pain there or not.
+[Remote]: Yeah. So, I mean,
+[Remote]: as you said, we we are focused on
+[Remote]: on b to b payments. Like, our two founders, Nick and Mahindra, both worked at
+[Remote]: Wise and Revolut previously. So they sort of had experience in the
+[Remote]: payment platform industry mainly with regards to CTC.
+[Remote]: And while they're working there, they sort of realized that the b to b side of cross border
+[Remote]: payments has hasn't been fully sold for. So that's
+[Remote]: that's why they started, Reaver Money.
+[Remote]: And, essentially, we we want
+[Remote]: businesses to be able to pay their suppliers from anywhere in the world that
+[Remote]: click of the button, and that that payment will be instant
+[Remote]: at a at a and at a much cheaper rate than what you would find elsewhere
+[Remote]: with banks or with other potential payment payment providers.
+[Remote]: So, I mean, a lot of money movements, a lot of different currencies,
+[Remote]: a lot of
+[Remote]: sort of reconciliation and accounting that needs to be done.
+[Remote]: Because of the amount of money that we're moving between different currencies and between different parts
+[Remote]: as well. We've we've sort of the way that
+[Remote]: or the reason that we can, you know,
+[Remote]: facilitate so many different currencies within within our platform is because we've got partners
+[Remote]: sort of around the world, which offer us
+[Remote]: different products. But, obviously, we need to make sure that
+[Remote]: we stay on top of sort of where the money is being moved and reconciling that off
+[Remote]: after it has been moved.
+[Remote]: So I think it potentially could be
+[Remote]: a solution for us. So
+[Remote]: to be honest, like, I haven't spent a lot of time in building out our account
+[Remote]: and reconciliation process. Like,
+[Remote]: our engineers have have really been focusing on that and sort of
+[Remote]: creating the different ledges that we need in the back end so that
+[Remote]: automatically pulls through to to our certain system that does it for us.
+[Remote]: So I'd have to loop them in here to
+[Remote]: to sort of get them to to see how it would fit in with with what we've got set at
+[Remote]: set up at the moment. But from my sort of
+[Remote]: broad understanding, it is something that could potentially
+[Remote]: save us a lot of time and, you know, automate certain processes that
+[Remote]: that otherwise wouldn't be.
+[Remote]: So, yeah, that's sort of
+[Remote]: I don't know, I guess, brief overview of how we do it at the moment and sort of
+[Remote]: where we stand with with
+[Remote]: with this sort of process. Like, we also we've also just
+[Remote]: recently launched in terms of gone live to to customers. So we haven't had
+[Remote]: an extreme amount of flows
+[Remote]: coming in and out of the business as of yet. But, of course, as that picks up, you know, there's gonna be more
+[Remote]: strain on on these these sort of processes where we all
+[Remote]: we'll possibly have to look into into automating them and
+[Remote]: making it easier for for us as a business to to
+[Remote]: take control of that side of of things.
+[You]: Sounds sounds amazing. We typically hear that from
+[You]: from a lot of conversations or or
+[You]: customers we work with, is, yeah,
+[You]: engineers internally building some sort of
+[You]: custom solution. Right? Now
+[You]: that typically, like, it's it's it's it's a very good way forward.
+[You]: Typically because they know the operation inside out, they know what's required and
+[You]: so on.
+[You]: But we we tend to see two problems
+[You]: One when companies
+[You]: invest internal resources to build an internal solution.
+[You]: The first one is opportunity cost.
+[You]: Right? Like, I'm sure you have a big product road ahead
+[You]: terms of, like, products and features that will actually
+[You]: set Riva money apart.
+[You]: And having those resources building internal tools sometimes makes you think
+[You]: should we be doing this? Is this our core or not? Right?
+[You]: And that depends on the company. For some companies,
+[You]: payment aggregators or so on, they're like, if I cannot reconcile,
+[You]: sort of what I do. So I do need to invest in the core competence. Right? Now
+[You]: if you're more focused on on the experience and on the product and the customer relationship,
+[You]: some companies are like, this is definitely not my core competence. It's just like a hygiene workflow.
+[You]: I need to ensure it's working correctly, but it's not gonna set me apart. And so then
+[You]: the the framework to decide where to invest those those
+[You]: scarce engineering resources is different. Right?
+[You]: And the second one is I think I'd be more than
+[You]: happy to connect with the with the engineer that's that's doing this.
+[You]: But because but what we typically see in companies that are have scaled and are bigger
+[You]: I think a lot a lot of people
+[You]: simplify and underestimate the complexity of building a recon product.
+[You]: Right? They think, okay. Let me map out the requirements. Let me map
+[You]: out what I need to build. Let's just go ahead and build it. Once you launch it, you start seeing the nuances.
+[You]: It's a very nuanced space because not everything depends on your
+[You]: yourself. It also depends on, on providers, how they are sending you the data, if it's accurate,
+[You]: they send you dirty data, and you need to really try to identify the difference
+[You]: A lot of things start happening when you go in production. And so then
+[You]: the effort required to build that internal tool
+[You]: initially scoped as, I don't know, 10 ends up being
+[You]: 20, 25, 30. Right? And not only that, but it's ongoing.
+[You]: Because as RIVA continues to scale,
+[You]: builds new products, integrates with new providers,
+[You]: so on and so forth. Needs change,
+[You]: the scope of that initial tool changes. So that means engineering resources
+[You]: dedicated to building this internal tool need to continue to be dedicated to that
+[You]: internal tool. Because, again,
+[You]: reconciliation is also a sensitive workflow. It's not something that you can
+[You]: deprioritize and it's like yeah I don't know it's not working but it's fine as soon as you do that
+[You]: you're operating blind. Right? And you don't know if
+[You]: if if if stuff is moving moving
+[You]: if money is moving in the right amounts and right directions.
+[Remote]: Yeah. Yeah.
+[You]: That's what we've been seeing when when
+[You]: companies decide to build something internally. Of course, I'm also gonna be honest, at at your stage,
+[You]: it does make sense to build something internally. There's no need yet for
+[You]: a scalable solution. That's what I did at Comune at a fintech company at
+[You]: worked with and until the same initially makes sense
+[You]: to build some sort of custom solution and just
+[You]: get away with it in the short term. But at some point, you're gonna hit a threshold
+[Remote]: No.
+[You]: where
+[You]: continue investing engineering resources in it doesn't make sense.
+[Remote]: No.
+[You]: And and and the scale at which you're operating is starting to generate a bit of risk
+[You]: of not having something.
+[Remote]: Yeah.
+[You]: More more robust.
+[Remote]: No. Yeah. No. I I do agree with you there.
+[Remote]: I think as it is even now at the moment, like,
+[Remote]: engineering team is relatively small.
+[Remote]: And they've got a lot on the go at the moment. So this could even be sort of
+[Remote]: they would I mean, I remember
+[Remote]: about a month ago, were a lot of talks about sort of our accounting and reconciliation process
+[Remote]: and how we're building it out, and that seemed to sort of
+[Remote]: I don't know, dampen down a little bit over the last
+[Remote]: few weeks. So I don't know if they've potentially sorted it out or if they just
+[Remote]: putting on the back burner because at the moment, it's not, you know, priority number one.
+[Remote]: But I think what's probably best is
+[Remote]: to have a chat with with
+[Remote]: our engineer and one of our engineers and potentially our CTO.
+[Remote]: Just to to better understand exact exactly sort of the tools that they've been building out and
+[Remote]: you know, the road map that they've been following there and what they have
+[Remote]: sort of planned for the future.
+[Remote]: And see see sort of where where you guys fit in and and
+[Remote]: how you could help us out.
+[Remote]: I think also, obviously, now, as you said,
+[Remote]: we're in a stage where
+[Remote]: this is in front of mind for us. Like,
+[Remote]: there are a lot more important things for us at the moment.
+[Remote]: In order to actually, you know, start getting big flows through through the business.
+[Remote]: And as soon as that
+[Remote]: happening, of course, this is gonna become
+[Remote]: something that is quite important that we need to be on top of.
+[Remote]: So I think let me let me let me chat to
+[Remote]: one of my engineers, and I'll
+[Remote]: CTO just to to
+[Remote]: better understand where they are with
+[Remote]: with this process. And I'm sure, mean, we're always happy to to
+[Remote]: to chat to people like you guys that, you know, are gonna help us stay lean,
+[Remote]: and, you know, automate a lot of
+[Remote]: a lot of stuff that is quite manual, which is obviously what you need in in a
+[Remote]: a start up. You know, you wanna stay lean and and try
+[Remote]: try do as much as you can in house. But, you know, obviously, sometimes you need to
+[Remote]: you need to get external providers in to help you out.
+[Remote]: So I think I mean,
+[Remote]: in six months' time, this is something that
+[Remote]: that will definitely be of need to us and something that
+[Remote]: would consider
+[Remote]: you know, front front of mind. Obviously, at the moment, it's not
+[Remote]: quite front of mind for us, but I think there's no harm in continuing conversations for you guys
+[Remote]: to better understand sort of what our needs are and how you can potentially, you know,
+[Remote]: shape shape the product around, potentially
+[Remote]: the different needs that we might need.
+[Remote]: So I'm open to to to chatting to our engineer and our
+[You]: Yep.
+[Remote]: CTO to to
+[Remote]: you know, organize a call with you guys. As I said, they will have a lot more sort of
+[Remote]: in-depth knowledge as to what we're building and
+[Remote]: sort of the process is behind this for us at the moment and where where they see it going.
+[Remote]: So I think it would be great for you guys to chat to them and, you know,
+[Remote]: deep dive into this and and see see where you may fit in.
+[You]: Sounds amazing. Would love to.
+[You]: I just wanna make one more comment, which is,
+[You]: we're also an early stage startup, which means
+[You]: we're willing to partner with other early stage startups on this effort.
+[You]: As served like a design partnership as well.
+[You]: Like, a very low touch, low price engagement in which
+[You]: you get value out of the tool, and we get feedback from you guys
+[You]: so we can iterate iterate the tool. You know what I mean? So
+[You]: if this is something that will be interesting to pursue today, even
+[You]: even if it's not front end mind, but you know you're gonna need in the future,
+[You]: then we can do some sort of, like, design partnership today. Until that
+[Remote]: Of course.
+[You]: becomes a need and then transition towards that
+[You]: other sort of, like, more formal customer relationship.
+[Remote]: Yeah.
+[You]: Other than that,
+[Remote]: No. I mean, I think
+[Remote]: I think, like, we're both sort of I'll
+[Remote]: companies are in similar positions as in
+[Remote]: you know, we've just launched. We we're trying to find our
+[Remote]: product market fits, and, you know, we we're we're willing to work with
+[Remote]: with companies to, you know,
+[Remote]: build out our product to their specific needs. So Sam Sam sort of thought process
+[Remote]: on that end. So
+[Remote]: whereas I'll be happy to do that with other customers. I'm sure, you know, we'd be happy to do that
+[Remote]: you guys as well, to help you out as you help us out.
+[Remote]: So
+[Remote]: yeah, as I said, let me let me chat to to my CTO and and
+[Remote]: one of our engineers or senior engineer, and they will definitely be happy
+[Remote]: to jump on a call with you guys and just hear you out and sort of, you know,
+[Remote]: get to understand the product, and you guys can get to understand where we sit at the moment and what our internal
+[Remote]: processes look like and how we can work together to ensure that
+[Remote]: you know, this
+[Remote]: this partnership could be could be worthwhile for the both of us.
+[You]: Sounds good. And another question regarding product.
+[You]: You guys work in Latin America? Did you payouts in Latin America?
+[Remote]: We do do paths in Latin America. Yeah.
+[You]: Okay. Because we do have a need there.
+[Remote]: Yeah.
+[You]: Just as context, we have our tech team base there. We have five people.
+[You]: Working as contractors from there. So there's a month payment that I send from The US to
+[You]: Argentina, could be interesting to explore together. And then there's also some vendors like, I don't know, design. I have some accounting help.
+[You]: Because we are a C corp in The US, and so there's a lot of payments we do to Latin America.
+[You]: So we could almost even explore creating an account in rebuff
+[Remote]: Yeah.
+[You]: exploring your solution for that as well.
+[Remote]: Yeah. Definitely. I mean, we we we
+[Remote]: we've got
+[Remote]: partners in Latin America where we can do payouts into into most of the countries there.
+[Remote]: At a pretty pretty low rate. Like, as you said, contractors are
+[Remote]: sort of one of the
+[Remote]: target markets that we're looking into, like
+[Remote]: contractor payments from or for companies that obviously, you know,
+[Remote]: hire people from all around the world. They've got different
+[Remote]: and different currencies that they need to pay into. So we've been looking looking at different businesses that
+[Remote]: that that offer that product to to onboard with us, and some of them are are very interested
+[Remote]: in our products. So, I mean, if you've got that, it would be it'll it'll
+[Remote]: it'll suits our our sort of business case.
+[Remote]: So we could definitely, you know,
+[Remote]: those conversations as we continue continue these ones.
+[You]: Got it. Got it. Would be would be very interesting.
+[You]: And other than that, what's what's your product road map looking for?
+[You]: For this first half of the year?
+[Remote]: So, I mean, we are we we're slowly sort of opening up
+[Remote]: our stable coin offering where you'll be able to hold
+[Remote]: stablecoins and as well as paying stablecoins You'll be able to earn yield
+[Remote]: through through holding money in
+[Remote]: in stable coins, essentially. We're also looking at
+[You]: Are you using Fireblocks for that?
+[Remote]: activate
+[Remote]: no. We aren't using fire blocks.
+[Remote]: We are using the name Slip Me Now.
+[Remote]: But
+[Remote]: yeah, we've we've got a stablecoin provider that's helping us out
+[Remote]: with with with regards to that.
+[Remote]: And then we're also looking into cards.
+[Remote]: Issuing sort of corporate cards for
+[Remote]: for businesses,
+[Remote]: So, yeah, there there are a couple things on the road map. But to be honest, at the moment,
+[Remote]: main thing for us is is getting getting clients on board and actually starting to
+[Remote]: to, you know, operate properly and and getting some big flows through the business. And as we do that,
+[Remote]: we'll sort of patch up the product here and there depending on what the feedback is from the clients.
+[Remote]: But at the same time looking to extend
+[Remote]: sort of offering through through these
+[Remote]: different things that I've just mentioned now.
+[You]: Got it. Alright, Robert.
+[Remote]: But, Joe,
+[You]: Thank you so much for the time. Great meeting. Great chat. I'll just follow-up via email. I'll share this
+[You]: this presentation I just, showed, and would be more than happy
+[Remote]: Perfect.
+[You]: to meet with the engineering team to see where this takes us.
+[Remote]: Yeah.
+[Remote]: Yeah. Great. Send me through the the presentation, and I can forward it on to
+[Remote]: so our lead engineer and the CTO and just explain explain to them sort of
+[Remote]: what we chatted about, and then I can I can organize a meeting for us
+[Remote]: next week probably just to just to go through everything and and see where we stand with it?
+[You]: Awesome, Robert. Have a great Friday and great weekend.
+[Remote]: You very much. Brilliant, you too. Cheers, man.
+
+============================================================
+SUMMARY
+============================================================
+### Company Overview & Reconciliation Solution
+
+- Rexi works with fintech companies across the stack (sponsor banks, payment providers, platforms)
+- Automates reconciliation processes:
+  - Daily operational tracking of money movements
+  - End-of-month balance reconciliation and journal entry creation
+- Current customers include crypto wallets, digital wallets, payroll companies, neo banks, credit cards
+- Results with existing customers:
+  - 80% workflow automation elimination of manual tasks
+  - Zero regulatory audits triggered due to poor reconciliation
+  - 95% reduction in write-off savings
+
+### Riva Money’s Business & Current State
+
+- Cross-border B2B payments founded by ex-Wise/Revolut team (Nick and Mahindra)
+- Robert: Strategy and Operations Manager, originally from South Africa, moved to London 2 years ago
+- Business model: instant, cheap supplier payments globally using crypto + fiat rails
+- Partners worldwide for multi-currency support
+- Just launched/gone live to customers - limited transaction volume currently
+- Current reconciliation approach:
+  - Engineers building custom internal solution
+  - Multiple ledgers in backend connecting to accounting system
+  - Not currently front-of-mind priority due to low volumes
+
+### Partnership Discussion & Product Roadmap
+
+- Mutual interest in design partnership:
+  - Early-stage collaboration at low cost/touch
+  - Rexi gets feedback for product iteration
+  - Riva gets reconciliation value as volumes scale
+- Riva’s H1 roadmap:
+  - Stablecoin offering with yield earning capability
+  - Corporate card issuance
+  - Primary focus: client acquisition and increasing transaction flows
+- Potential mutual business opportunity:
+  - Rexi has Latin America payment needs (5 contractors in Argentina, various vendors)
+  - Riva supports Latin America payouts at low rates
+
+### Next Steps
+
+- Robert to discuss with CTO and lead engineer about current reconciliation processes
+- Robert to forward Rexi presentation to engineering team
+- Schedule follow-up call next week with engineering team to explore technical fit
+- Explore potential Rexi account setup for Latin America payments
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/dd390823-b8a0-4b05-84e6-a94716fd3cbe](https://notes.granola.ai/t/dd390823-b8a0-4b05-84e6-a94716fd3cbe)

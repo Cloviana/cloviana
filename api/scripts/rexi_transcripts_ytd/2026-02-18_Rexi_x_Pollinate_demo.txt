@@ -1,0 +1,615 @@
+MEETING: Rexi x Pollinate: demo
+DATE: 2026-02-18
+ID: not_xUFD9EhHZjOZux
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Joseph Cox <joseph.cox@pollinate.co.uk>, Teo <teo@rexi.finance>, Joseph Cox <joseph.cox@pollinate.global>
+SCHEDULED: 2026-02-18T10:00:00-05:00 - 2026-02-18T10:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: A ver si aceptaron.
+[You]: ¿A qué horas son las la las dailies?
+[Remote]: A las ocho.
+[You]: Ocho.
+[You]: Y duran media hora a una hora.
+[Remote]: A veces se extiende, pero media hora. Porque agendando algo,
+[You]: Estoy cambiando la la business review para
+[You]: para mañana, si no sacó tiempo hoy.
+[Remote]: Okay.
+[You]: Estamos todos medio explotados.
+[Remote]: Aí, eu
+[Remote]: Jo.
+[You]: Hello, Joe?
+[Remote]: Hola, hola.
+[You]: How's it going?
+[Remote]: I guess. Thank you. How are you?
+[You]: Doing.
+[Remote]: All good.
+[You]: Good. Please meet my cofounder, Theo. I don't know if you guys had met before.
+[Remote]: Yeah. Hi, Send. How are doing?
+[You]: They will lead product and operations at Rexy.
+[You]: So he's the master behind the
+[You]: the platform and the product and these demos.
+[You]: I think, Thale, you already have context about Paul and A, about Joe. So
+[You]: I don't know if, Joe, you wanna do a short intro on on exactly what you do at at at PollinAid just to give us
+[You]: the stage here.
+[Remote]: Yeah. So so I'm a product manager I think it will make sure.
+[Remote]: Eight years, I think, which is basically my entire career.
+[Remote]: So
+[Remote]: I I look after
+[Remote]: I've looked after
+[Remote]: our dashboard, which has a load of mini apps in which effectively enables
+[Remote]: a merchant to be, the digital experience side of the
+[Remote]: merchant services
+[Remote]: products that
+[Remote]: effectively enable a merchant to kind of
+[Remote]: view their transactions, invoices, settlements,
+[Remote]: etcetera, and kind of manage their accounts. So we sell
+[Remote]: our platform to
+[Remote]: banks who who are our clients. And
+[Remote]: we effectively can configure our platform for those clients.
+[Remote]: And then they kind of operationalize our platform and sell it on.
+[Remote]: To to their customers.
+[Remote]: We are also now working through
+[Remote]: an onboarding products, kind of involving
+[Remote]: self-service and assisted onboarding
+[Remote]: onto that same merchant services kind of piece.
+[Remote]: With the idea that that onboarding products can probably expand into any other financial services
+[Remote]: product is required.
+[Remote]: So
+[Remote]: we do we do kind of some reconciliation
+[Remote]: to enable a merchant to kind of see their
+[Remote]: merchants. Is it almost like the the
+[Remote]: reconciliation for their merchant services specifically, but I think that's where I'll pull up.
+[Remote]: Kind of ends. And then we're kind of separately looking at other ways of
+[Remote]: adding value to and kind of increase
+[Remote]: the the revenue kind of streams that we can access through potentially
+[Remote]: a marketplace and embedding marketplaces into our
+[Remote]: clients'
+[Remote]: and offering
+[Remote]: a range of different products there, which kind of
+[Remote]: adjacent to our own, I guess. So things like enabling
+[Remote]: fast credit to a customer if they need it.
+[Remote]: That sort of thing.
+[Remote]: And then yeah. That's that's
+[Remote]: very, very quick. But I think as we've only got half an hour,
+[Remote]: I think I'm quite keen to see what
+[Remote]: you've got.
+[You]: Yeah. I guess, the focus of the demo is sort of, like,
+[Remote]: Yeah.
+[Remote]: Alright.
+[You]: to compare against what you currently have. Right? See if there's actually, like, a
+[You]: big marginal diff big difference, big gap
+[You]: in terms of functionality and capabilities and and capacity.
+[You]: To see if it makes sense to start testing some of your
+[You]: some of the merchants using Poly. Right? So, yeah, they'll go ahead. All yours
+[Remote]: Fantástico.
+[Remote]: Alright. Let me share screen.
+[Remote]: So, basically, as I
+[Remote]: leave you already now, we automate reconciliation processes.
+[Remote]: And we've made a tool extremely easy for nontechnical users to
+[Remote]: create and automate
+[Remote]: mostly
+[Remote]: high volume
+[Remote]: and high complexity reconciliations. We are
+[Remote]: and, of course, high regulation. We it's, of course, sensitive data.
+[Remote]: And so
+[Remote]: basically, we automate these processes in a in a extremely easy way for
+[Remote]: these nontechnical users.
+[Remote]: What I did here is I created a few databases
+[Remote]: which could be
+[Remote]: either your internal data or one one of your
+[Remote]: bank's customers, that could have maybe
+[Remote]: the data coming from the banks and, I know, data coming from
+[Remote]: from your portal or or the ledger or the processor
+[Remote]: This is just
+[Remote]: conceptual so that you see that you can have
+[Remote]: the as many, data sources as you need
+[Remote]: and you can create as many automations and recon reconciliations as you need.
+[Remote]: So this would be
+[Remote]: one of the bank statements with
+[Remote]: data. Of course,
+[Remote]: as we
+[Remote]: handle data from extremely different, data sources,
+[Remote]: What we do here is we automate the injection. And once you have
+[Remote]: the data within our system,
+[Remote]: you standardize it so that you can reconcile it with whatever
+[Remote]: other data source you need.
+[Remote]: And to do that, you can basically do anything here
+[Remote]: that you can do on Excel in terms of
+[Remote]: creating new columns, changing formats, group group by,
+[Remote]: transform dates, filter,
+[Remote]: I don't know, parse fields, enrich this data with a third database
+[Remote]: whatever.
+[Remote]: And, of course, if you need even more flexibility, you can just
+[Remote]: create your own your own complex
+[Remote]: formulas. Of course, just describe it here, and we'll create it for you.
+[Remote]: Whenever these
+[Remote]: data source gets updated,
+[Remote]: maybe daily or maybe a few hours or or weekly or whatever, is the
+[Remote]: time lapse you need.
+[Remote]: Every data transformation that you've done before,
+[Remote]: is gonna get done automatically with with the new transactions that that you you get.
+[Remote]: So in this case,
+[Remote]: we're gonna do a small reconciliation
+[Remote]: comparing the
+[Remote]: portal data. Let's create here
+[Remote]: versus, bank deposits.
+[Remote]: And we create a rule. Basically, one rule
+[Remote]: versus bank
+[Remote]: One rule is
+[Remote]: comparison or a reconciliation, basically, between
+[Remote]: two databases and one reconciliation per second half
+[Remote]: either one or more rules. So, basically, they can be
+[Remote]: simple as two data sources or as complex as
+[Remote]: as many as you need. In this case,
+[Remote]: create
+[Remote]: this basic rule between the portal and bank deposits
+[Remote]: and
+[Remote]: then you select the joint configuration.
+[Remote]: The first sweep,
+[Remote]: is generally an ID. In this case, it's settlement ID against settlement ID.
+[Remote]: I know that many times we don't have this this ID.
+[Remote]: So
+[Remote]: this can be I mean,
+[Remote]: you can do as many
+[Remote]: junk configurations as you need, or what we're gonna do in this
+[Remote]: in this
+[Remote]: is do a second sweep
+[Remote]: So first, you try with with the ID,
+[Remote]: then what whatever does not match. Maybe sometimes you don't have this ID or or whatever.
+[Remote]: You do a second strip and try again. In this case, I've done it with
+[Remote]: merchant ID,
+[Remote]: And
+[Remote]: last four digits of the card. This is a very common exercise that happens a lot.
+[Remote]: Within the
+[Remote]: industry transaction date.
+[Remote]: Yep. Suppose the date. Of course, you can add tolerance in days.
+[Remote]: Hours, minutes, seconds.
+[Remote]: Or whatever.
+[Remote]: And
+[Remote]: amount which
+[Remote]: also allows you to add tolerance either in percentage. I know. Far for
+[Remote]: or in absolute values. In this case, it's a
+[Remote]: super straightforward second sweep. So first first, we try to
+[Remote]: to create the joins with
+[Remote]: IDs, and then whatever does not match, we try again with these
+[Remote]: Perfect. I think we're all set.
+[Remote]: This would be the
+[Remote]: operational reconciliation. Basically,
+[Remote]: matching these transactions
+[Remote]: But maybe once you've matched them, you can you you you wanna do
+[Remote]: even more
+[Remote]: checks, comparisons. You wanna check the fee.
+[Remote]: Wanna check the that that the settlement date was the correct one. They're not
+[Remote]: you know,
+[Remote]: taking one more or or more days after what what your contract says or
+[Remote]: maybe you wanna check the status, you wanna check the fee, you wanna check the amount, the conversion rate.
+[Remote]: Etcetera, that you would do here.
+[Remote]: And if you mark this comparison as critical,
+[Remote]: then whatever
+[Remote]: was marked as reconciled here,
+[Remote]: is unmarked. So this this makes this base the
+[Remote]: the reconciliation critical. You can, of course,
+[Remote]: normalize these fields because as it's very
+[Remote]: very diverse data sources, maybe you wanna check that it's
+[Remote]: you know, sometimes in one database, it comes on, like, debit,
+[Remote]: and on the other one, it comes with without caps.
+[Remote]: And you wanna check that it's
+[Remote]: on on this side, it's debit. And on this side, it's debit. Just make sure that this
+[Remote]: two match, and here, you you create these equivalent groups or normalized groups.
+[Remote]: Of course, you can also check day.
+[Remote]: You know,
+[Remote]: fee amounts or whatever. Whatever you can you can do here,
+[Remote]: You can do here. This is
+[Remote]: to
+[Remote]: create that operational reconciliation, and this can be the financial reconciliation or even more
+[Remote]: specific reconciliation
+[Remote]: checks. And, of course, you can do transformations. This is just
+[Remote]: this does not prevent the reconciliation, but many
+[Remote]: companies do these for reporting matters.
+[Remote]: They can be conditional, and these are mostly
+[Remote]: they they are generally just fees that you wanna check or or
+[Remote]: any any operation that you wanna check.
+[Remote]: I think we're all set. We create the rule.
+[Remote]: And there's three ways in which you can run
+[Remote]: reconciliation.
+[Remote]: First, you can schedule it to run every day at, I don't know, 4AM or whatever.
+[Remote]: You can trigger it whenever one of the data sources gets updated.
+[Remote]: And the third one is the one we're gonna do, which is, of course, running it
+[Remote]: manual.
+[Remote]: After you create the first reconciliation, of course, you can add dependent rules. I mean,
+[Remote]: you you wanna compare these two data sources and whatever does not match, you wanna compare with this
+[Remote]: third one and fourth one and fifth one, and this is where you would do your
+[Remote]: reconciliation flow.
+[Remote]: In this case, it's just a basic
+[Remote]: reconciliation. Let's save it.
+[Remote]: And
+[Remote]: I'm gonna manually execute it.
+[Remote]: Is gonna take just one second
+[Remote]: There we go.
+[Remote]: And it's done.
+[Remote]: So here, we have the
+[Remote]: the reconciliation results on the first suite.
+[Remote]: We had
+[Remote]: 131 transactions that that matched.
+[Remote]: Nine were only on the portal.
+[Remote]: Four were only on the bank deposit.
+[Remote]: And then we did our second, second try.
+[Remote]: With whatever did that match on the first one, and we
+[Remote]: managed to reconcile four more. So now we only are we're only left with
+[Remote]: five on the portal and zero bank deposits without reconciliation.
+[Remote]: We've got these general metrics. This is
+[Remote]: just a
+[Remote]: extremely standard reconciliation result.
+[Remote]: Everything from source a, everything from source b,
+[Remote]: general KPIs, much and, of course,
+[Remote]: daily transactions, total transactions,
+[Remote]: Out of those, how many matched and how many unmatched how many
+[Remote]: did not match, and you have the same in in values in this
+[Remote]: case, it's
+[Remote]: US dollars, but it can be any any currency.
+[Remote]: You can export these results in whatever format and reach them
+[Remote]: you know, normalize them with with whatever
+[Remote]: logic you want. We basically automate these reports, many
+[Remote]: many companies
+[Remote]: are manually creating these reports. We we just
+[Remote]: set them up and and send them wherever and with whatever
+[Remote]: format you need. You can enrich these columns.
+[Remote]: You can, of course, normalize them, you know, map them, etcetera.
+[Remote]: The last thing we automate here is the
+[Remote]: creation of journal entries.
+[Remote]: Don't know if we spoke about the or you spoke about this a few days ago, but
+[Remote]: for some of our customers, we create the this is also a very manual process
+[Remote]: for them. They're just creating the journal entries on Excel and uploading them on the
+[Remote]: with their ERP, and we just automate that as as well based on the
+[Remote]: results.
+[Remote]: Then we've got the exception manager. This is where
+[Remote]: you would
+[Remote]: basically just
+[Remote]: check whatever did not match and manually match them
+[Remote]: or
+[Remote]: mark them as exception. Sometimes not everything needs to match. Sometimes there's
+[Remote]: movements that you know that are only gonna be in one database, and you will never find them on the other one.
+[Remote]: Just mark them as
+[Remote]: if you know that there's some kind of rule that they that they
+[Remote]: or pattern that they have, you just automate that as well. So you automate the reconciliation.
+[Remote]: Then you automate the exceptions whenever
+[Remote]: this transaction, comes without an ID, just
+[Remote]: mark it as as
+[Remote]: as an exception.
+[Remote]: Then we've got the
+[Remote]: I just created a basic one here, but you you you will
+[Remote]: or your customers will most likely have, you know, ten twenty, maybe 30 reconciliations, and you wanna just have
+[Remote]: one central dashboard or a few, you can create them
+[Remote]: and personalize them. It's they're extremely easy to to create or
+[Remote]: or adapt with whatever format you want, and
+[Remote]: let's just create a widget here.
+[Remote]: I don't know. Let's create a pie chart.
+[Remote]: And live demo.
+[Remote]: With whatever metric you want
+[Remote]: and
+[Remote]: just create it.
+[Remote]: And then share it.
+[Remote]: Whatever.
+[Remote]: So this is our personalized dashboard. So
+[Remote]: we've got, of course, the reconciliation results that we saw before, but sometimes
+[Remote]: that data is not
+[Remote]: as specific as our customers need. So we just created this
+[Remote]: dashboard section so that they can they can create the the
+[Remote]: the dashboards in whatever format they need.
+[Remote]: Lastly, we, force have alarms.
+[Remote]: We can send them via email or Slack.
+[Remote]: Maybe daily at four, five, six AM, and you just get them via Slack.
+[Remote]: Hey. You had, I don't know, a thousand transactions yesterday. Only three did not match. Take them out.
+[Remote]: And, the direct link there
+[Remote]: And finally, you can automate, reports
+[Remote]: based on
+[Remote]: the data sources or
+[Remote]: multiple data sources. This is different from the reports we saw on the
+[Remote]: reconciliation. This is just coming from from your data sources, maybe
+[Remote]: have a process where you create this report
+[Remote]: based on the bank transactions every day. And here, you can just
+[Remote]: automate it and and stop doing it manually.
+[Remote]: First, there's
+[Remote]: we we help you
+[Remote]: format these. For example, if merchant
+[Remote]: ID is not null, then one else
+[Remote]: zero, and we just create the formula for you.
+[Remote]: To create this this report.
+[Remote]: Of course, we can send this report daily via email or in whatever
+[Remote]: database that you have.
+[Remote]: So, basically, just wrapping up, we automate ingestion.
+[Remote]: We automate the standardization of the data that comes in very, very different formats.
+[Remote]: We automate the reconciliation. We, automate the general entries.
+[Remote]: We automate the, reporting based on the the
+[Remote]: results. We've got the exception manager to automate the exceptions.
+[Remote]: Or manually mark mark them as match or
+[Remote]: or as exception.
+[Remote]: Got alarms.
+[Remote]: And we've got personalized dashboards and reports.
+[Remote]: I know if you have any
+[Remote]: questions or anything you wanna check.
+[Remote]: No. I think that was,
+[Remote]: very clear. Thank you.
+[Remote]: So I think
+[Remote]: immediate questions that I kind of had. So I think the
+[Remote]: the the space
+[Remote]: we play in, I think, is slightly different. So
+[Remote]: Pollinate kind of delivering
+[Remote]: a
+[Remote]: almost like a a digital experience for
+[Remote]: merchants to
+[Remote]: kind of, I guess, sit on top of their merchant services
+[Remote]: So while so so we're basically saying that
+[Remote]: they
+[Remote]: merchant takes a payment via their card machine
+[Remote]: online, whatever.
+[Remote]: We then
+[Remote]: that then goes through as an authorization in the system and goes through clearing
+[Remote]: and then eventually gets funded to the customer.
+[Remote]: Those settlements
+[Remote]: are all
+[Remote]: bundled
+[Remote]: into
+[Remote]: or bundled. So each transaction that actually kind of
+[Remote]: falls into each settlement, there'll be there'll be hundreds or how many transactions
+[Remote]: the merchants had in that settlement window.
+[Remote]: Could have passed into that settlement, and then any
+[Remote]: anything else is
+[Remote]: potentially happened. So whether the the fees are
+[Remote]: net
+[Remote]: netted off or, whether there's any additional
+[Remote]: adjustments made or whatever.
+[Remote]: So our platform
+[Remote]: kind of is showing that journey of the
+[Remote]: of the transactions being taken through to
+[Remote]: the value that settled into the customer's account.
+[Remote]: Where where we we then
+[Remote]: play any further into that kind of
+[Remote]: lens of
+[Remote]: have you
+[Remote]: reconciled effectively at the amount that you said you've got
+[Remote]: is the amount that you can actually see each kind of settlement per day coming through or whatever.
+[Remote]: I guess so so there is
+[Remote]: there is a
+[Remote]: a definite difference in kind of the
+[Remote]: functionalities use the products. Your
+[Remote]: who who do you see as your
+[Remote]: intended users of the platform?
+[Remote]: Your platform?
+[Remote]: In terms of
+[Remote]: company industry or in terms of role within a company?
+[Remote]: I've been interested in both, actually.
+[Remote]: Sorry. What?
+[Remote]: I'd be interested in both. Both?
+[Remote]: Mean, in terms of
+[Remote]: company, it's
+[Remote]: not
+[Remote]: a specific industry, but it's mostly what I said at the beginning. It's
+[Remote]: iTransactionality,
+[Remote]: high complexity, and high regulation. That's it.
+[Remote]: Sweet spot where we find ourselves. It's generally
+[Remote]: with
+[Remote]: a lot of volume that need to be manually reconciling. May maybe
+[Remote]: they're doing it on Excel or or
+[Remote]: not even doing it at all and just
+[Remote]: writing off whatever does not match.
+[Remote]: And in terms of user, it's mostly
+[Remote]: it's mostly several teams. We we generally start
+[Remote]: talking with one team,
+[Remote]: and then other teams start hopping in and automated the
+[Remote]: automating their own reconciliation. So it's mostly
+[Remote]: finance, operations, accounting, or pinups. It's
+[Remote]: either one of those, four that
+[Remote]: first reaches out. And then, of course, as
+[Remote]: as I mentioned, other teams start, using the platform as well.
+[Remote]: Yeah. And I I think this is
+[Remote]: this is probably
+[Remote]: the
+[Remote]: the main
+[Remote]: I think this this probably
+[Remote]: potentially,
+[Remote]: limits our value to each other because so
+[Remote]: I guess, pollinates target market is very much s
+[Remote]: MBs. So we we are going after the
+[Remote]: the significantly smaller businesses, the one man bands,
+[Remote]: who kind of
+[Remote]: don't have necessarily the time to,
+[Remote]: do anything, let alone kind of I kind of have the the scale to
+[Remote]: have finance departments, etcetera.
+[Remote]: So and I
+[Remote]: as far as I can see,
+[Remote]: your tool is very much a
+[Remote]: kind of the
+[Remote]: reconciliation of multiple different
+[Remote]: it's it's a it's an internal
+[Remote]: business tool. So there there are probably some
+[Remote]: merchants who
+[Remote]: could be marketed
+[Remote]: a tool like this and potentially via that marketplace.
+[Remote]: But I do think that
+[Remote]: our our kind of main target market
+[Remote]: isn't actually
+[Remote]: aligned with your main target market. It's I don't think we are as
+[Remote]: we're targeting
+[Remote]: as bigger players as you are probably.
+[Remote]: We
+[Remote]: we definitely have SMBs within our customers. And, actually, the
+[Remote]: a big part of of our customers are SMBs.
+[Remote]: I know if you spoke about this last time, but have you had the chance of
+[Remote]: talking with your your with your customers
+[Remote]: if this is an actual pain, or do do you have do you have any insights on on that side?
+[Remote]: As as I was
+[Remote]: chatting through last week, I think, Natalie, we kind of
+[Remote]: we touched on the point that actually one of my
+[Remote]: difficulties and
+[Remote]: within sitting within pollinate product at pollinate is because our clients are actually banks
+[Remote]: we're almost one step removed from
+[Remote]: direct customers who are actually using it, which which is a continual
+[Remote]: of mine. So I want to get much closer to these to these guys who are actually
+[Remote]: with the in interacting with our tool rather than
+[Remote]: the
+[Remote]: the clients who might sit between them and kind of almost
+[Remote]: tell us what they think their customers want.
+[Remote]: Mhmm. And and solve solve the problems rather than or
+[Remote]: provide more solutions rather than saying,
+[Remote]: here's problems that our customers have. Can you go away and and fix them?
+[Remote]: So so so no.
+[Remote]: Simple answer is haven't
+[Remote]: haven't been able to. I think next steps on my side are probably
+[Remote]: to review with
+[Remote]: just kind of have a have a few chats internally just to see if we
+[Remote]: do see
+[Remote]: any fit. And I think the fit that I see for this piece
+[Remote]: would be almost as a as a
+[Remote]: kind of a a partner solution within that marketplace. So almost a
+[Remote]: an an a a layered on additional piece of functionality that can add value to to
+[Remote]: certain customers. And maybe, actually, it's something which is only highlighted to
+[Remote]: over
+[Remote]: a certain revenue annual revenue or something or size
+[Remote]: So, actually, it becomes much more targeted. And that that it feels more
+[Remote]: relevant, I think. So I think
+[Remote]: that that's kind of
+[Remote]: where I see my next steps.
+[Remote]: And, yeah, just just seeing
+[Remote]: how how we might be able to work together in in that kind of
+[Remote]: that
+[Remote]: whether whether that's a kind of some form of
+[Remote]: retailer agreement, whatever whatever that looks like between between us and and kind of
+[You]: Is there anything else you need from us to push that discussion internally?
+[Remote]: I I don't think so.
+[Remote]: You. I think I've I've got a
+[Remote]: I think the the demo is was quite clear. I don't know if you do
+[Remote]: I did jump jump onto your website. So
+[You]: Which is about a bit a bit outdated, by the way, but we're working on that one.
+[Remote]: I know if you have that
+[Remote]: Cool.
+[Remote]: Yeah. I don't like, if if you happen to have a a kind of
+[Remote]: a five minute video of of
+[Remote]: what it is, which I could share
+[Remote]: otherwise, I could think I can fairly accurately kind of explain
+[Remote]: the the kind of the key
+[Remote]: key functionalities that you're offering and then
+[Remote]: I think it could could play.
+[You]: Got it. Got it.
+[You]: I don't think we have a video, like, out of the box, but
+[You]: but let let's see what we can
+[You]: share over. And then what do you think we can steer back
+[You]: terms of those internal discussions? I know what's the timeline on this marketplace effort.
+[Remote]: Yeah. So marketplace effort
+[Remote]: is at the moment, it it really is in a bit of an an
+[Remote]: we've got one customer who does want it, but
+[Remote]: they're throwing so many other things that
+[Remote]: are ahead of it. So
+[Remote]: like, yes, they're they're absolutely they've kind of committed to that piece
+[Remote]: So
+[Remote]: and then, otherwise, it's
+[Remote]: fairly early conversations, which
+[Remote]: do seem to be very positive at the moment. But
+[Remote]: but with the
+[Remote]: because our clients
+[Remote]: our clients always these
+[Remote]: enormous pieces. Takes a long time to
+[Remote]: get anything signed, I would say.
+[Remote]: I would be surprised if we have anything live
+[Remote]: within six months, but I would say that kind of
+[Remote]: six months, I've been
+[Remote]: for three to six months time, I would expect to have a better
+[Remote]: view of where we would be
+[Remote]: taking that and and kind of
+[Remote]: when we'd expect it to be live with clients.
+[You]: Got it. Got it. Got it.
+[You]: So the next steps, what what do you suggest?
+[Remote]: Yeah. So let me let me have a conversation with
+[Remote]: with some people on my side. I will
+[Remote]: I'll come back to you with whether we think that it is
+[Remote]: is something where
+[Remote]: we we can definitely see value if it's something that
+[Remote]: we, and then I think if it's something which we
+[Remote]: we think that is potentially value,
+[Remote]: think we'd probably need to do a review with our clients of the
+[Remote]: customers that they have on on our platform to determine again
+[Remote]: whether it's kind of the market fit that you'd necessarily be targeting as well.
+[Remote]: And then
+[Remote]: based based on
+[Remote]: those two, I guess, being positive,
+[Remote]: we'd we'd have to look at kind of
+[Remote]: if if there's
+[Remote]: take taking it further into some form of commercial agreement potentially and and and seeing where we go.
+[You]: Got it. Got it. Alright. I'll just send a follow-up email just to to make sure we're we're aligned on this.
+[You]: And then we'll just stay put to see
+[You]: what happens in those internal conversations. As soon as you have information for us to just, like,
+[You]: you know, align expectations would be great. If if it's
+[You]: if if there's no fit, there's no fit. If if if you actually
+[You]: fit, then we're we're ready to go. We're, like, green light ready to go.
+[You]: And and start working on something together. We do see value, particularly because
+[You]: when we're reconciling with these merchants, we're always tying it back to the bank.
+[You]: And so having a click through with you guys to the bank just makes the experience way better.
+[You]: And it also enables
+[You]: the bank and pollinate to increase, like,
+[You]: share of eyeballs or or whatever you wanna say, because then the merch
+[You]: and everyone's gonna be doing everything there in Pollinates portal and in
+[You]: the bank's portal. So I I do see a really great
+[You]: opportunity here. But, again, let me know how those conversations go, and and and we'll take you from there.
+[Remote]: Yeah. Actually, sorry. Final question. So you
+[Remote]: your product
+[Remote]: is it fully embeddable? Is it?
+[You]: We we could. Yep.
+[Remote]: Yeah.
+[Remote]: Okay.
+[Remote]: That's
+[Remote]: that's great.
+[You]: Here I go.
+[Remote]: Yeah. Thanks for your time.
+[You]: Thank you so much. Have a good one.
+[Remote]: Thanks, Babe.
+[Remote]: Alright. Bye. Bye.
+
+============================================================
+SUMMARY
+============================================================
+### Pollinate Overview & Platform Capabilities
+
+- Joseph Cox: Product Manager at Pollinate (8 years experience)
+- Dashboard platform with mini-apps for merchant services
+  - Enables merchants to view transactions, invoices, settlements
+  - Account management functionality
+- B2B2B model: Sell platform to banks who operationalize and resell to customers
+- Current development focus:
+  - Self-service and assisted onboarding products
+  - Marketplace integration for additional revenue streams
+  - Fast credit offerings for customers
+
+### Rexi Demo & Technical Capabilities
+
+- Automates reconciliation for high-volume, high-complexity, regulated processes
+- Key features demonstrated:
+  - Multi-source data ingestion and standardization
+  - Two-sweep matching process (ID-based, then merchant ID + card digits + date + amount)
+  - Tolerance settings for dates and amounts
+  - Critical comparison checks (fees, settlement dates, status)
+  - Exception management and manual matching
+  - Automated journal entry creation
+  - Custom dashboards and reporting
+  - Slack/email alerts
+- Target users: Finance, operations, accounting teams at companies with high transaction volumes
+
+### Market Fit Assessment & Next Steps
+
+- Target market misalignment identified:
+  - Pollinate focuses on SMBs (small merchants, one-man operations)
+  - Rexi targets larger companies with finance departments
+- Potential collaboration through marketplace partnership
+  - Rexi as layered functionality for larger revenue customers
+  - Product is fully embeddable
+- Joseph’s next steps:
+  1. Internal discussions on potential value
+  2. Client/customer market fit review
+  3. Commercial agreement exploration if positive
+- Timeline: 3-6 months for marketplace initiative clarity
+- Ignacio to send follow-up email and video materials for internal sharing
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/d4d19a17-c699-4e9e-86f1-3fbd7eb5bfbb](https://notes.granola.ai/t/d4d19a17-c699-4e9e-86f1-3fbd7eb5bfbb)

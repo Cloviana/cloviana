@@ -1,0 +1,630 @@
+MEETING: Rexi x CARFACIL: discovery
+DATE: 2026-03-31
+ID: not_SCg0NuEmZrFbfZ
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Gpinero <gpinero@carfacil.com.ar>, Cnaon <cnaon@naontuduri.com.ar>, Lzapata <lzapata@carfacil.com.ar>, Lsaroka <lsaroka@carfacil.com.ar>
+SCHEDULED: 2026-03-31T13:30:00-04:00 - 2026-03-31T14:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Hola, buenas. Perdón, la demora.
+[Remote]: Hola, ¿qué tal? Hola, ¿cómo estás? Ignacio, ¿todo bien?
+[You]: ¿Cómo está, Cecilia, Leonardo, Leticia? Un gusto, Romy, saludarlo.
+[Remote]: Sí.
+[Remote]: Tú agente.
+[You]: Están acá,
+[Remote]: Falta Gonzalo que no, sí, falta Gonzalo que no va no va
+[Remote]: subir porque está con un tema que no puede dejar.
+[You]: Dale, no pasa nada. Bueno, arranquemos, entonces, de vuelta, perdón por por la demora.
+[Remote]: Dale.
+[You]: Al ser ahí una charla introductoria, un poco la idea que yo tenía para hoy era
+[You]: primero, obviamente, presentarme, contarles un poquito más de nosotros, qué hacemos
+[You]: a qué nos dedicamos o qué tipo de compañías trabajamos.
+[You]: Y luego enfocarlo todo en un descubrimiento de, primero, entender cuál fue el interés
+[You]: por el cual nos buscaron,
+[You]: entrar bien en detalle en cuáles son esos procesos que hoy necesitan ayuda y y cuál es el
+[You]: punto de llegada que están tratando de
+[You]: de con estos procesos. Parece bien? ¿Hemos algo así?
+[Remote]: Ok.
+[Remote]: Dale. Dale.
+[You]: Listo.
+[You]: Bueno, voy a compartir acá pantalla, que me siempre me ayuda un poco a
+[You]: hacer la introducción.
+[You]: Entonces, arrancando un poquito por el equipo,
+[You]: fundador, ¿no? Estos somos los tres cofounders,
+[You]: Yo soy Ignacio, el CEO, lidero todo lo que es distribución, partnerships, ventas, marketing, growth, toda esa parte. Generación de de revenue. Teo, uno de mis cofounders, lidera más producto y operaciones. Él es el genio detrás de
+[You]: de la de la plataforma que hemos armado y de lo que vamos a seguir armando este año.
+[You]: Y Sebastián es nuestro líder de tecnología.
+[You]: ¿Sí? Y yo estamos basados en Nueva York, también para contar un poquito más de contexto,
+[You]: Sebastián, con todo el resto del equipo de tecnología, están basados en Buenos Aires.
+[You]: Así que como que tenemos dos dos
+[You]: Y ahí la experiencia nuestra viene de servicios financieros, ¿sí? Los tres fuimos operadores en en compañías
+[You]: dentro de servicios financieros, ¿no? Yo estuve en en en común, una neobanco,
+[You]: una billetera digital,
+[You]: enfocada en cripto. Tengo muchos años trabajando en mercado pago,
+[You]: y Sebastián fue equipo fundador de Naranja X y luego de Pomelo, ¿no? Con lo cual tenemos un mapeo general de
+[You]: cripto, fintech, adquirencia, emisión,
+[You]: Y, bueno, yo en algún momento también trabajé con bancos en mi época, cuando hice consultoría
+[You]: en en Beign, acá en Argentina. Los todos somos argentinos, así que eso también
+[Remote]: Mhmm.
+[You]: vale la pena aclarar. Y acá el único mensaje es
+[You]: construir Rexi, ¿de dónde viene Rexi? Viene de experiencias personales.
+[You]: ¿Sí? Los tres operando, estando del otro lado,
+[You]: posiblemente, ejecutando mucho los procesos que hoy están ejecutando ustedes,
+[You]: Vivimos esos dolores, y dijimos, hoy, con con tecnología, mucho eso se puede resolver.
+[You]: Ayudando a las compañías a
+[You]: acelerar la transición
+[You]: hacia AI, y hacia procesos más agénticos, y realmente optimizando y ganando mucha más seguridad, ¿no? Ahí hay algunas de que tenemos cada uno de nosotros de por ahí errores costosos que tuvimos por no tener los procesos adecuados cuando trabajábamos en esas compañías, ¿no? Acá, un poquito también, un poquito más sobre nosotros. La incubamos en MIT, yo estaba estudiando en Harvard, y
+[You]: bueno, me anoté en una incubadora en MIT,
+[You]: de fintech, que que luego en el DemoDay terminamos ganando,
+[You]: Ganamos ahí un
+[You]: fondeo inicial, unos créditos de AWS, con eso arrancamos la compañía.
+[Remote]: Mhmm.
+[You]: Y, bueno, también levantamos nuestra ronda de capital semilla con
+[You]: con muchos fondos de venture capital que ven ahí, mayoritariamente son de Estados Unidos, ¿no?
+[You]: Ahora, el problema que estamos tratando de resolver en en
+[You]: a nivel conceptual, es un problema de fragmentación de datos.
+[You]: ¿Sí? Cualquier compañía que integra múltiples flujos de pagos
+[You]: y que tiene una transaccionalidad alta,
+[You]: tiene muchas fuentes de información.
+[You]: ¿Sí? Que es una foto de la realidad, pero del mismo flujo.
+[You]: Cuando pasamos a comparar esas fuentes,
+[You]: ninguna cuadra, ¿no?, y ahí arranca el proceso de conciliaciones. Y ahí, para mencionar algunos, es
+[You]: un extracto bancario,
+[You]: un reporte de liquidadas de un procesador de pagos, un back office interno, un ERP, un core bancario, un ledger, o toda fuente que, supuestamente, sacan una foto del mismo flujo, pero como no están conectados, muestran todas fotos distintas. ¿Qué hacen las compañías cuando cuando esto pasa? Crean procesos, ¿sí?, con herramientas. Macros en Excel. Ahora, pues, me van a contar un poquito más cómo lo manejan ustedes, pero macros en Excel, SQL, algo de Python, Algunas compañías contratan consultoría para esto. Y algunas, por ahí, las más sofisticadas, desarrollan algún tipo de herramienta interna. Ahora, todo eso, lo que termina pasando es generar costo ¿sí?, en capital humano, equipos dedicados a a a conciliaciones, que, medida que crece el
+[You]: toca agrandar ese equipo,
+[You]: Generar riesgo,
+[You]: de vuelta, como son procesos
+[You]: manuales, con mucho manipuleo de información,
+[You]: son muy propensos a error humano,
+[You]: y después genera fricción, porque, como bien sabemos, la la consideración no afecta a otras áreas del negocio.
+[You]: No solamente finanzas, contabilidad, afecta operaciones, afecta producto.
+[You]: Afecta, digamos, muchas áreas.
+[You]: Ahora, también para, digo, si en algún momento decidimos trabajar juntos, nos parece importante compartirles
+[You]: dónde vamos, ¿no?, la visión de Rexi.
+[You]: Para nosotros, la conciliación es una puerta de entrada, es un producto inicial.
+[You]: No es el el end state para nosotros.
+[You]: La pregunta es, ¿por qué?
+[You]: La primer razón es
+[You]: es un dolor crítico y que no está resuelto, honestamente,
+[You]: muchas herramientas en el mercado, y no hay ninguna que esté atacando el problema de causa raíz
+[You]: que es la fragmentación de datos. Hay soluciones, sí, algunas están buenas,
+[You]: pero alivian síntomas, no están realmente enfocados en resolver
+[You]: el core.
+[You]: Y la segunda razón es que
+[You]: para que las compañías puedan acelerar la transición hacia la inteligencia artificial
+[You]: y procesos agénticos,
+[You]: necesitamos construir sobre una base sólida.
+[You]: ¿Sí? Y esa base sólida es una
+[You]: un sistema que tenga todos los flujos de dinero conciliados.
+[You]: Con precisión.
+[You]: Sobre eso, después podemos construir flujos agénticos para automatizar la mayor parte de los procesos
+[You]: de finanzas y operaciones, pero sin eso,
+[You]: podemos construir nada, porque si vos a la inteligencia artificial le tirás
+[You]: información que no es precisa,
+[You]: que no es robusta,
+[You]: no hace sentido la realidad, y, bueno, va a salir algo que no
+[You]: está ajustado a la realidad, ¿no? Entonces, el primer punto es
+[You]: conciliemos, y, a partir de ahí,
+[You]: construir otros flujos agénticos.
+[You]: Lo cual esa la visión de Rexi,
+[You]: armar una plataforma que sea un ecosistema
+[You]: para construir muchos procesos agénticos,
+[You]: les den automatización,
+[You]: les den mayor precisión,
+[You]: y que les den mayor seguridad. Muchos de estos flujos
+[You]: si se hacen mal, se pierde plata.
+[You]: No es solamente un tema de de eficiencia y de productividad, es
+[You]: Realmente, hay un riesgo económico y financiero detrás de esto.
+[You]: Ahora, ¿qué es el producto hoy? Hoy es una plataforma de conciliaciones.
+[You]: ¿Sí? Y automatizamos el proceso de punta a punta.
+[You]: Desde ingesta, construimos los conectores a las principales fuentes de
+[You]: información que hablábamos recién,
+[You]: traducimos
+[You]: porque todas esas bases vienen con formatos distintos, nomenclaturas distintas,
+[You]: de maneras distintas, y hay que primero hacer una traducción antes de procesar, luego se procesan
+[You]: hay una lógica conciliatoria,
+[You]: que se configura también con tecnología agéntica,
+[You]: Y, por último, después tenés
+[You]: se dedica la mayor cantidad del tiempo, que es la investigación y la resolución de diferencias,
+[You]: de vuelta a estos archivos nunca cuadran al cien.
+[You]: Y ahí, de vuelta, tenemos tecnología para ayudar a los equipos a ganar muchísima productividad.
+[You]: Y el último punto es todo lo que sería reportería.
+[You]: Tenemos dashboards, generación de reportes,
+[You]: a medida de lo que ustedes necesiten,
+[You]: conectamos a los ERPs para generar entradas contables,
+[You]: o mismo, si necesitan postear los resultados en alguna base propia, también lo podemos hacer.
+[You]: Algunos desarrollos iniciales para mencionar acá,
+[You]: tenemos un integrador dinámico que nos permite
+[You]: configurar la plataforma de manera muy rápida, realmente en días podemos estar andando.
+[You]: Tenemos un data flywheel, quiere decir que
+[You]: el sistema agéntico aprende en el tiempo.
+[You]: ¿Sí? Es decir,
+[You]: a medida que que ustedes empiecen a usar la plataforma, el sistema aprende de sus archivos
+[You]: y aprende de las acciones de los usuarios en la plataforma, con lo cual se vuelve cada vez más autónoma en el tiempo.
+[You]: Tenemos algoritmos que empezamos a entrenar
+[You]: sobre la operatoria específica de de car fácil, y, entonces, se vuelve quedar mejor en el tiempo.
+[You]: Y lo último es el problem solver, que es para la investigación y resolución de discrepancias. Lo que hace ahí es, es muy interesante,
+[You]: arma clusters,
+[You]: de transacciones por por causa raíz, y propone su
+[You]: para resolverlas.
+[You]: Y a medida que el usuario aprueba y rechaza,
+[You]: de vuelta, el sistema aprende y gana autonomía en el tiempo.
+[You]: Lo cual, algunos clientes con los que trabajamos en Latinoamérica y en Estados Unidos esto, entre otros, obviamente, trabajamos con más,
+[You]: pero para mostrar un par de logos ahí, y un poco el impacto que hemos generado en nuestros
+[You]: clientes iniciales, ¿no?
+[You]: Mucha reducción de tareas manuales, reducción de pérdidas y reconciliables,
+[You]: eso es importantísimo, hay una ganancia económica de usar REXI, Y después el tema del riesgo, para compañías que están auditadas o tienen que cumplir con requisitos de reguladores, bueno, la plataforma, al automatizar eso, también ha permitido que se reduzca el riesgo de alguna multa o del riesgo de perder alguna licencia, ¿no? Las modalidades con las que trabajamos, El más común es la modalidad una plataforma que ingesta, procesa y devuelve resultados en nuestra infraestructura. Tenemos la solución embedded, que esto es para clientes, no creo que aplique usted, pero para clientes que tener una herramienta de conciliación en sus portales les puede llegar a ser interesante hacia sus clientes, como que tenemos un white labeling ahí,
+[You]: Y después tenemos la solución que se llama customer deployed, que es
+[You]: cuando la solución en la infraestructura del cliente. Eso, típicamente, es para compañías donde
+[You]: hay una privacidad, hay una sensibilidad con la información muy alta,
+[You]: o es un capability que quieren controlar. Tiene que haber una razón fuerte para
+[You]: este modelo, ¿no? Pero
+[You]: algunas compañías tiene sentido.
+[You]: Y lo último, con esto cierro, es la seguridad, ¿no?
+[You]: Estamos trabajando con sus archivos transaccionales, entonces, es muy importante nosotros
+[You]: todo lo que es la privacidad y la seguridad de la información. Ya somos SOC dos tipo dos,
+[You]: y estamos en proceso de tener SOC uno, tipo dos, y y SO dos veintisiete mil uno.
+[You]: Son certificaciones de
+[You]: seguridad en el manejo de la información.
+[You]: Eso cierro. Hablé un poco rápido, pero no quiero hacer buen uso del tiempo, no sé
+[You]: si tienen algunas dudas, consultas, sino si no nos metemos de lleno en en
+[You]: entender los procesos de car fácil y
+[You]: y la razón detrás del interés de de contactarnos.
+[Remote]: No, yo duda no tengo.
+[You]: Espectacular.
+[Remote]: No.
+[You]: Bueno, entonces, cuenten cuéntenme un poco sobre
+[You]: la operatoria de Car Fácil. Ahí vi que en el formulario llenaron algunos datos.
+[You]: Que tengo acá,
+[You]: que, por ejemplo, dice, es un tema de cobranzas,
+[You]: hoy tiene un proceso semiautomático, tiene más de diez millones de transacciones por mes,
+[Remote]: No sé, todos esos números los
+[Remote]: puse porque no no tenía ni idea. Perdón.
+[Remote]: Porque sí, la verdad es que es muy difícil resumir en un formulario
+[Remote]: qué es lo que necesita, y aparte entiendo que por ahí es algo diferente a lo que
+[Remote]: da.
+[Remote]: No sé, Letty, o sea, vos,
+[Remote]: lo ves?, o sea, nosotros necesitamos
+[Remote]: más que nada, reconciliar las cuentas de los clientes,
+[Remote]: con las con con los saldos bancarios.
+[Remote]: O sea, entiendo que es eso, ¿no, Letith? Claro.
+[Remote]: Una reconciliación, claro, es esa, explicalo.
+[Remote]: No, yo lo que veo, nosotros allá tenemos distintas modalidades de cobranzas,
+[Remote]: en algunos casos, por ejemplo, en lo que es
+[Remote]: cobranza a través de bancos, no viene identificado con
+[Remote]: los datos llaves, digamos, o con los códigos que usamos
+[Remote]: como sí puede ser, por ejemplo, trabajamos con Mercado Pago, Pago Fácil,
+[Remote]: en donde
+[Remote]: te informan la cobranza a través del número de préstamo, que es lo que usamos nosotros, y ahí te sirve. En cambio, en un banco te hacen una te hacen un depósito, y digamos, te viene quién te depositó, pero no no podés hacer la rápida. Entonces, ahí es donde muchas veces tenés que salir a a buscar la información y buscar... Yo cuando vos hablabas de de del AI, de cómo puede ir mejorando, pensaba, bueno, todos los meses Leticia hace una transferencia, ya en algún momento
+[Remote]: te va decir, este es el número de préstamo de Letizia, ¿no?, lo lo visualizaba así, como algo así.
+[Remote]: Este, o muchas veces quizás paga otra
+[Remote]: en nombre de Leticia, bueno, al repetirse tantas veces ya es como que
+[Remote]: eso es un poco el trabajo manual que hacemos nosotros en definitiva.
+[Remote]: De de buscar para atrás la información de la transferencia
+[Remote]: que que hace Leticia, qué número de préstamo
+[Remote]: Y después viene toda la parte de conciliación bancaria,
+[Remote]: que, bueno, ahí va más por movimientos y ahí
+[Remote]: es como más volumen, porque también interactúan, como vos decías, otras áreas, las de
+[Remote]: finanzas, el el pago de los préstamos en el momento de
+[Remote]: del otorgamiento del crédito,
+[Remote]: este, en donde ahí está bueno poder
+[Remote]: enseguida
+[Remote]: identificar como los movimientos de dónde son y poder
+[Remote]: con nuestro sistema. ¿No? Este,
+[Remote]: un poco lo que yo veía según lo que vos explicaba
+[Remote]: iba más por ese lado.
+[Remote]: Por el lado de de
+[Remote]: de las cuentas corrientes de los clientes,
+[Remote]: bueno, ahí es entrar en en nuestro mundo y en nuestro sistema, no sé, le digo como
+[Remote]: si vos
+[Remote]: ves una óptica desde ese lado de poder entrar a nuestro sistema,
+[Remote]: No, sí,
+[Remote]: no
+[Remote]: no hay ningún problema, ese hay que buscar cuál es la necesidad de o
+[Remote]: el punto tan agenciado como entrar, pero no no
+[Remote]: habría ningún inconveniente. Acá el problema es
+[Remote]: digamos, como decía Leticia,
+[Remote]: a nosotros nos ingresan los pagos, que no siempre
+[Remote]: son
+[Remote]: identificables,
+[Remote]: y
+[Remote]: y tratar de hacer las y la identificación.
+[Remote]: Pero esto es
+[Remote]: digamos, a ver,
+[Remote]: esa identificación tiene que ser
+[Remote]: anterior
+[Remote]: a nuestro proceso de imputación, porque cuando nosotros imputamos, ya sabemos quién
+[Remote]: a quién corresponden.
+[Remote]: Entonces, ese es como
+[Remote]: como debería ser como un paso intermedio, es decir, todos los todos los
+[Remote]: ingresos que nosotros tenemos, pasarlo por ustedes,
+[Remote]: ver de aplicar a
+[Remote]: a la inteligencia artificial, a quién corresponde estos pagos,
+[Remote]: ¿sí?
+[Remote]: Quizá conciliar a través de nosotros, a través de la
+[Remote]: plataforma de ustedes,
+[Remote]: la
+[Remote]: las cuotas que, o sea, estarían pagando,
+[Remote]: pero posteriormente nosotros tenemos que hacer todo el sistema de imputación,
+[Remote]: digamos, ya con
+[Remote]: la posibilidad de no tener que estar detectando
+[Remote]: aquellos pagos que no están
+[Remote]: nominados, ¿sí?, por decirlo de una forma,
+[Remote]: no por el nombre, sino por por el número de préstamo,
+[Remote]: para poderlo incutar correctamente a a
+[Remote]: quien corresponde, porque si no lo que nos queda a nosotros es un anticipo.
+[Remote]: Un anticipo en una bolsa de anticipos que no sabemos a veces
+[Remote]: no no logramos ni determinar de quién es, ¿sí?
+[Remote]: Hasta que tu cliente se queja
+[Remote]: le estamos reclamando una deuda,
+[Remote]: y
+[Remote]: y en ese momento
+[Remote]: digamos, logramos identificarlo, llevado eso al extremo, ¿no?, porque no
+[Remote]: no son demasiados esos los casos, pero bueno,
+[Remote]: llegado al extremo, esa es la problemática que tenemos.
+[You]: Unas preguntas ahí.
+[You]: Entonces, ¿estamos comparando siempre
+[You]: un extracto bancario
+[You]: contra una base propia que tiene lo que debería haber sucedido, ¿correcto?
+[Remote]: Y, básicamente, sí.
+[You]: ¿Y qué volumen de transacciones
+[You]: comparando por mes?
+[Remote]: No, en este momento no lo tengo cuantificado. Por eso
+[Remote]: deberían ser unas quince mil, diecisiete mil. En cuestión de cobranzas. De cobranza, por
+[You]: Diecisiete mil transacciones por mes. Ok.
+[You]: Eso es lo que están buscando automatizar, ¿no?, ¿o hay otra parte?
+[Remote]: No. Esto y las conciliaciones bancarias estuviera dentro del mismo
+[Remote]: paquete?
+[You]: Ah, por eso es como conciliar
+[Remote]: ¿Por qué? Claro, ¿por qué?
+[You]: las cobranzas y Y los balances.
+[Remote]: Claro, exacto.
+[You]: Perfecto.
+[Remote]: Las cuentas bancarias.
+[You]: Bien. Y ahí, hoy, actualmente, ¿cómo lo están resolviendo?
+[Remote]: La, por eso te decía, en cuanto a cobranzas, por ejemplo, no
+[Remote]: tenemos una persona que que
+[Remote]: descarga el extracto bancario y va
+[Remote]: buscando para atrás la información
+[Remote]: referente a los pagos, ¿no? O sea, hace un buscar y por el nombre de la
+[Remote]: que todos los meses transfiere, trae quién es ese crédito.
+[Remote]: Este, hasta incluso a veces la identificación, que lo que te comentaba Leo,
+[Remote]: de no saber quién pagó, porque
+[Remote]: el movimiento no trae ningún tipo de información,
+[Remote]: muchas veces lo que hacés es buscar por importe,
+[Remote]: para saber, porque el cliente, este,
+[Remote]: te puede pasar que te coincida exactamente con la cuota o con la deuda exigible,
+[Remote]: entonces, por importe, pues ahí a buscar y tener noción de quizás
+[Remote]: este es el cliente que me pagó
+[Remote]: pero es todo manual, ¿no?
+[You]: Excel.
+[Remote]: ¿Sabés? Y hasta en algún momento que si tenés dos dos préstamos,
+[Remote]: con la misma cuota, se está
+[Remote]: no te podés jugar el riesgo a quien corresponde, ¿no?
+[You]: Esto en Excel. Entonces,
+[Remote]: And it's sent.
+[Remote]: Pero ligado a un humano, totalmente.
+[Remote]: El humano que tiene la memoria de que como
+[You]: Right.
+[Remote]: muchas veces ya conoce de dónde viene el pago,
+[Remote]: o sea, es el colmo del de lo primitivo.
+[You]: Sí, sí, esto lo lo vemos mucho en algunos clientes que
+[You]: trabajamos, que
+[You]: hay un conocimiento concentrado en la cabeza de esta persona,
+[You]: hasta te hace pensar, che, si esta persona se va,
+[You]: ya se da una licencia de, no sé, enfermedad,
+[You]: paternidad, lo que sea,
+[You]: nadie más sabe la las casuísticas que
+[Remote]: Mhmm.
+[Remote]: Mhmm.
+[You]: Entonces, hay un riesgo muy grande en eso.
+[You]: Bueno, hay una persona full dedicada, que hoy lo hace en Excel,
+[You]: y un poco lo que están buscando es
+[You]: para resumirlo, automatización.
+[Remote]: Mhmm.
+[You]: Y eso le les permita ser más productivos
+[Remote]: Exacto.
+[You]: y, de vuelta, de cara a la operatoria,
+[You]: no estar reclamando pagos que por ahí ya ya entraron,
+[You]: o o, justamente, reclamar pagos que faltan, pero
+[You]: como hoy no tienen la visibilidad, no lo hacen, hay un impacto en la operatoria grande, digamos.
+[Remote]: Exacto.
+[Remote]: Sí, sí, muchas veces te pasa, quizás te te indiene un monto y no viene
+[You]: Ok.
+[Remote]: pero como nosotros también publicamos la deuda en las
+[Remote]: plataformas de los distintos canales de cobro,
+[Remote]: lo que hace la persona es ir a abrir las publicaciones,
+[Remote]: y fijarse por monto, a ver quién puede ser el que pagó. Entonces,
+[Remote]: la idea es como
+[Remote]: intentar automatizar eso y y que venga la la información sola, ¿no?, con las
+[Remote]: soluciones, como hace la persona cuando lo busca, tipo,
+[Remote]: termina diciendo, bueno, puede ser de Cecilia o de Leticia,
+[Remote]: y ahí entras a mirar y y a poder imputar, ¿no?
+[You]: Claro. Y hay una pregunta.
+[Remote]: Este,
+[You]: ¿Cuántos canales de cobro distintos tienen
+[You]: y cuáles?
+[Remote]: Cinco.
+[You]: ¿Cuáles son? Mercado pago,
+[Remote]: Fácil, mercado pago, pago mis cuentas.
+[Remote]: Después tenemos una cuenta recaudadora de banco y dos
+[Remote]: cuentas bancarias.
+[Remote]: Cuenta bancaria, la cuenta como una, ajá.
+[You]: nos conectamos a un sistema interno de ustedes,
+[You]: y simplemente a la cuenta recaudadora, y fin.
+[You]: Para compararse a la conciliación.
+[Remote]: Sí, yo ahí te iba a preguntar, este, cómo es el lado de los
+[Remote]: o sea, vos tenés que ir a leer ese
+[Remote]: que ya estaba bajado a algún lugar,
+[Remote]: o haces la conexión directa, cómo es cuando
+[Remote]: O por el lado de las conciliaciones bancarias, ¿no? ¿Cómo
+[Remote]: vos, por un lado, tenés lo que se registró en el sistema, y por el lado,
+[Remote]: lado, cómo accedés a la información del extracto
+[You]: Ahí, típicamente, depende del banco. ¿Qué, con qué bancos operan?
+[Remote]: Y tenemos varios.
+[Remote]: Patagonia, Industrial,
+[Remote]: macro,
+[You]: Pero a nivel
+[Remote]: Santander. Santander, muy poco, pero
+[You]: ¿dónde tenemos que buscar los, cuáles tenemos que conectarnos? Para buscar el extracto.
+[Remote]: Ajá. ICBC.
+[You]: ¿De todos?
+[You]: Bueno.
+[You]: Sí, sí. Mirá,
+[You]: ahí depende mucho del del banco, pero si el banco cuenta con APIs,
+[You]: vamos por API,
+[You]: si el, y si no, algún tipo de SFTP.
+[You]: Que nos que el banco nos permita extraer extra
+[You]: ingestar los extractos de manera
+[You]: asincrónica, digamos. Nosotros, para usar Rexi, necesitamos
+[You]: todos los días poder descargar e ingestar el extracto bancario de cada una de estas cuentas.
+[You]: Entonces, ahí es resolver con cada una de esas soluciones
+[You]: ver cómo lo podemos hacer. Si ustedes ya tienen un mecanismo
+[You]: y lo traen a una base propia de ustedes, nosotros nos conectamos directo a esa base
+[You]: injetar los extractos, buenísimo, si hay que desarrollar el el conector a cada uno de los bancos,
+[You]: se hace, digamos, y y por eso el dinámico que les mencionaba.
+[Remote]: Claro.
+[Remote]: El tema, Ignacio, es que
+[Remote]: digamos,
+[Remote]: si nosotros te damos acceso a la base muestra,
+[Remote]: Perdón, el telefónico.
+[Remote]: Si vos entregamos a la ingreso a la base nuestra,
+[Remote]: para poder sacar la información de cobranzas,
+[Remote]: ¿sí?
+[Remote]: Ya el trabajo manual que habíamos comentado antes ya se hizo.
+[Remote]: Porque en realidad
+[Remote]: ¿sí?, nosotros
+[Remote]: cada cada
+[Remote]: cada metodología, a caso de cada pasarela de pago,
+[Remote]: ¿sí?
+[Remote]: Nos deja o nos permite bajar
+[Remote]: un un reporte, o
+[Remote]: distinta información
+[Remote]: ¿sí?
+[Remote]: Eso lo tenemos, algunas
+[Remote]: algunas situaciones son manuales, es decir, yo no no recuerdo quién lo hace
+[Remote]: quién lo deja en forma automática,
+[Remote]: pero si no hay que entrar pasarela por pasarela,
+[Remote]: bajarlo,
+[Remote]: ¿sí?, tomar ese reporte,
+[Remote]: Nosotros sí lo procesamos ya, es decir,
+[Remote]: también hicimos nuestros procesos de tal manera,
+[Remote]: que hay un filtro manual
+[Remote]: que obviamente era muy es mucho más chico a lo que había antes,
+[Remote]: ¿sí?
+[Remote]: Pero, bueno, digamos, nosotros no aplicamos inteligencia artificial como
+[Remote]: para descubrir que un pago que viene continuamente de
+[Remote]: Ignacio, hay que
+[Remote]: ponérselo al préstamo de Cecilia, ¿sí? Esa parte
+[You]: Por ahí,
+[You]: Sí.
+[Remote]: pero
+[Remote]: no lo podemos tomar directamente de nuestro sistema, porque bien,
+[Remote]: no, queda solamente la parte de conciliación.
+[You]: Sí, no, no, no, la idea es automatizar todo.
+[Remote]: ¿Sí?
+[You]: Con lo cual construir esos conectores a las fuentes va a ser una prioridad de del proyecto,
+[You]: decidiéramos avanzar.
+[You]: En este último
+[Remote]: Claro, ponele, perdón, Ignacio, vos
+[Remote]: o sea, considerás que es viable que se pueda entrar en el
+[Remote]: y quizás ver
+[Remote]: digamos, a través de nuestra base
+[Remote]: que ya tenemos, es decir, el pago siempre lo hace la misma persona, entrar y sacar
+[Remote]: extraer, por ejemplo, el dato, que es el código que nosotros usamos para subir el archivo, que
+[Remote]: un archivo nuevo con esa información del extracto.
+[You]: Está.
+[Remote]: El monto del extracto, el número de préstamo, por ejemplo,
+[You]: Sí, sí.
+[Remote]: o ir a buscar por monto y decir, bueno, este monto coincide con este,
+[Remote]: te traigo estas posibles soluciones.
+[You]: Eso es lo que hacemos, eso es exactamente lo que hacemos, y para lo cual la inteligencia artificial es muy, muy
+[Remote]: Ok.
+[You]: buena.
+[You]: Así que sí. A la parte conciliatoria, no tengo duda que la podamos resolver,
+[You]: Queda entrar con el equipo en más detalles sobre cómo construir los conectores acá en una esta
+[You]: para poder ingestar las bases, ¿no? Porque queremos automatizar el proceso de
+[You]: punta a punta. De nada sirve
+[You]: que ustedes sigan teniendo a esta persona bajando un archivo, poniéndole una base para que
+[You]: la tomemos de ahí y la procesemos, no es como que, digamos, nos quedamos mitad de camino.
+[You]: Lo, quería usar los últimos tres minutitos para pensar un, para que me cuenten un poco más de
+[You]: para ser transparentes acá, y también no
+[You]: no no hacerle perder el tiempo a nadie. ¿Cómo estaban pensando el tema de presupuesto para una herramienta como esta?, ¿no?
+[You]: Tenían algo en mente o un rango de qué les parece
+[You]: razonable o qué les parece por allá demasiado caro.
+[You]: Si lo habían pensado.
+[Remote]: No, quizás eso lo
+[Remote]: Gonzalo, que hoy
+[Remote]: no no se pudo subir.
+[You]: Gonzalo es gerente de
+[Remote]: El CEO de la empresa. Ajá.
+[You]: Ah, CEO, ok. Bueno, mirá,
+[You]: yo, para ser honesto también, y y no querer hacer perder el tiempo, les cuento un poco
+[You]: para para
+[You]: setups como este, lo mínimo que estamos cobrando es
+[You]: sería mil dólares por mes.
+[You]: Para el uso de la plataforma.
+[You]: El impacto es
+[You]: les puedo asegurar, es no tener más a esta persona,
+[You]: como por ahí hay un ahorro entero, o por ahí dedicarles, digo, tampoco queremos entrar en la sensibilidad de por ahí
+[You]: tener que despedir a esa persona, pero sí que esa persona por ahí se dedique a otros procesos que seguramente tienen
+[You]: necesidad,
+[You]: que sean de mayor valor agregado para esa persona, al final, ¿no?, y les permita mejorar la operación en otro frente.
+[You]: Pero sería realmente reemplazar todo ese trabajo manual y automatizar el proceso de de
+[You]: de principio a fin. Nosotros nos haríamos cargo de toda la
+[You]: de toda la conexión,
+[You]: pero después quedaría un costo recurrente de mil dólares por mes.
+[Remote]: Te hago una pregunta. ¿Está en Inganita? ¿La implementación es gratuita?
+[You]: ¿Cómo?
+[You]: Sí.
+[Remote]: ¿Y a partir de cuándo se empieza a cobrar?
+[You]: Una vez a partir del momento en el que está en producción, conciliando.
+[Remote]: Es decir, que todo el la startup es
+[Remote]: digamos, a costo a costo llego de ustedes.
+[You]: ¿Cómo?
+[Remote]: La startup de la de la
+[Remote]: de poder aplicar la la herramienta, va por costo y riesgo de ustedes.
+[You]: Ahí, lo que hacemos, típicamente, y te te soy honesto,
+[You]: te comparto un poco cómo lo hacemos, es
+[You]: lo que más queremos es que la implementación sea rápida.
+[You]: ¿Sí? Entonces, lo que hacemos es ponemos un incentivo,
+[You]: ¿sí?, para la implementación. Entonces, agarramos agarramos y decimos, obviamente, hacemos un
+[You]: análisis bien de cuánto tiempo nos puedes llegar a demorar, implementar, para que ustedes nos ayuden en el proceso de implementación, lo que hacemos es decimos, cobramos mil dólares, por ejemplo, de implementación, y si logramos estar en producción en menos de treinta días, entonces eso se bonifica. Es por un tema de de acelerar la implementación y asegurar que, porque, digo, la implementación no depende solamente de nosotros, sino va a depender mucho de ustedes también en cómo nos facilitan por ejemplo, construir los conectores. Asegurate que, del otro lado, tenemos un sponsor que nos está realmente empujando y priorizando el proyecto en esos primeros treinta días,
+[You]: para que nos dejen hacer el trabajo de manera acelerada. Nosotros no tenemos duda que nosotros podemos ir rápido,
+[You]: pero muchas veces nos traba
+[You]: alguien
+[Remote]: Yo te entiendo, pero los conectores con los que
+[Remote]: entidades financieras, vos sabés perfectamente que
+[Remote]: no es tan fácil conseguirlos.
+[Remote]: ¿Sí?
+[Remote]: Entonces,
+[Remote]: en realidad, ustedes, digamos,
+[Remote]: yo te puedo poner en contacto con
+[Remote]: no sé,
+[Remote]: con la persona responsable del Banco Patagonia,
+[Remote]: pero ahí a que te den la documentación,
+[You]: No, entiendo, pero no me van a dar bol a mí y te van a dar bol a vos, que sos cliente, digamos, ¿me entendés?
+[Remote]: o que
+[You]: Sí.
+[Remote]: Entiendo.
+[Remote]: Pero
+[You]: ¿Es algo para surfear juntos?
+[You]: Pero ese esa urgencia y ese apuro
+[You]: tiene que venir del lado del cliente, porque sé que tiene la relación con
+[You]: con el banco o con quien sea, ¿no? Entonces, es
+[You]: ¿viste?, hacer esos follow ups rápido, hablar con la persona indicada, che, cuándo nos puedes entregar
+[You]: documentación de SFTP,
+[You]: que nos ayuden realmente a empujar eso con velocidad, eso es lo que hacemos.
+[You]: Nosotros tomamos todo el trabajo de desarrollo,
+[Remote]: ¿Y con quién con
+[You]: necesitamos que nos empujen.
+[Remote]: de todas las entidades financieras que te te comentamos recién que nosotros usamos acá
+[Remote]: la de pago,
+[Remote]: ustedes ya tienen realizada integraciones.
+[You]: Banco Industrial,
+[You]: COINag, Banco Superbiel,
+[You]: Del mundo adquirencia, tenemos a Payway,
+[You]: tenemos a Global Processing, tenemos a Pomelo,
+[You]: que es, bueno, es en visor, tenemos a
+[You]: con lo cual ahí hay unos bancos que no tenemos,
+[You]: pero, de vuelta, confiaría en que o tienen APIs o
+[You]: tienen un equipo que te habilita en un SFTP rápido.
+[Remote]: Sí, no. Sí.
+[Remote]: Pero, bueno, ahí en el medio hay toda una parte burocrática de las entidades
+[Remote]: financieras, que
+[Remote]: digamos, hay que
+[You]: Sí.
+[Remote]: hacer un montón de historias,
+[Remote]: o para que te den acceso y ver qué qué nivel de
+[Remote]: tienen que pueden dar en SFTP,
+[Remote]: pero bueno.
+[Remote]: Qué sé yo. O sea, con Mercado Pago, por ejemplo,
+[Remote]: lograr que funcione un proyecto no duró
+[Remote]: dos meses y medio.
+[Remote]: ¿Sí?
+[You]: Bueno, hacemos ese scoping con con el equipo, digo, es decir, caso
+[Remote]: Y
+[You]: caso, pero, digo, si no podemos construir el conector,
+[You]: no podemos hacer nada. Con lo cual es el primer paso, fundamental.
+[Remote]: de acuerdo por eso te preguntaba
+[Remote]: si va por costo y riego de ustedes o
+[You]: Sí.
+[Remote]: no.
+[You]: Sí, sí, lo hacemos nosotros, olvídate.
+[Remote]: Ok.
+[You]: Yo tengo que saltar, pero
+[You]: ahora, si quieren, les mando un correo, un poco, con la minuta de lo que charlamos recién, y vemos cómo seguir.
+[Remote]: Vale.
+[You]: Y ahí me dicen ustedes cómo cómo quieren seguir. Nosotros creo que hay un feed,
+[You]: creo que podemos agregar muchísimo valor, queda este este signo de pregunta alrededor de los conectores,
+[You]: pero que deberíamos por ahí
+[You]: escopiarlos bien y entender
+[You]: serían los plazos para cada uno esos conectores, y, a partir de ahí, pensar cómo
+[You]: cómo podemos avanzar en una implementación, ¿le parece?
+[Remote]: Perfecto.
+[Remote]: Vale, vale.
+[You]: Un gusto conocerlos a todos y tiempo.
+[Remote]: Muy bien.
+[Remote]: Gracias, linda, adiós. Igualmente. Chao.
+
+============================================================
+SUMMARY
+============================================================
+### CARFACIL’s Current Payment Reconciliation Process
+
+- Manual reconciliation by one dedicated person using Excel
+  - Downloads bank statements daily
+  - Searches backwards through payment information
+  - Uses VLOOKUP functions one by one
+  - Relies on institutional memory of recurring payers
+- Payment identification challenges
+  - Bank transfers lack loan number identification (unlike Mercado Pago, Pago Fácil)
+  - Must search by payer name or amount matching
+  - When amounts match multiple loans, cannot determine correct borrower
+  - Results in unallocated payments sitting as advances
+- Risk of concentrated knowledge in single person
+  - No backup process if person unavailable
+  - Primitive system dependent on human memory
+
+### Payment Channels & Technical Requirements
+
+- Five collection channels requiring integration:
+  1. Mercado Pago
+  2. Pago Fácil
+  3. Pago Mis Cuentas
+  4. Bank collection account
+  5. Two additional bank accounts
+- Banking relationships for connector development:
+  - Patagonia
+  - Industrial
+  - Macro
+  - ICBC
+  - Santander (minimal usage)
+- Volume: \~15,000-17,000 collection transactions monthly
+- Current semi-automated system already processes some payment gateway reports
+  - Manual filtering still required for unidentified payments
+  - Need AI layer before their internal allocation system
+
+### Pricing & Implementation Discussion
+
+- Rexi pricing: $1,000 USD monthly minimum
+- Implementation approach:
+  - $1,000 setup fee, refunded if live within 30 days
+  - Rexi builds all connectors at their cost/risk
+  - Requires client cooperation for bank API/SFTP access
+- Connector development concerns raised
+  - Bank bureaucracy can cause delays (Mercado Pago took 2.5 months)
+  - Need case-by-case scoping for each financial institution
+- Budget decision maker: Gonzalo (CEO) - not present today
+
+### Next Steps
+
+- Ignacio to send meeting summary via email
+- Scope connector requirements and timelines for each bank
+- Await input from Gonzalo on budget approval
+- Determine implementation timeline based on connector complexity
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/350a70db-9722-4da2-bd2d-a9f946cade87](https://notes.granola.ai/t/350a70db-9722-4da2-bd2d-a9f946cade87)

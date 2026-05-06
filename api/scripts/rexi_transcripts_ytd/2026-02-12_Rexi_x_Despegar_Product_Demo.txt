@@ -1,0 +1,1094 @@
+MEETING: Rexi x Despegar: Product Demo
+DATE: 2026-02-12
+ID: not_pOAPtRsqSbsisl
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Leonardo Lins <leonardo.lins@despegar.com>, Teo <teo@rexi.finance>, Nicholl Cabezas Diaz <ncabezas@despegar.com>, Jean Castillo <jean.castillo@despegar.com>, Lizquierdo <lizquierdo@despegar.com>, Miguel Pereira <miguel.pereira@despegar.com>, Hpina <hpina@despegar.com>, Flrodriguez <flrodriguez@despegar.com>, Pablo Martin Charchaflie <pcharchaflie@despegar.com>, Fernando Piccirillo <fpiccirillo@despegar.com>, Juan Defelice <juan.defelice@despegar.com>, Micaela Belén Kennis <micaela.kennis@despegar.com>, Financialsystems-leads <financialsystems-leads@despegar.com>, Jonathan Pombo <pomboj@despegar.com>, Sebastián García <sebastian@rexi.finance>, John Thompson <john.thompson@oliverwyman.com>, Franco <franco@rexi.finance>
+SCHEDULED: 2026-02-12T10:00:00-05:00 - 2026-02-12T10:45:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Hello, Bernardo. How's it going?
+[Remote]: Hola, Ignacio.
+[Remote]: Sí, todo bien.
+[Remote]: ¿Y tú?
+[You]: ¿Estuviste de vacaciones, puede ser, o no?
+[Remote]: Yo, no, la verdad, es que tuve un evento
+[Remote]: fuera acá de Argentina.
+[Remote]: La semana pasada.
+[You]: Ah, ok.
+[Remote]: Entonces, ahí estaba por
+[Remote]: Pero
+[You]: Muy bien.
+[Remote]: ojalá fuera de vacaciones.
+[Remote]: Pero no,
+[You]: Bueno,
+[You]: espectacular. Ahí esperamos a que te sume el equipo y hacemos ahí un un
+[You]: contexto y y hacemos kick off.
+[Remote]: Dale, perfecto, me parece superbién.
+[Remote]: Buen día, ¿qué tal?
+[Remote]: Buenos días.
+[You]: ¿Cómo estás, Lucio? Un gusto. Creo que no te habíamos conocido, ¿o sí?
+[Remote]: ¿O bien? No, no, es la primera que consumo.
+[You]: Ahí va.
+[Remote]: Buenas. ¿Cómo andan?
+[You]: Un gustazo.
+[Remote]: Buenas.
+[Remote]: Hola, buen día.
+[You]: Hola, Flavia, un gusto. ¿Cómo estás?
+[Remote]: Hola.
+[Remote]: Flavia.
+[Remote]: ¿Usted?
+[You]: Bien, por suerte.
+[You]: Todo bien.
+[You]: Listo, para... Ustedes están casi todos en Argentina, ¿no? ¿Lucio, Leonardo, y Flavia?
+[Remote]: Hello. This time, Uruguay.
+[Remote]: Sin parte del equipo en Uruguay,
+[Remote]: parte del equipo acá en Argentina.
+[You]: ¿Alguno de ustedes trabaja
+[Remote]: Déjame
+[You]: alguno de ustedes trabaja o trabajaba con Damián Scoking?
+[Remote]: Bueno, él está acá en Argentina, ¿no? Era el
+[Remote]: bueno, aún sigue con el CEO de la empresa. Aunque estará hasta marzo, solo. Pero, no trabajo con él, pero sí lo conozco.
+[You]: Sí.
+[You]: Eso.
+[You]: Ah. Bueno, yo lo lo conozco muy bien, estudié con el hijo, con Cuarco. Y aparte, él viene mucho a Nueva York, ¿puede ser?
+[Remote]: Bien. Ajá.
+[Remote]: Creo que su hijo estudia y trabaja ahí, no sé.
+[You]: Sí, sí, trabaja acá, Cuoco. Acá. Bueno, ¿estamos Brenda alguien más?
+[Remote]: Algo así, me pone Ajá.
+[Remote]: Trabajo en
+[Remote]: Estamos esperando acá
+[Remote]: Flávio, ¿puedes enviar un mensaje ahí a
+[Remote]: ver acá quién está en el listado? Pero seguro Dale, te estoy diciendo que se sume.
+[Remote]: Sí, yo le escribí a
+[Remote]: Sí, a Homero.
+[Remote]: Perdón. Miguel. Ah, sí, Miguel, ahí está.
+[Remote]: Buenas. Buenas. Buenas. Bueno.
+[You]: Si quieren,
+[You]: vamos arrancando, ¿les parece?
+[Remote]: Dale, adelante.
+[You]: ¿Quieren grabar?
+[Remote]: Sí, claro.
+[You]: ¿Así luego les queda?
+[Remote]: Sí, sí, sí.
+[You]: Dale, ahí arranco a grabar y y le damos.
+[You]: Hola, Nicole, ¿cómo estás?
+[Remote]: ¿Está bien?
+[You]: Bien, todo bien. A todo esto,
+[You]: español está bien, ¿no?, ¿o hay o o pasamos inglés?
+[Remote]: Está perfecto el español.
+[You]: Ok.
+[Remote]: En español, tú, por favor.
+[Remote]: Buen día, chicos, ¿cómo está? Cobra?
+[You]: Buenas, buenas.
+[Remote]: Buen día.
+[Remote]: Buenas. Buen día. Hola. Buenos días. Perdón, les daba un
+[You]: O sea, nada.
+[Remote]: No hay problema.
+[You]: Arrancamos, que tenemos mucho para mostrar, mucho para charlar y seguramente hagan hayan muchas preguntas.
+[You]: Quizás para empezar, me gustaría hacer un recap de lo que aprendimos la vez
+[You]: pasada, de de lo lo que levantamos, comentarios de ustedes y un poco los dolores
+[You]: principales que hoy están
+[You]: experimentando con el proceso de conciliaciones. Es el mundo al que nosotros nos dedicamos
+[You]: day in, day out. Hermoso mundo de conciliar transacciones. Pero bueno,
+[You]: un poco los dolores que que escuchamos fueron, obviamente,
+[You]: son volúmenes muy altos de transacciones,
+[You]: estamos hablando de tres millones de registros más o menos por mes,
+[You]: con múltiples fuentes, ¿no?, tarjeta de crédito, hoteles, aerolíneas, bancos,
+[You]: y que, bueno, todos esos volúmenes involucran muchísimo
+[You]: trabajo manual, desde la ingesta de la información, la transformación, el procesamiento
+[You]: con los principales dolores es todo ese trabajo manual, ¿no?
+[You]: Dentro de ese trabajo manual hay dolores con los formatos, formatos heterogéneos y no estándares
+[You]: que requieren mucho masajeo para después poder comparar.
+[You]: Después, bueno, obviamente, cada vertical se
+[You]: aerolíneas, medios de pago, tiene mucha particularidad.
+[You]: Entonces, como que requiere un trabajo manual de configuración de cada uno esos flujos de información.
+[You]: Después está el tema de la gestión de discrepancias. Obviamente, una vez
+[You]: vez que uno construye el flujo de conciliaciones,
+[You]: para cuadrar transacciones, como bien sabemos, nunca cuadran cien por ciento,
+[You]: empieza todo el laburito de investigar y resolver las discrepancias. Y hoy ese
+[You]: proceso también involucra un dolor de de mucho trabajo manual.
+[You]: Después está la parte del impacto contable,
+[You]: la trazabilidad, cómo
+[You]: la conciliación termina impactando los asientos contables y el ERP que estén usando,
+[You]: Había un concern alrededor de la seguridad y la privacidad de los datos,
+[You]: porque, obviamente, muchos de estos archivos contienen información de clientes,
+[You]: que tenemos que que tener estándares ahí de control y de privacidad,
+[You]: Y después, obviamente, los cambios constantes, ¿no? Estos flujos nunca son estáticos
+[You]: agregan una nueva vertical, un nuevo proveedor,
+[You]: o el proveedor te cambia cómo te manda los archivos,
+[You]: y eso termina impactando sobre cualquier proceso que uno tenga
+[You]: de la conciliación. Así que un poco de lo que aprendimos de esos dolores
+[You]: acá, no sé si lo habían, si Seba y
+[You]: y todo estaba en la reunión pasada, pero si no, obviamente, los presento,
+[You]: CTO de de Rexi, Teo CPO de Rexi,
+[You]: estuvieron trabajando ahí un poco para armar una
+[You]: enfocada en estos dolores, ¿no? Siempre estamos queriendo mostrar cómo resolveríamos esos dolores, así que basado en ese recap, quiero hacer una pausita antes de que nos nos metamos de derecho a ver en productos. Si me olvidé de algo, o hay algo adicional que alguien quiera mencionar relacionado a los dolores que hoy tienen con el proceso de
+[Remote]: De mi parte, no. No, sí, estamos
+[You]: Espectacular. Bueno, entonces, el spotlight
+[You]: en ustedes, muchachos.
+[Remote]: Buenísimo. Bueno, hacemos un un repaso por
+[Remote]: la conciliación de demuestra que nos
+[Remote]: que nos compartieron, que es la de aerolíneas,
+[Remote]: la idea
+[Remote]: más allá de los números,
+[Remote]: específicos a los que lleguemos,
+[Remote]: es que se lleven un pantallazo de cómo funciona Rexi,
+[Remote]: cómo automatiza todos los procesos conciliatorios, que son exactamente los que nos compartieron,
+[Remote]: Y, obviamente, cualquier pregunta, duda, o o tal vez
+[Remote]: caso de uso que que quieran que analicemos,
+[Remote]: este es el momento también para para analizarlo.
+[Remote]: Entonces, básicamente, como como comentamos y como
+[Remote]: viendo, nosotros nos dedicamos a automatizar procesos conciliatorios
+[Remote]: y creamos una plataforma que es tremendamente flexible
+[Remote]: para no tener que hacer ningún masajeo, ningún tipo de
+[Remote]: ni nada,
+[Remote]: de su lado antes de ingestar,
+[Remote]: sino que simplemente nosotros automatizamos la ingesta
+[Remote]: automatizamos la estandarización,
+[Remote]: automatizamos las reconciliaciones
+[Remote]: automatizamos la gestión de discrepancias, generación de de reportes,
+[Remote]: alarmas y, obviamente, tenemos dashboard personalizable para
+[Remote]: centralizar un montón de conciliaciones dentro de uno o varios dashboards que pueden ser
+[Remote]: compartidos.
+[Remote]: Entonces, vamos un poco a el caso de uso que nos compartieron, que es el de aerolíneas.
+[Remote]: Ahí nos compartieron el el manual,
+[Remote]: para el parceo, pero no
+[Remote]: estaba
+[Remote]: específicamente delimitado
+[Remote]: qué había dentro de cada
+[Remote]: bueno, o o cómo cómo parcial. Entonces, nosotros, bueno,
+[Remote]: analizando y
+[Remote]: lo que hicimos fue,
+[Remote]: aperturar el extracto dentro de
+[Remote]: todo lo que son la las HDR, los tax y los debt,
+[Remote]: y estos
+[Remote]: los
+[Remote]: los parciamos directamente dentro de
+[Remote]: Básicamente, nosotros tenemos la funcionalidad... Bueno,
+[Remote]: cualquier tipo de transformación o estandarización o masajeo de la información que quieran
+[Remote]: automatizar,
+[Remote]: se hace directamente dentro de Rexi, una vez que nosotros ya ingestamos.
+[Remote]: Entonces,
+[Remote]: hago un pequeño repaso de las
+[Remote]: lo lo los campos que vamos a necesitar para para
+[Remote]: proceso conciliatorio, que obviamente son fecha,
+[Remote]: que la extrajimos
+[Remote]: de acá,
+[Remote]: Obviamente, acá tenemos
+[Remote]: AI para ayudar
+[Remote]: a automatizar todo este proceso. Por ejemplo,
+[Remote]: podemos decirle,
+[Remote]: Sí, este, record type,
+[Remote]: si
+[Remote]: es
+[Remote]: debt
+[Remote]: entonces uno, sí, no,
+[Remote]: cero. Y obviamente acá ayuda a generar las
+[Remote]: las fórmulas para, que puede ser tremendamente compleja,
+[Remote]: para la estandarización de toda esta información de manera automática.
+[Remote]: Esa esa esa determinación de la fórmula
+[Remote]: ¿sí o sí quiere que hacer una interpretación del usuario o...?
+[Remote]: La herramienta de por sí
+[Remote]: incluye fórmulas y recomendaciones de
+[Remote]: qué hacer.
+[Remote]: Te te lo te recomienda, por ejemplo, o sea, obviamente tiene un catálogo de de fórmulas que
+[Remote]: son todas las que tiene Excel, o sea, básicamente cualquier
+[Remote]: fórmula que hagas en Excel la la podés hacer también en Rexy, y te intuye, por ejemplo, yo no sabía
+[Remote]: básicamente, en en qué ubicación estaba,
+[Remote]: el ticket number, y entonces la fórmula me la sugirió
+[Remote]: con
+[Remote]: es la tercera,
+[Remote]: el find, básicamente, que que encuentre el find,
+[Remote]: el TKTT, y me traiga los diez dígitos después. Así que sí, hubo mucho trabajo de inteligencia que yo no podría haber hecho sin conocimiento, lo hicimos directamente acá en Entonces, extrajimos todos los ticket number extrajimos también los campos tarifa, el carrier, issuing date y demás, Y también subimos la otra base, que es la de la del ERP,
+[Remote]: También, obviamente, estandarizamos fecha. La los los formatos suelen venir muy diferentes en las diferentes bases, y nosotros, entonces, nos nos dedicamos noventa por ciento de nuestro trabajo es asegurarnos de que estos formatos sean compatibles y estandarizados, así que estandarizamos también la información de de del ERP, vamos a generar en vivo una conciliación entre el ERP y la base de déjame solo hacerte una pregunta, y a ver me quedó claro. Básicamente, agarraste todos los archivos que nosotros compartimos, de la misma esos archivos llegaron subiste ahí a la plataforma, Ajá. Y, básicamente, lo que hiciste tú fue empezar a como
+[Remote]: segregarlo basado ahí en algunas columnas, ¿no? Es como limpiar el
+[Remote]: Exactamente, la una
+[Remote]: una línea enorme que contenía
+[Remote]: número de ticket, que contenía fecha, que contenía, no sé, un montón de datos,
+[Remote]: y tú los segregaste,
+[Remote]: aí agora vai a entre não sei, chave com chave dois.
+[Remote]: Que es ese,
+[Remote]: mira con el r p número x, y ahí se consigue.
+[Remote]: Então, se tu limpiaste essa base,
+[Remote]: através de fórmulas, essas fórmulas se quedan registradas acá en el sistema,
+[Remote]: Exacto. Plataforma, porque las voy a utilizar de
+[Remote]: y si quiero crear otra, también las creo.
+[Remote]: Ahí veo, ya, ahí veo lo importante es que todas estas
+[Remote]: reglas, que son transformaciones que que hizo Teo sobre esta
+[Remote]: quedan como pre transform. Entonces, cada
+[Remote]: que se ingesta automáticamente nueva data,
+[Remote]: empiezan a autogenerarse esta fórmula. Se hace una vez nada más ese proceso de setup,
+[Remote]: de de de los sources para poder parcial mejor, y después ya queda para las
+[Remote]: próximas ingestas automatizadas todos los días.
+[Remote]: Cada vez que esta información nueva se estandariza y se parcea
+[Remote]: de la misma forma que se hizo la original,
+[Remote]: entonces, ya queda la información toda lista para conciliar con las otras fuentes de datos.
+[Remote]: Ok.
+[Remote]: Bien.
+[Remote]: Leo, ¿vos te ibas a preguntar algo más?
+[Remote]: No, yo no.
+[Remote]: Ok. Teo, tengo una pregunta. La parte de el
+[Remote]: nosotros habíamos compartido cuáles eran los conceptos que nos
+[Remote]: nos interesaba tener desagregados ahí, que me acuerdo que la Tari tasa, comisión, over, todo eso lo hacés en el paso anterior o o bien en este
+[Remote]: No, todo eso se hace en el paso, todo lo que vos quieras tener.
+[Remote]: Como columna identificada dentro de la
+[Remote]: estandarizada, se hace dentro de la base de datos que corresponde.
+[Remote]: Esto es ya la parte de conciliación.
+[Remote]: Esto ya es el cruce entre la base del el la database ERP,
+[Remote]: contra todas las transacciones de
+[Remote]: Ahí va. En el paso anterior, entonces, usando todas esas fórmulas, también
+[Remote]: tomaste en cuenta los criterios que nosotros te habíamos pedido de apertura.
+[Remote]: Exactamente. Hay
+[Remote]: tenemos, yo yo extraje
+[Remote]: extraje un montón de de campos. Después, obviamente, tendríamos que revisar,
+[Remote]: total a pagar y demás. Esto depende si era debt o tax,
+[Remote]: si venía al campo o no,
+[Remote]: Por eso era era bastante
+[Remote]: bastante, bueno, bastante necesario tener
+[Remote]: inteligencia acá, porque si no es imposible, no no no no había
+[Remote]: una lógica muy rígida. Sí.
+[Remote]: Pero bueno, por suerte lo lo pudimos hacer perfecto.
+[Remote]: Extrayéndolo con todas las fórmulas.
+[Remote]: Ok, bien. Y acá puedes extraer toda la información que
+[Remote]: necesites, y estandarizarla y ponerla en el formato que haga falta,
+[Remote]: si es fecha, si es número, si es texto, si es un código, etcétera.
+[Remote]: Eso es todo lo que llamamos la parte de sources.
+[Remote]: Y después se genera la la conciliación.
+[Remote]: Vamos a crear Te digo, una consulta,
+[Remote]: ¿podríamos tener acceso de algún usuario genérico para en off, ver en detalle el proceso? Del sistema. Más vale, lo podemos hacer, podemos hacer lo que llamamos nosotros un working session, donde le damos acceso y les vamos guiando más en detalle por la plataforma y pueden ir probando cosas y demás. Ok. Feliz feliz de coordinar eso. Perfecto. Gracias, Teo. Después, las reconciliaciones son una sumatoria de reglas, o sea, un flujo conciliatorio puede ser un cruce entre dos fuentes de datos o mucho más. En cadena o una sola independiente. En este caso, bueno, vamos a hacer una independiente, que es la del ERP database
+[Remote]: versus
+[Remote]: Y, como le comenté, esto
+[Remote]: tienen una estrategia
+[Remote]: estrategia puede ser lo que es el one to one, o one to many, o many to one, o many to many. Básicamente,
+[Remote]: si es agrupado a un lado o uno
+[Remote]: a muchos pagos del otro lado, una factura a muchos pagos,
+[Remote]: muchas facturas a un solo pago que provee el banco y demás,
+[Remote]: En este caso, la estrategia correspondiente es la es la de uno a uno,
+[Remote]: y seleccionamos la base de ERP,
+[Remote]: y seleccionamos todas las transacciones debt.
+[Remote]: Esto por motivos de reporting, si queremos ver cuánto consiguió en valores
+[Remote]: en pesos o en dólares,
+[Remote]: tenemos que
+[Remote]: definir cuál es la columna que nos interesa ver, porque
+[Remote]: obviamente, hay mucho columna valor, el fee y demás,
+[Remote]: que no pasaron por mil,
+[Remote]: hela.
+[Remote]: Ticket
+[Remote]: extraído del del archivo
+[Remote]: con ticket number,
+[Remote]: le agregamos
+[Remote]: fecha corte,
+[Remote]: issuing date,
+[Remote]: Acá nos pidieron una tolerancia de siete días, Puede ser tolerancia en hora, minutos, segundos o días,
+[Remote]: en este caso era siete días,
+[Remote]: y le agregamos
+[Remote]: aerolíneo,
+[Remote]: con carrier code,
+[Remote]: también extraído. También, si hubiese
+[Remote]: por ejemplo, un campo monto,
+[Remote]: se le podría agregar tolerancia en en valores
+[Remote]: en porcentajes o en valores absolutos.
+[Remote]: Esas reglas también pueden ser sugeridas.
+[Remote]: Obviamente, cien por ciento.
+[Remote]: Nosotros, nada, trabajamos mucho con con ese tipo de de sugerencia,
+[Remote]: porque a veces
+[Remote]: la forma más eficiente de conciliarnos es la que están haciendo en el momento y demás.
+[Remote]: También se puede agregar todo lo que son dependent mis matches, o sea, segunda barrida,
+[Remote]: imaginémonos que
+[Remote]: unas transacciones vienen
+[Remote]: entonces,
+[Remote]: ¿Cómo?
+[Remote]: No, no, salteo en mi
+[Remote]: No, creo que saltó mi micrófono. Ah, perdón.
+[Remote]: Imaginémonos que unas unas transacciones vienen sin ticket, sin número de ticket,
+[Remote]: pero vienen con fecha, monto, cargo y código y demás, y podría ser una segunda barrida
+[Remote]: de todo lo que no macheó
+[Remote]: con tal vez una tolerancia de ocho días o nueve,
+[Remote]: o una tolerancia a un monto un poco más grande, o o
+[Remote]: o algo así para perdón, si querés, digo, caso real,
+[Remote]: que seguramente nos pase en esta conciliación, pará, si lo querés agregar como también como parte de
+[Remote]: de la demo, una una un caso real es, por
+[Remote]: que el ticket de al lado de de la tabla del ERP esté contenido en el dato, pero no esté tal cual, o sea, digamos,
+[Remote]: está dentro de ese, puede tener números adelante, números atrás,
+[Remote]: pero no es tal cual el número
+[Remote]: exacto, digamos. Sería un un fuzzy matching. Mira, si tiene números adelante,
+[Remote]: tendríamos que agregar una lógica fuzzy matching, porque
+[Remote]: si agregamos una tolerancia en monto o en valor absoluto, y el número es el primero, el que cambia,
+[Remote]: va a ser mucha la diferencia.
+[Remote]: Tendríamos que verlo,
+[Remote]: pero bueno, si fuese el último número que podés llegar a cambiar,
+[Remote]: ahí sí sería agregarle tolerancia al número de ticket.
+[Remote]: Ahora lo lo lo revisamos. Feliz hacerlo, yo quiero hacer el ejercicio
+[Remote]: exactamente como como lo preparamos para
+[Remote]: para evitar problemas.
+[Remote]: Bueno, se pueden navegar dependent mis machis, y se puede agregar comparaciones
+[Remote]: Básicamente, es,
+[Remote]: una conciliación a nivel operativo es identificar
+[Remote]: cuál es la transacción que corresponde a la otra base de datos
+[Remote]: pero ahora, si queremos, aparte, verificar, por ejemplo, que esa transacción
+[Remote]: haya tenido, esté en estatus correcto,
+[Remote]: por ejemplo, que esté aprobada,
+[Remote]: que tenga el fee correcto,
+[Remote]: que se haya liquidado en el día correcto, tal vez en la el contrato con la
+[Remote]: dice que se liquida a los dos días,
+[Remote]: y te están liquidando en un promedio a los tres días.
+[Remote]: Ahí está, hay una una conciliación financiera
+[Remote]: hacer que esto
+[Remote]: muy probablemente les pase si empezamos a conciliar, se encuentra mucha mucha ganancia financiera en empezar a hacer ese
+[Remote]: chequeo a nivel
+[Remote]: transaccional.
+[Remote]: También se puede conciliar estatus, se, básicamente, se puede verificar cualquier cosa,
+[Remote]: que pueda
+[Remote]: que pueda llegar a estar afectando la operatoria
+[Remote]: tanto operativa como financieramente,
+[Remote]: y se puede estandarizar esa información. Por ejemplo,
+[Remote]: muchas veces, de un lado, viene en, por ejemplo, aprobado,
+[Remote]: y en la otra,
+[Remote]: base de datos viene en inglés.
+[Remote]: Entonces, básicamente, nosotros vamos a normalizar esta información y verificar que
+[Remote]: en una base de datos, si está aprobado, en la otra esté processed.
+[Remote]: Tal vez en la otra diga cancelado,
+[Remote]: y la otra sea calm.
+[Remote]: Así. Entonces,
+[Remote]: se se permite ese tipo de chequeo, también, obviamente, pueden ser operaciones,
+[Remote]: y pueden ser condicionales.
+[Remote]: Si es si esta base de datos es
+[Remote]: este país, verificá que el fee sea
+[Remote]: diecisiete por ciento. Si es este otro país, verificá que sea uno por ciento.
+[Remote]: Es muy flexible a la hora de hacer todos los tipos de
+[Remote]: de configuraciones y chequeos de manera no-code.
+[Remote]: Y por último, transformaciones,
+[Remote]: esto no previene el macheo, básicamente, esto no va a afectar si una una
+[Remote]: se marca como conciliada o no.
+[Remote]: Pero sirve mucho para motivos de reporting, básicamente.
+[Remote]: Hacer un cálculo general de fee en base a cierta variable y demás.
+[Remote]: Pero, bueno, en este caso vamos a hacer el cruce tal como nos lo mandaron
+[Remote]: por mail,
+[Remote]: y este es un cruce básico entre dos entre dos bases de datos
+[Remote]: Después, si necesitásemos, podemos seguir
+[Remote]: complejizando con reglas, lo que llamamos nosotros dependientes.
+[Remote]: Esta es la la regla independiente,
+[Remote]: y de esta pueden depender un montón de conciliaciones que se pueden cruzar con
+[Remote]: tercera base de datos y demás, y se va armando todo el flujo.
+[Remote]: Hay tres formas en la que se puede ejecutar una conciliación.
+[Remote]: Post schedule, básicamente, decir que corra todos los días a las cuatro de la mañana, o cada vez que se actualiza una de las dos fuentes de datos que selecciona el usuario, y la tercera, la que vamos a hacer ahora, que es la manual. Vamos a guardarla, y vamos a ejecutarla de manera manual. Esta base de datos tenía, más o menos, ochenta mil ochenta mil datos, debería demorar solo unos segundos,
+[Remote]: y ya deberíamos tenerlos
+[Remote]: los resultados. No sé si quieren, mientras procesamos las transacciones,
+[Remote]: hacer alguna pregunta, ver algo, ahí ya corrió.
+[Remote]: Tenemos
+[Remote]: básicamente, treinta y ocho mil, esas
+[Remote]: treinta y nueve mil casi,
+[Remote]: solamente en la base ERP,
+[Remote]: tenemos seis mil transacciones,
+[Remote]: y tenemos cinco mil cuatrocientas que están solamente en la
+[Remote]: la base split.
+[Remote]: Entonces, obviamente, toda esta información se
+[Remote]: se puede descargar, se puede aperturar, pero nosotros lo que buscamos es que
+[Remote]: toda la gestión de la información
+[Remote]: modificaciones,
+[Remote]: investigaciones y demás, todo se haga directamente
+[Remote]: en la plataforma.
+[Remote]: Entonces, tenemos los resultados, tenemos las métricas, ahora les muestro las métricas,
+[Remote]: también automatizamos el export
+[Remote]: en cualquier formato de esta información. Entonces, por ejemplo, si ustedes quieren que
+[Remote]: nosotros ingestemos
+[Remote]: y
+[Remote]: La información.
+[Remote]: Y les devolvamos en algún tipo de de base de datos de ustedes
+[Remote]: todas las transacciones con su estatus correspondiente, eso lo generaríamos acá,
+[Remote]: completamente de de manera no code. Por ejemplo, queremos
+[Remote]: mandar toda la información que viene del del debt,
+[Remote]: y volver a alimentar nuestra base de datos y ver si
+[Remote]: está marcada como
+[Remote]: como conciliada o no. Obviamente, esta información se puede
+[Remote]: enriquecer
+[Remote]: de cualquier manera, se puede armar
+[Remote]: columnas derivadas, normalizar esta información y demás.
+[Remote]: Y acá tenemos todo lo que es metric summary,
+[Remote]: Esta Ahí
+[Remote]: agrego un toque a lo que dijiste del export. Nosotros tenemos algunos clientes que son billeteras,
+[Remote]: entonces, cuando concilian las transacciones, están conectados con el export,
+[Remote]: eso lo exportan a sus bases de datos, o sea, que las transacciones están conciliadas, y a partir de eso,
+[Remote]: hacen experiencias de usuario, o sea, mandan a push
+[Remote]: eso es un webhook que nosotros tenemos
+[Remote]: y te manda en real time las novedades de esas transacción. Entonces,
+[Remote]: nada, la idea es que no quede en Rexi, sino que en Rexi quede el procesamiento, pero que usted
+[Remote]: después ustedes puedan llevarse esa data, disponibilizarla en sus sistemas
+[Remote]: y con cualquier otra área de despegar puede hacerlo. Obviamente, eso depende de un equipo
+[Remote]: de tecnología de su lado, donde tengan que exportar esa data y habilite las tablas.
+[Remote]: También se puede hacer desde Rexi, pero está bueno, ahí hay empresas que hacen eso y me imagino de despegar
+[Remote]: querría tener esa data in house.
+[Remote]: Exactamente.
+[Remote]: Bueno, estas estas son las métricas genéricas,
+[Remote]: estas son las métricas que
+[Remote]: cualquier conciliación
+[Remote]: que se haga, no importa qué empresa, qué formato y qué y qué
+[Remote]: tipo de operatoria tenga, funcionan. Y digo esto,
+[Remote]: porque muchas empresas tienen su propia forma de verlo, y por eso generamos todo el módulo de que ahora
+[Remote]: ahora lo vamos a ver.
+[Remote]: Para personalizar qué información se ve
+[Remote]: en base a la a la resultado de la conciliación. Pero bueno, esto, básicamente, es
+[Remote]: la base de ERP,
+[Remote]: esta es la base de las transacciones debt,
+[Remote]: De todas estas transacciones, cuántas machearon,
+[Remote]: De todas estas transacciones, ¿cuántas macharon? Acá tenemos, por ejemplo, aperturado por día. Entonces,
+[Remote]: el veintidós de enero,
+[Remote]: treinta y nueve mil transacciones, de estas, machearon treinta y siete mil novecientas,
+[Remote]: y quedaron mil seiscientas sin conciliar.
+[Remote]: Y lo mismo en valores, esto calculo que serán pesos.
+[Remote]: Muchas veces esta base de datos tienen valores
+[Remote]: negativos y positivos, entonces acá se puede ver también la información en en valor absoluto.
+[Remote]: Y lo mismo del otro lado, aperturado por día, entonces, el quince de enero tuvimos
+[Remote]: setecientas treinta y seis transacciones,
+[Remote]: reconciliaron setecientas veintitrés y quedaron
+[Remote]: trece sin conciliar. Esta es la información genérica de
+[Remote]: de la conciliación, y, bueno,
+[Remote]: ¿qué qué pasa ahora? Tenemos todo, el módulo de problem solver,
+[Remote]: el módulo de exception manager,
+[Remote]: alarmas que se configuran, que se mandan
+[Remote]: vía Slack o o email,
+[Remote]: esto con la información que quieran, de la
+[Remote]: que quieran, con algún trigger, si quieren
+[Remote]: que se mande todas las mañanas. Ayer hubieron diez mil transacciones,
+[Remote]: quedaron diez sin conciliar, picate cuáles son.
+[Remote]: O si quieren que solo se mande y cuando
+[Remote]: algo fuera de lugar, por ejemplo, el el el treshold conciliatorio está
+[Remote]: debajo del noventa por ciento, como para que les avise solamente en esos casos y demás.
+[Remote]: Todo el el exception manager,
+[Remote]: está
+[Remote]: creo que la que creamos recién es esta,
+[Remote]: Acá, básicamente, tenemos la la información transaccional de de
+[Remote]: de la source a y de la source b,
+[Remote]: Tenemos también, obviamente, lo lo lo conciliado y las excepciones,
+[Remote]: Ahora está está cargando lo recién procesado, ahora lo volvemos a abrir.
+[Remote]: Tenemos todo lo que es dashboards personalizables,
+[Remote]: con información, por ejemplo,
+[Remote]: de la conciliación que acabamos de hacer, pueden ser
+[Remote]: charts, stack bar y demás, por ejemplo,
+[Remote]: hagamos este,
+[Remote]: live demo,
+[Remote]: y estos se forman en en, se crean en formato widget,
+[Remote]: se pueden organizar y y personalizar, ahí está haciendo un cálculo de de todas las métricas. Por último, tenemos todo lo que es el el módulo de reporting, Este es diferente al de al módulo de de reconciliation. Este, básicamente, puede surgir directo de de la source, Entonces, por ejemplo, creamos un un reporte automatizado que se genere cada vez en base al ERP, por ejemplo, queremos que que organice las las columnas en en de cierta forma y y demás, también se puede personalizar. Por ejemplo, si si PNR no
+[Remote]: está vacía, entonces uno, sino cero.
+[Remote]: Obviamente, acá te
+[Remote]: te está generando la la fórmula.
+[Remote]: Y te genera el column name. Nosotros, básicamente,
+[Remote]: automatizamos la generación de estos reportes
+[Remote]: sirve mucho para para todas las áreas que están generando manualmente estos reportes.
+[Remote]: Que los puedan automatizar.
+[Remote]: Esto esto lo esto de lo que es reportería también funciona igual que la Rigom cuando se
+[Remote]: actualiza una source todos los días, corre la recon, está atado al proceso de recon,
+[Remote]: o sea, termina de correr la recon, y después se generan los reportes,
+[Remote]: que también pueden ser enviados por, o lo pueden subir a un SFTP o pueden mandarse
+[Remote]: por mail, o lo que quieran ahí. Pero bueno, tiene ese también esa parte de Chrome, como tienen las
+[Remote]: Bueno Chico, ¿perdón?
+[Remote]: Podemos ir un paso atrás en la parte de los
+[Remote]: con las diferencias que quedaron, las transacciones que quedaron en matching,
+[Remote]: Me gustaría ver qué podríamos hacer con eso,
+[Remote]: si el tema de inteligencia artificial puede hacer recomendaciones,
+[Remote]: algún arreglo adicional, o no sé si lo vamos a ver más
+[Remote]: adelante, y, perdón, si estoy spoileando. No, está perfecto. Eso es todo lo que es
+[Remote]: el el módulo de problem solver,
+[Remote]: Yo no lo quería hacer en la demo porque no lo lanzamos todavía a los clientes,
+[Remote]: estamos básicamente a
+[Remote]: nada, días de de lanzarlo,
+[Remote]: pero si quieren les podemos mandar un vídeo de cómo funcionaría. Nos queremos asegurar de que
+[Remote]: bien antes de lanzarlo,
+[Remote]: pero sí, está, básicamente,
+[Remote]: lo que encontramos fue un caso de uso muy bueno para todo lo que es LLens, con data estructurada. O sea, son mucho mejores que los humanos leyendo la información son mucho mejores que nosotros encontrando las discrepancias o con lo que lo que se llama el fuzzy matching, y, sobre todo, con lo lo que llamamos el one too many,
+[Remote]: Básicamente, tenés diez transacciones de un lado,
+[Remote]: cien del otro, y tenemos que hacer un one too many,
+[Remote]: un monto se puede volver loco y los HelmLem son rapidísimos haciendo todo eso,
+[Remote]: así que estamos poniendo mucha foco al al
+[Remote]: al módulo de problem solver. Ahí ahí
+[Remote]: ahí, si querés, Teo, comparto, la verdad, les estamos a nada de
+[Remote]: salir con el módulo de problem, solo ahora estamos viendo
+[Remote]: pantalla de sandbox, por eso eso no está habilitado a nuestros clientes todavía.
+[Remote]: Lo trajimos a nosotros para mencionarlo, pero vos también habías mencionado ahí una pregunta de
+[Remote]: che, esto de sugerir reglas. Justamente lo que hace el problem solver es
+[Remote]: mejorarte las reglas que vos tenés en las conciliaciones para tener mejor macheo.
+[Remote]: O sea, esa es una de las cosas que hace, y después agarra todas las no
+[Remote]: y tiene un cluster de problemas, identifica
+[Remote]: o sea, que son propias de esa empresa, de esas reconciliaciones,
+[Remote]: y las clasteriza, y después la idea es que desde el desde el problem solver, la
+[Remote]: propia equipo de operaciones pueda tener accionables. Entonces, che, todo este class
+[Remote]: se soluciona así y ya queda automatizado.
+[Remote]: Pero bueno, todo ese cluster no es que queda fijo y queda o lo setean ustedes,
+[Remote]: es todo automático. O sea, che, en base a esto, el patrón de todas estas
+[Remote]: que nos macharon es este cluster. Obviamente, hay un human in the loop,
+[Remote]: o sea, hay alguien de operaciones que valida que eso es así,
+[Remote]: se genera el flujo automatizado de cómo resolverlo,
+[Remote]: y queda. Ahí es donde resolvemos el pain más grande que hay, ¿no?, porque no es el
+[Remote]: quizás el macheo, sino el la la resolución de esos
+[Remote]: de esos problemas y de dónde vienen, ¿no?, de dónde salen esos temas.
+[Remote]: Pero bueno, no no está cien por ciento listo, chicos, eso.
+[Remote]: ¿Y no nos quieren dar un anticipo ahí la la novedad del
+[Remote]: Y lo vemos ahora, ¿algo que que podríamos
+[Remote]: no sé, ver qué qué cuál sería el output en función al a la información que compartimos?
+[Remote]: Ahí, Seba, lo lo que vos digas, Seba es nuestro CTO,
+[Remote]: yo creo que No, no. Tenemos
+[Remote]: Hoy, la verdad que en esta en en en este ambiente no lo tenemos
+[Remote]: fíjate, está el chat coming soon, pero si quieren hoy a la
+[Remote]: a la tarde les mandamos el video de realmente lo que hacen,
+[Remote]: en otro ambiente, pero hoy a la tarde se los mandamos. Ya estamos
+[Remote]: a una semana en salir, no es que hicimos usted a esto porque realmente puede tener problemas y tampoco
+[Remote]: más, decidimos no traerlo en este ambiente, que es el que usamos para
+[Remote]: las demos que hacemos con los clientes. Pero a la tarde les podemos mostrar
+[Remote]: y les mostramos todo esto de los clusters y cómo se solucionarían y cómo se
+[Remote]: crean esos flujos automatizados.
+[You]: Sí,
+[Remote]: Buenísimo, gracias.
+[You]: agrego algo ahí que también, digo,
+[You]: es sensible este workflow, ¿no? Entonces, todas estas nuevas tecnologías que estamos testeando
+[You]: nos estamos asegurando de poner los guardrails necesarios
+[You]: los controles y los límites necesarios, y testearlo mucho,
+[You]: antes de mandarlo a producción, porque lo que no podemos
+[You]: afford nosotros es un falso positivo o un error en la conciliación. Entonces, por ahí, por eso
+[You]: yendo, no sé, yendo rápido,
+[You]: pero sí asegurándonos de que cualquier cosa que mandamos a producción está muy testeado y muy validado y es robusto.
+[You]: Para no sufrir errores o bugs. Así que por eso decidís vos por ahí, van ocurrir riesgos ahora.
+[Remote]: En el
+[Remote]: ahí, Ariano,
+[Remote]: básicamente, esto es lo que
+[Remote]: hoy funciona, que es el exception manager,
+[Remote]: básicamente acá se gestiona o se automatiza
+[Remote]: reglas de excepción, básicamente, cada vez que una transacción viene sin ID,
+[Remote]: yo sé que
+[Remote]: nunca va a tener su contrapartida o o lo que sea, entonces,
+[Remote]: acá se automatiza todo lo que es gestión de decepciones, que nunca van a
+[Remote]: a conciliar con una regla conciliatoria de por sí,
+[Remote]: y también se hace todo lo que es
+[Remote]: el manual de estas transacciones de de, por ejemplo, del
+[Remote]: del ERP contra
+[Remote]: la base a todo la base a dos debt,
+[Remote]: Acá tenemos
+[Remote]: las seis mil transacciones que no del ERP,
+[Remote]: y acá tenemos las cinco mil cuatrocientas, cinco mil quinientas que no matchearon de dead. Entonces, acá se haría la investigación y y y filtro y demás, y la visualización para hacer el macheo manual. Por ejemplo, esta transacción sabemos que corresponde con esta, y se de esta manera se mantiene todo de manera diaria, conciliado, y y no se van acumulando todas estas estas estas discrepancias. Sí, ahí, Sí, sí. No, perdón, o ahí te interrumpo y ahí vi los chicos de de del equipo creo que me van a me van a, van a explicar mejor que yo, pero al ser tantas transacciones,
+[Remote]: ¿qué metodología tiene Agi para poder
+[Remote]: un match rápido? O sea, es decir, puedo hacer algo en el back
+[Remote]: y y cargar el input y que el sistema automáticamente haga este este match
+[Remote]: en en algo manual que yo hago por fuera, o inclusive
+[Remote]: agregar más información, un tercer documento, menos información,
+[Remote]: Ahí nosotros nos dedicamos a
+[Remote]: automatizar procesos. Entonces,
+[Remote]: todo lo que ustedes tengan que automatizar, nosotros lo hacemos. Si hay algo que hacen siempre
+[Remote]: para para conciliar
+[Remote]: que habría, que es manual, por ejemplo,
+[Remote]: o que sea para conciliar o marcar como excepción,
+[Remote]: eso se hace directamente en el módulo de reconciliaciones,
+[Remote]: le agregamos alguna funcionalidad que ustedes haga falta o o terminamos de editar,
+[Remote]: o acá directamente, si están siempre marcando como
+[Remote]: excepción, que este sería el módulo de excepciones,
+[Remote]: Esta transacción yo sé que nunca va a mapear, entonces, la marco como excepción.
+[Remote]: Directamente lo automatizamos acá.
+[Remote]: Entonces,
+[Remote]: proceso que ustedes estén haciendo o para conciliar
+[Remote]: o para marcar como excepción de manera manual,
+[Remote]: nosotros nos dedicamos a automatizarlo.
+[Remote]: Sí, igual,
+[Remote]: una una cosa para agregar, el exception manager
+[Remote]: es un módulo, que es el módulo manual de resolución,
+[Remote]: debería ser reemplazado por el problem solver, que es el otro
+[Remote]: módulo, que es más agéndigo y resolucional. Y esto que preguntás justo el
+[Remote]: el exception manager, justamente era para el manejo de excepciones
+[Remote]: que eran para los que los clientes nuestros ahora lo venían usando.
+[Remote]: Solver viene a ser las dos cosas, o sea, no solo excepciones,
+[Remote]: sino también el macheo automatizado, esto de que, che, este class
+[Remote]: de transacciones tienen este problema y
+[Remote]: cuando tienen este flujo o este patrón, eso termina siendo machado.
+[Remote]: Machado en ese flujo automatizado, y eso es lo que nos permite es que se hagan flujos más
+[Remote]: Pero bueno, ahí también
+[Remote]: esto que decía Nacho, ¿no?
+[Remote]: Al ser con LLMs, vos cuando hacés estas transacciones
+[Remote]: y hacés
+[Remote]: ejecuciones masivas de datos, puede
+[Remote]: en los sistemas también. Entonces, siempre nosotros ¿Te paso una pregunta?
+[Remote]: Pero figura que haya un human in the loop ahí, ¿no? Un humano
+[Remote]: de que, che, este esta transformación masiva, sí hagámosla o machemos estas diez mil transacciones,
+[Remote]: que tienen este patrón. Cuando eso está seguro, ya
+[Remote]: seteado y ya se usó automáticamente.
+[Remote]: Chicos, una consulta, le hago una pregunta, nosotros tenemos el, o sea, esto
+[Remote]: sé que estás viendo para la parte de vuelo, pero tenemos para la parte
+[Remote]: de twisting o nerd, tenemos lo que se llama un portal de pagos.
+[Remote]: Sería, en vez de
+[Remote]: nosotros darlos el el, darles los estados de cuenta, vendría
+[Remote]: conectarse al portal de pago, pero tenemos interacción en el portal de pago. ¿Qué quiere decir interacción? Es
+[Remote]: lleva un input del proveedor, eso debería de
+[Remote]: generarse una preconciliación,
+[Remote]: ver lo que esté ok,
+[Remote]: devolver notificaciones al portal. ¿Cómo se manejan con ese tipo de
+[Remote]: interacciones?
+[Remote]: Y y vuelta, o sea, pues sería
+[Remote]: que el portal le tire a ustedes los
+[Remote]: notificaciones iniciales, ustedes generen la reconcilación,
+[Remote]: devolver, en caso que haya disputas,
+[Remote]: devolverle la disputa al portal,
+[Remote]: que el portal les vuelva a devolver interacción, eso puede pasar
+[Remote]: dos o tres veces,
+[Remote]: y después de que eso esté todo ok,
+[Remote]: empaquetarlo en una factura, que el portal les va a indicar cuál va a ser la factura,
+[Remote]: y eso, volverlo a mandar el ERP.
+[Remote]: ¿Qué tan cómodos nos sentimos?
+[Remote]: Tendríamos que que diseñar exactamente el flujo, pero felices de de de
+[Remote]: montarlo.
+[Remote]: O sea, lo que no entendí es, ¿el portal mandaría la información a
+[Remote]: concilia cada vez que el portal
+[Remote]: manda una novedad,
+[Remote]: Exacto.
+[You]: Claro, como algo de real time de API in, y nosotros generamos una respuesta, API out,
+[Remote]: Ok, y cada vez que
+[Remote]: claro. Bueno, el el el portal es el front,
+[You]: una respuesta real time para qué van a ajustar.
+[Remote]: sería como el front de la conciliación de cara a los dos partners. Perfecto.
+[Remote]: Es el sí, el el el, perfecto, ese back office. Nos nos mandan la idea, conciliamos,
+[Remote]: nosotros mostramos el feature de export, que lo que hace es
+[Remote]: mandarles la respuesta a ustedes, que eso lo configuran en self-service, o sea, Rey, si ahí no se mete,
+[Remote]: eso lo pueden configurar ustedes. Al recibir eso, ustedes desde sus sistemas podrían
+[Remote]: agarrar esa novedad o esa ingesta de data y procesarlo
+[Remote]: y volver a mandarnos novedades, y nosotros tenemos que cada vez que se ingeste nueva data,
+[Remote]: procesarla.
+[Remote]: Así que podría estar automatizado ese flujo medio real time.
+[Remote]: Para que funcione.
+[Remote]: Y te hago la otra pregunta, del lado del ERP,
+[Remote]: que yo tengo la transacción en el ERP, ¿qué tan...?
+[Remote]: Cómo estamos en el tema de que esa transacción sea una transacción viva?
+[Remote]: Por ejemplo,
+[Remote]: yo te mando la transacción uno hoy,
+[Remote]: después tengo cambios sobre la transacción uno en en
+[Remote]: costo, proveedor,
+[Remote]: método de pago.
+[Remote]: Eso tenemos que definirlo a la hora de la ingesta. Entonces,
+[Remote]: nosotros seleccionamos, por ejemplo, cuál sería el campo key,
+[Remote]: o cuáles serían los campos keys,
+[Remote]: y
+[Remote]: nosotros, cuando hacemos una ingesta,
+[Remote]: nos quedamos solamente con el dato nuevo. Entonces,
+[Remote]: si la transacción cambió algo o cambió estatus o lo que sea,
+[Remote]: nosotros vamos a quedarnos con el nuevo dato.
+[Remote]: Bien.
+[Remote]: O sea, la la respuesta es sí, pueden pueden, o sea,
+[Remote]: pueden absorber, y hablando de muchos cambios en poco tiempo.
+[Remote]: Digo, en muchas transacciones.
+[Remote]: Si si una transacción estaba aprobada
+[Remote]: y al día siguiente, cuando hacemos la la la actualización o en el momento que sea,
+[Remote]: la esa misma transacción con ese key ahora aparece como rechazada o aparece
+[Remote]: como en disputa o estatus que sea,
+[Remote]: nosotros nos vamos a quedar solo con el dato nuevo, vamos a pisar el el estatus viejo y vamos a quedar con el nuevo.
+[Remote]: No, yo no te estoy hablando a nivel de aprobación, yo te estoy hablando es
+[Remote]: mi transacción era por cien para el proveedor a
+[Remote]: ingresa una postventa y pasa a ser por cincuenta para el proveedora
+[Remote]: Eso ingresa todo en el ERP. Claro, la automatización en la ingesta en el ERP, sí, eso es automático, tal
+[Remote]: la la la, o sea, cuando se ingesta esa transacción,
+[Remote]: se cambia el resultado, o sea, se se actualiza. Nosotros mantenemos todo
+[Remote]: el, digamos, el ciclo de vida del dato igualmente en o sea,
+[Remote]: si va cambiando ese dato y se actualiza, eso se mantiene y vos podés ver el ciclo de vida del dato.
+[Remote]: Pero en tiempo real.
+[Remote]: ¿Cómo?
+[Remote]: Lo hacen en tiempo real, o sea Es cuando se corta.
+[Remote]: ¿Qué se hace? Real time, claro, cuando hay una una una ingesta que se activa,
+[Remote]: ¿lo podemos lo podemos hacer eso que es masivo el cambio o o es aún? Bueno,
+[Remote]: puede pasar que transacciones sean masivo, pero, o sea, nosotros tenemos varios flujos que
+[Remote]: o sea, ¿qué pasan? Y la venta está viva, y puede pasar que, no sé,
+[Remote]: te pongo el el ejemplo de casa de un hotel,
+[Remote]: el proveedor cambie las noches, que el Es noche, reste noche, entonces.
+[Remote]: Las transacciones están vivas, y la realidad es que tenemos, sobre las transacciones emitidas, tenemos un flujo
+[Remote]: que no es tan chico,
+[Remote]: transacciones que se modifican.
+[Remote]: Eso va, lo que va haciendo es modificando los costos de
+[Remote]: de cada transacción, y y es algo permanente.
+[Remote]: Otro flujo automático, tenemos
+[Remote]: cosas que
+[Remote]: no ingresan en
+[Remote]: en el momento que se emiten, ingresan después. Bueno, habría que ser más específico, pero digo,
+[Remote]: ustedes están preparados como para entendí.
+[Remote]: La Entendida. Tiempo real, masiva.
+[Remote]: Claro, bueno, hoy real time no tenemos lo que lo solucionamos, o sea,
+[Remote]: tenemos para solucionar es que el cron
+[Remote]: o sea, ese proceso batch corre mucho más seguido.
+[Remote]: ¿Ok? O sea, vos podés hacer que corra más seguido y vaya a buscar la información más seguido,
+[Remote]: para tener más actualizado, o sea, lo más actualizado posible la información.
+[Remote]: Pero ahí te había entendido, ahí es como que deberíamos
+[Remote]: crear, o sea, la idea es que, a ver, nosotros estamos yendo a una
+[Remote]: de que la conciliación sea real time, es como nuestro objetivo, ¿no? O sea, hoy todas las conciliaciones
+[Remote]: incluso las empresas no lo hacen por transacción, lo hacen por balances hasta diez días.
+[Remote]: Como que todavía hay un tema de transformación digital sobre este negocio.
+[Remote]: Pero nosotros nuestro objetivo es que sea real time. Si nosotros tenemos una API que no
+[Remote]: nos pega tipo webhook y nosotros podemos actualizar la data,
+[Remote]: es el mejor de los casos, o sea, si lo tenemos, lo podemos hacer.
+[Remote]: El tema es que ninguno de nuestros clientes tiene eso de real time y están conectados
+[Remote]: generalmente están conectados con proveedores que no lo tienen, y no lo ofrecen a su
+[Remote]: clientes, es más procesos de batch o procesos de files en SFTP,
+[Remote]: pero si ustedes tienen esa posibilidad,
+[Remote]: nosotros felices porque queremos que ese es a donde va toda esta parte de
+[Remote]: que los procesos sean real time, y podamos ver dónde hay
+[Remote]: los problemas de plata mucho más rápido que esperar un d más uno, d más dos.
+[Remote]: Ok.
+[You]: Por el chat, así también pueden hacer más preguntas.
+[Remote]: Sí, otra, chicos, corríjame, por casualidad, temo la
+[Remote]: en la cual la conciliación no hace match por monto, pero la diferencia es
+[You]: Sí.
+[Remote]: genera un impacto en contabilidad,
+[Remote]: Sí, sí, sí, tenemos eso.
+[Remote]: Quieren explicarlo a ver cómo Redshift nos puede ayudar con este tema?
+[Remote]: Sí, ahí la consulta capaz que es más, una vez que tenemos
+[Remote]: nuestra consideración, los impactos de diferencias tienen que ser
+[Remote]: contablemente en el ERP. Sí. No tenemos tolerancia,
+[Remote]: sea, cualquier diferencia hay que impactarla a través de un ajuste,
+[Remote]: Esa conectividad entiendo que está, o sea, se se envían las diferencias
+[Remote]: y eso impacta. Todo todo todo todo la las diferencias, los montos y demás pueden
+[Remote]: o eso va a depender, no sé, de una decisión de ustedes. Si quieren que
+[Remote]: una tolerancia marque como como reconciliado,
+[Remote]: pero que, aparte, nosotros discriminemos esa diferencia para que usted la la
+[Remote]: utilicen, por ejemplo, como input en un asiento contable,
+[Remote]: también se puede, o sea, eso es toda la parte de transformaciones que mostré en la en la regla.
+[Remote]: Es indiferente
+[Remote]: Esperá. Si si queremos marcar como conciliado, que si queremos discriminar una parte o una diferencia en monto. Sí. Y si me entendí bien, Teo, entonces, ¿ustedes dejarían el de la conciliación
+[Remote]: con la diferencia que generó
+[Remote]: y nosotros tendríamos que crear la regla para
+[Remote]: el asiento en contabilidad.
+[Remote]: De ERP.
+[Remote]: A ver,
+[Remote]: ¿sí?
+[Remote]: Nosotros
+[Remote]: tenemos nuestro módulo contable también, que, de hecho, no lo mostré,
+[Remote]: me olvidé de mostrarlo,
+[Remote]: Ahora se lo
+[Remote]: Básicamente, si están interesados, podemos explorar también la
+[Remote]: posibilidad de generar los asientos contables de manera automática,
+[Remote]: Para alguno de nuestros clientes ya lo estamos haciendo. No sé qué
+[Remote]: qué sistema contable están utilizando, pero
+[Remote]: acá definimos lo los modelos y
+[Remote]: las reglas de negocio, básicamente, para la generación de los asientos,
+[Remote]: y los automatizamos con, obviamente, un sistema de aprobación.
+[Remote]: Sé si Ok. También.
+[Remote]: Sí, ¿cómo cómo es la interfaz con con Workday, Oracle o SAP?
+[Remote]: O sea, actualmente nosotros estamos en este proceso de transformación en el cual nuestro ERP
+[Remote]: no necesariamente es el ERP del future state,
+[Remote]: pero sí nos serviría su feedback de cómo sería la interfaz
+[Remote]: conexiones con estos tres ERP que le mencionamos.
+[Remote]: Dale, nosotros en este momento, esto es ahora, aquel,
+[Remote]: Ok. Básicamente integrás tu tu, bueno, no tengo credenciales acá, pero
+[Remote]: ponés tus credenciales,
+[Remote]: seleccioná la lógica, básicamente,
+[Remote]: qué sucede, bajo qué conceptos, cómo se agrupan,
+[Remote]: cómo se generan los asociados contables. Entonces, sería, por ejemplo,
+[Remote]: todo lo que está conciliado genera este asiento contable,
+[Remote]: y todo lo que no consiguió, las diferencias en monto, genera este otro asiento contable temporal y demás,
+[Remote]: y nosotros generamos esos asientos,
+[Remote]: ¿ves en la lista de asientos lo lo lo los
+[Remote]: aprueban o los o los rechazan, los modifican y
+[Remote]: los mandamos directo a al al ERP.
+[Remote]: ¿Siempre puedo generar asientos a nivel de transacción
+[Remote]: conciliada por y por concepto también, o es una bolsa que genera un asiento sobre
+[Remote]: No, no, no, genera lo lo la apertura, qué tan aperturados son los asientos, va a depender de
+[Remote]: la lógica de negocio que ustedes definan.
+[Remote]: Si quieren que se genere un asiento por transacción, se puede,
+[Remote]: Si quieren que se genere un asiento
+[Remote]: por
+[Remote]: transacción y tal vez debt, por ejemplo, si son debt, va a generar
+[Remote]: debt, tax, y se van a aperturar de de todas las maneras que que ustedes digan.
+[Remote]: Pero ¿ahí tienen algo a nivel configuración? Porque, ¿qué pasa? Nosotros en la parte turística lo tenemos,
+[Remote]: rangos de tolerancia, que, si están dentro de ciertos rangos de tolerancia, aceptamos la
+[Remote]: ejemplo,
+[Remote]: más menos un porcentaje, lo que fuere, o o qué cantidad de monto,
+[Remote]: pero también tenemos
+[Remote]: ciertos umbrales que nosotros
+[Remote]: analizamos, que sería la conciliación
+[Remote]: como quien dice, en sí, o sea, porque lo que concilio automático
+[Remote]: y entre la tolerancia, básicamente,
+[Remote]: es algo que no pasa por por las manos de un usuario.
+[Remote]: Para eso que que pasa por las manos de un usuario,
+[Remote]: nosotros tenemos dos opciones,
+[Remote]: o es un rechazo, que eso debería interactuar con el portal, que
+[Remote]: fue lo que ya vimos, no quiero volver a entrar en eso, pero tenemos después lo que se llama la aprobación.
+[Remote]: ¿Eso ustedes tienen algún tipo de pantalla donde nosotros nos podamos enfocar
+[Remote]: en esos casos? Sí, es lo que es lo que mostramos en el, lo que llamamos el
+[Remote]: hoy en día, el exception manager,
+[Remote]: básicamente, ustedes ponen un un rango de tolerancia para marcar como conciliado.
+[Remote]: Ejemplo, punto uno por ciento o uno por ciento del monto.
+[Remote]: Todo lo que esté por debajo de ese umbral,
+[Remote]: va a conciliar,
+[Remote]: y todo lo que esté por encima va a aparecer
+[Remote]: no conciliado, y ahí ustedes pueden analizarlo
+[Remote]: de manera manual, mirá, comparto pantalla,
+[Remote]: No, pero digo que
+[Remote]: cuando, o sea, ok, yo yo analicé eso manual y digo, perfecto, tiene razón el
+[Remote]: proveedor que lo quiero aprobar.
+[Remote]: Eso ya directamente impactan en resultados, pero va a poder
+[Remote]: en una cuenta distinta,
+[Remote]: sé, una cuenta de pérdida, porque estoy aprobando una pérdida,
+[Remote]: en la cuenta de lo que sea,
+[Remote]: Ah, bueno, tendríamos que A eso me refería, puntualmente,
+[Remote]: sí, que está en la pantalla de machine, pero yo ya poder, por ejemplo,
+[Remote]: hoy actualmente yo veo esa, analizo la diferencia, encuentro la diferencia y digo, está, mirá, tuve un error en la
+[Remote]: integración con el proveedor,
+[Remote]: esta diferencia la asumió comercial, porque ya la tenemos informada,
+[Remote]: Lo voy a impactar en esta cuenta,
+[Remote]: y ya
+[Remote]: Eso cien por ciento que lo lo tendríamos que hacer, por ejemplo,
+[Remote]: agregándole un comentario, un tag o lo que sea,
+[Remote]: y eso, el modelo contable lo puede usar como input para saber que cuando viene una transacción con ese tag,
+[Remote]: impacta esta otra cuenta contable.
+[Remote]: Ok.
+[Remote]: Perfecto.
+[Remote]: Muchas gracias.
+[Remote]: Teo,
+[Remote]: tengo un una... ¿Ahí vas a preguntar algo?
+[Remote]: Sí, sí, Cuéntame, Teix. Bueno.
+[Remote]: Este, iba a preguntarte una cosa,
+[Remote]: nosotros, otra de las problemáticas que tenemos en alguna de las conciliaciones es
+[Remote]: que a veces, este,
+[Remote]: tenemos venta con postventa y se concilian erróneamente, obviamente, porque justo
+[Remote]: la llave de conciliación, el número, ¿sí?,
+[Remote]: con el que conciliamos, es el mismo. Entonces, a veces genera como
+[Remote]: una conciliación equivocada. Sí. Ahí la pregunta es,
+[Remote]: ¿esa partida me aparecería en este nuevo módulo que
+[Remote]: ustedes están desarrollando o yo podría desde el vamos cuando
+[Remote]: de la información para armarla,
+[Remote]: poner ese criterio de salvedad de que no me concilies la venta
+[Remote]: con posventa, reconocerla de alguna manera, para que eso
+[Remote]: ocurra y tenga menos partidas para analizar, porque si no sería
+[Remote]: No, sí, sí, por ciento. Eso, si hay alguna forma de identificar todo lo
+[Remote]: esas transacciones,
+[Remote]: cien por ciento que lo lo agregás dentro de
+[Remote]: dentro de la lógica conciliatoria.
+[Remote]: Ahí va, en los filtros primeros, en los filtros primeros, no en el módulo final que me quede pendiente de analizar.
+[Remote]: No, pero vos que nunca, la idea es que ahí no te llegue nada, te lo que realmente está mal.
+[Remote]: O sea, ¿vos filtrás esa data?, o sea, esas transacciones de posventa, si tenés,
+[Remote]: el tipo de transacción, lo filtrarías desde Sources, desde el principio, para que
+[Remote]: ya directamente ni entre y mejore, porque estos son procesos
+[Remote]: que acumulan mucha data, o sea Sí. También una de las cosas que hacemos es
+[Remote]: che, esta data no la usás, sacala para optimizar los tiempos, esto
+[Remote]: es mucho tiempo de procesamiento, chicos, de data.
+[Remote]: Y eso. Entonces, esas optimizaciones a sobre el el el espectro de data que que
+[Remote]: que analiza es clave. Así que sí, se se filtraría al principio,
+[Remote]: cada vez que entra nueva información se filtran esas transacciones y se concilia sobre eso.
+[Remote]: Bien, gracias.
+[Remote]: Bien, y ahí te quiero un par más de consultas. La primera es,
+[Remote]: muchas veces, en estos casos de conciliación,
+[Remote]: hay datos, por ejemplo, no sé, el número de documento que viene erróneamente por intervención manual o por distintas validaciones que fallan, que hacen que lleguen mal este documento. Pero tenemos otras tablas en el RP o en o en aplicaciones externas que nos ayudan a identificar ese dato para poder hacer una conciliación. ¿Yo puedo agregar estas tablas como para nutrir esa las tablas principales de la conciliación y poder mejorarlo? Ese caso es muy común, lo vemos mucho. Básicamente, sería una especie de enriquecimiento, Entonces, por ejemplo, tenemos, bueno, este, imaginémonos que este es el el documento, y nosotros queremos, a esta base, la del ERP, enriquecerla con esas otras tablas que vos mencionaste,
+[Remote]: básicamente, lo hacemos con esta función.
+[Remote]: Seleccionamos esas otras bases, por ejemplo por ejemplo, que sea esta,
+[Remote]: ¿Qué columnas nos queremos traer? Nos queremos traer el el documento, el
+[Remote]: documento correcto, fecha de nacimiento,
+[Remote]: y, obviamente, ponemos cómo sería esa lógica para traernos la
+[Remote]: Nosotros sabemos que
+[Remote]: el ticket
+[Remote]: es, bueno, el ticket y fecha de nacimiento son
+[Remote]: las lógica. Entonces, básicamente, se puede enriquecer y automatizar ese enriquecimiento
+[Remote]: para que cada vez que entra una transacción dentro de esta base de datos ERP,
+[Remote]: se enriquezca automáticamente con esa información de esas otras bases.
+[Remote]: Buenísimo, buenísimo. Y después la otra consulta, que entiendo que
+[Remote]: parte del desarrollo que todavía queda, es
+[Remote]: todo lo que a mí me va quedando pendiente, luego de todas las posibles conciliaciones que hice, las reglas
+[Remote]: secundarias, etcétera, eso va quedando en una base
+[Remote]: que yo debería seguir analizando, debería seguir intentando conciliar y debería tener también
+[Remote]: un resumen de de cómo vas a conciliación día a día, mes a mes, lo que sea.
+[Remote]: Nosotros, o sea, como como funciona el motor de conciliaciones de Rexi,
+[Remote]: es que todo lo que está marcado como
+[Remote]: no reconciliado
+[Remote]: se intenta conciliar cada vez que corre la conciliación.
+[Remote]: Entonces, una transacción de hace siete, seis, cinco días, que no está conciliada, hoy entra información nueva, corre la conciliación, se va a tratar de conciliar de vuelta. Mañana de vuelta, y cada vez que corra, o sea, cada vez que se la reconciliación,
+[Remote]: vamos a tratar de conseguir todo lo que no consiguió en el pasado.
+[Remote]: Ok. Nosotros en, por lo menos en la parte de de vuelos,
+[Remote]: necesitamos igual tener un esquema de conciliación
+[Remote]: limitado para conciliar ciertos períodos mes a mes.
+[Remote]: Y después, aparte, todo un sistema de pendientes
+[Remote]: sea, de toda la consideración, digamos, pendientes. Eso igual se puede parametrizar, digamos.
+[Remote]: Yo puedo hacer una conciliación que esté limitada a cierta cantidad de pedidos,
+[Remote]: y aparte después hacer un seguimiento de ese pendiente.
+[Remote]: Toda la todo lo que, o sea, podés
+[Remote]: separarla, hacer dos conciliaciones independientes o manejarla como como mejor les queda a ustedes.
+[Remote]: Perdón, unas consultas más técnicas, no sé ni
+[Remote]: si tenías alguna consulta.
+[Remote]: No, ya lo fueron preguntando, Jonás me fue preguntando varias y Migo
+[Remote]: así que con eso estoy check.
+[Remote]: Bien, a nivel de seguridad, ¿ustedes manejan SOP uno, SOP dos,
+[Remote]: ¿cómo viene ese proceso?
+[You]: Mira, justo
+[You]: acabamos
+[Remote]: Bueno,
+[You]: terminamos... Mira, tengo el el reporte acá.
+[Remote]: Okay.
+[You]: Acabamos de terminar SOC dos tipo dos, con lo cual ya
+[You]: tenemos el el el reporte ese, y ya estamos ongoing para SOC uno y la
+[You]: veintisiete cero cero uno.
+[Remote]: Veintisiete mil uno, la veintisiete mil uno.
+[Remote]: Ok.
+[Remote]: Esas están en proceso.
+[Remote]: Bien. Y y otra pregunta, anticipándome a
+[Remote]: a lo que vamos a estar viendo del del módulo de problem solver,
+[Remote]: ahí, como estamos con el LM, es
+[Remote]: esa parte del LM estaría
+[Remote]: sobre un tema, un tenant privado, el aprendizaje que tenga del
+[Remote]: sobre nuestra información no se compartiría, estaría restringido y limitado.
+[Remote]: Sé si me pueden hablar un poco sobre esa parte de seguridad
+[Remote]: por la parte de la inteligencia artificial.
+[Remote]: Sí, ahí no, no. Se va a estar, no, ah, ahí está.
+[Remote]: Coba. No, solamente para agregar, todas las partes lo
+[Remote]: lo que es LLM, no usamos ningún, digamos, referencia pública.
+[Remote]: Nosotros todo lo que hacemos lo corremos dentro de nube propia, lo con lo cual
+[Remote]: cada vez que un LM recibe un un request de lo que sea, un
+[Remote]: texto o una data privada o lo que sea,
+[Remote]: corre dentro de los sistemas propios de la nube
+[Remote]: que están dentro de lo que es el NVI, digamos, o no
+[Remote]: es, tipo, yo me comprometo a no entrenar con tu dato, digamos,
+[Remote]: todo el contacto de la data protegida cuando utilizamos el
+[Remote]: No hacemos ninguna API pública ni nada de ese tipo de cosas, bien.
+[Remote]: Todo dentro de los tenants nuestros.
+[Remote]: Ahí una cosa para sumar sobre eso, porque tenemos muchos casos de
+[Remote]: bancos que tienen data más sensible,
+[Remote]: Nosotros en Rexi, con respecto a la seguridad de los datos, generalmente lo que la
+[Remote]: empresas usan para conciliar no son datos sensibles.
+[Remote]: ¿Ok? Entonces, nosotros lo que hacemos es que esa data ni siquiera se ingeste, entonces, en los
+[Remote]: de de de de carga de los datos dentro de Rexi,
+[Remote]: vos puedas o o buscar esos datos o directamente no traertelos
+[Remote]: salvo que sea un caso. Hoy, la verdad que
+[Remote]: con la y no traer los datos,
+[Remote]: viene bien, porque generalmente determinás conciliando llaves
+[Remote]: se arman o o otras cosas que no necesitan, no sé, los datos de una tarjeta, ¿no?,
+[Remote]: que están trayendo datos, pero nosotros no queremos datos de tarjetas, por eso tampoco somos PCI compliance,
+[Remote]: no necesitamos esa certificación. Pero bueno, nada, tenés esa
+[Remote]: posibilidad, si hay algún tema de seguridad de los datos, podríamos ofuscar ese dato y
+[Remote]: básicamente, hacer las conciliaciones con los hash generados.
+[Remote]: Gracias, chicos.
+[Remote]: Bien, no sé, equipo, si tiene alguna otra consulta, alguna otra duda.
+[Remote]: Algo que quieran que veamos.
+[Remote]: Suena a vos, ¿algo más por el lado de...?
+[Remote]: De Nenar que preguntemos? No, no, desde el lado bien, está eso, las dudas que creo que los chicos ya la respondieron, así que no, no tenemos dudas. Bien, entonces, nada, Jessie,
+[Remote]: Perfecto. Bien, bien, bueno, chicos, muchas gracias a todos, estamos sobre ahora. Gracias por
+[Remote]: este tiempo y demás. Ahí, como next steps,
+[Remote]: también tenemos pendiente, entonces, hacer la misma prueba de concepto, pero para la parte de
+[Remote]: de tarjeta, donde tenemos el volumen es mucho mayor,
+[Remote]: y capaz allí ya estamos recolectando internamente la información, la data,
+[Remote]: por allí apenas la tengamos se las compartimos y ahí avanzamos con con con esa fase,
+[Remote]: y si podemos apuntar, entonces, en esa instancia, poder tener esta parte del módulo de
+[Remote]: problem solver,
+[Remote]: y poder ver entonces el vivo esa
+[Remote]: esa particularidad. Adelante, Nick.
+[Remote]: Nada, quería ver si era posible, este, en el caso, de ejemplo, que
+[Remote]: nos presentaron, porque nosotros eso ya es un período, obviamente, que ya analizamos,
+[Remote]: Quería ver si ustedes nos pueden compartir los resultados, tanto del parceo que hicieron como de la conciliación
+[Remote]: como tal, para ver el porcentaje de
+[Remote]: que nos generó versus lo nuestro. Vale, obviamente. Y
+[Remote]: lo podrás compartir vos también, el tuyo? Me da mucha curiosidad
+[Remote]: a ver cómo Dale, dale. Sí, él mira va
+[Remote]: era bastante complejo. Es que por eso eso también nosotros lo que hacemos es
+[Remote]: de onboarding es diseñar las reglas con los clientes. Esto es como un proceso. ¿No? Este setup
+[Remote]: de de reglas, tipo medio design partner, estar ahí con ustedes y fijarnos cuál es la mejor
+[Remote]: que problem sol lo viene a resolver eso, si dios quiere, y los funcionan bien,
+[Remote]: Pero, bueno, está buenísimo esto, Nicole, nosotros te pasamos los data y después pasamos a nosotros, pues nos sirve para
+[Remote]: ajustar la recon, correrla de vuelta y ver si se ajusta más a los macheos que ustedes tuvieron.
+[Remote]: Dale. Las transacciones que que marchearon y los los resultados generales.
+[Remote]: Sí, y el y el resultado de de de parceo, ¿viste?, la primer parte donde
+[Remote]: vos te leíste el archivo,
+[Remote]: Porque eso es como, es lo principal, porque capaz que viste de ahí capaz que
+[Remote]: porcentaje a vos no te dio del todo bien en en la conciliación, pero porque depende de eso.
+[Remote]: Sí, obviamente. Nada, eso, como comentario, si después lo vemos juntos,
+[Remote]: y afinamos esa lectura, yo creo que
+[Remote]: está bastante bien, al menos los ticket numbers
+[Remote]: estamos en noventa por ciento de conciliación, así que que casi todos los casos los los agarramos bien, pero
+[Remote]: felices de de de verlos. Te lo te lo comparto esta tarde.
+[You]: I dale, Gian perfecto, esperamos la data de tarjetas entonces y apuntamos en ese siguiente demo ya
+[You]: mostrar también la parte de problem solver. Ahí, la parte de tarjetas, ¿con quién era?
+[Remote]: Pablo Gando.
+[Remote]: La estamos viendo internamente, sí.
+[Remote]: Con Pablo Gando, lamentablemente no se pudo sumar a la mí,
+[Remote]: pero la estamos viendo internamente y apenas la tengamos, se la compartimos. Esperamos tenerla esta semana.
+[You]: Listo, dale, quedamos atentos, entonces.
+[Remote]: Buenísimo. Muchas gracias. Gracias a todos, chicos. Chau. Gracias.
+
+============================================================
+SUMMARY
+============================================================
+### Demo Overview & Pain Points Recap
+
+- Rexi demonstrated product demo for Despegar’s airline reconciliation challenges
+- Key pain points confirmed:
+  - 3M+ transaction records monthly across multiple sources (credit cards, hotels, airlines, banks)
+  - Manual work for data ingestion, transformation, processing
+  - Heterogeneous, non-standard formats requiring extensive manipulation
+  - Complex discrepancy management and investigation
+  - Manual accounting impact and ERP integration
+  - Security/privacy concerns with customer data
+  - Constant changes from new verticals, providers, format updates
+
+### Live Demo: Airline Reconciliation
+
+- Teo demonstrated automated parsing of airline data files
+  - Used AI to extract ticket numbers, fares, carrier codes, issuing dates
+  - Automated formula generation (e.g., FIND function for ticket extraction)
+  - 90% ticket number extraction accuracy achieved
+- Reconciliation setup:
+  - One-to-one matching strategy between ERP and airline transaction data
+  - 7-day tolerance window as requested
+  - Matching criteria: ticket number, date, airline carrier code
+- Results from demo data:
+  - \~80K total transactions processed
+  - 39K transactions in ERP base, 6K unmatched
+  - 5.4K transactions unmatched from airline data
+  - Processing completed in seconds
+
+### Advanced Features Discussed
+
+- Problem Solver module (launching soon):
+  - LLM-powered discrepancy resolution
+  - Automated clustering of similar issues
+  - Fuzzy matching capabilities for partial ticket number matches
+  - Human-in-the-loop validation before mass processing
+- Exception Manager:
+  - Manual resolution interface for unmatched transactions
+  - Automated exception rules (e.g., transactions without IDs)
+  - Real-time investigation and filtering tools
+- Reporting & Dashboards:
+  - Customizable widgets and charts
+  - Automated report generation tied to reconciliation runs
+  - Export capabilities (SFTP, email, API)
+
+### Integration & Technical Requirements
+
+- Real-time processing discussion:
+  - Current: Batch processing with configurable frequency
+  - Goal: Real-time reconciliation via API/webhook integration
+  - Despegar’s payment portal integration needs:
+    - API in/out for real-time notifications
+    - Multi-step dispute resolution workflow
+    - Final packaging into invoices for ERP
+- ERP connectivity:
+  - Live transaction updates supported (status changes, amount modifications)
+  - Maintains full transaction lifecycle history
+  - Current integrations being explored for Workday, Oracle, SAP
+- Data enrichment:
+  - Can pull from multiple reference tables to correct/complete data
+  - Automated enrichment rules for missing document numbers
+
+### Accounting & Compliance
+
+- Tolerance handling:
+  - Configurable thresholds for auto-reconciliation
+  - Manual approval workflow for exceptions above threshold
+  - Different accounting treatment based on approval type
+- Accounting module capabilities:
+  - Automated journal entry generation
+  - Approval workflows before ERP posting
+  - Flexible grouping (per transaction vs. batch entries)
+  - Custom account mapping based on transaction tags/comments
+- Security certifications:
+  - SOC 2 Type 2 completed
+  - SOC 1 and ISO 27001 in progress
+  - Private LLM tenant (no public API usage)
+  - Data obfuscation options for sensitive information
+
+### Next Steps
+
+- Rexi to share demo results and parsing details with Despegar team this afternoon
+- Despegar to provide credit card reconciliation data (higher volume) this week
+  - Pablo Gando coordinating internally
+- Schedule working session for hands-on platform access
+- Next demo to include Problem Solver module demonstration
+- Despegar to share their manual reconciliation results for comparison analysis
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/be7e3a55-e6fe-488a-9aa0-67e8dc2b77c2](https://notes.granola.ai/t/be7e3a55-e6fe-488a-9aa0-67e8dc2b77c2)

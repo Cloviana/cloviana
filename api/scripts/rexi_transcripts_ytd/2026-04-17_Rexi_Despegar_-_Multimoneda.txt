@@ -1,0 +1,184 @@
+MEETING: Rexi <> Despegar - Multimoneda
+DATE: 2026-04-17
+ID: not_ljVLZKi5boCN3t
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Miguel Pereira <miguel.pereira@despegar.com>, Sebastián García <sebastian@rexi.finance>, Yessica Duarte <yessica.duarte@despegar.com>, Teo <teo@rexi.finance>, Nicholl Cabezas Diaz <ncabezas@despegar.com>, Jean Castillo <jean.castillo@despegar.com>, Carol Perez <carol.perez@despegar.com>, Jonathan Pombo <pomboj@despegar.com>
+SCHEDULED: 2026-04-17T13:30:00-04:00 - 2026-04-17T14:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: El requerimiento de extraer información del nombre del archivo del SFTP para ingestarlo en una o más columnas.
+[Remote]: Y y parciarlo,
+[Remote]: eso nos sirve tanto para lo de Jessica como para lo que
+[Remote]: comentaron de
+[Remote]: el período,
+[Remote]: es más o menos el el el mismo feature que que vamos
+[Remote]: a a implementar,
+[Remote]: Y después tenemos
+[Remote]: conversión de tipo de cambio, que ahí, si quieren, esperamos a que ustedes no digan
+[Remote]: cuál tipo de cambio que quieren que usemos, y nosotros
+[Remote]: analizamos la integración y la y la la implementamos.
+[Remote]: ¿Les parece ok?
+[Remote]: Perfecto, Teo. Perdón, me faltó... El tercero que yo llamé es
+[Remote]: la la moneda
+[Remote]: comparación condicional.
+[Remote]: Sí.
+[Remote]: Bien, Migue quería decir algo también, te estoy en la mano levantada del alumno,
+[Remote]: el alumno, ejemplo yo voy esperando. No, bueno, quiero repasar un poco
+[Remote]: el caso de vuelo, que es un es muy parecido a lo que hablaron, no quiero
+[Remote]: dar vueltas sobre lo mismo, pero hay una particularidad que capaz que
+[Remote]: se puede aplicar con estos cambios que están pidiendo. En web no tenemos el caso este de moneda,
+[Remote]: y monto, moneda cobrada, eso no lo tenemos, solo tenemos un monto.
+[Remote]: Tenemos un monto al lado de la OMI. La realidad es que para la mayoría de los casos es
+[Remote]: hacer la conciliación, la parte de la verificación de la conciliación,
+[Remote]: la moneda para que consigne y estaríamos ok. No deberíamos tener ningún problema.
+[Remote]: Tampoco tenemos tolerancias, así que todo lo que tiene diferencias ajusta.
+[Remote]: El único caso particular es cuando
+[Remote]: hoy lo lo tenemos solucionado desde el ERP, es cuando
+[Remote]: yo tengo desde el lado del proveedor,
+[Remote]: que me está me está pagando las transacciones en una moneda,
+[Remote]: por ejemplo, dólares, y pero del del lado del cliente,
+[Remote]: sea, del lado de la factura, yo lo estoy cobrando en
+[Remote]: en
+[Remote]: otra moneda, Argentinos.
+[Remote]: Ahí lo que hace el ERP es crear otro documento conciliatorio diferente al de la
+[Remote]: el cliente, que
+[Remote]: si un documento solamente con fines conciliatorios,
+[Remote]: interno, con fines de conciliación. Ok. Que convierte el documento
+[Remote]: en la otra moneda. Voy a tirar Argentinos, porque es el caso de uso que tenemos.
+[Remote]: De pesos argentinos a dólares.
+[Remote]: Ese documento a mí me viaja la conciliación, y yo lo concilio contra el documento que que cobró
+[Remote]: del
+[Remote]: proveedor.
+[Remote]: Sí. Sí, ahí, Jonás, si querés agregar,
+[Remote]: Eso me parece bien, Miguel, porque usted, al considerar de la
+[Remote]: conciliando la moneda del cobro al al pasajero.
+[Remote]: Eso, Nick, entiendo que si si si
+[Remote]: si normalizáramos todo y fuéramos a un contract currency,
+[Remote]: esa OM que te ingresa moneda de de
+[Remote]: cobra el pasajero, pasaría a ingresarte en moneda de contrato
+[Remote]: este problema que dice Miguel no lo tendrías, ¿no?
+[Remote]: Cien cien por ciento. En realidad, es como el objetivo final,
+[Remote]: a lo que, o sea, es un planteo que me hizo Mígue, que es el objetivo final de que queremos llegar, pero
+[Remote]: para eso tenemos que hacer como también con como un proyecto de cara con el equipo de
+[Remote]: ¿viste?
+[Remote]: Como para alinearnos todos ahí. Entonces, es como mucho
+[Remote]: más largo, o sea, en el mientras tanto entiendo entiendo el punto. Es como si fuese
+[Remote]: este, mío y no me sale el nombre, se me borró de la cabeza.
+[Remote]: Perdón Ah, sí, arbitrado.
+[Remote]: Eso, gracias.
+[Remote]: Se me se me ha borrado de la cabeza. Ahí la facturación al cliente igual es en Argentinos, por las dudas.
+[Remote]: Y el cobro innata es por dólares.
+[Remote]: Digo, como un caso en pesos mexicanos, x. Sí, sí, pero ahí ya lo tenés en la cantidad ahí, sí. Es un poco distinto. Pero en este caso, yo al cliente le facturan argentinos,
+[Remote]: y a mí y Ata me lo pagan en dólares. O sea, yo si igual tomara el dato de la factura, lo estaría tomando en Argentinos porque me lo facturan en
+[Remote]: Argentinos y yo se lo tengo que facturar al cliente en Argentinos. Digo, porque no sé si se termina de solucionar este caso,
+[Remote]: con este cambio. Pero A lo que vos que no.
+[Remote]: Eso, ¿cómo cómo cómo lo bajamos a a la necesidad concreta?
+[Remote]: Bueno, a lo que yo iba ahí es, cuando yo verifico la
+[Remote]: hago la conciliación, tengo la partida en Argentinos y tengo el documento en dólares,
+[Remote]: tengo el mismo número. Todo lo demás de la llave de conciliación es ok.
+[Remote]: Como lo pienso de esta manera, ustedes me dicen si estamos ok. Yo
+[Remote]: tengo el mismo número de documento, me concilia todo perfecto, pero la
+[Remote]: diferencia tengo en la moneda. Ahí lo que voy a necesitar es que me transforme
+[Remote]: el documento de de
+[Remote]: de la de la del universo a conciliar en dólares.
+[Remote]: Eso lo ajusto y lo llevo a la moneda que tengo que llevarlo para el para la contabilidad.
+[Remote]: Dentro del mismo requerimiento, ahí si quieren alinear
+[Remote]: qué tipo de de conversor
+[Remote]: es el el que les gustaría, así nosotros nos nos nos damos vuelta, nos vemos si
+[Remote]: si tiene con idea Eso no lo llevamos nosotros, Teo, seguro. Sí.
+[Remote]: Ahí lo único que, Teo, lo que tendríamos que tener es esa
+[Remote]: esa capacidad de poder compartir el el documento, en el caso de que la conciliación lo requiera,
+[Remote]: a la moneda que yo necesite cuando cuando está cuando todo esté
+[Remote]: Esto sin ningún problema, lo más complicado que es
+[Remote]: definir el
+[Remote]: el conversor que quieren y ver que ese conversor tenga API
+[Remote]: abiertas. Nosotros sabemos por qué otros clientes nos pidieron que hay conversores
+[Remote]: abiertos que son muy fáciles de implementar,
+[Remote]: Es cuestión de que ustedes estén ok con el que implementamos.
+[Remote]: Ahí, Jessie, Miguel, capaz que escribámosle alfa o
+[Remote]: o vemos ahí con quién, vemos dónde lo toma.
+[Remote]: Sí, obvio. Dale. Sí.
+[Remote]: Buenísimo.
+[Remote]: Bueno, clarísimo,
+[Remote]: gracias por por por el tiempo a todos, ahí nos llevamos nosotros esos esos tres
+[Remote]: puntos producto.
+[Remote]: Y ustedes definir qué, con qué conversor quieren que
+[Remote]: nos enteremos.
+[Remote]: Bien, Perfecto. Cuando tengas la respuesta de lo del TXT,
+[Remote]: por chateanos ahí en el chat.
+[Remote]: Sí, recién vi que Seba me comentó, acaba de subir un TXT de ochocientos megabytes,
+[Remote]: así que estamos, imagino que está hablando de
+[Remote]: querían subir. Del de sí, se me
+[Remote]: Ahora les paso el link venir a buscar.
+[Remote]: No, no, está perfecto, nos encanta, nos encanta.
+[Remote]: Ahora les les paso limpio esa respuesta, que no no Ale, buenísimo. Está bien.
+[Remote]: Perdón, me tomo una una una cosita más off the record, antes de de terminar.
+[Remote]: Más allá del ticket que que también lo estoy necesitando. El tema de
+[Remote]: el cuando tenemos documentos como muy pesados, que era lo que te comenté hoy,
+[Remote]: Yo, si me quisiera conectar,
+[Remote]: al al SFTP desde de SPEAR Academy, ¿lo podría hacer?
+[Remote]: Deberías poder hacerlo, ahora lo lo Excelente.
+[Remote]: Ahora lo Es mucho intuitivo por lo que estuve viendo, pero no quería hacerlo solo. Lo voy a ir probando
+[Remote]: entonces. A mí me pasó lo mismo que yo lo dije, se podrá,
+[Remote]: por
+[Remote]: Sí, sí, sí Y quiero romper nada.
+[Remote]: Es una es una una instancia de de prueba
+[Remote]: pero yo creo que está habilitado, ahora lo lo lo charro cómo se va.
+[Remote]: Dale, bárbaro, genial. Y, acuérdese,
+[Remote]: siempre que se traguen, nosotros no queremos que que se vuelvan locos ni que
+[Remote]: se frustren si algo mal nos mandan, y nosotros lo estamos tomando todo automáticamente.
+[Remote]: Dale.
+[Remote]: Buenísimo. Perfecto, Teo. Gracias. Muchas gracias. Muchas gracias.
+[Remote]: Chao, chao. Chao. Gracias, chicos. Chao, chao. Gracias, chao, chao.
+
+============================================================
+SUMMARY
+============================================================
+### Multi-Currency Implementation Requirements
+
+- Three key features needed for Despegar integration:
+  1. Extract information from SFTP file names and parse into columns
+    - Serves both Yessica’s requirements and period tracking needs
+    - Same feature implementation covers multiple use cases
+  2. Currency conversion functionality
+    - Waiting for Despegar to specify preferred exchange rate provider
+    - Rexi will analyze integration and implement accordingly
+  3. Conditional currency comparison feature
+
+### Flight Payment Reconciliation Challenges
+
+- Web platform lacks currency/amount breakdown that other channels have
+  - Only shows single amount next to OMI
+  - Majority of reconciliation cases work fine with existing setup
+  - No tolerance settings - all differences get adjusted
+- Complex scenario: Provider pays in USD, customer billed in ARS
+  - ERP creates separate reconciliation document for internal purposes
+  - Converts customer document from ARS to USD for provider reconciliation
+  - Current workaround functional but not ideal
+- Long-term goal: Normalize to contract currency
+  - Would eliminate current reconciliation issues
+  - Requires broader project coordination across teams
+
+### Technical Implementation Details
+
+- Currency conversion capability needed for reconciliation
+  - Transform documents to required currency when conciliation keys match but currencies differ
+  - Same document number, perfect reconciliation except for currency mismatch
+- Exchange rate provider selection critical
+  - Must have open APIs for easy implementation
+  - Rexi has experience with multiple providers from other clients
+  - Despegar needs to specify preferred converter
+
+### Next Steps
+
+- Rexi: Implement three product features discussed
+- Despegar: Define preferred exchange rate converter/provider
+- Share TXT file response via chat when ready
+- Miguel to test SFTP connection from Despegar Academy
+  - Should be accessible but will verify functionality
+  - Test environment available for safe experimentation
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/ccd84d80-1d03-4a5b-90f2-8f75c02d9f30](https://notes.granola.ai/t/ccd84d80-1d03-4a5b-90f2-8f75c02d9f30)

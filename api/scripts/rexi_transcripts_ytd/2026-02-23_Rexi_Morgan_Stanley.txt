@@ -1,0 +1,456 @@
+MEETING: Rexi <> Morgan Stanley
+DATE: 2026-02-23
+ID: not_itYKLwDdZ2yMsJ
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Alexander Kelly <alexander.kelly@morganstanley.com>, Jeff Wu1 <jeff.wu1@morganstanley.com>, Jonathan Lesko <jonathan.lesko@morganstanley.com>, Nikhil Shah1 <nikhil.shah1@morganstanley.com>, Olivia Wootton <olivia.wootton@morganstanley.com>, Soo Jin.park <soo.jin.park@morganstanley.com>, Zheng Wang <zheng.wang@morganstanley.com>
+SCHEDULED: 2026-02-23T10:30:00-05:00 - 2026-02-23T11:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Hello?
+[You]: Ganyu?
+[Remote]: Hey. Good morning. How are you doing?
+[Remote]: Doing alright.
+[Remote]: Rachel,
+[Remote]: Oh, here. Sorry.
+[You]: Hello, Zhang. How's it going?
+[Remote]: Yeah. Here. How are you?
+[Remote]: Very good. And I apologize. I we're
+[Remote]: all, I think, working from home because of the snowstorm.
+[You]: Same for me, same for me.
+[Remote]: But my my
+[Remote]: oh, okay. But my videos on and off
+[Remote]: strangely on Zoom. Like, it but just automatically shuts off, and then I turn it back on
+[Remote]: apologies if you're getting that.
+[Remote]: Alright. Cool. So great to be connected. Maybe I'll
+[Remote]: hand it over to
+[Remote]: Olivia Griffin just to do a quick intro of ourselves. I know that
+[Remote]: you and Pedro have obviously been talking, and then
+[Remote]: to know more about
+[Remote]: recti.
+[You]: Amazing.
+[Remote]: You can go ahead.
+[Remote]: Hey. Sorry.
+[Remote]: So we also on the strategic investments team where we make and manage
+[Remote]: investments on behalf of the firm. Generally, the types of companies we would invest
+[Remote]: in would be early to mid stage companies that Morgan Stanley has some sort of strategic
+[Remote]: alignment with. Generally, that is in terms of these companies being
+[Remote]: a vendor to Morgan Stanley or a company that many of our
+[Remote]: clients rely on, we typically make
+[Remote]: investments in early to mid stage companies. Our check size is usually in the range of
+[Remote]: five to a million, though we can be flexible there.
+[Remote]: And we invest across a a number of different industries from
+[Remote]: trading technologies to AI companies, anything that Morgan Stanley would find to be strategic.
+[Remote]: That's the gist of our team. Happy to answer any questions. If not, we'd love to learn more about you guys.
+[You]: Alright. Thank you so much for the intro.
+[You]: I don't have any any additional questions. I mean, it's it's very clear that
+[You]: one the risks here, I think,
+[You]: gonna be a bit too early for you guys.
+[You]: It all depends. Right? Because we're building infrastructure, which
+[You]: does require more time and more capital, so they might be a fit
+[You]: at some point this quarter or the next one as we
+[You]: build towards our seed race. But let me do a short intro on Rexy, and then
+[You]: happy to answer any additional questions. So,
+[You]: you see the presentation?
+[You]: Awesome.
+[Remote]: Yeah.
+[You]: Alright. So, basically, just to, like, set
+[You]: stage here in terms of which problem we're solving. I don't know if you guys heard the
+[You]: Synapse scandal twenty twenty four, which is this
+[You]: banking as a service provider that went down and the process going down
+[You]: north of a $150,000,000 just disappeared from one day to the other. Right?
+[You]: Of course, there's a lot of there's there's a judicial process going on, and
+[You]: and there's a lot of people saying that there was wrongdoing.
+[You]: I don't know. There probably was. But in either case, this this
+[You]: should should not have happened if we had the right monitoring protocols in in in place.
+[You]: Right? So and where this comes from is, if you look at the
+[You]: past ten years in financial services, we've seen a lot of innovation in the application layer. Right? A lot of
+[You]: companies coming out and offering
+[You]: you know, more efficient products and services cheaper, faster, access
+[You]: which has been amazing. But all this app
+[You]: layer frenzy,
+[You]: started to create risk in the infrastructure layer, meaning
+[You]: we've been adding more and more layers in the in the in the stack
+[You]: abstraction layers. Right? Because at the end of the day,
+[You]: real money is in licensed banks with an account in the
+[You]: Fed. All the rest is just software abstraction layers which we build on top of.
+[You]: And and the proliferation of these layers has made
+[You]: money tracking
+[You]: increasingly more difficult.
+[You]: And today, like, when you when you work on a fintech company or
+[You]: a payment processor company and you really try to match transactions across the stack,
+[You]: it has become technically very, very hard. Right?
+[You]: And this is a risk.
+[You]: Because, we're not able to track where money is flowing towards and in which amounts.
+[You]: Then we were sort of saying that these abstraction layers in the fintech stack are operating
+[You]: blindly or at least with some sort of threshold, which are they okay operating with, but it's not exact.
+[You]: So then the question is, like,
+[You]: what where does this go from here? Right? From from after the Synapse and
+[You]: acknowledging that the synapse is just
+[You]: the synapse scandal is just evidence of a bigger
+[You]: industry wide problem and that we're gonna continue to hit down that
+[You]: path of increasingly increasing complexity and increasing
+[You]: abstraction, what's gonna get what's gonna happen going forward with this risk?
+[You]: We're creating in the infrastructure layer.
+[Remote]: Maybe
+[You]: I'll just add a note here
+[Remote]: sorry. Question for you there on the infrastructure layer and apologies.
+[Remote]: Not super familiar with some of these
+[Remote]: challenges that you're
+[Remote]: you're mentioning mostly because we don't have a big retail
+[Remote]: But when you think about payments infrastructure, are you referring to kind of, like,
+[Remote]: institutional fund flows between
+[Remote]: a bank, another bank, or a bank and an asset manager, or is it, like, retail
+[You]: Well, it doesn't need to be read
+[Remote]: payment infrastructure?
+[You]: It can be b two b, but but between a bank and a payment processor, a payback,
+[You]: and then payment like
+[You]: I don't know, checkout.com, these these payment gateways,
+[You]: It doesn't need to be retail exactly, but
+[You]: for this actually to be a pain, there needs to be a high transactionality.
+[Remote]: Ok.
+[You]: So sometimes in
+[You]: in verticals like asset management or investment banking,
+[You]: a lot of money is being moved
+[You]: but the transactionality is rather low.
+[Remote]: Yep.
+[You]: So it's stuff you can sort of handle with just tracking spreads
+[You]: heets or downloading CSVs and you're okay just tracking
+[You]: like, if if the balance is not the same, it's gonna be different by a large
+[You]: amount, and you're gonna able to identify the transaction that was missing.
+[Remote]: Okay.
+[You]: Different is on the what you call retail side where when you see a difference,
+[You]: it can be explained by millions of transactions. So that's when it gets hard to track down these things.
+[You]: So that the question is,
+[Remote]: That makes sense. Thank you.
+[You]: going back to, like, setting setting the problem space. Going
+[You]: forward, and as we add stablecoins into the into the mix,
+[You]: is gonna add definitely more complexity here, how are we gonna
+[You]: ensure that the infrastructure is gonna go side by side and all this
+[You]: application layer innovation we've we've been seeing and we're seeing going forward.
+[You]: An interesting thing about this has to do with regulation. Right? Why it
+[You]: this a problem? Not only because of the
+[Remote]: Okay.
+[You]: innovation we've seen in the stack, as I just mentioned, but also because
+[You]: this part of the stack here is not regulated.
+[You]: So that means that all these integrations and all these abstraction layers
+[You]: don't work under a unified set of rules or unified
+[You]: standard of operation. Some of these are batch transactions. Some of these
+[You]: have prefunded wallets,
+[You]: Some of these do real time payment but with cutoff times.
+[You]: There's there's many different ways these layers are getting
+[You]: getting integrated. Right? And that's why it's also
+[You]: painful to reconcile money movements. Because if you're a fintech platform, let's say, or a payment aggregator and you're
+[You]: integrated with more of 10 of these,
+[You]: each one of those connections works different.
+[You]: In the banking side,
+[You]: there's standards for data sharing. There's standards on how you operate the money. There's standards on the
+[You]: data formatting, how you share this data. So it's easier to coordinate. But
+[You]: on the nonregulated space, this, at the end of the day, is a coordination problem.
+[You]: Right?
+[You]: Because there's it's it's not regulated. So at some point,
+[You]: when you think about it conceptually going forward,
+[You]: we need some sort of coordination mechanism.
+[You]: In this part of the stack, in this part of the stack that is
+[You]: an abstraction layer on top of the bank.
+[You]: So we'll go ahead and scout the market for solutions for this. So
+[You]: some that might pop up are black line, a big one. Well, it's listed
+[You]: Trintech, another big one.
+[You]: Serving more like the banking side and the traditional financial institutions.
+[You]: And the newer ones that you might recall are symmetric, ledge,
+[You]: modern treasuries getting into this as well.
+[You]: But what's happened with these solutions is these are siloed solutions. Right? These are solutions that they sell into the banks,
+[You]: and it's just helping the banks
+[You]: to
+[You]: process and manage all these files and reconcile the money movements. Right?
+[You]: But it's not solving the coordination problem. Right? Because at the end of the day, when I
+[You]: when I match these files,
+[You]: there's always differences. And then what happens what happens with those differences? I need to pick up the phone,
+[You]: call the bank, understand the differences, and that takes weeks.
+[You]: And money gets lost in that process. So it's not solving the true root cause, which is coordination.
+[You]: And they're very expensive because these workflows are very, very nuanced.
+[You]: So implementing and building these solutions takes a lot of
+[You]: and implementation, a lot of maintenance afterward.
+[You]: So it's not like a pure SaaS business model. So that basically leaves
+[You]: the middle lower market
+[You]: cannot pay for these solutions. Right? And the and so they just end up
+[You]: enduring the risk.
+[You]: Trying to manage these things through thresholds and with Excel macros
+[You]: and some sort of SQL patchworks. Right?
+[Remote]: Question for you on that page.
+[You]: So what would
+[You]: yeah. Go ahead.
+[Remote]: Sorry to interrupt you. Those two on the far left black line and
+[Remote]: believe it was Trintech, do they,
+[Remote]: allow coordination across all payment types, so including crypto as well?
+[You]: I don't think they cover crypto. In fact, we're talking with the bank right now, SP Bank here in The US, that was telling us that Black Lane does not support crypto.
+[You]: I don't think that window is gonna last long as stablecoins start
+[You]: going mainstream, they're gonna they're gonna just build out that so those solutions.
+[Remote]: Got it. Understood. Thank you.
+[You]: So, again, the the main message here is that none of these solutions
+[You]: is fixing the coordination problem, not creating the universal source of truth. Right?
+[You]: Which is something that we need as coordination mechanism
+[You]: in the abstraction layer. So, basically, what we wanna
+[You]: do is build that layer. Right? That that intermediary layer where everyone is dumb
+[You]: their data, their transactional data, and Rexy starts
+[You]: to become the connective tissue across all these platforms. Right?
+[You]: Starting out as reconciliation platform and building
+[You]: the connective tissue across all these organizations,
+[You]: we then have the right and the network effects
+[You]: to build additional workflows on top of it. Right? Starting by recon as a wedge,
+[You]: because we get access to the most valuable data.
+[You]: Which is transactional data,
+[You]: And then once we become that centralized platform with those third party
+[You]: network effects,
+[You]: can build on top of ledgering, fraud, AML, underwriting, financial reporting.
+[You]: Becoming more like a platform that with that universal truth,
+[You]: can build our workflow around it as a data orchestrator platform.
+[You]: So that's why
+[You]: the recon SaaS opportunity is is just the tip of the iceberg and is a wedge.
+[You]: To then go into the bigger opportunity in fintech infrastructure.
+[You]: But today, what we sell, we sell automation and compliance. Right? To all these
+[You]: actors in the space that are feeling the pain
+[You]: of reconciling money movements over Excel,
+[You]: SQL, or any of these tools. We're building an AI native solution
+[You]: at 30, 40 k ACDs, which enables them to really
+[You]: improve productivity over this workflow, improve control and visibility,
+[You]: that means reducing risk.
+[You]: And we avoid any unnecessary losses to
+[You]: unreconcilable
+[You]: transactions. Isn't it weird that in 2026, many of these companies are doing monthly write offs
+[You]: on stuff they can't reconcile? And I'm meaning, like,
+[You]: dozens of thousands of dollars every single month, which is a line that
+[You]: a journal entry called unreconcilable transactions.
+[You]: That's something we
+[You]: we aim to reduce to zero. We're in 2026. Money shouldn't get lost in the system. Right?
+[You]: And, again, we're
+[Remote]: And who
+[You]: yeah.
+[Remote]: who who is your target client here? I think you
+[Remote]: you noted earlier that there's this gap in the market.
+[Remote]: In terms of these, like, middle or lower lower middle market
+[Remote]: kind of companies that don't wanna pay for these really expensive compliance solutions. Are you
+[Remote]: targeting those guys, or are you selling into the banks?
+[You]: Well, if I were like, there's two answers to that question. The first one is
+[You]: we're targeting
+[You]: it's it's it's not the mid and lower market. It's, like, mid and
+[You]: small enterprise, because they're also not not paying for these solutions.
+[Remote]: Okay. Yep.
+[You]: But just because, reconciliation becomes a pain once you're operating a certain volume
+[You]: and a certain amount of payment flows, which just is impossible
+[You]: to handle over Excel, or you just need a team of people doing it. Right?
+[Remote]: Right.
+[You]: So that for us, being a early stage company,
+[You]: really frames us to to get quicker sales cycles and traction
+[You]: that we can build the business. First, you gotta build the business. But the second part of the question is
+[You]: given we wanna create that network effect,
+[You]: we need to target at some point everyone in the stack. So we're also having
+[You]: some parallel conversations with the sponsor banks, for example, serving the fintech industry.
+[You]: The Crossrivers, the Thread, the Celtics, the FB banks,
+[You]: These banks that you probably
+[You]: don't know of but are serving the fintech industry and that really have the
+[You]: regular pressure and the
+[You]: regular scrutiny
+[You]: to regain visibility and control over what their fintech partners are doing.
+[You]: But given those are longer sales cycles, and for that, you need
+[You]: a better positioning, more of a brand, and it takes longer. It's not top priority for us right now.
+[Remote]: Makes sense. Okay. Got it. Thank you.
+[You]: And then we're working with these organizations that are really close to regulators.
+[You]: To the FDIC, Office of the Controller, the Federal Reserve, and and and the
+[You]: enforcement networks, to make sure that our
+[You]: solution also enables these companies to be compliant. Right?
+[You]: Because many of these companies, especially Payfax and banks,
+[You]: have a lot of reporting requirements regarding
+[You]: their money flows. Right? And if we integrate the product so that those framework
+[You]: are accounted for inside the platform, and they can
+[You]: auto generate these reports. It also feels like they're buying risk reduction
+[You]: which is a very interesting wedge
+[You]: to get into these companies, not only selling automation, which
+[You]: you might as know has some sensibility in the in the sales process,
+[You]: We also wanna make sure that this is a compliance ready solution and the risk reduction is also something
+[You]: we sell into.
+[You]: So a bit about the founding team, I just
+[You]: me and my cofounder, Theo, we met, in business school. I did Harvard business school. Teo did Colombia.
+[You]: We started out of there. We won this incubator program at
+[You]: MIT called FinTech Ventures, and we've that
+[You]: and some initial credits. We also won from other pitch competitions. We started the company in 2025.
+[You]: During our MBA. And then when we graduated, we raised
+[You]: a pre seat round of 1,200,000.0. And since then,
+[You]: we added a third co founder, which is Sebastian here.
+[You]: Sebastian is the founding team of this issuer processor called Pomelo,
+[You]: one of the biggest one in Latin America.
+[You]: I think the the thing to highlight here is the three of us
+[You]: were pintic operators and we we felt the pain on the other side. We we've operated FinTechs,
+[You]: payment companies, insurance companies, and
+[You]: and we know the pain that these teams are enduring in terms of
+[You]: tracking money.
+[You]: Across the stack. Right?
+[You]: And as I said, we raised 1,200,000.0. We already have initial track
+[You]: We have paying customers.
+[You]: For seven people. This is a bit outdated, actually.
+[You]: But, yeah, we have paying customers
+[You]: We're a team of seven, and and, yeah, we're now
+[You]: down building and selling and and building towards our our seed raise.
+[You]: By
+[You]: I think it's gonna be '2.
+[You]: Think, like, me and my cofounder were based here in New York.
+[You]: The rest of the technical team is based in Argentina, and that gives us a lot of cost
+[You]: efficiency. We have, like, more than a year of runway left.
+[You]: But, I think we're gonna raise in q two just because we're seeing early momentum, and we really wanna
+[You]: scale the solution quickly.
+[You]: In in in Latin America, there's a there's a really big opportunity. There's this big player
+[You]: called Symmetric,
+[You]: which has been sort of, like, fishing alone for the past five to seven years.
+[You]: In Latin America. They're now expanding to The US Goldman Sachs is their main backer.
+[You]: Series A and series B.
+[You]: And they're like the door into The US market.
+[You]: In The US market, the
+[You]: the landscape is very fragmented. There is no clear winner
+[You]: in the reconciliation space and in the infrastructure space.
+[You]: And we believe there's a bigger opportunity
+[You]: here than in Latin America. That's why most of our efforts are focused in The US market,
+[You]: But given we come from Latin America and we've been operators there, we're taking some of the opportunities to come our way just because
+[You]: of our networks. The last thing I'll say
+[You]: and why I think this conversation is very is very interesting is, as I said, Coleman Sachs led series b and series c of our
+[You]: biggest competitor in Latin America called Symmetric.
+[You]: I guess that that sort of, sets the framing
+[You]: on why they see they see it useful, not only because
+[You]: I think they're seeing a good use of the platform internally and for all their business verticals,
+[You]: but also because they see themselves as a great partner to open
+[You]: the banking doors here in The US. So
+[You]: for us,
+[You]: as we look into our seed raise in q two, having
+[You]: having someone like Morgan Stanley in our
+[You]: our cap table
+[You]: can definitely be not only, like, a
+[You]: a big branding thing, knowing that we're backed by
+[You]: by the name of Morgan Stanley, but also it can open a huge amount of doors for us in The US market. And I'm
+[You]: sure this is very, very useful for your business verticals inter internally.
+[Remote]: Yeah. So I think
+[Remote]: it was super helpful to have an overview here
+[Remote]: from our
+[Remote]: perspective, you know, we love to meet companies like yourself
+[Remote]: when they're very early. I think
+[Remote]: you know, it's great to establish a relationship and and
+[Remote]: and follow that relationship through its journey throughout Morgan Stanley.
+[Remote]: From the investment side, we typically wouldn't look to get as involved
+[Remote]: there until there is kind of a a proven use case or a path
+[Remote]: towards a use case. But maybe a good next step for us
+[Remote]: is if you don't mind sharing the materials that you presented today, we can
+[Remote]: circulate those internally and see if there are, you know, any interest
+[Remote]: in follow-up conversations with some more kind of product and technical folks.
+[Remote]: We can certainly do that and let you know if there's any appetite. Also, you know, happy to revisit in the future.
+[Remote]: I will know that, you know, Morgan Stanley is less of a retail focused bank.
+[Remote]: So it might be, you know, not the ideal kind of
+[Remote]: fit for us, but, again, happy to kind of take this around internally and see if there is
+[Remote]: some interest in appetite because we always wanna make sure that
+[Remote]: everyone within Morgan Stanley is seeing, you know, new emerging innovative technology like yourself. So
+[Remote]: I think we're happy to do that.
+[You]: Amazing. Amazing. Yeah. I think the first I mean, the the the most natural first step here is if they're the need internally, let's prove it.
+[You]: But let's try to plug our platform into some sort of internal use case and then take it from there.
+[Remote]: Yeah.
+[Remote]: Right. I guess
+[Remote]: to that point, is there a certain
+[Remote]: persona you tend to target when you're selling into
+[Remote]: banks or large enterprises or, not quite there yet?
+[You]: No. Yes. I mean, when we talk to banks, it typically is someone on the finance organization.
+[Remote]: Okay.
+[You]: It's not accounting.
+[You]: But it tends to be someone in finance that keeps, like, some some like like,
+[You]: a controller,
+[You]: or a FinOps person, someone that's
+[You]: tracking money movements and building the the journal entries of of stuff that's
+[Remote]: Right.
+[You]: settled and reconciled. Right? But it
+[You]: does fall within the final department.
+[Remote]: And I I know
+[Remote]: yeah. I know within the finance department, we have kind of
+[Remote]: many different, you know, custom built
+[Remote]: components, and a lot of these functionalities kind of
+[Remote]: prebuilt and have existed for a really long time within Morgan Stanley. But, again, I know people are always
+[Remote]: excited to see what's on the forefront of innovation. And so
+[Remote]: if you don't mind sharing these materials, I'm sure we can socialize and appreciate the direction on
+[Remote]: pointing this towards our finance organization.
+[You]: Amazing, amazing.
+[You]: So regarding the the the fundraise, it's it's
+[You]: probably too early, but, is there a case where you guys
+[You]: have in the past at least done, like, a symbolic small check just to, like,
+[You]: participate and get information and see how it evolves before putting in a bigger check, or is that not
+[You]: something you typically do?
+[Remote]: I would say we evaluate every opportunity on a case by case basis.
+[Remote]: But we are strategic investors, and a core part of our mandate is
+[Remote]: having a a proven strategic
+[Remote]: relevance to that investment, whether that's a POC,
+[Remote]: or assigned contracts, just a a strong proof point that this is a
+[Remote]: key strategic, vendor and relationship
+[Remote]: that we want to build on top of or or kind of
+[Remote]: emphasize with a strategic investment.
+[You]: Got it. Got it. Amazing.
+[You]: Alright. I don't know if there's any additional questions,
+[You]: for me on on the product, the problem space, the vision.
+[Remote]: I don't think I had any, but
+[Remote]: other questions? Yeah. None
+[Remote]: none from my end. If you could just share these materials, that would be really helpful.
+[Remote]: And we can circulate internally among our folks.
+[You]: Amazing.
+[You]: Amazing. Alright. Thank you so much for the time. This was great meeting you. Hopefully,
+[You]: we create the relationship for
+[You]: these upcoming months for us and as we continue building and and
+[You]: scaling. Again, I'm convinced
+[You]: that that this could be an interesting partnership for both sides.
+[You]: But let's take it step by step first, try to prove that internal use case. And if there's value there, we can
+[You]: we can continue our conversations.
+[Remote]: That's great. Thank you so much for taking the time.
+[You]: Amazing. Thank you. Have a rest of it in. Stay safe, please. I'm in New York as well, and
+[You]: a bit it's a bit crazy outside.
+[Remote]: Alright. Thank you. Take care. Bye.
+[You]: Bye bye.
+[Remote]: Thank you.
+
+============================================================
+SUMMARY
+============================================================
+### Their background
+
+- Strategic investments team at Morgan Stanley making investments on behalf of the firm
+- Investment focus on early to mid-stage companies with strategic alignment to Morgan Stanley
+- Target companies are typically vendors to Morgan Stanley or companies their clients rely on
+- Check sizes usually range from $5M to $10M, with flexibility
+- Investment sectors include trading technologies, AI companies, and other strategic areas
+- Less retail-focused bank compared to other institutions
+- Finance department has many custom-built components and prebuilt functionalities that have existed for a long time
+
+### Pain points and needs
+
+- Team acknowledged they are “not super familiar with some of these challenges” in payments infrastructure
+- Limited exposure to retail payment infrastructure pain points due to institutional focus
+- Expressed interest in seeing “what’s on the forefront of innovation” in their finance organization
+- Finance department personnel (controllers, FinOps) would be natural users for money movement tracking solutions
+
+### Questions or concerns
+
+- Questioned whether Black Line and Trintech solutions support crypto coordination across all payment types
+  - Noted these solutions likely don’t cover crypto currently
+- Sought clarification on target client profile - whether focusing on middle/lower market or selling into banks
+- Asked about typical persona targeted when selling into banks or large enterprises
+- Inquired about payment infrastructure scope - whether institutional fund flows between banks/asset managers or retail payment infrastructure
+
+### Budget and timeline
+
+- No specific budget figures mentioned
+- Strategic investment requirement: need “proven strategic relevance” through POCs, signed contracts, or strong proof points
+- Evaluate opportunities on case-by-case basis rather than standard investment amounts
+- No specific timeline constraints discussed
+
+### Next Steps
+
+- Morgan Stanley team will circulate presentation materials internally
+- Will check for interest and appetite from product and technical folks within Morgan Stanley
+- Will direct materials specifically toward finance organization
+- Plan to revisit relationship in the future as company develops
+- Agreed to explore potential internal use case as proof of concept
+- Follow-up conversations with technical staff if internal interest develops
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/a9cd3dd9-44d8-4a2e-b6af-33cced9a6f26](https://notes.granola.ai/t/a9cd3dd9-44d8-4a2e-b6af-33cced9a6f26)

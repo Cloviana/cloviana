@@ -1,0 +1,335 @@
+MEETING: Rexi x Payliance
+DATE: 2026-02-09
+ID: not_UxJefKKQPrpMee
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Teo <teo@rexi.finance>, Darren Fleishman <dfleishman@payliance.com>
+SCHEDULED: 2026-02-09T15:30:00-05:00 - 2026-02-09T16:00:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Hello?
+[Remote]: Camera's fine.
+[You]: Hello? Hello?
+[Remote]: I doubt that's gonna work.
+[Remote]: Let me just get in the settings. Maybe that
+[Remote]: there. Does it work now?
+[You]: Hello? Hello?
+[Remote]: Okay.
+[Remote]: There we go.
+[Remote]: Say say something now.
+[Remote]: You hear us?
+[Remote]: There we go. K. Yeah. You never know which setting it is.
+[You]: Hello?
+[Remote]: Okay. I got it.
+[Remote]: Sorry about that.
+[You]: No worries. Were you from home today?
+[Remote]: Alright.
+[Remote]: Yeah. Today, my son had a doctor's appointment. That's all
+[Remote]: it is, and I had to get him over to
+[Remote]: the pediatrician and just got back. So
+[Remote]: that's good.
+[You]: Everything okay?
+[Remote]: Oh, yeah. Just wall check. No. Not not a big deal.
+[You]: Okay. Cool. Cool.
+[Remote]: So
+[Remote]: but, you know, I was just you know, they said, you schedule for 01:00, and they'll see you till 01:45. It kinda screws your day up. So that's that's what happened.
+[You]: That's how it goes.
+[Remote]: Alright.
+[Remote]: Nacho sent you an email. I don't wanna take too much time from you, but
+[Remote]: we we just wanted to make sure that what we
+[Remote]: are doing is okay. So before we
+[Remote]: hands on
+[Remote]: I just wanted some guidance on what issue
+[Remote]: what we should expect and how we should reconcile now that we have the correct
+[Remote]: database. I apologize for that. No worries. It's been a while to get it pulled together.
+[Remote]: Then I just had to finish budget board stuff. But now now I'm focused.
+[Remote]: So Yeah. That's Absolutely. Ory. Yeah.
+[Remote]: But how would you like it to do? I wanted to share Okay. So here here's
+[Remote]: what what you will see.
+[Remote]: K?
+[Remote]: Mhmm. In
+[Remote]: the original file I gave you, not the new bank file, you're gonna have lots
+[Remote]: of transactions as we're posting the fix. Mhmm. There is
+[Remote]: should be
+[Remote]: Alright. I'm trying to articulate this.
+[Remote]: Correctly. In general, you're gonna see
+[Remote]: one to one relationship.
+[Remote]: Okay, where
+[Remote]: there will be on that day or around that day, there'll be a
+[Remote]: amount that's posted for a $100,000 against one account, and it's
+[Remote]: posted in that other file for one account. It's all the BWs. That stands for bank wires and
+[Remote]: that's Yep. Okay? There are circumstances that are not
+[Remote]: you know, maybe that that's gonna cover 80% of your stuff.
+[Remote]: K? There are circumstances that the bank wire from the bank
+[Remote]: gets split
+[Remote]: among multiple accounts. That
+[Remote]: so
+[Remote]: you'll see a one to many
+[Remote]: on that day. K? So where
+[Remote]: original transaction file
+[Remote]: has four postings
+[Remote]: that add up to one.
+[Remote]: K?
+[Remote]: There are also circumstances
+[Remote]: that wouldn't overlap in terms of the customer, the underlying customer. They're also a code
+[Remote]: circumstances that a wire may have been
+[Remote]: received
+[Remote]: from in a different account
+[Remote]: and got
+[Remote]: that got split over there
+[Remote]: And all you're seeing is the inbound
+[Remote]: in the
+[Remote]: on the
+[Remote]: transaction file. I'm calling that the transaction
+[Remote]: file, the one that has the four categories, b w, that that's the transaction file. Right?
+[Remote]: You'll see
+[Remote]: something coming in there, and you should see a transfer of funds
+[Remote]: into
+[Remote]: the bank account.
+[Remote]: To match it.
+[Remote]: But but that may be off.
+[Remote]: Right? That that's where some of the reconciliation comes from. Maybe that didn't happen. Maybe, you know, there's a problem with that.
+[Remote]: We've received the funds. It just ended up in the wrong spot.
+[Remote]: Interesting.
+[Remote]: Okay. So it's it's complicated.
+[Remote]: You can have multiple transactions per customer per day. That happens on occasion. K? You could also have a circumstance that I was describing where you see in the transaction file, see something posted for 100,000, but you only see a net of
+[Remote]: a net impact of 80 because the same thing happens. Right? We split money out, and it went somewhere else.
+[Remote]: Right? Or Yeah. I got that backwards. Right? The wire came in for a 100.
+[Remote]: But the transaction file only shows 80. So, you know, there there are gonna be issues like that.
+[Remote]: Expecting to see that.
+[Remote]: There shouldn't be too many
+[Remote]: one offs.
+[Remote]: What you're not gonna see
+[Remote]: is in the bank account,
+[Remote]: you're gonna see outbound flows.
+[Remote]: Yes. Where stuff that you're not gonna have well, you may have
+[Remote]: We'll get to this, but you'll have transactions
+[Remote]: in the transaction file that show those outbound flows. Oh, sorry. The TV, the add on
+[Remote]: Right?
+[Remote]: Right.
+[Remote]: Yeah.
+[Remote]: Right. That
+[Remote]: so the outbound flows,
+[Remote]: but they come direct from our system, and they'll tie
+[Remote]: You know, at some level, they'll tie. The timing might be off. I'm not too worried about reconciling the
+[Remote]: The outbounds,
+[Remote]: should go out
+[Remote]: if you by you'll see an entry
+[Remote]: like,
+[Remote]: you won't have the detail in the bank of where it went.
+[Remote]: Mhmm.
+[Remote]: Because it's gonna get sent out as one file, and that could split to multiple merchants.
+[Remote]: So in theory, if you aggregated all the outbound flows on a given day, it should
+[Remote]: all the outbound flows on a given day in the bank.
+[Remote]: Okay.
+[Remote]: Got it.
+[Remote]: Yeah. That's a group, basically, combined. Right. Right. It should.
+[Remote]: May not. I don't know why. I haven't dug in why, but that's that's where we're going.
+[Remote]: Alright. Can I share This is just a proof of concept? Right? We need to go back
+[Remote]: 2018, 2017 on this file.
+[Remote]: So
+[Remote]: you know, I want you to kinda bang bang these against each other.
+[Remote]: Tell me what you see.
+[Remote]: And then we'll kinda go from there.
+[Remote]: Perfect. And just before
+[Remote]: we're done with this,
+[Remote]: this is the, basically, the new file.
+[Remote]: Is there a way for us to identify those
+[Remote]: the the outbounds, the TV versus the inbounds
+[Remote]: BW
+[Remote]: Okay. So bank wire, that's the that's the inbounds.
+[Remote]: B duct. Yeah.
+[Remote]: K.
+[Remote]: And then the debits
+[Remote]: well, I can't I can't really read this.
+[Remote]: Let me Yeah. It's not small.
+[Remote]: So these are descriptions
+[Remote]: Right. So the credit should be inbound.
+[Remote]: I believe.
+[Remote]: It's always weird with banks.
+[Remote]: But
+[Remote]: because they're coming from things. And then all the outbounds
+[Remote]: Perfect. Choice Bank, that's a credit. Right. Yep.
+[Remote]: Perfect. And all these.
+[Remote]: That means we sent them out. That's us sending them out.
+[Remote]: Okay. Yeah. Perfect. Yeah. Bank. Bank. I'm just
+[Remote]: it could be the other way. I I didn't review it for that, but it could be that they're the
+[Remote]: usually, when we receive money at the bank, it's a credit
+[Remote]: Right? The bank will credit us, but it's a debit on our books. We receive the
+[Remote]: funds, but it's a liability for them. That's why they credit it.
+[Remote]: I'm assuming that's how they prepared the statements here.
+[Remote]: Yep.
+[Remote]: Yep. Here we see credit.
+[Remote]: Mhmm. Format.
+[Remote]: And then debit
+[Remote]: it's this format.
+[Remote]: Let me see. Let me see the amounts for a minute.
+[Remote]: This is debit. Okay. Let me see the credits.
+[Remote]: And credit
+[Remote]: Yeah. So the credits are inbound.
+[Remote]: That's right.
+[Remote]: Credits are inbound.
+[Remote]: I might have said that wrong, but the credits are inbound because you can see they're even amounts in general.
+[Remote]: Yeah. And because people are sending us money, so they're
+[Remote]: sending us a million bucks, $3,000,000, $400,000. Right? So
+[Remote]: sending us money. Yeah. It looks like estimating. There'll be a couple that are more exacting.
+[Remote]: Mhmm. And and then the debit
+[Remote]: are what we're deducting because things have cleared off of that.
+[Remote]: So they're gonna have, like in general, they're gonna have, like, crazy numbers still.
+[Remote]: Yep.
+[Remote]: And that's what you're saying.
+[Remote]: Alright. Perfect. That makes sense. Right. Well, we'll take it from there then.
+[Remote]: Okay. What we get.
+[Remote]: Okay. Great. I'm available
+[Remote]: I will be much more available to you guys, like, today, for example.
+[Remote]: Going forward. So you wanna meet same day?
+[Remote]: Might be a little tricky, but certainly within twenty four hours, I can set up a call
+[Remote]: Of course. And if it's really five minutes, ten minutes,
+[Remote]: let me know, and I can carve that time out if you have a question.
+[Remote]: For sure.
+[Remote]: Okay.
+[You]: Just trying to figure out, if there's a better way to communicate rather than email.
+[You]: I don't know if text message works or or just email.
+[Remote]: You can text me if you want.
+[Remote]: My number is (917) 545-4191.
+[You]: 91754519. I'll just use this if we're really locked
+[Remote]: 4191.
+[You]: and we need you, like, just to unblock something quickly.
+[You]: Other than that, like, just wanna really realign what's the expected output
+[You]: of this. What are you looking for?
+[Remote]: I just want a reconciliation. I wanna know where
+[Remote]: where the gaps are, we'll continue to work those gaps.
+[Remote]: Right? But what what the end state here is, it's
+[Remote]: k? One is I need to reconcile back to
+[Remote]: to the beginning of time when these accounts started, which was 2018, give or take.
+[Remote]: And I have all the data. Well, I don't have all the bank accounts, say, the
+[Remote]: it's a little more complicated, but I have a lot of the data to do that.
+[Remote]: K?
+[Remote]: And then
+[Remote]: what what I wanna do going forward is set up a
+[Remote]: where this is auto reconciled.
+[Remote]: And kicks out the
+[Remote]: Yeah. Exemption. If that's something you guys can provide, great.
+[Remote]: You know? I and I don't want you know, like, you guys could even take a month or two and test
+[Remote]: this out. You don't have to do all 2025. Want you to get familiar with the data and
+[Remote]: recommend a solution to me. I'm not looking for free work. Right? You know? So
+[You]: Sure.
+[Remote]: trust me. This is not
+[Remote]: like, giving me twenty five twenty twenty five is not the answer.
+[Remote]: Yeah. I think that that's not gonna it was great, but it's not there's a lot more work to do.
+[Remote]: So
+[Remote]: but I want you to, you know, really understand this. And as we get into it,
+[Remote]: we're gonna discover things and nuances, and I wanna make sure you guys have a solution that makes sense for us.
+[Remote]: That's what this is about.
+[You]: A 100%. So the data you shared is for
+[You]: just, like, a sample of that historic data.
+[Remote]: Yeah. That's not it goes back to '20. I think
+[Remote]: this one goes back to 2018. I'm pretty sure.
+[You]: What would trigger like, if if we do reconcile the money you sent,
+[You]: what would trigger your interest to say, okay. Let's let's now run this for the beginning of time?
+[You]: On your platform.
+[Remote]: If it works,
+[Remote]: if it works. It's that simple. Right?
+[You]: So you know the results. We're gonna be comparing against results you already know.
+[You]: So we are, like, co discovering this with you.
+[Remote]: No. I don't have that. Right?
+[Remote]: It's exactly right. I I'm not
+[Remote]: to have major variances. What I am
+[Remote]: is a couple that we find mistakes
+[Remote]: but all of this
+[Remote]: we reconcile the bank account from an asset perspective. Right?
+[You]: Yep.
+[Remote]: So I know we have the cash
+[Remote]: that's on our balance sheet is in here, and that's all tied out.
+[Remote]: This is the liability side. And what we're saying, you know, we're supposed to be tracking
+[Remote]: what
+[Remote]: the ins and outs as people send us money because that's what we owe. We have money on deposit, basically, for
+[Remote]: them.
+[You]: Yep.
+[Remote]: And
+[Remote]: I'm hopeful, you know, we have a, you know, a fair amount of
+[Remote]: resiliency in our processes here, but not the reconciliation piece.
+[Remote]: I'm hopeful that we haven't screwed up.
+[Remote]: This.
+[Remote]: That's the end state. Right?
+[You]: Okay.
+[Remote]: I know one space in another account that we have a $200,000 variance, I think.
+[Remote]: And I I kinda start I
+[Remote]: I have to get back to that. I was working on that through October, and I I reconciled a bunch of stuff back
+[Remote]: to zero.
+[Remote]: On a different set of transactions. It looks like there's a mistake there that we
+[Remote]: credited someone too much. Like, they sent in 13,400,000.0, and we
+[Remote]: credited them 13.6.
+[Remote]: So
+[Remote]: you know, we don't actually owe them that money, but they think they do. And
+[Remote]: happened back in 2021 or something. You know? Like, I don't know what we're gonna do about it. But
+[Remote]: haven't solved that problem yet.
+[You]: Ideally, we run we run this with the sample data.
+[You]: And then go over the results together for you to tell us this makes sense, this doesn't, and then
+[Remote]: Yeah. And then and we can again,
+[Remote]: Austin, what, you know, what this is and how this would be constructed and what kind of data feeds you want.
+[Remote]: So there's, like, more you know, a lot more to this, but this is more
+[Remote]: just and, again, I'm not you know, this is sort of the proposal stage. I want sort of a
+[Remote]: make sure what you do aligns with what we need to get done.
+[Remote]: And I don't want you spending weeks to reconcile this.
+[Remote]: You know, pick what you want,
+[Remote]: solve for how you can tell me, you know, how we can use your services.
+[Remote]: And then we we regroup.
+[You]: 100%. So then let's let's take this back to our homework, scramble the data,
+[You]: Once we have something, let's schedule some time. We show you, and then we we see how we continue.
+[Remote]: Great. Great. Alright. Fantastic.
+[You]: Thank you, Darren.
+[Remote]: K.
+[Remote]: Thank you. Alright. Thanks a lot.
+[You]: Really good one.
+
+============================================================
+SUMMARY
+============================================================
+### Technical Setup & Data Structure
+
+- Darren’s contact: +1 917 545-4191 (for urgent unblocking)
+- Two main data files to reconcile:
+  - Transaction file (4 categories, BWs = bank wires)
+  - Bank account file (new, corrected database)
+- Transaction patterns:
+  - 80% will show one-to-one relationship (same day, same amount)
+  - Some bank wires split among multiple accounts (one-to-many)
+  - Multiple transactions per customer per day possible
+  - Timing mismatches between files expected
+
+### Inbound vs Outbound Flow Identification
+
+- Credits = inbound flows (even amounts: $1M, $3M, $400K)
+  - Bank wires from customers sending money
+- Debits = outbound flows (irregular amounts)
+  - Payments sent out to merchants
+  - Aggregated daily outbound should match bank totals
+  - Won’t have merchant-level detail in bank file
+
+### Reconciliation Scope & Expectations
+
+- Historical data goes back to 2018
+- Known $200K variance in separate account from 2021
+  - Customer credited $13.6M instead of $13.4M
+  - Resolution pending
+- Asset side already reconciled (cash on balance sheet matches)
+- Focus on liability side (tracking customer deposits owed)
+
+### End State Goals
+
+- Reconcile back to beginning of time (2018 start)
+- Setup auto-reconciliation process going forward
+- Exception reporting for variances
+- Not looking for free work - proper engagement expected
+
+### Next Steps
+
+- Rexi to analyze sample data and identify reconciliation approach
+- Schedule follow-up to review results and methodology
+- Determine ongoing service structure based on proof of concept
+- Darren available within 24 hours for questions, same-day if urgent
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/444302f4-e256-4baf-9683-afa7a4a5e85b](https://notes.granola.ai/t/444302f4-e256-4baf-9683-afa7a4a5e85b)

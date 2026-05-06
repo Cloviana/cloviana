@@ -1,0 +1,340 @@
+MEETING: Rexi x EY: intro
+DATE: 2026-03-17
+ID: not_CRspgDGNgKgu0U
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Florencia Vernet <florencia.vernet@ar.ey.com>
+SCHEDULED: 2026-03-17T12:30:00-04:00 - 2026-03-17T13:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Hola, hola.
+[You]: ¿Cómo te?
+[Remote]: Hola, ¿cómo andás, Ignacio?
+[Remote]: ¿Todo bien?
+[You]: ¿Bien y vos?
+[Remote]: Bien, todo bien.
+[Remote]: Sí, me sume, como no te encontré, seguí. Así que, nada,
+[Remote]: perdón.
+[You]: No, perdón, ah, ¿te había sumado y yo no estaba?
+[Remote]: Sí, me sumé, pero nada, me sumé a la
+[Remote]: y media, y dije, estaba demorado, entonces, nada.
+[You]: Ah, bueno, mil disculpas.
+[Remote]: Sí,
+[Remote]: no, tranqui, tranqui, olvídate.
+[Remote]: Mi tema es que solo tengo quince minutos que tengo que entrar a otra reunión, pero no quería dejar de sumarme.
+[You]: Dale, dale.
+[Remote]: Un poco
+[Remote]: nada,
+[Remote]: me gustaría, le hizo de ustedes, me pareció interesante, yo trabajo con
+[Remote]: de pago en mi generalidad, y me gusta entender distintas
+[Remote]: herramientas que pueden existir en el mercado, creo que lo que ustedes armaron es algo que
+[Remote]: se ve como un tema que que hace falta.
+[Remote]: Entiendo que todos ustedes trabajaron en algunas fintechs conocidas,
+[Remote]: con lo cual, nada, preguntarte un poquito
+[Remote]: la herramienta, de cómo funciona, de la arquitectura, de con qué
+[Remote]: y después, si surge alguna oportunidad, obviamente, ya ya será más adelante, pero me
+[Remote]: siempre saber de de todas las herramientas que andan dando vuelta en el mercado y pueden servir, ¿no?
+[You]: Obvio. Antes que te presente, ¿cómo ves vos una posible colaboración con
+[You]: Obviamente, todavía falta muchísimo, ¿no?, pero ¿cómo cómo lo estás pensando?
+[Remote]: No, mirá, la realidad es que nosotros
+[Remote]: trabajamos con distintas soluciones, obviamente todo el camino
+[Remote]: recorrer para cualquier tipo de alianza con es largo.
+[Remote]: Te voy a mentir. Nosotros localmente podemos
+[Remote]: hacer colaboraciones con distintas herramientas, son todas aprobaciones que hay que hacer,
+[Remote]: pero no, no hay que descartarlo. Es la
+[Remote]: hacemos, digamos, tenemos un montón de proyectos con
+[Remote]: ciertos proveedores en donde vamos de forma conjunta.
+[Remote]: ¿No? Entonces, tal vez, o igual subcontrata
+[Remote]: a un tercero,
+[Remote]: o la otra opción es
+[Remote]: vas de forma conjunta, digamos, como si fuese un
+[Remote]: algo más.
+[Remote]: De cara al cliente, algo más de a dos, ¿no? Pero en general,
+[Remote]: por lo general, lo que hacemos es una subcontratación.
+[You]: Perfetto.
+[You]: O sea, que es a través de ustedes, ustedes nos pagan a nosotros
+[Remote]: Bueno, como te digo, herramienta,
+[You]: y el cliente les paga a ustedes por el servicio, algo así.
+[Remote]: Exactamente, podría funcionar de esa manera, o así tenemos hoy algunos contratos.
+[Remote]: Pero bueno, hay que hay que evaluar distintas opciones.
+[You]: Sí, clarísimo.
+[Remote]: ¿Sí?
+[You]: Bueno, creo que el el el problema lo conocés bien, pero, básicamente, en el mundo
+[You]: PCPs, en el mundo Fintech y en el mundo bancario también hay un proceso operativo de back office,
+[You]: llamado conciliaciones, que es increíblemente doloroso.
+[You]: Lleva muchísimo tiempo, muchísimas personas.
+[You]: Y no solamente tiene una ineficiencia y un costo económico, sino también que conlleva riesgo, ¿no?
+[You]: Muchas estas PCPs pueden perder la licencia por no estar conciliando correctamente. Mismo los bancos tienen que presentar reportes al SRA diarios, y no representan bien conllevan multas y riesgo de perder la licencia también, y, bueno, después todas las pérdidas asociadas, ¿no? Esa entrada contable que se llama pérdidas irrecuperables pérdidas irreconciliables es algo que en veinte veintiséis, con los sistemas que tenemos hoy, es es bastante insólito que sea de
+[You]: existiendo. Pero bueno, existen porque
+[You]: la información es muy difícil de obtener,
+[You]: es muy difícil de obtener esa información de manera
+[You]: segura, precisa, el proceso de conciliación,
+[You]: es un arte más que una ciencia, empezás a buscar distintas llaves, combinación de llaves,
+[You]: de tolerancia.
+[You]: Matching uno a uno, matching one to many,
+[You]: ahí se empieza a poner bien, bien complejo.
+[You]: Pero la solución que tenemos nosotros es automatizar el proceso end to end.
+[You]: ¿Sí?
+[You]: Entonces,
+[You]: lo que buscamos es, desde
+[You]: conectarnos a la fuente de información, al banco, al procesador de pagos, al ledger interno, para
+[You]: obtener los archivos crudos.
+[You]: Creemos que ese es un valor diferencial también, trabajamos con archivos crudos,
+[You]: no requerimos ningún preprocesamiento, ningún manipuleo
+[You]: previo a usar la plataforma, lo cual también facilita mucho la implementación.
+[You]: Y también por un tema de auditoría y trazabilidad
+[You]: manipulada que nosotros hagamos, tenemos que contar con el archivo crudo para poder volver a hacer
+[You]: archivo por cualquier cosa que pase, ¿no?
+[Remote]: Correcto.
+[You]: Es como la estrategia de por un tema de seguridad también.
+[You]: Después, hacemos toda la normalización. Todos esos archivos, como bien sabrás, vienen con
+[You]: nomenclaturas diferentes, formatos diferentes, estructuras diferentes,
+[You]: Hay un preprocesamiento que se tiene que hacer antes de empezar a
+[You]: cruzar transacciones,
+[You]: Eso lo hacemos con un agente de inteligencia artificial que analiza la
+[You]: empieza contra el patrón común
+[You]: y hace ese preprocesamiento. Después, la lógica conciliatoria, que hay una ahí de lógica de negocio que tenemos que absorber y codificar en la plataforma, más de vuelta a un agente que encuentra patrones adicionales, encuentra llaves adicionales,
+[Remote]: Ok.
+[You]: adicionales que
+[You]: maximizan
+[You]: el matching ratio
+[You]: y luego tenés el módulo de
+[You]: investigación y resolución de discrepancias, ¿no?, porque ahí es donde, una es que codificás todo el todo el
+[You]: flujo
+[You]: de información y ya corre de manera automática, la
+[You]: la mayor cantidad de tiempo se
+[You]: se pierde investigando y resolviendo discrepancias.
+[You]: Ahí es donde realmente, no sé, compañías como SuperBield tienen equipos
+[Remote]: Hey.
+[You]: veinticinco personas. Ahí es donde realmente está el costo
+[Remote]: Operativa gratis.
+[You]: manual. Bueno, y ahí de vuelta,
+[You]: Sí, y ahí
+[You]: es donde está el costo operativo más grande y donde están también las mayores pérdidas.
+[You]: Porque todo lo que vos no logres explicar de eso se genera la entrada contable de pérdidas, ¿no?
+[You]: Entonces, ahí es donde también, de vuelta, entra un agente y con tecnología
+[You]: de inteligencia artificial y machine learning, hacemos clustering de transacciones.
+[You]: La gente encuentra posibles razones de por qué es que
+[You]: esas diferencias, y propone soluciones.
+[You]: A medida que propone soluciones y el usuario actúa sobre esas soluciones, ya sea
+[You]: o aprobando, el sistema empieza a grabar todas esas acciones en lo que llamamos el
+[You]: policy de la compañía.
+[You]: Porque las conciliaciones dependen mucho
+[You]: del setup particular de cada compañía, de la de cómo manejan su
+[You]: flujo, sus operaciones y cuáles son las necesidades regulatorias también. Entonces,
+[You]: eso es lo que nosotros tenemos que empezar a construir con nuestro cliente. ¿Qué hace esto?
+[You]: Que a medida que el cliente usa la plataforma,
+[You]: no solamente aprendemos de la información estructurada con la cual trabajan, sino también hay que
+[You]: de la manera en la que operan. Entonces, el sistema se vuelve mejor y mejor,
+[You]: y la curva pasa de ser un
+[You]: AI powered suggestion a un agente que realmente ya ejecuta
+[Remote]: Ajá.
+[You]: de manera autónoma, ¿no?
+[You]: Con las libertades que vos le vas brindando todo de una manera muy configurable.
+[You]: El impacto que vemos
+[You]: es el que ya te te conté un poquito, ¿no?, automatización de tareas manuales,
+[You]: reducción de pérdidas en en write offs,
+[You]: y el tema de la reducción del riesgo regulatorio de compliance, porque
+[You]: muchos de estos flujos impactan en
+[Remote]: Sí, correcto.
+[You]: necesidades de reporting, etcétera.
+[You]: Un poco sobre cómo estamos construyendo la plataforma. De vuelta,
+[You]: tecnología cien por ciento AI native, la incubamos, la compañía la incubamos en
+[You]: Harvard y en MIT, yo estaba estudiando en Harvard,
+[You]: y le hice un incubadora en MIT, a partir de ahí, lanzamos. Tuve nuestro primer cheque de inversión
+[You]: desde esa incubadora y luego levantamos una ronda de capital
+[You]: cuando nos graduamos.
+[You]: La idea es que sea muy flexible y muy muy configurable, porque justamente, como te
+[You]: es un flujo muy particular y específico a cada compañía. Entonces, yo no puedo armar un
+[Remote]: Correcto.
+[You]: que sea one size fits all, y que ustedes se tengan que adaptar al SaaS. Esto esto se tiene que sentir
+[You]: casi como Cloud Code, ¿viste? Estás generando tu propio workflow
+[You]: para tu conciliación.
+[You]: La idea es que sea también muy fácil de implementar, a diferencia de no
+[You]: principales competidores, que la implementación dura mínimo tres meses y encima te lo cobran. La idea es
+[You]: nosotros
+[You]: te sea muy fácil de onboardear y muy fácil de configurar.
+[You]: Por, justamente, las personas que llevan esta operación hoy,
+[You]: porque no queremos sacar a las personas del medio, queremos, justamente, empoderar a esas personas.
+[You]: Para que construyan sus propios flujos. Obviamente, hay muchísimo handholding en el
+[You]: en la implementación,
+[You]: pero lo podemos, si tenemos acceso a la información y podemos construir los conectores de manera
+[You]: rápida, que es una parte, por ahí no depende mucho de nosotros,
+[You]: podemos tener la plataforma live en semanas, menos un mes.
+[You]: Lo hemos hecho con algunos clientes. Y esto que te contaba de self learning,
+[You]: agentes que empiezan a codificar toda esa lógica de negocio y todas esas acciones de los usuarios,
+[You]: en un aprendizaje, y el agente se vuelve cada vez más autónomo a medida que
+[You]: que operamos. Hoy trabajamos principalmente con servicios financieros, compañías de servicios financieros, bancos,
+[You]: fintechs, PCPs y de pagos.
+[You]: Algunos adquirentes y emisores, y nos estamos empezando a meter en todo lo que es el
+[You]: de marketplaces y ecommerce, porque, de vuelta, también hay
+[You]: múltiples de dinero,
+[You]: y una transaccionalidad alta, lo cual
+[Remote]: Sí, sí, sí, de transaccionalidad, sí, correcto.
+[You]: La transaccionalidad y los múltiples
+[You]: flujos de dinero son los que hacen que la conciliación sea compleja, y donde tiene sentido tener un
+[You]: más robusto y escalable como el nuestro, ¿no?
+[You]: Si tenés un flujo y una transaccionalidad baja,
+[Remote]: Sí, me habló el
+[You]: ¿Cómo?
+[Remote]: Y ni hablar se están conectando a procesadores.
+[Remote]: Que es bastante complejo también encontrar la información y entenderla.
+[You]: Claro, però se te les digo,
+[Remote]: En por lo menos.
+[You]: si tenés un flujo de una transaccionaria baja, soy el primero que te va a decir
+[You]: quédate con Excel o quédate con algún flujo de cloud que que te lo resuelva.
+[You]: Ya cuando manejás múltiples y tenés muchas diferencias, ahí se empieza a volverte dios.
+[You]: Pero, bueno, operamos en modalidad SaaS,
+[You]: tenemos
+[You]: la posibilidad de hacerlo
+[You]: lo que llamamos el customer managed model para enterprise clients, que es donde
+[You]: levantamos una infraestructura intermedia que
+[You]: que está
+[You]: operada por el cliente, pero controlada por nosotros,
+[You]: eso lo lo solemos hacer para clientes en donde la sensibilidad de la
+[You]: es alta y la seguridad es muy importante, y es un capability
+[You]: core del negocio de ellos, que lo necesitan tener internamente y controlar ellos.
+[You]: De vuelta, tiene que haber una razón muy fuerte para justificar ese modelo, porque
+[You]: tiene otras complejidades a nivel soporte y a nivel también upgrades, y lo va a
+[You]: que vamos construyendo. Con lo cual,
+[You]: ochenta por ciento de nuestro negocio estamos más en el la modalidad SaaS.
+[Remote]: Okay.
+[You]: Somos, tuvimos
+[You]: certificados con SOC dos tipo dos, estamos en proceso de de de certificarnos con
+[You]: SOC uno tipo dos y con ISO veintisiete mil uno.
+[You]: Y y, bueno, trabajamos con una encriptación end to end y también trabajamos con
+[You]: gallegos
+[You]: de la información para para preservar esa seguridad y esa privacidad.
+[You]: Particularmente cuando vienen
+[You]: información que es identificable, ¿no? Esto seguramente vos sabés mejor que yo.
+[Remote]: Sí, correcto.
+[You]: Así que ese es un poquito el el overview. Nosotros
+[You]: el equipo está basado, yo estoy basado en Nueva York con uno de mis socios,
+[You]: Nuestro tercer socio está basado en Argentina, con todo el equipo técnico. Hoy tenemos clientes operando en Latinoamérica, en Argentina.
+[You]: En México, en Colombia,
+[You]: y clientes acá en Estados Unidos,
+[You]: en todos los estados.
+[You]: No en todos los estados, pero en muchos estados diferentes. Y, bueno, y en eso estamos. Todavía somos
+[You]: equipo chico, lo estamos moviendo rápido. Decime.
+[Remote]: Te hace una pregunta
+[Remote]: es el modelo de costo que tiene esto?
+[Remote]: Exacto.
+[You]: ¿Cómo cobramos? Bueno, mirá, y acá te lo doy nuestro aviso
+[You]: como nuestra visión es mucho más convertirnos en el
+[You]: code
+[You]: de FinOps,
+[You]: en donde no solamente vamos a estar haciendo conciliaciones, sino que vamos a tener templates para mucho de los flujos
+[You]: hacen los departamentos de finanzas y operaciones.
+[Remote]: Sí.
+[You]: Nosotros, las conciliaciones es un wedge, un wedge de entrada para luego crecer en esos otros productos.
+[You]: ¿Por qué es un wedge? Primero, porque es un valor muy importante hoy,
+[You]: segundo, porque nos da acceso a la información transaccional, que es la que más vale para luego construir los
+[You]: flujos.
+[You]: Con lo cual, el el modelo de pricing lo estamos diseñando de tal manera de que realmente no sea una traba ni una fricción para lograr el la colaboración 0 el partnership. Entonces, una de las cosas que aprendimos de otros competidores es el modelo de cobrar por transacción 0 por línea conciliada no funciona, porque todas estas compañías tienen perspectiva de crecimiento fuertes y, entonces, no se quieren meter en un contrato en donde por ahí hoy les sale treinta mil dólares y
+[You]: a fin de año les sale setenta y cinco mil dólares por mes.
+[You]: Lo que hacemos es
+[You]: obviamente, si el volumen impacta nuestro economics por un tema de almacenamiento y procesamiento,
+[You]: hacemos una estimación y ofrecemos contratos fijos.
+[You]: Menos los próximos doce meses, le da muchísima previsibilidad a ustedes
+[You]: de saber que el costo va a ser tal.
+[You]: Y a medida que eso sube, también tenemos tablas en donde no aumenta linealmente, de hecho,
+[You]: muy agresivo que se achata,
+[You]: porque nosotros tenemos manera de gestionar su economics, y de vuelta, para nosotros
+[You]: casi que las conciliaciones son un loss leader para luego construir y ser el partner
+[You]: tecnológico de estas compañías. Que quiere hacer el catch up tecnológico con AI, ¿no?
+[Remote]: Correcto. Y contame, Nacho, ¿qué clientes más o menos no
+[Remote]: falta de medidas todos, pero de los clientes más importantes de la región, ¿con quién están trabajando?
+[You]: Trabajando con Superbiel, con despegar,
+[You]: con cachea,
+[You]: con Buenbit,
+[You]: En Estados Unidos, con Común, con PayLliance, con Dartbank,
+[You]: Estamos estábamos en un momento por empezar algo con Cleanver en el mundo de seguros,
+[You]: Estamos en conversaciones bastante basadas con HDi Seguros.
+[You]: Y y se está moviendo mucho. La verdad que el el el PR de las últimas semanas y el movimiento
+[You]: en LinkedIn activó mucho, así que estamos ahí a a las
+[You]: varios clientes al mismo tiempo. Pero bueno,
+[You]: todas buenas noticias.
+[Remote]: Bueno, todas buenas noticias, sí, como siempre.
+[Remote]: Así es la vida de de la consultoría y de este tipo de de compañías.
+[Remote]: Buenísimo. Nacho, yo me tengo que ir, porque tengo otras reuniones de las dos, pero muy interesante. La verdad que, nada,
+[Remote]: como te digo, tengo varios clientes con los que este tema es un tema,
+[Remote]: y a veces, muchas veces no tan solo porque vaya a hacer un par de g, pero también como para recomendar y decir,
+[Remote]: bueno, ¿por qué no mirar esta solución?, ¿por qué no mirar la otra?, obviamente, surgiera algo que podamos
+[Remote]: hacer juntos, sin ninguna duda me vuelvo a comunicar con vos,
+[Remote]: pero también me interesaba entender el producto, porque también muchas veces me pasa que me dicen,
+[Remote]: che, me me da una solución para esto, y me gusta entender también lo que uno dice, che,
+[Remote]: che, porque no mirá esta o mirá la otra.
+[You]: Si quieres hacer una demo,
+[Remote]: Pero bueno, yo vuelvo
+[You]: la hacemos también,
+[Remote]: Sí.
+[Remote]: Ok, dale, genial. Yo voy a ver a ver si me engancho con alguno
+[Remote]: que quiera algo de esto, y vuelvo con vos. ¿Te parece? Y si no, igual quedamos en contacto, pues, de verdad,
+[Remote]: es un tema que me interesa mucho, lo trabajo mucho con amigos de pago.
+[Remote]: Así que nada, es un un tema que creo que es superrelevante y que un dolor
+[Remote]: fuerte para, en especial para lo del mundo fintech. ¿No? Y el mundo procesadores de pago.
+[You]: Correcto.
+[You]: Bueno, nuestro sitio fue founding founding engineer, de Pomelo, así que conoces el mundo muy bien.
+[Remote]: Así que, bueno,
+[Remote]: Claro, leí leí que le, sí, sí, sí, le
+[Remote]: un poco el background de cada uno, por eso también me interesaba ver el producto, porque entiendo que
+[Remote]: está adaptado a la necesidad de varios, ¿no? Vi que tenían naranja x,
+[Remote]: Mercado Libre, quien también tiene algunos de estos temas,
+[You]: Correcto.
+[Remote]: Así que nada, me por eso también me interesaba ver la solución. Te arás
+[You]: Bueno, no te robo más tiempo. Mil gracias y estamos ahí en contacto.
+[Remote]: un montón de razón, Acho.
+[You]: Abrazo.
+[Remote]: Seguimos en contacto, te mando un beso.
+
+============================================================
+SUMMARY
+============================================================
+### EY Partnership Model
+
+- Florencia works with payment solutions generally
+- EY collaborates through two models:
+  - Subcontracting (most common) - EY pays vendor, client pays EY
+  - Joint partnerships - going to market together
+- Long approval process required for any alliance
+- Currently works with various payment tools/providers
+
+### Rexi Solution Overview
+
+- Automates end-to-end reconciliation process for financial services
+- Connects directly to raw data sources (banks, payment processors, internal ledgers)
+  - No preprocessing required
+  - Maintains audit trail with original files
+- AI agent normalizes different file formats and nomenclatures
+- Automated matching logic plus AI pattern recognition
+- Investigation module for discrepancy resolution with clustering technology
+- Self-learning system builds company-specific policies over time
+
+### Target Market & Current Clients
+
+- Primary focus: Financial services, banks, fintechs, PSPs
+- Expanding into marketplaces and ecommerce
+- Current clients include:
+  - Argentina: Superbiel, Despegar, Cachea, Buenbit
+  - US: Común, PayLliance, Dartbank
+  - In discussions: Cleanver (insurance), HDI Seguros
+
+### Pricing & Implementation
+
+- Fixed 12-month contracts instead of per-transaction pricing
+  - Provides cost predictability for growing companies
+  - Volume discounts as usage scales
+- Implementation timeline: weeks to 1 month (vs competitors’ 3+ months)
+- Reconciliation positioned as “loss leader” to expand into broader FinOps platform
+- SOC 2 Type 2 certified, pursuing SOC 1 Type 2 and ISO 27001
+
+### Next Steps
+
+- Florencia will identify potential clients needing reconciliation solutions
+- Demo available upon request
+- Florencia interested in recommending solution to existing clients
+- Follow-up planned when opportunities arise
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/f25a579e-6b81-4df4-8277-bea1ed042ee8](https://notes.granola.ai/t/f25a579e-6b81-4df4-8277-bea1ed042ee8)

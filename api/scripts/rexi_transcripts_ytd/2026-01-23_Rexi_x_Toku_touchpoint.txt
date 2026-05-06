@@ -1,0 +1,173 @@
+MEETING: Rexi x Toku: touchpoint
+DATE: 2026-01-23
+ID: not_qHJgBlmkQjAkYm
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Nrosengaus <nrosengaus@trytoku.com>, Teo <teo@rexi.finance>
+SCHEDULED: 2026-01-23T15:00:00-05:00 - 2026-01-23T15:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Fique lista para el fin de semana. ¿Ustedes qué tal?
+[Remote]: Todo bien, por suerte.
+[You]: So
+[Remote]: Qué bueno.
+[You]: Acá en New York se viene
+[You]: the worst winter storm de los últimos cuarenta años,
+[Remote]: Good luck.
+[You]: ya película el fin de semana.
+[Remote]: Sí, encerrado completamente.
+[You]: Sí.
+[You]: Ahí se suma, justo estábamos hablando con Seba, Seba es nuestro CTO,
+[Remote]: Perfecto.
+[Remote]: ¿Cómo estás? Sebas, mucho gusto. Buenas, ¿cómo andan? ¿Qué hacés, Natalie? ¿Todo bien?
+[Remote]: Todo bien, muchas gracias, sí.
+[You]: Va, bueno, tenemos seis y media
+[Remote]: Bien.
+[You]: hora, así que démosle, Teo.
+[Remote]: Va. Vale, le damos.
+[Remote]: Básicamente, logramos conciliar las bases,
+[Remote]: así que te comparto los resultados
+[Remote]: O nada más como update en lo que proyectas, no me mandaron más
+[Remote]: información, entonces,
+[Remote]: que tienen es lo que tenemos.
+[Remote]: Dale, perfecto.
+[Remote]: Bueno, básicamente lo que hicimos nosotros fue
+[Remote]: dividir las
+[Remote]: entre todo lo que es Chihuahua y todo lo que es Torreón, entonces, todo lo que es el reporte de pagos,
+[Remote]: que incluía todo, incluía a
+[Remote]: Torreón, incluía a Chihuahua, incluía también
+[Remote]: Comas Palacio y Duraja, lo segregamos, obviamente tenemos una una función que se llama split database para evitar esto, sacar todo el ruido de las conciliaciones, Entonces, armamos la conciliación, primero la de Chibóba, básicamente el primer cruce que hicimos fue por fue por cuenta y ¿cómo se llama? Tenemos Sí, cuenta, fecha, y montonos. Exacto, cuenta, número de cliente, fecha y monto, y la segunda barrida acá que capturó doscientos noventa y cuatro nomás, era por número de cliente, ref Acá. Ajá. En la base de Chihuahua teníamos una columna ref, Y entonces nosotros lógicamente este ref lo cruzábamos esa al principio, no encontrábamos ningún match, nos volvimos locos.
+[Remote]: Pero básicamente ref
+[Remote]: que la extraemos de la de la source, lo que usamos con uno de cliente,
+[Remote]: pusimos también importe de pago dividido cien, porque está en centavos,
+[Remote]: igual importe de pago,
+[Remote]: y fecha de pago, fecha de pago. Acá calculamos doscientas noventa y cuatro más, con la primera mil ciento
+[Remote]: ciento cincuenta,
+[Remote]: Estas son las métricas que nos da la Higuawa.
+[Remote]: La de Torreon,
+[Remote]: la de Torreon, yo esto lo chequeé manualmente, es el
+[Remote]: o sea, lo lo chequeé obviamente por fuera, con con con script,
+[Remote]: y ese es el número que da,
+[Remote]: o sea, no hay combinación que nos haga dar más
+[Remote]: salvo que haya una regla extra que nosotros no sabemos,
+[Remote]: pero ya por por número de cuenta y por ref,
+[Remote]: ese es el número máximo, así que creemos que estaría ok el número.
+[Remote]: Torre onda un poco más bajo,
+[Remote]: de la A ver, cuéntame, de todas las que te pasé, cuentas no concilí
+[Remote]: ¿Qué?
+[Remote]: Todas las que nos pasaste de, nosotros la aperturamos, si querés podemos hacer también una unificada.
+[Remote]: Pero
+[Remote]: tenemos este reporte de pago, Chihuahua,
+[Remote]: y esta es la base Chihuahua que nos llegaba en TXT.
+[Remote]: Entonces,
+[Remote]: tenemos
+[Remote]: de este lado, mil ciento cincuenta y cuatro marcharon, acá tenemos
+[Remote]: lo podemos ver más fácil acá.
+[Remote]: Tienes trescientos setenta unmatched, ok.
+[Remote]: Tres setenta, sí, pero después hicimos una segunda barrida y nos quedaron
+[Remote]: setenta y seis, only in Chihuahua, y treinta y tres, only in
+[Remote]: only en reporte de pagos,
+[Remote]: treinta y tres, once es la otra.
+[Remote]: Ok.
+[Remote]: A ver, es que
+[Remote]: hace sentido lo que dices, porque cuando nosotros hicimos la primer barrida,
+[Remote]: también nos habían quedado cien sin conciliar,
+[Remote]: entonces, como que es más o menos
+[Remote]: Sí, ajá. Pero
+[Remote]: algo hicimos después, que ya nada más nos quedaron cuatro,
+[Remote]: Entonces Ah, ok.
+[Remote]: ¿Hay una tercer regla, tal vez?
+[Remote]: Ahorita no me estaba acordando qué dice, porque esa
+[Remote]: sí ya las revisé yo de qué, mano a mano,
+[Remote]: Entonces,
+[Remote]: ¿me puedes mandar eso?
+[Remote]: Y ya como que
+[Remote]: porque esto lo hice el lunes y ya no me acuerdo bien
+[Remote]: era la razón por la que no cuadraban. Tal vez eso
+[Remote]: una una tercera barrida simplemente por monto y fecha, y no tiene ningún
+[Remote]: campo compartido de número de cliente o nada.
+[Remote]: No, porque sí, sí lo logramos conciliar
+[Remote]: número de No, tantas que era nada más por monto. Entonces,
+[Remote]: si me mandas esto, nada más que yo vea de mi lado
+[Remote]: como que haga ese mismo cruce que hice el en estos días,
+[Remote]: este, para decirles como que cómo es que lo hicimos de este lado,
+[Remote]: Ok. Nosotros acá, tenemos todo lo que es el exception manager,
+[Remote]: esta es la base de Chihuahua y este es el reporte de pagos,
+[Remote]: Bueno, ahí tenemos la para ayudar a investigar. Pero bueno, te comparto
+[Remote]: te comparto los resultados. Y también lo que te quería mostrar,
+[Remote]: Y dime algo, sí puedo ver como una Ah, aquí está, justo, perfecto.
+[Remote]: Ok. Bueno, esto es
+[Remote]: lo hice, nada, agregué algunas cosas, pero lo que te quería mostrar es que estos son completamente
+[Remote]: personalizables, se pueden agrandar,
+[Remote]: achicar los widgets, se puede crear nuevos widgets,
+[Remote]: completamente personalizable con las métricas que que hagan falta y demás, Súper, encantado. Decían. Así que a ustedes les quedaría un reporte completamente personalizado con todas las reconciliaciones en un solo reporte, porque acá tenemos todo lo que es Chihuahua y Torreón separado, para nosotros es más prolijo quitar el ruido, hacerlo en una sola, y después te Ah, lo estaba estaban viendo en la otra página. Esto es el esto es el de Torreón, que me encantaría ver esto, obviamente, también hicimos dos barridas y y rescatamos en la segunda barrida ciento cuarenta y seis más, pero tal vez habría una tercer barrida o o lo que sea.
+[Remote]: Pero bueno, era eso, a priori Acá me puedes dar
+[Remote]: acceso? O sea, ¿me das un user o cómo le hacemos?
+[Remote]: Sí, te puedo te puedo dar acceso.
+[Remote]: Va, buenísimo, sí. Y ya yo, este, igual,
+[Remote]: creo que entre hoy el lunes le doy una revisada,
+[Remote]: y
+[Remote]: veo qué es lo que está pasando.
+[Remote]: Yo te comparto, si querés también por Excel,
+[Remote]: las las dos bases de
+[Remote]: con solamente las las transacciones que no marcharon,
+[Remote]: de Torreón y de Chihuahua,
+[Remote]: y así vemos cuál es la la regla que podemos agregar o lo o lo que sea.
+[Remote]: Buenísimo, sí, me ayudaría muchísimo, y también como que para ver
+[Remote]: nada, cómo funciona el dashboard, o sea, cómo empezar a jugar ahí con con la plataforma seriada.
+[Remote]: Increíble.
+[Remote]: Obvio.
+[Remote]: Buenísimo.
+[Remote]: Perfecto. Listo, pues muchas gracias. Igual ya
+[You]: AI data nueva?
+[Remote]: creo que no voy a tener información nueva hasta el martes,
+[Remote]: Cuando tenga algo que updatearlos les aviso.
+[You]: Dale, pondá las aprios de ahí avisanos,
+[Remote]: Vale, espectacular. Gracias, Natalie.
+[You]: y corremos de vuelta y mandamos resultados.
+[Remote]: Vale, sí, déjame lo reviso, este,
+[Remote]: y ya regreso con ustedes.
+[Remote]: Vale, muchas gracias. Chao, Natali. Chao, bye, buen fin. Sorte en el invierno.
+
+============================================================
+SUMMARY
+============================================================
+### Reconciliation Results - Chihuahua & Torreón
+
+- Successfully divided databases by location to eliminate noise
+- Chihuahua reconciliation results:
+  - First match: 1,154 transactions (account, client number, date, amount)
+  - Second match: 294 additional transactions (using ref field)
+  - Final unmatched: 76 Chihuahua-only, 33 payment report-only
+- Torreón reconciliation:
+  - Two matching rounds completed
+  - Second round captured 146 additional matches
+  - Lower overall match rate vs Chihuahua
+
+### Technical Matching Process
+
+- Primary matching criteria: account, client number, date, amount
+- Secondary matching used ref field from Chihuahua database
+- Payment amounts converted from centavos (divided by 100)
+- Exception manager tool available for investigating unmatched items
+- Potential third matching rule exists but needs clarification
+
+### Dashboard & Reporting Features
+
+- Fully customizable widgets (expandable, resizable)
+- Unified reporting for both locations in single dashboard
+- Real-time metrics display
+- Separate views maintained for cleaner analysis
+- User access can be provided for platform testing
+
+### Next Steps
+
+- Teo to review unmatched transactions and identify missing matching rules
+- Excel files with unmatched transactions to be shared
+- User access to be provided for dashboard exploration
+- Next update expected Tuesday when new data becomes available
+- Follow-up meeting to run updated results once rules clarified
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/f8ec21b1-4d59-48f8-b6e8-24c062316064](https://notes.granola.ai/t/f8ec21b1-4d59-48f8-b6e8-24c062316064)

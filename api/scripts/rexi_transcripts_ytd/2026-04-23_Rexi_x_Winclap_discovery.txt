@@ -1,0 +1,385 @@
+MEETING: Rexi x Winclap: discovery
+DATE: 2026-04-23
+ID: not_8yrXgJodXEGHiM
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Gabriela Abraham <gabriela.abraham@winclap.com>
+SCHEDULED: 2026-04-23T13:30:00-04:00 - 2026-04-23T14:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Mendoza buonissimo.
+[You]: Tienen a muchos del equipo ahí en Mendoza, ¿no?
+[Remote]: En Deeso somos dos, en el total de finance, tres,
+[Remote]: y después hay una parte en Córdoba y una parte en Buenos Aires.
+[You]: Sabía, sabía. Estuve, me junté con Mariano, ¿no? Sí.
+[You]: El CEO. Me junté con Mariano en Nueva York las hace la semana pasada.
+[You]: Contó que él estuvo mucho tiempo en en Nueva York y que se volvió a
+[You]: Él es de Córdoba, ¿verdad?
+[Remote]: Exacto.
+[You]: Ahí va. Bueno, te cuento, yo tenía un amigo, muy amigo que la que
+[You]: en Wing Club varios años, Joaquín Vulvarella.
+[Remote]: No, es que yo,
+[You]: Y ella, ¿no?
+[Remote]: relativamente nueva, no no conozco tanto.
+[You]: Ah, bueno, bueno,
+[You]: Bueno, nada, Joaquín fue un poco el que me puso en contacto con Mariano, con Julián y
+[You]: y me dijo, che, deberían trabajar juntos, él es el que vio la oportunidad.
+[You]: Pero, bueno, nada, primero que nada, un gustazo conocerte.
+[You]: Muchas gracias por el tiempo. Sé que están con mil millones de cosas, por eso por ahí
+[You]: costó armar esta reunión, así que te te agradezco, antes que nada, el tiempo.
+[You]: Si querés, te te cuento un poquito sobre, rápidamente, sobre lo que hacemos, y después
+[You]: por ahí lo que me gustaría esta reunión,
+[You]: es que me cuentes un poco vos sobre los procesos de conciliaciones que tienen en
+[You]: y que evaluemos juntos si tiene sentido explorar nuestra herramienta.
+[You]: ¿No? La idea
+[You]: básicamente, es solucionarte las conciliaciones.
+[You]: Con con tecnología agéntica, ¿no?, y automatizar la mayor parte del proceso para que
+[You]: te ahorres tiempo en en tareas manuales,
+[You]: que la operación pueda escalar sin riesgo y para que reduzcan pérdidas.
+[You]: Esas cosas que por ahí
+[You]: se les escapan
+[You]: between the cracks
+[You]: porque porque es difícil conciliar negocio que en el que en el que en el
+[You]: caso de Wing Club ya
+[You]: una escala muy relevante.
+[You]: Déjame, te comparto pantalla
+[You]: para mostrarte unas láminas sobre quiénes somos y qué es lo que hacemos.
+[You]: Este es el equipo fundador, para que también nos conozcas.
+[You]: Somos. Los tres venimos del mundo fintech,
+[You]: principalmente en Latinoamérica, pero también en Estados Unidos. Teo y yo vivimos en
+[You]: en Nueva York,
+[You]: Sebastián, el equipo técnico, están en Buenos Aires.
+[You]: Y los tres venimos del del mundo financiero y habiendo vivido estos dolores, ¿no?
+[You]: Creo que el arrancar Rexi nace de decir, che, no, no puede ser que se siga operando así.
+[You]: Los flujos de dinero. Hoy, con AI, hay una
+[You]: oportunidad y un punto de inflexión para cambiar radicalmente la manera en la que operan las compañías, ¿no?
+[You]: Esto es un poquito más de nosotros, de nuestros inversores y y dónde incubamos la compañía. Yo estaba
+[You]: en Harvard, la compañía la estudiamos, la incubamos en MIT, en una incubadora de fintech que terminamos ganando.
+[You]: Y con eso entraron los primeros inversores y
+[You]: a construir el equipo y el producto.
+[You]: A ver, el problema identificado es,
+[You]: en en el mundo financiero, pero creo que en el caso de WingClub,
+[You]: porque aplican
+[You]: compañía que tenga múltiples flujos de dinero
+[You]: y una transacción a día alta, ¿no? Hay una fragmentación de información, eso es lo que pasa.
+[You]: ¿Sí? También es un extracto bancario, tenés un procesador de pagos, tenés una base de datos interna, tenés una plataforma. Hay mucha información reflejando el mismo flujo de dinero, y toda esta información no cuadra. Un sistema me dice a, el otro sistema me dice b y el otro sistema me dice c, y como compañía, no entiendo verdaderamente qué pasó, Siempre lo ato a lo que dice el banco, porque el banco es la realidad, pero, bueno, necesito entender por qué los otros sistemas están reflejando otra a día para saber si el error es de banco. Con lo cual todo ese proceso es lo que llamamos la conciliación,
+[You]: que los equipos, con el tiempo,
+[You]: lo que han hecho es generar procesos, que seguramente lo que deben tener hoy ustedes.
+[You]: Con algún tipo de herramienta.
+[You]: Seguramente Excel con macros o si
+[You]: tiene algo más sofisticado con SQL, BigQuery o algo así.
+[You]: Pero arman procesos para ir chequeando
+[You]: que los flujos de dinero
+[You]: cuadran, ¿sí? Y eso solo agrega agrega costo, riesgo y fricción. Costo porque
+[You]: WingClub crece diez x,
+[You]: una pregunta, vos tendrías que contratar más personas para
+[You]: conciliar flujo de dinero o lo podrías, vendría, seguir haciendo vos?
+[Remote]: No, lo podría
+[Remote]: lo podríamos hacer el mismo equipo, porque en en general, lo que hacemos es estándar y
+[Remote]: un montón de procesos, que al final te demorarías lo mismo,
+[You]: Okay.
+[Remote]: por uno o veinte millones.
+[You]: Bueno.
+[You]: Y y, bueno, ahora después nos metemos también en la parte del análisis, las diferencias, ¿no?, porque seguramente
+[You]: cuadra todo y el análisis de diferencia sí escala con con la operación. Pero, bueno, esto es solo para hablar un poco del del costo y el riesgo y la que generan estos procesos, y más pensando a futuro en la escalabilidad. Ahora, para nosotros, conciliación es una puerta de entrada. Nosotros queremos automatizar la conciliación para WingClub y después volvernos en un
+[You]: partner
+[You]: para que ustedes puedan agentes en otros procesos de finanzas y operaciones que hoy tienen mucha manualidad.
+[You]: Que no escalan,
+[You]: son dolores de cabeza,
+[You]: Arrancando por la conciliación, porque les permite a ustedes armar esa base de conocimiento que refleja la realidad. Y sobre esa base, yo puedo montar agentes para cualquier flujo, pero si yo te digo hoy de deplochar agentes, ¿sobre dónde los montás?
+[You]: Sobre el sistema interno, sobre el exacto bancario, sobre el procesador de pagos,
+[You]: Tenés que elegir y, como bien sabemos,
+[You]: ninguno cuadra con ninguno, entonces, al final es como que la gente va a estar operando sobre
+[You]: algo que quizás es erróneo.
+[You]: La conciliación es ese primer paso para armar esa base,
+[You]: luego les permite a ustedes deployar a otros agentes.
+[You]: Hoy,
+[You]: la plataforma
+[You]: esto quiero que que quede claro, es una plataforma agéntica para automatizar el
+[You]: de conciliación, desde la ingesta del archivo hasta la reportería y la resolución de discrepancias.
+[You]: Y estos son algunos de los desarrollos que tenemos propietarios que
+[You]: que son más innovadores, si querés, a nivel tecnología, porque los incubamos en MIT, los hemos
+[You]: con equipos de ingenieros
+[You]: impresionante, la la de muy alto nivel, pero tenemos un integrador dinámico que nos
+[You]: conectarnos a cualquier fuente de información.
+[You]: Ya sea
+[You]: Excel,
+[You]: CSV, API, SFTP, o mismo si tenemos que meter
+[You]: en portales a bajar SSBs o levantar PDFs de mails,
+[You]: Tenemos el data flywheel, que lo interesante ahí es que el sistema aprende de la operación de Wing Club y aprende de las acciones que Gabriela toma
+[You]: en la en la operación de Rexy, entonces es como que el sistema se vuelve mejor en el tiempo para
+[You]: operación, porque la realidad es que la operación de WingClub es única e irrepetible.
+[You]: Entonces, para mí es muy difícil poder replicar un SaaS
+[You]: que sirva para WingClub, que sirva para Banco SuperBel, que sirva para RedLink.
+[You]: La única manera es tener un sistema que aprende
+[You]: y se optimiza en el tiempo ajustándose a lo que necesitan ustedes, ¿no?
+[You]: Y por último, el problem solver, que ahí es un agente que
+[You]: analiza y resuelve las diferencias, que
+[You]: termina siendo el punto más doloroso y de mayor fricción.
+[You]: Porque vos, típicamente, podés conciliar el noventa y nueve por ciento de tu flujo de dinero
+[You]: pero siempre te queda ese uno por ciento, que son diferencias que tenés que explicar, que
+[You]: tenés que investigar, y eso es lo que lleva mayor tiempo y dolor.
+[You]: Y ahí tenemos un agente que se mete, analiza, encuentra patrones,
+[You]: encuentra duplicados, propone soluciones y, de vuelta, aprenden el tiempo
+[You]: para que eso se se acá es menor,
+[You]: y vos ganes productividad.
+[You]: A medida que escala diez x la operación.
+[You]: Algunos de los clientes con los que trabajamos hoy y el y el
+[You]: impacto que hemos tenido,
+[You]: en reducción de tareas manuales,
+[You]: de pérdidas irreconciliables, reducción de riesgo de compliance y regulatorio,
+[You]: Como verás, trabajamos tanto en Estados Unidos o Latinoamérica con
+[You]: mucha fintech,
+[You]: banca,
+[You]: pagos, aseguradoras, eso es un poquito
+[You]: el mundo donde nos estamos moviendo hoy. Esta
+[You]: voy a meter porque ya es un poquito más técnico, pero bueno,
+[You]: con eso,
+[You]: ya consumí diez minutos en la llamada, hablando yo. Me gustaría
+[You]: que me cuentes un poquito más, vos, si querés, arranquemos por por ahí.
+[You]: Rol, tu responsabilidad, y y ahí, después, si querés, nos metemos más en los flujos de de
+[You]: conciliación para entender todo bien, ¿viste?
+[Remote]: Vale. Estoy a cargo de tesorería.
+[Remote]: La empresa
+[Remote]: si bien como en en un montón de funciones,
+[Remote]: explota y y crece exponencialmente, en en los procesos administrativos van
+[Remote]: más lento, entonces por ahí hay un montón de flujos,
+[Remote]: procesos que estamos mejorando,
+[Remote]: conciliación también es uno. Uno de los puntos claves, que ya no la
+[Remote]: tendría que hacer tesorería, porque esa esa función
+[Remote]: por una cuestión de control por oposición, no tiene que hacer contabilidad.
+[Remote]: Entonces, hace un tiempito que la las alargamos, más allá que
+[Remote]: resolvemos los problemas, cuando algo no da, pero
+[Remote]: lo la esa tarea, ese control lo hace el agente de contabilidad.
+[Remote]: Lo que sí me pasa, y el y y cuando en uno de los correos que enviás
+[Remote]: mandaste un link y ahí es donde me interesó la propuesta,
+[Remote]: No es que no me interese la parte de consideración, siento que no está en mi scope,
+[Remote]: pero sí hay algo que me interesa mucho,
+[Remote]: que es, nosotros tenemos muchas cuentas bancarias, mucha geos,
+[Remote]: o sea, entidades WingClub en diferentes ciudades del de América,
+[Remote]: y cada una con sus bancos,
+[Remote]: perdemos mucho tiempo
+[Remote]: nada, logueándonos, descargando información, armando un montón de
+[Remote]: que, si querés, estoy mucho más interesada en algo que
+[Remote]: consolide toda esa información y tengamos una una
+[Remote]: visión en línea actualizada de todo eso,
+[Remote]: porque después la conciliación, las conciliaciones
+[Remote]: en general, para nuestra operatoria, que es muy estandarizada, porque son siempre los mismos procesos, creo que hoy con IA se puede hacer un montón.
+[Remote]: Esto seguramente la herramienta que ustedes tienen es es genial para eso,
+[Remote]: pero si querés me vuelvo un poquito más, me interesa mucho más
+[Remote]: el tema esta de consolidar toda la información de todos los bancos que manejamos
+[Remote]: porque operamos las las seis entidades nosotros,
+[Remote]: desde Argentina,
+[Remote]: Entonces, para poder hacer como una visual única,
+[Remote]: por descarga de información única, migración a la contabilidad única.
+[You]: Claro, hoy el mayor dolor es que
+[You]: múltiples fuentes de información y
+[You]: y después del otro lado está el sistema ERP. ¿Qué usan? ¿QuickBooks, Oracle?
+[Remote]: Net suite.
+[You]: NetSuite.
+[You]: Ok.
+[You]: Perfecto. Con lo cual, el mayor dolor está en esa ingesta y después en impactar en NetSuite.
+[You]: ¿Cuántas cuentas bancarias tienen?
+[You]: O sea, cuántas, digo, cuántos bancos distintos, no cuentas, porque por ahí en un banco tienen varias cuentas.
+[Remote]: Quinze.
+[You]: Grandes.
+[You]: Quince bancos distintos,
+[Remote]: Quince. Ok.
+[You]: Y hoy, ¿cómo cómo te traes la información de los quince bancos?
+[Remote]: Generalmente, logueándonos uno por uno.
+[Remote]: Trabajando ahí, en en tomar datos vía API,
+[Remote]: que que lo voy armando de a poquito, pero
+[Remote]: pero como hay cosas que no me quiero meter tanto porque digo, che, hay herramientas que ya
+[Remote]: NetSuite tiene una manera de integrarse con bancos y hay otras, entonces como que estoy ahora
+[Remote]: explorando directamente herramientas para no armarlo a mano con API,
+[Remote]: pero la idea es esa. Hoy, manualmente, se la las
+[Remote]: de mi equipo se loían en cada banco, descargan la información,
+[Remote]: revisan saldos y así, de todos.
+[You]: Perfecto.
+[You]: Y
+[You]: asumo que eso
+[You]: es un input clave para después el equipo de contabilidad que hace la conciliación.
+[Remote]: Sí, totalmente.
+[You]: Y dado que ya te tengo acá y no tenemos al agente de contabilidad, ¿me podrías contar un poco más del proceso de
+[Remote]: ¿Sí?
+[You]: conciliación?
+[You]: ¿Qué es lo que comparan?, ¿cómo lo hacen hoy?, ¿cuáles son los principales dolores?
+[Remote]: Ok. Eso es lo que hacen nosotros
+[Remote]: con esos como los extractos descargados de los bancos,
+[Remote]: son lo que ellos cruzan, el equipo de contabilidad cruza con la información
+[Remote]: con los mayores de NetSuite.
+[Remote]: Entonces, ahí, si están usando algún script
+[Remote]: o algo para para conciliar, no lo sé, no lo creo porque
+[Remote]: es muy nueva la tarea también para ellos, creo que todavía la están madurando,
+[Remote]: básicamente es cruzar los movimientos que impactaron en el banco, que lo vemos de los extractos,
+[You]: Lo que está contabilizado,
+[Remote]: con lo que está contabilizada.
+[You]: la la la la entrada en NetSuite se genera
+[You]: porque está conectado a un sistema interno.
+[You]: A un ledger, digamos.
+[Remote]: A ver, explícame un poquito más.
+[Remote]: Porque hay carga manual, no necesariamente está está integrado con un
+[Remote]: te te referiste integrado, por ejemplo, con un un procesador de pago,
+[You]: ¿Cómo se crea la información en NetSuite?
+[Remote]: se carga manualmente.
+[You]: Todo.
+[Remote]: Todo.
+[Remote]: No no está integrado con un sistema de pagos.
+[You]: Ahí también, entonces, hay bastante
+[You]: hora manual.
+[You]: Claro, después,
+[You]: debe haber muchísimo error humano en esa carga manual.
+[Remote]: Muchísimo.
+[You]: Entonces, la conciliación no no no debe dar noventa y nueve por ciento, debe dar
+[You]: distinta y tiene que ir revisando las diferencias.
+[Remote]: Correcto, correcto. En realidad, cuando la da bien, no significa que
+[Remote]: porque naturalmente se hace bien, sino porque hay controles intermedios, que también
+[Remote]: como inversión de tiempo que se le va poniendo
+[Remote]: para para ir resolviendo.
+[Remote]: Pero es toda toda la integración es, es todo manual,
+[You]: Okay.
+[You]: Y si te diría,
+[You]: ¿Cuántas personas están en el equipo haciendo conciliaciones nada más?
+[Remote]: En equipo contabilidad me parece que hay uno o dos.
+[Remote]: Y el equipo de tesorería están, hay dos analistas, pero no hace
+[Remote]: solamente eso, o sea, pero sí están enfocadas en bancos, en pagos,
+[Remote]: en contabilización de recibos, en
+[Remote]: en operaciones bancarias.
+[You]: Okay.
+[You]: Ok, entonces, como que hay cuatro personas
+[You]: haciendo cosas manuales que se podrían automatizar, digamos.
+[You]: Y, obviamente, no es todo lo que hacen, pero les liberaría tiempo para que puedan enfocarse en
+[You]: por ahí de mayor valor agregado, ¿no? En un, imagino, en fin de otras cosas que tienen que
+[You]: hacer y en tener una lista eterna.
+[You]: Perfecto. Bueno,
+[You]: y y contame un poco
+[You]: quizás más internamente,
+[You]: si ya están en un camino, ¿sabés si están en un camino de
+[You]: o no lo, o o o o lo van a dejar como está,
+[You]: es la urgencia y la prioridad? Yo también para entender si vale la pena
+[You]: abrir ahora una conversación con el equipo de contabilidad,
+[You]: lleva la conciliación, o si me decís, mirá,
+[You]: no creo que lo vean ahora, están con diez mil otras prioridades,
+[You]: o sí crees que hay una oportunidad en el corto plazo. Entonces, contame por ahí más esa interna de
+[You]: implementaciones con AI, búsqueda de optimizaciones,
+[You]: y etcétera, para entender si es algo que, por ahí sí te pido una intro con
+[You]: equipo o por ahí no es el momento. Porque, a ver, el dolor está,
+[You]: es claro.
+[You]: La pregunta es si es el timing para trabajar este proyecto o no.
+[Remote]: Me pasa eso, que no estoy segura si para ellos
+[Remote]: hoy es prioritario.
+[Remote]: Como te digo,
+[Remote]: desde el lado de tesorería es prioridad
+[Remote]: cero,
+[Remote]: el el tema de, no, una herramienta de
+[Remote]: consolidación de la información, un procesador de pagos, como es cosas, sí, y es lo que estoy buscando ahora mismo. Obviamente que eso decanta, en mejorar las conciliaciones, porque en definitiva lo tenés resuelto por mucho de eso se conecta host to host, entonces es más fácil. Podría beneficiarles, pero no lo están pidiendo. Ahora, si ellos están buscando una herramienta de automatización de conciliaciones, no, no lo sé, no lo sé, no sé si es prioritario.
+[You]: Ok, pero ahí puede ser interesante que
+[You]: tener por ahí empuje de ambos equipos, ¿no?, porque si la consolidación de información a vos te va a servir,
+[You]: y te va a servir mucho, ya vos estás buscando hoy
+[You]: la automatización de las configuraciones le va a servir al otro equipo.
+[You]: Ver de qué manera ahí, por ahí, internamente,
+[You]: nos aseguramos de que ambos equipos se ven beneficiados de este proyecto, ¿no?
+[Remote]: Sí, seguramente.
+[You]: Es la persona de contabilidad con la que yo debería hablar sobre esto?
+[Remote]: Se llama Mariano Hernández.
+[You]: Mariano Hernández. Y te hago una pregunta. ¿Vos me podrías poner en contacto con Mariano?
+[You]: Para explorar
+[You]: si tiene sentido?
+[Remote]: Bueno, dale, dale.
+[Remote]: Te comparto ahí el
+[Remote]: Te comparto...
+[You]: Gabriela, de vuelta, yo no no no te quiero no te quiero molestar, Digo, si
+[You]: si no no ves una oportunidad acá, no te quiero sacar más tiempo a vos ni a
+[Remote]: No, mirá, esto
+[You]: ni a Mariano. Entonces, por ahí, digamos, seamos honestos también de Chessi y
+[You]: hay ganas y ven valor, lo hacemos, y si no, está todo bien.
+[Remote]: No, mira,
+[Remote]: Pasa lo siguiente, yo la
+[Remote]: nunca contesté el correo ni agendé reunión porque
+[Remote]: conciliaciones no es mi tema. En el equipo de Juli está Mariano,
+[Remote]: asumí que era el que tenía que tomar la posta. Cuando
+[Remote]: identifiqué que existían esas herramientas de consolidación de información, ok,
+[Remote]: me interesa.
+[Remote]: Pero no es algo que tenga que hablar. Ahora, escribirle a Mariano, si no está interesado, te lo
+[Remote]: dirá él.
+[You]: Okay.
+[Remote]: Ahí compartir
+[You]: Fantástico. Bueno,
+[You]: ¿Me querés poner en
+[You]: no sé si por ahí me me puedes forward como en la misma, en el mismo thread,
+[You]: sumarlo a Mariano, así tiene contexto, y de paso viene de vos, creo que me va a dar más bola que si les
+[Remote]: Bueno, dale, dale.
+[You]: escribo de cero.
+[You]: Se se me puede hacer ese favorcito.
+[You]: Ayudarías muchísimo, porque si no entramos de vuelta en
+[You]: mandarle un veinte nuevo a alguien que no conoce, ¿viste?, y ya sabemos.
+[You]: Cómo eso por ahí retrasa más. Yo, de vuelta, no
+[You]: Y acá, desde un lado humano, no no
+[You]: no le quiero vender a nada a nadie que no necesiten,
+[You]: que no les cambie la vida. Entonces, voy a ser el primero de que, si no veo una necesidad,
+[You]: no veo algo para hacer en el corto plazo, le voy a decir,
+[You]: Gabriela Mariana, un gustazo conocerlos, quedamos en contacto.
+[You]: Si en algún momento en instante me ayuda, tienen mi contacto y me escriben.
+[You]: El primero, así que también queda tranquila de ese lado de que
+[Remote]: Okay.
+[You]: insisto, está a tener esta conversación inicial, pero después de esta conversación inicial, si no hay fit,
+[Remote]: Dale, dale, me parece bien.
+[You]: Dale, si me decís la intro con Mariano,
+[You]: si me hacés el favorcito, sería de gran ayuda, y después nada, Gabriela, seguimos en contacto, ¿sí? Otra
+[You]: Ojalá poder solucionarte el tema de la concentración a vos también, que creo que es el path, Si Mariano está interesado, nosotros vamos a tener que consolidar la información para poder conciliar, con lo cual
+[You]: es una solución que le serviría a ambos equipos.
+[You]: Listo, Gabriela.
+[You]: Devuelvo, entonces, ahí nueve minutos. Muchas gracias por tu tiempo y un gustazo conocerte.
+[Remote]: Dale, igualmente.
+[You]: Chau, chau.
+[You]: Ah, la
+
+============================================================
+SUMMARY
+============================================================
+### Gabriela’s Role and Current Challenges
+
+- Head of Treasury at Winclap
+- Administrative processes lag behind company’s exponential growth
+- Previously handled reconciliations but transferred to accounting team for proper segregation of duties
+- Still assists with problem resolution when discrepancies arise
+
+### Banking Operations and Pain Points
+
+- Manages 15 different banks across 6 Winclap entities in various Latin American cities
+- All operations centralized from Argentina
+- Current process requires manual login to each bank individually
+- Major time drain downloading information from multiple sources
+- Exploring API connections but building incrementally
+- Primary interest: consolidated banking information tool rather than reconciliation automation
+- Needs unified online view of all banking data for streamlined migration to accounting
+
+### Current Reconciliation Process
+
+- Uses NetSuite as ERP system
+- Treasury team (2 analysts) handles banking operations, payments, receipt accounting
+- Accounting team (1-2 people) performs reconciliations
+- Process involves:
+  1. Download bank statements manually from all 15 banks
+  2. Cross-reference with NetSuite general ledger information
+  3. All NetSuite entries are manual (no system integrations)
+- Significant human error due to manual data entry
+- Requires intermediate controls and time investment to resolve discrepancies
+- Task is relatively new for accounting team, still maturing the process
+
+### Priority Assessment and Internal Dynamics
+
+- Treasury perspective: consolidation tool is priority zero (highest priority)
+- Uncertain if accounting team views reconciliation automation as current priority
+- Acknowledges potential mutual benefit if both teams’ needs addressed simultaneously
+- Recognizes that host-to-host connections would improve reconciliation accuracy
+
+### Next Steps
+
+- Gabriela will introduce Ignacio to Mariano Hernández (accounting team member)
+- Will forward email thread to provide context for the introduction
+- Mariano will determine if reconciliation automation fits current priorities
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/ca8ef4f9-d68e-4892-87e8-833fb3fb8744](https://notes.granola.ai/t/ca8ef4f9-d68e-4892-87e8-833fb3fb8744)

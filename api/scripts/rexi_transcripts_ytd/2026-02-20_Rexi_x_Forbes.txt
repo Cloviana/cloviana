@@ -1,0 +1,567 @@
+MEETING: Rexi x Forbes
+DATE: 2026-02-20
+ID: not_vrXuRye0WTtEms
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Agustinjamele <agustinjamele@gmail.com>
+SCHEDULED: 2026-02-20T15:00:00-05:00 - 2026-02-20T15:30:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Problema, no había no había drama. Yo hasta y cinco y media, seis menos veinte estoy acá,
+[Remote]: así que no tengo no tengo problema tampoco.
+[You]: Sí, la última reunión del viernes,
+[Remote]: La última,
+[Remote]: no sé si en tu caso, pero pero sí, pues, en mi caso, última.
+[You]: No, no, yo estoy estoy en Nueva York y acá son dos horitas menos, así que a mí me queda un rato todavía
+[You]: Pero bueno, qué lujo ser tu tu última reunión.
+[Remote]: Sí.
+[Remote]: Entrevista ya directamente, porque, bueno, la idea es dar
+[Remote]: nota a todo, así que
+[Remote]: nada, la idea es profundizar un poco en la que me que me pasaste,
+[Remote]: así que, si te parece, cuando quieras, arrancamos.
+[Remote]: Sí, yo
+[You]: Ah, buenísimo, vamos a grabar.
+[Remote]: estoy yo estoy grabando. Si vos querés grabar también, no tengo ningún problema.
+[You]: No, no, dale, dale, démoli.
+[Remote]: Vos fijate, tranquilo.
+[Remote]: Dale, perfecto. Bueno,
+[Remote]: vos me pasaste ahí un poco de información que que que estuvo bueno. Nosotros
+[Remote]: obviamente, hablamos mucho de del negocio detrás de una empresa, pero también de de la historia.
+[Remote]: Así que me gustaría un poco arrancar por ahí, ¿no?, cómo cómo surge la idea y
+[Remote]: sobre todo, el por qué, qué problema vieron, qué fue lo que dijo
+[Remote]: lo que les dijo, bueno, acá, y algo para para solucionar, y nosotros podemos hacerlo.
+[You]: Buenísimo. Mirá, la idea surge de nuestra propia experiencia,
+[You]: Yo trabajé en Bitso, la el exchange
+[Remote]: Mirá,
+[You]: el exchange de cripto, ¿viste?, más grande de Latinoamérica, ahí fui manager del equipo de pagos, Lancé, de hecho, pago con QR en Argentina, en un momento donde Argentina tenía una
+[Remote]: Sí.
+[You]: inflación de más de cien por ciento anual, con lo cual los clientes
+[You]: era una bomba, porque tenían stablecoins en la billetera, pagaban con QR en cualquier
+[You]: comercio en Argentina y se convertía al blue.
+[You]: Con lo cual te permitía a vos, básicamente, en ese momento, cobrar tu sueldo en pesos, pasarlo todo al
+[You]: y gastar al buró el día a día, lo cual
+[You]: y nunca estar expuesto a la inflación del peso estaba muy bueno. Pero bueno, operando un producto de pago, vi la necesidad
+[You]: y el dolor que era conciliar transacciones, ¿sí?
+[You]: Nosotros estamos integrados con el sistema de pagos tres punto cero, con
+[You]: teníamos una cuenta en el BIND, y teníamos que estar constantemente
+[You]: conciliando lo que aparecía en el BIN, con lo que nos mandaba Coelsa, con lo que
+[You]: teníamos nosotros en nuestro ledger interno, con lo cual ese proceso
+[You]: ya sabía un poquito que era doloroso, como product manager no era mi responsabilidad, pero
+[You]: entendía la complejidad. Y luego acá en Estados Unidos me tocó trabajar en una fintech que se llama común,
+[You]: yo estaba como chico staff,
+[You]: en un momento muy temprano de la compañía, no había un CFO, con lo cual hacía muchas cosas financieras,
+[You]: Estábamos creciendo tanto que en un momento me agarra el sitio y me dice, Chen, estamos
+[You]: hacer un proceso de conciliaciones, porque ya estamos creciendo mucho y este chequeo medio
+[You]: ¿viste?, con un ojo abierto y el otro cerrado a fin de mes high level ya no
+[You]: más, estamos conllevando
+[You]: hay mucho riesgo de no hacerlo bien y no hacerlo a nivel transacción, así que ponete a construir algo. Buenísimo.
+[You]: Y ahí me metí de lleno y me pasaron dos cosas,
+[You]: Uno, la complejidad técnica que tenía,
+[You]: era enorme, pero enorme, no era porque yo era
+[You]: no era técnico o lo que sea, era conseguir la información, que la información sea precisa,
+[You]: hacer que la información se hable, porque te venía información en muchos
+[You]: formatos diferentes, con nomenclaturas diferentes, con operatorias diferentes,
+[You]: era muy complejo técnicamente. Y lo segundo que me pasó, que me explotó la cabeza,
+[You]: decir, che,
+[You]: no puedo creer que en fintech
+[You]: se opere
+[You]: con este nivel de visibilidad y nivel de control. O sea, me impresionó el
+[You]: poco nivel de control y visibilidad que operan estas fintechs. O sea, yo te muestro algunos casos
+[You]: agarras la te agarras la cabeza y decís,
+[You]: saco toda la plata de la fintechs y vuelvo a a mi banco, ¿me entendés?
+[You]: Esa es la sensación. Entonces, me exploto un poco la cabeza
+[You]: encima, digo, Común era una de las empresas, tipo, muy buena técnicamente, muy
+[You]: conservadora, con lo cual era de las mejores. Me hizo pensar, che, ¿cómo esperará el resto que por ahí no son tan responsables?
+[You]: Interesantemente,
+[You]: en el momento que yo estaba haciendo esto sucede lo de Synapse en Estados Unidos.
+[You]: No sé si, I think, like, te pasé un link. Synapse era
+[You]: un proveedor intermediario entre el banco sponsor y la fintech, termina quebrando
+[You]: por otros motivos, en el proceso de quiebra encuentran un agujero de ciento sesenta millones
+[You]: de dólares.
+[You]: Esto es dinero real
+[You]: de clientes que se perdió, se desapareció por no estar
+[You]: conciliando correctamente los flujos de dinero.
+[You]: Un Número Enorme, Lo Cual También Indica Yo Ya Estaba Viviendo Lo En Común. Y Y Pasó Esto, Fue Como Un Terremoto En El Mundo Fintech En Estados Unidos.
+[You]: Indica que es la punta del iceberg. Automáticamente,
+[You]: decís,
+[You]: hay un montón de fintechs por debajo que deben estar haciendo esto de manera
+[You]: irresponsable o no con los mecanismos de control necesarios,
+[You]: que deben estar conllevando un riesgo enorme. Gracias a dios, todavía no se dieron cuenta o todavía la
+[You]: agujero no se materializó y hay tiempo para
+[You]: para revertirlo, pero
+[You]: esto no puede seguir así.
+[You]: ¿Cómo uno después estudia?, con lo cual viene de un poco de la
+[You]: experiencia personal, mi cofounder, Teo, viene de Mercado Pago, él arrancó
+[You]: vertical de seguros ahí, en Mercado Pago,
+[You]: lo vivió ahí también. Mercado Pago, de hecho,
+[You]: hizo su información pública. Creo que el proveedor se llamaba
+[You]: pagos exprés o una cosa así, perdieron veintisiete millones de dólares.
+[You]: Los perdieron. Están en los four one case de reportes públicos por ser una
+[You]: empresa listada.
+[You]: Con lo cual Teolo vivió Mercado Pago, y nuestro CTO, Sebastián,
+[You]: viene de Pomelo, el funding team de Pomelo, una emisora y procesadora de pagos.
+[Remote]: Okay.
+[You]: Con lo cual también lo vivió ahí. Los tres lo vivimos, y dijimos, che,
+[You]: primero es entender por qué sucede este problema, de dónde viene,
+[You]: y hacia dónde va, cómo va a seguir esto, si si nosotros nos ponemos de acuerdo de que
+[You]: el status quo de hoy no funciona y hay mucho riesgo,
+[You]: ¿cómo seguimos a futuro?
+[You]: Como que hay un entendimiento de cómo llegamos acá y cómo seguimos a futuro. Y ahí donde nos juntamos, dijimos,
+[You]: esto se tiene que poder resolver con tecnología,
+[You]: queremos desarrollar una solución que permita al sistema seguir escalando, seguir innovando,
+[You]: pero sí un riesgo operativo,
+[You]: apalancando, obviamente,
+[You]: las nuevas tecnologías, ¿no? Intellecencia artificial, machine learning,
+[You]: son es una muy buena aplicación para este problema.
+[You]: Así que viene de esa motivación, de decir, che, queremos que servicios financieros
+[You]: sigan
+[You]: innovando y desarrollándose a futuro, ¿por qué? Porque son un motor para la
+[You]: sociedad, el acceso a servicios financieros, la democratización del crédito,
+[You]: son todas cosas que son motores del progreso social y y democratizan las oportunidades,
+[You]: Entonces,
+[You]: si queremos que eso siga sucediendo, bueno, alguien tiene que estar mirando lo que pasa por abajo,
+[You]: en la infraestructura, asegurándose de que, por lo menos, esa innovación, ese crecimiento,
+[You]: sea seguro
+[You]: sea escalable, sea robusto,
+[You]: no estemos conllevando riesgo por estar innovando demasiado en el application layer.
+[You]: Así que eso es un poquito la misión de dónde viene,
+[You]: y particularmente, si querés, más
+[You]: arrancamos a trabajar bien esto. Yo estaba haciendo un MVA en Harvard,
+[You]: Pego estaba haciendo un MVA en Colombia,
+[You]: yo arranqué con la idea
+[You]: la hice una incubadora en MIT, que terminó en un demo day, terminé ganando,
+[You]: cuando gané, después gané dos otras pitch competitions,
+[You]: de fondos SBC, NFTs y Pair, y cuando ganás esas competencias te dan
+[You]: créditos AWS, o un grant, o te hacen un safe note, etcétera, y con ese funding
+[You]: o créditos iniciales, ahí incorporamos la compañía, ahí se sumateo,
+[You]: que Teo estaba como entrepreneur in residence, en FJ Labs,
+[You]: Es un programa, básicamente, donde un fondo te paga para que vos pienses ideas,
+[You]: y cuando vengas con un emprendimiento, ellos son el primer cheque de inversión,
+[You]: Teo renunció a ese programa, que era muy tentador,
+[You]: para sumarse a esto, con lo cual imaginate lo convencido que estaba,
+[You]: y ahí con Teo arrancamos, seguíamos en el MBA, con lo cual
+[You]: íbamos a las clases, volvíamos y estábamos construyendo
+[You]: ni bien nos graduamos, levantamos la ronda de capital,
+[You]: preside uno punto dos millones de fondos
+[You]: Estados Unidos, y tenemos uno de Latinoamérica,
+[You]: y ahí en el al poco tiempo se suma Ceva,
+[You]: que lo conocimos también por Argentina, por el ecosistema Fintech, en
+[You]: Argentina, él él había vivido mucho
+[You]: también el problema. Él trabajó también en Mercado Libre y Naranja X, con lo cual lo entendía muy bien,
+[You]: Estaba con ganas de emprender también, lo agarramos en un momento en el momento indicado,
+[You]: y estábamos muy alineados en la visión, en la aplicación de inteligencia artificial,
+[You]: en en cultura.
+[You]: Así que desde entonces es un boxeo, armamos un equipo también.
+[You]: Contratamos cuatro founding engineers, hoy somos siete, Y y, bueno, y desde entonces construyendo el producto y vendiendo, Así que ahí vamos, estamos muy cerca de levantar nuestra siguiente ronda de capital, la seed, que nos va a permitir seguir construyendo y seguir escalando.
+[Remote]: Antes de de de consultarte un poquito más por por la industria y demás,
+[Remote]: los tres vienen de de trabajo por
+[Remote]: corporativo muy bueno, entiendo, ¿no?, de, bueno, pasos por Bitsso, Mercado Pago, naranja x, pomelo, digo, los los grandes jugadores ¿Por qué emprender con todos los dolores de cabeza que eso trae también?, ¿no?, cuando vos podés estar quizás
+[Remote]: adentro de las empresas con algo más corporativo, pero
+[Remote]: más, entre muchas comillas, tranquilo, ¿no?, porque de última no no es propio.
+[Remote]: ¿Qué qué lleva a los tres a decir, bueno, me sumo esto, que tiene un montón de
+[Remote]: de beneficios y de cosas positivas, pero también mucho más dolor de cabeza y una vida
+[Remote]: veinticuatro siete dedicado dedicado a eso.
+[You]: Totalmente, es una gran pregunta.
+[You]: Mirá, creo que es una combinación de dos cosas. La primera es
+[You]: cuando te convencés del tamaño de la oportunidad,
+[You]: hay una sensación de no puedo estar haciendo otra cosa,
+[You]: Cuando ves el problema, ves la oportunidad que hay,
+[You]: es una sensación de, no no no podés hacer otra cosa, por lo menos,
+[You]: esa es la sensación que tenemos entre los tres, es decir, este es un problema
+[You]: muy grande, muy obvio, muy importante,
+[You]: la industria financiera,
+[You]: y tenemos la posibilidad de construir algo nuevo
+[You]: de de las de lo que viene con inteligencia artificial,
+[You]: para que la industria siga innovando y siga escalando.
+[You]: Con lo cual cuando ves el tamaño del problema y el tamaño de la oportunidad,
+[You]: hay una sensación de que te convencés de que esto no tiene riesgo, de que acá
+[You]: hay una oportunidad, y depende de nosotros.
+[You]: Y después, se diserta, hay muchas cosas de personalidad en emprender, ¿no?
+[You]: Te tiene que gustar mucho
+[You]: arrancar cosas de cero, hacer muchas cosas a la vez,
+[You]: que por ahí no sos bueno y tenés que aprender, tenés que saber lidiar
+[You]: con el aprendizaje constante, con la frustración,
+[You]: con por ahí dedicarle un mes a algo, después decir, no, no era por ahí, borrón y cuenta nueva, arrancar de vuelta,
+[You]: tenés que estar dispuesto a manejar el el estrés y y
+[You]: y, bueno, y la sensación de que todos los días podemos desaparecer, no hay, no no está nada
+[You]: dado. Con lo cual, sí, te diría que es una combinación de las dos,
+[You]: cuando ves el tamaño de la oportunidad, y después hay cosas de personalidad, hay
+[You]: personalidades más emprendedoras que otras, y creo que los tres somos tres locos, no
+[You]: Disfrutamos mucho
+[You]: ese día a día de construir, vender, equivocarnos y aprender. Al final es un camino de
+[You]: de aprendizaje, ¿no?, de de incomodidad constante, pero está el
+[You]: cosas nuevas. Te doy un ejemplo, yo nunca en mi vida hice
+[You]: ventas, marketing, growth, distribución.
+[You]: Y hoy en REXI ese es mi rol. Además, obviamente, yo soy como CEO fundraising, finanzas, y algunas cosas de operaciones, me meto en producto, meto en tecnología, todo.
+[You]: Pero mi rol así hacia el equipo, las cosas que yo soy responsable y el
+[You]: no se mete,
+[You]: es distribución, growth, marketing, ventas. No lo hice nunca en mi vida.
+[You]: Entonces, vos no te das una idea de lo que yo estoy aprendiendo
+[You]: en en cada llamada? ¿Hay una psicología detrás de vender
+[You]: que yo pensé que, ¿viste?,
+[You]: no sé, cuando uno es ajeno al mundo de ventas y marketing,
+[You]: por ahí tiene cierta opinión de decir, los de ventas siempre son los que hacen más ruido, los de marketing solo lo
+[You]: importa aparecer, figurar.
+[You]: Y después te das cuenta que hay una psicología y es un arte impresionante, y hay toda una magia detrás de eso que es igual de importante que construir un buen producto y tener una buena tecnología. Entonces, hay un sendero de de aprendizaje y una curva de aprendizaje tan empinada que también disfrutamos mucho eso de emprender, ¿no?
+[Remote]: Perfecto. Y y ahora sí, yendo un poco más, bueno, entiendo que sus clientes
+[Remote]: te lo pregunto igual, son fintech, pero no sé si tienen algo más o son
+[Remote]: solamente fintech.
+[You]: No, no, hoy estamos abocados, o sea, a a cualquiera en el stack de servicio financiero.
+[Remote]: ¿Sedo financiero?
+[You]: Desde un banco sponsor
+[You]: hasta un middleware provider, como banking as a service,
+[You]: plataforma fintech, procesadores de pagos, agregadores de pagos, billeteras cripto, billeteras digitales. Básicamente, el el el problema de conciliación es está presente en cualquier tipo de compañía también, ¿no? No no es solamente servicio pero servicios financieros particularmente sensible y particularmente complejo. Por eso, hoy nos estamos enfocando en servicios financieros y seguros.
+[Remote]: Perfecto. Te lo preguntaba un poco, porque en un momento dijiste, decís, bueno,
+[Remote]: si ves esto en una fintech, dice, me llevo mi plata a un banco, ¿no? Digo,
+[Remote]: capaz uno pensaría ahí que el banco también está un poco más, no sé, por su regulación o todo,
+[Remote]: pero entiendo, entonces, que es transversal, que los bancos también pueden llegar a tener este tipo de problemas.
+[You]: Totalmente, lo tienen. Ahora,
+[You]: lo que tienen los bancos están regulados, entonces hay estándares
+[You]: de cómo tienen que operar, hay estándares de de data formatting, de data sharing,
+[You]: que hacen que
+[You]: obligan a los bancos a tener por lo menos equipos dedicados
+[You]: a este proceso y se aseguran de que funciona bien. El problema en fintech es que, primero,
+[You]: están busy backed, eso quiere decir, sus inversores son fondos de venture capital que
+[You]: la prioridad número uno es crecer lo más rápido posible.
+[You]: Con lo cual, cuando la titularía es solamente construir producto y crecer,
+[You]: ¿qué termina guiando en segunda prioridad? Todos estos procesos. Por eso ahí te digo que
+[You]: el mundo fintech se conlleva mucho más riesgo
+[You]: y ahí
+[You]: valga la redundancia, no está conciliado
+[You]: el tema de, che, Fintech está democratizando acceso a un montón de servicios financieros,
+[You]: pero a la vez están llevando mucho riesgo. Entonces, la pena, ¿sabés cuál es? Que cuando
+[You]: termina pasando esto de synaps y se pierden ciento sesenta millones de dólares,
+[You]: ¿quiénes perdieron su dinero?
+[Remote]: Sí, sí, el usuario
+[You]: No la
+[You]: no la gente que tiene no la gente que tiene Santander Select,
+[Remote]: el el final,
+[Remote]: Sí, sí, sí.
+[You]: o tiene Galicia Eminence, es la gente que por ahí
+[You]: en esas en esos bancos no hubiese tenido un crédito y fue a esa fintech,
+[You]: buscar un crédito. Entonces, es como que decís,
+[You]: esto esto
+[You]: tiene que cambiar,
+[Remote]: Perfecto, perfecto. Y
+[Remote]: sin mencionar, o en caso de que lo puedas y demás, ¿hoy cómo están de
+[Remote]: clientes, en qué países, dónde se están enfocando.
+[You]: Hoy tenemos ya
+[You]: varios clientes en producción pagando, tenemos billeteras
+[You]: tenemos bancos, tenemos procesadores de pagos,
+[You]: empezando a trabajar con compañías de seguros. Regionalmente,
+[Remote]: Ok.
+[You]: el foco está en Estados Unidos,
+[You]: ¿sí? Por eso Tego Y Yo Estamos Viviendo Acá En Nueva York,
+[You]: viajando mucho a San Francisco también.
+[You]: Todas las oportunidades que tenemos en Latinoamérica son por nuestras redes,
+[You]: son reactivas, es decir,
+[You]: hoy estamos posicionando la marca y posicionando la compañía
+[You]: para vender y construir acá en Estados Unidos,
+[You]: pero sí estamos tomando todas las oportunidades que nos vienen de Latinoamérica por nuestras redes.
+[You]: Pero lo que hoy es, no estamos invirtiendo recursos y tiempo en vender en Latinoamérica.
+[Remote]: Perfecto, pero es un objetivo.
+[You]: O sea, digo, no le estamos dedicando tiempo y recursos, pero sí tenemos clientes en el tema
+[You]: y vamos a seguir teniendo y vamos a seguir creciendo en Latinoamérica, pero estamos a buscar
+[You]: a posicionar la marca, a crear la marca, a comunicarnos con clientes a usted.
+[Remote]: Perfecto, perfecto.
+[Remote]: En un momento, mencionaron la ronda prisida, ahora están cerca de otra ronda más,
+[Remote]: y demás. ¿Cómo cómo están con el tema de financiamiento? ¿Eso es específicamente para
+[Remote]: para infraestructura, para creación, es para, nada, ampliar en algún momento el equipo
+[Remote]: de marketing, digo, cómo cómo lo cómo están destinando el financiamiento hoy en día.
+[You]: No, hoy hoy el financiamiento te diría que son
+[You]: dos buckets grandes, uno es costo de capital humano,
+[You]: digamos, FTEs, ese es el el principal costo de hoy,
+[You]: todo lo que es herramientas o infraestructura,
+[You]: Por haber estado en Harvard, en Columbia y en MIT, tenemos muchísimos créditos, que hoy venimos
+[Remote]: Okay.
+[You]: operando con esos créditos. Obviamente, sabemos que se acaban,
+[You]: con lo cual el segundo bucket de costos para nosotros
+[You]: en breves va a ser costo de infraestructura, de almacenamiento, procesamiento,
+[You]: todo lo que son las herramientas de inteligencia artificial, eso genera mucho costo.
+[You]: Hoy no lo tenemos, pero en breve lo vamos a tener. Y y la ronda seed, mirá, no
+[You]: nosotros todo lo que es fundraising lo llevamos de una manera muy muy
+[You]: orgánica. Si un un emprendimiento cómo funciona es, vos tenés un entendimiento del problema,
+[You]: y generás una hipótesis de cómo lo podés resolver. Esa hipótesis luego se testea
+[You]: con un método muy experimental. ¿Por qué? Porque yo pienso que lo voy a resolver de esta manera, pero
+[You]: voy con un cliente, se lo implemento y me doy cuenta que no,
+[You]: o hay iteraciones. Entonces, uno va iterando
+[You]: hasta que llega algo que es realmente escalable, es decir, es como decir, che,
+[You]: yo puedo hacer una pulserita por Cinco Y Venderla Por Ocho En Todas Las Esquinas De Mar Del Plata.
+[You]: Una vez que tengo eso bien armado, que sé que puedo producir la la pulsera y venderla bien,
+[You]: ok, ahora escalemos.
+[You]: Y cuando escalás, necesitás recurso para llevar lo de todas
+[You]: de todas las esquinas de Mar Del Plata a todas las esquinas de la provincia de Buenos Aires.
+[You]: Y buscás el capital para escalar una fórmula
+[You]: que ya sabés que es repetible. Con lo cual nosotros
+[You]: hoy tenemos capital, tenemos tenemos runway de sobra,
+[You]: operamos de una manera muy eficiente, somos un equipo muy chico, somos muy lean, esa
+[Remote]: ¿Cuántos son? ¿Qué...?
+[You]: somos siete,
+[Remote]: Siete, perfecto.
+[You]: Siete, eso nos permite tener un runway
+[You]: que nos da libertad. Libertad, ¿en qué sentido? Que, de vuelta, te digo, nosotros
+[You]: vamos a levantar capital
+[You]: cuando hayamos encontrado una fórmula repetible
+[You]: que digamos, ok, ahora voy a escalar esto, y para escalar esto,
+[You]: necesito tanto capital.
+[You]: ¿Sí? Y después también
+[You]: no no hay solo una parte de escalar algo repetible, sino empezar a hacer algo nuevo también.
+[You]: Hay un módulo del producto que todavía no hemos tocado,
+[You]: que tenemos que desarrollar. Entonces, volantás capital para
+[You]: escalar una fórmula repetible
+[You]: para financiar el desarrollo de un nuevo módulo, un nuevo
+[You]: ciclo de experimentación. Y así cada ronda,
+[You]: las compañías es así, después le mandaste una serie a,
+[You]: ¿para qué? Para lanzar otros productos, lanzar otros mercados, etcétera. Pero siempre es
+[You]: replicar una fórmula que sabés que es repetible y construir algo nuevo, que es otra hipótesis más.
+[You]: Con lo cual, para nosotros el el fundraising es es viene por ese lado, cuando estemos
+[You]: tengamos mucha convicción de vuelta,
+[You]: en cuál es esa fórmula repetible,
+[You]: y
+[You]: ¿qué es lo próximo que queremos construir?, vamos a salir a buscar la el capital necesario para financiar ese
+[You]: crecimiento.
+[Remote]: Perfecto. En esto de de hacer un poco de todo, que que también hace
+[Remote]: ventas, marketing y demás, cuando hablan con clientes o potenciales clientes,
+[Remote]: qué es lo que recogen de ahí, qué es lo positivo que
+[Remote]: ok, esto le estamos pegando a la tecla, y qué es
+[Remote]: quizás lo que todavía le falta o objetivos para para mejorar.
+[You]: Bueno, primero y principal,
+[You]: y esto por ahí es más anecdótico, pero vos sentarte a hablar con cualquiera que trabaja
+[You]: en el
+[You]: en en finanzas o en operaciones, en una compañía de servicios financieros,
+[You]: y mencionarle la palabra conciliaciones
+[You]: y absolutamente todo lo peor que hacen es agarrar la cabeza.
+[You]: Y dicen, uf, esta es la reacción, uf, qué dolor.
+[You]: Su proceso
+[You]: sumamente doloroso para todas. Entonces, ya cuando tenés esa reacción,
+[You]: es, para nosotros es oro, porque, ya, hay oportunidad de hacer algo. Nosotros eso nos fascina porque
+[You]: creemos que cualquier problema se puede resolver con tecnología,
+[You]: y más hoy con inteligencia artificial, con lo cual para nosotros, si ya les duele, es oro.
+[You]: ¿Sí?
+[You]: Después,
+[You]: cuando empezamos a a descubrir verdaderamente por qué les duele,
+[You]: es donde vemos la oportunidad. Y acá vemos muchas cosas. Primero,
+[You]: muchas tareas manuales, lo cual conlleva un equipo grande de gente,
+[You]: hablando cinco, seis, siete, ocho equipos de ocho personas que solo hacen conciliaciones.
+[You]: ¿Sí?
+[You]: Me estoy te estoy diciendo, se meten en Excel todos los días y están buscando
+[You]: la diferencia, tratando de explicar, considerar esto con lo otro,
+[You]: Trabajo sumamente manual, aparte a nadie le gusta hacer, hablar entrevistas a esas personas y
+[You]: por lo general, no les gusta su trabajo, porque es un trabajo
+[You]: realmente muy tedioso, muy de de dolor de cabeza.
+[You]: ¿Sí?
+[You]: Hay una hay muchas tareas manuales
+[You]: Lo segundo es
+[You]: el riesgo de eso, ¿no? Porque cuando hay un humano haciendo algo,
+[You]: a escala, que están en millones y millones de transacciones,
+[You]: hay márgenes de error.
+[You]: Y si vos te equivocás en conciliaciones,
+[You]: particularmente en servicios financieros y por eso es tan sensible,
+[You]: se pierde plata.
+[You]: ¿Sí? Como que no es una bolude, no es, yo me equivoqué en mi laburo y no sé,
+[You]: tengo un typo en una presentación.
+[You]: Yo tengo un typo en en mi modelo de conciliación y se perdió plata,
+[You]: o el banco perdió plata o un cliente perdió plata. Entonces,
+[You]: la vara y la sensibilidad y el riesgo es otro, con lo cual
+[You]: tampoco tiene sentido tener humanos haciéndolo por el margen de riesgo que eso conlleva.
+[You]: Y después, pérdidas.
+[You]: Las compañías que no pueden conciliar todo a fin de mes abren
+[You]: un asiento contable que se llama pérdidas irreconciliables.
+[You]: Y te estoy hablando miles y miles de dólares por mes, de cosas que
+[You]: no saben dónde están. Yo te lo remonto también antes,
+[You]: por qué arrancamos esto. ¿A uno te parece muy loco?
+[You]: En veinte veintiséis, que estas compañías tengan un asiento contable que se llame pérdida
+[You]: irreconciliables,
+[You]: ¿por qué se pierde la plata? Es una transmisión, hoy el mundo digital, con toda la tecnología que tenemos,
+[You]: ¿por qué se pierde la plata en el sistema? Nadie sabe dónde está esa plata, o sea, plata que realmente
+[You]: se perdió en el sistema.
+[You]: Ahí eso nos da muchísimo willingness to pay, porque si yo veo ese asiento contable
+[You]: veo cuánto es mes a mes, te digo, bueno, listo, pagame la mitad de eso. Si yo te lo te lo voy a llevar a cero.
+[You]: Págame la mitad de eso, hay un costo económico en costo de
+[You]: capital humano haciendo cosas manuales, y hay un riesgo operativo
+[You]: de perder plata por teniéndolo por tener humanos haciéndolo.
+[You]: Lo cual eso nos da un poco la pauta de del problema y de la oportunidad que hay.
+[You]: ¿Qué podemos mejorar? Y
+[You]: Es un proceso muy sensible y muy crítico.
+[You]: ¿Qué quiere decir esto? Que la vara
+[You]: de estas compañías de probar una solución como la nuestra,
+[You]: que, digamos, la verdad, arrancamos hace poco, somos muy tecnológicos,
+[You]: somos un equipo chico, somos jóvenes,
+[You]: hay un tema de confiabilidad.
+[You]: Entonces, por eso hoy estamos haciendo mucho trabajo en
+[You]: consolidar la marca, posicionar la marca, posicionarnos a nosotros como expertos en esto, porque al final del día, en la cabeza del banco, o de estas instituciones, cuando están evaluando estas herramientas, y más con el ruido que hay con AI hoy, son todos iguales en su cabeza. Todos iguales, Y el precio no les interesa, como es algo tan crítico, dicen, yo pago lo que sea, pero me quiero asegurar de que acá no hay riesgo, que esto funciona, y que tengo un sistema que monitorea esto y está encima y y me olvidé, me lo saco encima. Terminan comprando, como el precio no importa, terminan comprando al equipo, a la marca,
+[You]: Y así hay muchas, o sea, por ejemplo, en Compliance,
+[You]: hay hay soluciones de en Estados Unidos que te permiten sacar esta
+[You]: certificaciones de SOC uno, SOC dos,
+[You]: ISO veintisiete mil uno, etcétera. Y hay varias, Vanta, Drata, por nombrar algunas.
+[You]: Vanta es la que tiene mejor posicionamiento de marca, es la más conocida, la más grande.
+[You]: Vanta vale
+[You]: entre treinta y cincuenta por ciento más que su competidor más cercano. Cuando llego a leer las herramientas, yo, startup, que encima tengo poca plata, dije, voy a pagar Wanta. ¿Me entendés? Lo que importa, la posicionamiento y la marca, entonces, hoy es algo que que estamos trabajando mucho porque porque es muy importante, porque el producto y la tecnología la tenemos. Hoy por ahí, si si no ganamos un deal, es por un tema de que nos ven verdes, o que todavía la marca, ¿viste?, buscan en Internet y no hay mucho contenido. Con lo cual, hoy es es algo que que que estamos luchando.
+[You]: Y después, obviamente, como cualquier empresa con con el producto
+[You]: en desarrollo, como te dije,
+[You]: estamos
+[You]: cambiando y evolucionando el producto
+[You]: todo el tiempo, lo cual quiere decir que a veces el camino no es lineal,
+[You]: hacemos algo, después tenemos que borrar cuenta nueva, hacer otra cosa,
+[You]: probarlo, iterarlo, asegurarnos de que de vuelta como
+[You]: si el banco te compra, este tipo de soluciones, si el banco no está dispuesto a experimentar con un producto medio verde,
+[You]: porque, de vuelta, tiene mucho riesgo si no funciona. Yo, como plataforma de conciliación,
+[You]: no me puedo equivocar.
+[You]: Porque se pierde plata si me equivoco, ¿entendés?
+[You]: Entonces, también estamos
+[You]: ese contexto es muy difícil de navegar siendo una empresa nueva,
+[You]: con tecnología muy avanzada, por ahí estamos
+[You]: se nos rompen cosas porque estamos probando cosas muy innovadoras,
+[You]: es difícil hacer ese camino
+[You]: en un espacio en donde no te puedes equivocar.
+[You]: Distinto es hacer un startup en otras verticales, donde te puedes equivocar y no pasa nada,
+[You]: nosotros no nos podemos equivocar. Entonces, esas son las dos cosas que por ahí
+[You]: estamos mejorando.
+[Remote]: Perfecto.
+[Remote]: Bueno, antes de cerrar de vuelta, gracias por por esta
+[Remote]: charlita de media hora. Estaba bien para profundizar y contar un poquito más la historia y demás, está buenísimo.
+[Remote]: Lo último es cuál es la meta, digo, más allá ahora, ya
+[Remote]: ¿no?, ya le fundaron, ya vieron el problema, todo, ¿qué qué
+[Remote]: tienen?, ¿qué se imaginan?, ¿qué...?
+[Remote]: Hasta dónde, cuando hablan entre ustedes, dice, hasta dónde
+[Remote]: quieren llegar?, ¿qué qué qué es el objetivo que se ponen?
+[You]: Mirá, para nosotros, en este camino de
+[You]: de emprendedurismo, y creo que esto es un lindo mensaje,
+[You]: El camino es partido a partido.
+[You]: El camino es domingo a domingo. Mí me gusta mucho el fútbol, soy fanático del fútbol.
+[You]: Y y es realmente así.
+[You]: Uno tiene un norte, tiene una visión,
+[You]: pero el noventa y nueve por ciento del valor se crea partido a partido.
+[You]: Se construye bloque por bloque, con lo cual, ¿qué nos desvela a nosotros?
+[You]: ¿Onboarding un cliente nuevo?
+[You]: Preguntarles después de un mes checó cómo vienen y nos digan, nos cambió la vida,
+[You]: impresionante, está todo automatizado, tenemos mucha más visibilidad, es un antes y un después.
+[You]: Azure nos mueve eso, eso buscamos, eso es lo que realmente nos motiva
+[You]: a seguir creciendo, con lo cual el el foco está puesto en eso y siempre va
+[You]: estar puesto en eso, en el cliente, en cada valor para el cliente, para el consumidor.
+[You]: Porque vivimos de eso.
+[You]: Después,
+[You]: la visión macro, de vuelta,
+[You]: hay una misión muy linda, que es asegurar que
+[You]: servicios financieros pueden seguir escalando e innovando, pero con mucha más seguridad y robustez,
+[You]: para seguir democratizando acceso, pero de una manera más segura y escalable,
+[You]: Esa misión es muy linda y la tenemos muy tatuada.
+[You]: Por último, si querés la visión más tecnológica y de producto es
+[You]: yo tengo la la tesis y creo que por ahí ya voy ya es muy obvia,
+[You]: pero pero creo que realmente va a ser así, creo que en cinco o siete años las compañías van a cambiar drásticamente con inteligencia artificial,
+[You]: y si lo pensás, ¿dónde van a haber humanos?
+[You]: Los humanos van a estar enfocados en crear
+[You]: valor auténtico y orgánico,
+[You]: en lo que va a diferenciar esa compañía del resto.
+[You]: Es decir,
+[You]: entonces, eso quiere decir que
+[You]: todas las otras áreas de la compañía, las áreas que son más de enablement,
+[You]: ¿sí?
+[You]: Son áreas de monitoreo, son áreas, digo, una compañía nunca va
+[You]: a ganarle a su competencia porque concilia mejor, ¿me entendés?
+[You]: Una compañía de servicios y inversiones le va ganar la competencia porque tiene un mejor producto,
+[You]: que sirve mejor al cliente.
+[You]: Entonces, todas esas áreas que no te van a hacer diferente,
+[You]: en muy breve van a estar automatizadas por sistemas agénticos.
+[You]: Y la visión de Rexy es ser una plataforma
+[You]: para que los CFOs o los COOs tengan herramientas para construir flujos agénticos
+[You]: para todos sus procesos, cosa de que la compañía del futuro tenga
+[You]: un CFO, pero nadie más, un pero nadie más.
+[You]: Y que realmente tengan a los seres humanos en tareas de valor agregado, en tareas que las van a
+[You]: diferenciar, que las van a hacer ganadas de la competencia. Hoy, tener seres humanos
+[You]: conciliando en Excel es un mal uso del tiempo, es un mal uso de los recursos.
+[You]: ¿Sí? Porque somos más lentos, somos peores, nos equivocamos.
+[You]: Estamos hablando de, de vuelta, servicio financiero, donde si nos equivocamos se pierde plata.
+[You]: Entonces,
+[You]: esa es la visión a futuro, que REXi sea
+[You]: la plataforma de finance operations
+[You]: donde estos ejecutivos puedan construir sus flujos y sus equipos agénticos
+[You]: para cada una de las necesidades del negocio. Necicidades que, de vuelta,
+[You]: no los van a hacer resaltarse de la competencia, son simplemente
+[You]: cosas de higiene. Nosotros siempre decimos que conciliaciones es un proceso de higiene, es como el arte de los dientes.
+[You]: Digo, vos no vas a ser una mejor o peor persona por lavarte bien los dientes.
+[You]: Lo que sí va ser la tendencia, asegurar que nunca se te caiga un diente o que puedas comer tranquilo o tengas una linda sonrisa.
+[You]: Pero no te va a hacer no te va a hacer distinguirte otras personas, ¿me entendés? Entonces,
+[You]: así es como vemos un poquito nosotros la visión a futuro. Además de la misión,
+[You]: y además del foco
+[You]: estúpido en el partido a partida.
+[Remote]: Excelente.
+[Remote]: Bueno, Ignacio, gracias por por por la charla. Si la nota va a salir de la semana que
+[Remote]: viene, si me queda algo más capaz te mando alguito como para responder
+[Remote]: por audio. Sé que vas a estar de viaje y con algunas cosas, pero
+[Remote]: pero sería algo capaz muy breve. Creo que no, porque la verdad que charlamos un poco, hicimos todo el recorrido,
+[Remote]: así que, de vuelta, gracias. Y si me queda listo ahí, te
+[Remote]: te mando como para para sumar, y después ya te comparto la nota cuando salí.
+[You]: Listo, Agustín, muchísimas gracias, Un abrazo grande.
+[Remote]: Y
+[Remote]: quedamos en contacto, este es mi celular, lo que necesites, yo también a veces, ¿viste?,
+[Remote]: gente que conoce la industria y todo, capaz a a veces intercambio alguna cosita de de interés también.
+[You]: É obvio, e sin estar que isso te ajude a
+[You]: contactarte con otros emprendedores argentinos acá en Silicon Valley, Nueva York, avisame, feliz ayudarte.
+[Remote]: Dale.
+[Remote]: Está buenísimo por para hacer la nota, me parece que la la historia está buenísima, pero, además,
+[You]: Espectacular, Agustín. Tengas buen viernes y buen fin de
+[Remote]: para para ya quedar en contacto.
+[You]: Abrazo.
+[Remote]: Bueno, lo mismo y espero que termine bien las reuniones que te quedan.
+[Remote]: Un abrazo.
+
+============================================================
+SUMMARY
+============================================================
+### Company Origin & Problem Identification
+
+- Founded from personal experience across major fintech companies
+  - Ignacio: Bitso payments manager, launched QR payments in Argentina during 100%+ inflation
+  - Teo: Mercado Pago insurance vertical (MP lost $27M to payment provider)
+  - Sebastián: Pomelo funding team (card issuer/processor)
+- Core problem: Financial reconciliation complexity and risk
+  - Manual Excel-based processes with 5-8 person teams
+  - Human error leads to actual money loss
+  - “Irreconcilable losses” accounting entries worth thousands monthly
+  - Synapse bankruptcy revealed $160M hole from poor reconciliation
+
+### Current Business Status
+
+- 7-person team (3 co-founders + 4 founding engineers)
+- Multiple paying clients in production across:
+  - Digital wallets
+  - Banks
+  - Payment processors
+  - Insurance companies (starting)
+- Geographic focus: US market (living in NYC, traveling to SF)
+  - LatAm opportunities handled reactively through networks
+  - Not actively investing sales resources in LatAm yet
+
+### Funding & Growth Strategy
+
+- Raised $1.2M pre-seed from US and LatAm funds
+- Approaching seed round when formula becomes repeatable
+- Current runway provides operational freedom
+- Lean operations using university credits for infrastructure
+- Fundraising philosophy: Scale proven models + fund new product modules
+
+### Market Challenges & Opportunities
+
+- Customer pain point validation: “Everyone grabs their head” at mention of reconciliation
+- Value proposition drivers:
+  1. Eliminate manual labor costs (5-8 person teams)
+  2. Reduce operational risk of money loss
+  3. Convert “irreconcilable losses” to savings
+- Brand positioning challenge as young company in risk-sensitive space
+  - Price less important than trust/reliability
+  - Building expert positioning and content presence
+  - Can’t afford mistakes in financial infrastructure
+
+### Future Vision
+
+- Short-term: Client-by-client value creation and product iteration
+- Long-term mission: Enable safe fintech scaling and innovation
+- Technology vision: AI-powered agentic finance operations platform
+  - CFOs build automated workflows for all non-differentiating processes
+  - Humans focus on value-creating, competitive advantage work
+  - “Reconciliation is hygiene, like brushing teeth”
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/8c028dbd-096d-4490-b4b7-a483f313c3cf](https://notes.granola.ai/t/8c028dbd-096d-4490-b4b7-a483f313c3cf)

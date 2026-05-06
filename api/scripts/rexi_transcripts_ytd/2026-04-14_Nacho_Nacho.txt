@@ -1,0 +1,377 @@
+MEETING: Nacho <> Nacho
+DATE: 2026-04-14
+ID: not_9ewHK7dr8JjxmT
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Ignacampos918 <ignacampos918@gmail.com>
+SCHEDULED: 2026-04-14T17:00:00-04:00 - 2026-04-14T17:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[You]: Pages.
+[You]: Comercial,
+[You]: inversores.
+[You]: Hacemos dos, comercial, inversores.
+[You]: La idea del comercial es
+[You]: dejar un
+[You]: dejar un componente
+[You]: para que yo
+[You]: una partecita del one pager, para que yo con Claude pueda
+[You]: ajustarlo al cliente que se lo estoy mandando.
+[Remote]: Okay.
+[Remote]: Sí, hacerlo tipo template ahí, en fin.
+[You]: Claro, no, no, no, o sea, como que diría,
+[You]: el noventa y cinco por ciento del del contenido va ser el mismo siempre, dejaría, como te digo, un
+[Remote]: No le he cambiado, está bien.
+[You]: Claro, algo que yo pueda meterle a Claude y le diga, che,
+[You]: esto se mandando a
+[You]: Me
+[You]: de abajo
+[You]: me agarras el copy,
+[Remote]: Listo, perfecto.
+[You]: También acá, el el onePager tiene que ser muy sexy, ¿viste? Sexy y se tiene que entender. Ahora, si querés, yo te voy a bajar un Node con el contenido que tiene que tener. Te voy a mandar armar los dos. El comercial y que es para inversores. Y el que para inversores es dame, como es como una especie, es un es un pitch resumido, Para ambos, voy a necesitar versión en español, y en inglés.
+[Remote]: Sí.
+[Remote]: Далее.
+[Remote]: Ok.
+[You]: ¿Ok? Eso por un lado,
+[You]: Y después lo otro, que me gustaría armar con vos,
+[You]: es el tema de el deck comercial.
+[Remote]: Ok.
+[Remote]: Espectacular.
+[You]: Comparto pantalla de lo que tengo hoy, que está muy simple, y creo que puede mejorar.
+[You]: Esto es lo que yo tengo hoy,
+[You]: tan muy simple,
+[You]: pero me me
+[You]: qué sé yo, a mí me gusta. Yo vengo de consultoría, con lo cual estos slides
+[Remote]: Listo.
+[You]: así más
+[You]: estructurados me gustan, ¿viste?
+[Remote]: No funciona.
+[You]: Sí, pero de vuelta, a nivel diseño no
+[Remote]: Eso es lo importante.
+[You]: Le falta, le falta more.
+[Remote]: Perfecto. Le podemos
+[Remote]: no sé qué te parece el look and feel de lo que hicimos.
+[Remote]: O cómo, qué te parecería.
+[Remote]: Onda así, en modo oscuro, ¿viste?, bueno.
+[You]: A ver, pará, el de de de
+[You]: acá, los decks te voy a pedir también comercial y
+[You]: No, inversores no.
+[You]: Dex, solo comercial.
+[You]: En inglés y en castellano,
+[You]: es todo un template
+[You]: genérico,
+[You]: y después hay un slide que es que el que cambia, donde lo lo bajamos realmente a tierra
+[You]: a esa vertical.
+[You]: Y las verticales que yo haría son banking,
+[You]: fintech,
+[You]: payments,
+[You]: O sea, Niobank,
+[You]: payments, insurance,
+[You]: y marketplaces. Esas son las verticales que hoy estamos
+[You]: A nivel diseño,
+[You]: porque, mirá, déjame mostrarte otro acá.
+[You]: A ver cuál te gusta más.
+[You]: También los decks los tenemos, teníamos esta versión en negro,
+[You]: ¿Ves? Con todos los loguitos
+[You]: así, pipipi,
+[You]: Creo que está un poquito más lindo este que
+[You]: este.
+[Remote]: Ese es más parecido al al landing que tienen actualmente.
+[You]: Claro, entonces, eso quiero como poner un poquito de amor.
+[You]: Ahora, todo, todo, todo alineado con el design system, Nacho.
+[You]: Eso es fundamental.
+[Remote]: El... Ok, listo, no, no lo hago como lo landing.
+[You]: No.
+[You]: No, no, no.
+[You]: No, porque, de hecho, de vuelta a la landing, Seba te la va a cambiar para que lo alinees más con eso.
+[Remote]: Ok, listo.
+[You]: Yo ahora lo que voy a hacer
+[Remote]: Vamos a ver si
+[You]: te voy a bajar dos notions,
+[You]: con el cuerpo y la estructura de cada una de estas cosas.
+[You]: Después, vos vas tener que ponerle mucha magia al diseño de cada slide.
+[You]: Que quede en flama.
+[You]: Flama.
+[Remote]: Sí, sí.
+[Remote]: Sí, yo te lo voy a armar con el licenciista y te voy decir, Nacho, mirá acá, por ahí, está medio flojo esto, le
+[Remote]: le agregamos algo medio
+[Remote]: power.
+[You]: Vamos a tener que armar.
+[You]: Iconos, va a tener que armar, no sé si quieres ponerle
+[You]: animaciones, gifs. El tema de los gifs es que después cuando lo bajas a PDF quedan mal, entonces yo pondría
+[You]: cosas estáticas
+[You]: y no mucho más.
+[Remote]: Y con los mejores jugar con isométricos,
+[Remote]: quedan bastante bien, en vez de un GIF.
+[Remote]: Que son como
+[Remote]: iconos medios en
+[Remote]: 3D, no sé cómo decírtelo, que como que tienen cuerpo.
+[Remote]: No son tres d, pero
+[You]: La pregunta es, ¿vos
+[You]: esto dónde lo vas a armar? Porque me encantaría
+[You]: yo poder meter mano
+[You]: o comentar, no sé, ¿lo armas directo en Google Slides?, ¿cómo lo cómo lo armarías?
+[Remote]: Lo podemos hacer en Figma, si querés, ahí podemos darle más amor en tema de diseño. Un slide. O como te sirva, no sé cómo les compartí. Y el desde Figma lo podemos exportar en PDF,
+[You]: ¿Cómo le ha pasado, pues?
+[You]: ¿Vos decís que es mejor Figma que hacer el Google Slides? Porque después, lo presento, si estoy en una reunión?
+[You]: Si lo quiero presentar.
+[Remote]: También tenemos en Figma una opción que lo
+[Remote]: como lo tenía Pathom, que yo le armaba las presentaciones estas, que es
+[Remote]: el Google Slide de Figma, es es prácticamente lo mismo.
+[Remote]: Se llama Slides, a ver, ahí te comparto pantalla.
+[You]: A ver.
+[Remote]: O sea, no tengo lo de Patreon, pero más o menos te muestro ahí cómo es la plataforma.
+[Remote]: Por ejemplo, acá en...
+[Remote]: Ahí estoy abriendo
+[You]: ¿Meras?
+[Remote]: slides en Figma. Sí, sí, Dale, dale, dale, tranquila, mientras abres tú.
+[You]: Dos minutos que me estoy cagando mal. Dame dos minutos.
+[You]: Perdón.
+[Remote]: Pasa, suele suele pasar.
+[Remote]: Sí, de Figma.
+[You]: Jetzt soll das slide, hoor.
+[Remote]: Tiene una funcionalidad de ellos,
+[Remote]: que es lo mismo que Google SLite, pero que te da la
+[Remote]: de diseñarlo como si fuera una página y demás,
+[You]: Mira, ¿cómo haría
+[Remote]: da opciones así
+[You]: Claro, pero ¿cómo haría yo para
+[Remote]: Ahí te
+[You]: presentar y eso?
+[Remote]: te muestro. Bueno, yo acá diseñaría, ¿no?
+[Remote]: Cada slide,
+[Remote]: Te compartiría como los Figma normales, y vos entrarías y verías esto,
+[Remote]: y al darle el play acá arriba, igualmente te voy a dar ahí unas meet para que lo
+[Remote]: probemos.
+[Remote]: Juntos.
+[You]: O preferizarlo acá o preferirlo en Google Slides.
+[Remote]: Y acá, porque por ahí me da más
+[Remote]: facilidad para diseñar, digamos.
+[You]: Si después lo queremos pasar a Google Slide, va a ser un quilombo,
+[Remote]: No debería, habría que probar, por ahí.
+[Remote]: Portarlo ahí como a un PDF y subirlo al Google Slide, o o como quieran, no sé.
+[Remote]: Yo sé qué pata, cuando me lo presentaba así, funcionaba.
+[Remote]: Porque después ellos lo podían, ¿ves?, ir pasando ahí la presentación normal.
+[Remote]: Y y venían los chicos y cambiaban las cosas, o sea, vos podés editar todo.
+[Remote]: Así que no sé qué te parece.
+[You]: Bueno, si te si te gusta a vos más para laburar, vamos con esa.
+[Remote]: Porque me da como si fuera la herramienta apareciera la landing, digamos, o sea,
+[Remote]: este, le puedo meter mano acá.
+[Remote]: Podemos probar con esto, ¿sí te parece?
+[You]: Dale. Bueno,
+[Remote]: Más que nada que el slide no lo sientas tan básico, ¿viste?, el slider.
+[Remote]: Muy bien.
+[You]: Ok.
+[You]: Y después lo último que te te voy a pedir es
+[You]: dos decks más.
+[Remote]: O tirame.
+[You]: Uno de propuesta comercial.
+[You]: Y estoy pensando si hacer uno de
+[You]: de
+[You]: seguridad informática, esas cosas. No sé si hiciste en el pasado de eso
+[Remote]: No.
+[Remote]: Estudiando licenciatura en ciberdefensas, así que...
+[Remote]: Me estoy metiendo en el mundo.
+[You]: No, vamos con eso, vamos con esas tres, one pagers, ex comerciales y propuesta comercial.
+[You]: ¿Cómo te parece que arreglemos el uso de tu tiempo ahí? Y ahí, no sé, contá un poquito más
+[You]: cómo estás, si estás muy complicado, cómo lo ves.
+[Remote]: Mirá, como
+[You]: Pasando un momento de mierda y yo también te quiero ayudar, obviamente.
+[Remote]: Sí, como te dije varias veces, o sea, parece que quedo medio disco rayado diciéndote,
+[Remote]: labura con ustedes, pero en realidad estoy en una situación supercrítica, este, bueno,
+[Remote]: hace tres meses que no tengo laburo y
+[Remote]: no tengo mango, literal. Podemos arreglar lo que sea un par
+[Remote]: time, full time, o sea, yo
+[Remote]: a ver, aparte de mis años en de ProDesign, yo tengo once años en
+[Remote]: que metí, así que conmigo vas a tener un soldado.
+[Remote]: Esa esa es mi realidad, hoy en día.
+[Remote]: Más,
+[Remote]: ¿querés hacer por menos dólares que lo que habíamos dicho o no tengo problema?
+[Remote]: Este, mi
+[You]: Não, você quer entender?
+[Remote]: mi objetivo ahora
+[You]: Yo quiero entender, porque sé que te estoy sacando mucho tiempo,
+[Remote]: Mirá, hoy en día no tengo nada.
+[You]: entonces también quiero hacer.
+[Remote]: Hoy en día no tengo nada, este, estoy full time para vos, eso sí.
+[Remote]: Tuve muchas entrevistas, pero viste que no me han dado eso.
+[You]: ¿Te parece bien hacer
+[You]: decíme vos, otros quinientos dólares por one pagers,
+[You]: comerciales
+[You]: y las, y y el deck de la propuesta comercial,
+[Remote]: Como quieras, no sé.
+[You]: ¿Te parece muy poco,
+[Remote]: Podemos hacer.
+[Remote]: A ver, yo sé que la landing
+[Remote]: fue poco, pero, bueno, nada, no pasó nada, era muy prueba de fuego.
+[Remote]: Por ahí, sí podemos hacer por horas, pero un part time muy
+[Remote]: fijo, incluso por, no sé, siete horas de la hora, o diez, ocho, no sé.
+[Remote]: Como para yo poder
+[Remote]: llegar bien a fin de mes y poder pagar el alquiler, si te sirve.
+[Remote]: Incluso, por arreglar y podemos
+[You]: ¿Qué sería un monto
+[Remote]: meterlo en lo que él me quiera.
+[You]: monto que vos estás buscando
+[Remote]: Por mes,
+[You]: por mes?
+[You]: Sí.
+[Remote]: No.
+[Remote]: Mirá, empato me pagaba mil ochocientos dólares por mes.
+[Remote]: Pero yo con
+[Remote]: mil, pago el alquiler y, bueno, me arreglo.
+[You]: Ok.
+[You]: Ok.
+[Remote]: Pero ya te digo, yo estoy full time para
+[Remote]: ustedes, e incluso puedo agarrar lo de Seba, puedo agarrar lo tuyo, puedo
+[You]: So, en la página web,
+[Remote]: Y y te
+[You]: lo de la página web ya quedó por quinientos, cuando lleguemos a la versión final te mando
+[You]: los dos cincuenta que faltan. Si
+[Remote]: No, pero, digo, por por ahí él me da tareas o incluso quiere ver otras cosas,
+[Remote]: lo podemos meter ahí en el combo.
+[You]: Escuchá, si lo de la página web necesitas
+[You]: la guita ahora, te puedo mandar la otra mitad, Te te ayudo con eso también, si querés.
+[Remote]: Te agradecería,
+[You]: ¿Te viene bien?
+[Remote]: Sí, sí.
+[You]: Bueno, hagamos yo ahora te mando la otra mitad,
+[Remote]: Estoy menos bien.
+[You]: y
+[You]: ¿sabe lo que me pasa por arreglar por horas, Tacho? Es que
+[You]: siento que vos estás haciendo diseño como un poco vieja escuela,
+[You]: no estás usando mucha herramienta de AI,
+[You]: y eso te lleva más tiempo, ¿me entendés?
+[Remote]: Okay.
+[Remote]: La las usan
+[Remote]: las uso, pero siento que la IA te hace medio
+[Remote]: pedorro la el
+[Remote]: el diseño.
+[Remote]: Yo igual adelanto con los los copies y eso,
+[Remote]: la la uso bastante, ojo.
+[Remote]: Pero no quiero no quiero que sientas que te haga un
+[You]: Sí,
+[Remote]: diseño ahí de de cloud y
+[Remote]: ¿Me entendés?, ¿no?
+[You]: Sí, obvio, obvio.
+[You]: Sí.
+[Remote]: Pero, bueno, no sé, por ahí podemos, ya te digo, part time, full time,
+[Remote]: lo que sea, y y te despreocupás por horas, por el monto, por lo que sea, y yo te puedo meter
+[You]: Si, el de baja, yo no se,
+[You]: el tema es que prefiero mantenerlo así como medio freelance,
+[You]: porque no sé si vamos a tener una necesidad el mes que viene, ¿entendés?
+[Remote]: Ok.
+[You]: Todo lo que es diseño de producto lo llevan los chicos de ingeniería,
+[You]: chicos del equipo técnico.
+[You]: Y
+[Remote]: ¿Decís que ahí no no haré falta? Yo, lo que vi del producto,
+[Remote]: por lo menos el design system, siento que necesitan alguna ayudita.
+[Remote]: Más, ¿viste?, te mostré la el
+[You]: No sé, bueno,
+[You]: la mejor persona ahí para que lo vayas laburar,
+[You]: o lo vayas apalabrando es Sebas, Sebas, el que lidera todo lo que es diseño del producto.
+[Remote]: Ok.
+[You]: Si él piensa que va necesitar ayuda, va a él.
+[You]: Así que, en ese sentido,
+[You]: ahí estás perfecta, buenísimo que arranquese a trabajar con él en esto.
+[Remote]: Sí, por ahí.
+[You]: Hagamos una cosa,
+[You]: te sirve
+[Remote]: Todo esto lo he armado yo.
+[You]: Sí.
+[Remote]: Son design system para una empresa de
+[Remote]: de aduanas y
+[Remote]: todo bien prolijo para los desarrolladores, que por ahí eso
+[Remote]: le sirve y le saca trabajo a Seba, que se dedica
+[Remote]: armarlo y no tanto pensar en esto.
+[Remote]: Es esto, hacer los productos.
+[You]: Sì,
+[You]: sí. Bueno, no sé, eso miralo con Seo. Para todo lo que es
+[Remote]: Dale.
+[You]: esto que dijimos de los one pagers y los decks comerciales y
+[You]: y
+[You]: y el de la propuesta comercial.
+[You]: ¿Te parece hacer
+[You]: digamos, siete cincuenta por todo esto?
+[Remote]: Bueno.
+[Remote]: Dale.
+[You]: ¿Dale? Y yo ahora te adelanto a la segunda parte de la página web, por más de que falte un laburito ahí.
+[Remote]: Perfecto, perfecto. Y, bueno,
+[You]: ¿Te parece?
+[You]: Ya ahí siete cincuenta
+[You]: quinientos, tenés mil dos cincuenta, y y, bueno, mientras tanto también te da tiempo para ir buscando
+[Remote]: Sí.
+[You]: cosa, así es que
+[You]: eso.
+[Remote]: Yo creo que a ustedes les voy a servir, no sé, a ver,
+[Remote]: a mí me encanta el producto están haciendo, siento que les voy a servir,
+[Remote]: pero bueno, la voy me la voy a vender a Seba. Me la voy a vender al Seba. Porque, bueno, por ahí,
+[Remote]: siempre es bienvenido un
+[Remote]: un designer ahí en el equipo.
+[Remote]: Más que nada cuando están escalando.
+[You]: Sí.
+[Remote]: Para que después no se le haga un trombo atrás.
+[You]: Sí, sí, total.
+[You]: Bueno,
+[You]: te mando los notions y arrancamos con esto por ciento cincuenta, ¿te parece?
+[Remote]: Dale, dale. Y, bueno, yo te voy
+[Remote]: mostrando cómo va avanzando y demás.
+[You]: Dale.
+[You]: Ahora te mando la la segunda parte de la página web, así estás tranquilo con eso.
+[Remote]: Dale,
+[You]: No, gracias a vos, querido. Ahí a Laura.
+[Remote]: Gracias, Nacho.
+[Remote]: Dale, nos vemos.
+[You]: Abrazo.
+
+============================================================
+SUMMARY
+============================================================
+### Design Deliverables Overview
+
+- One-pagers needed (Spanish & English versions):
+  - Commercial: template with customizable component for Claude adjustments per client
+  - Investors: condensed pitch summary
+- Commercial decks required:
+  - Generic template with vertical-specific slides
+  - Target verticals: banking, fintech/neobank, payments, insurance, marketplaces
+  - Spanish & English versions
+- Commercial proposal deck (Spanish & English)
+
+### Design Approach & Tools
+
+- Figma preferred over Google Slides for enhanced design capabilities
+  - Figma Slides feature provides presentation functionality
+  - Better design flexibility than traditional slide tools
+  - Can export to PDF or port to Google Slides if needed
+- Design philosophy: move beyond basic templates
+  - Focus on “sexy” visual appeal with clear messaging
+  - Align with existing design system
+  - Use isometric icons instead of GIFs for static compatibility
+
+### Current Situation & Collaboration
+
+- Ignacampos918 available full-time, seeking stable work arrangement
+  - 3 months unemployed, critical financial situation
+  - 11 years design experience plus current cybersecurity studies
+  - Previously earned $1,800/month at Empato, needs minimum $1,000 for expenses
+- Potential product design collaboration with Seba
+  - Design system improvements needed for development team
+  - Previous experience with comprehensive design systems for customs company
+
+### Project Scope & Pricing
+
+- Agreed deliverables: one-pagers, commercial decks, proposal deck
+- Total project value: $750
+- Website completion: remaining $250 to be paid immediately
+- Combined total: $1,250 for current work package
+
+### Next Steps
+
+- Nacho to send Notion documents with content structure
+- Ignacampos918 to begin design work with iterative feedback
+- Explore potential ongoing collaboration with Seba for product design
+- Website payment to be processed immediately
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/1bf0f73f-4b59-4255-859c-4d49695035dd](https://notes.granola.ai/t/1bf0f73f-4b59-4255-859c-4d49695035dd)

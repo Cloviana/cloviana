@@ -1,0 +1,1880 @@
+MEETING: Remote Sesión 3: Gestión de unmatched. IA y dashboards. Capacidades de automatización, dashboards operativos y alertas
+DATE: 2026-04-30
+ID: not_7yZdz4vma2lc6P
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Lucila Ayala <lucila.ayala@despegar.com>, Carla Fiorelli <cfiorelli@despegar.com>, Homero Pina <hpina@despegar.com>, Priscila Costabel <priscila.costabel@despegar.com>, Franco Rende <franco.rende@despegar.com>, Carolina Tatone <carolina.tatone@despegar.com>, Juan Pablo De Felice <juan.defelice@despegar.com>, Pablo Ogando <pogando@despegar.com>, Sebastián García <sebastian@rexi.finance>, Giuliano <giuliano@rexi.finance>, Leonardo Lins Costa <leonardo.lins@despegar.com>, Matias Nahuel Troya Nieto <matias.troya@despegar.com>, Nicholl Cabezas Diaz <ncabezas@despegar.com>, Jean Castillo <jean.castillo@despegar.com>, Jonathan Pombo <pomboj@despegar.com>, Flavia Rodriguez <flrodriguez@despegar.com>, Teo Zavalia Gahan <teo@rexi.finance>, Andrea Morales <estefania.morales@despegar.com>, Miguel Pereira <miguel.pereira@despegar.com>, Yessica Duarte <yessica.duarte@despegar.com>, Laura Paltanavicius <laura.paltanavicius@despegar.com>, Franco <franco@rexi.finance>, Carol Perez <carol.perez@despegar.com>, AR-Parque Patricios-Piso 2-Sala Cartagena (9) [Polycom, Zoom] <despegar.com_2d35333631303534343537@resource.calendar.google.com>
+SCHEDULED: 2026-04-30T13:00:00-04:00 - 2026-04-30T15:00:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Muy bien. Buenas.
+[Remote]: Buenas tardes. Buenas, Jess, ¿cómo estás?
+[Remote]: Buenas, buenas. Miguel, ¿cómo andas?
+[Remote]: Todo bien. Todo bien.
+[Remote]: Mientras se van sumando, si quieren ir abriendo la capacitación,
+[Remote]: en su propia computadora,
+[Remote]: ahí nosotros le generamos un link
+[Remote]: Ese link tiene ya incluido lo los archivos que vamos a estar usando para los ejercicios, así
+[Remote]: no tienen que estar
+[Remote]: descargándolos de de
+[Remote]: del Slack.
+[Remote]: Y
+[Remote]: bueno, ahora lo lo repetimos si se suman más, pero
+[Remote]: como dice el mensaje, cada uno va a tener una organización asignada
+[Remote]: Nos pareció mejor organizado que
+[Remote]: que cada uno tenga su propia sesión para esta instancia, su propia
+[Remote]: sesión de demo o con sus propios
+[Remote]: agentes y sus propias
+[Remote]: Ahí ahí es clave, porque, como vamos a hacer
+[Remote]: todo agentes esta sesión, o la mayoría de las cosas,
+[Remote]: cuando estemos cargando muchas sources las mismas, cada uno,
+[Remote]: capaz que la gente se confunde, ¿no?, eso no va a pasar en la vida real, pero si todos tenemos, no sé,
+[Remote]: con el mismo nombre, el agente va a querer tocar y va a ver
+[Remote]: va a ver lío, por eso era mejor segregarlo en organizaciones.
+[Remote]: Eso en la vida real no pasaría en el caso de uso real.
+[Remote]: Bien. Capaz que, Teo, ahí estaba bien
+[Remote]: tu chat de que tenemos todos juntos, capaz que está bueno ir, este,
+[Remote]: reforzar lo que pediste para que tengamos ordenada la si querés.
+[Remote]: Dale.
+[Remote]: ¿Qué qué parte de de? A ver,
+[Remote]: vi todo el chat que dice todas las preguntas, como hacen para que
+[Remote]: más ordenada y productiva posible, que todas las preguntas se las enviemos a Seba, ¿entiendo?, privado.
+[Remote]: Y que él va a ir orquestando las preguntas.
+[Remote]: Exactamente, ahí, a medida que vamos haciendo lo los ejercicios,
+[Remote]: los
+[Remote]: las dudas y temas
+[Remote]: relacionadas al ejercicio las vamos viendo con con Seba,
+[Remote]: después
+[Remote]: preguntas, obviamente, tampoco es una clase sin interrupciones, también hay
+[Remote]: puntos, temas a a charlar y demás, tal vez
+[Remote]: de la misma manera que hicimos la vez pasada,
+[Remote]: interrumpan, levanten puntos, dudas y demás,
+[Remote]: temas específicos de los ejercicios, de
+[Remote]: pasó esto o estoy viendo esta otra cosa, lo hacemos con Seba, obviamente, vamos a estar haciendo mucha gente, hay mucho
+[Remote]: mucho mucho ejercicio, así que
+[Remote]: si estamos todos Es un poco es un poco simular lo que pasó en la presencial,
+[Remote]: yendo por los asientos, pero medio virtual.
+[Remote]: Para que no se desvirtúe un poco. Porque esta sesión, como dice Teo,
+[Remote]: es más, como es agéntico, hay el es más probabilístico, así que va a haber
+[Remote]: bastantes preguntas capaz, entonces las volvemos resolviendo. Yo no voy a responder capaz las preguntas,
+[Remote]: directamente yo los orquesto con uno de los chicos de Rexi,
+[Remote]: para que los chatee directamente y las resuelvan con ellos, así ya les queda asignado
+[Remote]: un integrador de
+[Remote]: Ahí, ya no, ¿o o
+[Remote]: de esperar,
+[Remote]: los tiempos
+[Remote]: si quieren que esperemos un poco, cómo
+[Remote]: Adelante, arranquemos, Teo, un placer robando.
+[Remote]: Cualquier cosa hacemos catch up después con la grabación. Dale, dale, perfecto. Aparte, la
+[Remote]: principio es un poco repaso, así que
+[Remote]: primero, un poco, ¿qué nos vamos a esperar hoy?
+[Remote]: Creo que ya todos lo saben. Hoy la la sesión argéntica va a ser
+[Remote]: su primer contacto con
+[Remote]: nuestros agentes, creación de agentes,
+[Remote]: para resolución de problemas, investigación,
+[Remote]: creación de dashboards y demás,
+[Remote]: en en en tres grandes bloques, todo lo que es el bloqueada es un poco repaso,
+[Remote]: contexto, obviamente, y pronto engineering,
+[Remote]: acá tenemos nuestro head de data Ana, Franco Panario, un, la mente brillante detrás de
+[Remote]: del universo argentino de Rexi,
+[Remote]: Después tenemos los ejercicios, ejercicios uno a seis,
+[Remote]: son ejercicios operativos, vamos a estar resolviendo problemas similar a como hicimos las sesiones uno y dos.
+[Remote]: Y lo que se echa es visualización de de información con con dashboards,
+[Remote]: que es otro de los puntos que
+[Remote]: que les habíamos comentado que íbamos a ver, y que también nos estuvieron preguntando estos últimos días
+[Remote]: en en sesiones privadas que tuve con algunos equipos.
+[Remote]: Un poquito repaso.
+[Remote]: Son un montón de conceptos los que estuvimos viendo en este onboarding,
+[Remote]: Creo que
+[Remote]: muchos de los de los de los miembros de de
+[Remote]: del equipo de pegar se metieron muy de fondo en la plataforma y nos encanta,
+[Remote]: están entendiendo cómo cómo funciona la la lógica conciliatoria.
+[Remote]: Cómo cómo lo manejamos, pero son un montón de conceptos
+[Remote]: así que hicimos acá un pequeño repaso.
+[Remote]: Cómo es la arquitectura de Rexi, cómo es la ingesta, los sources, cómo se generan las views,
+[Remote]: después se generan los resultados, las rules y después los resultados.
+[Remote]: Source Config, esto es importantísimo.
+[Remote]: Si bien nosotros vamos a estar automatizando todos los procesos, hay una parte
+[Remote]: que de investigación y y de capacitación que se está haciendo ahora, que es
+[Remote]: carga manual de archivos
+[Remote]: Repito, nuestro objetivo es que nunca tengan que estar cargando
+[Remote]: archivos manuales, nosotros automatizamos eso,
+[Remote]: sí sabemos que es una parte normal de investigación y de y de y de
+[Remote]: de de ejercitación con la herramienta, así que es importante saber bien cómo cómo configurarlos.
+[Remote]: Ahí. Muchas gracias estas dos semanas que nos
+[Remote]: levantando los puntos cuando se encontraban con problemas de formato, problema con carga de archivos y demás.
+[Remote]: Nosotros estamos corrigiendo todos
+[Remote]: transformaciones, cómo se
+[Remote]: cómo se van modificando la las views,
+[Remote]: las formas de conciliar, regla exacta,
+[Remote]: cuando permitimos ambigüedad, cuando no permitimos ambigüedad,
+[Remote]: Los groupings, esto lo vamos a ver en en la mayoría de de las conciliaciones, vamos a tener
+[Remote]: n a uno, uno a n o n a n,
+[Remote]: porcentaje de tolerancia,
+[Remote]: bueno, especificaciones de agrupaciones,
+[Remote]: de BCP y y
+[Remote]: todo lo que son reglas dependientes.
+[Remote]: Acá nos levantaron hace unos días un un
+[Remote]: un tema con con las reglas dependientes, ya lo tenemos resuelto, estamos ahí en etapa de
+[Remote]: de Cuba, quedamos en el manos que que está.
+[Remote]: Pero sí,
+[Remote]: repasar un poco lo lo que tenemos acá.
+[Remote]: Entonces,
+[Remote]: como dije recién, arrancamos con ingesta, estandarización de información, todos procesos manuales y conciliaciones. Hoy vamos a ver todo lo que es versión agéntica de todo eso, que estuvimos haciendo de manera manual, y también un poco qué es lo que se hace una vez que tenemos una conciliación ya hecha, cómo se cómo se investiga la información, cómo se ejecuta y demás. A grandes rasgos, esto va a depender mucho de la operatoria de cada compañía, pero a grandes rasgos solemos poder meter las discrepancias en estos en estos tres grandes grupos, que una es falta de la contraparte, y el registro genuinamente no existe en la otra fuente.
+[Remote]: Esto es, tal vez, un proveedor que nos liquide menos o o o
+[Remote]: algo similar que haya sucedido. Una diferencia de valor, el registro está
+[Remote]: pero hay la diferencia del monto, se cobró un fee incorrecto.
+[Remote]: O se liquidó un día después, y hay una ganancia financiera ahí que que
+[Remote]: está dejando sobre la mesa.
+[Remote]: Y demás.
+[Remote]: O un error en el en el origen.
+[Remote]: Puede puede haber un un error en la en la base de datos de de pegar o puede faltar un dato,
+[Remote]: eso es algo para resolver internamente.
+[Remote]: Bueno, acá voy a dejar a a
+[Remote]: Seba, nuestro CTO, y y para nuestro head de AI para que comenten un poco
+[Remote]: antes de arrancar. Está bueno que
+[Remote]: que tengamos estas sesiones de de AI, porque
+[Remote]: es es un universo extremadamente complejo y
+[Remote]: está bueno que repasemos unas buenas prácticas antes.
+[Remote]: Buenísimo, Teo. Bueno,
+[Remote]: creo que ya lo adelantamos en las anteriores sesiones, pero la idea y la visión de siempre fue
+[Remote]: ser agéntico.
+[Remote]: ¿Ok? Dicho eso, la parte de la sesión anterior, que hicimos todo manual,
+[Remote]: siempre va a ser el fallback
+[Remote]: ok? Que cuando no funcione el agéntico tenemos que tener para que todo pueda seguir andando.
+[Remote]: Por eso era muy importante que ustedes aprendan cómo funciona Rex y que se topen con un montón de
+[Remote]: tareas capaz que media engorrosas manuales, que ahora con ella ahí con los agentes podemos
+[Remote]: resolver mucho más rápido, ¿no?, capaz que crear una vista con un agente, hacer una reconciliación,
+[Remote]: entender
+[Remote]: con datos qué cuál es la mejor estrategia de matching,
+[Remote]: ¿ok?, eso también lo resuelve la gente. O sea, todo lo que se pueda hacer en de manera manual
+[Remote]: se puede hacer vía el agente.
+[Remote]: Acá es muy importante, y queremos que sepan que de
+[Remote]: sea, la idea es que laguremos como equipos,
+[Remote]: Nosotros somos un equipo que nace AI native,
+[Remote]: entonces también parte de la propuesta de Rexi es
+[Remote]: enseñarles a ustedes o también llevarles conocimiento
+[Remote]: de cómo funciona el prompt engineering, ¿no?, esto de promptear
+[Remote]: a la gente y cómo prontear, cómo hacerlo bien, les debe
+[Remote]: con ChatGPT o el LLM que usen, que a veces alucina,
+[Remote]: y, bueno, mucho se dice como frase que
+[Remote]: problema no es el agente, sino el que está por eso
+[Remote]: está el famoso prompt engineering, que es la ingeniería del prompteo
+[Remote]: cuando uno es más específico o itera con el agente lo que quiere hacer,
+[Remote]: el resultado va a ser mucho más fino, ¿ok?, y específico,
+[Remote]: que cuando el usuario deja algo muy agnóstico y abierto,
+[Remote]: el LLM va a hacer lo que quiere y al usuario no le va a gustar, pero bueno, era porque el LLM
+[Remote]: tiene todo el espectro para usar.
+[Remote]: Que nada, vamos a ir también con las próximas sesiones también que tengamos,
+[Remote]: ir bajando conocimientos de AI, pero los dejo con Franco Panario,
+[Remote]: él es nuestro head de AI,
+[Remote]: es el que construyó toda esta experiencia agéntica para que nos cuente un poquito de LMs, agentes y
+[Remote]: cómo funcionan en
+[Remote]: Sí, pero un poco la idea también esta sesión, es que sea
+[Remote]: digamos, bueno, chicos, esta es la herramienta
+[Remote]: úsenla y y listo, si no es un poco
+[Remote]: desmitificar y
+[Remote]: explorar
+[Remote]: cómo son las cosas que hacemos por detrás, no solamente para que sirvan en Race, sino para que le sirvan en el día a día.
+[Remote]: Y creemos que AI es una de esas,
+[Remote]: Seguramente les paso con
+[Remote]: gente de noticias al LinkedIn donde sea, es tal compañía lanzó tal modelo nuevo,
+[Remote]: y todas esas cosas. Eso, básicamente, son es un Un LLM es como un modelo.
+[Remote]: Modelo así como de pegar, porque te te puede recomendar un vuelo, te puede recomendar un hotel,
+[Remote]: en lo que vos buscas.
+[Remote]: Le digo en el
+[Remote]: predecir palabras en base a lo que vos le dices.
+[Remote]: ¿Viste? Cuando vos le hablas de fútbol, te responde fútbol cuando le hablas de
+[Remote]: vuelos, te responde a vuelos.
+[Remote]: Cuando vos el LLM le das lo que es brazos y piernas, si se quiere,
+[Remote]: ese LLM se transforma en un agente, porque ya no solo responde, sino que puede hacer cosas.
+[Remote]: Puede investigar tu data, puede generar acciones, puede liderar cosas.
+[Remote]: Pero siempre, digamos, el LLM es como si fuese una persona
+[Remote]: digamos, el agente es como si fuese una persona de tu equipo más.
+[Remote]: Si si vos una persona de tu equipo,
+[Remote]: le comentas algo y se le explicas mal, por hay de alta chance que se equivoque.
+[Remote]: Con un agente o puede pasar algo similar.
+[Remote]: Y eso que mencionaba Severs es el tema de prompt engineering, ¿no?
+[Remote]: Cómo yo trabajo mi conversación con este agente para
+[Remote]: sacarle el mayor jugo posible y que haga bien las cosas que yo le pido de entrada, digamos.
+[Remote]: Hay un poco la de hecho son simplemente unos ejemplos,
+[Remote]: para decir, bueno, primero le digo un contexto a leerle m de cuál es mi problema,
+[Remote]: y después nos lanzamos, digamos, en este brainstorming para después ya ir directo a
+[Remote]: al grano, digamos, cuál es mi problema,
+[Remote]: qué me está fallando. Igual como que si estuvieses hablando con alguien de tu equipo, con alguien tienes un problema,
+[Remote]: ya sabes que estuve laburando con esto y me falló y estuve probando estas cosas, con un agente no,
+[Remote]: digamos, esto es pensarlo como un equipo,
+[Remote]: de personas que trabajan para vos.
+[Remote]: Es un poco lo que también vemos en la en el slide siguiente.
+[Remote]: En el caso de Rexy, la idea es
+[Remote]: digamos, que tengas un chat que atrás tienen todo un equipo de agentes especializados para ayudarte, digamos.
+[Remote]: El IS replica básicamente lo que
+[Remote]: venías a hacer manualmente, porque la idea es que sea más agente, digo, que sea un acelerador para ustedes,
+[Remote]: y en ese sentido, varias opciones.
+[Remote]: Una es la parte de data, que es
+[Remote]: como es el tema de la de la source y de las vistas, de las response,
+[Remote]: explorarlas,
+[Remote]: Lo que es el reconsideration agent es para que, si vos tienes dos sources,
+[Remote]: que vea
+[Remote]: cuál sería la mejor reconsideración para eso,
+[Remote]: Rubén, solo le eso, ya es postereos y te falla, a ver por qué me falló.
+[Remote]: Por qué me está dando mal este resultado, por qué me está machando. Dash duration es más
+[Remote]: más esta parte analítica, bueno, mostrar visualmente lo que estoy viendo, que te genere gráficos de
+[Remote]: cómo fueron estas recons, cómo fueron los major rates generales, cómo vienen las sources y demás, ese tipo de cosas.
+[Remote]: Y reports y export es más
+[Remote]: bueno, ok,
+[Remote]: todo bien acá en Brexit.
+[Remote]: Llevarlo, quiero presentarlo, quiero bajarme la data. A mí es como de todo el ciclo de vida que vas teniendo a través
+[Remote]: de de la aplicación, que lo puede hacer acelerado,
+[Remote]: y que te vaya llevando este equipo de agentes.
+[Remote]: Es un poco
+[Remote]: Espectacular.
+[Remote]: Ahí no sé si alguien tiene alguna duda,
+[Remote]: si no avanzamos ya, nos ponemos manos a la obra, al al primer ejercicio,
+[Remote]: Antes de antes de empezar el primer ejercicio, unas aclaraciones importantes.
+[Remote]: El agente está totalmente abierto porque es un academy y son datos de prueba.
+[Remote]: En producción, el agente tiene roles y permisos.
+[Remote]: ¿Ok? Un agente puede eclosionar toda la data.
+[Remote]: Entonces, hoy está abierto para que juguemos
+[Remote]: es un ambiente de playground, es data no real, cada uno va a tener su organización y va a poder jugar,
+[Remote]: Otro tema importante, el agente un LLM, como dijo Pana,
+[Remote]: estamos hablando de probabilístico, por eso nosotros ponemos
+[Remote]: van a ver, cuando lo estén usando, el confirm de ustedes. Siempre está el human in the loop,
+[Remote]: no es que la gente acciona directamente, les pide confirmación en todo lo que va a
+[Remote]: ser y las acciones que va a realizar. Entonces, ustedes pueden chequear eso,
+[Remote]: al mismo tiempo iterar, che, no es lo que te pedí, dicen que no,
+[Remote]: y le piden de vuelta para que itere la gente. Si llegan a
+[Remote]: puede pasar que, por ejemplo, dispara una reconsideración y la reconsideración falla, la configuró mal.
+[Remote]: Pueden preguntar a la gente como le preguntan a ¿por qué falló?
+[Remote]: Y les tira el por qué, y hasta pueden solucionar su propio error.
+[Remote]: Vieron que a veces ustedes nos preguntan a nosotros, la idea es que
+[Remote]: usando la gente ustedes puedan tener esa resiliencia
+[Remote]: sin necesitar a Teo, a mí, ¿ok?, que puedan, como usan ChatGPT, lo mismo.
+[Remote]: Obviamente, es un ambiente controlado, está para
+[Remote]: hecho para la academy, no tiene lo mismo,
+[Remote]: bueno, debería funcionar así para que por lo menos lo lo lo prueben y, bueno,
+[Remote]: lo que tengan lo que necesitan.
+[Remote]: Buenísimo. Esto, un poco en base a lo que hablamos el lunes,
+[Remote]: decidimos, esto lo habíamos hecho diferente, el ejercicio uno lo habíamos enseñado diferente,
+[Remote]: decidimos diseñarlo específicamente en base al feedback que nos dieron el lunes,
+[Remote]: querían un poco más de herramientas para el parqueo de información,
+[Remote]: la la la idea de de es
+[Remote]: siempre
+[Remote]: darle herramientas a equipos técnicos para automatizar flujos que
+[Remote]: de otra manera, serían
+[Remote]: con conocimientos técnicos. Entre ellos, estaba paseado la información de proveedores que viene
+[Remote]: en
+[Remote]: como se se les canta, obviamente, con con diferentes formatos, y y y
+[Remote]: muchas veces,
+[Remote]: formas ilegibles, como como este de TXT, que viene de coin, que sin sin formatear, no le sirva a nadie. Entonces, el primer ejercicio que que hicimos es simplemente parsear esta información tirándole el PDF que nos dieron a nosotros, que explica cómo cómo parecerlo, así que vamos cada uno a a organización específica. Si van a la a la presentación, pueden descargar acá el archivo, Este es el archivo que vamos a estar parceando, y pueden descargar acá el el formato de de layout. Y otra cosa importante, cuando vean así texto grises, pueden copiar acá el prompt para para pegarle al a la gente. Entonces,
+[Remote]: comparto pantalla acá,
+[Remote]: Vamos a
+[Remote]: sources,
+[Remote]: Y, Leo, seguimos viendo. Ah,
+[Remote]: Una una cosa importante, ahí arriba, hoy tenían despegar Academy,
+[Remote]: nada más en el selector, al lado del logo de Rexi, en el top bar,
+[Remote]: ahora es un selector, tienen doble
+[Remote]: Teo es super admin y tiene todas las organizaciones de ¿no?, pero
+[Remote]: ustedes deberían tener solo dos. Ingresan al de su nombre individual,
+[Remote]: no trabajan en la de academic, esa es la de estamos trabajando todos.
+[Remote]: Perfecto.
+[Remote]: Entonces, ejercicio uno, descargamos el archivo coin,
+[Remote]: y lo cargamos así como viene,
+[Remote]: source nueva,
+[Remote]: Voy acá a descargas.
+[Remote]: Y cargo el archivo
+[Remote]: de colar coin.
+[Remote]: Y le damos
+[Remote]: create.
+[Remote]: Otra cosa importante, como fue, es la sesión
+[Remote]: y necesitamos más infraestructura para bancada de la gente, van a ver que está todo un poco más rápido, ¿entonces?
+[Remote]: Más parecido a lo que es productivo.
+[Remote]: Lo necesita la parte agéntica.
+[Remote]: Perfecto, ahí se cargo, y vamos a views ops.
+[Remote]: Perfecto. Bueno, como saben, nuestros queridos proveedores nos mandan la información así,
+[Remote]: así que la tenemos que hacer en
+[Remote]: en un formato legible. Vamos un segundo
+[Remote]: al ejercicio.
+[Remote]: Abrir el data agent,
+[Remote]: y, al juntarle el layout oficial de
+[Remote]: coin.
+[Remote]: Una vez que lo adjutamos, le agregamos el el texto este, que, recuerden, pueden copiar acá,
+[Remote]: y se lo pegamos. Entonces, vamos de vuelta acá.
+[Remote]: Y abrimos
+[Remote]: el agent y le adjuntamos
+[Remote]: el archivo,
+[Remote]: PDF,
+[Remote]: así como nos lo compartieron a nosotros,
+[Remote]: y le pegamos el prompt.
+[Remote]: Hoy vamos a estar
+[Remote]: trabajando con un montón de agentes,
+[Remote]: Acá van a ver
+[Remote]: exactamente qué es lo que está haciendo la gente en este momento. Los agentes tienen un montón de herramientas
+[Remote]: la información, analizan,
+[Remote]: es siempre un equilibrio entre velocidad de respuesta y calidad de respuesta.
+[Remote]: Vamos a tener un montón de momentos donde la gente va a estar pensando
+[Remote]: así que vamos a aprovechar esos momentos para cualquier duda, pregunta que que les pueda ir surgiendo,
+[Remote]: mándense, se desmutean. Sé que en persona con las medialunas sale más debate,
+[Remote]: pero acá mándense nomás sin sin ningún tipo de miedo.
+[Remote]: Ahí lo que pueden ver está la data, está entendiendo la información, está entendiendo el layout,
+[Remote]: y va a ser la la sugerencia para
+[Remote]: el
+[Remote]: Otra cosa importante en la vida real,
+[Remote]: bueno, esto ustedes deben trabajar con ChatGPT o cualquier LLM, y tarda también cuando lo hacés, pero
+[Remote]: un archivo o revisarlo. Pero la idea es que ustedes puedan también
+[Remote]: abrir otra gente y empezar a hacer otra cosa, ¿no? Es como, che, bueno,
+[Remote]: este que se queda trabajando con esto, voy a new agent,
+[Remote]: creo un dashboard, porque necesito un dashboard de report
+[Remote]: para esto, entonces, nada, bueno, podemos hacer varias cosas en
+[Remote]: en paralelo también, es la idea de Rexi.
+[Remote]: El archivo chicos.
+[Remote]: Perdón, Miguel. Perdón, no, tranqué, anda, andá primero, andá primero.
+[Remote]: El formato en el que le subís
+[Remote]: este está en PDF, ¿puede estar en cualquier tipo de de archivo para que lo lea?
+[Remote]: Bien, hoy solo estábamos
+[Remote]: aceptando PDF porque nosotros usamos AWS y es el único formato
+[Remote]: que ofrece, pero la verdad es que no no no lo hicimos todavía porque
+[Remote]: lo, pero la idea es que nosotros agarremos esos archivos, los transformemos a PDF,
+[Remote]: con un conversor nuestro para que puedan subir cualquier cosa. Así que si se llegan a topar con uno de estos,
+[Remote]: nos dicen y conectamos y y para que se pueda subir cualquier archivo.
+[Remote]: Hoy en día solo PDF. Imagínese que acá hay un OCR atrás,
+[Remote]: que es el que ve todo el PDF, entiende lo que dice,
+[Remote]: y nada, justo este PDF es el que te dice cómo
+[Remote]: tocar la cadena de características. Igual, normalmente, por lo menos de pasar
+[Remote]: elas, ¿no?, de casi siempre el layout
+[Remote]: viene, la explicación del layout viene en un PDF.
+[Remote]: Ah, perfecto. De última también, conviértanlo a PDF y va, es es lo mismo, o sea,
+[Remote]: capaz que no sé, tienen algo, se puede convertir a PDF en archivo y va,
+[Remote]: Pero esos casos de uso son los que, che, me gustaría que venga en text y acepten text,
+[Remote]: y nosotros lo hacemos. Es como que nos vamos topando más con el caso de uso,
+[Remote]: antes de que andar armando, son muchísimas casísticas.
+[Remote]: Bien.
+[Remote]: Perfecto. Bueno, ahí, como ven,
+[Remote]: analizó el agente, cuelió, analizó el el PDF y nos dice,
+[Remote]: que la información viene en una sola columna de tipo ancho fijo,
+[Remote]: y nos hace una vista propuesta,
+[Remote]: con
+[Remote]: la primera columna, con las quince campos, conversión de formatos a fecha,
+[Remote]: todas estas cosas que estábamos haciendo antes manuales,
+[Remote]: que tal vez nos llevarían
+[Remote]: minutos, horas, ahora te lo hace la gente
+[Remote]: automáticamente.
+[Remote]: Chicos, una consulta, yo estoy teniendo problemas para poder subirlos a
+[Remote]: los archivos. Este, es mi organización, pero no me aparece para para adicionar.
+[Remote]: Arrastré uno,
+[Remote]: me carga, pero me dice error de permisos.
+[Remote]: Dale, Matías, ahí avísame que yo, ahora hablamos por chat,
+[Remote]: Todas estas dudas o alguno que tenga problemas, hablamos por chat y lo resolvemos por chat.
+[Remote]: Pasame, si querés, el error, Mati.
+[Remote]: Dale, impecable.
+[Remote]: Y ahí está el agente trabajando en en la vista.
+[Remote]: Ahí, chicos, mientras carga, les les hago una pregunta.
+[Remote]: Que capaz que va un poco relacionado con lo de Caro.
+[Remote]: Por lo general capaz que en BCP o en algunos archivos así,
+[Remote]: por los sistemas que ya manejábamos, no sé, por ejemplo, tenemos un punto JSON,
+[Remote]: para mapear ese archivo con información,
+[Remote]: Esto, por ejemplo, yo no lo podría ingresar desde
+[Remote]: de esta forma para que me mapee los campos, ¿no?
+[Remote]: O sea, entiendo que hoy digo con con lo de PDF, pero en algún momento eso podría leer
+[Remote]: ese archivo que que parceaba y interpretarlo también?
+[Remote]: ¿Qué dijiste? ¿Un punto Jason, Miguel? Sí,
+[Remote]: Lo lo lo podrías, no sé cómo es el punto Jason, pero podrías pegarlo en el chat.
+[Remote]: Tipo, che, mirá, tengo esto, vos, como Chachi Piti, chedes esto, en vez de
+[Remote]: adjuntarlo como archivo al punto JSON, lo mandás como texto.
+[Remote]: ¿Ok? Ah, ok, te entendí, te entendí. O sea, él va ser un prompt tuyo.
+[Remote]: Ahí va. Y también la otra consulta que tengo es
+[Remote]: entiendo que todos estamos probando esto ahora y vamos a crear la vista
+[Remote]: ¿Cómo...?
+[Remote]: Cómo funciona que todos vayamos a tener la misma vista después de esta prueba
+[Remote]: y no el el agente haga una vista
+[Remote]: según la interpretación que haya hecho por cada por
+[Remote]: cada usuario, digamos. Como con esto de que hablábamos, de que cada respuesta va a ser diferente, digamos.
+[Remote]: Obvio. Ahí la respuesta es, sí, es probabilístico.
+[Remote]: Por eso ahí tienen que estar ustedes chequeando. Fíjense que cuando
+[Remote]: les tira el confirm view, o sea, a ver,
+[Remote]: el el agente es lo más determinístico que se puede hacer un LLM, ¿no? Imagínense que
+[Remote]: cómo funciona esto, ahí tiene como una un cerebro que nosotros le ponemos,
+[Remote]: de todo lo que puede hacer o no.
+[Remote]: Pero bueno, el LLM a veces se levanta con el pie izquierdo, a veces el derecho, y a veces
+[Remote]: dice, bueno, mejor voy con esta estrategia de reconciliación, y mejor voy con esta, pero porque entró por
+[Remote]: otro lado por una palabra que cambió Migue o por algo de tu prompt,
+[Remote]: Es más, como saben, ChatGPT, mismas palabras, distinta respuesta,
+[Remote]: O sea, más allá de que lo mismo, va a ser distinta la respuesta. Por eso ahí, Migue,
+[Remote]: esto ayuda
+[Remote]: pero no saca, no, que no estamos dejando
+[Remote]: al hacer todo sobre o sobre su data.
+[Remote]: Ustedes tienen que estar chequeando cada cosa que funcione, que esté bien,
+[Remote]: pero bueno, ahí lo bueno mío es que no sé si ves una columna que no funcionó,
+[Remote]: che, esta columna está mal, eliminala y créala de vuelta porque la mal,
+[Remote]: y es como si estuvieran usando ChatGPT, lo lo quiero llevar a algo que capaz que uses, ¿no? Claro.
+[Remote]: Sí, sí. Le le complemento a Ceo ahí,
+[Remote]: los agentes se están volviendo cada vez mejores.
+[Remote]: Cada vez alucinan menos, así que
+[Remote]: a fin de año va a ser muy diferente al poder que tienen hoy, al motor que tenemos hoy,
+[Remote]: y nosotros también nos volvemos mucho mejores, con el prompt engineering, con con el
+[Remote]: de de recs y demás. Así que
+[Remote]: este es el camino.
+[Remote]: Hoy es extremadamente poderoso, miren todas las fórmulas que agarró, le tiramos un PDF, le tiramos un archivo,
+[Remote]: nos generó todos los pasos, perfectito, la de vista divina, acuérdese que la primer columna les va quedar
+[Remote]: la versión original y les va a quedar toda la tabla
+[Remote]: con cada uno de los de los pasos. Hoy son muy poderosos,
+[Remote]: hoy son excelentes, se van a volver más y más poderosos.
+[Remote]: Así que para fin de año, yo creo que vamos a estar
+[Remote]: en un universo cien por ciento agéntico.
+[Remote]: Cómo venimos?
+[Remote]: ¿Pudieron pudieron generarlo?
+[Remote]: Ahí, justo, Mati Troya y Franco, que son nuestros, voy a decirlo, top users, porque nosotros vemos quién se conecta,
+[Remote]: y arrancan a las siete y media de la mañana, los chicos, Estaban ya logueados, entonces se tienen que desloguear y loguear porque les actualizamos la sesión. Entonces quedó con la sesión desactualizada, pero si alguno tiene otro problema, avisa.
+[Remote]: Unos minutitos ahí.
+[Remote]: Dale.
+[Remote]: Acá no hay dudas, Teo, así que si querés seguir,
+[Remote]: Perfecto.
+[Remote]: Vamos de vuelta para acá.
+[Remote]: Y vamos presentando un poco
+[Remote]: el ejercicio dos,
+[Remote]: En este caso, es una conciliación de cobros,
+[Remote]: Vamos a validar
+[Remote]: que la pasarela nos transfirió todo lo que esperábamos cobrar con ventas,
+[Remote]: un ejercicio
+[Remote]: clásico de de conciliaciones,
+[Remote]: Tenemos
+[Remote]: estos dos sources,
+[Remote]: pagos y cobros,
+[Remote]: de vuelta los pueden descargar acá,
+[Remote]: Y vamos a crear la view. Acuérdense que acá tienen el prompt para copiar,
+[Remote]: se lo tiran al agente Entonces,
+[Remote]: comparto pantalla.
+[Remote]: Y vamos a sources.
+[Remote]: Addsource,
+[Remote]: y le tiramos
+[Remote]: pagos
+[Remote]: y cobros,
+[Remote]: Ahí se subieron.
+[Remote]: Vamos a view sources.
+[Remote]: Entonces,
+[Remote]: vuelvo a la conciliación, al ejercicio,
+[Remote]: Vamos a crear las views, pero esta vez no la vamos a crear más.
+[Remote]: Abriendo una view y modificando
+[Remote]: los los formatos ni verificando nada. Vamos a copiar el prompt,
+[Remote]: y sí lo vamos a tirar acá.
+[Remote]: Al chat.
+[Remote]: Compartiendo
+[Remote]: presentación. Ahí le le pegué el
+[Remote]: Ahí no sé si notaron la velocidad de primer respuesta de de los agentes
+[Remote]: el equipo trabajó
+[Remote]: durísimo para eso, no es normal,
+[Remote]: que
+[Remote]: que la primera respuesta sea tan rápida, no sé ahí, Para, si querés comentar un poquito
+[Remote]: La idea es siempre
+[Remote]: este este tema de equipo, ¿no?, que siempre hay como un supervisor arriba,
+[Remote]: que está para recibir
+[Remote]: tu problema y te dice, yo me encargo y hablo con el equipo de agentes de Brexit para para buscar tu problema.
+[Remote]: Entonces, siempre te fido constante de, bueno, che, planeemos esto y vayamos trabajando
+[Remote]: con la plataforma,
+[Remote]: mientras le voy tirando a los expertos por detrás para que te vayan ayudando.
+[Remote]: Siempre es de vuelta, digamos, para no
+[Remote]: para tener ese feedback constante que te pueda
+[Remote]: Bueno, ahí me ofreció, obviamente,
+[Remote]: verificamos que lo que dice la gente es lo que necesitamos.
+[Remote]: Teo te preguntó, miren, este es un mal usuario, le preguntó cómo querés
+[Remote]: la vista y le puso sí. Tipo, le vuelve a preguntar.
+[Remote]: Che, pero decime el nombre que querés ponerle. Le pregunta exactamente si quiero que sean así,
+[Remote]: Sí.
+[Remote]: Gracias, agente, perdón, estaba contestando no me preguntó eso.
+[Remote]: A mí me dijo, si confirmaba la el las vistas y, yo le puse así,
+[Remote]: Ah, bien, perfecto. No, bueno, ahí cada uno
+[Remote]: su prompt, sus sus cosas, ¿no? Y ahí te Esto de
+[Remote]: el el preview oficial,
+[Remote]: le damos aprobar,
+[Remote]: o no aprobar.
+[Remote]: ¿Esto de aprobar?
+[Remote]: Solamente para para pinchar un poquito de teoría, es lo que le llamamos nosotros human in the loop,
+[Remote]: que que decir, che, yo estoy trabajando con un proceso que es sensible,
+[Remote]: tipo, acelerame el análisis, acelerame la la, digamos, filtrar, limpiar las views y todo, pero vos estás tocando un tema de récords, estás tocando un tema de views, preguntame, siempre que vas a modificar algo, preguntame, es esta idea de che, voy a crear esto, ¿estás ok con esto? ¿Sí? Listo, sigo con otra cosa y y sigues laborando. Human development. Que te hace el bien en lo que conviene, en las partes sensibles está el humano diciendo, ok, no, sí, cámbiemelo. Pero te va como solucionando toda esa parte de investigar, de de explorar ellos, y esa esa propuesta. Ahí, si cliquean, cuando cuando le te confirma que ya la has creado, te lleva
+[Remote]: a las views, y acá, como vemos, nos generó la view perfecto.
+[Remote]: Con el filtro estado aprobado y la fecha
+[Remote]: convertida a fecha, el campo date convertido a fecha.
+[Remote]: Y lo mismo con cobros,
+[Remote]: vamos acá, esta no tenía ningún filtro, era solamente el parceiro campo fecha.
+[Remote]: Una consulta, todo lo que
+[Remote]: las transformaciones que ustedes están haciendo sobre los archivos productivos nuestros,
+[Remote]: ¿lo hicieron así con agente o ustedes codearon algo adicional?
+[Remote]: Todo agente y
+[Remote]: O sea, sí, y nos va a pasar en la sesión solamente,
+[Remote]: iteramos sobre la gente, ¿no? Ahí como que, che, pero el
+[Remote]: noventa por ciento del trabajo lo hace, y el el resto del diez no es manual, también es con el agente, pero
+[Remote]: más más prompts, o sea, seguimos iterando sobre ese resultado.
+[Remote]: Pero bueno, saca mucho trabajo, ¿no?, con la creación de vistas, te crea las dos
+[Remote]: al mismo tiempo, es infinito. El parser ese que hicimos que tenía
+[Remote]: dieciséis fórmulas,
+[Remote]: cuánto hubiéramos estado y cuánto nos hubiéramos confundido también, ¿no? Sí.
+[Remote]: Si vamos a al
+[Remote]: al archivo original,
+[Remote]: el parser, y mira lo que es cada una de estas fórmulas,
+[Remote]: O sea, imagínense estar haciendo esto
+[Remote]: sin agentes.
+[Remote]: O sea, la, eso es lo que le decíamos la otra vez.
+[Remote]: Como que se puede hacer todo en Rexi, pero bueno, es para cuando vas a la forma manual
+[Remote]: Igual para hacer la fórmula también tenés un poco de AI si querés hacer algo manual y no tenés que escribir la fórmula, ¿no?
+[Remote]: La idea es siempre pasarlo todo con la gente, digo, y Caro, para tu pregunta, nosotros hacemos todo vía
+[Remote]: porque lo vamos puliendo al a la gente, entonces, a propósito, ¿no? Esto
+[Remote]: los agentes están aprendiendo, en esta no aprenden, en en Cuba no aprenden porque
+[Remote]: es muy costoso el el entrenamiento de modelo, solo aprenden en producción. O sea,
+[Remote]: van a ver que les va a empezar a hablar con su nombre en producción, que saben lo que hicieron ayer, del reporte que va
+[Remote]: bajaron, o sea, va a tener memoria su propia sesión, no de organización, su
+[Remote]: propia sesión. Pero bueno, eso en academy no está habilitado, pero porque
+[Remote]: eso se queda entrenando con lo que hicieron hoy para hablarles mañana sobre lo que quieren hacer. Y viste que nosotros, algunos casos, tenemos los códigos armados. ¿Lee ese código? Como para no tener que que el agente haga su código, sino
+[Remote]: ya tengo el código de lo que tiene que hacer y decirle,
+[Remote]: léelo y hacelo. Léelo y repítalo.
+[Remote]: Que ver en qué formato está ese código, pero va a ser
+[Remote]: si no es ahora, va a ser todo así.
+[Remote]: Yo creo que
+[Remote]: hoy
+[Remote]: tenemos esto, hoy nosotros hacemos todo agéntico,
+[Remote]: No sé cómo explicarles qué
+[Remote]: de acá a diciembre, o sea, en diciembre nadie va a estar tocando un botón.
+[Remote]: Claro. No va a estar ido a estar generando las views, estar
+[Remote]: El poder de los agentes,
+[Remote]: para entender información grande en universos,
+[Remote]: información estructurada como es conciliaciones, es tremendo.
+[Remote]: Es difícil, tal vez,
+[Remote]: flujos con donde hay información, no sé, fotos,
+[Remote]: una una foto de un de un de una factura que te mande
+[Remote]: Ahora, nosotros tenemos la suerte de que esto de información
+[Remote]: estructurada, entonces, los agentes son buenísimos, mucho mejor que cualquier humano.
+[Remote]: Bien. Y a tu pregunta, Caro,
+[Remote]: no sé a qué te refieres mucho con código, pero si vos le decís a la gente en
+[Remote]: guardate esto en memoria para acordarte para la próxima vez, eso se guarda en la memoria
+[Remote]: Caro, entonces es como que no le tenés que hablar más de eso. Pero bueno,
+[Remote]: es lo mismo, en Chachi Pití también pasa, vos le decís, che, guárdate esto en memoria, no me digas más. Carolina, decime Caro, y eso ya lo guarda en tu agente y eso
+[Remote]: se guarda.
+[Remote]: Tenemos Ah, solamente para cerrar
+[Remote]: en tema de mora tenemos dos funcionalidades, una es la propia, que es decir, no sé, yo trabajo con un reconcilio
+[Remote]: de vuelos, sino de hoteles,
+[Remote]: y después tienes la propia de la compañía. Che, en despegar laboramos de esta forma.
+[Remote]: Reconciliamos siempre con esta técnica, con esta táctica. La data nos gusta así, con este nombre de colon, meses
+[Remote]: es esta idea de
+[Remote]: es ese equipo
+[Remote]: digamos, que va subiendo el seniority porque va aprendiendo con vos.
+[Remote]: La agent sabe que las columnas te gustan así, la
+[Remote]: sabe que no sé, no te gustan las que te digan comparison, te gusta que sean todos con sweeps,
+[Remote]: No sé si es idea de
+[Remote]: aprender que podrían, ahora no te lo tira, porque es una demo que
+[Remote]: hablando con la data pelada,
+[Remote]: pero ya en el proceso productivo, que es el uso diario, va sacando esos insights
+[Remote]: de lo que vos vas haciendo, digamos, para que después sea como tu equipo experto, digamos, en
+[Remote]: en eso, no solamente por lo puede hacer, sino por lo que va aprendiendo dos.
+[Remote]: Perfecto. Bueno, siguiente punto, el tres
+[Remote]: del ejercicio dos, ponemos acá copiar,
+[Remote]: Vamos de vuelta al agente y le pegamos el prompt.
+[Remote]: Creo una conciliación entre pagos y cobros,
+[Remote]: Join número de autorización es igual a número de autorización ref, comparison monto neto versus monto cobrado.
+[Remote]: Strategy exact sin tolerancia.
+[Remote]: Entendido, voy a diseñar la conciliación con los parámetros que
+[Remote]: indicaste antes de declararla.
+[Remote]: Acá lo mismo, voy a tirar una punta.
+[Remote]: La idea de Rexi es que nosotros también en las reuniones, capaz que habíamos hablado de
+[Remote]: idea es que si vos no sabés reconciliar... Capaz que tienen procesos que no concilian todavía, ¿no?, y no saben cómo
+[Remote]: conciliarlos, entonces es que Rexy los ayuda a analizar eso,
+[Remote]: pero bueno, son los prompts más
+[Remote]: vagos, ¿no? Entonces en el ejercicio siguiente vamos a ver un poco de eso en el tres.
+[Remote]: Este es bastante específico lo que queremos que haga la gente.
+[Remote]: Entendido, pagos versus cobros,
+[Remote]: el join,
+[Remote]: verificamos la
+[Remote]: la la comparación crítica,
+[Remote]: sin schedule, la ejecución manual,
+[Remote]: sí.
+[Remote]: Y acá tenemos la nos pide la confirmación oficial.
+[Remote]: Y damos create.
+[Remote]: Y acá nos ofrece, incluso,
+[Remote]: ejecutar la conciliación. Acá vemos que está creada.
+[Remote]: Vamos a configuración, está creada exactamente como queríamos.
+[Remote]: No tenemos que estar haciendo
+[Remote]: scroll ni drag and drop ni nada, le decimos a la gente lo que queremos,
+[Remote]: confirmamos y le podemos decir acá,
+[Remote]: sí.
+[Remote]: Chau, disputamela.
+[Remote]: Y ahí no se está ejecutando el agente la conciliación.
+[Remote]: Algunas cosas también acá. Voy tirando cositas, perdón, de
+[Remote]: de mientras voy corriendo a la recon.
+[Remote]: Siempre chequeen todo,
+[Remote]: ¿ok? No no confíen en los... Esto se los digo como programador,
+[Remote]: en esta época de AI, nosotros
+[Remote]: usamos mucho AI para programar,
+[Remote]: pero
+[Remote]: siempre está ese digima en Indeed, corrigiendo código, en su caso corrigiendo lo que hacen.
+[Remote]: Recién, por ejemplo, Oteo creó las vistas, pero no sé si vio
+[Remote]: si la entraste a cada una, no me no me acuerdo, capaz que sí entraste, Teo.
+[Remote]: Pero siempre vayan a chequear que creó las vistas bien, que no hubo un error,
+[Remote]: a veces tiene un error, entonces capaz que te mandás a crear la recon, y la recon falla
+[Remote]: porque un view no se había creado bien. Entonces, decirte, che, la creaste mal,
+[Remote]: y vas iterando con el agente, ¿ok? O sea, vas viendo por
+[Remote]: la creo mal y la gente dice, ah, me confundí, hice esto, y volvés a iterar.
+[Remote]: La creación de la vista, ¿ok? Pero nada, es es como buena para
+[Remote]: que vayan viendo todos los pasos que esté haciendo la gente.
+[Remote]: Perfecto, acá.
+[Remote]: Vamos acá.
+[Remote]: Según
+[Remote]: la
+[Remote]: el ejercicio, ahora es simplemente
+[Remote]: inspeccionar los los unmatch,
+[Remote]: vamos a volver un poco a este ejercicio, pero
+[Remote]: acá, como como siempre, tenemos
+[Remote]: los resultados conciliatorios,
+[Remote]: siempre se puede aperturar por el campo fecha que cerramos, en este caso, hoy solo uno.
+[Remote]: Monto neto le ponemos, y vamos acá, fecha cobro.
+[Remote]: Y monto cobrado. Perfecto.
+[Remote]: Eso es lo las views las hicimos para eso,
+[Remote]: que las views se hacen para parciar los datos, decir qué es fecha, qué es monto,
+[Remote]: para que después esta vista funcione bien, ¿no? Porque si no si no pusiste que algo es fecha o algo es monto,
+[Remote]: no van a poder filtrar acá los resultados, por eso es clave siempre armar las vistas.
+[Remote]: Perfecto.
+[Remote]: Bueno, acuérdense que acá tienen sus pequeños agentes,
+[Remote]: Siempre que estén laburando ahí con los agentes,
+[Remote]: ven abajo que les va mostrando la, básicamente, lo que está haciendo por debajo y ven que
+[Remote]: que a veces están un poco más, un poco menos, es este tema de que está explorando por detrás.
+[Remote]: Dice querying data, porque está
+[Remote]: tirando dos, tres, cuatro, cinco, quince, nos ha pasado
+[Remote]: que hasta cincuenta queries, porque realmente quiere ver
+[Remote]: lo que vos estés necesitando
+[Remote]: se cumpla, y es más, si después te responde
+[Remote]: quieres que
+[Remote]: digamos, investigue con otro foco, solo dice, gustaría que
+[Remote]: pongas más hincapié en esto. Te dice, buenísimo, se lo lleva y vuelve a investigar,
+[Remote]: vas haciendo todas estas formas acelerada, digamos, de de encontrar hasta
+[Remote]: llegar a lo que a lo que estás buscando. Perfecto.
+[Remote]: Acá, de mi lado, no hay dudas, Teo, por si querés seguir. Ah, ¿nadie te escribió?
+[Remote]: Bueno, yo estaba ahí dejando un tiempito, pero cualquier cosa y si
+[Remote]: Nadie nadie escribió, pero está estallado el lo que están haciendo en el chat
+[Remote]: Y está moviendo todo. Así que el que se hace vivo mal,
+[Remote]: tenemos todos los chats.
+[Remote]: Bueno, otra de las cosas que probamos, que no pidan chistes y esas cosas, porque todo sale plata, cada
+[Remote]: cada prompt que mandan. Entonces, claro, de repente la
+[Remote]: gente lo usaba para cualquier cosa, entonces tuvimos que ir cerrándolo para lo que es hacer Rexi.
+[Remote]: Pero hay hay algunos Easter eggs en la plataforma que algún día se los vamos a contar,
+[Remote]: hay una viborita que pueden acceder, pero bueno, nada.
+[Remote]: Es un momento de Sí, sí,
+[Remote]: Está a su imprevisto, todo lo que podemos hacer.
+[Remote]: Vamos al ejercicio tres.
+[Remote]: Esto es una una conciliación de seguros. Yo vengo de
+[Remote]: que el mercado pagó, así que esto es algo que hacíamos constantemente.
+[Remote]: Básicamente, validamos que cada póliza
+[Remote]: tenga su factura emitida,
+[Remote]: vamos acá a descargar la base de datos que vamos a estar trabajando, seguros reservas,
+[Remote]: seguro facturas,
+[Remote]: y le vamos a pedir al data agent, gerame views,
+[Remote]: de seguro reservas y seguro facturas, para hacia los campos
+[Remote]: al al tipo date, sin otros filtros por ahora.
+[Remote]: Vamos acá.
+[Remote]: Ya, listo.
+[Remote]: Y
+[Remote]: outsource
+[Remote]: y le cargamos los dos
+[Remote]: archivos, seguros reservas y seguro facturas.
+[Remote]: Acá.
+[Remote]: Create.
+[Remote]: Se terminan de cargar, y vamos a resource.
+[Remote]: Vamos a la gente ahora,
+[Remote]: le pegamos lo que copiamos.
+[Remote]: Créame views en seguro reservas y seguro facturas,
+[Remote]: Fíjense que
+[Remote]: esto es un ejemplo de mal prompting, en el buen sentido,
+[Remote]: le dijimos el nombre exacto de de los archivos,
+[Remote]: En este caso, los va a encontrar sin ningún problema, porque hay pocos, pero después, cuando tengan un montón,
+[Remote]: de de archivos, está bueno que tengamos
+[Remote]: esa esa especificidad cuando cuando hablamos de de sources y demás,
+[Remote]: El agente está entrenado para hacerte preguntas, lo vamos a ver.
+[Remote]: Cuando hay ambigüedad y demás, y nosotros preferimos que pregunte a que a que se mande,
+[Remote]: pero bueno, siempre está bueno revisar bien el el nombre.
+[Remote]: Ahí está, data,
+[Remote]: entendiendo los formatos, está entendiendo lo los sources y demás.
+[Remote]: Ahí ya lo encontró todo, y
+[Remote]: Sí.
+[Remote]: Fíjense que siempre,
+[Remote]: cuando traemos la reconsideración, primero nos encargamos de armar las vistas.
+[Remote]: Traten como buena práctica de nunca usarla default.
+[Remote]: ¿Ok? La default es la que cuando ingestás es la cruda, ¿vís?
+[Remote]: La la que no tocás. Bueno, siempre hay que filtrar
+[Remote]: pero también está bueno, imagínense que pueden, capaz que quieren usar la default,
+[Remote]: pero también si usan una default que está llena de columnas, eso hace que la re contarte más.
+[Remote]: Entonces, capaz que para la no necesitan las ochenta columnas, hagan filtrado, entonces, manda alguna
+[Remote]: con vistas y va a ser más óptimo las corridas, más rápido. Esto es data, ¿viste?,
+[Remote]: en cuanto más. Ahora estamos hablando de cinco mil quinientos pero cuando estemos hablando de un billion de que se acumulan, y conviene optimizar la query. Igual vamos a estar nosotros atrás
+[Remote]: las la las views automáticamente, o nuestro agente que no no procese tanto.
+[Remote]: Por ahí es un tema de view, ¿no? O sea, todas las columnas siguen estando
+[Remote]: porque ponele, si yo, por nivel reportería, hay un dato que para la consigno la
+[Remote]: pero para el reporte lo quiero, el dato está.
+[Remote]: El otro está. Sí, lo vas a usar para un reporte y vas a usar siempre la siempre el reporte
+[Remote]: está asociado a un avión, a ni una Entonces, si tenés acá para el reporte,
+[Remote]: tenés que poner esa columna en la view.
+[Remote]: ¿Ok? O sea, que que quede... Pero digo como filtrado, ¿viste?, optimizaciones de la
+[Remote]: Seguramente hay campos que nunca usás o que vienen porque lo ingestaste en una API.
+[Remote]: Siempre está bueno tener todas las vistas lo más
+[Remote]: publidas posibles, y la default no usarla mucho. Porque también, si usas la default,
+[Remote]: puede venir con problemas un día y te rompió toda la reconcilación. Lo que hacen las vistas es
+[Remote]: un poco de data quality sobre la data.
+[Remote]: Perfecto. Bueno, ahí, como como vieron, confirmé que ya se ha generado la dos views,
+[Remote]: con los parceiros correspondientes, y vamos a
+[Remote]: a darle un prompt
+[Remote]: que no, digo, necesito ayuda, nunca lo hice.
+[Remote]: Ayudame a conseguir seguro reservas con seguro facturas. Esto es para que vean un poco
+[Remote]: que la gente
+[Remote]: tiene un montón de herramientas de querying
+[Remote]: para entender por sí mismo la información,
+[Remote]: Le vamos a dar
+[Remote]: paste.
+[Remote]: И acá?
+[Remote]: Buenísimo.
+[Remote]: Que que te pregunte, podemos contestar lo que querramos.
+[Remote]: Usa
+[Remote]: usar
+[Remote]: las
+[Remote]: pistas type,
+[Remote]: te recomiendo, Linda.
+[Remote]: Con
+[Remote]: verificación
+[Remote]: puntuales.
+[Remote]: ¿Vieron que analizó la información en menos de un minuto?
+[Remote]: Ya está el agente trabajando.
+[Remote]: Si se fijas en los steps,
+[Remote]: siempre es este tema de, bueno, primero veo los esquemas, veo que tienes,
+[Remote]: después lo empiezo a explorar. Me trae configuración y exploras, este este ida y vuelta para
+[Remote]: para siempre llegar a la a la mejor propuesta posible.
+[Remote]: Una pregunta bastante abierta, así que el agente va estar en
+[Remote]: bastante la información
+[Remote]: antes de caer con una una propuesta conciliatoria.
+[Remote]: Pero esto está está bueno como ejercicio también para verificar que estamos haciendo
+[Remote]: los pasos correctos o los los más óptimos.
+[Remote]: Tiro otra cosa mientras va cargando eso,
+[Remote]: justo estaba hablando con Franco, de que
+[Remote]: la gente le dice, che, no puedo hacerla porque no tengo la vista, pero Franco viendo que están las vistas. Entonces, ahí le dicen, che, están las vistas, están acá,
+[Remote]: tratá de hacer la conciliación. Es como que como ChatGPT, es como, ¿viste?, cuando la gente dice, no,
+[Remote]: sí. Y y después te dice, ah, tenés razón, están, y empieza.
+[Remote]: Es como que siempre te termina dando la razón. Pero bueno, ahí está el chequeo este que digo, ¿no?, para que
+[Remote]: vayan chequeando que las vistas que se armó eran lo que querían.
+[Remote]: Nunca perdamos eso. Hasta la gente salió terco, entonces.
+[Remote]: No, no, los agentes, no, y y a nosotros no saben lo que nos pasa.
+[Remote]: Nosotros usamos Cloud Code para programar, y a veces nos dice,
+[Remote]: che, creo que es hora de que descanses, Eva, mañana seguimos. Y yo, tipo, ¿vas a hacerlo? Vamos a seguir y vas a hacerlo en cinco minutos. Es como,
+[Remote]: Es parte es parte de los agentes también.
+[Remote]: Ahí pelearse un poco.
+[Remote]: Bueno, acá nos nos trajo
+[Remote]: un análisis ya con una con una
+[Remote]: cobertura esperada y
+[Remote]: y una propuesta,
+[Remote]: comparaciones por cruce, prima, aseguradora, bastante completa la
+[Remote]: conciliación, le vamos a decir,
+[Remote]: Si querés, sacarle el cálculo adicional, porque la de diferencia prima, bueno,
+[Remote]: Bueno, ya está. Como que eso también, tipo, capaz que
+[Remote]: el prompt ahí o no sé, sacarle No, sí, no, sí.
+[Remote]: Claro, acá, si quiero, yo le puedo poner cancel y sacar la la
+[Remote]: ¿Cómo queda, si no? Dale. Vamos a crearla.
+[Remote]: Y vamos acá.
+[Remote]: Configure
+[Remote]: Ahí mi póliza.
+[Remote]: Póliza ID, y nos agarró las tres comparaciones.
+[Remote]: Y el calculated column.
+[Remote]: También, obviamente, se puede editar acá,
+[Remote]: si queremos
+[Remote]: área de tolerancia absoluta, por
+[Remote]: Te ponele
+[Remote]: no sirve para nada.
+[Remote]: Lo vamos a crear.
+[Remote]: Tenés que guardar PPS ibas a disco de los iOS de hoy.
+[Remote]: Changes en se va.
+[Remote]: Vamos acá a la gente.
+[Remote]: ¿Querés ejecutarla? Sí.
+[Remote]: Viendo, chicos, que hay un tema de que a veces no actualiza,
+[Remote]: Esta, ¿viste? ¿Vieron que cuando ponen el check, corrémela, y quedan running?
+[Remote]: Se quedan running, pero hacés en f cinco, capaz que terminó. Lo tenemos
+[Remote]: corregir. Lo vimos hoy a la mañana, pero no íbamos a meter.
+[Remote]: El fix
+[Remote]: Solo para que no se queden capaz que esperando que cambie y no cambió.
+[Remote]: Perfecto. Ahí, mientras corre la ¿alguna duda, comentario?
+[Remote]: Sin mediarunas están todos más callados, ¿sí?
+[Remote]: Nos arrepentimos de no hacer la presencial, La
+[Remote]: dijimos, va a ser un caos esto, pero bueno, son bastante buenos.
+[Remote]: Pero ¿ustedes están acá o están afuera? Porque Sí, te digo, ya está en Nueva York, pero bueno,
+[Remote]: íbamos con el equipo, íbamos con el hub de Argentina, yo estoy acá, Fana está acá y de última hacíamos la
+[Remote]: la presencial.
+[Remote]: Igual elegimos Asia y sí, si quieren que vayamos,
+[Remote]: y vamos, Ah, hola, no, allá yo también, dale.
+[Remote]: Ahí,
+[Remote]: esto es lo que dijo Ceo, yo acá,
+[Remote]: ya tenemos nuestra conciliación.
+[Remote]: Con los resultados
+[Remote]: A ver, por eso que
+[Remote]: Claro, perfecto. Justo recién vino acá a una mía mía, que es la first.
+[Remote]: Good market hire de Cobalt, no sé si las ubicas en una YC Company de evals para agents.
+[Remote]: ¿Qué grande adelantar sería?
+[Remote]: Y, bueno, y ya está en un fondo antes,
+[Remote]: sea, ella es MBA de de Berkeley del veintidós, creo. Un fondo de, en en un fondo, como operating partner, o sea, gasto también, pero pero ayuda un montón a los a los founders, y siento que fue eso, exacto, no lo estás escribiendo como alguien que ayudó, y ahora se están contratando
+[Remote]: a doce I, pero ha llamado un montón a los a los
+[Remote]: y siento que fue eso, excepto en otra que estaba escribiendo, como alguien que ayudó, y ahora ya están contratando, tipo,
+[Remote]: a doce i's, y cómo están creciendo el equipo con la serie a.
+[Remote]: Pero siento que es exactamente eso como que
+[Remote]: la mano derecha del founder para todo lo que es el founder a mí siempre tiene que
+[Remote]: seguir vendiendo igual,
+[Remote]: sea, para mí el founder tiene que vendiendo hasta
+[Remote]: los diez millones, no sé. O sea, como por mucho tiempo para mí,
+[Remote]: porque entendés el producto, o sea, entendés muchísimas cosas que van a tener que cambiar,
+[Remote]: sobre todo en Viruí. Y y y creo que está bueno, pues ya tiene como un lado estratégico y otro muy como really doing the work. Y y nada, pero entonces, ella está remedi con Cobali y no creo que
+[Remote]: se quiera ir, pero creo que sería alguien interesante para hablar de
+[Remote]: ok, cuál es el perfil, cómo serían las personas que, digamos, qué es lo que
+[Remote]: ella hizo para ayudarte a refinar ese perfil.
+[Remote]: Si te interesa charlar, le redigo y y seguramente está
+[Remote]: open to it.
+[Remote]: Foco de ahí y el foco empieza a estar en lo
+[Remote]: no macheado, ¿no?, que es lo importante. O, bueno, y lo macheado también, pero lo no macheado es lo que
+[Remote]: capaz que nos ocupa para resolverlo. La idea del problem solver es,
+[Remote]: no sé si alguna vez son Ontrello o Jira o Kanban, acá ofrecemos un tablero donde
+[Remote]: ustedes, esto va, el el agente va creando tickets de cosas que ve
+[Remote]: y ustedes pueden asignarlo a personas de la organización, tienen ahí para asignar el ticket,
+[Remote]: y ustedes pueden tener discusiones sobre ese problema, tienes
+[Remote]: activities, tienes eso. Acá es donde van a estar el problem solver te va a dar
+[Remote]: optimizaciones de la rule, a veces te tracke ahora lo que vamos a ver ahora en este ejercicio, que te dice,
+[Remote]: Jessie, corregís esta regla, cero cinco de tolerancia,
+[Remote]: tenés un montón de macheo más, y eso también a ustedes les puede servir para decir, che, ¿qué está pasando?
+[Remote]: Tenemos un problema de redondeo.
+[Remote]: Ejemplo. El problem solver es un agente que también aprende
+[Remote]: de lo de su negocio.
+[Remote]: ¿Por qué digo esto?
+[Remote]: Porque
+[Remote]: el agente puede decirte al al principio, che, tomá, poné tolerancia al veinte por
+[Remote]: ciento, y vos decís, no, ¿cómo voy a poner tolerancia al veinte por ciento?
+[Remote]: Pero eso no significa que a otro no le sirva, ¿ok?, o sea, a otro negocio no le sirva poner esa
+[Remote]: porque no todo es centavos, también pueden ser unidades.
+[Remote]: Entonces, ahí es importante que vayas jugando con el plan de solvent,
+[Remote]: no apliquen, digan que sí y que no. Total, el problem solver va viendo todo lo que hicieron,
+[Remote]: la actividad, y a partir de eso va sugiriendo nuevas cosas, pero sabiendo todo lo que ustedes
+[Remote]: accionaron.
+[Remote]: Perfecto. En este caso, es un caso del primero,
+[Remote]: es un caso donde
+[Remote]: después vamos a ver otro al revés, pero en este caso sí nos sirve la optimización que nos
+[Remote]: nos ofrece el profesor no sé exactamente
+[Remote]: cómo cómo le analizó la información a ustedes. Vamos a ver.
+[Remote]: Mi caso. En este caso, tenemos los issues,
+[Remote]: y tenemos las optimizaciones. Acá tenemos detalle de lo que me dice. Entonces,
+[Remote]: acá encuentra cuatrocientos cincuenta transacciones conciliadas,
+[Remote]: que falla el monto,
+[Remote]: con una diferencia, y ahí se pone el el el provenance
+[Remote]: hace ejecución. Es como tener un analista,
+[Remote]: termina la conciliación y se pone a analizar la información, se pone a ejecutar por detrás.
+[Remote]: Se pone a ver diferencias, se pone a ver varianzas, se pone a ver, y y te hace un reporte, y te dice,
+[Remote]: mirá, sabés que encontré que si subís la
+[Remote]: la tolerancia, te aumenta la conciliación de ochenta y nueve a noventa y seis.
+[Remote]: Y, entonces, acá lo que vos decís, si te gusta,
+[Remote]: le ponés
+[Remote]: apply.
+[Remote]: Y, entonces, vamos a conciliaciones,
+[Remote]: y tenemos pago versus cobros,
+[Remote]: Vamos a configurar acá. Obviamente, todo eso, vos apply,
+[Remote]: modifica la configuración de la consignación, y después corre automáticamente mañana, pasado, traspasado. En este caso, lo estamos ejecutando manualmente, Vamos acá. Vamos a verificar. Que haya aplicado la tolerancia. ¿Ves? Acá nos agregó la tolerancia a nosotros y en el ejercicio dos, fuimos explícitos, no nos agregues tolerancia. Y ahora vemos que nos nos agrega la tolerancia, entonces vamos a reejecutarla.
+[Remote]: Y
+[Remote]: validar los resultados.
+[Remote]: Validar que haya aumentado el porcentaje conciliatorio.
+[Remote]: Otra cosa para para sumar ahí es,
+[Remote]: si bien ahora, obviamente, tiene sus, cada uno como sus como su ambiente pre o su academy para
+[Remote]: para probar.
+[Remote]: Esto ya en ambiente con todas personas en el mismo hay toda una sección de roles,
+[Remote]: puedes definir quién realmente, más allá de que la gente te sugiera,
+[Remote]: vos puedes definir quién quieres que realmente puede editar y qué cosa.
+[Remote]: Vos puedes pedir que analice
+[Remote]: y a esta persona que analice, pero también modifique, y a esta persona que toque las sources, pero no las recons,
+[Remote]: y todos los agentes que corren acá,
+[Remote]: usan tus permisos.
+[Remote]: Cuando estás loaded boss usando el agente,
+[Remote]: si vos no tienes permiso para algo, la gente tampoco va poder.
+[Remote]: Entonces,
+[Remote]: es que con el agente te bypasean y...
+[Remote]: Un poco también para aclarar,
+[Remote]: y bien tranquilos con eso.
+[Remote]: ¿Y eso, normalmente, cómo lo manejan? ¿Con
+[Remote]: en otros clientes, un un solo
+[Remote]: persona tiene el admin y los demás son solo usan
+[Remote]: O sea, hay varios admin en, o los que ustedes quieran, eso lo define
+[Remote]: ustedes, y la matriz de rol la definen ustedes.
+[Remote]: ¿Ok? O sea, va a haber una matriz de rol en settings,
+[Remote]: que que la pueden ver
+[Remote]: que ahí te dice,
+[Remote]: todo un checklist de cosas que sí y cosas que no,
+[Remote]: puede hacer. Entonces, capaz que le querés dar solo lectura.
+[Remote]: A la gente, y dejás a
+[Remote]: lo tiro, Perdón, a los managers o o a los heads solamente la posibilidad de cambiar
+[Remote]: o una estrategia.
+[Remote]: ¿Bien? O cada cualquier cambio en una estrategia,
+[Remote]: puede hacer quilombo todo, ¿no? Por eso es un cambio.
+[Remote]: Son cuestiones, por eso, roles y permisos en este tipo de aspiraciones es clave, para que no cualquiera, y que tenga medio una prueba o esté condicionado por algún rol más fuerte. Bueno, ahí, como vemos, como nos dijo la gente, nos sugirió un aumento de la tolerancia, lo aumentamos y nos aumentó el match. Rate. Vamos, entonces, al siguiente ejercicio, ejercicio cinco. O de Te hago una consulta con esto de que siempre está yo sé qué pasa con todos los agentes, incluso con lo que ya utilizamos hoy en día.
+[Remote]: Que siempre está
+[Remote]: esta como pequeña cambio que puede dar
+[Remote]: dar dar en la respuesta a un usuario y a otro. Porque, por ejemplo,
+[Remote]: en tu caso, digo, creo que un noventa y seis por ciento, ¿no?, de
+[Remote]: rate. Perfecto. A mí me queda un noventa y ocho, entendiendo que
+[Remote]: exactamente lo que me, no nada de del ejercicio de prueba.
+[Remote]: Sí. ¿Qué pasa en nuestras conciliaciones? Yo soy del equipo BCP vuelos.
+[Remote]: Sí. A nosotros un dos por ciento que concilie un usuario más
+[Remote]: a otro menos nos recambia, porque nuestro tolerancia de por
+[Remote]: de que no concilie, no sé si es
+[Remote]: tres por ciento, uno por ciento, pero es muy bajito. Entonces, si a un usuario le concilia
+[Remote]: dos por ciento más y a otro menos, eso no lo sabés hasta que lo probás, en realidad.
+[Remote]: Ahí, este, dos cosas. Una cosa es,
+[Remote]: si está diseñado exactamente igual la conciliación, el número va a dar siempre igual. Lo que puede variar es la propuesta que te hace la gente. El agente va a aprender mucho de su negocio,
+[Remote]: Tal vez hay empresas que tienen mucha
+[Remote]: mucha varianza en en en los números, porque
+[Remote]: usan conversiones y tipo de cambio que no saben hasta que el proveedor no se la manda al día siguiente, entonces tienen que operar
+[Remote]: con
+[Remote]: tolerancia, y ahí sí les sirve para encontrar la transacción
+[Remote]: cierta tolerancia, y otros no. Entonces, si ustedes empiezan a rechazar
+[Remote]: las ofertas
+[Remote]: le explican a la gente que no les sirve que que aumente la tolerancia,
+[Remote]: simplemente
+[Remote]: cuando hay transacciones con esa diferencia de monto,
+[Remote]: no es que hay que aumentar la tolerancia, hay que salir a reclamar la plata tal vez.
+[Remote]: O hay que corregir algún proceso interno. Entonces, la gente va a ir aprendiendo
+[Remote]: de las necesidades particulares de cada uno de los de los
+[Remote]: de los usuarios.
+[Remote]: Alexandra, y también una cosa importante,
+[Remote]: ahora me estoy, voy a fijar la configuración de la rule de Teo,
+[Remote]: versus la tuya. No, misma rule tiene que dar los mismos datos, obviamente,
+[Remote]: pero capaz que vos diste ok a una configuración y teo a otra,
+[Remote]: así que ahora chequeo para para tirarte la data.
+[Remote]: Dale. Es que es que puede ser, porque en un momento, ¿viste?, que te empieza a
+[Remote]: ofrecer y vos le decís, bueno, sí, esto, sí, esto, yo yo ponía, sí, yo ponía que
+[Remote]: sí, que sí, pero a lo que voy es que me me igual esa cosa
+[Remote]: como que me queda de duda, ¿viste?, de de A ver,
+[Remote]: si vos aceptás la configuración de la regla y a tu equipo le dio
+[Remote]: dos por seis, porque aceptaron esa... Por eso el humanity de loop es clave, ¿no? Si vos decís,
+[Remote]: che, yo quiero que haga esto y vos le decís que sí a la gente, por eso tiene que ser muy
+[Remote]: por eso hablamos de roles Muy meticuloso en leer.
+[Remote]: Muy meticuloso en lo que está haciendo, y si tiene sentido, esto que les digo es, che, te voy a aumentar dos por
+[Remote]: si haces cero cinco de tolerancia, che, pero pará su negocio.
+[Remote]: ¿Tiene sentido o tiene que ser muy determinístico?
+[Remote]: Sobre todo al principio, la gente va a aprender mucho de ustedes,
+[Remote]: y estoy seguro que después de un poco de usado de de uso,
+[Remote]: vas a ver perfecto que no tiene que estar ofreciendo veinte por ciento de tolerancia.
+[Remote]: Que tiene que estar generando un reporte proveedora a reclamar dónde está la plata. ¿Qué es lo que vamos a hacer ahora?
+[Remote]: Incorrectos.
+[Remote]: OMEs,
+[Remote]: cargamos.
+[Remote]: Y...
+[Remote]: Facturas, proveedores,
+[Remote]: descargamos. Y vamos a pedir al data agent que generas views, le copiamos acá,
+[Remote]: el primer
+[Remote]: prompt
+[Remote]: vamos acá, sources,
+[Remote]: europeamos. La factura de los proveedores a las OMs,
+[Remote]: Mientras sube los sources Teo, Alexandra,
+[Remote]: tu configuración, le pusiste seis por ciento de tolerancia y te dio dos por ciento,
+[Remote]: entonces eso hizo que el porcentaje esté un poquito más.
+[Remote]: O sea, manualmente no lo puse. Fui aceptando propuestas.
+[Remote]: Pero Y en esas propuestas había una mayor tolerancia, genial.
+[Remote]: O sea, hay que estar, o sea, le lo que me llevo de esto es que, en realidad, hay que
+[Remote]: estar muy, muy atento a cada propuesta que te hace, porque te puedes
+[Remote]: estar cosas que quizás no
+[Remote]: no no querés que machee. Nosotros les estamos llevando el mundo de tecnología a su mundo,
+[Remote]: ¿ok? O sea Claro. Nosotros tenemos los mismos agentes que hacen código
+[Remote]: y nosotros corregimos ese código, y si dejamos, decimos sí a todo,
+[Remote]: después, bueno, entran los ¿no? Entonces, es lo mismo,
+[Remote]: o sea, ver meticulosamente cada respuesta de la gente, y por eso ponemos los
+[Remote]: ¿vieron? O sea, está acá.
+[Remote]: Está genial.
+[Remote]: Ahí ahí me gustaría sumar algo que el agente también
+[Remote]: toma esas decisiones en base a tus datos. Entonces,
+[Remote]: si hay algo que vos no no te cierra, mismo le podés decir, no, cancelar a la
+[Remote]: la recomendación que te da,
+[Remote]: pedirla que te explique por qué te propuso ese seis por ciento.
+[Remote]: Y ahí vos, como que no hace falta que estar, por ahí sí sí mirar bien en detalle
+[Remote]: con antes darle clic a aceptar, pero si hay algo que no te cierra o lo que sea,
+[Remote]: el el agente siempre
+[Remote]: toma algunos supuestos para dártelo, entonces, como que le puedes consultar
+[Remote]: que te explique, digamos, por de dónde salió eso, es que la explicación que ya te digo no no está tan clara.
+[Remote]: Bueno, con memoria, excelente lo que dice con memoria aplicada, que ahora no está
+[Remote]: la memoria acá, con memoria a ustedes le dicen, che, nunca me ofrezcas más estos tolerancias, porque
+[Remote]: nosotros somos este tipo de negocio.
+[Remote]: Eso se guarda, se queda y nunca más ofrece ese tipo de cosas ningún agente.
+[Remote]: Eso queda a nivel conocimiento individual del usuario, pero en organización también.
+[Remote]: ¿Ok? Siempre va a ser más específico el del usuario, porque, claro, en una misma organización hay mucho
+[Remote]: grupos,
+[Remote]: ¿ok? O sea, hay muchos hay muchos hay muchos grupos de negocio y cada uno tiene su propia
+[Remote]: Siempre va a respetar más la memoria del usuario
+[Remote]: que lo está usando, pero también hay una más memoria universal de la organización.
+[Remote]: Perfecto.
+[Remote]: Bueno,
+[Remote]: ahí, mientras el agente entiende qué tenemos de de información y nos crea las views,
+[Remote]: vamos a ver un poco cómo es el ejercicio, le vamos a pedir a la gente que genere los views,
+[Remote]: que lo que está haciendo ahora, le pedimos a Data Dicent que arme la conciliación,
+[Remote]: y
+[Remote]: vamos a pedirle que ejecute la la conciliación. Acá no hace falta
+[Remote]: dar este pronto exacto, pero sí vamos a copiar el segundo.
+[Remote]: Acá.
+[Remote]: Ah,
+[Remote]: Ahí,
+[Remote]: me terminó de generar.
+[Remote]: Listo, uno.
+[Remote]: Perfecto.
+[Remote]: Mirá, acá me ofrece limpiar la información, está espectacular esto.
+[Remote]: Vamos a dar esto, sí.
+[Remote]: Bueno, ¿vieron que Teo hizo clic en approve al token y lo leyó? Bueno, eso no hay que hacerlo.
+[Remote]: Leen un poco y lo Pero está bueno, después van a hacerlo igual, yo les tengo que decir lo que
+[Remote]: tienen que hacer, después ustedes hacen lo que quieren. Igual después, cuando te crea la regla final,
+[Remote]: sea, por ejemplo, para conciliación, es refácil ver en dónde está la regla
+[Remote]: pusiste. Digo, porque capaz que a veces leer todo lo que te arma en el chat
+[Remote]: es un poco complejo, pero vos le das ok, y repasás la regla, digo, de última, y ahí
+[Remote]: Cien por ciento. Mientras no pongas run reconciliation Claro, claro,
+[Remote]: algo así, dale, cien por ciento, sí, sí, sí. ¿Y quieres...?
+[Remote]: Si quieres quieres mostrar cómo se puede expandir la conversación y
+[Remote]: y y extenderla para
+[Remote]: o sea, a uno le sirve o o por el fondo, por colores o por lo que sea, y lo puede decir también
+[Remote]: por el costado de un
+[Remote]: las views, esta nos generó también la la información,
+[Remote]: más limpia, sobre todo en las partes de porcentaje.
+[Remote]: Vamos al
+[Remote]: ejercicio y le pedimos acá
+[Remote]: que nos genere las conciliaciones, volvemos a
+[Remote]: el prompt.
+[Remote]: Esta pregunta que está acá es,
+[Remote]: esta idea de aprender de las gentes, bueno,
+[Remote]: lo bueno aprender de vos,
+[Remote]: porque vos sos el experto y tenés algún documento o algo que dice cómo se debe joinear,
+[Remote]: y si no lo sabes, bueno, explora y fijate cómo da, digamos. Si si siempre se te di vuelta para validar
+[Remote]: con vos cuál es la intención de lo que vos quieres hacer, ¿no?
+[Remote]: Yo le puse acá, sin tolerancia.
+[Remote]: И, pues,
+[Remote]: mientras nos genera la conciliación,
+[Remote]: vamos a ver
+[Remote]: vamos a pedirle a la gente que analice los resultados,
+[Remote]: y revise si hay discrepancias en los montos. Esto es un ejercicio que
+[Remote]: te vamos a estar haciendo un montón, analizá los resultados y decime si hay algo mal,
+[Remote]: Voy a copiar el
+[Remote]: Y volvemos a Rexi, acá está.
+[Remote]: Analizando la información, data.
+[Remote]: Antes que nada de consideración.
+[Remote]: Un poco lo que queremos hacer también a nivel experiencia es que esta pantalla se basa
+[Remote]: vaya comiendo, ¿no? Termine siendo un Chachi Piti Rexi finalmente,
+[Remote]: y y que que solamente entren a chatear
+[Remote]: Pero bueno, no nos animamos todavía al modo full chatchipiti, vamos
+[Remote]: vamos de a poco. Además, sentimos que tiene muy buena la experiencia de
+[Remote]: de ver las cosas, ¿no?, de de ir
+[Remote]: más visualmente. Con el con el chat acá,
+[Remote]: el código acá, y se fue comiendo la pantalla y ahora es todo
+[Remote]: Tal cual, tal cual.
+[Remote]: Vamos a ver acá.
+[Remote]: Vamos acá a verificar que esté.
+[Remote]: Perfecto.
+[Remote]: Vamos a ejecutar.
+[Remote]: Y mientras consiga, vamos viendo acá.
+[Remote]: Analizar resultados,
+[Remote]: y revisá si hay discrepancias en los montos
+[Remote]: que haya que reclamar al proveedor.
+[Remote]: ¿Cómo vienen?
+[Remote]: Calculo ahí que, si no están entrenando, están haciendo los los ejercicios.
+[Remote]: Están están chuteando, están chuteando, están
+[Remote]: Sí, sí. Estamos viendo, estamos viendo ahí.
+[Remote]: El monitoreo, que ahí No nos rompan no nos rompan la plataforma, por favor.
+[Remote]: Trajeron unos casos de uso muy interesantes los chicos de SPH.
+[Remote]: De data.
+[Remote]: Increíble. No, a nosotros nos sirve, nos encanta
+[Remote]: el tema de data, es como un mundo de posibilidades de información, ¿no? Cada proveedor se maneja
+[Remote]: como quiere, así que nada, nada, está buenísimo
+[Remote]: todas estas cosas que reportaron estas semanas, bueno, o yo veo un montón a robustecer la plataforma.
+[Remote]: Está está bueno.
+[Remote]: Vamos acá.
+[Remote]: Tenemos los resultados.
+[Remote]: Vamos a darle acá
+[Remote]: Yo voy a usar el agente que venía usando, y le voy dar esto.
+[Remote]: Analizar el resultado de la consideración y revisarse discrepancias
+[Remote]: en los montos que haya que resolver.
+[Remote]: Acuérdense que
+[Remote]: si están en una, en este caso, no la no le no le dije cuál era la
+[Remote]: la la conciliación, porque estoy
+[Remote]: dentro de esta gente. Si genero uno nuevo,
+[Remote]: va a preguntar cuál de estos me me refiero.
+[Remote]: Lo estoy comentando, pero este, la verdad que este
+[Remote]: probando los ejemplos y por ahora viene todo como funcionando correctamente.
+[Remote]: De lo que vamos probando. O sea,
+[Remote]: Buenísimo. Te digo por las dudas, porque capaz que
+[Remote]: mucho silencio, pero es porque está funcionando. No, no, lo vemos, lo vemos.
+[Remote]: Si no, si el activity tenemos en chat, si veríamos qué el activity nos están dando, estaríamos
+[Remote]: de otra forma, estamos hablando. Teo hace un botón y de repente piensa
+[Remote]: vienen otros veinte, ta ta ta ta ta ta así que
+[Remote]: Obviamente en el medio, cualquier cualquier duda que tengan de lo que sea, digo, con todo funciona el LM,
+[Remote]: en general, lo que sea.
+[Remote]: Reictero, por ahí lo dijimos al principio, la idea es
+[Remote]: ayudarlos también a que ustedes saquen el mejor provecho posible a esta herramienta.
+[Remote]: Así que ahí
+[Remote]: están más libres para para las preguntas que tengan.
+[Remote]: No sé, Míri, de de tu lado, pero en nuestro lado nos está volando la cabeza
+[Remote]: No, total. Hacer esto. Sí, sí, sí.
+[Remote]: No, y una cosa estuvo rebuena lo que veníamos haciendo todo
+[Remote]: forma manual para entender claramente cómo tiene que funcionar, pero este como
+[Remote]: otro nivel.
+[Remote]: Es que va, este es el camino.
+[Remote]: Este es el camino, lo vamos a ir construyendo,
+[Remote]: areando todos los edge cases, pero
+[Remote]: andar apretando botones hoy con un agente que sabe todo tu contexto de negocio,
+[Remote]: sabe que las últimas veinte veces investigaste esto y es es este el camino.
+[Remote]: Entonces, una consulta,
+[Remote]: aprovechando mientras que los chicos van probando, ¿cómo hacen o
+[Remote]: la parte metodológica detrás para que un agente que es más
+[Remote]: esté haciendo procesos más determinísticos.
+[Remote]: Ah, no te podemos decir eso. Creo que sea en secreto, ¿no? Ok.
+[Remote]: Esa es la... No, no, ahí lo dijo más a Pana,
+[Remote]: pero eso fue el quilombo en esta, este es el quilombo en esta plataforma,
+[Remote]: ¿no? Es muy bueno para eso. Es más, siempre nos peleamos con pana, porque yo quiero ir más probabilístico, y él es muy él es quiere full determinístico y yo me la juego más, pero tiene razón, Pana. Obviamente, dale, Pana.
+[Remote]: Pasa que vengo laburando casi diez años en data, entonces es como
+[Remote]: sí, está bueno todo ese tipo de cosas, pero la pregunta está perfecta y es un poco
+[Remote]: pensado eso, ¿verdad?,
+[Remote]: El agente interpreta, digamos, la información y va como
+[Remote]: usando sus brazos
+[Remote]: para analizar y generar información, pero esos brazos, en definitiva, son herramientas
+[Remote]: tipo una query,
+[Remote]: vos la corres dos veces y te da el mismo resultado, vos vas a ver los esquemas y te da también
+[Remote]: el mismo resultado.
+[Remote]: O sea, siempre esta esa parte de, yo no estoy adivinando qué esquema tienes,
+[Remote]: yo no estoy adivinando qué data tienes,
+[Remote]: por más que
+[Remote]: esta es la parte no determinística, que es, bueno, cómo te forma el texto y qué tal
+[Remote]: responde a forma extinta, todo.
+[Remote]: Después por debajo, digamos, el cuerpo que tiene es determinístico, tipo, analiza
+[Remote]: con herramientas duras, o tiene tools, funciones de código,
+[Remote]: para traerse la data, para generar la recon, para ejecutar esas cosas,
+[Remote]: Y aparte de eso,
+[Remote]: tiene, bueno, toda una parte de conocimiento que nosotros le damos para decir, bueno,
+[Remote]: estás de tu lado?, digamos, ¿qué puedes influir vos y qué debe ser ejecutado por la actual de forma interminista?
+[Remote]: Y por último, así como como si como si siguiese el es este, lo voy estar haciendo un de loop para decir, bueno,
+[Remote]: también yo soy lo más detalladísimo posible, pero
+[Remote]: el humano en definitiva siempre tiene la palabra final.
+[Remote]: ¿Es el ok o no el ok?
+[Remote]: Ok. Bien, entonces, la inteligencia
+[Remote]: artificial termina siendo una especie de orquestador
+[Remote]: de varias tool que tienes a nivel determinística debajo,
+[Remote]: y y le mete el razonamiento de cuáles
+[Remote]: va a utilizar, dependiendo de la casuística, y le sirve eso al humano
+[Remote]: para que termine tomando la decisión.
+[Remote]: Claro, porque
+[Remote]: en el core hay un LLM,
+[Remote]: ¿viste?, que está, no sé, lo que tenía ahí, está lo lo que sea.
+[Remote]: Es muy bueno, digamos, interpretar la información.
+[Remote]: Pero después lo que corren por debajo tiene que ser, tiene que tratarse de siempre determinístico, tipo,
+[Remote]: ok, pero la first sigue haciendo código, digamos, ahí diste el corte, digamos, de la resiliencia de lo que hacemos nosotros.
+[Remote]: La idea es que siempre corra
+[Remote]: con cosas seguras.
+[Remote]: Ajá. Este tema de
+[Remote]: cuando corre la gente lo hacen con tus permisos. Entonces, por más que la gente
+[Remote]: por más que la gente alucine y quiera borrar todo, si vos no tienes el permiso, no lo puedes hacer.
+[Remote]: Ok. Entonces, siempre buscar ese balance, ¿no?, y es es
+[Remote]: ese es el problema de ejecución, digamos, al momento de
+[Remote]: generar productos con AI.
+[Remote]: Porque yo te doy una velocidad
+[Remote]: también te doy calidad en el mes. Ajá. Ese es ese es el trade off que va siempre de una balanza.
+[Remote]: También sí hay hay una cuestión hoy, es
+[Remote]: para mí hay que tener una maestría en esto y se viene, Nosotros como que los estamos trayendo a esto, pero
+[Remote]: para nosotros también nos voló la cabeza mucho armar esto, es difícil,
+[Remote]: pero hay una hay un tema de prompt tuning, ¿ok?, de fine tuning de los agentes,
+[Remote]: que es meticuloso, o sea, vos le vos le dejás el cerebro al agente,
+[Remote]: cambiás una palabra,
+[Remote]: de repente bajó la performance de la gente, una sola palabra, en vez de decir, y poniste está
+[Remote]: y y nosotros ahí estamos como atentos y
+[Remote]: tenemos modelos que se van probando y vemos la mejor performance, por eso llegamos a este, pero bueno.
+[Remote]: Alucinan, por eso es importante sí o sí que exista la memoria,
+[Remote]: Aprende de ustedes, entonces, ya lo hacen a su gusto, ¿viste?, como que no, al principio no los conoce,
+[Remote]: funciona mal, lo van haciendo a su modo y ustedes customizan. Por eso también decimos que
+[Remote]: cada es diferente, no es un una plataforma que ponemos en despegar,
+[Remote]: en x, en y,
+[Remote]: El de ustedes va a ser único, y el de ustedes persona también.
+[Remote]: O sea, es parte un poco de de de la experiencia de taxi.
+[Remote]: Sí, y y mi duda iba más enfocada en eso, lo que ustedes bien mencionan, de la
+[Remote]: parte de de alucinamiento, ¿no?, si si me puede llamar de alguna manera de de cómo
+[Remote]: se crea de tal manera de disminuir el riesgo de del
+[Remote]: de que la gente empiece a alucinar y y ya no hay manera de pararlo, ¿viste?
+[Remote]: Nada, usamos Gemini, y Gemini de repente llega a un punto donde empieza a alucinar y no hay vuelta atrás,
+[Remote]: no podemos darle, o yo no he podido darle vuelta atrás,
+[Remote]: y se haya ido enfocado para para entender cómo está esa infraestructura,
+[Remote]: para eliminar o disminuir ese riesgo.
+[Remote]: So, lo que está montado es siempre lo llama sistema de frenos y contrapeso, digamos.
+[Remote]: Porque yo te dejo libre
+[Remote]: pero hay una sola que te dice, hasta acá.
+[Remote]: Claro. Digamos, en ese sentido. Después, ya a nivel código,
+[Remote]: como es un modelo lo que corre por dentro, ahí trato de no ponerme muy técnico, pero
+[Remote]: como tienes un modelo por dentro,
+[Remote]: y es probabilístico por vos,
+[Remote]: hay como hay como botoncitos para para girar, para decir,
+[Remote]: bueno, vas a ser menos probabilístico. Lo cual a veces
+[Remote]: mata creatividad, pero nosotros en el mundo de reconciliaciones, accounting y lo que sea, lo que necesitamos es
+[Remote]: que seas eficaz. Entonces,
+[Remote]: va jugando con esos valores, tipo capaz para, no sé, generar videos, imágenes que puedas más libertad de decir
+[Remote]: para que sea más creativo, que aumenta la oscilación, nosotros somos el otro espectro.
+[Remote]: No merosines nada, igual, es
+[Remote]: Sí, sí. Veces lo hace obviamente, porque de vuelta siempre
+[Remote]: este juego de
+[Remote]: es es pero yo
+[Remote]: te controlo
+[Remote]: y protejo, digamos, la estructura con lo que vos puedas ¿Cómo?
+[Remote]: Es como si agregas un una una persona a tu equipo
+[Remote]: y le das, tipo, el primer día le das la llave maestra de todo y no sabe nada, es como, bueno,
+[Remote]: probablemente termine rompiendo algo con con los agentes es un poco lo mismo.
+[Remote]: O sea, nosotros le damos esa mentalidad.
+[Remote]: Gracias, chicos.
+[Remote]: Un placer.
+[Remote]: Buenísimo. Acá le dije que analice los resultados,
+[Remote]: y revise si hay discrepancias en los montos que haya que reclamar al proveedor,
+[Remote]: El agente ejecutó sus queries, revisó los reclamos y nos dijo, el análisis está completo, esto es lo que muestra los resultados de reconciliación. Resumen de run,
+[Remote]: conciliados,
+[Remote]: discrepancias,
+[Remote]: todos los cuatrocientos casos de
+[Remote]: de Unmatch son sobre facturación pura.
+[Remote]: En ningún caso, el proveedor cobró menos de lo acordado. Acá tenemos dos proveedores,
+[Remote]: vivalachos, dos poblaciones de reclamo,
+[Remote]: el primero es Accord,
+[Remote]: un recargo sistemático, uno coma cinco por ciento. Todos los casos de Accord muestran
+[Remote]: exactamente uno coma cinco por ciento de sobremonto acordado.
+[Remote]: Esto es exactamente lo que charlamos en el ejercicio pasado, pero al revés.
+[Remote]: Acá, si le agregamos tolerancia al uno coma cinco por ciento, nos va a marcar como conciliado.
+[Remote]: Pero nosotros queremos al revés.
+[Remote]: Enseñarle que, cuando hay una sobrefacturación,
+[Remote]: que armar un reporte y salir a reclamarla.
+[Remote]: La uniformidad indica una política de facturación, bueno, esto es
+[Remote]: una sospecha de nuestro agente.
+[Remote]: Lo mismo con IHG,
+[Remote]: el cargo fijo no autorizado
+[Remote]: con una diferencia exactamente de ciento cincuenta dólares.
+[Remote]: Monto total reclamable,
+[Remote]: demás. Y acá yo le puse, como dice el el el ejercicio, export once CSV,
+[Remote]: todas las transacciones con discrepancias contra Accord,
+[Remote]: usarlo como respaldo de de reclamo.
+[Remote]: Y acá me pregunta, obviamente, esto es importante que validemos bien la
+[Remote]: lo que nos ofrecen y demás,
+[Remote]: y
+[Remote]: nos ofrece acá el
+[Remote]: el reporte.
+[Remote]: Acá le damos a approve y va a ponerse a trabajar en el
+[Remote]: Sí.
+[Remote]: Okay.
+[Remote]: Bueno.
+[Remote]: Ahí me llegó, y acá tenemos el reporte.
+[Remote]: De acá vemos, tenemos
+[Remote]: lo que necesitamos de este reporte,
+[Remote]: rule status, unmatched reason, comparison failed,
+[Remote]: proveedor
+[Remote]: accord.
+[Remote]: Y acá, nos...?
+[Remote]: Qué información queremos.
+[Remote]: Arriba de esa, está corriendo.
+[Remote]: Sí.
+[Remote]: O sea, reportes.
+[Remote]: Sacor,
+[Remote]: doscientos. Y acá tenemos
+[Remote]: el CCB.
+[Remote]: Output.
+[Remote]: Como comentario, también se puede exportar como PDF.
+[Remote]: Esta esta parte de
+[Remote]: creo que habíamos hablado, creo que con Migue, que había pedido, che, bueno, no tenemos la data de dónde la descargamos,
+[Remote]: Acá todo lo que esté ingestado en Rexigo, lo que se puede descargar.
+[Remote]: ¿Ok? O sea, lo lo lo lo arman con el agente, porque, si no, vuelvo a repetir, la parte manual
+[Remote]: es más engorrosa porque tenés montón de columnas, un
+[Remote]: montón de cosas, lo hacen con el agente, lo van preparando el archivo,
+[Remote]: y, como dijo Teo, o lo exportan con CCB o lo pueden exportar también como PDF,
+[Remote]: No exporten una tabla de doscientas mil columnas como en PDF, porque no
+[Remote]: va funcionar, pero el PDF lo que tiene de bueno es que pueden hacer
+[Remote]: sé, quieren que todos los lunes llegue el PDF,
+[Remote]: con las métricas más importantes de las consideraciones, y se los lleva al mail.
+[Remote]: ¿Ok? Entonces, pueden, les lleva un mail con el PDF, los KPIs más importantes, el
+[Remote]: top diez de transacciones más rechazadas. Bueno, jueguen,
+[Remote]: ahí, ¿no?, con el agente y todo lo que quieran hacer y no puedan,
+[Remote]: pídanlo como feature, que seguramente nos interese, así que nada.
+[Remote]: Vayan jugando y y probando ustedes también.
+[Remote]: Bueno, ¿consiguieron el el reporte?
+[Remote]: Yo acá comparto pantalla.
+[Remote]: Else.
+[Remote]: Me output.
+[Remote]: Y acá tenemos
+[Remote]: las transacciones
+[Remote]: que tienen una diferencia
+[Remote]: entre el monto y el monto facturado,
+[Remote]: y la diferencia en dólares,
+[Remote]: acá, nos están haciendo
+[Remote]: a cuentagotas un robo a mano armada,
+[Remote]: tenemos el reporte salir a reclamar.
+[Remote]: Al proveedor.
+[Remote]: Volver a buscar.
+[Remote]: Ahí vayan diciéndome cómo cómo vienen,
+[Remote]: bien de tiempo.
+[Remote]: Quedan tres ejercicios.
+[Remote]: Perdón, dos ejercicios,
+[Remote]: así que, si necesitan un poco más de tiempo para hacer el reporte, estamos perfecto de tiempo.
+[Remote]: Este del ejercicio seis es más,
+[Remote]: para dejarlo como acotado para que ustedes puedan hacer preguntas al data agent,
+[Remote]: sobre la data. Es es no es algo puntual para hacer, sino que
+[Remote]: es esto de invitarlos a
+[Remote]: pueden preguntarles lo que quieran de la data, ¿ok? Y tratar de cuando estén analizando data, dejen
+[Remote]: analizarlos con capaz que un Excel y lo puedan analizar con el agente,
+[Remote]: también esa interacción con el agente va a sumar puntos después para que la gente entienda más.
+[Remote]: Así que está bueno.
+[Remote]: A mí me pasa que no veo el archivo, o sea,
+[Remote]: que me para descargar. No sé si es que
+[Remote]: demora, o si no sé dónde estoy, sabiendo dónde descargar.
+[Remote]: Que comparto, yo he listado
+[Remote]: Lo que es en la solapa report, Bree.
+[Remote]: Sí, si no, si le pedís al agente que te dé el botón de descarga, debería
+[Remote]: Acá deberías tener
+[Remote]: Hasta ahí llegué, ahí estoy.
+[Remote]: ¿Y podés apretar acá?
+[Remote]: Ahí está.
+[Remote]: Perfecto. Perfecto. Igual para, ¿hay algo que dijo Jio que está bueno?
+[Remote]: Pregunten gente también. Capaz capaz que en una
+[Remote]: de esas te dice, toma el agente me dijo, cuando cuando esté va a aparecer,
+[Remote]: yo estaba esperando. Esperando, claro. Bueno, capaz que le decís ahí, ¿cómo estás?
+[Remote]: No apareció, me das un botón o algo, y si no, te dice dónde encontrarlo,
+[Remote]: es como que entiende un poco el contexto dónde estás también de la pantalla y eso.
+[Remote]: Ahí va.
+[Remote]: Un montón de archivos, porque muchas veces run,
+[Remote]: Bueno,
+[Remote]: ahí están viendo mi mi pantalla, para que voy a
+[Remote]: abrir, como dijo Pana,
+[Remote]: esto que es un poco más claro. Vamos acá a home.
+[Remote]: Esto es conversacional, investiguen su información también con con el agente,
+[Remote]: para eso está.
+[Remote]: Es
+[Remote]: un analista de ustedes. Este tenemos un poco algunas preguntas que le pusimos acá de hay otros proveedores, esto es un poco del ejercicio que estuvimos trabajando, pero vuelvo acá. Y tiro acá. Hay otros proveedores. Esto es para investigar su propia información. Aprovechen que la gente tiene un montón de herramientas para corear la data.
+[Remote]: Basta de SQLs a partir de
+[Remote]: ahora, todo en Ya no los quiero por afuera.
+[Remote]: Cambia un poco, ¿no?, cambia el día a día esto, o sea, les va les va a cambiar.
+[Remote]: Cien por ciento cambia, o sea,
+[Remote]: Fran recién dijo, esto nos va a dejar sin trabajo. No, no, contraer.
+[Remote]: No, chicos.
+[Remote]: El trabajo que El trabajo que de trabajo. Vamos a La va a cambiar cien por
+[Remote]: ciento, no está el trabajo
+[Remote]: literal, o sea, va a ser mucho más analítico, obviamente.
+[Remote]: La diez, este, Timó, ese tema de velocidad, ¿no? Che, ok,
+[Remote]: antes yo tenía que hacer a mano
+[Remote]: query por query, acomodada, ahora corro veinticinco contra el
+[Remote]: Entonces, de repente mi laburo empieza a ser más, digamos, este este tema de analítico, digamos, realmente de
+[Remote]: ese valor y que no y que no te coma la operativa, digamos. No, ni de yo te tomo la
+[Remote]: y de conciliar con más flujos, chicos, o sea, es como abarcar más, ¿no? O sea, el
+[Remote]: foco va a estar en resolver los unmatch. Me imagino que ustedes a veces dicen, bueno, asumimos pérdida.
+[Remote]: ¿Entendés? Es como, bueno, no sabemos de dónde sale esto, y deben tener esa parte, bueno.
+[Remote]: Esto resuelve un montón de cosas operativas que también hay una parte
+[Remote]: que el agente no lo va a poder resolver, que es cuando te tenés que comunicar con el proveedor
+[Remote]: de algo que está fallando, ¿no? Y eso siempre va estar un humano, salvo que todos los proveedores estemos en Rexi, también queremos que es hacer la visión, y todo sea colaborativo cross empresa, hasta que eso nos pase esa esa esa comunicación tiene que ser humana y un, o por eso tenemos la parte problem solver, que gestionan ustedes problemas. Tipo, che, este bundle de transacciones gestionalos con Visa, esto gestionalos con nuestro proveedor de a. Y y Te vuelve un poco más filosófica la conversación, pero yo lo relaciono mucho con los programadores,
+[Remote]: es lo mismo, y para mí el trabajo genera trabajo. Entonces, los programadores hoy
+[Remote]: pregúntenle al equipo de Rexi si están, si trabajo,
+[Remote]: al revés, solamente que somos mucho mejores, mucho más rápido. Entonces,
+[Remote]: simplemente somos mejores, hacemos más cosas,
+[Remote]: hacemos más entregables, hacemos las cosas mejor.
+[Remote]: Ese es el objetivo.
+[Remote]: Sin duda. O sea, nosotros hoy,
+[Remote]: por por tarjetas, el proceso de conciliación lo hacemos solo tres veces al mes,
+[Remote]: por el tiempo que consume.
+[Remote]: Versus esto, hacerlo online todo el tiempo.
+[Remote]: Y cuando entremos a este, después digamos, che, despegar, si hacemos todo real time,
+[Remote]: y no tenemos que esperar que el archivo se suba una vez al día,
+[Remote]: nosotros también queremos hacer eso, ¿no?, ese transacción, porque cuanto más rápido se enteran de que hay una
+[Remote]: una brecha, más para el mejor para el negocio.
+[Remote]: También un poco hacia dónde vamos. Obviamente tienen que estar los rieles para eso,
+[Remote]: pero bueno, Rex si está preparado para el primer cliente que venga y diga, yo quiero conciliación real time,
+[Remote]: ven, vaya a las transacciones, nos pega a nosotros y se vaya conciliando transacción,
+[Remote]: por transacción, y no de a batches, ¿no?, que estamos muy acostumbrados a este mundo batch,
+[Remote]: Ese es todo
+[Remote]: real time es espectacular, porque muchas veces las conciliaciones son en batch.
+[Remote]: Para el momento en que se resolvió, el usuario ya te generó un reclamo.
+[Remote]: El reclamo te sale, en promedio, doce dólares cada uno. Entonces,
+[Remote]: si vos resolvés las cosas real time,
+[Remote]: la plata que te ahorrás en reclamos es enorme,
+[Remote]: y así hay un montón de ganancias más allá de fees incorrectos, ganancias
+[Remote]: financieras por liquidaciones tarde. Entonces, la ganancia está por todos lados. Es un tema de
+[Remote]: eficiencia operativa.
+[Remote]: Bueno, vamos a
+[Remote]: una parte
+[Remote]: Perdón, me quedó una duda sobre sobre la parte anterior, disculpen.
+[Remote]: En la parte de reportes, acá veo que se se me generó el reporte bien, lo bajé todo,
+[Remote]: Este reporte, si yo lo creo con el agente y me sirvió, y yo después lo quiero
+[Remote]: no sé, automatizar para tenerlo siempre.
+[Remote]: Entiendo que se puede enviar. No lo tengo que volver a crear nunca más, o sea, ya definí cómo es el reporte,
+[Remote]: y va a tomar las nuevas fuentes de datos, las nuevas conciliaciones, lo que sea,
+[Remote]: va a volver a armar ese reporte de vuelta, entonces, ¿no?
+[Remote]: Exactamente. Ahí, Sioux Ahí tenemos al experto, dale.
+[Remote]: No, no, lo que iba a decir es que podés verlo o manualmente en esa
+[Remote]: pantalla donde ves todo el mensaje, como si en reporte hay un botoncito que dice
+[Remote]: schedule, creo, o algo así, que es básicamente cada vez que corren a recon
+[Remote]: de la que ese reporte toma los los los datos,
+[Remote]: va generando un reporte nuevo. Entonces, vos después en el listado de
+[Remote]: de runs vas a ir viendo
+[Remote]: cada vez que la recon corre,
+[Remote]: te genera, te va apareciendo una una una fila nueva,
+[Remote]: con la data más actualizada. Claro, como diría que tiene un un tigre ahí que que
+[Remote]: lo automatiza, digamos, cuando se consigue con el este.
+[Remote]: Exactamente. Perfecto, perfecto. Que cada vez que se termine un
+[Remote]: un un tick que dice BigQuery, nosotros soportamos
+[Remote]: y podríamos llegar a a integrar otros servicios más,
+[Remote]: ustedes eso lo quieren integrar con otro
+[Remote]: sistema externo, se podría, digamos, hacer la integración y que directamente
+[Remote]: cada g de data nueva
+[Remote]: genera ese reporte o o o tabla con con
+[Remote]: con los cálculos que quieras o lo lo que necesites,
+[Remote]: te lo te lo bajamos a un a un lugar que vos quieras.
+[Remote]: Hoy en día no, nada, está solamente BigQuery y
+[Remote]: pero pero nada, tenés esa funcionalidad.
+[Remote]: Listo. Gracias.
+[Remote]: Les damos la consulta respecto a lo que mencionaban antes de la
+[Remote]: real time. Ajá. Entiendo que no es a lo que vamos hoy,
+[Remote]: Nosotros vamos a tener la posibilidad de lo que no nos queda conciliado,
+[Remote]: poder hacer una reconciliación con eso pendiente,
+[Remote]: Siempre, eso es importantísimo, es acorde a lo que hacemos. Rexi,
+[Remote]: como motor,
+[Remote]: va a intentar conciliar
+[Remote]: todo el universo no conciliado de una conciliación,
+[Remote]: siempre,
+[Remote]: que se corra.
+[Remote]: Entonces, si hay información del mes pasado que no concilió, Rexi va a seguir intentándolo
+[Remote]: hasta el infinito, o hasta que consigue
+[Remote]: o hasta que lo marquen como excepción.
+[Remote]: Hay casos de uso donde sabemos que son
+[Remote]: típico caso, movimientos manuales que vienen sin ID, nunca van a conciliar, son procesos que se hicieron internamente, nunca van a estar en la base del dato del proveedor, excepción. Entonces, Rexy no va estar ahí tratando de conciliarlo siempre, no va asociar las métricas y demás. Pero si no, hay una transacción de hace dos meses que todavía no concilió,
+[Remote]: y ustedes no nos dijeron que está
+[Remote]: como excepción o conciliada,
+[Remote]: vamos a ir cada vez que entra la información, cada vez que corre, vamos a seguir tratando de conciliarlo.
+[Remote]: Perfecto. Gracias, Teo.
+[Remote]: Para sumar ahí siempre, vos corazón a Rí con el en el moto de Rexi, que es como que
+[Remote]: cuando sale la recon se divide en dos aguas, los match
+[Remote]: match,
+[Remote]: y los un match, si se quiere, van con una bolsa para que cuando
+[Remote]: corra de vuelta la próxima vez, venga la alta nueva, más esos un match,
+[Remote]: y haga la comparación de vuelta.
+[Remote]: Eso se asegura que si tiene algún enlazado fuente que te llegue más tarde o todos esos escenarios que decía
+[Remote]: las ambas siempre tenías en cuenta.
+[Remote]: Buenísimo. Y esa bolsa que nos queda pendiente, perdón, capaz que esto es algo que vamos a ver más adelante y
+[Remote]: y la ansiedad me me va más.
+[Remote]: Esa bolsa que nos queda pendiente, nosotros vamos a poder visualizarlo en, por ejemplo, en una
+[Remote]: pantalla que nos diga,
+[Remote]: este proveedor tuyo tiene todo esto que está pendiente y vos le
+[Remote]: vas a dar hasta que te quede conciliado, hasta que le pongas la excepción.
+[Remote]: Sí, eso ahí lo podés ver. Ahora repasamos un poquito, pero en el problem solver,
+[Remote]: lo podés ver. La conciliación en sí, en la tabla de abajo,
+[Remote]: ponés filtro por el proveedor, todo lo que no concilió lo tenés ahí,
+[Remote]: y
+[Remote]: este módulo, que es el de monitoreo, es un módulo que a mí me encanta porque realmente
+[Remote]: generás dashboards
+[Remote]: con volumen muy grande,
+[Remote]: con herramientas de Excel.
+[Remote]: Entonces,
+[Remote]: son
+[Remote]: widgets que conforman dashboards extremamente personalizables,
+[Remote]: de información de conciliaciones o de formación de proveedores, Cada uno se puede generar sus propios dashboards, Pueden haber dashboards oficiales entre equipos que se comparten de más high level, dashboards específicos para cada uno, Es muy fácil de usar, muy fácil de de editar, escalable. Creo que ustedes, que tienen archivos de varios millones, si tratan de abrirlos en Excel, les va explotar la computadora por el aire, y tal vez quieren hacer una investigación, una table, una herramienta que que que es espectacular, pero que simplemente, a partir de las trescientas mil filas, Excel no funciona, todo eso lo pueden hacer acá y, obviamente, agéntico. O sea, no vamos a estar creando
+[Remote]: ahora los vamos a generar de de las dos maneras,
+[Remote]: Ustedes lo lo van a ver por primera vez con con la gente, pero
+[Remote]: no vamos a estar generando los widgets
+[Remote]: crea un new widget, le vamos a decir a la gente qué es lo que tenemos que ver,
+[Remote]: gente nos va a generar el dashboard y lo editaremos algunas cositas que nos interesan,
+[Remote]: pero es otra de esas tareas manuales que que ya no
+[Remote]: no se van a hacer más apretando botones a la a la dos mil quince, como le decimos.
+[Remote]: Estoy en esta.
+[Remote]: Acá.
+[Remote]: Y ejercicio,
+[Remote]: acá tenemos el prompt, armamos un dashboard operativo completo
+[Remote]: la reconciliación, OMS, acá,
+[Remote]: pueden poner la la conciliación que quieran, obviamente,
+[Remote]: pero, en este caso, el ejercicio van a comparto acá pantalla.
+[Remote]: Esta pestaña de acá es dashboards,
+[Remote]: y vamos a poner acá
+[Remote]: vamos a verificar que yo tengo la conciliación OMS.
+[Remote]: Sí, tenemos una importante, verifiquemos lo que le pedimos,
+[Remote]: Digamos acá.
+[Remote]: Buenas
+[Remote]: Ah, perdón.
+[Remote]: No, iba a decir, no, no, el amigo no era importante. Dale, iba
+[Remote]: Ah, bueno, relacionado al ejercicio,
+[Remote]: el agente antes de
+[Remote]: mandarse
+[Remote]: estamos entregando para que haga preguntas. Perdón si quieren que haga todo por ustedes, pero es mejor que
+[Remote]: pregunte a que haga algo que no sirve.
+[Remote]: Así que
+[Remote]: salvo que ustedes le digan muy fuertemente, no me pregunten nunca nada más, hacelo,
+[Remote]: el agente va a tratar de refinar bien para no generar
+[Remote]: confusiones.
+[Remote]: No, ese es el punto de mal que quería resaltar,
+[Remote]: me pasó con con con este modelo, que no no me pasó en otros modelos que que usamos
+[Remote]: frecuentemente, que a veces los agentes hacen una o dos preguntas o tres preguntas, no sé.
+[Remote]: Y ahora me pasó, por ejemplo, que que intenté responder una y quería responder la otra,
+[Remote]: no importa, respondí la primera nomás,
+[Remote]: y e insistió con hacer las otras dos preguntas que me había hecho, las otras tres preguntas que me había hecho.
+[Remote]: Y, bueno, eso está bueno porque me ha pasado muchas veces con otro modelo que me hacen tres preguntas, respondo una por
+[Remote]: sin querer no sé, mando la respuesta y no esperé, y las otras dos me las supone.
+[Remote]: Como se supone una respuesta y ya está. Nada, eso estaba muy bueno que me pasó ahora que
+[Remote]: Lo estamos entrenando para que para que hayan preguntas,
+[Remote]: En este caso, mirá, no me no me ha generado preguntas, simplemente me hace una una
+[Remote]: una propuesta y me pregunta si estoy de acuerdo.
+[Remote]: La revisamos,
+[Remote]: acá voy a poner que sí,
+[Remote]: estoy compartiendo pantalla para treinta personas, pero ustedes léanla,
+[Remote]: bien.
+[Remote]: Sí.
+[Remote]: Después vamos a ver bien cómo lo lo
+[Remote]: los creamos y los editamos.
+[Remote]: De manera manual, como para que sepan que que se puede.
+[Remote]: Pero no lo recomendamos.
+[Remote]: No lo van a querer hacer manual.
+[Remote]: Bueno, esta es mucho la vida del programador de hoy, que
+[Remote]: preguntemos cosas, cosas que queremos hacer, y el agente empieza programar o a pensar, y te vas a tomar un café.
+[Remote]: O sea, esa esa parte como que vas analizando o te podés hacer otras cosas
+[Remote]: Eso es la parte linda de la gente, que se pone a pensar
+[Remote]: y te va resolviendo un poco el tu pronto lo que dos o tres agentes a la vez, obviamente te podés ir y
+[Remote]: trabajando,
+[Remote]: y el agente va ahí seguir haciendo lo que dice acá. En este caso está
+[Remote]: analizando la información para generar un taller contra APIs
+[Remote]: relevantes.
+[Remote]: Sí, ahí quería sumar que que la idea también de que te haga muchas consultas
+[Remote]: el agente antes de mandarse a trabajar es por justamente por esto, porque después
+[Remote]: como tiene que analizar datos y y hacer como diferencia de lo que de lo que
+[Remote]: vos le pediste,
+[Remote]: Si no tiene claro desde el principio la tarea y no está bien detallado lo que tiene que hacer,
+[Remote]: es como que todo esto que está haciendo es a la basura, porque después lo que te
+[Remote]: si si viene con algo que no te sirve a vos,
+[Remote]: le vas a pedir que te lo cambien, entonces es como doble trabajo. Entonces,
+[Remote]: la idea un poco es eso, que la gente como que
+[Remote]: un ida y vuelta con vos de del de lo que vos realmente querés, una vez que estás seguro,
+[Remote]: recién ahí se pone a
+[Remote]: a hacer todo el análisis y y bajártelo a
+[Remote]: a un entregable, digamos.
+[Remote]: Perfecto,
+[Remote]: Me ofrece crear el dashboard.
+[Remote]: Crear.
+[Remote]: Busca dashboards.
+[Remote]: Menos, creo el dashboard.
+[Remote]: Yo lo voy a abrir para ver cómo trabaja nuestro querido agente.
+[Remote]: Obviamente, todo esto lo pueden ir haciendo manual.
+[Remote]: Acá,
+[Remote]: widget batch, eso significa que
+[Remote]: nosotros le dimos la aprobación de generar un montón de widget, trece widgets,
+[Remote]: de entrada,
+[Remote]: eso es aprobación nuestra,
+[Remote]: ustedes quieren revisar alguno, lo va generando de a uno.
+[Remote]: Great.
+[Remote]: ¿Y nos generó?
+[Remote]: El reporte.
+[Remote]: Es lo que les digo, que no van a querer generar widgets a mano ni organizarlos,
+[Remote]: Obviamente,
+[Remote]: van a poder
+[Remote]: reorganizarlos. Ahora,
+[Remote]: ¿se terminó?
+[Remote]: Sí, bueno.
+[Remote]: Si están viendo mi pantalla, los pueden mover, organizar como quieran, son dashboards muy fáciles de usar,
+[Remote]: se pueden agrandar o achicar.
+[Remote]: Se pueden editar, obviamente, se puede editar los los títulos, los subtítulos,
+[Remote]: los KPIs,
+[Remote]: puede cerrarle la gente. Muchas gracias por hoy.
+[Remote]: Editar los widgets.
+[Remote]: Los widgets son
+[Remote]: como editan en Excel o en widget,
+[Remote]: le pueden editar la las variables exactas,
+[Remote]: Ahora vamos a generar uno manualmente para que entienda bien cómo funciona por detrás.
+[Remote]: Perfecto, vamos a Importante, algo capaz que que
+[Remote]: capaz que no te gusta un widget que te creó, agente, che, el widget este no me gusta, literalo.
+[Remote]: Lo mismo, o sea, todo a modo agéntico, chicos, o sea, no
+[Remote]: no me pondría manual, tipo, y ténenlo ahí sobre la gente lo que puede y no puede hacer.
+[Remote]: Perfecto. Y esto es importante,
+[Remote]: los dashboards no son
+[Remote]: solo conciliatorios,
+[Remote]: pueden ser
+[Remote]: de su fuente de datos. Che,
+[Remote]: quiero tener un dashboard de las
+[Remote]: o m, quiero tener un dashboard de, no sé, quiero tener un dashboard de los cupones.
+[Remote]: De los cupones de Brasil, de los cupones de Colombia. Bueno, me dijeron dashboard de... No no importa si
+[Remote]: o no, eso
+[Remote]: se hace con
+[Remote]: Y también pueden hacer un dashboard con métricas de de reconciliaciones. Por ejemplo, acá, creamos la la la fuente de la información de lo que vamos a estar conciliando, la verificamos que es la que queremos, le damos next, y acá te ofrece los diferentes widget types. Charts, line charts, tag bar, file charts, KPIs, y es la de la a mí me encanta la muchas veces cuando estás investigando información, generás una Pivotal y te da el pantallazo rápido, de qué es lo que estás viendo, como dije, es excelente en Excel, pero rompe a partir de las trescientas mil filas, acá es escalable. O sea, pueden ponerle millones y va a generar una Pivotal perfecta.
+[Remote]: La seleccionás, obviamente, y vas
+[Remote]: haciendo drag and drop de las métricas que querés.
+[Remote]: Por ejemplo, no sé qué tenemos acá, pero
+[Remote]: le ponemos
+[Remote]: sumatoria de monto acordado,
+[Remote]: Acá, obviamente, pueden cambiar
+[Remote]: qué es lo que quieren.
+[Remote]: En Python results en columnas.
+[Remote]: Y
+[Remote]: le podemos poner
+[Remote]: date
+[Remote]: No, fecha.
+[Remote]: Acá está el date.
+[Remote]: Rose,
+[Remote]: Acá le pueden aperturar monthly,
+[Remote]: daily, weekly,
+[Remote]: demás.
+[Remote]: Podemos poner daily acá.
+[Remote]: Y tienen aperturado acá el widget,
+[Remote]: con la información que le pedimos, obviamente todo se puede agrandar.
+[Remote]: Achicar.
+[Remote]: De cualquier métrica que le que les haga falta.
+[Remote]: Importante, este dashboard queda disponible para la organización.
+[Remote]: ¿Ok?, para la, no sé si ustedes quieren crear dashboards
+[Remote]: ya les queda a ustedes y los pueden tener. Mismo después con roles y permisos, el dashboard se
+[Remote]: puede ver o no, si quieren mantenerlos por equipos,
+[Remote]: usar folders, ahí, medio que es la realización se va se va
+[Remote]: manejando.
+[Remote]: ¿Acá qué tenemos? Por ejemplo, ¿lo que hicimos?
+[Remote]: Esta es la crítica de comparison,
+[Remote]: monto acordado false,
+[Remote]: monto acordado true, aperturado por día,
+[Remote]: la sumatoria. Entonces, acá vemos
+[Remote]: todo lo que nos deben de plata,
+[Remote]: o lo que debemos, depende de cada una de las de las conciliaciones,
+[Remote]: y todo lo que está ok en la derecha. Pero bueno, pueden hacerlo con absolutamente todo lo que quieran.
+[Remote]: Ahí les dejo
+[Remote]: unos momentos para que
+[Remote]: revisen.
+[Remote]: ¿Vienen bien? ¿La gente les está generando los dashboards?
+[Remote]: Sí. Sí. Te hago una consulta, que que
+[Remote]: intentando hacerlo, pero no sé si hay otra forma de hacerlo, es que
+[Remote]: ponle, yo me quiero parar en uno en particular,
+[Remote]: y que me descargue la información de ese en particular. Por ejemplo,
+[Remote]: el que genera la diferencia.
+[Remote]: ¿Se puede o...? ¿Crear un reporte? Estaba
+[Remote]: intentando tipo un doble clic o algo así?
+[Remote]: ¿Generar generar un reporte para descargar de alguno de los widgets?
+[Remote]: Sí, que me descargue la información de
+[Remote]: lo de uno en particular.
+[Remote]: No no de todo, sino de agarrar uno y decir, esto, descargame la información,
+[Remote]: de lo cómo se formó este widget. Me encanta, estas sesiones
+[Remote]: porque salen necesidades reales de clientes,
+[Remote]: Nunca lo probé,
+[Remote]: Preguntar a la gente si te puedes generar un reporte
+[Remote]: con la información que compone Ok.
+[Remote]: O un reporte o un, bueno, ahí ya combinas con export.
+[Remote]: O sea, una cosa es el dashboard, el, o sea, los dashboard que se están export.
+[Remote]: Quiero un export, por ejemplo. No, ahí lo que yo diría es, che,
+[Remote]: quiero un export de, ¿viste el monto en discrepancia que dice que es
+[Remote]: sesenta y nueve mil, bla, bla? ¿Me hacés un
+[Remote]: de todas las transacciones que forman el monto en discrepancia? Mismo.
+[Remote]: Y sumé a qué hacés, dejalo
+[Remote]: Nos vamos a asegurar de que eso funcione, porque ya veo que lo van a estar necesitando,
+[Remote]: pero fijate, tal vez hoy los agentes de Porque lo estoy pensando en nuestro flujo, ¿no?, de conciliación y que
+[Remote]: esto me muestre todo lo que concilió lo que no concilió,
+[Remote]: y lo que machó, pero tiene una discrepancia, y bueno, ellos quieren
+[Remote]: hacer un análisis sobre la discrepancia, y para eso necesito el export. Claro, eso importante ahí, cara, no sé si ustedes es algo que ven todos los días o lo o lo es por semana, que les llegue el export, todos los días al mail a todo el equipo sobre el CCV, ¿viste?, y ya lo dejás por día, que andá diciéndome los montos en discrepá, y bueno, eso lo armás con export. Lo que lo importante acá es es viste que a veces nosotros decimos, no sé si puede hacerlo, probalo, porque el LLM todas las herramientas, por eso hicimos como muy atómico, podés hacer todo esto
+[Remote]: la gente con la hace combinaciones de legos de las cosas, y, bueno,
+[Remote]: capaz que te lo arma, ¿viste? Es es tan inteligente como un humano. Vieron que a veces cuando queríamos crear sources,
+[Remote]: decíamos, che, pero no no lo tenemos en el feature, pero lo podemos hacer así también.
+[Remote]: Entonces, es lo mismo que hace la gente, ¿no?, como que trata de de sacarle un resultado.
+[Remote]: Ahí, para sumar, el export sí,
+[Remote]: sí te te va a generar, o sea, si vos decís, quiero que me generes un export
+[Remote]: con todas las transacciones que donde no no el monto acordado y el
+[Remote]: y el el real, digamos, no
+[Remote]: no macheó, sea, la comparación falló, se lo va a generar rebién,
+[Remote]: Lo que no sé si va a hacer es eso mismo, de decirle, che, mirá el dashboard este,
+[Remote]: y replicame y haceme un export. Eso hay que probarlo, pero
+[Remote]: puede que puede que lo pueda hacer.
+[Remote]: Ahí,
+[Remote]: de todas maneras, si no lo hace hoy, ya veo que va a ser un feature muy útil,
+[Remote]: así que lo lo desarrollamos. Me me me atrevo a decir
+[Remote]: que sí, porque es el data agent el que tiene la data Yo le pedía la discrepancia, sí, me armó un
+[Remote]: un export.
+[Remote]: Sí, sí, te lo va armar, te lo va a armar. Por eso probemos, porque el data agent es el que
+[Remote]: arma esto también, ¿no? O sea, es el que tiene la data, toda la data, y van asegurados, puede explicarlo
+[Remote]: mejor.
+[Remote]: Que se desmuteó, y nada, quiere poner el bocado.
+[Remote]: Imaginate que tiene el mismo acceso a lo que tienes vos.
+[Remote]: Vos decís, bueno, a ver, si tengo esta cosita acá y esta cosa acá, si las mezclo te puedo generar
+[Remote]: como que tiene esa maña de decir, bueno, hago lo posible para solucionar el problema que vos estás también.
+[Remote]: Obviamente, cuando Tomás le damos,
+[Remote]: es más fácil,
+[Remote]: en el en el intermedio
+[Remote]: probar tranquila y explorar las capacidades de de la gente, digamos.
+[Remote]: Nosotros, detrás, vamos mejorando.
+[Remote]: Perfecto.
+[Remote]: Bueno, quedan
+[Remote]: cinco minutos
+[Remote]: hago un repaso un poco de
+[Remote]: de lo que vimos hoy y dejamos los últimos minutos para
+[Remote]: para preguntas, dudas. Obviamente, nos podemos quedar un rato.
+[Remote]: Esta tarde tenemos reunión con el equipo de Nicole. Pero les hago un un pequeño repaso de lo que estuvimos viendo hoy.
+[Remote]: Bueno, ejercicio uno, paseos fixed with,
+[Remote]: le tirás el PDF de cómo parciar, le tirás el archivo,
+[Remote]: te genera la view divina, lista para para conciliar,
+[Remote]: conciliaciones exactas con con agentes.
+[Remote]: Propuestas de optimizaciones, problem solver para conclusiones,
+[Remote]: análisis y demás,
+[Remote]: agente que te genera los los reportes,
+[Remote]: ya no estamos más configurándolos a mano, le pedimos lo que necesitamos y nos lo generan.
+[Remote]: Investigación conversacional,
+[Remote]: ayúdame a entender esta conciliación, porque no la entiendo, no entiendo este dato, no entiendo esto,
+[Remote]: ahí tenemos agentes que tienen un montón de herramientas
+[Remote]: para hacer queries, ejecutarlas y demás.
+[Remote]: Pueden demorar unos minutos en hacer ese análisis, pero lo hacen por nosotros, no estamos armando
+[Remote]: un script en Python ni descargando en Excel ni demás, corren las queries por nosotros.
+[Remote]: Generación de dashboards,
+[Remote]: manuales o con el agente,
+[Remote]: El agente se ha vuelto
+[Remote]: espectacular en entender información,
+[Remote]: así que yo creo que ya no vamos a estar apretando botones más.
+[Remote]: Importantísimo, human in the loop,
+[Remote]: esto lo resalta siempre SEO y siempre Pana,
+[Remote]: Revisemos todo. Obviamente, tenemos el prompt que sea específico, pero
+[Remote]: revisemos hasta que él
+[Remote]: agente no tenga memoria de cada usuario y haya aprendido y tenga contexto
+[Remote]: de negocio,
+[Remote]: el agente va a hacer lo que el sentido común y toda su inteligencia diga,
+[Remote]: repasémoslo. Igual,
+[Remote]: ojo, ahí ahí también, Rick sí está preparado
+[Remote]: para estas cosas, ¿no?, de evitar mocos, por eso
+[Remote]: los roles y permisos son claves en esta herramienta.
+[Remote]: Con el que eso después lo vamos a ir gestionando. OIWARE,
+[Remote]: Y lo que me gustaría decir es, empecemos a hablar de agentes, ¿no?, cuando
+[Remote]: che, la gente no hizo esto, el agente no hizo esto. La idea de Rexi siempre es
+[Remote]: llevar el mundo agéntico o el mundo de AI a los equipos de non IT, a veces cuesta que llegue, tipo, la la la tecnología ahí, porque capaz que se prioriza más del lado producto o más del lado negocio, y la idea es, Rexy, es que ustedes tengan los primeros agentes de despegar y estén deployando agentes y y ayudándose y automatizando su operación.
+[Remote]: Así que nada, ahí sesión larga, chicos,
+[Remote]: Si quieren, dejemos estos últimos minutos feedback, lo que quieran ahí, cómo la vieron,
+[Remote]: dejamos abierto.
+[Remote]: Dale, buenísimo.
+[Remote]: Ahí me quedó una duda en la parte de dashboard,
+[Remote]: Vamos a tener la posibilidad de filtrar, de tener como filtros y decir, bueno,
+[Remote]: yo quiero que me, no sé, por ejemplo, por mes o
+[Remote]: se vaya actualizando automáticamente, porque es una de las cosas que le pedí, pero me dijo,
+[Remote]: como que no me lo podía filtrar.
+[Remote]: O sea, que sí me sí, no no iba a tener la posibilidad de tener como
+[Remote]: un desplegable de filtros, por ejemplo, sobre esto,
+[Remote]: ¿sí? Si yo le pido, me va actualizando la información y me va preguntando qué es lo que quiero,
+[Remote]: Importante. Pero
+[Remote]: cien por ciento de BI, pero poner un filtro a nivel dashboard es un tema complejo porque vos vas a tener adentro un montón de widgets que vienen de un montón de fuentes de información diferentes, tienen un montón de campos, fechas diferentes. Entonces, los filtros los estamos manejando desde los widgets que los tenemos acá, Podemos agregar filtro, por ejemplo, fecha, y y le agregamos la los filtros fecha, tal vez los siete días, los últimos, y demás, los vamos a mantener por widget, por lo que te digo, se va a generar una complejidad enorme si hacemos filtros a nivel dashboard, pero, si querés, nos llevamos
+[Remote]: tal vez a hacer
+[Remote]: algún tipo de picker más fácil para los widgets y demás,
+[Remote]: como para que ese filtro no sea tan engorroso,
+[Remote]: así Eso eso en los
+[Remote]: Jessie, a nosotros ya no hicimos lo mismo, ¿no? Te decimos, ¿por qué no podemos dedicarle arriba
+[Remote]: que te cambie la data y el tiempo de todo? Pero bueno, cuando cuando después entrás a
+[Remote]: es muy lindo, pero después decís, no, para ti que ser por widget,
+[Remote]: porque manejas distintas, y capaz que en el mismo mezclas dos
+[Remote]: cosas distintas, entonces, tenés un dashboard quedando bastante
+[Remote]: muy con lo que te, muy Preferible ir atómico, que te cubre todos los casos,
+[Remote]: diagnóstico o más abstracto, y puedes no terminar rompiendo o no sirviendo para todos.
+[Remote]: Buenísimo, perfecto, gracias.
+[Remote]: Bueno, espectacular. Ahí, ya para para ir cerrando,
+[Remote]: me vuelvo a poner a disposición, y todo el equipo, en realidad, para todo lo que le vaya surgiendo,
+[Remote]: Ahí nos estuvimos juntando bastante con algunos que que quieren
+[Remote]: cinco minutos algo, diez minutos algo,
+[Remote]: mándenos. Sabemos que tenemos
+[Remote]: algunas pequeñas deudas técnicas con con lo que quedó de la migración,
+[Remote]: Lo vamos a estar tomando en los próximos días. Sepan que nos duelen más que ustedes,
+[Remote]: así que las vamos a tomar.
+[Remote]: Nuestra idea es que para cuando termine el piloto no aparezca en esta
+[Remote]: cosas, nunca más, obviamente, si agregamos un proveedor y se
+[Remote]: estamos en el universo de
+[Remote]: el edge case,
+[Remote]: pero queremos que le surja cada vez menos. Así que ahí
+[Remote]: pasen no siempre apenas surge algo, nosotros lo revisamos, lo priorizamos apenas podemos,
+[Remote]: y se lo sacamos del camino. Yo también,
+[Remote]: tengo herramientas para a veces ayudarlos a encontrar el problema,
+[Remote]: ahora también tienen los agentes para ayudarlos a encontrar el problema,
+[Remote]: Y, bueno, nada, muy muy felices. Nosotros estamos convencidos que te
+[Remote]: camino.
+[Remote]: Hoy en día está la tecnología,
+[Remote]: la vamos a ir mejorando muchísimo y y y muy rápido,
+[Remote]: seguros que de acá a fin de año
+[Remote]: esto va a ser
+[Remote]: un agente absoluto.
+[Remote]: Cada vez que
+[Remote]: probamos algo, nos sorprendemos con con lo bueno que está, así que
+[Remote]: no tengan dudas de qué de qué es por acá.
+[Remote]: Perfecto, chicos, gracias.
+[Remote]: Muchas gracias, chicos. Igual, nosotros también estamos bastante alineados, Teo.
+[Remote]: Que este es el camino.
+[Remote]: Así que cuenten con nosotros como design partner para para potenciarlo y
+[Remote]: y y llegar juntos a al al el mejor producto que podamos conseguir.
+[Remote]: En dos meses, en un mes, dos meses van a tener el equipo más
+[Remote]: flama de, me me animo a decir global, Claro.
+[Remote]: O más agéntico, el equipo de operaciones más agéntico que existe, y es un poco lo que queremos
+[Remote]: hacer y que ustedes puedan ver. Así que, chicos, gracias por la buena onda
+[Remote]: La verdad que se nota que hay un grupo del otro lado que se mete, que ayuda con la herramienta, que no
+[Remote]: tira feedback, nosotros requerimos estar al tope de gama como ustedes,
+[Remote]: así que línea abierta siempre cualquiera de
+[Remote]: nosotros. Ahora ya conocieron más parte del team, y va a medida que vayan pasando los días, vamos un
+[Remote]: otros expertos acá para que vayan conociéndonos más. Buenísimo. El LM se te va
+[Remote]: quejar a ti diciéndote, che, me están explotando en despegar. Ahora
+[Remote]: una cosa importante, voy a bajar un poco los recursos porque lo lo aumentamos
+[Remote]: poquito y nos va a salir de la billetera esto.
+[Remote]: Pero nada, lo dejamos un rato más para que jueguen, que que estén,
+[Remote]: esto queda aprendido. Lo único que bajamos es capaz que la cantidad de
+[Remote]: segundos que tarda, vieron que a veces tarda un poquito más, porque eso consume mucho
+[Remote]: chicos, mucho. Entonces, nada, como que bajamos un poco en estos ambientes de piloto.
+[Remote]: ¿Dale? Buenísimo. Dale, perfecto. Muchas gracias, chicos. Perfecto. Bueno, muchas gracias.
+[You]: Hello.
+[Remote]: Muchas gracias. Nos vemos.
+
+============================================================
+SUMMARY
+============================================================
+### Session Overview & Structure
+
+- Remote Session 3: Unmatched management, AI and dashboards
+- Focus on automation capabilities, operational dashboards and alerts
+- Combined internal/external meeting with Despegar team
+- Hands-on training with Rexi’s AI agents for reconciliation tasks
+
+### AI Agent Architecture & Approach
+
+- Rexi built as AI-native platform from inception
+- Manual processes serve as fallback when agents fail
+- LLM acts as orchestrator for deterministic tools underneath
+- Human-in-the-loop confirmation required for all agent actions
+  - Users can iterate and refine agent responses
+  - Agents can explain their reasoning when questioned
+
+### Data Parsing & Source Configuration
+
+- Exercise 1: Automated parsing of fixed-width provider files
+  - Upload PDF layout documentation + raw data file
+  - Agent generates complete view with 15+ field transformations
+  - Eliminates manual formula creation (previously 16+ formulas)
+- Source config automation reduces hours of manual work to minutes
+- PDF-only format currently supported (AWS limitation)
+  - Conversion capability planned for other file types
+
+### Reconciliation Creation & Optimization
+
+- Exercise 2: Payment vs collections reconciliation
+  - Agent creates views and reconciliation rules from natural language prompts
+  - Exact matching strategy without tolerance initially
+- Exercise 3: Insurance reconciliation with investigative approach
+  - Agent analyzes data relationships when strategy unclear
+  - Proposes optimal join keys and comparison methods
+- Problem Solver agent suggests rule optimizations
+  - Identified 450 transactions failing on amount differences
+  - Recommended 0.5% tolerance increase (89% to 96% match rate)
+
+### Unmatched Analysis & Investigation
+
+- Exercise 5: Vendor discrepancy analysis
+  - Agent identified systematic overcharging patterns
+  - Accord: 1.5% systematic surcharge across all transactions
+  - IHG: Fixed $150 unauthorized charge
+- Conversational data investigation capabilities
+  - Replace SQL queries with natural language requests
+  - Agent performs complex analysis and provides insights
+- Export functionality for claim documentation
+
+### Dashboard Generation & Visualization
+
+- Fully automated dashboard creation from natural language prompts
+- 13 widgets generated automatically for operational monitoring
+- Manual widget creation available but not recommended
+- Supports charts, KPIs, pivot tables scalable beyond Excel limits (300k+ rows)
+- Organization-level dashboard sharing with role-based permissions
+
+### Memory & Learning Capabilities
+
+- Individual user memory for preferences and business rules
+- Organization-level knowledge base for team standards
+- Agent learns from user feedback and rejection patterns
+- Customization improves over time per user and company context
+- Production environment includes session continuity (not in academy)
+
+### Technical Infrastructure & Permissions
+
+- Role-based access controls prevent unauthorized actions
+- Agents operate within user’s permission boundaries
+- Increased infrastructure for training session performance
+- Real-time reconciliation capability available for batch-to-streaming migration
+- BigQuery integration with planned expansion to other systems
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/61e5bdeb-7ccb-4ae4-a24d-58852da586f2](https://notes.granola.ai/t/61e5bdeb-7ccb-4ae4-a24d-58852da586f2)

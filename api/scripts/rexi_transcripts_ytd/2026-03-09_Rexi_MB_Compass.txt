@@ -1,0 +1,530 @@
+MEETING: Rexi <> MB (Compass)
+DATE: 2026-03-09
+ID: not_iVTGX4SbrPFqyc
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Edoardo Gentili <edoardo.gentili@foundersfactory.co>, Andrea Guzzoni <andrea.guzzoni@foundersfactory.co>, Teo <teo@rexi.finance>, Giorgio Mugnai <giorgio.mugnai@mediobanca.com>, Nicola Gatti <nicola.gatti@compass.it>, Alessia Armarolli <alessia.armarolli@mediobanca.com>, Marco Jwad <marco.jwad@mediobanca.com>
+SCHEDULED: 2026-03-09T11:00:00-04:00 - 2026-03-09T11:30:00-04:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: Call up, and, I manage a bunch of different things in
+[Remote]: Compass, which is the retail company over
+[Remote]: MediBank Group and head of insurance business. Moreover,
+[Remote]: the m and a part and the in artificial intelligence part.
+[You]: Very interesting. Thank you. I'll just go over some
+[You]: don't know how much context Eduardo shared with you guys, but I'll just go over some slides and then
+[You]: happy to focus the rest of the time and
+[You]: whatever adds more more value for you guys. We can
+[You]: go through through some q and a or even show a bit of
+[You]: of the product and the demo and how it works.
+[You]: You let us know. But let me let me just show some slides to set the stage here on.
+[You]: Who we are, what we do. You see my you see my screen there?
+[Remote]: Yep.
+[You]: So, basically, what we come to solve at rec
+[You]: and the reason why we started this company is
+[You]: there's a lot of complexity and a lot of data fragmentation in financial services.
+[You]: Mainly caused by the
+[You]: innovation and the proliferation we've seen in the app
+[You]: layer, and no one actually
+[You]: building
+[You]: and maintaining the infrastructure layer. Right? And so what this has created in the in the
+[You]: either
+[You]: traditional banking,
+[You]: financial services, fintech, insurance,
+[You]: credit lending,
+[You]: all these different verticals is
+[You]: it's it's created a manual effort to basically reconcile the data.
+[You]: Orchestrate all this data, and make a sense of how is money moving across all these layers.
+[You]: And accounting for that money correctly. Right? So the first step is there's a
+[You]: huge role that AI can play
+[You]: in that process because AI is great at analyzing structured data.
+[You]: And automating these workflows that will enable these companies
+[You]: to basically free up resources
+[You]: to invest on on stuff that on stuff that actually matters. That stuff
+[You]: stuff that's actually gonna make these companies different and grow beyond
+[You]: competitors. So the I just skipped the first one and went
+[You]: straight to the second one, which is the role of AI and automation. The first one, of course,
+[You]: is about regulatory and compliance pressure because, many of these companies, particularly the regulated
+[You]: part of the stock, which is the banks,
+[You]: have regulatory and compliance pressure. Right? And so Bell Rexy is built
+[You]: to enable these companies to remain compliant, remain safe,
+[You]: and continue
+[You]: confirming and abiding by the
+[You]: regulatory standards with the platform that enables to automate the whole process. Right?
+[You]: And the the the third one is about
+[You]: reconciliation, not only being a back office
+[You]: process, but also impacting other areas of the business. And some examples of this are
+[You]: example, product.
+[You]: Sometimes the product teams are ready to roll out any feature,
+[You]: a new whole product, or a new service,
+[You]: and the ops team or the finance team becomes a bottleneck because they
+[You]: still haven't figured out what's the correct reconciliation process to be able to operate that product.
+[You]: With risk under control. Right? So that's one way where
+[You]: reconciliation can impact product. Reconciliation can also impact, for example,
+[You]: support.
+[You]: We've seen some companies that are not able to reconcile
+[You]: money movements in real time, and therefore, that generates some tickets.
+[You]: With customer support because some users cannot see their money
+[You]: accounted for in their applications or in their portals, and that's because they don't have a real time
+[You]: process that enables that part of the business as well. So it's
+[You]: it's it's a bit of everything, but our focus
+[You]: is mainly applying artificial intelligence to automate these
+[You]: FinOps processes that impact many different parts of the business. And today, it's creating a lot of risk. A lot of cost, and it's, basically not scalable for companies to continue operating this way. This is a little bit more about us and our mission We're starting by reconciliation, but then expanding to other workflows. We wanna be the cloud for FinOps processes for
+[You]: CFOs, COOs to be able to build
+[You]: these agentic workflows.
+[You]: And basically automate and operate at scale
+[You]: with lower risk and higher automation. We incubated this company out of
+[You]: Harvard, MIT, and Colombia.
+[You]: And the three cofounders, we are fintech operators. We were fintech operators before.
+[You]: I I used to work at at Common and at Bitso,
+[You]: here worked at Mercado Pago, and our CTO was founding team of Pomelo.
+[You]: The biggest issuer processor in in Latin America.
+[You]: This is a bit of our our early investors.
+[You]: This is the team which I already mentioned. This is the founding team. Of course, we
+[You]: a team of engineers asides from from three of us the three of us here.
+[You]: And this is a bit about the stock. Right? Like,
+[You]: how Rexy works work Rexy at its core is a data orchestrator. Right?
+[You]: The first thing we do is connect to the data sources, ingest the data,
+[You]: then we do all the normalization process because we know that all these different files come in
+[You]: different shapes and forms.
+[You]: Then we do the processing of these files, which is basically
+[You]: the matching logic by which we will be reconciling these money flows.
+[You]: And then we have a whole
+[You]: problem solver or resolution dashboard where our users log in, see the results,
+[You]: and are able to browse around the differences and solve them in real time with a high productivity
+[You]: thanks to the AI applications we're adding to that step of the process.
+[You]: On the right side, what I wanna mention is our design principles. How are we building Wrexi? We're building Rexy first and foremost in a plug and play basis.
+[You]: We want this product to be
+[You]: very light,
+[You]: easy to implement,
+[You]: easy to configure.
+[You]: So that time to value is way shorter, and it's not about
+[You]: six month implementation process in which
+[You]: value gets diluted, and there's a big upfront investments
+[You]: of these companies to be able to use the platform.
+[You]: The second point is self serve. We believe that this product should be owned and operated by you.
+[You]: By the operators, because you, more than anyone, know
+[You]: what the business needs,
+[You]: know the business policies, and know exactly how these files and these processors work.
+[You]: So you should be able to use Rexy to build your own work
+[You]: in a self serve basis.
+[You]: And the third part, which is what I already mentioned, is compliance ready.
+[You]: Wanna make sure that, Rexy enables these companies to
+[You]: again, abide by these regulatory frameworks and these compliance frameworks in a way that's
+[You]: automated, easy, and very efficient without the need to
+[You]: scale the team,
+[You]: hire more people,
+[You]: or even invest in
+[You]: very heavy solutions that take a lot of time to implement and see value from.
+[You]: This is about
+[You]: this is more technically how do we ingest the data, how it actually works,
+[You]: This is where we're going towards. It's a very agentic
+[You]: with a lot of AI
+[You]: coded into the logic and the experience.
+[You]: This is how we connect to the data sources, which we have a dynamic integrator that
+[You]: can connect to any
+[You]: API
+[You]: SFTP in in in
+[You]: days, I wanna say, to be conservative, but it can be actually in minutes.
+[You]: That's actually what
+[You]: that's one of the things that sets us apart, how easy and quick
+[You]: we can integrate to the data sources and the fact that we work with
+[You]: raw files instead of
+[You]: having you do a lot of transformations to be able to use the platform?
+[You]: Then how are we different, which I'm gonna repeat myself, but this is gonna
+[You]: just close the presentation because I'm more
+[You]: interested in hearing more about you
+[You]: than me continuing speaking. But it's again, we work with raw files.
+[You]: So we don't require any work on your side to be able to use Rexy.
+[You]: We implement the platform in weeks instead of months,
+[You]: We charge for the implementation because we're building agentic processes and a lot of
+[You]: technology to be able to onboard our customers in a more effective and scalable way.
+[You]: And then the reconciliation logic, has a lot of AI coded into it, which
+[You]: enables it to be dynamic.
+[You]: If if you have built some reconciliation processes in the past, you know that
+[You]: it's an ever changing thing. It requires a lot of maintenance. Why? Because these files change,
+[You]: the formats change, the names of the columns change,
+[You]: the way you're operating with that provider changes. And so the
+[You]: the logic cannot be something static. It needs to be dynamic, and it's
+[You]: to be evolving, changing all the time, optimizing for the new setups
+[You]: and all the changes that happen.
+[You]: When you operate with these providers.
+[You]: Some early results we've seen with with with our customers
+[You]: The first one is around workflow automation. Right?
+[You]: Automating more than 80% of the manual tasks that that these teams were doing before using Rexy.
+[You]: The compliance risk has been zero. Some of the companies we started working with
+[You]: had some penalties with with regulators or with compliance
+[You]: organizations, and we
+[You]: drove that down to zero.
+[You]: And write off savings. There's there's a typical journal entry and some financial
+[You]: that is named
+[You]: unreconcilable losses.
+[You]: We're taking that to zero because we
+[You]: we don't like to believe or or like to believe that in 2026,
+[You]: money is getting lost in the system. That should be zero. So that's
+[You]: one of our biggest missions when building Rexian working with our customers.
+[You]: These are some success cases.
+[You]: And this is how we typically work. We we start by a limited scope,
+[You]: We could book a demo, then figure out a proof of concept, the pilot, and then do a progressive rollout.
+[You]: Because this is a true transformation on how you're operating this workflow
+[You]: and we wanna make sure that we go
+[You]: in a progressive manner unlocking value as we go.
+[You]: And also
+[You]: educating and helping the teams
+[You]: adopt the platform, adopt the tool, and get the most value out of it.
+[You]: So that's why we take a a progressive approach.
+[You]: That's pretty much on me.
+[You]: I'm I'm I'm more than interested in learning more about you guys and and
+[You]: what got you interested in Rexy in the first place.
+[You]: How do you see the the specifically, the reconciliation process
+[You]: work and how what what type of improvements or what type of are you seeing right now?
+[Remote]: You tell us just a little bit more the
+[Remote]: experiences you had with partners or so the solution you work on
+[Remote]: what did you did
+[Remote]: actually with the your current partners.
+[You]: So for example, let's say,
+[You]: a new bank we're working with. So this new bank is sitting on top of SponsoredBank.
+[You]: And they have a ledger to manage that FPO account.
+[You]: And then they're integrated to more than 10 providers.
+[You]: For the different products and services they offer.
+[You]: Remittance provider, a card manager,
+[You]: they have a cash in cash out provider, they have Zelle,
+[You]: It's it's here in The US.
+[You]: And so, basically, what we do there is works as a data orchestrator in which we're ingest
+[You]: the bank statements.
+[You]: The ledger,
+[You]: and the transactional reports that each provider is sending.
+[You]: And then for each money flow, we're reconciling
+[You]: the data to make sure that
+[You]: money is moving in the right directions and in the right Right?
+[You]: That what basically, what that does is it enables finance teams and ops teams to make sure that
+[You]: their operation is healthy. And if something goes wrong,
+[You]: they identify it very quickly and in real time on a transactional basis.
+[You]: So as soon as 10 transactions go missing,
+[Remote]: That's
+[You]: they can
+[You]: call their bank and ask
+[You]: what's going on.
+[Remote]: that's the keyword there. So transaction is the keyword
+[Remote]: So most of our customers before working with Rexy were
+[Remote]: reconciling on an aggregate, in an aggregate manner.
+[Remote]: So they would see, hey. There is I don't know.
+[Remote]: 50 k missing from yesterday or from last week, and
+[Remote]: as they're as as they don't have the technology nor the operational capacity
+[Remote]: to do a transaction level reconciliation, they have no way of knowing
+[Remote]: who or what is missing. They just know that it's 50 k missing,
+[Remote]: And as long as it's below, I don't know, 60 k,
+[Remote]: it doesn't trigger any alarm. But if you compound that over months
+[Remote]: weeks, or or years, it's a lot of money that they're losing just because
+[Remote]: they don't have the operational capacity to try to reconcile
+[Remote]: millions and millions of trans of transactions. They don't know
+[Remote]: who to claim, who to go after.
+[Remote]: Okay.
+[You]: That's one. The other one is
+[You]: again, workflow automation.
+[You]: Many of the banks or the fintechs we're working with or payment processors have big teams.
+[You]: Only doing reconciliation.
+[You]: And our platform enables to automate all of that.
+[You]: It doesn't make sense to have people on Excel chasing transactions. This system is
+[You]: way more effective
+[You]: way more precise,
+[You]: and it's
+[You]: way more cost efficient. It's it's one of those AI
+[You]: sort of
+[You]: replacement logics.
+[Remote]: Because I I was trying to wonder for example, in our case,
+[Remote]: of course, we are already integrated with
+[Remote]: all of our providers, APIs, and
+[Remote]: we can do analysis on
+[Remote]: the data that we get from them and
+[Remote]: match maybe data that we have on our
+[Remote]: data sets that derived from our
+[Remote]: accounting systems and so on. So
+[Remote]: some we we do somehow some reconciliation of
+[Remote]: course, between the data, the single point data that
+[Remote]: we get from our providers and our
+[Remote]: bookkeeping data. So what is exactly
+[Remote]: the point where your technology
+[Remote]: is different, I mean, to a
+[Remote]: simple reconciliation. I mean, where I have two set of data, one data coming from the provider, the other data.
+[Remote]: Coming from our
+[Remote]: accounting system.
+[Remote]: Trying to We did the work
+[Remote]: we tend to work the other way around. So what you're doing now is
+[Remote]: reconciling your accounting data to your provided data
+[Remote]: We generally create only the accounting entries
+[Remote]: We automate the accounting entries for our customers.
+[Remote]: Only with reconciled transactions. So
+[Remote]: we generate those accounting accounting entries
+[Remote]: our customers
+[Remote]: in an automated way
+[Remote]: only with data or that we know is is right. We know that this money is here, so
+[Remote]: we that generates this accounting entry. We know this is missing,
+[Remote]: that generates this other accounting entry. So we first reconcile
+[Remote]: and then we automate for our customers the creation of those journal entries.
+[Remote]: Okay.
+[You]: And then, I mean, it's hard to
+[You]: compare. I would love to to learn more about how you currently do it, but then, of course,
+[You]: there's the AI component. Right?
+[You]: Our our system is AI native, meaning
+[You]: we have a lot of layers intelligence in each part of the process, which make it
+[You]: more effective, more productive, easier to use, more adaptable, more dynamic.
+[You]: And and and and the other important part we see with some of our customers is that our platform
+[You]: is designed for nontechnical users.
+[You]: What this does is basically enables the ops team or the finance team to emancipate from the technical teams.
+[You]: Right?
+[You]: That we all know
+[You]: always have other priorities, always have a lot of things going on, and it's hard to
+[You]: them
+[You]: build something for you
+[You]: finance or in ops.
+[You]: Right? So the the system is also designed for nontechnical people that want to
+[You]: gain independence from
+[You]: the technical teams.
+[You]: But but I think
+[You]: to be able to do that assessment, Nicola, I think we need to
+[You]: double down on
+[You]: how are you currently managing it,
+[You]: and which specifically are the pains.
+[You]: In terms of what our platform typically adds, it's
+[You]: automation,
+[You]: artificial intelligence, transaction level matching,
+[You]: creating the journal entries of stuff that's already reconciled instead of then closing the books and
+[You]: having to run around trying to explain the differences.
+[You]: There's a lot of things and a lot of different pains that we tend to solve, but it's
+[You]: it's a lot of a case by case. Right?
+[You]: We need to learn more about how you're currently managing and the pains associated to that process.
+[Remote]: John, you are
+[Remote]: already seeing this
+[Remote]: Yeah. Yeah. Other legal entities of the group.
+[Remote]: Yeah. Yeah. We had the chance to meet group treasury.
+[Remote]: Some some weeks some weeks ago, and we are trying
+[Remote]: to understand if there are any other offices that would like
+[Remote]: to understand more about this solution.
+[Remote]: And we ask your opinion
+[Remote]: to understand if in Compass you we have the chance also to
+[Remote]: show the platform. Actually, guys, I I thought
+[Remote]: we could have the chance to see the the platform as well also for
+[Remote]: for Nicole. I don't know if it's possible in, I don't know, maybe five minutes to
+[Remote]: okay, to give a brief introduction to the platform. And in in the
+[Remote]: I I was thinking if if it could be useful to
+[Remote]: understand if in Compass there would be someone that
+[Remote]: could be interested in this those type of solution
+[Remote]: And may I also ask what kind of
+[Remote]: technology do you use for, reconciliation? So it's something,
+[Remote]: that is deterministic or also somehow?
+[Remote]: Yes. I mean, for reconciliations,
+[Remote]: once it's set, it's completely deterministic. We live
+[Remote]: zero zero room for hallucinations or any anything that could
+[Remote]: ambiguous.
+[Remote]: But
+[Remote]: having said that, it's impressive. It's actually impressive the way
+[Remote]: LLMs help you understand, optimize, and
+[Remote]: and
+[Remote]: basically find or understand what's missing or or what's
+[Remote]: wrong or what better ways to reconcile. It it it's
+[Remote]: it's way, way more product more powerful,
+[Remote]: these processes than a human brain. They they they are way better and faster.
+[Remote]: At analyzing data and finding discrepancies, etcetera.
+[Remote]: So there's many, processes within the platform
+[Remote]: that are actually powered by AI.
+[Remote]: And we intend to
+[Remote]: increase that percentage by the end of of this month even more.
+[Remote]: So
+[Remote]: having said that, we it is, deterministic, but you'll see that
+[Remote]: we have a lot of suggestions from AI and a lot of, you know,
+[Remote]: ways to improve or or make more efficient those reconciliations that were
+[Remote]: previously set by a human operator.
+[Remote]: But during setup or during, run?
+[Remote]: Both.
+[Remote]: Of course. You if you wanna
+[Remote]: understand what could be better, you need to first run the reconciliation, and that triggers
+[Remote]: we we analyze with with AI every reconciliation.
+[Remote]: And that would that would trigger the analysis.
+[Remote]: And and and the, of course, suggestions
+[Remote]: Let me let me go
+[You]: You wanna do a walk through or yes, eso?
+[Remote]: yeah. Let let let me do a quick walk through
+[Remote]: This is not
+[Remote]: I mean,
+[Remote]: How can I share? I'm not used to Teams. Sorry.
+[Remote]: Window here.
+[Remote]: Here we go.
+[You]: Yes.
+[Remote]: Can you see my screen now?
+[Remote]: Yes.
+[Remote]: Perfect. So, basically, as Nat just said, what we do is we automate
+[Remote]: operational
+[Remote]: financial, and accounting processes for
+[Remote]: any any player that is, working mostly in their
+[Remote]: intersection between high transactionality
+[Remote]: high complexity, and high regulation
+[Remote]: operation. So, basically, we automate the ingestion
+[Remote]: of the information from every data source. That could be a bank, a processor, of any partner
+[Remote]: or internal ledger, or whatever.
+[Remote]: We automate that process. We
+[Remote]: automate the standardization because, you know, this this
+[Remote]: these databases come from different players, and they have they come in very
+[Remote]: currencies. They come in different formats and and
+[Remote]: and so we we automate that
+[Remote]: standardization as well.
+[Remote]: Of course,
+[Remote]: any any process you wanna do here, any any
+[Remote]: any view, we keep the original one without any changes.
+[Remote]: But, we allow you to do any modification or grouping or
+[Remote]: split or enrich it with other databases
+[Remote]: Anything you you basically can do with Excel, you can do here.
+[Remote]: Only Excel breaks, starting at 200, 300 k
+[Remote]: transactions, and here you can have literally millions of transactions.
+[Remote]: And, so it's it's like scale Excel, but scalable.
+[Remote]: And also allows you to automate that process.
+[Remote]: Once you have your your sources,
+[Remote]: once you have your sources set up and prepared for reconciliations,
+[Remote]: you basically create your reconciliations. Basic reconciliation is
+[Remote]: you know, to reconciliation a rule between
+[Remote]: two databases, but
+[Remote]: they can become even more and more complex. You can have dependent reconciliations. You can have
+[Remote]: dependent reconciliation, reconcile against a third, a fourth,
+[Remote]: a fifth database. And that way, you create your your whole, money flow.
+[Remote]: This is a result of our reconciliation. Of course,
+[Remote]: have different scripts. First one tends
+[Remote]: to be by ID or whatever.
+[Remote]: Whatever is better, but mostly
+[Remote]: mostly strict IDs and then and then second reconciliation maybe with some tolerance and and
+[Remote]: third and fourth and fifth then you have the the transactional data.
+[Remote]: You've got the general metrics of any reconciliation. So this is
+[Remote]: this would be source a,
+[Remote]: This would be source b.
+[Remote]: You know, number of transactions per day, source a.
+[Remote]: How many of those
+[Remote]: reconciled, how many of those are unmatched, and the same in in amount.
+[Remote]: In in US dollars or or whatever currency, euros,
+[Remote]: So this is the generic information.
+[Remote]: Then you've got the problem solver that helps you
+[Remote]: you know, understand your data. Sometimes you reconcile a new
+[Remote]: really don't understand what you're working with.
+[Remote]: Here, you get a generous sense. So it tells you
+[Remote]: hey. Most of the that that did not match
+[Remote]: come from, you know, difference in times time stamps or
+[Remote]: difference in in time periods. So they will never reconcile
+[Remote]: or it it does find, you know, some transactions on source A and some transactions
+[Remote]: or source b that that could actually match if you modified one of the
+[Remote]: one of the the matching criteria
+[Remote]: here, for example, it suggests
+[Remote]: modifying one one of your reconciliations.
+[Remote]: Rule optimization, and it would get your reconciliation from 79 to 87.
+[Remote]: You know? And then you can you can chat with information. Hey. Show me examples.
+[Remote]: Find find this transaction. You know?
+[Remote]: Then, of course, you've got the exception manager here. You would do, like,
+[Remote]: mile matching. This is what
+[Remote]: you know, 2,015 platforms would look like.
+[Remote]: You have the automation, and then whatever did did not match, you start
+[Remote]: you know, manually matching.
+[Remote]: We believe that this won't be the case anymore. This
+[Remote]: part of the the second part of our reconciliation
+[Remote]: gonna get completely automated within weeks.
+[Remote]: Then you've got alarms,
+[Remote]: You create your alarm. You get alarms
+[Remote]: get triggered, in whatever way you need or your operation needs.
+[Remote]: Or and and they can be sent via email, Slack, etcetera.
+[Remote]: Then, of course,
+[Remote]: the reconciliations have general results that are
+[Remote]: across the board for every reconciliation.
+[Remote]: But then companies need to have their own personal
+[Remote]: dashboards, or maybe they have
+[Remote]: 50, 60 reconciliations, and they want one dashboard for
+[Remote]: each of the money flows, etcetera. So you you you can
+[Remote]: create your own dashboards, with any widget that you want.
+[Remote]: That that's a new feature. I I didn't know it was already deployed.
+[Remote]: You you can have widgets based on on sources, reconciliations,
+[Remote]: Of course, they can be charts
+[Remote]: you know, pivot tables. This is a very, very useful
+[Remote]: tool on on Excel, basically.
+[Remote]: But our platform allows you to make
+[Remote]: gigantic table tables with millions of transactions,
+[Remote]: that
+[Remote]: that allow you to sort your information in whatever
+[Remote]: you need.
+[Remote]: And finally, of course, many of our customers
+[Remote]: were spending a lot of time
+[Remote]: either daily, weekly, or monthly creating reports.
+[Remote]: That these reports were taking a lot of time for them.
+[Remote]: So we, we created the the reporting
+[Remote]: module to automate that process as well. So, basically, it it creates
+[Remote]: reports in whatever format you need,
+[Remote]: with either sources as,
+[Remote]: source of information or reconciliation results.
+[Remote]: You can you can export these these reports wherever you need. For example,
+[Remote]: Query or or Snowflake or whatever
+[Remote]: database you need. So, basically,
+[Remote]: what we do is we automate ingestion. We standardize information.
+[Remote]: We automate the reconciliations. We help you understand your data,
+[Remote]: improve your reconciliations,
+[Remote]: find find problems, find solution
+[Remote]: for the problems you're having in your in your current processes,
+[Remote]: First, doing manual matches or unmatches or marking them as exceptions.
+[Remote]: We've got alarms.
+[Remote]: Extremely easy to use dashboards. And we also automate reports and
+[Remote]: and export the information the information.
+[Remote]: I don't know if there's any questions. I think we're
+[You]: Yeah.
+[You]: The in the sorry. In the interest of time, I don't yeah. I don't know if there's certain questions, but I do need to jump
+[You]: The last thing, though, can you stay a bit a couple more minutes?
+[Remote]: Yeah. Definitely.
+[You]: Okay. Just one last thing before leaving. I think
+[You]: other than these walkthroughs or demos, I think the true value of the platform is
+[You]: is seen when we
+[You]: either show a real demo with real data or do a real pilot test.
+[You]: So I'll just leave Thio here to answer some questions, but if you guys
+[You]: see value in in automating this process,
+[You]: what you see generates some interest, I would propose
+[You]: as a next step to try to do a real demo or some sort of pilot test.
+[You]: Other than that, I'll leave you with Leo.
+[Remote]: Great.
+[Remote]: Thank you. Thank you.
+[You]: Thank you.
+[Remote]: See you.
+
+============================================================
+SUMMARY
+============================================================
+### Compass Operations & Reconciliation Process
+
+- Nicola Gatti (Vice Chief Risk Officer) manages multiple areas at Compass (Mediobanca retail company)
+  - Insurance business, M&A, artificial intelligence initiatives
+- Current reconciliation approach
+  - Already integrated with provider APIs for data analysis
+  - Match provider data against accounting system datasets
+  - Generate accounting entries from bookkeeping data
+  - Process is deterministic once configured
+- Key difference from Rexi approach
+  - Compass reconciles accounting data to provider data
+  - Rexi creates accounting entries only from pre-reconciled transactions
+  - Rexi designed for non-technical users to operate independently
+
+### Rexi Platform Capabilities & Differentiation
+
+- Core value proposition
+  - Transaction-level reconciliation vs aggregate reconciliation
+  - Most customers previously reconciled in aggregate (e.g., “50k missing” without knowing specific transactions)
+  - AI-native system with intelligence layers throughout process
+- Technical features demonstrated
+  - Handles millions of transactions (vs Excel breaking at 200-300k)
+  - Automated ingestion, standardization, reconciliation
+  - Problem solver suggests rule optimizations (e.g., 79% to 87% match rate improvement)
+  - Exception manager for manual matching
+  - Custom dashboards and automated reporting
+- Results with existing customers
+  - 80%+ workflow automation
+  - Zero compliance risk (eliminated regulatory penalties)
+  - Zero write-off savings (eliminated “unreconcilable losses”)
+
+### Next Steps
+
+- Ignacio proposed real demo with actual data or pilot test as next step
+- Teo remained to answer additional questions after Ignacio left
+- Edoardo mentioned previous meeting with group treasury, exploring other Mediobanca entities for potential interest
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/93435a52-001d-48ca-9abc-01053e40a98b](https://notes.granola.ai/t/93435a52-001d-48ca-9abc-01053e40a98b)

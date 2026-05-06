@@ -1,0 +1,951 @@
+MEETING: Cornell Speaker:  Ignacio of Rexi
+DATE: 2026-01-06
+ID: not_idlFa0MhDG2QXw
+ATTENDEES: Ignacio Berardi <nacho@rexi.finance>, Jkagan <jkagan@gmail.com>
+SCHEDULED: 2026-01-06T16:30:00-05:00 - 2026-01-06T17:15:00-05:00
+
+============================================================
+TRANSCRIPT
+============================================================
+[Remote]: And
+[Remote]: obviously, they're somewhere, but we know where they are.
+[Remote]: He is a addressable problem that a lot of banks have.
+[Remote]: That most human beings would only be too happy to
+[Remote]: to automate themselves out of that job.
+[Remote]: But there is
+[You]: Yep.
+[Remote]: Can you hear me?
+[Remote]: Oh, we can't hear you yet.
+[You]: Everyone.
+[Remote]: So do we need to switch over to?
+[You]: Hello?
+[Remote]: Can you hear me?
+[You]: Yep. I can hear you.
+[Remote]: There is.
+[You]: Hello, everyone.
+[Remote]: Excellent.
+[Remote]: Hi there, Nacho. How are doing?
+[You]: Doing good. Doing good. Thank you. Very happy to be here.
+[Remote]: Thank you so much for taking your time.
+[Remote]: The class has just finished running through an exercise, so this would be a nice
+[Remote]: break to hear from you. And I just gave a short intro of your background
+[Remote]: but I probably didn't do you justice.
+[Remote]: But Ignacio is the CEO and founder of Rexiallet him tell you
+[Remote]: about his background and how he became the founder.
+[Remote]: A little bit about Rexy. And then if you know anybody who can be a good customer,
+[Remote]: you gotta email him. But then, he'll take some questions.
+[Remote]: So please take it away.
+[You]: Awesome. Thank you so much. Well,
+[You]: you everyone for having me. It was not long ago. I was
+[You]: sitting in your seat. I did an MBA in Harvard. I graduated this year well, 2025 in May.
+[You]: So I'm I'm it's very weird to be in the other side of the screen now. But,
+[Remote]: Let me see.
+[You]: so a little bit more about me. I'm
+[Remote]: Nacho, can I can I hear
+[You]: Argentinian.
+[Remote]: for a second? Do you have a few slides that you wanted do wanna just test sharing them while I have the
+[You]: Yep.
+[Remote]: technical support team here?
+[Remote]: Just to make sure you have them
+[You]: Do you see my screen?
+[You]: Awesome.
+[Remote]: Yes. We do. Excellent.
+[Remote]: Alright. We're in great shape. And, just for those of you who don't know, Harvard is a community college in Boston.
+[Remote]: Yeah. I I thought it was in the the place, Cambridge. What
+[Remote]: Summer of that. Yeah. The place. I had to. I had to, man.
+[You]: I
+[Remote]: Please take it away. Like, I have a place on Thursday.
+[You]: I knew I knew I was coming. I knew I was coming. I deserve it.
+[You]: It was just to say I was in the other side.
+[You]: A couple months ago, and it's it's it's it's strange and also awesome to be on this side this time.
+[You]: So, I was talking a bit more about me. So,
+[You]: I'm from Argentina. I moved to The US for my
+[You]: MBA.
+[You]: Two years and a half ago, now living in New York. My career, I started in Mass consulting, and then quickly shifted over to tech.
+[You]: Started over in, Bitsou, which is LatAm's largest
+[You]: crypto exchange. So it's, like, the Coinbase from Latin America.
+[You]: I did product there, which was by far the most fascinating time of my
+[You]: professional career.
+[You]: And that's sort of when I started thinking about starting a company. I think doing product in these tech
+[You]: companies is sort of being an entrepreneur inside a company.
+[You]: And I just enjoyed so much, thinking about a problem,
+[You]: designing hypothesis, and then
+[You]: just carrying out these experiments to test the value
+[You]: and iterating. Iterating and iterating. Most of the value I'm one of those founders who's gonna say,
+[You]: I have my thesis. I have my hypothesis. I have my my vision.
+[You]: But I also know that 99% of value comes from iteration. So
+[You]: I'm just a fanatical
+[You]: obsessive person that loves iterating with customers.
+[You]: So I came to HBS with the idea of starting a company using its resources and
+[You]: its platform
+[You]: to build a company. And after ideating, I think, a year,
+[You]: with a couple of ideas, I was I was
+[You]: jamming with. I ended up just, like, bumping into this problem space without even knowing.
+[You]: I
+[You]: I did an internship, my summer internship at a fintech company called Comune based
+[You]: in New York.
+[You]: And while I was there, I
+[You]: was chief of staff of a seed stage company, whatever that means. But there was no CFO, so I would
+[You]: was doing a lot of finance stuff.
+[You]: One of the things I ended up doing because we're growing so fast
+[You]: was
+[You]: the workflow of reconciliation. I'm not sure many of you know
+[You]: what it means, but basically
+[You]: fintech companies that are that
+[You]: don't have banking licenses or banking charters
+[You]: operate with partner banks.
+[You]: So that means
+[You]: there's just a software layer, an abstraction layer on top of that
+[You]: depository institution that's providing
+[You]: the the depository services. Right? So
+[You]: basically, when we have that layered architecture, this requires
+[You]: reconciliation mechanism.
+[You]: Which basically means comparing
+[You]: whatever happens in the software layer in terms of activity, transactions of users,
+[You]: needs to be the same and equal to
+[You]: real money moving in the bank, which is a third party in this case.
+[You]: So that's basically reconciliation. I'm just simplifying it way too much
+[You]: gets way more complex, but it's basically that. So
+[You]: there's a transactional report on the on the software side. There's a transactional the There's
+[You]: report on the banking side, we're comparing those files.
+[You]: Again, I'm simplifying a lot, but
+[You]: that's basically what, what Rexy does. We're automating the process of this
+[You]: transactional report comparison. Now,
+[You]: there's a lot of different pain points that come out of this process.
+[You]: Which, again, we're solving with AI. Because I guess the first question I get and
+[You]: course, many of you are thinking about,
+[You]: has anyone tried to solve this before you?
+[You]: Of course, is. And and and there's two things for that.
+[You]: The first one is no one has actually cracked it in a way that's
+[You]: scalable and sustainable with a business model
+[You]: that they can charge
+[You]: reasonable prices for it. What ends up happening is
+[You]: reconciliation is incredibly nuanced.
+[You]: So
+[You]: it depends a lot on every single setup, every single integration, and the providers you work with.
+[You]: That means that building a a SaaS solution which automates the workflow
+[You]: on a one size fits all,
+[You]: approach is very, very hard. And so what these companies end up doing is they have assessed
+[You]: that they then have to
+[You]: tailor
+[You]: and adapt to each setup that they are onboarding, which requires a lot of professional services. The famous
+[You]: term of forward deployed engineers, which clients are coined.
+[You]: Is what's happening a lot today
+[You]: all these workflows that are incredibly nuanced, and it's very hard to build a solution that
+[You]: basically conserve all these
+[You]: different setups.
+[You]: So the first part of how we're applying AI is
+[You]: how can we build a solution that sort
+[You]: of feels like you're building software internally?
+[You]: Right?
+[You]: How can we build a solution that can basically encompass and serve
+[You]: all these different
+[You]: needs
+[You]: and pains around this workflow, knowing that
+[You]: if we don't crack this,
+[You]: never gonna be sustainable for us to sell, implement, onboard,
+[You]: have customer success for every single customer we can sell into.
+[You]: It's just gonna be a nightmare of
+[You]: hand holding implementations and then a lot of back and forth ones
+[You]: ones were live.
+[You]: So that's the first thing. The first thing is
+[You]: how are we gonna use AI so that this tool, this platform feels like you're building software
+[You]: for your workflow, tailored and customer software
+[You]: for your workflow.
+[You]: The second part on how we use AI, and then I'm gonna flip through these slides,
+[You]: I'm gonna repeat myself again. But
+[You]: the second big vision of Rex here of how of how we're gonna be using AI is
+[You]: cracking the business model.
+[You]: Right?
+[You]: I was just mentioning that many of the incumbents were competing with
+[You]: have a SaaS solution, which is good.
+[You]: But then most of the values accrued when these
+[You]: four deployed engineers come in or these account managers come in,
+[You]: and actually implement it and integrate it to your systems and then provide all the SLAs and the
+[You]: afterwards.
+[You]: Now, when you're selling a SaaS with all those professional services, you need to charge
+[You]: for it.
+[You]: And so that's when these solutions get very, very expensive.
+[You]: And, of course, what ends up happening is the only type of customer that can buy a solution like that in which
+[You]: they're paying contracts
+[You]: north of half 1,000,000 or north of even $1,000,000,000 a year,
+[You]: only for a reconciliation workflow.
+[You]: It's it's it's only for enterprises. Right? It's big companies that can pay for that.
+[You]: So basically, what's happening is that that is price excluding
+[You]: the mid and lower market or even like big companies that not enterprise and don't wanna pay for
+[You]: a million bucks for a reconciliation workflow,
+[You]: it's they're they're just being price excluded. And so the way they're doing it today is they have
+[You]: fin ops teams or finance teams or operations teams developing a patchwork of Excel macros,
+[You]: SQL queries, Python scripts,
+[You]: to reconcile their money movements.
+[You]: And, of course, it doesn't scale,
+[You]: because these files never match. There's discrepancies that you need to investigate and close.
+[You]: And so that only means that as these companies grow, these teams grow.
+[You]: Right? We we've been talking with customers that have teams of
+[You]: 10, 12, 15 people
+[You]: only doing reconciliation. So for us, it's like, how can we use AI to crack
+[You]: the business model and offer a solution
+[You]: that is way lower than half $1,000,000 and therefore target all that non consumption?
+[You]: For for any early stage company, I think going after the big incumbents,
+[You]: I don't wanna discourage anyone, but it's it's harder.
+[You]: It's definitely harder.
+[You]: And even more in a workflow like reconciliation, which is a sticky solution.
+[You]: Like, for you to replace a system that's working,
+[You]: I mean, either there's a pain on the other side that it's not working or it's too
+[You]: solution is dramatically better, which is hard to prove on a
+[You]: demo or on a proof of concept. So for us, it's like going after that non
+[You]: consumption and using AI to crack the business model.
+[You]: Everything that our competitors are doing with these professional services on implementation,
+[You]: customer support, and account management, we're doing with AI agents. Right?
+[You]: And with a tool that feels like building your own software. So that's sort of like
+[You]: how we're thinking about cracking this problem that, of course, a million other people have seen or are trying
+[You]: to crack.
+[You]: But this is our thesis, this is what we're experimenting with.
+[You]: I don't know if if Jeremy has told you, but we're still early.
+[You]: Experimenting a ton. We have paying customers live in production.
+[You]: And we're learning every single day. And if there's anyone there
+[You]: thinking about starting a company,
+[You]: I have only words of encouragement. It's
+[You]: it's hard,
+[You]: emotionally hard. It's a roller coaster, but it's so much fun.
+[You]: So having said that, I'm just gonna flip through these slides, and I think there's gonna be more value in in
+[You]: answering some q and a
+[You]: after
+[You]: I go these three slides. So just
+[You]: mentioning a bit of what we do,
+[You]: Again, we're powering fintechs and insurance companies.
+[You]: With this, like, next generation AI infrastructure to automate
+[You]: financial operations and deliver faster, safer products. Right?
+[You]: I want to double down on this one.
+[You]: B2B SaaS
+[You]: selling automation is way harder than selling something that will either
+[You]: increase their revenue or will reduce risk.
+[You]: That's just a nugget that I've learned so far.
+[You]: In my journey. Who are we targeting?
+[You]: This might seem like we're all over the place because we sort of are yet.
+[You]: At some point, we're gonna
+[You]: laser target
+[You]: to a more specific niche
+[You]: segment of customers. But as of today, we're targeting sponsor banks, batch
+[You]: providers, fintech platforms, payment orchestrators,
+[You]: insurance companies. And basically, any company that
+[You]: that's why the time is hard to measure because it's actually way bigger than everyone thinks.
+[You]: Any company that integrates multiple payment flows,
+[You]: and has a high transactionality has a pain with reconciliation. And so
+[You]: of course, then the trick is
+[You]: given it's very nuanced, we need to start small and really nail a segment and then grow towards other verticals.
+[You]: Because it's not it's gonna be
+[You]: very hard for us, which we are strapped for resources to build solution
+[You]: that serves well with sponsor banks, with fintech labrands, and with insurance providers.
+[You]: And our experience, of course, coming from, Harvard, Columbia, MIT,
+[You]: and just deep experience in fintech. I mean, we we've we've all three cofounders, we've all
+[You]: lived in Spain in different FinTech setups and and
+[You]: just building something that we wished we had before.
+[You]: This is about our our investors and our early customers. This is the team.
+[You]: And there's a little bit of value prop in our our infrastructure stack
+[You]: today.
+[You]: We have an ingestion agent that basically pulls all the information into the platform.
+[You]: We have a transformation agent, basically parses all the information into
+[You]: a single format and a universal format that then is easier to compare.
+[You]: We have the processing agent, which basically
+[You]: gets the business logic to match transactions and find the patterns.
+[You]: And then discrepancy resolution because, again, these files never match.
+[You]: So this workflow becomes way more about
+[You]: discrepancy, investigation, and resolution.
+[You]: And then there's this coordination agent, which is the count the the the point of contact with our customer
+[You]: with our user, right, which goes back and forth.
+[You]: And helps the user build this custom
+[You]: workflow for them. Now the three design factors which we are building
+[You]: platform with,
+[You]: is plug and play.
+[You]: A huge pain around
+[You]: what's the time to value
+[You]: when I buy and implement solutions like this one.
+[You]: It takes
+[You]: six months to a year. We try to crack that with a way easier and
+[You]: quicker time to value.
+[You]: A self serve, again, this is
+[You]: going back to our business model in which we don't wanna have
+[You]: I I always joke around with my cofounders. If we have an account manager, we just failed.
+[You]: Hopefully, never have an account manager in our company.
+[You]: And for that, the solution needs to be very self serve.
+[You]: And then compliance ready because as I mentioned, selling
+[You]: risk reduction is is way of a bigger sell than selling automation.
+[You]: And just another nugget nugget on automation.
+[You]: It's very interesting and very sensible to sell automation when many of
+[You]: people in the room are are are sort of, like, getting automated by the
+[You]: solution. If there's a team of 10, 15 people doing
+[You]: reconciliation and you're basically selling automation and cost reduction,
+[You]: it's a bit weird to be with the same people in the room. Right? So
+[You]: so that that sort of, like, b to b sales art
+[You]: is is very important and very interesting. I I sort of underestimated it and
+[You]: and now I'm learning a ton.
+[Remote]: Basically saying when you go to sell the people you're
+[You]: Exactly.
+[Remote]: selling to are gonna lose their jobs.
+[Remote]: That's a tough sale.
+[You]: Exactly.
+[You]: Yep.
+[You]: A little bit of our performance indicators, reducing manual work,
+[You]: risk and write off savings.
+[You]: Write offs come from unreconciled
+[You]: transactions that these companies cannot
+[You]: account for. And so they need to close the books at the end of the month.
+[You]: And for regulatory reasons, they need to present a report, and so they just write it off.
+[You]: This is just like, literally, they're losing money
+[You]: on stuff they cannot account for, and they don't know where it is.
+[You]: Very crazy to think that in 2026,
+[You]: money just get gets lost in the system.
+[You]: But it it happens, and it happens more than you think so.
+[You]: Just a little bit more about our customers and what do they say. I can then share this with with
+[You]: Jeremy, and they get and you can circle it around. And and and what's our road map going
+[You]: forward. Right?
+[You]: Integrations, which will basically
+[You]: because we need to connect into every single bank or payment provider where we ingest the data.
+[You]: And we don't wanna be doing that race of
+[You]: developing 250 native integrations. So we're we're experimenting with a dynamic
+[You]: integrator
+[You]: that, basically, we do integrations for each single customer, not on our code.
+[You]: It's it's like ad hoc and it's instant
+[You]: if there's good API documentation. If there's not, then it gets a bit more messy.
+[You]: We're also experimenting with embedded solutions. This is regarding
+[You]: distribution. We do direct sales.
+[You]: But some of these companies see this as a feature they wanna include in their platform for their
+[You]: customers.
+[You]: So we're also exploring that distribution route because
+[You]: there's a huge market there, particularly with payment
+[You]: providers, payment infrastructure providers. And then the collaboration workflows. For us,
+[You]: reconciliation, at its core
+[You]: a coordination issue. Right? So it's comparing my source of the truth against yours.
+[You]: A third party.
+[You]: The best way to solve it is to bring these part of these parties' closure together.
+[You]: A centralized platform in which they're seeing the same information,
+[You]: with the same format, and they have a tool to collaborate on the differences. Right?
+[You]: And the powerful thing about that is that it can start generating network effects.
+[You]: In which
+[You]: there's some players in the stock that have the leverage,
+[You]: to actually push us to the rest of the ecosystem. Example,
+[You]: sponsor banks. If we're working with sponsor banks, they can actually push us and force us to their fintech
+[You]: partners, like saying,
+[You]: you wanna work with me. You need to be a Rexi.
+[You]: It's gonna enable me, sponsor bank,
+[You]: to stay compliant with regulators, to have a higher degree of control and visibility on what you're doing,
+[You]: and to have the right set of controls
+[You]: if everything goes south. Right?
+[You]: And this is just if wanna book a trial or something.
+[You]: Other than that,
+[You]: there's a good chunk of time for q and a, I think is the most interesting part. At least when I was
+[You]: on the other side of the room
+[You]: it was where I found the most value. So hopefully,
+[You]: there's some interesting questions for me to answer.
+[Remote]: Yeah. That was great. We do have a bunch of questions. Let me start with Regina.
+[Remote]: I have played a part in the fond of reconciliation. No fun.
+[Remote]: So what do you look at like, what does it look like
+[Remote]: to embed or or
+[Remote]: how does working with the NetSuite or QuickBooks or whatever have you
+[Remote]: what does that look like based on your platform?
+[Remote]: As it is now and then maybe versus where you're going?
+[You]: For us, the ERP sit at at the
+[You]: output side of the workflow. So, basically, we ingest all the raw files with transactions.
+[You]: We transform them. We process them.
+[You]: We spit out the results. And then once it's reconciled, we general we generate the journal entries, and we
+[You]: connect to
+[You]: whatever our customers are using using as an ERP to
+[You]: create the journal entries of whatever's reconciled. Another
+[You]: and and you were spot on on the question. Another
+[You]: interesting learning we had the past few months is
+[You]: many of these finance workflows we think a
+[You]: stay in finance, but actually
+[You]: it connects a lot the operations team with the finance team. So
+[You]: a lot of solutions out there building either for the CFO stack or for the COO stack.
+[You]: And what we're trying to what we're discovering right now is, first,
+[You]: should these stacks
+[You]: be connected?
+[You]: Particularly on reconciliation, we're seeing that yes.
+[You]: And so one of the things we're building
+[You]: first on the collaboration front is that internal collaboration between ops and finance.
+[You]: Because the ops team does that daily recon
+[You]: on the money movements operated that single day,
+[You]: then the accounting and the treasury team at the end of the month comes in to generate what you just said
+[You]: the journal entries and the ERP part. Now
+[You]: today,
+[You]: very weird, both of these teams are not working together.
+[You]: They're working with different tools, different systems, and different processes.
+[You]: But conceptually, if you think about it, whatever is reconciled every single day,
+[You]: at the end of the month, we should just add up and compare it against the balance
+[You]: seeing at the end of the month. Right? And just create the books
+[You]: close the books and create the journal entries based on
+[You]: the buildup of that daily recon.
+[You]: So that's one part of the question. The second part of the question,
+[You]: how is it to integrate with them
+[You]: It's all over the place. Some of these are really good.
+[You]: They have really good API docs, and it's easy to
+[You]: get into ingest, read, write, whatever.
+[You]: Some of others are more like
+[You]: red tape and put put guard rails because they don't want
+[You]: to share that information because maybe they're selling other like, there's a lot of
+[You]: interesting incentives.
+[You]: In these
+[You]: conversations. Some of these companies are already building
+[You]: reconciliation products or any SaaS tool that basically adds
+[You]: value added services to whatever they're offering already. And so guardrailing the data,
+[You]: serves them
+[You]: a competitive
+[You]: moat, sort of to say. So
+[You]: it's all over the place. There's APIs, there's SFTPs,
+[You]: There's some banks that are really, really bad at
+[You]: at at data sharing.
+[You]: And just share you flat files over email or just
+[You]: need to go into their portal
+[You]: and download CSV files. But, again, all of that mess
+[You]: is getting easier and easier with AI and AI agents. Right? They can log in to
+[You]: a portal, download the CSV, that can
+[You]: up files from emails and so on. So
+[You]: the good thing is that some of these guard release can't can be
+[You]: outworked with technology.
+[Remote]: Oops. Sorry. Just a
+[Remote]: quickly follow-up on that. So you
+[Remote]: so the user in the business, like, how much do they, I guess,
+[Remote]: touch
+[Remote]: your product versus
+[Remote]: I guess this is on top of whatever they're using
+[Remote]: Just trying to understand, like, the workflow part of it.
+[Remote]: Component.
+[Remote]: I think it's checked.
+[You]: So the users are
+[Remote]: Essentially or
+[You]: either ahead of ops or head of finance.
+[You]: And
+[You]: they basically like, there's just
+[You]: one one off effort, which is connecting the data sources and connect and and and
+[You]: designing the whole pipeline of information all the way from ingestion, transformation, and processing.
+[You]: Once that's set up, it runs automatically every single day, and the user just logs in every
+[You]: single day to see the results.
+[You]: Investigate and solve discrepancies. And then they click approve to generate the journal entries of whatever
+[You]: is reconciled.
+[Remote]: Hi. Yeah. Thanks for joining us.
+[Remote]: We I'm going to a asset in property community management company. So
+[Remote]: So you can imagine doing this for 60 properties is
+[Remote]: you know, it's definitely a pain point
+[Remote]: that being said, like, I'm trying to understand because
+[Remote]: you know, we
+[Remote]: we download the CSV file.
+[Remote]: Right, from the bank account.
+[Remote]: And then we put it into our property management software, and it reconciles it.
+[Remote]: How I just like, I'm trying to understand because everything is about time.
+[Remote]: You know, everything is about whether, you know, we use an AI agent for direct
+[Remote]: notices to residents, to so many different
+[Remote]: ways that AI is being integrated into our our property management software.
+[Remote]: I'm just trying to like, and maybe that's not your
+[Remote]: your target market, but I'm just seeing like, trying to understand
+[Remote]: we go from
+[Remote]: thirty seconds to
+[Remote]: ten seconds by having a
+[Remote]: you know, this tool.
+[You]: So
+[You]: So what you're saying is that this property should
+[You]: property management tool is already reconciling these files in thirty seconds.
+[Remote]: Basically, we're just taking the you know, we go into the bank
+[Remote]: account, and we're down we're uploading you know, we're just
+[Remote]: stating the CSV file. We're putting it into
+[Remote]: property management software, and it reconciles it
+[Remote]: within seconds.
+[You]: Yeah. I mean, the the processing part is is straightforward. It's it's just like saying
+[You]: compare this file against this file based on this rule.
+[You]: And it just starts matching. There's no AI of that on that. It needs to be deterministic.
+[You]: Because AI can hallucinate, and there's
+[You]: a very a very high cost of hallucination if it doesn't
+[You]: you're saying there's a match and actually there isn't. Right? Because that's money missing.
+[You]: That's pretty straightforward. It's just, like,
+[You]: data processing. Right?
+[You]: Where AI comes in for us and and just going backwards is on implementing it.
+[You]: And that goes all the way from
+[You]: building the data pipelines
+[You]: building the transformation logic, building the rules.
+[You]: I guess that your property management tool already has predefined rules on how these things should
+[You]: match against another file.
+[You]: And that's why it's it's easier. And the good thing about them, which is what we're trying to crack right now is
+[You]: it's a very specific niche.
+[You]: Right, where the rules, the reconciliation rules and the sources of discrepancy
+[You]: are a limited
+[You]: set.
+[You]: Right? And so it's very easy to build
+[You]: through like an
+[You]: a SaaS tool that can encompass
+[You]: all those different combinations of discrepancies and all those different combinations
+[You]: of reconciliation logic.
+[You]: Now what happens if that you
+[You]: upload to that tool
+[You]: a bank statement from another setup or from another company.
+[You]: I'm sure the the recon logic is not useful and it crashes. So that's when, again,
+[You]: these workflows are very nuanced.
+[You]: And and our our vision is how can we build a software that's
+[You]: cool for pro it's that's good for property management, that's good for FinTech, that's good
+[You]: for insurance. And so it's at the end of the day, it builds it it feels like a tool
+[You]: that you can use to build your own workflow.
+[Remote]: So the week was
+[You]: That's when it it really becomes scalable.
+[Remote]: right. So what we have to do for each bank
+[Remote]: need to match out the line. Right? The date,
+[Remote]: the date line, the deposit line, the description line,
+[Remote]: And so the property management software, all we have to do is say, okay. Read it from line three, read
+[Remote]: from line four.
+[Remote]: You know, read it from line five.
+[Remote]: And that's how we have to change it to to match up with the CSV file.
+[You]: Yep.
+[You]: That's a straightforward logic.
+[You]: And and
+[You]: that's a simple one. I can mention some that are like banks. There's some banks
+[You]: particularly in the fintech industry, for example,
+[You]: they're not doing real time payments. So they just do one single payment at the end of the day.
+[You]: So that's when you're starting to match many transactions on one side against one on the other
+[You]: side.
+[You]: That's when it gets
+[You]: it gets fun because then you're grouping
+[You]: many transaction on one side against one on the other, and you're doing those comparisons based on some logic.
+[You]: That's when you need to understand cutoff times. You need to understand
+[You]: the batching logic, and you need to understand,
+[You]: what happens with the transactions that are left out of that cut of time.
+[You]: And and then there's a case management system of unreconciled transactions that you're carrying over
+[You]: day by day. So that's when it becomes a workflow. I mean, of course, can go all the way from
+[You]: that simple comparison you just mentioned to a, like, way more complex workflow.
+[You]: Flows based on how these providers operate and how these setups are built.
+[You]: And then there's the volume side of it. What what's what's the volume of transactions a day
+[You]: that this system is processing?
+[Remote]: We have a little question over there. Alexis?
+[Remote]: Hi. Thank you for speaking. What you had compliance or
+[Remote]: reportings, and you guys prepare that. What kind of compliance reporting are you preparing?
+[You]: Well, it depends on the regulator. Right? On the banking side, there's
+[You]: a set of regulations and reports that the banks need to present every single day.
+[You]: On the insurance, it's different, and on a payment provider, it's different. So
+[You]: it's it's only understanding the framework and the forward of the report, and then just
+[You]: transforming the data and generating that output for them to
+[You]: either download or we can send it via email or Slack.
+[Remote]: So it almost is, like, an audit
+[Remote]: tool versus, like,
+[Remote]: like, a payment tool in that sense.
+[You]: It's it's a 100% an
+[You]: information tool. We don't man we don't do payments.
+[You]: It's just a data orchestrator.
+[Remote]: Yes.
+[Remote]: Okay. Because I was just interested because I work in
+[Remote]: financial crimes compliance. So, like, if you were to, like, have stuff missing,
+[Remote]: that would have to be reported to the regulator. Would you be obligated to report that?
+[Remote]: Because, like, usually, the way FinCEN works is, like, if you're knowledgeable of a crime,
+[Remote]: supposed to kinda, like, report it. So that's, like, where I'm just interested in, like,
+[Remote]: who's, like, who's a responsible party?
+[You]: Not us. I mean,
+[Remote]: That's fair.
+[You]: it's an interesting example. You just it's an interesting example, but
+[You]: there's a lot of data security mechanisms
+[You]: that we use on our site because it can be sensible data like the one you just shared or
+[You]: like, transactional data that we don't have. So
+[You]: we typically ingest hash data. We don't even know what it's in there.
+[You]: And we just process and match
+[You]: these
+[You]: hash data that that we don't know what it is. So
+[You]: depends on the industry and on the vertical. We we
+[You]: do these different set of procedures on on data privacy and data security to
+[You]: basically avoid all these liabilities that come from
+[You]: seeing the data. Right?
+[Remote]: You should look into casinos. They need this pretty desperately, I would think.
+[You]: Interesting.
+[Remote]: So
+[Remote]: Vina is interesting.
+[Remote]: You have any recommendations to see if it's Just go to Vegas And just
+[Remote]: pick one off the shrimp and
+[Remote]: show them this. They might be interested. Dude, telling a founder, his business trip
+[Remote]: should be to Vegas. Yeah. Wanna they wanna do it. In evening. That's where we went. Yeah. So
+[Remote]: Any other questions?
+[Remote]: I wanted to follow-up on something you said. You mentioned
+[Remote]: that it was for more transactional businesses.
+[Remote]: Is that because the transactions are interday versus what,
+[Remote]: maybe monthly rent payments that that Robert was talking about?
+[Remote]: That change the dynamic of the business?
+[You]: So
+[You]: I guess, like, it it all adds up to how
+[You]: how big and complex the problem becomes. Right?
+[You]: Companies that operate these sort of like seasonal payment flows
+[You]: which happen every once a month or or once a quarter or once a year,
+[You]: It typically is companies that have lower level
+[You]: lower volume of transactions. Right? And so that's when
+[You]: the ROI versus just having this
+[You]: patchwork of Excel macros
+[You]: Python scripts, SQL queries. It's just like, you're gonna come and and and
+[You]: implement an automated solution for something that I can do in thirty minutes in Excel, like, at
+[You]: I don't think it makes sense. So typically, the ICP for us, which we're still trying to nail, is
+[You]: companies that have two things. First, multiple payment flows.
+[You]: Just because the different like, the amount of data sources
+[You]: and and payment flows you need to reconcile just adds to the complexity.
+[You]: The second one is transactional volume. We've also seen companies with very low volume
+[You]: and it's just not a pain.
+[You]: Because they're not either growing the team a lot or they're not losing money.
+[You]: Once they start growing the team and lose money because of reconciliation, that's when
+[You]: they start shopping for a solution, and and there's a smarter
+[You]: sell for us, which, again, given we're early stage, we try to
+[You]: shorten the sales cycle as much as we can and try to look for companies that have this as a burning
+[You]: name.
+[Remote]: Shall you get a question? Can you talk a little bit? And thank you so much
+[Remote]: for sharing this. It's very interesting. Can you talk a little bit about
+[Remote]: what that
+[Remote]: cost efficiency looks like once you're up and running
+[Remote]: within a company? What would have you seen in terms of the results
+[Remote]: on impact for resources in this particular area?
+[You]: Interesting question. So
+[You]: we we surveyed paying customers, and we found out that we've reduced
+[You]: 80% of the manual work previously done in reconciliation.
+[You]: Manual work includes all the way from
+[You]: logging into a portal to download a CSV file,
+[You]: all the Excel work to unify the formats,
+[You]: building the macros, executing the macros to compare these files, and then investigating and solving for
+[You]: discrepancies.
+[You]: All of those tasks
+[You]: are very time consuming.
+[You]: Are in Excel, and and that's why there's big teams doing this.
+[You]: We've seen 80%
+[You]: And and and and and there's there's a couple of reasons for that.
+[You]: Why
+[You]: we keep that 20%, which we think is healthy,
+[You]: Reconciliation is a very sensible workflow, right? It's not something these companies wanna
+[You]: just automate on a black box solution and just forget about it.
+[You]: Every CFO, every COO still wants someone to own this.
+[You]: And if something goes wrong, someone to call and that knows exactly what's going on and what's
+[You]: how they're gonna fix it. Right? So
+[You]: having the right set of guardrails and the right set of human loop
+[You]: approving everything that's happening, it's it's very important for us.
+[You]: It's it's very, very important. Because, again, it's a sensitive workflow.
+[You]: And and no one wants this to just disappear in the background on an automated solution.
+[You]: So, yeah, we've seen 80%, and we think that keeping that 20% is
+[You]: is is healthy, and it's what we need to operate these kind of workflows. That again,
+[You]: are very critical for the business.
+[Remote]: Yeah.
+[Remote]: Yeah. Any other question? I have a couple left, but I wanted to let you guys go first.
+[Remote]: I have one.
+[Remote]: Yes. I want. So
+[Remote]: I'm curious. Look at on time, Nacho. Sorry about that.
+[You]: I'm great, yeah.
+[Remote]: Okay. Good.
+[Remote]: Go ahead. One sec. Thank you.
+[Remote]: Are you able to produce, like,
+[Remote]: data analytics for these companies? And
+[Remote]: also, do you have the ability to
+[Remote]: for the same company, link multiple bank accounts?
+[You]: On the data analytics side, we're seeing a lot of overlap on what we do.
+[You]: And all of, like, the business intelligence platforms out there.
+[You]: Because we have the transactional data. So, basically, building these tables or charts on
+[You]: whatever analysis they wanna do should be straightforward. Today, it's it's it's about
+[You]: like, focus and prioritizing our
+[You]: our resources. It's something we
+[You]: could do and we can do.
+[You]: And our customers are asking for it. But it's not something we're focusing on right now because, again,
+[You]: focus pays off a lot, and there's a lot more
+[You]: functionalities we need to build on the
+[You]: data processing side and the reconciliation side.
+[You]: And the second question was
+[Remote]: Are you able to link
+[Remote]: multiple bank accounts to, for the same business?
+[You]: Sure.
+[Remote]: I'm on I'm actually I'm I'm on the dental
+[Remote]: side. We use a platform, called Ramp.
+[Remote]: They were able to,
+[Remote]: use them essentially as, for credit cards, but also to manage
+[Remote]: expenses and transactions. The only aspect they don't have is
+[Remote]: they can't read our
+[Remote]: transactions and and and and our separate bank accounts.
+[Remote]: So if
+[Remote]: there's a solution out there that's able to do all of that, that'd be great.
+[You]: Yep. Yep. We do have that sort of, like,
+[You]: treasury platform feature of being able to connect to
+[You]: multiple bank accounts and and provide that
+[You]: aggregated view across
+[You]: all your systems.
+[You]: If we have APIs better, if not, we build
+[You]: SFTPs or or just pull it in whatever way or form you're currently consuming it.
+[You]: Just one more thing on the on the data analytics side and BI side, which you just remembered.
+[You]: Again, today, we're not prioritizing that, but it's a it's very close to
+[You]: we're seeing with our customers.
+[You]: We are doing today is
+[You]: printing reconciled data
+[You]: the platform they're using for BI.
+[You]: Because they wanna be taking decisions on stuff that's reconciled, not stuff that
+[You]: is not a 100% accurate. So whatever they're using for data analytics and BI,
+[You]: they want it to be as accurate as possible. They sort of, like, run it through Rexy, they see that sort of like a hygiene cleansing platform. And then we print it out clean and reconciled into their BI platform. For them to take decisions business decisions based on accurate data.
+[Remote]: Thank you.
+[Remote]: If she becomes a customer, she gets a discount because she heard it here. Right?
+[You]: A 100%.
+[Remote]: We're gonna throw that.
+[Remote]: I have two questions for you unless there's more from the class.
+[Remote]: One question is, could you walk through the workflow and point out which parts are
+[Remote]: AI, which parts are deterministic like you were talking about?
+[Remote]: And which parts have that human element that you said is so important.
+[You]: 100%. Let me go back to my deck here.
+[You]: This one.
+[You]: See my slide right now?
+[Remote]: Yeah.
+[You]: So ingestion.
+[You]: Ingesture per se,
+[You]: no AI.
+[You]: But building the data pipelines, we use AI for that. You're gonna see how
+[You]: every single part of the workflow, AI for us is way more about a business model enabler.
+[You]: Rather than a product
+[You]: feature or
+[You]: or infrastructure part of the product. Right? So
+[You]: data ingestion. Ingesting the data once the data pipeline is built, no AI. But building those pipeline
+[You]: in a sustainable and scalable way, we're using AI for that with our dynamic integrator.
+[You]: Data transformation,
+[You]: a 100% AI.
+[You]: AI is great at analyzing structured data and finding the right
+[You]: transformation so that both of these files look the same way.
+[You]: And that's just like automating SQL. Right? It's not
+[You]: something that
+[You]: will be defensible for us going forward. Data processing,
+[You]: this is when you start matching transactions. When we match transactions, that's the
+[You]: deterministic because, again, we cannot afford any sort of hallucination.
+[You]: But configurating the business logic, we use AI for that. So, again,
+[You]: this is a huge part of the implementation workflow. Once we get the data, we're like, okay. How do these
+[You]: files match?
+[You]: Because not always do we have a unique transaction
+[You]: identifier or a date or an amount that it's easy to match. Sometimes we need to get
+[You]: creative or even add, like, a third database
+[You]: within which enriches these databases to then find additional matches. And for that,
+[You]: to configure that logic,
+[You]: which is the optimized most productive logic to achieve
+[You]: the highest matching ratio we use AI.
+[You]: Discrepancy resolution
+[You]: this is
+[You]: again, we use a lot of AI here.
+[You]: Which is basically once we run these files through the logic,
+[You]: and find what matches and what doesn't,
+[You]: typically the discrepancies fall in two worlds.
+[You]: One is like data mistakes that if you dig deeper, you're gonna find
+[You]: the match to to that transaction. And the other one is actual money
+[You]: So, ideally, this is zero.
+[You]: All the data mistakes should zero. So
+[You]: that's where we use AI. AI
+[You]: is really good at finding additional matches, at finding exceptions, at
+[You]: suggesting all these things.
+[You]: And this is where a lot of human in the loop comes in because all of these are AI powered
+[You]: Once we find the pattern,
+[You]: in the discrepancy list,
+[You]: we don't wanna be matching that
+[You]: automatically.
+[You]: Because
+[You]: again, this is AI suggested. Some of these patterns are
+[You]: are not so great. Some of these patterns are not exact.
+[You]: There's some thresholds, and we really want
+[You]: that human approval.
+[You]: A cool thing about our product as well as all these approvals are
+[You]: are saved, and there's a full audit on who did what
+[You]: with the timestamp
+[You]: and it's a 100% traceable if at some point at the end of the year, there's an audit or something.
+[You]: And there's a human in the loop in every step of the way.
+[You]: Data ingestion, there's a lot of guidance of the human there.
+[You]: Data transformation, of course, we suggest the human approves.
+[You]: Data processing, we suggest the human approves, and discrepancy resolution
+[You]: AI suggests human approves. So, again,
+[You]: if you think about it for us, it's a business model enabler and not so much
+[You]: on the product.
+[You]: To do whatever that these companies are doing with account managers or forward deployed engineers, we're doing it with AI
+[You]: agents.
+[Remote]: And, my last question, unless there's, something from you guys, is
+[Remote]: what what is it your message then to a team that you're going in and saying, hey.
+[Remote]: There's 15 people here. If you hire us, they'll be fine.
+[Remote]: How do you, have you figured that out, or what are you thinking is gonna work there? Talk to the team.
+[Remote]: That's a tough sale.
+[You]: So there's there's there's two things we do.
+[You]: The first one because
+[You]: the buyer of our solution typically has that team.
+[You]: And we're gonna generate, again, a reduction of 80% of that team's panel work.
+[You]: So typically, there's there's one of the things we do is go to that person's
+[You]: boss.
+[You]: So if it's a head of finance, we go to CFO and tell them,
+[You]: I'm gonna try to push this solution, which is gonna be great for your company.
+[You]: I want you to know that there's a sensitivity in a sensitivity in what we're selling.
+[You]: That you should know and that we
+[You]: might see this as a roadblock as we continue conversations with the
+[You]: with with whomever should be the sponsor. Typically, like, B2B sales, there's like a
+[You]: sponsor, which is the user that's actually gonna see the value
+[You]: push the project forward, and then there's the budget approver. So we typically go to the budget approval and it just, like,
+[You]: put this situation out there so that they know about the sensitivity.
+[You]: And the second thing we do, of course,
+[You]: in every in every single B2B sales,
+[You]: process, you should talk about a business case or an ROI.
+[You]: And typically, we do there instead of saying you should fire all these people is
+[You]: there's a lot of, like, higher value add tasks
+[You]: that they should be doing. One of them
+[You]: specifically in our workflow, is
+[You]: they're gonna be able to investigate board discrepancies. I'll give you an example.
+[You]: At Camun, we were processing 1,000,000 transactions a month.
+[You]: We were matching 95% of them.
+[You]: So that means we had 50,000 of of discrepancies. Right?
+[You]: Now,
+[You]: if you have one person investigating 50,000 discrepancies every single month,
+[You]: you're not gonna be able to go through all of them.
+[You]: Typically, you do is you filter out the biggest ones, you investigate and close the biggest ones, and
+[You]: smaller ones you should do a write off.
+[You]: So what we can do there is say,
+[You]: now you have more bandwidth to investigate all of the discrepancies and save all that
+[You]: money from a write off.
+[You]: Again, it's about getting creative, but it's hard to tell. I feel like,
+[You]: the AI era,
+[You]: everyone's bumping into these sensitive conversations and trying to sell it either as
+[You]: focus on higher value added tasks,
+[You]: or or just scale it upwards to say, maybe you do need to trim your team.
+[You]: Makes no sense to be
+[You]: a 15 people team. You know?
+[Remote]: Yeah. While we have a follow-up question, Michelle. It's really interesting.
+[Remote]: Right? Because you need those team members to feed the system and and Yeah.
+[Remote]: Kind of give you the insights that you need for the ingestion and everything. So
+[Remote]: have you found implementation to be slower sometimes when you don't have
+[Remote]: you know, a team that is aligned and with with
+[Remote]: with the leadership,
+[Remote]: Have you had that experience or not really?
+[You]: Yeah. 100%. There's always detractors. In our in our case,
+[You]: in our case, an interesting detractor
+[You]: is also the tech team, the CTO team.
+[You]: Because these the the the technology teams in these companies always
+[You]: have this culture or this dynamic where
+[You]: every time the company hires an external vendor, they feel they're doing a shitty job.
+[You]: They should be building that tool internally.
+[You]: And so
+[You]: and and then when they see the software, the the the reaction is always like,
+[You]: I could build this internally in two weeks. I don't know why we're hiring them.
+[You]: But again, it it's all about
+[You]: resource allocation. If you're a company
+[You]: you're a payment orchestrator, then reconciliation is part of your core.
+[You]: You should be investing an internal tool for that. If you're a neo bank,
+[You]: reconciliation is not part of your core. You should be investing dev resources and even, like, growth resources
+[You]: on
+[You]: building product and growing your company.
+[You]: It's never gonna be a core competence. So
+[You]: it also depends on navigating the right
+[You]: ICPs and understanding if if this company
+[You]: is gonna make it or break it based on
+[You]: then probably they wanna fill it internally. If not, then
+[You]: it's about building that ROI in that business case and saying,
+[You]: you shouldn't be investing a team of
+[You]: two or three engineers in building an internal tool for this for over a year.
+[Remote]: So
+[Remote]: so
+[Remote]: in Q4 coming, and is this for
+[Remote]: global market, or is it for US only?
+[Remote]: Like, suppose if I have multiple branches,
+[Remote]: where I need to
+[Remote]: kind of, you know, implement say, for instance, instead of bank reconciliation,
+[Remote]: say, have narcotics.
+[Remote]: In pharmaceuticals.
+[Remote]: Where I want to worldwide, I want to
+[Remote]: manage the inventory of those narcotics because
+[Remote]: it is highly regulated.
+[Remote]: So how do you do that? I mean, is it for only US based or
+[Remote]: it goes worldwide
+[Remote]: in the entire company?
+[You]: So the good thing about building a data orchestrator orchestrator
+[You]: is it's sort of global by design.
+[You]: The only part that becomes local is the integrations
+[You]: data sources
+[You]: which again is either APIs or SFTPs. These these
+[You]: set of technologies don't
+[You]: don't care about where in the world they are. So
+[You]: it's pretty much global.
+[You]: What's very nuanced and local for us is the distribution effort.
+[You]: And then some of these integrations and some mechanisms
+[You]: around regulators and and compliance frameworks.
+[Remote]: That's your question. Yeah. But I think
+[Remote]: what I'm trying to say is the formatting
+[Remote]: the information that is coming.
+[Remote]: Which has to be reconciled, is going to be very different.
+[Remote]: Location wise.
+[Remote]: It won't be exactly identical. Right?
+[Remote]: Because every every branch will have
+[Remote]: that Bob work shield. See the loop.
+[Remote]: They were manual job they are doing.
+[Remote]: It is kind of very different information, different formatting,
+[Remote]: different kind of things. How to integrate them together? Like,
+[Remote]: is what I meant by that.
+[You]: Yeah.
+[Remote]: Yeah. So you're saying that there's different data formats in the different countries. It's
+[Remote]: Sometimes you're proprietary, but that's kinda what you're designed for, I imagine.
+[You]: Yeah.
+[You]: Exactly.
+[Remote]: I'm sorry. I didn't mean to interrupt. Please go ahead.
+[Remote]: Did you have more nacho?
+[You]: No. No. No.
+[Remote]: Any any other questions?
+[Remote]: So you you answered my questions. You answered their questions. You stayed late.
+[Remote]: Can't ask for anything else. Thank you so much for coming on a busy work day.
+[Remote]: I'll look and talk soon and say hi to you, partners. Okay?
+[You]: Thank you so much.
+[Remote]: Thank you.
+[You]: Have a good one.
+[Remote]: See you later.
+
+============================================================
+SUMMARY
+============================================================
+### Ignacio’s Background and Career Journey
+
+- Argentinian, moved to US for MBA at Harvard, graduated May 2025
+- Career progression: McKinsey consulting → Bitso (LatAm’s largest crypto exchange, “Coinbase of Latin America”)
+- Product role at Bitso sparked entrepreneurial interest
+  - Enjoyed problem-solving, hypothesis design, experimentation cycles
+  - 99% of value comes from iteration with customers
+
+### Rexi Overview and Problem Space
+
+- Founded during Harvard MBA using school resources and platform
+- Discovered reconciliation pain point during summer internship at Comune (NYC fintech)
+  - Chief of staff role involved finance workflows
+  - Experienced reconciliation complexity firsthand
+- Core problem: Fintech companies without banking licenses operate with partner banks
+  - Creates layered architecture requiring reconciliation between software layer and actual bank movements
+  - Current solutions either expensive enterprise-only or manual patchwork approaches
+
+### AI Strategy and Business Model Innovation
+
+- Two-pronged AI approach:
+  1. Product scalability: Tool feels like building custom internal software
+    - Encompasses different setups without professional services overhead
+  2. Business model disruption: Automate what competitors charge for
+    - Incumbents charge $500K-$1M+ annually due to professional services costs
+    - Target non-consumption market excluded by high prices
+- AI agents replace account managers and forward deployed engineers
+  - Goal: Never need account managers (“if we have an account manager, we failed”)
+
+### Target Market and Customer Segments
+
+- Current targets: Sponsor banks, payment providers, fintech platforms, payment orchestrators, insurance companies
+- Ideal customer profile still refining:
+  - Multiple payment flows (increases complexity)
+  - High transaction volume (makes ROI worthwhile)
+- Performance indicators achieved:
+  - 80% reduction in manual work
+  - Risk reduction and write-off savings
+  - Intentionally keeping 20% human oversight for sensitive workflow
+
+### Platform Architecture and Roadmap
+
+- Five-agent system:
+  1. Ingestion agent: Pulls data from sources
+  2. Transformation agent: Standardizes formats
+  3. Processing agent: Matches transactions, finds patterns
+  4. Discrepancy resolution: AI-powered investigation
+  5. Coordination agent: User interface and workflow management
+- Key design principles: Plug-and-play, self-serve, compliance-ready
+- Roadmap priorities:
+  - Dynamic integrator for instant API connections
+  - Embedded solutions for platform distribution
+  - Collaboration workflows for network effects (sponsor banks can push adoption to fintech partners)
+
+### Sales Challenges and Solutions
+
+- Sensitive automation conversation: Selling to teams being automated
+  - Approach 1: Brief budget approver about sensitivity before user conversations
+  - Approach 2: Reframe as higher-value work enablement vs job elimination
+  - Focus on investigating more discrepancies, reducing write-offs
+- Additional resistance from tech teams claiming they could build internally
+  - Counter with resource allocation argument: focus engineering on core competencies
+
+---
+
+Chat with meeting transcript: [https://notes.granola.ai/t/e2e9c2b1-c909-4531-aa26-5a92bae9f700](https://notes.granola.ai/t/e2e9c2b1-c909-4531-aa26-5a92bae9f700)
