@@ -102,24 +102,28 @@ async function generatePromptsForCluster({
   const result = await anthropic.parse({
     model: "claude-sonnet-4-6",
     max_tokens: 2048,
-    system: systemPrompt,
+    system: [
+      {
+        type: "text",
+        text: systemPrompt,
+        cache_control: { type: "ephemeral", ttl: "5m" },
+      },
+    ],
     schema: GeneratePromptsSchema,
     messages: [
       {
         role: "user",
-        content: JSON.stringify({
-          profile: {
-            name: profile.name,
-            category: profile.category,
-            description: profile.description,
-            icp: profile.icp,
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify({ profile, competitors }),
+            cache_control: { type: "ephemeral", ttl: "5m" },
           },
-          competitors: competitors.map(({ domain, name }) => ({
-            domain,
-            name,
-          })),
-          cluster,
-        }),
+          {
+            type: "text",
+            text: JSON.stringify({ cluster }),
+          },
+        ],
       },
     ],
   });
