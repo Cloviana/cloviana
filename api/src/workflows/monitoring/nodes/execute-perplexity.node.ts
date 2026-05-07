@@ -5,7 +5,10 @@ import {
   MonitoringNodeConfig,
   requireMonitoringDependencies,
 } from "../monitoring.config";
-import { RESPONSES_PER_PROMPT_PER_ENGINE } from "../monitoring.constants";
+import {
+  MONITORING_CONCURRENCY,
+  RESPONSES_PER_PROMPT_PER_ENGINE,
+} from "../monitoring.constants";
 import { EngineResponse, StateType } from "../monitoring.state";
 import type { EngineFailure } from "../monitoring.types";
 
@@ -17,7 +20,7 @@ export async function executePerplexity(
   engineFailures: EngineFailure[];
 }> {
   const { perplexity, groq, logger } = requireMonitoringDependencies(config);
-  const limit = pLimit(3);
+  const limit = pLimit(MONITORING_CONCURRENCY);
   const requestedCount = state.prompts.length * RESPONSES_PER_PROMPT_PER_ENGINE;
   const brands = [
     { name: state.profile.name, domain: state.profile.domain },
