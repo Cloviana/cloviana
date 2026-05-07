@@ -22,6 +22,8 @@ async function bootstrap() {
   app.connectMicroservice(createRabbitMqOptions(rabbitmqUri, MONITORING_QUEUE));
 
   await app.startAllMicroservices();
+  await app.init();
+
   logger.log(`Listening for ${AUDITS_QUEUE.queue}`);
   logger.log(`Listening for ${BUSINESSES_QUEUE.queue}`);
   logger.log(`Listening for ${MONITORING_QUEUE.queue}`);
