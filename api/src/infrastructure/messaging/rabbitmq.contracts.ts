@@ -22,8 +22,10 @@ export interface CleanupStaleBusinessesPayload {
 }
 
 export interface RunMonitoringPayload {
+  jobId: string;
   businessId: string;
   promptIds: string[];
+  runDateIso?: string;
 }
 
 export const RUN_AUDIT_EVENT = "audit.run";

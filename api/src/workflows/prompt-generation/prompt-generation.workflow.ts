@@ -31,7 +31,7 @@ export class PromptGenerationWorkflow {
       profile,
     });
 
-    return this.managedJobs.runManagedBusinessJob({
+    return this.managedJobs.runJobInline({
       type: JobType.PROMPT_RESEARCH,
       businessId,
       dedupeKey,

@@ -21,7 +21,7 @@ export class BusinessInitializationWorkflow {
       data: { status: "PROCESSING" },
     });
 
-    return this.managedJobs.runManagedBusinessJob({
+    return this.managedJobs.runJobInline({
       type: JobType.BUSINESS_INITIALIZATION,
       businessId,
       dedupeKey: DEDUPE_KEY,

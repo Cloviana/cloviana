@@ -6,7 +6,7 @@ import type {
   EngineResponse,
   MetricResponse,
   PromptMetricState,
-} from "./monitoring.types";
+} from "../monitoring.types";
 
 type Brand = {
   competitorId: string | null;
@@ -85,7 +85,9 @@ function normalizeEngine(
   }
 }
 
-function normalizeResponses(responses: MetricInputResponse[]): MetricResponse[] {
+function normalizeResponses(
+  responses: MetricInputResponse[],
+): MetricResponse[] {
   return responses.map((response) => ({
     engine: normalizeEngine(response.engine),
     promptId: response.promptId,
