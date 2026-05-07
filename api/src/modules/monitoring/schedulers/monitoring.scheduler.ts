@@ -1,6 +1,6 @@
 import { MonitoringProducer } from "@/infrastructure/messaging/producers/monitoring.producer";
 import { Injectable, Logger } from "@nestjs/common";
-import { Cron, CronExpression } from "@nestjs/schedule";
+import { Cron } from "@nestjs/schedule";
 import { MonitoringEligibilityService } from "../services/monitoring-eligibility.service";
 
 const DUE_WINDOW_MS = 1000 * 60 * 60 * 24 * 3;
@@ -14,7 +14,7 @@ export class MonitoringScheduler {
     private readonly monitoringProducer: MonitoringProducer,
   ) {}
 
-  @Cron(CronExpression.EVERY_10_MINUTES)
+  @Cron("*/10 * * * *")
   async enqueueDueMonitoringRuns(): Promise<void> {
     const cutoff = new Date(Date.now() - DUE_WINDOW_MS);
     const groups = await this.monitoringEligibility.findDuePromptGroups(cutoff);

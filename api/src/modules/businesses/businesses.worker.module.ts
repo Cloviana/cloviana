@@ -2,10 +2,11 @@ import { BusinessInitializationWorkflowModule } from "@/workflows/business-initi
 import { Module } from "@nestjs/common";
 import { BusinessesConsumer } from "./consumers/businesses.consumer";
 import { BusinessesMaintenanceService } from "./services/businesses-maintenance.service";
+import { BusinessesScheduler } from "@/modules/businesses/schedulers/businesses.scheduler";
 
 @Module({
   imports: [BusinessInitializationWorkflowModule],
   controllers: [BusinessesConsumer],
-  providers: [BusinessesMaintenanceService],
+  providers: [BusinessesMaintenanceService, BusinessesScheduler],
 })
 export class BusinessesWorkerModule {}
