@@ -12,7 +12,7 @@ import {
   PromptRunStatus,
   PromptStatus,
 } from "@prisma/client";
-import { computeBusinessMetrics } from "../monitoring-metric-calculator";
+import { computeBusinessMetrics } from "../utils/monitoring-metric-calculator";
 import { RESPONSES_PER_PROMPT_PER_ENGINE } from "../monitoring.constants";
 import type { StateType } from "../monitoring.state";
 import type {

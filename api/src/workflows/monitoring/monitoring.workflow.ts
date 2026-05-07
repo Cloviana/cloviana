@@ -1,4 +1,3 @@
-import { createHash } from "node:crypto";
 import { AnthropicService } from "@/clients/anthropic/anthropic.service";
 import { GroqService } from "@/clients/groq/groq.service";
 import { OpenAIService } from "@/clients/openai/openai.service";
@@ -7,13 +6,12 @@ import { PrismaService } from "@/clients/prisma/prisma.service";
 import { DataForSeoService } from "@/integrations/dataforseo/dataforseo.service";
 import { ManagedJobsService } from "@/modules/jobs/services/managed-jobs.service";
 import { Injectable, Logger } from "@nestjs/common";
-import { JobType, PromptStatus } from "@prisma/client";
+import { PromptStatus } from "@prisma/client";
+import { formatDateKey, startOfUtcDay } from "./utils/monitoring-job-key";
+import { computePromptMetrics } from "./utils/monitoring-metric-calculator";
 import { graph } from "./monitoring.graph";
-import { computePromptMetrics } from "./monitoring-metric-calculator";
 import type { StateType } from "./monitoring.state";
 import { MonitoringRunPersistenceService } from "./services/monitoring-run-persistence.service";
-
-const DEDUPE_PREFIX = "monitoring";
 
 type MonitoringInitialState = Pick<
   StateType,
@@ -28,16 +26,6 @@ type MonitoringRunSummary = {
   promptMetricCount: number;
   businessMetricCount: number;
 };
-
-function startOfUtcDay(date: Date): Date {
-  const d = new Date(date);
-  d.setUTCHours(0, 0, 0, 0);
-  return d;
-}
-
-function formatDateKey(date: Date): string {
-  return date.toISOString().slice(0, 10);
-}
 
 function buildRunSummary(
   date: Date,
@@ -70,17 +58,15 @@ export class MonitoringWorkflow {
   ) {}
 
   async run(
+    jobId: string,
     businessId: string,
     promptIds?: string[],
     runDate = new Date(),
   ) {
     const date = startOfUtcDay(runDate);
-    const dedupeKey = this.buildDedupeKey(date, promptIds);
 
-    return this.managedJobs.runManagedBusinessJob({
-      type: JobType.MONITORING,
-      businessId,
-      dedupeKey,
+    return this.managedJobs.runJob({
+      jobId,
       execute: () => this.execute(businessId, date, promptIds),
       serializeResult: (result) => result,
     });
@@ -155,20 +141,6 @@ export class MonitoringWorkflow {
     );
 
     return summary;
-  }
-
-  private buildDedupeKey(date: Date, promptIds?: string[]): string {
-    const input =
-      promptIds?.length
-        ? [...new Set(promptIds)].sort().join(",")
-        : "all-active-prompts";
-
-    const digest = createHash("sha256")
-      .update(input)
-      .digest("hex")
-      .slice(0, 16);
-
-    return `${DEDUPE_PREFIX}:${formatDateKey(date)}:${digest}`;
   }
 
   private async buildInitialState(
