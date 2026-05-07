@@ -6,30 +6,33 @@ import { PerplexityService } from "@/clients/perplexity/perplexity.service";
 import { AppConfiguration } from "@/config/app.configuration";
 import { DataForSeoService } from "@/integrations/dataforseo/dataforseo.service";
 import { graph } from "@/workflows/monitoring/monitoring.graph";
+import { computePromptMetrics } from "@/workflows/monitoring/monitoring-metric-calculator";
 import type { StateType } from "@/workflows/monitoring/monitoring.state";
 import { HttpService } from "@nestjs/axios";
 import axios from "axios";
 
 const input: StateType = {
+  businessId: "rexi-finance",
   prompts: [
     {
-      promptId: "prompt-1",
-      text: "What are the best AI search monitoring platforms for B2B SaaS teams?",
+      id: "prompt-1",
+      text: "What do banks use to automate reconciliation across multiple payment systems",
     },
   ],
   competitors: [
-    { id: "competitor-1", domain: "profound.xyz", name: "Profound" },
-    { id: "competitor-2", domain: "peec.ai", name: "Peec AI" },
-    { id: "competitor-3", domain: "athenahq.ai", name: "AthenaHQ" },
+    { id: "competitor-1", domain: "trintech.com", name: "Trintech" },
+    { id: "competitor-2", domain: "ledge.co", name: "Ledge" },
+    { id: "competitor-3", domain: "blackline.com", name: "BlackLine" },
+    { id: "competitor-4", domain: "stacks.ai", name: "Stacks AI" },
+    { id: "competitor-5", domain: "simetrik.com", name: "Simetrik" },
   ],
   profile: {
-    businessId: "business-1",
-    name: "Cloviana",
-    category: "AI search monitoring",
+    domain: "rexi.finance",
+    name: "Rexi",
+    category: "AI-powered reconciliation infrastructure",
     description:
-      "Cloviana helps B2B SaaS teams monitor how they appear across AI search and answer engines.",
-    icp: "B2B SaaS teams evaluating AI search visibility platforms.",
-    domain: "cloviana.com",
+      "Rexi is an AI-native financial reconciliation and FinOps automation platform for fintechs, neobanks, payment companies, and regulated financial operations teams. It unifies transaction sources, creates a reconciled source of truth, automates matching and exception handling, and gives finance and ops teams auditable control without relying on spreadsheets, brittle scripts, or engineering for every workflow change.",
+    icp: "Scaling fintechs, neobanks, payment companies, PSPs, PayFacs, marketplaces, and finance or FinOps teams with high transaction volume, multi-source reconciliation complexity, audit pressure, revenue leakage risk, and a need to scale operations without adding headcount.",
   },
   date: new Date(),
   engineResponses: [],
@@ -104,6 +107,7 @@ async function main() {
   if (!result) {
     throw new Error("Monitoring graph completed without a final state");
   }
+  const promptMetrics = computePromptMetrics(result, result.engineResponses);
 
   console.log("\nResponses:");
   console.log(
@@ -121,8 +125,8 @@ async function main() {
     ),
   );
 
-  console.log("\nPrompt metrics:");
-  console.log(JSON.stringify(result.promptMetrics, null, 2));
+  console.log("\nPrompt metrics computed after graph run:");
+  console.log(JSON.stringify(promptMetrics, null, 2));
 
   console.log("\nFailures:");
   console.log(JSON.stringify(result.engineFailures, null, 2));

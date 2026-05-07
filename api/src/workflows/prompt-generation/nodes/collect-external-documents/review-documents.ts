@@ -24,7 +24,7 @@ export async function collectReviewDocuments(
   const queries = buildReviewQueries(state.profile, state.competitors);
 
   logger?.debug(
-    `[${state._businessId}] Review document queries (${queries.length}): ${queries.join(" | ")}`,
+    `[${state.businessId}] Review document queries (${queries.length}): ${queries.join(" | ")}`,
   );
 
   const results = await Promise.all(
@@ -42,7 +42,7 @@ export async function collectReviewDocuments(
 
   const docs = results.flat();
 
-  logger?.debug(`[${state._businessId}] Collected ${docs.length} review docs`);
+  logger?.debug(`[${state.businessId}] Collected ${docs.length} review docs`);
 
   return docs;
 }

@@ -9,19 +9,49 @@ import { ManagedJobsService } from "@/modules/jobs/services/managed-jobs.service
 import { Injectable, Logger } from "@nestjs/common";
 import { JobType, PromptStatus } from "@prisma/client";
 import { graph } from "./monitoring.graph";
+import { computePromptMetrics } from "./monitoring-metric-calculator";
 import type { StateType } from "./monitoring.state";
 import { MonitoringRunPersistenceService } from "./services/monitoring-run-persistence.service";
 
 const DEDUPE_PREFIX = "monitoring";
 
-function startOfUtcDay(value: Date): Date {
-  const date = new Date(value);
-  date.setUTCHours(0, 0, 0, 0);
-  return date;
+type MonitoringInitialState = Pick<
+  StateType,
+  "businessId" | "prompts" | "competitors" | "profile" | "date"
+>;
+
+type MonitoringRunSummary = {
+  date: string;
+  promptCount: number;
+  responseCount: number;
+  failureCount: number;
+  promptMetricCount: number;
+  businessMetricCount: number;
+};
+
+function startOfUtcDay(date: Date): Date {
+  const d = new Date(date);
+  d.setUTCHours(0, 0, 0, 0);
+  return d;
 }
 
-function formatDateKey(value: Date): string {
-  return value.toISOString().slice(0, 10);
+function formatDateKey(date: Date): string {
+  return date.toISOString().slice(0, 10);
+}
+
+function buildRunSummary(
+  date: Date,
+  state: StateType,
+  businessMetricCount: number,
+): MonitoringRunSummary {
+  return {
+    date: formatDateKey(date),
+    promptCount: state.prompts.length,
+    responseCount: state.engineResponses.length,
+    failureCount: state.engineFailures.length,
+    promptMetricCount: state.promptMetrics.length,
+    businessMetricCount,
+  };
 }
 
 @Injectable()
@@ -42,7 +72,7 @@ export class MonitoringWorkflow {
   async run(
     businessId: string,
     promptIds?: string[],
-    runDate = startOfUtcDay(new Date()),
+    runDate = new Date(),
   ) {
     const date = startOfUtcDay(runDate);
     const dedupeKey = this.buildDedupeKey(date, promptIds);
@@ -51,69 +81,90 @@ export class MonitoringWorkflow {
       type: JobType.MONITORING,
       businessId,
       dedupeKey,
-      execute: async () => {
-        const initialState = await this.buildInitialState(
-          businessId,
-          date,
-          promptIds,
-        );
-
-        if (initialState.prompts.length === 0) {
-          this.logger.log(
-            `Skipping monitoring for businessId=${businessId}; no active prompts matched the requested subset`,
-          );
-
-          return {
-            date: formatDateKey(date),
-            promptCount: 0,
-            responseCount: 0,
-            failureCount: 0,
-            promptMetricCount: 0,
-            businessMetricCount: 0,
-          };
-        }
-
-        this.logger.log(
-          `Starting monitoring for businessId=${businessId} date=${formatDateKey(date)} promptCount=${initialState.prompts.length}`,
-        );
-
-        const result = await graph.invoke(initialState, {
-          configurable: {
-            anthropic: this.anthropic,
-            dataForSeo: this.dataForSeo,
-            groq: this.groq,
-            openai: this.openai,
-            perplexity: this.perplexity,
-            logger: this.logger,
-          },
-        });
-
-        const persisted = await this.monitoringRunPersistence.persist(result);
-
-        this.logger.log(
-          `Completed monitoring for businessId=${businessId} date=${formatDateKey(date)} promptCount=${initialState.prompts.length} responseCount=${result.engineResponses.length} failureCount=${result.engineFailures.length} promptMetricCount=${result.promptMetrics.length} businessMetricCount=${persisted.businessMetricCount}`,
-        );
-
-        return {
-          date: formatDateKey(date),
-          promptCount: result.prompts.length,
-          responseCount: result.engineResponses.length,
-          failureCount: result.engineFailures.length,
-          promptMetricCount: result.promptMetrics.length,
-          businessMetricCount: persisted.businessMetricCount,
-        };
-      },
+      execute: () => this.execute(businessId, date, promptIds),
       serializeResult: (result) => result,
     });
   }
 
+  private async execute(
+    businessId: string,
+    date: Date,
+    promptIds?: string[],
+  ): Promise<MonitoringRunSummary> {
+    const initialState = await this.buildInitialState(
+      businessId,
+      date,
+      promptIds,
+    );
+    const dateKey = formatDateKey(date);
+
+    if (initialState.prompts.length === 0) {
+      this.logger.log(
+        `[${businessId}] Skipping monitoring; no active prompts matched the requested subset`,
+      );
+
+      return {
+        date: dateKey,
+        promptCount: 0,
+        responseCount: 0,
+        failureCount: 0,
+        promptMetricCount: 0,
+        businessMetricCount: 0,
+      };
+    }
+
+    this.logger.log(
+      `[${businessId}] Starting monitoring date=${dateKey} promptCount=${initialState.prompts.length}`,
+    );
+    this.logger.debug(
+      `[${businessId}] Monitoring graph input promptIds=${initialState.prompts.map((prompt) => prompt.id).join(",")} competitorCount=${initialState.competitors.length}`,
+    );
+
+    const result = await graph.invoke(initialState, {
+      configurable: {
+        anthropic: this.anthropic,
+        dataForSeo: this.dataForSeo,
+        groq: this.groq,
+        openai: this.openai,
+        perplexity: this.perplexity,
+        logger: this.logger,
+      },
+    });
+    this.logger.debug(
+      `[${businessId}] Monitoring graph output responseCount=${result.engineResponses.length} failureCount=${result.engineFailures.length}`,
+    );
+
+    const finalState: StateType = {
+      ...result,
+      promptMetrics: computePromptMetrics(result, result.engineResponses),
+    };
+    this.logger.debug(
+      `[${businessId}] Monitoring prompt metrics computed promptMetricCount=${finalState.promptMetrics.length}`,
+    );
+
+    const { businessMetricCount } =
+      await this.monitoringRunPersistence.persist(finalState);
+    this.logger.debug(
+      `[${businessId}] Monitoring persistence completed businessMetricCount=${businessMetricCount}`,
+    );
+
+    const summary = buildRunSummary(date, finalState, businessMetricCount);
+
+    this.logger.log(
+      `[${businessId}] Completed monitoring ${JSON.stringify(summary)}`,
+    );
+
+    return summary;
+  }
+
   private buildDedupeKey(date: Date, promptIds?: string[]): string {
-    const normalizedPromptIds =
-      promptIds && promptIds.length > 0
+    const input =
+      promptIds?.length
         ? [...new Set(promptIds)].sort().join(",")
         : "all-active-prompts";
+
     const digest = createHash("sha256")
-      .update(normalizedPromptIds)
+      .update(input)
       .digest("hex")
       .slice(0, 16);
 
@@ -124,13 +175,11 @@ export class MonitoringWorkflow {
     businessId: string,
     date: Date,
     promptIds?: string[],
-  ): Promise<StateType> {
+  ): Promise<MonitoringInitialState> {
     const business = await this.prisma.business.findUniqueOrThrow({
       where: { id: businessId },
       include: {
-        competitors: {
-          orderBy: { createdAt: "asc" },
-        },
+        competitors: { orderBy: { createdAt: "asc" } },
         prompts: {
           where: {
             status: PromptStatus.ACTIVE,
@@ -142,27 +191,21 @@ export class MonitoringWorkflow {
     });
 
     return {
-      prompts: business.prompts.map((prompt) => ({
-        promptId: prompt.id,
-        text: prompt.text,
-      })),
-      competitors: business.competitors.map((competitor) => ({
-        id: competitor.id,
-        domain: competitor.domain,
-        name: competitor.name,
+      businessId: business.id,
+      date,
+      prompts: business.prompts.map(({ id, text }) => ({ id, text })),
+      competitors: business.competitors.map(({ id, domain, name }) => ({
+        id,
+        domain,
+        name,
       })),
       profile: {
-        businessId: business.id,
         name: business.name,
+        domain: business.domain,
         category: business.category ?? "",
         description: business.description ?? "",
         icp: business.icp ?? "",
-        domain: business.domain,
       },
-      date,
-      engineResponses: [],
-      engineFailures: [],
-      promptMetrics: [],
     };
   }
 }

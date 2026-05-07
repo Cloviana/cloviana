@@ -6,10 +6,10 @@ import type {
 } from "./monitoring.types";
 
 export const StateAnnotation = Annotation.Root({
-  prompts: Annotation<{ promptId: string; text: string }[]>,
-  competitors: Annotation<{ id: string; domain: string; name: string }[]>,
+  businessId: Annotation<string>(),
+  prompts: Annotation<{ id: string; text: string }[]>(),
+  competitors: Annotation<{ id: string; domain: string; name: string }[]>(),
   profile: Annotation<{
-    businessId: string;
     name: string;
     category: string;
     description: string;
@@ -25,7 +25,10 @@ export const StateAnnotation = Annotation.Root({
     reducer: (a, b) => [...a, ...b],
     default: () => [],
   }),
-  promptMetrics: Annotation<PromptMetricState[]>,
+  promptMetrics: Annotation<PromptMetricState[]>({
+    value: (_current, next) => next,
+    default: () => [],
+  }),
 });
 
 export type StateType = typeof StateAnnotation.State;

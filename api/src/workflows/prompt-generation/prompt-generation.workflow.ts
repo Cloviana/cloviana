@@ -42,7 +42,7 @@ export class PromptGenerationWorkflow {
 
         const result = await graph.invoke(
           {
-            _businessId: businessId,
+            businessId,
             competitors,
             extraContext,
             profile,

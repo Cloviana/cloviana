@@ -30,6 +30,10 @@ export async function executeGoogleAio(
     ...state.competitors,
   ];
 
+  logger?.debug(
+    `[${state.businessId}] Monitoring Google AIO batch starting promptCount=${state.prompts.length} requested=${requestedCount}`,
+  );
+
   const results = await Promise.all(
     state.prompts.flatMap((prompt) =>
       Array.from({ length: RESPONSES_PER_PROMPT_PER_ENGINE }, () =>
@@ -48,7 +52,7 @@ export async function executeGoogleAio(
 
             if (!aiOverview) {
               logger?.warn(
-                `Monitoring Google AIO returned no overview promptId=${prompt.promptId}`,
+                `[${state.businessId}] Monitoring Google AIO returned no overview promptId=${prompt.id}`,
               );
             }
 
@@ -64,7 +68,7 @@ export async function executeGoogleAio(
 
             return {
               engine: "google-aio",
-              promptId: prompt.promptId,
+              promptId: prompt.id,
               content,
               citations,
               mentions,
@@ -75,11 +79,11 @@ export async function executeGoogleAio(
             const message =
               error instanceof Error ? error.message : String(error);
             logger?.error(
-              `Monitoring Google AIO request failed promptId=${prompt.promptId}: ${message}`,
+              `[${state.businessId}] Monitoring Google AIO request failed promptId=${prompt.id}: ${message}`,
             );
             return {
               engine: "google-aio",
-              promptId: prompt.promptId,
+              promptId: prompt.id,
               error: message,
             };
           }
@@ -98,7 +102,7 @@ export async function executeGoogleAio(
     (response) => !response.content,
   ).length;
   logger?.log(
-    `Monitoring Google AIO batch completed requested=${requestedCount} succeeded=${engineResponses.length} failed=${engineFailures.length} empty=${emptyCount}`,
+    `[${state.businessId}] Monitoring Google AIO batch completed requested=${requestedCount} succeeded=${engineResponses.length} failed=${engineFailures.length} empty=${emptyCount}`,
   );
 
   return { engineResponses, engineFailures };

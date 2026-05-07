@@ -39,7 +39,7 @@ export async function deduplicatePrompts(
   );
 
   logger?.debug(
-    `[${state._businessId}] Deduplicating ${state.prompts.length} prompts`,
+    `[${state.businessId}] Deduplicating ${state.prompts.length} prompts`,
   );
 
   const result = await openai.parse({
@@ -74,7 +74,7 @@ export async function deduplicatePrompts(
   const prompts = state.prompts.filter((p) => !duplicateIds.has(p.id));
 
   logger?.debug(
-    `[${state._businessId}] Removed ${duplicateIds.size} duplicates, kept ${prompts.length} prompts`,
+    `[${state.businessId}] Removed ${duplicateIds.size} duplicates, kept ${prompts.length} prompts`,
   );
 
   return { prompts };

@@ -31,6 +31,7 @@ export async function executeChatgpt(
           name: "audit-chatgpt",
           model: "gpt-5.4-nano-2026-03-17",
           max_output_tokens: 1200,
+          temperature: 0,
           input: [{ role: "user" as const, content: prompt.text }],
           reasoning: { effort: "none" as const },
           tools: [
