@@ -45,6 +45,15 @@ const extractTextContent = (content: ChatMessageOutput["content"]): string => {
     .join("\n");
 };
 
+const isUrl = (value: string): boolean => {
+  try {
+    new URL(value);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
 async function withRetries<T>(
   fn: () => Promise<T>,
   { name, retries = 3 }: { name: string; retries?: number },
@@ -100,7 +109,7 @@ export class PerplexityService {
           content: extractTextContent(
             completion.choices[0]?.message?.content ?? null,
           ),
-          citations: completion.citations ?? [],
+          citations: (completion.citations ?? []).filter(isUrl),
           raw: completion,
         };
       },

@@ -5,9 +5,9 @@ import { OpenAIService } from "@/clients/openai/openai.service";
 import { PerplexityService } from "@/clients/perplexity/perplexity.service";
 import { AppConfiguration } from "@/config/app.configuration";
 import { DataForSeoService } from "@/integrations/dataforseo/dataforseo.service";
-import { computePromptMetrics } from "@/workflows/monitoring/utils/monitoring-metric-calculator";
 import { graph } from "@/workflows/monitoring/monitoring.graph";
 import type { StateType } from "@/workflows/monitoring/monitoring.state";
+import { computePromptMetrics } from "@/workflows/monitoring/utils/monitoring-metric-calculator";
 import { HttpService } from "@nestjs/axios";
 import axios from "axios";
 

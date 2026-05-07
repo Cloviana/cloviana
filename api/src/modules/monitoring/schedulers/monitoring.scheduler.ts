@@ -9,7 +9,7 @@ import { Cron } from "@nestjs/schedule";
 import { JobType } from "@prisma/client";
 import { MonitoringEligibilityService } from "../services/monitoring-eligibility.service";
 
-const DUE_WINDOW_MS = 1000 * 60 * 60 * 24 * 3;
+const DUE_WINDOW_MS = 1000 * 60 * 60 * 24;
 
 @Injectable()
 export class MonitoringScheduler {

@@ -1,10 +1,14 @@
 import { getTitle } from "@/common/utils/get-title.util";
 import { extractMentions } from "@/common/visibility/extract-mentions";
+import pLimit from "p-limit";
 import {
   MonitoringNodeConfig,
   requireMonitoringDependencies,
 } from "../monitoring.config";
-import { RESPONSES_PER_PROMPT_PER_ENGINE } from "../monitoring.constants";
+import {
+  MONITORING_CONCURRENCY,
+  RESPONSES_PER_PROMPT_PER_ENGINE,
+} from "../monitoring.constants";
 import { EngineResponse, StateType } from "../monitoring.state";
 import type { EngineFailure } from "../monitoring.types";
 
@@ -80,70 +84,74 @@ export async function executeChatgpt(
   }
 
   const requestedCount = requests.length;
+  const limit = pLimit(MONITORING_CONCURRENCY);
 
-  const engineResponses: EngineResponse[] = [];
-  const engineFailures: EngineFailure[] = [];
-  let emptyCount = 0;
+  const results = await Promise.all(
+    batchResults.map((batchResult) =>
+      limit(async (): Promise<EngineResponse | EngineFailure> => {
+        const promptId = getPromptId(batchResult.custom_id);
 
-  for (const batchResult of batchResults) {
-    const promptId = getPromptId(batchResult.custom_id);
+        if (batchResult.error || !batchResult.content) {
+          logger?.warn(
+            `[${state.businessId}] Monitoring ChatGPT response missing content customId=${batchResult.custom_id} error=${batchResult.error ?? "none"}`,
+          );
+          return {
+            engine: "chatgpt",
+            promptId,
+            error: batchResult.error ?? "ChatGPT response missing content",
+            raw: batchResult.raw,
+          };
+        }
 
-    if (batchResult.error || !batchResult.content) {
-      if (!batchResult.content) {
-        emptyCount += 1;
-      }
-      engineFailures.push({
-        engine: "chatgpt",
-        promptId,
-        error: batchResult.error ?? "ChatGPT response missing content",
-        raw: batchResult.raw,
-      });
-      logger?.warn(
-        `[${state.businessId}] Monitoring ChatGPT response missing content customId=${batchResult.custom_id} error=${batchResult.error ?? "none"}`,
-      );
-      continue;
-    }
+        const prompt = promptLookup.get(promptId);
+        if (!prompt) {
+          logger?.warn(
+            `[${state.businessId}] Monitoring ChatGPT response could not resolve prompt customId=${batchResult.custom_id}`,
+          );
+          return {
+            engine: "chatgpt",
+            promptId,
+            error: "ChatGPT response could not resolve prompt",
+            raw: batchResult.raw,
+          };
+        }
 
-    const prompt = promptLookup.get(promptId);
-    if (!prompt) {
-      engineFailures.push({
-        engine: "chatgpt",
-        promptId,
-        error: "ChatGPT response could not resolve prompt",
-        raw: batchResult.raw,
-      });
-      logger?.warn(
-        `[${state.businessId}] Monitoring ChatGPT response could not resolve prompt customId=${batchResult.custom_id}`,
-      );
-      continue;
-    }
+        const citations = await Promise.all(
+          batchResult.citations.map(async (url) => ({
+            url,
+            title: await getTitle(url),
+          })),
+        );
+        const mentionDomains = await extractMentions(
+          groq,
+          batchResult.content,
+          brands,
+        );
+        const mentions = mentionDomains.map((domain) => ({ domain }));
+        const fanOutQueries = (batchResult.raw?.output ?? [])
+          .filter((item) => item.type === "web_search_call")
+          .flatMap((item) => (item as any).action?.queries ?? []);
 
-    const citations = await Promise.all(
-      batchResult.citations.map(async (url) => ({
-        url,
-        title: await getTitle(url),
-      })),
-    );
-    const mentionDomains = await extractMentions(
-      groq,
-      batchResult.content,
-      brands,
-    );
-    const mentions = mentionDomains.map((domain) => ({ domain }));
-    const fanOutQueries = (batchResult.raw?.output ?? [])
-      .filter((item) => item.type === "web_search_call")
-      .flatMap((item) => (item as any).action?.queries ?? []);
+        return {
+          engine: "chatgpt",
+          promptId: prompt.id,
+          content: batchResult.content,
+          citations,
+          mentions,
+          fanOutQueries,
+          raw: batchResult.raw,
+        };
+      }),
+    ),
+  );
 
-    engineResponses.push({
-      engine: "chatgpt",
-      promptId: prompt.id,
-      content: batchResult.content,
-      citations,
-      mentions,
-      fanOutQueries,
-      raw: batchResult.raw,
-    });
-  }
+  const engineResponses = results.filter(
+    (result): result is EngineResponse => "content" in result,
+  );
+  const engineFailures = results.filter(
+    (result): result is EngineFailure => "error" in result,
+  );
+  const emptyCount = batchResults.filter((result) => !result.content).length;
 
   logger?.log(
     `[${state.businessId}] Monitoring ChatGPT batch completed requested=${requestedCount} succeeded=${engineResponses.length} failed=${engineFailures.length} empty=${emptyCount}`,

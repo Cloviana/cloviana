@@ -8,12 +8,11 @@ import {
 } from "../monitoring.config";
 import {
   DEFAULT_GOOGLE_US_LOCATION_CODE,
+  MONITORING_CONCURRENCY,
   RESPONSES_PER_PROMPT_PER_ENGINE,
 } from "../monitoring.constants";
 import { EngineResponse, StateType } from "../monitoring.state";
 import type { EngineFailure } from "../monitoring.types";
-
-const CONCURRENCY = 3;
 
 export async function executeGoogleAio(
   state: StateType,
@@ -23,7 +22,7 @@ export async function executeGoogleAio(
   engineFailures: EngineFailure[];
 }> {
   const { dataForSeo, groq, logger } = requireMonitoringDependencies(config);
-  const limit = pLimit(CONCURRENCY);
+  const limit = pLimit(MONITORING_CONCURRENCY);
   const requestedCount = state.prompts.length * RESPONSES_PER_PROMPT_PER_ENGINE;
   const brands = [
     { name: state.profile.name, domain: state.profile.domain },
