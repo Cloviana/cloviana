@@ -26,7 +26,7 @@ export async function scorePrompts(
   const limit = pLimit(CONCURRENT_REQUESTS);
 
   logger?.debug(
-    `[${state._businessId}] Scoring ${state.prompts.length} prompts`,
+    `[${state.businessId}] Scoring ${state.prompts.length} prompts`,
   );
 
   const scoredPrompts = await Promise.all(
@@ -39,7 +39,7 @@ export async function scorePrompts(
   );
 
   logger?.debug(
-    `[${state._businessId}] Kept ${prompts.length} of ${scoredPrompts.length} scored prompts`,
+    `[${state.businessId}] Kept ${prompts.length} of ${scoredPrompts.length} scored prompts`,
   );
 
   return {

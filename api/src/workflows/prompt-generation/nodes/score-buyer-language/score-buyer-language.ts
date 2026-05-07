@@ -25,7 +25,7 @@ export async function scoreBuyerLanguage(
   const limit = pLimit(CONCURRENT_REQUESTS);
 
   logger?.debug(
-    `[${state._businessId}] Scoring ${state.buyerLanguage.length} buyer language snippets`,
+    `[${state.businessId}] Scoring ${state.buyerLanguage.length} buyer language snippets`,
   );
 
   const buyerLanguage = await Promise.all(
@@ -34,10 +34,12 @@ export async function scoreBuyerLanguage(
     ),
   );
 
-  const filtered = buyerLanguage.filter((item) => (item.score ?? 0) >= MIN_SCORE);
+  const filtered = buyerLanguage.filter(
+    (item) => (item.score ?? 0) >= MIN_SCORE,
+  );
 
   logger?.debug(
-    `[${state._businessId}] Scored ${buyerLanguage.length} buyer language snippets, kept ${filtered.length} above ${MIN_SCORE}`,
+    `[${state.businessId}] Scored ${buyerLanguage.length} buyer language snippets, kept ${filtered.length} above ${MIN_SCORE}`,
   );
 
   return {

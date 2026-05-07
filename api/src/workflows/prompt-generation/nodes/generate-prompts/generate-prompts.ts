@@ -56,7 +56,7 @@ export async function generatePrompts(
   const systemPrompt = await loadPromptHbs("generate-prompts", {}, { baseDir });
 
   logger?.debug(
-    `[${state._businessId}] Generating prompts for ${state.clusters.length} clusters`,
+    `[${state.businessId}] Generating prompts for ${state.clusters.length} clusters`,
   );
 
   const prompts = await Promise.all(
@@ -64,7 +64,7 @@ export async function generatePrompts(
       limit(() =>
         generatePromptsForCluster({
           anthropic,
-          businessId: state._businessId,
+          businessId: state.businessId,
           cluster,
           competitors: state.competitors,
           logger,
@@ -78,7 +78,7 @@ export async function generatePrompts(
   const flat = prompts.flat();
 
   logger?.debug(
-    `[${state._businessId}] Generated ${flat.length} prompts across ${state.clusters.length} clusters`,
+    `[${state.businessId}] Generated ${flat.length} prompts across ${state.clusters.length} clusters`,
   );
 
   return {

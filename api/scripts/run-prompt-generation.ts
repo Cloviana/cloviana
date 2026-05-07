@@ -34,7 +34,7 @@ const extraContext = [
 ];
 
 const input: StateType = {
-  _businessId: "rexi-finance",
+  businessId: "rexi-finance",
   profile: {
     domain: "rexi.finance",
     name: "Rexi",

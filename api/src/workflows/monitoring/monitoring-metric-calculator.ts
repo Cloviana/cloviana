@@ -1,7 +1,6 @@
 import { normalizeDomain } from "@/common/utils/normalize-domain.util";
 import { computeDomainMetrics } from "@/common/visibility/visibility-metric-calculator";
 import { AiEngine } from "@prisma/client";
-import type { StateType } from "./monitoring.state";
 import type {
   BusinessMetricState,
   EngineResponse,
@@ -13,6 +12,29 @@ type Brand = {
   competitorId: string | null;
   domain: string;
 };
+
+type MetricContext = {
+  date: Date;
+  profile: {
+    domain: string;
+  };
+  competitors: {
+    id: string;
+    domain: string;
+  }[];
+};
+
+type PromptMetricContext = MetricContext & {
+  prompts: {
+    id: string;
+  }[];
+};
+
+type BusinessMetricContext = MetricContext & {
+  businessId: string;
+};
+
+type MetricInputResponse = MetricResponse | EngineResponse;
 
 function normalizeBrandDomain(domain: string): string {
   return normalizeDomain(domain) ?? domain;
@@ -30,15 +52,13 @@ function buildMetricRow(
   };
 }
 
-function buildBrands(
-  state: Pick<StateType, "profile" | "competitors">,
-): Brand[] {
+function buildBrands(context: MetricContext): Brand[] {
   return [
     {
       competitorId: null,
-      domain: normalizeBrandDomain(state.profile.domain),
+      domain: normalizeBrandDomain(context.profile.domain),
     },
-    ...state.competitors.map((competitor) => ({
+    ...context.competitors.map((competitor) => ({
       competitorId: competitor.id,
       domain: normalizeBrandDomain(competitor.domain),
     })),
@@ -65,9 +85,7 @@ function normalizeEngine(
   }
 }
 
-function normalizeResponses(
-  responses: Array<MetricResponse | StateType["engineResponses"][number]>,
-): MetricResponse[] {
+function normalizeResponses(responses: MetricInputResponse[]): MetricResponse[] {
   return responses.map((response) => ({
     engine: normalizeEngine(response.engine),
     promptId: response.promptId,
@@ -77,38 +95,38 @@ function normalizeResponses(
 }
 
 export function computePromptMetrics(
-  state: Pick<StateType, "date" | "profile" | "competitors" | "prompts">,
-  responses: Array<MetricResponse | StateType["engineResponses"][number]>,
+  context: PromptMetricContext,
+  responses: MetricInputResponse[],
 ): PromptMetricState[] {
-  const date = state.date;
-  const brands = buildBrands(state);
+  const date = context.date;
+  const brands = buildBrands(context);
   const normalizedResponses = normalizeResponses(responses);
 
-  return state.prompts.flatMap((prompt) => {
+  return context.prompts.flatMap((prompt) => {
     const promptResponses = normalizedResponses.filter(
-      (response) => response.promptId === prompt.promptId,
+      (response) => response.promptId === prompt.id,
     );
 
     return brands.map((brand) => ({
-      promptId: prompt.promptId,
+      promptId: prompt.id,
       ...buildMetricRow(brand, promptResponses, date),
     }));
   });
 }
 
 export function computeBusinessMetrics(
-  state: Pick<StateType, "date" | "profile" | "competitors">,
-  responses: Array<MetricResponse | StateType["engineResponses"][number]>,
+  context: BusinessMetricContext,
+  responses: MetricInputResponse[],
 ): BusinessMetricState[] {
-  const date = state.date;
-  const brands = buildBrands(state);
+  const date = context.date;
+  const brands = buildBrands(context);
   const normalizedResponses = normalizeResponses(responses);
   const engines = Array.from(
     new Set(normalizedResponses.map((response) => response.engine)),
   );
 
   const aggregateMetrics = brands.map((brand) => ({
-    businessId: state.profile.businessId,
+    businessId: context.businessId,
     engine: null,
     ...buildMetricRow(brand, normalizedResponses, date),
   }));
@@ -119,7 +137,7 @@ export function computeBusinessMetrics(
     );
 
     return brands.map((brand) => ({
-      businessId: state.profile.businessId,
+      businessId: context.businessId,
       engine,
       ...buildMetricRow(brand, engineResponses, date),
     }));

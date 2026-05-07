@@ -14,7 +14,7 @@ export class MonitoringScheduler {
     private readonly monitoringProducer: MonitoringProducer,
   ) {}
 
-  @Cron(CronExpression.EVERY_HOUR)
+  @Cron(CronExpression.EVERY_10_MINUTES)
   async enqueueDueMonitoringRuns(): Promise<void> {
     const cutoff = new Date(Date.now() - DUE_WINDOW_MS);
     const groups = await this.monitoringEligibility.findDuePromptGroups(cutoff);

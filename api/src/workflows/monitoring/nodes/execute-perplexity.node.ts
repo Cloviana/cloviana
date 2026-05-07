@@ -27,6 +27,10 @@ export async function executePerplexity(
   const results: EngineResponse[] = [];
   const failures: EngineFailure[] = [];
 
+  logger?.debug(
+    `[${state.businessId}] Monitoring Perplexity batch starting promptCount=${state.prompts.length} requested=${requestedCount}`,
+  );
+
   await Promise.all(
     state.prompts.flatMap((prompt) =>
       Array.from({ length: RESPONSES_PER_PROMPT_PER_ENGINE }, () =>
@@ -35,6 +39,7 @@ export async function executePerplexity(
             const result = await perplexity.create({
               model: "sonar",
               reasoning_effort: "medium",
+              temperature: 0,
               messages: [{ role: "user", content: prompt.text }],
               web_search_options: {
                 user_location: {
@@ -60,7 +65,7 @@ export async function executePerplexity(
 
             results.push({
               engine: "perplexity",
-              promptId: prompt.promptId,
+              promptId: prompt.id,
               content: result.content,
               citations,
               mentions,
@@ -71,11 +76,11 @@ export async function executePerplexity(
             const message =
               error instanceof Error ? error.message : String(error);
             logger?.error(
-              `Monitoring Perplexity request failed promptId=${prompt.promptId}: ${message}`,
+              `[${state.businessId}] Monitoring Perplexity request failed promptId=${prompt.id}: ${message}`,
             );
             failures.push({
               engine: "perplexity",
-              promptId: prompt.promptId,
+              promptId: prompt.id,
               error: message,
             });
           }
@@ -85,7 +90,7 @@ export async function executePerplexity(
   );
 
   logger?.log(
-    `Monitoring Perplexity batch completed requested=${requestedCount} succeeded=${results.length} failed=${failures.length}`,
+    `[${state.businessId}] Monitoring Perplexity batch completed requested=${requestedCount} succeeded=${results.length} failed=${failures.length}`,
   );
 
   return { engineResponses: results, engineFailures: failures };

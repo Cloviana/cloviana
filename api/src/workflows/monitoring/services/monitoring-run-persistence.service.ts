@@ -178,7 +178,7 @@ export class MonitoringRunPersistenceService {
         if (result.prompts.length > 0) {
           await tx.prompt.updateMany({
             where: {
-              id: { in: result.prompts.map((prompt) => prompt.promptId) },
+              id: { in: result.prompts.map((prompt) => prompt.id) },
             },
             data: { lastRunAt: finishedAt },
           });
@@ -186,7 +186,7 @@ export class MonitoringRunPersistenceService {
 
         await tx.promptMetric.deleteMany({
           where: {
-            promptId: { in: result.prompts.map((prompt) => prompt.promptId) },
+            promptId: { in: result.prompts.map((prompt) => prompt.id) },
             date: result.date,
           },
         });
@@ -199,14 +199,14 @@ export class MonitoringRunPersistenceService {
 
         await tx.businessMetric.deleteMany({
           where: {
-            businessId: result.profile.businessId,
+            businessId: result.businessId,
             date: result.date,
           },
         });
 
         const snapshotResponses = await this.loadLatestBusinessResponseSnapshot(
           tx,
-          result.profile.businessId,
+          result.businessId,
         );
         const businessMetrics = computeBusinessMetrics(
           result,

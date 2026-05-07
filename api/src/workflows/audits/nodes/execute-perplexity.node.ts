@@ -31,6 +31,7 @@ export async function executePerplexity(
           const result = await perplexity.create({
             model: "sonar",
             reasoning_effort: "medium",
+            temperature: 0,
             messages: [{ role: "user", content: prompt.text }],
             web_search_options: {
               user_location: {
