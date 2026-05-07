@@ -67,6 +67,15 @@ const isTransientError = (err: unknown) =>
   err instanceof APIConnectionError ||
   err instanceof APIConnectionTimeoutError;
 
+const isUrl = (value: string): boolean => {
+  try {
+    new URL(value);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
 function extractText(blocks: (TextBlock | BetaTextBlock)[]): string {
   return blocks
     .filter((b) => b.type === "text")
@@ -80,12 +89,10 @@ function extractCitations(blocks: (TextBlock | BetaTextBlock)[]): string[] {
     .flatMap((b) => b.citations ?? [])
     .map((c) => {
       if (c.type === "web_search_result_location") return c.url;
-      if (c.type === "char_location" || c.type === "page_location")
-        return c.document_title ?? "";
       if (c.type === "search_result_location") return c.source;
       return "";
     })
-    .filter(Boolean);
+    .filter((url) => Boolean(url) && isUrl(url));
 }
 
 function toRawResult(message: Message | BetaMessage): AnthropicRawResult {

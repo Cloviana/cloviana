@@ -12,7 +12,6 @@ import {
   PromptRunStatus,
   PromptStatus,
 } from "@prisma/client";
-import { computeBusinessMetrics } from "../utils/monitoring-metric-calculator";
 import { RESPONSES_PER_PROMPT_PER_ENGINE } from "../monitoring.constants";
 import type { StateType } from "../monitoring.state";
 import type {
@@ -20,9 +19,20 @@ import type {
   EngineResponse,
   MetricResponse,
 } from "../monitoring.types";
+import { computeBusinessMetrics } from "../utils/monitoring-metric-calculator";
 
 const TRANSACTION_MAX_WAIT_MS = 10000;
 const TRANSACTION_TIMEOUT_MS = 20000;
+
+function isUrl(value: string): boolean {
+  try {
+    new URL(value);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 function toAiEngine(
   engine: EngineResponse["engine"] | EngineFailure["engine"],
 ): AiEngine {
@@ -108,6 +118,10 @@ export class MonitoringRunPersistenceService {
       }
 
       for (const [index, citation] of response.citations.entries()) {
+        if (!citation.url || !isUrl(citation.url)) {
+          continue;
+        }
+
         citations.push({
           id: randomUUID(),
           promptResponseId,

@@ -72,6 +72,17 @@ const isTransientError = (error: unknown): boolean =>
   error instanceof APIConnectionError ||
   error instanceof APIConnectionTimeoutError;
 
+const isUrl = (value: string | null | undefined): value is string => {
+  if (!value) return false;
+
+  try {
+    new URL(value);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
 async function withRetries<T>(
   fn: () => Promise<T>,
   name: string,
@@ -137,13 +148,11 @@ const extractResponseAnnotationCitations = (
       switch (annotation.type) {
         case "url_citation":
           return annotation.url;
-        case "file_citation":
-          return annotation.filename ?? annotation.file_id;
         default:
           return "";
       }
     })
-    .filter(Boolean);
+    .filter((url) => Boolean(url) && isUrl(url));
 
 const extractResponseWebSearchSources = (
   output: ResponseOutputItem[],
@@ -154,14 +163,14 @@ const extractResponseWebSearchSources = (
       const action = item.action;
 
       if (action.type === "search") {
-        return action.sources?.map((source) => source.url) ?? [];
+        return action.sources?.map((source) => source.url).filter(isUrl) ?? [];
       }
 
-      if (action.type === "open_page" && action.url) {
+      if (action.type === "open_page" && isUrl(action.url)) {
         return [action.url];
       }
 
-      if (action.type === "find_in_page") {
+      if (action.type === "find_in_page" && isUrl(action.url)) {
         return [action.url];
       }
 
