@@ -12,14 +12,18 @@ export class MonitoringConsumer {
 
   @EventPattern(RUN_MONITORING_EVENT)
   async handleRunMonitoring(@Payload() payload: RunMonitoringPayload) {
+    const jobId = payload?.jobId?.trim();
     const businessId = payload?.businessId?.trim();
+    const runDate = payload?.runDateIso
+      ? new Date(payload.runDateIso)
+      : undefined;
     const promptIds = payload?.promptIds?.filter((promptId) =>
       promptId?.trim(),
     );
 
-    if (!businessId || !promptIds?.length) {
+    if (!jobId || !businessId || !promptIds?.length) {
       this.logger.error(
-        `Received ${RUN_MONITORING_EVENT} with invalid businessId=${payload?.businessId} promptIds=${JSON.stringify(payload?.promptIds)}`,
+        `Received ${RUN_MONITORING_EVENT} with invalid jobId=${payload?.jobId} businessId=${payload?.businessId} promptIds=${JSON.stringify(payload?.promptIds)}`,
       );
       return;
     }
@@ -29,9 +33,14 @@ export class MonitoringConsumer {
     );
 
     try {
-      await this.monitoringWorkflow.run(businessId, promptIds);
+      const job = await this.monitoringWorkflow.run(
+        jobId,
+        businessId,
+        promptIds,
+        runDate,
+      );
       this.logger.log(
-        `Monitoring workflow completed for businessId=${businessId} promptCount=${promptIds.length}`,
+        `Monitoring workflow handled for businessId=${businessId} jobId=${jobId} status=${job.status} promptCount=${promptIds.length}`,
       );
     } catch (err: any) {
       this.logger.error(
