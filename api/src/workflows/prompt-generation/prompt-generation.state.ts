@@ -10,7 +10,7 @@ import type {
 } from "./prompt-generation.types";
 
 export const StateAnnotation = Annotation.Root({
-  _businessId: Annotation<string>(),
+  businessId: Annotation<string>(),
   profile: Annotation<BusinessProfile>(),
   competitors: Annotation<Competitor[]>({
     value: (_current, next) => next,

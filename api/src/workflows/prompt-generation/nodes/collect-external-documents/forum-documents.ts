@@ -28,7 +28,7 @@ export async function collectForumDocuments(
   const queries = await generateForumQueries(state, groq);
 
   logger?.debug(
-    `[${state._businessId}] Forum document queries (${queries.length}): ${queries.join(" | ")}`,
+    `[${state.businessId}] Forum document queries (${queries.length}): ${queries.join(" | ")}`,
   );
 
   const results = await Promise.all(
@@ -46,7 +46,7 @@ export async function collectForumDocuments(
 
   const docs = results.flat();
 
-  logger?.debug(`[${state._businessId}] Collected ${docs.length} forum docs`);
+  logger?.debug(`[${state.businessId}] Collected ${docs.length} forum docs`);
 
   return docs;
 }

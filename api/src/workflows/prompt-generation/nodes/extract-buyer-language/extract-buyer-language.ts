@@ -23,15 +23,13 @@ const MAX_DOC_CHARS_BY_SOURCE_TYPE = {
 } as const;
 
 const ExtractBuyerLanguageSchema = z.object({
-  snippets: z
-    .array(
-      z.object({
-        text: z.string().min(1),
-        signal: z.string().min(1),
-        type: BuyerLanguageTypeSchema,
-      }),
-    )
-,
+  snippets: z.array(
+    z.object({
+      text: z.string().min(1),
+      signal: z.string().min(1),
+      type: BuyerLanguageTypeSchema,
+    }),
+  ),
 });
 
 export async function extractBuyerLanguage(
@@ -42,7 +40,7 @@ export async function extractBuyerLanguage(
   const limit = pLimit(CONCURRENT_REQUESTS);
 
   logger?.debug(
-    `[${state._businessId}] Extracting buyer language from ${state.docs.length} docs`,
+    `[${state.businessId}] Extracting buyer language from ${state.docs.length} docs`,
   );
 
   const buyerLanguage = await Promise.all(
@@ -54,7 +52,7 @@ export async function extractBuyerLanguage(
   const flattened = buyerLanguage.flat();
 
   logger?.debug(
-    `[${state._businessId}] Extracted ${flattened.length} buyer language snippets`,
+    `[${state.businessId}] Extracted ${flattened.length} buyer language snippets`,
   );
 
   return {

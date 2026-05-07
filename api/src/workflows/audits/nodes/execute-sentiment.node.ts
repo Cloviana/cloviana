@@ -74,6 +74,7 @@ export async function executeSentiment(
               model: "gpt-4o-mini",
               input: [{ role: "user", content: prompt }],
               max_output_tokens: 2048,
+              temperature: 0,
             });
 
             return { id, prompt, text: result.content, platform };

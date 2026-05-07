@@ -38,7 +38,7 @@ export async function createClusterTaxonomy(
   );
 
   logger?.debug(
-    `[${state._businessId}] Creating cluster taxonomy from ${state.buyerLanguage.length} buyer language snippets`,
+    `[${state.businessId}] Creating cluster taxonomy from ${state.buyerLanguage.length} buyer language snippets`,
   );
 
   const result = await openai.parse({
@@ -59,7 +59,7 @@ export async function createClusterTaxonomy(
   });
 
   logger?.debug(
-    `[${state._businessId}] Created ${result.parsed.clusters.length} cluster taxonomy items`,
+    `[${state.businessId}] Created ${result.parsed.clusters.length} cluster taxonomy items`,
   );
 
   return {

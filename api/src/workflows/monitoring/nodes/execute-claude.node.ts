@@ -30,7 +30,7 @@ export async function executeClaude(
   const { anthropic, groq, logger } = requireMonitoringDependencies(config);
 
   const promptLookup = new Map(
-    state.prompts.map((prompt) => [prompt.promptId, prompt]),
+    state.prompts.map((prompt) => [prompt.id, prompt]),
   );
   const brands = [
     { name: state.profile.name, domain: state.profile.domain },
@@ -38,10 +38,11 @@ export async function executeClaude(
   ];
   const requests = state.prompts.flatMap((prompt) =>
     Array.from({ length: RESPONSES_PER_PROMPT_PER_ENGINE }, (_, index) => ({
-      custom_id: buildCustomId(prompt.promptId, index),
+      custom_id: buildCustomId(prompt.id, index),
       params: {
         model: "claude-sonnet-4-6",
         max_tokens: 4096,
+        temperature: 0,
         messages: [{ role: "user" as const, content: prompt.text }],
         tools: [
           {
@@ -57,13 +58,18 @@ export async function executeClaude(
       },
     })),
   );
+  logger?.debug(
+    `[${state.businessId}] Monitoring Claude batch starting promptCount=${state.prompts.length} requested=${requests.length}`,
+  );
 
   let batchResults: Awaited<ReturnType<typeof anthropic.batch>>;
   try {
     batchResults = await anthropic.batch(requests);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
-    logger?.error(`Monitoring Claude batch failed: ${message}`);
+    logger?.error(
+      `[${state.businessId}] Monitoring Claude batch failed: ${message}`,
+    );
 
     return {
       engineResponses: [],
@@ -90,7 +96,7 @@ export async function executeClaude(
         error: JSON.stringify(batchResult.result.error ?? batchResult.result),
       });
       logger?.warn(
-        `Monitoring Claude batch item failed customId=${batchResult.custom_id} status=${batchResult.result.type} error=${JSON.stringify(batchResult.result.error ?? null)}`,
+        `[${state.businessId}] Monitoring Claude batch item failed customId=${batchResult.custom_id} status=${batchResult.result.type} error=${JSON.stringify(batchResult.result.error ?? null)}`,
       );
       continue;
     }
@@ -104,7 +110,7 @@ export async function executeClaude(
         raw: batchResult.result.content.raw,
       });
       logger?.warn(
-        `Monitoring Claude response could not resolve prompt customId=${batchResult.custom_id}`,
+        `[${state.businessId}] Monitoring Claude response could not resolve prompt customId=${batchResult.custom_id}`,
       );
       continue;
     }
@@ -133,7 +139,7 @@ export async function executeClaude(
 
     engineResponses.push({
       engine: "claude",
-      promptId: prompt.promptId,
+      promptId: prompt.id,
       content: batchResult.result.content.content,
       citations,
       mentions,
@@ -143,7 +149,7 @@ export async function executeClaude(
   }
 
   logger?.log(
-    `Monitoring Claude batch completed requested=${requestedCount} succeeded=${engineResponses.length} failed=${engineFailures.length}`,
+    `[${state.businessId}] Monitoring Claude batch completed requested=${requestedCount} succeeded=${engineResponses.length} failed=${engineFailures.length}`,
   );
 
   return { engineResponses, engineFailures };

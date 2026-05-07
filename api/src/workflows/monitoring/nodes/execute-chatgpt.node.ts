@@ -26,7 +26,7 @@ export async function executeChatgpt(
   const { openai, groq, logger } = requireMonitoringDependencies(config);
 
   const promptLookup = new Map(
-    state.prompts.map((prompt) => [prompt.promptId, prompt]),
+    state.prompts.map((prompt) => [prompt.id, prompt]),
   );
   const brands = [
     { name: state.profile.name, domain: state.profile.domain },
@@ -34,10 +34,11 @@ export async function executeChatgpt(
   ];
   const requests = state.prompts.flatMap((prompt) =>
     Array.from({ length: RESPONSES_PER_PROMPT_PER_ENGINE }, (_, index) => ({
-      custom_id: buildCustomId(prompt.promptId, index),
+      custom_id: buildCustomId(prompt.id, index),
       body: {
         model: "gpt-5.4-nano-2026-03-17",
         max_output_tokens: 1200,
+        temperature: 0,
         input: [{ role: "user" as const, content: prompt.text }],
         reasoning: { effort: "none" as const },
         tools: [
@@ -55,13 +56,18 @@ export async function executeChatgpt(
       },
     })),
   );
+  logger?.debug(
+    `[${state.businessId}] Monitoring ChatGPT batch starting promptCount=${state.prompts.length} requested=${requests.length}`,
+  );
 
   let batchResults: Awaited<ReturnType<typeof openai.batch>>;
   try {
     batchResults = await openai.batch(requests);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
-    logger?.error(`Monitoring ChatGPT batch failed: ${message}`);
+    logger?.error(
+      `[${state.businessId}] Monitoring ChatGPT batch failed: ${message}`,
+    );
 
     return {
       engineResponses: [],
@@ -93,7 +99,7 @@ export async function executeChatgpt(
         raw: batchResult.raw,
       });
       logger?.warn(
-        `Monitoring ChatGPT response missing content customId=${batchResult.custom_id} error=${batchResult.error ?? "none"}`,
+        `[${state.businessId}] Monitoring ChatGPT response missing content customId=${batchResult.custom_id} error=${batchResult.error ?? "none"}`,
       );
       continue;
     }
@@ -107,7 +113,7 @@ export async function executeChatgpt(
         raw: batchResult.raw,
       });
       logger?.warn(
-        `Monitoring ChatGPT response could not resolve prompt customId=${batchResult.custom_id}`,
+        `[${state.businessId}] Monitoring ChatGPT response could not resolve prompt customId=${batchResult.custom_id}`,
       );
       continue;
     }
@@ -130,7 +136,7 @@ export async function executeChatgpt(
 
     engineResponses.push({
       engine: "chatgpt",
-      promptId: prompt.promptId,
+      promptId: prompt.id,
       content: batchResult.content,
       citations,
       mentions,
@@ -140,7 +146,7 @@ export async function executeChatgpt(
   }
 
   logger?.log(
-    `Monitoring ChatGPT batch completed requested=${requestedCount} succeeded=${engineResponses.length} failed=${engineFailures.length} empty=${emptyCount}`,
+    `[${state.businessId}] Monitoring ChatGPT batch completed requested=${requestedCount} succeeded=${engineResponses.length} failed=${engineFailures.length} empty=${emptyCount}`,
   );
 
   return { engineResponses, engineFailures };

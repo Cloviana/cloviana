@@ -29,7 +29,7 @@ export async function assignBuyerLanguageToClusters(
   const limit = pLimit(CONCURRENT_REQUESTS);
 
   logger?.debug(
-    `[${state._businessId}] Assigning ${state.buyerLanguage.length} buyer language snippets to ${state.clusters.length} clusters`,
+    `[${state.businessId}] Assigning ${state.buyerLanguage.length} buyer language snippets to ${state.clusters.length} clusters`,
   );
 
   const assignments = await Promise.all(
@@ -45,7 +45,7 @@ export async function assignBuyerLanguageToClusters(
   const clusters = buildClusters(state, validAssignments);
 
   logger?.debug(
-    `[${state._businessId}] Assigned buyer language into ${clusters.length} clusters`,
+    `[${state.businessId}] Assigned buyer language into ${clusters.length} clusters`,
   );
 
   return {
