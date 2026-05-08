@@ -1,6 +1,6 @@
 import { normalizeDomain } from "@/common/utils/normalize-domain.util";
 import { computeDomainMetrics } from "@/common/visibility/visibility-metric-calculator";
-import { AiEngine } from "@prisma/client";
+import { AiEngine, PromptAwarenessStage } from "@prisma/client";
 import type {
   BusinessMetricState,
   EngineResponse,
@@ -93,6 +93,7 @@ function normalizeResponses(
     promptId: response.promptId,
     citations: response.citations,
     mentions: response.mentions,
+    awarenessStage: (response as MetricResponse).awarenessStage,
   }));
 }
 
@@ -118,23 +119,25 @@ export function computePromptMetrics(
 
 export function computeBusinessMetrics(
   context: BusinessMetricContext,
-  responses: MetricInputResponse[],
+  responses: MetricResponse[],
 ): BusinessMetricState[] {
   const date = context.date;
   const brands = buildBrands(context);
-  const normalizedResponses = normalizeResponses(responses);
+  const visibilityResponses = responses.filter(
+    (r) => r.awarenessStage !== PromptAwarenessStage.DECIDE,
+  );
   const engines = Array.from(
-    new Set(normalizedResponses.map((response) => response.engine)),
+    new Set(visibilityResponses.map((response) => response.engine)),
   );
 
   const aggregateMetrics = brands.map((brand) => ({
     businessId: context.businessId,
     engine: null,
-    ...buildMetricRow(brand, normalizedResponses, date),
+    ...buildMetricRow(brand, visibilityResponses, date),
   }));
 
   const engineMetrics = engines.flatMap((engine) => {
-    const engineResponses = normalizedResponses.filter(
+    const engineResponses = visibilityResponses.filter(
       (response) => response.engine === engine,
     );
 
