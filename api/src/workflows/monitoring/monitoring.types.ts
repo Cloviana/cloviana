@@ -1,4 +1,4 @@
-import { AiEngine } from "@prisma/client";
+import { AiEngine, PromptAwarenessStage } from "@prisma/client";
 
 export type Citation = {
   url: string;
@@ -50,4 +50,5 @@ export type MetricResponse = {
   promptId: string;
   citations: Citation[];
   mentions: Mention[];
+  awarenessStage: PromptAwarenessStage;
 };

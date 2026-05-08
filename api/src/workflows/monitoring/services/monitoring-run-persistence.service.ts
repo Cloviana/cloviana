@@ -259,6 +259,11 @@ export class MonitoringRunPersistenceService {
       include: {
         mentions: true,
         citations: true,
+        prompt: {
+          select: {
+            awarenessStage: true,
+          },
+        },
       },
       orderBy: [
         { promptId: "asc" },
@@ -283,6 +288,7 @@ export class MonitoringRunPersistenceService {
       snapshot.push({
         engine: response.engine,
         promptId: response.promptId,
+        awarenessStage: response.prompt.awarenessStage,
         mentions: response.mentions.map((mention) => ({
           domain: mention.domain,
         })),
