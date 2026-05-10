@@ -34,7 +34,7 @@ x-api-base: &api-base
     EXA_API_KEY: ${EXA_API_KEY}
     PERPLEXITY_API_KEY: ${PERPLEXITY_API_KEY}
     DATA_FOR_SEO_BASE64_CREDENTIALS: ${DATA_FOR_SEO_BASE64_CREDENTIALS}
-    GOOGLE_API_KEY: ${GOOGLE_API_KEY}
+    GOOGLE_PAGESPEED_API_KEY: ${GOOGLE_PAGESPEED_API_KEY}
   depends_on:
     rabbitmq:
       condition: service_healthy
