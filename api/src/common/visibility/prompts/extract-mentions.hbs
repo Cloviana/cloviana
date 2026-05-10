@@ -3,8 +3,8 @@ Extract competitor mentions from the AI-generated answer below.
 You will receive:
 - `text`: the full AI-generated answer
 - `brands`: a list of allowed competitor brands, each with:
+  - `id`
   - `name`
-  - `domain`
 
 A competitor mention means the answer explicitly refers to one of the provided brands in the prose of the answer.
 
@@ -14,7 +14,7 @@ Instructions:
 3. Do not infer, guess, or add brands that are not clearly mentioned.
 4. Ignore citations, raw URLs, and domain references unless the brand name is also clearly mentioned in the prose.
 5. If a brand is mentioned more than once, return it only once.
-6. Return the brand DOMAIN (not the name).
+6. Return the brand ID (not the name).
 7. If no provided brands are explicitly mentioned, return an empty array.
 
 Output rules:
@@ -22,4 +22,4 @@ Output rules:
 - Do not include any text before or after the JSON.
 
 Output format:
-{"mentions":["string"]}
+{"ids":[1]}

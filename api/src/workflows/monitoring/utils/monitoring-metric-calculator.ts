@@ -1,5 +1,8 @@
 import { normalizeDomain } from "@/common/utils/normalize-domain.util";
-import { computeDomainMetrics } from "@/common/visibility/visibility-metric-calculator";
+import {
+  computeDomainMetrics,
+  computeRate,
+} from "@/common/visibility/visibility-metric-calculator";
 import { AiEngine, PromptAwarenessStage } from "@prisma/client";
 import type {
   BusinessMetricState,
@@ -35,6 +38,7 @@ type BusinessMetricContext = MetricContext & {
 };
 
 type MetricInputResponse = MetricResponse | EngineResponse;
+type MetricRow = Omit<PromptMetricState, "promptId">;
 
 function normalizeBrandDomain(domain: string): string {
   return normalizeDomain(domain) ?? domain;
@@ -44,12 +48,60 @@ function buildMetricRow(
   brand: Brand,
   responses: MetricResponse[],
   date: Date,
-): Omit<PromptMetricState, "promptId"> {
+  sov: number,
+): MetricRow {
   return {
     competitorId: brand.competitorId,
     date,
     ...computeDomainMetrics(brand.domain, responses),
+    sov,
   };
+}
+
+function buildCompetitiveSovByDomain(
+  brands: Brand[],
+  responses: MetricResponse[],
+): Map<string, number> {
+  const brandDomains = new Set(brands.map((brand) => brand.domain));
+  const mentionCounts = new Map(brands.map((brand) => [brand.domain, 0]));
+
+  for (const response of responses) {
+    for (const mention of response.mentions) {
+      const domain = normalizeBrandDomain(mention.domain);
+      if (!brandDomains.has(domain)) continue;
+
+      mentionCounts.set(domain, (mentionCounts.get(domain) ?? 0) + 1);
+    }
+  }
+
+  const totalBrandMentions = [...mentionCounts.values()].reduce(
+    (sum, count) => sum + count,
+    0,
+  );
+
+  return new Map(
+    brands.map((brand) => [
+      brand.domain,
+      computeRate(mentionCounts.get(brand.domain) ?? 0, totalBrandMentions),
+    ]),
+  );
+}
+
+function buildMetricRows(
+  brands: Brand[],
+  responses: MetricResponse[],
+  date: Date,
+): MetricRow[] {
+  const competitiveSovByDomain = buildCompetitiveSovByDomain(brands, responses);
+
+  return brands.map((brand) =>
+    buildMetricRow(
+      brand,
+      responses,
+      date,
+      competitiveSovByDomain.get(brand.domain) ?? 0,
+    ),
+  );
 }
 
 function buildBrands(context: MetricContext): Brand[] {
@@ -110,9 +162,9 @@ export function computePromptMetrics(
       (response) => response.promptId === prompt.id,
     );
 
-    return brands.map((brand) => ({
+    return buildMetricRows(brands, promptResponses, date).map((metric) => ({
       promptId: prompt.id,
-      ...buildMetricRow(brand, promptResponses, date),
+      ...metric,
     }));
   });
 }
@@ -130,23 +182,27 @@ export function computeBusinessMetrics(
     new Set(visibilityResponses.map((response) => response.engine)),
   );
 
-  const aggregateMetrics = brands.map((brand) => ({
-    businessId: context.businessId,
-    engine: null,
-    ...buildMetricRow(brand, visibilityResponses, date),
-  }));
-
   const engineMetrics = engines.flatMap((engine) => {
     const engineResponses = visibilityResponses.filter(
       (response) => response.engine === engine,
     );
 
-    return brands.map((brand) => ({
+    return buildMetricRows(brands, engineResponses, date).map((metric) => ({
       businessId: context.businessId,
       engine,
-      ...buildMetricRow(brand, engineResponses, date),
+      ...metric,
     }));
   });
+
+  const aggregateMetrics = buildMetricRows(
+    brands,
+    visibilityResponses,
+    date,
+  ).map((metric) => ({
+    businessId: context.businessId,
+    engine: null,
+    ...metric,
+  }));
 
   return [...aggregateMetrics, ...engineMetrics];
 }

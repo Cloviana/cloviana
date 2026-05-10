@@ -68,10 +68,6 @@ export class AppConfiguration {
   readonly anthropicApiKey!: string;
 
   @IsString()
-  @Value("GOOGLE_API_KEY")
-  readonly googleApiKey!: string;
-
-  @IsString()
   @Value("GROQ_API_KEY")
   readonly groqApiKey!: string;
 
@@ -98,4 +94,8 @@ export class AppConfiguration {
   @IsString()
   @Value("PERPLEXITY_API_KEY")
   readonly perplexityApiKey!: string;
+
+  @IsString()
+  @Value("GOOGLE_PAGESPEED_API_KEY")
+  readonly googlePagespeedApiKey!: string;
 }
