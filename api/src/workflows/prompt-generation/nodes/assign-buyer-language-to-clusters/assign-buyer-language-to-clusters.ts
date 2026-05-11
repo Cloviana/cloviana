@@ -1,7 +1,6 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadPromptHbs } from "@/common/utils/load-prompt-hbs.util";
-import pLimit from "p-limit";
 import { z } from "zod";
 import {
   PromptGenerationNodeConfig,
@@ -9,8 +8,6 @@ import {
 } from "../../prompt-generation.config";
 import { StateAnnotation } from "../../prompt-generation.state";
 import type { BuyerLanguage, Cluster } from "../../prompt-generation.types";
-
-const CONCURRENT_REQUESTS = 5;
 
 const ClusterAssignmentSchema = z.object({
   clusterId: z.string().min(1).nullable(),
@@ -26,15 +23,13 @@ export async function assignBuyerLanguageToClusters(
   config: PromptGenerationNodeConfig,
 ): Promise<Partial<typeof StateAnnotation.State>> {
   const { groq, logger } = requirePromptGenerationDependencies(config);
-  const limit = pLimit(CONCURRENT_REQUESTS);
-
   logger?.debug(
     `[${state.businessId}] Assigning ${state.buyerLanguage.length} buyer language snippets to ${state.clusters.length} clusters`,
   );
 
   const assignments = await Promise.all(
     state.buyerLanguage.map((buyerLanguage) =>
-      limit(() => assignBuyerLanguageToCluster(buyerLanguage, state, groq)),
+      assignBuyerLanguageToCluster(buyerLanguage, state, groq),
     ),
   );
 

@@ -1,6 +1,7 @@
 import { AppConfiguration } from "@/config/app.configuration";
 import { Injectable } from "@nestjs/common";
 import Exa from "exa-js";
+import pLimit from "p-limit";
 import pRetry, { AbortError } from "p-retry";
 import type {
   ContentsOptions,
@@ -26,6 +27,7 @@ const STANDARD_RETRY: RetryOptions = {
 @Injectable()
 export class ExaService {
   private readonly exa: Exa;
+  private readonly limit = pLimit(4);
 
   constructor(private readonly config: AppConfiguration) {
     this.exa = new Exa(this.config.exaApiKey);
@@ -38,42 +40,46 @@ export class ExaService {
     query: string,
     options: ExaSearchOptions<TContents> = {} as ExaSearchOptions<TContents>,
   ): Promise<ExaSearchResponse<TContents, TOutput>> {
-    return this.withRetry(async () => {
-      try {
-        const search = this.exa.search as (
-          query: string,
-          options: RegularSearchOptions,
-        ) => Promise<SearchResponse<TContents>>;
+    return this.limit(() =>
+      this.withRetry(async () => {
+        try {
+          const search = this.exa.search as (
+            query: string,
+            options: RegularSearchOptions,
+          ) => Promise<SearchResponse<TContents>>;
 
-        return (await search.call(
-          this.exa,
-          query,
-          options,
-        )) as ExaSearchResponse<TContents, TOutput>;
-      } catch (err) {
-        this.throwIfExaErrorIsNotRetryable(err);
-        throw err;
-      }
-    }, STANDARD_RETRY);
+          return (await search.call(
+            this.exa,
+            query,
+            options,
+          )) as ExaSearchResponse<TContents, TOutput>;
+        } catch (err) {
+          this.throwIfExaErrorIsNotRetryable(err);
+          throw err;
+        }
+      }, STANDARD_RETRY),
+    );
   }
 
   async getContents<TSummary = unknown>(
     urls: string[],
     options: ContentsOptions,
   ): Promise<ExaGetContentsResponse<TSummary>> {
-    return this.withRetry(async () => {
-      try {
-        const getContents = this.exa.getContents as (
-          urls: string[],
-          options: ContentsOptions,
-        ) => Promise<ExaGetContentsResponse<TSummary>>;
+    return this.limit(() =>
+      this.withRetry(async () => {
+        try {
+          const getContents = this.exa.getContents as (
+            urls: string[],
+            options: ContentsOptions,
+          ) => Promise<ExaGetContentsResponse<TSummary>>;
 
-        return await getContents.call(this.exa, urls, options);
-      } catch (err) {
-        this.throwIfExaErrorIsNotRetryable(err);
-        throw err;
-      }
-    }, STANDARD_RETRY);
+          return await getContents.call(this.exa, urls, options);
+        } catch (err) {
+          this.throwIfExaErrorIsNotRetryable(err);
+          throw err;
+        }
+      }, STANDARD_RETRY),
+    );
   }
 
   private withRetry<T>(fn: () => Promise<T>, retry: RetryOptions): Promise<T> {

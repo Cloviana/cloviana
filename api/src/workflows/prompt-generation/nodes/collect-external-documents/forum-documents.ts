@@ -1,7 +1,6 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadPromptHbs } from "@/common/utils/load-prompt-hbs.util";
-import pLimit from "p-limit";
 import { z } from "zod";
 import {
   PromptGenerationNodeConfig,
@@ -11,7 +10,6 @@ import { StateAnnotation } from "../../prompt-generation.state";
 import type { Doc } from "../../prompt-generation.types";
 import { searchDocuments } from "./search-documents";
 
-const CONCURRENT_REQUESTS = 4;
 const RESULTS_PER_QUERY = 2;
 const FORUM_DOMAINS = ["reddit.com"];
 
@@ -24,7 +22,6 @@ export async function collectForumDocuments(
   config: PromptGenerationNodeConfig,
 ): Promise<Doc[]> {
   const { exa, groq, logger } = requirePromptGenerationDependencies(config);
-  const limit = pLimit(CONCURRENT_REQUESTS);
   const queries = await generateForumQueries(state, groq);
 
   logger?.debug(
@@ -33,14 +30,12 @@ export async function collectForumDocuments(
 
   const results = await Promise.all(
     queries.map((query) =>
-      limit(() =>
-        searchDocuments(exa, {
-          query,
-          sourceType: "FORUM",
-          includeDomains: FORUM_DOMAINS,
-          numResults: RESULTS_PER_QUERY,
-        }),
-      ),
+      searchDocuments(exa, {
+        query,
+        sourceType: "FORUM",
+        includeDomains: FORUM_DOMAINS,
+        numResults: RESULTS_PER_QUERY,
+      }),
     ),
   );
 

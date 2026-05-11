@@ -1,7 +1,6 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadPromptHbs } from "@/common/utils/load-prompt-hbs.util";
-import pLimit from "p-limit";
 import { z } from "zod";
 import {
   PromptGenerationNodeConfig,
@@ -10,7 +9,6 @@ import {
 import { StateAnnotation } from "../../prompt-generation.state";
 import type { BuyerLanguage } from "../../prompt-generation.types";
 
-const CONCURRENT_REQUESTS = 5;
 const MIN_SCORE = 70;
 
 const BuyerLanguageScoreSchema = z.object({
@@ -22,15 +20,13 @@ export async function scoreBuyerLanguage(
   config: PromptGenerationNodeConfig,
 ): Promise<Partial<typeof StateAnnotation.State>> {
   const { groq, logger } = requirePromptGenerationDependencies(config);
-  const limit = pLimit(CONCURRENT_REQUESTS);
-
   logger?.debug(
     `[${state.businessId}] Scoring ${state.buyerLanguage.length} buyer language snippets`,
   );
 
   const buyerLanguage = await Promise.all(
     state.buyerLanguage.map((item) =>
-      limit(() => scoreBuyerLanguageItem(item, state, groq)),
+      scoreBuyerLanguageItem(item, state, groq),
     ),
   );
 

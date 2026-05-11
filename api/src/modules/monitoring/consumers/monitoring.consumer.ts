@@ -2,7 +2,8 @@ import type { RunMonitoringPayload } from "@/infrastructure/messaging/rabbitmq.c
 import { RUN_MONITORING_EVENT } from "@/infrastructure/messaging/rabbitmq.contracts";
 import { MonitoringWorkflow } from "@/workflows/monitoring/monitoring.workflow";
 import { Controller, Logger } from "@nestjs/common";
-import { EventPattern, Payload } from "@nestjs/microservices";
+import { Ctx, EventPattern, Payload } from "@nestjs/microservices";
+import { RmqContext } from "@nestjs/microservices";
 
 @Controller()
 export class MonitoringConsumer {
@@ -11,7 +12,10 @@ export class MonitoringConsumer {
   constructor(private readonly monitoringWorkflow: MonitoringWorkflow) {}
 
   @EventPattern(RUN_MONITORING_EVENT)
-  async handleRunMonitoring(@Payload() payload: RunMonitoringPayload) {
+  async handleRunMonitoring(
+    @Payload() payload: RunMonitoringPayload,
+    @Ctx() context?: RmqContext,
+  ) {
     const jobId = payload?.jobId?.trim();
     const businessId = payload?.businessId?.trim();
     const runDate = payload?.runDateIso
@@ -25,6 +29,7 @@ export class MonitoringConsumer {
       this.logger.error(
         `Received ${RUN_MONITORING_EVENT} with invalid jobId=${payload?.jobId} businessId=${payload?.businessId} promptIds=${JSON.stringify(payload?.promptIds)}`,
       );
+      this.ack(context);
       return;
     }
 
@@ -48,5 +53,14 @@ export class MonitoringConsumer {
         err.stack,
       );
     }
+
+    this.ack(context);
+  }
+
+  private ack(context?: RmqContext) {
+    if (!context) return;
+    const channel = context.getChannelRef();
+    const message = context.getMessage();
+    channel.ack(message);
   }
 }

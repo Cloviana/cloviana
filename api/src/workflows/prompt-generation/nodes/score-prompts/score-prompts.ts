@@ -1,7 +1,6 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadPromptHbs } from "@/common/utils/load-prompt-hbs.util";
-import pLimit from "p-limit";
 import { z } from "zod";
 import {
   PromptGenerationNodeConfig,
@@ -10,7 +9,6 @@ import {
 import { StateAnnotation } from "../../prompt-generation.state";
 import type { Prompt } from "../../prompt-generation.types";
 
-const CONCURRENT_REQUESTS = 5;
 const DEFAULT_PROMPT_SCORE_THRESHOLD = 65;
 const EXPLORE_PROMPT_SCORE_THRESHOLD = 60;
 
@@ -23,16 +21,12 @@ export async function scorePrompts(
   config: PromptGenerationNodeConfig,
 ): Promise<Partial<typeof StateAnnotation.State>> {
   const { groq, logger } = requirePromptGenerationDependencies(config);
-  const limit = pLimit(CONCURRENT_REQUESTS);
-
   logger?.debug(
     `[${state.businessId}] Scoring ${state.prompts.length} prompts`,
   );
 
   const scoredPrompts = await Promise.all(
-    state.prompts.map((prompt) =>
-      limit(() => scorePrompt(prompt, state, groq)),
-    ),
+    state.prompts.map((prompt) => scorePrompt(prompt, state, groq)),
   );
   const prompts = scoredPrompts.filter((prompt) =>
     meetsPromptScoreThreshold(prompt),
