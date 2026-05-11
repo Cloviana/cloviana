@@ -38,7 +38,7 @@ export const RUN_MONITORING_EVENT = "monitoring.run";
 export const AUDITS_QUEUE: RabbitMqQueueDefinition = {
   clientToken: "AUDITS_CLIENT",
   queue: "audits_queue",
-  prefetchCount: 2,
+  prefetchCount: 5,
   noAck: false,
   queueOptions: {
     durable: true,
@@ -58,7 +58,7 @@ export const BUSINESSES_QUEUE: RabbitMqQueueDefinition = {
 export const MONITORING_QUEUE: RabbitMqQueueDefinition = {
   clientToken: "MONITORING_CLIENT",
   queue: "monitoring_queue",
-  prefetchCount: 3,
+  prefetchCount: 6,
   noAck: false,
   queueOptions: {
     durable: true,
@@ -87,5 +87,19 @@ export function createRabbitMqOptions(
   return {
     transport: Transport.RMQ,
     options,
+  };
+}
+
+export function createRabbitMqClientOptions(
+  rabbitmqUri: string,
+  definition: RabbitMqQueueDefinition,
+): RmqOptions {
+  return {
+    transport: Transport.RMQ,
+    options: {
+      urls: [rabbitmqUri],
+      queue: definition.queue,
+      queueOptions: definition.queueOptions,
+    },
   };
 }

@@ -5,7 +5,7 @@ import {
   AUDITS_QUEUE,
   BUSINESSES_QUEUE,
   MONITORING_QUEUE,
-  createRabbitMqOptions,
+  createRabbitMqClientOptions,
 } from "./rabbitmq.contracts";
 
 export const RabbitMqProviders: Provider[] = [
@@ -13,7 +13,7 @@ export const RabbitMqProviders: Provider[] = [
     provide: AUDITS_QUEUE.clientToken,
     useFactory: (cfg: AppConfiguration): ClientProxy => {
       return ClientProxyFactory.create(
-        createRabbitMqOptions(cfg.rabbitmqUri, AUDITS_QUEUE),
+        createRabbitMqClientOptions(cfg.rabbitmqUri, AUDITS_QUEUE),
       );
     },
     inject: [AppConfiguration],
@@ -22,7 +22,7 @@ export const RabbitMqProviders: Provider[] = [
     provide: BUSINESSES_QUEUE.clientToken,
     useFactory: (cfg: AppConfiguration): ClientProxy => {
       return ClientProxyFactory.create(
-        createRabbitMqOptions(cfg.rabbitmqUri, BUSINESSES_QUEUE),
+        createRabbitMqClientOptions(cfg.rabbitmqUri, BUSINESSES_QUEUE),
       );
     },
     inject: [AppConfiguration],
@@ -31,7 +31,7 @@ export const RabbitMqProviders: Provider[] = [
     provide: MONITORING_QUEUE.clientToken,
     useFactory: (cfg: AppConfiguration): ClientProxy => {
       return ClientProxyFactory.create(
-        createRabbitMqOptions(cfg.rabbitmqUri, MONITORING_QUEUE),
+        createRabbitMqClientOptions(cfg.rabbitmqUri, MONITORING_QUEUE),
       );
     },
     inject: [AppConfiguration],
