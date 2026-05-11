@@ -63,6 +63,7 @@ export async function executeSentiment(
       { prompt, platform: "chatgpt" },
       { prompt, platform: "google_aio" },
     ]);
+
   const rawResponses = await Promise.all(
     pairs.map(
       async ({ prompt, platform }, index): Promise<SentimentResponse> => {
@@ -102,6 +103,7 @@ export async function executeSentiment(
       },
     ),
   );
+
   const nonEmptyResponses = rawResponses.filter((response) => response.text);
 
   if (nonEmptyResponses.length === 0) {
@@ -137,6 +139,7 @@ export async function executeSentiment(
       return result.claims;
     }),
   );
+
   const claims: SentimentClaim[] = claimsPerResponse.flat();
   const total = claims.length;
   const positive = claims.filter((claim) => claim.sentiment === "positive");

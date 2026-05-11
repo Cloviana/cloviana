@@ -2,7 +2,7 @@ import type { RunAuditPayload } from "@/infrastructure/messaging/rabbitmq.contra
 import { RUN_AUDIT_EVENT } from "@/infrastructure/messaging/rabbitmq.contracts";
 import { AuditWorkflow } from "@/workflows/audits/audit.workflow";
 import { Controller, Logger } from "@nestjs/common";
-import { EventPattern, Payload } from "@nestjs/microservices";
+import { Ctx, EventPattern, Payload, RmqContext } from "@nestjs/microservices";
 
 @Controller()
 export class AuditsConsumer {
@@ -11,7 +11,10 @@ export class AuditsConsumer {
   constructor(private readonly auditWorkflow: AuditWorkflow) {}
 
   @EventPattern(RUN_AUDIT_EVENT)
-  async handleRunAudit(@Payload() { auditId }: RunAuditPayload) {
+  async handleRunAudit(
+    @Payload() { auditId }: RunAuditPayload,
+    @Ctx() context?: RmqContext,
+  ) {
     this.logger.log(`Received ${RUN_AUDIT_EVENT} event for auditId=${auditId}`);
 
     try {
@@ -23,5 +26,14 @@ export class AuditsConsumer {
         err.stack,
       );
     }
+    this.ack(context);
+  }
+
+  private ack(context?: RmqContext) {
+    if (!context) return;
+
+    const channel = context.getChannelRef();
+    const message = context.getMessage();
+    channel.ack(message);
   }
 }

@@ -10,7 +10,9 @@ import type {
   ChatCompletion,
   ChatCompletionCreateParamsNonStreaming,
 } from "groq-sdk/resources/chat/completions";
+import pLimit from "p-limit";
 import { z } from "zod";
+import { providerRetryDelayMs } from "@/common/utils/retry-delay.util";
 
 type GroqChatArgs = ChatCompletionCreateParamsNonStreaming & {
   retries?: number;
@@ -56,7 +58,13 @@ async function withRetries<T>(
         error instanceof APIConnectionError ||
         error instanceof APIConnectionTimeoutError;
 
-      const delay = transient ? backoffDelay(attempt) : 0;
+      const providerDelay = transient
+        ? providerRetryDelayMs(error, [
+            "retry-after",
+            "x-ratelimit-reset-tokens",
+          ])
+        : null;
+      const delay = transient ? (providerDelay ?? backoffDelay(attempt)) : 0;
 
       console.warn(
         `[${name}] Attempt ${attempt} failed. Retries left: ${maxAttempts - attempt}. ${
@@ -76,6 +84,7 @@ async function withRetries<T>(
 @Injectable()
 export class GroqService {
   private readonly client: Groq;
+  private readonly limit = pLimit(5);
 
   constructor(private readonly config: AppConfiguration) {
     this.client = new Groq({ apiKey: this.config.groqApiKey });
@@ -85,17 +94,19 @@ export class GroqService {
     retries = 3,
     ...request
   }: GroqChatArgs): Promise<GroqRawResult> {
-    return withRetries(
-      async () => {
-        const completion = await this.client.chat.completions.create(request);
+    return this.limit(() =>
+      withRetries(
+        async () => {
+          const completion = await this.client.chat.completions.create(request);
 
-        return {
-          content: completion.choices[0]?.message?.content ?? "",
-          citations: [],
-          raw: completion,
-        };
-      },
-      { name: "groq-chat", retries },
+          return {
+            content: completion.choices[0]?.message?.content ?? "",
+            citations: [],
+            raw: completion,
+          };
+        },
+        { name: "groq-chat", retries },
+      ),
     );
   }
 
@@ -105,37 +116,39 @@ export class GroqService {
     retries = 3,
     ...request
   }: GroqParseArgs<TSchema>): Promise<z.infer<TSchema>> {
-    return withRetries(
-      async () => {
-        const completion = await this.client.chat.completions.create({
-          ...request,
-          response_format: {
-            type: "json_schema",
-            json_schema: {
-              name,
-              strict: true,
-              schema: z.toJSONSchema(schema),
+    return this.limit(() =>
+      withRetries(
+        async () => {
+          const completion = await this.client.chat.completions.create({
+            ...request,
+            response_format: {
+              type: "json_schema",
+              json_schema: {
+                name,
+                strict: true,
+                schema: z.toJSONSchema(schema),
+              },
             },
-          },
-        });
+          });
 
-        const content = completion.choices[0]?.message?.content;
+          const content = completion.choices[0]?.message?.content;
 
-        if (!content) {
-          throw new Error(`[${name}] Response did not contain content`);
-        }
+          if (!content) {
+            throw new Error(`[${name}] Response did not contain content`);
+          }
 
-        const result = schema.safeParse(JSON.parse(content));
+          const result = schema.safeParse(JSON.parse(content));
 
-        if (!result.success) {
-          throw new Error(
-            `[${name}] Response failed schema validation: ${result.error.message}`,
-          );
-        }
+          if (!result.success) {
+            throw new Error(
+              `[${name}] Response failed schema validation: ${result.error.message}`,
+            );
+          }
 
-        return result.data;
-      },
-      { name, retries },
+          return result.data;
+        },
+        { name, retries },
+      ),
     );
   }
 }

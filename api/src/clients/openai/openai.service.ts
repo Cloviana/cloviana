@@ -12,7 +12,9 @@ import type {
   ResponseCreateParamsNonStreaming,
   ResponseOutputItem,
 } from "openai/resources/responses/responses";
+import pLimit from "p-limit";
 import { z } from "zod";
+import { providerRetryDelayMs } from "@/common/utils/retry-delay.util";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -97,7 +99,13 @@ async function withRetries<T>(
       if (attempt === maxAttempts) throw error;
 
       const transient = isTransientError(error);
-      const delay = transient ? backoffDelay(attempt) : 0;
+      const providerDelay = transient
+        ? providerRetryDelayMs(error, [
+            "x-ratelimit-reset-tokens",
+            "x-ratelimit-reset-requests",
+          ])
+        : null;
+      const delay = transient ? (providerDelay ?? backoffDelay(attempt)) : 0;
 
       console.warn(
         `[${name}] Attempt ${attempt}/${maxAttempts} failed.`,
@@ -210,6 +218,7 @@ const TERMINAL_BATCH_STATUSES = new Set([
 @Injectable()
 export class OpenAIService {
   private readonly client: OpenAI;
+  private readonly limit = pLimit(4);
 
   constructor(private readonly config: AppConfiguration) {
     this.client = new OpenAI({ apiKey: this.config.openaiApiKey });
@@ -229,26 +238,28 @@ export class OpenAIService {
     retries = 3,
     ...request
   }: ParseArgs<TSchema>): Promise<OpenAIParseResult<TSchema>> {
-    return withRetries(
-      async () => {
-        const raw = await this.client.responses.parse({
-          ...request,
-          text: { format: zodTextFormat(schema, name) },
-        });
+    return this.limit(() =>
+      withRetries(
+        async () => {
+          const raw = await this.client.responses.parse({
+            ...request,
+            text: { format: zodTextFormat(schema, name) },
+          });
 
-        if (!raw.output_parsed) {
-          throw new Error(`[${name}] Response missing parsed output`);
-        }
+          if (!raw.output_parsed) {
+            throw new Error(`[${name}] Response missing parsed output`);
+          }
 
-        return {
-          content: extractResponseText(raw.output),
-          citations: extractResponseCitations(raw.output),
-          parsed: raw.output_parsed,
-          raw,
-        };
-      },
-      name,
-      retries,
+          return {
+            content: extractResponseText(raw.output),
+            citations: extractResponseCitations(raw.output),
+            parsed: raw.output_parsed,
+            raw,
+          };
+        },
+        name,
+        retries,
+      ),
     );
   }
 
@@ -257,18 +268,20 @@ export class OpenAIService {
     retries = 3,
     ...request
   }: CreateArgs): Promise<OpenAICreateResult> {
-    return withRetries(
-      async () => {
-        const raw = await this.client.responses.create(request);
+    return this.limit(() =>
+      withRetries(
+        async () => {
+          const raw = await this.client.responses.create(request);
 
-        return {
-          content: extractResponseText(raw.output),
-          citations: extractResponseCitations(raw.output),
-          raw,
-        };
-      },
-      name,
-      retries,
+          return {
+            content: extractResponseText(raw.output),
+            citations: extractResponseCitations(raw.output),
+            raw,
+          };
+        },
+        name,
+        retries,
+      ),
     );
   }
 

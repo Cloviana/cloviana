@@ -4,15 +4,11 @@ import type {
   BetaContentBlock,
   BetaServerToolUseBlock,
 } from "@anthropic-ai/sdk/resources/beta/messages/messages";
-import pLimit from "p-limit";
 import {
   MonitoringNodeConfig,
   requireMonitoringDependencies,
 } from "../monitoring.config";
-import {
-  MONITORING_CONCURRENCY,
-  RESPONSES_PER_PROMPT_PER_ENGINE,
-} from "../monitoring.constants";
+import { RESPONSES_PER_PROMPT_PER_ENGINE } from "../monitoring.constants";
 import { EngineResponse, StateType } from "../monitoring.state";
 import type { EngineFailure } from "../monitoring.types";
 
@@ -86,11 +82,10 @@ export async function executeClaude(
   }
 
   const requestedCount = requests.length;
-  const limit = pLimit(MONITORING_CONCURRENCY);
 
   const results = await Promise.all(
-    batchResults.map((batchResult) =>
-      limit(async (): Promise<EngineResponse | EngineFailure> => {
+    batchResults.map(
+      async (batchResult): Promise<EngineResponse | EngineFailure> => {
         const promptId = getPromptId(batchResult.custom_id);
 
         if (batchResult.result.type !== "succeeded") {
@@ -150,7 +145,7 @@ export async function executeClaude(
           fanOutQueries,
           raw: batchResult.result.content.raw,
         };
-      }),
+      },
     ),
   );
 
