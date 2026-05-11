@@ -17,7 +17,9 @@ import type {
   TextBlock,
 } from "@anthropic-ai/sdk/resources/messages";
 import { Injectable } from "@nestjs/common";
+import pLimit from "p-limit";
 import { z } from "zod";
+import { providerRetryDelayMs } from "@/common/utils/retry-delay.util";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -116,11 +118,15 @@ async function withRetries<T>(
     } catch (error: unknown) {
       if (attempt === maxAttempts) throw error;
 
-      const delay = isTransientError(error) ? backoffDelay(attempt) : 0;
+      const transient = isTransientError(error);
+      const providerDelay = transient
+        ? providerRetryDelayMs(error, ["retry-after"])
+        : null;
+      const delay = transient ? (providerDelay ?? backoffDelay(attempt)) : 0;
 
       console.warn(
         `[${name}] Attempt ${attempt} failed. Retries left: ${maxAttempts - attempt}.`,
-        isTransientError(error)
+        transient
           ? `Rate-limit/network suspected, waiting ${Math.round(delay)}ms.`
           : "Retrying immediately.",
         `Error: ${(error as Error)?.message ?? error}`,
@@ -151,6 +157,7 @@ async function pollUntilEnded(
 @Injectable()
 export class AnthropicService {
   private readonly client: Anthropic;
+  private readonly limit = pLimit(2);
 
   constructor(private readonly config: AppConfiguration) {
     this.client = new Anthropic({ apiKey: this.config.anthropicApiKey });
@@ -160,9 +167,11 @@ export class AnthropicService {
     retries = 3,
     ...request
   }: AnthropicChatArgs): Promise<AnthropicRawResult> {
-    return withRetries(
-      async () => toRawResult(await this.client.messages.create(request)),
-      { name: "anthropic-chat", retries },
+    return this.limit(() =>
+      withRetries(
+        async () => toRawResult(await this.client.messages.create(request)),
+        { name: "anthropic-chat", retries },
+      ),
     );
   }
 
@@ -171,22 +180,24 @@ export class AnthropicService {
     retries = 3,
     ...request
   }: AnthropicParseArgs<TSchema>): Promise<z.infer<TSchema>> {
-    return withRetries(
-      async () => {
-        const response = await this.client.messages.parse({
-          ...request,
-          output_config: { format: zodOutputFormat(schema) },
-        });
+    return this.limit(() =>
+      withRetries(
+        async () => {
+          const response = await this.client.messages.parse({
+            ...request,
+            output_config: { format: zodOutputFormat(schema) },
+          });
 
-        if (!response.parsed_output) {
-          throw new Error(
-            "[anthropic-parse] Response did not contain parsed output",
-          );
-        }
+          if (!response.parsed_output) {
+            throw new Error(
+              "[anthropic-parse] Response did not contain parsed output",
+            );
+          }
 
-        return response.parsed_output;
-      },
-      { name: "anthropic-parse", retries },
+          return response.parsed_output;
+        },
+        { name: "anthropic-parse", retries },
+      ),
     );
   }
 

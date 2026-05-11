@@ -11,7 +11,10 @@ import { AppConfiguration } from "@/config/app.configuration";
 
 const domain = "https://rexi.finance";
 
-const keyPages = ["https://rexi.finance/", "https://rexi.finance/blog/speed-as-a-time-bomb.html"];
+const keyPages = [
+  "https://rexi.finance/",
+  "https://rexi.finance/blog/speed-as-a-time-bomb.html",
+];
 
 function requireEnv(name: string): string {
   const value = process.env[name];

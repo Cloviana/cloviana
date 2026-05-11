@@ -2,7 +2,6 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadPromptHbs } from "@/common/utils/load-prompt-hbs.util";
 import { BuyerLanguageTypeSchema } from "@/workflows/prompt-generation/prompt-generation.schema";
-import pLimit from "p-limit";
 import { z } from "zod";
 import {
   PromptGenerationNodeConfig,
@@ -15,7 +14,6 @@ import type {
   Doc,
 } from "../../prompt-generation.types";
 
-const CONCURRENT_REQUESTS = 5;
 const MAX_DOC_CHARS_BY_SOURCE_TYPE = {
   REVIEW: 8_000,
   FORUM: 12_000,
@@ -37,16 +35,12 @@ export async function extractBuyerLanguage(
   config: PromptGenerationNodeConfig,
 ): Promise<Partial<typeof StateAnnotation.State>> {
   const { groq, logger } = requirePromptGenerationDependencies(config);
-  const limit = pLimit(CONCURRENT_REQUESTS);
-
   logger?.debug(
     `[${state.businessId}] Extracting buyer language from ${state.docs.length} docs`,
   );
 
   const buyerLanguage = await Promise.all(
-    state.docs.map((doc) =>
-      limit(() => extractBuyerLanguageFromDoc(doc, state, groq)),
-    ),
+    state.docs.map((doc) => extractBuyerLanguageFromDoc(doc, state, groq)),
   );
 
   const flattened = buyerLanguage.flat();

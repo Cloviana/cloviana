@@ -1,4 +1,3 @@
-import pLimit from "p-limit";
 import {
   PromptGenerationNodeConfig,
   requirePromptGenerationDependencies,
@@ -11,7 +10,6 @@ import type {
 } from "../../prompt-generation.types";
 import { searchDocuments } from "./search-documents";
 
-const CONCURRENT_REQUESTS = 4;
 const RESULTS_PER_QUERY = 2;
 const REVIEW_DOMAINS = ["g2.com", "capterra.com", "trustpilot.com"];
 
@@ -20,7 +18,6 @@ export async function collectReviewDocuments(
   config: PromptGenerationNodeConfig,
 ): Promise<Doc[]> {
   const { exa, logger } = requirePromptGenerationDependencies(config);
-  const limit = pLimit(CONCURRENT_REQUESTS);
   const queries = buildReviewQueries(state.profile, state.competitors);
 
   logger?.debug(
@@ -29,14 +26,12 @@ export async function collectReviewDocuments(
 
   const results = await Promise.all(
     queries.map((query) =>
-      limit(() =>
-        searchDocuments(exa, {
-          query,
-          sourceType: "REVIEW",
-          includeDomains: REVIEW_DOMAINS,
-          numResults: RESULTS_PER_QUERY,
-        }),
-      ),
+      searchDocuments(exa, {
+        query,
+        sourceType: "REVIEW",
+        includeDomains: REVIEW_DOMAINS,
+        numResults: RESULTS_PER_QUERY,
+      }),
     ),
   );
 

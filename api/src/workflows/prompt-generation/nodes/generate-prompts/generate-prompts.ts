@@ -1,7 +1,6 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadPromptHbs } from "@/common/utils/load-prompt-hbs.util";
-import pLimit from "p-limit";
 import { z } from "zod";
 import {
   PromptGenerationNodeConfig,
@@ -14,8 +13,6 @@ import type {
   Competitor,
   Prompt,
 } from "../../prompt-generation.types";
-
-const CONCURRENT_REQUESTS = 5;
 
 const GeneratePromptsSchema = z.object({
   prompts: z
@@ -46,8 +43,6 @@ export async function generatePrompts(
   config: PromptGenerationNodeConfig,
 ): Promise<Partial<typeof StateAnnotation.State>> {
   const { anthropic, logger } = requirePromptGenerationDependencies(config);
-  const limit = pLimit(CONCURRENT_REQUESTS);
-
   const baseDir = path.resolve(
     path.dirname(fileURLToPath(import.meta.url)),
     "prompts",
@@ -61,17 +56,15 @@ export async function generatePrompts(
 
   const prompts = await Promise.all(
     state.clusters.map((cluster) =>
-      limit(() =>
-        generatePromptsForCluster({
-          anthropic,
-          businessId: state.businessId,
-          cluster,
-          competitors: state.competitors,
-          logger,
-          profile: state.profile,
-          systemPrompt,
-        }),
-      ),
+      generatePromptsForCluster({
+        anthropic,
+        businessId: state.businessId,
+        cluster,
+        competitors: state.competitors,
+        logger,
+        profile: state.profile,
+        systemPrompt,
+      }),
     ),
   );
 

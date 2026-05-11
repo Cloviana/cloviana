@@ -3,6 +3,8 @@ import { RmqOptions, Transport } from "@nestjs/microservices";
 export interface RabbitMqQueueDefinition {
   readonly clientToken: string;
   readonly queue: string;
+  readonly prefetchCount?: number;
+  readonly noAck?: boolean;
   readonly queueOptions: {
     readonly durable: boolean;
     readonly autoDelete: boolean;
@@ -36,6 +38,8 @@ export const RUN_MONITORING_EVENT = "monitoring.run";
 export const AUDITS_QUEUE: RabbitMqQueueDefinition = {
   clientToken: "AUDITS_CLIENT",
   queue: "audits_queue",
+  prefetchCount: 2,
+  noAck: false,
   queueOptions: {
     durable: true,
     autoDelete: false,
@@ -54,6 +58,8 @@ export const BUSINESSES_QUEUE: RabbitMqQueueDefinition = {
 export const MONITORING_QUEUE: RabbitMqQueueDefinition = {
   clientToken: "MONITORING_CLIENT",
   queue: "monitoring_queue",
+  prefetchCount: 3,
+  noAck: false,
   queueOptions: {
     durable: true,
     autoDelete: false,
@@ -64,12 +70,22 @@ export function createRabbitMqOptions(
   rabbitmqUri: string,
   definition: RabbitMqQueueDefinition,
 ): RmqOptions {
+  const options: RmqOptions["options"] = {
+    urls: [rabbitmqUri],
+    queue: definition.queue,
+    queueOptions: definition.queueOptions,
+  };
+
+  if (definition.prefetchCount !== undefined) {
+    options.prefetchCount = definition.prefetchCount;
+  }
+
+  if (definition.noAck !== undefined) {
+    options.noAck = definition.noAck;
+  }
+
   return {
     transport: Transport.RMQ,
-    options: {
-      urls: [rabbitmqUri],
-      queue: definition.queue,
-      queueOptions: definition.queueOptions,
-    },
+    options,
   };
 }

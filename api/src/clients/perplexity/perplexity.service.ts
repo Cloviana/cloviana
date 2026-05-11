@@ -9,6 +9,8 @@ import Perplexity, {
 import type { StreamChunk } from "@perplexity-ai/perplexity_ai/resources/chat/chat";
 import type { CompletionCreateParamsNonStreaming } from "@perplexity-ai/perplexity_ai/resources/chat/completions";
 import type { ChatMessageOutput } from "@perplexity-ai/perplexity_ai/resources/shared";
+import pLimit from "p-limit";
+import { providerRetryDelayMs } from "@/common/utils/retry-delay.util";
 
 type PerplexityChatArgs = CompletionCreateParamsNonStreaming & {
   retries?: number;
@@ -72,7 +74,10 @@ async function withRetries<T>(
         error instanceof APIConnectionError ||
         error instanceof APIConnectionTimeoutError;
 
-      const delay = transient ? backoffDelay(attempt) : 0;
+      const providerDelay = transient
+        ? providerRetryDelayMs(error, ["retry-after", "x-ratelimit-reset-requests"])
+        : null;
+      const delay = transient ? (providerDelay ?? backoffDelay(attempt)) : 0;
 
       console.warn(
         `[${name}] Attempt ${attempt} failed. Retries left: ${maxAttempts - attempt}. ${
@@ -92,6 +97,7 @@ async function withRetries<T>(
 @Injectable()
 export class PerplexityService {
   private readonly client: Perplexity;
+  private readonly limit = pLimit(3);
 
   constructor(private readonly config: AppConfiguration) {
     this.client = new Perplexity({ apiKey: this.config.perplexityApiKey });
@@ -101,19 +107,21 @@ export class PerplexityService {
     retries = 3,
     ...request
   }: PerplexityChatArgs): Promise<PerplexityRawResult> {
-    return withRetries(
-      async () => {
-        const completion = await this.client.chat.completions.create(request);
+    return this.limit(() =>
+      withRetries(
+        async () => {
+          const completion = await this.client.chat.completions.create(request);
 
-        return {
-          content: extractTextContent(
-            completion.choices[0]?.message?.content ?? null,
-          ),
-          citations: (completion.citations ?? []).filter(isUrl),
-          raw: completion,
-        };
-      },
-      { name: "perplexity-chat", retries },
+          return {
+            content: extractTextContent(
+              completion.choices[0]?.message?.content ?? null,
+            ),
+            citations: (completion.citations ?? []).filter(isUrl),
+            raw: completion,
+          };
+        },
+        { name: "perplexity-chat", retries },
+      ),
     );
   }
 }
