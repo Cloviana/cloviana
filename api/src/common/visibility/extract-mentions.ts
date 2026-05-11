@@ -30,7 +30,7 @@ export async function extractMentions(
   const result = await groq.parse({
     name: "extract-mentions",
     schema: MentionsSchema,
-    model: "openai/gpt-oss-20b",
+    model: "openai/gpt-oss-120b",
     temperature: 0,
     messages: [
       { role: "system", content: prompt },
