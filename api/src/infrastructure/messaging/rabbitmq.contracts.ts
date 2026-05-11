@@ -89,3 +89,17 @@ export function createRabbitMqOptions(
     options,
   };
 }
+
+export function createRabbitMqClientOptions(
+  rabbitmqUri: string,
+  definition: RabbitMqQueueDefinition,
+): RmqOptions {
+  return {
+    transport: Transport.RMQ,
+    options: {
+      urls: [rabbitmqUri],
+      queue: definition.queue,
+      queueOptions: definition.queueOptions,
+    },
+  };
+}
