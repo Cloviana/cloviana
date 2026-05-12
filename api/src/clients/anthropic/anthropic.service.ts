@@ -1,3 +1,4 @@
+import { providerRetryDelayMs } from "@/common/utils/retry-delay.util";
 import { AppConfiguration } from "@/config/app.configuration";
 import Anthropic, {
   APIConnectionError,
@@ -19,7 +20,6 @@ import type {
 import { Injectable } from "@nestjs/common";
 import pLimit from "p-limit";
 import { z } from "zod";
-import { providerRetryDelayMs } from "@/common/utils/retry-delay.util";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 

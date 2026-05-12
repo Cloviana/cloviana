@@ -1,3 +1,4 @@
+import { providerRetryDelayMs } from "@/common/utils/retry-delay.util";
 import { AppConfiguration } from "@/config/app.configuration";
 import { Injectable } from "@nestjs/common";
 import Groq, {
@@ -12,7 +13,6 @@ import type {
 } from "groq-sdk/resources/chat/completions";
 import pLimit from "p-limit";
 import { z } from "zod";
-import { providerRetryDelayMs } from "@/common/utils/retry-delay.util";
 
 type GroqChatArgs = ChatCompletionCreateParamsNonStreaming & {
   retries?: number;

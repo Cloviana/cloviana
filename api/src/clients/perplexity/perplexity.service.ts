@@ -1,3 +1,4 @@
+import { providerRetryDelayMs } from "@/common/utils/retry-delay.util";
 import { AppConfiguration } from "@/config/app.configuration";
 import { Injectable } from "@nestjs/common";
 import Perplexity, {
@@ -10,7 +11,6 @@ import type { StreamChunk } from "@perplexity-ai/perplexity_ai/resources/chat/ch
 import type { CompletionCreateParamsNonStreaming } from "@perplexity-ai/perplexity_ai/resources/chat/completions";
 import type { ChatMessageOutput } from "@perplexity-ai/perplexity_ai/resources/shared";
 import pLimit from "p-limit";
-import { providerRetryDelayMs } from "@/common/utils/retry-delay.util";
 
 type PerplexityChatArgs = CompletionCreateParamsNonStreaming & {
   retries?: number;
@@ -75,7 +75,10 @@ async function withRetries<T>(
         error instanceof APIConnectionTimeoutError;
 
       const providerDelay = transient
-        ? providerRetryDelayMs(error, ["retry-after", "x-ratelimit-reset-requests"])
+        ? providerRetryDelayMs(error, [
+            "retry-after",
+            "x-ratelimit-reset-requests",
+          ])
         : null;
       const delay = transient ? (providerDelay ?? backoffDelay(attempt)) : 0;
 
