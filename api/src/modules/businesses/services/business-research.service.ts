@@ -12,8 +12,6 @@ import { z } from "zod";
 import type { BusinessProfileEnrichment } from "../business-research.types";
 import { scrapeHomepage } from "../utils/scrape-homepage";
 
-const MIN_HOMEPAGE_TEXT_LENGTH = 300;
-
 const notNull = (v: string) => v !== "null" && v !== "undefined";
 
 const BusinessProfileSchema = z.object({
@@ -40,7 +38,7 @@ const BusinessProfileOutputSchema: DeepOutputSchema = {
 
 const PROFILE_TTL_MS = 1000 * 60 * 60 * 24 * 7;
 const COMPETITOR_TTL_MS = 1000 * 60 * 60 * 24 * 3;
-const PROFILE_CACHE_VERSION = "v4";
+const PROFILE_CACHE_VERSION = "v5";
 const BRAND_NAME_CACHE_VERSION = "v1";
 const COMPETITORS_CACHE_VERSION = "v5";
 
@@ -108,6 +106,34 @@ export class BusinessResearchService {
       key: cacheKey,
       ttl: PROFILE_TTL_MS,
       loader: async () => {
+        const exaProfile = await this.exa
+          .search<never, BusinessProfileEnrichment>(
+            `Research the company, product, ideal customer profile, and buyer-facing category for ${normalizedDomain}.`,
+            {
+              type: "auto",
+              numResults: 5,
+              systemPrompt:
+                "Create a concise business profile from public web sources. Prefer the official company website and official product pages when available. Return strict JSON with only name, description, icp, and category. The category must be buyer-facing market language useful for finding competitors.",
+              outputSchema: BusinessProfileOutputSchema,
+            },
+          )
+          .then((response) =>
+            BusinessProfileSchema.parse(response.output?.content),
+          )
+          .catch((error) => {
+            console.warn(
+              `[business-research] Exa profile failed for ${normalizedDomain}: ${
+                error instanceof Error ? error.message : String(error)
+              }`,
+            );
+
+            return null;
+          });
+
+        if (exaProfile) {
+          return exaProfile;
+        }
+
         const systemPrompt = await loadPromptHbs(
           "business-profile",
           undefined,
@@ -126,36 +152,6 @@ export class BusinessResearchService {
             return "";
           },
         );
-
-        if (homepageText.length < MIN_HOMEPAGE_TEXT_LENGTH) {
-          const exaProfile = await this.exa
-            .search<never, BusinessProfileEnrichment>(
-              `Research the company, product, ideal customer profile, and buyer-facing category for ${normalizedDomain}.`,
-              {
-                type: "auto",
-                numResults: 5,
-                systemPrompt:
-                  "Create a concise business profile from public web sources. Prefer the official company website and official product pages when available. Return strict JSON with only name, description, icp, and category. The category must be buyer-facing market language useful for finding competitors.",
-                outputSchema: BusinessProfileOutputSchema,
-              },
-            )
-            .then((response) =>
-              BusinessProfileSchema.parse(response.output?.content),
-            )
-            .catch((error) => {
-              console.warn(
-                `[business-research] Exa profile fallback failed for ${normalizedDomain}: ${
-                  error instanceof Error ? error.message : String(error)
-                }`,
-              );
-
-              return null;
-            });
-
-          if (exaProfile) {
-            return exaProfile;
-          }
-        }
 
         return this.groq.parse({
           name: "business-profile",
@@ -177,7 +173,10 @@ export class BusinessResearchService {
     });
   }
 
-  async findCompetitors(domain: string, count = 8): Promise<string[]> {
+  async findCompetitors(
+    domain: string,
+    count = 8,
+  ): Promise<{ domain: string; name: string }[]> {
     const normalizedDomain = normalizeDomain(domain);
     if (!normalizedDomain) {
       throw new Error(`Could not normalize domain: ${domain}`);
@@ -209,6 +208,7 @@ export class BusinessResearchService {
               .array(
                 z.object({
                   domain: z.string().trim().min(1),
+                  name: z.string().trim().min(1),
                 }),
               )
               .length(count),
@@ -220,13 +220,13 @@ export class BusinessResearchService {
             { role: "system", content: systemPrompt },
             {
               role: "user",
-              content: JSON.stringify({ domain: normalizedDomain, profile }),
+              content: `<domain>${normalizedDomain}</domain>\n<profile>\n  <category>${profile.category}</category>\n  <icp>${profile.icp}</icp>\n  <description>${profile.description}</description>\n  <name>${profile.name}</name>\n</profile>`,
             },
           ],
         });
 
         const seen = new Set<string>();
-        const domains: string[] = [];
+        const competitors: { domain: string; name: string }[] = [];
 
         for (const competitor of result.parsed.competitors) {
           const competitorDomain = normalizeDomain(competitor.domain);
@@ -240,10 +240,10 @@ export class BusinessResearchService {
           }
 
           seen.add(competitorDomain);
-          domains.push(competitorDomain);
+          competitors.push({ domain: competitorDomain, name: competitor.name });
         }
 
-        return domains.slice(0, count);
+        return competitors.slice(0, count);
       },
     });
   }

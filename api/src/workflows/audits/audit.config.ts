@@ -1,3 +1,4 @@
+import { AnthropicService } from "@/clients/anthropic/anthropic.service";
 import { GroqService } from "@/clients/groq/groq.service";
 import { OpenAIService } from "@/clients/openai/openai.service";
 import { PerplexityService } from "@/clients/perplexity/perplexity.service";
@@ -8,6 +9,7 @@ import { Logger } from "@nestjs/common";
 import { PrismaClient } from "@prisma/client";
 
 export type AuditDependencies = {
+  anthropic: AnthropicService;
   dataForSeo: DataForSeoService;
   groq: GroqService;
   logger?: Logger;
@@ -18,6 +20,7 @@ export type AuditDependencies = {
 };
 
 export const AuditContextAnnotation = Annotation.Root({
+  anthropic: Annotation<AnthropicService>,
   dataForSeo: Annotation<DataForSeoService>,
   groq: Annotation<GroqService>,
   logger: Annotation<Logger | undefined>,
@@ -33,6 +36,10 @@ export function requireAuditDependencies(
   config?: AuditNodeConfig,
 ): AuditDependencies {
   const configurable = config?.configurable;
+
+  if (!configurable?.anthropic) {
+    throw new Error("AnthropicService not provided");
+  }
 
   if (!configurable?.dataForSeo) {
     throw new Error("DataForSeoService not provided");

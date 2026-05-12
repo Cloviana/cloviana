@@ -1,3 +1,4 @@
+import { AnthropicService } from "@/clients/anthropic/anthropic.service";
 import { GroqService } from "@/clients/groq/groq.service";
 import { OpenAIService } from "@/clients/openai/openai.service";
 import { PerplexityService } from "@/clients/perplexity/perplexity.service";
@@ -16,6 +17,7 @@ export class AuditWorkflow {
 
   constructor(
     private readonly prisma: PrismaService,
+    private readonly anthropic: AnthropicService,
     private readonly groq: GroqService,
     private readonly openai: OpenAIService,
     private readonly perplexity: PerplexityService,
@@ -35,6 +37,7 @@ export class AuditWorkflow {
       const stream = graph.streamEvents(initialState, {
         version: "v2",
         configurable: {
+          anthropic: this.anthropic,
           dataForSeo: this.dataForSeo,
           groq: this.groq,
           logger: this.logger,
@@ -69,7 +72,7 @@ export class AuditWorkflow {
     }
 
     const profile = await this.businessResearch.enrichProfile(domain);
-    const competitorDomains = await this.businessResearch.findCompetitors(
+    const competitors = await this.businessResearch.findCompetitors(
       domain,
       30,
     );
@@ -82,10 +85,10 @@ export class AuditWorkflow {
         ...profile,
         domain,
       },
-      competitors: competitorDomains.map((competitorDomain) => ({
-        id: competitorDomain,
-        domain: competitorDomain,
-        name: competitorDomain,
+      competitors: competitors.map((competitor) => ({
+        id: competitor.domain,
+        domain: competitor.domain,
+        name: competitor.name,
       })),
       prompts: [],
       engineResponses: [],
