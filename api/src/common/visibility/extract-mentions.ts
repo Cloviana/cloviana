@@ -5,7 +5,7 @@ import { loadPromptHbs } from "@/common/utils/load-prompt-hbs.util";
 import { z } from "zod";
 
 const MentionsSchema = z.object({
-  ids: z.array(z.number().int().positive()),
+  ids: z.array(z.string()),
 });
 
 export type Brand = { name: string; domain: string };
@@ -23,8 +23,8 @@ export async function extractMentions(
   );
 
   const prompt = await loadPromptHbs("extract-mentions", {}, { baseDir });
-  const brandsById = new Map(
-    brands.map((brand, index) => [index + 1, brand] as const),
+  const brandsById = new Map<string, Brand>(
+    brands.map((brand, index) => [`brand-${index + 1}`, brand]),
   );
 
   const result = await groq.parse({
@@ -39,7 +39,7 @@ export async function extractMentions(
         content: JSON.stringify({
           text,
           brands: brands.map((brand, index) => ({
-            id: index + 1,
+            id: `brand-${index + 1}`,
             name: brand.name,
           })),
         }),
@@ -47,7 +47,9 @@ export async function extractMentions(
     ],
   });
 
-  return [...new Set(result.ids)]
+  const domains = [...new Set(result.ids)]
     .map((id) => brandsById.get(id)?.domain)
     .filter((domain): domain is string => domain !== undefined);
+
+  return domains;
 }
