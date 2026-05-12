@@ -1,4 +1,5 @@
 import "dotenv/config";
+import { AnthropicService } from "@/clients/anthropic/anthropic.service";
 import { GroqService } from "@/clients/groq/groq.service";
 import { OpenAIService } from "@/clients/openai/openai.service";
 import { PerplexityService } from "@/clients/perplexity/perplexity.service";
@@ -69,6 +70,7 @@ async function main() {
   const prisma = new PrismaService();
   await prisma.$connect();
 
+  const anthropic = new AnthropicService(config);
   const groq = new GroqService(config);
   const openai = new OpenAIService(config);
   const perplexity = new PerplexityService(config);
@@ -103,10 +105,10 @@ async function main() {
       ...profile,
       domain,
     },
-    competitors: competitorDomains.map((competitorDomain) => ({
-      id: competitorDomain,
-      domain: competitorDomain,
-      name: competitorDomain,
+    competitors: competitorDomains.map((competitor) => ({
+      id: competitor.domain,
+      domain: competitor.domain,
+      name: competitor.name,
     })),
     prompts: [],
     engineResponses: [],
@@ -134,6 +136,7 @@ async function main() {
     const stream = graph.streamEvents(input, {
       version: "v2",
       configurable: {
+        anthropic,
         dataForSeo,
         groq,
         logger: undefined,

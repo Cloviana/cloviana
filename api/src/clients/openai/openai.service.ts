@@ -1,3 +1,4 @@
+import { providerRetryDelayMs } from "@/common/utils/retry-delay.util";
 import { AppConfiguration } from "@/config/app.configuration";
 import { Injectable } from "@nestjs/common";
 import OpenAI, {
@@ -14,7 +15,6 @@ import type {
 } from "openai/resources/responses/responses";
 import pLimit from "p-limit";
 import { z } from "zod";
-import { providerRetryDelayMs } from "@/common/utils/retry-delay.util";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 

@@ -72,10 +72,7 @@ export class AuditWorkflow {
     }
 
     const profile = await this.businessResearch.enrichProfile(domain);
-    const competitors = await this.businessResearch.findCompetitors(
-      domain,
-      30,
-    );
+    const competitors = await this.businessResearch.findCompetitors(domain, 30);
 
     return {
       auditId,
