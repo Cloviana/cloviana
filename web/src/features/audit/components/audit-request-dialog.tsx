@@ -40,6 +40,7 @@ import {
   useRequestAudit,
 } from '@/features/audit/api/request-audit';
 import { useVerifyAudit } from '@/features/audit/api/verify-audit';
+import { gaEvent } from '@/lib/ga/client';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -327,7 +328,14 @@ export function AuditRequestDialog({
 
   const { mutate: verifyAudit, isPending: isVerifying } = useVerifyAudit({
     mutationConfig: {
-      onSuccess: async () => {
+      onSuccess: async ({ auditId }) => {
+        if (submittedData) {
+          gaEvent('audit_started', {
+            audit_id: auditId,
+            country: submittedData.country,
+            source: 'web',
+          });
+        }
         onOpenChange(false);
         toast.success('Your audit is running!', {
           description: "We'll email you when your results are ready.",
