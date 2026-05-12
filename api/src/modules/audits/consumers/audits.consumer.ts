@@ -32,8 +32,12 @@ export class AuditsConsumer {
   private ack(context?: RmqContext) {
     if (!context) return;
 
-    const channel = context.getChannelRef();
-    const message = context.getMessage();
-    channel.ack(message);
+    try {
+      const channel = context.getChannelRef();
+      const message = context.getMessage();
+      channel.ack(message);
+    } catch (err: any) {
+      this.logger.warn(`Failed to ack message — channel already closed: ${err.message}`);
+    }
   }
 }

@@ -74,6 +74,7 @@ export function createRabbitMqOptions(
     urls: [rabbitmqUri],
     queue: definition.queue,
     queueOptions: definition.queueOptions,
+    socketOptions: { heartbeatIntervalInSeconds: 60 },
   };
 
   if (definition.prefetchCount !== undefined) {
