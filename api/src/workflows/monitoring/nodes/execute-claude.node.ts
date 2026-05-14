@@ -1,5 +1,4 @@
 import { getTitle } from "@/common/utils/get-title.util";
-import { extractMentions } from "@/common/visibility/extract-mentions";
 import type {
   BetaContentBlock,
   BetaServerToolUseBlock,
@@ -24,18 +23,14 @@ export async function executeClaude(
   state: StateType,
   config: MonitoringNodeConfig,
 ): Promise<{
-  engineResponses: EngineResponse[];
+  rawEngineResponses: EngineResponse[];
   engineFailures: EngineFailure[];
 }> {
-  const { anthropic, groq, logger } = requireMonitoringDependencies(config);
+  const { anthropic, logger } = requireMonitoringDependencies(config);
 
   const promptLookup = new Map(
     state.prompts.map((prompt) => [prompt.id, prompt]),
   );
-  const brands = [
-    { name: state.profile.name, domain: state.profile.domain },
-    ...state.competitors,
-  ];
   const requests = state.prompts.flatMap((prompt) =>
     Array.from({ length: RESPONSES_PER_PROMPT_PER_ENGINE }, (_, index) => ({
       custom_id: buildCustomId(prompt.id, index),
@@ -72,7 +67,7 @@ export async function executeClaude(
     );
 
     return {
-      engineResponses: [],
+      rawEngineResponses: [],
       engineFailures: requests.map((request) => ({
         engine: "claude",
         promptId: getPromptId(request.custom_id),
@@ -120,12 +115,7 @@ export async function executeClaude(
             title: await getTitle(url),
           })),
         );
-        const mentionDomains = await extractMentions(
-          groq,
-          batchResult.result.content.content,
-          brands,
-        );
-        const mentions = mentionDomains.map((domain) => ({ domain }));
+        const mentions: { domain: string }[] = [];
         const fanOutQueries = (
           batchResult.result.content.raw.content as BetaContentBlock[]
         )
@@ -149,7 +139,7 @@ export async function executeClaude(
     ),
   );
 
-  const engineResponses = results.filter(
+  const rawEngineResponses = results.filter(
     (result): result is EngineResponse => "content" in result,
   );
   const engineFailures = results.filter(
@@ -157,8 +147,8 @@ export async function executeClaude(
   );
 
   logger?.log(
-    `[${state.businessId}] Monitoring Claude batch completed requested=${requestedCount} succeeded=${engineResponses.length} failed=${engineFailures.length}`,
+    `[${state.businessId}] Monitoring Claude batch completed requested=${requestedCount} succeeded=${rawEngineResponses.length} failed=${engineFailures.length}`,
   );
 
-  return { engineResponses, engineFailures };
+  return { rawEngineResponses, engineFailures };
 }

@@ -5,6 +5,7 @@ import { executeChatgpt } from "./nodes/execute-chatgpt.node";
 import { executeClaude } from "./nodes/execute-claude.node";
 import { executeGoogleAio } from "./nodes/execute-google-aio.node";
 import { executePerplexity } from "./nodes/execute-perplexity.node";
+import { extractMentionsNode } from "./nodes/extract-mentions.node";
 
 export const graph = new StateGraph(
   StateAnnotation,
@@ -14,15 +15,18 @@ export const graph = new StateGraph(
   .addNode("execute-perplexity", executePerplexity)
   .addNode("execute-claude", executeClaude)
   .addNode("execute-chatgpt", executeChatgpt)
+  .addNode("extract-mentions", extractMentionsNode)
 
   .addEdge("__start__", "execute-google-aio")
   .addEdge("__start__", "execute-perplexity")
   .addEdge("__start__", "execute-claude")
   .addEdge("__start__", "execute-chatgpt")
 
-  .addEdge("execute-google-aio", "__end__")
-  .addEdge("execute-perplexity", "__end__")
-  .addEdge("execute-claude", "__end__")
-  .addEdge("execute-chatgpt", "__end__")
+  .addEdge("execute-google-aio", "extract-mentions")
+  .addEdge("execute-perplexity", "extract-mentions")
+  .addEdge("execute-claude", "extract-mentions")
+  .addEdge("execute-chatgpt", "extract-mentions")
+
+  .addEdge("extract-mentions", "__end__")
 
   .compile();

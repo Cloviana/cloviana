@@ -1,5 +1,4 @@
 import { getTitle } from "@/common/utils/get-title.util";
-import { extractMentions } from "@/common/visibility/extract-mentions";
 import {
   MonitoringNodeConfig,
   requireMonitoringDependencies,
@@ -12,15 +11,11 @@ export async function executePerplexity(
   state: StateType,
   config: MonitoringNodeConfig,
 ): Promise<{
-  engineResponses: EngineResponse[];
+  rawEngineResponses: EngineResponse[];
   engineFailures: EngineFailure[];
 }> {
-  const { perplexity, groq, logger } = requireMonitoringDependencies(config);
+  const { perplexity, logger } = requireMonitoringDependencies(config);
   const requestedCount = state.prompts.length * RESPONSES_PER_PROMPT_PER_ENGINE;
-  const brands = [
-    { name: state.profile.name, domain: state.profile.domain },
-    ...state.competitors,
-  ];
 
   const results: EngineResponse[] = [];
   const failures: EngineFailure[] = [];
@@ -50,12 +45,7 @@ export async function executePerplexity(
               title: await getTitle(url),
             })),
           );
-          const mentionDomains = await extractMentions(
-            groq,
-            result.content,
-            brands,
-          );
-          const mentions = mentionDomains.map((domain) => ({ domain }));
+          const mentions: { domain: string }[] = [];
           const fanOutQueries = (
             result.raw.choices[0]?.message.reasoning_steps ?? []
           ).flatMap((step) => step.web_search?.search_keywords ?? []);
@@ -89,5 +79,5 @@ export async function executePerplexity(
     `[${state.businessId}] Monitoring Perplexity batch completed requested=${requestedCount} succeeded=${results.length} failed=${failures.length}`,
   );
 
-  return { engineResponses: results, engineFailures: failures };
+  return { rawEngineResponses: results, engineFailures: failures };
 }

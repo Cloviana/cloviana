@@ -45,13 +45,13 @@ export const AuditContent = ({ auditId, initialData }: AuditContentProps) => {
           <AuditSkeleton />
         ) : (
           <>
-            <Hero audit={audit} />
+            <Hero auditId={auditId} audit={audit} />
             <Overview audit={audit} />
             <Visibility audit={audit} />
             <Sentiment audit={audit} />
             <Citation audit={audit} />
-            <ContentSuggestions audit={audit} />
-            <FinalCta />
+            <ContentSuggestions auditId={auditId} audit={audit} />
+            <FinalCta auditId={auditId} />
           </>
         )}
       </main>

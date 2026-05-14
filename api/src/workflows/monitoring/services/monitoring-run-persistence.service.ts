@@ -189,6 +189,17 @@ export class MonitoringRunPersistenceService {
           await tx.fanOutQuery.createMany({ data: fanOutQueries });
         }
 
+        const newResponseIds = promptResponses.map((r) => r.id).filter((id): id is string => id !== undefined);
+        if (newResponseIds.length > 0) {
+          await tx.promptResponse.updateMany({
+            where: {
+              promptId: { in: result.prompts.map((p) => p.id) },
+              id: { notIn: newResponseIds },
+            },
+            data: { text: null },
+          });
+        }
+
         if (result.prompts.length > 0) {
           await tx.prompt.updateMany({
             where: {
