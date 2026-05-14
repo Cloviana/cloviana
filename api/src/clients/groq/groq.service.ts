@@ -33,6 +33,26 @@ type GroqParseArgs<TSchema extends z.ZodTypeAny> = Omit<
   retries?: number;
 };
 
+type GroqBatchRequest = {
+  custom_id: string;
+  body: ChatCompletionCreateParamsNonStreaming;
+};
+
+export type GroqBatchResult = {
+  custom_id: string;
+  content: string | null;
+  citations: string[];
+  error: string | null;
+  raw: ChatCompletion | null;
+};
+
+const TERMINAL_BATCH_STATUSES = new Set([
+  "completed",
+  "failed",
+  "expired",
+  "cancelled",
+]);
+
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const backoffDelay = (attempt: number, baseMs = 1000, maxMs = 60000) => {
@@ -150,5 +170,82 @@ export class GroqService {
         { name, retries },
       ),
     );
+  }
+
+  async batch(
+    requests: GroqBatchRequest[],
+    pollIntervalMs = 10_000,
+  ): Promise<GroqBatchResult[]> {
+    const file = await this.uploadBatchFile(requests);
+
+    if (!file.id) {
+      throw new Error("[groq-batch] File upload did not return an ID");
+    }
+
+    const batch = await this.client.batches.create({
+      input_file_id: file.id,
+      endpoint: "/v1/chat/completions",
+      completion_window: "24h",
+    });
+
+    const completed = await this.pollUntilTerminal(batch.id, pollIntervalMs);
+
+    if (completed.status !== "completed" || !completed.output_file_id) {
+      throw new Error(
+        `[groq-batch] Batch ended with status: ${completed.status}`,
+      );
+    }
+
+    return this.parseBatchOutput(completed.output_file_id);
+  }
+
+  private async uploadBatchFile(requests: GroqBatchRequest[]) {
+    const jsonl = requests
+      .map((r) =>
+        JSON.stringify({
+          custom_id: r.custom_id,
+          method: "POST",
+          url: "/v1/chat/completions",
+          body: r.body,
+        }),
+      )
+      .join("\n");
+
+    return this.client.files.create({
+      file: new File([jsonl], "batch.jsonl", { type: "application/jsonl" }),
+      purpose: "batch",
+    });
+  }
+
+  private async pollUntilTerminal(batchId: string, intervalMs: number) {
+    let current = await this.client.batches.retrieve(batchId);
+
+    while (!TERMINAL_BATCH_STATUSES.has(current.status)) {
+      await sleep(intervalMs);
+      current = await this.client.batches.retrieve(batchId);
+    }
+
+    return current;
+  }
+
+  private async parseBatchOutput(outputFileId: string): Promise<GroqBatchResult[]> {
+    const fileContent = await this.client.files.content(outputFileId);
+    const text = await fileContent.text();
+
+    return text
+      .split("\n")
+      .filter(Boolean)
+      .map((line) => {
+        const row = JSON.parse(line);
+        const raw: ChatCompletion | null = row.response?.body ?? null;
+
+        return {
+          custom_id: row.custom_id,
+          content: raw?.choices?.[0]?.message?.content ?? null,
+          citations: [],
+          error: row.error?.message ?? null,
+          raw,
+        };
+      });
   }
 }

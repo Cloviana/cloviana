@@ -35,6 +35,7 @@ const input: StateType = {
     icp: "Scaling fintechs, neobanks, payment companies, PSPs, PayFacs, marketplaces, and finance or FinOps teams with high transaction volume, multi-source reconciliation complexity, audit pressure, revenue leakage risk, and a need to scale operations without adding headcount.",
   },
   date: new Date(),
+  rawEngineResponses: [],
   engineResponses: [],
   engineFailures: [],
   promptMetrics: [],

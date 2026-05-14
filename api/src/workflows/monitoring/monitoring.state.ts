@@ -17,8 +17,12 @@ export const StateAnnotation = Annotation.Root({
     domain: string;
   }>,
   date: Annotation<Date>,
-  engineResponses: Annotation<EngineResponse[]>({
+  rawEngineResponses: Annotation<EngineResponse[]>({
     reducer: (a, b) => [...a, ...b],
+    default: () => [],
+  }),
+  engineResponses: Annotation<EngineResponse[]>({
+    value: (_current, next) => next,
     default: () => [],
   }),
   engineFailures: Annotation<EngineFailure[]>({

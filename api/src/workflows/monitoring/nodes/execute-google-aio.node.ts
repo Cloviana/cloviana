@@ -1,4 +1,3 @@
-import { extractMentions } from "@/common/visibility/extract-mentions";
 import { AiOverviewItem } from "@/integrations/dataforseo/dataforseo.types";
 import { extractFanOutQueries } from "@/workflows/monitoring/utils/extract-fan-out-queries";
 import {
@@ -16,15 +15,11 @@ export async function executeGoogleAio(
   state: StateType,
   config: MonitoringNodeConfig,
 ): Promise<{
-  engineResponses: EngineResponse[];
+  rawEngineResponses: EngineResponse[];
   engineFailures: EngineFailure[];
 }> {
-  const { dataForSeo, groq, logger } = requireMonitoringDependencies(config);
+  const { dataForSeo, logger } = requireMonitoringDependencies(config);
   const requestedCount = state.prompts.length * RESPONSES_PER_PROMPT_PER_ENGINE;
-  const brands = [
-    { name: state.profile.name, domain: state.profile.domain },
-    ...state.competitors,
-  ];
 
   logger?.debug(
     `[${state.businessId}] Monitoring Google AIO batch starting promptCount=${state.prompts.length} requested=${requestedCount}`,
@@ -60,8 +55,7 @@ export async function executeGoogleAio(
                 url: reference.url,
                 title: reference.title ?? "",
               }));
-            const mentionDomains = await extractMentions(groq, content, brands);
-            const mentions = mentionDomains.map((domain) => ({ domain }));
+            const mentions: { domain: string }[] = [];
 
             return {
               engine: "google-aio",
@@ -89,19 +83,19 @@ export async function executeGoogleAio(
     ),
   );
 
-  const engineResponses = results.filter(
+  const rawEngineResponses = results.filter(
     (result): result is EngineResponse => "content" in result,
   );
   const engineFailures = results.filter(
     (result): result is EngineFailure => "error" in result,
   );
-  const emptyCount = engineResponses.filter(
+  const emptyCount = rawEngineResponses.filter(
     (response) => !response.content,
   ).length;
 
   logger?.log(
-    `[${state.businessId}] Monitoring Google AIO batch completed requested=${requestedCount} succeeded=${engineResponses.length} failed=${engineFailures.length} empty=${emptyCount}`,
+    `[${state.businessId}] Monitoring Google AIO batch completed requested=${requestedCount} succeeded=${rawEngineResponses.length} failed=${engineFailures.length} empty=${emptyCount}`,
   );
 
-  return { engineResponses, engineFailures };
+  return { rawEngineResponses, engineFailures };
 }
