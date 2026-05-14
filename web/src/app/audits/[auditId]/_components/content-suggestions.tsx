@@ -20,6 +20,7 @@ type ContentAudit = Pick<Audit, 'domain' | 'brandName' | 'contentSuggestions'>;
 
 type ContentProps = {
   className?: string;
+  auditId: string;
   audit: ContentAudit;
 };
 
@@ -73,7 +74,11 @@ const SuggestionItem = ({ suggestion, index, isLast }: SuggestionItemProps) => (
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 
-export const ContentSuggestions = ({ className, audit }: ContentProps) => {
+export const ContentSuggestions = ({
+  className,
+  auditId,
+  audit,
+}: ContentProps) => {
   const suggestions = audit.contentSuggestions ?? [];
 
   if (!suggestions.length) return null;
@@ -109,7 +114,12 @@ export const ContentSuggestions = ({ className, audit }: ContentProps) => {
           {/* CTA overlay */}
           <div className="absolute right-0 bottom-0 left-0 flex h-32 items-center justify-center">
             <Button
-              onClick={() => gaEvent('book_demo', { location: 'final_cta' })}
+              onClick={() =>
+                gaEvent('book_demo', {
+                  location: 'final_cta',
+                  audit_id: auditId,
+                })
+              }
               variant="outline"
               size="lg"
             >

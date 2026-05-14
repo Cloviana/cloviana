@@ -19,10 +19,11 @@ function ordinal(n: number) {
 
 type HeroProps = {
   className?: string;
+  auditId: string;
   audit: Pick<Audit, 'domain' | 'brandName' | 'visibilityLeaderboard'>;
 };
 
-export const Hero = ({ className, audit }: HeroProps) => {
+export const Hero = ({ className, auditId, audit }: HeroProps) => {
   const brand = audit.visibilityLeaderboard?.find(
     (b) => b.domain === audit.domain,
   );
@@ -65,7 +66,12 @@ export const Hero = ({ className, audit }: HeroProps) => {
                   asChild
                   size={'lg'}
                   className="w-full md:w-auto"
-                  onClick={() => gaEvent('book_demo', { location: 'hero' })}
+                  onClick={() =>
+                    gaEvent('book_demo', {
+                      location: 'hero',
+                      audit_id: auditId,
+                    })
+                  }
                 >
                   <Link href={links.demo}>Request a demo</Link>
                 </Button>
