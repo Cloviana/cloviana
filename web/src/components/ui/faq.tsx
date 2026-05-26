@@ -78,12 +78,14 @@ const Faq = ({
           <h2 className="mb-3 text-2xl font-medium md:mb-4 md:text-3xl lg:mb-6 lg:text-4xl">
             {heading}
           </h2>
-          <p className="text-muted-foreground lg:text-lg">{description}</p>
+          <p className="text-muted-foreground text-sm sm:text-base lg:text-lg">
+            {description}
+          </p>
         </div>
         <Accordion
           type="single"
           collapsible
-          className="mx-auto w-full lg:max-w-3xl"
+          className="mx-auto mt-8 w-full md:mt-10 lg:max-w-3xl"
           onValueChange={(value) => {
             if (value) {
               const item = items.find((i) => i.id === value);
@@ -94,14 +96,14 @@ const Faq = ({
           {items.map((item) => (
             <AccordionItem key={item.id} value={item.id}>
               <AccordionTrigger className="transition-opacity duration-200 hover:no-underline hover:opacity-60">
-                <div className="font-medium sm:py-1 lg:py-2 lg:text-lg">
+                <span className="py-1 text-left text-sm font-medium sm:text-base md:py-1.5 lg:py-2 lg:text-lg">
                   {item.question}
-                </div>
+                </span>
               </AccordionTrigger>
-              <AccordionContent className="sm:mb-1 lg:mb-2">
-                <div className="text-muted-foreground lg:text-lg">
+              <AccordionContent className="mb-1 md:mb-2">
+                <p className="text-muted-foreground text-sm sm:text-base lg:text-lg">
                   {item.answer}
-                </div>
+                </p>
               </AccordionContent>
             </AccordionItem>
           ))}

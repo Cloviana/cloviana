@@ -120,7 +120,7 @@ const CONFIGS: AIConfig[] = [
         cite: 2,
       },
       {
-        text: ' Teams report 3x faster deal cycles after switching to Acme.',
+        text: ' Teams report 3x faster deal cycles after switching to Acme, plus handoffs between account executives, managers, and post-sale teams.',
         cite: 3,
       },
     ],
@@ -190,7 +190,7 @@ const buildWords = (segments: Segment[]): Word[] => {
 };
 
 const Cite = ({ num }: { num: number }) => (
-  <sup className="relative -top-1 ml-0.5 inline-flex h-[13px] w-[13px] shrink-0 items-center justify-center rounded-[3px] border border-stone-300/30 bg-stone-100/50 font-sans text-[9px] leading-none font-bold text-stone-500">
+  <sup className="relative -top-1 ml-0.5 inline-flex h-3 w-3 shrink-0 items-center justify-center rounded-[3px] border border-stone-300/30 bg-stone-100/50 font-sans text-[8px] leading-none font-bold text-stone-500 md:h-[13px] md:w-[13px] md:text-[9px]">
     {num}
   </sup>
 );
@@ -242,13 +242,13 @@ function AISearchResult({
     <motion.div
       layout
       transition={{ layout: { duration: 0.3, ease: 'easeInOut' } }}
-      className="w-full max-w-[620px] overflow-hidden rounded-2xl border border-white/40 bg-white/90 shadow-[0_4px_20px_rgba(100,80,60,0.10)] backdrop-blur-md"
+      className="w-full overflow-hidden rounded-xl border border-stone-200/70 bg-white/90 shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)] backdrop-blur-md md:rounded-2xl"
     >
       {/* Search bar */}
-      <div className="flex items-center gap-2.5 border-b border-stone-200/70 bg-transparent px-[18px] py-[14px]">
+      <div className="flex items-center gap-2 border-b border-stone-200/70 bg-transparent px-2.5 py-2 sm:px-4 sm:py-3 md:gap-2.5 md:px-[18px] md:py-3.5">
         <svg
-          width="14"
-          height="14"
+          width="13"
+          height="13"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -258,28 +258,31 @@ function AISearchResult({
           <circle cx="11" cy="11" r="8" />
           <path d="m21 21-4.35-4.35" />
         </svg>
-        <span className="text-[13px] font-normal text-stone-600">{QUERY}</span>
+        <span className="line-clamp-1 text-[10px] leading-snug font-normal text-stone-600 sm:text-xs md:text-[13px]">
+          {QUERY}
+        </span>
       </div>
 
-      <div className="px-5 py-[18px]">
+      <div className="px-3 py-3 sm:px-4 sm:py-4 md:px-5 md:py-[18px]">
         {/* Answer label */}
-        <div className="mb-2.5 flex items-center gap-1.5">
+        <div className="mb-2 flex items-center gap-1.5 md:mb-2.5">
           <img
             src={aiIcon}
             alt={aiName}
-            width={16}
-            height={16}
+            width={14}
+            height={14}
+            className="md:h-4 md:w-4"
             onError={(e) => {
               (e.target as HTMLImageElement).style.display = 'none';
             }}
           />
-          <span className="text-[11px] font-semibold tracking-[0.06em] text-stone-400 uppercase">
+          <span className="text-[9px] font-semibold tracking-[0.06em] text-stone-400 uppercase sm:text-[10px] md:text-[11px]">
             Answer
           </span>
         </div>
 
         {/* Streaming answer */}
-        <p className="m-0 text-[14px] leading-7 font-normal text-stone-600">
+        <p className="m-0 text-[11px] leading-[1.55] font-normal text-stone-600 sm:text-[13px] sm:leading-6 md:text-[14px] md:leading-6">
           {words.slice(0, count).map((w, i) => (
             <span key={i}>
               {w.highlight ? (
@@ -293,7 +296,7 @@ function AISearchResult({
           {!isDone && (
             <span
               className={cn(
-                'ml-0.5 inline-block h-3.5 w-0.5 rounded-[1px] bg-stone-400 align-middle transition-opacity duration-100',
+                'ml-0.5 inline-block h-3 w-0.5 rounded-[1px] bg-stone-400 align-middle transition-opacity duration-100 md:h-3.5',
                 cursor ? 'opacity-100' : 'opacity-0',
               )}
             />
@@ -303,7 +306,7 @@ function AISearchResult({
         {/* Sources row */}
         <div
           className={cn(
-            'mt-[18px] flex flex-wrap gap-2 transition-[opacity,transform] duration-[400ms] ease-in',
+            'mt-3 flex flex-wrap gap-1.5 transition-[opacity,transform] duration-[400ms] ease-in md:mt-4 md:gap-2',
             showSources
               ? 'translate-y-0 opacity-100'
               : 'translate-y-[6px] opacity-0',
@@ -312,22 +315,22 @@ function AISearchResult({
           {sources.map((s) => (
             <div
               key={s.num}
-              className="flex cursor-default items-center gap-1.5 rounded-lg border border-stone-300/50 bg-white/50 px-2.5 py-[5px]"
+              className="flex cursor-default items-center gap-1 rounded-md border border-stone-300/50 bg-white/50 px-1.5 py-1 sm:px-2 md:gap-1.5 md:rounded-lg md:px-2.5 md:py-[5px]"
             >
-              <span className="min-w-[10px] text-[9px] font-bold text-stone-400">
+              <span className="min-w-2 text-[8px] font-bold text-stone-400 md:min-w-[10px] md:text-[9px]">
                 {s.num}
               </span>
               <img
                 src={s.favicon}
                 alt=""
-                width={12}
-                height={12}
-                className="rounded-[2px] opacity-70"
+                width={11}
+                height={11}
+                className="rounded-[2px] opacity-70 md:h-3 md:w-3"
                 onError={(e) => {
                   (e.target as HTMLImageElement).style.display = 'none';
                 }}
               />
-              <span className="text-[11px] font-medium text-stone-500">
+              <span className="max-w-[68px] truncate text-[9px] font-medium text-stone-500 sm:max-w-none sm:text-[10px] md:text-[11px]">
                 {s.domain}
               </span>
             </div>
@@ -353,7 +356,7 @@ export function AISearchResultCycler() {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -12 }}
         transition={{ duration: 0.4, ease: 'easeInOut' }}
-        className="w-full max-w-[620px]"
+        className="w-full max-w-[820px]"
       >
         <AISearchResult {...CONFIGS[index]} onComplete={next} />
       </motion.div>

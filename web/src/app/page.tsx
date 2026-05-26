@@ -1,8 +1,8 @@
-import { Footer } from '@/components/sections/footer';
-import { Navbar } from '@/components/sections/navbar';
-import { Faq } from '@/components/ui/faq';
+'use client';
 
-import { Hero, Problem, HowItWorks, AuditCta } from './_components';
+import { Navbar } from '@/components/layout/navbar';
+
+import { Hero, AuditCta } from './_components';
 
 const faqItems = [
   {
@@ -111,7 +111,7 @@ const PAGE_SCHEMA = {
 
 export default function HomePage() {
   return (
-    <div className="bg-background relative min-h-screen">
+    <div className="bg-background relative flex min-h-screen flex-col">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(PAGE_SCHEMA) }}
@@ -120,21 +120,19 @@ export default function HomePage() {
         <Navbar />
       </header>
 
-      <main className="space-y-0">
+      <main className="flex-1 space-y-0">
         <Hero />
-
-        <Problem />
-        <AuditCta />
-        <HowItWorks />
-
+        {/*<Problem />
+        <Workflow />
         <Faq
           items={faqItems}
           heading="Frequently asked questions"
           description="Everything you need to know about Cloviana. Can't find the answer you're looking for? Reach out to our team."
-        />
+        />*/}
+        <AuditCta />
       </main>
 
-      <Footer />
+      {/*<Footer /> */}
     </div>
   );
 }

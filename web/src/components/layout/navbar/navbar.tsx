@@ -54,31 +54,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
                   <NavigationMenuItem>
                     <NavigationMenuLink asChild>
                       <Link href="#" className="px-4 py-2 text-sm font-medium">
-                        Home
-                      </Link>
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-
-                  <NavigationMenuItem>
-                    <NavigationMenuLink asChild>
-                      <Link href="#" className="px-4 py-2 text-sm font-medium">
-                        Case Studies
-                      </Link>
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-
-                  <NavigationMenuItem>
-                    <NavigationMenuLink asChild>
-                      <Link href="#" className="px-4 py-2 text-sm font-medium">
                         Blog
-                      </Link>
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-
-                  <NavigationMenuItem>
-                    <NavigationMenuLink asChild>
-                      <Link href="#" className="px-4 py-2 text-sm font-medium">
-                        Support
                       </Link>
                     </NavigationMenuLink>
                   </NavigationMenuItem>
@@ -108,14 +84,6 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
             {/* Mobile */}
             <div className="flex flex-1 items-center justify-end gap-2.5 md:hidden">
               <Button
-                asChild
-                onClick={() =>
-                  gaEvent('sign_up', { location: 'navbar_mobile' })
-                }
-              >
-                <Link href={paths.auth.signup.getHref()}>Get started</Link>
-              </Button>
-              <Button
                 onClick={() => setMenuOpened((prevState) => !prevState)}
                 variant={'outline'}
                 size={'icon'}
@@ -135,20 +103,10 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
         <div className={'padding-global bg-background border-b py-5 md:hidden'}>
           <div className={'container flex flex-col gap-6'}>
             <div className="flex flex-col gap-3">
-              <Link href={paths.home.getHref()} className="text-sm font-medium">
-                Home
-              </Link>
-              <Link href={paths.home.getHref()} className="text-sm font-medium">
-                Case Studies
-              </Link>
-              <Link href={paths.home.getHref()} className="text-sm font-medium">
+              <Link href="#" className="text-sm font-medium">
                 Blog
               </Link>
-              <Link href={paths.home.getHref()} className="text-sm font-medium">
-                Support
-              </Link>
             </div>
-
             <div className="flex flex-col gap-3">
               <Button
                 asChild
@@ -158,7 +116,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
                 }
               >
                 <a href={links.demo} target="_blank" rel="noopener noreferrer">
-                  Book a demo
+                  Request demo
                 </a>
               </Button>
             </div>
