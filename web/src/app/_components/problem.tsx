@@ -15,7 +15,7 @@ export const Problem: FC<{ className?: string }> = ({ className }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="text-foreground-light text-center text-3xl md:text-4xl lg:text-[40px]/12"
+            className="text-foreground-light text-center text-2xl sm:text-3xl md:text-4xl lg:text-[44px] lg:leading-[1.2]"
           >
             <span className="sm:hidden">
               94% of B2B buyers ask AI before sales.{' '}

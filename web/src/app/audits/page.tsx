@@ -4,8 +4,8 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { Suspense, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { Footer } from '@/components/sections/footer/default';
-import { Navbar } from '@/components/sections/navbar/navbar';
+import { Footer } from '@/components/layout/footer/default';
+import { Navbar } from '@/components/layout/navbar/navbar';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -27,12 +27,20 @@ const SAMPLE_LEADERBOARD: LeaderboardItem[] = [
   { position: 6, domain: 'reap.video', name: 'Reap', share: 5.1 },
 ];
 
+function normalizeUrl(input: string): string {
+  const trimmed = input.trim();
+  if (!trimmed.startsWith('http://') && !trimmed.startsWith('https://')) {
+    return `https://${trimmed}`;
+  }
+  return trimmed;
+}
+
 function validateUrl(input: string): true | string {
   try {
-    new URL(input.trim());
+    new URL(normalizeUrl(input));
     return true;
   } catch {
-    return 'Enter a valid URL, e.g. https://yoursite.com';
+    return 'Enter a valid URL, e.g. yoursite.com';
   }
 }
 
@@ -45,7 +53,9 @@ function AuditForm({ onSubmit }: { onSubmit: (domain: string) => void }) {
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(({ domain }) => onSubmit(domain.trim()))}
+        onSubmit={form.handleSubmit(({ domain }) =>
+          onSubmit(normalizeUrl(domain)),
+        )}
         noValidate
         className="w-full max-w-md space-y-4"
       >

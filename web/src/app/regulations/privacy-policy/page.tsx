@@ -3,8 +3,8 @@ import path from 'path';
 
 import { marked } from 'marked';
 
-import { Footer } from '@/components/sections/footer/default';
-import { Navbar } from '@/components/sections/navbar';
+import { Footer } from '@/components/layout/footer/default';
+import { Navbar } from '@/components/layout/navbar';
 
 export const metadata = {
   title: 'Privacy Policy — Cloviana',
