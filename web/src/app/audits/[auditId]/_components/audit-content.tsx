@@ -2,8 +2,8 @@
 
 import { useQuery } from '@tanstack/react-query';
 
-import { Footer } from '@/components/sections/footer/default';
-import { Navbar } from '@/components/sections/navbar/navbar';
+import { Footer } from '@/components/layout/footer/default';
+import { Navbar } from '@/components/layout/navbar/navbar';
 import { Audit, getAuditQueryOptions } from '@/features/audit';
 
 import { AuditSkeleton } from './audit-skeleton';
