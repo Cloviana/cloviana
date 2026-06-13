@@ -4,7 +4,7 @@ This Privacy Policy describes how Cloviana Ltd (“Cloviana”, “the App”, �
 
 Cloviana provides an AI-powered SEO content service that turns your Shopify products and catalog into search-optimized blog posts and related content to help you attract organic traffic and increase sales (“the Service”).
 
-***
+---
 
 ## Personal information we collect
 
@@ -57,51 +57,51 @@ Cloviana may use cookies and similar technologies (such as local storage or tags
 
 You can usually configure your browser to refuse all or some cookies, or to alert you when cookies are being set. If you disable or refuse cookies, some parts of the App may not function properly.
 
-***
+---
 
 ## How we use your personal information
 
 Cloviana uses the information described above for the following purposes:
 
 - To provide and operate the Service, including:
-    - Generating AI-powered SEO content (such as blog posts) based on your catalog and store configuration.
-    - Publishing or updating content in your Shopify store in accordance with your instructions.
-    - Configuring navigation or metaobjects where needed to deliver the Service.
+  - Generating AI-powered SEO content (such as blog posts) based on your catalog and store configuration.
+  - Publishing or updating content in your Shopify store in accordance with your instructions.
+  - Configuring navigation or metaobjects where needed to deliver the Service.
 - To communicate with you, including:
-    - Sending service-related messages, onboarding information, and updates about new features or changes to the App.
-    - Responding to your support requests, questions, or feedback.
+  - Sending service-related messages, onboarding information, and updates about new features or changes to the App.
+  - Responding to your support requests, questions, or feedback.
 - To maintain and improve the App, including:
-    - Monitoring performance, usage, and trends.
-    - Debugging, troubleshooting, and enhancing reliability and security.
+  - Monitoring performance, usage, and trends.
+  - Debugging, troubleshooting, and enhancing reliability and security.
 - To manage our business, including:
-    - Administration, billing, and account management on our own platform.
-    - Enforcing our terms and policies and protecting our rights.
+  - Administration, billing, and account management on our own platform.
+  - Enforcing our terms and policies and protecting our rights.
 
 Cloviana does not use individual store customers’ personal information for its own marketing purposes, and the Service is currently designed to work primarily with store catalog and content data.
 
-***
+---
 
 ## AI processing and third-party service providers
 
 To deliver the AI functionality and supporting infrastructure for Cloviana, we rely on third-party providers that process data on our behalf, under appropriate contractual safeguards:
 
 - **AI providers:**
-    - Groq: Used to run large language model inference for generating content quickly.  
-    - Gemini (Google): Used to support certain AI functionality.
+  - Groq: Used to run large language model inference for generating content quickly.
+  - Gemini (Google): Used to support certain AI functionality.
 
 - **Hosting and infrastructure:**
-    - Microsoft Azure: Used to host and operate the Cloviana application and related infrastructure in data centers located in the United States.
+  - Microsoft Azure: Used to host and operate the Cloviana application and related infrastructure in data centers located in the United States.
 
 - **Email and communications:**
-    - SMTP2GO: Used to send transactional emails related to your use of the Service.
-    - Smartlead: Used for email outreach to merchants, for example to share information about Cloviana or invite prospective users to try the Service.
+  - SMTP2GO: Used to send transactional emails related to your use of the Service.
+  - Smartlead: Used for email outreach to merchants, for example to share information about Cloviana or invite prospective users to try the Service.
 
 - **Analytics:**
-    - Analytics services may be used to collect and analyze usage information about how users interact with the App.
+  - Analytics services may be used to collect and analyze usage information about how users interact with the App.
 
 Cloviana does not intentionally send store customer personal information (such as buyers’ names, email addresses, or shipping addresses) to AI providers as part of content generation. The prompts and data sent to AI providers are primarily based on catalog, content, and configuration data you maintain in your store or set in the App.
 
-***
+---
 
 ## Sharing your personal information
 
@@ -111,13 +111,13 @@ Cloviana may share personal information in the following circumstances:
 - **With Shopify**, to the extent necessary to operate the App within the Shopify ecosystem and comply with Shopify’s app and data protection requirements.
 - **In business transfers**, such as a merger, acquisition, or asset sale, where your information may be transferred as part of that transaction, subject to continued protection consistent with this Policy.
 - **For legal, safety, and compliance reasons**, including:
-    - To comply with applicable laws and regulations.
-    - To respond to lawful requests, such as subpoenas, court orders, or government inquiries.
-    - To protect the rights, property, or safety of Cloviana, our users, or others.
+  - To comply with applicable laws and regulations.
+  - To respond to lawful requests, such as subpoenas, court orders, or government inquiries.
+  - To protect the rights, property, or safety of Cloviana, our users, or others.
 
 Cloviana does not sell or rent your personal information to third parties.
 
-***
+---
 
 ## Behavioural advertising and marketing
 
@@ -127,7 +127,7 @@ You can opt out of receiving marketing emails from Cloviana at any time by follo
 
 If Cloviana later adopts remarketing or targeted advertising technologies that rely on personal data, this Privacy Policy will be updated to describe those practices and provide appropriate opt-out options.
 
-***
+---
 
 ## International data transfers
 
@@ -135,7 +135,7 @@ Cloviana Ltd is registered and based in the United Kingdom, while core hosting a
 
 Where required by applicable law, Cloviana uses appropriate safeguards to protect personal information transferred internationally, which may include contractual protections or other mechanisms permitted by law.
 
-***
+---
 
 ## Data retention and deletion
 
@@ -147,7 +147,7 @@ Cloviana retains personal information for as long as necessary to provide the Se
 
 If you would like to request deletion of personal information associated with your use of Cloviana, you can contact us at support@cloviana.com.
 
-***
+---
 
 ## Your rights
 
@@ -162,7 +162,7 @@ Cloviana will respond to such requests in accordance with applicable laws and, w
 
 To exercise any of these rights, please contact support@cloviana.com.
 
-***
+---
 
 ## Security
 
@@ -170,13 +170,13 @@ Cloviana uses technical, organizational, and administrative measures designed to
 
 No method of transmission over the internet or method of electronic storage is completely secure, and Cloviana cannot guarantee absolute security. However, Cloviana works to continuously monitor and improve the security of the Service.
 
-***
+---
 
 ## Children
 
 Cloviana is intended for use by businesses (merchants) and is not directed to children. Cloviana does not knowingly collect personal information from children. If Cloviana learns that personal information from a child has been collected inadvertently, reasonable steps will be taken to delete such information as soon as possible.
 
-***
+---
 
 ## Changes to this policy
 
@@ -184,7 +184,7 @@ Cloviana may update this Privacy Policy from time to time to reflect changes in 
 
 Your continued use of the App after any changes to this Privacy Policy becomes effective will signify your acceptance of the updated Policy.
 
-***
+---
 
 ## Contact us
 

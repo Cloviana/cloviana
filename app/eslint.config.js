@@ -12,11 +12,7 @@ const compat = new FlatCompat({
 
 export default [
   {
-    ignores: [
-      'node_modules/*',
-      'public/mockServiceWorker.js',
-      'generators/*',
-    ],
+    ignores: ['node_modules/*', 'public/mockServiceWorker.js', 'generators/*'],
   },
 
   js.configs.recommended,
@@ -142,5 +138,4 @@ export default [
       '@typescript-eslint/no-unused-vars': ['error'],
     },
   },
-
 ];

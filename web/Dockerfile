@@ -5,7 +5,7 @@ WORKDIR /app
 RUN corepack enable
 
 FROM base AS deps
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* .npmrc* ./
+COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* pnpm-workspace.yaml* .npmrc* ./
 RUN if [ -f yarn.lock ]; then yarn install --frozen-lockfile; \
     elif [ -f package-lock.json ]; then npm ci; \
     elif [ -f pnpm-lock.yaml ]; then pnpm install; \

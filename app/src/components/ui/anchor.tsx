@@ -18,7 +18,8 @@ const anchorVariants = cva('underline transition-opacity duration-150', {
 });
 
 export interface AnchorProps
-  extends AnchorHTMLAttributes<HTMLAnchorElement>,
+  extends
+    AnchorHTMLAttributes<HTMLAnchorElement>,
     VariantProps<typeof anchorVariants> {
   href: string;
   children: ReactNode;
