@@ -13,21 +13,6 @@ export function classifyDomain(domain: string): DomainType {
     cleanDomain.endsWith(".gov.uk") ||
     cleanDomain.endsWith(".ac.uk")
   ) {
-    return DomainType.INSTITEMENTAL ?? DomainType.INSTITUTIONAL;
-  }
-
-  // Double check actual enum name
-  // The enum has INSTITUTIONAL (from prisma schema: enum DomainType { CORPORATE, REFERENCE, INSTITUTIONAL, EDITORIAL, UGC, OTHER })
-  
-  if (
-    cleanDomain.endsWith(".edu") ||
-    cleanDomain.endsWith(".gov") ||
-    cleanDomain.endsWith(".mil") ||
-    cleanDomain.endsWith(".gov.br") ||
-    cleanDomain.endsWith(".edu.br") ||
-    cleanDomain.endsWith(".gov.uk") ||
-    cleanDomain.endsWith(".ac.uk")
-  ) {
     return DomainType.INSTITUTIONAL;
   }
 
