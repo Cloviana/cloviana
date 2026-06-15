@@ -25,7 +25,7 @@ export async function createClusterTaxonomy(
   state: typeof StateAnnotation.State,
   config: PromptGenerationNodeConfig,
 ): Promise<Partial<typeof StateAnnotation.State>> {
-  const { logger, openai } = requirePromptGenerationDependencies(config);
+  const { logger, groq } = requirePromptGenerationDependencies(config);
   const baseDir = path.resolve(
     path.dirname(fileURLToPath(import.meta.url)),
     "prompts",
@@ -41,12 +41,12 @@ export async function createClusterTaxonomy(
     `[${state.businessId}] Creating cluster taxonomy from ${state.buyerLanguage.length} buyer language snippets`,
   );
 
-  const result = await openai.parse({
+  const result = await groq.parse({
     name: "create-cluster-taxonomy",
     schema: ClusterTaxonomySchema,
-    model: "gpt-4.1-mini",
+    model: "llama-3.3-70b-versatile",
     temperature: 0,
-    input: [
+    messages: [
       { role: "system", content: prompt },
       {
         role: "user",
@@ -59,10 +59,10 @@ export async function createClusterTaxonomy(
   });
 
   logger?.debug(
-    `[${state.businessId}] Created ${result.parsed.clusters.length} cluster taxonomy items`,
+    `[${state.businessId}] Created ${result.clusters.length} cluster taxonomy items`,
   );
 
   return {
-    clusters: result.parsed.clusters,
+    clusters: result.clusters,
   };
 }

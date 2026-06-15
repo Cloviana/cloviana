@@ -139,17 +139,40 @@ export class GroqService {
     return this.limit(() =>
       withRetries(
         async () => {
-          const completion = await this.client.chat.completions.create({
-            ...request,
-            response_format: {
-              type: "json_schema",
-              json_schema: {
-                name,
-                strict: true,
-                schema: z.toJSONSchema(schema),
+          let completion;
+          try {
+            completion = await this.client.chat.completions.create({
+              ...request,
+              response_format: {
+                type: "json_schema",
+                json_schema: {
+                  name,
+                  strict: true,
+                  schema: z.toJSONSchema(schema),
+                },
               },
-            },
-          });
+            });
+          } catch (error: any) {
+            const isJsonSchemaUnsupported =
+              error?.message?.includes("does not support response format") ||
+              error?.message?.includes("json_schema") ||
+              error?.message?.includes("Failed to validate JSON") ||
+              error?.code === "json_validate_failed";
+
+            if (isJsonSchemaUnsupported) {
+              console.warn(
+                `[GroqService] Model ${request.model} failed with json_schema. Falling back to json_object.`
+              );
+              completion = await this.client.chat.completions.create({
+                ...request,
+                response_format: {
+                  type: "json_object",
+                },
+              });
+            } else {
+              throw error;
+            }
+          }
 
           const content = completion.choices[0]?.message?.content;
 

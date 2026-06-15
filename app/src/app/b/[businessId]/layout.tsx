@@ -1,6 +1,4 @@
 import {
-  dehydrate,
-  HydrationBoundary,
   QueryClient,
 } from '@tanstack/react-query';
 import { redirect } from 'next/navigation';
@@ -32,9 +30,9 @@ export default async function Layout({ children, params }: LayoutProps) {
   }
 
   return (
-    <HydrationBoundary state={dehydrate(qc)}>
+    <>
       <BusinessAccessTracker businessId={businessId} />
       {children}
-    </HydrationBoundary>
+    </>
   );
 }

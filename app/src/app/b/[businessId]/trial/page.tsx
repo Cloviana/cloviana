@@ -1,7 +1,5 @@
 import {
   QueryClient,
-  dehydrate,
-  HydrationBoundary,
 } from '@tanstack/react-query';
 
 import { MinimalHeader } from '@/components/layout/header';
@@ -21,7 +19,7 @@ export default async function TrialPage({ params }: TrialPageProps) {
   );
 
   return (
-    <HydrationBoundary state={dehydrate(qc)}>
+    <>
       <main className="bg-studio flex min-h-screen flex-col">
         <header>
           <MinimalHeader />
@@ -46,6 +44,6 @@ export default async function TrialPage({ params }: TrialPageProps) {
           </div>
         </ScrollArea>
       </main>
-    </HydrationBoundary>
+    </>
   );
 }

@@ -5,11 +5,13 @@ import { BusinessesConsumer } from "./businesses.consumer";
 test("BusinessesConsumer runs business initialization when it receives a message", async () => {
   const receivedBusinessIds: string[] = [];
   const consumer = new BusinessesConsumer(
+    {} as any,
     {
       run: async (businessId: string) => {
         receivedBusinessIds.push(businessId);
       },
     } as any,
+    {} as any,
     {
       clearStaleInProgressBusinesses: async () => 0,
     } as any,
@@ -31,11 +33,13 @@ test("BusinessesConsumer ignores invalid business initialization payloads", asyn
   let called = false;
   const errors: string[] = [];
   const consumer = new BusinessesConsumer(
+    {} as any,
     {
       run: async () => {
         called = true;
       },
     } as any,
+    {} as any,
     {
       clearStaleInProgressBusinesses: async () => 0,
     } as any,
@@ -58,9 +62,11 @@ test("BusinessesConsumer cleans up stale in-progress businesses when it receives
   const cutoffs: Date[] = [];
   const logs: string[] = [];
   const consumer = new BusinessesConsumer(
+    {} as any,
     {
       run: async () => undefined,
     } as any,
+    {} as any,
     {
       clearStaleInProgressBusinesses: async (cutoff: Date) => {
         cutoffs.push(cutoff);

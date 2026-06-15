@@ -2,7 +2,7 @@
 
 import type { BusinessSetupStep } from '@/types/api';
 
-export type BusinessSetupView = 'competitors';
+export type BusinessSetupView = 'profile' | 'topics' | 'prompts';
 
 export type BusinessSetupStepConfig = {
   queryValue: BusinessSetupView;
@@ -14,28 +14,46 @@ export const businessSetupStepConfig: Record<
   BusinessSetupView,
   BusinessSetupStepConfig
 > = {
-  competitors: {
-    queryValue: 'competitors',
-    title: 'Add your competitors',
+  profile: {
+    queryValue: 'profile',
+    title: 'Shape the market profile',
     subtitle:
-      'List the businesses you compete with so we can benchmark you accurately.',
+      'Review what we found and add the context that changes how buyers discover this client.',
+  },
+  topics: {
+    queryValue: 'topics',
+    title: 'Choose the topic universe',
+    subtitle:
+      'Select the buying conversations Cloviana should monitor across AI search.',
+  },
+  prompts: {
+    queryValue: 'prompts',
+    title: 'Approve buyer prompts',
+    subtitle:
+      'Edit the exact questions we will run across ChatGPT, Claude, Perplexity, and Google AI Overviews.',
   },
 };
 
 export function getVisibleBusinessSetupSteps(): BusinessSetupView[] {
-  return ['competitors'];
+  return ['profile', 'topics', 'prompts'];
 }
 
 export function getBusinessSetupViewFromBackendStep(
   setupStep: BusinessSetupStep,
 ): BusinessSetupView {
   switch (setupStep) {
-    case 'COMPETITORS':
-      return 'competitors';
+    case 'TOPICS':
+      return 'topics';
+    case 'PROMPTS':
     case 'COMPLETED':
-      return 'competitors';
+      return 'prompts';
+    case 'DOMAIN':
+    case 'PROFILE':
+    case 'LOCATION':
+    case 'COMPETITORS':
+    case 'ATTRIBUTION':
     default:
-      return 'competitors';
+      return 'profile';
   }
 }
 
@@ -44,11 +62,10 @@ export function getNormalizedBusinessSetupView(
   backendView: BusinessSetupView,
   visibleViews: BusinessSetupView[],
 ): BusinessSetupView {
-  if (!requestedView) {
-    return backendView;
-  }
-
-  if (!visibleViews.includes(requestedView as BusinessSetupView)) {
+  if (
+    !requestedView ||
+    !visibleViews.includes(requestedView as BusinessSetupView)
+  ) {
     return backendView;
   }
 
@@ -56,7 +73,6 @@ export function getNormalizedBusinessSetupView(
     requestedView as BusinessSetupView,
   );
   const backendIndex = visibleViews.indexOf(backendView);
-
   return requestedIndex > backendIndex
     ? backendView
     : (requestedView as BusinessSetupView);
@@ -69,35 +85,24 @@ export function getBusinessSetupStepIndex(
   return visibleViews.indexOf(currentStep);
 }
 
-export function getBusinessSetupProgressValue(
-  currentStep: BusinessSetupView,
-  visibleViews: BusinessSetupView[],
-) {
-  if (visibleViews.length === 0) {
-    return 0;
-  }
-
-  return (
-    ((getBusinessSetupStepIndex(currentStep, visibleViews) + 1) /
-      visibleViews.length) *
-    100
-  );
-}
-
 export function getPreviousBusinessSetupView(
   currentStep: BusinessSetupView,
   visibleViews: BusinessSetupView[],
 ) {
-  const currentIndex = getBusinessSetupStepIndex(currentStep, visibleViews);
-  return visibleViews[currentIndex - 1] ?? null;
+  return (
+    visibleViews[getBusinessSetupStepIndex(currentStep, visibleViews) - 1] ??
+    null
+  );
 }
 
 export function getNextBusinessSetupView(
   currentStep: BusinessSetupView,
   visibleViews: BusinessSetupView[],
 ) {
-  const currentIndex = getBusinessSetupStepIndex(currentStep, visibleViews);
-  return visibleViews[currentIndex + 1] ?? null;
+  return (
+    visibleViews[getBusinessSetupStepIndex(currentStep, visibleViews) + 1] ??
+    null
+  );
 }
 
 export function getBusinessSetupStepHref(
@@ -107,8 +112,6 @@ export function getBusinessSetupStepHref(
 ) {
   const params = new URLSearchParams(searchParams.toString());
   params.set('step', step);
-
   const queryString = params.toString();
-
   return queryString ? `${pathname}?${queryString}` : pathname;
 }

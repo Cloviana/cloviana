@@ -1,4 +1,4 @@
-import type { Business, ID } from '@/types/api';
+import type { Business, ID, JobStatus } from '@/types/api';
 
 export type BusinessEntry = {
   destination: 'setup' | 'business';
@@ -8,6 +8,36 @@ export type BusinessEntry = {
 export type BusinessSetup = {
   business: Business;
   shouldCollectHeardAboutUs: boolean;
+  promptResearch: {
+    id: string;
+    status: JobStatus;
+    error: string | null;
+    createdAt: string;
+    finishedAt: string | null;
+    promptUniverse: PromptUniverse | null;
+  } | null;
+};
+
+export type PromptCluster = {
+  id: string;
+  name: string;
+  description: string;
+  buyerLanguageIds?: string[];
+  representativeQuotes?: string[];
+};
+
+export type GeneratedPrompt = {
+  id: string;
+  clusterId: string;
+  text: string;
+  stage: 'EXPLORE' | 'EVALUATE' | 'DECIDE';
+  score?: number;
+  active?: boolean;
+};
+
+export type PromptUniverse = {
+  clusters: PromptCluster[];
+  prompts: GeneratedPrompt[];
 };
 
 export type BusinessCompetitorSuggestions = {

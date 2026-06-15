@@ -21,7 +21,7 @@ export async function deduplicatePrompts(
   state: typeof StateAnnotation.State,
   config: PromptGenerationNodeConfig,
 ): Promise<Partial<typeof StateAnnotation.State>> {
-  const { openai, logger } = requirePromptGenerationDependencies(config);
+  const { groq, logger } = requirePromptGenerationDependencies(config);
 
   if (state.prompts.length <= 1) {
     return { prompts: state.prompts };
@@ -42,12 +42,12 @@ export async function deduplicatePrompts(
     `[${state.businessId}] Deduplicating ${state.prompts.length} prompts`,
   );
 
-  const result = await openai.parse({
+  const result = await groq.parse({
     name: "deduplicate-prompts",
     schema: DeduplicatePromptsSchema,
-    model: "gpt-4.1-mini",
+    model: "llama-3.3-70b-versatile",
     temperature: 0,
-    input: [
+    messages: [
       { role: "system", content: systemPrompt },
       {
         role: "user",
@@ -66,7 +66,7 @@ export async function deduplicatePrompts(
   const validIds = new Set(state.prompts.map((p) => p.id));
 
   const duplicateIds = new Set(
-    result.parsed.groups.flatMap((g) =>
+    result.groups.flatMap((g) =>
       g.duplicateIds.filter((id) => validIds.has(id) && id !== g.canonicalId),
     ),
   );

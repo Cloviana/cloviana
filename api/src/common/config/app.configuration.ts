@@ -8,7 +8,7 @@ export class AppConfiguration {
   readonly port: number;
 
   @IsString()
-  @Value("API_HOST", { parse: (value) => value || "localhost" })
+  @Value("API_HOST", { parse: (value) => value || "0.0.0.0" })
   readonly host: string;
 
   @IsString()

@@ -24,9 +24,10 @@ import { Separator } from '@/components/ui/separator';
 import { paths } from '@/config/paths';
 import { googleSignIn } from '@/features/auth/actions/google-sign-in';
 import { signUpWithEmail } from '@/features/auth/actions/sign-up-with-email';
+import { workEmailSchema } from '@/features/auth/schemas/work-email';
 
 const formSchema = z.object({
-  email: z.string().email({ message: 'Enter a valid email.' }),
+  email: workEmailSchema,
   password: z
     .string()
     .min(12, { message: 'Password must be at least 12 characters.' }),
@@ -45,10 +46,20 @@ export default function SignUpPage() {
     form.clearErrors('root');
     const result = await signUpWithEmail(values.email, values.password);
     if (!result.success) {
+      if (result.message.toLowerCase().includes('already registered')) {
+        toast.info('Account already exists. Please sign in instead.');
+        push(paths.auth.login.getHref());
+        return;
+      }
       toast.error(result.message);
       return;
     }
-    push(paths.home.getHref());
+    toast.success(result.message);
+    if (result.needsVerification) {
+      push(paths.auth.verifyEmail.getHref({ email: values.email }));
+    } else {
+      push(paths.auth.login.getHref());
+    }
   }
 
   return (
@@ -71,7 +82,7 @@ export default function SignUpPage() {
           <div className="space-y-1.5">
             <h1 className="text-[20px] font-medium">Welcome to Cloviana</h1>
             <p className="text-foreground-light text-sm">
-              Sign up with an invited email to join your workspace.
+              Use your work email to create your client workspace.
             </p>
           </div>
 
@@ -159,7 +170,7 @@ export default function SignUpPage() {
                     !form.formState.isValid
                   }
                 >
-                  Continue
+                  Create Account
                   <ChevronRight className="size-3.5" strokeWidth={2.5} />
                 </Button>
               </form>

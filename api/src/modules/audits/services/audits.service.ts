@@ -1,6 +1,7 @@
 import { randomInt } from "node:crypto";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { ResendService } from "@/clients/resend/resend.service";
+import { isWorkEmail } from "@/common/email/work-email";
 import { AuditsProducer } from "@/infrastructure/messaging/producers/audits.producer";
 import { CACHE_MANAGER, Cache } from "@nestjs/cache-manager";
 import {
@@ -16,29 +17,6 @@ const VERIFY_TTL_MS = 10 * 60 * 1000; // 10 minutes
 const VERIFY_EXPIRY_MINUTES = 10;
 const DEV_EMAIL = "samuel@cloviana.com";
 const DEV_CODE = 123456;
-
-const FREE_EMAIL_DOMAINS = new Set([
-  "gmail.com",
-  "yahoo.com",
-  "yahoo.co.uk",
-  "hotmail.com",
-  "hotmail.co.uk",
-  "outlook.com",
-  "outlook.co.uk",
-  "aol.com",
-  "icloud.com",
-  "me.com",
-  "mac.com",
-  "mail.com",
-  "protonmail.com",
-  "proton.me",
-  "zoho.com",
-  "yandex.com",
-  "gmx.com",
-  "gmx.net",
-  "live.com",
-  "msn.com",
-]);
 
 interface VerifyPayload {
   code: number;
@@ -134,9 +112,7 @@ export class AuditsService {
   }
 
   private validateWorkEmail(email: string) {
-    const domain = email.split("@")[1]?.toLowerCase();
-
-    if (!domain || FREE_EMAIL_DOMAINS.has(domain)) {
+    if (!isWorkEmail(email)) {
       throw new BadRequestException(
         "Please use a work email address. Free email providers are not accepted.",
       );

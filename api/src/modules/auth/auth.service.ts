@@ -1,10 +1,18 @@
 import { PrismaService } from "@/clients/prisma/prisma.service";
+import { isWorkEmail } from "@/common/email/work-email";
 import type { AuthUser } from "@/interfaces/auth-user.interface";
 import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { BusinessInviteStatus } from "@prisma/client";
 import { ADMIN_EMAIL, normalizeEmail } from "./constants/access.constants";
 
-type AuthAccessReason = "admin" | "owner" | "member" | "invite" | "denied";
+type AuthAccessReason =
+  | "admin"
+  | "owner"
+  | "member"
+  | "invite"
+  | "business_email"
+  | "personal_email"
+  | "denied";
 
 @Injectable()
 export class AuthService {
@@ -54,7 +62,11 @@ export class AuthService {
       return { allowed: true, reason: "invite" as AuthAccessReason };
     }
 
-    return { allowed: false, reason: "denied" as AuthAccessReason };
+    if (!isWorkEmail(normalizedEmail)) {
+      return { allowed: false, reason: "personal_email" as AuthAccessReason };
+    }
+
+    return { allowed: true, reason: "business_email" as AuthAccessReason };
   }
 
   async validateAuthenticatedUser(payload: AuthUser): Promise<AuthUser> {
@@ -95,6 +107,15 @@ export class AuthService {
   }
 
   private async ensureProfile(id: string, email: string) {
+    const existing = await this.prisma.profile.findUnique({ where: { email } });
+    if (existing && existing.id !== id) {
+      await this.prisma.profile.update({
+        where: { id: existing.id },
+        data: { id },
+      });
+      return;
+    }
+
     await this.prisma.profile.upsert({
       where: { id },
       update: { email },

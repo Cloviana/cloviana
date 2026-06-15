@@ -1,3 +1,4 @@
+import "dotenv/config";
 import {
   AUDITS_QUEUE,
   BUSINESSES_QUEUE,

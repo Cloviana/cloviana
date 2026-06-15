@@ -9,6 +9,7 @@ type BusinessSetupActionsProps = {
   isSubmitting?: boolean;
   isContinueDisabled?: boolean;
   onBack?: () => void;
+  continueLabel?: string;
 };
 
 export function BusinessSetupActions({
@@ -16,6 +17,7 @@ export function BusinessSetupActions({
   isSubmitting = false,
   isContinueDisabled = false,
   onBack,
+  continueLabel = 'Continue',
 }: BusinessSetupActionsProps) {
   return (
     <div className="space-y-3 pt-2">
@@ -26,7 +28,7 @@ export function BusinessSetupActions({
         loading={isSubmitting}
         disabled={isContinueDisabled}
       >
-        Continue
+        {continueLabel}
         <ChevronRight className="size-3.5" strokeWidth={2.5} />
       </Button>
 

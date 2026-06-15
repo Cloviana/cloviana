@@ -2,6 +2,9 @@ import { queryOptions, useQuery } from '@tanstack/react-query';
 
 import type {
   SetupBusinessCompetitorsData,
+  SetupBusinessProfileData,
+  SetupBusinessPromptsData,
+  SetupBusinessTopicsData,
   StartBusinessSetupData,
 } from '@/features/businesses/schemas/business-setup';
 import type {
@@ -73,13 +76,57 @@ export const updateBusinessSetupCompetitors = async (
   );
 };
 
+export const updateBusinessSetupProfile = async (
+  businessId: string,
+  payload: SetupBusinessProfileData,
+): Promise<Business> => {
+  const headers = await getAuthHeaders();
+  return api.patch<Business>(
+    `/businesses/${businessId}/setup/profile`,
+    {
+      ...payload,
+      distributionChannels: payload.distributionChannels
+        .split(',')
+        .map((channel) => channel.trim())
+        .filter(Boolean),
+    },
+    { headers },
+  );
+};
+
+export const retryBusinessPromptResearch = async (businessId: string) => {
+  const headers = await getAuthHeaders();
+  return api.post<{ queued: boolean }>(
+    `/businesses/${businessId}/setup/prompt-research`,
+    undefined,
+    { headers },
+  );
+};
+
+export const updateBusinessSetupTopics = async (
+  businessId: string,
+  payload: SetupBusinessTopicsData,
+): Promise<Business> => {
+  const headers = await getAuthHeaders();
+  return api.patch<Business>(
+    `/businesses/${businessId}/setup/topics`,
+    payload,
+    { headers },
+  );
+};
+
 export const completeBusinessSetup = async (
   businessId: string,
+  payload: SetupBusinessPromptsData,
 ): Promise<Business> => {
   const headers = await getAuthHeaders();
   return api.post<Business>(
     `/businesses/${businessId}/setup/complete`,
-    undefined,
+    {
+      prompts: payload.prompts
+        .filter((prompt) => prompt.selected)
+        .map(({ clusterId, text, stage }) => ({ clusterId, text, stage })),
+    },
     {
       headers,
     },

@@ -3,16 +3,25 @@
 type BusinessSetupHeadingProps = {
   title: string;
   subtitle: string;
+  eyebrow?: string;
 };
 
 export function BusinessSetupHeading({
   title,
   subtitle,
+  eyebrow,
 }: BusinessSetupHeadingProps) {
   return (
-    <div className="space-y-[2px]">
-      <h1 className="text-xl font-semibold tracking-tight">{title}</h1>
-      <div className="text-foreground/40 text-base">{subtitle}</div>
+    <div className="mb-8 space-y-2">
+      {eyebrow ? (
+        <p className="text-xs font-medium tracking-wide text-blue-600 uppercase">
+          {eyebrow}
+        </p>
+      ) : null}
+      <h1 className="text-2xl font-semibold tracking-tight text-slate-900">
+        {title}
+      </h1>
+      <p className="max-w-xl text-sm leading-6 text-slate-500">{subtitle}</p>
     </div>
   );
 }

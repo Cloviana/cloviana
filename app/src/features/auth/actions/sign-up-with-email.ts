@@ -1,5 +1,7 @@
 'use client';
 
+import { env } from '@/config/env';
+import { paths } from '@/config/paths';
 import { createClient } from '@/lib/supabase/client';
 
 import { checkAuthAccess } from '../api/check-auth-access';
@@ -7,11 +9,13 @@ import { checkAuthAccess } from '../api/check-auth-access';
 interface AuthResponse {
   success: boolean;
   message: string;
+  needsVerification?: boolean;
 }
 
 const GENERIC_ERROR_MSG =
   'The email address must be a valid email address and must not be in use by another user.';
-const ACCESS_DENIED_MSG = 'Your email has not been invited to a workspace.';
+const ACCESS_DENIED_MSG =
+  'Use your work email. Personal email providers are not accepted.';
 
 export async function signUpWithEmail(
   email: string,
@@ -29,26 +33,39 @@ export async function signUpWithEmail(
       };
     }
 
-    const { error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email: normalizedEmail,
       password,
+      options: {
+        emailRedirectTo: `${env.APP_URL}/api/auth/confirm?next=${encodeURIComponent(paths.business.getHref())}`,
+      },
     });
 
     if (error) {
       return {
         success: false,
-        message: GENERIC_ERROR_MSG,
+        message: error.message || GENERIC_ERROR_MSG,
+      };
+    }
+
+    if (data.session) {
+      await supabase.auth.signOut();
+      return {
+        success: true,
+        message: 'Account created. Please sign in.',
+        needsVerification: false,
       };
     }
 
     return {
       success: true,
-      message: 'Account created. Check your inbox to confirm your email.',
+      message: 'Check your work inbox to confirm your email.',
+      needsVerification: true,
     };
-  } catch {
+  } catch (err) {
     return {
       success: false,
-      message: GENERIC_ERROR_MSG,
+      message: err instanceof Error ? err.message : GENERIC_ERROR_MSG,
     };
   }
 }

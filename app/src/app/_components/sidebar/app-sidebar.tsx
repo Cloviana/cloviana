@@ -1,8 +1,13 @@
 'use client';
 
 import {
+  Activity,
+  BarChart3,
+  Globe,
   LayoutDashboard,
+  Link2,
   MessageCircleQuestionMark,
+  MessageSquare,
   Settings,
 } from 'lucide-react';
 import { useParams, usePathname } from 'next/navigation';
@@ -27,10 +32,40 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   const navMain = [
     {
-      title: 'Dashboard',
+      title: 'Overview',
       url: paths.business.getHref(businessId),
       icon: LayoutDashboard,
       isActive: pathname === paths.business.getHref(businessId),
+    },
+    {
+      title: 'Prompts',
+      url: `${paths.business.getHref(businessId)}/prompts`,
+      icon: MessageSquare,
+      isActive: pathname === `${paths.business.getHref(businessId)}/prompts`,
+    },
+    {
+      title: 'Domains',
+      url: `${paths.business.getHref(businessId)}/domains`,
+      icon: Globe,
+      isActive: pathname === `${paths.business.getHref(businessId)}/domains`,
+    },
+    {
+      title: 'URLs',
+      url: `${paths.business.getHref(businessId)}/urls`,
+      icon: Link2,
+      isActive: pathname === `${paths.business.getHref(businessId)}/urls`,
+    },
+    {
+      title: 'Gap analysis',
+      url: `${paths.business.getHref(businessId)}/gap`,
+      icon: BarChart3,
+      isActive: pathname === `${paths.business.getHref(businessId)}/gap`,
+    },
+    {
+      title: 'Insights',
+      url: `${paths.business.getHref(businessId)}/insights`,
+      icon: Activity,
+      isActive: pathname === `${paths.business.getHref(businessId)}/insights`,
     },
   ];
 

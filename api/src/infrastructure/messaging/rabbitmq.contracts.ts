@@ -19,6 +19,10 @@ export interface RunBusinessInitializationPayload {
   businessId: string;
 }
 
+export interface RunPromptGenerationPayload {
+  businessId: string;
+}
+
 export interface CleanupStaleBusinessesPayload {
   cutoffIso: string;
 }
@@ -32,6 +36,7 @@ export interface RunMonitoringPayload {
 
 export const RUN_AUDIT_EVENT = "audit.run";
 export const RUN_BUSINESS_INITIALIZATION_EVENT = "business.initialization.run";
+export const RUN_PROMPT_GENERATION_EVENT = "business.prompt-generation.run";
 export const CLEANUP_STALE_BUSINESSES_EVENT = "businesses.cleanup-stale.run";
 export const RUN_MONITORING_EVENT = "monitoring.run";
 

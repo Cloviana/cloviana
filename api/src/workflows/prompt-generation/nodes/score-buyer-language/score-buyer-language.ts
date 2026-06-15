@@ -58,8 +58,7 @@ async function scoreBuyerLanguageItem(
   const result = await groq.parse({
     name: "score-buyer-language",
     schema: BuyerLanguageScoreSchema,
-    model: "openai/gpt-oss-20b",
-    reasoning_effort: "low",
+    model: "llama-3.1-8b-instant",
     temperature: 0,
     messages: [
       { role: "system", content: prompt },
