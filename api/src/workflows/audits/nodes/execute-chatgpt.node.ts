@@ -4,11 +4,16 @@ import { AuditNodeConfig, requireAuditDependencies } from "../audit.config";
 import { StateAnnotation } from "../audit.state";
 import { EngineBrand, EngineResult } from "../audit.types";
 
+const WEB_SEARCH_DISABLED_EMAILS = new Set(["samuel@cloviana.com"]);
+
 export async function executeChatgpt(
   state: typeof StateAnnotation.State,
   config: AuditNodeConfig,
 ): Promise<Partial<typeof StateAnnotation.State>> {
   const { openai, groq } = requireAuditDependencies(config);
+  const disableWebSearch = WEB_SEARCH_DISABLED_EMAILS.has(
+    state.email.toLowerCase(),
+  );
   const brands: Brand[] = [
     { name: state.profile.name, domain: state.profile.domain },
     ...state.competitors.map((competitor) => ({
@@ -29,18 +34,22 @@ export async function executeChatgpt(
         temperature: 0,
         input: [{ role: "user" as const, content: prompt.text }],
         reasoning: { effort: "none" as const },
-        tools: [
-          {
-            type: "web_search" as const,
-            search_context_size: "low" as const,
-            user_location: {
-              type: "approximate" as const,
-              country: state.country,
-            },
-          },
-        ],
-        tool_choice: "required" as const,
-        include: ["web_search_call.action.sources" as const],
+        ...(disableWebSearch
+          ? {}
+          : {
+              tools: [
+                {
+                  type: "web_search" as const,
+                  search_context_size: "low" as const,
+                  user_location: {
+                    type: "approximate" as const,
+                    country: state.country,
+                  },
+                },
+              ],
+              tool_choice: "required" as const,
+              include: ["web_search_call.action.sources" as const],
+            }),
       });
 
       if (!result.content) {
