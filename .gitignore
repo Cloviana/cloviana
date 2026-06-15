@@ -1,5 +1,10 @@
 package-lock.json
 node_modules
+.pnpm-store/
+app/.pnpm-store/
+web/.pnpm-store/
+app/yarn.lock
+web/yarn.lock
 enrichment-automation
 .vscode
 .DS_Store
