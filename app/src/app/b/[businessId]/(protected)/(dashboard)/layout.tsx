@@ -5,12 +5,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { AppSidebar } from '@/app/_components/sidebar';
 import { ErrorFallback } from '@/components/fallbacks/error-fallback';
 import { LoadingFallback } from '@/components/fallbacks/loading-fallback';
-import { AppHeader } from '@/components/layout/header';
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from '@/components/ui/sidebar';
+import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
 
 type LayoutProps = {
   children: ReactNode;
@@ -19,16 +14,14 @@ type LayoutProps = {
 export default function Layout({ children }: LayoutProps) {
   return (
     <SidebarProvider
-      className="h-svh overflow-hidden"
-      style={{ '--sidebar-width': '18rem' } as React.CSSProperties}
+      className="h-svh w-full overflow-hidden"
+      style={{ '--sidebar-width': '15rem' } as React.CSSProperties}
     >
-      <div className="flex h-full min-h-0 w-full flex-col">
-        <AppHeader sidebarTrigger={<SidebarTrigger />} />
-
-        <div className="relative flex min-h-0 flex-1">
-          <AppSidebar />
-          <SidebarInset>
-            <div className="min-h-0 flex-1 overflow-y-auto">
+      <div className="flex h-full w-full flex-col bg-[#EBF1FA] p-3">
+        <div className="flex h-full w-full overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-2xl">
+          <AppSidebar className="border-r border-gray-200 bg-[hsl(0,0%,97%)]" />
+          <SidebarInset className="flex flex-1 min-w-0 flex-col bg-white">
+            <div className="flex-1 overflow-y-auto relative">
               <Suspense fallback={<LoadingFallback />}>
                 <ErrorBoundary fallback={<ErrorFallback />}>
                   {children}
