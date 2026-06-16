@@ -15,7 +15,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <SidebarProvider
       className="h-svh w-full overflow-hidden"
-      style={{ '--sidebar-width': '15rem' } as React.CSSProperties}
+      style={{ '--sidebar-width': '13.75rem' } as React.CSSProperties}
     >
       <div className="flex h-full w-full flex-col bg-[#EBF1FA] p-3">
         <div className="flex h-full w-full overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-2xl">

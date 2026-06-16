@@ -37,35 +37,33 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" className="border-r border-gray-200 bg-[hsl(0,0%,97%)]" {...props}>
       {/* Header Section */}
-      <SidebarHeader className="px-4 py-3 group-data-[state=collapsed]:px-2 border-b border-gray-200/60">
-        <div className="flex items-center justify-between w-full group-data-[state=collapsed]:justify-center">
-          <div className="flex items-center gap-2.5 overflow-hidden group-data-[state=collapsed]:hidden">
-            <div className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-[#d946ef] text-white">
-              <Hexagon className="size-4 fill-white text-white" />
-            </div>
-            <div className="flex items-center gap-1.5 min-w-0">
-              <span className="text-[14px] font-semibold text-gray-900 truncate">
-                {businessName}
-              </span>
-              <ChevronDown className="size-3.5 text-gray-400 shrink-0" />
-            </div>
+      <SidebarHeader className="h-12 px-2.5 border-b border-gray-200/60 flex flex-row items-center justify-between">
+        <div className="flex items-center gap-2 overflow-hidden group-data-[state=collapsed]:hidden">
+          <div className="flex size-6 shrink-0 items-center justify-center rounded-md bg-[#d946ef] text-white">
+            <Hexagon className="size-3.5 fill-white text-white" />
           </div>
-          <button
-            onClick={toggleSidebar}
-            className="flex size-7 shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-500 hover:text-gray-800 hover:bg-gray-50 shadow-2xs transition-all"
-            title={state === 'collapsed' ? "Expand sidebar" : "Collapse sidebar"}
-          >
-            <PanelLeft className="size-4" />
-          </button>
+          <div className="flex items-center gap-1.5 min-w-0">
+            <span className="text-[14px] font-semibold text-gray-900 truncate">
+              {businessName}
+            </span>
+            <ChevronDown className="size-3.5 text-gray-400 shrink-0" />
+          </div>
         </div>
+        <button
+          onClick={toggleSidebar}
+          className="flex size-7 shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-500 hover:text-gray-800 hover:bg-gray-50 shadow-2xs transition-all"
+          title={state === 'collapsed' ? "Expand sidebar" : "Collapse sidebar"}
+        >
+          <PanelLeft className="size-4" />
+        </button>
       </SidebarHeader>
 
-      <SidebarContent className="px-3 pb-4 pt-1.5 space-y-4">
+      <SidebarContent className="px-2 pb-4 pt-3 space-y-4">
         {/* Chat Action Button */}
         <div className="px-1">
-          <button className="flex w-full items-center justify-start gap-2.5 rounded-xl border border-gray-200 bg-white py-2 px-3 shadow-2xs transition-colors hover:bg-gray-50/80">
-            <div className="flex size-5 items-center justify-center rounded-full bg-gray-400 text-white shrink-0">
-              <Plus className="size-3.5 stroke-[3]" />
+          <button className="flex h-8 w-full items-center justify-start gap-2 rounded-lg border border-gray-200 bg-white px-2 shadow-2xs transition-colors hover:bg-gray-50/80">
+            <div className="flex size-[18px] items-center justify-center rounded-full bg-gray-400 text-white shrink-0">
+              <Plus className="size-3 stroke-[3.5]" />
             </div>
             <span className="text-sm font-medium text-gray-700 group-data-[state=collapsed]:hidden">
               Chat
@@ -121,7 +119,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
 function CategoryHeader({ label, isOpen }: { label: string; isOpen?: boolean }) {
   return (
-    <div className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold text-gray-400 group-data-[state=collapsed]:hidden">
+    <div className="flex items-center gap-1.5 px-2 py-1.5 text-xs font-semibold text-gray-400 group-data-[state=collapsed]:hidden">
       {isOpen ? (
         <ChevronDown className="size-3.5 text-gray-400 shrink-0" />
       ) : (
@@ -145,7 +143,7 @@ function NavItem({
 }) {
   return (
     <div
-      className={`flex w-full items-center gap-3.5 rounded-lg px-2.5 py-1.5 text-sm transition-all group-data-[state=collapsed]:justify-center group-data-[state=collapsed]:px-0 cursor-pointer group/item ${
+      className={`flex h-8 w-full items-center gap-2 rounded-lg px-2 text-sm transition-all group-data-[state=collapsed]:justify-center group-data-[state=collapsed]:px-0 cursor-pointer group/item ${
         isActive
           ? 'bg-gray-200/50 font-medium text-gray-900'
           : 'text-gray-600 hover:bg-gray-200/50 hover:text-gray-900 hover:font-medium'
