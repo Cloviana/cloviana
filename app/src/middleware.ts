@@ -1,11 +1,17 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextRequest, NextResponse } from 'next/server';
 
-const PUBLIC_PREFIXES = ['/api/auth', '/api/webhooks'];
+const PUBLIC_PREFIXES = ['/api/auth', '/api/webhooks', '/demo'];
 const isPublic = (p: string) => PUBLIC_PREFIXES.some((x) => p.startsWith(x));
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  if (pathname.startsWith('/signup')) {
+    const url = request.nextUrl.clone();
+    url.pathname = '/login';
+    return NextResponse.redirect(url);
+  }
 
   if (isPublic(pathname)) {
     return NextResponse.next();
@@ -30,13 +36,13 @@ export async function middleware(request: NextRequest) {
   );
 
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: { session },
+  } = await supabase.auth.getSession();
 
-  const isAuthRoute = ['/login', '/signup', '/verify-email'].some((route) =>
-    pathname.startsWith(route),
+  const isAuthRoute = ['/login', '/signup', '/verify-email', '/demo'].some(
+    (route) => pathname.startsWith(route),
   );
-  const isConfirmed = Boolean(user?.email_confirmed_at);
+  const isConfirmed = Boolean(session?.user.email_confirmed_at);
 
   if (isConfirmed && isAuthRoute) {
     const url = request.nextUrl.clone();

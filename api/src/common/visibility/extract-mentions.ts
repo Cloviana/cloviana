@@ -42,7 +42,11 @@ export async function extractMentions(
 ): Promise<string[]> {
   if (!text || brands.length === 0) return [];
 
-  const prompt = await loadPromptHbs("extract-mentions", {}, { baseDir: BASE_DIR });
+  const prompt = await loadPromptHbs(
+    "extract-mentions",
+    {},
+    { baseDir: BASE_DIR },
+  );
   const brandsById = new Map<string, Brand>(
     brands.map((brand, index) => [`brand-${index + 1}`, brand]),
   );
@@ -81,7 +85,11 @@ export async function batchExtractMentions(
     return items.map((item) => ({ customId: item.customId, domains: [] }));
   }
 
-  const prompt = await loadPromptHbs("extract-mentions", {}, { baseDir: BASE_DIR });
+  const prompt = await loadPromptHbs(
+    "extract-mentions",
+    {},
+    { baseDir: BASE_DIR },
+  );
   const brandsById = new Map<string, Brand>(
     brands.map((brand, index) => [`brand-${index + 1}`, brand]),
   );
@@ -138,7 +146,9 @@ export async function batchExtractMentions(
 
   for (const batchResult of batchResults) {
     if (batchResult.error || !batchResult.content) {
-      const original = withText.find((i) => i.customId === batchResult.custom_id);
+      const original = withText.find(
+        (i) => i.customId === batchResult.custom_id,
+      );
       if (original) fallbackItems.push(original);
       continue;
     }
@@ -149,7 +159,9 @@ export async function batchExtractMentions(
         domains: parseDomains(batchResult.content, brandsById),
       });
     } catch {
-      const original = withText.find((i) => i.customId === batchResult.custom_id);
+      const original = withText.find(
+        (i) => i.customId === batchResult.custom_id,
+      );
       if (original) fallbackItems.push(original);
     }
   }

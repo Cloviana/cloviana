@@ -3,7 +3,7 @@ import { NextResponse, type NextRequest } from 'next/server';
 
 import { paths } from '@/config/paths';
 
-const PUBLIC_ROUTES = ['/api/auth/google', '/api/webhooks'];
+const PUBLIC_ROUTES = ['/api/auth/google', '/api/webhooks', '/demo'];
 
 export async function updateSession(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -49,8 +49,8 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const isAuthRoute = ['/login', '/signup', '/verify-email'].some((p) =>
-    pathname.startsWith(p),
+  const isAuthRoute = ['/login', '/signup', '/verify-email', '/demo'].some(
+    (p) => pathname.startsWith(p),
   );
   const isConfirmed = Boolean(user?.email_confirmed_at);
 

@@ -15,13 +15,20 @@ const createEnv = () => {
   });
 
   const envVars = {
-    API_URL: process.env.NEXT_PUBLIC_API_URL,
+    API_URL:
+      typeof window === 'undefined' && process.env.INTERNAL_API_URL
+        ? process.env.INTERNAL_API_URL
+        : process.env.NEXT_PUBLIC_API_URL,
     APP_URL: process.env.NEXT_PUBLIC_APP_URL,
     SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
     SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     ENVIRONMENT: process.env.NEXT_PUBLIC_ENVIRONMENT,
     GA4_ID: process.env.NEXT_PUBLIC_GA4_ID,
   };
+
+  if (typeof window === 'undefined') {
+    console.log('[server] Resolved envVars.API_URL =', envVars.API_URL);
+  }
 
   const parsedEnv = EnvSchema.safeParse(envVars);
 

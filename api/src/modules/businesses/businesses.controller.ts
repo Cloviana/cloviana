@@ -60,6 +60,16 @@ export class BusinessesController {
     return this.businesses.markLastAccessed(user, businessId);
   }
 
+  @Patch(":businessId")
+  @UseGuards(BusinessOwnerGuard)
+  async updateBusiness(
+    @CurrentUser() user: AuthUser,
+    @Param("businessId") businessId: string,
+    @Body() dto: any,
+  ) {
+    return this.businesses.update(user, businessId, dto);
+  }
+
   @Get(":businessId/members")
   @UseGuards(BusinessOwnerGuard)
   async listMembers(@Param("businessId") businessId: string) {
@@ -111,6 +121,15 @@ export class BusinessesController {
     @Param("businessId") businessId: string,
   ) {
     return this.businessSetup.retryPromptResearch(user, businessId);
+  }
+
+  @Post(":businessId/setup/brand-research")
+  @UseGuards(BusinessOwnerGuard)
+  async retryBrandResearch(
+    @CurrentUser() user: AuthUser,
+    @Param("businessId") businessId: string,
+  ) {
+    return this.businessSetup.retryBrandResearch(user, businessId);
   }
 
   @Patch(":businessId/setup/topics")

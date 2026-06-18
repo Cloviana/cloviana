@@ -26,7 +26,7 @@ export function BusinessSetupActions({
         size="lg"
         className="w-full"
         loading={isSubmitting}
-        disabled={isContinueDisabled}
+        disabled={isSubmitting || isContinueDisabled}
       >
         {continueLabel}
         <ChevronRight className="size-3.5" strokeWidth={2.5} />

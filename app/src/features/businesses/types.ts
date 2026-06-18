@@ -1,4 +1,4 @@
-import type { Business, ID, JobStatus } from '@/types/api';
+import type { Business, ID, JobProgress, JobStatus } from '@/types/api';
 
 export type BusinessEntry = {
   destination: 'setup' | 'business';
@@ -8,12 +8,21 @@ export type BusinessEntry = {
 export type BusinessSetup = {
   business: Business;
   shouldCollectHeardAboutUs: boolean;
+  brandResearch: {
+    id: string;
+    status: JobStatus;
+    error: string | null;
+    createdAt: string;
+    finishedAt: string | null;
+    progress: JobProgress | null;
+  } | null;
   promptResearch: {
     id: string;
     status: JobStatus;
     error: string | null;
     createdAt: string;
     finishedAt: string | null;
+    progress: JobProgress | null;
     promptUniverse: PromptUniverse | null;
   } | null;
 };

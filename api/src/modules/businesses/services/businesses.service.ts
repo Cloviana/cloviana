@@ -49,6 +49,46 @@ export class BusinessesService {
     return { ok: true };
   }
 
+  async update(
+    user: AuthUser,
+    businessId: string,
+    dto: {
+      name?: string;
+      domain?: string;
+      profileUrl?: string;
+      description?: string;
+      category?: string;
+      icp?: string;
+      location?: string;
+      competitors?: string[];
+    },
+  ) {
+    await this.findAccessibleBusiness(user.sub, businessId);
+
+    const { competitors, ...rest } = dto;
+
+    return this.prisma.business.update({
+      where: { id: businessId },
+      data: {
+        ...rest,
+        ...(competitors !== undefined
+          ? {
+              competitors: {
+                deleteMany: {},
+                create: competitors.map((domain) => ({
+                  domain,
+                  name: domain.split(".")[0] || domain,
+                })),
+              },
+            }
+          : {}),
+      },
+      include: {
+        competitors: true,
+      },
+    });
+  }
+
   private findAccessibleBusiness(
     profileId: string,
     businessId: string,

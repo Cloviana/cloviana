@@ -2,6 +2,8 @@ import { PrismaService } from "@/clients/prisma/prisma.service";
 import { Injectable } from "@nestjs/common";
 import { JobType, PromptStatus } from "@prisma/client";
 
+type MonitoringRange = "D" | "W" | "M";
+
 @Injectable()
 export class MonitoringOverviewService {
   constructor(private readonly prisma: PrismaService) {}
@@ -51,6 +53,16 @@ export class MonitoringOverviewService {
             date: latestDate,
           },
           orderBy: { engine: "asc" },
+        })
+      : [];
+    const matrixMetrics = latestDate
+      ? await this.prisma.businessMetric.findMany({
+          where: {
+            businessId,
+            engine: { not: null },
+            date: latestDate,
+          },
+          orderBy: [{ engine: "asc" }, { competitorId: "asc" }],
         })
       : [];
     const latest = aggregateMetrics[0] ?? null;
@@ -108,17 +120,50 @@ export class MonitoringOverviewService {
         domain,
         name,
       })),
+      matrix: {
+        brands: [
+          {
+            id: null,
+            name: business.name,
+            domain: business.domain,
+            isSelf: true,
+          },
+          ...business.competitors.map(({ id, domain, name }) => ({
+            id,
+            domain,
+            name,
+            isSelf: false,
+          })),
+        ],
+        engines: Array.from(
+          new Set(
+            matrixMetrics
+              .map((metric) => metric.engine)
+              .filter((engine): engine is NonNullable<typeof engine> =>
+                Boolean(engine),
+              ),
+          ),
+        ),
+        values: matrixMetrics.map((metric) => ({
+          competitorId: metric.competitorId,
+          engine: metric.engine,
+          mentionRate: metric.mentionRate,
+          citationShare: metric.citationShare,
+          sov: metric.sov,
+        })),
+      },
     };
   }
 
-  async getGapAnalysis(businessId: string) {
+  async getGapAnalysis(businessId: string, range: MonitoringRange = "M") {
+    const start = getRangeStart(range);
     const [business, metrics] = await Promise.all([
       this.prisma.business.findUniqueOrThrow({
         where: { id: businessId },
         include: { competitors: true },
       }),
       this.prisma.businessMetric.findMany({
-        where: { businessId, engine: null },
+        where: { businessId, engine: null, date: { gte: start } },
         orderBy: { date: "desc" },
       }),
     ]);
@@ -127,7 +172,9 @@ export class MonitoringOverviewService {
     dates.sort();
 
     const trend = dates.map((dateStr) => {
-      const dateMetrics = metrics.filter((m) => m.date.toISOString() === dateStr);
+      const dateMetrics = metrics.filter(
+        (m) => m.date.toISOString() === dateStr,
+      );
       const row: any = { date: dateStr };
 
       const ownMetric = dateMetrics.find((m) => m.competitorId === null);
@@ -180,4 +227,13 @@ export class MonitoringOverviewService {
       })),
     };
   }
+}
+
+function getRangeStart(range: MonitoringRange) {
+  const start = new Date();
+  if (range === "D") start.setDate(start.getDate() - 6);
+  else if (range === "W") start.setDate(start.getDate() - 7 * 7);
+  else start.setMonth(start.getMonth() - 5);
+  start.setHours(0, 0, 0, 0);
+  return start;
 }

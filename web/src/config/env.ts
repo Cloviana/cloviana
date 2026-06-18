@@ -19,7 +19,10 @@ const createEnv = () => {
     APP_URL: process.env.NEXT_PUBLIC_APP_URL,
     GA4_ID: process.env.NEXT_PUBLIC_GA4_ID,
     CLARITY_PROJECT_ID: process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID,
-    API_URL: process.env.NEXT_PUBLIC_API_URL,
+    API_URL:
+      typeof window === 'undefined' && process.env.INTERNAL_API_URL
+        ? process.env.INTERNAL_API_URL
+        : process.env.NEXT_PUBLIC_API_URL,
   };
 
   const parsedEnv = EnvSchema.safeParse(envVars);

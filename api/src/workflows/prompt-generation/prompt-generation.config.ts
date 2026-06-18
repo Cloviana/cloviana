@@ -7,12 +7,28 @@ export type PromptGenerationDependencies = {
   exa: ExaService;
   groq: GroqService;
   logger?: Logger;
+  progress?: PromptGenerationProgressReporter;
 };
+
+export type PromptGenerationProgressUpdate = {
+  percent: number | null;
+  step: string | null;
+  title: string;
+  meta?: Record<string, unknown>;
+};
+
+export type PromptGenerationProgressReporter = (
+  update: PromptGenerationProgressUpdate,
+) => Promise<void>;
 
 export const PromptGenerationContextAnnotation = Annotation.Root({
   exa: Annotation<ExaService>,
   groq: Annotation<GroqService>,
   logger: Annotation<Logger | undefined>,
+  progress: Annotation<PromptGenerationProgressReporter | undefined>({
+    value: (_current, next) => next,
+    default: () => undefined,
+  }),
 });
 
 export type PromptGenerationNodeConfig =

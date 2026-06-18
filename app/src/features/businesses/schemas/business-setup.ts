@@ -45,7 +45,7 @@ export const setupBusinessProfileSchema = z
             .split(',')
             .map((item) => item.trim())
             .filter(Boolean).length > 0,
-        'Add at least one distribution channel',
+        'Select at least one distribution channel',
       ),
     searchIntentCommercial: z.number().min(0).max(100),
     searchIntentInformational: z.number().min(0).max(100),

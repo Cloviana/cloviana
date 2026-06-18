@@ -21,6 +21,16 @@ type JobFailureContext = JobExecutionContext & {
   finishedAt: Date;
 };
 
+export type JobProgress = {
+  percent: number | null;
+  step: string | null;
+  title: string;
+  updatedAt: string;
+  meta?: Record<string, unknown>;
+};
+
+export type JobProgressPatch = Omit<JobProgress, "updatedAt">;
+
 type JobHandlers<T> = {
   execute: (context: JobExecutionContext) => Promise<T>;
   onSuccess?: (context: JobSuccessContext<T>) => Promise<void>;
@@ -140,6 +150,7 @@ export class ManagedJobsService {
         status: JobStatus.PENDING,
         finishedAt: null,
         lastHeartbeatAt: null,
+        progress: Prisma.DbNull,
         error:
           job.status === JobStatus.RUNNING
             ? "Stale running job queued for retry"
@@ -193,6 +204,7 @@ export class ManagedJobsService {
         startedAt: new Date(),
         finishedAt: null,
         lastHeartbeatAt: new Date(),
+        progress: Prisma.DbNull,
         error: null,
       },
     });
@@ -295,6 +307,20 @@ export class ManagedJobsService {
       serializeResult,
       staleMs,
     });
+  }
+
+  async updateProgress(jobId: string, patch: JobProgressPatch) {
+    const progress: JobProgress = {
+      ...patch,
+      updatedAt: new Date().toISOString(),
+    };
+
+    await this.prisma.job.update({
+      where: { id: jobId },
+      data: { progress: progress as Prisma.InputJsonValue },
+    });
+
+    return progress;
   }
 
   private reservation(

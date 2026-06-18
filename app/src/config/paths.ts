@@ -23,6 +23,10 @@ export const paths = {
     },
   },
 
+  demo: {
+    getHref: (query?: Record<string, any>) => buildPath('/demo', query),
+  },
+
   business: {
     getHref: (businessId?: string, query?: Record<string, any>) =>
       buildPath(businessId ? `/b/${businessId}` : '/b', query),

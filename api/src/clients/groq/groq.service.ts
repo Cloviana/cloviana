@@ -104,7 +104,7 @@ async function withRetries<T>(
 @Injectable()
 export class GroqService {
   private readonly client: Groq;
-  private readonly limit = pLimit(5);
+  private readonly limit = pLimit(10);
 
   constructor(private readonly config: AppConfiguration) {
     this.client = new Groq({ apiKey: this.config.groqApiKey });
@@ -161,7 +161,7 @@ export class GroqService {
 
             if (isJsonSchemaUnsupported) {
               console.warn(
-                `[GroqService] Model ${request.model} failed with json_schema. Falling back to json_object.`
+                `[GroqService] Model ${request.model} failed with json_schema. Falling back to json_object.`,
               );
               completion = await this.client.chat.completions.create({
                 ...request,
@@ -199,27 +199,65 @@ export class GroqService {
     requests: GroqBatchRequest[],
     pollIntervalMs = 10_000,
   ): Promise<GroqBatchResult[]> {
-    const file = await this.uploadBatchFile(requests);
+    // Bypass the unreliable Groq batch API and run requests in parallel
+    // using direct chat completions with concurrency control.
+    const results: GroqBatchResult[] = [];
 
-    if (!file.id) {
-      throw new Error("[groq-batch] File upload did not return an ID");
-    }
+    await Promise.all(
+      requests.map((req) =>
+        this.limit(async () => {
+          try {
+            const completion = await withRetries(
+              async () => {
+                let result;
+                try {
+                  result =
+                    await this.client.chat.completions.create(req.body);
+                } catch (error: any) {
+                  const isJsonSchemaUnsupported =
+                    error?.message?.includes(
+                      "does not support response format",
+                    ) ||
+                    error?.message?.includes("json_schema") ||
+                    error?.message?.includes("Failed to validate JSON") ||
+                    error?.code === "json_validate_failed";
 
-    const batch = await this.client.batches.create({
-      input_file_id: file.id,
-      endpoint: "/v1/chat/completions",
-      completion_window: "24h",
-    });
+                  if (isJsonSchemaUnsupported) {
+                    const { response_format: _rf, ...rest } = req.body;
+                    result = await this.client.chat.completions.create({
+                      ...rest,
+                      response_format: { type: "json_object" },
+                    });
+                  } else {
+                    throw error;
+                  }
+                }
+                return result;
+              },
+              { name: `groq-batch-${req.custom_id}`, retries: 3 },
+            );
 
-    const completed = await this.pollUntilTerminal(batch.id, pollIntervalMs);
+            results.push({
+              custom_id: req.custom_id,
+              content: completion.choices[0]?.message?.content ?? null,
+              citations: [],
+              error: null,
+              raw: completion,
+            });
+          } catch (error: any) {
+            results.push({
+              custom_id: req.custom_id,
+              content: null,
+              citations: [],
+              error: error?.message ?? String(error),
+              raw: null,
+            });
+          }
+        }),
+      ),
+    );
 
-    if (completed.status !== "completed" || !completed.output_file_id) {
-      throw new Error(
-        `[groq-batch] Batch ended with status: ${completed.status}`,
-      );
-    }
-
-    return this.parseBatchOutput(completed.output_file_id);
+    return results;
   }
 
   private async uploadBatchFile(requests: GroqBatchRequest[]) {
@@ -251,7 +289,9 @@ export class GroqService {
     return current;
   }
 
-  private async parseBatchOutput(outputFileId: string): Promise<GroqBatchResult[]> {
+  private async parseBatchOutput(
+    outputFileId: string,
+  ): Promise<GroqBatchResult[]> {
     const fileContent = await this.client.files.content(outputFileId);
     const text = await fileContent.text();
 

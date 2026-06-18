@@ -1,8 +1,11 @@
-const { PrismaClient } = require('@prisma/client');
+const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 function classifyDomain(domain) {
-  const cleanDomain = domain.toLowerCase().trim().replace(/^www\./, "");
+  const cleanDomain = domain
+    .toLowerCase()
+    .trim()
+    .replace(/^www\./, "");
 
   // 1. Institutional
   if (
@@ -14,7 +17,7 @@ function classifyDomain(domain) {
     cleanDomain.endsWith(".gov.uk") ||
     cleanDomain.endsWith(".ac.uk")
   ) {
-    return 'INSTITUTIONAL';
+    return "INSTITUTIONAL";
   }
 
   // 2. Reference / Docs
@@ -32,7 +35,7 @@ function classifyDomain(domain) {
     cleanDomain.includes("gitbook.io") ||
     cleanDomain.includes("readme.io")
   ) {
-    return 'REFERENCE';
+    return "REFERENCE";
   }
 
   // 3. UGC (User Generated Content)
@@ -60,7 +63,7 @@ function classifyDomain(domain) {
     cleanDomain === "dev.to" ||
     cleanDomain === "stackoverflow.com"
   ) {
-    return 'UGC';
+    return "UGC";
   }
 
   // 4. Corporate (B2B SaaS / Company Websites)
@@ -92,8 +95,8 @@ function classifyDomain(domain) {
     "amplitude.com",
     "segment.com",
   ];
-  if (corporateKeywords.some(keyword => cleanDomain.includes(keyword))) {
-    return 'CORPORATE';
+  if (corporateKeywords.some((keyword) => cleanDomain.includes(keyword))) {
+    return "CORPORATE";
   }
 
   // 5. Editorial (Blogs, Publications, Digital Marketing sites, news)
@@ -125,7 +128,7 @@ function classifyDomain(domain) {
     cleanDomain.includes("moz.com") ||
     cleanDomain.includes("marketing")
   ) {
-    return 'EDITORIAL';
+    return "EDITORIAL";
   }
 
   // Default fallback based on whether it seems like a company page or editorial page
@@ -139,33 +142,33 @@ function classifyDomain(domain) {
     cleanDomain.endsWith(".app") ||
     cleanDomain.endsWith(".tech")
   ) {
-    return 'CORPORATE';
+    return "CORPORATE";
   }
 
-  return 'OTHER';
+  return "OTHER";
 }
 
 async function main() {
-  console.log('Fetching all unique domains from database...');
-  
+  console.log("Fetching all unique domains from database...");
+
   // Get all unique domains from Citation
   const citationDomains = await prisma.citation.findMany({
     select: { domain: true },
-    distinct: ['domain'],
+    distinct: ["domain"],
   });
-  
+
   // Get all unique domains from Mention
   const mentionDomains = await prisma.mention.findMany({
     select: { domain: true },
-    distinct: ['domain'],
+    distinct: ["domain"],
   });
-  
+
   const domainsSet = new Set();
-  citationDomains.forEach(c => domainsSet.add(c.domain));
-  mentionDomains.forEach(m => domainsSet.add(m.domain));
-  
+  citationDomains.forEach((c) => domainsSet.add(c.domain));
+  mentionDomains.forEach((m) => domainsSet.add(m.domain));
+
   console.log(`Found ${domainsSet.size} unique domains.`);
-  
+
   let count = 0;
   for (const domain of domainsSet) {
     const type = classifyDomain(domain);
@@ -176,7 +179,7 @@ async function main() {
     });
     count++;
   }
-  
+
   console.log(`Successfully classified and seeded ${count} domains.`);
 }
 

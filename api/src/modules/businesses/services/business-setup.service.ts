@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { isWorkEmail } from "@/common/email/work-email";
 import {
@@ -15,6 +16,7 @@ import {
   JobStatus,
   JobType,
   Prisma,
+  PromptAwarenessStage,
   PromptStatus,
 } from "@prisma/client";
 
@@ -164,16 +166,11 @@ export class BusinessSetupService {
       throw new BadRequestException("Please enter a valid domain name");
     }
 
-    const enrichment = await this.businessResearch.enrichProfile(domain);
-
-    return this.prisma.business.create({
+    const business = await this.prisma.business.create({
       data: {
         ownerId: user.sub,
         domain,
-        name: dto.brandName.trim() || enrichment.name,
-        category: enrichment.category,
-        description: enrichment.description,
-        icp: enrichment.icp,
+        name: dto.brandName.trim(),
         location: dto.location.trim(),
         timezone: dto.timezone.trim(),
         status: "LOCKED",
@@ -181,10 +178,16 @@ export class BusinessSetupService {
         setupStep: BusinessSetupStep.PROFILE,
       },
     });
+
+    await this.businessesProducer.runBusinessInitialization({
+      businessId: business.id,
+    });
+
+    return business;
   }
 
   async getSetup(user: AuthUser, businessId: string) {
-    const [business, promptResearchJob] = await Promise.all([
+    const [business, promptResearchJob, brandResearchJob] = await Promise.all([
       this.prisma.business.findFirstOrThrow({
         where: ownerAccessibleBusinessWhere(user.sub, businessId),
         include: {
@@ -198,6 +201,20 @@ export class BusinessSetupService {
           id: true,
           status: true,
           error: true,
+          progress: true,
+          result: true,
+          createdAt: true,
+          finishedAt: true,
+        },
+      }),
+      this.prisma.job.findFirst({
+        where: { businessId, type: JobType.BUSINESS_INITIALIZATION },
+        orderBy: { createdAt: "desc" },
+        select: {
+          id: true,
+          status: true,
+          error: true,
+          progress: true,
           result: true,
           createdAt: true,
           finishedAt: true,
@@ -205,20 +222,117 @@ export class BusinessSetupService {
       }),
     ]);
 
+    let brandResearchJobToReturn = brandResearchJob;
+    if (
+      !brandResearchJob &&
+      !business.description &&
+      business.setupStep === BusinessSetupStep.PROFILE
+    ) {
+      this.logger.log(
+        `Self-healing: enqueuing business initialization job for businessId=${businessId} because brandResearchJob was missing.`,
+      );
+      await this.businessesProducer.runBusinessInitialization({
+        businessId: business.id,
+      });
+
+      const freshJob = await this.prisma.job.findFirst({
+        where: { businessId, type: JobType.BUSINESS_INITIALIZATION },
+        orderBy: { createdAt: "desc" },
+        select: {
+          id: true,
+          status: true,
+          error: true,
+          progress: true,
+          result: true,
+          createdAt: true,
+          finishedAt: true,
+        },
+      });
+
+      if (freshJob) {
+        brandResearchJobToReturn = freshJob;
+      } else {
+        brandResearchJobToReturn = {
+          id: "synthetic-brand-init",
+          status: JobStatus.PENDING,
+          error: null,
+          progress: {
+            percent: 0,
+            step: "scraping",
+            title: "Initializing brand research...",
+            updatedAt: new Date().toISOString(),
+          } as any,
+          createdAt: new Date(),
+          finishedAt: null,
+        } as any;
+      }
+    }
+
+    let promptResearchJobToReturn = promptResearchJob;
+    if (!promptResearchJob && business.setupStep === BusinessSetupStep.TOPICS) {
+      this.logger.log(
+        `Self-healing: enqueuing prompt generation job for businessId=${businessId} because promptResearchJob was missing.`,
+      );
+      await this.businessesProducer.runPromptGeneration({ businessId });
+
+      const freshJob = await this.prisma.job.findFirst({
+        where: { businessId, type: JobType.PROMPT_RESEARCH },
+        orderBy: { createdAt: "desc" },
+        select: {
+          id: true,
+          status: true,
+          error: true,
+          progress: true,
+          result: true,
+          createdAt: true,
+          finishedAt: true,
+        },
+      });
+
+      if (freshJob) {
+        promptResearchJobToReturn = freshJob;
+      } else {
+        promptResearchJobToReturn = {
+          id: "synthetic-prompt-init",
+          status: JobStatus.PENDING,
+          error: null,
+          progress: {
+            percent: 0,
+            step: "start",
+            title: "Initializing prompt research...",
+            updatedAt: new Date().toISOString(),
+          } as any,
+          createdAt: new Date(),
+          finishedAt: null,
+        } as any;
+      }
+    }
+
     const researchResult = readPromptResearchResult(
-      promptResearchJob?.result ?? null,
+      promptResearchJobToReturn?.result ?? null,
     );
 
     return {
       business,
       shouldCollectHeardAboutUs: false,
-      promptResearch: promptResearchJob
+      brandResearch: brandResearchJobToReturn
         ? {
-            id: promptResearchJob.id,
-            status: promptResearchJob.status,
-            error: promptResearchJob.error,
-            createdAt: promptResearchJob.createdAt,
-            finishedAt: promptResearchJob.finishedAt,
+            id: brandResearchJobToReturn.id,
+            status: brandResearchJobToReturn.status,
+            error: brandResearchJobToReturn.error,
+            progress: brandResearchJobToReturn.progress,
+            createdAt: brandResearchJobToReturn.createdAt,
+            finishedAt: brandResearchJobToReturn.finishedAt,
+          }
+        : null,
+      promptResearch: promptResearchJobToReturn
+        ? {
+            id: promptResearchJobToReturn.id,
+            status: promptResearchJobToReturn.status,
+            error: promptResearchJobToReturn.error,
+            progress: promptResearchJobToReturn.progress,
+            createdAt: promptResearchJobToReturn.createdAt,
+            finishedAt: promptResearchJobToReturn.finishedAt,
             promptUniverse: researchResult?.promptUniverse ?? null,
           }
         : null,
@@ -240,10 +354,19 @@ export class BusinessSetupService {
       );
     }
 
-    const competitors = await this.businessResearch.findCompetitors(
-      business.domain,
-      5,
-    );
+    const existingCompetitorsCount = await this.prisma.competitor.count({
+      where: { businessId },
+    });
+
+    let competitorData: { domain: string; name: string }[] = [];
+    if (existingCompetitorsCount === 0) {
+      const suggested = await this.businessResearch.findCompetitors(
+        business.domain,
+        5,
+      );
+      competitorData = suggested.map(({ domain, name }) => ({ domain, name }));
+    }
+
     const distributionChannels = Array.from(
       new Set(dto.distributionChannels.map((channel) => channel.trim())),
     ).filter(Boolean);
@@ -258,10 +381,13 @@ export class BusinessSetupService {
         searchIntentCommercial: dto.searchIntentCommercial,
         searchIntentInformational: dto.searchIntentInformational,
         selectedTopicIds: [],
-        competitors: {
-          deleteMany: {},
-          create: competitors.map(({ domain, name }) => ({ domain, name })),
-        },
+        ...(existingCompetitorsCount === 0
+          ? {
+              competitors: {
+                create: competitorData,
+              },
+            }
+          : {}),
         setupStatus: BusinessSetupStatus.IN_PROGRESS,
         setupStep: BusinessSetupStep.TOPICS,
       },
@@ -274,6 +400,12 @@ export class BusinessSetupService {
   async retryPromptResearch(user: AuthUser, businessId: string) {
     await this.findOwnerAccessibleBusiness(user.sub, businessId);
     await this.businessesProducer.runPromptGeneration({ businessId });
+    return { queued: true };
+  }
+
+  async retryBrandResearch(user: AuthUser, businessId: string) {
+    await this.findOwnerAccessibleBusiness(user.sub, businessId);
+    await this.businessesProducer.runBusinessInitialization({ businessId });
     return { queued: true };
   }
 
@@ -352,62 +484,112 @@ export class BusinessSetupService {
       throw new BadRequestException("Approve at least 3 unique prompts");
     }
 
-    const result = await this.prisma.$transaction(async (tx) => {
-      await tx.prompt.deleteMany({ where: { businessId } });
-      await tx.tag.deleteMany({ where: { businessId } });
+    const result = await this.prisma.$transaction(
+      async (tx) => {
+        await tx.prompt.deleteMany({ where: { businessId } });
+        await tx.tag.deleteMany({ where: { businessId } });
 
-      const usedClusterIds = Array.from(
-        new Set(approvedPrompts.map((prompt) => prompt.clusterId)),
-      );
-      const tagIdByClusterId = new Map<string, string>();
-      const tagIdByTagName = new Map<string, string>();
+        const usedClusterIds = Array.from(
+          new Set(approvedPrompts.map((prompt) => prompt.clusterId)),
+        );
+        const clusterByTagName = new Map<
+          string,
+          (typeof universe.clusters)[number]
+        >();
+        for (const clusterId of usedClusterIds) {
+          const cluster = clusterById.get(clusterId);
+          if (!cluster) continue;
 
-      for (const clusterId of usedClusterIds) {
-        const cluster = clusterById.get(clusterId);
-        if (!cluster) continue;
-
-        let tagId = tagIdByTagName.get(cluster.name);
-        if (!tagId) {
-          const tag = await tx.tag.create({
-            data: { businessId, text: cluster.name },
-            select: { id: true },
-          });
-          tagId = tag.id;
-          tagIdByTagName.set(cluster.name, tagId);
+          if (!clusterByTagName.has(cluster.name)) {
+            clusterByTagName.set(cluster.name, cluster);
+          }
         }
-        tagIdByClusterId.set(clusterId, tagId);
-      }
 
-      const promptIds: string[] = [];
-      for (const prompt of approvedPrompts) {
-        const tagId = tagIdByClusterId.get(prompt.clusterId);
-        if (!tagId) continue;
+        const createdTags = await tx.tag.createManyAndReturn({
+          data: [...clusterByTagName.values()].map((cluster) => ({
+            businessId,
+            text: cluster.name,
+          })),
+          select: { id: true, text: true },
+        });
 
-        const created = await tx.prompt.create({
-          data: {
+        const tagIdByTagName = new Map(
+          createdTags.map((tag) => [tag.text, tag.id]),
+        );
+        const tagIdByClusterId = new Map<string, string>();
+
+        for (const clusterId of usedClusterIds) {
+          const cluster = clusterById.get(clusterId);
+          const tagId = cluster ? tagIdByTagName.get(cluster.name) : null;
+          if (tagId) {
+            tagIdByClusterId.set(clusterId, tagId);
+          }
+        }
+
+        const promptsToCreate: {
+          id: string;
+          businessId: string;
+          text: string;
+          status: PromptStatus;
+          awarenessStage: PromptAwarenessStage;
+        }[] = [];
+        const relationPairs: { promptId: string; tagId: string }[] = [];
+
+        for (const prompt of approvedPrompts) {
+          const tagId = tagIdByClusterId.get(prompt.clusterId);
+          if (!tagId) continue;
+
+          const promptId = randomUUID();
+          promptsToCreate.push({
+            id: promptId,
             businessId,
             text: prompt.text,
             status: PromptStatus.ACTIVE,
             awarenessStage: prompt.stage,
-            tags: { connect: { id: tagId } },
-          },
-          select: { id: true },
+          });
+
+          relationPairs.push({ promptId, tagId });
+        }
+
+        await tx.prompt.createMany({
+          data: promptsToCreate,
         });
-        promptIds.push(created.id);
-      }
 
-      const updatedBusiness = await tx.business.update({
-        where: { id: businessId },
-        data: {
-          setupStatus: BusinessSetupStatus.COMPLETED,
-          setupStep: BusinessSetupStep.COMPLETED,
-          status: "ACTIVE",
-          setupCompletedAt: new Date(),
-        },
-      });
+        if (relationPairs.length > 0) {
+          const valuesSql = relationPairs
+            .map(
+              (_, index) =>
+                `($${index * 2 + 1}::uuid, $${index * 2 + 2}::uuid)`,
+            )
+            .join(", ");
 
-      return { business: updatedBusiness, promptIds };
-    }, { timeout: 60000 });
+          const queryParameters = relationPairs.flatMap((pair) => [
+            pair.promptId,
+            pair.tagId,
+          ]);
+
+          await tx.$executeRawUnsafe(
+            `INSERT INTO "_PromptToTag" ("A", "B") VALUES ${valuesSql}`,
+            ...queryParameters,
+          );
+        }
+
+        const promptIds = promptsToCreate.map((p) => p.id);
+
+        const updatedBusiness = await tx.business.update({
+          where: { id: businessId },
+          data: {
+            setupStatus: BusinessSetupStatus.COMPLETED,
+            setupStep: BusinessSetupStep.COMPLETED,
+            status: "ACTIVE",
+            setupCompletedAt: new Date(),
+          },
+        });
+
+        return { business: updatedBusiness, promptIds };
+      },
+      { timeout: 60000 },
+    );
 
     try {
       await this.monitoringEnqueue.enqueue(businessId, result.promptIds);

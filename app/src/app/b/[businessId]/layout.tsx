@@ -1,6 +1,4 @@
-import {
-  QueryClient,
-} from '@tanstack/react-query';
+import { QueryClient } from '@tanstack/react-query';
 import { redirect } from 'next/navigation';
 import { ReactNode } from 'react';
 
@@ -17,16 +15,19 @@ export default async function Layout({ children, params }: LayoutProps) {
   const { businessId } = await params;
 
   const qc = new QueryClient();
-  const business = await qc.ensureQueryData(
-    getBusinessQueryOptions(businessId),
-  );
+  let business;
+  try {
+    business = await qc.ensureQueryData(getBusinessQueryOptions(businessId));
+  } catch {
+    redirect(paths.auth.login.getHref());
+  }
 
   if (!business) {
     redirect(paths.business.getHref());
   }
 
   if (business.setupStatus !== 'COMPLETED') {
-    redirect(paths.setup.business.detail.getHref(businessId));
+    redirect(paths.business.getHref());
   }
 
   return (

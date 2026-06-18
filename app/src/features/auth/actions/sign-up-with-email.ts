@@ -49,10 +49,9 @@ export async function signUpWithEmail(
     }
 
     if (data.session) {
-      await supabase.auth.signOut();
       return {
         success: true,
-        message: 'Account created. Please sign in.',
+        message: 'Account created. Continue setup.',
         needsVerification: false,
       };
     }

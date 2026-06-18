@@ -103,6 +103,15 @@ export const retryBusinessPromptResearch = async (businessId: string) => {
   );
 };
 
+export const retryBusinessBrandResearch = async (businessId: string) => {
+  const headers = await getAuthHeaders();
+  return api.post<{ queued: boolean }>(
+    `/businesses/${businessId}/setup/brand-research`,
+    undefined,
+    { headers },
+  );
+};
+
 export const updateBusinessSetupTopics = async (
   businessId: string,
   payload: SetupBusinessTopicsData,

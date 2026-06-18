@@ -31,10 +31,16 @@ export class PromptGenerationWorkflow {
       type: JobType.PROMPT_RESEARCH,
       businessId,
       dedupeKey,
-      execute: async () => {
+      execute: async ({ jobId }) => {
         this.logger.log(
           `Starting prompt generation for businessId=${businessId}`,
         );
+
+        await this.managedJobs.updateProgress(jobId, {
+          step: "start",
+          percent: 0,
+          title: "Starting brand research",
+        });
 
         const result = await graph.invoke(
           {
@@ -48,9 +54,17 @@ export class PromptGenerationWorkflow {
               exa: this.exa,
               groq: this.groq,
               logger: this.logger,
+              progress: (patch) =>
+                this.managedJobs.updateProgress(jobId, patch).then(() => {}),
             },
           },
         );
+
+        await this.managedJobs.updateProgress(jobId, {
+          step: "complete",
+          percent: 100,
+          title: "Research ready for review",
+        });
 
         this.logger.log(
           `Completed prompt generation for businessId=${businessId} promptCount=${result.prompts.length}`,

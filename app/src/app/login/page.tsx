@@ -197,9 +197,15 @@ export default function LoginPage() {
             </p>
 
             <p className="text-foreground-lighter text-[13px]">
-              Don't have an account?{' '}
-              <Button variant={'link'}>
-                <Link href={paths.auth.signup.getHref()}>Create account</Link>
+              Don&apos;t have an account?{' '}
+              <Button variant={'link'} asChild>
+                <a
+                  href="https://calendly.com/cloviana/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Book a demo
+                </a>
               </Button>
             </p>
           </div>

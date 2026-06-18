@@ -14,7 +14,7 @@ export function BusinessSetupHeading({
   return (
     <div className="mb-8 space-y-2">
       {eyebrow ? (
-        <p className="text-xs font-medium tracking-wide text-blue-600 uppercase">
+        <p className="text-foreground-lighter text-xs font-medium tracking-wide uppercase">
           {eyebrow}
         </p>
       ) : null}

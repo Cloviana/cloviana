@@ -1,6 +1,6 @@
-import { PrismaClient, AiEngine } from "@prisma/client";
-import { writeFileSync, mkdirSync } from "node:fs";
+import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { AiEngine, PrismaClient } from "@prisma/client";
 
 const DATABASE_URL = process.argv[2];
 if (!DATABASE_URL) {
@@ -58,7 +58,8 @@ async function main() {
   });
 
   const lines: string[] = [];
-  const generatedAt = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
+  const generatedAt =
+    new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
 
   lines.push(`# Prompt Analysis Report`);
   lines.push(`> Last ${CUTOFF_DAYS} days · Generated ${generatedAt}`);
@@ -75,7 +76,9 @@ async function main() {
     lines.push("");
     lines.push(`## ${prompt.text}`);
     lines.push("");
-    lines.push(`**Runs included:** Last ${CUTOFF_DAYS} days / ${runCount} runs / ${engines || "none"}`);
+    lines.push(
+      `**Runs included:** Last ${CUTOFF_DAYS} days / ${runCount} runs / ${engines || "none"}`,
+    );
     lines.push("");
 
     if (responses.length === 0) {
@@ -117,7 +120,9 @@ async function main() {
     lines.push("");
     if (topUrls.length > 0) {
       for (const [i, [url, count]] of topUrls.entries()) {
-        lines.push(`${i + 1}. ${url} — ${count} citation${count === 1 ? "" : "s"}`);
+        lines.push(
+          `${i + 1}. ${url} — ${count} citation${count === 1 ? "" : "s"}`,
+        );
       }
     } else {
       lines.push("_None_");
@@ -139,7 +144,8 @@ async function main() {
       .slice(0, 10);
 
     // Fall back to top 10 by frequency if nothing repeats
-    const fanOuts = repeatedFanOuts.length > 0 ? repeatedFanOuts : topN(fanOutCount, 10);
+    const fanOuts =
+      repeatedFanOuts.length > 0 ? repeatedFanOuts : topN(fanOutCount, 10);
 
     lines.push("**Fan-out queries:**");
     lines.push("");

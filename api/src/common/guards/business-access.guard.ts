@@ -3,6 +3,7 @@ import type { AuthUser } from "@/interfaces/auth-user.interface";
 import {
   CanActivate,
   ExecutionContext,
+  ForbiddenException,
   Injectable,
   NotFoundException,
 } from "@nestjs/common";
@@ -28,6 +29,10 @@ export class BusinessAccessGuard implements CanActivate {
 
     if (!business) {
       throw new NotFoundException("Business not found");
+    }
+
+    if (!business.monitoringEnabled) {
+      throw new ForbiddenException("Monitoring is disabled. Please contact support.");
     }
 
     req.business = business;

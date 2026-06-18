@@ -47,7 +47,10 @@ export class MonitoringEligibilityService {
     const duePrompts = await this.prisma.prompt.findMany({
       where: {
         status: PromptStatus.ACTIVE,
-        business: { status: BusinessStatus.ACTIVE },
+        business: {
+          status: BusinessStatus.ACTIVE,
+          monitoringEnabled: true,
+        },
         OR: [{ lastRunAt: null }, { lastRunAt: { lte: cutoff } }],
       },
       select: {

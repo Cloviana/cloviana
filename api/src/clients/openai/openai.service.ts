@@ -308,6 +308,34 @@ export class OpenAIService {
     requests: BatchRequest[],
     pollIntervalMs = 10_000,
   ): Promise<BatchResult[]> {
+    if (process.env.BYPASS_AI_BATCH === "true" || process.env.NODE_ENV === "development") {
+      const limit = pLimit(5);
+      return Promise.all(
+        requests.map((req) =>
+          limit(async (): Promise<BatchResult> => {
+            try {
+              const res = await this.client.responses.create(req.body);
+              return {
+                custom_id: req.custom_id,
+                content: extractResponseText(res.output),
+                citations: extractResponseCitations(res.output),
+                error: null,
+                raw: res,
+              };
+            } catch (error) {
+              return {
+                custom_id: req.custom_id,
+                content: null,
+                citations: [],
+                error: error instanceof Error ? error.message : String(error),
+                raw: null,
+              };
+            }
+          })
+        )
+      );
+    }
+
     const file = await this.uploadBatchFile(requests);
 
     const batch = await this.client.batches.create({

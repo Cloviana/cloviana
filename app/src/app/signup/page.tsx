@@ -1,74 +1,25 @@
 'use client';
 
-import { zodResolver } from '@hookform/resolvers/zod';
 import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { useForm } from 'react-hook-form';
-import { toast } from 'sonner';
-import { z } from 'zod';
+import { redirect } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { paths } from '@/config/paths';
-import { googleSignIn } from '@/features/auth/actions/google-sign-in';
-import { signUpWithEmail } from '@/features/auth/actions/sign-up-with-email';
-import { workEmailSchema } from '@/features/auth/schemas/work-email';
-
-const formSchema = z.object({
-  email: workEmailSchema,
-  password: z
-    .string()
-    .min(12, { message: 'Password must be at least 12 characters.' }),
-});
+import { AuthBrandPanel } from '@/features/auth/components/auth-brand-panel';
 
 export default function SignUpPage() {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    mode: 'onSubmit',
-    defaultValues: { email: '', password: '' },
-  });
-
-  const { push } = useRouter();
-
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    form.clearErrors('root');
-    const result = await signUpWithEmail(values.email, values.password);
-    if (!result.success) {
-      if (result.message.toLowerCase().includes('already registered')) {
-        toast.info('Account already exists. Please sign in instead.');
-        push(paths.auth.login.getHref());
-        return;
-      }
-      toast.error(result.message);
-      return;
-    }
-    toast.success(result.message);
-    if (result.needsVerification) {
-      push(paths.auth.verifyEmail.getHref({ email: values.email }));
-    } else {
-      push(paths.auth.login.getHref());
-    }
-  }
-
+  redirect('/login');
   return (
     <div
       role="main"
-      className="bg-studio h-screen w-screen overflow-y-auto px-7 pt-20 pb-12"
+      className="bg-studio text-foreground min-h-screen lg:grid lg:grid-cols-[minmax(0,0.92fr)_minmax(420px,0.72fr)]"
     >
-      <div className="mx-auto flex w-full max-w-md flex-col gap-12">
-        <div className="flex items-center gap-8">
+      <section className="flex min-h-screen items-center px-7 py-12">
+        <div className="mx-auto flex w-full max-w-md flex-col gap-12">
           <Image
             src="/logo-icon.png"
             width={125}
@@ -76,131 +27,113 @@ export default function SignUpPage() {
             alt="Cloviana Logo"
             className="size-[25px]"
           />
-        </div>
 
-        <div className="w-full space-y-6">
-          <div className="space-y-1.5">
-            <h1 className="text-[20px] font-medium">Welcome to Cloviana</h1>
-            <p className="text-foreground-light text-sm">
-              Use your work email to create your client workspace.
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            <Button
-              type="button"
-              className="w-full bg-white"
-              variant="outline"
-              size={'lg'}
-              onClick={googleSignIn}
-            >
-              <div className="flex items-center gap-2">
-                <Image
-                  src="/icons/google.svg"
-                  width={18}
-                  height={18}
-                  alt="google"
-                />
-                Continue with Google
-              </div>
-            </Button>
-
-            <div className="flex items-center gap-3">
-              <Separator className="flex-1" />
-              <span className="text-foreground-lighter text-xs">OR</span>
-              <Separator className="flex-1" />
+          <div className="w-full space-y-8">
+            <div className="space-y-2">
+              <p className="text-foreground-lighter text-xs font-semibold tracking-[0.22em] uppercase">
+                Invite-only signup
+              </p>
+              <h1 className="text-[26px] leading-tight font-medium">
+                Create a workspace
+              </h1>
+              <p className="text-foreground-light text-sm leading-6">
+                Signup is still visible, but access is blocked while Samuel
+                creates client dashboards manually.
+              </p>
             </div>
 
-            <Form {...form}>
-              <form
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-5"
+            <div className="space-y-6">
+              <Button
+                type="button"
+                className="w-full bg-white"
+                variant="outline"
+                size="lg"
+                disabled
               >
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email</FormLabel>
-                      <FormControl>
-                        <Input
-                          type="email"
-                          placeholder="example@company.com"
-                          size={'lg'}
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage className="text-destructive text-[13px] font-medium" />
-                    </FormItem>
-                  )}
-                />
+                <div className="flex items-center gap-2">
+                  <Image
+                    src="/icons/google.svg"
+                    width={18}
+                    height={18}
+                    alt=""
+                  />
+                  Continue with Google
+                </div>
+              </Button>
 
-                <FormField
-                  control={form.control}
-                  name="password"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Password</FormLabel>
+              <div className="flex items-center gap-3">
+                <Separator className="flex-1" />
+                <span className="text-foreground-lighter text-xs">OR</span>
+                <Separator className="flex-1" />
+              </div>
 
-                      <FormControl>
-                        <Input
-                          type="password"
-                          placeholder="New password"
-                          size={'lg'}
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormDescription>
-                        Must be at least 12 characters in length
-                      </FormDescription>
-                      <FormMessage className="text-destructive text-[13px] font-medium" />
-                    </FormItem>
-                  )}
-                />
+              <form
+                className="space-y-5"
+                onSubmit={(event) => event.preventDefault()}
+              >
+                <div className="space-y-2">
+                  <label className="text-sm font-medium" htmlFor="signup-email">
+                    Email
+                  </label>
+                  <Input
+                    id="signup-email"
+                    type="email"
+                    placeholder="example@company.com"
+                    size="lg"
+                    disabled
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label
+                    className="text-sm font-medium"
+                    htmlFor="signup-password"
+                  >
+                    Password
+                  </label>
+                  <Input
+                    id="signup-password"
+                    type="password"
+                    placeholder="New password"
+                    size="lg"
+                    disabled
+                  />
+                  <p className="text-foreground-lighter text-xs">
+                    Workspace credentials are issued manually after onboarding.
+                  </p>
+                </div>
 
                 <Button
                   type="submit"
                   className="w-full"
-                  variant={'primary'}
-                  size={'lg'}
-                  loading={form.formState.isSubmitting}
-                  disabled={
-                    form.formState.isSubmitting ||
-                    !form.formState.isDirty ||
-                    !form.formState.isValid
-                  }
+                  variant="primary"
+                  size="lg"
+                  disabled
                 >
                   Create Account
                   <ChevronRight className="size-3.5" strokeWidth={2.5} />
                 </Button>
               </form>
-            </Form>
 
-            <p className="text-foreground-lighter text-[13px]">
-              By continuing, you agree to Cloviana's{' '}
-              <Button variant={'link'}>
-                <Link href={paths.regulations.termsOfService.getHref()}>
-                  Terms of Service
-                </Link>
-              </Button>{' '}
-              and{' '}
-              <Button variant={'link'}>
-                <Link href={paths.regulations.privacyPolicy.getHref()}>
-                  Privacy Policy
+              <Button asChild className="w-full" size="lg">
+                <Link href={paths.demo.getHref()}>
+                  Book a demo
+                  <ChevronRight className="size-3.5" strokeWidth={2.5} />
                 </Link>
               </Button>
-              , and to receive periodic emails with updates.
-            </p>
 
-            <p className="text-foreground-lighter text-[13px]">
-              Already have an account?{' '}
-              <Button variant={'link'}>
-                <Link href={paths.auth.login.getHref()}>Sign in</Link>
-              </Button>
-            </p>
+              <p className="text-foreground-lighter text-[13px]">
+                Already have workspace access?{' '}
+                <Button variant="link">
+                  <Link href={paths.auth.login.getHref()}>Enter workspace</Link>
+                </Button>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <AuthBrandPanel />
     </div>
   );
 }

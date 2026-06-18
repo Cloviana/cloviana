@@ -7,6 +7,7 @@ import { MonitoringEnqueueService } from "./services/monitoring-enqueue.service"
 import { MonitoringOverviewService } from "./services/monitoring-overview.service";
 
 import { MonitoringDomainsService } from "./services/monitoring-domains.service";
+import { MonitoringPromptsService } from "./services/monitoring-prompts.service";
 
 @Module({
   imports: [JobsModule],
@@ -17,6 +18,7 @@ import { MonitoringDomainsService } from "./services/monitoring-domains.service"
     MonitoringEnqueueService,
     MonitoringOverviewService,
     MonitoringDomainsService,
+    MonitoringPromptsService,
   ],
   exports: [MonitoringEligibilityService, MonitoringEnqueueService],
 })

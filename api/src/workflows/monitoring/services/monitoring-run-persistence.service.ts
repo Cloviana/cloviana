@@ -1,5 +1,6 @@
 import { randomUUID } from "node:crypto";
 import { PrismaService } from "@/clients/prisma/prisma.service";
+import { classifyDomain } from "@/common/utils/domain-classifier.util";
 import {
   normalizeDomain,
   normalizeHostname,
@@ -20,7 +21,6 @@ import type {
   MetricResponse,
 } from "../monitoring.types";
 import { computeBusinessMetrics } from "../utils/monitoring-metric-calculator";
-import { classifyDomain } from "@/common/utils/domain-classifier.util";
 
 const TRANSACTION_MAX_WAIT_MS = 30000;
 const TRANSACTION_TIMEOUT_MS = 120000;
@@ -80,19 +80,42 @@ export class MonitoringRunPersistenceService {
       competitorByDomain.set(normalizedDomain, competitor.id);
     }
 
-    for (const response of result.engineResponses) {
+    // Group all engine responses and failures for a single prompt under a single PromptRun
+    const promptIds = new Set<string>();
+    for (const r of result.engineResponses) {
+      promptIds.add(r.promptId);
+    }
+    for (const f of result.engineFailures) {
+      promptIds.add(f.promptId);
+    }
+
+    const promptRunIdByPromptId = new Map<string, string>();
+
+    for (const promptId of promptIds) {
       const promptRunId = randomUUID();
-      const promptResponseId = randomUUID();
+      promptRunIdByPromptId.set(promptId, promptRunId);
+
+      const hasSuccess = result.engineResponses.some((r) => r.promptId === promptId);
+      const status = hasSuccess ? PromptRunStatus.COMPLETED : PromptRunStatus.FAILED;
+
       const createdAt = new Date(finishedAt.getTime() + timestampOffset);
       timestampOffset += 1;
 
       promptRuns.push({
         id: promptRunId,
-        promptId: response.promptId,
-        status: PromptRunStatus.COMPLETED,
+        promptId,
+        status,
         completedAt: finishedAt,
         createdAt,
       });
+    }
+
+    for (const response of result.engineResponses) {
+      const promptRunId = promptRunIdByPromptId.get(response.promptId);
+      if (!promptRunId) continue;
+      const promptResponseId = randomUUID();
+      const createdAt = new Date(finishedAt.getTime() + timestampOffset);
+      timestampOffset += 1;
 
       promptResponses.push({
         id: promptResponseId,
@@ -143,18 +166,11 @@ export class MonitoringRunPersistenceService {
     }
 
     for (const failure of result.engineFailures) {
-      const promptRunId = randomUUID();
+      const promptRunId = promptRunIdByPromptId.get(failure.promptId);
+      if (!promptRunId) continue;
       const promptResponseId = randomUUID();
       const createdAt = new Date(finishedAt.getTime() + timestampOffset);
       timestampOffset += 1;
-
-      promptRuns.push({
-        id: promptRunId,
-        promptId: failure.promptId,
-        status: PromptRunStatus.FAILED,
-        completedAt: finishedAt,
-        createdAt,
-      });
 
       promptResponses.push({
         id: promptResponseId,
@@ -219,7 +235,9 @@ export class MonitoringRunPersistenceService {
           }
         }
 
-        const newResponseIds = promptResponses.map((r) => r.id).filter((id): id is string => id !== undefined);
+        const newResponseIds = promptResponses
+          .map((r) => r.id)
+          .filter((id): id is string => id !== undefined);
         if (newResponseIds.length > 0) {
           await tx.promptResponse.updateMany({
             where: {

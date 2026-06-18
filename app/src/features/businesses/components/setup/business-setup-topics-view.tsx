@@ -61,6 +61,11 @@ export function BusinessSetupTopicsView() {
   const selectedIds = form.watch('topicIds');
   const isResearching =
     !research || ['PENDING', 'RUNNING'].includes(research.status);
+  const progress = research?.progress ?? null;
+  const progressPercent =
+    typeof progress?.percent === 'number'
+      ? Math.min(Math.max(progress.percent, 0), 100)
+      : null;
 
   useEffect(() => {
     if (!isResearching) return;
@@ -91,31 +96,40 @@ export function BusinessSetupTopicsView() {
       <>
         <BusinessSetupHeading
           eyebrow="Topics, step 3 of 4"
-          title="Building the topic universe"
-          subtitle="Cloviana is collecting buyer language and clustering recurring needs to build a market taxonomy."
+          title="Researching the brand"
+          subtitle="Cloviana is reading public sources, buyer language, and competitor context before it suggests the topics to monitor."
         />
-        <div className="border-y border-slate-200 py-8">
+        <div className="border-y border-slate-200 py-6">
           <div className="flex items-start gap-4">
-            <Spinner className="mt-0.5 size-5 text-blue-600" />
-            <div>
+            <Spinner className="text-foreground mt-0.5 size-5" />
+            <div className="min-w-0 flex-1">
               <p className="text-sm font-medium text-slate-900">
-                Research is running in the background
+                {progress?.title ?? 'Building the topic set'}
               </p>
               <p className="mt-1 text-sm leading-6 text-slate-500">
-                This can take a few minutes. You can leave this page and resume
-                later without losing progress.
+                This can take a few minutes. You can leave and resume later
+                without losing progress.
               </p>
+              {progressPercent !== null ? (
+                <div className="mt-4">
+                  <div className="bg-border h-1 rounded-full">
+                    <div
+                      className="bg-foreground h-1 rounded-full transition-all duration-500"
+                      style={{ width: `${progressPercent}%` }}
+                    />
+                  </div>
+                  <p className="text-foreground-lighter mt-2 text-xs">
+                    {progressPercent}% complete
+                  </p>
+                </div>
+              ) : null}
             </div>
           </div>
           <div className="mt-7 grid gap-3 sm:grid-cols-3">
             {[
-              [
-                Search,
-                'Web research',
-                'Official pages, reviews, buyer discussions',
-              ],
-              [Sparkles, 'Topic generation', 'Topic-specific buyer questions'],
-              [Check, 'Quality scoring', 'Intent, fit, and commercial value'],
+              [Search, 'Public sources', 'Website, reviews, buyer discussions'],
+              [Sparkles, 'Topic map', 'Recurring buying conversations'],
+              [Check, 'Review set', 'Prompts ready for approval'],
             ].map(([Icon, title, copy]) => (
               <div
                 key={String(title)}
@@ -186,7 +200,7 @@ export function BusinessSetupTopicsView() {
                       htmlFor={`topic-${cluster.id}`}
                       className={`flex cursor-pointer items-start gap-3 rounded-md border px-4 py-3 transition-colors ${
                         checked
-                          ? 'border-blue-600 bg-blue-50/40'
+                          ? 'border-foreground bg-black/[0.03]'
                           : 'border-slate-200 bg-white hover:bg-slate-50'
                       }`}
                     >

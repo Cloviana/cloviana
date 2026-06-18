@@ -33,6 +33,14 @@ export type JobType =
   | 'MONITORING';
 export type JobStatus = 'PENDING' | 'RUNNING' | 'SUCCESS' | 'FAILED';
 
+export type JobProgress = {
+  percent: number | null;
+  step: string | null;
+  title: string;
+  updatedAt: ISODate;
+  meta?: Record<string, unknown>;
+};
+
 export type Entity<T extends object> = T & {
   id: ID;
   createdAt: ISODate;
@@ -71,6 +79,7 @@ export type Business = Entity<{
   setupStatus: BusinessSetupStatus;
   setupStep: BusinessSetupStep;
   setupCompletedAt?: ISODate | null;
+  monitoringEnabled?: boolean;
   subscription?: {
     status: SubscriptionStatus;
     trialEndsAt: ISODate | null;
@@ -89,6 +98,7 @@ export type Job = {
   startedAt: ISODate | null;
   finishedAt: ISODate | null;
   lastHeartbeatAt: ISODate | null;
+  progress: JobProgress | null;
   error: string | null;
   createdAt: ISODate;
 };

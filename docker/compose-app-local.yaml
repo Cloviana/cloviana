@@ -1,0 +1,50 @@
+name: cloviana-app-local
+
+services:
+  app:
+    build:
+      context: ../app
+      dockerfile: Dockerfile
+      target: dev
+    image: ghcr.io/cloviana/app:dev
+    mem_limit: 2g
+    command: >
+      sh -c "pnpm install &&
+             pnpm dev"
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: development
+      NODE_OPTIONS: "--max-old-space-size=1536"
+      NEXT_PUBLIC_API_URL: ${API_URL}
+      NEXT_PUBLIC_APP_URL: ${APP_URL}
+      NEXT_PUBLIC_SUPABASE_URL: ${SUPABASE_URL}
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
+      NEXT_PUBLIC_GA4_ID: G-C4Z5BHM2R1
+      INTERNAL_API_URL: ${API_URL}
+    volumes:
+      - ../app:/app:cached
+      - app-node-modules:/app/node_modules
+    networks:
+      - appnet
+
+  nginx:
+    image: nginx:alpine
+    mem_limit: 128m
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.app-local.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - app
+    networks:
+      appnet:
+        aliases:
+          - app.local
+          - app.localhost
+
+volumes:
+  app-node-modules:
+
+networks:
+  appnet:

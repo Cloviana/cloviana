@@ -157,6 +157,7 @@ model Business {
   stripeCustomerId String?
   name             String
   domain           String
+  profileUrl       String?
   category         String?
   description      String?
   icp              String?
@@ -171,6 +172,7 @@ model Business {
   setupStatus      BusinessSetupStatus @default(NOT_STARTED)
   setupStep        BusinessSetupStep   @default(DOMAIN)
   setupCompletedAt DateTime?
+  monitoringEnabled Boolean            @default(true)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -276,6 +278,7 @@ model Job {
   lastHeartbeatAt DateTime?
   payload         Json?     @db.JsonB
   result          Json?     @db.JsonB
+  progress        Json?     @db.JsonB
   error           String?
   dedupeKey       String?
   createdAt       DateTime  @default(now())

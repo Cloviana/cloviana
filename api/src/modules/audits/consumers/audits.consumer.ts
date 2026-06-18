@@ -37,7 +37,9 @@ export class AuditsConsumer {
       const message = context.getMessage();
       channel.ack(message);
     } catch (err: any) {
-      this.logger.warn(`Failed to ack message — channel already closed: ${err.message}`);
+      this.logger.warn(
+        `Failed to ack message — channel already closed: ${err.message}`,
+      );
     }
   }
 }

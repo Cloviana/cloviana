@@ -26,7 +26,9 @@ export async function extractMentionsNode(
   );
 
   const mentionResults = await batchExtractMentions(groq, items, brands);
-  const mentionMap = new Map(mentionResults.map((r) => [r.customId, r.domains]));
+  const mentionMap = new Map(
+    mentionResults.map((r) => [r.customId, r.domains]),
+  );
 
   const engineResponses = state.rawEngineResponses.map((response, index) => ({
     ...response,

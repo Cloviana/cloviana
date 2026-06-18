@@ -1,6 +1,6 @@
-import { PrismaClient, PromptStatus, AiEngine } from "@prisma/client";
-import { writeFileSync, mkdirSync } from "node:fs";
+import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { AiEngine, PrismaClient, PromptStatus } from "@prisma/client";
 
 const DATABASE_URL = process.argv[2];
 if (!DATABASE_URL) {
@@ -39,7 +39,8 @@ async function main() {
   });
 
   const lines: string[] = [];
-  const generatedAt = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
+  const generatedAt =
+    new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
 
   lines.push(`# Citation Report — ${business.name}`);
   lines.push(`> ${business.domain} · Generated ${generatedAt}`);
@@ -63,7 +64,9 @@ async function main() {
       continue;
     }
 
-    const allCitations = [...latestByEngine.values()].flatMap((r) => r.citations);
+    const allCitations = [...latestByEngine.values()].flatMap(
+      (r) => r.citations,
+    );
     if (allCitations.length === 0) {
       lines.push("_No citations._");
       lines.push("");
@@ -79,7 +82,9 @@ async function main() {
 
     lines.push("```");
     for (const [domain, count] of crossSorted) {
-      lines.push(`${bar(count, crossMax)} ${String(count).padStart(2)}  ${domain}`);
+      lines.push(
+        `${bar(count, crossMax)} ${String(count).padStart(2)}  ${domain}`,
+      );
     }
     lines.push("```");
     lines.push("");

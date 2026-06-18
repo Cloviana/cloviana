@@ -1,6 +1,6 @@
-import { PrismaClient } from "@prisma/client";
-import { writeFileSync, mkdirSync } from "node:fs";
+import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { PrismaClient } from "@prisma/client";
 
 const DATABASE_URL = process.argv[2];
 if (!DATABASE_URL) {
@@ -54,7 +54,8 @@ async function main() {
   });
 
   const lines: string[] = [];
-  const generatedAt = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
+  const generatedAt =
+    new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
 
   lines.push(`# Reddit Citations Report`);
   lines.push(`> Last ${CUTOFF_DAYS} days · Generated ${generatedAt}`);
@@ -88,16 +89,22 @@ async function main() {
       continue;
     }
 
-    lines.push(`**${sorted.length} unique Reddit URL${sorted.length === 1 ? "" : "s"}**`);
+    lines.push(
+      `**${sorted.length} unique Reddit URL${sorted.length === 1 ? "" : "s"}**`,
+    );
     lines.push("");
     for (const [i, [url, count]] of sorted.entries()) {
-      lines.push(`${i + 1}. ${url} — ${count} citation${count === 1 ? "" : "s"}`);
+      lines.push(
+        `${i + 1}. ${url} — ${count} citation${count === 1 ? "" : "s"}`,
+      );
     }
     lines.push("");
   }
 
   // Global summary
-  const globalSorted = [...globalUrlCount.entries()].sort((a, b) => b[1] - a[1]);
+  const globalSorted = [...globalUrlCount.entries()].sort(
+    (a, b) => b[1] - a[1],
+  );
 
   lines.push("---");
   lines.push("");
@@ -108,10 +115,14 @@ async function main() {
     lines.push("_No Reddit citations found._");
     lines.push("");
   } else {
-    lines.push(`**${globalSorted.length} unique Reddit URL${globalSorted.length === 1 ? "" : "s"} across all prompts**`);
+    lines.push(
+      `**${globalSorted.length} unique Reddit URL${globalSorted.length === 1 ? "" : "s"} across all prompts**`,
+    );
     lines.push("");
     for (const [i, [url, count]] of globalSorted.entries()) {
-      lines.push(`${i + 1}. ${url} — ${count} citation${count === 1 ? "" : "s"}`);
+      lines.push(
+        `${i + 1}. ${url} — ${count} citation${count === 1 ? "" : "s"}`,
+      );
     }
     lines.push("");
   }

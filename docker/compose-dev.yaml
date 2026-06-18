@@ -4,6 +4,8 @@ volumes:
   api-node-modules:
   web-node-modules:
   app-node-modules:
+  app-next-cache:
+  web-next-cache:
 
 services:
   api:
@@ -52,6 +54,7 @@ services:
     volumes:
       - ../app:/app:cached
       - app-node-modules:/app/node_modules
+      - app-next-cache:/app/.next
     container_name: app
 
   web:
@@ -66,6 +69,7 @@ services:
     volumes:
       - ../web:/app:cached
       - web-node-modules:/app/node_modules
+      - web-next-cache:/app/.next
     container_name: web
 
   nginx:

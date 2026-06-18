@@ -20,7 +20,7 @@ const TYPE_CONFIG: Record<
   { dotColor: string; label: string; icon: any }
 > = {
   CORPORATE: {
-    dotColor: 'bg-indigo-500',
+    dotColor: 'bg-emerald-500',
     label: 'Corporate',
     icon: Building2,
   },
@@ -30,17 +30,17 @@ const TYPE_CONFIG: Record<
     icon: BookOpen,
   },
   INSTITUTIONAL: {
-    dotColor: 'bg-emerald-500',
+    dotColor: 'bg-blue-500',
     label: 'Institutional',
     icon: GraduationCap,
   },
   EDITORIAL: {
-    dotColor: 'bg-amber-500',
+    dotColor: 'bg-[#d97706]',
     label: 'Editorial',
     icon: FileText,
   },
   UGC: {
-    dotColor: 'bg-violet-500',
+    dotColor: 'bg-teal-500',
     label: 'UGC',
     icon: Users,
   },
@@ -66,8 +66,8 @@ export function DomainsOverviewWidget({ businessId }: { businessId: string }) {
       <div className="flex flex-col rounded-xl border border-slate-200 bg-white shadow-sm">
         <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-50">
-              <Globe className="size-4 text-indigo-600" />
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100">
+              <Globe className="size-4 text-slate-700" />
             </div>
             <div>
               <h2 className="text-sm font-semibold text-slate-900">
@@ -119,8 +119,10 @@ export function DomainsOverviewWidget({ businessId }: { businessId: string }) {
                         </div>
                       </td>
                       <td className="px-5 py-3">
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 border border-slate-200 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-slate-700">
-                          <span className={`h-1.5 w-1.5 rounded-full ${conf.dotColor}`} />
+                        <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-0.5 text-[10px] font-semibold tracking-wider text-slate-700 uppercase">
+                          <span
+                            className={`h-1.5 w-1.5 rounded-full ${conf.dotColor}`}
+                          />
                           {conf.label}
                         </span>
                       </td>
@@ -167,13 +169,13 @@ export function DomainsOverviewWidget({ businessId }: { businessId: string }) {
                       <conf.icon className="size-3.5" />
                       {conf.label}
                     </div>
-                    <span className="text-slate-500 font-semibold">
+                    <span className="font-semibold text-slate-500">
                       {Math.round(typeDist.percentage)}%
                     </span>
                   </div>
                   <div className="h-2 w-full overflow-hidden rounded-full bg-slate-100">
                     <div
-                      className="h-full rounded-full bg-indigo-600 transition-all"
+                      className="h-full rounded-full bg-slate-900 transition-all"
                       style={{ width: `${typeDist.percentage}%` }}
                     />
                   </div>
@@ -188,23 +190,23 @@ export function DomainsOverviewWidget({ businessId }: { businessId: string }) {
           </div>
         </div>
 
-        {/* Trending Movers Mini-Panel */}
-        <div className="rounded-xl border border-slate-200 bg-gradient-to-br from-indigo-50/50 to-white p-5">
-          <div className="mb-3 flex items-center gap-2 text-sm font-bold text-indigo-950">
-            <TrendingUp className="size-4 text-indigo-700" />
+        {/* Trending Sources Mini-Panel */}
+        <div className="rounded-xl border border-slate-200 bg-slate-50/50 p-5">
+          <div className="mb-3 flex items-center gap-2 text-sm font-bold text-slate-900">
+            <TrendingUp className="size-4 text-slate-700" />
             Trending Sources
           </div>
           <div className="flex flex-wrap gap-2">
             {data.domainMovers.trending.slice(0, 5).map((d) => (
               <div
                 key={d.domain}
-                className="flex items-center gap-1.5 rounded-full border border-indigo-200 bg-white px-3 py-1 text-xs font-semibold text-indigo-900 shadow-xs"
+                className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700 shadow-xs"
               >
                 {d.domain}
               </div>
             ))}
             {data.domainMovers.trending.length === 0 && (
-              <span className="text-xs text-indigo-400">
+              <span className="text-xs text-slate-400">
                 No trending data yet.
               </span>
             )}

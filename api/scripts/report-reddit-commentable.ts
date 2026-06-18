@@ -1,10 +1,12 @@
 import "dotenv/config";
-import { PrismaClient } from "@prisma/client";
-import { writeFileSync, mkdirSync } from "node:fs";
+import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { PrismaClient } from "@prisma/client";
 const DATABASE_URL = process.argv[2];
 if (!DATABASE_URL) {
-  console.error("Usage: tsx scripts/report-reddit-commentable.ts <DATABASE_URL>");
+  console.error(
+    "Usage: tsx scripts/report-reddit-commentable.ts <DATABASE_URL>",
+  );
   process.exit(1);
 }
 
@@ -56,7 +58,11 @@ function normalizeUrl(raw: string): string {
 
 type CommentableStatus = "yes" | "no" | "error";
 
-type RedditListing = { data?: { children?: Array<{ data?: { locked?: boolean; archived?: boolean } }> } };
+type RedditListing = {
+  data?: {
+    children?: Array<{ data?: { locked?: boolean; archived?: boolean } }>;
+  };
+};
 
 type CheckResult = { status: CommentableStatus; rawJson: string | null };
 
@@ -72,7 +78,8 @@ async function checkCommentable(url: string): Promise<CheckResult> {
 
     const rawJson = await res.text();
     const data = JSON.parse(rawJson) as unknown;
-    if (!Array.isArray(data) || data.length === 0) return { status: "yes", rawJson };
+    if (!Array.isArray(data) || data.length === 0)
+      return { status: "yes", rawJson };
 
     const post = (data[0] as RedditListing)?.data?.children?.[0]?.data;
     if (!post) return { status: "yes", rawJson };
@@ -112,9 +119,16 @@ async function main() {
   }
 
   const sorted = [...urlCount.entries()].sort((a, b) => b[1] - a[1]);
-  console.log(`Found ${sorted.length} unique Reddit URLs. Checking commentability (${CONCURRENCY} concurrent)...`);
+  console.log(
+    `Found ${sorted.length} unique Reddit URLs. Checking commentability (${CONCURRENCY} concurrent)...`,
+  );
 
-  type Row = { url: string; citations: number; commentable: CommentableStatus; rawJson: string | null };
+  type Row = {
+    url: string;
+    citations: number;
+    commentable: CommentableStatus;
+    rawJson: string | null;
+  };
 
   const rows: Row[] = new Array(sorted.length);
   for (let i = 0; i < sorted.length; i += CONCURRENCY) {
@@ -125,9 +139,10 @@ async function main() {
         const { status, rawJson } = await checkCommentable(url);
         console.log(`[${idx + 1}/${sorted.length}] ${status} — ${url}`);
         rows[idx] = { url, citations, commentable: status, rawJson };
-      })
+      }),
     );
-    if (i + CONCURRENCY < sorted.length) await new Promise((r) => setTimeout(r, 2000));
+    if (i + CONCURRENCY < sorted.length)
+      await new Promise((r) => setTimeout(r, 2000));
   }
 
   const ts = Date.now();

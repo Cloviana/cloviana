@@ -20,7 +20,10 @@ export class StorageService implements OnModuleInit {
     try {
       await this.containerClient.createIfNotExists();
     } catch (error) {
-      console.warn("Could not connect to Azure Storage. Uploads will fail if attempted.", error.message);
+      console.warn(
+        "Could not connect to Azure Storage. Uploads will fail if attempted.",
+        error.message,
+      );
     }
   }
 

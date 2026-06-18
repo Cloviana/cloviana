@@ -1,11 +1,7 @@
-'use client';
+import { redirect } from 'next/navigation';
 
-import { useParams } from 'next/navigation';
-
-import { BusinessSetupWizard } from '@/features/businesses/components/setup/business-setup-wizard';
+import { paths } from '@/config/paths';
 
 export default function BusinessSetupDetailPage() {
-  const { businessId } = useParams<{ businessId: string }>();
-
-  return <BusinessSetupWizard businessId={businessId} />;
+  redirect(paths.business.getHref());
 }

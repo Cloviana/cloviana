@@ -10,4 +10,5 @@ export const JOB_SUMMARY_SELECT = {
   startedAt: true,
   finishedAt: true,
   lastHeartbeatAt: true,
+  progress: true,
 } satisfies Prisma.JobSelect;

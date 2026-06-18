@@ -1,178 +1,366 @@
 'use client';
 
+import { Bookmark } from 'lucide-react';
 import { useParams } from 'next/navigation';
+import { useEffect, useMemo, useState } from 'react';
+
+import { PageLoading } from '@/components/fallbacks/page-loading';
 import {
-  CartesianGrid,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from 'recharts';
-import { BarChart3, TrendingUp } from 'lucide-react';
+  DashboardFrame,
+  ENGINE_OPTIONS,
+  FilterSelect,
+  formatDecimal,
+  Pagination,
+  RangeToggle,
+  ResetButton,
+  SearchInput,
+  SourceBadge,
+} from '@/features/dashboard/components/monitoring-dashboard-ui';
+import {
+  type MonitoringSourceGap,
+  type SourceGapKind,
+  useMonitoringSourceGaps,
+} from '@/features/monitoring/api/get-monitoring-gap';
+import type {
+  AiEngine,
+  DomainType,
+  MonitoringRange,
+} from '@/features/monitoring/types';
+import { cn } from '@/utils/cn';
 
-import { LoadingFallback } from '@/components/fallbacks/loading-fallback';
-import { Page, PageContent, PageHeader } from '@/components/ui/page';
-import { useMonitoringGap } from '@/features/monitoring/api/get-monitoring-gap';
+const PAGE_SIZE = 15;
+const DOMAIN_TYPE_OPTIONS: Array<{ value: DomainType | 'ALL'; label: string }> =
+  [
+    { value: 'ALL', label: 'All Domain types' },
+    { value: 'CORPORATE', label: 'Corporate' },
+    { value: 'REFERENCE', label: 'Reference' },
+    { value: 'INSTITUTIONAL', label: 'Institutional' },
+    { value: 'EDITORIAL', label: 'Editorial' },
+    { value: 'UGC', label: 'UGC' },
+    { value: 'OTHER', label: 'Other' },
+  ];
+const URL_TYPE_OPTIONS = [
+  { value: 'ALL', label: 'All URL types' },
+  { value: 'Listicle', label: 'Listicle' },
+  { value: 'Comparison', label: 'Comparison' },
+  { value: 'How-To Guide', label: 'How-To Guide' },
+  { value: 'Documentation', label: 'Documentation' },
+  { value: 'Review', label: 'Review' },
+  { value: 'Other', label: 'Other' },
+];
 
-const COLORS = ['#2563eb', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899', '#6b7280'];
-
-function formatPercent(value: number | null | undefined) {
-  return `${Math.round(value ?? 0)}%`;
-}
+const COPY: Record<SourceGapKind, { title: string; description: string }> = {
+  domains: {
+    title: 'Domain gaps',
+    description:
+      'Domains where competitors are mentioned but your brand is not.',
+  },
+  hosts: {
+    title: 'Host gaps',
+    description: 'Hosts where competitors are mentioned but your brand is not.',
+  },
+  urls: {
+    title: 'URL gaps',
+    description: 'URLs where competitors are mentioned but your brand is not.',
+  },
+};
 
 export default function GapPage() {
   const { businessId } = useParams<{ businessId: string }>();
-  const { data, isPending, isError } = useMonitoringGap(businessId);
+  const [kind, setKind] = useState<SourceGapKind>('domains');
+  const [engine, setEngine] = useState<AiEngine | 'ALL'>('ALL');
+  const [range, setRange] = useState<MonitoringRange>('M');
+  const [search, setSearch] = useState('');
+  const [type, setType] = useState<DomainType | 'ALL'>('ALL');
+  const [urlType, setUrlType] = useState<string | 'ALL'>('ALL');
+  const [minCompetitors, setMinCompetitors] = useState('1');
+  const [page, setPage] = useState(1);
 
-  if (isPending) return <LoadingFallback />;
+  const params = useMemo(
+    () => ({
+      kind,
+      engine,
+      range,
+      page,
+      limit: PAGE_SIZE,
+      search,
+      type,
+      urlType,
+      minCompetitors: Number(minCompetitors),
+    }),
+    [kind, engine, range, page, search, type, urlType, minCompetitors],
+  );
+  const { data, isPending, isError } = useMonitoringSourceGaps(
+    businessId,
+    params,
+  );
+
+  useEffect(() => {
+    setPage(1);
+  }, [kind, engine, range, search, type, urlType, minCompetitors]);
+
+  const reset = () => {
+    setEngine('ALL');
+    setRange('M');
+    setSearch('');
+    setType('ALL');
+    setUrlType('ALL');
+    setMinCompetitors('1');
+    setPage(1);
+  };
+
+  if (isPending) return <PageLoading />;
+
   if (isError || !data) {
     return (
-      <Page>
-        <PageHeader title="Gap analysis" description="Gap analysis data could not be loaded." />
-      </Page>
+      <DashboardFrame
+        breadcrumb={['Sources', 'Gap Analysis']}
+        title="Gap Analysis"
+        description="Gap analysis data could not be loaded."
+      >
+        <EmptyState kind={kind} />
+      </DashboardFrame>
     );
   }
 
-  const chartData = data.trend.map((row) => ({
-    ...row,
-    date: new Date(row.date).toLocaleDateString(undefined, {
-      month: 'short',
-      day: 'numeric',
-    }),
-  }));
-
-  // Find all key names except date
-  const entityNames = data.trend.length
-    ? Object.keys(data.trend[0]).filter((key) => key !== 'date')
-    : [];
-
   return (
-    <Page className="bg-white py-6">
-      <PageHeader
-        title="Visibility Gap Analysis"
-        description="Compare your search visibility, citation share, and share of voice side-by-side with competitors."
-      />
-      <PageContent className="space-y-6">
-        {/* SOV Trend Chart */}
-        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div className="mb-5 flex items-center justify-between">
-            <div>
-              <h2 className="text-sm font-semibold text-slate-900">Share of Voice (SOV) Trend</h2>
-              <p className="text-xs text-slate-500">Comparing brand mentions over time vs. competitor set</p>
-            </div>
-            <TrendingUp className="size-4 text-slate-400" />
-          </div>
+    <DashboardFrame
+      breadcrumb={['Sources', 'Gap Analysis']}
+      filters={
+        <>
+          <FilterSelect
+            value={engine}
+            onChange={setEngine}
+            options={ENGINE_OPTIONS}
+            label="Model"
+          />
+          <RangeToggle value={range} onChange={setRange} />
+          <FilterSelect
+            value={minCompetitors}
+            onChange={setMinCompetitors}
+            options={[
+              { value: '1', label: 'Min 1 Competitor' },
+              { value: '2', label: 'Min 2 Competitors' },
+              { value: '0', label: 'All Gaps' },
+            ]}
+            label="Minimum competitors"
+          />
+          {kind === 'urls' ? (
+            <FilterSelect
+              value={urlType}
+              onChange={setUrlType}
+              options={URL_TYPE_OPTIONS}
+              label="URL type"
+            />
+          ) : null}
+          <FilterSelect
+            value={type}
+            onChange={setType}
+            options={DOMAIN_TYPE_OPTIONS}
+            label="Domain type"
+          />
+          <ResetButton onClick={reset} />
+        </>
+      }
+    >
+      <div className="peec-border-stroke-tertiary flex items-center gap-0 border-b">
+        {(['domains', 'urls'] as SourceGapKind[]).map((tab) => (
+          <button
+            key={tab}
+            type="button"
+            onClick={() => setKind(tab)}
+            className={cn(
+              'text-body-m relative inline-flex h-10 items-center px-3 capitalize transition-colors',
+              kind === tab
+                ? 'peec-text-primary font-semibold'
+                : 'peec-text-tertiary hover:peec-text-primary',
+            )}
+          >
+            {tab}
+            {kind === tab ? (
+              <span className="absolute right-0 bottom-0 left-0 h-[2px] rounded-t bg-blue-600" />
+            ) : null}
+          </button>
+        ))}
+      </div>
 
-          {chartData.length ? (
-            <div className="h-80 w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={chartData} margin={{ left: -20, right: 12 }}>
-                  <CartesianGrid stroke="#e2e8f0" vertical={false} />
-                  <XAxis
-                    dataKey="date"
-                    tick={{ fontSize: 11 }}
-                    tickLine={false}
-                    axisLine={false}
-                  />
-                  <YAxis
-                    domain={[0, 100]}
-                    tick={{ fontSize: 11 }}
-                    tickLine={false}
-                    axisLine={false}
-                  />
-                  <Tooltip />
-                  {entityNames.map((name, index) => {
-                    const isSelf = data.breakdown.find((item) => item.name === name)?.isSelf;
-                    return (
-                      <Line
-                        key={name}
-                        type="monotone"
-                        dataKey={name}
-                        stroke={COLORS[index % COLORS.length]}
-                        strokeWidth={isSelf ? 2.5 : 1.5}
-                        strokeDasharray={isSelf ? undefined : '4 4'}
-                        dot={{ r: 3.5, strokeWidth: 1.5, fill: '#fff' }}
-                        activeDot={{ r: 5 }}
-                      />
-                    );
-                  })}
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-          ) : (
-            <div className="flex h-64 items-center justify-center border-t border-slate-100 text-center">
-              <div className="max-w-sm">
-                <BarChart3 className="mx-auto size-5 text-slate-400" />
-                <p className="mt-3 text-sm font-medium text-slate-800">Collecting historical trend</p>
-                <p className="mt-1 text-xs text-slate-500">
-                  Data will be visualized here as prompt runs populate the metric database.
-                </p>
+      <section>
+        <h1 className="text-h3 peec-text-primary">{COPY[kind].title}</h1>
+        <p className="text-body-m peec-text-tertiary mt-0.5">
+          {COPY[kind].description}
+        </p>
+      </section>
+
+      <section className="peec-bg-white peec-border-stroke-tertiary overflow-hidden rounded-[14px] border">
+        <div className="peec-border-stroke-tertiary flex flex-wrap items-center justify-between gap-2 border-b px-4 py-2.5">
+          <SearchInput
+            value={search}
+            onChange={setSearch}
+            placeholder={`Search ${kind}...`}
+          />
+          <span className="text-body-s peec-text-tertiary">
+            {data.total} gaps
+          </span>
+        </div>
+        {data.items.length ? (
+          <div className="overflow-x-auto">
+            <div
+              role="table"
+              className="grid min-w-[1000px]"
+              style={{
+                gridTemplateColumns:
+                  kind === 'urls'
+                    ? '44px minmax(340px,1fr) 140px 140px 120px 120px 130px 130px'
+                    : '44px minmax(260px,1fr) 150px 140px 120px 120px 130px',
+              }}
+            >
+              <HeaderRow kind={kind} />
+              <div
+                role="rowgroup"
+                className="col-span-full grid grid-cols-subgrid"
+              >
+                {data.items.map((item) => (
+                  <GapRow key={item.key} item={item} kind={kind} />
+                ))}
               </div>
             </div>
-          )}
-        </div>
-
-        {/* Breakdown table */}
-        <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
-          <div className="border-b border-slate-100 px-5 py-4">
-            <h2 className="text-sm font-semibold text-slate-900">Current Visibility Breakdown</h2>
-            <p className="text-xs text-slate-500">Latest measured performance comparison</p>
           </div>
+        ) : (
+          <EmptyState kind={kind} />
+        )}
+        <Pagination
+          page={data.page}
+          totalPages={data.totalPages}
+          total={data.total}
+          pageSize={data.limit}
+          label="gaps"
+          onChange={setPage}
+        />
+      </section>
+    </DashboardFrame>
+  );
+}
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm">
-              <thead className="bg-slate-50/50 text-xs text-slate-500 border-b border-slate-100">
-                <tr>
-                  <th className="px-6 py-4 font-semibold">Brand / Competitor</th>
-                  <th className="px-6 py-4 font-semibold">Domain</th>
-                  <th className="px-6 py-4 text-right font-semibold">Visibility (Mentions)</th>
-                  <th className="px-6 py-4 text-right font-semibold">Citation Share</th>
-                  <th className="px-6 py-4 text-right font-semibold">Share of Voice</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100">
-                {data.breakdown.map((item, index) => (
-                  <tr
-                    key={item.name}
-                    className={`group transition-colors hover:bg-slate-50 ${
-                      item.isSelf ? 'bg-indigo-50/20 hover:bg-indigo-50/30' : ''
-                    }`}
-                  >
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="flex items-center gap-2.5">
-                        <div
-                          className="size-3 rounded-full shrink-0"
-                          style={{ backgroundColor: COLORS[index % COLORS.length] }}
-                        />
-                        <span className="font-semibold text-slate-800">{item.name}</span>
-                        {item.isSelf && (
-                          <span className="inline-flex items-center rounded-full bg-indigo-50 border border-indigo-200 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-indigo-700">
-                            Your Brand
-                          </span>
-                        )}
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-slate-500">
-                      {item.domain}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right font-semibold text-slate-900">
-                      {formatPercent(item.mentionRate)}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right font-semibold text-slate-900">
-                      {formatPercent(item.citationShare)}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right font-bold text-slate-900">
-                      {formatPercent(item.sov)}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+function HeaderRow({ kind }: { kind: SourceGapKind }) {
+  const headers =
+    kind === 'urls'
+      ? [
+          '',
+          'URL',
+          'URL type',
+          'Domain type',
+          'Mentions',
+          'Retrievals',
+          'Citation rate',
+          'Gap score',
+        ]
+      : [
+          '',
+          'Domain',
+          'Domain type',
+          'Competitors',
+          'Retrievals',
+          'Citation rate',
+          'Gap score',
+        ];
+  return (
+    <div
+      role="row"
+      className="peec-bg-table-hover peec-border-stroke-tertiary col-span-full grid grid-cols-subgrid border-b"
+    >
+      {headers.map((header) => (
+        <div
+          key={header}
+          role="columnheader"
+          className="text-body-s peec-text-tertiary flex h-10 items-center px-4"
+        >
+          {header}
         </div>
-      </PageContent>
-    </Page>
+      ))}
+    </div>
+  );
+}
+
+function GapRow({
+  item,
+  kind,
+}: {
+  item: MonitoringSourceGap;
+  kind: SourceGapKind;
+}) {
+  return (
+    <div
+      role="row"
+      className="peec-bg-white hover:peec-bg-table-hover peec-border-stroke-tertiary col-span-full grid min-h-[54px] grid-cols-subgrid border-b last:border-b-0"
+    >
+      <div role="cell" className="flex items-center justify-center">
+        <Bookmark className="peec-text-quaternary size-3.5" />
+      </div>
+      <div role="cell" className="flex min-w-0 items-center gap-2 px-4 py-2">
+        <img
+          src={`https://www.google.com/s2/favicons?domain=${item.domain}&sz=64`}
+          alt=""
+          className="size-4 shrink-0 rounded-sm bg-slate-100"
+        />
+        <div className="min-w-0">
+          <p className="text-body-m peec-text-primary truncate font-semibold">
+            {kind === 'urls' ? item.title || item.source : item.source}
+          </p>
+          <p className="text-body-s peec-text-tertiary truncate">
+            {kind === 'urls' ? item.url : item.domain}
+          </p>
+        </div>
+      </div>
+      {kind === 'urls' ? (
+        <div role="cell" className="flex items-center px-4">
+          <span className="peec-badge-blue text-body-m inline-flex min-h-5 items-center rounded-[6px] border border-solid px-1.5 text-[11px] font-medium">
+            {item.urlType ?? 'Other'}
+          </span>
+        </div>
+      ) : null}
+      <div role="cell" className="flex items-center px-4">
+        <SourceBadge domainType={item.domainType} />
+      </div>
+      <div role="cell" className="flex items-center px-4 tabular-nums">
+        {kind === 'urls' ? item.mentions : item.competitors.length}
+      </div>
+      <div
+        role="cell"
+        className="flex items-center px-4 font-semibold tabular-nums"
+      >
+        {item.retrievals}
+      </div>
+      {kind === 'urls' ? (
+        <div role="cell" className="flex items-center px-4 tabular-nums">
+          {formatDecimal(item.citationRate)}
+        </div>
+      ) : null}
+      {kind !== 'urls' ? (
+        <div role="cell" className="flex items-center px-4 tabular-nums">
+          {formatDecimal(item.citationRate)}
+        </div>
+      ) : null}
+      <div
+        role="cell"
+        className="flex items-center px-4 font-semibold tabular-nums"
+      >
+        {item.gapScore}
+      </div>
+    </div>
+  );
+}
+
+function EmptyState({ kind }: { kind: SourceGapKind }) {
+  return (
+    <div className="flex min-h-48 items-center justify-center p-6 text-center">
+      <div className="max-w-sm">
+        <p className="text-body-m-semibold peec-text-primary">
+          No {kind} gaps found
+        </p>
+        <p className="text-body-s peec-text-tertiary mt-1">
+          Try a different model, time range, or competitor threshold.
+        </p>
+      </div>
+    </div>
   );
 }

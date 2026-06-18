@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { ReactNode } from 'react';
 
-import { Badge } from '@/components/ui/badge';
 import { paths } from '@/config/paths';
 import { useIsMobile } from '@/hooks/use-mobile';
 
@@ -33,7 +32,6 @@ export const AppHeader = ({
                 className="h-[20px]"
               />
             </Link>
-            <Badge variant={'secondary'}>Beta</Badge>
             {sidebarTrigger}
           </div>
           <div className="flex items-center gap-x-2">{/*<AccountChip />*/}</div>
@@ -53,7 +51,6 @@ export const AppHeader = ({
               className="h-[20px]"
             />
           </Link>
-          <Badge variant={'secondary'}>Beta</Badge>
           {sidebarTrigger}
         </div>
         <div className="flex items-center gap-3">{/*<AccountChip />*/}</div>

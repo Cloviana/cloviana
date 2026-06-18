@@ -205,6 +205,34 @@ export class AnthropicService {
     requests: AnthropicBatchRequest[],
     pollIntervalMs = 5_000,
   ): Promise<BatchResult<AnthropicRawResult>[]> {
+    if (process.env.BYPASS_AI_BATCH === "true" || process.env.NODE_ENV === "development") {
+      const limit = pLimit(5);
+      return Promise.all(
+        requests.map((req) =>
+          limit(async (): Promise<BatchResult<AnthropicRawResult>> => {
+            try {
+              const res = await this.client.beta.messages.create(req.params);
+              return {
+                custom_id: req.custom_id,
+                result: {
+                  type: "succeeded",
+                  content: toRawResult(res),
+                },
+              };
+            } catch (error) {
+              return {
+                custom_id: req.custom_id,
+                result: {
+                  type: "errored",
+                  error: error instanceof Error ? error.message : String(error),
+                },
+              };
+            }
+          })
+        )
+      );
+    }
+
     const batch = await this.client.beta.messages.batches.create({ requests });
     await pollUntilEnded(this.client, batch.id, pollIntervalMs);
 

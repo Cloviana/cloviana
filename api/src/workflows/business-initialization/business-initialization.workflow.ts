@@ -1,8 +1,8 @@
 import { PrismaService } from "@/clients/prisma/prisma.service";
+import { BusinessResearchService } from "@/modules/businesses/services/business-research.service";
 import { ManagedJobsService } from "@/modules/jobs/services/managed-jobs.service";
 import { Injectable, Logger } from "@nestjs/common";
 import { JobType } from "@prisma/client";
-import { graph } from "./business-initialization.graph";
 
 const DEDUPE_KEY = "setup-completion";
 
@@ -13,6 +13,7 @@ export class BusinessInitializationWorkflow {
   constructor(
     private readonly prisma: PrismaService,
     private readonly managedJobs: ManagedJobsService,
+    private readonly businessResearch: BusinessResearchService,
   ) {}
 
   async run(businessId: string) {
@@ -24,33 +25,78 @@ export class BusinessInitializationWorkflow {
     return this.managedJobs.runJobInline({
       type: JobType.BUSINESS_INITIALIZATION,
       businessId,
-      dedupeKey: DEDUPE_KEY,
-      execute: async () => {
-        const stream = graph.streamEvents(
-          { _businessId: businessId },
-          {
-            version: "v2",
-            configurable: {
-              logger: this.logger,
-            },
-          },
+      dedupeKey: `${DEDUPE_KEY}:${businessId}`,
+      execute: async ({ jobId }) => {
+        const business = await this.prisma.business.findUniqueOrThrow({
+          where: { id: businessId },
+        });
+
+        this.logger.log(`Starting brand research for businessId=${businessId}`);
+
+        await this.managedJobs.updateProgress(jobId, {
+          step: "scraping",
+          percent: 25,
+          title: "Analyzing homepage and domain...",
+        });
+
+        const enrichment = await this.businessResearch.enrichProfile(
+          business.domain,
         );
 
-        for await (const event of stream) {
-          if (event.event === "on_chain_start" && event.name) {
-            this.logger.log(`[${businessId}] ▶ ${event.name}`);
-          }
-          if (event.event === "on_chain_end" && event.name) {
-            this.logger.log(`[${businessId}] ✓ ${event.name}`);
-          }
-        }
+        await this.managedJobs.updateProgress(jobId, {
+          step: "competitors",
+          percent: 50,
+          title: "Finding main competitors...",
+        });
 
-        return { completedSteps: ["PROMPT_RESEARCH"] };
+        const competitors = await this.businessResearch.findCompetitors(
+          business.domain,
+          5,
+        );
+
+        await this.managedJobs.updateProgress(jobId, {
+          step: "extracting",
+          percent: 75,
+          title: "Extracting brand profile...",
+        });
+
+        await this.prisma.$transaction(async (tx) => {
+          await tx.business.update({
+            where: { id: businessId },
+            data: {
+              name: business.name || enrichment.name,
+              category: enrichment.category,
+              description: enrichment.description,
+              icp: enrichment.icp,
+            },
+          });
+
+          await tx.competitor.deleteMany({
+            where: { businessId },
+          });
+
+          await tx.competitor.createMany({
+            data: competitors.map(({ domain, name }) => ({
+              businessId,
+              domain,
+              name,
+            })),
+            skipDuplicates: true,
+          });
+        });
+
+        await this.managedJobs.updateProgress(jobId, {
+          step: "complete",
+          percent: 100,
+          title: "Brand profile research complete",
+        });
+
+        return { completed: true };
       },
       onSuccess: async ({ businessId }) => {
         await this.prisma.business.update({
           where: { id: businessId },
-          data: { status: "ACTIVE" },
+          data: { status: "LOCKED" },
         });
       },
       onFailure: async ({ businessId }) => {

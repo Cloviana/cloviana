@@ -1,11 +1,11 @@
-import { PrismaClient } from '@prisma/client';
-import amqp from 'amqplib';
+import { PrismaClient } from "@prisma/client";
+import amqp from "amqplib";
 
 const prisma = new PrismaClient();
-const RABBITMQ_URI = 'amqp://guest:guest@127.0.0.1:5672';
-const QUEUE = 'monitoring_queue';
-const EVENT = 'monitoring.run';
-const BUSINESS_ID = 'cmqfaiw9k0001ilps5ok459vn';
+const RABBITMQ_URI = "amqp://guest:guest@127.0.0.1:5672";
+const QUEUE = "monitoring_queue";
+const EVENT = "monitoring.run";
+const BUSINESS_ID = "cmqfaiw9k0001ilps5ok459vn";
 
 async function main() {
   let connection;
@@ -14,16 +14,18 @@ async function main() {
     const prompts = await prisma.prompt.findMany({
       where: {
         businessId: BUSINESS_ID,
-        status: 'ACTIVE',
+        status: "ACTIVE",
       },
       select: { id: true },
     });
 
-    const promptIds = prompts.map(p => p.id);
-    console.log(`Found ${promptIds.length} active prompts for business ${BUSINESS_ID}.`);
+    const promptIds = prompts.map((p) => p.id);
+    console.log(
+      `Found ${promptIds.length} active prompts for business ${BUSINESS_ID}.`,
+    );
 
     if (promptIds.length === 0) {
-      console.log('No active prompts found. Cannot trigger monitoring.');
+      console.log("No active prompts found. Cannot trigger monitoring.");
       return;
     }
 
@@ -31,7 +33,7 @@ async function main() {
     const deletedJobs = await prisma.job.deleteMany({
       where: {
         businessId: BUSINESS_ID,
-        type: 'MONITORING',
+        type: "MONITORING",
       },
     });
     console.log(`Deleted ${deletedJobs.count} old monitoring jobs.`);
@@ -45,8 +47,8 @@ async function main() {
     // 4. Create a new Job in database
     const job = await prisma.job.create({
       data: {
-        type: 'MONITORING',
-        status: 'PENDING',
+        type: "MONITORING",
+        status: "PENDING",
         businessId: BUSINESS_ID,
         payload: {
           businessId: BUSINESS_ID,
@@ -78,15 +80,18 @@ async function main() {
     };
 
     const messageBuffer = Buffer.from(JSON.stringify(payload));
-    console.log(`Publishing payload to queue "${QUEUE}":`, JSON.stringify(payload, null, 2));
+    console.log(
+      `Publishing payload to queue "${QUEUE}":`,
+      JSON.stringify(payload, null, 2),
+    );
 
     channel.sendToQueue(QUEUE, messageBuffer, {
       persistent: true,
     });
 
-    console.log('Successfully published event!');
+    console.log("Successfully published event!");
   } catch (err) {
-    console.error('Error executing trigger:', err);
+    console.error("Error executing trigger:", err);
   } finally {
     await prisma.$disconnect();
     if (connection) {

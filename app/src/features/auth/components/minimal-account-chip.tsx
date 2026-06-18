@@ -11,6 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Spinner } from '@/components/ui/spinner';
 import { paths } from '@/config/paths';
 import { signOut } from '@/features/auth/actions/sign-out';
 import { useUser } from '@/hooks/use-user';
@@ -59,7 +60,7 @@ export const MinimalAccountChip = () => {
       </DropdownMenu>
       {signingOut && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-white/30 backdrop-blur-xs">
-          <span className="loading loading-spinner loading-sm"></span>
+          <Spinner className="text-foreground-light size-5" />
         </div>
       )}
     </>

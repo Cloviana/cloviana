@@ -121,7 +121,7 @@ export function BusinessSetupProvider({
   const back = useCallback(() => {
     const previous = getPreviousBusinessSetupView(currentStep, visibleSteps);
     if (!previous) {
-      router.push(paths.setup.business.getHref());
+      router.push(paths.business.getHref());
       return;
     }
     navigateTo(previous);

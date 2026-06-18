@@ -1,7 +1,10 @@
 import { DomainType } from "@prisma/client";
 
 export function classifyDomain(domain: string): DomainType {
-  const cleanDomain = domain.toLowerCase().trim().replace(/^www\./, "");
+  const cleanDomain = domain
+    .toLowerCase()
+    .trim()
+    .replace(/^www\./, "");
 
   // 1. Institutional
   if (
@@ -91,7 +94,7 @@ export function classifyDomain(domain: string): DomainType {
     "amplitude.com",
     "segment.com",
   ];
-  if (corporateKeywords.some(keyword => cleanDomain.includes(keyword))) {
+  if (corporateKeywords.some((keyword) => cleanDomain.includes(keyword))) {
     return DomainType.CORPORATE;
   }
 

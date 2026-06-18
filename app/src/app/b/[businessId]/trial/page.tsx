@@ -1,6 +1,4 @@
-import {
-  QueryClient,
-} from '@tanstack/react-query';
+import { QueryClient } from '@tanstack/react-query';
 
 import { MinimalHeader } from '@/components/layout/header';
 import { ScrollArea } from '@/components/ui/scroll-area';

@@ -3,26 +3,39 @@ import { useQuery } from '@tanstack/react-query';
 import { api } from '@/lib/api-client';
 import { getAuthHeaders } from '@/lib/supabase/get-auth-headers';
 
-export type MonitoringUrl = {
-  url: string;
-  domain: string;
-  count: number;
-  title: string | null;
+import type {
+  MonitoringDomainsResponse,
+  SourceOverviewParams,
+  TopDomain,
+} from './get-monitoring-domains';
+
+export type MonitoringUrl = TopDomain;
+
+export type MonitoringUrlsResponse = MonitoringDomainsResponse & {
+  kind: 'urls';
 };
 
 export const getMonitoringUrls = async (
   businessId: string,
-): Promise<MonitoringUrl[]> => {
+  params: SourceOverviewParams = {},
+): Promise<MonitoringUrlsResponse> => {
   const headers = await getAuthHeaders();
-  return api.get<MonitoringUrl[]>(
+  return api.get<MonitoringUrlsResponse>(
     `/businesses/${businessId}/monitoring/urls`,
-    { headers },
+    {
+      headers,
+      params,
+    },
   );
 };
 
-export const useMonitoringUrls = (businessId: string) => {
+export const useMonitoringUrls = (
+  businessId: string,
+  params: SourceOverviewParams = {},
+) => {
   return useQuery({
-    queryKey: ['monitoring', 'urls', businessId],
-    queryFn: () => getMonitoringUrls(businessId),
+    queryKey: ['monitoring', 'urls', businessId, params],
+    queryFn: () => getMonitoringUrls(businessId, params),
+    enabled: Boolean(businessId),
   });
 };

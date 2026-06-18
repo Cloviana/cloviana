@@ -4,10 +4,7 @@
 @plugin 'tailwindcss-animate';
 
 @theme {
-  --font-inter-display: var(--font-inter-display), sans-serif;
-  --font-dm-sans: var(--font-dm-sans), sans-serif;
-  --font-inter: var(--font-inter), sans-serif;
-  --font-geist: var(--font-geist), sans-serif;
+  --font-sans: var(--font-geist), sans-serif;
 
   --color-background: var(--background);
   --color-studio: var(--studio);
@@ -139,11 +136,11 @@
 @layer base {
   :root {
     --primary: hsl(0, 3%, 13%);
-    --primary-foreground: hsl(0 0% 98%);
+    --primary-foreground: hsl(0, 0%, 100%);
 
-    --background: hsl(0 0% 98%);
+    --background: hsl(0, 20%, 99%);
     --studio: hsl(0 0% 100%);
-    --surface: hsl(0 0% 98%);
+    --surface: hsl(30, 17%, 95%);
 
     --foreground: hsl(0 0% 5.098%);
     --foreground-light: hsl(0 0% 36%);
@@ -214,7 +211,7 @@
   }
 
   body {
-    @apply font-inter text-foreground bg-white;
+    @apply text-foreground bg-background font-sans;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -225,7 +222,7 @@
   h4,
   h5,
   h6 {
-    @apply font-inter text-foreground;
+    @apply text-foreground font-sans font-semibold;
   }
 
   input:-webkit-autofill,
@@ -358,4 +355,995 @@
       transform: translateX(-100%);
     }
   }
+}
+
+/* --- PEEC AI CUSTOM VARIABLES (LIGHT/DEFAULT) --- */
+:root {
+  --peec-fg-primary: #171717;
+  --peec-fg-secondary: #17171799;
+  --peec-fg-tertiary: #17171766;
+  --peec-fg-quaternary: #17171752;
+  --peec-fg-primary-white: #fdfdfd;
+  --peec-fg-secondary-white: #fdfdfda3;
+  --peec-bg-primary: #1717170a;
+  --peec-bg-secondary: #1717170f;
+  --peec-bg-tertiary: #17171714;
+  --peec-bg-quaternary: #1717171a;
+  --peec-bg-black: #171717;
+  --peec-bg-white: #fdfdfd;
+  --peec-bg-sidebar: #1717170a;
+  --peec-input-bg: #fdfdfd;
+  --peec-surface-primary: #17171700;
+  --peec-surface-secondary: #1717170a;
+  --peec-surface-tertiary: #1717170f;
+  --peec-stroke-primary: #17171714;
+  --peec-stroke-secondary: #1717171a;
+  --peec-stroke-tertiary: #1717171f;
+  --peec-stroke-quaternary: #17171729;
+  --peec-separator-primary: #1717170f;
+  --peec-separator-secondary: #17171714;
+  --peec-alpha-5: #1717170f;
+  --peec-alpha-20: #17171733;
+  --peec-inv-alpha-opacity10: #fdfdfd1a;
+  --peec-warning-primary: #ff6900;
+  --peec-error-base: #fb2c36;
+  --peec-success-base: #00a63e;
+  --peec-feature-2-base: #2b7fff;
+  --peec-highlight-base: #f6339a;
+  --peec-feature-base: #ad46ff;
+  --peec-button-inverse-active-bg-top: #fdfdfd0a;
+  --peec-button-inverse-active-bg-bottom: #fdfdfd14;
+  --peec-button-inverse-active-inner-shadow-innershadow: #fdfdfd29;
+  --peec-button-inverse-active-drop-shadow-1: #17171714;
+  --peec-button-inverse-active-drop-shadow-2: #171717;
+  --peec-button-inverse-hover-bg-top: #fdfdfd0f;
+  --peec-button-inverse-hover-bg-bottom: #fdfdfd1a;
+  --peec-button-inverse-hover-inner-shadow: #fdfdfd29;
+  --peec-button-inverse-hover-drop-shadow-1: #1717170f;
+  --peec-button-inverse-hover-drop-shadow-2: #171717;
+  --peec-button-inverse-pressed-bg-top: #fdfdfd1a;
+  --peec-button-inverse-pressed-bg-bottom: #fdfdfd0a;
+  --peec-button-inverse-pressed-inner-shadow: #fdfdfd29;
+  --peec-button-inverse-pressed-drop-shadow-1: #17171714;
+  --peec-button-inverse-pressed-drop-shadow-2: #171717;
+  --peec-button-outlined-active-bg-top: #17171700;
+  --peec-button-outlined-active-bg-bottom: #17171700;
+  --peec-button-outlined-active-inner-shadow: #1717170a;
+  --peec-button-outlined-hover-bg-top: #17171700;
+  --peec-button-outlined-hover-bg-bottom: #1717170a;
+  --peec-button-outlined-hover-inner-shadow: #1717170a;
+  --peec-button-outlined-hover-drop-shadow-1: #1717170f;
+  --peec-button-outlined-hover-drop-shadow-2: #17171714;
+  --peec-button-outlined-pressed-bg-top: #1717170a;
+  --peec-button-outlined-pressed-bg-bottom: #17171700;
+  --peec-button-outlined-pressed-inner-shadow: #1717170a;
+  --peec-button-outlined-pressed-drop-shadow-2: #17171714;
+  --peec-button-grey-active-bg: #1717170a;
+  --peec-button-grey-active-border: #1717170a;
+  --peec-button-grey-hover-bg: #1717170f;
+  --peec-button-destructive-active-bg-top: #fdfdfd00;
+  --peec-button-destructive-active-bg-bottom: #fdfdfd0a;
+  --peec-button-destructive-active-inner-shadow: #fdfdfd66;
+  --peec-button-destructive-active-drop-shadow-1: #e7000b1a;
+  --peec-button-destructive-active-drop-shadow-2: #17171714;
+  --peec-button-destructive-hover-bg-top: #fdfdfd00;
+  --peec-button-destructive-hover-bg-bottom: #fdfdfd29;
+  --peec-button-outlined-active-drop-shadow-1-dropshadow: #17171714;
+  --peec-button-outlined-active-drop-shadow-2: #1717170f;
+  --peec-button-grey-pressed-bg: #1717170a;
+  --peec-focus-default-inner: #2b7fff;
+  --peec-focus-default-outer: #155dfc1a;
+  --peec-focus-destructive-inner: #fb2c36;
+  --peec-focus-destructive-outer: #e7000b1a;
+  --peec-badge-orange-bg: #ff69001a;
+  --peec-badge-orange-border: #ff69001a;
+  --peec-badge-orange-text: #ff6900;
+  --peec-badge-red-bg: #e7000b1a;
+  --peec-badge-red-border: #e7000b1a;
+  --peec-badge-red-text: #e7000b;
+  --peec-badge-amber-bg: #e171001a;
+  --peec-badge-amber-border: #e171001a;
+  --peec-badge-amber-text: #e17100;
+  --peec-badge-yellow-bg: #f0b1001a;
+  --peec-badge-yellow-border: #f0b1001a;
+  --peec-badge-yellow-text: #d08700;
+  --peec-badge-lime-bg: #5ea5001a;
+  --peec-badge-lime-border: #5ea5001a;
+  --peec-badge-lime-text: #5ea500;
+  --peec-badge-blue-bg: #155dfc1a;
+  --peec-badge-blue-border: #155dfc1a;
+  --peec-badge-blue-text: #2b7fff;
+  --peec-badge-emerald-bg: #0099661a;
+  --peec-badge-emerald-border: #0099661a;
+  --peec-badge-emerald-text: #096;
+  --peec-badge-green-bg: #00a63e1a;
+  --peec-badge-green-border: #00a63e1a;
+  --peec-badge-green-text: #00a63e;
+  --peec-badge-cyan-bg: #0092b81a;
+  --peec-badge-cyan-border: #0092b81a;
+  --peec-badge-cyan-text: #0092b8;
+  --peec-badge-sky-bg: #0084d11a;
+  --peec-badge-sky-border: #0084d11a;
+  --peec-badge-sky-text: #0084d1;
+  --peec-badge-teal-bg: #0096891a;
+  --peec-badge-teal-border: #0096891a;
+  --peec-badge-teal-text: #009689;
+  --peec-badge-indigo-bg: #4f39f61a;
+  --peec-badge-indigo-border: #4f39f61a;
+  --peec-badge-indigo-text: #4f39f6;
+  --peec-badge-violet-bg: #7f22fe1a;
+  --peec-badge-violet-border: #7f22fe1a;
+  --peec-badge-violet-text: #7f22fe;
+  --peec-badge-purple-bg: #9810fa1a;
+  --peec-badge-purple-border: #9810fa1a;
+  --peec-badge-purple-text: #9810fa;
+  --peec-badge-fuchsia-bg: #c800de1a;
+  --peec-badge-fuchsia-border: #c800de1a;
+  --peec-badge-fuchsia-text: #c800de;
+  --peec-badge-pink-bg: #e600761a;
+  --peec-badge-pink-border: #e600761a;
+  --peec-badge-pink-text: #e60076;
+  --peec-badge-rose-bg: #ec003f1a;
+  --peec-badge-rose-border: #ec003f1a;
+  --peec-badge-rose-text: #ec003f;
+  --peec-shadow-color-2xs-inner: #1717170f;
+  --peec-shadow-color-2xs-outer: #17171714;
+  --peec-shadow-color-xs-inner: #1717170f;
+  --peec-shadow-color-xs-outer: #17171714;
+  --peec-shadow-color-sm-inner: #1717170f;
+  --peec-shadow-color-sm-outer-1: #17171714;
+  --peec-shadow-color-sm-outer-2: #17171714;
+  --peec-shadow-color-md-inner: #17171714;
+  --peec-shadow-color-md-outer-1: #17171714;
+  --peec-shadow-color-md-outer-2: #1717171a;
+  --peec-shadow-color-lg-inner: #17171714;
+  --peec-shadow-color-lg-outer-1: #17171714;
+  --peec-shadow-color-lg-outer-2: #1717171a;
+  --peec-shadow-color-xl-inner: #17171714;
+  --peec-shadow-color-xl-outer-1: #17171714;
+  --peec-shadow-color-xl-outer-2: #1717171a;
+  --peec-shadow-color-2xl-inner: #17171714;
+  --peec-shadow-color-2xl-outer-1: #17171714;
+  --peec-shadow-color-2xl-outer-2: #1717171a;
+  --peec-text-h1-big-size: 22px;
+  --peec-text-h1-big-leading: 30px;
+  --peec-text-h1-big-weight: 600;
+  --peec-text-h1-big-tracking: -0.616px;
+  --peec-text-h1-small-size: 22px;
+  --peec-text-h1-small-leading: 22px;
+  --peec-text-h1-small-weight: 600;
+  --peec-text-h1-small-tracking: -0.616px;
+  --peec-text-h2-big-size: 18px;
+  --peec-text-h2-big-leading: 26px;
+  --peec-text-h2-big-weight: 600;
+  --peec-text-h2-big-tracking: -0.36px;
+  --peec-text-h2-small-size: 18px;
+  --peec-text-h2-small-leading: 18px;
+  --peec-text-h2-small-weight: 600;
+  --peec-text-h2-small-tracking: -0.36px;
+  --peec-text-h3-size: 16px;
+  --peec-text-h3-leading: 16px;
+  --peec-text-h3-weight: 600;
+  --peec-text-h3-tracking: -0.128px;
+  --peec-text-h3-medium-size: 16px;
+  --peec-text-h3-medium-leading: 16px;
+  --peec-text-h3-medium-weight: 500;
+  --peec-text-h3-medium-tracking: -0.128px;
+  --peec-text-h4-size: 14px;
+  --peec-text-h4-leading: 14px;
+  --peec-text-h4-weight: 600;
+  --peec-text-h4-tracking: -0.112px;
+  --peec-text-h4-medium-size: 14px;
+  --peec-text-h4-medium-leading: 14px;
+  --peec-text-h4-medium-weight: 500;
+  --peec-text-h4-medium-tracking: -0.112px;
+  --peec-text-body-l-size: 16px;
+  --peec-text-body-l-leading: 22px;
+  --peec-text-body-l-weight: 500;
+  --peec-text-body-l-tracking: -0.128px;
+  --peec-text-body-l-regular-size: 16px;
+  --peec-text-body-l-regular-leading: 22px;
+  --peec-text-body-l-regular-weight: 400;
+  --peec-text-body-l-regular-tracking: -0.128px;
+  --peec-text-body-l-semibold-size: 16px;
+  --peec-text-body-l-semibold-leading: 22px;
+  --peec-text-body-l-semibold-weight: 600;
+  --peec-text-body-l-semibold-tracking: -0.288px;
+  --peec-text-body-m-size: 14px;
+  --peec-text-body-m-leading: 20px;
+  --peec-text-body-m-weight: 500;
+  --peec-text-body-m-tracking: -0.112px;
+  --peec-text-body-m-medium-mono-size: 14px;
+  --peec-text-body-m-medium-mono-leading: 20px;
+  --peec-text-body-m-medium-mono-weight: 500;
+  --peec-text-body-m-medium-mono-tracking: 0px;
+  --peec-text-body-m-regular-size: 14px;
+  --peec-text-body-m-regular-leading: 20px;
+  --peec-text-body-m-regular-weight: 400;
+  --peec-text-body-m-regular-tracking: -0.112px;
+  --peec-text-body-m-semibold-size: 14px;
+  --peec-text-body-m-semibold-leading: 20px;
+  --peec-text-body-m-semibold-weight: 600;
+  --peec-text-body-m-semibold-tracking: -0.196px;
+  --peec-text-body-s-size: 13px;
+  --peec-text-body-s-leading: 18px;
+  --peec-text-body-s-weight: 500;
+  --peec-text-body-s-tracking: -0.065px;
+  --peec-text-body-s-regular-size: 13px;
+  --peec-text-body-s-regular-leading: 18px;
+  --peec-text-body-s-regular-weight: 400;
+  --peec-text-body-s-regular-tracking: -0.065px;
+  --peec-text-body-s-semibold-size: 13px;
+  --peec-text-body-s-semibold-leading: 18px;
+  --peec-text-body-s-semibold-weight: 600;
+  --peec-text-body-s-semibold-tracking: -0.234px;
+  --peec-text-caption-size: 11px;
+  --peec-text-caption-leading: 16px;
+  --peec-text-caption-weight: 500;
+  --peec-text-caption-tracking: 0px;
+  --peec-text-code-size: 13px;
+  --peec-text-code-leading: 18px;
+  --peec-text-code-weight: 500;
+  --peec-text-code-tracking: 0px;
+  --peec-text-display-big-size: 28px;
+  --peec-text-display-big-leading: 36px;
+  --peec-text-display-big-weight: 600;
+  --peec-text-display-big-tracking: -0.896px;
+  --peec-text-display-small-size: 28px;
+  --peec-text-display-small-leading: 28px;
+  --peec-text-display-small-weight: 600;
+  --peec-text-display-small-tracking: -0.896px;
+  --peec-inset-shadow-2xs: inset 0px 1px 0px 0px var(--peec-alpha-5, #1717170f);
+  --peec-inset-shadow-sm: inset 0px 2px 4px 0px var(--peec-alpha-5, #1717170f);
+  --peec-inset-shadow-xs: inset 0px 1px 1px 0px var(--peec-alpha-5, #1717170f);
+  --peec-shadow-2xl:
+    0px 32px 56px -12px var(--peec-shadow-color-2xl-outer-2, #1717171a),
+    0px 25px 50px -12px var(--peec-shadow-color-2xl-outer-1, #17171714),
+    0px 0px 0px 1px var(--peec-shadow-color-2xl-inner, #17171714);
+  --peec-shadow-2xs:
+    0px 1px 0px 0px var(--peec-shadow-color-2xs-outer, #17171714),
+    0px 0px 0px 1px var(--peec-shadow-color-2xs-inner, #1717170f);
+  --peec-shadow-button-destructive:
+    0px 0px 0px 1px
+      var(--peec-button-destructive-active-drop-shadow-2, #17171714),
+    0px 1px 3px 0px
+      var(--peec-button-destructive-active-drop-shadow-1, #e7000b1a),
+    inset 0px 0px 0px 1px
+      var(--peec-button-destructive-active-inner-shadow, #fdfdfd66);
+  --peec-shadow-button-inverse-active:
+    inset 0px -1px 0px 0px
+      var(--peec-button-inverse-active-inner-shadow-innershadow, #fdfdfd29),
+    0px 0px 0px 1px var(--peec-button-inverse-active-drop-shadow-2, #171717),
+    0px 1px 3px 0px var(--peec-button-inverse-active-drop-shadow-1, #17171714);
+  --peec-shadow-button-inverse-hover:
+    inset 0px -1px 0px 0px
+      var(--peec-button-inverse-hover-inner-shadow, #fdfdfd29),
+    0px 0px 0px 1px var(--peec-button-inverse-hover-drop-shadow-2, #171717),
+    0px 1px 3px 0px var(--peec-button-inverse-hover-drop-shadow-1, #1717170f);
+  --peec-shadow-button-inverse-pressed:
+    inset 0px 1px 0px 0px
+      var(--peec-button-inverse-pressed-inner-shadow, #fdfdfd29),
+    0px 0px 0px 1px var(--peec-button-inverse-pressed-drop-shadow-2, #171717),
+    0px 1px 3px 0px var(--peec-button-inverse-pressed-drop-shadow-1, #17171714);
+  --peec-shadow-button-outlined-active:
+    inset 0px -1px 0px 0px
+      var(--peec-button-outlined-active-inner-shadow, #1717170a),
+    0px 1px 3px 0px
+      var(--peec-button-outlined-active-drop-shadow-1-dropshadow, #17171714),
+    0px 0px 0px 1px var(--peec-button-outlined-active-drop-shadow-2, #1717170f);
+  --peec-shadow-button-outlined-hover:
+    inset 0px -1px 0px 0px
+      var(--peec-button-outlined-hover-inner-shadow, #1717170a),
+    0px 1px 3px 0px var(--peec-button-outlined-hover-drop-shadow-1, #1717170f),
+    0px 0px 0px 1px var(--peec-button-outlined-hover-drop-shadow-2, #17171714);
+  --peec-shadow-button-outlined-pressed:
+    inset 0px 1px 0px 0px
+      var(--peec-button-outlined-pressed-inner-shadow, #1717170a),
+    0px 1px 3px 0px
+      var(--peec-button-outlined-active-drop-shadow-1-dropshadow, #17171714),
+    0px 0px 0px 1px var(--peec-button-outlined-pressed-drop-shadow-2, #17171714);
+  --peec-shadow-focus-default:
+    0px 0px 0px 1px var(--peec-focus-default-inner, #2b7fff),
+    0px 0px 0px 2px var(--peec-focus-default-outer, #155dfc1a);
+  --peec-shadow-focus-destructive:
+    0px 0px 0px 1px var(--peec-focus-destructive-inner, #fb2c36),
+    0px 0px 0px 2px var(--peec-focus-destructive-outer, #e7000b1a);
+  --peec-shadow-lg:
+    0px 4px 6px -4px var(--peec-shadow-color-lg-outer-2, #1717171a),
+    0px 10px 15px -3px var(--peec-shadow-color-lg-outer-1, #17171714),
+    0px 0px 0px 1px var(--peec-shadow-color-lg-inner, #17171714);
+  --peec-shadow-md:
+    0px 2px 4px -2px var(--peec-shadow-color-md-outer-2, #1717171a),
+    0px 4px 6px -1px var(--peec-shadow-color-md-outer-1, #17171714),
+    0px 0px 0px 1px var(--peec-shadow-color-md-inner, #17171714);
+  --peec-shadow-sm:
+    0px 1px 2px -1px var(--peec-shadow-color-sm-outer-2, #17171714),
+    0px 1px 3px 0px var(--peec-shadow-color-sm-outer-1, #17171714),
+    0px 0px 0px 1px var(--peec-shadow-color-sm-inner, #1717170f);
+  --peec-shadow-xl:
+    0px 8px 10px -6px var(--peec-shadow-color-xl-outer-2, #1717171a),
+    0px 20px 25px -5px var(--peec-shadow-color-xl-outer-1, #17171714),
+    0px 0px 0px 1px var(--peec-shadow-color-xl-inner, #17171714);
+  --peec-shadow-xs:
+    0px 1px 2px 0px var(--peec-shadow-color-xs-outer, #17171714),
+    0px 0px 0px 1px var(--peec-shadow-color-xs-inner, #1717170f);
+  --peec-pure-white: #fff;
+  --peec-table-hover: #f6f6f6;
+  --peec-table-active: #ececec;
+  --peec-table-selected: #e8ecfe;
+  --peec-chip-gradient: #f6f6f6;
+}
+
+/* --- PEEC AI CUSTOM VARIABLES (DARK OVERRIDES) --- */
+.dark {
+  --peec-fg-primary: #fdfdfd;
+  --peec-fg-secondary: #fdfdfd99;
+  --peec-fg-tertiary: #fdfdfd66;
+  --peec-fg-quaternary: #fdfdfd4d;
+  --peec-fg-primary-white: #171717;
+  --peec-fg-secondary-white: #171717a3;
+  --peec-fg-tertiary-white: #17171780;
+  --peec-fg-quaternary-white: #17171752;
+  --peec-bg-primary: #fdfdfd0f;
+  --peec-bg-hover: #262626;
+  --peec-bg-secondary: #fdfdfd14;
+  --peec-bg-tertiary: #fdfdfd1a;
+  --peec-bg-quaternary: #fdfdfd1f;
+  --peec-bg-black: #fdfdfd;
+  --peec-bg-white: #171717;
+  --peec-bg-sidebar: #101010;
+  --peec-input-bg: #fdfdfd0a;
+  --peec-surface-primary: #fdfdfd00;
+  --peec-surface-secondary: #fdfdfd0a;
+  --peec-surface-tertiary: #fdfdfd0f;
+  --peec-stroke-primary: #fdfdfd14;
+  --peec-stroke-secondary: #fdfdfd1a;
+  --peec-stroke-tertiary: #fdfdfd1f;
+  --peec-stroke-quaternary: #fdfdfd29;
+  --peec-separator-primary: #fdfdfd14;
+  --peec-separator-secondary: #fdfdfd1a;
+  --peec-alpha-0: #fdfdfd00;
+  --peec-alpha-3: #fdfdfd0a;
+  --peec-alpha-5: #fdfdfd0f;
+  --peec-alpha-8: #fdfdfd14;
+  --peec-alpha-10: #fdfdfd1a;
+  --peec-alpha-12: #fdfdfd1f;
+  --peec-alpha-16: #fdfdfd29;
+  --peec-alpha-20: #fdfdfd33;
+  --peec-alpha-28: #fdfdfd47;
+  --peec-alpha-24: #fdfdfd3d;
+  --peec-alpha-30: #fdfdfd4d;
+  --peec-alpha-40: #fdfdfd66;
+  --peec-alpha-50: #fdfdfd80;
+  --peec-alpha-60: #fdfdfd99;
+  --peec-alpha-64: #fdfdfda3;
+  --peec-alpha-70: #fdfdfdb3;
+  --peec-alpha-75: #fdfdfdbf;
+  --peec-alpha-80: #fdfdfdcc;
+  --peec-alpha-85: #fdfdfdd9;
+  --peec-alpha-90: #fdfdfde6;
+  --peec-alpha-97: #fdfdfdf2;
+  --peec-alpha-100: #fdfdfd;
+  --peec-inv-alpha-100: #171717;
+  --peec-button-inverse-active-bg-top: #17171700;
+  --peec-button-inverse-active-bg-bottom: #17171700;
+  --peec-button-inverse-active-bg: #fdfdfd;
+  --peec-button-inverse-active-inner-shadow-innershadow: #1717170a;
+  --peec-button-inverse-active-drop-shadow-2: #17171714;
+  --peec-button-inverse-hover-bg-top: #17171700;
+  --peec-button-inverse-hover-bg-bottom: #1717170a;
+  --peec-button-inverse-hover-bg: #fdfdfd;
+  --peec-button-inverse-hover-inner-shadow: #1717170a;
+  --peec-button-inverse-hover-drop-shadow-2: #17171714;
+  --peec-button-inverse-pressed-bg-top: #1717170a;
+  --peec-button-inverse-pressed-bg-bottom: #17171700;
+  --peec-button-inverse-pressed-bg: #fdfdfd;
+  --peec-button-inverse-pressed-inner-shadow: #1717170a;
+  --peec-button-inverse-pressed-drop-shadow-2: #17171714;
+  --peec-button-outlined-active-bg-top: #fdfdfd0a;
+  --peec-button-outlined-active-bg-bottom: #fdfdfd14;
+  --peec-button-outlined-active-bg: #171717;
+  --peec-button-outlined-active-inner-shadow: #fdfdfd29;
+  --peec-button-outlined-hover-bg-top: #fdfdfd0f;
+  --peec-button-outlined-hover-bg-bottom: #fdfdfd1a;
+  --peec-button-outlined-hover-bg: #171717;
+  --peec-button-outlined-hover-inner-shadow: #fdfdfd29;
+  --peec-button-outlined-hover-drop-shadow-1: #17171714;
+  --peec-button-outlined-hover-drop-shadow-2: #101010;
+  --peec-button-outlined-pressed-bg-top: #fdfdfd14;
+  --peec-button-outlined-pressed-bg-bottom: #fdfdfd0a;
+  --peec-button-outlined-pressed-bg: #171717;
+  --peec-button-outlined-pressed-inner-shadow: #fdfdfd29;
+  --peec-button-outlined-pressed-drop-shadow-1: #fdfdfd00;
+  --peec-button-outlined-pressed-drop-shadow-2: #0a0a0a;
+  --peec-button-grey-active-bg: #fdfdfd0f;
+  --peec-button-grey-active-border: #fdfdfd0f;
+  --peec-button-grey-hover-bg: #fdfdfd14;
+  --peec-button-grey-hover-border: #fdfdfd1a;
+  --peec-button-destructive-active-bg-top: #17171700;
+  --peec-button-destructive-active-bg-bottom: #1717170a;
+  --peec-button-destructive-active-inner-shadow: #17171733;
+  --peec-button-destructive-active-drop-shadow-2: #fdfdfd14;
+  --peec-button-destructive-hover-bg-top: #17171700;
+  --peec-button-destructive-hover-bg-bottom: #17171729;
+  --peec-button-destructive-hover-inner-shadow: #1717170a;
+  --peec-button-destructive-hover-drop-shadow-2: #fdfdfd14;
+  --peec-button-outlined-active-drop-shadow-2: #0a0a0a;
+  --peec-button-grey-pressed-bg: #fdfdfd0f;
+  --peec-button-grey-pressed-border: #fdfdfd0f;
+  --peec-shadow-color-2xs-inner: #fdfdfd0f;
+  --peec-shadow-color-xs-inner: #fdfdfd0f;
+  --peec-shadow-color-sm-inner: #fdfdfd0f;
+  --peec-shadow-color-md-inner: #fdfdfd0f;
+  --peec-shadow-color-lg-inner: #fdfdfd0f;
+  --peec-shadow-color-xl-inner: #fdfdfd0f;
+  --peec-shadow-color-2xl-inner: #fdfdfd0f;
+  --peec-pure-white: #000;
+  --peec-table-hover: #262626;
+  --peec-table-active: #333;
+  --peec-table-selected: #1a2447;
+}
+
+/* --- PEEC AI CUSTOM RULES --- */
+.peec-shadow-focus-blue {
+  box-shadow: var(--peec-shadow-focus-default);
+  animation: 0.15s ease-out peec-focus-ring-default;
+}
+
+.peec-shadow-focus-blue\! {
+  box-shadow: var(--peec-shadow-focus-default) !important;
+  animation: 0.15s ease-out peec-focus-ring-default !important;
+}
+
+.peec-shadow-focus-button-destructive {
+  box-shadow:
+    var(--peec-shadow-focus-default), var(--peec-shadow-button-destructive);
+  animation: 0.15s ease-out peec-focus-ring-default;
+}
+
+.peec-shadow-focus-button-inverse-pressed {
+  box-shadow:
+    var(--peec-shadow-focus-default), var(--peec-shadow-button-inverse-pressed);
+  animation: 0.15s ease-out peec-focus-ring-default;
+}
+
+.peec-shadow-focus-button-outlined-pressed {
+  box-shadow:
+    var(--peec-shadow-focus-default), var(--peec-shadow-button-outlined-pressed);
+  animation: 0.15s ease-out peec-focus-ring-default;
+}
+
+.peec-shadow-focus-button-outlined-pressed\! {
+  box-shadow:
+    var(--peec-shadow-focus-default), var(--peec-shadow-button-outlined-pressed) !important;
+  animation: 0.15s ease-out peec-focus-ring-default !important;
+}
+
+.peec-shadow-focus-destructive-button-destructive {
+  box-shadow:
+    var(--peec-shadow-focus-destructive), var(--peec-shadow-button-destructive);
+  animation: 0.15s ease-out peec-focus-ring-destructive;
+}
+
+.peec-shadow-focus-destructive-button-inverse-pressed {
+  box-shadow:
+    var(--peec-shadow-focus-destructive),
+    var(--peec-shadow-button-inverse-pressed);
+  animation: 0.15s ease-out peec-focus-ring-destructive;
+}
+
+.peec-shadow-focus-destructive-button-outlined-pressed {
+  box-shadow:
+    var(--peec-shadow-focus-destructive),
+    var(--peec-shadow-button-outlined-pressed);
+  animation: 0.15s ease-out peec-focus-ring-destructive;
+}
+
+.peec-shadow-focus-red {
+  box-shadow: var(--peec-shadow-focus-destructive);
+  animation: 0.15s ease-out peec-focus-ring-destructive;
+}
+
+.peec-badge-amber {
+  background-color: var(--peec-badge-amber-bg);
+  border-color: var(--peec-badge-amber-border);
+  color: var(--peec-badge-amber-text);
+}
+
+.peec-badge-blue {
+  background-color: var(--peec-badge-blue-bg);
+  border-color: var(--peec-badge-blue-border);
+  color: var(--peec-badge-blue-text);
+}
+
+.peec-badge-cyan {
+  background-color: var(--peec-badge-cyan-bg);
+  border-color: var(--peec-badge-cyan-border);
+  color: var(--peec-badge-cyan-text);
+}
+
+.peec-badge-emerald {
+  background-color: var(--peec-badge-emerald-bg);
+  border-color: var(--peec-badge-emerald-border);
+  color: var(--peec-badge-emerald-text);
+}
+
+.peec-badge-fuchsia {
+  background-color: var(--peec-badge-fuchsia-bg);
+  border-color: var(--peec-badge-fuchsia-border);
+  color: var(--peec-badge-fuchsia-text);
+}
+
+.peec-badge-gray {
+  background-color: var(--peec-button-grey-active-bg);
+  border-color: var(--peec-button-grey-active-border);
+  color: var(--peec-fg-secondary);
+}
+
+.peec-badge-green {
+  background-color: var(--peec-badge-green-bg);
+  border-color: var(--peec-badge-green-border);
+  color: var(--peec-badge-green-text);
+}
+
+.peec-badge-indigo {
+  background-color: var(--peec-badge-indigo-bg);
+  border-color: var(--peec-badge-indigo-border);
+  color: var(--peec-badge-indigo-text);
+}
+
+.peec-badge-lime {
+  background-color: var(--peec-badge-lime-bg);
+  border-color: var(--peec-badge-lime-border);
+  color: var(--peec-badge-lime-text);
+}
+
+.peec-badge-orange {
+  background-color: var(--peec-badge-orange-bg);
+  border-color: var(--peec-badge-orange-border);
+  color: var(--peec-badge-orange-text);
+}
+
+.peec-badge-pink {
+  background-color: var(--peec-badge-pink-bg);
+  border-color: var(--peec-badge-pink-border);
+  color: var(--peec-badge-pink-text);
+}
+
+.peec-badge-purple {
+  background-color: var(--peec-badge-purple-bg);
+  border-color: var(--peec-badge-purple-border);
+  color: var(--peec-badge-purple-text);
+}
+
+.peec-badge-red {
+  background-color: var(--peec-badge-red-bg);
+  border-color: var(--peec-badge-red-border);
+  color: var(--peec-badge-red-text);
+}
+
+.peec-badge-rose {
+  background-color: var(--peec-badge-rose-bg);
+  border-color: var(--peec-badge-rose-border);
+  color: var(--peec-badge-rose-text);
+}
+
+.peec-badge-sky {
+  background-color: var(--peec-badge-sky-bg);
+  border-color: var(--peec-badge-sky-border);
+  color: var(--peec-badge-sky-text);
+}
+
+.peec-badge-teal {
+  background-color: var(--peec-badge-teal-bg);
+  border-color: var(--peec-badge-teal-border);
+  color: var(--peec-badge-teal-text);
+}
+
+.peec-badge-violet {
+  background-color: var(--peec-badge-violet-bg);
+  border-color: var(--peec-badge-violet-border);
+  color: var(--peec-badge-violet-text);
+}
+
+.peec-badge-yellow {
+  background-color: var(--peec-badge-yellow-bg);
+  border-color: var(--peec-badge-yellow-border);
+  color: var(--peec-badge-yellow-text);
+}
+
+.peec-border-separator-on-dark {
+  border-color: var(--peec-inv-alpha-opacity10);
+}
+
+.peec-border-separator-primary {
+  border-color: var(--peec-separator-primary);
+}
+
+.peec-border-separator-secondary {
+  border-color: var(--peec-separator-secondary);
+}
+
+.peec-border-stroke-primary {
+  border-color: var(--peec-stroke-primary);
+}
+
+.peec-border-stroke-quaternary {
+  border-color: var(--peec-stroke-quaternary);
+}
+
+.peec-border-stroke-secondary {
+  border-color: var(--peec-stroke-secondary);
+}
+
+.peec-border-stroke-secondary-20 {
+  border-color: #17171705;
+}
+
+.peec-border-stroke-tertiary {
+  border-color: var(--peec-stroke-tertiary);
+}
+
+.peec-bg-error {
+  background-color: var(--peec-error-base);
+}
+
+.peec-bg-error-subtle {
+  background-color: var(--peec-badge-red-bg);
+}
+
+.peec-bg-feature {
+  background-color: var(--peec-feature-base);
+}
+
+.peec-bg-feature-2 {
+  background-color: var(--peec-feature-2-base);
+}
+
+.peec-bg-highlight {
+  background-color: var(--peec-highlight-base);
+}
+
+.peec-bg-input {
+  background-color: var(--peec-input-bg);
+}
+
+.peec-bg-invert {
+  background-color: var(--peec-bg-black);
+}
+
+.peec-bg-invert-80 {
+  background-color: #171717cc;
+}
+
+.peec-bg-primary {
+  background-color: var(--peec-bg-primary);
+}
+
+.peec-bg-pure-white {
+  background-color: var(--peec-pure-white);
+}
+
+.peec-bg-pure-white\! {
+  background-color: var(--peec-pure-white) !important;
+}
+
+.peec-bg-quaternary {
+  background-color: var(--peec-bg-quaternary);
+}
+
+.peec-bg-secondary {
+  background-color: var(--peec-bg-secondary);
+}
+
+.peec-bg-sidebar {
+  background-color: var(--peec-bg-sidebar);
+}
+
+.peec-bg-success {
+  background-color: var(--peec-success-base);
+}
+
+.peec-bg-success-subtle {
+  background-color: var(--peec-badge-green-bg);
+}
+
+.peec-bg-surface-primary {
+  background-color: var(--peec-surface-primary);
+}
+
+.peec-bg-surface-secondary {
+  background-color: var(--peec-surface-secondary);
+}
+
+.peec-bg-surface-tertiary {
+  background-color: var(--peec-surface-tertiary);
+}
+
+.peec-bg-table-active {
+  background-color: var(--peec-table-active);
+}
+
+.peec-bg-table-hover {
+  background-color: var(--peec-table-hover);
+}
+
+.peec-bg-table-selected {
+  background-color: var(--peec-table-selected);
+}
+
+.peec-bg-tertiary {
+  background-color: var(--peec-bg-tertiary);
+}
+
+.peec-bg-transparent {
+  background-color: #0000;
+}
+
+.peec-bg-warning {
+  background-color: var(--peec-warning-primary);
+}
+
+.peec-bg-warning-subtle {
+  background-color: var(--peec-badge-yellow-bg);
+}
+
+.peec-bg-white {
+  background-color: var(--peec-bg-white);
+}
+
+.text-body-l {
+  font-size: var(--peec-text-body-l-size);
+  line-height: var(--peec-text-body-l-leading);
+  font-weight: var(--peec-text-body-l-weight);
+  letter-spacing: var(--peec-text-body-l-tracking);
+}
+
+.text-body-l-regular {
+  font-size: var(--peec-text-body-l-regular-size);
+  line-height: var(--peec-text-body-l-regular-leading);
+  font-weight: var(--peec-text-body-l-regular-weight);
+  letter-spacing: var(--peec-text-body-l-regular-tracking);
+}
+
+.text-body-l-semibold {
+  font-size: var(--peec-text-body-l-semibold-size);
+  line-height: var(--peec-text-body-l-semibold-leading);
+  font-weight: var(--peec-text-body-l-semibold-weight);
+  letter-spacing: var(--peec-text-body-l-semibold-tracking);
+}
+
+.text-body-m {
+  font-size: var(--peec-text-body-m-size);
+  line-height: var(--peec-text-body-m-leading);
+  font-weight: var(--peec-text-body-m-weight);
+  letter-spacing: var(--peec-text-body-m-tracking);
+}
+
+.text-body-m\! {
+  font-size: var(--peec-text-body-m-size) !important;
+  line-height: var(--peec-text-body-m-leading) !important;
+  font-weight: var(--peec-text-body-m-weight) !important;
+  letter-spacing: var(--peec-text-body-m-tracking) !important;
+}
+
+.text-body-m-medium-mono {
+  font-size: var(--peec-text-body-m-medium-mono-size);
+  line-height: var(--peec-text-body-m-medium-mono-leading);
+  font-weight: var(--peec-text-body-m-medium-mono-weight);
+  letter-spacing: var(--peec-text-body-m-medium-mono-tracking);
+}
+
+.text-body-m-regular {
+  font-size: var(--peec-text-body-m-regular-size);
+  line-height: var(--peec-text-body-m-regular-leading);
+  font-weight: var(--peec-text-body-m-regular-weight);
+  letter-spacing: var(--peec-text-body-m-regular-tracking);
+}
+
+.text-body-m-semibold {
+  font-size: var(--peec-text-body-m-semibold-size);
+  line-height: var(--peec-text-body-m-semibold-leading);
+  font-weight: var(--peec-text-body-m-semibold-weight);
+  letter-spacing: var(--peec-text-body-m-semibold-tracking);
+}
+
+.text-body-s {
+  font-size: var(--peec-text-body-s-size);
+  line-height: var(--peec-text-body-s-leading);
+  font-weight: var(--peec-text-body-s-weight);
+  letter-spacing: var(--peec-text-body-s-tracking);
+}
+
+.text-body-s-regular {
+  font-size: var(--peec-text-body-s-regular-size);
+  line-height: var(--peec-text-body-s-regular-leading);
+  font-weight: var(--peec-text-body-s-regular-weight);
+  letter-spacing: var(--peec-text-body-s-regular-tracking);
+}
+
+.text-body-s-semibold {
+  font-size: var(--peec-text-body-s-semibold-size);
+  line-height: var(--peec-text-body-s-semibold-leading);
+  font-weight: var(--peec-text-body-s-semibold-weight);
+  letter-spacing: var(--peec-text-body-s-semibold-tracking);
+}
+
+.peec-text-badge-blue {
+  color: var(--peec-badge-blue-text);
+}
+
+.peec-text-badge-green {
+  color: var(--peec-badge-green-text);
+}
+
+.peec-text-badge-indigo {
+  color: var(--peec-badge-indigo-text);
+}
+
+.peec-text-badge-pink {
+  color: var(--peec-badge-pink-text);
+}
+
+.peec-text-badge-red {
+  color: var(--peec-badge-red-text);
+}
+
+.peec-text-badge-yellow {
+  color: var(--peec-badge-yellow-text);
+}
+
+.peec-text-error {
+  color: var(--peec-error-base);
+}
+
+.peec-text-feature {
+  color: var(--peec-feature-base);
+}
+
+.peec-text-feature-2 {
+  color: var(--peec-feature-2-base);
+}
+
+.peec-text-feature-2\! {
+  color: var(--peec-feature-2-base) !important;
+}
+
+.peec-text-highlight {
+  color: var(--peec-highlight-base);
+}
+
+.peec-text-on-dark {
+  color: var(--peec-fg-primary-white);
+}
+
+.peec-text-on-dark\! {
+  color: var(--peec-fg-primary-white) !important;
+}
+
+.peec-text-on-dark-secondary {
+  color: var(--peec-fg-secondary-white);
+}
+
+.peec-text-on-dark-secondary\! {
+  color: var(--peec-fg-secondary-white) !important;
+}
+
+.peec-text-primary {
+  color: var(--peec-fg-primary);
+}
+
+.peec-text-primary\! {
+  color: var(--peec-fg-primary) !important;
+}
+
+.peec-text-quaternary {
+  color: var(--peec-fg-quaternary);
+}
+
+.peec-text-secondary {
+  color: var(--peec-fg-secondary);
+}
+
+.peec-text-success {
+  color: var(--peec-success-base);
+}
+
+.peec-text-tertiary {
+  color: var(--peec-fg-tertiary);
+}
+
+.peec-text-tertiary\! {
+  color: var(--peec-fg-tertiary) !important;
+}
+
+.peec-text-warning {
+  color: var(--peec-warning-primary);
+}
+
+.peec-text-warning\! {
+  color: var(--peec-warning-primary) !important;
+}
+
+.peec-inset-shadow-2xs {
+  box-shadow: var(--peec-inset-shadow-2xs);
+}
+
+.peec-inset-shadow-sm {
+  box-shadow: var(--peec-inset-shadow-sm);
+}
+
+.peec-inset-shadow-xs {
+  box-shadow: var(--peec-inset-shadow-xs);
+}
+
+.peec-shadow-2xl {
+  box-shadow: var(--peec-shadow-2xl);
+}
+
+.peec-shadow-2xs {
+  box-shadow: var(--peec-shadow-2xs);
+}
+
+.peec-shadow-button-destructive {
+  box-shadow: var(--peec-shadow-button-destructive);
+}
+
+.peec-shadow-button-inverse {
+  box-shadow: var(--peec-shadow-button-inverse-active);
+}
+
+.peec-shadow-button-inverse-hover {
+  box-shadow: var(--peec-shadow-button-inverse-hover);
+}
+
+.peec-shadow-button-inverse-pressed {
+  box-shadow: var(--peec-shadow-button-inverse-pressed);
+}
+
+.peec-shadow-button-primary {
+  box-shadow: var(--peec-shadow-button-outlined-active);
+}
+
+.peec-shadow-button-primary-hover {
+  box-shadow: var(--peec-shadow-button-outlined-hover);
+}
+
+.peec-shadow-button-primary-pressed {
+  box-shadow: var(--peec-shadow-button-outlined-pressed);
+}
+
+.peec-shadow-lg {
+  box-shadow: var(--peec-shadow-lg);
+}
+
+.peec-shadow-md {
+  box-shadow: var(--peec-shadow-md);
+}
+
+.peec-shadow-overlay {
+  box-shadow:
+    0 0 0 0.5px #1717171a,
+    0 20px 25px -5px #17171714,
+    0 8px 10px -6px #1717171a;
+}
+
+.peec-shadow-sm {
+  box-shadow: var(--peec-shadow-sm);
+}
+
+.peec-shadow-xl {
+  box-shadow: var(--peec-shadow-xl);
+}
+
+.peec-shadow-xs {
+  box-shadow: var(--peec-shadow-xs);
+}
+
+:root {
+  --sidebar-placeholder-width: 13.75rem;
+}
+
+[data-state='collapsed'] ~ [data-slot='sidebar-inset'] {
+  --sidebar-placeholder-width: 3rem;
 }

@@ -6,7 +6,7 @@ import '@/styles/globals.css';
 import { Toaster } from '@/components/ui/sonner';
 import { env } from '@/config/env';
 import { MATERIAL_SYMBOLS_STYLESHEET } from '@/config/material-symbols';
-import { dmSans, geist, inter, interDisplay } from '@/lib/fonts';
+import { geist } from '@/lib/fonts';
 import { cn } from '@/utils/cn';
 
 export const metadata = {
@@ -15,35 +15,10 @@ export const metadata = {
 
 const RootLayout = async ({ children }: { children: ReactNode }) => {
   return (
-    <html
-      lang="en"
-      className={cn(
-        interDisplay.variable,
-        dmSans.variable,
-        inter.variable,
-        geist.variable,
-      )}
-    >
+    <html lang="en" className={cn(geist.variable, 'antialiased')}>
       <head>
         {process.env.NODE_ENV === 'production' && (
           <>
-            <Script
-              id="crisp-chat"
-              strategy="afterInteractive"
-              dangerouslySetInnerHTML={{
-                __html: `
-              window.$crisp=[];
-              window.CRISP_WEBSITE_ID="60f1d13f-4bdc-4146-a861-4b9d66513f06";
-              (function(){
-                d=document;
-                s=d.createElement("script");
-                s.src="https://client.crisp.chat/l.js";
-                s.async=1;
-                d.getElementsByTagName("head")[0].appendChild(s);
-              })();
-            `,
-              }}
-            />
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${env.GA4_ID}`}
               strategy="afterInteractive"
@@ -62,12 +37,6 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
             />
           </>
         )}
-
-        <link
-          href="https://cdn.jsdelivr.net/combine/npm/daisyui@5/components/loading.css"
-          rel="stylesheet"
-          type="text/css"
-        />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
