@@ -337,71 +337,217 @@
   animation: visitor-card-sheen 11s infinite ease-out;
 }
 
-.visitor-signal-row-1 .visitor-revealed-state { animation-name: visitor-reveal-one; }
-.visitor-signal-row-2 .visitor-revealed-state { animation-name: visitor-reveal-two; }
-.visitor-signal-row-3 .visitor-revealed-state { animation-name: visitor-reveal-three; }
-.visitor-signal-row-4 .visitor-revealed-state { animation-name: visitor-reveal-four; }
-.visitor-signal-row-5 .visitor-revealed-state { animation-name: visitor-reveal-five; }
+.visitor-signal-row-1 .visitor-revealed-state {
+  animation-name: visitor-reveal-one;
+}
+.visitor-signal-row-2 .visitor-revealed-state {
+  animation-name: visitor-reveal-two;
+}
+.visitor-signal-row-3 .visitor-revealed-state {
+  animation-name: visitor-reveal-three;
+}
+.visitor-signal-row-4 .visitor-revealed-state {
+  animation-name: visitor-reveal-four;
+}
+.visitor-signal-row-5 .visitor-revealed-state {
+  animation-name: visitor-reveal-five;
+}
 
-.visitor-signal-row-1 .visitor-anonymous-state { animation-name: visitor-anonymous-one; }
-.visitor-signal-row-2 .visitor-anonymous-state { animation-name: visitor-anonymous-two; }
-.visitor-signal-row-3 .visitor-anonymous-state { animation-name: visitor-anonymous-three; }
-.visitor-signal-row-4 .visitor-anonymous-state { animation-name: visitor-anonymous-four; }
-.visitor-signal-row-5 .visitor-anonymous-state { animation-name: visitor-anonymous-five; }
+.visitor-signal-row-1 .visitor-anonymous-state {
+  animation-name: visitor-anonymous-one;
+}
+.visitor-signal-row-2 .visitor-anonymous-state {
+  animation-name: visitor-anonymous-two;
+}
+.visitor-signal-row-3 .visitor-anonymous-state {
+  animation-name: visitor-anonymous-three;
+}
+.visitor-signal-row-4 .visitor-anonymous-state {
+  animation-name: visitor-anonymous-four;
+}
+.visitor-signal-row-5 .visitor-anonymous-state {
+  animation-name: visitor-anonymous-five;
+}
 
 @keyframes visitor-reveal-one {
-  0%, 8%       { filter: blur(10px); opacity: 0; }
-  14%, 78%     { filter: blur(0);    opacity: 1; }
-  88%, 100%    { filter: blur(8px);  opacity: 0; }
+  0%,
+  8% {
+    filter: blur(10px);
+    opacity: 0;
+  }
+  14%,
+  78% {
+    filter: blur(0);
+    opacity: 1;
+  }
+  88%,
+  100% {
+    filter: blur(8px);
+    opacity: 0;
+  }
 }
 @keyframes visitor-reveal-two {
-  0%, 20%      { filter: blur(10px); opacity: 0; }
-  26%, 78%     { filter: blur(0);    opacity: 1; }
-  88%, 100%    { filter: blur(8px);  opacity: 0; }
+  0%,
+  20% {
+    filter: blur(10px);
+    opacity: 0;
+  }
+  26%,
+  78% {
+    filter: blur(0);
+    opacity: 1;
+  }
+  88%,
+  100% {
+    filter: blur(8px);
+    opacity: 0;
+  }
 }
 @keyframes visitor-reveal-three {
-  0%, 32%      { filter: blur(10px); opacity: 0; }
-  38%, 78%     { filter: blur(0);    opacity: 1; }
-  88%, 100%    { filter: blur(8px);  opacity: 0; }
+  0%,
+  32% {
+    filter: blur(10px);
+    opacity: 0;
+  }
+  38%,
+  78% {
+    filter: blur(0);
+    opacity: 1;
+  }
+  88%,
+  100% {
+    filter: blur(8px);
+    opacity: 0;
+  }
 }
 @keyframes visitor-reveal-four {
-  0%, 44%      { filter: blur(10px); opacity: 0; }
-  50%, 78%     { filter: blur(0);    opacity: 1; }
-  88%, 100%    { filter: blur(8px);  opacity: 0; }
+  0%,
+  44% {
+    filter: blur(10px);
+    opacity: 0;
+  }
+  50%,
+  78% {
+    filter: blur(0);
+    opacity: 1;
+  }
+  88%,
+  100% {
+    filter: blur(8px);
+    opacity: 0;
+  }
 }
 @keyframes visitor-reveal-five {
-  0%, 56%      { filter: blur(10px); opacity: 0; }
-  62%, 78%     { filter: blur(0);    opacity: 1; }
-  88%, 100%    { filter: blur(8px);  opacity: 0; }
+  0%,
+  56% {
+    filter: blur(10px);
+    opacity: 0;
+  }
+  62%,
+  78% {
+    filter: blur(0);
+    opacity: 1;
+  }
+  88%,
+  100% {
+    filter: blur(8px);
+    opacity: 0;
+  }
 }
 
 @keyframes visitor-anonymous-one {
-  0%, 8%       { filter: blur(0);   opacity: 1; }
-  14%, 78%     { filter: blur(8px); opacity: 0; }
-  88%, 100%    { filter: blur(0);   opacity: 1; }
+  0%,
+  8% {
+    filter: blur(0);
+    opacity: 1;
+  }
+  14%,
+  78% {
+    filter: blur(8px);
+    opacity: 0;
+  }
+  88%,
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
 }
 @keyframes visitor-anonymous-two {
-  0%, 20%      { filter: blur(0);   opacity: 1; }
-  26%, 78%     { filter: blur(8px); opacity: 0; }
-  88%, 100%    { filter: blur(0);   opacity: 1; }
+  0%,
+  20% {
+    filter: blur(0);
+    opacity: 1;
+  }
+  26%,
+  78% {
+    filter: blur(8px);
+    opacity: 0;
+  }
+  88%,
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
 }
 @keyframes visitor-anonymous-three {
-  0%, 32%      { filter: blur(0);   opacity: 1; }
-  38%, 78%     { filter: blur(8px); opacity: 0; }
-  88%, 100%    { filter: blur(0);   opacity: 1; }
+  0%,
+  32% {
+    filter: blur(0);
+    opacity: 1;
+  }
+  38%,
+  78% {
+    filter: blur(8px);
+    opacity: 0;
+  }
+  88%,
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
 }
 @keyframes visitor-anonymous-four {
-  0%, 44%      { filter: blur(0);   opacity: 1; }
-  50%, 78%     { filter: blur(8px); opacity: 0; }
-  88%, 100%    { filter: blur(0);   opacity: 1; }
+  0%,
+  44% {
+    filter: blur(0);
+    opacity: 1;
+  }
+  50%,
+  78% {
+    filter: blur(8px);
+    opacity: 0;
+  }
+  88%,
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
 }
 @keyframes visitor-anonymous-five {
-  0%, 56%      { filter: blur(0);   opacity: 1; }
-  62%, 78%     { filter: blur(8px); opacity: 0; }
-  88%, 100%    { filter: blur(0);   opacity: 1; }
+  0%,
+  56% {
+    filter: blur(0);
+    opacity: 1;
+  }
+  62%,
+  78% {
+    filter: blur(8px);
+    opacity: 0;
+  }
+  88%,
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
 }
 
 @keyframes visitor-card-sheen {
-  0%, 18%      { transform: translateX(-120%); }
-  28%, 100%    { transform: translateX(120%); }
+  0%,
+  18% {
+    transform: translateX(-120%);
+  }
+  28%,
+  100% {
+    transform: translateX(120%);
+  }
 }

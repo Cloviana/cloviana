@@ -5,8 +5,8 @@ WORKDIR /app
 RUN corepack enable
 
 FROM base AS deps
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
 
 FROM deps AS builder
 ARG NEXT_PUBLIC_API_URL
@@ -21,14 +21,14 @@ ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL} \
     NEXT_PUBLIC_GA4_ID=${NEXT_PUBLIC_GA4_ID} \
     NEXT_PUBLIC_CLARITY_PROJECT_ID=${NEXT_PUBLIC_CLARITY_PROJECT_ID}
 COPY . .
-RUN yarn build
+RUN pnpm build
 
 FROM deps AS dev
 WORKDIR /app
 ENV NODE_ENV=development
 COPY . .
 EXPOSE 3000
-CMD [ "yarn", "dev", "-H", "0.0.0.0", "-p", "3000" ]
+CMD [ "pnpm", "dev", "-H", "0.0.0.0", "-p", "3000" ]
 
 FROM node:22-bookworm-slim AS runner
 WORKDIR /app
