@@ -4,7 +4,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { isAxiosError } from 'axios';
 import { RefreshCwIcon } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import {
+  type MutableRefObject,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
@@ -62,7 +68,7 @@ function useResendCooldown() {
   const [seconds, setSeconds] = useState(0);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const start = () => {
+  const start = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
     setSeconds(RESEND_COOLDOWN_SECONDS);
     intervalRef.current = setInterval(() => {
@@ -74,12 +80,12 @@ function useResendCooldown() {
         return s - 1;
       });
     }, 1000);
-  };
+  }, []);
 
-  const reset = () => {
+  const reset = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
     setSeconds(0);
-  };
+  }, []);
 
   return { seconds, start, reset };
 }
@@ -89,22 +95,28 @@ function useResendCooldown() {
 interface RequestStepProps {
   defaultDomain: string;
   isLoading: boolean;
+  formRef: MutableRefObject<ReturnType<
+    typeof useForm<RequestAuditInput>
+  > | null>;
   onSubmit: (data: RequestAuditInput) => void;
 }
 
-function RequestStep({ defaultDomain, isLoading, onSubmit }: RequestStepProps) {
+function RequestStep({
+  defaultDomain,
+  isLoading,
+  formRef,
+  onSubmit,
+}: RequestStepProps) {
   const form = useForm<RequestAuditInput>({
     resolver: zodResolver(requestAuditInputSchema),
     defaultValues: { domain: defaultDomain, email: '', country: 'US' },
   });
 
-  // Expose setError so the parent can set field errors (e.g. 409 conflict).
-  // We return the form so the parent can call form.setError if needed.
-  RequestStep.formRef = form;
+  formRef.current = form;
 
   useEffect(() => {
     form.setValue('domain', defaultDomain);
-  }, [defaultDomain, form.setValue]);
+  }, [defaultDomain, form]);
 
   return (
     <Form {...form}>
@@ -178,11 +190,6 @@ function RequestStep({ defaultDomain, isLoading, onSubmit }: RequestStepProps) {
     </Form>
   );
 }
-// Mutable ref so the parent dialog can call setError on the form.
-RequestStep.formRef = null as ReturnType<
-  typeof useForm<RequestAuditInput>
-> | null;
-
 // ─── Step 2: OTP verify form ──────────────────────────────────────────────────
 
 interface VerifyStepProps {
@@ -190,6 +197,9 @@ interface VerifyStepProps {
   cooldownSeconds: number;
   isVerifying: boolean;
   isResending: boolean;
+  formRef: MutableRefObject<ReturnType<
+    typeof useForm<{ code: string }>
+  > | null>;
   onVerify: (code: string) => void;
   onResend: () => void;
 }
@@ -199,6 +209,7 @@ function VerifyStep({
   cooldownSeconds,
   isVerifying,
   isResending,
+  formRef,
   onVerify,
   onResend,
 }: VerifyStepProps) {
@@ -211,8 +222,7 @@ function VerifyStep({
     otpRef.current?.focus();
   }, []);
 
-  // Expose setError so the parent can mark invalid codes.
-  VerifyStep.formRef = form;
+  formRef.current = form;
 
   return (
     <Form {...form}>
@@ -281,10 +291,6 @@ function VerifyStep({
     </Form>
   );
 }
-VerifyStep.formRef = null as ReturnType<
-  typeof useForm<{ code: string }>
-> | null;
-
 // ─── Dialog ───────────────────────────────────────────────────────────────────
 
 export function AuditRequestDialog({
@@ -298,27 +304,37 @@ export function AuditRequestDialog({
     null,
   );
   const confettiRef = useRef<ConfettiRef>(null);
-  const cooldown = useResendCooldown();
+  const requestFormRef = useRef<ReturnType<
+    typeof useForm<RequestAuditInput>
+  > | null>(null);
+  const verifyFormRef = useRef<ReturnType<
+    typeof useForm<{ code: string }>
+  > | null>(null);
+  const {
+    seconds: cooldownSeconds,
+    start: startCooldown,
+    reset: resetCooldown,
+  } = useResendCooldown();
 
   // Reset dialog state whenever it closes.
   useEffect(() => {
     if (!open) {
       setStep('request');
       setSubmittedData(null);
-      cooldown.reset();
+      resetCooldown();
     }
-  }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [open, resetCooldown]);
 
   const { mutate: requestAudit, isPending: isRequesting } = useRequestAudit({
     mutationConfig: {
       onSuccess: (_, variables) => {
         setSubmittedData(variables);
         setStep('verify');
-        cooldown.start();
+        startCooldown();
       },
       onError: (error) => {
         if (isAxiosError(error) && error.response?.status === 409) {
-          RequestStep.formRef?.setError('email', {
+          requestFormRef.current?.setError('email', {
             message: 'An audit for this email already exists.',
           });
         }
@@ -356,7 +372,7 @@ export function AuditRequestDialog({
         burst();
       },
       onError: () => {
-        VerifyStep.formRef?.setError('code', {
+        verifyFormRef.current?.setError('code', {
           message: 'Invalid or expired code. Try again.',
         });
       },
@@ -371,7 +387,7 @@ export function AuditRequestDialog({
   const handleResend = () => {
     if (!submittedData) return;
     requestAudit(submittedData);
-    cooldown.start();
+    startCooldown();
   };
 
   return (
@@ -387,14 +403,16 @@ export function AuditRequestDialog({
             <RequestStep
               defaultDomain={domain}
               isLoading={isRequesting}
+              formRef={requestFormRef}
               onSubmit={(data) => requestAudit(data)}
             />
           ) : (
             <VerifyStep
               email={submittedData!.email}
-              cooldownSeconds={cooldown.seconds}
+              cooldownSeconds={cooldownSeconds}
               isVerifying={isVerifying}
               isResending={isRequesting}
+              formRef={verifyFormRef}
               onVerify={handleVerify}
               onResend={handleResend}
             />
