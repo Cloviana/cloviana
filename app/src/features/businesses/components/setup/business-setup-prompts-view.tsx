@@ -183,10 +183,13 @@ export function BusinessSetupPromptsView() {
                             />
                             {(() => {
                               const stage = prompts[index]?.stage ?? 'EVALUATE';
-                              const conf = stageConfig[stage] || stageConfig.EVALUATE;
+                              const conf =
+                                stageConfig[stage] || stageConfig.EVALUATE;
                               return (
-                                <span className="mt-1.5 inline-flex items-center gap-1.5 rounded-full bg-slate-50 border border-slate-200 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-slate-700">
-                                  <span className={`h-1.5 w-1.5 rounded-full ${conf.dotColor}`} />
+                                <span className="mt-1.5 inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[10px] font-semibold tracking-wider text-slate-700 uppercase">
+                                  <span
+                                    className={`h-1.5 w-1.5 rounded-full ${conf.dotColor}`}
+                                  />
                                   {conf.label}
                                 </span>
                               );

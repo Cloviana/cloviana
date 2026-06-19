@@ -77,8 +77,10 @@ export default function MonitoringDashboardPage() {
                   : 'Waiting for the first monitoring run'}
             </span>
           </div>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 border border-slate-200 px-2.5 py-1 text-xs font-semibold text-slate-700">
-            <span className={`h-1.5 w-1.5 rounded-full ${runActive ? 'bg-blue-500 animate-pulse' : 'bg-emerald-500'}`} />
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-semibold text-slate-700">
+            <span
+              className={`h-1.5 w-1.5 rounded-full ${runActive ? 'animate-pulse bg-blue-500' : 'bg-emerald-500'}`}
+            />
             {data.prompts.monitored}/{data.prompts.active} prompts measured
           </span>
         </div>
@@ -106,7 +108,7 @@ export default function MonitoringDashboardPage() {
               className="rounded-md border border-slate-200 bg-white p-4"
             >
               <p className="text-xs font-semibold text-slate-700">{label}</p>
-              <p className="mt-3 text-2xl md:text-3xl font-semibold tracking-tight text-slate-900">
+              <p className="mt-3 text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl">
                 {value}
               </p>
               <p className="mt-2 text-xs leading-5 text-slate-600">
@@ -134,13 +136,35 @@ export default function MonitoringDashboardPage() {
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={chartData} margin={{ left: -20, right: 12 }}>
                     <defs>
-                      <linearGradient id="colorVisibility" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#2563eb" stopOpacity={0.2}/>
-                        <stop offset="95%" stopColor="#2563eb" stopOpacity={0}/>
+                      <linearGradient
+                        id="colorVisibility"
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="1"
+                      >
+                        <stop
+                          offset="5%"
+                          stopColor="#2563eb"
+                          stopOpacity={0.2}
+                        />
+                        <stop
+                          offset="95%"
+                          stopColor="#2563eb"
+                          stopOpacity={0}
+                        />
                       </linearGradient>
                       <linearGradient id="colorSov" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#0f172a" stopOpacity={0.1}/>
-                        <stop offset="95%" stopColor="#0f172a" stopOpacity={0}/>
+                        <stop
+                          offset="5%"
+                          stopColor="#0f172a"
+                          stopOpacity={0.1}
+                        />
+                        <stop
+                          offset="95%"
+                          stopColor="#0f172a"
+                          stopOpacity={0}
+                        />
                       </linearGradient>
                     </defs>
                     <CartesianGrid stroke="#e2e8f0" vertical={false} />
@@ -204,11 +228,11 @@ export default function MonitoringDashboardPage() {
               <h2 className="text-sm font-semibold text-slate-900">
                 Engine coverage
               </h2>
-              <p className="mt-1 text-xs text-slate-650">
+              <p className="text-slate-650 mt-1 text-xs">
                 Latest visibility by answer engine
               </p>
             </div>
-            <div className="grid grid-cols-[1fr_80px_80px] items-center gap-4 px-4 py-2 bg-slate-50/50 border-b border-slate-100 text-xs font-semibold text-slate-600">
+            <div className="grid grid-cols-[1fr_80px_80px] items-center gap-4 border-b border-slate-100 bg-slate-50/50 px-4 py-2 text-xs font-semibold text-slate-600">
               <span>Engine</span>
               <span className="text-right">Visibility</span>
               <span className="text-right">SOV</span>
