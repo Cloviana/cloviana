@@ -19,13 +19,13 @@ jobs:
         uses: appleboy/ssh-action@v0.1.6
         with:
           host:     ${{ secrets.PROD_HOST }}
-          username: cloviana-admin
+          username: root
           password: ${{ secrets.SSH_PASSWORD }}
           port:     22
           script: |
             set -e
 
-            cd ~/cloviana
+            cd /opt/cloviana
             git fetch origin main
             git reset --hard origin/main
 
