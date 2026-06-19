@@ -27,12 +27,10 @@ const GeneratePromptsSchema = z.object({
 });
 
 type GeneratePromptsForClusterInput = {
-  anthropic: ReturnType<
-    typeof requirePromptGenerationDependencies
-  >["anthropic"];
   businessId: string;
   cluster: Cluster;
   competitors: Competitor[];
+  groq: ReturnType<typeof requirePromptGenerationDependencies>["groq"];
   logger: ReturnType<typeof requirePromptGenerationDependencies>["logger"];
   profile: BusinessProfile;
   systemPrompt: string;
@@ -42,7 +40,7 @@ export async function generatePrompts(
   state: typeof StateAnnotation.State,
   config: PromptGenerationNodeConfig,
 ): Promise<Partial<typeof StateAnnotation.State>> {
-  const { anthropic, logger } = requirePromptGenerationDependencies(config);
+  const { groq, logger } = requirePromptGenerationDependencies(config);
   const baseDir = path.resolve(
     path.dirname(fileURLToPath(import.meta.url)),
     "prompts",
@@ -57,10 +55,10 @@ export async function generatePrompts(
   const prompts = await Promise.all(
     state.clusters.map((cluster) =>
       generatePromptsForCluster({
-        anthropic,
         businessId: state.businessId,
         cluster,
         competitors: state.competitors,
+        groq,
         logger,
         profile: state.profile,
         systemPrompt,
@@ -80,10 +78,10 @@ export async function generatePrompts(
 }
 
 async function generatePromptsForCluster({
-  anthropic,
   businessId,
   cluster,
   competitors,
+  groq,
   logger,
   profile,
   systemPrompt,
@@ -92,31 +90,16 @@ async function generatePromptsForCluster({
     `[${businessId}] Generating prompts for cluster "${cluster.name}"`,
   );
 
-  const result = await anthropic.parse({
-    model: "claude-sonnet-4-6",
-    max_tokens: 2048,
-    system: [
-      {
-        type: "text",
-        text: systemPrompt,
-        cache_control: { type: "ephemeral", ttl: "5m" },
-      },
-    ],
+  const result = await groq.parse({
+    name: "generate-prompts",
     schema: GeneratePromptsSchema,
+    model: "llama-3.3-70b-versatile",
+    temperature: 0.2,
     messages: [
+      { role: "system", content: systemPrompt },
       {
         role: "user",
-        content: [
-          {
-            type: "text",
-            text: JSON.stringify({ profile, competitors }),
-            cache_control: { type: "ephemeral", ttl: "5m" },
-          },
-          {
-            type: "text",
-            text: JSON.stringify({ cluster }),
-          },
-        ],
+        content: JSON.stringify({ profile, competitors, cluster }),
       },
     ],
   });

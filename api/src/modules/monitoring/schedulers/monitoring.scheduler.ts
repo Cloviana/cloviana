@@ -1,13 +1,8 @@
-import { MonitoringProducer } from "@/infrastructure/messaging/producers/monitoring.producer";
-import { ManagedJobsService } from "@/modules/jobs/services/managed-jobs.service";
-import {
-  buildMonitoringJobDedupeKey,
-  startOfUtcDay,
-} from "@/workflows/monitoring/utils/monitoring-job-key";
+import { startOfUtcDay } from "@/workflows/monitoring/utils/monitoring-job-key";
 import { Injectable, Logger } from "@nestjs/common";
 import { Cron } from "@nestjs/schedule";
-import { JobType } from "@prisma/client";
 import { MonitoringEligibilityService } from "../services/monitoring-eligibility.service";
+import { MonitoringEnqueueService } from "../services/monitoring-enqueue.service";
 
 const DUE_WINDOW_MS = 1000 * 60 * 60 * 24;
 
@@ -17,8 +12,7 @@ export class MonitoringScheduler {
 
   constructor(
     private readonly monitoringEligibility: MonitoringEligibilityService,
-    private readonly monitoringProducer: MonitoringProducer,
-    private readonly managedJobs: ManagedJobsService,
+    private readonly monitoringEnqueue: MonitoringEnqueueService,
   ) {}
 
   @Cron("*/10 * * * *")
@@ -30,43 +24,19 @@ export class MonitoringScheduler {
     let skippedCount = 0;
 
     for (const group of groups) {
-      if (
-        await this.monitoringEligibility.hasFreshActiveRunForBusiness(
-          group.businessId,
-        )
-      ) {
+      const result = await this.monitoringEnqueue.enqueue(
+        group.businessId,
+        group.promptIds,
+        runDate,
+      );
+
+      if (!result.enqueued) {
         skippedCount += 1;
         this.logger.log(
-          `Skipped monitoring enqueue businessId=${group.businessId} reason=fresh_active_run`,
+          `Skipped monitoring enqueue businessId=${group.businessId} jobId=${result.jobId} reason=${result.reason}`,
         );
         continue;
       }
-
-      const dedupeKey = buildMonitoringJobDedupeKey(runDate, group.promptIds);
-      const reservation = await this.managedJobs.reserveJob({
-        type: JobType.MONITORING,
-        businessId: group.businessId,
-        dedupeKey,
-        payload: {
-          businessId: group.businessId,
-          promptIds: group.promptIds,
-          runDate: runDate.toISOString(),
-        },
-      });
-
-      if (!reservation.shouldPublish) {
-        skippedCount += 1;
-        this.logger.log(
-          `Skipped monitoring enqueue businessId=${group.businessId} jobId=${reservation.jobId} reason=${reservation.reason}`,
-        );
-        continue;
-      }
-
-      await this.monitoringProducer.runMonitoring({
-        jobId: reservation.jobId,
-        runDateIso: runDate.toISOString(),
-        ...group,
-      });
       enqueuedCount += 1;
     }
 

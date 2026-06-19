@@ -1,7 +1,5 @@
 import { createHash } from "node:crypto";
-import { AnthropicService } from "@/clients/anthropic/anthropic.service";
 import { GroqService } from "@/clients/groq/groq.service";
-import { OpenAIService } from "@/clients/openai/openai.service";
 import { ExaService } from "@/integrations/exa/exa.service";
 import { ManagedJobsService } from "@/modules/jobs/services/managed-jobs.service";
 import { Injectable, Logger } from "@nestjs/common";
@@ -19,8 +17,6 @@ export class PromptGenerationWorkflow {
     private readonly managedJobs: ManagedJobsService,
     private readonly exa: ExaService,
     private readonly groq: GroqService,
-    private readonly openai: OpenAIService,
-    private readonly anthropic: AnthropicService,
   ) {}
 
   async run(input: PromptGenerationInput) {
@@ -51,8 +47,6 @@ export class PromptGenerationWorkflow {
             configurable: {
               exa: this.exa,
               groq: this.groq,
-              openai: this.openai,
-              anthropic: this.anthropic,
               logger: this.logger,
             },
           },

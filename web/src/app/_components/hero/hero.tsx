@@ -40,6 +40,7 @@ interface FloatingHandProps {
   width: number;
   delay?: number;
   animate?: boolean;
+  blurDataURL?: string;
   className?: string;
 }
 
@@ -48,6 +49,7 @@ const FloatingHand: FC<FloatingHandProps> = ({
   width,
   delay = 0,
   animate: shouldAnimate = true,
+  blurDataURL,
   className,
 }) => (
   <motion.div
@@ -61,6 +63,8 @@ const FloatingHand: FC<FloatingHandProps> = ({
       width={width}
       height={481}
       priority
+      placeholder={blurDataURL ? 'blur' : undefined}
+      blurDataURL={blurDataURL}
       className="h-full w-auto object-contain"
     />
   </motion.div>
@@ -89,6 +93,7 @@ export const Hero: FC<HeroProps> = ({ className }) => {
         src="/images/hero-hand-left.png"
         width={763}
         animate={!isMobile}
+        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAYAAAB4ka1VAAAAiklEQVR4AYTNsQqCUBgF4ONfo209SQ8Q3i1oLqIh6BV6gvsIQTQ2Nd4aBEEQQQVHEUF9AHF1cHBUfh0cdPLbDofDISwgBrRMGjqHn032PunMcjYi5749xpG/93+vVerYB3X9Gp4n1xhRXlbFzYItnkl9MZs/2l0ghGzHHvRwkQ5heAI0gM9KdZjoAQAA///eZcuvAAAABklEQVQDAEqmKwt+nNYEAAAAAElFTkSuQmCC"
         className="absolute top-0 left-0 z-0 h-[130px] -translate-x-[8%] md:h-[clamp(230px,25vw,416px)]"
       />
       <FloatingHand
@@ -96,15 +101,16 @@ export const Hero: FC<HeroProps> = ({ className }) => {
         width={685}
         delay={0.9}
         animate={!isMobile}
+        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAGCAYAAAD+Bd/7AAAAp0lEQVR4AYTKoQrCYBAH8NtX3IooUzD4ACpfNhsWFH2GPYHBZP4ewGQSk4pRFjSYBIMMQRZmVFhUnCJjYnHh3I5tdcfdwf/Pj0HGpAARpdBGB9dxJ+fPdRWPyzwBIQS7X/aqNdBq9rBVtbcH3dysu6dJX0sAvoOyLxeKj6f7qsuKsmuvvEVz5hkEAAA557/GzfnwEjN7huuEHW0CKEhTK6iMzl8K8fsDAAD//wDE4+cAAAAGSURBVAMAiOE1Deov8SYAAAAASUVORK5CYII="
         className="absolute top-0 right-0 z-0 h-[130px] translate-x-[7%] md:h-[clamp(230px,25vw,416px)]"
       />
 
       <div className="padding-global">
-        <div className="padding-section-medium container -mt-16 md:mt-0">
+        <div className="padding-section-medium container -mt-16 !pb-[3rem] md:mt-0">
           <div className="mx-auto mb-12 flex flex-col items-center gap-y-6 pt-28 text-center md:pt-0">
             <motion.h1
               {...fadeUp(0)}
-              className="text-3xl md:text-4xl lg:text-5xl"
+              className="font-gambarino text-3xl md:text-4xl lg:text-5xl"
             >
               One Agent,
               <br />
@@ -132,9 +138,16 @@ export const Hero: FC<HeroProps> = ({ className }) => {
               </ShinyButton>
             </motion.div>
           </div>
+
           <div className="flex min-h-[250px] justify-center">
             <AISearchResultCycler />
           </div>
+
+          {/*
+          <div className="-mx-4 flex min-h-[360px] items-center justify-center bg-[url('/images/imag-13.png')] bg-cover bg-top px-4 py-10 sm:mx-0 sm:rounded-2xl sm:px-6 md:min-h-[430px] md:px-10 md:py-14">
+            <AISearchResultCycler />
+          </div>
+          */}
         </div>
       </div>
     </section>

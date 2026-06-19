@@ -18,11 +18,19 @@ export type BusinessSetupStatus = 'NOT_STARTED' | 'IN_PROGRESS' | 'COMPLETED';
 export type BusinessSetupStep =
   | 'DOMAIN'
   | 'PROFILE'
+  | 'LOCATION'
   | 'COMPETITORS'
   | 'ATTRIBUTION'
+  | 'TOPICS'
+  | 'PROMPTS'
   | 'COMPLETED';
 
-export type JobType = 'SITE_AUDIT';
+export type JobType =
+  | 'SITE_AUDIT'
+  | 'BUSINESS_INITIALIZATION'
+  | 'PROMPT_RESEARCH'
+  | 'PROMPT_GENERATION'
+  | 'MONITORING';
 export type JobStatus = 'PENDING' | 'RUNNING' | 'SUCCESS' | 'FAILED';
 
 export type Entity<T extends object> = T & {
@@ -40,16 +48,25 @@ export type Meta = {
 export type Competitor = Entity<{
   businessId: ID;
   domain: string;
+  name: string;
 }>;
 
 export type Business = Entity<{
   name: string;
   ownerId: ID;
   domain: string;
+  category?: string | null;
   stripeCustomerId?: string | null;
   profileUrl?: string | null;
   description?: string | null;
   icp?: string | null;
+  location?: string | null;
+  timezone?: string | null;
+  industry?: string | null;
+  distributionChannels: string[];
+  selectedTopicIds: string[];
+  searchIntentCommercial: number;
+  searchIntentInformational: number;
   competitors: Competitor[];
   setupStatus: BusinessSetupStatus;
   setupStep: BusinessSetupStep;

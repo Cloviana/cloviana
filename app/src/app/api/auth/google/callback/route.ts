@@ -30,8 +30,10 @@ export async function GET(request: Request) {
     const access = await checkAuthAccess(email);
     if (!access.allowed) {
       await supabase.auth.signOut();
+      const error =
+        access.reason === 'personal_email' ? 'work_email' : 'invite_only';
       return NextResponse.redirect(
-        new URL(`${paths.auth.login.getHref()}?error=invite_only`, env.APP_URL),
+        new URL(`${paths.auth.login.getHref()}?error=${error}`, env.APP_URL),
       );
     }
 

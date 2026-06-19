@@ -17,7 +17,11 @@ export class StorageService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    await this.containerClient.createIfNotExists();
+    try {
+      await this.containerClient.createIfNotExists();
+    } catch (error) {
+      console.warn("Could not connect to Azure Storage. Uploads will fail if attempted.", error.message);
+    }
   }
 
   async upload(

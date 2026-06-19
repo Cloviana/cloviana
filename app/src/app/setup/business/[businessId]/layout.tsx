@@ -1,6 +1,4 @@
 import {
-  dehydrate,
-  HydrationBoundary,
   QueryClient,
 } from '@tanstack/react-query';
 import { redirect } from 'next/navigation';
@@ -29,9 +27,5 @@ export default async function BusinessSetupLayout({
     redirect(paths.business.getHref(businessId));
   }
 
-  return (
-    <HydrationBoundary state={dehydrate(queryClient)}>
-      {children}
-    </HydrationBoundary>
-  );
+  return <>{children}</>;
 }

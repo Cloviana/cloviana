@@ -20,9 +20,10 @@ import type {
   MetricResponse,
 } from "../monitoring.types";
 import { computeBusinessMetrics } from "../utils/monitoring-metric-calculator";
+import { classifyDomain } from "@/common/utils/domain-classifier.util";
 
-const TRANSACTION_MAX_WAIT_MS = 10000;
-const TRANSACTION_TIMEOUT_MS = 20000;
+const TRANSACTION_MAX_WAIT_MS = 30000;
+const TRANSACTION_TIMEOUT_MS = 120000;
 
 function isUrl(value: string): boolean {
   try {
@@ -187,6 +188,35 @@ export class MonitoringRunPersistenceService {
 
         if (fanOutQueries.length > 0) {
           await tx.fanOutQuery.createMany({ data: fanOutQueries });
+        }
+
+        // Classify and seed any newly discovered domains
+        const incomingDomains = new Set<string>();
+        for (const m of mentions) {
+          if (m.domain) incomingDomains.add(m.domain);
+        }
+        for (const c of citations) {
+          if (c.domain) incomingDomains.add(c.domain);
+        }
+
+        if (incomingDomains.size > 0) {
+          const uniqueIncoming = Array.from(incomingDomains);
+          const existing = await tx.domainInfo.findMany({
+            where: { domain: { in: uniqueIncoming } },
+            select: { domain: true },
+          });
+          const existingSet = new Set(existing.map((e) => e.domain));
+          const newDomains = uniqueIncoming.filter((d) => !existingSet.has(d));
+
+          if (newDomains.length > 0) {
+            await tx.domainInfo.createMany({
+              data: newDomains.map((domain) => ({
+                domain,
+                type: classifyDomain(domain),
+              })),
+              skipDuplicates: true,
+            });
+          }
         }
 
         const newResponseIds = promptResponses.map((r) => r.id).filter((id): id is string => id !== undefined);

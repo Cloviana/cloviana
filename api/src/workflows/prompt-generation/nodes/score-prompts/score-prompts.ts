@@ -65,8 +65,7 @@ async function scorePrompt(
   const result = await groq.parse({
     name: "score-prompts",
     schema: PromptScoreSchema,
-    model: "openai/gpt-oss-20b",
-    reasoning_effort: "low",
+    model: "llama-3.1-8b-instant",
     temperature: 0,
     messages: [
       { role: "system", content: systemPrompt },

@@ -10,7 +10,8 @@ interface AuthResponse {
 }
 
 const GENERIC_ERROR_MSG = 'Invalid email or password.';
-const ACCESS_DENIED_MSG = 'Your email has not been invited to a workspace.';
+const ACCESS_DENIED_MSG =
+  'Use your work email. Personal email providers are not accepted.';
 
 export async function signInWithEmail(
   email: string,
@@ -28,15 +29,30 @@ export async function signInWithEmail(
       };
     }
 
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email: normalizedEmail,
       password,
     });
 
     if (error) {
+      if (error.code === 'email_not_confirmed') {
+        return {
+          success: false,
+          message: 'Confirm your email before signing in.',
+        };
+      }
+
       return {
         success: false,
-        message: GENERIC_ERROR_MSG,
+        message: error.message || GENERIC_ERROR_MSG,
+      };
+    }
+
+    if (!data.user.email_confirmed_at) {
+      await supabase.auth.signOut();
+      return {
+        success: false,
+        message: 'Confirm your email before signing in.',
       };
     }
 
@@ -44,10 +60,10 @@ export async function signInWithEmail(
       success: true,
       message: 'Signed in successfully.',
     };
-  } catch {
+  } catch (err) {
     return {
       success: false,
-      message: GENERIC_ERROR_MSG,
+      message: err instanceof Error ? err.message : GENERIC_ERROR_MSG,
     };
   }
 }

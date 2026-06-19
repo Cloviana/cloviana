@@ -10,10 +10,20 @@ datasource db {
 
 // --- ENUMS ---
 
+enum DomainType {
+  CORPORATE
+  REFERENCE
+  INSTITUTIONAL
+  EDITORIAL
+  UGC
+  OTHER
+}
+
 enum JobType {
   SITE_AUDIT
   BUSINESS_INITIALIZATION
   PROMPT_RESEARCH
+  PROMPT_GENERATION
   MONITORING
 }
 
@@ -62,6 +72,8 @@ enum BusinessSetupStep {
   LOCATION
   COMPETITORS
   ATTRIBUTION
+  TOPICS
+  PROMPTS
   COMPLETED
 }
 
@@ -148,6 +160,13 @@ model Business {
   category         String?
   description      String?
   icp              String?
+  location         String?
+  timezone         String?
+  industry         String?
+  distributionChannels String[]     @default([])
+  selectedTopicIds     String[]     @default([])
+  searchIntentCommercial    Int     @default(70)
+  searchIntentInformational Int     @default(30)
   status           BusinessStatus      @default(LOCKED)
   setupStatus      BusinessSetupStatus @default(NOT_STARTED)
   setupStep        BusinessSetupStep   @default(DOMAIN)
@@ -155,7 +174,6 @@ model Business {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
   subscription Subscription?
 
   owner       Profile          @relation("BusinessOwner", fields: [ownerId], references: [id], onDelete: Cascade)
@@ -439,4 +457,15 @@ model Audit {
 
   @@index([email])
   @@map("audits")
+}
+
+// --- DOMAIN INFO MODELS ---
+
+model DomainInfo {
+  domain    String     @id
+  type      DomainType @default(OTHER)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@map("domain_info")
 }

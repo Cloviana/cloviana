@@ -24,9 +24,10 @@ import { Separator } from '@/components/ui/separator';
 import { paths } from '@/config/paths';
 import { googleSignIn } from '@/features/auth/actions/google-sign-in';
 import { signInWithEmail } from '@/features/auth/actions/sign-in-with-email';
+import { workEmailSchema } from '@/features/auth/schemas/work-email';
 
 const formSchema = z.object({
-  email: z.string().email({ message: 'Enter a valid email.' }),
+  email: workEmailSchema,
   password: z
     .string()
     .min(12, { message: 'Password must be at least 12 characters.' }),
@@ -45,7 +46,15 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (authError === 'invite_only') {
-      toast.error('Your email has not been invited to a workspace.');
+      toast.error('Use your work email to continue.');
+    }
+    if (authError === 'work_email') {
+      toast.error(
+        'Use your work email. Personal email providers are not accepted.',
+      );
+    }
+    if (authError === 'confirmation_failed') {
+      toast.error('That confirmation link is invalid or has expired.');
     }
   }, [authError]);
 
@@ -81,7 +90,7 @@ export default function LoginPage() {
               Welcome back to Cloviana
             </h1>
             <p className="text-foreground-light text-sm">
-              Log in to use Cloviana. Access is invite-only.
+              Log in with your work email to manage AI visibility.
             </p>
           </div>
 
@@ -165,7 +174,7 @@ export default function LoginPage() {
                     !form.formState.isValid
                   }
                 >
-                  Continue
+                  Sign In
                   <ChevronRight className="size-3.5" strokeWidth={2.5} />
                 </Button>
               </form>

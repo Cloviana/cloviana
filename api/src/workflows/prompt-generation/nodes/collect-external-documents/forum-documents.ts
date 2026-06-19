@@ -11,7 +11,7 @@ import type { Doc } from "../../prompt-generation.types";
 import { searchDocuments } from "./search-documents";
 
 const RESULTS_PER_QUERY = 2;
-const FORUM_DOMAINS = ["reddit.com"];
+const FORUM_DOMAINS = ["quora.com", "news.ycombinator.com"];
 
 const ForumSearchQueriesSchema = z.object({
   queries: z.array(z.string().min(1)).min(6).max(8),
@@ -64,8 +64,7 @@ async function generateForumQueries(
   const result = await groq.parse({
     name: "generate-forum-search-queries",
     schema: ForumSearchQueriesSchema,
-    model: "openai/gpt-oss-20b",
-    reasoning_effort: "low",
+    model: "llama-3.3-70b-versatile",
     temperature: 0,
     messages: [
       { role: "system", content: prompt },

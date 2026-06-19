@@ -69,8 +69,7 @@ async function extractBuyerLanguageFromDoc(
   const result = await groq.parse({
     name: "extract-buyer-language",
     schema: ExtractBuyerLanguageSchema,
-    model: "openai/gpt-oss-20b",
-    reasoning_effort: "low",
+    model: "llama-3.3-70b-versatile",
     temperature: 0,
     messages: [
       { role: "system", content: prompt },

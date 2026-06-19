@@ -16,7 +16,8 @@ import { toast } from 'sonner';
 import { paths } from '@/config/paths';
 import {
   completeBusinessSetup,
-  updateBusinessSetupCompetitors,
+  updateBusinessSetupProfile,
+  updateBusinessSetupTopics,
   useGetBusinessSetup,
 } from '@/features/businesses/api/business-setup';
 import {
@@ -29,11 +30,18 @@ import {
   getVisibleBusinessSetupSteps,
   type BusinessSetupView,
 } from '@/features/businesses/components/setup/business-setup-steps';
-import type { SetupBusinessCompetitorsData } from '@/features/businesses/schemas/business-setup';
+import type {
+  SetupBusinessProfileData,
+  SetupBusinessPromptsData,
+  SetupBusinessTopicsData,
+} from '@/features/businesses/schemas/business-setup';
 import type { BusinessSetup } from '@/features/businesses/types';
 import { businessKeys } from '@/lib/react-query';
 
-type SetupStepPayload = SetupBusinessCompetitorsData;
+type SetupStepPayload =
+  | SetupBusinessProfileData
+  | SetupBusinessTopicsData
+  | SetupBusinessPromptsData;
 
 type BusinessSetupContextValue = {
   businessId: string;
@@ -44,7 +52,6 @@ type BusinessSetupContextValue = {
   setup: BusinessSetup | null;
   totalSteps: number;
   back: () => void;
-  next: () => void;
   refresh: () => Promise<BusinessSetup | null>;
   save: (payload: SetupStepPayload) => Promise<void>;
 };
@@ -53,82 +60,37 @@ const BusinessSetupContext = createContext<
   BusinessSetupContextValue | undefined
 >(undefined);
 
-type BusinessSetupProviderProps = {
-  businessId: string;
-  children: ReactNode;
-};
-
-async function saveCurrentStep({
-  businessId,
-  currentStep,
-  payload,
-}: {
-  businessId: string;
-  currentStep: BusinessSetupView;
-  payload: SetupStepPayload;
-}) {
-  switch (currentStep) {
-    case 'competitors':
-      await updateBusinessSetupCompetitors(
-        businessId,
-        payload as SetupBusinessCompetitorsData,
-      );
-      await completeBusinessSetup(businessId);
-      return;
-  }
-}
-
 export function BusinessSetupProvider({
   businessId,
   children,
-}: BusinessSetupProviderProps) {
+}: {
+  businessId: string;
+  children: ReactNode;
+}) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const queryClient = useQueryClient();
   const [isSaving, setIsSaving] = useState(false);
   const { data, isPending, isError, refetch } = useGetBusinessSetup(businessId);
-
   const visibleSteps = useMemo(() => getVisibleBusinessSetupSteps(), []);
-
-  const backendStep = useMemo(
-    () =>
-      data
-        ? getBusinessSetupViewFromBackendStep(data.business.setupStep)
-        : visibleSteps[0],
-    [data, visibleSteps],
-  );
-
-  const currentStep = useMemo(
-    () =>
-      getNormalizedBusinessSetupView(
-        searchParams.get('step'),
-        backendStep,
-        visibleSteps,
-      ),
-    [backendStep, searchParams, visibleSteps],
-  );
-
-  const currentStepIndex = useMemo(
-    () => getBusinessSetupStepIndex(currentStep, visibleSteps) + 1,
-    [currentStep, visibleSteps],
+  const backendStep = data
+    ? getBusinessSetupViewFromBackendStep(data.business.setupStep)
+    : visibleSteps[0];
+  const currentStep = getNormalizedBusinessSetupView(
+    searchParams.get('step'),
+    backendStep,
+    visibleSteps,
   );
 
   useEffect(() => {
-    if (!data) {
-      return;
-    }
-
+    if (!data) return;
     if (data.business.setupStatus === 'COMPLETED') {
       router.replace(paths.business.getHref(businessId));
       return;
     }
 
-    const requestedStep = searchParams.get('step');
-    if (requestedStep === currentStep) {
-      return;
-    }
-
+    if (searchParams.get('step') === currentStep) return;
     router.replace(
       getBusinessSetupStepHref(
         pathname,
@@ -143,92 +105,91 @@ export function BusinessSetupProvider({
     return result.data ?? null;
   }, [refetch]);
 
-  const next = useCallback(() => {
-    const nextStep = getNextBusinessSetupView(currentStep, visibleSteps);
-
-    if (!nextStep) {
-      return;
-    }
-
-    router.push(
-      getBusinessSetupStepHref(
-        pathname,
-        new URLSearchParams(searchParams.toString()),
-        nextStep,
-      ),
-    );
-  }, [currentStep, pathname, router, searchParams, visibleSteps]);
+  const navigateTo = useCallback(
+    (step: BusinessSetupView) => {
+      router.push(
+        getBusinessSetupStepHref(
+          pathname,
+          new URLSearchParams(searchParams.toString()),
+          step,
+        ),
+      );
+    },
+    [pathname, router, searchParams],
+  );
 
   const back = useCallback(() => {
-    const previousStep = getPreviousBusinessSetupView(
-      currentStep,
-      visibleSteps,
-    );
-
-    if (!previousStep) {
+    const previous = getPreviousBusinessSetupView(currentStep, visibleSteps);
+    if (!previous) {
       router.push(paths.setup.business.getHref());
       return;
     }
-
-    router.push(
-      getBusinessSetupStepHref(
-        pathname,
-        new URLSearchParams(searchParams.toString()),
-        previousStep,
-      ),
-    );
-  }, [currentStep, pathname, router, searchParams, visibleSteps]);
+    navigateTo(previous);
+  }, [currentStep, navigateTo, router, visibleSteps]);
 
   const save = useCallback(
     async (payload: SetupStepPayload) => {
-      if (!data) {
-        return;
-      }
-
+      if (!data) return;
       setIsSaving(true);
 
       try {
-        await saveCurrentStep({
-          businessId,
-          currentStep,
-          payload,
-        });
+        if (currentStep === 'profile') {
+          await updateBusinessSetupProfile(
+            businessId,
+            payload as SetupBusinessProfileData,
+          );
+        } else if (currentStep === 'topics') {
+          await updateBusinessSetupTopics(
+            businessId,
+            payload as SetupBusinessTopicsData,
+          );
+        } else {
+          await completeBusinessSetup(
+            businessId,
+            payload as SetupBusinessPromptsData,
+          );
+          router.replace(paths.business.getHref(businessId));
+          return;
+        }
 
         await queryClient.invalidateQueries({
           queryKey: businessKeys.setup(businessId),
         });
-
-        const refreshed = await refresh();
-
-        if (refreshed?.business.setupStatus === 'COMPLETED') {
-          router.replace(paths.business.getHref(businessId));
-          return;
-        }
+        await refresh();
+        const next = getNextBusinessSetupView(currentStep, visibleSteps);
+        if (next) navigateTo(next);
       } catch (error) {
-        const message =
-          error instanceof Error
-            ? error.message
-            : 'Unable to save this step right now.';
-        toast.error(message);
+        toast.error(
+          error instanceof Error ? error.message : 'Unable to save this step.',
+        );
         throw error;
       } finally {
         setIsSaving(false);
       }
     },
-    [businessId, currentStep, data, queryClient, refresh, router],
+    [
+      businessId,
+      currentStep,
+      data,
+      navigateTo,
+      queryClient,
+      refresh,
+      router,
+      visibleSteps,
+    ],
   );
 
   const value = useMemo<BusinessSetupContextValue>(
     () => ({
       businessId,
       currentStep,
-      currentStepIndex,
+      currentStepIndex:
+        getBusinessSetupStepIndex(currentStep, visibleSteps) + 2,
       isInitialLoading: isPending,
       isSaving,
       setup: isError ? null : (data ?? null),
-      totalSteps: visibleSteps.length,
+      totalSteps: 4,
       back,
-      next,
       refresh,
       save,
     }),
@@ -236,15 +197,13 @@ export function BusinessSetupProvider({
       back,
       businessId,
       currentStep,
-      next,
-      currentStepIndex,
       data,
       isError,
       isPending,
       isSaving,
       refresh,
       save,
-      visibleSteps.length,
+      visibleSteps,
     ],
   );
 
@@ -257,12 +216,10 @@ export function BusinessSetupProvider({
 
 export function useBusinessSetup() {
   const context = useContext(BusinessSetupContext);
-
   if (!context) {
     throw new Error(
       'useBusinessSetup must be used within BusinessSetupProvider',
     );
   }
-
   return context;
 }

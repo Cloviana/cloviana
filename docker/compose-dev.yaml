@@ -47,8 +47,8 @@ services:
       target: dev
     image: ghcr.io/cloviana/app:dev
     command: >
-      sh -c "yarn install &&
-             yarn dev"
+      sh -c "pnpm install &&
+             pnpm dev"
     volumes:
       - ../app:/app:cached
       - app-node-modules:/app/node_modules
@@ -61,8 +61,8 @@ services:
       target: dev
     image: ghcr.io/cloviana/web:dev
     command: >
-      sh -c "yarn install &&
-             yarn dev"
+      sh -c "pnpm install &&
+             pnpm dev"
     volumes:
       - ../web:/app:cached
       - web-node-modules:/app/node_modules

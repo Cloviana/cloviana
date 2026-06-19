@@ -16,8 +16,8 @@ interface FaqItem {
 }
 
 interface FaqProps {
-  heading: string;
-  description: string;
+  heading?: string;
+  description?: string;
   items?: FaqItem[];
   supportHeading?: string;
   supportDescription?: string;

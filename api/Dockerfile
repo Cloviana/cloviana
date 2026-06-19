@@ -1,9 +1,16 @@
 FROM node:20-bookworm-slim AS base
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends ca-certificates openssl \
+    && apt-get install -y --no-install-recommends ca-certificates openssl procps \
     && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm
 WORKDIR /app
+
+FROM base AS dev
+ENV NODE_ENV=development
+ENV ENVIRONMENT=development
+WORKDIR /app
+EXPOSE 5000
+CMD ["pnpm", "start:debug"]
 
 FROM base AS dependencies
 COPY package.json pnpm-lock.yaml ./
@@ -15,13 +22,6 @@ RUN pnpm install --offline
 RUN pnpm exec playwright install --with-deps chromium
 RUN pnpm db:generate
 RUN pnpm build
-
-FROM builder AS dev
-ENV NODE_ENV=development
-ENV ENVIRONMENT=development
-WORKDIR /app
-EXPOSE 5000
-CMD ["pnpm", "start:debug"]
 
 FROM builder AS pruned
 RUN pnpm prune --prod

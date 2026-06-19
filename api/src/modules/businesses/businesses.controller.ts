@@ -11,9 +11,12 @@ import {
   UseGuards,
 } from "@nestjs/common";
 
+import { CompleteBusinessSetupDto } from "./dto/complete-business-setup.dto";
 import { CreateBusinessInviteDto } from "./dto/create-business-invite.dto";
 import { StartBusinessSetupDto } from "./dto/start-business-setup.dto";
 import { UpdateBusinessSetupCompetitorsDto } from "./dto/update-business-setup-competitors.dto";
+import { UpdateBusinessSetupProfileDto } from "./dto/update-business-setup-profile.dto";
+import { UpdateBusinessSetupTopicsDto } from "./dto/update-business-setup-topics.dto";
 import { BusinessMembersService } from "./services/business-members.service";
 import { BusinessSetupService } from "./services/business-setup.service";
 import { BusinessesService } from "./services/businesses.service";
@@ -91,6 +94,35 @@ export class BusinessesController {
     return this.businessSetup.getCompetitorSuggestions(user, businessId);
   }
 
+  @Patch(":businessId/setup/profile")
+  @UseGuards(BusinessOwnerGuard)
+  async updateSetupProfile(
+    @CurrentUser() user: AuthUser,
+    @Param("businessId") businessId: string,
+    @Body() dto: UpdateBusinessSetupProfileDto,
+  ) {
+    return this.businessSetup.updateSetupProfile(user, businessId, dto);
+  }
+
+  @Post(":businessId/setup/prompt-research")
+  @UseGuards(BusinessOwnerGuard)
+  async retryPromptResearch(
+    @CurrentUser() user: AuthUser,
+    @Param("businessId") businessId: string,
+  ) {
+    return this.businessSetup.retryPromptResearch(user, businessId);
+  }
+
+  @Patch(":businessId/setup/topics")
+  @UseGuards(BusinessOwnerGuard)
+  async updateSetupTopics(
+    @CurrentUser() user: AuthUser,
+    @Param("businessId") businessId: string,
+    @Body() dto: UpdateBusinessSetupTopicsDto,
+  ) {
+    return this.businessSetup.updateSetupTopics(user, businessId, dto);
+  }
+
   @Patch(":businessId/setup/competitors")
   @UseGuards(BusinessOwnerGuard)
   async updateSetupCompetitors(
@@ -106,7 +138,8 @@ export class BusinessesController {
   async completeSetup(
     @CurrentUser() user: AuthUser,
     @Param("businessId") businessId: string,
+    @Body() dto: CompleteBusinessSetupDto,
   ) {
-    return this.businessSetup.completeSetup(user, businessId);
+    return this.businessSetup.completeSetup(user, businessId, dto);
   }
 }

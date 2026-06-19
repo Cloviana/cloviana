@@ -16,6 +16,11 @@ export const paths = {
     login: {
       getHref: (query?: Record<string, any>) => buildPath('/login', query),
     },
+
+    verifyEmail: {
+      getHref: (query?: Record<string, any>) =>
+        buildPath('/verify-email', query),
+    },
   },
 
   business: {
@@ -42,6 +47,10 @@ export const paths = {
     business: {
       getHref: (query?: Record<string, any>) =>
         buildPath('/setup/business', query),
+      new: {
+        getHref: (query?: Record<string, any>) =>
+          buildPath('/setup/business/new', query),
+      },
       detail: {
         getHref: (businessId: string, query?: Record<string, any>) =>
           buildPath(`/setup/business/${businessId}`, query),

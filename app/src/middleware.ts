@@ -33,16 +33,18 @@ export async function middleware(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const isAuthRoute =
-    pathname.startsWith('/login') || pathname.startsWith('/signup');
+  const isAuthRoute = ['/login', '/signup', '/verify-email'].some((route) =>
+    pathname.startsWith(route),
+  );
+  const isConfirmed = Boolean(user?.email_confirmed_at);
 
-  if (user && isAuthRoute) {
+  if (isConfirmed && isAuthRoute) {
     const url = request.nextUrl.clone();
     url.pathname = '/';
     return NextResponse.redirect(url);
   }
 
-  if (!user && !isAuthRoute) {
+  if (!isConfirmed && !isAuthRoute) {
     const url = request.nextUrl.clone();
     url.pathname = '/login';
     return NextResponse.redirect(url);
