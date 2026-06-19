@@ -5,11 +5,8 @@ WORKDIR /app
 RUN corepack enable
 
 FROM base AS deps
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* pnpm-workspace.yaml* .npmrc* ./
-RUN if [ -f yarn.lock ]; then yarn install --frozen-lockfile; \
-    elif [ -f package-lock.json ]; then npm ci; \
-    elif [ -f pnpm-lock.yaml ]; then pnpm install; \
-    else npm install; fi
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 
 FROM deps AS builder
 ARG NEXT_PUBLIC_API_URL
@@ -24,17 +21,14 @@ ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL} \
     NEXT_PUBLIC_GA4_ID=${NEXT_PUBLIC_GA4_ID} \
     NEXT_PUBLIC_CLARITY_PROJECT_ID=${NEXT_PUBLIC_CLARITY_PROJECT_ID}
 COPY . .
-RUN if [ -f yarn.lock ]; then yarn build; \
-    elif [ -f package-lock.json ]; then npm run build; \
-    elif [ -f pnpm-lock.yaml ]; then pnpm build; \
-    else npm run build; fi
+RUN yarn build
 
 FROM deps AS dev
 WORKDIR /app
 ENV NODE_ENV=development
 COPY . .
 EXPOSE 3000
-CMD [ "npm", "run", "dev", "--", "-H", "0.0.0.0", "-p", "3000" ]
+CMD [ "yarn", "dev", "-H", "0.0.0.0", "-p", "3000" ]
 
 FROM node:22-bookworm-slim AS runner
 WORKDIR /app
