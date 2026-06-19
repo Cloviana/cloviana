@@ -14,10 +14,9 @@ export const getMonitoringUrls = async (
   businessId: string,
 ): Promise<MonitoringUrl[]> => {
   const headers = await getAuthHeaders();
-  return api.get<MonitoringUrl[]>(
-    `/businesses/${businessId}/monitoring/urls`,
-    { headers },
-  );
+  return api.get<MonitoringUrl[]>(`/businesses/${businessId}/monitoring/urls`, {
+    headers,
+  });
 };
 
 export const useMonitoringUrls = (businessId: string) => {

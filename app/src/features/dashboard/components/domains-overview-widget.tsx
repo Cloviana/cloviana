@@ -119,8 +119,10 @@ export function DomainsOverviewWidget({ businessId }: { businessId: string }) {
                         </div>
                       </td>
                       <td className="px-5 py-3">
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 border border-slate-200 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-slate-700">
-                          <span className={`h-1.5 w-1.5 rounded-full ${conf.dotColor}`} />
+                        <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-0.5 text-[10px] font-semibold tracking-wider text-slate-700 uppercase">
+                          <span
+                            className={`h-1.5 w-1.5 rounded-full ${conf.dotColor}`}
+                          />
                           {conf.label}
                         </span>
                       </td>
@@ -167,7 +169,7 @@ export function DomainsOverviewWidget({ businessId }: { businessId: string }) {
                       <conf.icon className="size-3.5" />
                       {conf.label}
                     </div>
-                    <span className="text-slate-500 font-semibold">
+                    <span className="font-semibold text-slate-500">
                       {Math.round(typeDist.percentage)}%
                     </span>
                   </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import { BarChart3, TrendingUp } from 'lucide-react';
 import { useParams } from 'next/navigation';
 import {
   CartesianGrid,
@@ -10,13 +11,19 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { BarChart3, TrendingUp } from 'lucide-react';
 
 import { LoadingFallback } from '@/components/fallbacks/loading-fallback';
 import { Page, PageContent, PageHeader } from '@/components/ui/page';
 import { useMonitoringGap } from '@/features/monitoring/api/get-monitoring-gap';
 
-const COLORS = ['#2563eb', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899', '#6b7280'];
+const COLORS = [
+  '#2563eb',
+  '#10b981',
+  '#f59e0b',
+  '#8b5cf6',
+  '#ec4899',
+  '#6b7280',
+];
 
 function formatPercent(value: number | null | undefined) {
   return `${Math.round(value ?? 0)}%`;
@@ -30,7 +37,10 @@ export default function GapPage() {
   if (isError || !data) {
     return (
       <Page>
-        <PageHeader title="Gap analysis" description="Gap analysis data could not be loaded." />
+        <PageHeader
+          title="Gap analysis"
+          description="Gap analysis data could not be loaded."
+        />
       </Page>
     );
   }
@@ -59,8 +69,12 @@ export default function GapPage() {
         <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
           <div className="mb-5 flex items-center justify-between">
             <div>
-              <h2 className="text-sm font-semibold text-slate-900">Share of Voice (SOV) Trend</h2>
-              <p className="text-xs text-slate-500">Comparing brand mentions over time vs. competitor set</p>
+              <h2 className="text-sm font-semibold text-slate-900">
+                Share of Voice (SOV) Trend
+              </h2>
+              <p className="text-xs text-slate-500">
+                Comparing brand mentions over time vs. competitor set
+              </p>
             </div>
             <TrendingUp className="size-4 text-slate-400" />
           </div>
@@ -84,7 +98,9 @@ export default function GapPage() {
                   />
                   <Tooltip />
                   {entityNames.map((name, index) => {
-                    const isSelf = data.breakdown.find((item) => item.name === name)?.isSelf;
+                    const isSelf = data.breakdown.find(
+                      (item) => item.name === name,
+                    )?.isSelf;
                     return (
                       <Line
                         key={name}
@@ -105,9 +121,12 @@ export default function GapPage() {
             <div className="flex h-64 items-center justify-center border-t border-slate-100 text-center">
               <div className="max-w-sm">
                 <BarChart3 className="mx-auto size-5 text-slate-400" />
-                <p className="mt-3 text-sm font-medium text-slate-800">Collecting historical trend</p>
+                <p className="mt-3 text-sm font-medium text-slate-800">
+                  Collecting historical trend
+                </p>
                 <p className="mt-1 text-xs text-slate-500">
-                  Data will be visualized here as prompt runs populate the metric database.
+                  Data will be visualized here as prompt runs populate the
+                  metric database.
                 </p>
               </div>
             </div>
@@ -115,21 +134,33 @@ export default function GapPage() {
         </div>
 
         {/* Breakdown table */}
-        <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+        <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
           <div className="border-b border-slate-100 px-5 py-4">
-            <h2 className="text-sm font-semibold text-slate-900">Current Visibility Breakdown</h2>
-            <p className="text-xs text-slate-500">Latest measured performance comparison</p>
+            <h2 className="text-sm font-semibold text-slate-900">
+              Current Visibility Breakdown
+            </h2>
+            <p className="text-xs text-slate-500">
+              Latest measured performance comparison
+            </p>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">
-              <thead className="bg-slate-50/50 text-xs text-slate-500 border-b border-slate-100">
+              <thead className="border-b border-slate-100 bg-slate-50/50 text-xs text-slate-500">
                 <tr>
-                  <th className="px-6 py-4 font-semibold">Brand / Competitor</th>
+                  <th className="px-6 py-4 font-semibold">
+                    Brand / Competitor
+                  </th>
                   <th className="px-6 py-4 font-semibold">Domain</th>
-                  <th className="px-6 py-4 text-right font-semibold">Visibility (Mentions)</th>
-                  <th className="px-6 py-4 text-right font-semibold">Citation Share</th>
-                  <th className="px-6 py-4 text-right font-semibold">Share of Voice</th>
+                  <th className="px-6 py-4 text-right font-semibold">
+                    Visibility (Mentions)
+                  </th>
+                  <th className="px-6 py-4 text-right font-semibold">
+                    Citation Share
+                  </th>
+                  <th className="px-6 py-4 text-right font-semibold">
+                    Share of Voice
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
@@ -143,12 +174,16 @@ export default function GapPage() {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center gap-2.5">
                         <div
-                          className="size-3 rounded-full shrink-0"
-                          style={{ backgroundColor: COLORS[index % COLORS.length] }}
+                          className="size-3 shrink-0 rounded-full"
+                          style={{
+                            backgroundColor: COLORS[index % COLORS.length],
+                          }}
                         />
-                        <span className="font-semibold text-slate-800">{item.name}</span>
+                        <span className="font-semibold text-slate-800">
+                          {item.name}
+                        </span>
                         {item.isSelf && (
-                          <span className="inline-flex items-center rounded-full bg-indigo-50 border border-indigo-200 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-indigo-700">
+                          <span className="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-1.5 py-0.5 text-[9px] font-semibold tracking-wider text-indigo-700 uppercase">
                             Your Brand
                           </span>
                         )}
@@ -157,13 +192,13 @@ export default function GapPage() {
                     <td className="px-6 py-4 whitespace-nowrap text-slate-500">
                       {item.domain}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right font-semibold text-slate-900">
+                    <td className="px-6 py-4 text-right font-semibold whitespace-nowrap text-slate-900">
                       {formatPercent(item.mentionRate)}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right font-semibold text-slate-900">
+                    <td className="px-6 py-4 text-right font-semibold whitespace-nowrap text-slate-900">
                       {formatPercent(item.citationShare)}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right font-bold text-slate-900">
+                    <td className="px-6 py-4 text-right font-bold whitespace-nowrap text-slate-900">
                       {formatPercent(item.sov)}
                     </td>
                   </tr>

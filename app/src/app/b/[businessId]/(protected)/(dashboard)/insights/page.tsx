@@ -1,7 +1,5 @@
 'use client';
 
-import { useState } from 'react';
-import { useParams } from 'next/navigation';
 import {
   ChevronDown,
   ChevronUp,
@@ -11,6 +9,8 @@ import {
   Layers,
   Sparkles,
 } from 'lucide-react';
+import { useParams } from 'next/navigation';
+import { useState } from 'react';
 
 import { LoadingFallback } from '@/components/fallbacks/loading-fallback';
 import { Page, PageContent, PageHeader } from '@/components/ui/page';
@@ -46,7 +46,10 @@ export default function InsightsPage() {
   if (isError || !chats) {
     return (
       <Page>
-        <PageHeader title="Insights" description="Insights data could not be loaded." />
+        <PageHeader
+          title="Insights"
+          description="Insights data could not be loaded."
+        />
       </Page>
     );
   }
@@ -54,8 +57,10 @@ export default function InsightsPage() {
   const filteredChats = chats.filter((chat) => {
     const matchesSearch =
       chat.promptText.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (chat.text && chat.text.toLowerCase().includes(searchQuery.toLowerCase()));
-    const matchesEngine = selectedEngine === 'ALL' || chat.engine === selectedEngine;
+      (chat.text &&
+        chat.text.toLowerCase().includes(searchQuery.toLowerCase()));
+    const matchesEngine =
+      selectedEngine === 'ALL' || chat.engine === selectedEngine;
     return matchesSearch && matchesEngine;
   });
 
@@ -72,31 +77,36 @@ export default function InsightsPage() {
       <PageContent className="space-y-6">
         {/* Search & Engine Filters */}
         <div className="flex flex-col gap-4 border-y border-slate-200 py-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="relative flex-1 max-w-md">
-            <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-400" />
+          <div className="relative max-w-md flex-1">
+            <Search className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-slate-400" />
             <input
               type="text"
               placeholder="Search prompts or response content..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-lg border border-slate-200 bg-white py-2 pl-10 pr-4 text-sm outline-none placeholder:text-slate-400 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+              className="w-full rounded-lg border border-slate-200 bg-white py-2 pr-4 pl-10 text-sm outline-none placeholder:text-slate-400 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
             />
           </div>
 
           <div className="flex flex-wrap gap-2">
-            {['ALL', 'CHATGPT', 'CLAUDE', 'PERPLEXITY', 'AI_OVERVIEWS'].map((engine) => (
-              <button
-                key={engine}
-                onClick={() => setSelectedEngine(engine)}
-                className={`rounded-lg border px-3 py-1.5 text-xs font-medium transition-all ${
-                  selectedEngine === engine
-                    ? 'border-indigo-600 bg-indigo-50 text-indigo-700'
-                    : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
-                }`}
-              >
-                {engine === 'ALL' ? 'All Engines' : ENGINE_CONFIG[engine as keyof typeof ENGINE_CONFIG]?.label}
-              </button>
-            ))}
+            {['ALL', 'CHATGPT', 'CLAUDE', 'PERPLEXITY', 'AI_OVERVIEWS'].map(
+              (engine) => (
+                <button
+                  key={engine}
+                  onClick={() => setSelectedEngine(engine)}
+                  className={`rounded-lg border px-3 py-1.5 text-xs font-medium transition-all ${
+                    selectedEngine === engine
+                      ? 'border-indigo-600 bg-indigo-50 text-indigo-700'
+                      : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                  }`}
+                >
+                  {engine === 'ALL'
+                    ? 'All Engines'
+                    : ENGINE_CONFIG[engine as keyof typeof ENGINE_CONFIG]
+                        ?.label}
+                </button>
+              ),
+            )}
           </div>
         </div>
 
@@ -104,45 +114,54 @@ export default function InsightsPage() {
         <div className="space-y-4">
           {filteredChats.length > 0 ? (
             filteredChats.map((chat) => {
-              const engineConf = ENGINE_CONFIG[chat.engine] || ENGINE_CONFIG.CHATGPT;
+              const engineConf =
+                ENGINE_CONFIG[chat.engine] || ENGINE_CONFIG.CHATGPT;
               const isExpanded = expandedId === chat.id;
 
               return (
                 <div
                   key={chat.id}
                   className={`rounded-xl border transition-all duration-200 ${
-                    isExpanded ? 'border-indigo-300 bg-indigo-50/5 shadow-sm' : 'border-slate-200 bg-white'
+                    isExpanded
+                      ? 'border-indigo-300 bg-indigo-50/5 shadow-sm'
+                      : 'border-slate-200 bg-white'
                   }`}
                 >
                   {/* Summary/Header row */}
-                  <div
+                  <button
+                    type="button"
                     onClick={() => toggleExpand(chat.id)}
-                    className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-5 cursor-pointer select-none"
+                    className="group flex w-full cursor-pointer flex-col justify-between gap-4 p-5 text-left select-none md:flex-row md:items-center"
                   >
-                    <div className="flex-1 min-w-0 space-y-1.5">
+                    <div className="min-w-0 flex-1 space-y-1.5">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 border border-slate-200 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-slate-700">
-                          <span className={`h-1.5 w-1.5 rounded-full ${engineConf.dotColor}`} />
+                        <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-0.5 text-[10px] font-semibold tracking-wider text-slate-700 uppercase">
+                          <span
+                            className={`h-1.5 w-1.5 rounded-full ${engineConf.dotColor}`}
+                          />
                           {engineConf.label}
                         </span>
                         <div className="flex items-center gap-1 text-[11px] text-slate-400">
                           <Calendar className="size-3" />
                           <span>
-                            {new Date(chat.createdAt).toLocaleDateString(undefined, {
-                              month: 'short',
-                              day: 'numeric',
-                              hour: '2-digit',
-                              minute: '2-digit',
-                            })}
+                            {new Date(chat.createdAt).toLocaleDateString(
+                              undefined,
+                              {
+                                month: 'short',
+                                day: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit',
+                              },
+                            )}
                           </span>
                         </div>
                       </div>
-                      <h3 className="text-sm font-semibold text-slate-800 leading-snug line-clamp-2">
+                      <h3 className="line-clamp-2 text-sm leading-snug font-semibold text-slate-800">
                         {chat.promptText}
                       </h3>
                     </div>
 
-                    <div className="flex items-center justify-between md:justify-end gap-5">
+                    <div className="flex items-center justify-between gap-5 md:justify-end">
                       <div className="flex items-center gap-3">
                         <div className="flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-0.5 text-xs text-slate-600">
                           <Sparkles className="size-3 text-indigo-500" />
@@ -154,20 +173,24 @@ export default function InsightsPage() {
                         </div>
                       </div>
 
-                      <div className="text-slate-400 group-hover:text-slate-600 transition-colors">
-                        {isExpanded ? <ChevronUp className="size-4" /> : <ChevronDown className="size-4" />}
+                      <div className="text-slate-400 transition-colors group-hover:text-slate-600">
+                        {isExpanded ? (
+                          <ChevronUp className="size-4" />
+                        ) : (
+                          <ChevronDown className="size-4" />
+                        )}
                       </div>
                     </div>
-                  </div>
+                  </button>
 
                   {/* Expanded detail section */}
                   {isExpanded && (
-                    <div className="border-t border-indigo-100 bg-indigo-50/10 p-5 space-y-4">
+                    <div className="space-y-4 border-t border-indigo-100 bg-indigo-50/10 p-5">
                       <div>
-                        <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">
+                        <h4 className="mb-1.5 text-xs font-semibold tracking-wider text-slate-400 uppercase">
                           Engine Response
                         </h4>
-                        <div className="rounded-lg border border-indigo-100 bg-white p-4 text-sm text-slate-700 leading-relaxed max-w-none whitespace-pre-wrap">
+                        <div className="max-w-none rounded-lg border border-indigo-100 bg-white p-4 text-sm leading-relaxed whitespace-pre-wrap text-slate-700">
                           {chat.text || 'No response text stored.'}
                         </div>
                       </div>
@@ -182,10 +205,12 @@ export default function InsightsPage() {
               );
             })
           ) : (
-            <div className="flex flex-col items-center justify-center py-12 px-4 rounded-xl border border-slate-200 bg-white text-center">
+            <div className="flex flex-col items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-12 text-center">
               <AlertCircle className="mb-3 size-8 text-slate-400" />
-              <h3 className="text-sm font-semibold text-slate-800">No responses found</h3>
-              <p className="mt-1 text-xs text-slate-500 max-w-xs">
+              <h3 className="text-sm font-semibold text-slate-800">
+                No responses found
+              </h3>
+              <p className="mt-1 max-w-xs text-xs text-slate-500">
                 Try adjusting your search query or engine selection filters.
               </p>
             </div>

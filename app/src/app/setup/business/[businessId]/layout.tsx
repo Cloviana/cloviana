@@ -1,6 +1,4 @@
-import {
-  QueryClient,
-} from '@tanstack/react-query';
+import { QueryClient } from '@tanstack/react-query';
 import { redirect } from 'next/navigation';
 import { type ReactNode } from 'react';
 
