@@ -6,7 +6,7 @@ import { Spinner } from '@/components/ui/spinner';
 import { cn } from '@/utils/cn';
 
 const buttonVariants = cva(
-  "focus-visible:border-ring transition-opacity focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 cursor-pointer items-center justify-center gap-1.5 whitespace-nowrap rounded-full font-medium outline-none transition-colors focus-visible:ring disabled:pointer-events-none disabled:opacity-60 [&_svg:not([class*='size-'])]:size-3.5 [&_svg]:pointer-events-none [&_svg]:shrink-0 relative",
+  "focus-visible:border-ring transition-opacity focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 cursor-pointer items-center justify-center gap-1.5 whitespace-nowrap rounded-md font-medium outline-none transition-colors focus-visible:ring disabled:pointer-events-none disabled:opacity-60 [&_svg:not([class*='size-'])]:size-3.5 [&_svg]:pointer-events-none [&_svg]:shrink-0 relative",
   {
     variants: {
       variant: {
@@ -20,7 +20,7 @@ const buttonVariants = cva(
         link: 'underline hover:text-secondary opacity-80 hover:opacity-100 [font-weight:inherit]',
       },
       size: {
-        default: 'h-8 px-4 py-2 has-[>svg]:px-3 text-sm',
+        default: 'h-9 px-4 py-2 has-[>svg]:px-3 text-sm',
         sm: 'h-7 text-xs px-3 has-[>svg]:px-2.5',
         xs: 'h-6 px-2 has-[>svg]:px-2 text-xs',
         lg: 'h-10 px-6 has-[>svg]:px-4 text-sm',

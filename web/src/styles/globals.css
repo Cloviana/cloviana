@@ -11,6 +11,8 @@
   --color-studio: var(--studio);
 
   --color-surface: var(--surface);
+  --color-hero-surface: var(--hero-surface);
+  --color-hero-surface-border: var(--hero-surface-border);
 
   --color-foreground: var(--foreground);
   --color-foreground-light: var(--foreground-light);
@@ -96,6 +98,8 @@
     --muted-foreground: hsl(0 0% 45.1%);
 
     --surface: hsl(30, 17%, 95%);
+    --hero-surface: #f4f2f0;
+    --hero-surface-border: #dedddb;
 
     --card: hsl(0 0% 100%);
     --card-foreground: hsl(0 0% 3.9%);
@@ -174,7 +178,7 @@
   h4,
   h5,
   h6 {
-    @apply font-gambarino text-foreground;
+    @apply font-switzer text-foreground;
   }
 
   svg {
@@ -198,20 +202,21 @@
 
 @utility container {
   margin-inline: auto;
-  padding-inline: 1rem;
+  padding-inline: 0;
   max-width: 100%;
 
   @variant sm {
     max-width: 40rem;
   }
   @variant md {
+    padding-inline: 1rem;
     max-width: 83rem;
   }
 }
 
 @utility padding-global {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
 
   @variant md {
     padding-left: 1.25rem;
@@ -276,4 +281,127 @@
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+/* ── Visitor signal card animations (slack-channel.tsx) ── */
+.visitor-signal-list {
+  --row-height: 48px;
+  --row-gap: 8px;
+}
+
+@media (min-width: 640px) {
+  .visitor-signal-list {
+    --row-height: 54px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .visitor-signal-list {
+    --row-height: 58px;
+  }
+}
+
+.visitor-signal-row {
+  position: relative;
+}
+
+.visitor-signal-card {
+  position: relative;
+  overflow: hidden;
+  min-height: var(--row-height);
+}
+
+.visitor-anonymous-state,
+.visitor-revealed-state {
+  animation-duration: 11s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+}
+
+.visitor-revealed-state {
+  pointer-events: none;
+}
+
+.visitor-signal-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%);
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.72) 45%,
+    transparent 78%
+  );
+  animation: visitor-card-sheen 11s infinite ease-out;
+}
+
+.visitor-signal-row-1 .visitor-revealed-state { animation-name: visitor-reveal-one; }
+.visitor-signal-row-2 .visitor-revealed-state { animation-name: visitor-reveal-two; }
+.visitor-signal-row-3 .visitor-revealed-state { animation-name: visitor-reveal-three; }
+.visitor-signal-row-4 .visitor-revealed-state { animation-name: visitor-reveal-four; }
+.visitor-signal-row-5 .visitor-revealed-state { animation-name: visitor-reveal-five; }
+
+.visitor-signal-row-1 .visitor-anonymous-state { animation-name: visitor-anonymous-one; }
+.visitor-signal-row-2 .visitor-anonymous-state { animation-name: visitor-anonymous-two; }
+.visitor-signal-row-3 .visitor-anonymous-state { animation-name: visitor-anonymous-three; }
+.visitor-signal-row-4 .visitor-anonymous-state { animation-name: visitor-anonymous-four; }
+.visitor-signal-row-5 .visitor-anonymous-state { animation-name: visitor-anonymous-five; }
+
+@keyframes visitor-reveal-one {
+  0%, 8%       { filter: blur(10px); opacity: 0; }
+  14%, 78%     { filter: blur(0);    opacity: 1; }
+  88%, 100%    { filter: blur(8px);  opacity: 0; }
+}
+@keyframes visitor-reveal-two {
+  0%, 20%      { filter: blur(10px); opacity: 0; }
+  26%, 78%     { filter: blur(0);    opacity: 1; }
+  88%, 100%    { filter: blur(8px);  opacity: 0; }
+}
+@keyframes visitor-reveal-three {
+  0%, 32%      { filter: blur(10px); opacity: 0; }
+  38%, 78%     { filter: blur(0);    opacity: 1; }
+  88%, 100%    { filter: blur(8px);  opacity: 0; }
+}
+@keyframes visitor-reveal-four {
+  0%, 44%      { filter: blur(10px); opacity: 0; }
+  50%, 78%     { filter: blur(0);    opacity: 1; }
+  88%, 100%    { filter: blur(8px);  opacity: 0; }
+}
+@keyframes visitor-reveal-five {
+  0%, 56%      { filter: blur(10px); opacity: 0; }
+  62%, 78%     { filter: blur(0);    opacity: 1; }
+  88%, 100%    { filter: blur(8px);  opacity: 0; }
+}
+
+@keyframes visitor-anonymous-one {
+  0%, 8%       { filter: blur(0);   opacity: 1; }
+  14%, 78%     { filter: blur(8px); opacity: 0; }
+  88%, 100%    { filter: blur(0);   opacity: 1; }
+}
+@keyframes visitor-anonymous-two {
+  0%, 20%      { filter: blur(0);   opacity: 1; }
+  26%, 78%     { filter: blur(8px); opacity: 0; }
+  88%, 100%    { filter: blur(0);   opacity: 1; }
+}
+@keyframes visitor-anonymous-three {
+  0%, 32%      { filter: blur(0);   opacity: 1; }
+  38%, 78%     { filter: blur(8px); opacity: 0; }
+  88%, 100%    { filter: blur(0);   opacity: 1; }
+}
+@keyframes visitor-anonymous-four {
+  0%, 44%      { filter: blur(0);   opacity: 1; }
+  50%, 78%     { filter: blur(8px); opacity: 0; }
+  88%, 100%    { filter: blur(0);   opacity: 1; }
+}
+@keyframes visitor-anonymous-five {
+  0%, 56%      { filter: blur(0);   opacity: 1; }
+  62%, 78%     { filter: blur(8px); opacity: 0; }
+  88%, 100%    { filter: blur(0);   opacity: 1; }
+}
+
+@keyframes visitor-card-sheen {
+  0%, 18%      { transform: translateX(-120%); }
+  28%, 100%    { transform: translateX(120%); }
 }

@@ -63,57 +63,61 @@ export const AuditCta: FC<{ className?: string }> = ({ className }) => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: EASE, delay: 0.6 }}
-      className={cn(
-        'fixed bottom-6 left-1/2 z-50 w-full max-w-lg -translate-x-1/2 px-4',
-        className,
-      )}
-    >
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
-          <FormField
-            control={form.control}
-            name="domain"
-            rules={{ required: 'Enter your URL.', validate: validateUrl }}
-            render={({ field }) => (
-              <FormItem>
-                <div className="border-border/60 bg-background/90 rounded-full border p-2">
-                  <div className="bg-background flex items-center rounded-full border p-1.5 shadow-lg shadow-black/10 backdrop-blur-md">
-                    <FormControl>
-                      <input
-                        {...field}
-                        type="text"
-                        placeholder="Enter your site URL to get a free audit..."
-                        className="placeholder:text-muted-foreground min-w-0 flex-1 bg-transparent px-3 text-sm outline-none"
-                      />
-                    </FormControl>
-                    <AvatarGroup className="mr-1">
-                      {AI_LOGOS.map((logo) => (
-                        <Avatar key={logo.alt} size="sm" className="!size-5">
-                          <AvatarImage src={logo.src} alt={logo.alt} />
-                          <AvatarFallback>{logo.alt[0]}</AvatarFallback>
-                        </Avatar>
-                      ))}
-                    </AvatarGroup>
-                    <Button
-                      type="submit"
-                      size="icon"
-                      disabled={!isValid || form.formState.isSubmitting}
-                      className="h-8 w-8 shrink-0 rounded-full"
-                    >
-                      <ArrowUp className="h-4 w-4" />
-                    </Button>
+    <>
+      <div className="h-15 w-full" />
+
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: EASE, delay: 0.6 }}
+        className={cn(
+          'fixed bottom-6 left-1/2 z-50 w-full max-w-lg -translate-x-1/2 px-4',
+          className,
+        )}
+      >
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
+            <FormField
+              control={form.control}
+              name="domain"
+              rules={{ required: 'Enter your URL.', validate: validateUrl }}
+              render={({ field }) => (
+                <FormItem>
+                  <div className="border-border/60 bg-background/90 rounded-full border p-2">
+                    <div className="bg-background flex items-center rounded-full border p-1.5 shadow-lg shadow-black/10 backdrop-blur-md">
+                      <FormControl>
+                        <input
+                          {...field}
+                          type="text"
+                          placeholder="Enter your site URL to get a free audit..."
+                          className="placeholder:text-muted-foreground min-w-0 flex-1 bg-transparent px-3 text-sm outline-none"
+                        />
+                      </FormControl>
+                      <AvatarGroup className="mr-1">
+                        {AI_LOGOS.map((logo) => (
+                          <Avatar key={logo.alt} size="sm" className="!size-5">
+                            <AvatarImage src={logo.src} alt={logo.alt} />
+                            <AvatarFallback>{logo.alt[0]}</AvatarFallback>
+                          </Avatar>
+                        ))}
+                      </AvatarGroup>
+                      <Button
+                        type="submit"
+                        size="icon"
+                        disabled={!isValid || form.formState.isSubmitting}
+                        className="h-8 w-8 shrink-0 rounded-full"
+                      >
+                        <ArrowUp className="h-4 w-4" />
+                      </Button>
+                    </div>
                   </div>
-                </div>
-                <FormMessage className="pt-1 pl-4 text-xs" />
-              </FormItem>
-            )}
-          />
-        </form>
-      </Form>
-    </motion.div>
+                  <FormMessage className="pt-1 pl-4 text-xs" />
+                </FormItem>
+              )}
+            />
+          </form>
+        </Form>
+      </motion.div>
+    </>
   );
 };

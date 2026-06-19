@@ -34,8 +34,8 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
     <div className="relative">
       <motion.nav
         className={cn(
-          'padding-global bg-background/90 py-2.5 backdrop-blur transition-colors duration-300',
-          showBorder ? 'border-b' : 'border-b border-transparent',
+          'padding-global bg-background/80 border-zinc-100 py-3 backdrop-blur-md transition-colors duration-300',
+          showBorder ? 'border-b' : 'border-b',
           className,
         )}
       >
@@ -66,9 +66,8 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
             <div className="hidden items-center gap-2 md:flex">
               <Button
                 asChild
-                size={'lg'}
                 variant="primary"
-                className="group rounded-full"
+                className="group"
                 onClick={() => gaEvent('book_demo', { location: 'navbar' })}
               >
                 <Link
