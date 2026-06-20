@@ -99,3 +99,5 @@ Feel free to contribute with suggestions or bug reports at the [template reposit
 ## Authors
 
 - [@joaotonaco](https://github.com/joaotonaco)
+
+<!-- api rebuild marker -->
