@@ -10,6 +10,10 @@ export const paths = {
     getHref: (query?: Record<string, any>) => buildPath('/', query),
   },
 
+  blog: {
+    getHref: (query?: Record<string, any>) => buildPath('/blog', query),
+  },
+
   auth: {
     login: {
       getHref: (query?: Record<string, any>) =>

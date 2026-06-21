@@ -53,7 +53,10 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
                 <NavigationMenuList className="gap-1">
                   <NavigationMenuItem>
                     <NavigationMenuLink asChild>
-                      <Link href="#" className="px-4 py-2 text-sm font-medium">
+                      <Link
+                        href={paths.blog.getHref()}
+                        className="px-4 py-2 text-sm font-medium"
+                      >
                         Blog
                       </Link>
                     </NavigationMenuLink>
@@ -102,7 +105,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
         <div className={'padding-global bg-background border-b py-5 md:hidden'}>
           <div className={'container flex flex-col gap-6'}>
             <div className="flex flex-col gap-3">
-              <Link href="#" className="text-sm font-medium">
+              <Link href={paths.blog.getHref()} className="text-sm font-medium">
                 Blog
               </Link>
             </div>
