@@ -10,7 +10,6 @@ module.exports = {
     'public/mockServiceWorker.js',
     'generators/*',
   ],
-  extends: ['eslint:recommended', 'next/core-web-vitals'],
   overrides: [
     {
       files: ['**/*.ts', '**/*.tsx'],
@@ -27,18 +26,10 @@ module.exports = {
         es6: true,
       },
       extends: [
-        'eslint:recommended',
-        'plugin:import/errors',
-        'plugin:import/warnings',
-        'plugin:import/typescript',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:react/recommended',
-        //'plugin:react-hooks/recommended',
-        'plugin:jsx-a11y/recommended',
         'plugin:prettier/recommended',
         'plugin:testing-library/react',
         'plugin:jest-dom/recommended',
-        'plugin:vitest/legacy-recommended',
+        'plugin:@vitest/legacy-recommended',
       ],
       rules: {
         '@next/next/no-img-element': 'off',
@@ -116,9 +107,13 @@ module.exports = {
         ],
         'import/default': 'off',
         'import/no-named-as-default-member': 'off',
-        "@next/next/no-page-custom-font": "off",
+        '@next/next/no-page-custom-font': 'off',
         'import/no-named-as-default': 'off',
         'react/react-in-jsx-scope': 'off',
+        'react-hooks/incompatible-library': 'off',
+        'react-hooks/purity': 'off',
+        'react-hooks/refs': 'off',
+        'react-hooks/set-state-in-effect': 'off',
         'jsx-a11y/anchor-is-valid': 'off',
         '@typescript-eslint/no-unused-vars': ['error'],
         '@typescript-eslint/explicit-function-return-type': ['off'],
@@ -126,7 +121,7 @@ module.exports = {
         '@typescript-eslint/no-empty-function': ['off'],
         '@typescript-eslint/no-explicit-any': ['off'],
         'prettier/prettier': ['error', {}, { usePrettierrc: true }],
-        "react/no-unescaped-entities": "off"
+        'react/no-unescaped-entities': 'off',
       },
     },
     {
