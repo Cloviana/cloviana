@@ -2,152 +2,117 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
 import { AIVisibilityCard } from '@/app/_components/solution/components/ai-visibility-card';
 import GEOContentCard from '@/app/_components/solution/components/geo-content-card';
 import { OrbitalParticles } from '@/app/_components/solution/components/orbital-particles';
-import { SlackChannel } from '@/app/_components/solution/components/slack-channel';
 import { Button } from '@/components/ui/button';
 import { links } from '@/config/links';
 import { paths } from '@/config/paths';
 import { gaEvent } from '@/lib/ga/client';
 import { cn } from '@/utils/cn';
 
-const CARD_BASE =
-  'relative flex flex-col justify-between overflow-hidden rounded-2xl w-full aspect-[343/429] lg:aspect-[644/483] min-h-[520px] lg:min-h-[483px]';
+// ─── Types ────────────────────────────────────────────────────────────────────
 
-const FeatureCard: FC<{ className?: string; children: React.ReactNode }> = ({
-  className,
-  children,
-}) => (
-  <div
-    className={cn(
-      CARD_BASE,
-      'bg-hero-surface border-hero-surface-border border',
-      className,
-    )}
-  >
-    {children}
-  </div>
-);
+interface Feature {
+  imageSrc: string;
+  card: ReactNode;
+  heading: string;
+  description: string;
+}
 
-const FeatureCardHeading: FC<{
-  title: string;
-  subtitle: string;
-  light?: boolean;
-}> = ({ title, subtitle, light = false }) => (
-  <div className="relative z-10 flex items-start justify-between gap-2 px-6 py-8 lg:px-8">
-    <h3
-      className={cn(
-        'leading-trim max-w-[300px] text-2xl font-medium max-xl:text-[20px]! max-xl:leading-[24px]!',
-        light ? 'text-white' : 'text-foreground',
-      )}
-    >
-      {title}{' '}
-      <span className={light ? 'text-white/70' : 'text-foreground-light'}>
-        {subtitle}
-      </span>
-    </h3>
-  </div>
-);
+// ─── Data ─────────────────────────────────────────────────────────────────────
 
-const SectionHeader: FC = () => (
-  <div className="flex flex-col gap-8">
-    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl">
-      One agent for your AI search presence.
-      <br />
-      <span className="text-foreground-light">
-        Tracks, publishes, converts — 24/7.
-      </span>
-    </h2>
-    <div className="flex gap-4">
-      <Button
-        asChild
-        size="lg"
-        onClick={() => gaEvent('book_demo', { location: 'hero' })}
-      >
-        <Link href={links.demo}>Request a demo</Link>
-      </Button>
-      <Button asChild size="lg" variant="outline">
-        <Link href={paths.audit.getHref()}>Free audit</Link>
-      </Button>
+const BLUR_PLACEHOLDER =
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAA+UlEQVR4AQzDTUvCYADA8f8epZnONoeZxqbzbU4zjVKSCiIiggrqY0ZEFB0qhKCCKLsU0SlQ6JBBdFIiFHzy8BPGQUtquzfS2GnKifUzKRonksVjycKRpHwoRS5tU5t32NsosrKWp7rkgqaPRSBsIjxHx5gK8/Ix5G3MzSUQeoTgdBQtPoMoZ3yEQACWFSVrJyjYAZKpWQp5m6JrIYIhhVLSTyWrsl03iJt+ap6JY09ix1RENQWrHmzOQT0NmZhCo6Swv+xjq+JH/PQUEAqaqtD7hft3Sas94Kn9x2NngPjqSzrfI5qvIy6eh5w/9Lm+++T0ssvVbZd/AAAA//+VHxICAAAABklEQVQDAFQeRFOCwveuAAAAAElFTkSuQmCC';
+
+const FEATURES: Feature[] = [
+  {
+    imageSrc: '/images/background/blue-ai-search-portal.png?v=4',
+    card: <AIVisibilityCard />,
+    heading: 'Know exactly where you stand in every AI conversation',
+    description:
+      'Buyer prompts built from your CRM and sales calls, tracked weekly across ChatGPT, Claude, Perplexity, and AI Overviews so you always know where you stand and who is winning instead.',
+  },
+  {
+    imageSrc: '/images/background/sky-blue-ai-search-portal.png?v=4',
+    card: <GEOContentCard />,
+    heading: 'Content structured to live inside AI answers',
+    description:
+      'Written for extraction, refreshed before it goes stale, and structured with the statistics, comparison tables, and answer capsules AI models actually pull from.',
+  },
+  {
+    imageSrc: '/images/background/indigo-ai-search-portal.png?v=70',
+    card: <OrbitalParticles />,
+    heading: 'Original research that makes AI cite you by default',
+    description:
+      'Original industry reports that earn citations on Reddit, industry publications, and analyst roundups — the off-page authority that makes AI models recommend you consistently.',
+  },
+];
+
+// ─── Sub-components ───────────────────────────────────────────────────────────
+
+const FeatureRow: FC<Feature> = ({ imageSrc, card, heading, description }) => (
+  <div className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-10">
+    <div className="relative min-h-[380px] overflow-visible lg:min-h-[520px]">
+      <div className="relative h-full w-full overflow-hidden rounded-xl">
+        <Image
+          src={imageSrc}
+          alt=""
+          fill
+          aria-hidden="true"
+          loading="lazy"
+          placeholder="blur"
+          blurDataURL={BLUR_PLACEHOLDER}
+          className="pointer-events-none absolute inset-0 z-0 object-cover object-center"
+        />
+        <div className="relative z-10 flex h-full w-full items-center justify-center p-4 sm:p-6 lg:p-8">
+          {card}
+        </div>
+      </div>
+    </div>
+
+    <div className="flex w-full flex-col items-start justify-center">
+      <h3 className="font-gambarino max-w-[24ch] text-2xl md:text-3xl lg:text-4xl">
+        {heading}
+      </h3>
+      <p className="mt-3 max-w-lg text-sm md:text-base">{description}</p>
     </div>
   </div>
 );
 
-const AIVisibilityFeatureCard: FC = () => (
-  <FeatureCard>
-    <FeatureCardHeading
-      title="Track AI visibility"
-      subtitle="across buyer prompts"
-    />
-    <AIVisibilityCard />
-  </FeatureCard>
-);
-
-const AIReadyContentFeatureCard: FC = () => (
-  <FeatureCard>
-    <FeatureCardHeading
-      title="Publish AI-ready content"
-      subtitle="that gets cited"
-    />
-    <div className="flex flex-1 items-center px-6 pb-8 lg:px-8">
-      <GEOContentCard />
-    </div>
-  </FeatureCard>
-);
-
-const IndustryReportsFeatureCard: FC = () => (
-  <FeatureCard>
-    <OrbitalParticles />
-    <FeatureCardHeading
-      title="Create industry reports"
-      subtitle="that earn mentions"
-    />
-  </FeatureCard>
-);
-
-const ANONYMOUS_VISITORS_BLUR =
-  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAYAAAB4ka1VAAAAsUlEQVR4AQClAFr/AitRJP88bDX/Tns8/4eERP/Lnmb/5riO/+XLs//f08n/AvPk9gDq0ucA4s/gANnm5wC62M0AtNPPAJ/eCACy6hEAAhgX/wAiFf4AKhr8ACIQ4QAbF+QA/wvcAO7xzADEz74AAjI6TAA2QmEAMjppAAsTIgDR7PwAvNjqANnLqADkypMAAhATRAAMCikACQceAO4DLgDG3QwAxMT1AMbM+QDS3AwAAAAA//+k/w4pAAAABklEQVQDAPgJSrel8u8JAAAAAElFTkSuQmCC';
-
-const AnonymousVisitorsFeatureCard: FC = () => (
-  <div className={cn(CARD_BASE, 'bg-hero-surface border border-zinc-100')}>
-    <FeatureCardHeading
-      title="Reveal anonymous visitors"
-      subtitle="and send them to sales"
-      light
-    />
-    <Image
-      src="/images/solution-card-bg.png"
-      alt=""
-      fill
-      loading="lazy"
-      placeholder="blur"
-      blurDataURL={ANONYMOUS_VISITORS_BLUR}
-      className="object-cover object-center"
-    />
-    <div className="relative z-10 mt-4 ml-6 min-h-0 flex-1 lg:mt-6 lg:ml-8">
-      <SlackChannel />
-    </div>
-  </div>
-);
+// ─── Export ───────────────────────────────────────────────────────────────────
 
 export const Solution: FC<{ className?: string }> = ({ className }) => (
   <section className={cn(className, 'padding-global')}>
     <div className="padding-section-medium container">
-      <SectionHeader />
-
-      <div className="flex flex-col gap-6">
-        <div className="mt-8 grid grid-cols-1 gap-6 md:mt-12 md:grid-cols-2 md:items-center lg:mt-16">
-          <AIVisibilityFeatureCard />
-          <AIReadyContentFeatureCard />
+      <div className="flex flex-col gap-8">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+          One agent for your AI search presence.
+          <br />
+          <span className="text-foreground-light">
+            Tracks, publishes, converts — 24/7.
+          </span>
+        </h2>
+        <div className="flex gap-4">
+          <Button
+            asChild
+            size="lg"
+            onClick={() => gaEvent('book_demo', { location: 'hero' })}
+          >
+            <Link href={links.demo}>Request a demo</Link>
+          </Button>
+          <Button asChild size="lg" variant="outline">
+            <Link href={paths.audit.getHref()}>Free audit</Link>
+          </Button>
         </div>
+      </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          <IndustryReportsFeatureCard />
-          <AnonymousVisitorsFeatureCard />
-        </div>
+      <div className="mt-8 flex flex-col gap-12 md:mt-12 md:gap-20 lg:mt-16 lg:gap-28">
+        {FEATURES.map((feature) => (
+          <FeatureRow key={feature.heading} {...feature} />
+        ))}
       </div>
     </div>
   </section>

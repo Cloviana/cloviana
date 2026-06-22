@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+import { paths } from '@/config/paths';
+
 const NAV = [
   {
     heading: 'Platform',
@@ -33,7 +35,7 @@ const NAV = [
   {
     heading: 'Resources',
     links: [
-      { label: 'Blog', href: '#' },
+      { label: 'Blog', href: paths.blog.getHref() },
       { label: 'GEO Guide', href: '#' },
       { label: 'Case studies', href: '#' },
       { label: 'ROI Calculator', href: '#' },
