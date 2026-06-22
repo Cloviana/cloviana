@@ -29,7 +29,7 @@ type ResponsePanelProps = {
     | NonNullable<SentimentAudit['sentiment']>['responses'][number]
     | undefined;
   processedText: string;
-  panelRef: React.RefObject<HTMLDivElement>;
+  panelRef: React.RefObject<HTMLDivElement | null>;
 };
 
 // ─── Constants ────────────────────────────────────────────────────────────────
