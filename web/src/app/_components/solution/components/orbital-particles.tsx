@@ -31,13 +31,6 @@ interface Label {
   visible: boolean;
 }
 
-function gaussian(mean: number, std: number): number {
-  const u = 1 - Math.random();
-  const v = Math.random();
-  const z = Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
-  return mean + z * std;
-}
-
 const LABEL_TEXTS = [
   'ORIGINAL DATA',
   'MARKET INSIGHTS',
@@ -75,61 +68,55 @@ export function OrbitalParticles() {
       particles.length = 0;
       const w = canvas.width;
       const h = canvas.height;
+      const cx = w / 2;
+      const cy = h / 2;
+      const maxRadius = Math.sqrt(cx * cx + cy * cy);
       const count = Math.floor((w * h) / 130);
 
       for (let i = 0; i < count; i++) {
-        let cx: number, cy: number;
-        if (Math.random() < 0.85) {
-          cx = gaussian(0.5, 0.1) * w;
-          cy = gaussian(0.5, 0.1) * h;
-        } else {
-          cx = Math.random() * w;
-          cy = Math.random() * h;
-        }
+        // Bias distribution toward center with double sqrt
+        const radius = maxRadius * Math.sqrt(Math.sqrt(Math.random()));
+        const dist = radius / maxRadius;
 
-        const dx = (cx - w / 2) / (w / 2);
-        const dy = (cy - h / 2) / (h / 2);
-        const dist = Math.sqrt(dx * dx + dy * dy);
+        const orbitRadiusX = radius;
+        const orbitRadiusY = orbitRadiusX * (0.05 + Math.random() * 0.18);
+        const angle = Math.random() * Math.PI * 2;
 
         const size = 0.4 + Math.random() * (0.6 + dist * 1.2);
         const opacity = Math.max(0.08, 0.85 - dist * 0.5 + Math.random() * 0.2);
-        const orbitRadiusX = 2 + Math.random() * (8 + dist * 40);
-        const orbitRadiusY = orbitRadiusX * (0.05 + Math.random() * 0.15);
 
         particles.push({
           centerX: cx,
           centerY: cy,
           orbitRadiusX,
           orbitRadiusY,
-          angle: Math.random() * Math.PI * 2,
+          angle,
           speed:
-            (Math.random() * 0.016 + 0.008) * (Math.random() < 0.5 ? 1 : -1),
+            (Math.random() * 0.004 + 0.001) * (Math.random() < 0.5 ? 1 : -1),
           size,
           opacity,
-          x: cx,
-          y: cy,
+          x: cx + Math.cos(angle) * orbitRadiusX,
+          y: cy + Math.sin(angle) * orbitRadiusY,
         });
       }
     };
 
     const createLabels = () => {
-      // Remove old label elements
       for (const l of labels) l.el.remove();
       labels.length = 0;
 
       const w = canvas.width;
       const h = canvas.height;
+      const cx = w / 2;
+      const cy = h / 2;
 
       LABEL_TEXTS.forEach((text, i) => {
-        // Evenly distribute around centre, close in
-        const angle = (i / LABEL_TEXTS.length) * Math.PI * 2;
-        const spreadX = 0.06 + Math.random() * 0.1;
-        const spreadY = 0.05 + Math.random() * 0.08;
-        const cx = w / 2 + Math.cos(angle) * spreadX * w;
-        const cy = h / 2 + Math.sin(angle) * spreadY * h;
-
-        const orbitRadiusX = 50 + Math.random() * 80;
+        const orbitRadiusX = w * (0.12 + Math.random() * 0.22);
         const orbitRadiusY = orbitRadiusX * (0.08 + Math.random() * 0.12);
+        const angle = (i / LABEL_TEXTS.length) * Math.PI * 2;
+
+        const x = cx + Math.cos(angle) * orbitRadiusX;
+        const y = cy + Math.sin(angle) * orbitRadiusY;
 
         const el = document.createElement('div');
         el.textContent = text;
@@ -147,8 +134,8 @@ export function OrbitalParticles() {
           borderRadius: '1px',
           pointerEvents: 'none',
           transform: 'translate(-50%, -50%)',
-          left: `${cx}px`,
-          top: `${cy}px`,
+          left: `${x}px`,
+          top: `${y}px`,
           opacity: '0',
           filter: 'blur(0px)',
           transition: 'opacity 0.7s ease, filter 0.7s ease',
@@ -156,19 +143,18 @@ export function OrbitalParticles() {
 
         wrapper.appendChild(el);
 
-        // Stagger initial appearance: each label waits i * 1.2s before first show
         const now = performance.now();
         labels.push({
           text,
-          x: cx,
-          y: cy,
+          x,
+          y,
           centerX: cx,
           centerY: cy,
           orbitRadiusX,
           orbitRadiusY,
-          angle: Math.random() * Math.PI * 2,
+          angle,
           speed:
-            (Math.random() * 0.007 + 0.004) * (Math.random() < 0.5 ? 1 : -1),
+            (Math.random() * 0.002 + 0.001) * (Math.random() < 0.5 ? 1 : -1),
           el,
           visible: false,
           nextShowAt: now + i * 1200,
@@ -190,7 +176,7 @@ export function OrbitalParticles() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(150, 150, 150, ${p.opacity})`;
+        ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
         ctx.fill();
       }
 
@@ -198,7 +184,6 @@ export function OrbitalParticles() {
       let visibleCount = labels.filter((l) => l.visible).length;
       const MIN_DIST = 90;
 
-      // Advance all angles and compute current positions first
       for (const l of labels) {
         l.angle += l.speed;
         l.x = l.centerX + Math.cos(l.angle) * l.orbitRadiusX;
@@ -206,7 +191,6 @@ export function OrbitalParticles() {
       }
 
       for (const l of labels) {
-        // Hide if duration elapsed
         if (l.visible && now >= l.hideAt) {
           l.visible = false;
           l.el.style.opacity = '0';
@@ -215,7 +199,6 @@ export function OrbitalParticles() {
           visibleCount--;
         }
 
-        // Hide if drifted too close to another visible label
         if (l.visible) {
           const tooClose = labels.some((other) => {
             if (other === l || !other.visible) return false;
@@ -230,7 +213,6 @@ export function OrbitalParticles() {
           }
         }
 
-        // Show if scheduled, slot available, and no overlap
         if (!l.visible && now >= l.nextShowAt && visibleCount < MAX_VISIBLE) {
           const overlaps = labels.some((other) => {
             if (!other.visible) return false;

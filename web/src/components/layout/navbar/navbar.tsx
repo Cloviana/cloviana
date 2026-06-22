@@ -54,7 +54,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
                   <NavigationMenuItem>
                     <NavigationMenuLink asChild>
                       <Link
-                        href={paths.blog.getHref()}
+                        href={'#'}
                         className="px-4 py-2 text-sm font-medium"
                       >
                         Blog

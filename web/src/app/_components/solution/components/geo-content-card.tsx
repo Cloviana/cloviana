@@ -9,27 +9,19 @@ const SEGMENTS: { text: string; citable: boolean }[] = [
     citable: true,
   },
   {
-    text: '. Finance teams relying on manual processes spend between 40 and 80 hours per month reconciling accounts. ',
+    text: '. Finance teams use it to identify discrepancies, close books faster, and reduce manual spreadsheet work. ',
     citable: false,
   },
   {
-    text: 'Automated reconciliation reduces month-end close time by up to 60% while improving accuracy across all payment types',
+    text: 'The software ingests data from multiple sources and applies rules to surface unmatched transactions',
     citable: true,
   },
   {
-    text: '. The software ingests data from multiple sources, then applies rule-based matching to surface discrepancies. ',
+    text: '. It is commonly used by payment companies, neobanks, marketplaces, and finance teams operating at scale. ',
     citable: false,
   },
   {
-    text: 'Unresolved discrepancies represent a direct revenue leakage risk for payment companies and neobanks',
-    citable: true,
-  },
-  {
-    text: '. Companies operating at scale process millions of transactions daily, making ',
-    citable: false,
-  },
-  {
-    text: 'real-time reconciliation a critical operational requirement for finance teams',
+    text: 'Real-time reconciliation helps teams catch revenue leakage before it reaches month-end reporting',
     citable: true,
   },
   { text: '.', citable: false },
@@ -67,27 +59,30 @@ export default function GEOContentCard() {
   let citableIdx = 0;
 
   return (
-    <div className="border-border w-full rounded-[4px] border bg-white p-6 lg:p-7">
+    <div className="w-full max-w-[550px] overflow-y-auto rounded-[4px] border bg-white p-3 sm:p-[26px]">
       {/* Badge */}
-      <div className="mb-4 flex items-center gap-1.5">
-        <div className="h-2 w-2 flex-shrink-0 bg-[#4a8ab5]" />
-        <span className="font-mono text-[10px] font-bold tracking-[0.15em] text-[#4a8ab5] uppercase">
+      <div className="mb-5 flex items-center gap-2">
+        <div className="h-2.5 w-2.5" style={{ backgroundColor: '#7A7368' }} />
+        <span
+          className="text-[10px] font-semibold tracking-widest uppercase sm:text-[13px]"
+          style={{ color: '#7A7368', fontFamily: 'ABCDiatype, sans-serif' }}
+        >
           {activeCount} / {CITABLE_COUNT} citable statements
         </span>
       </div>
 
       {/* Title */}
       <h4
-        className="mb-3 text-[17px] leading-snug font-normal text-black"
-        style={{ fontFamily: 'Georgia, Iowan, serif' }}
+        className="mb-1.5 text-[1.1rem] leading-[1.2] text-black sm:text-[1.5rem]"
+        style={{ fontFamily: 'Iowan, serif' }}
       >
         What is Payment Reconciliation Software?
       </h4>
 
       {/* Body */}
       <p
-        className="m-0 text-[13.5px] leading-[1.75]"
-        style={{ color: '#675E56', fontFamily: 'Georgia, Iowan, serif' }}
+        className="text-[12px] leading-[1.5] sm:text-[15px]"
+        style={{ color: '#675E56', fontFamily: 'Iowan, serif' }}
       >
         {SEGMENTS.map((seg, i) => {
           if (!seg.citable) return <span key={i}>{seg.text}</span>;
@@ -100,9 +95,10 @@ export default function GEOContentCard() {
               key={i}
               style={{
                 borderRadius: 2,
-                backgroundImage: 'linear-gradient(#d0e7f7, #d0e7f7)',
+                backgroundImage:
+                  'linear-gradient(rgba(168, 211, 240, 0.55), rgba(168, 211, 240, 0.55))',
                 backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'left center',
+                backgroundPosition: 'right center',
                 backgroundSize: isActive ? '100% 100%' : '0% 100%',
                 transition: 'background-size 420ms ease-out',
                 padding: '0.05em 0.15em',
