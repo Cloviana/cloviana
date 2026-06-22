@@ -26,6 +26,11 @@ type Brand = {
 };
 
 const ENGINE_KEYS = ["google-aio", "chatgpt", "perplexity"] as const;
+const AUDIT_COMPLETION_EMAIL_BLOCKLIST = new Set(["samuel@cloviana.com"]);
+
+export function shouldSendAuditCompletionEmail(email: string): boolean {
+  return !AUDIT_COMPLETION_EMAIL_BLOCKLIST.has(email.trim().toLowerCase());
+}
 
 async function fetchMetaDescription(url: string): Promise<string> {
   try {
@@ -316,18 +321,20 @@ export async function buildReport(
     },
   });
 
-  try {
-    await resend.sendAuditComplete(
-      state.email,
-      state.auditId,
-      state.profile.name,
-    );
-  } catch (error) {
-    logger?.error(
-      `Failed to send audit completion email auditId=${state.auditId}: ${
-        error instanceof Error ? error.message : String(error)
-      }`,
-    );
+  if (shouldSendAuditCompletionEmail(state.email)) {
+    try {
+      await resend.sendAuditComplete(
+        state.email,
+        state.auditId,
+        state.profile.name,
+      );
+    } catch (error) {
+      logger?.error(
+        `Failed to send audit completion email auditId=${state.auditId}: ${
+          error instanceof Error ? error.message : String(error)
+        }`,
+      );
+    }
   }
 
   return {};
