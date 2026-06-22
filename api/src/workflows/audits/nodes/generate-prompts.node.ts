@@ -6,7 +6,7 @@ import { AuditNodeConfig, requireAuditDependencies } from "../audit.config";
 import { StateAnnotation } from "../audit.state";
 
 const GeneratePromptsSchema = z.object({
-  prompts: z.array(z.string()).length(13),
+  prompts: z.array(z.string()).length(8),
 });
 
 export async function generatePrompts(
