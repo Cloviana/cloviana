@@ -3,3 +3,26 @@ allowBuilds:
   framer: true
   sharp: true
   unrs-resolver: true
+
+# Temporary, version-scoped exceptions for packages reviewed during the
+# Next.js 16/Sanity migration. The default 24-hour policy remains enabled for
+# every other package and for all future versions of these packages.
+minimumReleaseAgeExclude:
+  - '@oclif/core@4.11.10'
+  - '@sanity/cli-build@1.1.0'
+  - '@sanity/cli-core@2.1.0'
+  - '@sanity/cli@7.3.0'
+  - '@sanity/workbench-cli@1.1.0'
+  - '@typescript-eslint/eslint-plugin@8.62.0'
+  - '@typescript-eslint/parser@8.62.0'
+  - '@typescript-eslint/project-service@8.62.0'
+  - '@typescript-eslint/scope-manager@8.62.0'
+  - '@typescript-eslint/tsconfig-utils@8.62.0'
+  - '@typescript-eslint/type-utils@8.62.0'
+  - '@typescript-eslint/types@8.62.0'
+  - '@typescript-eslint/typescript-estree@8.62.0'
+  - '@typescript-eslint/utils@8.62.0'
+  - '@typescript-eslint/visitor-keys@8.62.0'
+  - 'ora@9.4.1'
+  - 'smol-toml@1.7.0'
+  - 'typescript-eslint@8.62.0'
