@@ -5,12 +5,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FC, useEffect, useState } from 'react';
 
-import { AISearchResultCycler } from '@/app/_components/hero/components/ai-search-result';
 import { Button } from '@/components/ui/button';
 import { ShinyButton } from '@/components/ui/shiny-button';
 import { links } from '@/config/links';
 import { gaEvent } from '@/lib/ga/client';
 import { cn } from '@/utils/cn';
+
+import { AISearchResultCycler } from './components/ai-search-result';
 
 // ─── Animation helpers ───────────────────────────────────────────────────────
 

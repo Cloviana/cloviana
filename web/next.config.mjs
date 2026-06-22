@@ -7,34 +7,33 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'cloviana-assets-czbfhwh7a2epccgb.z01.azurefd.net',
-        port: ''
+        port: '',
       },
       {
         protocol: 'https',
         hostname: 'google.com',
-        port: ''
+        port: '',
       },
       {
         protocol: 'https',
         hostname: 'www.google.com',
-        port: ''
-      }
-    ]
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        port: '',
+      },
+    ],
   },
   webpack(config) {
     const imageAssetRule = config.module.rules.find((rule) => {
-      return (
-        rule.test &&
-        rule.test instanceof RegExp &&
-        rule.test.test('.svg')
-      );
+      return rule.test && rule.test instanceof RegExp && rule.test.test('.svg');
     });
 
     if (imageAssetRule) {
       const newRegex = new RegExp(
-        imageAssetRule.test
-          .source
-          .replace(/\|?svg\|?/, '')
+        imageAssetRule.test.source.replace(/\|?svg\|?/, ''),
       );
 
       imageAssetRule.test = newRegex;
@@ -51,9 +50,7 @@ const nextConfig = {
             svgo: true,
             svgoConfig: {
               multipass: true,
-              plugins: [
-                { name: 'removeViewBox', active: false },
-              ],
+              plugins: [{ name: 'removeViewBox', active: false }],
             },
           },
         },

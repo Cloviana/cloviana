@@ -1,0 +1,117 @@
+import {defineArrayMember, defineField, defineType} from 'sanity'
+
+export const blogPostType = defineType({
+  name: 'blogPost',
+  title: 'Blog post',
+  type: 'document',
+  groups: [
+    {name: 'content', title: 'Content', default: true},
+    {name: 'publishing', title: 'Publishing'},
+    {name: 'seo', title: 'SEO'},
+  ],
+  fields: [
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      group: 'content',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      group: 'content',
+      options: {source: 'title'},
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'excerpt',
+      title: 'Excerpt',
+      type: 'text',
+      group: 'content',
+      rows: 3,
+      validation: (rule) => rule.required().max(300),
+    }),
+    defineField({
+      name: 'thumbnail',
+      title: 'Thumbnail',
+      type: 'image',
+      group: 'content',
+      options: {hotspot: true},
+      fields: [
+        defineField({
+          name: 'alt',
+          title: 'Alternative text',
+          type: 'string',
+          validation: (rule) => rule.required(),
+        }),
+      ],
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'author',
+      title: 'Author',
+      type: 'reference',
+      group: 'publishing',
+      to: [{type: 'author'}],
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'publishedAt',
+      title: 'Published at',
+      type: 'datetime',
+      group: 'publishing',
+      initialValue: () => new Date().toISOString(),
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'content',
+      title: 'Content',
+      type: 'array',
+      group: 'content',
+      of: [
+        defineArrayMember({type: 'block'}),
+        defineArrayMember({
+          type: 'image',
+          options: {hotspot: true},
+          fields: [
+            defineField({
+              name: 'alt',
+              title: 'Alternative text',
+              type: 'string',
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: 'caption',
+              title: 'Caption',
+              type: 'string',
+            }),
+          ],
+        }),
+      ],
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'faqs',
+      title: 'Frequently asked questions',
+      type: 'array',
+      group: 'content',
+      description: 'These questions and answers must also be visible on the published article.',
+      of: [defineArrayMember({type: 'faqItem'})],
+    }),
+    defineField({
+      name: 'seo',
+      title: 'SEO metadata',
+      type: 'seo',
+      group: 'seo',
+    }),
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      subtitle: 'publishedAt',
+      media: 'thumbnail',
+    },
+  },
+})

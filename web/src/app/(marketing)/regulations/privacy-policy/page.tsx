@@ -3,9 +3,6 @@ import path from 'path';
 
 import { marked } from 'marked';
 
-import { Footer } from '@/components/layout/footer/default';
-import { Navbar } from '@/components/layout/navbar';
-
 export const metadata = {
   title: 'Privacy Policy — Cloviana',
   description: 'Read how Cloviana collects, uses, and protects your data.',
@@ -23,17 +20,9 @@ export default async function PrivacyPolicyPage() {
   const html = await marked(file);
 
   return (
-    <div className="relative min-h-screen">
-      <header className="sticky top-0 right-0 left-0 z-50">
-        <Navbar />
-      </header>
-      <main className="bg-background">
-        <div
-          className="prose mx-auto max-w-4xl py-16"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-      </main>
-      <Footer />
-    </div>
+    <div
+      className="prose mx-auto max-w-4xl py-16"
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
   );
 }

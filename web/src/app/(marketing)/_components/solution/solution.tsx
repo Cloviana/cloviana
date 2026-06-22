@@ -4,14 +4,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FC, ReactNode } from 'react';
 
-import { AIVisibilityCard } from '@/app/_components/solution/components/ai-visibility-card';
-import GEOContentCard from '@/app/_components/solution/components/geo-content-card';
-import { OrbitalParticles } from '@/app/_components/solution/components/orbital-particles';
 import { Button } from '@/components/ui/button';
 import { links } from '@/config/links';
 import { paths } from '@/config/paths';
 import { gaEvent } from '@/lib/ga/client';
 import { cn } from '@/utils/cn';
+
+import { AIVisibilityCard } from './components/ai-visibility-card';
+import GEOContentCard from './components/geo-content-card';
+import { OrbitalParticles } from './components/orbital-particles';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
