@@ -17,6 +17,7 @@ import { cn } from '@/utils/cn';
 
 interface Feature {
   imageSrc: string;
+  blurDataURL: string;
   card: ReactNode;
   heading: string;
   description: string;
@@ -26,10 +27,15 @@ interface Feature {
 
 const BLUR_PLACEHOLDER =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAA+UlEQVR4AQzDTUvCYADA8f8epZnONoeZxqbzbU4zjVKSCiIiggrqY0ZEFB0qhKCCKLsU0SlQ6JBBdFIiFHzy8BPGQUtquzfS2GnKifUzKRonksVjycKRpHwoRS5tU5t32NsosrKWp7rkgqaPRSBsIjxHx5gK8/Ix5G3MzSUQeoTgdBQtPoMoZ3yEQACWFSVrJyjYAZKpWQp5m6JrIYIhhVLSTyWrsl03iJt+ap6JY09ix1RENQWrHmzOQT0NmZhCo6Swv+xjq+JH/PQUEAqaqtD7hft3Sas94Kn9x2NngPjqSzrfI5qvIy6eh5w/9Lm+++T0ssvVbZd/AAAA//+VHxICAAAABklEQVQDAFQeRFOCwveuAAAAAElFTkSuQmCC';
+const CONTENT_BLUR_PLACEHOLDER =
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAA1klEQVR4ARTOTUoDQRCG4bd7fhwVJ6JCNAiCILp0pR7BTWB2RjyVSy8Qs/NErnSbP5KQpKunK5WCgqLqofj8YCj6NhJ9/w76MbL+CToYBm2+RF8/Rb07hqyGogJ/AukcAo5kc9ax3Wmp9AqlW8Cl4TQFySHaMXoDz3Wi6QX6N4H7PNFVR2lAFobWBvq3Y56u/ni5/qe5m/F40VJtwK1ADfr6cIovA74Q6nLOw1mkkykqsJ3ZB1wy7tmXI1I5xeJYTEhqQOQAjUqKsNwc8TvJWZpu7X0rsAMAAP//+Lni4AAAAAZJREFUAwBKnVPzAiJVpQAAAABJRU5ErkJggg==';
+const RESEARCH_BLUR_PLACEHOLDER =
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAA10lEQVR4ARSOvU7DQBCEP59/4vgcJ1YEkaWkQKKkgIKCAgooiIiiPAU8g0Hw0PzJd5c4m3Uxuzuj2Z017bqT900n7YuTdu3kY+Pka+vkc9CeOzFZBvUUqgryMZRW54lQaE9SMLEWW6pppmIB1gp5DoWarXKTpRHhAOkImqWwaGBcwrAdx8OFWGhUvHs6sHv9Y/v2y+MusLoQzuZqGLJv7j2Xt98U9T+jScfy6ofrB0+qUaaaCueroM94iHoihTGBehGYzQWTJBGyN/RekKNXOPpwVG7UDCcAAAD//20/CrgAAAAGSURBVAMArv5Gm2Vy+c0AAAAASUVORK5CYII=';
 
 const FEATURES: Feature[] = [
   {
     imageSrc: '/images/background/blue-ai-search-portal.png?v=4',
+    blurDataURL: BLUR_PLACEHOLDER,
     card: <AIVisibilityCard />,
     heading: 'Know exactly where you stand in every AI conversation',
     description:
@@ -37,6 +43,7 @@ const FEATURES: Feature[] = [
   },
   {
     imageSrc: '/images/background/sky-blue-ai-search-portal.png?v=4',
+    blurDataURL: CONTENT_BLUR_PLACEHOLDER,
     card: <GEOContentCard />,
     heading: 'Content structured to live inside AI answers',
     description:
@@ -44,6 +51,7 @@ const FEATURES: Feature[] = [
   },
   {
     imageSrc: '/images/background/indigo-ai-search-portal.png?v=70',
+    blurDataURL: RESEARCH_BLUR_PLACEHOLDER,
     card: <OrbitalParticles />,
     heading: 'Original research that makes AI cite you by default',
     description:
@@ -53,7 +61,13 @@ const FEATURES: Feature[] = [
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 
-const FeatureRow: FC<Feature> = ({ imageSrc, card, heading, description }) => (
+const FeatureRow: FC<Feature> = ({
+  imageSrc,
+  blurDataURL,
+  card,
+  heading,
+  description,
+}) => (
   <div className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-10">
     <div className="relative min-h-[380px] overflow-visible lg:min-h-[520px]">
       <div className="relative h-full w-full overflow-hidden rounded-xl">
@@ -64,7 +78,7 @@ const FeatureRow: FC<Feature> = ({ imageSrc, card, heading, description }) => (
           aria-hidden="true"
           loading="lazy"
           placeholder="blur"
-          blurDataURL={BLUR_PLACEHOLDER}
+          blurDataURL={blurDataURL}
           className="pointer-events-none absolute inset-0 z-0 object-cover object-center"
         />
         <div className="relative z-10 flex h-full w-full items-center justify-center p-4 sm:p-6 lg:p-8">
