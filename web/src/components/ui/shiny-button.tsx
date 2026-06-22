@@ -26,12 +26,14 @@ const animationProps: MotionProps = {
   },
 };
 
-interface ShinyButtonProps
-  extends Omit<React.HTMLAttributes<HTMLElement>, keyof MotionProps>,
-    MotionProps {
-  children: React.ReactNode;
-  className?: string;
-}
+type ShinyButtonProps = Omit<
+  React.HTMLAttributes<HTMLElement>,
+  keyof MotionProps
+> &
+  MotionProps & {
+    children: React.ReactNode;
+    className?: string;
+  };
 
 export const ShinyButton = React.forwardRef<HTMLDivElement, ShinyButtonProps>(
   ({ children, className, ...props }, ref) => {
