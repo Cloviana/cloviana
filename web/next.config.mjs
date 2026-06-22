@@ -3,6 +3,20 @@ const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
   images: {
+    localPatterns: [
+      {
+        pathname: '/images/background/blue-ai-search-portal.png',
+        search: '?v=4',
+      },
+      {
+        pathname: '/images/background/sky-blue-ai-search-portal.png',
+        search: '?v=4',
+      },
+      {
+        pathname: '/images/background/indigo-ai-search-portal.png',
+        search: '?v=70',
+      },
+    ],
     remotePatterns: [
       {
         protocol: 'https',
