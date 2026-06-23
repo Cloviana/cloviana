@@ -20,8 +20,10 @@ export default async function Image({
   const post = await sanityClient.fetch<BlogPost | null>(POST_QUERY, { slug });
 
   const font = readFileSync(
-    join(process.cwd(), 'public/fonts/satoshi/TTF/Satoshi-Variable.ttf'),
+    join(process.cwd(), 'public/fonts/satoshi/OTF/Satoshi-Bold.otf'),
   );
+  const logo = readFileSync(join(process.cwd(), 'public/logo-full.png'));
+  const logoSrc = `data:image/png;base64,${logo.toString('base64')}`;
 
   const title = post?.title ?? 'Cloviana Blog';
   const author = post?.author?.name;
@@ -61,7 +63,7 @@ export default async function Image({
         }}
       >
         <img
-          src="https://cloviana.com/logo-full.png"
+          src={logoSrc}
           alt="Cloviana"
           width={160}
           height={36}

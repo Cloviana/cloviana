@@ -85,32 +85,49 @@ export async function generateMetadata({
 function buildJsonLd(post: BlogPost, slug: string) {
   const url = `${env.WEB_URL}${paths.blog.post.getHref(slug)}`;
   const blogUrl = `${env.WEB_URL}/blog`;
-  const authorId = `${env.WEB_URL}/authors/${post.author?.slug}`;
+  const organizationId = `${env.WEB_URL}/#organization`;
+  const blogId = `${blogUrl}#blog`;
+  const webpageId = `${url}#webpage`;
+  const articleId = `${url}#article`;
+  const breadcrumbId = `${url}#breadcrumb`;
+  const faqId = `${url}#faq`;
+  const authorId = post.author
+    ? `${env.WEB_URL}/authors/${post.author.slug}#person`
+    : organizationId;
 
   const graph: Record<string, unknown>[] = [
     {
       '@type': 'WebPage',
-      '@id': url,
+      '@id': webpageId,
       url,
       name: post.title,
-      isPartOf: { '@id': blogUrl },
+      isPartOf: { '@id': blogId },
+      primaryImageOfPage: post.thumbnail
+        ? { '@id': `${url}#primaryimage` }
+        : undefined,
+      breadcrumb: { '@id': breadcrumbId },
+      mainEntity: { '@id': articleId },
     },
     {
       '@type': 'Blog',
-      '@id': blogUrl,
+      '@id': blogId,
       url: blogUrl,
       name: 'Cloviana Blog',
-      publisher: { '@id': `${env.WEB_URL}/#organization` },
+      publisher: { '@id': organizationId },
     },
     {
       '@type': 'Organization',
-      '@id': `${env.WEB_URL}/#organization`,
+      '@id': organizationId,
       name: 'Cloviana',
       url: env.WEB_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${env.WEB_URL}/logo-full.png`,
+      },
     },
     {
       '@type': 'Article',
-      '@id': `${url}#article`,
+      '@id': articleId,
       headline: post.title,
       description: post.excerpt,
       url,
@@ -120,21 +137,23 @@ function buildJsonLd(post: BlogPost, slug: string) {
       image: post.thumbnail
         ? {
             '@type': 'ImageObject',
+            '@id': `${url}#primaryimage`,
             url: post.thumbnail.asset.url,
             width: 1200,
             height: 630,
           }
         : undefined,
       wordCount: post.content ? post.content.split(/\s+/).length : undefined,
-      author: post.author ? { '@id': authorId } : undefined,
-      publisher: { '@id': `${env.WEB_URL}/#organization` },
+      author: { '@id': authorId },
+      publisher: { '@id': organizationId },
       keywords: post.topics.map((t) => t.name).join(', '),
       about: post.topics.map((t) => ({ '@type': 'Thing', name: t.name })),
-      isPartOf: { '@id': blogUrl },
-      mainEntityOfPage: { '@id': url },
+      isPartOf: { '@id': blogId },
+      mainEntityOfPage: { '@id': webpageId },
     },
     {
       '@type': 'BreadcrumbList',
+      '@id': breadcrumbId,
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: env.WEB_URL },
         { '@type': 'ListItem', position: 2, name: 'Blog', item: blogUrl },
@@ -157,7 +176,8 @@ function buildJsonLd(post: BlogPost, slug: string) {
   if (post.faqs.length > 0) {
     graph.push({
       '@type': 'FAQPage',
-      '@id': `${url}#faq`,
+      '@id': faqId,
+      isPartOf: { '@id': webpageId },
       mainEntity: post.faqs.map((faq) => ({
         '@type': 'Question',
         name: faq.question,
@@ -167,6 +187,10 @@ function buildJsonLd(post: BlogPost, slug: string) {
   }
 
   return { '@context': 'https://schema.org', '@graph': graph };
+}
+
+function serializeJsonLd(jsonLd: ReturnType<typeof buildJsonLd>) {
+  return JSON.stringify(jsonLd).replace(/</g, '\\u003c');
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -192,7 +216,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <div className="padding-global mx-auto max-w-4xl py-8 md:py-12 lg:py-16">
         <header className="mb-6 md:mb-10 lg:mb-14">

@@ -9,8 +9,10 @@ export const contentType = 'image/png';
 
 export default function Image() {
   const font = readFileSync(
-    join(process.cwd(), 'public/fonts/satoshi/TTF/Satoshi-Variable.ttf'),
+    join(process.cwd(), 'public/fonts/satoshi/OTF/Satoshi-Bold.otf'),
   );
+  const logo = readFileSync(join(process.cwd(), 'public/logo-full.png'));
+  const logoSrc = `data:image/png;base64,${logo.toString('base64')}`;
 
   return new ImageResponse(
     <div
@@ -33,7 +35,7 @@ export default function Image() {
         }}
       >
         <img
-          src="https://cloviana.com/logo-full.png"
+          src={logoSrc}
           alt="Cloviana"
           width={180}
           height={40}
