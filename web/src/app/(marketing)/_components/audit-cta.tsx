@@ -95,7 +95,7 @@ export const AuditCta: FC<{ className?: string }> = ({ className }) => {
                       </FormControl>
                       <AvatarGroup className="mr-1">
                         {AI_LOGOS.map((logo) => (
-                          <Avatar key={logo.alt} size="sm" className="!size-5">
+                          <Avatar key={logo.alt} size="sm" className="size-5!">
                             <AvatarImage src={logo.src} alt={logo.alt} />
                             <AvatarFallback>{logo.alt[0]}</AvatarFallback>
                           </Avatar>

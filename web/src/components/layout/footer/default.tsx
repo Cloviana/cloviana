@@ -159,7 +159,7 @@ export function Footer() {
 
           {/* Copyright with hover reveal */}
           <div className="group text-muted-foreground relative overflow-hidden text-left sm:text-right">
-            <span className="block whitespace-nowrap transition-transform duration-700 ease-in-out md:group-hover:-translate-x-[26ch]">
+            <span className="block whitespace-nowrap transition-transform duration-700 ease-in-out md:group-hover:translate-x-[-26ch]">
               © Cloviana, Inc. 2026
             </span>
             <span

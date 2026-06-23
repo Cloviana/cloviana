@@ -10,7 +10,6 @@ export const blogSettingsType = defineType({
       title: 'Featured post',
       type: 'reference',
       to: [{type: 'blogPost'}],
-      validation: (rule) => rule.required(),
     }),
   ],
   preview: {

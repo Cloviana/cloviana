@@ -12,6 +12,10 @@ export const paths = {
 
   blog: {
     getHref: (query?: Record<string, any>) => buildPath('/blog', query),
+    post: {
+      getHref: (slug: string, query?: Record<string, any>) =>
+        buildPath(`/blog/${slug}`, query),
+    },
   },
 
   auth: {

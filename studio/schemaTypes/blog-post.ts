@@ -66,30 +66,19 @@ export const blogPostType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'topics',
+      title: 'Topics',
+      type: 'array',
+      group: 'publishing',
+      description: 'Choose one or more topics used to organize this post.',
+      of: [defineArrayMember({type: 'reference', to: [{type: 'topic'}]})],
+      validation: (rule) => rule.required().min(1).unique(),
+    }),
+    defineField({
       name: 'content',
       title: 'Content',
-      type: 'array',
+      type: 'markdown',
       group: 'content',
-      of: [
-        defineArrayMember({type: 'block'}),
-        defineArrayMember({
-          type: 'image',
-          options: {hotspot: true},
-          fields: [
-            defineField({
-              name: 'alt',
-              title: 'Alternative text',
-              type: 'string',
-              validation: (rule) => rule.required(),
-            }),
-            defineField({
-              name: 'caption',
-              title: 'Caption',
-              type: 'string',
-            }),
-          ],
-        }),
-      ],
       validation: (rule) => rule.required(),
     }),
     defineField({

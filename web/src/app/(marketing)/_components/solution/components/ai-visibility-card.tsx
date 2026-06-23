@@ -7,7 +7,7 @@ export function AIVisibilityCard() {
     <div className="flex w-full flex-1 items-center px-1 pb-5 sm:px-2 sm:pb-6 md:px-3 md:pb-8 lg:px-4">
       <div
         aria-hidden="true"
-        className="before:border-border before:bg-background after:border-border after:bg-background relative mx-auto w-full max-w-[360px] pt-4 before:pointer-events-none before:absolute before:inset-x-2 before:top-2.5 before:bottom-0 before:z-[1] before:rounded-xl before:border after:pointer-events-none after:absolute after:inset-x-4 after:top-1 after:bottom-0 after:z-0 after:rounded-xl after:border sm:max-w-[440px] sm:pt-5 sm:before:inset-x-3 sm:before:top-3.5 sm:before:rounded-2xl sm:after:inset-x-6 sm:after:top-1.5 sm:after:rounded-2xl md:max-w-[560px] md:pt-6 md:before:top-4 md:after:top-2"
+        className="before:border-border before:bg-background after:border-border after:bg-background relative mx-auto w-full max-w-[360px] pt-4 before:pointer-events-none before:absolute before:inset-x-2 before:top-2.5 before:bottom-0 before:z-1 before:rounded-xl before:border after:pointer-events-none after:absolute after:inset-x-4 after:top-1 after:bottom-0 after:z-0 after:rounded-xl after:border sm:max-w-[440px] sm:pt-5 sm:before:inset-x-3 sm:before:top-3.5 sm:before:rounded-2xl sm:after:inset-x-6 sm:after:top-1.5 sm:after:rounded-2xl md:max-w-[560px] md:pt-6 md:before:top-4 md:after:top-2"
       >
         <div className="border-border bg-background relative z-10 overflow-hidden rounded-xl border p-3 pb-0 text-xs shadow-xl shadow-black/10 sm:rounded-2xl sm:p-4 sm:pb-0 sm:text-sm md:p-5 md:pb-0">
           <div className="w-fit">

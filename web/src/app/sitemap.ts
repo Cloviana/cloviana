@@ -1,6 +1,27 @@
 import { MetadataRoute } from 'next';
+import { defineQuery } from 'next-sanity';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+import { sanityClient } from '@/sanity/client';
+
+const SITEMAP_POSTS_QUERY = defineQuery(/* groq */ `
+  *[_type == "blogPost"] {
+    "slug": slug.current,
+    _updatedAt
+  }
+`);
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const posts = await sanityClient.fetch(SITEMAP_POSTS_QUERY);
+
+  const postEntries: MetadataRoute.Sitemap = posts.map(
+    (post: { slug: string; _updatedAt: string }) => ({
+      url: `https://cloviana.com/blog/${post.slug}`,
+      lastModified: new Date(post._updatedAt),
+      changeFrequency: 'weekly' as const,
+      priority: 0.6,
+    }),
+  );
+
   return [
     {
       url: 'https://cloviana.com',
@@ -20,11 +41,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.7,
     },
-    {
-      url: 'https://cloviana.com/regulations/privacy-policy',
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
+    ...postEntries,
   ];
 }

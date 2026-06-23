@@ -1,53 +1,49 @@
+import Link from 'next/dist/client/link';
 import Image from 'next/image';
 
+import { Button } from '@/components/ui/button';
+import { paths } from '@/config/paths';
 import type { FeaturedPost } from '@/sanity/queries/featured-post';
 
 type FeaturedProps = {
   post: FeaturedPost | null;
 };
 
-const dateFormatter = new Intl.DateTimeFormat('en-GB', {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
-});
-
 export const Featured = ({ post }: FeaturedProps) => {
   if (!post) return null;
 
   return (
-    <section className="padding-global border-border border-b">
-      <div className="container py-12 md:py-16 lg:py-20">
-        <article className="grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(20rem,0.55fr)] lg:items-center">
+    <section className="padding-global">
+      <div className="padding-section-small container">
+        <article className="flex h-min flex-col xl:flex-row">
           {post.thumbnail && (
-            <div className="bg-hero-surface border-hero-surface-border relative min-h-[19rem] overflow-hidden rounded-xl border shadow-sm md:aspect-[16/7] md:min-h-0">
+            <div className="relative h-43.75 overflow-hidden rounded-lg md:h-60 lg:h-80 xl:h-95 xl:grow">
               <Image
                 src={post.thumbnail.asset.url}
                 alt={post.thumbnail.alt}
                 fill
                 priority
-                sizes="(min-width: 1024px) 65vw, 100vw"
-                className="object-cover object-center"
+                placeholder="blur"
+                blurDataURL={post.thumbnail.asset.metadata.lqip}
+                className="object-cover"
+              />
+              <Link
+                href={paths.blog.post.getHref(post.slug)}
+                className="absolute inset-0"
               />
             </div>
           )}
-
-          <div className="flex flex-col items-start gap-5 lg:pl-6">
-            <p className="bg-primary-100 text-primary-dark rounded-md px-3 py-1 text-xs font-semibold tracking-[0.12em] uppercase">
-              Featured
-            </p>
-            <h1 className="max-w-lg text-3xl leading-tight font-medium text-balance md:text-4xl">
-              {post.title}
-            </h1>
-            <p className="text-foreground-light max-w-md text-base leading-7">
-              {post.excerpt}
-            </p>
-            <div className="text-foreground-light flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
-              {post.author && <span>{post.author.name}</span>}
-              {post.author && <span aria-hidden="true">·</span>}
-              <time dateTime={post.publishedAt}>
-                {dateFormatter.format(new Date(post.publishedAt))}
-              </time>
+          <div className="mt-8 flex items-center xl:mt-0 xl:w-86.25">
+            <div className="flex flex-col gap-4 xl:px-10">
+              <div className="relative h-auto w-full flex-none overflow-visible wrap-break-word whitespace-pre-wrap">
+                <h4 className="font-gambarino line-clamp-2 text-[32px]/10">
+                  {post.title}
+                </h4>
+              </div>
+              <p className="line-clamp-5 max-w-2xl text-lg">{post.excerpt}</p>
+              <Button asChild variant="outline" size={'lg'}>
+                <Link href={paths.blog.post.getHref(post.slug)}>Read More</Link>
+              </Button>
             </div>
           </div>
         </article>

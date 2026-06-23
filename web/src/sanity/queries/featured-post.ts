@@ -11,6 +11,9 @@ export type FeaturedPost = {
     asset: {
       _id: string;
       url: string;
+      metadata: {
+        lqip: string;
+      };
     };
   } | null;
   author: {
@@ -18,9 +21,17 @@ export type FeaturedPost = {
     slug: string;
     jobTitle: string | null;
   } | null;
+  topics: Array<{
+    _key: string;
+    topic: {
+      _id: string;
+      name: string;
+      slug: string;
+    } | null;
+  }>;
 };
 
-export const FEATURED_POST_QUERY = defineQuery(`
+export const FEATURED_POST_QUERY = defineQuery(/* groq */ `
   *[_type == "blogSettings" && _id == "blogSettings"][0].featuredPost->{
     _id,
     title,
@@ -29,12 +40,23 @@ export const FEATURED_POST_QUERY = defineQuery(`
     publishedAt,
     thumbnail {
       alt,
-      asset->{_id, url}
+      asset->{_id, url, metadata { lqip }}
     },
     author->{
       name,
       "slug": slug.current,
       jobTitle
-    }
+    },
+    "topics": coalesce(
+      topics[]{
+        _key,
+        "topic": @->{
+          _id,
+          name,
+          "slug": slug.current
+        }
+      },
+      []
+    )
   }
 `);

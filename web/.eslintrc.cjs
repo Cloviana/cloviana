@@ -121,6 +121,17 @@ module.exports = {
         '@typescript-eslint/no-empty-function': ['off'],
         '@typescript-eslint/no-explicit-any': ['off'],
         'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+        'no-restricted-imports': [
+          'error',
+          {
+            paths: [
+              {
+                name: 'react/jsx-runtime',
+                message: 'Import from "react" instead.',
+              },
+            ],
+          },
+        ],
         'react/no-unescaped-entities': 'off',
       },
     },

@@ -1,6 +1,8 @@
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
+import {markdownSchema} from 'sanity-plugin-markdown'
+import {media} from 'sanity-plugin-media'
 import {schemaTypes} from './schemaTypes'
 
 const singletonTypes = new Set(['blogSettings'])
@@ -30,6 +32,8 @@ export default defineConfig({
           ]),
     }),
     visionTool(),
+    markdownSchema(),
+    media(),
   ],
 
   schema: {

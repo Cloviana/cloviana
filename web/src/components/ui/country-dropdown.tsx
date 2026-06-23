@@ -112,7 +112,7 @@ const CountryDropdownComponent = (
           <div
             className={cn(
               'flex items-center gap-2',
-              !slim && 'w-0 flex-grow overflow-hidden',
+              !slim && 'w-0 grow overflow-hidden',
             )}
           >
             <div className="inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full">
@@ -139,7 +139,7 @@ const CountryDropdownComponent = (
       <PopoverContent
         collisionPadding={10}
         side="bottom"
-        className="min-w-[--radix-popper-anchor-width] p-0"
+        className="min-w-(--radix-popper-anchor-width) p-0"
       >
         <Command className="max-h-[200px] w-full sm:max-h-[270px]">
           <CommandList>
@@ -156,7 +156,7 @@ const CountryDropdownComponent = (
                     key={key}
                     onSelect={() => handleSelect(option)}
                   >
-                    <div className="flex w-0 flex-grow space-x-2 overflow-hidden">
+                    <div className="flex w-0 grow space-x-2 overflow-hidden">
                       <div className="inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full">
                         <CircleFlag
                           countryCode={option.alpha2.toLowerCase()}

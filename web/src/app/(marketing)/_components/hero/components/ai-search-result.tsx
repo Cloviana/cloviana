@@ -306,7 +306,7 @@ function AISearchResult({
         {/* Sources row */}
         <div
           className={cn(
-            'mt-3 flex flex-wrap gap-1.5 transition-[opacity,transform] duration-[400ms] ease-in md:mt-4 md:gap-2',
+            'mt-3 flex flex-wrap gap-1.5 transition-[opacity,transform] duration-400 ease-in md:mt-4 md:gap-2',
             showSources
               ? 'translate-y-0 opacity-100'
               : 'translate-y-[6px] opacity-0',

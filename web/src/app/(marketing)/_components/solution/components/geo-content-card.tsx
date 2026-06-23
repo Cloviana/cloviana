@@ -81,7 +81,7 @@ export default function GEOContentCard() {
 
       {/* Body */}
       <p
-        className="text-[12px] leading-[1.5] sm:text-[15px]"
+        className="text-[12px] leading-normal sm:text-[15px]"
         style={{ color: '#675E56', fontFamily: 'Iowan, serif' }}
       >
         {SEGMENTS.map((seg, i) => {

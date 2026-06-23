@@ -224,7 +224,7 @@ const ResponsePanel = ({
       <div ref={panelRef} className="flex-1 overflow-y-auto px-5 py-[18px]">
         {platform && (
           <div className="mb-2.5 flex items-center gap-1.5">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
+            {}
             <img
               src={platform.icon}
               alt={platform.label}
