@@ -1,5 +1,5 @@
 import Script from 'next/script';
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 import '@/styles/globals.css';
 import { AppProvider } from '@/app/provider';
@@ -14,7 +14,7 @@ const GTM_ID = 'GTM-M5NMLWGK';
 export const metadata = {
   title: 'Cloviana | Be the Answer Every B2B Buyer Gets',
   description:
-    'Cloviana is an autonomous GEO agent that continuously optimizes your AI search presence across ChatGPT, Perplexity, Gemini, and beyond — no developers, no agency, no dashboards.',
+    'Cloviana is the autonomous GEO agent that gets B2B brands cited in ChatGPT, Perplexity, and Google AI Overviews, turning AI search visibility into pipeline.',
   keywords: [
     'generative engine optimization',
     'GEO for B2B SaaS',
@@ -30,16 +30,8 @@ export const metadata = {
     url: 'https://cloviana.com',
     title: 'Cloviana | Be the Answer Every B2B Buyer Gets',
     description:
-      'Autonomous GEO that makes your B2B SaaS the #1 AI-recommended solution in your category. Zero developer lift. Continuous optimization.',
+      'Cloviana is the autonomous GEO agent that gets B2B brands cited in ChatGPT, Perplexity, and Google AI Overviews, turning AI search visibility into pipeline.',
     siteName: 'Cloviana',
-    images: [
-      {
-        url: 'https://cloviana.com/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Cloviana — Autonomous GEO for B2B SaaS',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -47,8 +39,7 @@ export const metadata = {
     creator: '@cloviana',
     title: 'Cloviana | Be the Answer Every B2B Buyer Gets',
     description:
-      'Cloviana is an autonomous GEO agent that continuously optimizes your AI search presence across ChatGPT, Perplexity, Gemini, and beyond — no developers, no agency, no dashboards.',
-    images: ['https://cloviana.com/og-image.png'],
+      'Cloviana is the autonomous GEO agent that gets B2B brands cited in ChatGPT, Perplexity, and Google AI Overviews, turning AI search visibility into pipeline.',
   },
   icons: {
     icon: '/favicon.ico',
@@ -98,7 +89,7 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
                     'https://www.linkedin.com/company/cloviana',
                   ],
                   description:
-                    'Cloviana is an autonomous GEO agent that continuously optimizes your AI search presence across ChatGPT, Perplexity, Gemini, and beyond — no developers, no agency, no dashboards.',
+                    'Cloviana is the autonomous GEO agent that gets B2B brands cited in ChatGPT, Perplexity, and Google AI Overviews, turning AI search visibility into pipeline.',
                 },
                 {
                   '@type': 'WebSite',
@@ -106,6 +97,25 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
                   name: 'Cloviana',
                   url: 'https://cloviana.com',
                   publisher: { '@id': 'https://cloviana.com/#organization' },
+                  potentialAction: {
+                    '@type': 'SearchAction',
+                    target: {
+                      '@type': 'EntryPoint',
+                      urlTemplate:
+                        'https://cloviana.com/blog?q={search_term_string}',
+                    },
+                    'query-input': 'required name=search_term_string',
+                  },
+                },
+                {
+                  '@type': 'SiteNavigationElement',
+                  name: 'Blog',
+                  url: 'https://cloviana.com/blog',
+                },
+                {
+                  '@type': 'SiteNavigationElement',
+                  name: 'Request a Demo',
+                  url: 'https://cloviana.com/audits',
                 },
               ],
             }),

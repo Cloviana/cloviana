@@ -115,7 +115,7 @@ export const Leaderboard = ({
               {item.position}
             </span>
             <div className="flex min-w-0 flex-1 items-center gap-2">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+              {}
               <img
                 src={`https://www.google.com/s2/favicons?domain=${item.domain}&sz=32`}
                 alt={item.domain}

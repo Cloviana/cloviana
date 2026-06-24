@@ -28,7 +28,7 @@ export const TerminalLoading: FC<Props> = ({
   );
   const [frameIndex, setFrameIndex] = useState(0);
   const speedRef = useRef(1);
-  const onCompleteRef = useRef<(() => void) | undefined>();
+  const onCompleteRef = useRef<(() => void) | undefined>(undefined);
 
   const play = useCallback((speed: number, onComplete: () => void) => {
     speedRef.current = speed;

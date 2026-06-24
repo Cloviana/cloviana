@@ -6,7 +6,7 @@ import { Spinner } from '@/components/ui/spinner';
 import { cn } from '@/utils/cn';
 
 const buttonVariants = cva(
-  "focus-visible:border-ring transition-opacity focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 cursor-pointer items-center justify-center gap-1.5 whitespace-nowrap rounded-md font-medium outline-none transition-colors focus-visible:ring disabled:pointer-events-none disabled:opacity-60 [&_svg:not([class*='size-'])]:size-3.5 [&_svg]:pointer-events-none [&_svg]:shrink-0 relative",
+  "focus-visible:border-ring w-fit transition-opacity focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 cursor-pointer items-center justify-center gap-1.5 whitespace-nowrap rounded-full font-medium outline-none transition-colors focus-visible:ring disabled:pointer-events-none disabled:opacity-60 [&_svg:not([class*='size-'])]:size-3.5 [&_svg]:pointer-events-none [&_svg]:shrink-0 relative",
   {
     variants: {
       variant: {
@@ -70,7 +70,7 @@ function Button({
       data-slot="button"
       className={cn(
         buttonClassName,
-        loading && '!text-transparent',
+        loading && 'text-transparent!',
         loading && '[&>*:not(.absolute)]:invisible',
       )}
       disabled={disabled || loading}

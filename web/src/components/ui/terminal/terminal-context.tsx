@@ -38,6 +38,5 @@ export function useAnimation({
       play: (speed, onComplete) => playRef.current(speed, onComplete),
     };
     return ctx.registerAnimation(entry);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ctx, delay]);
 }

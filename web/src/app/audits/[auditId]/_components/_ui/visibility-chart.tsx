@@ -73,7 +73,6 @@ export const VisibilityChart = ({ brandVisibility }: VisibilityChartProps) => {
             />
             <ChartTooltip
               cursor={false}
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               content={(props: any) => (
                 <ChartTooltipContent {...props} hideLabel nameKey="engine" />
               )}

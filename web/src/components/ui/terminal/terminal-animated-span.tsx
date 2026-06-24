@@ -23,7 +23,7 @@ export const TerminalAnimatedSpan: FC<Props> = ({
     transform: 'translateY(-5px)',
   });
   const speedRef = useRef(1);
-  const onCompleteRef = useRef<(() => void) | undefined>();
+  const onCompleteRef = useRef<(() => void) | undefined>(undefined);
 
   const play = useCallback((speed: number, onComplete: () => void) => {
     speedRef.current = speed;

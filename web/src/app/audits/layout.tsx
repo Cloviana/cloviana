@@ -1,5 +1,8 @@
 import { ReactNode } from 'react';
 
+import { Footer } from '@/components/layout/footer/default';
+import { Navbar } from '@/components/layout/navbar/navbar';
+
 export const metadata = {
   title: 'Free AI Visibility Report | Cloviana',
   description:
@@ -119,7 +122,13 @@ export default function AuditsLayout({ children }: { children: ReactNode }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: faqSchema }}
       />
-      {children}
+      <div className="bg-background relative flex min-h-screen flex-col">
+        <header className="sticky top-0 right-0 left-0 z-50">
+          <Navbar />
+        </header>
+        <main className="relative flex-1 space-y-0">{children}</main>
+        <Footer />
+      </div>
     </>
   );
 }

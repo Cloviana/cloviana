@@ -36,7 +36,9 @@ export const Terminal: FC<TerminalProps> = ({
 }) => {
   const loop = useContext(LoopContext);
   const animations = useRef<AnimationEntry[]>([]);
-  const sessionTimeout = useRef<ReturnType<typeof setTimeout>>();
+  const sessionTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(
+    undefined,
+  );
 
   const registerAnimation = useCallback((entry: AnimationEntry) => {
     animations.current.push(entry);

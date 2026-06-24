@@ -395,7 +395,7 @@ export function AuditRequestDialog({
       <Confetti
         ref={confettiRef}
         manualstart
-        className="pointer-events-none fixed inset-0 z-[200] h-full w-full"
+        className="pointer-events-none fixed inset-0 z-200 h-full w-full"
       />
       <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogContent>

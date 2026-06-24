@@ -123,7 +123,7 @@ function NavLink({ href, label }: { href: string; label: string }) {
 
 export function Footer() {
   return (
-    <footer className="padding-global border-border text-foreground w-full border-t pt-10 pb-24 text-sm md:pt-12 md:pb-16">
+    <footer className="padding-global text-foreground w-full border-t border-zinc-100 pt-10 pb-24 text-sm md:pt-12 md:pb-16">
       <div className="container">
         {/* Nav columns */}
         <div className="grid grid-cols-2 gap-x-6 gap-y-9 lg:grid-cols-4 lg:gap-x-12">
@@ -159,7 +159,7 @@ export function Footer() {
 
           {/* Copyright with hover reveal */}
           <div className="group text-muted-foreground relative overflow-hidden text-left sm:text-right">
-            <span className="block whitespace-nowrap transition-transform duration-700 ease-in-out md:group-hover:-translate-x-[26ch]">
+            <span className="block whitespace-nowrap transition-transform duration-700 ease-in-out md:group-hover:translate-x-[-26ch]">
               © Cloviana, Inc. 2026
             </span>
             <span

@@ -27,7 +27,7 @@ type ContentProps = {
 type SuggestionItemProps = {
   suggestion: NonNullable<ContentAudit['contentSuggestions']>[number];
   index: number;
-  isLast: boolean;
+  isLocked: boolean;
 };
 
 // ─── Config ───────────────────────────────────────────────────────────────────
@@ -43,11 +43,15 @@ const CONTENT_TYPE_LABEL: Record<ContentType, string> = {
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 
-const SuggestionItem = ({ suggestion, index, isLast }: SuggestionItemProps) => (
+const SuggestionItem = ({
+  suggestion,
+  index,
+  isLocked,
+}: SuggestionItemProps) => (
   <Fragment key={index}>
     <Item
       style={
-        isLast
+        isLocked
           ? {
               filter: 'blur(5px)',
               opacity: 0.3,
@@ -68,7 +72,7 @@ const SuggestionItem = ({ suggestion, index, isLast }: SuggestionItemProps) => (
         <ItemDescription>{suggestion.overview}</ItemDescription>
       </ItemContent>
     </Item>
-    {!isLast && <ItemSeparator />}
+    {!isLocked && <ItemSeparator />}
   </Fragment>
 );
 
@@ -83,7 +87,7 @@ export const ContentSuggestions = ({
 
   if (!suggestions.length) return null;
 
-  const lastIndex = suggestions.length - 1;
+  const lockedCount = Math.max(0, suggestions.length - 1);
 
   return (
     <section className={cn(className, 'padding-global')}>
@@ -94,9 +98,8 @@ export const ContentSuggestions = ({
             What to publish to get cited
           </h2>
           <p className="text-foreground-light w-full lg:w-1/2 lg:max-w-[50ch] lg:pt-2 lg:text-lg">
-            Based on what AI actually cites in your category, these are the
-            content pieces most likely to move your score. The last one is
-            included in your full report.
+            Based on what AI actually cites in your category, here&apos;s the
+            content most likely to move your score.
           </p>
         </div>
 
@@ -107,25 +110,29 @@ export const ContentSuggestions = ({
               key={i}
               suggestion={suggestion}
               index={i}
-              isLast={i === lastIndex}
+              isLocked={i > 0}
             />
           ))}
 
           {/* CTA overlay */}
-          <div className="absolute right-0 bottom-0 left-0 flex h-32 items-center justify-center">
-            <Button
-              onClick={() =>
-                gaEvent('book_demo', {
-                  location: 'final_cta',
-                  audit_id: auditId,
-                })
-              }
-              variant="outline"
-              size="lg"
-            >
-              <Link href={links.demo}>Get a full report</Link>
-            </Button>
-          </div>
+          {lockedCount > 0 && (
+            <div className="absolute right-0 bottom-0 left-0 flex h-32 items-center justify-center">
+              <Button
+                onClick={() =>
+                  gaEvent('book_demo', {
+                    location: 'content_suggestions',
+                    audit_id: auditId,
+                  })
+                }
+                variant="outline"
+                size="lg"
+              >
+                <Link href={links.demo}>
+                  Get {lockedCount} more content ideas
+                </Link>
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </section>
