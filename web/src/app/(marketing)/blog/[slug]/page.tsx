@@ -266,7 +266,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         {post.author && <AuthorBio author={post.author} />}
       </div>
       {relatedPosts.length > 0 && (
-        <div className="padding-global py-12">
+        <div className="padding-global mx-auto max-w-[1800px] py-12">
           <h2 className="font-gambarino mb-8 text-xl">More articles</h2>
           <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {relatedPosts.map(
