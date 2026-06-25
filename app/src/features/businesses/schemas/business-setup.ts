@@ -66,7 +66,13 @@ export const setupBusinessTopicsSchema = z.object({
 export const approvedPromptSchema = z.object({
   clusterId: z.string(),
   text: z.string().trim().min(8).max(500),
-  stage: z.enum(['EXPLORE', 'EVALUATE', 'DECIDE']),
+  stage: z.enum([
+    'AWARENESS',
+    'EXPLORE',
+    'CONSIDERATION',
+    'EVALUATE',
+    'DECIDE',
+  ]),
   selected: z.boolean(),
 });
 

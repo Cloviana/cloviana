@@ -36,7 +36,12 @@ export type MonitoringOverview = {
     list: Array<{
       id: string;
       text: string;
-      awarenessStage: 'EXPLORE' | 'EVALUATE' | 'DECIDE';
+      awarenessStage:
+        | 'AWARENESS'
+        | 'EXPLORE'
+        | 'CONSIDERATION'
+        | 'EVALUATE'
+        | 'DECIDE';
       lastRunAt: string | null;
       topics: string[];
     }>;

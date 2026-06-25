@@ -344,10 +344,10 @@ export function AuditRequestDialog({
 
   const { mutate: verifyAudit, isPending: isVerifying } = useVerifyAudit({
     mutationConfig: {
-      onSuccess: async ({ auditId }) => {
+      onSuccess: async ({ auditSlug }) => {
         if (submittedData) {
           gaEvent('audit_started', {
-            audit_id: auditId,
+            audit_id: auditSlug,
             country: submittedData.country,
             source: 'web',
           });

@@ -27,13 +27,13 @@ export class ResendService {
     }
   }
 
-  async sendAuditComplete(to: string, auditId: string, brandName: string) {
+  async sendAuditComplete(to: string, auditSlug: string, brandName: string) {
     const { error } = await this.resend.emails.send({
       to,
       template: {
         id: "e2e0e914-c96a-469a-8115-742dbde0d9bf",
         variables: {
-          audit_id: auditId,
+          audit_slug: auditSlug,
           brand_name: brandName,
         },
       },

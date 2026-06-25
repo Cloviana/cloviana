@@ -66,6 +66,7 @@ export type BrandVisibility = {
 
 export type Audit = {
   id: string;
+  slug: string;
   email: string;
   domain: string;
   country: string;

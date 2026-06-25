@@ -15,6 +15,7 @@ test("verifyAudit creates an audit and publishes audit.run once", async () => {
 
   const createdAudit = {
     id: "audit_123",
+    slug: "example",
     email: "person@company.com",
     domain: "example.com",
     country: "US",
@@ -42,6 +43,6 @@ test("verifyAudit creates an audit and publishes audit.run once", async () => {
 
   const result = await service.verifyAudit("person@company.com", 123456);
 
-  assert.deepEqual(result, { auditId: createdAudit.id });
+  assert.deepEqual(result, { auditSlug: createdAudit.slug });
   assert.deepEqual(publishedPayloads, [{ auditId: createdAudit.id }]);
 });

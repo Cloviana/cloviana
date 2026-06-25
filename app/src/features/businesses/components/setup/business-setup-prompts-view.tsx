@@ -29,7 +29,9 @@ import { useBusinessSetup } from './business-setup-context';
 import { BusinessSetupHeading } from './business-setup-heading';
 
 const stageConfig = {
+  AWARENESS: { label: 'Awareness', dotColor: 'bg-sky-500' },
   EXPLORE: { label: 'Explore', dotColor: 'bg-blue-500' },
+  CONSIDERATION: { label: 'Consideration', dotColor: 'bg-orange-500' },
   EVALUATE: { label: 'Evaluate', dotColor: 'bg-amber-500' },
   DECIDE: { label: 'Decide', dotColor: 'bg-violet-500' },
 } as const;
@@ -59,7 +61,12 @@ export function BusinessSetupPromptsView() {
       prompts: generatedPrompts.map((prompt) => ({
         clusterId: prompt.clusterId,
         text: prompt.text,
-        stage: prompt.stage as 'EXPLORE' | 'EVALUATE' | 'DECIDE',
+        stage: prompt.stage as
+          | 'AWARENESS'
+          | 'EXPLORE'
+          | 'CONSIDERATION'
+          | 'EVALUATE'
+          | 'DECIDE',
         selected: Boolean(prompt.active),
       })),
     },
