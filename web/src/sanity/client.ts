@@ -4,5 +4,5 @@ import { sanityConfig } from './config';
 
 export const sanityClient = createClient({
   ...sanityConfig,
-  useCdn: true,
+  useCdn: false,
 });

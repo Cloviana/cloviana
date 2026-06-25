@@ -93,7 +93,7 @@ export const VisibilityChart = ({ brandVisibility }: VisibilityChartProps) => {
       {/* Summary */}
       <div className="flex flex-col gap-1.5 text-center">
         <div className="flex items-center justify-center gap-2 text-sm leading-none font-medium">
-          {brandVisibility.overall}% overall AI visibility
+          {brandVisibility.overall.toFixed(2)}% overall AI visibility
           <TrendingUp className="h-4 w-4" />
         </div>
         <p className="text-muted-foreground text-sm leading-none">
