@@ -17,13 +17,13 @@ import {
 } from '.';
 
 type AuditContentProps = {
-  auditId: string;
+  auditSlug: string;
   initialData: Audit | null;
 };
 
-export const AuditContent = ({ auditId, initialData }: AuditContentProps) => {
+export const AuditContent = ({ auditSlug, initialData }: AuditContentProps) => {
   const { data: audit } = useQuery({
-    ...getAuditQueryOptions(auditId),
+    ...getAuditQueryOptions(auditSlug),
     initialData: initialData ?? undefined,
     refetchInterval: (query) => {
       const status = query.state.data?.job?.status;
@@ -38,13 +38,13 @@ export const AuditContent = ({ auditId, initialData }: AuditContentProps) => {
         <AuditSkeleton />
       ) : (
         <>
-          <Hero auditId={auditId} audit={audit} />
+          <Hero auditId={auditSlug} audit={audit} />
           <Overview audit={audit} />
           <Sentiment audit={audit} />
           <Visibility audit={audit} />
           <Citation audit={audit} />
-          <ContentSuggestions auditId={auditId} audit={audit} />
-          <FinalCta auditId={auditId} />
+          <ContentSuggestions auditId={auditSlug} audit={audit} />
+          <FinalCta auditId={auditSlug} />
         </>
       )}
     </>

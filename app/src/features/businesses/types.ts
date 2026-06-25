@@ -30,7 +30,7 @@ export type GeneratedPrompt = {
   id: string;
   clusterId: string;
   text: string;
-  stage: 'EXPLORE' | 'EVALUATE' | 'DECIDE';
+  stage: 'AWARENESS' | 'EXPLORE' | 'CONSIDERATION' | 'EVALUATE' | 'DECIDE';
   score?: number;
   active?: boolean;
 };

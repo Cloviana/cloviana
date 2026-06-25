@@ -4,10 +4,8 @@ import {
   normalizeDomain,
   normalizeHostname,
 } from "@/common/utils/normalize-domain.util";
-import { BusinessesProducer } from "@/infrastructure/messaging/producers/businesses.producer";
 import type { AuthUser } from "@/interfaces/auth-user.interface";
 import { MonitoringEnqueueService } from "@/modules/monitoring/services/monitoring-enqueue.service";
-import type { PromptUniverse } from "@/workflows/prompt-generation/prompt-generation.types";
 import { BadRequestException, Injectable, Logger } from "@nestjs/common";
 import {
   BusinessSetupStatus,
@@ -41,6 +39,24 @@ type PromptResearchResult = {
   promptUniverse: PromptUniverse;
 };
 
+type PromptCluster = {
+  id: string;
+  name: string;
+  description?: string;
+};
+
+type GeneratedPrompt = {
+  id: string;
+  clusterId: string;
+  text: string;
+  stage: string;
+};
+
+type PromptUniverse = {
+  clusters: PromptCluster[];
+  prompts: GeneratedPrompt[];
+};
+
 function readPromptResearchResult(value: Prisma.JsonValue | null) {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
     return null;
@@ -72,7 +88,6 @@ export class BusinessSetupService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly businessResearch: BusinessResearchService,
-    private readonly businessesProducer: BusinessesProducer,
     private readonly monitoringEnqueue: MonitoringEnqueueService,
   ) {}
 
@@ -267,14 +282,12 @@ export class BusinessSetupService {
       },
     });
 
-    await this.businessesProducer.runPromptGeneration({ businessId });
     return updated;
   }
 
   async retryPromptResearch(user: AuthUser, businessId: string) {
     await this.findOwnerAccessibleBusiness(user.sub, businessId);
-    await this.businessesProducer.runPromptGeneration({ businessId });
-    return { queued: true };
+    return { queued: false };
   }
 
   async updateSetupTopics(

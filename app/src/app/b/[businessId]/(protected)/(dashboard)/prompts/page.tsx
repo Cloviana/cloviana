@@ -9,9 +9,17 @@ import { Page, PageContent, PageHeader } from '@/components/ui/page';
 import { useMonitoringOverview } from '@/features/monitoring/api/get-monitoring-overview';
 
 const STAGE_CONFIG = {
+  AWARENESS: {
+    label: 'Awareness',
+    dotColor: 'bg-sky-500',
+  },
   EXPLORE: {
     label: 'Explore',
     dotColor: 'bg-blue-500',
+  },
+  CONSIDERATION: {
+    label: 'Consideration',
+    dotColor: 'bg-orange-500',
   },
   EVALUATE: {
     label: 'Evaluate',
@@ -73,7 +81,14 @@ export default function PromptsPage() {
           </div>
 
           <div className="flex flex-wrap gap-2">
-            {['ALL', 'EXPLORE', 'EVALUATE', 'DECIDE'].map((stage) => (
+            {[
+              'ALL',
+              'AWARENESS',
+              'CONSIDERATION',
+              'EXPLORE',
+              'EVALUATE',
+              'DECIDE',
+            ].map((stage) => (
               <button
                 key={stage}
                 onClick={() => setSelectedStage(stage)}
@@ -108,7 +123,7 @@ export default function PromptsPage() {
                   {filteredPrompts.map((prompt) => {
                     const stageConf =
                       STAGE_CONFIG[prompt.awarenessStage] ||
-                      STAGE_CONFIG.EXPLORE;
+                      STAGE_CONFIG.AWARENESS;
                     return (
                       <tr
                         key={prompt.id}

@@ -11,7 +11,6 @@ test("BusinessesConsumer runs business initialization when it receives a message
         receivedBusinessIds.push(businessId);
       },
     } as any,
-    {} as any,
     {
       clearStaleInProgressBusinesses: async () => 0,
     } as any,
@@ -39,7 +38,6 @@ test("BusinessesConsumer ignores invalid business initialization payloads", asyn
         called = true;
       },
     } as any,
-    {} as any,
     {
       clearStaleInProgressBusinesses: async () => 0,
     } as any,
@@ -66,7 +64,6 @@ test("BusinessesConsumer cleans up stale in-progress businesses when it receives
     {
       run: async () => undefined,
     } as any,
-    {} as any,
     {
       clearStaleInProgressBusinesses: async (cutoff: Date) => {
         cutoffs.push(cutoff);

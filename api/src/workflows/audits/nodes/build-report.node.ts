@@ -305,7 +305,7 @@ export async function buildReport(
     buildBrandVisibility(state.engineResponses, targetDomain),
   );
 
-  await prisma.audit.update({
+  const audit = await prisma.audit.update({
     where: { id: state.auditId },
     data: {
       brandName: state.profile.name,
@@ -325,7 +325,7 @@ export async function buildReport(
     try {
       await resend.sendAuditComplete(
         state.email,
-        state.auditId,
+        audit.slug,
         state.profile.name,
       );
     } catch (error) {

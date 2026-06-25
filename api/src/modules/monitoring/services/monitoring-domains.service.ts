@@ -61,27 +61,17 @@ export class MonitoringDomainsService {
       }
     }
 
-    const domains = Array.from(domainStats.keys());
-    const domainInfos = await this.prisma.domainInfo.findMany({
-      where: { domain: { in: domains } },
-    });
-    const typeMap = new Map(
-      domainInfos.map((info) => [info.domain, info.type]),
-    );
-
     const result = Array.from(domainStats.entries()).map(([domain, stats]) => {
       const retrievals = stats.retrievedInPrompts.size;
       const retrievedPct = N > 0 ? (retrievals / N) * 100 : 0;
       const citationRate =
         retrievals > 0 ? stats.totalCitations / retrievals : 0;
-      const type = typeMap.get(domain) || "OTHER";
 
       return {
         domain,
         retrievals,
         retrieved: retrievedPct,
         citationRate: citationRate,
-        type,
       };
     });
 
@@ -93,19 +83,6 @@ export class MonitoringDomainsService {
       (acc, curr) => acc + curr.retrievals,
       0,
     );
-    const typeCounts = new Map<string, number>();
-    for (const r of result) {
-      typeCounts.set(r.type, (typeCounts.get(r.type) || 0) + r.retrievals);
-    }
-
-    const domainTypes = Array.from(typeCounts.entries())
-      .map(([type, count]) => ({
-        type,
-        percentage: totalRetrievals > 0 ? (count / totalRetrievals) * 100 : 0,
-        count,
-      }))
-      .sort((a, b) => b.percentage - a.percentage);
-
     const top = [...result]
       .sort((a, b) => b.retrievals - a.retrievals)
       .slice(0, 10);
@@ -121,7 +98,7 @@ export class MonitoringDomainsService {
       totalPrompts: N,
       totalRetrievals,
       topDomains,
-      domainTypes,
+      domainTypes: [],
       domainMovers: {
         top,
         new: newMovers,
