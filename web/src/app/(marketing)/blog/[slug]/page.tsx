@@ -129,7 +129,7 @@ function buildJsonLd(post: BlogPost, slug: string) {
       url: env.WEB_URL,
       logo: {
         '@type': 'ImageObject',
-        url: `${env.WEB_URL}/logo-full.png`,
+        url: post.author?.image?.asset.url ?? `${env.WEB_URL}/logo-icon.png`,
       },
     },
     {
