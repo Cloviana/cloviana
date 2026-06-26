@@ -3,6 +3,8 @@ import { defineQuery } from 'next-sanity';
 
 import { sanityClient } from '@/sanity/client';
 
+export const revalidate = 60;
+
 const SITEMAP_POSTS_QUERY = defineQuery(/* groq */ `
   *[_type == "blogPost"] {
     "slug": slug.current,
