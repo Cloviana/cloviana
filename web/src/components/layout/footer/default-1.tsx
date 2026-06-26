@@ -5,19 +5,44 @@ import { paths } from '@/config/paths';
 const NAV = [
   {
     heading: 'Platform',
-    links: [{ label: 'AI Visibility Audit', href: '/audits' }],
+    links: [
+      { label: 'AI Visibility Audit', href: '/audits' },
+      { label: 'GEO Optimization', href: '#' },
+      { label: 'AI Search Monitoring', href: '#' },
+    ],
+  },
+  {
+    heading: 'Product',
+    links: [
+      { label: 'How it works', href: '#' },
+      { label: 'Pricing', href: '#' },
+      { label: 'For B2B SaaS', href: '#' },
+      { label: 'For marketing teams', href: '#' },
+      { label: 'For agencies', href: '#' },
+      { label: 'Explore more…', href: '#' },
+    ],
   },
   {
     heading: 'Company',
     links: [
+      { label: 'About', href: '#' },
       { label: 'LinkedIn', href: 'https://www.linkedin.com/company/cloviana' },
+      { label: 'Press', href: '#' },
       { label: 'Contact us', href: 'https://calendly.com/cloviana/30min' },
+      { label: 'Careers', href: '#' },
     ],
   },
   {
     heading: 'Resources',
     links: [
       { label: 'Blog', href: paths.blog.getHref() },
+      { label: 'GEO Guide', href: '#' },
+      { label: 'Case studies', href: '#' },
+      { label: 'ROI Calculator', href: '#' },
+      { label: 'Documentation', href: '#' },
+      { label: 'Changelog', href: '#' },
+      { label: 'Affiliates', href: '#' },
+      { label: 'Terms', href: '#' },
       { label: 'Privacy', href: '/regulations/privacy-policy' },
     ],
   },
@@ -68,8 +93,8 @@ const SOCIAL = [
     href: 'https://www.linkedin.com/company/cloviana',
     Icon: LinkedInIcon,
   },
-  { label: 'X (Twitter)', Icon: XIcon },
-  { label: 'YouTube', Icon: YouTubeIcon },
+  { label: 'X (Twitter)', href: '#', Icon: XIcon },
+  { label: 'YouTube', href: '#', Icon: YouTubeIcon },
 ];
 
 function NavLink({ href, label }: { href: string; label: string }) {
@@ -101,7 +126,7 @@ export function Footer() {
     <footer className="padding-global text-foreground w-full border-t border-zinc-100 pt-10 pb-24 text-sm md:pt-12 md:pb-16">
       <div className="container">
         {/* Nav columns */}
-        <div className="grid grid-cols-2 gap-x-6 gap-y-9 md:grid-cols-3 lg:gap-x-12">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-9 lg:grid-cols-4 lg:gap-x-12">
           {NAV.map(({ heading, links }) => (
             <div key={heading} className="flex min-w-0 flex-col gap-1.5">
               <p className="mb-2 font-serif text-xl leading-none tracking-tight sm:text-2xl">
@@ -118,24 +143,18 @@ export function Footer() {
         <div className="mt-12 flex flex-col gap-8 pb-4 sm:flex-row sm:items-center sm:justify-between md:mt-16">
           {/* Social icons */}
           <div className="text-muted-foreground flex items-center gap-4">
-            {SOCIAL.map(({ label, href, Icon }) =>
-              href ? (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="hover:text-foreground transition-colors"
-                >
-                  <Icon />
-                </a>
-              ) : (
-                <span key={label} aria-label={label}>
-                  <Icon />
-                </span>
-              ),
-            )}
+            {SOCIAL.map(({ label, href, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="hover:text-foreground transition-colors"
+              >
+                <Icon />
+              </a>
+            ))}
           </div>
 
           {/* Copyright with hover reveal */}
