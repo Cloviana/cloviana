@@ -7,6 +7,9 @@ const nextConfig = {
       {
         pathname: '/images/**',
       },
+      {
+        pathname: '/*.png',
+      },
     ],
     remotePatterns: [
       {
