@@ -1,5 +1,9 @@
 # Cloviana — Product Context
 
+## Codex Operating Rules
+
+- Do not run `npm run build` unless Samuel explicitly asks for a build.
+
 ## What is Cloviana?
 
 Cloviana is a B2B SaaS GEO (Generative Engine Optimization) platform. It helps B2B SaaS companies appear in AI-generated answers on platforms like ChatGPT, Perplexity, and Gemini when buyers search for software recommendations.
