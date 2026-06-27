@@ -59,7 +59,8 @@ export async function generateMetadata({
 
   if (!post) return {};
 
-  const title = `${post.seo?.metaTitle ?? post.title} — Cloviana`;
+  const socialTitle = post.seo?.metaTitle ?? post.title;
+  const title = `${socialTitle} — Cloviana`;
   const description = post.seo?.metaDescription ?? post.excerpt;
   const canonical =
     post.seo?.canonicalUrl ?? `${env.WEB_URL}${paths.blog.post.getHref(slug)}`;
@@ -71,7 +72,7 @@ export async function generateMetadata({
     robots: post.seo?.noIndex ? { index: false, follow: false } : undefined,
     alternates: { canonical },
     openGraph: {
-      title,
+      title: socialTitle,
       description,
       url: canonical,
       type: 'article',
@@ -82,7 +83,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title,
+      title: socialTitle,
       description,
       images: image ? [image] : undefined,
     },
