@@ -10,6 +10,41 @@ import {
 export class BusinessesService {
   constructor(private readonly prisma: PrismaService) {}
 
+  async getEntry(user: AuthUser) {
+    const profile = await this.prisma.profile.findUnique({
+      where: { id: user.sub },
+      select: { lastAccessedBusinessId: true },
+    });
+
+    if (profile?.lastAccessedBusinessId) {
+      const lastAccessedBusiness = await this.prisma.business.findFirst({
+        where: accessibleBusinessWhere(
+          user.sub,
+          profile.lastAccessedBusinessId,
+        ),
+        select: { id: true },
+      });
+
+      if (lastAccessedBusiness) {
+        return {
+          destination: "business" as const,
+          businessId: lastAccessedBusiness.id,
+        };
+      }
+    }
+
+    const business = await this.prisma.business.findFirst({
+      where: accessibleBusinessWhere(user.sub),
+      orderBy: { createdAt: "asc" },
+      select: { id: true },
+    });
+
+    return {
+      destination: "business" as const,
+      businessId: business?.id ?? null,
+    };
+  }
+
   async list(user: AuthUser) {
     return this.prisma.business.findMany({
       where: accessibleBusinessWhere(user.sub),

@@ -5,8 +5,7 @@ export type SubscriptionStatus =
   | 'ACTIVE'
   | 'PAST_DUE'
   | 'CANCELED'
-  | 'INCOMPLETE'
-  | 'TRIALLING';
+  | 'INCOMPLETE';
 export type PlanName = 'STARTER' | 'GROWTH' | 'PRO';
 export type BusinessMembershipRole = 'OWNER' | 'MEMBER';
 export type BusinessInviteStatus =
@@ -14,16 +13,6 @@ export type BusinessInviteStatus =
   | 'ACCEPTED'
   | 'REVOKED'
   | 'EXPIRED';
-export type BusinessSetupStatus = 'NOT_STARTED' | 'IN_PROGRESS' | 'COMPLETED';
-export type BusinessSetupStep =
-  | 'DOMAIN'
-  | 'PROFILE'
-  | 'LOCATION'
-  | 'COMPETITORS'
-  | 'ATTRIBUTION'
-  | 'TOPICS'
-  | 'PROMPTS'
-  | 'COMPLETED';
 
 export type JobType =
   | 'SITE_AUDIT'
@@ -68,12 +57,8 @@ export type Business = Entity<{
   searchIntentCommercial: number;
   searchIntentInformational: number;
   competitors: Competitor[];
-  setupStatus: BusinessSetupStatus;
-  setupStep: BusinessSetupStep;
-  setupCompletedAt?: ISODate | null;
   subscription?: {
     status: SubscriptionStatus;
-    trialEndsAt: ISODate | null;
     plan: {
       name: PlanName;
       stripePriceId: string;

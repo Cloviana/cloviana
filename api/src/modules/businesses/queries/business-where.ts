@@ -1,8 +1,4 @@
-import {
-  BusinessMembershipRole,
-  BusinessSetupStatus,
-  Prisma,
-} from "@prisma/client";
+import { BusinessMembershipRole, Prisma } from "@prisma/client";
 
 export type BusinessLookupArgs = Omit<
   Prisma.BusinessFindFirstOrThrowArgs,
@@ -36,15 +32,5 @@ export function ownerAccessibleBusinessWhere(
         },
       },
     ],
-  };
-}
-
-export function completedMemberAccessibleBusinessWhere(
-  profileId: string,
-): Prisma.BusinessWhereInput {
-  return {
-    members: { some: { profileId } },
-    ownerId: { not: profileId },
-    setupStatus: BusinessSetupStatus.COMPLETED,
   };
 }

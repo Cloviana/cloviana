@@ -27,11 +27,6 @@ export const paths = {
     getHref: (businessId?: string, query?: Record<string, any>) =>
       buildPath(businessId ? `/b/${businessId}` : '/b', query),
 
-    trial: {
-      getHref: (businessId: string, query?: Record<string, any>) =>
-        buildPath(`/b/${businessId}/trial`, query),
-    },
-
     settings: {
       getHref: (businessId: string, query?: Record<string, any>) =>
         buildPath(`/b/${businessId}/settings`, query),
@@ -39,21 +34,6 @@ export const paths = {
       subscription: {
         getHref: (businessId: string, query?: Record<string, any>) =>
           buildPath(`/b/${businessId}/settings/subscription`, query),
-      },
-    },
-  },
-
-  setup: {
-    business: {
-      getHref: (query?: Record<string, any>) =>
-        buildPath('/setup/business', query),
-      new: {
-        getHref: (query?: Record<string, any>) =>
-          buildPath('/setup/business/new', query),
-      },
-      detail: {
-        getHref: (businessId: string, query?: Record<string, any>) =>
-          buildPath(`/setup/business/${businessId}`, query),
       },
     },
   },
