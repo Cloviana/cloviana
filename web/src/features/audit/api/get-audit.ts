@@ -6,21 +6,22 @@ import { Audit } from '../types';
 
 const auditKeys = {
   base: ['audit'] as const,
-  detail: (auditId: string) => [...auditKeys.base, 'detail', auditId] as const,
+  detail: (auditSlug: string) =>
+    [...auditKeys.base, 'detail', auditSlug] as const,
 };
 
-export const getAudit = (auditId: string) =>
-  api.get<Audit>(`/audits/${auditId}`);
+export const getAudit = (auditSlug: string) =>
+  api.get<Audit>(`/audits/${auditSlug}`);
 
-export const getAuditQueryOptions = (auditId: string) =>
+export const getAuditQueryOptions = (auditSlug: string) =>
   queryOptions({
-    queryKey: auditKeys.detail(auditId),
-    queryFn: () => getAudit(auditId),
+    queryKey: auditKeys.detail(auditSlug),
+    queryFn: () => getAudit(auditSlug),
   });
 
-export const useGetAudit = (auditId: string) =>
+export const useGetAudit = (auditSlug: string) =>
   useQuery({
-    ...getAuditQueryOptions(auditId),
+    ...getAuditQueryOptions(auditSlug),
     refetchInterval: (query) => {
       const status = query.state.data?.job?.status;
       if (status === 'PENDING' || status === 'RUNNING') return 3000;

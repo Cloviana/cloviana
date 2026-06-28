@@ -55,13 +55,23 @@ function createMemoryCache() {
 function createNoopResend(config: AppConfiguration): ResendService {
   const resend = new ResendService(config);
 
-  resend.sendAuditComplete = async (to, auditId, brandName) => {
+  resend.sendAuditComplete = async (to, auditSlug, brandName) => {
     console.log(
-      `[noop-resend] Audit completion email skipped to=${to} auditId=${auditId} brandName=${brandName}`,
+      `[noop-resend] Audit completion email skipped to=${to} auditSlug=${auditSlug} brandName=${brandName}`,
     );
   };
 
   return resend;
+}
+
+function toAuditSlug(domain: string): string {
+  const base = domain
+    .split(".")[0]
+    ?.toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+  return `${base || "audit"}-${Date.now().toString(36)}`;
 }
 
 async function main() {
@@ -89,6 +99,7 @@ async function main() {
   const email = process.env.AUDIT_EMAIL ?? DEFAULT_EMAIL;
   const audit = await prisma.audit.create({
     data: {
+      slug: toAuditSlug(domain),
       email,
       domain,
       country,

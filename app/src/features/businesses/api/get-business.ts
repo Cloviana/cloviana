@@ -3,14 +3,13 @@ import { queryOptions, useQuery } from '@tanstack/react-query';
 import { api } from '@/lib/api-client';
 import { QueryConfig, businessKeys } from '@/lib/react-query';
 import { getAuthHeaders } from '@/lib/supabase/get-auth-headers';
-import { Business } from '@/types/api';
+import type { Business } from '@/types/api';
 
 export const getBusiness = async (id: string): Promise<Business> => {
   const headers = await getAuthHeaders();
-  const business = await api.get<Business>(`/businesses/${id}`, {
+  return api.get<Business>(`/businesses/${id}`, {
     headers,
   });
-  return business;
 };
 
 export const getBusinessQueryOptions = (id: string) =>

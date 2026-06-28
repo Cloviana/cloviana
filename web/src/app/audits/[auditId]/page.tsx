@@ -4,10 +4,10 @@ import { Audit } from '@/features/audit';
 
 import { AuditContent } from './_components/audit-content';
 
-async function fetchAuditServer(auditId: string): Promise<Audit | null> {
+async function fetchAuditServer(auditSlug: string): Promise<Audit | null> {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001';
   try {
-    const res = await fetch(`${apiUrl}/audits/${auditId}`, {
+    const res = await fetch(`${apiUrl}/audits/${auditSlug}`, {
       next: { revalidate: 60 },
     });
     if (!res.ok) return null;
@@ -22,8 +22,8 @@ export async function generateMetadata({
 }: {
   params: Promise<{ auditId: string }>;
 }): Promise<Metadata> {
-  const { auditId } = await params;
-  const audit = await fetchAuditServer(auditId);
+  const { auditId: auditSlug } = await params;
+  const audit = await fetchAuditServer(auditSlug);
 
   if (!audit) {
     return {
@@ -45,7 +45,7 @@ export async function generateMetadata({
 
   const title = `${name}'s AI Visibility Report | Cloviana`;
   const description = `See how ${name} ranks across ChatGPT, Perplexity, and Google AIO vs. competitors.${scoreClause}`;
-  const url = `https://cloviana.com/audits/${auditId}`;
+  const url = `https://cloviana.com/audits/${audit.slug}`;
 
   return {
     title,
@@ -71,8 +71,8 @@ export default async function AuditPage({
 }: {
   params: Promise<{ auditId: string }>;
 }) {
-  const { auditId } = await params;
-  const audit = await fetchAuditServer(auditId);
+  const { auditId: auditSlug } = await params;
+  const audit = await fetchAuditServer(auditSlug);
 
   const reportSchema = audit
     ? JSON.stringify({
@@ -101,7 +101,7 @@ export default async function AuditPage({
           dangerouslySetInnerHTML={{ __html: reportSchema }}
         />
       )}
-      <AuditContent auditId={auditId} initialData={audit} />
+      <AuditContent auditSlug={audit?.slug ?? auditSlug} initialData={audit} />
     </>
   );
 }

@@ -16,18 +16,25 @@ import {
   POST_SLUGS_QUERY,
   type BlogPost,
 } from '@/sanity/queries/post';
-import { RELATED_POSTS_QUERY } from '@/sanity/queries/posts';
+import { RELATED_POSTS_QUERY, type Post } from '@/sanity/queries/posts';
 
 import { PostCard } from '../_components/post-card';
 
 import { AuthorBio } from './_components/author-bio';
 import { Content } from './_components/content';
+import {
+  getTableOfContents,
+  TableOfContents,
+} from './_components/table-of-contents';
 
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
   month: 'long',
   day: 'numeric',
   year: 'numeric',
 });
+
+const ARTICLE_GRID_CLASS =
+  'grid grid-cols-1 justify-items-center xl:grid-cols-[220px_minmax(0,56rem)_220px] xl:justify-items-stretch xl:gap-3';
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
@@ -52,7 +59,8 @@ export async function generateMetadata({
 
   if (!post) return {};
 
-  const title = `${post.seo?.metaTitle ?? post.title} — Cloviana`;
+  const socialTitle = post.seo?.metaTitle ?? post.title;
+  const title = `${socialTitle} — Cloviana`;
   const description = post.seo?.metaDescription ?? post.excerpt;
   const canonical =
     post.seo?.canonicalUrl ?? `${env.WEB_URL}${paths.blog.post.getHref(slug)}`;
@@ -64,7 +72,7 @@ export async function generateMetadata({
     robots: post.seo?.noIndex ? { index: false, follow: false } : undefined,
     alternates: { canonical },
     openGraph: {
-      title,
+      title: socialTitle,
       description,
       url: canonical,
       type: 'article',
@@ -75,7 +83,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title,
+      title: socialTitle,
       description,
       images: image ? [image] : undefined,
     },
@@ -122,7 +130,7 @@ function buildJsonLd(post: BlogPost, slug: string) {
       url: env.WEB_URL,
       logo: {
         '@type': 'ImageObject',
-        url: `${env.WEB_URL}/logo-full.png`,
+        url: post.author?.image?.asset.url ?? `${env.WEB_URL}/logo-icon.png`,
       },
     },
     {
@@ -204,13 +212,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   if (!post) notFound();
 
-  const relatedPosts = await sanityClient.fetch(
+  const relatedPosts = await sanityClient.fetch<Post[]>(
     RELATED_POSTS_QUERY,
     { currentId: post._id, topicIds: post.topics.map((t) => t._id) },
     { next: { revalidate: 60 } },
   );
 
   const jsonLd = buildJsonLd(post, slug);
+  const tableOfContents = getTableOfContents(post.content);
 
   return (
     <>
@@ -218,64 +227,83 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
-      <div className="padding-global mx-auto max-w-4xl py-8 md:py-12 lg:py-16">
-        <header className="mb-6 md:mb-10 lg:mb-14">
-          {post.thumbnail && (
-            <div className="relative mb-6 h-48 w-full overflow-hidden rounded-lg md:mb-10 md:h-80 lg:h-96">
-              <Image
-                src={post.thumbnail.asset.url}
-                alt={post.thumbnail.alt}
-                fill
-                className="object-cover"
-                priority
-                placeholder="blur"
-                blurDataURL={post.thumbnail.asset.metadata.lqip}
-              />
+
+      <div className="padding-global mx-auto max-w-[90rem] py-8 md:py-12 lg:py-16">
+        <article>
+          {/* Content */}
+          <div className={ARTICLE_GRID_CLASS}>
+            <div className="hidden xl:block" />
+            <header className="mb-6 w-full max-w-4xl md:mb-10 lg:mb-14">
+              {post.thumbnail && (
+                <div className="relative mb-6 h-48 w-full overflow-hidden rounded-lg md:mb-10 md:h-80 lg:h-96">
+                  <Image
+                    src={post.thumbnail.asset.url}
+                    alt={post.thumbnail.alt}
+                    fill
+                    className="object-cover"
+                    priority
+                    placeholder="blur"
+                    blurDataURL={post.thumbnail.asset.metadata.lqip}
+                  />
+                </div>
+              )}
+              <h1 className="font-display font-gambarino text-2xl tracking-tight md:text-3xl lg:text-4xl xl:text-5xl">
+                {post.title}
+              </h1>
+              <p className="text-foreground-light mt-3 text-sm md:mt-4">
+                <time dateTime={post.publishedAt}>
+                  {dateFormatter.format(new Date(post.publishedAt))}
+                </time>
+                {post.author && <span> · {post.author.name}</span>}
+              </p>
+            </header>
+            <div className="hidden xl:block" />
+            <TableOfContents items={tableOfContents} />
+            <div className="w-full max-w-4xl">
+              <Content content={post.content} />
             </div>
-          )}
-          <h1 className="font-display font-gambarino text-2xl tracking-tight md:text-3xl lg:text-4xl xl:text-5xl">
-            {post.title}
-          </h1>
-          <p className="text-foreground-light mt-3 text-sm md:mt-4">
-            <time dateTime={post.publishedAt}>
-              {dateFormatter.format(new Date(post.publishedAt))}
-            </time>
-            {post.author && <span> · {post.author.name}</span>}
-          </p>
-        </header>
-        <Content content={post.content} />
-        {post.faqs.length > 0 && (
-          <div className="prose prose-neutral mt-12 max-w-none">
-            <h2 className="font-gambarino font-medium">
-              Frequently Asked Questions
-            </h2>
-            <Accordion type="single" collapsible className="not-prose">
-              {post.faqs.map((faq) => (
-                <AccordionItem key={faq._key} value={faq._key}>
-                  <AccordionTrigger className="py-5 text-left font-medium hover:no-underline hover:opacity-60">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="pb-3">
-                    <p className="text-muted-foreground">{faq.answer}</p>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+            <div className="hidden xl:block" />
           </div>
-        )}
-        {post.author && <AuthorBio author={post.author} />}
+
+          {/* Footer */}
+          <div className={ARTICLE_GRID_CLASS}>
+            <div className="hidden xl:block" />
+            <div className="w-full max-w-4xl">
+              {post.faqs.length > 0 && (
+                <div className="prose prose-neutral mt-12 max-w-none">
+                  <h2 className="font-gambarino font-medium">
+                    Frequently Asked Questions
+                  </h2>
+                  <Accordion type="single" collapsible className="not-prose">
+                    {post.faqs.map((faq) => (
+                      <AccordionItem key={faq._key} value={faq._key}>
+                        <AccordionTrigger className="py-5 text-left font-medium hover:no-underline hover:opacity-60">
+                          {faq.question}
+                        </AccordionTrigger>
+                        <AccordionContent className="pb-3">
+                          <p className="text-muted-foreground">{faq.answer}</p>
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </div>
+              )}
+              {post.author && <AuthorBio author={post.author} />}
+            </div>
+            <div className="hidden xl:block" />
+          </div>
+        </article>
       </div>
+
       {relatedPosts.length > 0 && (
         <div className="padding-global mx-auto max-w-[1800px] py-12">
           <h2 className="font-gambarino mb-8 text-xl">More articles</h2>
           <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {relatedPosts.map(
-              (post: Parameters<typeof PostCard>[0]['post']) => (
-                <li key={post._id}>
-                  <PostCard post={post} />
-                </li>
-              ),
-            )}
+            {relatedPosts.map((post) => (
+              <li key={post._id}>
+                <PostCard post={post} />
+              </li>
+            ))}
           </ul>
         </div>
       )}

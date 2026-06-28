@@ -23,10 +23,6 @@ export default async function Layout({ children, params }: LayoutProps) {
     redirect(paths.business.getHref());
   }
 
-  if (business.setupStatus !== 'COMPLETED') {
-    redirect(paths.setup.business.detail.getHref(businessId));
-  }
-
   return (
     <>
       <BusinessAccessTracker businessId={businessId} />

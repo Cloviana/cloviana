@@ -1,21 +1,8 @@
-import type { Business, ID, JobStatus } from '@/types/api';
+import type { ID } from '@/types/api';
 
 export type BusinessEntry = {
-  destination: 'setup' | 'business';
+  destination: 'business';
   businessId: ID | null;
-};
-
-export type BusinessSetup = {
-  business: Business;
-  shouldCollectHeardAboutUs: boolean;
-  promptResearch: {
-    id: string;
-    status: JobStatus;
-    error: string | null;
-    createdAt: string;
-    finishedAt: string | null;
-    promptUniverse: PromptUniverse | null;
-  } | null;
 };
 
 export type PromptCluster = {
@@ -30,7 +17,7 @@ export type GeneratedPrompt = {
   id: string;
   clusterId: string;
   text: string;
-  stage: 'EXPLORE' | 'EVALUATE' | 'DECIDE';
+  stage: 'AWARENESS' | 'EXPLORE' | 'CONSIDERATION' | 'EVALUATE' | 'DECIDE';
   score?: number;
   active?: boolean;
 };

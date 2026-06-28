@@ -108,7 +108,6 @@ const PlanAction = ({
   priceId,
   onCheckout,
   isLoading,
-  trialEligible,
   className,
   ...props
 }: {
@@ -117,15 +116,12 @@ const PlanAction = ({
   priceId: string;
   onCheckout?: (priceId: string) => void;
   isLoading?: boolean;
-  trialEligible?: boolean;
 } & React.ComponentProps<'div'>) => {
   const disabled = active || !priceId || isLoading;
 
   const buttonLabel = active
     ? 'Your current plan'
-    : trialEligible
-      ? 'Start your 14-day free trial'
-      : `Upgrade to ${capitalize(name)}`;
+    : `Upgrade to ${capitalize(name)}`;
 
   return (
     <div className={cn('mt-1 mb-8', className)} {...props}>
@@ -179,7 +175,6 @@ export const Plans = () => {
   if (!business) return null;
 
   const subscription = business.subscription;
-  const now = new Date();
 
   const handleCheckout = async (priceId: string) => {
     if (!businessId || !priceId) return;
@@ -201,18 +196,13 @@ export const Plans = () => {
   };
 
   const hasActiveSubscription = subscription?.status === 'ACTIVE';
-  const trialEligible = !subscription;
 
   return (
     <div className="relative max-w-5xl">
       <div className="flex flex-wrap gap-5">
         {plans.map((plan) => {
           const samePlan = subscription?.plan.stripePriceId === plan.priceId;
-          const inTrial =
-            subscription?.trialEndsAt &&
-            new Date(subscription.trialEndsAt) > now;
-          const active =
-            samePlan && (subscription?.status === 'ACTIVE' || !!inTrial);
+          const active = samePlan && subscription?.status === 'ACTIVE';
           const isLoading =
             isCreatingCheckout && checkoutPriceId === plan.priceId;
 
@@ -234,7 +224,6 @@ export const Plans = () => {
                   active={active}
                   onCheckout={handleCheckout}
                   isLoading={isLoading}
-                  trialEligible={trialEligible}
                 />
                 <PlanFeatures features={plan.features} />
               </div>

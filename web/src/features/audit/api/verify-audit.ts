@@ -9,7 +9,7 @@ export const verifyAuditInputSchema = z.object({
 });
 
 export type VerifyAuditInput = z.infer<typeof verifyAuditInputSchema>;
-type VerifyAuditResponse = { auditId: string };
+type VerifyAuditResponse = { auditSlug: string };
 
 export const verifyAudit = (data: VerifyAuditInput) =>
   api.post<VerifyAuditResponse>('/audits/verify', data);

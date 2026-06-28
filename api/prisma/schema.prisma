@@ -10,15 +10,6 @@ datasource db {
 
 // --- ENUMS ---
 
-enum DomainType {
-  CORPORATE
-  REFERENCE
-  INSTITUTIONAL
-  EDITORIAL
-  UGC
-  OTHER
-}
-
 enum JobType {
   SITE_AUDIT
   BUSINESS_INITIALIZATION
@@ -109,7 +100,9 @@ enum PromptResponseStatus {
 }
 
 enum PromptAwarenessStage {
+  AWARENESS
   EXPLORE
+  CONSIDERATION
   EVALUATE
   DECIDE
 }
@@ -437,6 +430,7 @@ model BusinessMetric {
 
 model Audit {
   id        String   @id @default(uuid()) @db.Uuid
+  slug      String   @unique
   email     String   @db.Citext
   domain    String
   country   String   @default("US")
@@ -457,15 +451,4 @@ model Audit {
 
   @@index([email])
   @@map("audits")
-}
-
-// --- DOMAIN INFO MODELS ---
-
-model DomainInfo {
-  domain    String     @id
-  type      DomainType @default(OTHER)
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
-
-  @@map("domain_info")
 }

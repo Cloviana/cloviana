@@ -25,7 +25,6 @@
     "test": "node --import tsx --test $(find src -name '*.test.ts' -print)",
     "test:audit": "tsx scripts/run-audit.ts",
     "test:crawlability": "tsx scripts/run-crawlability-checks.ts",
-    "test:prompt-generation": "node --import tsx scripts/run-prompt-generation.ts",
     "test:monitoring": "tsx scripts/run-monitoring.ts",
     "db:generate": "prisma generate",
     "db:studio": "prisma studio",
