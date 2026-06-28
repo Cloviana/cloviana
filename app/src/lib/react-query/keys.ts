@@ -1,5 +1,6 @@
 export const businessKeys = {
   base: ['businesses'] as const,
+  list: () => [...businessKeys.base, 'list'] as const,
   detail: (businessId: string) =>
     [...businessKeys.base, 'detail', businessId] as const,
   competitorSuggestions: (businessId: string) =>

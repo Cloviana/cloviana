@@ -188,16 +188,16 @@
 
     --radius: 0.5rem;
 
-    --sidebar: var(--studio);
-    --sidebar-foreground: var(--foreground);
+    --sidebar: hsl(0 0% 97%);
+    --sidebar-foreground: hsl(0 0% 39%);
 
-    --sidebar-accent: var(--accent);
-    --sidebar-accent-foreground: var(--foreground);
+    --sidebar-accent: hsl(40 9% 94%);
+    --sidebar-accent-foreground: hsl(60 2% 39%);
 
-    --sidebar-primary: hsl(260 8% 93%);
-    --sidebar-primary-foreground: var(--foreground);
+    --sidebar-primary: hsl(40 9% 93%);
+    --sidebar-primary-foreground: hsl(60 2% 39%);
 
-    --sidebar-border: var(--border);
+    --sidebar-border: hsl(0 0% 93%);
     --sidebar-ring: hsl(217.2 91.2% 59.8%);
 
     --tooltip: hsl(0 0% 24%);

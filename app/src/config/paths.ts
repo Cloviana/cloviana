@@ -27,6 +27,11 @@ export const paths = {
     getHref: (businessId?: string, query?: Record<string, any>) =>
       buildPath(businessId ? `/b/${businessId}` : '/b', query),
 
+    knowledge: {
+      getHref: (businessId: string, query?: Record<string, any>) =>
+        buildPath(`/b/${businessId}/knowledge`, query),
+    },
+
     settings: {
       getHref: (businessId: string, query?: Record<string, any>) =>
         buildPath(`/b/${businessId}/settings`, query),
