@@ -7,6 +7,14 @@ export const businessKeys = {
     [...businessKeys.base, 'competitor-suggestions', businessId] as const,
 };
 
+export const documentKeys = {
+  base: ['documents'] as const,
+  list: (businessId: string) =>
+    [...documentKeys.base, 'list', businessId] as const,
+  detail: (businessId: string, documentId: string) =>
+    [...documentKeys.base, 'detail', businessId, documentId] as const,
+};
+
 export const jobKeys = {
   base: ['jobs'] as const,
   list: () => [...jobKeys.base, 'list'] as const,

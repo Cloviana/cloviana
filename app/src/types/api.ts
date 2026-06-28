@@ -100,3 +100,13 @@ export interface CursorPaginatedResponse<T> {
   data: T[];
   meta: CursorPaginationMeta;
 }
+
+export type DocumentTag = 'business' | 'domain';
+
+export type Document = Entity<{
+  businessId: ID;
+  name: string;
+  tag: DocumentTag;
+  previewUrl: string | null;
+  blurHashUrl: string | null;
+}>;
