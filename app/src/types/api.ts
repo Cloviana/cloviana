@@ -106,7 +106,6 @@ export type DocumentTag = 'business' | 'domain';
 export type Document = Entity<{
   businessId: ID;
   name: string;
+  extension: string;
   tag: DocumentTag;
-  previewUrl: string | null;
-  blurHashUrl: string | null;
 }>;

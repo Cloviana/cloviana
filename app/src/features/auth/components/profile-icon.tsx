@@ -13,7 +13,7 @@ export const ProfileIcon = ({
   return (
     <div
       className={cn(
-        'flex size-8 items-center justify-center rounded-full border border-purple-200/60 bg-purple-50 text-purple-600 ring-gray-100 hover:ring-3',
+        'flex size-8 items-center justify-center rounded-full border border-red-200/60 bg-red-50 text-red-600 ring-gray-100 hover:ring-3',
         isLoading && 'animate-pulse',
       )}
     >

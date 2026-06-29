@@ -56,7 +56,7 @@ export function DashboardSidebar({ businessId }: DashboardSidebarProps) {
 
   return (
     <Sidebar collapsible="icon">
-      <SidebarHeader className="border-sidebar-border border-b px-2 group-data-[collapsible=icon]:items-center group-data-[collapsible=icon]:gap-2 group-data-[collapsible=icon]:px-0 group-data-[collapsible=icon]:py-2">
+      <SidebarHeader className="border-sidebar-border h-12 border-b px-2 group-data-[collapsible=icon]:items-center group-data-[collapsible=icon]:gap-2 group-data-[collapsible=icon]:px-0 group-data-[collapsible=icon]:py-2">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <button
