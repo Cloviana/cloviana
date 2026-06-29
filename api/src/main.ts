@@ -1,4 +1,5 @@
 import fastifyCookie from "@fastify/cookie";
+import fastifyMultipart from "@fastify/multipart";
 import { Logger, ValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import {
@@ -19,6 +20,14 @@ async function bootstrap() {
     { rawBody: true },
   );
   await app.register(fastifyCookie);
+  await app.register(fastifyMultipart, {
+    limits: {
+      files: 5,
+      fields: 5,
+      fileSize: 5 * 1024 * 1024,
+      parts: 10,
+    },
+  });
 
   // Global API prefix and auth guard
   app.setGlobalPrefix("api");

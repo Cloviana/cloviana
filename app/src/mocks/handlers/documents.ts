@@ -28,10 +28,11 @@ export const documentHandlers = [
 
       const created: Document[] = files.map((file, i) => {
         const extension = file.name.split('.').pop() ?? '';
+        const name = file.name.slice(0, -(extension.length + 1));
         const doc: Document = {
           id: makeId(),
           businessId: params.businessId as string,
-          name: file.name,
+          name,
           extension,
           tag: (tags[i] as Document['tag']) ?? 'business',
           createdAt: now(),

@@ -107,6 +107,11 @@ enum PromptAwarenessStage {
   DECIDE
 }
 
+enum DocumentTag {
+  business
+  domain
+}
+
 // --- BILLING MODELS ---
 
 model Plan {
@@ -177,6 +182,7 @@ model Business {
   members     BusinessMember[]
   invites     BusinessInvite[]
   metrics     BusinessMetric[]
+  documents   Document[]
 
   @@index([ownerId])
   @@map("businesses")
@@ -424,6 +430,21 @@ model BusinessMetric {
 
   @@index([businessId, competitorId, date, engine])
   @@map("business_metrics")
+}
+
+model Document {
+  id         String      @id @default(uuid()) @db.Uuid
+  businessId String
+  name       String
+  extension  String
+  tag        DocumentTag
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+
+  business Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+
+  @@index([businessId])
+  @@map("documents")
 }
 
 // --- AUDIT MODELS ---

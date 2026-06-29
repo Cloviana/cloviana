@@ -20,6 +20,12 @@ export class AppConfiguration {
   readonly apiUrl: string;
 
   @IsString()
+  @Value("KNOWLEDGE_BASE_URL", {
+    parse: (value) => value || "http://localhost:8080",
+  })
+  readonly knowledgeBaseUrl: string;
+
+  @IsString()
   @Value("ENVIRONMENT", { parse: (value) => value || "development" })
   readonly environment: "development" | "production";
 
