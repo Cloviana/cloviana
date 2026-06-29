@@ -7,7 +7,6 @@ import { AuditsProducer } from "@/infrastructure/messaging/producers/audits.prod
 import { CACHE_MANAGER, Cache } from "@nestjs/cache-manager";
 import {
   BadRequestException,
-  ConflictException,
   Inject,
   Injectable,
   NotFoundException,
@@ -17,6 +16,7 @@ import { Prisma } from "@prisma/client";
 const VERIFY_PREFIX = "audit-verify";
 const VERIFY_TTL_MS = 10 * 60 * 1000; // 10 minutes
 const VERIFY_EXPIRY_MINUTES = 10;
+const AUDIT_REUSE_WINDOW_MS = 14 * 24 * 60 * 60 * 1000;
 const DEV_EMAIL = "samuel@cloviana.com";
 const DEV_CODE = 123456;
 const MAX_SLUG_ATTEMPTS = 20;
@@ -26,6 +26,17 @@ interface VerifyPayload {
   domain: string;
   country: string;
 }
+
+type AuditReportFields = Pick<
+  Prisma.AuditUncheckedCreateInput,
+  | "brandName"
+  | "visibilityLeaderboard"
+  | "citationLeaderboard"
+  | "sentiment"
+  | "topPages"
+  | "contentSuggestions"
+  | "brandVisibility"
+>;
 
 function toAuditSlugBase(domain: string): string {
   const normalizedDomain = normalizeDomain(domain) ?? domain;
@@ -52,7 +63,7 @@ export class AuditsService {
 
     const isDev = email.toLowerCase() === DEV_EMAIL;
 
-    // Dev bypass: skip duplicate check and email sending
+    // Dev bypass: keep the verification step without sending an email.
     if (isDev) {
       await this.cache.set(
         `${VERIFY_PREFIX}:${email}`,
@@ -64,16 +75,6 @@ export class AuditsService {
         VERIFY_TTL_MS,
       );
       return;
-    }
-
-    const existing = await this.prisma.audit.findFirst({
-      where: { email },
-    });
-
-    if (existing) {
-      throw new ConflictException(
-        "An audit has already been requested for this email",
-      );
     }
 
     const code = randomInt(100_000, 999_999);
@@ -103,6 +104,19 @@ export class AuditsService {
     }
 
     await this.cache.del(`${VERIFY_PREFIX}:${email}`);
+
+    const recentAudit = await this.findRecentCompletedAudit(payload.domain);
+
+    if (recentAudit) {
+      const copiedAudit = await this.createAuditWithSlug({
+        email,
+        domain: payload.domain,
+        country: payload.country,
+        ...this.getReportFieldsForCopy(recentAudit),
+      });
+
+      return { auditSlug: copiedAudit.slug };
+    }
 
     const audit = await this.createAuditWithSlug({
       email,
@@ -135,7 +149,7 @@ export class AuditsService {
     email: string;
     domain: string;
     country: string;
-  }) {
+  } & Partial<AuditReportFields>) {
     const baseSlug = toAuditSlugBase(data.domain);
 
     for (let attempt = 1; attempt <= MAX_SLUG_ATTEMPTS; attempt += 1) {
@@ -162,6 +176,59 @@ export class AuditsService {
         slug: `${baseSlug}-${Date.now().toString(36)}`,
       },
     });
+  }
+
+  private async findRecentCompletedAudit(domain: string) {
+    const cutoff = new Date(Date.now() - AUDIT_REUSE_WINDOW_MS);
+    const audits = await this.prisma.audit.findMany({
+      where: {
+        domain,
+        createdAt: { gte: cutoff },
+      },
+      orderBy: { createdAt: "desc" },
+      take: 10,
+    });
+
+    return audits.find((audit) => this.hasCompletedReport(audit)) ?? null;
+  }
+
+  private hasCompletedReport(audit: {
+    brandName: string | null;
+    visibilityLeaderboard: unknown | null;
+    citationLeaderboard: unknown | null;
+    sentiment: unknown | null;
+    topPages: unknown | null;
+    brandVisibility: unknown | null;
+  }) {
+    return (
+      audit.brandName !== null &&
+      audit.visibilityLeaderboard !== null &&
+      audit.citationLeaderboard !== null &&
+      audit.sentiment !== null &&
+      audit.topPages !== null &&
+      audit.brandVisibility !== null
+    );
+  }
+
+  private getReportFieldsForCopy(audit: {
+    brandName: string | null;
+    visibilityLeaderboard: unknown | null;
+    citationLeaderboard: unknown | null;
+    sentiment: unknown | null;
+    topPages: unknown | null;
+    contentSuggestions: unknown | null;
+    brandVisibility: unknown | null;
+  }): AuditReportFields {
+    return {
+      brandName: audit.brandName,
+      visibilityLeaderboard:
+        audit.visibilityLeaderboard as Prisma.InputJsonValue,
+      citationLeaderboard: audit.citationLeaderboard as Prisma.InputJsonValue,
+      sentiment: audit.sentiment as Prisma.InputJsonValue,
+      topPages: audit.topPages as Prisma.InputJsonValue,
+      contentSuggestions: audit.contentSuggestions as Prisma.InputJsonValue,
+      brandVisibility: audit.brandVisibility as Prisma.InputJsonValue,
+    };
   }
 
   private isUuid(value: string): boolean {
