@@ -3,6 +3,7 @@ import {
   HydrationBoundary,
   QueryClient,
 } from '@tanstack/react-query';
+import { Suspense } from 'react';
 
 import { DashboardHeader } from '@/features/dashboard/components/dashboard-header';
 import { DashboardPageLayout } from '@/features/dashboard/components/dashboard-page-layout';
@@ -22,7 +23,9 @@ export default async function KnowledgePage({ params }: PageProps) {
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <DashboardPageLayout header={<DashboardHeader />}>
-        <Documents businessId={businessId} />
+        <Suspense>
+          <Documents businessId={businessId} />
+        </Suspense>
       </DashboardPageLayout>
     </HydrationBoundary>
   );

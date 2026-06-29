@@ -186,10 +186,13 @@ export function Documents({ businessId }: DocumentsProps) {
                           <MoreHorizontal className="size-4" />
                         </Button>
                       </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end">
+                      <DropdownMenuContent align="end" className="w-44">
                         <DropdownMenuSub>
                           <DropdownMenuSubTrigger>Tag</DropdownMenuSubTrigger>
-                          <DropdownMenuSubContent sideOffset={8}>
+                          <DropdownMenuSubContent
+                            sideOffset={8}
+                            className="w-36"
+                          >
                             {(['business', 'domain'] as DocumentTag[]).map(
                               (option) => (
                                 <DropdownMenuItem

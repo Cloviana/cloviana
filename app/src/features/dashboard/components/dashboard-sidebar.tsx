@@ -1,6 +1,6 @@
 'use client';
 
-import { Brain, Check, ChevronDown, ChevronRight } from 'lucide-react';
+import { Brain, ChevronDown, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -103,7 +103,6 @@ export function DashboardSidebar({ businessId }: DashboardSidebarProps) {
                     className="flex w-full items-center gap-2"
                   >
                     <span className="min-w-0 flex-1 truncate">{item.name}</span>
-                    {isActive && <Check className="size-4" strokeWidth={2.7} />}
                   </Link>
                 </DropdownMenuItem>
               );
