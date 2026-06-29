@@ -2,7 +2,7 @@
 
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { cva } from 'class-variance-authority';
-import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
+import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 import * as React from 'react';
 
 import { cn } from '@/utils/cn';
@@ -103,7 +103,7 @@ function SelectContent({
         <SelectScrollUpButton />
         <SelectPrimitive.Viewport
           className={cn(
-            'space-y-1 p-1',
+            'group/select-content p-1',
             position === 'popper' &&
               'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-1',
           )}
@@ -132,18 +132,29 @@ function SelectLabel({
 function SelectItem({
   className,
   children,
+  showIndicator = true,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Item>) {
+}: React.ComponentProps<typeof SelectPrimitive.Item> & {
+  showIndicator?: boolean;
+}) {
   return (
     <SelectPrimitive.Item
       data-slot="select-item"
       className={cn(
         "focus:bg-accent data-[state=checked]:bg-accent focus:text-foreground [&_svg:not([class*='text-'])]:text-foreground relative flex w-full cursor-default items-center gap-2 rounded-md px-2 py-1 text-sm leading-5 font-normal outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2",
+        'data-[state=checked]:text-foreground',
+        'group-has-data-highlighted/select-content:data-[state=checked]:bg-transparent group-has-data-highlighted/select-content:data-[state=checked]:text-inherit',
+        'data-highlighted:bg-accent! data-highlighted:text-foreground!',
         className,
       )}
       {...props}
     >
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+      {showIndicator && (
+        <SelectPrimitive.ItemIndicator className="ml-auto">
+          <CheckIcon className="size-3" strokeWidth={2.5} />
+        </SelectPrimitive.ItemIndicator>
+      )}
     </SelectPrimitive.Item>
   );
 }

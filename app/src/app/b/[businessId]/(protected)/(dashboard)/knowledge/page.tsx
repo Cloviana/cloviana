@@ -1,43 +1,29 @@
-import Image from 'next/image';
-
 import {
-  Empty,
-  EmptyContent,
-  EmptyDescription,
-  EmptyHeader,
-  EmptyMedia,
-  EmptyTitle,
-} from '@/components/ui/empty';
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from '@tanstack/react-query';
+
 import { DashboardHeader } from '@/features/dashboard/components/dashboard-header';
 import { DashboardPageLayout } from '@/features/dashboard/components/dashboard-page-layout';
-import { AddKnowledgeSheet } from '@/features/knowledge/components/add-knowledge-sheet';
+import { getDocumentsQueryOptions } from '@/features/knowledge/api/get-documents';
+import { Documents } from '@/features/knowledge/components/documents';
 
-export default function KnowledgePage() {
+type PageProps = {
+  params: Promise<{ businessId: string }>;
+};
+
+export default async function KnowledgePage({ params }: PageProps) {
+  const { businessId } = await params;
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(getDocumentsQueryOptions(businessId));
+
   return (
-    <DashboardPageLayout header={<DashboardHeader />} content="centered">
-      <Empty className="border-0 bg-transparent p-0 md:p-0">
-        <EmptyMedia>
-          <Image
-            src="/images/databases.svg"
-            width={96}
-            height={144}
-            alt=""
-            aria-hidden="true"
-            priority
-            className="object-contain"
-          />
-        </EmptyMedia>
-        <EmptyHeader className="gap-2">
-          <EmptyTitle>No knowledge sources yet</EmptyTitle>
-          <EmptyDescription className="max-w-xl">
-            Add business and domain context so the agent understands your
-            company, customers, and category
-          </EmptyDescription>
-        </EmptyHeader>
-        <EmptyContent>
-          <AddKnowledgeSheet />
-        </EmptyContent>
-      </Empty>
-    </DashboardPageLayout>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <DashboardPageLayout header={<DashboardHeader />}>
+        <Documents businessId={businessId} />
+      </DashboardPageLayout>
+    </HydrationBoundary>
   );
 }
