@@ -1,6 +1,6 @@
 'use client';
 
-import { FileText, MoreHorizontal, Plus, Trash2 } from 'lucide-react';
+import { MoreHorizontal, Plus, Trash2 } from 'lucide-react';
 import Image from 'next/image';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
@@ -43,22 +43,21 @@ import type { DocumentTag } from '@/types/api';
 const EXTENSION_ICONS: Record<string, string> = {
   pdf: '/icons/PDF_file_icon.svg',
   docx: '/icons/docx_icon.svg',
-  gdoc: '/icons/Google_Docs_Logo.svg',
 };
 
+const DEFAULT_ICON = '/icons/Google_Docs_Logo.svg';
+
 function DocumentIcon({ extension }: { extension: string }) {
-  const src = EXTENSION_ICONS[extension.toLowerCase()];
-  if (src)
-    return (
-      <Image
-        src={src}
-        width={16}
-        height={16}
-        alt={extension}
-        className="shrink-0"
-      />
-    );
-  return <FileText className="text-foreground-lighter size-4 shrink-0" />;
+  const src = EXTENSION_ICONS[extension.toLowerCase()] ?? DEFAULT_ICON;
+  return (
+    <Image
+      src={src}
+      width={16}
+      height={16}
+      alt={extension}
+      className="size-4 shrink-0 object-contain"
+    />
+  );
 }
 
 interface DocumentsProps {
