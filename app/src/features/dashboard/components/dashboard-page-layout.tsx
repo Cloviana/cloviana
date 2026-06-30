@@ -20,7 +20,7 @@ export function DashboardPageLayout({
       {header}
       <main
         className={cn(
-          'flex min-h-0 flex-1 overflow-y-auto px-16 py-8',
+          'flex min-h-0 flex-1 flex-col overflow-y-auto px-16 py-8',
           content === 'centered' && 'items-center justify-center',
           className,
         )}

@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
+  turbopack: {},
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'cloviana-assets.azureedge.net', port: '' },

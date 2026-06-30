@@ -1,10 +1,12 @@
 'use client';
 
-import { Brain, ChevronDown, ChevronRight } from 'lucide-react';
+import { Brain, ChevronDown, ChevronRight, Plus } from 'lucide-react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 import {
   Collapsible,
   CollapsibleContent,
@@ -38,9 +40,12 @@ type DashboardSidebarProps = {
 };
 
 export function DashboardSidebar({ businessId }: DashboardSidebarProps) {
+  const router = useRouter();
   const pathname = usePathname();
+  const [shortcutKeys, setShortcutKeys] = useState(['Ctrl', 'J']);
   const { data: business } = useGetBusiness(businessId);
   const { data: businesses = [] } = useBusinesses();
+  const chatHref = paths.business.chat.getHref(businessId);
   const knowledgeHref = paths.business.knowledge.getHref(businessId);
   const faviconUrl = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(
     business?.domain ?? '',
@@ -53,6 +58,35 @@ export function DashboardSidebar({ businessId }: DashboardSidebarProps) {
       icon: Brain,
     },
   ];
+
+  useEffect(() => {
+    const isMac = /Mac|iPhone|iPad|iPod/.test(window.navigator.platform);
+
+    setShortcutKeys(isMac ? ['⌘', 'J'] : ['Ctrl', 'J']);
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const target = event.target;
+      const isEditable =
+        target instanceof HTMLElement &&
+        (target.isContentEditable ||
+          ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName));
+
+      if (isEditable) {
+        return;
+      }
+
+      if (event.key.toLowerCase() === 'j' && (event.metaKey || event.ctrlKey)) {
+        event.preventDefault();
+        router.push(chatHref);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [chatHref, router]);
 
   return (
     <Sidebar collapsible="icon">
@@ -112,6 +146,41 @@ export function DashboardSidebar({ businessId }: DashboardSidebarProps) {
       </SidebarHeader>
 
       <SidebarContent className="group-data-[collapsible=icon]:pt-2">
+        <div className="px-2 pt-2 group-data-[collapsible=icon]:px-0 group-data-[collapsible=icon]:pt-0">
+          <SidebarMenu className="group-data-[collapsible=icon]:items-center">
+            <SidebarMenuItem className="group-data-[collapsible=icon]:flex group-data-[collapsible=icon]:w-full group-data-[collapsible=icon]:justify-center">
+              <Button
+                asChild
+                variant="outline"
+                className="w-full justify-start group-data-[collapsible=icon]:size-8 group-data-[collapsible=icon]:w-auto group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0"
+              >
+                <Link
+                  href={chatHref}
+                  aria-current={pathname === chatHref}
+                  aria-keyshortcuts="Meta+J Control+J"
+                >
+                  <span className="flex min-w-0 items-center gap-1.5">
+                    <Plus className="size-4" />
+                    <span className="truncate group-data-[collapsible=icon]:hidden">
+                      New Chat
+                    </span>
+                  </span>
+                  <span className="ml-auto flex items-center gap-1 group-data-[collapsible=icon]:hidden">
+                    {shortcutKeys.map((key) => (
+                      <kbd
+                        key={key}
+                        className="text-muted-foreground bg-background rounded border px-1.5 py-0.5 text-[11px] leading-none"
+                      >
+                        {key}
+                      </kbd>
+                    ))}
+                  </span>
+                </Link>
+              </Button>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </div>
+
         <Collapsible defaultOpen className="group/collapsible">
           <SidebarGroup>
             <SidebarGroupLabel asChild>

@@ -1,4 +1,8 @@
 @import 'tailwindcss';
+@import 'tw-shimmer';
+@import 'tw-shimmer';
+
+@custom-variant dark (&:is(.dark *));
 
 @plugin '@tailwindcss/typography';
 @plugin 'tailwindcss-animate';
@@ -141,7 +145,7 @@
     --primary: hsl(0, 3%, 13%);
     --primary-foreground: hsl(0 0% 98%);
 
-    --background: hsl(0 0% 98%);
+    --background: hsl(0 0% 100%);
     --studio: hsl(0 0% 100%);
     --surface: hsl(0 0% 98%);
 
@@ -356,6 +360,21 @@
     }
     to {
       transform: translateX(-100%);
+    }
+  }
+}
+
+@theme inline {
+  --animate-shine: shine var(--duration) infinite linear;
+  @keyframes shine {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    to {
+      background-position: 0% 0%;
     }
   }
 }
