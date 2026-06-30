@@ -1,5 +1,5 @@
 import Script from 'next/script';
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { AppProvider } from '@/app/provider';
 import '@/styles/globals.css';

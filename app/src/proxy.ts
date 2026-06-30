@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 const PUBLIC_PREFIXES = ['/api/auth', '/api/webhooks'];
 const isPublic = (p: string) => PUBLIC_PREFIXES.some((x) => p.startsWith(x));
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (isPublic(pathname)) {
