@@ -2,101 +2,157 @@
 
 import {
   AssistantRuntimeProvider,
-  type AttachmentAdapter,
   type ChatModelAdapter,
-  type ChatModelRunResult,
-  type CompleteAttachment,
-  CompositeAttachmentAdapter,
-  type PendingAttachment,
-  SimpleImageAttachmentAdapter,
-  SimpleTextAttachmentAdapter,
+  type ThreadMessageLike,
   useLocalRuntime,
 } from '@assistant-ui/react';
-import { useMemo } from 'react';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { isAxiosError } from 'axios';
+import { useRouter } from 'next/navigation';
+import { useEffect, useMemo, useRef } from 'react';
+import { toast } from 'sonner';
 
 import { Thread } from '@/components/assistant-ui/thread';
+import { paths } from '@/config/paths';
+import { getChatMessagesQueryOptions } from '@/features/chat/api/get-chat-messages';
+import { sendMessage } from '@/features/chat/api/send-message';
+import { chatAttachmentAdapter } from '@/features/chat/lib/attachment-adapter';
+import { chatKeys } from '@/lib/react-query';
 
-const readFileAsDataURL = (file: File): Promise<string> =>
-  new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result as string);
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  });
-
-class SimpleDocumentAttachmentAdapter implements AttachmentAdapter {
-  accept =
-    'application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document';
-
-  async add(state: { file: File }) {
-    return {
-      id: state.file.name,
-      type: 'document' as const,
-      name: state.file.name,
-      contentType: state.file.type,
-      file: state.file,
-      status: {
-        type: 'requires-action' as const,
-        reason: 'composer-send' as const,
-      },
-    };
-  }
-
-  async send(attachment: PendingAttachment): Promise<CompleteAttachment> {
-    const file = attachment.file as File;
-    const data = await readFileAsDataURL(file);
-
-    return {
-      ...attachment,
-      status: { type: 'complete' as const },
-      content: [
-        {
-          type: 'file' as const,
-          data,
-          mimeType: file.type,
-          filename: file.name,
-        },
-      ],
-    };
-  }
-
-  async remove() {}
-}
-
-const attachmentAdapter = new CompositeAttachmentAdapter([
-  new SimpleImageAttachmentAdapter(),
-  new SimpleTextAttachmentAdapter(),
-  new SimpleDocumentAttachmentAdapter(),
-]);
+const CHAT_NOT_FOUND_MESSAGE =
+  "You don't have access to this conversation. Make sure you're logged in to the right account, or ask the conversation owner to send you a share link.";
 
 type ChatThreadProps = {
+  businessId: string;
   chatId?: string;
+  navigateOnNewChat?: boolean;
+  onChatCreated?: (chatId: string) => void;
 };
 
-export function ChatThread({ chatId }: ChatThreadProps) {
+export function ChatThread({
+  businessId,
+  chatId,
+  navigateOnNewChat = true,
+  onChatCreated,
+}: ChatThreadProps) {
+  if (!chatId) {
+    return (
+      <ChatThreadRuntime
+        businessId={businessId}
+        navigateOnNewChat={navigateOnNewChat}
+        onChatCreated={onChatCreated}
+      />
+    );
+  }
+
+  return <ChatThreadWithHistory businessId={businessId} chatId={chatId} />;
+}
+
+type ChatThreadWithHistoryProps = {
+  businessId: string;
+  chatId: string;
+};
+
+// Waits until chat history has either loaded or failed before mounting the
+// runtime below, so useLocalRuntime's `initialMessages` (only read on its
+// very first render) is never captured as empty due to a pending fetch.
+function ChatThreadWithHistory({
+  businessId,
+  chatId,
+}: ChatThreadWithHistoryProps) {
+  const router = useRouter();
+  const { data, error, isPending } = useQuery(
+    getChatMessagesQueryOptions(businessId, chatId),
+  );
+  const notFound = isAxiosError(error) && error.response?.status === 404;
+
+  useEffect(() => {
+    if (!notFound) return;
+    toast.warning(CHAT_NOT_FOUND_MESSAGE, {
+      style: { '--width': '28rem' } as React.CSSProperties,
+    });
+    router.replace(paths.business.chat.getHref(businessId));
+  }, [notFound, router, businessId]);
+
+  const initialMessages = useMemo<ThreadMessageLike[] | undefined>(
+    () =>
+      data?.messages.map(
+        (message): ThreadMessageLike => ({
+          id: message.id,
+          role: message.role,
+          content: message.content,
+          createdAt: new Date(message.createdAt),
+        }),
+      ),
+    [data],
+  );
+
+  if (isPending || error) return null;
+
+  return (
+    <ChatThreadRuntime
+      businessId={businessId}
+      chatId={chatId}
+      initialMessages={initialMessages}
+    />
+  );
+}
+
+type ChatThreadRuntimeProps = {
+  businessId: string;
+  chatId?: string;
+  initialMessages?: ThreadMessageLike[];
+  navigateOnNewChat?: boolean;
+  onChatCreated?: (chatId: string) => void;
+};
+
+function ChatThreadRuntime({
+  businessId,
+  chatId,
+  initialMessages,
+  navigateOnNewChat = true,
+  onChatCreated,
+}: ChatThreadRuntimeProps) {
+  const router = useRouter();
+  const chatIdRef = useRef(chatId);
+  const queryClient = useQueryClient();
   const adapter = useMemo<ChatModelAdapter>(
     () => ({
       async run({ messages, abortSignal }) {
-        const response = await fetch('/api/chat', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ chatId, messages }),
-          signal: abortSignal,
+        const response = await sendMessage(
+          businessId,
+          { chatId: chatIdRef.current, messages },
+          abortSignal,
+        );
+
+        const isNewChat = !chatIdRef.current;
+        chatIdRef.current = response.chatId;
+
+        queryClient.invalidateQueries({
+          queryKey: chatKeys.list(businessId),
+        });
+        queryClient.invalidateQueries({
+          queryKey: chatKeys.detail(businessId, response.chatId),
         });
 
-        if (!response.ok) {
-          throw new Error('Unable to get mock chat response.');
+        if (isNewChat) {
+          onChatCreated?.(response.chatId);
+
+          if (navigateOnNewChat) {
+            router.replace(
+              paths.business.chat.detail.getHref(businessId, response.chatId),
+            );
+          }
         }
 
-        return (await response.json()) as ChatModelRunResult;
+        return response;
       },
     }),
-    [chatId],
+    [businessId, queryClient, router, navigateOnNewChat, onChatCreated],
   );
   const runtime = useLocalRuntime(adapter, {
-    adapters: { attachments: attachmentAdapter },
+    adapters: { attachments: chatAttachmentAdapter },
+    initialMessages,
   });
 
   return (

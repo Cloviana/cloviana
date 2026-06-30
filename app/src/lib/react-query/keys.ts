@@ -15,6 +15,13 @@ export const documentKeys = {
     [...documentKeys.base, 'detail', businessId, documentId] as const,
 };
 
+export const chatKeys = {
+  base: ['chats'] as const,
+  list: (businessId: string) => [...chatKeys.base, 'list', businessId] as const,
+  detail: (businessId: string, chatId: string) =>
+    [...chatKeys.base, 'detail', businessId, chatId] as const,
+};
+
 export const jobKeys = {
   base: ['jobs'] as const,
   list: () => [...jobKeys.base, 'list'] as const,

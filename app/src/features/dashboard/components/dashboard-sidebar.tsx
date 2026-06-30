@@ -152,7 +152,7 @@ export function DashboardSidebar({ businessId }: DashboardSidebarProps) {
               <Button
                 asChild
                 variant="outline"
-                className="w-full justify-start group-data-[collapsible=icon]:size-8 group-data-[collapsible=icon]:px-0"
+                className="w-full justify-start group-data-[collapsible=icon]:size-8 group-data-[collapsible=icon]:w-auto group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0"
               >
                 <Link
                   href={chatHref}

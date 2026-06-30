@@ -113,7 +113,7 @@ const ThreadRoot: FC<{ isEmpty: boolean }> = ({ isEmpty }) => {
     <ThreadPrimitive.Root
       className="aui-root aui-thread-root bg-background @container flex h-full flex-col"
       style={{
-        ['--thread-max-width' as string]: '44rem',
+        ['--thread-max-width' as string]: '54rem',
         ['--composer-bg' as string]:
           'color-mix(in oklab, var(--color-muted) 30%, var(--color-background))',
         ['--composer-radius' as string]: '1.5rem',
@@ -121,7 +121,6 @@ const ThreadRoot: FC<{ isEmpty: boolean }> = ({ isEmpty }) => {
       }}
     >
       <ThreadPrimitive.Viewport
-        turnAnchor="top"
         data-slot="aui_thread-viewport"
         className="relative flex flex-1 flex-col overflow-x-auto overflow-y-scroll scroll-smooth"
       >
