@@ -35,7 +35,7 @@ export default async function Layout({ children, params }: LayoutProps) {
           </p>
         </div>
       </div>
-      <div className="hidden md:block">
+      <div className="hidden h-svh md:block">
         <SidebarProvider
           style={
             {

@@ -24,11 +24,18 @@ const buttonVariants = cva(
         sm: 'h-7 text-xs px-3 has-[>svg]:px-2.5',
         xs: 'h-6 px-2 has-[>svg]:px-2 text-xs',
         lg: 'h-10 px-6 has-[>svg]:px-4 text-sm',
-        icon: 'size-8 text-foreground-light',
-        'icon-sm': 'size-7 text-foreground-light',
-        'icon-lg': 'size-10 text-foreground-light',
+        icon: 'size-8',
+        'icon-sm': 'size-7',
+        'icon-lg': 'size-10',
       },
     },
+    compoundVariants: [
+      {
+        variant: ['outline', 'dashed', 'ghost', 'link'],
+        size: ['icon', 'icon-sm', 'icon-lg'],
+        className: 'text-foreground-light',
+      },
+    ],
   },
 );
 
