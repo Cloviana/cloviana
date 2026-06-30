@@ -19,6 +19,8 @@ x-api-base: &api-base
     REDIS_URL: redis://redis:6379
     DATABASE_URL: ${DATABASE_URL}
     DIRECT_URL: ${DIRECT_URL}
+    KNOWLEDGE_BASE_URL: ${KNOWLEDGE_BASE_URL:-http://host.docker.internal:8080}
+    AGENT_URL: ${AGENT_URL:-http://host.docker.internal:8000}
     SUPABASE_URL: ${SUPABASE_URL}
     SUPABASE_JWT_SECRET: ${SUPABASE_JWT_SECRET}
     SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY}

@@ -12,11 +12,11 @@ import { DashboardHeader } from '@/features/dashboard/components/dashboard-heade
 import { DashboardPageLayout } from '@/features/dashboard/components/dashboard-page-layout';
 
 type PageProps = {
-  params: Promise<{ businessId: string; chatId: string }>;
+  params: Promise<{ businessId: string; id: string }>;
 };
 
 export default async function ChatDetailPage({ params }: PageProps) {
-  const { businessId, chatId } = await params;
+  const { businessId, id: chatId } = await params;
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery(

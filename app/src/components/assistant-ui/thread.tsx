@@ -408,11 +408,9 @@ const AssistantMessage: FC = () => {
                 return (
                   <span
                     data-slot="aui_assistant-message-indicator"
-                    className="animate-pulse font-sans"
+                    className="ml-1.5 inline-block h-2 w-2 animate-pulse rounded-full bg-foreground/70 align-middle"
                     aria-label="Assistant is working"
-                  >
-                    {'●'}
-                  </span>
+                  />
                 );
               default:
                 return null;

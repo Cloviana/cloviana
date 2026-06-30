@@ -12,11 +12,6 @@ type RequestOptions = {
   signal?: AbortSignal;
 };
 
-const axiosInstance = axios.create({
-  baseURL: env.API_URL,
-  withCredentials: false,
-});
-
 function filterParams(
   params?: RequestOptions['params'],
 ): Record<string, any> | undefined {
@@ -54,6 +49,10 @@ async function axiosApi<T>(
     cookieHeader = await getServerCookies();
 
   const config: AxiosRequestConfig = {
+    baseURL:
+      typeof window === 'undefined'
+        ? process.env.INTERNAL_API_URL || env.API_URL
+        : env.API_URL,
     url,
     method: method as AxiosRequestConfig['method'],
     headers: { ...headers, ...(cookieHeader ? { Cookie: cookieHeader } : {}) },
@@ -63,7 +62,7 @@ async function axiosApi<T>(
     signal,
   };
 
-  const response = await axiosInstance.request<T>(config);
+  const response = await axios.request<T>(config);
   return response.data;
 }
 

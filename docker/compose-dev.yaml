@@ -49,6 +49,8 @@ services:
     command: >
       sh -c "pnpm install &&
              pnpm dev"
+    environment:
+      CI: "true"
     volumes:
       - ../app:/app:cached
       - app-node-modules:/app/node_modules
@@ -63,6 +65,8 @@ services:
     command: >
       sh -c "pnpm install &&
              pnpm dev"
+    environment:
+      CI: "true"
     volumes:
       - ../web:/app:cached
       - web-node-modules:/app/node_modules

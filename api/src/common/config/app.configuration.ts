@@ -26,6 +26,12 @@ export class AppConfiguration {
   readonly knowledgeBaseUrl: string;
 
   @IsString()
+  @Value("AGENT_URL", {
+    parse: (value) => value || "http://localhost:8000",
+  })
+  readonly agentUrl: string;
+
+  @IsString()
   @Value("ENVIRONMENT", { parse: (value) => value || "development" })
   readonly environment: "development" | "production";
 

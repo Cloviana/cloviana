@@ -1,3 +1,4 @@
+import { STATUS_CODES } from "node:http";
 import {
   ArgumentsHost,
   Catch,
@@ -40,11 +41,21 @@ export class AllExceptionsFilter implements ExceptionFilter {
 
     if (exception instanceof HttpException) {
       status = exception.getStatus();
-      const res = exception.getResponse() as
-        | ProblemDetails
-        | { message: string | string[]; error?: string };
-      message = res.message ?? message;
-      error = res.error ?? error;
+      const response = exception.getResponse();
+      if (typeof response === "string") {
+        message = response;
+      } else {
+        const details = response as {
+          message?: string | string[];
+          error?: string;
+        };
+        message = details.message ?? message;
+        error = details.error ?? error;
+      }
+      error =
+        error === this.defaultError
+          ? (STATUS_CODES[status] ?? this.defaultError)
+          : error;
     } else if (
       typeof exception === "object" &&
       exception !== null &&
