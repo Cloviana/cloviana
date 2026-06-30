@@ -3,9 +3,9 @@
 import {
   InfoIcon,
   TriangleAlertIcon,
+  OctagonXIcon,
   Loader2Icon,
   Check,
-  CircleAlert,
 } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { Toaster as Sonner, type ToasterProps } from 'sonner';
@@ -24,10 +24,8 @@ const Toaster = ({ ...props }: ToasterProps) => {
           </div>
         ),
         info: <InfoIcon className="size-4" />,
-        warning: <TriangleAlertIcon className="size-4" />,
-        error: (
-          <CircleAlert className="size-4 text-red-700" strokeWidth={2.5} />
-        ),
+        warning: <TriangleAlertIcon className="size-4 text-amber-700" />,
+        error: <OctagonXIcon className="size-4" />,
         loading: <Loader2Icon className="size-4 animate-spin" />,
       }}
       style={
@@ -43,18 +41,23 @@ const Toaster = ({ ...props }: ToasterProps) => {
           toast: `
       cn-toast
       group/toast
-      data-[type=success]:!border-green-600
-      data-[type=success]:!bg-green-50
-      data-[type=error]:!border-red-600
-      data-[type=error]:!bg-red-50
+      shadow-none!
+      data-[type=success]:border-green-600!
+      data-[type=success]:bg-green-50!
+      data-[type=warning]:border-amber-500!
+      data-[type=warning]:bg-amber-50!
+      data-[type=error]:border-red-600!
+      data-[type=error]:bg-red-50!
     `,
           title: `
-      group-data-[type=success]/toast:!text-green-800
-      group-data-[type=error]/toast:!text-red-800
+      group-data-[type=success]/toast:text-green-800!
+      group-data-[type=warning]/toast:text-amber-800!
+      group-data-[type=error]/toast:text-red-800!
     `,
           description: `
-      group-data-[type=success]/toast:!text-green-800/90
-      group-data-[type=error]/toast:!text-red-800/90
+      group-data-[type=success]/toast:text-green-800/90!
+      group-data-[type=warning]/toast:text-amber-700/90!
+      group-data-[type=error]/toast:text-red-800/90!
     `,
         },
       }}

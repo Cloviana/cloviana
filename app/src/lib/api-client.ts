@@ -9,6 +9,7 @@ type RequestOptions = {
   cookie?: string;
   params?: Record<string, string | number | boolean | undefined | null>;
   onUploadProgress?: (progressEvent: AxiosProgressEvent) => void;
+  signal?: AbortSignal;
 };
 
 const axiosInstance = axios.create({
@@ -46,6 +47,7 @@ async function axiosApi<T>(
     cookie,
     params,
     onUploadProgress,
+    signal,
   } = options;
   let cookieHeader = cookie;
   if (typeof window === 'undefined' && !cookieHeader)
@@ -58,6 +60,7 @@ async function axiosApi<T>(
     params: filterParams(params),
     data: body || undefined,
     onUploadProgress,
+    signal,
   };
 
   const response = await axiosInstance.request<T>(config);
