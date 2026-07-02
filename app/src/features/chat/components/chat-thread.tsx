@@ -15,7 +15,7 @@ import { toast } from 'sonner';
 import { Thread } from '@/components/assistant-ui/thread';
 import { paths } from '@/config/paths';
 import { getChatMessagesQueryOptions } from '@/features/chat/api/get-chat-messages';
-import { sendMessage } from '@/features/chat/api/send-message';
+import { sendMessageStream } from '@/features/chat/api/send-message';
 import { chatAttachmentAdapter } from '@/features/chat/lib/attachment-adapter';
 import { chatKeys } from '@/lib/react-query';
 
@@ -118,34 +118,47 @@ function ChatThreadRuntime({
   const queryClient = useQueryClient();
   const adapter = useMemo<ChatModelAdapter>(
     () => ({
-      async run({ messages, abortSignal }) {
-        const response = await sendMessage(
+      async *run({ messages, abortSignal }) {
+        const isNewChat = !chatIdRef.current;
+        let text = '';
+
+        for await (const event of sendMessageStream(
           businessId,
           { chatId: chatIdRef.current, messages },
           abortSignal,
-        );
+        )) {
+          if (event.type === 'delta') {
+            text += event.text;
+            yield { content: [{ type: 'text' as const, text }] };
+          } else if (event.type === 'done') {
+            const { response } = event;
+            chatIdRef.current = response.chatId;
 
-        const isNewChat = !chatIdRef.current;
-        chatIdRef.current = response.chatId;
+            queryClient.invalidateQueries({
+              queryKey: chatKeys.list(businessId),
+            });
+            queryClient.invalidateQueries({
+              queryKey: chatKeys.detail(businessId, response.chatId),
+            });
 
-        queryClient.invalidateQueries({
-          queryKey: chatKeys.list(businessId),
-        });
-        queryClient.invalidateQueries({
-          queryKey: chatKeys.detail(businessId, response.chatId),
-        });
+            yield { content: response.content };
 
-        if (isNewChat) {
-          onChatCreated?.(response.chatId);
+            // Navigate after the stream so the remount doesn't cut it short.
+            if (isNewChat) {
+              onChatCreated?.(response.chatId);
 
-          if (navigateOnNewChat) {
-            router.replace(
-              paths.business.chat.detail.getHref(businessId, response.chatId),
-            );
+              if (navigateOnNewChat) {
+                router.replace(
+                  paths.business.chat.detail.getHref(
+                    businessId,
+                    response.chatId,
+                  ),
+                );
+              }
+            }
           }
+          // 'action' events are available here for a future activity feed.
         }
-
-        return response;
       },
     }),
     [businessId, queryClient, router, navigateOnNewChat, onChatCreated],

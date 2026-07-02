@@ -7,10 +7,11 @@ import {
   Param,
   Post,
   Req,
+  Res,
   UseGuards,
 } from "@nestjs/common";
 import { IsArray, IsOptional, IsString } from "class-validator";
-import type { FastifyRequest } from "fastify";
+import type { FastifyReply, FastifyRequest } from "fastify";
 import { ChatRateLimiter } from "./chat-rate-limiter.service";
 import { ChatService, type IncomingMessage } from "./chat.service";
 
@@ -43,6 +44,24 @@ export class ChatController {
     );
     try {
       return await this.chat.send(businessId, body);
+    } finally {
+      await release();
+    }
+  }
+
+  @Post("chat/stream")
+  async stream(
+    @Param("businessId") businessId: string,
+    @Body() body: SendMessageDto,
+    @Req() request: FastifyRequest & { user: AuthUser },
+    @Res() reply: FastifyReply,
+  ) {
+    const release = await this.rateLimiter.acquire(
+      request.user.sub,
+      businessId,
+    );
+    try {
+      await this.chat.stream(businessId, body, reply);
     } finally {
       await release();
     }
