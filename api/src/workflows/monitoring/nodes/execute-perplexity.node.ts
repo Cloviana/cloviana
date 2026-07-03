@@ -1,4 +1,4 @@
-import { getTitle } from "@/common/utils/get-title.util";
+import { PerplexityLlmResponseTask } from "@/integrations/dataforseo/dataforseo.types";
 import {
   MonitoringNodeConfig,
   requireMonitoringDependencies,
@@ -6,6 +6,7 @@ import {
 import { RESPONSES_PER_PROMPT_PER_ENGINE } from "../monitoring.constants";
 import { EngineResponse, StateType } from "../monitoring.state";
 import type { EngineFailure } from "../monitoring.types";
+import { extractLlmResponseContent } from "../utils/extract-llm-response-content";
 
 export async function executePerplexity(
   state: StateType,
@@ -14,7 +15,7 @@ export async function executePerplexity(
   rawEngineResponses: EngineResponse[];
   engineFailures: EngineFailure[];
 }> {
-  const { perplexity, logger } = requireMonitoringDependencies(config);
+  const { dataForSeo, logger } = requireMonitoringDependencies(config);
   const requestedCount = state.prompts.length * RESPONSES_PER_PROMPT_PER_ENGINE;
 
   const results: EngineResponse[] = [];
@@ -24,40 +25,43 @@ export async function executePerplexity(
     `[${state.businessId}] Monitoring Perplexity batch starting promptCount=${state.prompts.length} requested=${requestedCount}`,
   );
 
+  // ponytail: DataForSEO has no task_post/tasks_ready for Perplexity, live is the only option
   await Promise.all(
     state.prompts.flatMap((prompt) =>
       Array.from({ length: RESPONSES_PER_PROMPT_PER_ENGINE }, async () => {
         try {
-          const result = await perplexity.create({
-            model: "sonar",
-            reasoning_effort: "medium",
-            temperature: 0,
-            messages: [{ role: "user", content: prompt.text }],
-            web_search_options: {
-              user_location: {
-                country: "US",
-              },
-            },
-          });
-          const citations = await Promise.all(
-            result.citations.map(async (url) => ({
-              url,
-              title: await getTitle(url),
-            })),
+          const task: PerplexityLlmResponseTask = {
+            user_prompt: prompt.text,
+            model_name: "sonar",
+          };
+          const response = await dataForSeo.getPerplexityLlmResponse(task);
+          const result = response.tasks?.[0]?.result?.[0];
+
+          if (!result) {
+            throw new Error(
+              response.tasks?.[0]?.status_message ??
+                "Perplexity response returned no result",
+            );
+          }
+
+          const { content, citations } = extractLlmResponseContent(
+            result.items,
           );
-          const mentions: { domain: string }[] = [];
-          const fanOutQueries = (
-            result.raw.choices[0]?.message.reasoning_steps ?? []
-          ).flatMap((step) => step.web_search?.search_keywords ?? []);
+
+          if (!content) {
+            logger?.warn(
+              `[${state.businessId}] Monitoring Perplexity returned empty content promptId=${prompt.id}`,
+            );
+          }
 
           results.push({
             engine: "perplexity",
             promptId: prompt.id,
-            content: result.content,
+            content,
             citations,
-            mentions,
-            fanOutQueries,
-            raw: result.raw,
+            mentions: [],
+            fanOutQueries: result.fan_out_queries ?? [],
+            raw: result,
           });
         } catch (error) {
           const message =
@@ -75,8 +79,10 @@ export async function executePerplexity(
     ),
   );
 
+  const emptyCount = results.filter((response) => !response.content).length;
+
   logger?.log(
-    `[${state.businessId}] Monitoring Perplexity batch completed requested=${requestedCount} succeeded=${results.length} failed=${failures.length}`,
+    `[${state.businessId}] Monitoring Perplexity batch completed requested=${requestedCount} succeeded=${results.length} failed=${failures.length} empty=${emptyCount}`,
   );
 
   return { rawEngineResponses: results, engineFailures: failures };

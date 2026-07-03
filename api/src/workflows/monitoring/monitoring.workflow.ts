@@ -1,7 +1,4 @@
-import { AnthropicService } from "@/clients/anthropic/anthropic.service";
 import { GroqService } from "@/clients/groq/groq.service";
-import { OpenAIService } from "@/clients/openai/openai.service";
-import { PerplexityService } from "@/clients/perplexity/perplexity.service";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { DataForSeoService } from "@/integrations/dataforseo/dataforseo.service";
 import { ManagedJobsService } from "@/modules/jobs/services/managed-jobs.service";
@@ -49,11 +46,8 @@ export class MonitoringWorkflow {
   constructor(
     private readonly prisma: PrismaService,
     private readonly managedJobs: ManagedJobsService,
-    private readonly anthropic: AnthropicService,
     private readonly dataForSeo: DataForSeoService,
     private readonly groq: GroqService,
-    private readonly openai: OpenAIService,
-    private readonly perplexity: PerplexityService,
     private readonly monitoringRunPersistence: MonitoringRunPersistenceService,
   ) {}
 
@@ -108,11 +102,8 @@ export class MonitoringWorkflow {
 
     const result = await graph.invoke(initialState, {
       configurable: {
-        anthropic: this.anthropic,
         dataForSeo: this.dataForSeo,
         groq: this.groq,
-        openai: this.openai,
-        perplexity: this.perplexity,
         logger: this.logger,
       },
     });

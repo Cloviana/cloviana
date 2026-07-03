@@ -1,8 +1,5 @@
 import "dotenv/config";
-import { AnthropicService } from "@/clients/anthropic/anthropic.service";
 import { GroqService } from "@/clients/groq/groq.service";
-import { OpenAIService } from "@/clients/openai/openai.service";
-import { PerplexityService } from "@/clients/perplexity/perplexity.service";
 import { AppConfiguration } from "@/config/app.configuration";
 import { DataForSeoService } from "@/integrations/dataforseo/dataforseo.service";
 import { graph } from "@/workflows/monitoring/monitoring.graph";
@@ -16,7 +13,7 @@ const input: StateType = {
   prompts: [
     {
       id: "prompt-1",
-      text: "What do banks use to automate reconciliation across multiple payment systems",
+      text: "We are a mid-sized fintech processing payments across Stripe, regional banking rails, and card networks, and our finance team is drowning in manual reconciliation. What tools do banks and fintechs use in 2026 to automate reconciliation across multiple payment systems, how do leading options compare on accuracy and setup time, and what should we look for in audit trail and exception-handling? Research online and cite sources.",
     },
   ],
   competitors: [
@@ -52,11 +49,8 @@ function requireEnv(name: string): string {
 
 function getConfig(): AppConfiguration {
   return Object.assign(new AppConfiguration(), {
-    anthropicApiKey: requireEnv("ANTHROPIC_API_KEY"),
     dataForSeoBase64Credentials: requireEnv("DATA_FOR_SEO_BASE64_CREDENTIALS"),
     groqApiKey: requireEnv("GROQ_API_KEY"),
-    openaiApiKey: requireEnv("OPENAI_API_KEY"),
-    perplexityApiKey: requireEnv("PERPLEXITY_API_KEY"),
   });
 }
 
@@ -79,11 +73,8 @@ async function main() {
   const stream = graph.streamEvents(input, {
     version: "v2",
     configurable: {
-      anthropic: new AnthropicService(config),
       dataForSeo: new DataForSeoService(new HttpService(axios), config),
       groq: new GroqService(config),
-      openai: new OpenAIService(config),
-      perplexity: new PerplexityService(config),
       logger: undefined,
     },
   });

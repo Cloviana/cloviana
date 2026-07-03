@@ -1,5 +1,7 @@
-import { AiOverviewItem } from "@/integrations/dataforseo/dataforseo.types";
-import { extractFanOutQueries } from "@/workflows/monitoring/utils/extract-fan-out-queries";
+import {
+  AiOverviewItem,
+  GoogleOrganicTask,
+} from "@/integrations/dataforseo/dataforseo.types";
 import {
   MonitoringNodeConfig,
   requireMonitoringDependencies,
@@ -31,14 +33,23 @@ export async function executeGoogleAio(
         { length: RESPONSES_PER_PROMPT_PER_ENGINE },
         async (): Promise<EngineResponse | EngineFailure> => {
           try {
-            const response = await dataForSeo.getGoogleSerpAiOverview({
+            const task: GoogleOrganicTask = {
               keyword: prompt.text,
               language_code: "en",
               location_code: DEFAULT_GOOGLE_US_LOCATION_CODE,
-            });
+              load_async_ai_overview: true,
+            };
+            const response = await dataForSeo.getGoogleSerpAiOverview(task);
+            const result = response.tasks?.[0]?.result?.[0];
 
-            const taskResult = response.tasks?.[0]?.result?.[0];
-            const aiOverview = taskResult?.items?.find(
+            if (!result) {
+              throw new Error(
+                response.tasks?.[0]?.status_message ??
+                  "Google AIO response returned no result",
+              );
+            }
+
+            const aiOverview = result.items?.find(
               (item): item is AiOverviewItem => item.type === "ai_overview",
             );
 
@@ -55,16 +66,17 @@ export async function executeGoogleAio(
                 url: reference.url,
                 title: reference.title ?? "",
               }));
-            const mentions: { domain: string }[] = [];
 
             return {
               engine: "google-aio",
               promptId: prompt.id,
               content,
               citations,
-              mentions,
-              fanOutQueries: extractFanOutQueries(taskResult),
-              raw: response,
+              mentions: [],
+              // Google's SERP schema has no fan_out_queries field (that's an
+              // LLM-provider concept, not exposed for organic/AI overview).
+              fanOutQueries: [],
+              raw: result,
             };
           } catch (error) {
             const message =
