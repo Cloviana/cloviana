@@ -9,13 +9,53 @@ import {
   NotFoundException,
 } from "@nestjs/common";
 import { Cron } from "@nestjs/schedule";
-import { ChatMessageRole } from "@prisma/client";
+import { ChatMessageRole, type Prisma } from "@prisma/client";
 import type { FastifyReply } from "fastify";
 
 type IncomingPart = {
   type?: string;
   text?: string;
+  image?: string;
+  data?: string;
+  mimeType?: string;
+  filename?: string;
 };
+
+type AgentAttachment = {
+  name?: string;
+  mimeType?: string;
+  dataUrl: string;
+};
+
+const MAX_ATTACHMENTS = 5;
+
+function mimeFromDataUrl(dataUrl: string) {
+  const match = /^data:([^;,]+)/.exec(dataUrl);
+  return match?.[1];
+}
+
+// Image and file parts from the latest user message become agent
+// attachments; text parts are already covered by messageText().
+function attachmentsFrom(messages: readonly IncomingMessage[]) {
+  const latest = [...messages].reverse().find((m) => m.role === "user");
+  const attachments: AgentAttachment[] = [];
+  for (const part of latest?.content ?? []) {
+    if (attachments.length >= MAX_ATTACHMENTS) break;
+    if (part.type === "image" && part.image?.startsWith("data:")) {
+      attachments.push({
+        mimeType: mimeFromDataUrl(part.image),
+        dataUrl: part.image,
+      });
+    } else if (part.type === "file" && part.data?.startsWith("data:")) {
+      attachments.push({
+        name: part.filename,
+        mimeType: part.mimeType ?? mimeFromDataUrl(part.data),
+        dataUrl: part.data,
+      });
+    }
+  }
+  return attachments;
+}
 
 export type IncomingMessage = {
   role?: string;
@@ -155,30 +195,34 @@ export class ChatService {
     const text = userText(body.messages, true);
     if (!text) throw new BadRequestException("A user text message is required");
 
-    const existing = body.chatId
-      ? await this.prisma.chat.findFirst({
-          where: { id: body.chatId, businessId },
-          select: { id: true, title: true },
-        })
-      : null;
+    // Both lookups hit a remote database; run them in parallel so the
+    // stream starts one round trip sooner.
+    const [existing, business] = await Promise.all([
+      body.chatId
+        ? this.prisma.chat.findFirst({
+            where: { id: body.chatId, businessId },
+            select: { id: true, title: true },
+          })
+        : Promise.resolve(null),
+      this.prisma.business.findFirst({
+        where: { id: businessId },
+        select: {
+          id: true,
+          name: true,
+          domain: true,
+          category: true,
+          description: true,
+          icp: true,
+          location: true,
+          industry: true,
+        },
+      }),
+    ]);
     if (body.chatId && !existing) throw new NotFoundException("Chat not found");
 
     const chatId = existing?.id ?? randomUUID();
     const title = existing?.title ?? titleFrom(userText(body.messages, false));
 
-    const business = await this.prisma.business.findFirst({
-      where: { id: businessId },
-      select: {
-        id: true,
-        name: true,
-        domain: true,
-        category: true,
-        description: true,
-        icp: true,
-        location: true,
-        industry: true,
-      },
-    });
     if (!business) throw new NotFoundException("Business not found");
     this.logger.log(
       `chat: client overview fetched business=${businessId} chat=${chatId}`,
@@ -187,12 +231,14 @@ export class ChatService {
     return { text, chatId, title, clientContext: clientOverview(business) };
   }
 
+  // assistantContent is the full part list (reasoning, tool cards, text) so
+  // the activity trail survives reloads, not just the answer text.
   private async persist(
     businessId: string,
     chatId: string,
     title: string,
     userMessage: string,
-    reply: string,
+    assistantContent: Record<string, unknown>[],
   ) {
     await this.prisma.$transaction(async (prisma) => {
       await prisma.chat.upsert({
@@ -210,7 +256,7 @@ export class ChatService {
           {
             chatId,
             role: ChatMessageRole.assistant,
-            content: content(reply),
+            content: assistantContent as Prisma.InputJsonValue,
           },
         ],
       });
@@ -228,9 +274,10 @@ export class ChatService {
       chatId,
       text,
       clientContext,
+      attachmentsFrom(body.messages),
     );
 
-    await this.persist(businessId, chatId, title, text, reply);
+    await this.persist(businessId, chatId, title, text, content(reply));
     return { chatId, title, content: content(reply), actions };
   }
 
@@ -260,6 +307,15 @@ export class ChatService {
     const emit = (event: string, data: unknown) =>
       raw.write(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`);
 
+    // Mirror of the frontend's part assembly: the persisted assistant
+    // message keeps the reasoning + tool trail, not just the final text.
+    const assistantParts: Record<string, unknown>[] = [];
+    let liveText = "";
+    const flushLiveText = () => {
+      if (liveText.trim()) assistantParts.push({ type: "text", text: liveText });
+      liveText = "";
+    };
+
     try {
       const url = new URL("agent/chat/stream", this.baseUrl);
       const response = await fetch(url, {
@@ -270,6 +326,7 @@ export class ChatService {
           sessionId: chatId,
           message: text,
           clientContext,
+          attachments: attachmentsFrom(body.messages),
         }),
         signal: AbortSignal.timeout(120_000),
       });
@@ -303,14 +360,55 @@ export class ChatService {
             const actions = Array.isArray(payload.actions)
               ? payload.actions.filter((action) => typeof action === "string")
               : [];
-            await this.persist(businessId, chatId, title, text, replyText);
-            emit("done", { chatId, title, content: content(replyText), actions });
+            for (const part of assistantParts) {
+              if (part.type === "tool-call" && part.result === undefined) {
+                part.result = { count: 0, results: [] };
+              }
+            }
+            const fullContent = [...assistantParts, ...content(replyText)];
+            await this.persist(businessId, chatId, title, text, fullContent);
+            emit("done", { chatId, title, content: fullContent, actions });
             finished = true;
           } else if (event.event === "error") {
             this.logger.error(`Agent stream error: ${JSON.stringify(event.data)}`);
             emit("error", { detail: "Agent request failed" });
             finished = true;
           } else {
+            const data = event.data as Record<string, unknown>;
+            if (event.event === "delta" && typeof data.text === "string") {
+              liveText += data.text;
+            } else if (
+              event.event === "reasoning" &&
+              typeof data.text === "string"
+            ) {
+              flushLiveText();
+              const last = assistantParts[assistantParts.length - 1];
+              if (last?.type === "reasoning") {
+                last.text = `${last.text as string}${data.text}`;
+              } else {
+                assistantParts.push({ type: "reasoning", text: data.text });
+              }
+            } else if (event.event === "action") {
+              flushLiveText();
+              assistantParts.push({
+                type: "tool-call",
+                toolCallId: data.id ?? `action_${assistantParts.length}`,
+                toolName: data.label ?? "Working",
+                args: { detail: data.detail, tool: data.tool },
+                argsText: "",
+              });
+            } else if (event.event === "action_result") {
+              const part = assistantParts.find(
+                (p) => p.type === "tool-call" && p.toolCallId === data.id,
+              );
+              if (part) {
+                part.result = {
+                  count: data.count ?? 0,
+                  results: Array.isArray(data.results) ? data.results : [],
+                  error: data.error === true,
+                };
+              }
+            }
             emit(event.event, event.data);
           }
         }
@@ -329,6 +427,7 @@ export class ChatService {
     sessionId: string,
     message: string,
     clientContext: string,
+    attachments: AgentAttachment[] = [],
   ) {
     const url = new URL("agent/chat", this.baseUrl);
     let response: Response;
@@ -340,7 +439,13 @@ export class ChatService {
       response = await fetch(url, {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ businessId, sessionId, message, clientContext }),
+        body: JSON.stringify({
+          businessId,
+          sessionId,
+          message,
+          clientContext,
+          attachments,
+        }),
         signal: AbortSignal.timeout(120_000),
       });
     } catch (error) {

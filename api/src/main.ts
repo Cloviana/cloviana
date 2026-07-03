@@ -13,7 +13,9 @@ import { AllExceptionsFilter } from "@/common/filters/all-exceptions.filter";
 import { SupabaseAuthGuard } from "./modules/auth/guards/supabase-auth.guards";
 
 async function bootstrap() {
-  const adapter = new FastifyAdapter();
+  // Chat attachments arrive as base64 data URLs in the JSON body; the
+  // Fastify default of 1MB rejects anything bigger than a small image.
+  const adapter = new FastifyAdapter({ bodyLimit: 20 * 1024 * 1024 });
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     adapter,

@@ -66,7 +66,7 @@ const ResultRow = ({ item }: { item: ActionResultItem }) => {
       ) : (
         <FileTextIcon className="size-3.5 shrink-0 text-stone-400" />
       )}
-      <span className="min-w-0 flex-1 truncate text-[13px] leading-6 text-stone-600">
+      <span className="min-w-0 flex-1 truncate text-[13px] leading-6 font-normal text-stone-500">
         {item.title || item.source || 'Untitled'}
       </span>
       {item.source && (
@@ -434,9 +434,10 @@ function ChatThreadRuntime({
               queryKey: chatKeys.detail(businessId, response.chatId),
             });
 
-            // Keep the activity trail visible; the server's text is
-            // canonical for the final answer.
-            yield { content: [...parts, ...response.content] };
+            // The server persists and returns the full part list
+            // (thinking + tool cards + text); it is canonical so the
+            // transcript looks identical after a reload.
+            yield { content: response.content };
 
             // Navigate after the stream so the remount doesn't cut it short.
             if (isNewChat) {
