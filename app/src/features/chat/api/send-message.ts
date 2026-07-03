@@ -31,6 +31,7 @@ export type ActionResultItem = {
 
 export type ChatStreamEvent =
   | { type: 'delta'; text: string }
+  | { type: 'reasoning'; text: string }
   | { type: 'action'; id: string; label: string; tool?: string; detail?: string }
   | {
       type: 'action-result';
@@ -95,6 +96,11 @@ export async function* sendMessageStream(
       if (!parsed) continue;
       if (parsed.event === 'delta') {
         yield { type: 'delta', text: (parsed.data as ChatMessagePart).text ?? '' };
+      } else if (parsed.event === 'reasoning') {
+        yield {
+          type: 'reasoning',
+          text: (parsed.data as ChatMessagePart).text ?? '',
+        };
       } else if (parsed.event === 'action') {
         const { id, label, tool, detail } = parsed.data as {
           id?: string;

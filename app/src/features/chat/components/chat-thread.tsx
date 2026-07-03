@@ -300,6 +300,7 @@ type ChatThreadRuntimeProps = {
 
 type StreamPart =
   | { type: 'text'; text: string }
+  | { type: 'reasoning'; text: string }
   | {
       type: 'tool-call';
       toolCallId: string;
@@ -381,6 +382,17 @@ function ChatThreadRuntime({
         )) {
           if (event.type === 'delta') {
             text += event.text;
+            yield { content: content() };
+          } else if (event.type === 'reasoning') {
+            // Model thoughts stream into a collapsible "Thinking" block that
+            // stays in the transcript, Claude-web style.
+            flushText();
+            const last = parts[parts.length - 1];
+            if (last && last.type === 'reasoning') {
+              last.text += event.text;
+            } else {
+              parts.push({ type: 'reasoning', text: event.text });
+            }
             yield { content: content() };
           } else if (event.type === 'action') {
             // The narration sentence streamed before this call stays a

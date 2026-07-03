@@ -37,23 +37,6 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
         {process.env.NODE_ENV === 'production' && (
           <>
             <Script
-              id="crisp-chat"
-              strategy="afterInteractive"
-              dangerouslySetInnerHTML={{
-                __html: `
-              window.$crisp=[];
-              window.CRISP_WEBSITE_ID="60f1d13f-4bdc-4146-a861-4b9d66513f06";
-              (function(){
-                d=document;
-                s=d.createElement("script");
-                s.src="https://client.crisp.chat/l.js";
-                s.async=1;
-                d.getElementsByTagName("head")[0].appendChild(s);
-              })();
-            `,
-              }}
-            />
-            <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${env.GA4_ID}`}
               strategy="afterInteractive"
             />
