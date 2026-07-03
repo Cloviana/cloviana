@@ -111,11 +111,10 @@ const ThreadRoot: FC<{ isEmpty: boolean }> = ({ isEmpty }) => {
 
   return (
     <ThreadPrimitive.Root
-      className="aui-root aui-thread-root bg-background @container flex h-full flex-col"
+      className="aui-root aui-thread-root bg-background font-switzer @container flex h-full flex-col"
       style={{
         ['--thread-max-width' as string]: '54rem',
-        ['--composer-bg' as string]:
-          'color-mix(in oklab, var(--color-muted) 30%, var(--color-background))',
+        ['--composer-bg' as string]: 'var(--hero-surface)',
         ['--composer-radius' as string]: '1.5rem',
         ['--composer-padding' as string]: '8px',
       }}
@@ -236,7 +235,7 @@ const Composer: FC = () => {
       <ComposerPrimitive.AttachmentDropzone asChild>
         <div
           data-slot="aui_composer-shell"
-          className="border-border/60 data-[dragging=true]:border-ring focus-within:border-border dark:border-muted-foreground/15 dark:focus-within:border-muted-foreground/30 flex w-full flex-col gap-2 rounded-(--composer-radius) border bg-(--composer-bg) p-(--composer-padding) shadow-[0_4px_16px_-8px_rgba(0,0,0,0.08),0_1px_2px_rgba(0,0,0,0.04)] transition-colors data-[dragging=true]:border-dashed data-[dragging=true]:bg-[color-mix(in_oklab,var(--color-accent)_50%,var(--color-background))] dark:shadow-none"
+          className="border-hero-surface-border data-[dragging=true]:border-ring focus-within:border-foreground-lighter/50 dark:border-muted-foreground/15 dark:focus-within:border-muted-foreground/30 flex w-full flex-col gap-2 rounded-(--composer-radius) border bg-(--composer-bg) p-(--composer-padding) shadow-[0_4px_16px_-8px_rgba(0,0,0,0.08),0_1px_2px_rgba(0,0,0,0.04)] transition-colors data-[dragging=true]:border-dashed data-[dragging=true]:bg-[color-mix(in_oklab,var(--color-accent)_50%,var(--color-background))] dark:shadow-none"
         >
           <ComposerAttachments />
           <ComposerPrimitive.Input

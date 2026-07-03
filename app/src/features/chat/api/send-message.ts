@@ -23,9 +23,22 @@ export type SendMessageResponse = {
   actions?: string[];
 };
 
+export type ActionResultItem = {
+  title?: string;
+  source?: string;
+  url?: string;
+};
+
 export type ChatStreamEvent =
   | { type: 'delta'; text: string }
-  | { type: 'action'; label: string }
+  | { type: 'action'; id: string; label: string; tool?: string; detail?: string }
+  | {
+      type: 'action-result';
+      id: string;
+      count: number;
+      results: ActionResultItem[];
+      error?: boolean;
+    }
   | { type: 'done'; response: SendMessageResponse };
 
 function parseSseBlock(block: string): { event: string; data: unknown } | null {
@@ -83,8 +96,33 @@ export async function* sendMessageStream(
       if (parsed.event === 'delta') {
         yield { type: 'delta', text: (parsed.data as ChatMessagePart).text ?? '' };
       } else if (parsed.event === 'action') {
-        const { label } = parsed.data as { label?: string };
-        yield { type: 'action', label: label ?? '' };
+        const { id, label, tool, detail } = parsed.data as {
+          id?: string;
+          label?: string;
+          tool?: string;
+          detail?: string;
+        };
+        yield {
+          type: 'action',
+          id: id ?? `action_${Date.now()}`,
+          label: label ?? '',
+          tool,
+          detail,
+        };
+      } else if (parsed.event === 'action_result') {
+        const { id, count, results, error } = parsed.data as {
+          id?: string;
+          count?: number;
+          results?: ActionResultItem[];
+          error?: boolean;
+        };
+        yield {
+          type: 'action-result',
+          id: id ?? '',
+          count: count ?? 0,
+          results: Array.isArray(results) ? results : [],
+          error,
+        };
       } else if (parsed.event === 'done') {
         yield { type: 'done', response: parsed.data as SendMessageResponse };
         return;

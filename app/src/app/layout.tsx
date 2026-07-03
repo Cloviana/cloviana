@@ -6,7 +6,7 @@ import '@/styles/globals.css';
 import { Toaster } from '@/components/ui/sonner';
 import { env } from '@/config/env';
 import { MATERIAL_SYMBOLS_STYLESHEET } from '@/config/material-symbols';
-import { dmSans, geist, inter, interDisplay } from '@/lib/fonts';
+import { dmSans, geist, inter, interDisplay, switzer } from '@/lib/fonts';
 import { cn } from '@/utils/cn';
 
 export const metadata = {
@@ -22,6 +22,7 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
         dmSans.variable,
         inter.variable,
         geist.variable,
+        switzer.variable,
       )}
     >
       <head>

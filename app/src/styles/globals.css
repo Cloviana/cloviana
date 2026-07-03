@@ -12,10 +12,13 @@
   --font-dm-sans: var(--font-dm-sans), sans-serif;
   --font-inter: var(--font-inter), sans-serif;
   --font-geist: var(--font-geist), sans-serif;
+  --font-switzer: var(--font-switzer), sans-serif;
 
   --color-background: var(--background);
   --color-studio: var(--studio);
   --color-surface: var(--surface);
+  --color-hero-surface: var(--hero-surface);
+  --color-hero-surface-border: var(--hero-surface-border);
 
   --color-foreground: var(--foreground);
   --color-foreground-light: var(--foreground-light);
@@ -145,9 +148,12 @@
     --primary: hsl(0, 3%, 13%);
     --primary-foreground: hsl(0 0% 98%);
 
-    --background: hsl(0 0% 100%);
+    /* Warm palette lifted from the landing page (web/src/styles/globals.css) */
+    --background: hsl(0, 20%, 99%);
     --studio: hsl(0 0% 100%);
-    --surface: hsl(0 0% 98%);
+    --surface: hsl(30, 17%, 95%);
+    --hero-surface: #f4f2f0;
+    --hero-surface-border: #dedddb;
 
     --foreground: hsl(0 0% 5.098%);
     --foreground-light: hsl(0 0% 36%);

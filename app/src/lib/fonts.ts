@@ -119,3 +119,22 @@ export const geist = Geist({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   preload: false,
 });
+
+// Landing-page typeface (same files as web/) — used by the chat surface so
+// it matches the marketing site.
+export const switzer = localFont({
+  src: [
+    {
+      path: '../../public/fonts/switzer/Switzer-Variable.ttf',
+      weight: '100 900',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/switzer/Switzer-VariableItalic.ttf',
+      weight: '100 900',
+      style: 'italic',
+    },
+  ],
+  variable: '--font-switzer',
+  preload: false,
+});
