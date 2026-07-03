@@ -120,7 +120,32 @@ function ChatThreadRuntime({
     () => ({
       async *run({ messages, abortSignal }) {
         const isNewChat = !chatIdRef.current;
+        // Claude-web style activity: narration text before a tool call folds
+        // into a collapsible "reasoning" block, tool calls render as chips
+        // that spin until the next event proves the tool finished.
+        const parts: (
+          | { type: 'reasoning'; text: string }
+          | {
+              type: 'tool-call';
+              toolCallId: string;
+              toolName: string;
+              args: Record<string, never>;
+              argsText: string;
+              result?: string;
+            }
+        )[] = [];
         let text = '';
+        const settleTools = () => {
+          for (const part of parts) {
+            if (part.type === 'tool-call' && part.result === undefined) {
+              part.result = 'Done';
+            }
+          }
+        };
+        const content = () => [
+          ...parts,
+          ...(text ? [{ type: 'text' as const, text }] : []),
+        ];
 
         for await (const event of sendMessageStream(
           businessId,
@@ -128,9 +153,25 @@ function ChatThreadRuntime({
           abortSignal,
         )) {
           if (event.type === 'delta') {
+            settleTools();
             text += event.text;
-            yield { content: [{ type: 'text' as const, text }] };
+            yield { content: content() };
+          } else if (event.type === 'action') {
+            settleTools();
+            if (text) {
+              parts.push({ type: 'reasoning' as const, text });
+              text = '';
+            }
+            parts.push({
+              type: 'tool-call' as const,
+              toolCallId: `action_${parts.length}`,
+              toolName: event.label,
+              args: {},
+              argsText: '',
+            });
+            yield { content: content() };
           } else if (event.type === 'done') {
+            settleTools();
             const { response } = event;
             chatIdRef.current = response.chatId;
 
@@ -141,7 +182,9 @@ function ChatThreadRuntime({
               queryKey: chatKeys.detail(businessId, response.chatId),
             });
 
-            yield { content: response.content };
+            // Keep the activity trail visible; the server's text is
+            // canonical for the final answer.
+            yield { content: [...parts, ...response.content] };
 
             // Navigate after the stream so the remount doesn't cut it short.
             if (isNewChat) {
@@ -157,7 +200,6 @@ function ChatThreadRuntime({
               }
             }
           }
-          // 'action' events are available here for a future activity feed.
         }
       },
     }),

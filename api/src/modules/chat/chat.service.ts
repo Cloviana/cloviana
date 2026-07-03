@@ -244,10 +244,18 @@ export class ChatService {
 
     reply.hijack();
     const raw = reply.raw;
+    // hijack() bypasses @fastify/cors, so reflect the origin ourselves or the
+    // browser rejects the cross-origin stream ("Failed to fetch"). Safe: auth
+    // is a Bearer token and we never set allow-credentials here.
+    const origin = reply.request.headers.origin;
     raw.writeHead(200, {
       "content-type": "text/event-stream",
       "cache-control": "no-cache",
       connection: "keep-alive",
+      "x-accel-buffering": "no",
+      ...(origin
+        ? { "access-control-allow-origin": origin, vary: "origin" }
+        : {}),
     });
     const emit = (event: string, data: unknown) =>
       raw.write(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`);
