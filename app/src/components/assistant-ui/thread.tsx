@@ -114,7 +114,7 @@ const ThreadRoot: FC<{ isEmpty: boolean }> = ({ isEmpty }) => {
       className="aui-root aui-thread-root bg-background font-switzer @container flex h-full flex-col"
       style={{
         ['--thread-max-width' as string]: '54rem',
-        ['--composer-bg' as string]: 'var(--hero-surface)',
+        ['--composer-bg' as string]: 'rgba(255,255,255,0.9)',
         ['--composer-radius' as string]: '1.5rem',
         ['--composer-padding' as string]: '8px',
       }}
@@ -219,7 +219,7 @@ const ThreadSuggestionItem: FC = () => {
       <SuggestionPrimitive.Trigger send asChild>
         <Button
           variant="ghost"
-          className="aui-thread-welcome-suggestion text-foreground hover:bg-muted border-border/60 h-auto gap-1.5 rounded-full border px-3.5 py-1.5 text-sm font-normal whitespace-nowrap transition-colors"
+          className="aui-thread-welcome-suggestion h-auto gap-1.5 rounded-full border border-stone-300/50 bg-white/50 px-3.5 py-1.5 text-sm font-normal whitespace-nowrap text-stone-600 transition-colors hover:bg-white hover:text-stone-900"
         >
           <SuggestionPrimitive.Title className="aui-thread-welcome-suggestion-text-1" />
           <SuggestionPrimitive.Description className="aui-thread-welcome-suggestion-text-2 empty:hidden" />
@@ -235,7 +235,7 @@ const Composer: FC = () => {
       <ComposerPrimitive.AttachmentDropzone asChild>
         <div
           data-slot="aui_composer-shell"
-          className="border-hero-surface-border data-[dragging=true]:border-ring focus-within:border-foreground-lighter/50 dark:border-muted-foreground/15 dark:focus-within:border-muted-foreground/30 flex w-full flex-col gap-2 rounded-(--composer-radius) border bg-(--composer-bg) p-(--composer-padding) shadow-[0_4px_16px_-8px_rgba(0,0,0,0.08),0_1px_2px_rgba(0,0,0,0.04)] transition-colors data-[dragging=true]:border-dashed data-[dragging=true]:bg-[color-mix(in_oklab,var(--color-accent)_50%,var(--color-background))] dark:shadow-none"
+          className="data-[dragging=true]:border-ring dark:border-muted-foreground/15 dark:focus-within:border-muted-foreground/30 flex w-full flex-col gap-2 rounded-(--composer-radius) border border-stone-200/70 bg-(--composer-bg) p-(--composer-padding) shadow-[inset_0_1px_2px_rgba(0,0,0,0.05),0_4px_16px_-8px_rgba(0,0,0,0.08)] backdrop-blur-md transition-colors focus-within:border-stone-300 data-[dragging=true]:border-dashed data-[dragging=true]:bg-[color-mix(in_oklab,var(--color-accent)_50%,var(--color-background))] dark:shadow-none"
         >
           <ComposerAttachments />
           <ComposerPrimitive.Input
@@ -404,10 +404,11 @@ const AssistantMessage: FC = () => {
               case 'data':
                 return part.dataRendererUI;
               case 'indicator':
+                // Blinking caret, same as the landing page's streaming demo.
                 return (
                   <span
                     data-slot="aui_assistant-message-indicator"
-                    className="ml-1.5 inline-block h-2 w-2 animate-pulse rounded-full bg-foreground/70 align-middle"
+                    className="animate-caret-blink ml-0.5 inline-block h-3.5 w-0.5 rounded-[1px] bg-stone-400 align-middle"
                     aria-label="Assistant is working"
                   />
                 );
@@ -489,7 +490,7 @@ const UserMessage: FC = () => {
       <UserMessageAttachments />
 
       <div className="aui-user-message-content-wrapper relative col-start-2 min-w-0">
-        <div className="aui-user-message-content peer bg-muted text-foreground rounded-xl px-4 py-2 wrap-break-word empty:hidden">
+        <div className="aui-user-message-content peer bg-hero-surface border-hero-surface-border text-foreground rounded-xl border px-4 py-2 wrap-break-word empty:hidden">
           <MessagePrimitive.Parts />
         </div>
         <div className="aui-user-action-bar-wrapper absolute start-0 top-1/2 -translate-x-full -translate-y-1/2 pe-2 peer-empty:hidden rtl:translate-x-full">

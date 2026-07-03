@@ -120,8 +120,20 @@ export const geist = Geist({
   preload: false,
 });
 
-// Landing-page typeface (same files as web/) — used by the chat surface so
+// Landing-page typefaces (same files as web/) — used by the chat surface so
 // it matches the marketing site.
+export const gambarino = localFont({
+  src: [
+    {
+      path: '../../public/fonts/gambarino/Gambarino-Regular.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-gambarino',
+  preload: false,
+});
+
 export const switzer = localFont({
   src: [
     {

@@ -58,15 +58,19 @@ const ResultRow = ({ item }: { item: ActionResultItem }) => {
     <div className="flex min-w-0 items-center gap-2.5 rounded-md px-2 py-1.5">
       {favicon ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={favicon} alt="" className="size-4 shrink-0 rounded-sm" />
+        <img
+          src={favicon}
+          alt=""
+          className="size-3.5 shrink-0 rounded-[3px] opacity-70"
+        />
       ) : (
-        <FileTextIcon className="text-muted-foreground size-4 shrink-0" />
+        <FileTextIcon className="size-3.5 shrink-0 text-stone-400" />
       )}
-      <span className="text-foreground/90 min-w-0 flex-1 truncate text-sm">
+      <span className="min-w-0 flex-1 truncate text-[13px] leading-6 text-stone-600">
         {item.title || item.source || 'Untitled'}
       </span>
       {item.source && (
-        <span className="text-muted-foreground max-w-[10rem] shrink-0 truncate text-xs">
+        <span className="max-w-[10rem] shrink-0 truncate text-[11px] font-medium text-stone-400">
           {item.source}
         </span>
       )}
@@ -78,7 +82,7 @@ const ResultRow = ({ item }: { item: ActionResultItem }) => {
         href={item.url}
         target="_blank"
         rel="noreferrer"
-        className="hover:bg-black/[0.04] block rounded-md transition-colors"
+        className="block rounded-md transition-colors hover:bg-stone-100/70"
       >
         {row}
       </a>
@@ -89,7 +93,7 @@ const ResultRow = ({ item }: { item: ActionResultItem }) => {
 
 // Shimmering activity line used for the pre-request "Thinking" placeholder.
 const ThinkingLine = ({ label }: { label: string }) => (
-  <div className="text-muted-foreground flex items-center gap-2 py-1 text-sm">
+  <div className="flex items-center gap-2 py-1 text-[13px] text-stone-500">
     <LoaderIcon className="size-3.5 shrink-0 animate-spin [animation-duration:0.6s]" />
     <span className="relative inline-block leading-snug">
       {label}
@@ -128,25 +132,30 @@ const ToolCard: ToolCallMessagePartComponent = ({
       : '';
   const hasBody = running || items.length > 0;
 
+  // Styled after the landing page's AI search-result card (web/hero):
+  // white/90 surface, stone-200/70 border, subtle inset shadow.
   return (
-    <div className="border-hero-surface-border bg-hero-surface my-1.5 w-full overflow-hidden rounded-xl border">
+    <div className="my-2 w-full overflow-hidden rounded-xl border border-stone-200/70 bg-white/90 shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)] backdrop-blur-md">
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
         disabled={!hasBody}
-        className="flex w-full items-center gap-2.5 px-3 py-2 text-start text-sm"
+        className={cn(
+          'flex w-full items-center gap-2.5 px-3.5 py-2.5 text-start',
+          hasBody && open && 'border-b border-stone-200/70',
+        )}
       >
         {running ? (
-          <LoaderIcon className="text-muted-foreground size-4 shrink-0 animate-spin [animation-duration:0.6s]" />
+          <LoaderIcon className="size-3.5 shrink-0 animate-spin text-stone-400 [animation-duration:0.6s]" />
         ) : failed ? (
-          <XCircleIcon className="text-destructive size-4 shrink-0" />
+          <XCircleIcon className="text-destructive size-3.5 shrink-0" />
         ) : (
-          <CheckIcon className="text-muted-foreground size-4 shrink-0" />
+          <CheckIcon className="size-3.5 shrink-0 text-stone-400" />
         )}
-        <span className="relative min-w-0 flex-1 truncate">
-          <span className="text-foreground/85">{toolName}</span>
+        <span className="relative min-w-0 flex-1 truncate text-[13px] leading-snug">
+          <span className="text-stone-600">{toolName}</span>
           {detail && (
-            <span className="text-muted-foreground">
+            <span className="text-stone-400">
               {' '}
               &middot; &ldquo;{detail}&rdquo;
             </span>
@@ -167,27 +176,27 @@ const ToolCard: ToolCallMessagePartComponent = ({
           )}
         </span>
         {!running && count > 0 && (
-          <span className="text-muted-foreground shrink-0 text-xs tabular-nums">
+          <span className="shrink-0 text-[11px] font-medium tracking-[0.02em] text-stone-400 tabular-nums">
             {count} result{count === 1 ? '' : 's'}
           </span>
         )}
         {hasBody && (
           <ChevronDownIcon
             className={cn(
-              'text-muted-foreground size-4 shrink-0 transition-transform duration-200',
+              'size-3.5 shrink-0 text-stone-400 transition-transform duration-200',
               !open && '-rotate-90',
             )}
           />
         )}
       </button>
       {hasBody && open && (
-        <div className="border-hero-surface-border flex flex-col border-t px-1.5 py-1.5">
+        <div className="flex flex-col px-1.5 py-1.5">
           {items.length > 0 ? (
             items.map((item, index) => <ResultRow key={index} item={item} />)
           ) : (
             <div className="flex flex-col gap-1.5 px-2 py-1.5">
-              <div className="bg-black/[0.06] h-3.5 w-3/4 animate-pulse rounded" />
-              <div className="bg-black/[0.06] h-3.5 w-1/2 animate-pulse rounded" />
+              <div className="h-3.5 w-3/4 animate-pulse rounded bg-stone-200/60" />
+              <div className="h-3.5 w-1/2 animate-pulse rounded bg-stone-200/60" />
             </div>
           )}
         </div>
@@ -316,12 +325,14 @@ function ChatThreadRuntime({
     const hour = new Date().getHours();
     const greeting =
       hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
+    // Hero-style welcome: Gambarino serif heading, muted Switzer subtitle —
+    // same treatment as the landing page hero.
     const Welcome = () => (
-      <div className="aui-thread-welcome-root mb-6 flex flex-col items-center px-4 text-center">
-        <h1 className="aui-thread-welcome-message-inner fade-in slide-in-from-bottom-1 animate-in fill-mode-both text-3xl font-medium tracking-tight duration-200">
+      <div className="aui-thread-welcome-root mb-8 flex flex-col items-center px-4 text-center">
+        <h1 className="aui-thread-welcome-message-inner font-gambarino fade-in slide-in-from-bottom-1 animate-in fill-mode-both text-4xl font-normal duration-300 md:text-5xl">
           {greeting}.
         </h1>
-        <p className="text-foreground-light fade-in slide-in-from-bottom-1 animate-in fill-mode-both mt-1.5 text-lg duration-200">
+        <p className="text-foreground-light fade-in slide-in-from-bottom-1 animate-in fill-mode-both mt-3 max-w-[45ch] text-sm duration-300 md:text-base">
           {businessName
             ? `What can I do for ${businessName} today?`
             : 'What can I do for you today?'}
