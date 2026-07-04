@@ -11,6 +11,7 @@ import {
 import { CmsPlatform, Prisma } from "@prisma/client";
 import { IsEnum, IsObject } from "class-validator";
 import { CmsService } from "./cms.service";
+import { CmsSyncService } from "./services/cms-sync.service";
 
 class CreateConnectionDto {
   @IsEnum(CmsPlatform)
@@ -23,7 +24,19 @@ class CreateConnectionDto {
 @Controller("businesses/:businessId/cms")
 @UseGuards(BusinessAccessGuard)
 export class CmsController {
-  constructor(private readonly cms: CmsService) {}
+  constructor(
+    private readonly cms: CmsService,
+    private readonly cmsSync: CmsSyncService,
+  ) {}
+
+  @Post("sync")
+  sync(@Param("businessId") businessId: string) {
+    // Minute-bucketed dedupe: absorbs double-clicks, allows quick re-runs.
+    return this.cmsSync.runSync(
+      businessId,
+      `manual:${new Date().toISOString().slice(0, 16)}`,
+    );
+  }
 
   @Get("connections")
   listConnections(@Param("businessId") businessId: string) {
