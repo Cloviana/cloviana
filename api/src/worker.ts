@@ -1,6 +1,7 @@
 import "dotenv/config";
 import {
   AUDITS_QUEUE,
+  BLOG_QUEUE,
   BUSINESSES_QUEUE,
   MONITORING_QUEUE,
   createRabbitMqOptions,
@@ -21,6 +22,7 @@ async function bootstrap() {
   app.connectMicroservice(createRabbitMqOptions(rabbitmqUri, AUDITS_QUEUE));
   app.connectMicroservice(createRabbitMqOptions(rabbitmqUri, BUSINESSES_QUEUE));
   app.connectMicroservice(createRabbitMqOptions(rabbitmqUri, MONITORING_QUEUE));
+  app.connectMicroservice(createRabbitMqOptions(rabbitmqUri, BLOG_QUEUE));
 
   await app.startAllMicroservices();
   await app.init();
@@ -28,6 +30,7 @@ async function bootstrap() {
   logger.log(`Listening for ${AUDITS_QUEUE.queue}`);
   logger.log(`Listening for ${BUSINESSES_QUEUE.queue}`);
   logger.log(`Listening for ${MONITORING_QUEUE.queue}`);
+  logger.log(`Listening for ${BLOG_QUEUE.queue}`);
 }
 
 bootstrap();

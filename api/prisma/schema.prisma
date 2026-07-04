@@ -16,6 +16,19 @@ enum JobType {
   PROMPT_RESEARCH
   PROMPT_GENERATION
   MONITORING
+  BLOG_GENERATION
+  CMS_SYNC
+}
+
+enum BlogDraftStatus {
+  READY
+  FLAGGED
+}
+
+enum CmsPlatform {
+  WORDPRESS
+  WEBFLOW
+  FRAMER
 }
 
 enum JobStatus {
@@ -184,6 +197,9 @@ model Business {
   metrics     BusinessMetric[]
   documents   Document[]
   chats       Chat[]
+  blogDrafts  BlogDraft[]
+  cmsConnections CmsConnection[]
+  cmsPages    CmsPage[]
 
   @@index([ownerId])
   @@map("businesses")
@@ -320,6 +336,64 @@ model Job {
   @@index([type, status, priority, scheduledAt])
   @@index([businessId, type, status])
   @@map("jobs")
+}
+
+model BlogDraft {
+  id         String          @id @default(uuid()) @db.Uuid
+  businessId String
+  jobId      String?         @db.Uuid
+  title      String
+  body       String
+  status     BlogDraftStatus @default(READY)
+  violations Json?           @db.JsonB
+  sources    Json?           @db.JsonB
+  createdAt  DateTime        @default(now())
+  updatedAt  DateTime        @updatedAt
+
+  business Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+
+  @@index([businessId, createdAt])
+  @@map("blog_drafts")
+}
+
+model CmsConnection {
+  id           String      @id @default(uuid()) @db.Uuid
+  businessId   String
+  platform     CmsPlatform
+  // ponytail: creds stored plaintext Json; pgcrypto/KMS column encryption before external customers
+  config       Json        @db.JsonB
+  syncCursor   String?
+  lastSyncedAt DateTime?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  business Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+
+  @@unique([businessId, platform])
+  @@map("cms_connections")
+}
+
+model CmsPage {
+  id              String      @id @default(uuid()) @db.Uuid
+  businessId      String
+  platform        CmsPlatform
+  externalId      String
+  title           String
+  slug            String
+  url             String
+  excerpt         String?
+  metaTitle       String?
+  metaDescription String?
+  cluster         String?
+  publishedDate   DateTime?
+  lastModified    DateTime?
+  syncedAt        DateTime    @default(now())
+
+  business Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+
+  @@unique([businessId, platform, externalId])
+  @@index([businessId])
+  @@map("cms_pages")
 }
 
 model Prompt {

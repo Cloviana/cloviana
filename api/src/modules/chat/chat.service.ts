@@ -116,7 +116,9 @@ function clientOverview(business: BusinessOverview) {
     .join("\n");
 }
 
-function parseSseBlock(block: string): { event: string; data: unknown } | null {
+export function parseSseBlock(
+  block: string,
+): { event: string; data: unknown } | null {
   let event = "message";
   const dataLines: string[] = [];
   for (const line of block.split("\n")) {
