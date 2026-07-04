@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { AppConfiguration } from "@/common/config/app.configuration";
+import { BlogsService } from "@/modules/blogs/blogs.service";
 import {
   BadGatewayException,
   BadRequestException,
@@ -140,6 +141,7 @@ export class ChatService {
 
   constructor(
     private readonly prisma: PrismaService,
+    private readonly blogs: BlogsService,
     config: AppConfiguration,
   ) {
     this.baseUrl = `${config.agentUrl.replace(/\/$/, "")}/`;
@@ -375,6 +377,20 @@ export class ChatService {
             this.logger.error(`Agent stream error: ${JSON.stringify(event.data)}`);
             emit("error", { detail: "Agent request failed" });
             finished = true;
+          } else if (event.event === "route") {
+            // Auto mode classified this message; blog requests become a
+            // background job instead of occupying the chat stream.
+            const data = event.data as { mode?: string; topic?: string };
+            if (data.mode === "blog") {
+              const topic = (data.topic || text).slice(0, 500);
+              try {
+                const { jobId } = await this.blogs.generate(businessId, topic);
+                emit("blog_job", { jobId, topic });
+              } catch (error) {
+                this.logger.error("Failed to enqueue blog job from chat", error);
+                emit("error", { detail: "Could not start the blog task" });
+              }
+            }
           } else {
             const data = event.data as Record<string, unknown>;
             if (event.event === "delta" && typeof data.text === "string") {
