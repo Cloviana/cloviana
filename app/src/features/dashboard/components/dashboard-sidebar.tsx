@@ -1,6 +1,12 @@
 'use client';
 
-import { Brain, ChevronDown, ChevronRight, Plus } from 'lucide-react';
+import {
+  Brain,
+  ChevronDown,
+  ChevronRight,
+  ListTodo,
+  Plus,
+} from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -47,6 +53,7 @@ export function DashboardSidebar({ businessId }: DashboardSidebarProps) {
   const { data: businesses = [] } = useBusinesses();
   const chatHref = paths.business.chat.getHref(businessId);
   const knowledgeHref = paths.business.knowledge.getHref(businessId);
+  const tasksHref = paths.business.tasks.getHref(businessId);
   const faviconUrl = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(
     business?.domain ?? '',
   )}&sz=64`;
@@ -56,6 +63,11 @@ export function DashboardSidebar({ businessId }: DashboardSidebarProps) {
       title: 'Knowledge',
       href: knowledgeHref,
       icon: Brain,
+    },
+    {
+      title: 'Tasks',
+      href: tasksHref,
+      icon: ListTodo,
     },
   ];
 

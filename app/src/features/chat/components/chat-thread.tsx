@@ -418,6 +418,17 @@ function ChatThreadRuntime({
               };
             }
             yield { content: content() };
+          } else if (event.type === 'blog-job') {
+            // Blog requests run as background jobs; point the user at the
+            // Tasks board instead of blocking the chat.
+            toast.info('Blog draft started', {
+              description: event.topic,
+              action: {
+                label: 'View tasks',
+                onClick: () =>
+                  router.push(paths.business.tasks.getHref(businessId)),
+              },
+            });
           } else if (event.type === 'done') {
             for (const part of parts) {
               if (part.type === 'tool-call' && part.result === undefined) {
