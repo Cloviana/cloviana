@@ -19,7 +19,9 @@ export type JobType =
   | 'BUSINESS_INITIALIZATION'
   | 'PROMPT_RESEARCH'
   | 'PROMPT_GENERATION'
-  | 'MONITORING';
+  | 'MONITORING'
+  | 'BLOG_GENERATION'
+  | 'CMS_SYNC';
 export type JobStatus = 'PENDING' | 'RUNNING' | 'SUCCESS' | 'FAILED';
 
 export type Entity<T extends object> = T & {
