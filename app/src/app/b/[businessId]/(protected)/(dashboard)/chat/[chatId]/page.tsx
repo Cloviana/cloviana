@@ -7,7 +7,7 @@ import { Suspense } from 'react';
 
 import { getChatMessagesQueryOptions } from '@/features/chat/api/get-chat-messages';
 import { ChatHistoryCommand } from '@/features/chat/components/chat-history-command';
-import { ChatWithCanvas } from '@/features/chat/components/chat-with-canvas';
+import { ChatThread } from '@/features/chat/components/chat-thread';
 import { DashboardHeader } from '@/features/dashboard/components/dashboard-header';
 import { DashboardPageLayout } from '@/features/dashboard/components/dashboard-page-layout';
 
@@ -34,7 +34,7 @@ export default async function ChatDetailPage({ params }: PageProps) {
         className="overflow-hidden p-0"
       >
         <Suspense>
-          <ChatWithCanvas key={chatId} businessId={businessId} chatId={chatId} />
+          <ChatThread key={chatId} businessId={businessId} chatId={chatId} />
         </Suspense>
       </DashboardPageLayout>
     </HydrationBoundary>

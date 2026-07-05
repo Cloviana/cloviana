@@ -14,7 +14,6 @@ export type ChatMessage = {
 export type SendMessageRequest = {
   chatId?: string;
   messages: readonly ChatMessage[];
-  mode?: 'auto' | 'ask' | 'blog';
 };
 
 export type SendMessageResponse = {
@@ -47,7 +46,6 @@ export type ChatStreamEvent =
       results: ActionResultItem[];
       error?: boolean;
     }
-  | { type: 'blog-job'; jobId: string; topic?: string }
   | { type: 'done'; response: SendMessageResponse };
 
 function parseSseBlock(block: string): { event: string; data: unknown } | null {
@@ -81,7 +79,7 @@ export async function* sendMessageStream(
         'content-type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ ...body, mode: body.mode ?? 'auto' }),
+      body: JSON.stringify(body),
       signal,
     },
   );
@@ -140,12 +138,6 @@ export async function* sendMessageStream(
           results: Array.isArray(results) ? results : [],
           error,
         };
-      } else if (parsed.event === 'blog_job') {
-        const { jobId, topic } = parsed.data as {
-          jobId?: string;
-          topic?: string;
-        };
-        yield { type: 'blog-job', jobId: jobId ?? '', topic };
       } else if (parsed.event === 'done') {
         yield { type: 'done', response: parsed.data as SendMessageResponse };
         return;

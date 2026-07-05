@@ -58,8 +58,6 @@ import {
 } from '@/components/assistant-ui/tool-group';
 import { TooltipIconButton } from '@/components/assistant-ui/tooltip-icon-button';
 import { Button } from '@/components/ui/button';
-import { ChatModeProvider, useChatMode } from '@/features/chat/components/mode-context';
-import { ModeSelector } from '@/features/chat/components/mode-selector';
 import { cn } from '@/utils/cn';
 
 export type ThreadGroupPart = MessagePrimitive.GroupedParts.GroupPart;
@@ -102,11 +100,9 @@ export const Thread: FC<ThreadProps> = ({ components = EMPTY_COMPONENTS }) => {
   const isEmpty = useAuiState(isNewChatView);
 
   return (
-    <ChatModeProvider>
-      <ThreadComponentsContext.Provider value={components}>
-        <ThreadRoot isEmpty={isEmpty} />
-      </ThreadComponentsContext.Provider>
-    </ChatModeProvider>
+    <ThreadComponentsContext.Provider value={components}>
+      <ThreadRoot isEmpty={isEmpty} />
+    </ThreadComponentsContext.Provider>
   );
 };
 
@@ -256,13 +252,10 @@ const Composer: FC = () => {
 };
 
 const ComposerAction: FC = () => {
-  const { mode, setMode } = useChatMode();
-
   return (
     <div className="aui-composer-action-wrapper relative flex items-center justify-between">
       <ComposerAddAttachment />
-      <div className="flex items-center gap-2">
-        <ModeSelector value={mode} onChange={setMode} />
+      <div className="flex items-center gap-1.5">
         <AuiIf condition={(s) => s.thread.capabilities.dictation}>
           <AuiIf condition={(s) => s.composer.dictation == null}>
             <ComposerPrimitive.Dictate asChild>
