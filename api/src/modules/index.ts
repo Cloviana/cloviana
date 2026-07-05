@@ -6,3 +6,5 @@ export * from "./audits/audits.module";
 export * from "./monitoring/monitoring.module";
 export * from "./knowledge/knowledge.module";
 export * from "./chat/chat.module";
+export * from "./blogs/blogs.module";
+export * from "./cms/cms.module";

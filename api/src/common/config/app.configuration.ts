@@ -32,6 +32,10 @@ export class AppConfiguration {
   readonly agentUrl: string;
 
   @IsString()
+  @Value("AGENT_INTERNAL_TOKEN", { parse: (value) => value || "" })
+  readonly agentInternalToken: string;
+
+  @IsString()
   @Value("ENVIRONMENT", { parse: (value) => value || "development" })
   readonly environment: "development" | "production";
 

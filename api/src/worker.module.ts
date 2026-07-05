@@ -6,7 +6,9 @@ import * as Clients from "@/clients";
 import * as infrastructure from "@/infrastructure";
 import * as Integrations from "@/integrations";
 import { AuditsWorkerModule } from "@/modules/audits/audits.worker.module";
+import { BlogsWorkerModule } from "@/modules/blogs/blogs.worker.module";
 import { BusinessesWorkerModule } from "@/modules/businesses/businesses.worker.module";
+import { CmsWorkerModule } from "@/modules/cms/cms.worker.module";
 import { JobsModule } from "@/modules/jobs/jobs.module";
 import { MonitoringWorkerModule } from "@/modules/monitoring/monitoring.worker.module";
 
@@ -19,7 +21,9 @@ import { MonitoringWorkerModule } from "@/modules/monitoring/monitoring.worker.m
     ...Object.values(Integrations),
     JobsModule,
     AuditsWorkerModule,
+    BlogsWorkerModule,
     BusinessesWorkerModule,
+    CmsWorkerModule,
     MonitoringWorkerModule,
   ],
 })

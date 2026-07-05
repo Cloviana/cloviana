@@ -19,7 +19,9 @@ export type JobType =
   | 'BUSINESS_INITIALIZATION'
   | 'PROMPT_RESEARCH'
   | 'PROMPT_GENERATION'
-  | 'MONITORING';
+  | 'MONITORING'
+  | 'BLOG_GENERATION'
+  | 'CMS_SYNC';
 export type JobStatus = 'PENDING' | 'RUNNING' | 'SUCCESS' | 'FAILED';
 
 export type Entity<T extends object> = T & {
@@ -71,6 +73,7 @@ export type Job = {
   type: JobType;
   status: JobStatus;
   attempts: number;
+  result: Record<string, unknown> | null;
   startedAt: ISODate | null;
   finishedAt: ISODate | null;
   lastHeartbeatAt: ISODate | null;

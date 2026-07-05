@@ -47,6 +47,7 @@ export function DashboardSidebar({ businessId }: DashboardSidebarProps) {
   const { data: businesses = [] } = useBusinesses();
   const chatHref = paths.business.chat.getHref(businessId);
   const knowledgeHref = paths.business.knowledge.getHref(businessId);
+
   const faviconUrl = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(
     business?.domain ?? '',
   )}&sz=64`;
