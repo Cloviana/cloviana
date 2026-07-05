@@ -24,22 +24,7 @@ export const chatKeys = {
 
 export const jobKeys = {
   base: ['jobs'] as const,
-  list: (businessId?: string) =>
-    [...jobKeys.base, 'list', ...(businessId ? [businessId] : [])] as const,
+  list: () => [...jobKeys.base, 'list'] as const,
   detail: (jobId: string) => [...jobKeys.base, 'detail', jobId] as const,
   status: (jobId: string) => [...jobKeys.base, 'status', jobId] as const,
-};
-
-export const blogKeys = {
-  base: ['blogs'] as const,
-  drafts: (businessId: string) =>
-    [...blogKeys.base, 'drafts', businessId] as const,
-  draft: (businessId: string, draftId: string) =>
-    [...blogKeys.base, 'draft', businessId, draftId] as const,
-};
-
-export const cmsKeys = {
-  base: ['cms'] as const,
-  connections: (businessId: string) =>
-    [...cmsKeys.base, 'connections', businessId] as const,
 };

@@ -8,11 +8,8 @@ import {
   useAuiState,
 } from '@assistant-ui/react';
 import { FileText, ImageIcon, PlusIcon, XIcon } from 'lucide-react';
-import { useParams } from 'next/navigation';
 import { type PropsWithChildren, useEffect, useState, type FC } from 'react';
 import { useShallow } from 'zustand/shallow';
-
-import { useGetCmsConnections } from '@/features/cms/api/get-connections';
 
 import { TooltipIconButton } from '@/components/assistant-ui/tooltip-icon-button';
 import {
@@ -21,13 +18,6 @@ import {
   DialogTrigger,
   Dialog,
 } from '@/components/ui/dialog';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
 import {
   Tooltip,
   TooltipContent,
@@ -285,71 +275,19 @@ export const ComposerAttachments: FC = () => {
   );
 };
 
-export const ComposerAddAttachment: FC<{ businessId?: string }> = ({
-  businessId: propBusinessId,
-}) => {
-  const params = useParams();
-  const businessId = propBusinessId || (params?.businessId as string);
-  const { data: connections } = useGetCmsConnections(businessId || '');
-
+export const ComposerAddAttachment: FC = () => {
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <TooltipIconButton
-          tooltip="Add Attachment"
-          side="bottom"
-          variant="ghost"
-          size="icon"
-          className="aui-composer-add-attachment hover:bg-muted-foreground/15 dark:border-muted-foreground/15 dark:hover:bg-muted-foreground/30 size-7 rounded-full p-1 text-xs font-semibold"
-          aria-label="Add Attachment"
-        >
-          <PlusIcon className="aui-attachment-add-icon size-4.5 stroke-[1.5px]" />
-        </TooltipIconButton>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent side="top" align="start" className="w-48">
-        <ComposerPrimitive.AddAttachment asChild>
-          <DropdownMenuItem>
-            <ImageIcon className="mr-2 size-4" />
-            Images
-          </DropdownMenuItem>
-        </ComposerPrimitive.AddAttachment>
-        <ComposerPrimitive.AddAttachment asChild>
-          <DropdownMenuItem>
-            <FileText className="mr-2 size-4" />
-            Files
-          </DropdownMenuItem>
-        </ComposerPrimitive.AddAttachment>
-        {businessId && (
-          <>
-            <DropdownMenuSeparator />
-            <div className="px-2 py-1 text-xs font-semibold text-muted-foreground">
-              MCP Connections
-            </div>
-            {connections && connections.length > 0 ? (
-              connections.map((conn) => {
-                const name =
-                  conn.platform === 'WORDPRESS'
-                    ? 'WordPress'
-                    : conn.platform === 'WEBFLOW'
-                      ? 'Webflow'
-                      : 'Framer';
-                return (
-                  <DropdownMenuItem key={conn.id} className="text-xs">
-                    <span className="mr-2 flex size-2 items-center justify-center">
-                      <span className="size-1.5 rounded-full bg-emerald-500" />
-                    </span>
-                    {name}
-                  </DropdownMenuItem>
-                );
-              })
-            ) : (
-              <div className="px-2 py-1 text-[11px] text-muted-foreground italic">
-                No active connections
-              </div>
-            )}
-          </>
-        )}
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <ComposerPrimitive.AddAttachment asChild>
+      <TooltipIconButton
+        tooltip="Add Attachment"
+        side="bottom"
+        variant="ghost"
+        size="icon"
+        className="aui-composer-add-attachment hover:bg-muted-foreground/15 dark:border-muted-foreground/15 dark:hover:bg-muted-foreground/30 size-7 rounded-full p-1 text-xs font-semibold"
+        aria-label="Add Attachment"
+      >
+        <PlusIcon className="aui-attachment-add-icon size-4.5 stroke-[1.5px]" />
+      </TooltipIconButton>
+    </ComposerPrimitive.AddAttachment>
   );
 };
