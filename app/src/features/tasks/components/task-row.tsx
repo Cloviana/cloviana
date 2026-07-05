@@ -3,8 +3,8 @@
 import { FileText, RefreshCw } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
-import { cn } from '@/utils/cn';
 import type { Job, JobStatus } from '@/types/api';
+import { cn } from '@/utils/cn';
 
 const TYPE_LABELS: Record<string, string> = {
   BLOG_GENERATION: 'Blog draft',

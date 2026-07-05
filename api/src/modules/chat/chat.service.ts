@@ -66,6 +66,7 @@ export type IncomingMessage = {
 type SendMessage = {
   chatId?: string;
   messages: readonly IncomingMessage[];
+  mode?: string;
 };
 
 const TITLE_MAX_LENGTH = 40;
@@ -150,7 +151,9 @@ export class ChatService {
   @Cron("0 0 * * *")
   async deleteStaleChats(): Promise<void> {
     const cutoff = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
-    this.logger.log(`Starting cleanup of chats older than 30 days (cutoff: ${cutoff.toISOString()})...`);
+    this.logger.log(
+      `Starting cleanup of chats older than 30 days (cutoff: ${cutoff.toISOString()})...`,
+    );
     try {
       const result = await this.prisma.chat.deleteMany({
         where: {
@@ -159,7 +162,10 @@ export class ChatService {
       });
       this.logger.log(`Successfully cleaned up ${result.count} stale chats.`);
     } catch (err: any) {
-      this.logger.error(`Failed to clean up stale chats: ${err.message}`, err.stack);
+      this.logger.error(
+        `Failed to clean up stale chats: ${err.message}`,
+        err.stack,
+      );
     }
   }
 
@@ -316,11 +322,35 @@ export class ChatService {
     const assistantParts: Record<string, unknown>[] = [];
     let liveText = "";
     const flushLiveText = () => {
-      if (liveText.trim()) assistantParts.push({ type: "text", text: liveText });
+      if (liveText.trim())
+        assistantParts.push({ type: "text", text: liveText });
       liveText = "";
     };
 
     try {
+      // ponytail: explicit blog mode bypasses agent, creates background job directly
+      if (body.mode === "blog") {
+        const topic = text.slice(0, 500);
+        try {
+          const { jobId } = await this.blogs.generate(businessId, topic);
+          emit("blog_job", { jobId, topic });
+          const blogText =
+            "I'll draft that as a blog post. Track the progress below.";
+          await this.persist(businessId, chatId, title, text, content(blogText));
+          emit("done", {
+            chatId,
+            title,
+            content: content(blogText),
+            actions: [],
+          });
+        } catch (error) {
+          this.logger.error("Failed to enqueue blog job from chat", error);
+          emit("error", { detail: "Could not start the blog task" });
+        }
+        raw.end();
+        return;
+      }
+
       const url = new URL("agent/chat/stream", this.baseUrl);
       const response = await fetch(url, {
         method: "POST",
@@ -331,6 +361,7 @@ export class ChatService {
           message: text,
           clientContext,
           attachments: attachmentsFrom(body.messages),
+          mode: body.mode || "auto",
         }),
         signal: AbortSignal.timeout(120_000),
       });
@@ -348,11 +379,12 @@ export class ChatService {
         const { value, done } = await reader.read();
         if (done) break;
         buffer += decoder.decode(value, { stream: true });
-        let separator: number;
-        while ((separator = buffer.indexOf("\n\n")) >= 0) {
+        let separator = buffer.indexOf("\n\n");
+        while (separator >= 0) {
           const block = buffer.slice(0, separator);
           buffer = buffer.slice(separator + 2);
           const event = parseSseBlock(block);
+          separator = buffer.indexOf("\n\n");
           if (!event) continue;
           if (event.event === "done") {
             const payload = event.data as {
@@ -374,7 +406,9 @@ export class ChatService {
             emit("done", { chatId, title, content: fullContent, actions });
             finished = true;
           } else if (event.event === "error") {
-            this.logger.error(`Agent stream error: ${JSON.stringify(event.data)}`);
+            this.logger.error(
+              `Agent stream error: ${JSON.stringify(event.data)}`,
+            );
             emit("error", { detail: "Agent request failed" });
             finished = true;
           } else if (event.event === "route") {
@@ -387,7 +421,10 @@ export class ChatService {
                 const { jobId } = await this.blogs.generate(businessId, topic);
                 emit("blog_job", { jobId, topic });
               } catch (error) {
-                this.logger.error("Failed to enqueue blog job from chat", error);
+                this.logger.error(
+                  "Failed to enqueue blog job from chat",
+                  error,
+                );
                 emit("error", { detail: "Could not start the blog task" });
               }
             }
@@ -431,7 +468,8 @@ export class ChatService {
           }
         }
       }
-      if (!finished) emit("error", { detail: "Agent stream ended unexpectedly" });
+      if (!finished)
+        emit("error", { detail: "Agent stream ended unexpectedly" });
     } catch (error) {
       this.logger.error("Agent stream failed", error);
       emit("error", { detail: "Agent request failed" });

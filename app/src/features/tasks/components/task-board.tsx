@@ -10,10 +10,16 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from '@/components/ui/resizable';
 import { useGetDrafts } from '@/features/blogs/api/get-drafts';
 import { DraftViewer } from '@/features/blogs/components/draft-viewer';
 import { useGetJobs } from '@/features/jobs/api/get-jobs';
 import { useJobWatcher } from '@/features/jobs/hooks/use-job-watcher';
+import { useIsMobile } from '@/hooks/use-mobile';
 import type { Job } from '@/types/api';
 
 import { TaskRow } from './task-row';
@@ -33,42 +39,65 @@ const STEP_LABELS: Record<string, string> = {
 
 const TASK_TYPES = ['BLOG_GENERATION', 'CMS_SYNC'];
 
-// ponytail: fixed two-column grid; resizable panels when someone asks
 export function TaskBoard({ businessId }: { businessId: string }) {
+  const isMobile = useIsMobile();
   const { data: jobs = [], isPending } = useGetJobs(businessId);
   const tasks = jobs.filter((job) => TASK_TYPES.includes(job.type));
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const selected = tasks.find((job) => job.id === selectedId) ?? tasks[0];
 
-  return (
-    <div className="grid gap-4 lg:grid-cols-[minmax(280px,360px)_1fr]">
-      <div className="flex flex-col gap-2">
-        {isPending && (
-          <p className="text-muted-foreground p-3 text-sm">Loading tasks…</p>
-        )}
-        {!isPending && tasks.length === 0 && (
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-base">No tasks yet</CardTitle>
-              <CardDescription>
-                Ask the chat to write a blog post and it will run here in the
-                background.
-              </CardDescription>
-            </CardHeader>
-          </Card>
-        )}
-        {tasks.map((job) => (
-          <TaskRow
-            key={job.id}
-            job={job}
-            active={job.id === selected?.id}
-            onSelect={setSelectedId}
-          />
-        ))}
-      </div>
-
-      {selected && <TaskDetail businessId={businessId} job={selected} />}
+  const list = (
+    <div className="flex flex-col gap-2">
+      {isPending && (
+        <p className="text-muted-foreground p-3 text-sm">Loading tasks…</p>
+      )}
+      {!isPending && tasks.length === 0 && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base">No tasks yet</CardTitle>
+            <CardDescription>
+              Ask the chat to write a blog post and it will run here in the
+              background.
+            </CardDescription>
+          </CardHeader>
+        </Card>
+      )}
+      {tasks.map((job) => (
+        <TaskRow
+          key={job.id}
+          job={job}
+          active={job.id === selected?.id}
+          onSelect={setSelectedId}
+        />
+      ))}
     </div>
+  );
+  const detail = selected && (
+    <TaskDetail businessId={businessId} job={selected} />
+  );
+
+  if (isMobile) {
+    return (
+      <div className="flex flex-col gap-4">
+        {list}
+        {detail}
+      </div>
+    );
+  }
+
+  return (
+    <ResizablePanelGroup
+      orientation="horizontal"
+      className="min-h-[calc(100vh-8rem)]"
+    >
+      <ResizablePanel defaultSize="30%" minSize="280px">
+        <div className="pr-4">{list}</div>
+      </ResizablePanel>
+      <ResizableHandle withHandle />
+      <ResizablePanel defaultSize="70%" minSize="480px">
+        <div className="pl-4">{detail}</div>
+      </ResizablePanel>
+    </ResizablePanelGroup>
   );
 }
 
@@ -82,7 +111,9 @@ function TaskDetail({ businessId, job }: { businessId: string; job: Job }) {
   const status = data?.job?.status ?? job.status;
 
   const { data: drafts = [] } = useGetDrafts(businessId, {
-    queryConfig: { enabled: job.type === 'BLOG_GENERATION' },
+    queryConfig: {
+      enabled: job.type === 'BLOG_GENERATION' && status === 'SUCCESS',
+    },
   });
   const draft = drafts.find((item) => item.jobId === job.id);
 

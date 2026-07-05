@@ -73,6 +73,7 @@ export type Job = {
   type: JobType;
   status: JobStatus;
   attempts: number;
+  result: Record<string, unknown> | null;
   startedAt: ISODate | null;
   finishedAt: ISODate | null;
   lastHeartbeatAt: ISODate | null;

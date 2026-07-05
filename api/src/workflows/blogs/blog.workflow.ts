@@ -1,7 +1,8 @@
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { AppConfiguration } from "@/config/app.configuration";
-import { ManagedJobsService } from "@/modules/jobs/services/managed-jobs.service";
 import { parseSseBlock } from "@/modules/chat/chat.service";
+import { JobsService } from "@/modules/jobs/jobs.service";
+import { ManagedJobsService } from "@/modules/jobs/services/managed-jobs.service";
 import { Injectable, Logger } from "@nestjs/common";
 import { BlogDraftStatus, Prisma } from "@prisma/client";
 
@@ -33,6 +34,7 @@ export class BlogWorkflow {
   constructor(
     private readonly prisma: PrismaService,
     private readonly managedJobs: ManagedJobsService,
+    private readonly jobsService: JobsService,
     config: AppConfiguration,
   ) {
     this.baseUrl = `${config.agentUrl.replace(/\/$/, "")}/`;
@@ -67,6 +69,7 @@ export class BlogWorkflow {
     };
 
     let done: DonePayload | undefined;
+    const stages: Record<string, unknown>[] = [];
 
     try {
       const response = await fetch(new URL("agent/blog/stream", this.baseUrl), {
@@ -87,32 +90,36 @@ export class BlogWorkflow {
         if (streamDone) break;
         kick();
         buffer += decoder.decode(value, { stream: true });
-        let separator: number;
-        while ((separator = buffer.indexOf("\n\n")) >= 0) {
+        let separator = buffer.indexOf("\n\n");
+        while (separator >= 0) {
           const block = buffer.slice(0, separator);
           buffer = buffer.slice(separator + 2);
           const event = parseSseBlock(block);
+          separator = buffer.indexOf("\n\n");
           if (!event) continue;
 
           if (event.event === "stage") {
             const data = event.data as Record<string, unknown>;
             this.logger.log(
-              `Blog job=${jobId} stage=${data.index}/${data.of ?? 9} key=${data.key} status=${data.status}`,
+              `Blog job=${jobId} stage=${data.index}/9 key=${data.key} status=${data.status}`,
             );
-            // ponytail: interim progress lives in Job.result, overwritten by
-            // the final result; Redis JobRuntime if mid-run semantics matter
-            await this.prisma.job
-              .update({
-                where: { id: jobId },
-                data: {
-                  result: {
-                    progress: {
-                      stage: data.index,
-                      of: 9,
-                      key: data.key,
-                      detail: data.detail,
-                    },
-                  } as Prisma.InputJsonValue,
+            stages.push({
+              index: data.index,
+              key: data.key,
+              status: data.status,
+              detail: data.detail || "",
+              results: (data as { results?: unknown[] }).results || [],
+              at: new Date().toISOString(),
+            });
+            await this.jobsService
+              .setRuntime(jobId, {
+                percent: Math.round((Number(data.index) / 9) * 100),
+                step: String(data.key ?? ""),
+                title: topic,
+                meta: {
+                  detail: data.detail,
+                  stageStatus: data.status,
+                  stages,
                 },
               })
               .catch(() => {});
@@ -142,9 +149,8 @@ export class BlogWorkflow {
         jobId,
         title: done.title || topic,
         body: done.markdown,
-        status: violations.length
-          ? BlogDraftStatus.FLAGGED
-          : BlogDraftStatus.READY,
+        // ponytail: hard gate in blog.py means we only get here if critic passed
+        status: BlogDraftStatus.READY,
         violations: violations as Prisma.InputJsonValue,
         sources: (done.sources ?? []) as Prisma.InputJsonValue,
       },

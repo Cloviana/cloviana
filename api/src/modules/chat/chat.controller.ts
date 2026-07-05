@@ -22,6 +22,10 @@ class SendMessageDto {
 
   @IsArray()
   messages!: IncomingMessage[];
+
+  @IsOptional()
+  @IsString()
+  mode?: string;
 }
 
 @Controller("businesses/:businessId")

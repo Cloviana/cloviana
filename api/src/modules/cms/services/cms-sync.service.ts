@@ -95,7 +95,9 @@ export class CmsSyncService {
         metaTitle: page.meta_title ?? null,
         metaDescription: page.meta_description ?? null,
         cluster: page.cluster ?? null,
-        publishedDate: page.published_date ? new Date(page.published_date) : null,
+        publishedDate: page.published_date
+          ? new Date(page.published_date)
+          : null,
         lastModified: page.last_modified ? new Date(page.last_modified) : null,
         syncedAt: new Date(),
       };

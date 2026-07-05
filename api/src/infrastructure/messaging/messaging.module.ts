@@ -14,6 +14,11 @@ import { RabbitMqProviders } from "./rabbitmq.provider";
     BusinessesProducer,
     MonitoringProducer,
   ],
-  exports: [AuditsProducer, BlogsProducer, BusinessesProducer, MonitoringProducer],
+  exports: [
+    AuditsProducer,
+    BlogsProducer,
+    BusinessesProducer,
+    MonitoringProducer,
+  ],
 })
 export class MessagingModule {}
