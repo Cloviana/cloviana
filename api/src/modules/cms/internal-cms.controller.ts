@@ -1,3 +1,4 @@
+import { Public } from "@/common/decorators/public.decorator";
 import { InternalTokenGuard } from "@/common/guards/internal-token.guard";
 import {
   BadRequestException,
@@ -13,6 +14,7 @@ import { CmsService } from "./cms.service";
 export class InternalCmsController {
   constructor(private readonly cms: CmsService) {}
 
+  @Public()
   @Get()
   search(
     @Query("businessId") businessId?: string,

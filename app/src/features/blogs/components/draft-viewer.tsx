@@ -31,7 +31,9 @@ export function DraftViewer({ businessId, draftId }: DraftViewerProps) {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2">
-        <Badge variant={draft.status === 'FLAGGED' ? 'destructive' : 'secondary'}>
+        <Badge
+          variant={draft.status === 'FLAGGED' ? 'destructive' : 'secondary'}
+        >
           {draft.status === 'FLAGGED' ? 'Flagged by reviewer' : 'Ready'}
         </Badge>
       </div>

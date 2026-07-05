@@ -14,6 +14,7 @@ export type ChatMessage = {
 export type SendMessageRequest = {
   chatId?: string;
   messages: readonly ChatMessage[];
+  mode?: 'auto' | 'ask' | 'blog';
 };
 
 export type SendMessageResponse = {
@@ -32,7 +33,13 @@ export type ActionResultItem = {
 export type ChatStreamEvent =
   | { type: 'delta'; text: string }
   | { type: 'reasoning'; text: string }
-  | { type: 'action'; id: string; label: string; tool?: string; detail?: string }
+  | {
+      type: 'action';
+      id: string;
+      label: string;
+      tool?: string;
+      detail?: string;
+    }
   | {
       type: 'action-result';
       id: string;
@@ -74,7 +81,7 @@ export async function* sendMessageStream(
         'content-type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify({ ...body, mode: body.mode ?? 'auto' }),
       signal,
     },
   );
@@ -96,7 +103,10 @@ export async function* sendMessageStream(
       const parsed = parseSseBlock(block);
       if (!parsed) continue;
       if (parsed.event === 'delta') {
-        yield { type: 'delta', text: (parsed.data as ChatMessagePart).text ?? '' };
+        yield {
+          type: 'delta',
+          text: (parsed.data as ChatMessagePart).text ?? '',
+        };
       } else if (parsed.event === 'reasoning') {
         yield {
           type: 'reasoning',

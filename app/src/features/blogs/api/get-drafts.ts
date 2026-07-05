@@ -11,10 +11,9 @@ export const getDrafts = async (
 ): Promise<BlogDraftSummary[]> => {
   const token = await fetchAccessToken();
   if (!token) throw new Error('Access token is not available');
-  return api.get<BlogDraftSummary[]>(
-    `/businesses/${businessId}/blogs/drafts`,
-    { headers: { Authorization: `Bearer ${token}` } },
-  );
+  return api.get<BlogDraftSummary[]>(`/businesses/${businessId}/blogs/drafts`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
 };
 
 export const getDraftsQueryOptions = (businessId: string) =>

@@ -6,6 +6,7 @@ export const JOB_SUMMARY_SELECT = {
   status: true,
   error: true,
   attempts: true,
+  result: true,
   createdAt: true,
   startedAt: true,
   finishedAt: true,

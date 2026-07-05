@@ -37,3 +37,9 @@ export const blogKeys = {
   draft: (businessId: string, draftId: string) =>
     [...blogKeys.base, 'draft', businessId, draftId] as const,
 };
+
+export const cmsKeys = {
+  base: ['cms'] as const,
+  connections: (businessId: string) =>
+    [...cmsKeys.base, 'connections', businessId] as const,
+};

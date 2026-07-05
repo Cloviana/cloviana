@@ -187,19 +187,19 @@ model Business {
   updatedAt    DateTime      @updatedAt
   subscription Subscription?
 
-  owner       Profile          @relation("BusinessOwner", fields: [ownerId], references: [id], onDelete: Cascade)
-  competitors Competitor[]
-  jobs        Job[]
-  prompts     Prompt[]
-  tags        Tag[]
-  members     BusinessMember[]
-  invites     BusinessInvite[]
-  metrics     BusinessMetric[]
-  documents   Document[]
-  chats       Chat[]
-  blogDrafts  BlogDraft[]
+  owner          Profile          @relation("BusinessOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  competitors    Competitor[]
+  jobs           Job[]
+  prompts        Prompt[]
+  tags           Tag[]
+  members        BusinessMember[]
+  invites        BusinessInvite[]
+  metrics        BusinessMetric[]
+  documents      Document[]
+  chats          Chat[]
+  blogDrafts     BlogDraft[]
   cmsConnections CmsConnection[]
-  cmsPages    CmsPage[]
+  cmsPages       CmsPage[]
 
   @@index([ownerId])
   @@map("businesses")

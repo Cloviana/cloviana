@@ -1,5 +1,5 @@
 import { Injectable, Logger, OnModuleInit } from "@nestjs/common";
-import { Prisma, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -20,7 +20,7 @@ export class PrismaService
   });
 
   async onModuleInit() {
-    await Prisma.getExtensionContext(prisma).$connect();
+    await prisma.$connect();
     this.logger.log("Connected to database");
   }
 }

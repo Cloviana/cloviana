@@ -20,7 +20,10 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { toast } from 'sonner';
 
-import { Thread, type ThreadComponents } from '@/components/assistant-ui/thread';
+import {
+  Thread,
+  type ThreadComponents,
+} from '@/components/assistant-ui/thread';
 import { paths } from '@/config/paths';
 import { useGetBusiness } from '@/features/businesses/api/get-business';
 import { getChatMessagesQueryOptions } from '@/features/chat/api/get-chat-messages';
@@ -31,6 +34,10 @@ import {
 import { chatAttachmentAdapter } from '@/features/chat/lib/attachment-adapter';
 import { chatKeys } from '@/lib/react-query';
 import { cn } from '@/utils/cn';
+
+import type { BlogCanvasContent } from './blog-canvas';
+import { BlogJobTracker } from './blog-job-tracker';
+import { ChatModeProvider, useChatMode } from './mode-context';
 
 type ToolCardResult = {
   count?: number;
@@ -57,7 +64,6 @@ const ResultRow = ({ item }: { item: ActionResultItem }) => {
   const row = (
     <div className="flex min-w-0 items-center gap-2.5 rounded-md px-2 py-1.5">
       {favicon ? (
-        // eslint-disable-next-line @next/next/no-img-element
         <img
           src={favicon}
           alt=""
@@ -166,12 +172,7 @@ const ToolCard: ToolCallMessagePartComponent = ({
               className="shimmer pointer-events-none absolute inset-0 truncate motion-reduce:animate-none"
             >
               <span>{toolName}</span>
-              {detail && (
-                <span>
-                  {' '}
-                  &middot; &ldquo;{detail}&rdquo;
-                </span>
-              )}
+              {detail && <span> &middot; &ldquo;{detail}&rdquo;</span>}
             </span>
           )}
         </span>
@@ -219,6 +220,7 @@ type ChatThreadProps = {
   chatId?: string;
   navigateOnNewChat?: boolean;
   onChatCreated?: (chatId: string) => void;
+  onBlogReady?: (content: BlogCanvasContent) => void;
 };
 
 export function ChatThread({
@@ -226,23 +228,32 @@ export function ChatThread({
   chatId,
   navigateOnNewChat = true,
   onChatCreated,
+  onBlogReady,
 }: ChatThreadProps) {
   if (!chatId) {
     return (
-      <ChatThreadRuntime
-        businessId={businessId}
-        navigateOnNewChat={navigateOnNewChat}
-        onChatCreated={onChatCreated}
-      />
+      <ChatModeProvider>
+        <ChatThreadRuntime
+          businessId={businessId}
+          navigateOnNewChat={navigateOnNewChat}
+          onChatCreated={onChatCreated}
+          onBlogReady={onBlogReady}
+        />
+      </ChatModeProvider>
     );
   }
 
-  return <ChatThreadWithHistory businessId={businessId} chatId={chatId} />;
+  return (
+    <ChatModeProvider>
+      <ChatThreadWithHistory businessId={businessId} chatId={chatId} onBlogReady={onBlogReady} />
+    </ChatModeProvider>
+  );
 }
 
 type ChatThreadWithHistoryProps = {
   businessId: string;
   chatId: string;
+  onBlogReady?: (content: BlogCanvasContent) => void;
 };
 
 // Waits until chat history has either loaded or failed before mounting the
@@ -251,6 +262,7 @@ type ChatThreadWithHistoryProps = {
 function ChatThreadWithHistory({
   businessId,
   chatId,
+  onBlogReady,
 }: ChatThreadWithHistoryProps) {
   const router = useRouter();
   const { data, error, isPending } = useQuery(
@@ -286,6 +298,7 @@ function ChatThreadWithHistory({
       businessId={businessId}
       chatId={chatId}
       initialMessages={initialMessages}
+      onBlogReady={onBlogReady}
     />
   );
 }
@@ -296,6 +309,7 @@ type ChatThreadRuntimeProps = {
   initialMessages?: ThreadMessageLike[];
   navigateOnNewChat?: boolean;
   onChatCreated?: (chatId: string) => void;
+  onBlogReady?: (content: BlogCanvasContent) => void;
 };
 
 type StreamPart =
@@ -316,30 +330,44 @@ function ChatThreadRuntime({
   initialMessages,
   navigateOnNewChat = true,
   onChatCreated,
+  onBlogReady,
 }: ChatThreadRuntimeProps) {
   const router = useRouter();
   const chatIdRef = useRef(chatId);
   const queryClient = useQueryClient();
   const { data: business } = useGetBusiness(businessId);
   const businessName = business?.name;
+  const { mode } = useChatMode();
+  const modeRef = useRef(mode);
+  modeRef.current = mode;
+  // Track active blog jobs for inline rendering
+  const [blogJobs, setBlogJobs] = useState<{ jobId: string; topic: string }[]>([]);
   const components = useMemo<ThreadComponents>(() => {
-    const hour = new Date().getHours();
-    const greeting =
-      hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
-    // Hero-style welcome: Gambarino serif heading, muted Switzer subtitle —
-    // same treatment as the landing page hero.
-    const Welcome = () => (
-      <div className="aui-thread-welcome-root mb-8 flex flex-col items-center px-4 text-center">
-        <h1 className="aui-thread-welcome-message-inner font-gambarino fade-in slide-in-from-bottom-1 animate-in fill-mode-both text-4xl font-normal duration-300 md:text-5xl">
-          {greeting}.
-        </h1>
-        <p className="text-foreground-light fade-in slide-in-from-bottom-1 animate-in fill-mode-both mt-3 max-w-[45ch] text-sm duration-300 md:text-base">
-          {businessName
-            ? `What can I do for ${businessName} today?`
-            : 'What can I do for you today?'}
-        </p>
-      </div>
-    );
+    const Welcome = () => {
+      const [mounted, setMounted] = useState(false);
+      const [greeting, setGreeting] = useState('Welcome');
+
+      useEffect(() => {
+        setMounted(true);
+        const hour = new Date().getHours();
+        setGreeting(
+          hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening'
+        );
+      }, []);
+
+      return (
+        <div className="aui-thread-welcome-root mb-8 flex flex-col items-center px-4 text-center">
+          <h1 className="aui-thread-welcome-message-inner font-gambarino fade-in slide-in-from-bottom-1 animate-in fill-mode-both text-4xl font-normal duration-300 md:text-5xl">
+            {mounted ? greeting : 'Welcome'}.
+          </h1>
+          <p className="text-foreground-light fade-in slide-in-from-bottom-1 animate-in fill-mode-both mt-3 max-w-[45ch] text-sm duration-300 md:text-base">
+            {businessName
+              ? `What can I do for ${businessName} today?`
+              : 'What can I do for you today?'}
+          </p>
+        </div>
+      );
+    };
     return { ...threadComponents, Welcome };
   }, [businessName]);
   const adapter = useMemo<ChatModelAdapter>(
@@ -377,7 +405,7 @@ function ChatThreadRuntime({
 
         for await (const event of sendMessageStream(
           businessId,
-          { chatId: chatIdRef.current, messages },
+          { chatId: chatIdRef.current, messages, mode: modeRef.current },
           abortSignal,
         )) {
           if (event.type === 'delta') {
@@ -419,16 +447,11 @@ function ChatThreadRuntime({
             }
             yield { content: content() };
           } else if (event.type === 'blog-job') {
-            // Blog requests run as background jobs; point the user at the
-            // Tasks board instead of blocking the chat.
-            toast.info('Blog draft started', {
-              description: event.topic,
-              action: {
-                label: 'View tasks',
-                onClick: () =>
-                  router.push(paths.business.tasks.getHref(businessId)),
-              },
-            });
+            // Render blog progress inline in chat instead of redirecting
+            setBlogJobs((prev) => [
+              ...prev,
+              { jobId: event.jobId, topic: event.topic ?? '' },
+            ]);
           } else if (event.type === 'done') {
             for (const part of parts) {
               if (part.type === 'tool-call' && part.result === undefined) {
@@ -476,7 +499,23 @@ function ChatThreadRuntime({
 
   return (
     <AssistantRuntimeProvider runtime={runtime}>
-      <Thread components={components} />
+      <div className="flex h-full flex-col">
+        <Thread components={components} />
+        {/* Inline blog job trackers */}
+        {blogJobs.length > 0 && (
+          <div className="mx-auto w-full max-w-[54rem] px-4 pb-4">
+            {blogJobs.map((job) => (
+              <BlogJobTracker
+                key={job.jobId}
+                businessId={businessId}
+                jobId={job.jobId}
+                topic={job.topic}
+                onBlogReady={onBlogReady}
+              />
+            ))}
+          </div>
+        )}
+      </div>
     </AssistantRuntimeProvider>
   );
 }
