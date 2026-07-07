@@ -8,7 +8,6 @@ import type { ReactNode } from 'react';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
 import { getBusinessQueryOptions } from '@/features/businesses/api/get-business';
 import { getBusinessesQueryOptions } from '@/features/businesses/api/get-businesses';
-import { AskAiModal } from '@/features/chat/components/ask-ai-modal';
 import { DashboardSidebar } from '@/features/dashboard/components/dashboard-sidebar';
 
 type LayoutProps = {
@@ -50,7 +49,6 @@ export default async function Layout({ children, params }: LayoutProps) {
           <SidebarInset>
             <div className="flex min-h-0 flex-1 flex-col">{children}</div>
           </SidebarInset>
-          <AskAiModal />
         </SidebarProvider>
       </div>
     </HydrationBoundary>

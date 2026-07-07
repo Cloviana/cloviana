@@ -1,4 +1,4 @@
-import { startOfUtcDay } from "@/workflows/monitoring/utils/monitoring-job-key";
+import { startOfUtcDay } from "@/workflows/monitoring/monitoring.job-key";
 import { Injectable, Logger } from "@nestjs/common";
 import { Cron } from "@nestjs/schedule";
 import { MonitoringEligibilityService } from "../services/monitoring-eligibility.service";

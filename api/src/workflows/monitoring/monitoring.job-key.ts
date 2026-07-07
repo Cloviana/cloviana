@@ -1,3 +1,5 @@
+// Date helpers plus the dedupe key used by ManagedJobsService to avoid
+// scheduling two monitoring runs for the same business/date/prompt subset.
 import { createHash } from "node:crypto";
 
 const DEDUPE_PREFIX = "monitoring";

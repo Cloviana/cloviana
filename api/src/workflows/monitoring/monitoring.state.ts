@@ -1,23 +1,33 @@
+// Shared state threaded through the LangGraph nodes. Fields with a
+// `reducer` are appended to as parallel engine/analysis nodes complete;
+// fields with a plain `value` are overwritten wholesale by one node.
 import { Annotation } from "@langchain/langgraph";
 import type {
   EngineFailure,
   EngineResponse,
+  MonitoringCompetitor,
+  MonitoringProfile,
+  MonitoringPrompt,
   PromptMetricState,
+  ResponseFanOutInference,
+  ResponseMentions,
 } from "./monitoring.types";
 
-export const StateAnnotation = Annotation.Root({
+export const MonitoringStateAnnotation = Annotation.Root({
   businessId: Annotation<string>(),
-  prompts: Annotation<{ id: string; text: string }[]>(),
-  competitors: Annotation<{ id: string; domain: string; name: string }[]>(),
-  profile: Annotation<{
-    name: string;
-    category: string;
-    description: string;
-    icp: string;
-    domain: string;
-  }>,
+  prompts: Annotation<MonitoringPrompt[]>(),
+  competitors: Annotation<MonitoringCompetitor[]>(),
+  profile: Annotation<MonitoringProfile>(),
   date: Annotation<Date>,
   rawEngineResponses: Annotation<EngineResponse[]>({
+    reducer: (a, b) => [...a, ...b],
+    default: () => [],
+  }),
+  responseMentions: Annotation<ResponseMentions[]>({
+    reducer: (a, b) => [...a, ...b],
+    default: () => [],
+  }),
+  fanOutInferences: Annotation<ResponseFanOutInference[]>({
     reducer: (a, b) => [...a, ...b],
     default: () => [],
   }),
@@ -35,12 +45,4 @@ export const StateAnnotation = Annotation.Root({
   }),
 });
 
-export type StateType = typeof StateAnnotation.State;
-export type {
-  BusinessMetricState,
-  Citation,
-  EngineFailure,
-  EngineResponse,
-  Mention,
-  PromptMetricState,
-} from "./monitoring.types";
+export type MonitoringState = typeof MonitoringStateAnnotation.State;

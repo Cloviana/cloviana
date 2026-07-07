@@ -17,18 +17,11 @@ enum JobType {
   PROMPT_GENERATION
   MONITORING
   BLOG_GENERATION
-  CMS_SYNC
 }
 
 enum BlogDraftStatus {
   READY
   FLAGGED
-}
-
-enum CmsPlatform {
-  WORDPRESS
-  WEBFLOW
-  FRAMER
 }
 
 enum JobStatus {
@@ -125,6 +118,12 @@ enum DocumentTag {
   domain
 }
 
+enum DocumentStatus {
+  PROCESSING
+  READY
+  FAILED
+}
+
 // --- BILLING MODELS ---
 
 model Plan {
@@ -198,8 +197,6 @@ model Business {
   documents      Document[]
   chats          Chat[]
   blogDrafts     BlogDraft[]
-  cmsConnections CmsConnection[]
-  cmsPages       CmsPage[]
 
   @@index([ownerId])
   @@map("businesses")
@@ -317,6 +314,7 @@ model Job {
   businessId      String
   status          JobStatus @default(PENDING)
   priority        Int       @default(0)
+  progress        Json?     @db.JsonB
   attempts        Int       @default(0)
   scheduledAt     DateTime?
   startedAt       DateTime?
@@ -354,46 +352,6 @@ model BlogDraft {
 
   @@index([businessId, createdAt])
   @@map("blog_drafts")
-}
-
-model CmsConnection {
-  id           String      @id @default(uuid()) @db.Uuid
-  businessId   String
-  platform     CmsPlatform
-  // ponytail: creds stored plaintext Json; pgcrypto/KMS column encryption before external customers
-  config       Json        @db.JsonB
-  syncCursor   String?
-  lastSyncedAt DateTime?
-  createdAt    DateTime    @default(now())
-  updatedAt    DateTime    @updatedAt
-
-  business Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
-
-  @@unique([businessId, platform])
-  @@map("cms_connections")
-}
-
-model CmsPage {
-  id              String      @id @default(uuid()) @db.Uuid
-  businessId      String
-  platform        CmsPlatform
-  externalId      String
-  title           String
-  slug            String
-  url             String
-  excerpt         String?
-  metaTitle       String?
-  metaDescription String?
-  cluster         String?
-  publishedDate   DateTime?
-  lastModified    DateTime?
-  syncedAt        DateTime    @default(now())
-
-  business Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
-
-  @@unique([businessId, platform, externalId])
-  @@index([businessId])
-  @@map("cms_pages")
 }
 
 model Prompt {
@@ -497,6 +455,7 @@ model FanOutQuery {
   id               String   @id @default(uuid()) @db.Uuid
   promptResponseId String   @db.Uuid
   query            String
+  inferred         Boolean  @default(false)
   createdAt        DateTime @default(now())
 
   promptResponse PromptResponse @relation(fields: [promptResponseId], references: [id], onDelete: Cascade)
@@ -540,17 +499,23 @@ model BusinessMetric {
 }
 
 model Document {
-  id         String      @id @default(uuid()) @db.Uuid
-  businessId String
-  name       String
-  extension  String
-  tag        DocumentTag
-  createdAt  DateTime    @default(now())
-  updatedAt  DateTime    @updatedAt
+  id            String         @id @default(uuid()) @db.Uuid
+  businessId    String
+  name          String
+  extension     String
+  filename      String?
+  mimeType      String?
+  filePath      String?
+  tag           DocumentTag
+  status        DocumentStatus @default(PROCESSING)
+  failureReason String?
+  indexedAt     DateTime?
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
 
   business Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
 
-  @@index([businessId])
+  @@index([businessId, status])
   @@map("documents")
 }
 

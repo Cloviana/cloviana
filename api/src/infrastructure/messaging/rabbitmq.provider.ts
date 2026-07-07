@@ -5,6 +5,7 @@ import {
   AUDITS_QUEUE,
   BLOG_QUEUE,
   BUSINESSES_QUEUE,
+  KNOWLEDGE_QUEUE,
   MONITORING_QUEUE,
   createRabbitMqClientOptions,
 } from "./rabbitmq.contracts";
@@ -42,6 +43,15 @@ export const RabbitMqProviders: Provider[] = [
     useFactory: (cfg: AppConfiguration): ClientProxy => {
       return ClientProxyFactory.create(
         createRabbitMqClientOptions(cfg.rabbitmqUri, BLOG_QUEUE),
+      );
+    },
+    inject: [AppConfiguration],
+  },
+  {
+    provide: KNOWLEDGE_QUEUE.clientToken,
+    useFactory: (cfg: AppConfiguration): ClientProxy => {
+      return ClientProxyFactory.create(
+        createRabbitMqClientOptions(cfg.rabbitmqUri, KNOWLEDGE_QUEUE),
       );
     },
     inject: [AppConfiguration],

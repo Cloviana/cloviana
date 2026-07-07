@@ -192,14 +192,14 @@ function ReasoningTrigger({
         data-slot="reasoning-trigger-label"
         className="aui-reasoning-trigger-label-wrapper relative inline-block leading-none tabular-nums"
       >
-        <span>{active ? 'Thinking' : 'Thought about it'}{durationText}</span>
+        <span>Reasoning{durationText}</span>
         {active ? (
           <span
             aria-hidden
             data-slot="reasoning-trigger-shimmer"
             className="aui-reasoning-trigger-shimmer shimmer pointer-events-none absolute inset-0 motion-reduce:animate-none"
           >
-            Thinking{durationText}
+            Reasoning{durationText}
           </span>
         ) : null}
       </span>

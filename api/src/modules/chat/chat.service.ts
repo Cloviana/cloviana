@@ -1,7 +1,6 @@
 import { randomUUID } from "node:crypto";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { AppConfiguration } from "@/common/config/app.configuration";
-import { BlogsService } from "@/modules/blogs/blogs.service";
 import {
   BadGatewayException,
   BadRequestException,
@@ -16,47 +15,7 @@ import type { FastifyReply } from "fastify";
 type IncomingPart = {
   type?: string;
   text?: string;
-  image?: string;
-  data?: string;
-  mimeType?: string;
-  filename?: string;
 };
-
-type AgentAttachment = {
-  name?: string;
-  mimeType?: string;
-  dataUrl: string;
-};
-
-const MAX_ATTACHMENTS = 5;
-
-function mimeFromDataUrl(dataUrl: string) {
-  const match = /^data:([^;,]+)/.exec(dataUrl);
-  return match?.[1];
-}
-
-// Image and file parts from the latest user message become agent
-// attachments; text parts are already covered by messageText().
-function attachmentsFrom(messages: readonly IncomingMessage[]) {
-  const latest = [...messages].reverse().find((m) => m.role === "user");
-  const attachments: AgentAttachment[] = [];
-  for (const part of latest?.content ?? []) {
-    if (attachments.length >= MAX_ATTACHMENTS) break;
-    if (part.type === "image" && part.image?.startsWith("data:")) {
-      attachments.push({
-        mimeType: mimeFromDataUrl(part.image),
-        dataUrl: part.image,
-      });
-    } else if (part.type === "file" && part.data?.startsWith("data:")) {
-      attachments.push({
-        name: part.filename,
-        mimeType: part.mimeType ?? mimeFromDataUrl(part.data),
-        dataUrl: part.data,
-      });
-    }
-  }
-  return attachments;
-}
 
 export type IncomingMessage = {
   role?: string;
@@ -66,10 +25,10 @@ export type IncomingMessage = {
 type SendMessage = {
   chatId?: string;
   messages: readonly IncomingMessage[];
-  mode?: string;
 };
 
 const TITLE_MAX_LENGTH = 40;
+const MAX_MESSAGE_CHARS = 50_000;
 
 function messageText(message?: IncomingMessage) {
   return (message?.content ?? [])
@@ -93,29 +52,22 @@ function content(text: string) {
   return [{ type: "text", text }];
 }
 
-type BusinessOverview = {
-  id: string;
-  name: string;
-  domain: string;
-  category: string | null;
-  description: string | null;
-  icp: string | null;
-  location: string | null;
-  industry: string | null;
+type AgentMessage = {
+  role: "user" | "assistant";
+  content: string;
 };
 
-function clientOverview(business: BusinessOverview) {
-  return [
-    `Business name: ${business.name}`,
-    `Business domain: ${business.domain}`,
-    business.category && `Category: ${business.category}`,
-    business.description && `Brand description: ${business.description}`,
-    business.icp && `Ideal customer profile: ${business.icp}`,
-    business.location && `Location: ${business.location}`,
-    business.industry && `Industry: ${business.industry}`,
-  ]
-    .filter(Boolean)
-    .join("\n");
+function persistedMessageText(value: Prisma.JsonValue) {
+  if (!Array.isArray(value)) return "";
+  return value
+    .filter(
+      (part): part is Prisma.JsonObject =>
+        typeof part === "object" && part !== null && !Array.isArray(part),
+    )
+    .filter((part) => part.type === "text" && typeof part.text === "string")
+    .map((part) => String(part.text))
+    .join("\n")
+    .slice(0, MAX_MESSAGE_CHARS);
 }
 
 export function parseSseBlock(
@@ -139,13 +91,14 @@ export function parseSseBlock(
 export class ChatService {
   private readonly logger = new Logger(ChatService.name);
   private readonly baseUrl: string;
+  private readonly internalToken: string;
 
   constructor(
     private readonly prisma: PrismaService,
-    private readonly blogs: BlogsService,
     config: AppConfiguration,
   ) {
     this.baseUrl = `${config.agentUrl.replace(/\/$/, "")}/`;
+    this.internalToken = config.agentInternalToken;
   }
 
   @Cron("0 0 * * *")
@@ -155,9 +108,18 @@ export class ChatService {
       `Starting cleanup of chats older than 30 days (cutoff: ${cutoff.toISOString()})...`,
     );
     try {
-      const result = await this.prisma.chat.deleteMany({
+      const staleChats = await this.prisma.chat.findMany({
         where: {
           updatedAt: { lt: cutoff },
+        },
+        select: { id: true, businessId: true },
+      });
+      for (const chat of staleChats) {
+        await this.cleanupAgentWorkspace(chat.businessId, chat.id, false);
+      }
+      const result = await this.prisma.chat.deleteMany({
+        where: {
+          id: { in: staleChats.map((chat) => chat.id) },
         },
       });
       this.logger.log(`Successfully cleaned up ${result.count} stale chats.`);
@@ -195,50 +157,68 @@ export class ChatService {
       },
     });
     if (!chat) throw new NotFoundException("Chat not found");
+    void this.prepareAgentWorkspace(businessId, chatId).catch((error) => {
+      this.logger.warn(
+        `Agent runtime prepare failed for business=${businessId} chat=${chatId}`,
+        error,
+      );
+    });
     return chat;
   }
 
-  // Validates the request, resolves chat identity, and fetches the client
-  // overview. Fetched on every message so the agent always sees the latest
-  // brand details; fails loudly (404) instead of running with empty context.
+  async remove(businessId: string, chatId: string) {
+    const chat = await this.prisma.chat.findFirst({
+      where: { id: chatId, businessId },
+      select: { id: true },
+    });
+    if (!chat) throw new NotFoundException("Chat not found");
+
+    await this.cleanupAgentWorkspace(businessId, chatId, true);
+    await this.prisma.chat.delete({ where: { id: chatId } });
+    return { id: chatId };
+  }
+
+  // The API owns conversation history. Only the latest user message is trusted
+  // from the browser; prior turns come from the database.
   private async prepare(businessId: string, body: SendMessage) {
     const text = userText(body.messages, true);
     if (!text) throw new BadRequestException("A user text message is required");
+    if (text.length > MAX_MESSAGE_CHARS) {
+      throw new BadRequestException(
+        `User messages must not exceed ${MAX_MESSAGE_CHARS} characters`,
+      );
+    }
 
-    // Both lookups hit a remote database; run them in parallel so the
-    // stream starts one round trip sooner.
-    const [existing, business] = await Promise.all([
-      body.chatId
-        ? this.prisma.chat.findFirst({
-            where: { id: body.chatId, businessId },
-            select: { id: true, title: true },
-          })
-        : Promise.resolve(null),
-      this.prisma.business.findFirst({
-        where: { id: businessId },
-        select: {
-          id: true,
-          name: true,
-          domain: true,
-          category: true,
-          description: true,
-          icp: true,
-          location: true,
-          industry: true,
-        },
-      }),
-    ]);
+    const existing = body.chatId
+      ? await this.prisma.chat.findFirst({
+          where: { id: body.chatId, businessId },
+          select: {
+            id: true,
+            title: true,
+            messages: {
+              select: { role: true, content: true },
+              orderBy: { createdAt: "asc" },
+            },
+          },
+        })
+      : null;
     if (body.chatId && !existing) throw new NotFoundException("Chat not found");
 
     const chatId = existing?.id ?? randomUUID();
-    const title = existing?.title ?? titleFrom(userText(body.messages, false));
+    const title = existing?.title ?? titleFrom(text);
+    const history: AgentMessage[] = (existing?.messages ?? [])
+      .map((message): AgentMessage | null => {
+        const messageContent = persistedMessageText(message.content);
+        if (!messageContent) return null;
+        return { role: message.role, content: messageContent };
+      })
+      .filter((message): message is AgentMessage => message !== null);
+    const messages = [
+      ...history,
+      { role: "user" as const, content: text },
+    ].slice(-200);
 
-    if (!business) throw new NotFoundException("Business not found");
-    this.logger.log(
-      `chat: client overview fetched business=${businessId} chat=${chatId}`,
-    );
-
-    return { text, chatId, title, clientContext: clientOverview(business) };
+    return { text, chatId, title, messages };
   }
 
   // assistantContent is the full part list (reasoning, tool cards, text) so
@@ -274,18 +254,16 @@ export class ChatService {
   }
 
   async send(businessId: string, body: SendMessage) {
-    const { text, chatId, title, clientContext } = await this.prepare(
+    const { text, chatId, title, messages } = await this.prepare(
       businessId,
       body,
     );
 
-    const { reply, actions } = await this.askAgent(
+    const { reply, actions } = await this.askAgent({
       businessId,
       chatId,
-      text,
-      clientContext,
-      attachmentsFrom(body.messages),
-    );
+      messages,
+    });
 
     await this.persist(businessId, chatId, title, text, content(reply));
     return { chatId, title, content: content(reply), actions };
@@ -294,7 +272,7 @@ export class ChatService {
   async stream(businessId: string, body: SendMessage, reply: FastifyReply) {
     // Validation errors are thrown before headers are sent, so they surface
     // as normal HTTP errors; after hijack() everything is SSE events.
-    const { text, chatId, title, clientContext } = await this.prepare(
+    const { text, chatId, title, messages } = await this.prepare(
       businessId,
       body,
     );
@@ -328,40 +306,16 @@ export class ChatService {
     };
 
     try {
-      // ponytail: explicit blog mode bypasses agent, creates background job directly
-      if (body.mode === "blog") {
-        const topic = text.slice(0, 500);
-        try {
-          const { jobId } = await this.blogs.generate(businessId, topic);
-          emit("blog_job", { jobId, topic });
-          const blogText =
-            "I'll draft that as a blog post. Track the progress below.";
-          await this.persist(businessId, chatId, title, text, content(blogText));
-          emit("done", {
-            chatId,
-            title,
-            content: content(blogText),
-            actions: [],
-          });
-        } catch (error) {
-          this.logger.error("Failed to enqueue blog job from chat", error);
-          emit("error", { detail: "Could not start the blog task" });
-        }
-        raw.end();
-        return;
-      }
-
-      const url = new URL("agent/chat/stream", this.baseUrl);
+      const url = new URL(
+        `agent/chats/${encodeURIComponent(chatId)}/messages/stream`,
+        this.baseUrl,
+      );
       const response = await fetch(url, {
         method: "POST",
-        headers: { "content-type": "application/json" },
+        headers: this.agentHeaders(),
         body: JSON.stringify({
           businessId,
-          sessionId: chatId,
-          message: text,
-          clientContext,
-          attachments: attachmentsFrom(body.messages),
-          mode: body.mode || "auto",
+          messages,
         }),
         signal: AbortSignal.timeout(120_000),
       });
@@ -411,23 +365,6 @@ export class ChatService {
             );
             emit("error", { detail: "Agent request failed" });
             finished = true;
-          } else if (event.event === "route") {
-            // Auto mode classified this message; blog requests become a
-            // background job instead of occupying the chat stream.
-            const data = event.data as { mode?: string; topic?: string };
-            if (data.mode === "blog") {
-              const topic = (data.topic || text).slice(0, 500);
-              try {
-                const { jobId } = await this.blogs.generate(businessId, topic);
-                emit("blog_job", { jobId, topic });
-              } catch (error) {
-                this.logger.error(
-                  "Failed to enqueue blog job from chat",
-                  error,
-                );
-                emit("error", { detail: "Could not start the blog task" });
-              }
-            }
           } else {
             const data = event.data as Record<string, unknown>;
             if (event.event === "delta" && typeof data.text === "string") {
@@ -478,30 +415,28 @@ export class ChatService {
     }
   }
 
-  private async askAgent(
-    businessId: string,
-    sessionId: string,
-    message: string,
-    clientContext: string,
-    attachments: AgentAttachment[] = [],
-  ) {
+  private agentHeaders() {
+    return {
+      "content-type": "application/json",
+      ...(this.internalToken
+        ? { "x-agent-internal-token": this.internalToken }
+        : {}),
+    };
+  }
+
+  private async askAgent(body: {
+    businessId: string;
+    chatId: string;
+    messages: AgentMessage[];
+  }) {
     const url = new URL("agent/chat", this.baseUrl);
     let response: Response;
 
-    this.logger.log(
-      `chat: injecting client context (${clientContext.length} chars) business=${businessId} chat=${sessionId}`,
-    );
     try {
       response = await fetch(url, {
         method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          businessId,
-          sessionId,
-          message,
-          clientContext,
-          attachments,
-        }),
+        headers: this.agentHeaders(),
+        body: JSON.stringify(body),
         signal: AbortSignal.timeout(120_000),
       });
     } catch (error) {
@@ -527,5 +462,68 @@ export class ChatService {
       ? payload.actions.filter((action) => typeof action === "string")
       : [];
     return { reply: payload.response, actions };
+  }
+
+  private async prepareAgentWorkspace(
+    businessId: string,
+    chatId: string,
+  ): Promise<void> {
+    const url = new URL(
+      `agent/chats/${encodeURIComponent(chatId)}/runtime`,
+      this.baseUrl,
+    );
+    let response: Response;
+    try {
+      response = await fetch(url, {
+        method: "PUT",
+        headers: this.agentHeaders(),
+        body: JSON.stringify({ businessId }),
+        signal: AbortSignal.timeout(30_000),
+      });
+    } catch (error) {
+      this.logger.error(`Agent workspace prepare failed: ${url}`, error);
+      throw new BadGatewayException("Agent workspace is unavailable");
+    }
+    if (!response.ok) {
+      const detail = (await response.text()).slice(0, 500);
+      this.logger.error(
+        `Agent workspace prepare returned ${response.status}: ${detail}`,
+      );
+      throw new BadGatewayException("Agent workspace prepare failed");
+    }
+  }
+
+  private async cleanupAgentWorkspace(
+    businessId: string,
+    chatId: string,
+    failOnError: boolean,
+  ): Promise<void> {
+    const url = new URL(
+      `agent/chats/${encodeURIComponent(chatId)}/runtime`,
+      this.baseUrl,
+    );
+    let response: Response;
+    try {
+      response = await fetch(url, {
+        method: "DELETE",
+        headers: this.agentHeaders(),
+        body: JSON.stringify({ businessId }),
+        signal: AbortSignal.timeout(30_000),
+      });
+    } catch (error) {
+      this.logger.error(`Agent workspace cleanup failed: ${url}`, error);
+      if (failOnError) {
+        throw new BadGatewayException("Agent workspace is unavailable");
+      }
+      return;
+    }
+    if (response.ok) return;
+    const detail = (await response.text()).slice(0, 500);
+    this.logger.error(
+      `Agent workspace cleanup returned ${response.status}: ${detail}`,
+    );
+    if (failOnError) {
+      throw new BadGatewayException("Agent workspace cleanup failed");
+    }
   }
 }

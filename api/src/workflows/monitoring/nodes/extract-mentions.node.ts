@@ -1,23 +1,31 @@
+// Graph node: runs after all engines finish. Scans each raw response's text
+// for mentions of our business or its competitors (batched into one Groq
+// call), independent of citations that already reference the brand's site.
 import { batchExtractMentions } from "@/common/visibility/extract-mentions";
 import {
   MonitoringNodeConfig,
   requireMonitoringDependencies,
-} from "../monitoring.config";
-import { EngineResponse, StateType } from "../monitoring.state";
+} from "../monitoring.context";
+import type { MonitoringState } from "../monitoring.state";
+import type { ResponseMentions } from "../monitoring.types";
 
 export async function extractMentionsNode(
-  state: StateType,
+  state: MonitoringState,
   config: MonitoringNodeConfig,
-): Promise<{ engineResponses: EngineResponse[] }> {
+): Promise<{ responseMentions: ResponseMentions[] }> {
   const { groq, logger } = requireMonitoringDependencies(config);
+
+  if (state.rawEngineResponses.length === 0) {
+    return { responseMentions: [] };
+  }
 
   const brands = [
     { name: state.profile.name, domain: state.profile.domain },
     ...state.competitors,
   ];
 
-  const items = state.rawEngineResponses.map((response, index) => ({
-    customId: String(index),
+  const items = state.rawEngineResponses.map((response) => ({
+    customId: response.responseKey,
     text: response.content,
   }));
 
@@ -26,18 +34,14 @@ export async function extractMentionsNode(
   );
 
   const mentionResults = await batchExtractMentions(groq, items, brands);
-  const mentionMap = new Map(mentionResults.map((r) => [r.customId, r.domains]));
-
-  const engineResponses = state.rawEngineResponses.map((response, index) => ({
-    ...response,
-    mentions: (mentionMap.get(String(index)) ?? []).map((domain) => ({
-      domain,
-    })),
+  const responseMentions = mentionResults.map((result) => ({
+    responseKey: result.customId,
+    mentions: result.domains.map((domain) => ({ domain })),
   }));
 
   logger?.log(
-    `[${state.businessId}] Mention extraction completed responses=${engineResponses.length}`,
+    `[${state.businessId}] Mention extraction completed responses=${responseMentions.length}`,
   );
 
-  return { engineResponses };
+  return { responseMentions };
 }

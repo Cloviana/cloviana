@@ -19,8 +19,10 @@ import {
   ArrowDownIcon,
   ArrowUpIcon,
   CheckIcon,
+  ChevronDownIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
+  CircleCheckIcon,
   CopyIcon,
   DownloadIcon,
   MicIcon,
@@ -58,6 +60,10 @@ import {
 } from '@/components/assistant-ui/tool-group';
 import { TooltipIconButton } from '@/components/assistant-ui/tooltip-icon-button';
 import { Button } from '@/components/ui/button';
+import {
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from '@/components/ui/collapsible';
 import { cn } from '@/utils/cn';
 
 export type ThreadGroupPart = MessagePrimitive.GroupedParts.GroupPart;
@@ -111,15 +117,17 @@ const ThreadRoot: FC<{ isEmpty: boolean }> = ({ isEmpty }) => {
 
   return (
     <ThreadPrimitive.Root
-      className="aui-root aui-thread-root bg-background font-switzer @container flex h-full flex-col"
+      className="aui-root aui-thread-root bg-background @container flex h-full flex-col"
       style={{
-        ['--thread-max-width' as string]: '54rem',
-        ['--composer-bg' as string]: 'rgba(255,255,255,0.9)',
+        ['--thread-max-width' as string]: '44rem',
+        ['--composer-bg' as string]:
+          'color-mix(in oklab, var(--color-muted) 30%, var(--color-background))',
         ['--composer-radius' as string]: '1.5rem',
         ['--composer-padding' as string]: '8px',
       }}
     >
       <ThreadPrimitive.Viewport
+        turnAnchor="top"
         data-slot="aui_thread-viewport"
         className="relative flex flex-1 flex-col overflow-x-auto overflow-y-scroll scroll-smooth"
       >
@@ -151,7 +159,7 @@ const ThreadRoot: FC<{ isEmpty: boolean }> = ({ isEmpty }) => {
           >
             <ThreadScrollToBottom />
             <Composer />
-            <AuiIf condition={isNewChatView}>
+            <AuiIf condition={(s) => isNewChatView(s) && s.composer.isEmpty}>
               <ThreadSuggestions />
             </AuiIf>
           </ThreadPrimitive.ViewportFooter>
@@ -197,15 +205,8 @@ const ThreadWelcome: FC = () => {
 };
 
 const ThreadSuggestions: FC = () => {
-  const isComposerEmpty = useAuiState((s) => s.composer.isEmpty);
-
   return (
-    <div
-      className={cn(
-        'aui-thread-welcome-suggestions flex w-full flex-wrap items-center justify-center gap-2 px-4',
-        !isComposerEmpty && 'invisible',
-      )}
-    >
+    <div className="aui-thread-welcome-suggestions flex w-full flex-wrap items-center justify-center gap-2 px-4">
       <ThreadPrimitive.Suggestions>
         {() => <ThreadSuggestionItem />}
       </ThreadPrimitive.Suggestions>
@@ -219,7 +220,7 @@ const ThreadSuggestionItem: FC = () => {
       <SuggestionPrimitive.Trigger send asChild>
         <Button
           variant="ghost"
-          className="aui-thread-welcome-suggestion h-auto gap-1.5 rounded-full border border-stone-300/50 bg-white/50 px-3.5 py-1.5 text-sm font-normal whitespace-nowrap text-stone-600 transition-colors hover:bg-white hover:text-stone-900"
+          className="aui-thread-welcome-suggestion text-foreground hover:bg-muted border-border/60 h-auto gap-1.5 rounded-full border px-3.5 py-1.5 text-sm font-normal whitespace-nowrap transition-colors"
         >
           <SuggestionPrimitive.Title className="aui-thread-welcome-suggestion-text-1" />
           <SuggestionPrimitive.Description className="aui-thread-welcome-suggestion-text-2 empty:hidden" />
@@ -235,13 +236,15 @@ const Composer: FC = () => {
       <ComposerPrimitive.AttachmentDropzone asChild>
         <div
           data-slot="aui_composer-shell"
-          className="data-[dragging=true]:border-ring dark:border-muted-foreground/15 dark:focus-within:border-muted-foreground/30 flex w-full flex-col gap-2 rounded-(--composer-radius) border border-stone-200/70 bg-(--composer-bg) p-(--composer-padding) shadow-[inset_0_1px_2px_rgba(0,0,0,0.05),0_4px_16px_-8px_rgba(0,0,0,0.08)] backdrop-blur-md transition-colors focus-within:border-stone-300 data-[dragging=true]:border-dashed data-[dragging=true]:bg-[color-mix(in_oklab,var(--color-accent)_50%,var(--color-background))] dark:shadow-none"
+          className="border-border/60 data-[dragging=true]:border-ring focus-within:border-border dark:border-muted-foreground/15 dark:focus-within:border-muted-foreground/30 flex w-full flex-col gap-2 rounded-(--composer-radius) border bg-(--composer-bg) p-(--composer-padding) shadow-[0_4px_16px_-8px_rgba(0,0,0,0.08),0_1px_2px_rgba(0,0,0,0.04)] transition-[border-color,box-shadow] focus-within:shadow-[0_6px_24px_-8px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.05)] data-[dragging=true]:border-dashed data-[dragging=true]:bg-[color-mix(in_oklab,var(--color-accent)_50%,var(--color-background))] dark:shadow-none"
         >
           <ComposerAttachments />
           <ComposerPrimitive.Input
             placeholder="Send a message..."
-            className="aui-composer-input placeholder:text-muted-foreground/80 block max-h-32 min-h-10 w-full resize-none overflow-y-auto bg-transparent px-2.5 py-2 text-base leading-6 outline-none"
+            className="aui-composer-input caret-primary placeholder:text-muted-foreground/80 max-h-32 min-h-10 w-full resize-none bg-transparent px-2.5 py-1 text-base outline-none"
             rows={1}
+            autoFocus
+            enterKeyHint="send"
             aria-label="Message input"
           />
           <ComposerAction />
@@ -294,7 +297,7 @@ const ComposerAction: FC = () => {
               tooltip="Send message"
               side="bottom"
               type="button"
-              variant="primary"
+              variant="default"
               size="icon"
               className="aui-composer-send size-7 rounded-full"
               aria-label="Send message"
@@ -307,7 +310,7 @@ const ComposerAction: FC = () => {
           <ComposerPrimitive.Cancel asChild>
             <Button
               type="button"
-              variant="primary"
+              variant="default"
               size="icon"
               className="aui-composer-cancel size-7 rounded-full"
               aria-label="Stop generating"
@@ -328,6 +331,67 @@ const MessageError: FC = () => {
         <ErrorPrimitive.Message className="aui-message-error-message line-clamp-2" />
       </ErrorPrimitive.Root>
     </MessagePrimitive.Error>
+  );
+};
+
+// Accordion shell around a chain-of-thought burst: opens automatically
+// while the model is thinking/using tools, collapses automatically once it
+// finishes — reuses ReasoningRoot's `streaming` auto-open/auto-collapse
+// behavior, just with a "Thinking" / "Finished thinking" trigger label
+// instead of ReasoningTrigger's fixed "Reasoning" text.
+//
+// Deliberately doesn't use `part.status` (mirrors the last *contained*
+// part): a tool-call part's own status flips to "complete" the instant its
+// result lands, even mid-turn while the model keeps reasoning/calling more
+// tools afterward — that made this flicker between "Thinking" and
+// "Finished thinking" on every tool call. Instead: this burst is still
+// "running" only while the whole message is running AND nothing has been
+// appended after it yet (i.e. it's still the currently-open burst).
+const ChainOfThought: FC<PropsWithChildren<{ part: ThreadGroupPart }>> = ({
+  part,
+  children,
+}) => {
+  const lastIndex = part.indices.at(-1)!;
+  const running = useAuiState(
+    (s) =>
+      s.message.status?.type === 'running' &&
+      lastIndex === s.message.parts.length - 1,
+  );
+  const label = running ? 'Thinking' : 'Finished thinking';
+
+  return (
+    <ReasoningRoot streaming={running} variant="ghost">
+      <CollapsibleTrigger className="group/cot-trigger text-muted-foreground hover:text-foreground flex items-center gap-2 py-1.5 text-sm transition-colors">
+        <span>{label}</span>
+        <ChevronDownIcon
+          className={cn(
+            'size-4 transition-transform duration-200',
+            'group-data-[state=closed]/cot-trigger:-rotate-90',
+          )}
+        />
+      </CollapsibleTrigger>
+      <CollapsibleContent
+        aria-busy={running}
+        className="aui-reasoning-content text-muted-foreground data-[state=closed]:animate-collapsible-up data-[state=closed]:fill-mode-forwards data-[state=open]:animate-collapsible-down relative overflow-hidden text-sm ease-[cubic-bezier(0.32,0.72,0,1)] outline-none data-[state=closed]:pointer-events-none data-[state=closed]:duration-(--animation-duration) data-[state=open]:duration-(--animation-duration) motion-reduce:animate-none"
+      >
+        <div
+          data-slot="aui_chain-of-thought"
+          className="before:border-muted-foreground/25 relative flex flex-col before:absolute before:top-3 before:bottom-3 before:left-[7.5px] before:w-px before:border-l before:border-dashed before:content-['']"
+        >
+          {children}
+          {!running && (
+            <div className="relative flex items-center gap-3 py-1">
+              <span className="bg-background relative z-10 flex h-6 w-4 shrink-0 items-center justify-center">
+                <CircleCheckIcon className="text-muted-foreground size-3.5" />
+              </span>
+              <span className="text-muted-foreground text-[13px] leading-6">
+                Done
+              </span>
+            </div>
+          )}
+        </div>
+      </CollapsibleContent>
+    </ReasoningRoot>
   );
 };
 
@@ -365,7 +429,7 @@ const AssistantMessage: FC = () => {
           {({ part, children }) => {
             switch (part.type) {
               case 'group-chainOfThought':
-                return <div data-slot="aui_chain-of-thought">{children}</div>;
+                return <ChainOfThought part={part}>{children}</ChainOfThought>;
               case 'group-tool':
                 if (ToolGroup) {
                   return <ToolGroup group={part}>{children}</ToolGroup>;
@@ -404,13 +468,14 @@ const AssistantMessage: FC = () => {
               case 'data':
                 return part.dataRendererUI;
               case 'indicator':
-                // Blinking caret, same as the landing page's streaming demo.
                 return (
                   <span
                     data-slot="aui_assistant-message-indicator"
-                    className="animate-caret-blink ml-0.5 inline-block h-3.5 w-0.5 rounded-[1px] bg-stone-400 align-middle"
+                    className="animate-pulse font-sans"
                     aria-label="Assistant is working"
-                  />
+                  >
+                    {'●'}
+                  </span>
                 );
               default:
                 return null;
@@ -490,7 +555,7 @@ const UserMessage: FC = () => {
       <UserMessageAttachments />
 
       <div className="aui-user-message-content-wrapper relative col-start-2 min-w-0">
-        <div className="aui-user-message-content peer bg-hero-surface border-hero-surface-border text-foreground rounded-xl border px-4 py-2 wrap-break-word empty:hidden">
+        <div className="aui-user-message-content peer bg-muted text-foreground rounded-xl px-4 py-2 wrap-break-word empty:hidden">
           <MessagePrimitive.Parts />
         </div>
         <div className="aui-user-action-bar-wrapper absolute start-0 top-1/2 -translate-x-full -translate-y-1/2 pe-2 peer-empty:hidden rtl:translate-x-full">
@@ -529,7 +594,10 @@ const EditComposer: FC = () => {
       className="flex flex-col px-2"
     >
       <ComposerPrimitive.Root className="aui-edit-composer-root border-border/60 dark:border-muted-foreground/15 ms-auto flex w-full max-w-[85%] flex-col rounded-(--composer-radius) border bg-(--composer-bg) shadow-[0_4px_16px_-8px_rgba(0,0,0,0.08),0_1px_2px_rgba(0,0,0,0.04)] dark:shadow-none">
-        <ComposerPrimitive.Input className="aui-edit-composer-input text-foreground min-h-14 w-full resize-none bg-transparent px-4 pt-3 pb-1 text-base outline-none" />
+        <ComposerPrimitive.Input
+          className="aui-edit-composer-input text-foreground min-h-14 w-full resize-none bg-transparent px-4 pt-3 pb-1 text-base outline-none"
+          autoFocus
+        />
         <div className="aui-edit-composer-footer mx-2.5 mb-2.5 flex items-center gap-1.5 self-end">
           <ComposerPrimitive.Cancel asChild>
             <Button
