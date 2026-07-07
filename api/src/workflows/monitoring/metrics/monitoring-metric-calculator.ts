@@ -1,15 +1,19 @@
+// Computes mention rate / citation share / share-of-voice (SOV) per brand
+// (our business + its competitors), both per-prompt (used for the prompt
+// detail view) and per-business/engine (used for the dashboard trend).
 import { normalizeDomain } from "@/common/utils/normalize-domain.util";
 import {
   computeDomainMetrics,
   computeRate,
 } from "@/common/visibility/visibility-metric-calculator";
-import { AiEngine, PromptAwarenessStage } from "@prisma/client";
+import { PromptAwarenessStage } from "@prisma/client";
 import type {
   BusinessMetricState,
   EngineResponse,
   MetricResponse,
   PromptMetricState,
 } from "../monitoring.types";
+import { normalizeAiEngine } from "../engines/ai-engine-map";
 
 type Brand = {
   competitorId: string | null;
@@ -38,6 +42,9 @@ type BusinessMetricContext = MetricContext & {
 };
 
 type MetricInputResponse = MetricResponse | EngineResponse;
+type NormalizedMetricResponse = Omit<MetricResponse, "awarenessStage"> & {
+  awarenessStage?: PromptAwarenessStage;
+};
 type MetricRow = Omit<PromptMetricState, "promptId">;
 
 function normalizeBrandDomain(domain: string): string {
@@ -46,7 +53,7 @@ function normalizeBrandDomain(domain: string): string {
 
 function buildMetricRow(
   brand: Brand,
-  responses: MetricResponse[],
+  responses: NormalizedMetricResponse[],
   date: Date,
   sov: number,
 ): MetricRow {
@@ -60,7 +67,7 @@ function buildMetricRow(
 
 function buildCompetitiveSovByDomain(
   brands: Brand[],
-  responses: MetricResponse[],
+  responses: NormalizedMetricResponse[],
 ): Map<string, number> {
   const brandDomains = new Set(brands.map((brand) => brand.domain));
   const mentionCounts = new Map(brands.map((brand) => [brand.domain, 0]));
@@ -89,7 +96,7 @@ function buildCompetitiveSovByDomain(
 
 function buildMetricRows(
   brands: Brand[],
-  responses: MetricResponse[],
+  responses: NormalizedMetricResponse[],
   date: Date,
 ): MetricRow[] {
   const competitiveSovByDomain = buildCompetitiveSovByDomain(brands, responses);
@@ -117,35 +124,17 @@ function buildBrands(context: MetricContext): Brand[] {
   ];
 }
 
-function normalizeEngine(
-  engine: MetricResponse["engine"] | EngineResponse["engine"],
-): AiEngine {
-  switch (engine) {
-    case AiEngine.AI_OVERVIEWS:
-    case AiEngine.PERPLEXITY:
-    case AiEngine.CLAUDE:
-    case AiEngine.CHATGPT:
-      return engine;
-    case "google-aio":
-      return AiEngine.AI_OVERVIEWS;
-    case "perplexity":
-      return AiEngine.PERPLEXITY;
-    case "claude":
-      return AiEngine.CLAUDE;
-    case "chatgpt":
-      return AiEngine.CHATGPT;
-  }
-}
-
 function normalizeResponses(
   responses: MetricInputResponse[],
-): MetricResponse[] {
+): NormalizedMetricResponse[] {
   return responses.map((response) => ({
-    engine: normalizeEngine(response.engine),
+    engine: normalizeAiEngine(response.engine),
     promptId: response.promptId,
     citations: response.citations,
     mentions: response.mentions,
-    awarenessStage: (response as MetricResponse).awarenessStage,
+    ...("awarenessStage" in response
+      ? { awarenessStage: response.awarenessStage }
+      : {}),
   }));
 }
 

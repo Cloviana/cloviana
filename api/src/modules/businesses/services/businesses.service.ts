@@ -84,6 +84,13 @@ export class BusinessesService {
     return { ok: true };
   }
 
+  getProfile(businessId: string) {
+    return this.prisma.business.findUniqueOrThrow({
+      where: { id: businessId },
+      select: { name: true, description: true },
+    });
+  }
+
   private findAccessibleBusiness(
     profileId: string,
     businessId: string,

@@ -2,18 +2,18 @@ import "dotenv/config";
 import { GroqService } from "@/clients/groq/groq.service";
 import { AppConfiguration } from "@/config/app.configuration";
 import { DataForSeoService } from "@/integrations/dataforseo/dataforseo.service";
-import { graph } from "@/workflows/monitoring/monitoring.graph";
-import type { StateType } from "@/workflows/monitoring/monitoring.state";
-import { computePromptMetrics } from "@/workflows/monitoring/utils/monitoring-metric-calculator";
+import { monitoringGraph } from "@/workflows/monitoring/monitoring.graph";
+import type { MonitoringState } from "@/workflows/monitoring/monitoring.state";
+import { computePromptMetrics } from "@/workflows/monitoring/metrics/monitoring-metric-calculator";
 import { HttpService } from "@nestjs/axios";
 import axios from "axios";
 
-const input: StateType = {
+const input: MonitoringState = {
   businessId: "rexi-finance",
   prompts: [
     {
       id: "prompt-1",
-      text: "We are a mid-sized fintech processing payments across Stripe, regional banking rails, and card networks, and our finance team is drowning in manual reconciliation. What tools do banks and fintechs use in 2026 to automate reconciliation across multiple payment systems, how do leading options compare on accuracy and setup time, and what should we look for in audit trail and exception-handling? Research online and cite sources.",
+      text: "We are a mid-sized fintech processing payments across Stripe, regional banking rails, and card networks, and our finance team is drowning in manual reconciliation. What tools do banks and fintechs use in 2026 to automate reconciliation across multiple payment systems, how do leading options compare on accuracy and setup time, and what should we look for in audit trail and exception-handling? Also compare pricing, integration effort, and multi-currency support. Research online and cite sources.",
     },
   ],
   competitors: [
@@ -33,6 +33,8 @@ const input: StateType = {
   },
   date: new Date(),
   rawEngineResponses: [],
+  responseMentions: [],
+  fanOutInferences: [],
   engineResponses: [],
   engineFailures: [],
   promptMetrics: [],
@@ -54,7 +56,7 @@ function getConfig(): AppConfiguration {
   });
 }
 
-function isState(value: unknown): value is StateType {
+function isState(value: unknown): value is MonitoringState {
   return (
     typeof value === "object" &&
     value !== null &&
@@ -70,7 +72,7 @@ async function main() {
   console.log("Running monitoring for:");
   console.log(JSON.stringify(input.prompts, null, 2));
 
-  const stream = graph.streamEvents(input, {
+  const stream = monitoringGraph.streamEvents(input, {
     version: "v2",
     configurable: {
       dataForSeo: new DataForSeoService(new HttpService(axios), config),
@@ -79,7 +81,7 @@ async function main() {
     },
   });
 
-  let result: StateType | undefined;
+  let result: MonitoringState | undefined;
 
   for await (const event of stream) {
     if (event.event === "on_chain_start" && event.name) {

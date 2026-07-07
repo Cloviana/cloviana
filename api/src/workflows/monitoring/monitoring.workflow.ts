@@ -1,17 +1,20 @@
+// Entry point for a monitoring run: loads a business's active prompts,
+// runs the LangGraph pipeline (monitoring.graph.ts), computes prompt-level
+// metrics, and persists everything via MonitoringRunPersistenceService.
 import { GroqService } from "@/clients/groq/groq.service";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { DataForSeoService } from "@/integrations/dataforseo/dataforseo.service";
 import { ManagedJobsService } from "@/modules/jobs/services/managed-jobs.service";
 import { Injectable, Logger } from "@nestjs/common";
 import { PromptStatus } from "@prisma/client";
-import { graph } from "./monitoring.graph";
-import type { StateType } from "./monitoring.state";
-import { MonitoringRunPersistenceService } from "./services/monitoring-run-persistence.service";
-import { formatDateKey, startOfUtcDay } from "./utils/monitoring-job-key";
-import { computePromptMetrics } from "./utils/monitoring-metric-calculator";
+import { monitoringGraph } from "./monitoring.graph";
+import type { MonitoringState } from "./monitoring.state";
+import { MonitoringRunPersistenceService } from "./persistence/monitoring-run-persistence.service";
+import { formatDateKey, startOfUtcDay } from "./monitoring.job-key";
+import { computePromptMetrics } from "./metrics/monitoring-metric-calculator";
 
 type MonitoringInitialState = Pick<
-  StateType,
+  MonitoringState,
   "businessId" | "prompts" | "competitors" | "profile" | "date"
 >;
 
@@ -26,7 +29,7 @@ type MonitoringRunSummary = {
 
 function buildRunSummary(
   date: Date,
-  state: StateType,
+  state: MonitoringState,
   businessMetricCount: number,
 ): MonitoringRunSummary {
   return {
@@ -100,7 +103,7 @@ export class MonitoringWorkflow {
       `[${businessId}] Monitoring graph input promptIds=${initialState.prompts.map((prompt) => prompt.id).join(",")} competitorCount=${initialState.competitors.length}`,
     );
 
-    const result = await graph.invoke(initialState, {
+    const result = await monitoringGraph.invoke(initialState, {
       configurable: {
         dataForSeo: this.dataForSeo,
         groq: this.groq,
@@ -111,7 +114,7 @@ export class MonitoringWorkflow {
       `[${businessId}] Monitoring graph output responseCount=${result.engineResponses.length} failureCount=${result.engineFailures.length}`,
     );
 
-    const finalState: StateType = {
+    const finalState: MonitoringState = {
       ...result,
       promptMetrics: computePromptMetrics(result, result.engineResponses),
     };

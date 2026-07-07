@@ -37,11 +37,17 @@ export interface RunBlogGenerationPayload {
   instructions?: string;
 }
 
+export interface RunKnowledgeIngestionPayload {
+  documentId: string;
+  businessId: string;
+}
+
 export const RUN_AUDIT_EVENT = "audit.run";
 export const RUN_BUSINESS_INITIALIZATION_EVENT = "business.initialization.run";
 export const CLEANUP_STALE_BUSINESSES_EVENT = "businesses.cleanup-stale.run";
 export const RUN_MONITORING_EVENT = "monitoring.run";
 export const RUN_BLOG_GENERATION_EVENT = "blog.generation.run";
+export const RUN_KNOWLEDGE_INGESTION_EVENT = "knowledge.ingestion.run";
 
 export const AUDITS_QUEUE: RabbitMqQueueDefinition = {
   clientToken: "AUDITS_CLIENT",
@@ -77,6 +83,17 @@ export const MONITORING_QUEUE: RabbitMqQueueDefinition = {
 export const BLOG_QUEUE: RabbitMqQueueDefinition = {
   clientToken: "BLOG_CLIENT",
   queue: "blog_queue",
+  prefetchCount: 2,
+  noAck: false,
+  queueOptions: {
+    durable: true,
+    autoDelete: false,
+  },
+};
+
+export const KNOWLEDGE_QUEUE: RabbitMqQueueDefinition = {
+  clientToken: "KNOWLEDGE_CLIENT",
+  queue: "knowledge_queue",
   prefetchCount: 2,
   noAck: false,
   queueOptions: {

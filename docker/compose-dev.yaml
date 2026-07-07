@@ -4,6 +4,7 @@ volumes:
   api-node-modules:
   web-node-modules:
   app-node-modules:
+  knowledge-uploads:
 
 services:
   api:
@@ -21,6 +22,7 @@ services:
     volumes:
       - ../api:/app:cached
       - api-node-modules:/app/node_modules
+      - knowledge-uploads:/data/knowledge-uploads
     container_name: api
 
   worker:
@@ -38,6 +40,7 @@ services:
     volumes:
       - ../api:/app:cached
       - api-node-modules:/app/node_modules
+      - knowledge-uploads:/data/knowledge-uploads
     container_name: worker
 
   app:

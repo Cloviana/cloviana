@@ -26,6 +26,12 @@ export class AppConfiguration {
   readonly knowledgeBaseUrl: string;
 
   @IsString()
+  @Value("KNOWLEDGE_UPLOADS_DIR", {
+    parse: (value) => value || "/data/knowledge-uploads",
+  })
+  readonly knowledgeUploadsDir: string;
+
+  @IsString()
   @Value("AGENT_URL", {
     parse: (value) => value || "http://localhost:8000",
   })

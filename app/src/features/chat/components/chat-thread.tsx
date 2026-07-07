@@ -10,14 +10,13 @@ import {
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { isAxiosError } from 'axios';
 import {
-  CheckIcon,
-  ChevronDownIcon,
+  BookOpenIcon,
+  ClockFadingIcon,
   FileTextIcon,
-  LoaderIcon,
-  XCircleIcon,
+  GlobeIcon,
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, type PropsWithChildren } from 'react';
 import { toast } from 'sonner';
 
 import {
@@ -25,13 +24,11 @@ import {
   type ThreadComponents,
 } from '@/components/assistant-ui/thread';
 import { paths } from '@/config/paths';
-import { useGetBusiness } from '@/features/businesses/api/get-business';
 import { getChatMessagesQueryOptions } from '@/features/chat/api/get-chat-messages';
 import {
   sendMessageStream,
   type ActionResultItem,
 } from '@/features/chat/api/send-message';
-import { chatAttachmentAdapter } from '@/features/chat/lib/attachment-adapter';
 import { chatKeys } from '@/lib/react-query';
 import { cn } from '@/utils/cn';
 
@@ -40,6 +37,18 @@ type ToolCardResult = {
   results?: ActionResultItem[];
   error?: boolean;
 };
+
+// Small bullet that sits on top of the chain-of-thought's dashed timeline
+// line (see thread.tsx's "group-chainOfThought" case). The whole h-6 box
+// (matching the row text's leading-6, so the dot centers on the first
+// line rather than the whole block) is the mask — not just a snug circle
+// around the icon — so the dash visibly stops short with a gap above and
+// below the icon instead of running right up against it.
+const TimelineDot = ({ children }: PropsWithChildren) => (
+  <span className="bg-background relative z-10 flex h-6 w-4 shrink-0 items-center justify-center">
+    {children}
+  </span>
+);
 
 const faviconUrl = (item: ActionResultItem) => {
   const domain = item.source || (item.url ? safeHostname(item.url) : null);
@@ -93,119 +102,98 @@ const ResultRow = ({ item }: { item: ActionResultItem }) => {
   return row;
 };
 
-// Shimmering activity line used for the pre-request "Thinking" placeholder.
-const ThinkingLine = ({ label }: { label: string }) => (
-  <div className="flex items-center gap-2 py-1 text-[13px] text-stone-500">
-    <LoaderIcon className="size-3.5 shrink-0 animate-spin [animation-duration:0.6s]" />
-    <span className="relative inline-block leading-snug">
-      {label}
-      <span
-        aria-hidden
-        className="shimmer pointer-events-none absolute inset-0 motion-reduce:animate-none"
-      >
-        {label}
-      </span>
-    </span>
-  </div>
-);
+// Plain, always-visible reasoning line — no accordion, rides the shared
+// dashed timeline drawn by thread.tsx's "group-chainOfThought" wrapper.
+const TimelineReasoningGroup: NonNullable<
+  ThreadComponents['ReasoningGroup']
+> = ({ children, group }) => {
+  const running = group.status.type === 'running';
+  return (
+    <div className="relative flex items-start gap-3 py-1">
+      <TimelineDot>
+        <ClockFadingIcon
+          className={cn('size-3.5 text-stone-400', running && 'animate-pulse')}
+        />
+      </TimelineDot>
+      <div className="min-w-0 flex-1 text-[13px] leading-6 text-stone-500 italic">
+        {children}
+      </div>
+    </div>
+  );
+};
 
-// Tool activity card: header shows the action + query and the result count;
-// the body lists each retrieved source. Open by default so results are
-// visible while they load — never hidden behind a click.
-const ToolCard: ToolCallMessagePartComponent = ({
+// Flat wrapper — no "N tool calls" accordion. Each tool-call part below
+// already renders its own full timeline row via TimelineToolFallback.
+const TimelineToolGroup: NonNullable<ThreadComponents['ToolGroup']> = ({
+  children,
+}) => <>{children}</>;
+
+// Web-search/knowledge-base-style tool call: a timeline row with the query
+// + result count, and (once results arrive) an inline card of result rows
+// directly below.
+const TimelineToolFallback: ToolCallMessagePartComponent = ({
   toolName,
   args,
   result,
   status,
 }) => {
-  const [open, setOpen] = useState(true);
-
-  if (toolName === 'Thinking') return <ThinkingLine label="Thinking" />;
-
   const running = status?.type === 'running' && result === undefined;
   const res =
     result && typeof result === 'object' ? (result as ToolCardResult) : null;
   const items = res?.results ?? [];
-  const count = res?.count ?? items.length;
-  const failed = res?.error === true;
-  const detail =
-    typeof (args as { detail?: unknown })?.detail === 'string'
-      ? ((args as { detail?: string }).detail ?? '')
-      : '';
-  const hasBody = running || items.length > 0;
+  const count = res?.count;
+  const label =
+    typeof (args as { detail?: unknown })?.detail === 'string' &&
+    (args as { detail?: string }).detail
+      ? (args as { detail: string }).detail
+      : toolName;
+  const tool = (args as { tool?: string })?.tool;
+  const isFileTool = tool === 'read_file';
+  const Icon =
+    tool === 'query_knowledge_base'
+      ? BookOpenIcon
+      : isFileTool
+        ? FileTextIcon
+        : GlobeIcon;
 
-  // Styled after the landing page's AI search-result card (web/hero):
-  // white/90 surface, stone-200/70 border, subtle inset shadow.
   return (
-    <div className="my-2 w-full overflow-hidden rounded-xl border border-stone-200/70 bg-white/90 shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)] backdrop-blur-md">
-      <button
-        type="button"
-        onClick={() => setOpen((value) => !value)}
-        disabled={!hasBody}
-        className={cn(
-          'flex w-full items-center gap-2.5 px-3.5 py-2.5 text-start',
-          hasBody && open && 'border-b border-stone-200/70',
-        )}
-      >
-        {running ? (
-          <LoaderIcon className="size-3.5 shrink-0 animate-spin text-stone-400 [animation-duration:0.6s]" />
-        ) : failed ? (
-          <XCircleIcon className="text-destructive size-3.5 shrink-0" />
-        ) : (
-          <CheckIcon className="size-3.5 shrink-0 text-stone-400" />
-        )}
-        <span className="relative min-w-0 flex-1 truncate text-[13px] leading-snug">
-          <span className="text-stone-600">{toolName}</span>
-          {detail && (
-            <span className="text-stone-400">
-              {' '}
-              &middot; &ldquo;{detail}&rdquo;
-            </span>
-          )}
-          {running && (
-            <span
-              aria-hidden
-              className="shimmer pointer-events-none absolute inset-0 truncate motion-reduce:animate-none"
-            >
-              <span>{toolName}</span>
-              {detail && <span> &middot; &ldquo;{detail}&rdquo;</span>}
-            </span>
-          )}
+    <div className="relative flex flex-col gap-2 py-1">
+      <div className="flex items-center gap-3">
+        <TimelineDot>
+          <Icon
+            className={cn(
+              'size-3.5 text-stone-400',
+              running && 'animate-pulse',
+            )}
+          />
+        </TimelineDot>
+        <span className="min-w-0 flex-1 truncate text-[13px] leading-6 text-stone-600">
+          {label}
         </span>
-        {!running && count > 0 && (
-          <span className="shrink-0 text-[11px] font-medium tracking-[0.02em] text-stone-400 tabular-nums">
+        {!running && !isFileTool && count !== undefined && (
+          <span className="shrink-0 text-[12px] text-stone-400 tabular-nums">
             {count} result{count === 1 ? '' : 's'}
           </span>
         )}
-        {hasBody && (
-          <ChevronDownIcon
-            className={cn(
-              'size-3.5 shrink-0 text-stone-400 transition-transform duration-200',
-              !open && '-rotate-90',
-            )}
-          />
-        )}
-      </button>
-      {hasBody && open && (
-        <div className="flex flex-col px-1.5 py-1.5">
-          {items.length > 0 ? (
-            items.map((item, index) => <ResultRow key={index} item={item} />)
-          ) : (
-            <div className="flex flex-col gap-1.5 px-2 py-1.5">
-              <div className="h-3.5 w-3/4 animate-pulse rounded bg-stone-200/60" />
-              <div className="h-3.5 w-1/2 animate-pulse rounded bg-stone-200/60" />
-            </div>
-          )}
+      </div>
+      {items.length > 0 && (
+        <div className="ms-7 overflow-hidden rounded-xl border border-stone-200/70 bg-white/90 shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)] backdrop-blur-md">
+          {items.map((item, index) => (
+            <ResultRow key={item.url ?? index} item={item} />
+          ))}
         </div>
       )}
     </div>
   );
 };
 
-const threadComponents: Omit<ThreadComponents, 'Welcome'> = {
-  ToolFallback: ToolCard,
-  // Consecutive tool cards stack as a plain list — no "N tool calls" header.
-  ToolGroup: ({ children }) => <div className="flex flex-col">{children}</div>,
+const timelineComponents: Pick<
+  ThreadComponents,
+  'ToolFallback' | 'ToolGroup' | 'ReasoningGroup'
+> = {
+  ToolFallback: TimelineToolFallback,
+  ToolGroup: TimelineToolGroup,
+  ReasoningGroup: TimelineReasoningGroup,
 };
 
 const CHAT_NOT_FOUND_MESSAGE =
@@ -317,39 +305,14 @@ function ChatThreadRuntime({
   const router = useRouter();
   const chatIdRef = useRef(chatId);
   const queryClient = useQueryClient();
-  const { data: business } = useGetBusiness(businessId);
-  const businessName = business?.name;
-  const components = useMemo<ThreadComponents>(() => {
-    const hour = new Date().getHours();
-    const greeting =
-      hour < 12
-        ? 'Good morning'
-        : hour < 17
-          ? 'Good afternoon'
-          : 'Good evening';
-    // Hero-style welcome: Gambarino serif heading, muted Switzer subtitle —
-    // same treatment as the landing page hero.
-    const Welcome = () => (
-      <div className="aui-thread-welcome-root mb-8 flex flex-col items-center px-4 text-center">
-        <h1 className="aui-thread-welcome-message-inner font-gambarino fade-in slide-in-from-bottom-1 animate-in fill-mode-both text-4xl font-normal duration-300 md:text-5xl">
-          {greeting}.
-        </h1>
-        <p className="text-foreground-light fade-in slide-in-from-bottom-1 animate-in fill-mode-both mt-3 max-w-[45ch] text-sm duration-300 md:text-base">
-          {businessName
-            ? `What can I do for ${businessName} today?`
-            : 'What can I do for you today?'}
-        </p>
-      </div>
-    );
-    return { ...threadComponents, Welcome };
-  }, [businessName]);
   const adapter = useMemo<ChatModelAdapter>(
     () => ({
       async *run({ messages, abortSignal }) {
         const isNewChat = !chatIdRef.current;
-        // Claude-web style activity: narration sentences render as plain
-        // text parts, each tool call renders as a card that fills with its
-        // result list when the tool finishes. Raw reasoning never surfaces.
+        // Mirrors the backend's own part assembly so the live view matches
+        // what gets persisted: reasoning and tool calls build up in place as
+        // events arrive, instead of only appearing once `done` dumps the
+        // canonical content in one shot.
         const parts: StreamPart[] = [];
         let text = '';
         const flushText = () => {
@@ -361,21 +324,6 @@ function ChatThreadRuntime({
           ...(text ? [{ type: 'text' as const, text }] : []),
         ];
 
-        // Show a live "Thinking" line immediately instead of dead air while
-        // the request is prepared; the first real event replaces it.
-        yield {
-          content: [
-            ...content(),
-            {
-              type: 'tool-call' as const,
-              toolCallId: 'thinking',
-              toolName: 'Thinking',
-              args: {},
-              argsText: '',
-            },
-          ],
-        };
-
         for await (const event of sendMessageStream(
           businessId,
           { chatId: chatIdRef.current, messages },
@@ -385,8 +333,6 @@ function ChatThreadRuntime({
             text += event.text;
             yield { content: content() };
           } else if (event.type === 'reasoning') {
-            // Model thoughts stream into a collapsible "Thinking" block that
-            // stays in the transcript, Claude-web style.
             flushText();
             const last = parts[parts.length - 1];
             if (last && last.type === 'reasoning') {
@@ -396,11 +342,9 @@ function ChatThreadRuntime({
             }
             yield { content: content() };
           } else if (event.type === 'action') {
-            // The narration sentence streamed before this call stays a
-            // visible text part of its own.
             flushText();
             parts.push({
-              type: 'tool-call' as const,
+              type: 'tool-call',
               toolCallId: event.id,
               toolName: event.label,
               args: { detail: event.detail, tool: event.tool },
@@ -420,11 +364,6 @@ function ChatThreadRuntime({
             }
             yield { content: content() };
           } else if (event.type === 'done') {
-            for (const part of parts) {
-              if (part.type === 'tool-call' && part.result === undefined) {
-                part.result = { count: 0, results: [] };
-              }
-            }
             const { response } = event;
             chatIdRef.current = response.chatId;
 
@@ -435,12 +374,10 @@ function ChatThreadRuntime({
               queryKey: chatKeys.detail(businessId, response.chatId),
             });
 
-            // The server persists and returns the full part list
-            // (thinking + tool cards + text); it is canonical so the
-            // transcript looks identical after a reload.
+            // The server persists and returns the full canonical part list;
+            // it replaces our locally-built one so a reload looks identical.
             yield { content: response.content };
 
-            // Navigate after the stream so the remount doesn't cut it short.
             if (isNewChat) {
               onChatCreated?.(response.chatId);
 
@@ -459,14 +396,11 @@ function ChatThreadRuntime({
     }),
     [businessId, queryClient, router, navigateOnNewChat, onChatCreated],
   );
-  const runtime = useLocalRuntime(adapter, {
-    adapters: { attachments: chatAttachmentAdapter },
-    initialMessages,
-  });
+  const runtime = useLocalRuntime(adapter, { initialMessages });
 
   return (
     <AssistantRuntimeProvider runtime={runtime}>
-      <Thread components={components} />
+      <Thread components={timelineComponents} />
     </AssistantRuntimeProvider>
   );
 }

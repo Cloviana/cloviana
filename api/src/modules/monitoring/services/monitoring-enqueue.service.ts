@@ -3,7 +3,7 @@ import { ManagedJobsService } from "@/modules/jobs/services/managed-jobs.service
 import {
   buildMonitoringJobDedupeKey,
   startOfUtcDay,
-} from "@/workflows/monitoring/utils/monitoring-job-key";
+} from "@/workflows/monitoring/monitoring.job-key";
 import { Injectable, Logger } from "@nestjs/common";
 import { JobType } from "@prisma/client";
 import { MonitoringEligibilityService } from "./monitoring-eligibility.service";

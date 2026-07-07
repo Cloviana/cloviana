@@ -3,6 +3,7 @@ import {
   AUDITS_QUEUE,
   BLOG_QUEUE,
   BUSINESSES_QUEUE,
+  KNOWLEDGE_QUEUE,
   MONITORING_QUEUE,
   createRabbitMqOptions,
 } from "@/infrastructure/messaging/rabbitmq.contracts";
@@ -23,6 +24,7 @@ async function bootstrap() {
   app.connectMicroservice(createRabbitMqOptions(rabbitmqUri, BUSINESSES_QUEUE));
   app.connectMicroservice(createRabbitMqOptions(rabbitmqUri, MONITORING_QUEUE));
   app.connectMicroservice(createRabbitMqOptions(rabbitmqUri, BLOG_QUEUE));
+  app.connectMicroservice(createRabbitMqOptions(rabbitmqUri, KNOWLEDGE_QUEUE));
 
   await app.startAllMicroservices();
   await app.init();
@@ -31,6 +33,7 @@ async function bootstrap() {
   logger.log(`Listening for ${BUSINESSES_QUEUE.queue}`);
   logger.log(`Listening for ${MONITORING_QUEUE.queue}`);
   logger.log(`Listening for ${BLOG_QUEUE.queue}`);
+  logger.log(`Listening for ${KNOWLEDGE_QUEUE.queue}`);
 }
 
 bootstrap();

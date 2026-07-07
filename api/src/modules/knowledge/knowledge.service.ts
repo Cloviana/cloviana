@@ -1,5 +1,9 @@
+import { randomUUID } from "node:crypto";
+import { mkdir, readFile, unlink, writeFile } from "node:fs/promises";
+import { dirname, join } from "node:path";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { AppConfiguration } from "@/common/config/app.configuration";
+import { KnowledgeProducer } from "@/infrastructure/messaging/producers/knowledge.producer";
 import {
   BadGatewayException,
   Injectable,
@@ -42,19 +46,24 @@ export type KnowledgeSearchResult = {
 export class KnowledgeService {
   private readonly logger = new Logger(KnowledgeService.name);
   private readonly baseUrl: string;
+  private readonly uploadsDir: string;
 
   constructor(
     private readonly prisma: PrismaService,
     config: AppConfiguration,
+    private readonly knowledgeProducer: KnowledgeProducer,
   ) {
     this.baseUrl = `${config.knowledgeBaseUrl.replace(/\/$/, "")}/`;
+    this.uploadsDir = config.knowledgeUploadsDir;
   }
 
   list(businessId: string) {
     return this.prisma.document.findMany({
       where: { businessId },
       orderBy: { createdAt: "desc" },
-    });
+    }).then((documents) =>
+      documents.map((document) => this.publicDocument(document)),
+    );
   }
 
   async search({
@@ -72,35 +81,51 @@ export class KnowledgeService {
   }
 
   async upload(businessId: string, files: KnowledgeUpload[]) {
-    const documents = await this.prisma.$transaction(
-      files.map((file) =>
-        this.prisma.document.create({
+    const createdDocuments = [];
+    const storedPaths: string[] = [];
+
+    try {
+      for (const file of files) {
+        const documentId = randomUUID();
+        const filePath = this.localFilePath(
+          businessId,
+          documentId,
+          file.extension,
+        );
+        await mkdir(dirname(filePath), { recursive: true });
+        await writeFile(filePath, file.buffer);
+        storedPaths.push(filePath);
+
+        const document = await this.prisma.document.create({
           data: {
+            id: documentId,
             businessId,
             name: file.name,
             extension: file.extension,
+            filename: file.filename,
+            mimeType: file.mimetype,
+            filePath,
             tag: file.tag,
-          },
-        }),
-      ),
-    );
-    const ingested: typeof documents = [];
+            status: "PROCESSING",
+            failureReason: null,
+            indexedAt: null,
+          } as any,
+        });
+        createdDocuments.push(this.publicDocument(document));
 
-    try {
-      for (const [index, document] of documents.entries()) {
-        await this.ingest(document, files[index]);
-        ingested.push(document);
+        await this.knowledgeProducer.runKnowledgeIngestion({
+          documentId,
+          businessId,
+        });
       }
-      return documents;
+      return createdDocuments;
     } catch (error) {
       await Promise.allSettled(
-        ingested.map((document) =>
-          this.removeFromKnowledgeBase(businessId, document.id),
-        ),
+        storedPaths.map((filePath) => unlink(filePath)),
       );
       try {
         await this.prisma.document.deleteMany({
-          where: { id: { in: documents.map(({ id }) => id) } },
+          where: { id: { in: createdDocuments.map(({ id }) => id) } },
         });
       } catch (cleanupError) {
         this.logger.error("Failed to roll back document records", cleanupError);
@@ -110,22 +135,81 @@ export class KnowledgeService {
   }
 
   async update(businessId: string, documentId: string, tag: DocumentTag) {
-    await this.requireDocument(businessId, documentId);
-    await this.request(`documents/${encodeURIComponent(documentId)}`, {
-      method: "PATCH",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ businessId, tag }),
-    });
-    return this.prisma.document.update({
+    const document = await this.requireDocument(businessId, documentId);
+    if ((document as any).status === "READY") {
+      await this.request(`documents/${encodeURIComponent(documentId)}`, {
+        method: "PATCH",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ businessId, tag }),
+      });
+    }
+    const updated = await this.prisma.document.update({
       where: { id: documentId },
       data: { tag },
     });
+    return this.publicDocument(updated);
   }
 
   async delete(businessId: string, documentId: string) {
-    await this.requireDocument(businessId, documentId);
-    await this.removeFromKnowledgeBase(businessId, documentId);
+    const document = await this.requireDocument(businessId, documentId);
+    if ((document as any).status === "READY") {
+      await this.removeFromKnowledgeBase(businessId, documentId);
+    }
+    if ((document as any).filePath) {
+      await unlink((document as any).filePath).catch(() => undefined);
+    }
     await this.prisma.document.delete({ where: { id: documentId } });
+  }
+
+  async ingestQueuedDocument(businessId: string, documentId: string) {
+    const document = await this.requireDocument(businessId, documentId);
+    if ((document as any).status !== "PROCESSING") return document;
+    if (!(document as any).filePath || !(document as any).filename) {
+      throw new Error("Document is missing stored file metadata");
+    }
+
+    try {
+      const buffer = await readFile((document as any).filePath);
+      await this.ingest(
+        {
+          id: document.id,
+          businessId: document.businessId,
+          tag: document.tag,
+        },
+        {
+          name: document.name,
+          extension: document.extension,
+          filename: (document as any).filename,
+          mimetype: (document as any).mimeType || "application/octet-stream",
+          buffer,
+          tag: document.tag,
+        },
+      );
+      return this.prisma.document.update({
+        where: { id: documentId },
+        data: {
+          status: "READY",
+          failureReason: null,
+          indexedAt: new Date(),
+        } as any,
+      });
+    } catch (error: any) {
+      await this.removeFromKnowledgeBase(businessId, documentId).catch(
+        () => undefined,
+      );
+      if ((document as any).filePath) {
+        await unlink((document as any).filePath).catch(() => undefined);
+      }
+      await this.prisma.document.delete({ where: { id: documentId } }).catch(
+        (cleanupError) => {
+          this.logger.error(
+            "Failed to roll back document record after ingestion failure",
+            cleanupError,
+          );
+        },
+      );
+      throw error;
+    }
   }
 
   private async requireDocument(businessId: string, documentId: string) {
@@ -134,6 +218,19 @@ export class KnowledgeService {
     });
     if (!document) throw new NotFoundException("Document not found");
     return document;
+  }
+
+  private localFilePath(
+    businessId: string,
+    documentId: string,
+    extension: string,
+  ) {
+    return join(this.uploadsDir, businessId, `${documentId}.${extension}`);
+  }
+
+  private publicDocument<T extends { filePath?: unknown }>(document: T) {
+    const { filePath, ...publicDocument } = document;
+    return publicDocument;
   }
 
   private ingest(
@@ -153,7 +250,14 @@ export class KnowledgeService {
     form.append("documentId", document.id);
     form.append("businessId", document.businessId);
     form.append("tag", document.tag);
-    return this.request("documents", { method: "POST", body: form });
+    // Ingestion runs one contextualization LLM call per chunk sequentially;
+    // large documents (40-50+ chunks) can take several minutes.
+    return this.request(
+      "documents",
+      { method: "POST", body: form },
+      false,
+      600_000,
+    );
   }
 
   private removeFromKnowledgeBase(businessId: string, documentId: string) {
@@ -169,6 +273,7 @@ export class KnowledgeService {
     path: string | URL,
     init: RequestInit,
     allowNotFound = false,
+    timeoutMs = 120_000,
   ) {
     const url = path instanceof URL ? path : new URL(path, this.baseUrl);
     let response: Response;
@@ -176,7 +281,7 @@ export class KnowledgeService {
     try {
       response = await fetch(url, {
         ...init,
-        signal: AbortSignal.timeout(120_000),
+        signal: AbortSignal.timeout(timeoutMs),
       });
     } catch (error) {
       this.logger.error(`Knowledge base request failed: ${url}`, error);
