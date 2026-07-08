@@ -197,6 +197,7 @@ export class KnowledgeService {
       await this.removeFromKnowledgeBase(businessId, documentId).catch(
         () => undefined,
       );
+<<<<<<< HEAD
       // Keep the row so the failure is visible in the UI and retriable,
       // instead of silently deleting the document.
       await this.prisma.document
@@ -216,6 +217,19 @@ export class KnowledgeService {
             updateError,
           );
         });
+=======
+      if ((document as any).filePath) {
+        await unlink((document as any).filePath).catch(() => undefined);
+      }
+      await this.prisma.document.delete({ where: { id: documentId } }).catch(
+        (cleanupError) => {
+          this.logger.error(
+            "Failed to roll back document record after ingestion failure",
+            cleanupError,
+          );
+        },
+      );
+>>>>>>> b9092495db5dd80d333a525a2c701471261db8e2
       throw error;
     }
   }

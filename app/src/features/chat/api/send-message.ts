@@ -90,6 +90,7 @@ export async function* sendMessageStream(
   const reader = response.body.getReader();
   const decoder = new TextDecoder();
   let buffer = '';
+<<<<<<< HEAD
   try {
     for (;;) {
       const { value, done } = await reader.read();
@@ -108,6 +109,62 @@ export async function* sendMessageStream(
         if (!event) continue;
         yield event;
         if (event.type === 'done') return;
+=======
+  for (;;) {
+    const { value, done } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    let separator: number;
+    while ((separator = buffer.indexOf('\n\n')) >= 0) {
+      const block = buffer.slice(0, separator);
+      buffer = buffer.slice(separator + 2);
+      const parsed = parseSseBlock(block);
+      if (!parsed) continue;
+      if (parsed.event === 'delta') {
+        yield {
+          type: 'delta',
+          text: (parsed.data as ChatMessagePart).text ?? '',
+        };
+      } else if (parsed.event === 'reasoning') {
+        yield {
+          type: 'reasoning',
+          text: (parsed.data as ChatMessagePart).text ?? '',
+        };
+      } else if (parsed.event === 'action') {
+        const { id, label, tool, detail } = parsed.data as {
+          id?: string;
+          label?: string;
+          tool?: string;
+          detail?: string;
+        };
+        yield {
+          type: 'action',
+          id: id ?? `action_${Date.now()}`,
+          label: label ?? '',
+          tool,
+          detail,
+        };
+      } else if (parsed.event === 'action_result') {
+        const { id, count, results, error } = parsed.data as {
+          id?: string;
+          count?: number;
+          results?: ActionResultItem[];
+          error?: boolean;
+        };
+        yield {
+          type: 'action-result',
+          id: id ?? '',
+          count: count ?? 0,
+          results: Array.isArray(results) ? results : [],
+          error,
+        };
+      } else if (parsed.event === 'done') {
+        yield { type: 'done', response: parsed.data as SendMessageResponse };
+        return;
+      } else if (parsed.event === 'error') {
+        const { detail } = parsed.data as { detail?: string };
+        throw new Error(detail ?? 'Chat request failed');
+>>>>>>> b9092495db5dd80d333a525a2c701471261db8e2
       }
     }
     // Flush the decoder and try the trailing block in case the stream ended

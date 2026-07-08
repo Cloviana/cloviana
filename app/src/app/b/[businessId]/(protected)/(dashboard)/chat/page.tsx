@@ -13,6 +13,7 @@ export default async function ChatPage({ params }: PageProps) {
   const { businessId } = await params;
 
   return (
+<<<<<<< HEAD
     <DashboardPageLayout
       header={
         <DashboardHeader>
@@ -25,5 +26,21 @@ export default async function ChatPage({ params }: PageProps) {
         <ChatThread businessId={businessId} />
       </Suspense>
     </DashboardPageLayout>
+=======
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <DashboardPageLayout
+        header={
+          <DashboardHeader>
+            <ChatHistoryCommand businessId={businessId} />
+          </DashboardHeader>
+        }
+        className="overflow-hidden p-0"
+      >
+        <Suspense>
+          <ChatThread businessId={businessId} />
+        </Suspense>
+      </DashboardPageLayout>
+    </HydrationBoundary>
+>>>>>>> b9092495db5dd80d333a525a2c701471261db8e2
   );
 }

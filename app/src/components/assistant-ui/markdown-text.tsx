@@ -140,7 +140,11 @@ const defaultComponents = memoizeMarkdownComponents({
       {...props}
     />
   ),
+<<<<<<< HEAD
   a: ({ className, href, ...props }) => (
+=======
+  a: ({ className, ...props }) => (
+>>>>>>> b9092495db5dd80d333a525a2c701471261db8e2
     <a
       // LLM output is a trust boundary: only http/https/mailto links render
       // as links, anything else (javascript:, data:, ...) is dropped.

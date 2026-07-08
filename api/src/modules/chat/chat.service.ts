@@ -93,7 +93,10 @@ export class ChatService {
   private readonly logger = new Logger(ChatService.name);
   private readonly baseUrl: string;
   private readonly internalToken: string;
+<<<<<<< HEAD
   private readonly activeStreams = new Set<string>();
+=======
+>>>>>>> b9092495db5dd80d333a525a2c701471261db8e2
 
   constructor(
     private readonly prisma: PrismaService,
@@ -159,6 +162,12 @@ export class ChatService {
       },
     });
     if (!chat) throw new NotFoundException("Chat not found");
+    void this.prepareAgentWorkspace(businessId, chatId).catch((error) => {
+      this.logger.warn(
+        `Agent runtime prepare failed for business=${businessId} chat=${chatId}`,
+        error,
+      );
+    });
     return chat;
   }
 
@@ -308,11 +317,14 @@ export class ChatService {
       liveText = "";
     };
 
+<<<<<<< HEAD
     // Stop reading from the agent when the browser disconnects, instead of
     // holding the upstream stream open for a client that is gone.
     const clientGone = new AbortController();
     raw.on("close", () => clientGone.abort());
 
+=======
+>>>>>>> b9092495db5dd80d333a525a2c701471261db8e2
     try {
       const url = new URL(
         `agent/chats/${encodeURIComponent(chatId)}/messages/stream`,
@@ -480,6 +492,38 @@ export class ChatService {
     return { reply: payload.response, actions };
   }
 
+<<<<<<< HEAD
+=======
+  private async prepareAgentWorkspace(
+    businessId: string,
+    chatId: string,
+  ): Promise<void> {
+    const url = new URL(
+      `agent/chats/${encodeURIComponent(chatId)}/runtime`,
+      this.baseUrl,
+    );
+    let response: Response;
+    try {
+      response = await fetch(url, {
+        method: "PUT",
+        headers: this.agentHeaders(),
+        body: JSON.stringify({ businessId }),
+        signal: AbortSignal.timeout(30_000),
+      });
+    } catch (error) {
+      this.logger.error(`Agent workspace prepare failed: ${url}`, error);
+      throw new BadGatewayException("Agent workspace is unavailable");
+    }
+    if (!response.ok) {
+      const detail = (await response.text()).slice(0, 500);
+      this.logger.error(
+        `Agent workspace prepare returned ${response.status}: ${detail}`,
+      );
+      throw new BadGatewayException("Agent workspace prepare failed");
+    }
+  }
+
+>>>>>>> b9092495db5dd80d333a525a2c701471261db8e2
   private async cleanupAgentWorkspace(
     businessId: string,
     chatId: string,

@@ -297,7 +297,7 @@ const ComposerAction: FC = () => {
               tooltip="Send message"
               side="bottom"
               type="button"
-              variant="primary"
+              variant="default"
               size="icon"
               className="aui-composer-send size-7 rounded-full"
               aria-label="Send message"
@@ -310,7 +310,7 @@ const ComposerAction: FC = () => {
           <ComposerPrimitive.Cancel asChild>
             <Button
               type="button"
-              variant="primary"
+              variant="default"
               size="icon"
               className="aui-composer-cancel size-7 rounded-full"
               aria-label="Stop generating"
