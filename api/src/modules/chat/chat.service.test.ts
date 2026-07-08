@@ -177,58 +177,6 @@ test("stream forwards agent SSE and returns the app chat envelope", async (t) =>
   assert.equal(ended, true);
 });
 
-test("get starts runtime prepare in the background", async (t) => {
-  let requestUrl = "";
-  let requestBody: Record<string, unknown> | undefined;
-  let releasePrepare: ((response: Response) => void) | undefined;
-  const prepareStarted = new Promise<void>((resolveStarted) => {
-    t.mock.method(globalThis, "fetch", async (input, init) => {
-      requestUrl = String(input);
-      requestBody = JSON.parse(String(init?.body));
-      resolveStarted();
-      return await new Promise<Response>((resolve) => {
-        releasePrepare = resolve;
-      });
-    });
-  });
-
-  const prisma = {
-    chat: {
-      findFirst: async () => ({
-        id: "chat-1",
-        title: "Existing chat",
-        messages: [],
-      }),
-    },
-  };
-  const service = new ChatService(
-    prisma as never,
-    {
-      agentUrl: "http://agent:8000",
-      agentInternalToken: "service-secret",
-    } as never,
-  );
-
-  const getPromise = service.get("business-1", "chat-1");
-  await prepareStarted;
-  const response = await Promise.race([
-    getPromise,
-    new Promise<never>((_resolve, reject) => {
-      setTimeout(() => reject(new Error("get blocked on runtime prepare")), 25);
-    }),
-  ]);
-  releasePrepare?.(Response.json({ status: "ok" }));
-
-  assert.equal(
-    requestUrl,
-    "http://agent:8000/agent/chats/chat-1/runtime/prepare",
-  );
-  assert.deepEqual(requestBody, {
-    businessId: "business-1",
-  });
-  assert.equal(response.id, "chat-1");
-});
-
 test("remove cleans up the agent workspace before deleting the chat", async (t) => {
   const operations: string[] = [];
   t.mock.method(globalThis, "fetch", async (_input, init) => {

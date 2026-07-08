@@ -1,17 +1,15 @@
 version: "3.9"
 
 volumes:
+  api-node-modules:
   web-node-modules:
   app-node-modules:
   knowledge-uploads:
-<<<<<<< HEAD
   # .next on a named volume: Turbopack's persistent cache (RocksDB-style SST
   # files) corrupts itself on the Windows bind mount, which broke the dev
   # route table repeatedly (black-screen 404s on every route).
   app-next-cache:
   web-next-cache:
-=======
->>>>>>> b9092495db5dd80d333a525a2c701471261db8e2
 
 services:
   api:
@@ -24,12 +22,8 @@ services:
     environment:
       NODE_ENV: development
     volumes:
-<<<<<<< HEAD
-      # ponytail: Windows bind mount makes pnpm/Node hit ENOMEM; rebuild api after edits.
-=======
       - ../api:/app:cached
       - api-node-modules:/app/node_modules
->>>>>>> b9092495db5dd80d333a525a2c701471261db8e2
       - knowledge-uploads:/data/knowledge-uploads
     container_name: api
 
@@ -43,12 +37,8 @@ services:
     environment:
       NODE_ENV: development
     volumes:
-<<<<<<< HEAD
-      # ponytail: Windows bind mount makes pnpm/Node hit ENOMEM; rebuild worker after edits.
-=======
       - ../api:/app:cached
       - api-node-modules:/app/node_modules
->>>>>>> b9092495db5dd80d333a525a2c701471261db8e2
       - knowledge-uploads:/data/knowledge-uploads
     container_name: worker
 

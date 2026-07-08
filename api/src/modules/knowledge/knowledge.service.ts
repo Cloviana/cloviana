@@ -197,27 +197,6 @@ export class KnowledgeService {
       await this.removeFromKnowledgeBase(businessId, documentId).catch(
         () => undefined,
       );
-<<<<<<< HEAD
-      // Keep the row so the failure is visible in the UI and retriable,
-      // instead of silently deleting the document.
-      await this.prisma.document
-        .update({
-          where: { id: documentId },
-          data: {
-            status: "FAILED",
-            failureReason: String(error?.message ?? "Ingestion failed").slice(
-              0,
-              1000,
-            ),
-          } as any,
-        })
-        .catch((updateError) => {
-          this.logger.error(
-            "Failed to mark document as FAILED after ingestion failure",
-            updateError,
-          );
-        });
-=======
       if ((document as any).filePath) {
         await unlink((document as any).filePath).catch(() => undefined);
       }
@@ -229,7 +208,6 @@ export class KnowledgeService {
           );
         },
       );
->>>>>>> b9092495db5dd80d333a525a2c701471261db8e2
       throw error;
     }
   }

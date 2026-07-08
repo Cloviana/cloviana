@@ -222,15 +222,15 @@ export function ChatThread({
     );
   }
 
-<<<<<<< HEAD
   // key remounts the runtime when the user switches chats, so chatIdRef and
   // useLocalRuntime's captured initialMessages never go stale.
   return (
-    <ChatThreadWithHistory key={chatId} businessId={businessId} chatId={chatId} />
+    <ChatThreadWithHistory
+      key={chatId}
+      businessId={businessId}
+      chatId={chatId}
+    />
   );
-=======
-  return <ChatThreadWithHistory businessId={businessId} chatId={chatId} />;
->>>>>>> b9092495db5dd80d333a525a2c701471261db8e2
 }
 
 type ChatThreadWithHistoryProps = {
