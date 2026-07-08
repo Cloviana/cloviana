@@ -112,22 +112,33 @@ export class MonitoringOverviewService {
   }
 
   async getGapAnalysis(businessId: string) {
+    // Bound the scan: the dashboard trend never needs unbounded history.
+    const historyFloor = new Date();
+    historyFloor.setUTCDate(historyFloor.getUTCDate() - 365);
+
     const [business, metrics] = await Promise.all([
       this.prisma.business.findUniqueOrThrow({
         where: { id: businessId },
         include: { competitors: true },
       }),
       this.prisma.businessMetric.findMany({
-        where: { businessId, engine: null },
+        where: { businessId, engine: null, date: { gte: historyFloor } },
         orderBy: { date: "desc" },
       }),
     ]);
 
-    const dates = Array.from(new Set(metrics.map((m) => m.date.toISOString())));
-    dates.sort();
+    // Group once instead of re-filtering the whole array per date.
+    const metricsByDate = new Map<string, typeof metrics>();
+    for (const metric of metrics) {
+      const key = metric.date.toISOString();
+      const list = metricsByDate.get(key) ?? [];
+      list.push(metric);
+      metricsByDate.set(key, list);
+    }
+    const dates = Array.from(metricsByDate.keys()).sort();
 
     const trend = dates.map((dateStr) => {
-      const dateMetrics = metrics.filter((m) => m.date.toISOString() === dateStr);
+      const dateMetrics = metricsByDate.get(dateStr) ?? [];
       const row: any = { date: dateStr };
 
       const ownMetric = dateMetrics.find((m) => m.competitorId === null);

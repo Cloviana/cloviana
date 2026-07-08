@@ -48,7 +48,7 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
               window.dataLayer = window.dataLayer || [];
               function gtag(){ dataLayer.push(arguments); }
               gtag('js', new Date());
-              gtag('config', '${env.GA4_ID}', { page_path: window.location.pathname });
+              gtag('config', ${JSON.stringify(env.GA4_ID)}, { page_path: window.location.pathname });
             `,
               }}
             />

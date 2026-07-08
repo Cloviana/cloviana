@@ -47,9 +47,11 @@ export class BillingService {
     const hasHadSubscription = !!business.subscription;
     let { stripeCustomerId } = business;
     if (!stripeCustomerId) {
+      // Concurrent checkouts for the same business collapse to one customer.
       const customer = await this.stripe.createCustomer(
         user.email,
         business.name,
+        `customer-create-${business.id}`,
       );
       stripeCustomerId = customer.id;
       await this.prisma.business.update({

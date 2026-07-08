@@ -140,8 +140,11 @@ const defaultComponents = memoizeMarkdownComponents({
       {...props}
     />
   ),
-  a: ({ className, ...props }) => (
+  a: ({ className, href, ...props }) => (
     <a
+      // LLM output is a trust boundary: only http/https/mailto links render
+      // as links, anything else (javascript:, data:, ...) is dropped.
+      href={/^(https?:|mailto:)/i.test(href ?? '') ? href : undefined}
       className={cn(
         'aui-md-a text-primary hover:text-primary/80 underline underline-offset-2',
         className,

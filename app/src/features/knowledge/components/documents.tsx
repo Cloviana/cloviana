@@ -4,6 +4,7 @@ import { MoreHorizontal, Plus, Trash2 } from 'lucide-react';
 import Image from 'next/image';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
+import { toast } from 'sonner';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -66,8 +67,16 @@ interface DocumentsProps {
 
 export function Documents({ businessId }: DocumentsProps) {
   const { data: documents = [] } = useGetDocuments(businessId);
-  const { mutate: deleteDocument } = useDeleteDocument();
-  const { mutate: updateDocument } = useUpdateDocument();
+  const { mutate: deleteDocument } = useDeleteDocument({
+    mutationConfig: {
+      onError: () => toast.error('Failed to delete the document. Try again.'),
+    },
+  });
+  const { mutate: updateDocument } = useUpdateDocument({
+    mutationConfig: {
+      onError: () => toast.error('Failed to update the tag. Try again.'),
+    },
+  });
   const [sheetOpen, setSheetOpen] = useState(false);
 
   const router = useRouter();

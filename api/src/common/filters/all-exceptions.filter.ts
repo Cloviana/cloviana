@@ -59,6 +59,15 @@ export class AllExceptionsFilter implements ExceptionFilter {
     } else if (
       typeof exception === "object" &&
       exception !== null &&
+      (exception as any).code === "P2025"
+    ) {
+      // Prisma findFirstOrThrow/update on a missing record is a 404, not a 500.
+      status = HttpStatus.NOT_FOUND;
+      error = "Not Found";
+      message = "Resource not found";
+    } else if (
+      typeof exception === "object" &&
+      exception !== null &&
       "statusCode" in exception &&
       typeof (exception as any).statusCode === "number"
     ) {

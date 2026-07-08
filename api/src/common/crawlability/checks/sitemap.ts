@@ -1,3 +1,4 @@
+import pLimit from "p-limit";
 import { SITEMAP_CANDIDATES } from "../constants";
 import type {
   CrawlabilityCheckResult,
@@ -97,8 +98,12 @@ export async function checkSitemap(
     const staleLastmodPages = includedKeyEntries
       .filter(({ entry }) => entry.lastmod && isLastmodStale(entry.lastmod))
       .map(({ page }) => page);
+    // Throttle health probes so we don't hammer the target domain.
+    const urlHealthLimit = pLimit(5);
     const checkedUrlHealth = await Promise.all(
-      includedKeyEntries.map(({ page }) => fetchUrlStatus(page)),
+      includedKeyEntries.map(({ page }) =>
+        urlHealthLimit(() => fetchUrlStatus(page)),
+      ),
     );
     const unhealthyUrls = checkedUrlHealth.filter(
       (health) => health.status !== 200 || health.redirected,

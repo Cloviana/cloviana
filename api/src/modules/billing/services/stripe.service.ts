@@ -90,9 +90,16 @@ export class StripeService {
   }
 
   // Customer Management (Create Customer)
-  async createCustomer(email: string, name: string): Promise<Stripe.Customer> {
+  async createCustomer(
+    email: string,
+    name: string,
+    idempotencyKey?: string,
+  ): Promise<Stripe.Customer> {
     try {
-      const customer = await this.stripe.customers.create({ email, name });
+      const customer = await this.stripe.customers.create(
+        { email, name },
+        idempotencyKey ? { idempotencyKey } : undefined,
+      );
       this.logger.log(`Customer created successfully with email: ${email}`);
       return customer;
     } catch (error) {

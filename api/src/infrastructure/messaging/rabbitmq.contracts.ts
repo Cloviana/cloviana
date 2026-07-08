@@ -63,6 +63,8 @@ export const AUDITS_QUEUE: RabbitMqQueueDefinition = {
 export const BUSINESSES_QUEUE: RabbitMqQueueDefinition = {
   clientToken: "BUSINESSES_CLIENT",
   queue: "businesses_queue",
+  prefetchCount: 5,
+  noAck: false,
   queueOptions: {
     durable: true,
     autoDelete: false,

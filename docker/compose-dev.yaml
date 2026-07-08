@@ -1,10 +1,14 @@
 version: "3.9"
 
 volumes:
-  api-node-modules:
   web-node-modules:
   app-node-modules:
   knowledge-uploads:
+  # .next on a named volume: Turbopack's persistent cache (RocksDB-style SST
+  # files) corrupts itself on the Windows bind mount, which broke the dev
+  # route table repeatedly (black-screen 404s on every route).
+  app-next-cache:
+  web-next-cache:
 
 services:
   api:
@@ -13,15 +17,11 @@ services:
       dockerfile: Dockerfile
       target: dev
     image: ghcr.io/cloviana/api:dev
-    command: >
-      sh -c "pnpm install &&
-             pnpm db:generate &&
-             pnpm start:debug"
+    command: ["pnpm", "start"]
     environment:
       NODE_ENV: development
     volumes:
-      - ../api:/app:cached
-      - api-node-modules:/app/node_modules
+      # ponytail: Windows bind mount makes pnpm/Node hit ENOMEM; rebuild api after edits.
       - knowledge-uploads:/data/knowledge-uploads
     container_name: api
 
@@ -31,15 +31,11 @@ services:
       dockerfile: Dockerfile
       target: dev
     image: ghcr.io/cloviana/api:dev
-    command: >
-      sh -c "pnpm install &&
-             pnpm db:generate &&
-             pnpm start:worker:dev"
+    command: ["pnpm", "start:worker"]
     environment:
       NODE_ENV: development
     volumes:
-      - ../api:/app:cached
-      - api-node-modules:/app/node_modules
+      # ponytail: Windows bind mount makes pnpm/Node hit ENOMEM; rebuild worker after edits.
       - knowledge-uploads:/data/knowledge-uploads
     container_name: worker
 
@@ -51,12 +47,13 @@ services:
     image: ghcr.io/cloviana/app:dev
     command: >
       sh -c "pnpm install &&
-             pnpm dev"
+             pnpm exec next dev --webpack -H 0.0.0.0 -p 3000"
     environment:
       CI: "true"
     volumes:
-      - ../app:/app:cached
+      # ponytail: Windows bind mount makes Next's scanner hit ENOMEM; rebuild app after edits.
       - app-node-modules:/app/node_modules
+      - app-next-cache:/app/.next
     container_name: app
 
   web:
@@ -67,12 +64,13 @@ services:
     image: ghcr.io/cloviana/web:dev
     command: >
       sh -c "pnpm install &&
-             pnpm dev"
+             pnpm exec next dev -H 0.0.0.0 -p 3000"
     environment:
       CI: "true"
     volumes:
-      - ../web:/app:cached
+      # ponytail: Windows bind mount makes Next's scanner hit ENOMEM; rebuild web after edits.
       - web-node-modules:/app/node_modules
+      - web-next-cache:/app/.next
     container_name: web
 
   nginx:
@@ -80,8 +78,10 @@ services:
     container_name: nginx-dev
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - ./nginx/nginx.dev.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
     depends_on:
       - api
       - app

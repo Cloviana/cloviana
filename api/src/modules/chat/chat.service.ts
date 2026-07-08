@@ -4,6 +4,7 @@ import { AppConfiguration } from "@/common/config/app.configuration";
 import {
   BadGatewayException,
   BadRequestException,
+  ConflictException,
   Injectable,
   Logger,
   NotFoundException,
@@ -92,6 +93,7 @@ export class ChatService {
   private readonly logger = new Logger(ChatService.name);
   private readonly baseUrl: string;
   private readonly internalToken: string;
+  private readonly activeStreams = new Set<string>();
 
   constructor(
     private readonly prisma: PrismaService,
@@ -157,12 +159,6 @@ export class ChatService {
       },
     });
     if (!chat) throw new NotFoundException("Chat not found");
-    void this.prepareAgentWorkspace(businessId, chatId).catch((error) => {
-      this.logger.warn(
-        `Agent runtime prepare failed for business=${businessId} chat=${chatId}`,
-        error,
-      );
-    });
     return chat;
   }
 
@@ -277,6 +273,13 @@ export class ChatService {
       body,
     );
 
+    // ponytail: in-memory guard is enough while chat streaming lives in one
+    // process; move to a DB/Redis lock if the API is ever scaled out.
+    if (this.activeStreams.has(chatId)) {
+      throw new ConflictException("A response is already streaming for this chat");
+    }
+    this.activeStreams.add(chatId);
+
     reply.hijack();
     const raw = reply.raw;
     // hijack() bypasses @fastify/cors, so reflect the origin ourselves or the
@@ -305,6 +308,11 @@ export class ChatService {
       liveText = "";
     };
 
+    // Stop reading from the agent when the browser disconnects, instead of
+    // holding the upstream stream open for a client that is gone.
+    const clientGone = new AbortController();
+    raw.on("close", () => clientGone.abort());
+
     try {
       const url = new URL(
         `agent/chats/${encodeURIComponent(chatId)}/messages/stream`,
@@ -317,7 +325,10 @@ export class ChatService {
           businessId,
           messages,
         }),
-        signal: AbortSignal.timeout(120_000),
+        signal: AbortSignal.any([
+          clientGone.signal,
+          AbortSignal.timeout(120_000),
+        ]),
       });
       if (!response.ok || !response.body) {
         this.logger.error(`Agent stream returned ${response.status}`);
@@ -408,9 +419,14 @@ export class ChatService {
       if (!finished)
         emit("error", { detail: "Agent stream ended unexpectedly" });
     } catch (error) {
-      this.logger.error("Agent stream failed", error);
-      emit("error", { detail: "Agent request failed" });
+      if (clientGone.signal.aborted) {
+        this.logger.log(`Client disconnected from stream chat=${chatId}`);
+      } else {
+        this.logger.error("Agent stream failed", error);
+        emit("error", { detail: "Agent request failed" });
+      }
     } finally {
+      this.activeStreams.delete(chatId);
       raw.end();
     }
   }
@@ -462,35 +478,6 @@ export class ChatService {
       ? payload.actions.filter((action) => typeof action === "string")
       : [];
     return { reply: payload.response, actions };
-  }
-
-  private async prepareAgentWorkspace(
-    businessId: string,
-    chatId: string,
-  ): Promise<void> {
-    const url = new URL(
-      `agent/chats/${encodeURIComponent(chatId)}/runtime`,
-      this.baseUrl,
-    );
-    let response: Response;
-    try {
-      response = await fetch(url, {
-        method: "PUT",
-        headers: this.agentHeaders(),
-        body: JSON.stringify({ businessId }),
-        signal: AbortSignal.timeout(30_000),
-      });
-    } catch (error) {
-      this.logger.error(`Agent workspace prepare failed: ${url}`, error);
-      throw new BadGatewayException("Agent workspace is unavailable");
-    }
-    if (!response.ok) {
-      const detail = (await response.text()).slice(0, 500);
-      this.logger.error(
-        `Agent workspace prepare returned ${response.status}: ${detail}`,
-      );
-      throw new BadGatewayException("Agent workspace prepare failed");
-    }
   }
 
   private async cleanupAgentWorkspace(

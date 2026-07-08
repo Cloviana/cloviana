@@ -15,7 +15,8 @@ export class MonitoringDomainsService {
           take: 1,
           include: {
             responses: {
-              include: {
+              // Only citations are used; response bodies stay in the DB.
+              select: {
                 citations: true,
               },
             },
@@ -151,7 +152,8 @@ export class MonitoringDomainsService {
           take: 1,
           include: {
             responses: {
-              include: {
+              // Only citations are used; response bodies stay in the DB.
+              select: {
                 citations: true,
               },
             },

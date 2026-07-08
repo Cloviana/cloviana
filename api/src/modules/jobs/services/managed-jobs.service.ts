@@ -1,5 +1,5 @@
 import { PrismaService } from "@/clients/prisma/prisma.service";
-import { Injectable } from "@nestjs/common";
+import { Injectable, Logger } from "@nestjs/common";
 import type { Job } from "@prisma/client";
 import { JobStatus, JobType, Prisma } from "@prisma/client";
 
@@ -77,6 +77,8 @@ type JobError = {
 
 @Injectable()
 export class ManagedJobsService {
+  private readonly logger = new Logger(ManagedJobsService.name);
+
   constructor(private readonly prisma: PrismaService) {}
 
   async reserveJob({
@@ -257,14 +259,22 @@ export class ManagedJobsService {
       throw error;
     } finally {
       clearInterval(hb);
-      await this.prisma.job.updateMany({
-        where: { id: job.id, status: JobStatus.RUNNING },
-        data: {
-          status: JobStatus.FAILED,
-          finishedAt: new Date(),
-          error: "Process terminated without finalization",
-        },
-      });
+      try {
+        // Safety net for jobs left RUNNING. Must never throw: an error here
+        // would replace the try block's successful return value.
+        await this.prisma.job.updateMany({
+          where: { id: job.id, status: JobStatus.RUNNING },
+          data: {
+            status: JobStatus.FAILED,
+            finishedAt: new Date(),
+            error: "Process terminated without finalization",
+          },
+        });
+      } catch (finalizeError: unknown) {
+        this.logger.warn(
+          `Job ${job.id} finalization sweep failed: ${this.errorMessage(finalizeError)}`,
+        );
+      }
     }
   }
 

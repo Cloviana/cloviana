@@ -197,17 +197,25 @@ export class KnowledgeService {
       await this.removeFromKnowledgeBase(businessId, documentId).catch(
         () => undefined,
       );
-      if ((document as any).filePath) {
-        await unlink((document as any).filePath).catch(() => undefined);
-      }
-      await this.prisma.document.delete({ where: { id: documentId } }).catch(
-        (cleanupError) => {
+      // Keep the row so the failure is visible in the UI and retriable,
+      // instead of silently deleting the document.
+      await this.prisma.document
+        .update({
+          where: { id: documentId },
+          data: {
+            status: "FAILED",
+            failureReason: String(error?.message ?? "Ingestion failed").slice(
+              0,
+              1000,
+            ),
+          } as any,
+        })
+        .catch((updateError) => {
           this.logger.error(
-            "Failed to roll back document record after ingestion failure",
-            cleanupError,
+            "Failed to mark document as FAILED after ingestion failure",
+            updateError,
           );
-        },
-      );
+        });
       throw error;
     }
   }

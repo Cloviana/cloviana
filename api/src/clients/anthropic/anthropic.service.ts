@@ -143,12 +143,19 @@ async function pollUntilEnded(
   client: Anthropic,
   batchId: string,
   intervalMs: number,
+  maxWaitMs = 60 * 60_000,
 ): Promise<void> {
+  const deadline = Date.now() + maxWaitMs;
   while (true) {
     await sleep(intervalMs);
     const { processing_status } =
       await client.beta.messages.batches.retrieve(batchId);
     if (processing_status === "ended") return;
+    if (Date.now() >= deadline) {
+      throw new Error(
+        `Anthropic batch ${batchId} did not end within ${maxWaitMs}ms`,
+      );
+    }
   }
 }
 

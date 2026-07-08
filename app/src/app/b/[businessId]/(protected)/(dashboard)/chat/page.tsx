@@ -1,8 +1,3 @@
-import {
-  dehydrate,
-  HydrationBoundary,
-  QueryClient,
-} from '@tanstack/react-query';
 import { Suspense } from 'react';
 
 import { ChatHistoryCommand } from '@/features/chat/components/chat-history-command';
@@ -16,22 +11,19 @@ type PageProps = {
 
 export default async function ChatPage({ params }: PageProps) {
   const { businessId } = await params;
-  const queryClient = new QueryClient();
 
   return (
-    <HydrationBoundary state={dehydrate(queryClient)}>
-      <DashboardPageLayout
-        header={
-          <DashboardHeader>
-            <ChatHistoryCommand businessId={businessId} />
-          </DashboardHeader>
-        }
-        className="overflow-hidden p-0"
-      >
-        <Suspense>
-          <ChatThread businessId={businessId} />
-        </Suspense>
-      </DashboardPageLayout>
-    </HydrationBoundary>
+    <DashboardPageLayout
+      header={
+        <DashboardHeader>
+          <ChatHistoryCommand businessId={businessId} />
+        </DashboardHeader>
+      }
+      className="overflow-hidden p-0"
+    >
+      <Suspense>
+        <ChatThread businessId={businessId} />
+      </Suspense>
+    </DashboardPageLayout>
   );
 }

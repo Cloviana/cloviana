@@ -1,14 +1,11 @@
-import {
-  dehydrate,
-  HydrationBoundary,
-  QueryClient,
-} from '@tanstack/react-query';
+import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 import type { ReactNode } from 'react';
 
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
 import { getBusinessQueryOptions } from '@/features/businesses/api/get-business';
 import { getBusinessesQueryOptions } from '@/features/businesses/api/get-businesses';
 import { DashboardSidebar } from '@/features/dashboard/components/dashboard-sidebar';
+import { getQueryClient } from '@/lib/react-query/server';
 
 type LayoutProps = {
   children: ReactNode;
@@ -17,7 +14,7 @@ type LayoutProps = {
 
 export default async function Layout({ children, params }: LayoutProps) {
   const { businessId } = await params;
-  const queryClient = new QueryClient();
+  const queryClient = getQueryClient();
 
   await Promise.all([
     queryClient.prefetchQuery(getBusinessQueryOptions(businessId)),

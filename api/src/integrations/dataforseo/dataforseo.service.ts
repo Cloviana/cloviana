@@ -1,6 +1,7 @@
 import { AppConfiguration } from "@/config/app.configuration";
 import { HttpService } from "@nestjs/axios";
 import { Injectable } from "@nestjs/common";
+import pLimit from "p-limit";
 import pRetry, { AbortError } from "p-retry";
 import { firstValueFrom } from "rxjs";
 import {
@@ -45,6 +46,10 @@ const BASE_URL = "https://api.dataforseo.com/v3";
 
 @Injectable()
 export class DataForSeoService {
+  // Same pattern as the other API clients: cap concurrent requests so bursts
+  // queue here instead of triggering DataForSEO 429s.
+  private readonly limit = pLimit(4);
+
   constructor(
     private readonly http: HttpService,
     private readonly config: AppConfiguration,
@@ -365,12 +370,14 @@ export class DataForSeoService {
       }
     };
 
-    return pRetry(exec, {
-      retries: 5,
-      minTimeout: 1000,
-      maxTimeout: 5000,
-      factor: 2,
-      randomize: true,
-    });
+    return this.limit(() =>
+      pRetry(exec, {
+        retries: 5,
+        minTimeout: 1000,
+        maxTimeout: 5000,
+        factor: 2,
+        randomize: true,
+      }),
+    );
   }
 }

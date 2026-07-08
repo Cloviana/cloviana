@@ -11,6 +11,14 @@ export async function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
+  const isAuthRoute = ['/login', '/signup', '/verify-email'].some((route) =>
+    pathname.startsWith(route),
+  );
+  if (isAuthRoute) {
+    // ponytail: auth pages must render even when Supabase auth is slow.
+    return NextResponse.next();
+  }
+
   // Prepare the response we’ll mutate with cookies
   const res = NextResponse.next();
 
@@ -33,18 +41,9 @@ export async function proxy(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const isAuthRoute = ['/login', '/signup', '/verify-email'].some((route) =>
-    pathname.startsWith(route),
-  );
   const isConfirmed = Boolean(user?.email_confirmed_at);
 
-  if (isConfirmed && isAuthRoute) {
-    const url = request.nextUrl.clone();
-    url.pathname = '/';
-    return NextResponse.redirect(url);
-  }
-
-  if (!isConfirmed && !isAuthRoute) {
+  if (!isConfirmed) {
     const url = request.nextUrl.clone();
     url.pathname = '/login';
     return NextResponse.redirect(url);

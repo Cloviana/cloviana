@@ -222,7 +222,11 @@ export function ChatThread({
     );
   }
 
-  return <ChatThreadWithHistory businessId={businessId} chatId={chatId} />;
+  // key remounts the runtime when the user switches chats, so chatIdRef and
+  // useLocalRuntime's captured initialMessages never go stale.
+  return (
+    <ChatThreadWithHistory key={chatId} businessId={businessId} chatId={chatId} />
+  );
 }
 
 type ChatThreadWithHistoryProps = {

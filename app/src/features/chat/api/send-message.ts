@@ -51,7 +51,7 @@ export type ChatStreamEvent =
 function parseSseBlock(block: string): { event: string; data: unknown } | null {
   let event = 'message';
   const dataLines: string[] = [];
-  for (const line of block.split('\n')) {
+  for (const line of block.split(/\r?\n/)) {
     if (line.startsWith('event: ')) event = line.slice(7).trim();
     else if (line.startsWith('data: ')) dataLines.push(line.slice(6));
   }
@@ -90,62 +90,89 @@ export async function* sendMessageStream(
   const reader = response.body.getReader();
   const decoder = new TextDecoder();
   let buffer = '';
-  for (;;) {
-    const { value, done } = await reader.read();
-    if (done) break;
-    buffer += decoder.decode(value, { stream: true });
-    let separator: number;
-    while ((separator = buffer.indexOf('\n\n')) >= 0) {
-      const block = buffer.slice(0, separator);
-      buffer = buffer.slice(separator + 2);
-      const parsed = parseSseBlock(block);
-      if (!parsed) continue;
-      if (parsed.event === 'delta') {
-        yield {
-          type: 'delta',
-          text: (parsed.data as ChatMessagePart).text ?? '',
-        };
-      } else if (parsed.event === 'reasoning') {
-        yield {
-          type: 'reasoning',
-          text: (parsed.data as ChatMessagePart).text ?? '',
-        };
-      } else if (parsed.event === 'action') {
-        const { id, label, tool, detail } = parsed.data as {
-          id?: string;
-          label?: string;
-          tool?: string;
-          detail?: string;
-        };
-        yield {
-          type: 'action',
-          id: id ?? `action_${Date.now()}`,
-          label: label ?? '',
-          tool,
-          detail,
-        };
-      } else if (parsed.event === 'action_result') {
-        const { id, count, results, error } = parsed.data as {
-          id?: string;
-          count?: number;
-          results?: ActionResultItem[];
-          error?: boolean;
-        };
-        yield {
-          type: 'action-result',
-          id: id ?? '',
-          count: count ?? 0,
-          results: Array.isArray(results) ? results : [],
-          error,
-        };
-      } else if (parsed.event === 'done') {
-        yield { type: 'done', response: parsed.data as SendMessageResponse };
-        return;
-      } else if (parsed.event === 'error') {
-        const { detail } = parsed.data as { detail?: string };
-        throw new Error(detail ?? 'Chat request failed');
+  try {
+    for (;;) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      // Normalizing the whole buffer is idempotent and catches a \r\n split
+      // across two chunks.
+      buffer = (buffer + decoder.decode(value, { stream: true })).replace(
+        /\r\n/g,
+        '\n',
+      );
+      let separator: number;
+      while ((separator = buffer.indexOf('\n\n')) >= 0) {
+        const block = buffer.slice(0, separator);
+        buffer = buffer.slice(separator + 2);
+        const event = toStreamEvent(parseSseBlock(block));
+        if (!event) continue;
+        yield event;
+        if (event.type === 'done') return;
       }
     }
+    // Flush the decoder and try the trailing block in case the stream ended
+    // without the final blank line.
+    const event = toStreamEvent(parseSseBlock(buffer + decoder.decode()));
+    if (event) {
+      yield event;
+      if (event.type === 'done') return;
+    }
+  } finally {
+    // Releases the lock and tells the server we hung up (abort/early return).
+    reader.cancel().catch(() => {});
   }
   throw new Error('Chat stream ended unexpectedly');
+}
+
+function toStreamEvent(
+  parsed: { event: string; data: unknown } | null,
+): ChatStreamEvent | null {
+  if (!parsed) return null;
+  if (parsed.event === 'delta') {
+    return { type: 'delta', text: (parsed.data as ChatMessagePart).text ?? '' };
+  }
+  if (parsed.event === 'reasoning') {
+    return {
+      type: 'reasoning',
+      text: (parsed.data as ChatMessagePart).text ?? '',
+    };
+  }
+  if (parsed.event === 'action') {
+    const { id, label, tool, detail } = parsed.data as {
+      id?: string;
+      label?: string;
+      tool?: string;
+      detail?: string;
+    };
+    return {
+      type: 'action',
+      id: id ?? `action_${Date.now()}`,
+      label: label ?? '',
+      tool,
+      detail,
+    };
+  }
+  if (parsed.event === 'action_result') {
+    const { id, count, results, error } = parsed.data as {
+      id?: string;
+      count?: number;
+      results?: ActionResultItem[];
+      error?: boolean;
+    };
+    return {
+      type: 'action-result',
+      id: id ?? '',
+      count: count ?? 0,
+      results: Array.isArray(results) ? results : [],
+      error,
+    };
+  }
+  if (parsed.event === 'done') {
+    return { type: 'done', response: parsed.data as SendMessageResponse };
+  }
+  if (parsed.event === 'error') {
+    const { detail } = parsed.data as { detail?: string };
+    throw new Error(detail ?? 'Chat request failed');
+  }
+  return null;
 }
