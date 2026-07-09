@@ -17,3 +17,8 @@ api/scripts/reports/*.md
 # Antigravity and Agent Artifacts
 .agents/
 
+# Secrets
+.env
+.env.*
+!.env.example
+

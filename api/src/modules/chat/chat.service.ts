@@ -16,6 +16,7 @@ import type { FastifyReply } from "fastify";
 type IncomingPart = {
   type?: string;
   text?: string;
+  image?: string;
 };
 
 export type IncomingMessage = {
@@ -53,9 +54,39 @@ function content(text: string) {
   return [{ type: "text", text }];
 }
 
+// Mirrors the agent's limits (3 images, ~6MB each, inline data URIs only).
+const MAX_IMAGES = 3;
+const MAX_IMAGE_DATA_CHARS = 8_000_000;
+const IMAGE_DATA_URI = /^data:image\/(png|jpeg|webp|gif);base64,[A-Za-z0-9+/]+={0,2}$/;
+
+function userImages(messages: readonly IncomingMessage[]) {
+  const latest = [...messages]
+    .reverse()
+    .find((message) => message.role === "user");
+  const images = (latest?.content ?? [])
+    .filter((part) => part.type === "image" && typeof part.image === "string")
+    .map((part) => part.image as string);
+
+  if (images.length > MAX_IMAGES) {
+    throw new BadRequestException(`At most ${MAX_IMAGES} images per message`);
+  }
+  for (const image of images) {
+    if (image.length > MAX_IMAGE_DATA_CHARS || !IMAGE_DATA_URI.test(image)) {
+      throw new BadRequestException(
+        "Images must be inline PNG/JPEG/WebP/GIF data URIs under 6MB",
+      );
+    }
+  }
+  return images;
+}
+
+type AgentPart =
+  | { type: "text"; text: string }
+  | { type: "image_url"; image_url: { url: string } };
+
 type AgentMessage = {
   role: "user" | "assistant";
-  content: string;
+  content: string | AgentPart[];
 };
 
 function persistedMessageText(value: Prisma.JsonValue) {
@@ -209,9 +240,20 @@ export class ChatService {
         return { role: message.role, content: messageContent };
       })
       .filter((message): message is AgentMessage => message !== null);
+    // ponytail: images ride only on the turn they're sent; history rebuilds
+    // text-only, so follow-up questions about an old image re-require it.
+    const images = userImages(body.messages);
+    const latestContent: string | AgentPart[] = images.length
+      ? [
+          { type: "text", text },
+          ...images.map(
+            (url): AgentPart => ({ type: "image_url", image_url: { url } }),
+          ),
+        ]
+      : text;
     const messages = [
       ...history,
-      { role: "user" as const, content: text },
+      { role: "user" as const, content: latestContent },
     ].slice(-200);
 
     return { text, chatId, title, messages };
