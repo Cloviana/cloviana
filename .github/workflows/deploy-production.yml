@@ -59,6 +59,7 @@ jobs:
             DATA_FOR_SEO_BASE64_CREDENTIALS=${{ secrets.DATA_FOR_SEO_BASE64_CREDENTIALS }}
             EXA_API_KEY=${{ secrets.EXA_API_KEY }}
             UNSTRUCTURED_API_KEY=${{ secrets.UNSTRUCTURED_API_KEY }}
+            VOYAGE_API_KEY=${{ secrets.VOYAGE_API_KEY }}
 
             GA4_API_SECRET=${{ secrets.GA4_API_SECRET }}
 
@@ -67,6 +68,26 @@ jobs:
 
             EOF
             chmod 600 .env
+
+            for variable in \
+              SUPABASE_URL \
+              SUPABASE_ANON_KEY \
+              SUPABASE_SERVICE_ROLE_KEY \
+              DATABASE_URL \
+              DIRECT_URL \
+              DEEPSEEK_API_KEY \
+              GROQ_API_KEY \
+              EXA_API_KEY \
+              UNSTRUCTURED_API_KEY \
+              VOYAGE_API_KEY \
+              AGENT_INTERNAL_TOKEN \
+              CLOVIANA_AGENT_DATABASE_URL
+            do
+              if ! grep -q "^${variable}=." .env; then
+                echo "Missing required production value: ${variable}" >&2
+                exit 1
+              fi
+            done
 
             export TAG=${{ github.event.workflow_run.head_sha }}
 
