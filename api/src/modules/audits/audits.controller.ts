@@ -7,10 +7,13 @@ import {
   HttpStatus,
   Param,
   Post,
+  Res,
+  StreamableFile,
 } from "@nestjs/common";
+import type { FastifyReply } from "fastify";
+import { AuditsService } from "./audits.service";
 import { RequestAuditDto } from "./dto/request-audit.dto";
 import { VerifyAuditDto } from "./dto/verify-audit.dto";
-import { AuditsService } from "./services/audits.service";
 
 @Controller("audits")
 export class AuditsController {
@@ -35,5 +38,19 @@ export class AuditsController {
   @Get(":id")
   async getAudit(@Param("id") id: string) {
     return this.auditsService.getAudit(id);
+  }
+
+  @Public()
+  @Get(":id/pdf")
+  async getAuditPdf(
+    @Param("id") id: string,
+    @Res({ passthrough: true }) res: FastifyReply,
+  ) {
+    const { pdf, filename } = await this.auditsService.generateAuditPdf(id);
+    res.headers({
+      "Content-Type": "application/pdf",
+      "Content-Disposition": `attachment; filename="${filename}"`,
+    });
+    return new StreamableFile(pdf);
   }
 }

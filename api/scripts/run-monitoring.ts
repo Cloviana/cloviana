@@ -1,24 +1,22 @@
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 import "dotenv/config";
-import { AnthropicService } from "@/clients/anthropic/anthropic.service";
 import { GroqService } from "@/clients/groq/groq.service";
-import { OpenAIService } from "@/clients/openai/openai.service";
-import { PerplexityService } from "@/clients/perplexity/perplexity.service";
 import { AppConfiguration } from "@/config/app.configuration";
 import { DataForSeoService } from "@/integrations/dataforseo/dataforseo.service";
-import { graph } from "@/workflows/monitoring/monitoring.graph";
-import type { StateType } from "@/workflows/monitoring/monitoring.state";
-import { computePromptMetrics } from "@/workflows/monitoring/utils/monitoring-metric-calculator";
+import { MonitoringAnalysisService } from "@/modules/monitoring/background/workflows/monitoring/monitoring-analysis.service";
+import { MonitoringEngineService } from "@/modules/monitoring/background/workflows/monitoring/monitoring-engine.service";
+import { computePromptMetrics } from "@/modules/monitoring/background/workflows/monitoring/monitoring.metrics";
+import type { MonitoringRunInput } from "@/modules/monitoring/background/workflows/monitoring/monitoring.types";
 import { HttpService } from "@nestjs/axios";
 import axios from "axios";
 
-const input: StateType = {
+const input: MonitoringRunInput = {
   businessId: "rexi-finance",
   prompts: [
     {
       id: "prompt-1",
-      text: "What do banks use to automate reconciliation across multiple payment systems",
+      text: "We are a mid-sized fintech processing payments across Stripe, regional banking rails, and card networks, and our finance team is drowning in manual reconciliation. What tools do banks and fintechs use in 2026 to automate reconciliation across multiple payment systems, how do leading options compare on accuracy and setup time, and what should we look for in audit trail and exception-handling? Also compare pricing, integration effort, and multi-currency support. Research online and cite sources.",
     },
   ],
   competitors: [
@@ -31,16 +29,8 @@ const input: StateType = {
   profile: {
     domain: "rexi.finance",
     name: "Rexi",
-    category: "AI-powered reconciliation infrastructure",
-    description:
-      "Rexi is an AI-native financial reconciliation and FinOps automation platform for fintechs, neobanks, payment companies, and regulated financial operations teams. It unifies transaction sources, creates a reconciled source of truth, automates matching and exception handling, and gives finance and ops teams auditable control without relying on spreadsheets, brittle scripts, or engineering for every workflow change.",
-    icp: "Scaling fintechs, neobanks, payment companies, PSPs, PayFacs, marketplaces, and finance or FinOps teams with high transaction volume, multi-source reconciliation complexity, audit pressure, revenue leakage risk, and a need to scale operations without adding headcount.",
   },
   date: new Date(),
-  rawEngineResponses: [],
-  engineResponses: [],
-  engineFailures: [],
-  promptMetrics: [],
 };
 
 function requireEnv(name: string): string {
@@ -54,68 +44,37 @@ function requireEnv(name: string): string {
 
 function getConfig(): AppConfiguration {
   return Object.assign(new AppConfiguration(), {
-    anthropicApiKey: requireEnv("ANTHROPIC_API_KEY"),
     dataForSeoBase64Credentials: requireEnv("DATA_FOR_SEO_BASE64_CREDENTIALS"),
     groqApiKey: requireEnv("GROQ_API_KEY"),
-    openaiApiKey: requireEnv("OPENAI_API_KEY"),
-    perplexityApiKey: requireEnv("PERPLEXITY_API_KEY"),
   });
-}
-
-function isState(value: unknown): value is StateType {
-  return (
-    typeof value === "object" &&
-    value !== null &&
-    "engineResponses" in value &&
-    "engineFailures" in value &&
-    "promptMetrics" in value
-  );
 }
 
 async function main() {
   const config = getConfig();
+  const dataForSeoService = new DataForSeoService(
+    new HttpService(axios),
+    config,
+  );
+  const engineService = new MonitoringEngineService(dataForSeoService);
+  const analysisService = new MonitoringAnalysisService(
+    new GroqService(config),
+  );
 
   console.log("Running monitoring for:");
   console.log(JSON.stringify(input.prompts, null, 2));
 
-  const stream = graph.streamEvents(input, {
-    version: "v2",
-    configurable: {
-      anthropic: new AnthropicService(config),
-      dataForSeo: new DataForSeoService(new HttpService(axios), config),
-      groq: new GroqService(config),
-      openai: new OpenAIService(config),
-      perplexity: new PerplexityService(config),
-      logger: undefined,
-    },
-  });
-
-  let result: StateType | undefined;
-
-  for await (const event of stream) {
-    if (event.event === "on_chain_start" && event.name) {
-      console.log(`▶ ${event.name}`);
-    }
-
-    if (event.event === "on_chain_end" && event.name) {
-      console.log(`✓ ${event.name}`);
-
-      const output = event.data?.output;
-      if (isState(output)) {
-        result = output;
-      }
-    }
-  }
-
-  if (!result) {
-    throw new Error("Monitoring graph completed without a final state");
-  }
-  const promptMetrics = computePromptMetrics(result, result.engineResponses);
+  const { engineResponses, engineFailures } =
+    await engineService.executeEngines(input);
+  const analyzedResponses = await analysisService.enrichResponses(
+    input,
+    engineResponses,
+  );
+  const promptMetrics = computePromptMetrics(input, analyzedResponses);
 
   console.log("\nResponses:");
   console.log(
     JSON.stringify(
-      result.engineResponses.map((response) => ({
+      analyzedResponses.map((response) => ({
         engine: response.engine,
         promptId: response.promptId,
         content: response.content,
@@ -132,7 +91,7 @@ async function main() {
   console.log(JSON.stringify(promptMetrics, null, 2));
 
   console.log("\nFailures:");
-  console.log(JSON.stringify(result.engineFailures, null, 2));
+  console.log(JSON.stringify(engineFailures, null, 2));
 
   console.log(
     "\nBusiness metrics are computed from the persisted latest-response snapshot during workflow persistence.",

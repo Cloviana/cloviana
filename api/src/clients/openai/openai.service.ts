@@ -75,7 +75,9 @@ const isTransientError = (error: unknown): boolean =>
   error instanceof APIConnectionTimeoutError;
 
 const isUrl = (value: string | null | undefined): value is string => {
-  if (!value) return false;
+  if (!value) {
+    return false;
+  }
 
   try {
     new URL(value);
@@ -96,7 +98,9 @@ async function withRetries<T>(
     try {
       return await fn();
     } catch (error) {
-      if (attempt === maxAttempts) throw error;
+      if (attempt === maxAttempts) {
+        throw error;
+      }
 
       const transient = isTransientError(error);
       const providerDelay = transient
@@ -115,7 +119,9 @@ async function withRetries<T>(
         (error as Error)?.message ?? error,
       );
 
-      if (delay > 0) await sleep(delay);
+      if (delay > 0) {
+        await sleep(delay);
+      }
     }
   }
 
@@ -347,13 +353,22 @@ export class OpenAIService {
     });
   }
 
-  private async pollUntilTerminal(batchId: string, intervalMs: number) {
+  private async pollUntilTerminal(
+    batchId: string,
+    intervalMs: number,
+    maxWaitMs = 60 * 60_000,
+  ) {
+    const deadline = Date.now() + maxWaitMs;
     let current = await this.client.batches.retrieve(batchId);
 
     while (!TERMINAL_BATCH_STATUSES.has(current.status)) {
+      if (Date.now() >= deadline) {
+        throw new Error(
+          `OpenAI batch ${batchId} did not reach a terminal status within ${maxWaitMs}ms`,
+        );
+      }
       await sleep(intervalMs);
       current = await this.client.batches.retrieve(batchId);
-      //console.log(`[openai-batch] ${batchId} — ${current.status}`);
     }
 
     return current;

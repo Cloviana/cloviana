@@ -1,5 +1,5 @@
 import { PrismaService } from "@/clients/prisma/prisma.service";
-import { DEFAULT_JOB_STALE_MS } from "@/modules/jobs/services/managed-jobs.service";
+import { DEFAULT_JOB_STALE_MS } from "@/modules/jobs/managed-jobs.service";
 import { Injectable } from "@nestjs/common";
 import {
   BusinessStatus,
@@ -8,21 +8,21 @@ import {
   PromptStatus,
 } from "@prisma/client";
 
-export type DueMonitoringGroup = {
+export interface DueMonitoringGroup {
   businessId: string;
   promptIds: string[];
-};
+}
 
 @Injectable()
 export class MonitoringEligibilityService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async hasFreshActiveRunForBusiness(
+  async hasActiveMonitoringJob(
     businessId: string,
     staleMs = DEFAULT_JOB_STALE_MS,
   ): Promise<boolean> {
     const staleBefore = new Date(Date.now() - staleMs);
-    const job = await this.prisma.job.findFirst({
+    const activeJob = await this.prisma.job.findFirst({
       where: {
         type: JobType.MONITORING,
         businessId,
@@ -40,7 +40,7 @@ export class MonitoringEligibilityService {
       select: { id: true },
     });
 
-    return Boolean(job);
+    return Boolean(activeJob);
   }
 
   async findDuePromptGroups(cutoff: Date): Promise<DueMonitoringGroup[]> {

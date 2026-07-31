@@ -36,8 +36,8 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.89.0",
-    "@azure/storage-blob": "12.28.0",
     "@fastify/cookie": "^10.0.1",
+    "@fastify/multipart": "10.0.0",
     "@google/genai": "1.30.0",
     "@graphql-typed-document-node/core": "^3.2.0",
     "@itgorillaz/configify": "4.0.1",
@@ -56,7 +56,6 @@
     "@nestjs/passport": "^11.0.5",
     "@nestjs/platform-fastify": "11.1.6",
     "@nestjs/schedule": "6.0.0",
-    "@perplexity-ai/perplexity_ai": "^0.27.0",
     "@prisma/client": "6.17.1",
     "@shopify/shopify-api": "^11.14.1",
     "@supabase/supabase-js": "2.56.0",

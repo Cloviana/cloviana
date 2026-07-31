@@ -1,18 +1,23 @@
+'use client';
+
 import { useQueryClient } from '@tanstack/react-query';
-import { LogOut } from 'lucide-react';
+import { UserRound } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { paths } from '@/config/paths';
 import { signOut } from '@/features/auth/actions/sign-out';
+import { useDashboardTheme } from '@/features/dashboard/components/dashboard-theme';
 import { useUser } from '@/hooks/use-user';
 
 import { ProfileIcon } from './profile-icon';
@@ -21,6 +26,7 @@ export const AccountChip = () => {
   const [signingOut, setSigningOut] = useState(false);
 
   const { user, isLoading } = useUser();
+  const { theme, setTheme } = useDashboardTheme();
   const { push } = useRouter();
   const qc = useQueryClient();
 
@@ -39,27 +45,48 @@ export const AccountChip = () => {
   return (
     <>
       <DropdownMenu>
-        <DropdownMenuTrigger className="rounded-full">
+        <DropdownMenuTrigger>
           <ProfileIcon user={user} isLoading={isLoading} />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-64" align="end" sideOffset={6}>
-          <DropdownMenuGroup>
-            <DropdownMenuItem className="pointer-events-none flex items-center gap-3">
-              <ProfileIcon user={user} isLoading={isLoading} />
-              <span className="text-[13px]">{user && user.email}</span>
-            </DropdownMenuItem>
-          </DropdownMenuGroup>
+          <DropdownMenuItem>
+            <UserRound />
+            Your profile
+          </DropdownMenuItem>
+
           <DropdownMenuSeparator />
-          <DropdownMenuGroup>
-            <DropdownMenuItem onClick={handleSignOut}>
-              <LogOut />
-              Log Out
-            </DropdownMenuItem>
-          </DropdownMenuGroup>
+
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>Theme</DropdownMenuSubTrigger>
+            <DropdownMenuSubContent className="w-40" sideOffset={8}>
+              <DropdownMenuItem
+                data-active={theme === 'light'}
+                onClick={() => setTheme('light')}
+              >
+                Light
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                data-active={theme === 'dark'}
+                onClick={() => setTheme('dark')}
+              >
+                Dark
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                data-active={theme === 'system'}
+                onClick={() => setTheme('system')}
+              >
+                System
+              </DropdownMenuItem>
+            </DropdownMenuSubContent>
+          </DropdownMenuSub>
+
+          <DropdownMenuSeparator />
+
+          <DropdownMenuItem onClick={handleSignOut}>Log out</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
       {signingOut && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-white/30 backdrop-blur-xs">
+        <div className="fixed inset-0 z-9999 flex items-center justify-center bg-black/60 backdrop-blur-xs">
           <span className="loading loading-spinner loading-sm"></span>
         </div>
       )}

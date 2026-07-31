@@ -1,26 +1,24 @@
 import { Module } from "@nestjs/common";
 
-import { BusinessOwnerGuard } from "@/common/guards/business-owner.guard";
-import { ExaModule } from "@/integrations";
-import { MonitoringModule } from "@/modules/monitoring/monitoring.module";
+import { InternalTokenGuard } from "@/common/guards/internal-token.guard";
 import { BusinessesController } from "./businesses.controller";
-import { BusinessMembersService } from "./services/business-members.service";
-import { BusinessResearchService } from "./services/business-research.service";
-import { BusinessSetupService } from "./services/business-setup.service";
-import { BusinessesMaintenanceService } from "./services/businesses-maintenance.service";
-import { BusinessesService } from "./services/businesses.service";
+import { BusinessesService } from "./businesses.service";
+import { InternalBusinessesController } from "./internal-businesses.controller";
+import { BusinessMembersController } from "./members/business-members.controller";
+import { BusinessMembersService } from "./members/business-members.service";
+import { BusinessOwnerGuard } from "./members/business-owner.guard";
 
 @Module({
-  imports: [ExaModule, MonitoringModule],
-  controllers: [BusinessesController],
+  controllers: [
+    BusinessesController,
+    BusinessMembersController,
+    InternalBusinessesController,
+  ],
   providers: [
     BusinessesService,
-    BusinessesMaintenanceService,
-    BusinessResearchService,
-    BusinessSetupService,
     BusinessMembersService,
     BusinessOwnerGuard,
+    InternalTokenGuard,
   ],
-  exports: [BusinessResearchService],
 })
 export class BusinessesModule {}

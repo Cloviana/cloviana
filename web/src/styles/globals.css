@@ -553,3 +553,19 @@
     transform: translateX(120%);
   }
 }
+
+@media print {
+  /* Crisp chat bubble is an injected iframe, unreachable by Tailwind classes */
+  .crisp-client {
+    display: none !important;
+  }
+  * {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  /* Screen section spacing is far too generous for paper */
+  .padding-section-medium {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}

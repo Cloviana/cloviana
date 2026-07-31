@@ -4,7 +4,7 @@ import type { HtmlSnapshot } from "../types";
 import { fetchText, normalizeText } from "../utils";
 
 function getElementText(
-  $: cheerio.CheerioAPI,
+  _$: cheerio.CheerioAPI,
   element: cheerio.Cheerio<AnyNode>,
 ): string {
   return normalizeText(element.text());
@@ -51,7 +51,9 @@ export async function getRawHtmlSnapshot(url: string): Promise<HtmlSnapshot> {
     .toArray()
     .flatMap((el) => {
       const href = $(el).attr("href");
-      if (!href) return [];
+      if (!href) {
+        return [];
+      }
 
       try {
         return [new URL(href, res.finalUrl).toString()];

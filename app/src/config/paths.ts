@@ -16,20 +16,53 @@ export const paths = {
     login: {
       getHref: (query?: Record<string, any>) => buildPath('/login', query),
     },
-
-    verifyEmail: {
-      getHref: (query?: Record<string, any>) =>
-        buildPath('/verify-email', query),
-    },
   },
 
   business: {
     getHref: (businessId?: string, query?: Record<string, any>) =>
       buildPath(businessId ? `/b/${businessId}` : '/b', query),
 
-    trial: {
+    knowledgeBase: {
       getHref: (businessId: string, query?: Record<string, any>) =>
-        buildPath(`/b/${businessId}/trial`, query),
+        buildPath(`/b/${businessId}/knowledge-base`, query),
+    },
+
+    prompts: {
+      getHref: (businessId: string, query?: Record<string, any>) =>
+        buildPath(`/b/${businessId}/prompts`, query),
+    },
+
+    skills: {
+      getHref: (businessId: string, query?: Record<string, any>) =>
+        buildPath(`/b/${businessId}/skills`, query),
+    },
+
+    integrations: {
+      getHref: (businessId: string, query?: Record<string, any>) =>
+        buildPath(`/b/${businessId}/integrations`, query),
+    },
+
+    brand: {
+      getHref: (businessId: string, query?: Record<string, any>) =>
+        buildPath(`/b/${businessId}/brand`, query),
+    },
+
+    competitors: {
+      getHref: (businessId: string, query?: Record<string, any>) =>
+        buildPath(`/b/${businessId}/competitors`, query),
+    },
+
+    chat: {
+      getHref: (businessId: string, query?: Record<string, any>) =>
+        buildPath(`/b/${businessId}/chat`, query),
+
+      detail: {
+        getHref: (
+          businessId: string,
+          chatId: string,
+          query?: Record<string, any>,
+        ) => buildPath(`/b/${businessId}/chat/${chatId}`, query),
+      },
     },
 
     settings: {
@@ -39,21 +72,6 @@ export const paths = {
       subscription: {
         getHref: (businessId: string, query?: Record<string, any>) =>
           buildPath(`/b/${businessId}/settings/subscription`, query),
-      },
-    },
-  },
-
-  setup: {
-    business: {
-      getHref: (query?: Record<string, any>) =>
-        buildPath('/setup/business', query),
-      new: {
-        getHref: (query?: Record<string, any>) =>
-          buildPath('/setup/business/new', query),
-      },
-      detail: {
-        getHref: (businessId: string, query?: Record<string, any>) =>
-          buildPath(`/setup/business/${businessId}`, query),
       },
     },
   },

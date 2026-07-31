@@ -1,90 +1,178 @@
-version: "3.9"
+x-urls: &urls
+  APP_URL: http://app.localhost
+  API_URL: http://api.localhost/api
+  WEB_INTERNAL_URL: http://web:3000
+
+x-local-supabase: &local-supabase
+  SUPABASE_URL: http://host.docker.internal:54321
+  SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0
+  SUPABASE_SERVICE_ROLE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU
+  SUPABASE_JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+  DATABASE_URL: postgresql://postgres:postgres@host.docker.internal:54322/postgres
+  DIRECT_URL: postgresql://postgres:postgres@host.docker.internal:54322/postgres
+  CLOVIANA_AGENT_DATABASE_URL: "postgresql://postgres:postgres@host.docker.internal:54322/postgres?sslmode=disable&connect_timeout=10&options=-csearch_path%3Dlanggraph%2Cpublic"
+
+x-next-public-urls: &next-public-urls
+  NEXT_PUBLIC_API_URL: http://api.localhost/api
+  NEXT_PUBLIC_APP_URL: http://app.localhost
+
+x-local-supabase-public: &local-supabase-public
+  NEXT_PUBLIC_SUPABASE_URL: http://supabase.localhost
+  NEXT_PUBLIC_SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0
 
 volumes:
   api-node-modules:
-  web-node-modules:
   app-node-modules:
+  web-node-modules:
+  web-next-cache:
 
 services:
   api:
     build:
-      context: ../api
-      dockerfile: Dockerfile
       target: dev
     image: ghcr.io/cloviana/api:dev
-    command: >
-      sh -c "pnpm install &&
-             pnpm db:generate &&
-             pnpm start:debug"
+    command: ["pnpm", "start:dev"]
     environment:
+      <<: [*urls, *local-supabase]
       NODE_ENV: development
+      ENVIRONMENT: development
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
       - ../api:/app:cached
       - api-node-modules:/app/node_modules
-    container_name: api
 
   worker:
     build:
-      context: ../api
-      dockerfile: Dockerfile
       target: dev
     image: ghcr.io/cloviana/api:dev
-    command: >
-      sh -c "pnpm install &&
-             pnpm db:generate &&
-             pnpm start:worker:dev"
+    command: ["pnpm", "start:worker:dev"]
     environment:
+      <<: [*urls, *local-supabase]
       NODE_ENV: development
+      ENVIRONMENT: development
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
       - ../api:/app:cached
       - api-node-modules:/app/node_modules
-    container_name: worker
+
+  knowledge-base:
+    command:
+      - uvicorn
+      - knowledge_base.main:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8080"
+      - --reload
+      - --reload-dir
+      - /app/src
+    environment:
+      <<: *local-supabase
+      ENVIRONMENT: development
+      PYTHONPATH: /app/src
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ../knowledge-base:/app:cached
+
+  agent-migrate:
+    environment:
+      CLOVIANA_AGENT_DATABASE_URL: "postgresql://postgres:postgres@host.docker.internal:54322/postgres?sslmode=disable&connect_timeout=10&options=-csearch_path%3Dlanggraph%2Cpublic"
+      PYTHONPATH: /app/src
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ../agent:/app:cached
+
+  agent:
+    command:
+      - uvicorn
+      - agent.api:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8000"
+      - --reload
+      - --reload-dir
+      - /app/src
+    environment:
+      CLOVIANA_AGENT_DATABASE_URL: "postgresql://postgres:postgres@host.docker.internal:54322/postgres?sslmode=disable&connect_timeout=10&options=-csearch_path%3Dlanggraph%2Cpublic"
+      ENVIRONMENT: development
+      PYTHONPATH: /app/src
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ../agent:/app:cached
 
   app:
     build:
-      context: ../app
-      dockerfile: Dockerfile
       target: dev
+      args:
+        <<: [*next-public-urls, *local-supabase-public]
     image: ghcr.io/cloviana/app:dev
-    command: >
-      sh -c "pnpm install &&
-             pnpm dev"
+    command: ["pnpm", "exec", "next", "dev", "--webpack", "-H", "0.0.0.0", "-p", "3000"]
+    environment:
+      <<: [*next-public-urls, *local-supabase-public, *local-supabase]
+      CI: "true"
+      NODE_ENV: development
+      ENVIRONMENT: development
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
       - ../app:/app:cached
       - app-node-modules:/app/node_modules
-    container_name: app
+      - type: tmpfs
+        target: /app/.next
 
   web:
     build:
-      context: ../web
-      dockerfile: Dockerfile
       target: dev
+      args:
+        <<: [*next-public-urls, *local-supabase-public]
+        NEXT_PUBLIC_WEB_URL: http://localhost
     image: ghcr.io/cloviana/web:dev
-    command: >
-      sh -c "pnpm install &&
-             pnpm dev"
+    command: ["pnpm", "exec", "next", "dev", "-H", "0.0.0.0", "-p", "3000"]
+    environment:
+      <<: [*next-public-urls, *local-supabase-public, *local-supabase]
+      CI: "true"
+      NODE_ENV: development
+      ENVIRONMENT: development
+      NEXT_PUBLIC_WEB_URL: http://localhost
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
       - ../web:/app:cached
       - web-node-modules:/app/node_modules
-    container_name: web
+      - web-next-cache:/app/.next
 
   nginx:
     image: nginx:alpine
     container_name: nginx-dev
     ports:
-      - "80:80"
+      - "127.0.0.1:80:80"
+      - "127.0.0.1:443:443"
     volumes:
       - ./nginx/nginx.dev.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
     depends_on:
       - api
       - app
       - web
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     networks:
       appnet:
         aliases:
           - api.localhost
           - app.localhost
+          - supabase.localhost
+          - studio.supabase.localhost
           - localhost
 
-networks:
-  appnet:
+  migrate:
+    environment:
+      <<: *local-supabase
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

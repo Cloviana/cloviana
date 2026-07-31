@@ -75,29 +75,7 @@ export class AuthService {
       throw new UnauthorizedException("Email is required");
     }
 
-    await this.ensureProfile(payload.sub, email);
-
-    if (this.isAdminEmail(email)) {
-      return { sub: payload.sub, email };
-    }
-
-    await this.acceptPendingInvites(payload.sub, email);
-
-    const [ownsBusinesses, hasMembership] = await Promise.all([
-      this.prisma.business.count({ where: { ownerId: payload.sub } }),
-      this.prisma.businessMember.count({ where: { profileId: payload.sub } }),
-    ]);
-
-    if (ownsBusinesses > 0 || hasMembership > 0) {
-      return { sub: payload.sub, email };
-    }
-
-    const access = await this.getAccessByEmail(email);
-    if (access.allowed) {
-      return { sub: payload.sub, email };
-    }
-
-    throw new UnauthorizedException("Your email has not been invited");
+    return { sub: payload.sub, email };
   }
 
   async acceptInvite(user: AuthUser, businessId?: string) {

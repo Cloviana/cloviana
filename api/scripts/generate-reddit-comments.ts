@@ -1,8 +1,8 @@
 import "dotenv/config";
-import { readFileSync, writeFileSync, readdirSync, existsSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { GroqService } from "@/clients/groq/groq.service";
 import { AnthropicService } from "@/clients/anthropic/anthropic.service";
+import { GroqService } from "@/clients/groq/groq.service";
 import { loadPromptHbs } from "@/common/utils/load-prompt-hbs.util";
 import type { AppConfiguration } from "@/config/app.configuration";
 import { z } from "zod";
@@ -24,13 +24,19 @@ type Style = "LISTICLE" | "SOFT_MENTION" | "NONE";
 
 type RedditPost = { title: string; selftext: string; subreddit: string };
 type RedditListing = { data: { children: Array<{ data: RedditPost }> } };
-type RedditCommentListing = { data: { children: Array<{ data: { body?: string } }> } };
+type RedditCommentListing = {
+  data: { children: Array<{ data: { body?: string } }> };
+};
 
-function parseThread(raw: string): { post: RedditPost; topComments: string[] } | null {
+function parseThread(
+  raw: string,
+): { post: RedditPost; topComments: string[] } | null {
   try {
     const data = JSON.parse(raw) as [RedditListing, RedditCommentListing];
     const post = data[0]?.data?.children?.[0]?.data;
-    if (!post) return null;
+    if (!post) {
+      return null;
+    }
     const topComments = (data[1]?.data?.children ?? [])
       .map((c) => c.data?.body ?? "")
       .filter((b) => b && b !== "[deleted]" && b !== "[removed]")
@@ -42,7 +48,9 @@ function parseThread(raw: string): { post: RedditPost; topComments: string[] } |
   }
 }
 
-function loadCsv(csvPath: string): Array<{ key: string; url: string; citations: number }> {
+function loadCsv(
+  csvPath: string,
+): Array<{ key: string; url: string; citations: number }> {
   return readFileSync(csvPath, "utf8")
     .trim()
     .split("\n")
@@ -58,12 +66,18 @@ function findLatestCsv(): string {
     .filter((f) => f.startsWith("reddit-commentable-") && f.endsWith(".csv"))
     .sort()
     .reverse();
-  if (files.length === 0) throw new Error("No reddit-commentable CSV found in reports/");
+  if (files.length === 0) {
+    throw new Error("No reddit-commentable CSV found in reports/");
+  }
   return join(REPORTS_DIR, files[0]);
 }
 
 async function classifyThread(threadJson: string): Promise<Style> {
-  const system = await loadPromptHbs("reddit-comment-style", {}, { baseDir: PROMPTS_DIR });
+  const system = await loadPromptHbs(
+    "reddit-comment-style",
+    {},
+    { baseDir: PROMPTS_DIR },
+  );
   const result = await groq.parse({
     name: "reddit-style",
     model: "openai/gpt-oss-20b",
@@ -76,13 +90,19 @@ async function classifyThread(threadJson: string): Promise<Style> {
   return result.style as Style;
 }
 
-async function generateComment(style: Style, threadJson: string): Promise<string> {
-  const promptName = style === "LISTICLE" ? "reddit-comment-listicle" : "reddit-comment-soft";
+async function generateComment(
+  style: Style,
+  threadJson: string,
+): Promise<string> {
+  const promptName =
+    style === "LISTICLE" ? "reddit-comment-listicle" : "reddit-comment-soft";
   const system = await loadPromptHbs(promptName, {}, { baseDir: PROMPTS_DIR });
   const result = await anthropic.create({
     model: "claude-haiku-4-5-20251001",
     max_tokens: style === "SOFT_MENTION" ? 250 : 500,
-    system: [{ type: "text", text: system, cache_control: { type: "ephemeral" } }],
+    system: [
+      { type: "text", text: system, cache_control: { type: "ephemeral" } },
+    ],
     messages: [{ role: "user", content: threadJson }],
   });
   return result.content.trim();
@@ -93,9 +113,17 @@ async function main() {
   console.log(`Using CSV: ${csvPath}`);
 
   const rows = loadCsv(csvPath);
-  console.log(`Loaded ${rows.length} threads. Processing ${CONCURRENCY} at a time...`);
+  console.log(
+    `Loaded ${rows.length} threads. Processing ${CONCURRENCY} at a time...`,
+  );
 
-  type OutputRow = { key: string; url: string; citations: number; style: Style; comment: string };
+  type OutputRow = {
+    key: string;
+    url: string;
+    citations: number;
+    style: Style;
+    comment: string;
+  };
   const output: OutputRow[] = new Array(rows.length);
 
   for (let i = 0; i < rows.length; i += CONCURRENCY) {
@@ -108,14 +136,18 @@ async function main() {
 
         const jsonPath = join(THREADS_DIR, `${key}.json`);
         if (!existsSync(jsonPath)) {
-          console.warn(`[${idx + 1}/${rows.length}] No JSON for ${key}, skipping`);
+          console.warn(
+            `[${idx + 1}/${rows.length}] No JSON for ${key}, skipping`,
+          );
           output[idx] = { key, url, citations, style, comment };
           return;
         }
 
         const parsed = parseThread(readFileSync(jsonPath, "utf8"));
         if (!parsed) {
-          console.warn(`[${idx + 1}/${rows.length}] Could not parse ${key}, skipping`);
+          console.warn(
+            `[${idx + 1}/${rows.length}] Could not parse ${key}, skipping`,
+          );
           output[idx] = { key, url, citations, style, comment };
           return;
         }
@@ -144,8 +176,12 @@ async function main() {
 
   const csvLines = ["key,url,citations,style,comment"];
   for (const { key, url, citations, style, comment } of output) {
-    if (style === "NONE") continue;
-    csvLines.push(`${key},${url},${citations},${style},"${comment.replace(/"/g, '""')}"`);
+    if (style === "NONE") {
+      continue;
+    }
+    csvLines.push(
+      `${key},${url},${citations},${style},"${comment.replace(/"/g, '""')}"`,
+    );
   }
 
   const outPath = join(REPORTS_DIR, `reddit-comments-${Date.now()}.csv`);

@@ -4,7 +4,7 @@ import { OpenAIService } from "@/clients/openai/openai.service";
 import type { AppConfiguration } from "@/config/app.configuration";
 import { AppCacheService } from "@/infrastructure/cache/cache.service";
 import { ExaService } from "@/integrations/exa/exa.service";
-import { BusinessResearchService } from "@/modules/businesses/services/business-research.service";
+import { BusinessResearchService } from "@/modules/businesses/research/business-research.service";
 
 const DEFAULT_DOMAIN = "lemlist.com";
 const DEFAULT_COMPETITOR_COUNT = 8;

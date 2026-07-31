@@ -1,3 +1,4 @@
+import { STATUS_CODES } from "node:http";
 import {
   ArgumentsHost,
   Catch,
@@ -23,6 +24,17 @@ interface ProblemDetails {
   code?: string;
 }
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null;
+}
+
+function isMessage(value: unknown): value is string | string[] {
+  return (
+    typeof value === "string" ||
+    (Array.isArray(value) && value.every((item) => typeof item === "string"))
+  );
+}
+
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
   private readonly logger = new Logger(AllExceptionsFilter.name);
@@ -40,20 +52,38 @@ export class AllExceptionsFilter implements ExceptionFilter {
 
     if (exception instanceof HttpException) {
       status = exception.getStatus();
-      const res = exception.getResponse() as
-        | ProblemDetails
-        | { message: string | string[]; error?: string };
-      message = res.message ?? message;
-      error = res.error ?? error;
+      const response = exception.getResponse();
+      if (typeof response === "string") {
+        message = response;
+      } else {
+        const details = response as {
+          message?: string | string[];
+          error?: string;
+        };
+        message = details.message ?? message;
+        error = details.error ?? error;
+      }
+      error =
+        error === this.defaultError
+          ? (STATUS_CODES[status] ?? this.defaultError)
+          : error;
+    } else if (isRecord(exception) && exception.code === "P2025") {
+      // Prisma findFirstOrThrow/update on a missing record is a 404, not a 500.
+      status = HttpStatus.NOT_FOUND;
+      error = "Not Found";
+      message = "Resource not found";
     } else if (
-      typeof exception === "object" &&
-      exception !== null &&
-      "statusCode" in exception &&
-      typeof (exception as any).statusCode === "number"
+      isRecord(exception) &&
+      typeof exception.statusCode === "number"
     ) {
-      status = (exception as any).statusCode;
-      message = (exception as any).message ?? message;
-      error = (exception as any).error ?? HttpStatus[status] ?? error;
+      status = exception.statusCode;
+      if (isMessage(exception.message)) {
+        message = exception.message;
+      }
+      error =
+        typeof exception.error === "string"
+          ? exception.error
+          : (HttpStatus[status] ?? error);
     } else {
       this.logger.error(exception);
     }

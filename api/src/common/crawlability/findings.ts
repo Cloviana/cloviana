@@ -39,7 +39,6 @@ function severityForIssue(
   }
 
   if (
-    issue.startsWith("pagespeed_") ||
     issue === "sitemap_missing_lastmod" ||
     issue === "sitemap_stale_lastmod" ||
     issue === "sitemap_url_health_failed" ||
@@ -82,13 +81,6 @@ function titleForIssue(issue: string): string {
     sitemap_stale_lastmod: "Sitemap lastmod is stale",
     sitemap_url_health_failed:
       "Sitemap key page URLs redirect or return non-200",
-    pagespeed_api_key_missing: "PageSpeed API key is missing",
-    pagespeed_non_200: "PageSpeed Insights request failed",
-    pagespeed_low_performance_score: "Page has a low performance score",
-    pagespeed_poor_lcp: "Page has poor LCP",
-    pagespeed_poor_cls: "Page has poor CLS",
-    pagespeed_poor_inp: "Page has poor INP",
-    pagespeed_fetch_failed: "PageSpeed metrics could not be fetched",
   };
 
   return titles[issue] ?? issue.replaceAll("_", " ");

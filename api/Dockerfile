@@ -5,16 +5,19 @@ RUN apt-get update \
 RUN npm install -g pnpm
 WORKDIR /app
 
-FROM base AS dev
-ENV NODE_ENV=development
-ENV ENVIRONMENT=development
-WORKDIR /app
-EXPOSE 5000
-CMD ["pnpm", "start:debug"]
-
 FROM base AS dependencies
 COPY package.json pnpm-lock.yaml ./
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm fetch
+
+FROM dependencies AS dev
+ENV NODE_ENV=development
+ENV ENVIRONMENT=development
+COPY . .
+RUN pnpm install --offline
+RUN pnpm exec playwright install --with-deps chromium
+RUN pnpm db:generate
+EXPOSE 5000
+CMD ["pnpm", "start"]
 
 FROM dependencies AS builder
 COPY . .

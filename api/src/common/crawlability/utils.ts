@@ -85,13 +85,19 @@ export async function fetchUrlStatus(url: string): Promise<SitemapUrlHealth> {
 // ── Sitemap parser ────────────────────────────────────────────────────────────
 
 function arrayify<T>(value: T | T[] | undefined): T[] {
-  if (!value) return [];
+  if (!value) {
+    return [];
+  }
   return Array.isArray(value) ? value : [value];
 }
 
 function getXmlText(value: unknown): string | undefined {
-  if (typeof value === "string") return value;
-  if (typeof value === "number") return String(value);
+  if (typeof value === "string") {
+    return value;
+  }
+  if (typeof value === "number") {
+    return String(value);
+  }
   if (typeof value === "object" && value !== null && "#text" in value) {
     const text = (value as { "#text"?: unknown })["#text"];
     return typeof text === "string" ? text : undefined;
@@ -126,7 +132,9 @@ function parseSitemapEntries(parsed: unknown): {
 
 export function isLastmodStale(lastmod: string, now = new Date()): boolean {
   const parsed = new Date(lastmod);
-  if (Number.isNaN(parsed.getTime())) return true;
+  if (Number.isNaN(parsed.getTime())) {
+    return true;
+  }
 
   const ageMs = now.getTime() - parsed.getTime();
   const staleMs = SITEMAP_STALE_DAYS * 24 * 60 * 60 * 1000;
@@ -148,7 +156,9 @@ export async function crawlSitemapTree(startUrl: string): Promise<{
 
   while (queue.length > 0 && visited.size < MAX_SITEMAPS_TO_FETCH) {
     const sitemapUrl = queue.shift();
-    if (!sitemapUrl || visited.has(sitemapUrl)) continue;
+    if (!sitemapUrl || visited.has(sitemapUrl)) {
+      continue;
+    }
     visited.add(sitemapUrl);
 
     try {
@@ -156,7 +166,9 @@ export async function crawlSitemapTree(startUrl: string): Promise<{
         headers: { "User-Agent": USER_AGENT },
         signal: AbortSignal.timeout(20000),
       });
-      if (!res.ok) continue;
+      if (!res.ok) {
+        continue;
+      }
 
       foundSitemaps.push(sitemapUrl);
 

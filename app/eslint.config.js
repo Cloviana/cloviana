@@ -1,9 +1,9 @@
 import js from '@eslint/js';
 import tsParser from '@typescript-eslint/parser';
-import ts from '@typescript-eslint/eslint-plugin';
 import { FlatCompat } from '@eslint/eslintrc';
 import checkFile from 'eslint-plugin-check-file';
 import reactHooks from 'eslint-plugin-react-hooks';
+import nextVitals from 'eslint-config-next/core-web-vitals';
 
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
@@ -17,14 +17,9 @@ export default [
 
   js.configs.recommended,
 
+  ...nextVitals,
+
   ...compat.extends(
-    'plugin:@next/next/core-web-vitals',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:import/typescript',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
-    'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
     'plugin:testing-library/react',
     'plugin:jest-dom/recommended',
@@ -49,6 +44,9 @@ export default [
     rules: {
       '@next/next/no-img-element': 'off',
       'react-hooks/exhaustive-deps': 'warn',
+      'react-hooks/purity': 'off',
+      'react-hooks/refs': 'off',
+      'react-hooks/set-state-in-effect': 'off',
       'import/no-restricted-paths': [
         'error',
         {
@@ -80,7 +78,7 @@ export default [
           ],
         },
       ],
-      'import/no-cycle': 'error',
+      'import/no-cycle': ['error', { ignoreExternal: true }],
       'linebreak-style': ['error', 'unix'],
       'react/prop-types': 'off',
       'import/order': [
@@ -112,6 +110,8 @@ export default [
       '@typescript-eslint/no-explicit-any': ['off'],
       'prettier/prettier': ['error', {}, { usePrettierrc: true }],
       'react/no-unescaped-entities': 'off',
+      'no-undef': 'off',
+      'no-unused-vars': 'off',
     },
   },
 
@@ -119,7 +119,6 @@ export default [
     files: ['src/**/*'],
     plugins: {
       'check-file': checkFile,
-      '@typescript-eslint': ts,
       'react-hooks': reactHooks,
     },
     rules: {
@@ -136,6 +135,8 @@ export default [
         },
       ],
       '@typescript-eslint/no-unused-vars': ['error'],
+      'no-undef': 'off',
+      'no-unused-vars': 'off',
     },
   },
 ];

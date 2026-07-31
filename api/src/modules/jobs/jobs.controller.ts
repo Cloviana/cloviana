@@ -7,8 +7,8 @@ import {
   ParseEnumPipe,
   ParseIntPipe,
   Query,
+  UseGuards,
 } from "@nestjs/common";
-import { UseGuards } from "@nestjs/common";
 import { JobType } from "@prisma/client";
 import { JobsService } from "./jobs.service";
 
@@ -35,23 +35,8 @@ export class JobsController {
     return this.jobs.latest(businessId, type);
   }
 
-  @Get("latest/status")
-  async latestStatus(
-    @Param("businessId") businessId: string,
-    @Query("type", new ParseEnumPipe(JobType)) type: JobType,
-  ) {
-    const latest = await this.jobs.latest(businessId, type);
-    return {
-      status: latest?.status ?? null,
-      jobId: latest?.id ?? null,
-    };
-  }
-
   @Get(":jobId")
-  async get(
-    @Param("businessId") businessId: string,
-    @Param("jobId") jobId: string,
-  ) {
-    return this.jobs.getStatus(businessId, jobId);
+  get(@Param("businessId") businessId: string, @Param("jobId") jobId: string) {
+    return this.jobs.getById(businessId, jobId);
   }
 }

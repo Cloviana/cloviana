@@ -1,8 +1,4 @@
-export type CrawlabilityCheckName =
-  | "crawlability"
-  | "robots"
-  | "sitemap"
-  | "core_web_vitals";
+export type CrawlabilityCheckName = "crawlability" | "robots" | "sitemap";
 
 export type CrawlabilitySeverity = "critical" | "high" | "medium" | "low";
 
@@ -100,16 +96,4 @@ export type SitemapDetails = SitemapSnapshot & {
   missingLastmodPages: string[];
   staleLastmodPages: string[];
   checkedUrlHealth: SitemapUrlHealth[];
-};
-
-export type PageSpeedDetails = {
-  url: string;
-  status: number;
-  metrics: {
-    performanceScore: number | null;
-    lcp: number | null;
-    cls: number | null;
-    inp: number | null;
-    ttfb: number | null;
-  };
 };

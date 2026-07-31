@@ -21,7 +21,9 @@ function compareSnapshots(
   raw: HtmlSnapshot,
   rendered: HtmlSnapshot | null,
 ): HtmlContentDetails["comparison"] {
-  if (!rendered) return emptyComparison();
+  if (!rendered) {
+    return emptyComparison();
+  }
 
   return {
     renderedBodyTextDelta: rendered.bodyTextLength - raw.bodyTextLength,
@@ -40,7 +42,9 @@ function getComparisonIssues(
   rendered: HtmlSnapshot | null,
   comparison: HtmlContentDetails["comparison"],
 ): string[] {
-  if (!rendered) return ["rendered_dom_fetch_failed"];
+  if (!rendered) {
+    return ["rendered_dom_fetch_failed"];
+  }
 
   const issues: string[] = [];
 
@@ -68,13 +72,21 @@ function getComparisonIssues(
 function getRawHtmlIssues(raw: HtmlSnapshot): string[] {
   const issues: string[] = [];
 
-  if (raw.status !== 200) issues.push("raw_html_non_200");
+  if (raw.status !== 200) {
+    issues.push("raw_html_non_200");
+  }
   if (raw.bodyTextLength < RAW_HTML_MIN_BODY_TEXT_LENGTH) {
     issues.push("raw_html_thin_body");
   }
-  if (!raw.h1) issues.push("raw_html_missing_h1");
-  if (!raw.title) issues.push("raw_html_missing_title");
-  if (!raw.metaDescription) issues.push("raw_html_missing_meta_description");
+  if (!raw.h1) {
+    issues.push("raw_html_missing_h1");
+  }
+  if (!raw.title) {
+    issues.push("raw_html_missing_title");
+  }
+  if (!raw.metaDescription) {
+    issues.push("raw_html_missing_meta_description");
+  }
   if (raw.emptyElementRatio >= 0.8) {
     issues.push("raw_html_mostly_empty_elements");
   }

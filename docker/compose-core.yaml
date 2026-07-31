@@ -1,7 +1,5 @@
 name: cloviana
 
-version: "3.9"
-
 x-api-base: &api-base
   build:
     context: ../api
@@ -11,30 +9,14 @@ x-api-base: &api-base
   env_file:
     - .env
   environment:
+    NODE_ENV: production
+    ENVIRONMENT: production
     API_PORT: 5000
     API_HOST: 0.0.0.0
-    APP_URL: ${APP_URL}
-    API_URL: ${API_URL}
     RABBITMQ_URI: amqp://guest:guest@rabbitmq:5672
     REDIS_URL: redis://redis:6379
-    DATABASE_URL: ${DATABASE_URL}
-    DIRECT_URL: ${DIRECT_URL}
-    SUPABASE_URL: ${SUPABASE_URL}
-    SUPABASE_JWT_SECRET: ${SUPABASE_JWT_SECRET}
-    SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY}
-    SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
-    OPENAI_API_KEY: ${OPENAI_API_KEY}
-    GROQ_API_KEY: ${GROQ_API_KEY}
-    ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
-    STRIPE_API_KEY: ${STRIPE_API_KEY}
-    STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET}
-    RESEND_API_KEY: ${RESEND_API_KEY}
-    AZURE_STORAGE_CONNECTION_STRING: ${AZURE_STORAGE_CONNECTION_STRING}
-    AZURE_CDN_ENDPOINT: ${AZURE_CDN_ENDPOINT}
-    EXA_API_KEY: ${EXA_API_KEY}
-    PERPLEXITY_API_KEY: ${PERPLEXITY_API_KEY}
-    DATA_FOR_SEO_BASE64_CREDENTIALS: ${DATA_FOR_SEO_BASE64_CREDENTIALS}
-    GOOGLE_PAGESPEED_API_KEY: ${GOOGLE_PAGESPEED_API_KEY}
+    KNOWLEDGE_BASE_URL: http://knowledge-base:8080
+    AGENT_URL: http://agent:8000
   depends_on:
     rabbitmq:
       condition: service_healthy
@@ -42,9 +24,15 @@ x-api-base: &api-base
       condition: service_healthy
     migrate:
       condition: service_completed_successfully
+    knowledge-base:
+      condition: service_started
+    agent:
+      condition: service_started
   restart: unless-stopped
   networks:
     - appnet
+  volumes:
+    - knowledge-uploads:/data/knowledge-uploads
 
 volumes:
   certbot-etc:
@@ -52,6 +40,8 @@ volumes:
   certbot-var:
     name: cloviana_certbot_var
   redis-data:
+  qdrant-data:
+  knowledge-uploads:
 
 networks:
   appnet:
@@ -71,6 +61,68 @@ services:
     container_name: worker
     command: ["node", "dist/worker.js"]
 
+  qdrant:
+    image: qdrant/qdrant:v1.12.4
+    container_name: qdrant
+    restart: unless-stopped
+    volumes:
+      - qdrant-data:/qdrant/storage
+    networks:
+      - appnet
+
+  knowledge-base:
+    build:
+      context: ../knowledge-base
+      args:
+        SPARSE_EMBEDDING_MODEL: ${SPARSE_EMBEDDING_MODEL:-Qdrant/bm25}
+    image: ghcr.io/cloviana/knowledge-base:latest
+    container_name: knowledge-base
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      QDRANT_HOST: qdrant
+      QDRANT_PORT: "6333"
+      UNSTRUCTURED_API_KEY: ${UNSTRUCTURED_API_KEY:?UNSTRUCTURED_API_KEY is required}
+      UNSTRUCTURED_API_URL: ${UNSTRUCTURED_API_URL:-https://platform-api.transform.unstructured.io/api/v1}
+      VOYAGE_API_KEY: ${VOYAGE_API_KEY:?VOYAGE_API_KEY is required}
+    depends_on:
+      - qdrant
+    networks:
+      - appnet
+
+  agent-migrate:
+    build:
+      context: ../agent
+    image: ghcr.io/cloviana/agent:${TAG:-latest}
+    command: ["python", "-m", "agent.database.migrate"]
+    restart: "no"
+    environment:
+      CLOVIANA_AGENT_DATABASE_URL: ${CLOVIANA_AGENT_DATABASE_URL:?CLOVIANA_AGENT_DATABASE_URL is required}
+    networks:
+      - appnet
+
+  agent:
+    build:
+      context: ../agent
+    image: ghcr.io/cloviana/agent:${TAG:-latest}
+    container_name: agent
+    restart: unless-stopped
+    depends_on:
+      agent-migrate:
+        condition: service_completed_successfully
+    environment:
+      ENVIRONMENT: production
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:?DEEPSEEK_API_KEY is required}
+      GROQ_API_KEY: ${GROQ_API_KEY:?GROQ_API_KEY is required}
+      EXA_API_KEY: ${EXA_API_KEY:?EXA_API_KEY is required}
+      AGENT_INTERNAL_TOKEN: ${AGENT_INTERNAL_TOKEN:?AGENT_INTERNAL_TOKEN is required}
+      CLOVIANA_AGENT_DATABASE_URL: ${CLOVIANA_AGENT_DATABASE_URL:?CLOVIANA_AGENT_DATABASE_URL is required}
+      KNOWLEDGE_BASE_URL: http://knowledge-base:8080
+      CLOVIANA_API_URL: http://api:5000/api
+    networks:
+      - appnet
+
   migrate:
     build:
       context: ../api
@@ -88,8 +140,6 @@ services:
       dockerfile: Dockerfile
       target: runner
       args:
-        NEXT_PUBLIC_API_URL: ${API_URL}
-        NEXT_PUBLIC_APP_URL: ${APP_URL}
         NEXT_PUBLIC_SUPABASE_URL: ${SUPABASE_URL}
         NEXT_PUBLIC_SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
         NEXT_PUBLIC_GA4_ID: G-C4Z5BHM2R1
@@ -98,14 +148,12 @@ services:
     env_file:
       - .env
     environment:
-      NEXT_PUBLIC_API_URL: ${API_URL}
-      NEXT_PUBLIC_APP_URL: ${APP_URL}
+      NODE_ENV: production
+      ENVIRONMENT: production
       NEXT_PUBLIC_SUPABASE_URL: ${SUPABASE_URL}
       NEXT_PUBLIC_SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
       NEXT_PUBLIC_GA4_ID: G-C4Z5BHM2R1
-      GA4_API_SECRET: ${GA4_API_SECRET}
-      SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY}
-      SHADCNBLOCKS_API_KEY: ${SHADCNBLOCKS_API_KEY}
+      SHADCNBLOCKS_API_KEY: sk_live_VUqEYAYbmOfoQE0oQgHRemcYL_ZgRq1R
     depends_on:
       - api
     restart: always
@@ -118,21 +166,18 @@ services:
       dockerfile: Dockerfile
       target: runner
       args:
-        NEXT_PUBLIC_API_URL: ${API_URL}
-        NEXT_PUBLIC_APP_URL: ${APP_URL}
-        NEXT_PUBLIC_WEB_URL: ${WEB_URL}
         NEXT_PUBLIC_GA4_ID: G-VSMD7B6WN1
         NEXT_PUBLIC_CLARITY_PROJECT_ID: w8oqyeitz6
     environment:
-      NEXT_PUBLIC_API_URL: ${API_URL}
-      NEXT_PUBLIC_APP_URL: ${APP_URL}
-      NEXT_PUBLIC_WEB_URL: ${WEB_URL}
+      NODE_ENV: production
+      ENVIRONMENT: production
       NEXT_PUBLIC_GA4_ID: G-VSMD7B6WN1
       NEXT_PUBLIC_CLARITY_PROJECT_ID: w8oqyeitz6
-      GA4_API_SECRET: ${GA4_API_SECRET}
-      SHADCNBLOCKS_API_KEY: ${SHADCNBLOCKS_API_KEY}
+      SHADCNBLOCKS_API_KEY: sk_live_VUqEYAYbmOfoQE0oQgHRemcYL_ZgRq1R
     image: ghcr.io/cloviana/web:latest
     container_name: web
+    env_file:
+      - .env
     restart: always
     networks:
       - appnet
@@ -140,9 +185,6 @@ services:
   rabbitmq:
     image: rabbitmq:3-management-alpine
     container_name: rabbitmq
-    ports:
-      - "15672:15672"
-      - "5672:5672"
     environment:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
@@ -160,8 +202,6 @@ services:
     command: ["redis-server", "--appendonly", "yes"]
     volumes:
       - redis-data:/data
-    ports:
-      - "6379:6379"
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s

@@ -6,16 +6,18 @@ import { Spinner } from '@/components/ui/spinner';
 import { cn } from '@/utils/cn';
 
 const buttonVariants = cva(
-  "focus-visible:border-ring transition-opacity focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 cursor-pointer items-center justify-center gap-1.5 whitespace-nowrap rounded-md font-medium outline-none transition-colors focus-visible:ring disabled:pointer-events-none disabled:opacity-60 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0 relative",
+  "focus-visible:border-ring transition-opacity focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 cursor-pointer items-center justify-center gap-1.5 whitespace-nowrap rounded-md font-medium outline-none transition-colors focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-60 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0 relative",
   {
     variants: {
       variant: {
         primary:
-          'bg-primary text-white hover:opacity-90 disabled:bg-muted disabled:text-muted-foreground disabled:opacity-100',
+          'bg-primary text-primary-foreground hover:opacity-90 disabled:bg-muted-foreground/15 disabled:text-muted-foreground disabled:opacity-100',
         secondary:
-          'bg-secondary text-white hover:opacity-90 disabled:bg-muted disabled:text-muted-foreground disabled:opacity-100',
-        outline: 'border bg-white hover:bg-accent',
-        dashed: 'border border-dashed bg-background hover:bg-accent',
+          'bg-secondary text-secondary-foreground hover:bg-secondary/90 disabled:bg-muted disabled:text-muted-foreground disabled:opacity-100',
+        destructive:
+          'bg-destructive text-destructive-foreground hover:bg-destructive/90 disabled:bg-muted-foreground/15 disabled:text-muted-foreground disabled:opacity-100',
+        outline: 'border border-input bg-control hover:bg-accent',
+        dashed: 'border border-input border-dashed bg-control hover:bg-accent',
         ghost: 'bg-transparent backdrop-blur hover:bg-accent',
         link: 'underline hover:text-secondary opacity-80 hover:opacity-100 [font-weight:inherit]',
       },
@@ -24,11 +26,19 @@ const buttonVariants = cva(
         sm: 'h-7 text-xs px-3 has-[>svg]:px-2.5',
         xs: 'h-6 px-2 has-[>svg]:px-2 text-xs',
         lg: 'h-10 px-6 has-[>svg]:px-4 text-sm',
-        icon: 'size-8 text-foreground-light',
-        'icon-sm': 'size-7 text-foreground-light',
-        'icon-lg': 'size-10 text-foreground-light',
+        icon: 'size-8',
+        'icon-sm': 'size-7',
+        'icon-xs': 'size-6',
+        'icon-lg': 'size-10',
       },
     },
+    compoundVariants: [
+      {
+        variant: ['outline', 'dashed', 'ghost', 'link'],
+        size: ['icon', 'icon-sm', 'icon-lg'],
+        className: 'text-foreground-light',
+      },
+    ],
   },
 );
 
@@ -80,7 +90,9 @@ function Button({
         <div
           className={cn(
             'absolute inset-0 z-10 flex items-center justify-center',
-            resolvedVariant === 'primary' || resolvedVariant === 'secondary'
+            resolvedVariant === 'primary' ||
+              resolvedVariant === 'secondary' ||
+              resolvedVariant === 'destructive'
               ? 'text-muted-foreground'
               : 'text-foreground',
           )}

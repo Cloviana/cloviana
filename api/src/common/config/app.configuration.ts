@@ -15,17 +15,42 @@ export class AppConfiguration {
   @Value("APP_URL", { parse: (value) => value || "http://localhost:3000" })
   readonly appUrl: string;
 
+  // Marketing site as reachable from inside the cluster, not its public URL —
+  // container-to-container only (the headless PDF renderer). For a link a human
+  // will open (emails, canonical URLs), use the public site URL instead.
+  @IsString()
+  @Value("WEB_INTERNAL_URL", { parse: (value) => value || "http://web:3000" })
+  readonly webInternalUrl: string;
+
   @IsString()
   @Value("API_URL", { parse: (value) => value || "http://localhost:3000" })
   readonly apiUrl: string;
 
   @IsString()
-  @Value("ENVIRONMENT", { parse: (value) => value || "development" })
-  readonly environment: "development" | "production";
+  @Value("KNOWLEDGE_BASE_URL", {
+    parse: (value) => value || "http://localhost:8080",
+  })
+  readonly knowledgeBaseUrl: string;
 
   @IsString()
-  @Value("SUPABASE_JWT_SECRET")
-  readonly supabaseJwtSecret!: string;
+  @Value("KNOWLEDGE_UPLOADS_DIR", {
+    parse: (value) => value || "/data/knowledge-uploads",
+  })
+  readonly knowledgeUploadsDir: string;
+
+  @IsString()
+  @Value("AGENT_URL", {
+    parse: (value) => value || "http://localhost:8000",
+  })
+  readonly agentUrl: string;
+
+  @IsString()
+  @Value("AGENT_INTERNAL_TOKEN", { parse: (value) => value || "" })
+  readonly agentInternalToken: string;
+
+  @IsString()
+  @Value("ENVIRONMENT", { parse: (value) => value || "development" })
+  readonly environment: "development" | "production";
 
   @IsString()
   @Value("SUPABASE_SERVICE_ROLE_KEY")
@@ -72,14 +97,6 @@ export class AppConfiguration {
   readonly groqApiKey!: string;
 
   @IsString()
-  @Value("AZURE_CDN_ENDPOINT")
-  readonly azureCdnEndpoint!: string;
-
-  @IsString()
-  @Value("AZURE_STORAGE_CONNECTION_STRING")
-  readonly azureStorageConnectionString!: string;
-
-  @IsString()
   @Value("RESEND_API_KEY")
   readonly resendApiKey!: string;
 
@@ -90,12 +107,4 @@ export class AppConfiguration {
   @IsString()
   @Value("OPENAI_API_KEY")
   readonly openaiApiKey!: string;
-
-  @IsString()
-  @Value("PERPLEXITY_API_KEY")
-  readonly perplexityApiKey!: string;
-
-  @IsString()
-  @Value("GOOGLE_PAGESPEED_API_KEY")
-  readonly googlePagespeedApiKey!: string;
 }

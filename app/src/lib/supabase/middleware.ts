@@ -49,27 +49,25 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const isAuthRoute = ['/login', '/signup', '/verify-email'].some((p) =>
-    pathname.startsWith(p),
-  );
-  const isConfirmed = Boolean(user?.email_confirmed_at);
+  const isAuthRoute = ['/login', '/signup'].some((p) => pathname.startsWith(p));
+  const isAuthenticated = Boolean(user);
 
   // If the user is authenticated and is trying to access the home page route, redirect to dashboard
-  if (isConfirmed && pathname === paths.home.getHref()) {
+  if (isAuthenticated && pathname === paths.home.getHref()) {
     const url = request.nextUrl.clone();
     url.pathname = paths.business.getHref();
     return NextResponse.redirect(url);
   }
 
   // If the user is authenticated and is trying to access an auth route, redirect to dashboard
-  if (isConfirmed && isAuthRoute) {
+  if (isAuthenticated && isAuthRoute) {
     const url = request.nextUrl.clone();
     url.pathname = paths.business.getHref();
     return NextResponse.redirect(url);
   }
 
   // If the user is not authenticated and is trying to access a protected dashboard route (excluding auth pages), redirect to sign-in
-  if (!isConfirmed && !isAuthRoute) {
+  if (!isAuthenticated && !isAuthRoute) {
     const url = request.nextUrl.clone();
     url.pathname = paths.auth.login.getHref();
     return NextResponse.redirect(url);

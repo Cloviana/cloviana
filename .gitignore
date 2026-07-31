@@ -17,3 +17,10 @@ api/scripts/reports/*.md
 # Antigravity and Agent Artifacts
 .agents/
 
+# Secrets
+.env
+!.env.example
+
+# Supabase CLI state
+supabase/.branches/
+supabase/.temp/

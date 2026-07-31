@@ -309,7 +309,7 @@ function SidebarInset({ className, ...props }: React.ComponentProps<'main'>) {
     <main
       data-slot="sidebar-inset"
       className={cn(
-        'bg-studio relative flex w-full flex-1 flex-col overflow-hidden',
+        'bg-background relative flex w-full flex-1 flex-col overflow-hidden',
         'md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-2',
         className,
       )}
@@ -326,7 +326,7 @@ function SidebarInput({
     <Input
       data-slot="sidebar-input"
       data-sidebar="input"
-      className={cn('bg-background h-8 w-full shadow-none', className)}
+      className={cn('bg-control h-8 w-full shadow-none', className)}
       {...props}
     />
   );
@@ -387,7 +387,10 @@ function SidebarGroup({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="sidebar-group"
       data-sidebar="group"
-      className={cn('relative flex w-full min-w-0 flex-col p-1', className)}
+      className={cn(
+        'relative flex w-full min-w-0 flex-col px-2 py-1 transition-[padding] duration-200 ease-linear group-data-[collapsible=icon]:px-1',
+        className,
+      )}
       {...props}
     />
   );
@@ -483,7 +486,7 @@ const sidebarMenuButtonVariants = cva(
           'bg-background hover:bg-sidebar-accent hover:text-sidebar-accent-foreground shadow-[0_0_0_1px_hsl(var(--sidebar-border))] hover:shadow-[0_0_0_1px_hsl(var(--sidebar-accent))]',
       },
       size: {
-        default: 'h-8 text-sm',
+        default: 'h-7.5 text-[13px]',
         sm: 'h-7 text-[13px]',
         lg: 'group-data-[collapsible=icon]:p-0! h-12 text-sm',
       },

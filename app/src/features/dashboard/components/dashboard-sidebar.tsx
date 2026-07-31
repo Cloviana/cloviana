@@ -1,116 +1,269 @@
 'use client';
 
 import {
-  LayoutDashboard,
-  MessageSquare,
-  Globe,
-  Link as LinkIcon,
-  BarChart,
-  Activity,
-  Settings,
-  Sparkles,
+  Brain,
+  Building2,
+  ChevronDown,
+  FingerprintPattern,
+  Hand,
+  Radar,
+  Search,
+  UsersRound,
 } from 'lucide-react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarTrigger,
+} from '@/components/ui/sidebar';
 import { paths } from '@/config/paths';
-import { cn } from '@/lib/utils';
+import { useGetBusiness } from '@/features/businesses/api/get-business';
+import { useBusinesses } from '@/features/businesses/api/get-businesses';
+import { markLastAccessedBusiness } from '@/features/businesses/api/mark-last-accessed-business';
 
-type SidebarItem = {
-  name: string;
-  href: string;
-  icon: React.ElementType;
+type DashboardSidebarProps = {
+  businessId: string;
 };
 
-const MAIN_NAV: SidebarItem[] = [
-  { name: 'Overview', href: '', icon: LayoutDashboard },
-  { name: 'Prompts', href: '/prompts', icon: MessageSquare },
-];
-
-const SOURCES_NAV: SidebarItem[] = [
-  { name: 'Domains', href: '/domains', icon: Globe },
-  { name: 'URLs', href: '/urls', icon: LinkIcon },
-  { name: 'Gap analysis', href: '/gap', icon: BarChart },
-];
-
-const BRAND_NAV: SidebarItem[] = [
-  { name: 'Insights', href: '/insights', icon: Activity },
-];
-
-export function DashboardSidebar({ businessId }: { businessId: string }) {
+export function DashboardSidebar({ businessId }: DashboardSidebarProps) {
+  const router = useRouter();
   const pathname = usePathname();
-  const basePath = paths.business.getHref(businessId);
+  const { data: business } = useGetBusiness(businessId);
+  const { data: businesses = [] } = useBusinesses();
+  const chatHref = paths.business.chat.getHref(businessId);
+  const knowledgeBaseHref = paths.business.knowledgeBase.getHref(businessId);
+  const promptsHref = paths.business.prompts.getHref(businessId);
+  const skillsHref = paths.business.skills.getHref(businessId);
+  const integrationsHref = paths.business.integrations.getHref(businessId);
+  const brandHref = paths.business.brand.getHref(businessId);
+  const competitorsHref = paths.business.competitors.getHref(businessId);
+  const faviconUrl = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(
+    business?.domain ?? '',
+  )}&sz=64`;
 
-  const isActive = (path: string) => {
-    if (path === '') {
-      return pathname === basePath;
-    }
-    return pathname.startsWith(`${basePath}${path}`);
-  };
+  const contextItems = [
+    {
+      title: 'Brand',
+      href: brandHref,
+      icon: Building2,
+    },
+    {
+      title: 'Competitors',
+      href: competitorsHref,
+      icon: UsersRound,
+    },
+    {
+      title: 'Knowledge Base',
+      href: knowledgeBaseHref,
+      icon: Brain,
+    },
+  ];
 
-  const NavGroup = ({
-    title,
-    items,
-  }: {
-    title: string;
-    items: SidebarItem[];
-  }) => (
-    <div className="mb-6">
-      <h3 className="mb-2 px-4 text-xs font-semibold tracking-wider text-slate-500 uppercase dark:text-slate-400">
-        {title}
-      </h3>
-      <div className="space-y-1">
-        {items.map((item) => {
-          const active = isActive(item.href);
-          return (
-            <Link
-              key={item.name}
-              href={`${basePath}${item.href}`}
-              className={cn(
-                'flex items-center gap-3 rounded-lg px-4 py-2 text-sm font-medium transition-colors',
-                active
-                  ? 'bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-slate-50'
-                  : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/50 dark:hover:text-slate-50',
-              )}
-            >
-              <item.icon
-                className={cn(
-                  'size-4',
-                  active ? 'text-indigo-600 dark:text-indigo-400' : '',
-                )}
-              />
-              {item.name}
-            </Link>
-          );
-        })}
-      </div>
-    </div>
-  );
+  const analyticsItems = [
+    {
+      title: 'Prompts',
+      href: promptsHref,
+      icon: Radar,
+    },
+  ];
+
+  const actionItems = [
+    {
+      title: 'Skills',
+      href: skillsHref,
+      icon: Hand,
+    },
+    {
+      title: 'Integrations',
+      href: integrationsHref,
+      icon: FingerprintPattern,
+    },
+  ];
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const target = event.target;
+      const isEditable =
+        target instanceof HTMLElement &&
+        (target.isContentEditable ||
+          ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName));
+
+      if (isEditable) {
+        return;
+      }
+
+      if (event.key.toLowerCase() === 'j' && (event.metaKey || event.ctrlKey)) {
+        event.preventDefault();
+        router.push(chatHref);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [chatHref, router]);
 
   return (
-    <aside className="fixed inset-y-0 left-0 z-50 flex w-64 flex-col border-r border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
-      <div className="flex h-14 items-center gap-2 border-b border-slate-200 px-6 dark:border-slate-800">
-        <Sparkles className="size-5 text-indigo-600 dark:text-indigo-400" />
-        <span className="font-semibold text-slate-900 dark:text-white">
-          Cloviana
-        </span>
-      </div>
+    <Sidebar collapsible="icon">
+      <SidebarHeader className="border-sidebar-border flex h-12 flex-row items-center gap-0 px-2 transition-[padding] duration-200 ease-linear group-data-[collapsible=icon]:px-1">
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <button
+              type="button"
+              className="hover:bg-sidebar-accent flex h-8 w-36 min-w-0 items-center gap-3 overflow-hidden rounded-md px-2 text-left transition-[padding,background-color] duration-200 outline-none group-data-[collapsible=icon]:hidden group-data-[collapsible=icon]:px-1"
+              aria-label={
+                business
+                  ? `Switch business from ${business.name}`
+                  : 'Switch business'
+              }
+            >
+              <Avatar className="size-6 shrink-0 rounded-md">
+                <AvatarImage
+                  src={faviconUrl}
+                  alt={
+                    business ? `${business.name} favicon` : 'Business favicon'
+                  }
+                />
+                <AvatarFallback className="text-primary rounded-md text-sm font-semibold">
+                  {business?.name.charAt(0).toUpperCase()}
+                </AvatarFallback>
+              </Avatar>
+              <span className="text-foreground min-w-0 flex-1 truncate text-sm font-medium transition-opacity duration-200 group-data-[collapsible=icon]:opacity-0">
+                {business?.name}
+              </span>
+              <ChevronDown className="text-foreground-lighter size-4 shrink-0 transition-opacity duration-200 group-data-[collapsible=icon]:opacity-0" />
+            </button>
+          </DropdownMenuTrigger>
 
-      <div className="flex-1 overflow-y-auto p-4">
-        <NavGroup title="General" items={MAIN_NAV} />
-        <NavGroup title="Sources" items={SOURCES_NAV} />
-        <NavGroup title="Brand" items={BRAND_NAV} />
-      </div>
+          <DropdownMenuContent
+            side="bottom"
+            align="start"
+            sideOffset={8}
+            alignOffset={6}
+            className="group/dropdown-menu-content w-72"
+          >
+            {businesses.map((item) => {
+              const isActive = item.id === businessId;
 
-      <div className="border-t border-slate-200 p-4 dark:border-slate-800">
-        <Link
-          href={paths.business.settings.getHref(businessId)}
-          className="flex items-center gap-3 rounded-lg px-4 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/50 dark:hover:text-slate-50"
-        >
-          <Settings className="size-4" />
-          Settings
-        </Link>
-      </div>
-    </aside>
+              return (
+                <DropdownMenuItem key={item.id} asChild data-active={isActive}>
+                  <Link
+                    href={paths.business.knowledgeBase.getHref(item.id)}
+                    className="flex w-full items-center gap-2"
+                    onNavigate={() => {
+                      if (!isActive) {
+                        void markLastAccessedBusiness(item.id).catch(
+                          () => undefined,
+                        );
+                      }
+                    }}
+                  >
+                    <span className="min-w-0 flex-1 truncate">{item.name}</span>
+                  </Link>
+                </DropdownMenuItem>
+              );
+            })}
+          </DropdownMenuContent>
+        </DropdownMenu>
+        <div className="ml-auto flex shrink-0 items-center">
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            className="size-8 group-data-[collapsible=icon]:hidden"
+            aria-label="Search"
+          >
+            <Search />
+          </Button>
+          <SidebarTrigger className="size-8" />
+        </div>
+      </SidebarHeader>
+
+      <SidebarContent className="pt-1.5">
+        <SidebarGroup>
+          <SidebarGroupLabel>Analytics</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {analyticsItems.map((item) => (
+                <SidebarMenuItem key={item.href}>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={pathname === item.href}
+                    tooltip={item.title}
+                  >
+                    <Link href={item.href}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup>
+          <SidebarGroupLabel>Actions</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {actionItems.map((item) => (
+                <SidebarMenuItem key={item.href}>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={pathname === item.href}
+                    tooltip={item.title}
+                  >
+                    <Link href={item.href}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup>
+          <SidebarGroupLabel>Context</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {contextItems.map((item) => (
+                <SidebarMenuItem key={item.href}>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={pathname === item.href}
+                    tooltip={item.title}
+                  >
+                    <Link href={item.href}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
+    </Sidebar>
   );
 }

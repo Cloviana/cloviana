@@ -64,6 +64,12 @@ export type BrandVisibility = {
   overall: number;
 };
 
+export type AuditPromptCoverage = {
+  prompt: string;
+  mentionRate: number;
+  citationRate: number;
+};
+
 export type Audit = {
   id: string;
   slug: string;
@@ -80,5 +86,6 @@ export type Audit = {
   topPages: CitedPage[] | null;
   contentSuggestions: ContentIdea[] | null;
   brandVisibility: BrandVisibility | null;
+  promptCoverage: AuditPromptCoverage[] | null;
   job: { status: AuditJobStatus; error: string | null } | null;
 };

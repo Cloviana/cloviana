@@ -4,12 +4,12 @@ import * as React from 'react';
 import { cn } from '@/utils/cn';
 
 const textareaVariants = cva(
-  'placeholder:text-muted-foreground selection:bg-primary text-sm selection:text-primary-foreground border-input flex min-h-[80px] w-full min-w-0 resize-none rounded-md border px-3 py-2 transition-[color,box-shadow] outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 focus-visible:bg-secondary/10 focus-visible:border-secondary focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:bg-destructive/5 aria-invalid:ring-destructive/20 aria-invalid:border-destructive',
+  'placeholder:text-muted-foreground selection:bg-primary text-sm selection:text-primary-foreground border-input flex min-h-[80px] w-full min-w-0 resize-none rounded-md border px-3 py-2 transition-[color,box-shadow] outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 focus-visible:border-ring focus-visible:ring-ring/30 focus-visible:ring-[3px] aria-invalid:bg-destructive/5 aria-invalid:ring-destructive/20 aria-invalid:border-destructive',
   {
     variants: {
       variant: {
         default:
-          'bg-white text-foreground border-input placeholder:text-foreground-lighter/70',
+          'bg-control text-foreground border-input placeholder:text-foreground-lighter/70',
       },
     },
     defaultVariants: {

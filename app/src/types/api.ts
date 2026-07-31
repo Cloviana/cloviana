@@ -5,8 +5,7 @@ export type SubscriptionStatus =
   | 'ACTIVE'
   | 'PAST_DUE'
   | 'CANCELED'
-  | 'INCOMPLETE'
-  | 'TRIALLING';
+  | 'INCOMPLETE';
 export type PlanName = 'STARTER' | 'GROWTH' | 'PRO';
 export type BusinessMembershipRole = 'OWNER' | 'MEMBER';
 export type BusinessInviteStatus =
@@ -14,16 +13,6 @@ export type BusinessInviteStatus =
   | 'ACCEPTED'
   | 'REVOKED'
   | 'EXPIRED';
-export type BusinessSetupStatus = 'NOT_STARTED' | 'IN_PROGRESS' | 'COMPLETED';
-export type BusinessSetupStep =
-  | 'DOMAIN'
-  | 'PROFILE'
-  | 'LOCATION'
-  | 'COMPETITORS'
-  | 'ATTRIBUTION'
-  | 'TOPICS'
-  | 'PROMPTS'
-  | 'COMPLETED';
 
 export type JobType =
   | 'SITE_AUDIT'
@@ -49,6 +38,7 @@ export type Competitor = Entity<{
   businessId: ID;
   domain: string;
   name: string;
+  aliases: string[];
 }>;
 
 export type Business = Entity<{
@@ -68,12 +58,8 @@ export type Business = Entity<{
   searchIntentCommercial: number;
   searchIntentInformational: number;
   competitors: Competitor[];
-  setupStatus: BusinessSetupStatus;
-  setupStep: BusinessSetupStep;
-  setupCompletedAt?: ISODate | null;
   subscription?: {
     status: SubscriptionStatus;
-    trialEndsAt: ISODate | null;
     plan: {
       name: PlanName;
       stripePriceId: string;
@@ -115,3 +101,36 @@ export interface CursorPaginatedResponse<T> {
   data: T[];
   meta: CursorPaginationMeta;
 }
+
+export type DocumentStatus = 'PENDING' | 'PROCESSING' | 'READY';
+
+export type Folder = Entity<{
+  businessId: ID;
+  parentId: ID | null;
+  name: string;
+  position: number;
+  isDefault: boolean;
+  _count: {
+    children: number;
+    documents: number;
+  };
+}>;
+
+export type Document = Entity<{
+  businessId: ID;
+  folderId: ID;
+  name: string;
+  extension: string;
+  filename: string | null;
+  mimeType: string | null;
+  sizeBytes: number;
+  position: number;
+  status: DocumentStatus;
+  chunkCount: number | null;
+  indexedAt: ISODate | null;
+  folder: {
+    id: ID;
+    name: string;
+    parentId: ID | null;
+  };
+}>;

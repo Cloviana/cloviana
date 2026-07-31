@@ -1,4 +1,5 @@
 import fastifyCookie from "@fastify/cookie";
+import fastifyMultipart from "@fastify/multipart";
 import { Logger, ValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import {
@@ -12,13 +13,23 @@ import { AllExceptionsFilter } from "@/common/filters/all-exceptions.filter";
 import { SupabaseAuthGuard } from "./modules/auth/guards/supabase-auth.guards";
 
 async function bootstrap() {
-  const adapter = new FastifyAdapter();
+  // Chat attachments arrive as base64 data URLs in the JSON body; the
+  // Fastify default of 1MB rejects anything bigger than a small image.
+  const adapter = new FastifyAdapter({ bodyLimit: 20 * 1024 * 1024 });
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     adapter,
     { rawBody: true },
   );
   await app.register(fastifyCookie);
+  await app.register(fastifyMultipart, {
+    limits: {
+      files: 5,
+      fields: 5,
+      fileSize: 5 * 1024 * 1024,
+      parts: 10,
+    },
+  });
 
   // Global API prefix and auth guard
   app.setGlobalPrefix("api");
@@ -43,7 +54,9 @@ async function bootstrap() {
       "https://app.cloviana.com",
       "http://localhost:3000",
       "http://app.localhost",
+      "https://app.localhost",
       "http://localhost",
+      "https://localhost",
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     credentials: true,

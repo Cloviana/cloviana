@@ -39,6 +39,19 @@ jobs:
           cache-to: type=registry,ref=ghcr.io/cloviana/api:buildcache,mode=max
           provenance: false
 
+      - name: Build & push Agent
+        uses: docker/build-push-action@v6
+        with:
+          context: ./agent
+          file: ./agent/Dockerfile
+          push: true
+          tags: |
+            ghcr.io/cloviana/agent:${{ github.sha }}
+            ghcr.io/cloviana/agent:latest
+          cache-from: type=registry,ref=ghcr.io/cloviana/agent:buildcache
+          cache-to: type=registry,ref=ghcr.io/cloviana/agent:buildcache,mode=max
+          provenance: false
+
       - name: Build & push App
         uses: docker/build-push-action@v6
         with:

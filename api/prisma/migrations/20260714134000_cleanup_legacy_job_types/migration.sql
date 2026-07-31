@@ -1,0 +1,2 @@
+DELETE FROM "jobs"
+WHERE "type"::TEXT IN ('BLOG_GENERATION', 'CMS_SYNC');

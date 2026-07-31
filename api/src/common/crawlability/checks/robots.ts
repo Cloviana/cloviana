@@ -64,7 +64,9 @@ export async function checkRobots(
   try {
     const snapshot = await getRobotsSnapshot(domain, keyPages);
 
-    if (!snapshot.exists) issues.push("robots_non_200");
+    if (!snapshot.exists) {
+      issues.push("robots_non_200");
+    }
     if (snapshot.blockedBots.length === CRAWLER_USER_AGENTS.length) {
       issues.push("robots_blocks_all_major_bots");
     } else if (snapshot.blockedBots.length > 0) {

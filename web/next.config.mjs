@@ -2,6 +2,21 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
+  // dev-only: lets the API's headless PDF renderer reach this server over the
+  // docker network; without it Next blocks dev resources and never hydrates
+  allowedDevOrigins: ['web', 'nginx', 'localhost'],
+  webpack(config) {
+    const assetRule = config.module.rules.find((rule) =>
+      rule.test?.test?.('.svg'),
+    );
+    if (assetRule) assetRule.exclude = /\.svg$/i;
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ['@svgr/webpack'],
+    });
+    return config;
+  },
   images: {
     localPatterns: [
       {

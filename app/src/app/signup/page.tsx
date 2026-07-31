@@ -54,12 +54,7 @@ export default function SignUpPage() {
       toast.error(result.message);
       return;
     }
-    toast.success(result.message);
-    if (result.needsVerification) {
-      push(paths.auth.verifyEmail.getHref({ email: values.email }));
-    } else {
-      push(paths.auth.login.getHref());
-    }
+    push(paths.business.getHref());
   }
 
   return (

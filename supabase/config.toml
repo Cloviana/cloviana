@@ -1,0 +1,26 @@
+project_id = "cloviana"
+
+[api]
+enabled = true
+port = 54321
+
+[db]
+port = 54322
+
+[studio]
+enabled = true
+port = 54323
+api_url = "http://supabase.localhost"
+
+[inbucket]
+enabled = true
+port = 54324
+
+[auth]
+enabled = true
+site_url = "http://app.localhost"
+additional_redirect_urls = ["http://app.localhost/**"]
+
+[auth.email]
+enable_signup = true
+enable_confirmations = false

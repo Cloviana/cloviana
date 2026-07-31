@@ -53,9 +53,6 @@ export default function LoginPage() {
         'Use your work email. Personal email providers are not accepted.',
       );
     }
-    if (authError === 'confirmation_failed') {
-      toast.error('That confirmation link is invalid or has expired.');
-    }
   }, [authError]);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
