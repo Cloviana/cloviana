@@ -21,7 +21,7 @@ async function redirectAfterUnauthorized(): Promise<never> {
   }
 
   const { redirect } = await import('next/navigation');
-  redirect(SESSION_EXPIRED_PATH);
+  return redirect(SESSION_EXPIRED_PATH);
 }
 
 function filterParams(
