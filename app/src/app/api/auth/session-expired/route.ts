@@ -1,4 +1,4 @@
-import { createServerClient } from '@supabase/ssr';
+import { createServerClient, type SetAllCookies } from '@supabase/ssr';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { env } from '@/config/env';
@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
   const supabase = createServerClient(env.SUPABASE_URL, env.SUPABASE_ANON_KEY, {
     cookies: {
       getAll: () => request.cookies.getAll(),
-      setAll: (cookies) => {
+      setAll: (cookies: Parameters<SetAllCookies>[0]) => {
         cookies.forEach(({ name, value, options }) =>
           response.cookies.set(name, value, options),
         );
