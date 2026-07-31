@@ -3,7 +3,7 @@ import { PrismaService } from "@/clients/prisma/prisma.service";
 import { ResendService } from "@/clients/resend/resend.service";
 import { isWorkEmail } from "@/common/email/work-email";
 import { normalizeDomain } from "@/common/utils/normalize-domain.util";
-import { AuditsProducer } from "@/infrastructure/messaging/producers/audits.producer";
+import { AuditsProducer } from "@/modules/audits/background/queue/audits.producer";
 import { CACHE_MANAGER, Cache } from "@nestjs/cache-manager";
 import {
   BadRequestException,
