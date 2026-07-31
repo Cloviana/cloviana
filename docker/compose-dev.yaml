@@ -10,7 +10,6 @@ x-local-supabase: &local-supabase
   SUPABASE_JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
   DATABASE_URL: postgresql://postgres:postgres@host.docker.internal:54322/postgres
   DIRECT_URL: postgresql://postgres:postgres@host.docker.internal:54322/postgres
-  CLOVIANA_AGENT_DATABASE_URL: "postgresql://postgres:postgres@host.docker.internal:54322/postgres?sslmode=disable&connect_timeout=10&options=-csearch_path%3Dlanggraph%2Cpublic"
 
 x-next-public-urls: &next-public-urls
   NEXT_PUBLIC_API_URL: http://api.localhost/api
@@ -76,35 +75,6 @@ services:
       - "host.docker.internal:host-gateway"
     volumes:
       - ../knowledge-base:/app:cached
-
-  agent-migrate:
-    environment:
-      CLOVIANA_AGENT_DATABASE_URL: "postgresql://postgres:postgres@host.docker.internal:54322/postgres?sslmode=disable&connect_timeout=10&options=-csearch_path%3Dlanggraph%2Cpublic"
-      PYTHONPATH: /app/src
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    volumes:
-      - ../agent:/app:cached
-
-  agent:
-    command:
-      - uvicorn
-      - agent.api:app
-      - --host
-      - 0.0.0.0
-      - --port
-      - "8000"
-      - --reload
-      - --reload-dir
-      - /app/src
-    environment:
-      CLOVIANA_AGENT_DATABASE_URL: "postgresql://postgres:postgres@host.docker.internal:54322/postgres?sslmode=disable&connect_timeout=10&options=-csearch_path%3Dlanggraph%2Cpublic"
-      ENVIRONMENT: development
-      PYTHONPATH: /app/src
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    volumes:
-      - ../agent:/app:cached
 
   app:
     build:

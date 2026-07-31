@@ -16,7 +16,6 @@ x-api-base: &api-base
     RABBITMQ_URI: amqp://guest:guest@rabbitmq:5672
     REDIS_URL: redis://redis:6379
     KNOWLEDGE_BASE_URL: http://knowledge-base:8080
-    AGENT_URL: http://agent:8000
   depends_on:
     rabbitmq:
       condition: service_healthy
@@ -25,8 +24,6 @@ x-api-base: &api-base
     migrate:
       condition: service_completed_successfully
     knowledge-base:
-      condition: service_started
-    agent:
       condition: service_started
   restart: unless-stopped
   networks:
@@ -88,38 +85,6 @@ services:
       VOYAGE_API_KEY: ${VOYAGE_API_KEY:?VOYAGE_API_KEY is required}
     depends_on:
       - qdrant
-    networks:
-      - appnet
-
-  agent-migrate:
-    build:
-      context: ../agent
-    image: ghcr.io/cloviana/agent:${TAG:-latest}
-    command: ["python", "-m", "agent.database.migrate"]
-    restart: "no"
-    environment:
-      CLOVIANA_AGENT_DATABASE_URL: ${CLOVIANA_AGENT_DATABASE_URL:?CLOVIANA_AGENT_DATABASE_URL is required}
-    networks:
-      - appnet
-
-  agent:
-    build:
-      context: ../agent
-    image: ghcr.io/cloviana/agent:${TAG:-latest}
-    container_name: agent
-    restart: unless-stopped
-    depends_on:
-      agent-migrate:
-        condition: service_completed_successfully
-    environment:
-      ENVIRONMENT: production
-      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:?DEEPSEEK_API_KEY is required}
-      GROQ_API_KEY: ${GROQ_API_KEY:?GROQ_API_KEY is required}
-      EXA_API_KEY: ${EXA_API_KEY:?EXA_API_KEY is required}
-      AGENT_INTERNAL_TOKEN: ${AGENT_INTERNAL_TOKEN:?AGENT_INTERNAL_TOKEN is required}
-      CLOVIANA_AGENT_DATABASE_URL: ${CLOVIANA_AGENT_DATABASE_URL:?CLOVIANA_AGENT_DATABASE_URL is required}
-      KNOWLEDGE_BASE_URL: http://knowledge-base:8080
-      CLOVIANA_API_URL: http://api:5000/api
     networks:
       - appnet
 

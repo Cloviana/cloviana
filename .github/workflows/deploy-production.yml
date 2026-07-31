@@ -63,9 +63,6 @@ jobs:
 
             GA4_API_SECRET=${{ secrets.GA4_API_SECRET }}
 
-            AGENT_INTERNAL_TOKEN=${{ secrets.AGENT_INTERNAL_TOKEN }}
-            CLOVIANA_AGENT_DATABASE_URL=${{ secrets.CLOVIANA_AGENT_DATABASE_URL }}
-
             EOF
             chmod 600 .env
 
@@ -79,9 +76,7 @@ jobs:
               GROQ_API_KEY \
               EXA_API_KEY \
               UNSTRUCTURED_API_KEY \
-              VOYAGE_API_KEY \
-              AGENT_INTERNAL_TOKEN \
-              CLOVIANA_AGENT_DATABASE_URL
+              VOYAGE_API_KEY
             do
               if ! grep -q "^${variable}=." .env; then
                 echo "Missing required production value: ${variable}" >&2
@@ -94,13 +89,11 @@ jobs:
             echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io --username samuelito22 --password-stdin
 
             docker pull ghcr.io/cloviana/api:${TAG}
-            docker pull ghcr.io/cloviana/agent:${TAG}
             docker pull ghcr.io/cloviana/knowledge-base:${TAG}
             docker pull ghcr.io/cloviana/app:${TAG}
             docker pull ghcr.io/cloviana/web:${TAG}
 
             docker compose -f compose-core.yaml -f compose-prod.yaml pull
-            docker compose -f compose-core.yaml -f compose-prod.yaml up --no-deps --abort-on-container-exit --exit-code-from agent-migrate agent-migrate
             docker compose -f compose-core.yaml -f compose-prod.yaml up -d --remove-orphans
             
             docker compose -f compose-core.yaml -f compose-prod.yaml restart nginx
