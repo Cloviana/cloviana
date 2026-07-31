@@ -75,7 +75,7 @@ services:
       context: ../knowledge-base
       args:
         SPARSE_EMBEDDING_MODEL: ${SPARSE_EMBEDDING_MODEL:-Qdrant/bm25}
-    image: ghcr.io/cloviana/knowledge-base:latest
+    image: ghcr.io/cloviana/knowledge-base:${TAG:-latest}
     container_name: knowledge-base
     restart: unless-stopped
     env_file:

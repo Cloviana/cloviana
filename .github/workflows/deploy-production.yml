@@ -95,6 +95,7 @@ jobs:
 
             docker pull ghcr.io/cloviana/api:${TAG}
             docker pull ghcr.io/cloviana/agent:${TAG}
+            docker pull ghcr.io/cloviana/knowledge-base:${TAG}
             docker pull ghcr.io/cloviana/app:${TAG}
             docker pull ghcr.io/cloviana/web:${TAG}
 
