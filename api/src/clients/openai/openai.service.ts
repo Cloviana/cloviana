@@ -75,7 +75,9 @@ const isTransientError = (error: unknown): boolean =>
   error instanceof APIConnectionTimeoutError;
 
 const isUrl = (value: string | null | undefined): value is string => {
-  if (!value) return false;
+  if (!value) {
+    return false;
+  }
 
   try {
     new URL(value);
@@ -96,7 +98,9 @@ async function withRetries<T>(
     try {
       return await fn();
     } catch (error) {
-      if (attempt === maxAttempts) throw error;
+      if (attempt === maxAttempts) {
+        throw error;
+      }
 
       const transient = isTransientError(error);
       const providerDelay = transient
@@ -115,7 +119,9 @@ async function withRetries<T>(
         (error as Error)?.message ?? error,
       );
 
-      if (delay > 0) await sleep(delay);
+      if (delay > 0) {
+        await sleep(delay);
+      }
     }
   }
 

@@ -6,7 +6,6 @@ import * as Clients from "@/clients";
 import * as infrastructure from "@/infrastructure";
 import * as Integrations from "@/integrations";
 import * as Modules from "@/modules";
-import * as Workflows from "@/workflows";
 
 @Module({
   imports: [
@@ -14,7 +13,6 @@ import * as Workflows from "@/workflows";
     ScheduleModule.forRoot(),
     ...Object.values(Clients),
     ...Object.values(Modules),
-    ...Object.values(Workflows),
     ...Object.values(infrastructure),
     ...Object.values(Integrations),
   ],

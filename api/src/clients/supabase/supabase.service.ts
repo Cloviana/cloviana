@@ -21,8 +21,8 @@ export class SupabaseService {
 
     this.anonClient = createClient(config.supabaseUrl, config.supabaseAnonKey, {
       auth: {
-        autoRefreshToken: true,
-        persistSession: true,
+        autoRefreshToken: false,
+        persistSession: false,
       },
     });
   }

@@ -16,12 +16,6 @@ enum JobType {
   PROMPT_RESEARCH
   PROMPT_GENERATION
   MONITORING
-  BLOG_GENERATION
-}
-
-enum BlogDraftStatus {
-  READY
-  FLAGGED
 }
 
 enum JobStatus {
@@ -113,15 +107,10 @@ enum PromptAwarenessStage {
   DECIDE
 }
 
-enum DocumentTag {
-  business
-  domain
-}
-
 enum DocumentStatus {
+  PENDING
   PROCESSING
   READY
-  FAILED
 }
 
 // --- BILLING MODELS ---
@@ -167,20 +156,10 @@ model Business {
   stripeCustomerId          String?
   name                      String
   domain                    String
-  category                  String?
-  description               String?
-  icp                       String?
-  location                  String?
-  timezone                  String?
-  industry                  String?
-  distributionChannels      String[]            @default([])
-  selectedTopicIds          String[]            @default([])
-  searchIntentCommercial    Int                 @default(70)
-  searchIntentInformational Int                 @default(30)
+  category                  String
+  description               String
+  personas                  String[]  @default([])
   status                    BusinessStatus      @default(LOCKED)
-  setupStatus               BusinessSetupStatus @default(NOT_STARTED)
-  setupStep                 BusinessSetupStep   @default(DOMAIN)
-  setupCompletedAt          DateTime?
 
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
@@ -194,9 +173,9 @@ model Business {
   members        BusinessMember[]
   invites        BusinessInvite[]
   metrics        BusinessMetric[]
+  folders        Folder[]
   documents      Document[]
   chats          Chat[]
-  blogDrafts     BlogDraft[]
 
   @@index([ownerId])
   @@map("businesses")
@@ -239,6 +218,7 @@ model Competitor {
   businessId String
   domain     String
   name       String
+  aliases    String[] @default([])
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 
@@ -336,24 +316,6 @@ model Job {
   @@map("jobs")
 }
 
-model BlogDraft {
-  id         String          @id @default(uuid()) @db.Uuid
-  businessId String
-  jobId      String?         @db.Uuid
-  title      String
-  body       String
-  status     BlogDraftStatus @default(READY)
-  violations Json?           @db.JsonB
-  sources    Json?           @db.JsonB
-  createdAt  DateTime        @default(now())
-  updatedAt  DateTime        @updatedAt
-
-  business Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
-
-  @@index([businessId, createdAt])
-  @@map("blog_drafts")
-}
-
 model Prompt {
   id             String               @id @default(uuid()) @db.Uuid
   businessId     String
@@ -432,8 +394,9 @@ model Mention {
   createdAt        DateTime @default(now())
 
   promptResponse PromptResponse @relation(fields: [promptResponseId], references: [id], onDelete: Cascade)
-  competitor     Competitor?    @relation(fields: [competitorId], references: [id], onDelete: SetNull)
+  competitor     Competitor?    @relation(fields: [competitorId], references: [id], onDelete: Cascade)
 
+  @@index([competitorId])
   @@map("mentions")
 }
 
@@ -474,9 +437,10 @@ model PromptMetric {
   createdAt     DateTime @default(now())
 
   prompt     Prompt      @relation(fields: [promptId], references: [id], onDelete: Cascade)
-  competitor Competitor? @relation(fields: [competitorId], references: [id], onDelete: SetNull)
+  competitor Competitor? @relation(fields: [competitorId], references: [id], onDelete: Cascade)
 
   @@unique([promptId, competitorId, date])
+  @@index([competitorId])
   @@map("prompt_metrics")
 }
 
@@ -492,30 +456,62 @@ model BusinessMetric {
   createdAt     DateTime  @default(now())
 
   business   Business    @relation(fields: [businessId], references: [id], onDelete: Cascade)
-  competitor Competitor? @relation(fields: [competitorId], references: [id], onDelete: SetNull)
+  competitor Competitor? @relation(fields: [competitorId], references: [id], onDelete: Cascade)
 
   @@index([businessId, competitorId, date, engine])
+  @@index([competitorId])
   @@map("business_metrics")
 }
 
+model Folder {
+  id         String   @id @default(uuid()) @db.Uuid
+  businessId String
+  parentId   String?  @db.Uuid
+  name       String   @db.Citext
+  position   Int      @default(0)
+  isDefault  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  business  Business   @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  parent    Folder?    @relation("FolderHierarchy", fields: [parentId, businessId], references: [id, businessId], onDelete: Restrict)
+  children  Folder[]   @relation("FolderHierarchy")
+  documents Document[]
+
+  @@unique([id, businessId])
+  @@unique([businessId, parentId, name])
+  @@index([businessId, parentId, position])
+  @@map("folders")
+}
+
 model Document {
-  id            String         @id @default(uuid()) @db.Uuid
-  businessId    String
-  name          String
-  extension     String
-  filename      String?
-  mimeType      String?
-  filePath      String?
-  tag           DocumentTag
-  status        DocumentStatus @default(PROCESSING)
-  failureReason String?
-  indexedAt     DateTime?
-  createdAt     DateTime       @default(now())
-  updatedAt     DateTime       @updatedAt
+  id                 String         @id @default(uuid()) @db.Uuid
+  businessId         String
+  folderId           String         @db.Uuid
+  name               String
+  extension          String
+  filename           String?
+  mimeType           String?
+  sizeBytes           Int            @default(0)
+  position            Int            @default(0)
+  filePath           String?
+  status             DocumentStatus @default(PENDING)
+  chunkCount         Int?
+  ingestionQueuedAt  DateTime?
+  ingestionStartedAt DateTime?
+  deletedAt          DateTime?
+  indexedAt          DateTime?
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @updatedAt
 
   business Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  folder   Folder   @relation(fields: [folderId, businessId], references: [id, businessId], onDelete: Restrict)
 
   @@index([businessId, status])
+  @@index([businessId, folderId, position])
+  @@index([status, ingestionQueuedAt, createdAt])
+  @@index([status, ingestionStartedAt])
+  @@index([deletedAt, createdAt])
   @@map("documents")
 }
 
@@ -539,6 +535,7 @@ model Audit {
   topPages              Json? // CitedPage[]       — top 3
   contentSuggestions    Json? // ContentIdea[]     — 4 items
   brandVisibility       Json? // BrandVisibility   — { google_aio, chatgpt, perplexity, overall } mention rates for target brand
+  promptCoverage        Json? // AuditPromptCoverage[] — per-prompt mention and citation rates
 
   job Job? @relation(fields: [jobId], references: [id], onDelete: SetNull)
 

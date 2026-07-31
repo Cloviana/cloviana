@@ -1,17 +1,21 @@
 'use client';
 
-import { Brain, ChevronDown, ChevronRight, Plus } from 'lucide-react';
+import {
+  Brain,
+  Building2,
+  ChevronDown,
+  FingerprintPattern,
+  Hand,
+  Radar,
+  Search,
+  UsersRound,
+} from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from '@/components/ui/collapsible';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,7 +25,6 @@ import {
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
@@ -34,6 +37,7 @@ import {
 import { paths } from '@/config/paths';
 import { useGetBusiness } from '@/features/businesses/api/get-business';
 import { useBusinesses } from '@/features/businesses/api/get-businesses';
+import { markLastAccessedBusiness } from '@/features/businesses/api/mark-last-accessed-business';
 
 type DashboardSidebarProps = {
   businessId: string;
@@ -42,28 +46,57 @@ type DashboardSidebarProps = {
 export function DashboardSidebar({ businessId }: DashboardSidebarProps) {
   const router = useRouter();
   const pathname = usePathname();
-  const [shortcutKeys, setShortcutKeys] = useState(['Ctrl', 'J']);
   const { data: business } = useGetBusiness(businessId);
   const { data: businesses = [] } = useBusinesses();
   const chatHref = paths.business.chat.getHref(businessId);
-  const knowledgeHref = paths.business.knowledge.getHref(businessId);
+  const knowledgeBaseHref = paths.business.knowledgeBase.getHref(businessId);
+  const promptsHref = paths.business.prompts.getHref(businessId);
+  const skillsHref = paths.business.skills.getHref(businessId);
+  const integrationsHref = paths.business.integrations.getHref(businessId);
+  const brandHref = paths.business.brand.getHref(businessId);
+  const competitorsHref = paths.business.competitors.getHref(businessId);
   const faviconUrl = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(
     business?.domain ?? '',
   )}&sz=64`;
 
-  const mainItems = [
+  const contextItems = [
     {
-      title: 'Knowledge',
-      href: knowledgeHref,
+      title: 'Brand',
+      href: brandHref,
+      icon: Building2,
+    },
+    {
+      title: 'Competitors',
+      href: competitorsHref,
+      icon: UsersRound,
+    },
+    {
+      title: 'Knowledge Base',
+      href: knowledgeBaseHref,
       icon: Brain,
     },
   ];
 
-  useEffect(() => {
-    const isMac = /Mac|iPhone|iPad|iPod/.test(window.navigator.platform);
+  const analyticsItems = [
+    {
+      title: 'Prompts',
+      href: promptsHref,
+      icon: Radar,
+    },
+  ];
 
-    setShortcutKeys(isMac ? ['⌘', 'J'] : ['Ctrl', 'J']);
-  }, []);
+  const actionItems = [
+    {
+      title: 'Skills',
+      href: skillsHref,
+      icon: Hand,
+    },
+    {
+      title: 'Integrations',
+      href: integrationsHref,
+      icon: FingerprintPattern,
+    },
+  ];
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -90,19 +123,19 @@ export function DashboardSidebar({ businessId }: DashboardSidebarProps) {
 
   return (
     <Sidebar collapsible="icon">
-      <SidebarHeader className="border-sidebar-border h-12 border-b px-2 group-data-[collapsible=icon]:items-center group-data-[collapsible=icon]:gap-2 group-data-[collapsible=icon]:px-0 group-data-[collapsible=icon]:py-2">
+      <SidebarHeader className="border-sidebar-border flex h-12 flex-row items-center gap-0 px-2 transition-[padding] duration-200 ease-linear group-data-[collapsible=icon]:px-1">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <button
               type="button"
-              className="hover:bg-sidebar-accent flex h-8 w-full min-w-0 items-center gap-3 rounded-md px-2 text-left transition-colors outline-none group-data-[collapsible=icon]:size-8 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:gap-0 group-data-[collapsible=icon]:p-0"
+              className="hover:bg-sidebar-accent flex h-8 w-36 min-w-0 items-center gap-3 overflow-hidden rounded-md px-2 text-left transition-[padding,background-color] duration-200 outline-none group-data-[collapsible=icon]:hidden group-data-[collapsible=icon]:px-1"
               aria-label={
                 business
                   ? `Switch business from ${business.name}`
                   : 'Switch business'
               }
             >
-              <Avatar className="size-6 rounded-md">
+              <Avatar className="size-6 shrink-0 rounded-md">
                 <AvatarImage
                   src={faviconUrl}
                   alt={
@@ -113,10 +146,10 @@ export function DashboardSidebar({ businessId }: DashboardSidebarProps) {
                   {business?.name.charAt(0).toUpperCase()}
                 </AvatarFallback>
               </Avatar>
-              <span className="text-foreground flex-1 truncate text-sm font-medium group-data-[collapsible=icon]:hidden">
+              <span className="text-foreground min-w-0 flex-1 truncate text-sm font-medium transition-opacity duration-200 group-data-[collapsible=icon]:opacity-0">
                 {business?.name}
               </span>
-              <ChevronDown className="text-foreground-lighter size-4 shrink-0 group-data-[collapsible=icon]:hidden" />
+              <ChevronDown className="text-foreground-lighter size-4 shrink-0 transition-opacity duration-200 group-data-[collapsible=icon]:opacity-0" />
             </button>
           </DropdownMenuTrigger>
 
@@ -133,8 +166,15 @@ export function DashboardSidebar({ businessId }: DashboardSidebarProps) {
               return (
                 <DropdownMenuItem key={item.id} asChild data-active={isActive}>
                   <Link
-                    href={paths.business.knowledge.getHref(item.id)}
+                    href={paths.business.knowledgeBase.getHref(item.id)}
                     className="flex w-full items-center gap-2"
+                    onNavigate={() => {
+                      if (!isActive) {
+                        void markLastAccessedBusiness(item.id).catch(
+                          () => undefined,
+                        );
+                      }
+                    }}
                   >
                     <span className="min-w-0 flex-1 truncate">{item.name}</span>
                   </Link>
@@ -143,85 +183,87 @@ export function DashboardSidebar({ businessId }: DashboardSidebarProps) {
             })}
           </DropdownMenuContent>
         </DropdownMenu>
+        <div className="ml-auto flex shrink-0 items-center">
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            className="size-8 group-data-[collapsible=icon]:hidden"
+            aria-label="Search"
+          >
+            <Search />
+          </Button>
+          <SidebarTrigger className="size-8" />
+        </div>
       </SidebarHeader>
 
-      <SidebarContent className="group-data-[collapsible=icon]:pt-2">
-        <div className="px-2 pt-2 group-data-[collapsible=icon]:px-0 group-data-[collapsible=icon]:pt-0">
-          <SidebarMenu className="group-data-[collapsible=icon]:items-center">
-            <SidebarMenuItem className="group-data-[collapsible=icon]:flex group-data-[collapsible=icon]:w-full group-data-[collapsible=icon]:justify-center">
-              <Button
-                asChild
-                variant="outline"
-                className="w-full justify-start group-data-[collapsible=icon]:size-8 group-data-[collapsible=icon]:w-auto group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0"
-              >
-                <Link
-                  href={chatHref}
-                  aria-current={pathname === chatHref}
-                  aria-keyshortcuts="Meta+J Control+J"
-                >
-                  <span className="flex min-w-0 items-center gap-1.5">
-                    <Plus className="size-4" />
-                    <span className="truncate group-data-[collapsible=icon]:hidden">
-                      New Chat
-                    </span>
-                  </span>
-                  <span className="ml-auto flex items-center gap-1 group-data-[collapsible=icon]:hidden">
-                    {shortcutKeys.map((key) => (
-                      <kbd
-                        key={key}
-                        className="text-muted-foreground bg-background rounded border px-1.5 py-0.5 text-[11px] leading-none"
-                      >
-                        {key}
-                      </kbd>
-                    ))}
-                  </span>
-                </Link>
-              </Button>
-            </SidebarMenuItem>
-          </SidebarMenu>
-        </div>
+      <SidebarContent className="pt-1.5">
+        <SidebarGroup>
+          <SidebarGroupLabel>Analytics</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {analyticsItems.map((item) => (
+                <SidebarMenuItem key={item.href}>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={pathname === item.href}
+                    tooltip={item.title}
+                  >
+                    <Link href={item.href}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
 
-        <Collapsible defaultOpen className="group/collapsible">
-          <SidebarGroup>
-            <SidebarGroupLabel asChild>
-              <CollapsibleTrigger className="text-foreground-lighter gap-1.5">
-                <ChevronRight className="transition-transform group-data-[state=open]/collapsible:rotate-90" />
-                <span>Workspace</span>
-              </CollapsibleTrigger>
-            </SidebarGroupLabel>
-            <CollapsibleContent>
-              <SidebarGroupContent>
-                <SidebarMenu className="group-data-[collapsible=icon]:items-center">
-                  {mainItems.map((item) => (
-                    <SidebarMenuItem
-                      key={item.href}
-                      className="group-data-[collapsible=icon]:flex group-data-[collapsible=icon]:w-full group-data-[collapsible=icon]:justify-center"
-                    >
-                      <SidebarMenuButton
-                        asChild
-                        isActive={pathname === item.href}
-                        tooltip={item.title}
-                        className="group-data-[collapsible=icon]:mx-auto"
-                      >
-                        <Link href={item.href}>
-                          <item.icon />
-                          <span>{item.title}</span>
-                        </Link>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  ))}
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </CollapsibleContent>
-          </SidebarGroup>
-        </Collapsible>
+        <SidebarGroup>
+          <SidebarGroupLabel>Actions</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {actionItems.map((item) => (
+                <SidebarMenuItem key={item.href}>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={pathname === item.href}
+                    tooltip={item.title}
+                  >
+                    <Link href={item.href}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup>
+          <SidebarGroupLabel>Context</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {contextItems.map((item) => (
+                <SidebarMenuItem key={item.href}>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={pathname === item.href}
+                    tooltip={item.title}
+                  >
+                    <Link href={item.href}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
       </SidebarContent>
-
-      <SidebarFooter className="group-data-[collapsible=icon]:items-center">
-        <div className="w-full">
-          <SidebarTrigger className="mr-auto size-8 group-data-[collapsible=icon]:mx-auto" />
-        </div>
-      </SidebarFooter>
     </Sidebar>
   );
 }

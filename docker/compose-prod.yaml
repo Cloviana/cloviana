@@ -1,6 +1,37 @@
-version: "3.9"
+x-urls: &urls
+  APP_URL: https://app.cloviana.com
+  API_URL: https://api.cloviana.com/api
+  WEB_INTERNAL_URL: http://web:3000
+
+x-next-public-urls: &next-public-urls
+  NEXT_PUBLIC_API_URL: https://api.cloviana.com/api
+  NEXT_PUBLIC_APP_URL: https://app.cloviana.com
 
 services:
+  api:
+    environment:
+      <<: *urls
+
+  worker:
+    environment:
+      <<: *urls
+
+  app:
+    build:
+      args:
+        <<: *next-public-urls
+    environment:
+      <<: *next-public-urls
+
+  web:
+    build:
+      args:
+        <<: *next-public-urls
+        NEXT_PUBLIC_WEB_URL: https://cloviana.com
+    environment:
+      <<: *next-public-urls
+      NEXT_PUBLIC_WEB_URL: https://cloviana.com
+
   nginx:
     image: nginx:alpine
     container_name: nginx

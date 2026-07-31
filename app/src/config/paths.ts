@@ -16,20 +16,40 @@ export const paths = {
     login: {
       getHref: (query?: Record<string, any>) => buildPath('/login', query),
     },
-
-    verifyEmail: {
-      getHref: (query?: Record<string, any>) =>
-        buildPath('/verify-email', query),
-    },
   },
 
   business: {
     getHref: (businessId?: string, query?: Record<string, any>) =>
       buildPath(businessId ? `/b/${businessId}` : '/b', query),
 
-    knowledge: {
+    knowledgeBase: {
       getHref: (businessId: string, query?: Record<string, any>) =>
-        buildPath(`/b/${businessId}/knowledge`, query),
+        buildPath(`/b/${businessId}/knowledge-base`, query),
+    },
+
+    prompts: {
+      getHref: (businessId: string, query?: Record<string, any>) =>
+        buildPath(`/b/${businessId}/prompts`, query),
+    },
+
+    skills: {
+      getHref: (businessId: string, query?: Record<string, any>) =>
+        buildPath(`/b/${businessId}/skills`, query),
+    },
+
+    integrations: {
+      getHref: (businessId: string, query?: Record<string, any>) =>
+        buildPath(`/b/${businessId}/integrations`, query),
+    },
+
+    brand: {
+      getHref: (businessId: string, query?: Record<string, any>) =>
+        buildPath(`/b/${businessId}/brand`, query),
+    },
+
+    competitors: {
+      getHref: (businessId: string, query?: Record<string, any>) =>
+        buildPath(`/b/${businessId}/competitors`, query),
     },
 
     chat: {

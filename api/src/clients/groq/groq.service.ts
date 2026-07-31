@@ -60,6 +60,10 @@ const backoffDelay = (attempt: number, baseMs = 1000, maxMs = 60000) => {
   return exp + Math.random() * exp;
 };
 
+function getErrorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : String(error);
+}
+
 async function withRetries<T>(
   fn: () => Promise<T>,
   { name, retries = 3 }: { name: string; retries?: number },
@@ -69,8 +73,10 @@ async function withRetries<T>(
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
       return await fn();
-    } catch (error: any) {
-      if (attempt === maxAttempts) throw error;
+    } catch (error: unknown) {
+      if (attempt === maxAttempts) {
+        throw error;
+      }
 
       const transient =
         error instanceof RateLimitError ||
@@ -91,10 +97,12 @@ async function withRetries<T>(
           transient
             ? `Rate-limit/network suspected, waiting ${Math.round(delay)}ms.`
             : "Retrying immediately."
-        } Error: ${error?.message ?? error}`,
+        } Error: ${getErrorMessage(error)}`,
       );
 
-      if (delay > 0) await sleep(delay);
+      if (delay > 0) {
+        await sleep(delay);
+      }
     }
   }
 
@@ -139,7 +147,7 @@ export class GroqService {
     return this.limit(() =>
       withRetries(
         async () => {
-          let completion;
+          let completion: ChatCompletion;
           try {
             completion = await this.client.chat.completions.create({
               ...request,
@@ -152,16 +160,21 @@ export class GroqService {
                 },
               },
             });
-          } catch (error: any) {
+          } catch (error: unknown) {
+            const errorMessage = getErrorMessage(error);
+            const errorCode =
+              typeof error === "object" && error !== null && "code" in error
+                ? error.code
+                : undefined;
             const isJsonSchemaUnsupported =
-              error?.message?.includes("does not support response format") ||
-              error?.message?.includes("json_schema") ||
-              error?.message?.includes("Failed to validate JSON") ||
-              error?.code === "json_validate_failed";
+              errorMessage.includes("does not support response format") ||
+              errorMessage.includes("json_schema") ||
+              errorMessage.includes("Failed to validate JSON") ||
+              errorCode === "json_validate_failed";
 
             if (isJsonSchemaUnsupported) {
               console.warn(
-                `[GroqService] Model ${request.model} failed with json_schema. Falling back to json_object.`
+                `[GroqService] Model ${request.model} failed with json_schema. Falling back to json_object.`,
               );
               completion = await this.client.chat.completions.create({
                 ...request,
@@ -251,7 +264,9 @@ export class GroqService {
     return current;
   }
 
-  private async parseBatchOutput(outputFileId: string): Promise<GroqBatchResult[]> {
+  private async parseBatchOutput(
+    outputFileId: string,
+  ): Promise<GroqBatchResult[]> {
     const fileContent = await this.client.files.content(outputFileId);
     const text = await fileContent.text();
 

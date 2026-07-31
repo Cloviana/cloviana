@@ -9,10 +9,26 @@ export const businessKeys = {
 
 export const documentKeys = {
   base: ['documents'] as const,
-  list: (businessId: string) =>
+  lists: (businessId: string) =>
     [...documentKeys.base, 'list', businessId] as const,
+  list: (businessId: string, folderId: string) =>
+    [...documentKeys.lists(businessId), folderId] as const,
+  details: (businessId: string) =>
+    [...documentKeys.base, 'detail', businessId] as const,
   detail: (businessId: string, documentId: string) =>
-    [...documentKeys.base, 'detail', businessId, documentId] as const,
+    [...documentKeys.details(businessId), documentId] as const,
+};
+
+export const folderKeys = {
+  base: ['folders'] as const,
+  list: (businessId: string) =>
+    [...folderKeys.base, 'list', businessId] as const,
+};
+
+export const competitorKeys = {
+  base: ['competitors'] as const,
+  list: (businessId: string) =>
+    [...competitorKeys.base, 'list', businessId] as const,
 };
 
 export const chatKeys = {
@@ -20,11 +36,4 @@ export const chatKeys = {
   list: (businessId: string) => [...chatKeys.base, 'list', businessId] as const,
   detail: (businessId: string, chatId: string) =>
     [...chatKeys.base, 'detail', businessId, chatId] as const,
-};
-
-export const jobKeys = {
-  base: ['jobs'] as const,
-  list: () => [...jobKeys.base, 'list'] as const,
-  detail: (jobId: string) => [...jobKeys.base, 'detail', jobId] as const,
-  status: (jobId: string) => [...jobKeys.base, 'status', jobId] as const,
 };

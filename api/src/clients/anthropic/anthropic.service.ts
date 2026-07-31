@@ -90,8 +90,12 @@ function extractCitations(blocks: (TextBlock | BetaTextBlock)[]): string[] {
     .filter((b) => b.type === "text")
     .flatMap((b) => b.citations ?? [])
     .map((c) => {
-      if (c.type === "web_search_result_location") return c.url;
-      if (c.type === "search_result_location") return c.source;
+      if (c.type === "web_search_result_location") {
+        return c.url;
+      }
+      if (c.type === "search_result_location") {
+        return c.source;
+      }
       return "";
     })
     .filter((url) => Boolean(url) && isUrl(url));
@@ -116,7 +120,9 @@ async function withRetries<T>(
     try {
       return await fn();
     } catch (error: unknown) {
-      if (attempt === maxAttempts) throw error;
+      if (attempt === maxAttempts) {
+        throw error;
+      }
 
       const transient = isTransientError(error);
       const providerDelay = transient
@@ -132,7 +138,9 @@ async function withRetries<T>(
         `Error: ${(error as Error)?.message ?? error}`,
       );
 
-      if (delay > 0) await sleep(delay);
+      if (delay > 0) {
+        await sleep(delay);
+      }
     }
   }
 
@@ -150,7 +158,9 @@ async function pollUntilEnded(
     await sleep(intervalMs);
     const { processing_status } =
       await client.beta.messages.batches.retrieve(batchId);
-    if (processing_status === "ended") return;
+    if (processing_status === "ended") {
+      return;
+    }
     if (Date.now() >= deadline) {
       throw new Error(
         `Anthropic batch ${batchId} did not end within ${maxWaitMs}ms`,

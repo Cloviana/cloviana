@@ -5,6 +5,7 @@ import pLimit from "p-limit";
 import pRetry, { AbortError } from "p-retry";
 import { firstValueFrom } from "rxjs";
 import {
+  AiOverviewItem,
   ChatGptLlmResponseResult,
   ChatGptLlmResponseTask,
   ChatGptScrapeResult,
@@ -17,6 +18,9 @@ import {
   ClaudeLlmResponseTasksReadyResult,
   CompetitorsDomainResult,
   CompetitorsDomainTask,
+  DataForSeoAiAnswer,
+  DataForSeoAiAnswerRequest,
+  DataForSeoAiSource,
   DataForSeoResponse,
   GeminiScrapeResult,
   GeminiScrapeTask,
@@ -35,6 +39,7 @@ import {
   KeywordOverviewTask,
   KeywordSuggestionsResult,
   KeywordSuggestionsTask,
+  LlmResponseResult,
   PerplexityLlmResponseResult,
   PerplexityLlmResponseTask,
   RelatedKeywordsResult,
@@ -43,6 +48,42 @@ import {
 } from "./dataforseo.types";
 
 const BASE_URL = "https://api.dataforseo.com/v3";
+const DEFAULT_AI_LOCATION_CODE = 2840;
+const DEFAULT_AI_LANGUAGE_CODE = "en";
+const DEFAULT_MAX_OUTPUT_TOKENS = 2_048;
+const DEFAULT_CLAUDE_MODEL = "claude-sonnet-4-6";
+const DEFAULT_PERPLEXITY_MODEL = "sonar";
+
+function requireFirstResult<T>(
+  response: DataForSeoResponse<T>,
+  fallbackMessage: string,
+): T {
+  const result = response.tasks?.[0]?.result?.[0];
+  if (!result) {
+    throw new Error(response.tasks?.[0]?.status_message ?? fallbackMessage);
+  }
+  return result;
+}
+
+function normalizeLlmAnswer(result: LlmResponseResult): DataForSeoAiAnswer {
+  const sections = (result.items ?? [])
+    .filter((item) => item.type === "message")
+    .flatMap((item) => item.sections ?? []);
+  const citations = sections.flatMap((section) =>
+    (section.annotations ?? []).map((source) => ({
+      url: source.url,
+      title: source.title ?? "",
+      excerpt: null,
+    })),
+  );
+
+  return {
+    content: sections.map((section) => section.text ?? "").join("\n\n"),
+    citations,
+    searchSources: citations,
+    fanOutQueries: result.fan_out_queries ?? [],
+  };
+}
 
 @Injectable()
 export class DataForSeoService {
@@ -54,6 +95,111 @@ export class DataForSeoService {
     private readonly http: HttpService,
     private readonly config: AppConfiguration,
   ) {}
+
+  async getAiAnswer({
+    engine,
+    prompt,
+    modelName,
+    maxOutputTokens = DEFAULT_MAX_OUTPUT_TOKENS,
+    locationCode = DEFAULT_AI_LOCATION_CODE,
+    languageCode = DEFAULT_AI_LANGUAGE_CODE,
+  }: DataForSeoAiAnswerRequest): Promise<DataForSeoAiAnswer> {
+    switch (engine) {
+      case "google-ai-overview": {
+        const result = requireFirstResult(
+          await this.getGoogleSerpAiOverview({
+            keyword: prompt,
+            language_code: languageCode,
+            location_code: locationCode,
+            load_async_ai_overview: true,
+          }),
+          "Google AI Overview response returned no result",
+        );
+        const overview = result.items?.find(
+          (item): item is AiOverviewItem => item.type === "ai_overview",
+        );
+        const citations: DataForSeoAiSource[] = (
+          overview?.references ?? []
+        ).map((source) => ({
+          url: source.url,
+          title: source.title ?? "",
+          excerpt: source.text ?? null,
+        }));
+
+        return {
+          content: overview?.markdown ?? "",
+          citations,
+          searchSources: citations,
+          fanOutQueries: [],
+        };
+      }
+
+      case "perplexity": {
+        const result = requireFirstResult(
+          await this.getPerplexityLlmResponse({
+            user_prompt: prompt,
+            model_name: modelName ?? DEFAULT_PERPLEXITY_MODEL,
+            max_output_tokens: maxOutputTokens,
+          }),
+          "Perplexity response returned no result",
+        );
+        return normalizeLlmAnswer(result);
+      }
+
+      case "claude": {
+        const result = requireFirstResult(
+          await this.getClaudeLlmResponse({
+            user_prompt: prompt,
+            model_name: modelName ?? DEFAULT_CLAUDE_MODEL,
+            max_output_tokens: maxOutputTokens,
+            web_search: true,
+            force_web_search: true,
+          }),
+          "Claude response returned no result",
+        );
+        return normalizeLlmAnswer(result);
+      }
+
+      case "chatgpt": {
+        const result = requireFirstResult(
+          await this.getChatGptScrape({
+            keyword: prompt,
+            language_code: languageCode,
+            location_code: locationCode,
+            force_web_search: true,
+          }),
+          "ChatGPT response returned no result",
+        );
+        const citations: DataForSeoAiSource[] = (result.sources ?? [])
+          .filter(
+            (source) =>
+              typeof source.url === "string" && source.url.trim().length > 0,
+          )
+          .map((source) => ({
+            url: source.url,
+            title: source.title ?? source.source_name ?? "",
+            excerpt: source.snippet ?? source.markdown ?? null,
+          }));
+        const searchSources: DataForSeoAiSource[] = (
+          result.search_results ?? []
+        ).map((source) => ({
+          url: source.url,
+          title: source.title ?? "",
+          excerpt: source.description ?? null,
+        }));
+
+        return {
+          content: result.markdown ?? "",
+          citations,
+          searchSources,
+          fanOutQueries: result.fan_out_queries ?? [],
+        };
+      }
+
+      default:
+        throw new Error(`Unsupported DataForSEO AI engine: ${engine}`);
+    }
+  }
 
   // --- DataForSEO Labs (Google keyword & competitor data) ---
 
@@ -109,7 +255,12 @@ export class DataForSeoService {
   ): Promise<DataForSeoResponse<GoogleSerpResult>> {
     return this.postWithRetry<GoogleSerpResult>(
       `${BASE_URL}/serp/google/organic/live/advanced`,
-      [{ ...task, load_async_ai_overview: task.load_async_ai_overview ?? true }],
+      [
+        {
+          ...task,
+          load_async_ai_overview: task.load_async_ai_overview ?? true,
+        },
+      ],
     );
   }
 
@@ -361,12 +512,15 @@ export class DataForSeoService {
       try {
         const { data } = await request();
         return data;
-      } catch (err: any) {
-        const status: number | undefined = err?.response?.status;
+      } catch (error: unknown) {
+        const responseStatus = (error as { response?: { status?: unknown } })
+          .response?.status;
+        const status =
+          typeof responseStatus === "number" ? responseStatus : undefined;
         if (status && status >= 400 && status < 500 && status !== 429) {
-          throw new AbortError(err);
+          throw new AbortError(error instanceof Error ? error : String(error));
         }
-        throw err;
+        throw error;
       }
     };
 

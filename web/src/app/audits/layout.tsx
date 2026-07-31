@@ -123,7 +123,7 @@ export default function AuditsLayout({ children }: { children: ReactNode }) {
         dangerouslySetInnerHTML={{ __html: faqSchema }}
       />
       <div className="bg-background relative flex min-h-screen flex-col">
-        <header className="sticky top-0 right-0 left-0 z-50">
+        <header className="sticky top-0 right-0 left-0 z-50 print:hidden">
           <Navbar />
         </header>
         <main className="relative flex-1 space-y-0">{children}</main>

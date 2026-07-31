@@ -29,30 +29,15 @@ export async function signInWithEmail(
       };
     }
 
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signInWithPassword({
       email: normalizedEmail,
       password,
     });
 
     if (error) {
-      if (error.code === 'email_not_confirmed') {
-        return {
-          success: false,
-          message: 'Confirm your email before signing in.',
-        };
-      }
-
       return {
         success: false,
         message: error.message || GENERIC_ERROR_MSG,
-      };
-    }
-
-    if (!data.user.email_confirmed_at) {
-      await supabase.auth.signOut();
-      return {
-        success: false,
-        message: 'Confirm your email before signing in.',
       };
     }
 

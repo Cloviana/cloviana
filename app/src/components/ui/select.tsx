@@ -39,7 +39,7 @@ const selectTriggerVariants = cva(
     variants: {
       variant: {
         default:
-          'border border-input bg-white focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50',
+          'border border-input bg-control focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50',
         ghost:
           'border border-transparent bg-transparent hover:bg-muted focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/30',
       },

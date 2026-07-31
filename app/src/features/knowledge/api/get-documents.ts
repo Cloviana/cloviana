@@ -2,22 +2,36 @@ import { queryOptions, useQuery } from '@tanstack/react-query';
 
 import { api } from '@/lib/api-client';
 import { documentKeys, QueryConfig } from '@/lib/react-query';
-import { fetchAccessToken } from '@/lib/supabase/fetch-access-token';
+import { getAuthHeaders } from '@/lib/supabase/get-auth-headers';
 import type { Document } from '@/types/api';
 
-export const getDocuments = async (businessId: string): Promise<Document[]> => {
-  const token = await fetchAccessToken();
-  if (!token) throw new Error('Access token is not available');
+export const getDocuments = async (
+  businessId: string,
+  folderId: string,
+): Promise<Document[]> => {
+  const headers = await getAuthHeaders();
   return api.get<Document[]>(`/businesses/${businessId}/documents`, {
-    headers: { Authorization: `Bearer ${token}` },
+    headers,
+    params: { folderId },
   });
 };
 
-export const getDocumentsQueryOptions = (businessId: string) =>
+export const getDocumentsQueryOptions = (
+  businessId: string,
+  folderId?: string,
+) =>
   queryOptions({
-    queryKey: documentKeys.list(businessId),
-    queryFn: () => getDocuments(businessId),
-    enabled: Boolean(businessId),
+    queryKey: documentKeys.list(businessId, folderId ?? ''),
+    queryFn: () =>
+      folderId ? getDocuments(businessId, folderId) : Promise.resolve([]),
+    enabled: Boolean(businessId && folderId),
+    refetchInterval: (query) =>
+      query.state.data?.some(
+        (document) =>
+          document.status === 'PENDING' || document.status === 'PROCESSING',
+      )
+        ? 2_500
+        : false,
   });
 
 type UseGetDocumentsOptions = {
@@ -26,9 +40,10 @@ type UseGetDocumentsOptions = {
 
 export const useGetDocuments = (
   businessId: string,
+  folderId?: string,
   { queryConfig }: UseGetDocumentsOptions = {},
 ) =>
   useQuery({
-    ...getDocumentsQueryOptions(businessId),
+    ...getDocumentsQueryOptions(businessId, folderId),
     ...queryConfig,
   });

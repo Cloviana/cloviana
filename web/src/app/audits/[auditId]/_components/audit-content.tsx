@@ -12,6 +12,7 @@ import {
   ContentSuggestions,
   Hero,
   Overview,
+  Prompts,
   Sentiment,
   Visibility,
 } from '.';
@@ -42,6 +43,7 @@ export const AuditContent = ({ auditSlug, initialData }: AuditContentProps) => {
           <Overview audit={audit} />
           <Sentiment audit={audit} />
           <Visibility audit={audit} />
+          <Prompts auditId={auditSlug} audit={audit} />
           <Citation audit={audit} />
           <ContentSuggestions auditId={auditSlug} audit={audit} />
           <FinalCta auditId={auditSlug} />

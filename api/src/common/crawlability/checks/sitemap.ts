@@ -30,7 +30,9 @@ export async function getSitemapSnapshot(
     const snapshot = await crawlSitemapTree(candidate);
     malformedSitemaps.push(...snapshot.malformedSitemaps);
 
-    if (snapshot.foundSitemaps.length === 0) continue;
+    if (snapshot.foundSitemaps.length === 0) {
+      continue;
+    }
 
     return {
       candidates,
@@ -109,11 +111,21 @@ export async function checkSitemap(
       (health) => health.status !== 200 || health.redirected,
     );
 
-    if (snapshot.malformedSitemaps.length > 0) issues.push("sitemap_malformed");
-    if (missingPages.length > 0) issues.push("sitemap_missing_key_pages");
-    if (missingLastmodPages.length > 0) issues.push("sitemap_missing_lastmod");
-    if (staleLastmodPages.length > 0) issues.push("sitemap_stale_lastmod");
-    if (unhealthyUrls.length > 0) issues.push("sitemap_url_health_failed");
+    if (snapshot.malformedSitemaps.length > 0) {
+      issues.push("sitemap_malformed");
+    }
+    if (missingPages.length > 0) {
+      issues.push("sitemap_missing_key_pages");
+    }
+    if (missingLastmodPages.length > 0) {
+      issues.push("sitemap_missing_lastmod");
+    }
+    if (staleLastmodPages.length > 0) {
+      issues.push("sitemap_stale_lastmod");
+    }
+    if (unhealthyUrls.length > 0) {
+      issues.push("sitemap_url_health_failed");
+    }
 
     return {
       check: "sitemap",

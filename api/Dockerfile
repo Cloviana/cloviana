@@ -14,6 +14,7 @@ ENV NODE_ENV=development
 ENV ENVIRONMENT=development
 COPY . .
 RUN pnpm install --offline
+RUN pnpm exec playwright install --with-deps chromium
 RUN pnpm db:generate
 EXPOSE 5000
 CMD ["pnpm", "start"]

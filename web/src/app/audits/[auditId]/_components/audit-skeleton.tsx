@@ -153,6 +153,23 @@ const CitationSkeleton = () => (
   </section>
 );
 
+const PromptsSkeleton = () => (
+  <section className="padding-global">
+    <div className="padding-section-medium container">
+      <SectionHeader />
+      <div className="flex flex-col">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <div key={i} className="flex items-center gap-2.5 border-b py-4">
+            <Skeleton className="h-5 flex-1" />
+            <Skeleton className="h-5 w-12 shrink-0" />
+            <Skeleton className="h-5 w-12 shrink-0" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
 const ContentSuggestionsSkeleton = () => (
   <section className="padding-global">
     <div className="padding-section-medium container">
@@ -191,6 +208,7 @@ export const AuditSkeleton = () => (
     <OverviewSkeleton />
     <VisibilitySkeleton />
     <SentimentSkeleton />
+    <PromptsSkeleton />
     <CitationSkeleton />
     <ContentSuggestionsSkeleton />
     <FinalCtaSkeleton />

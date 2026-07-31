@@ -1,16 +1,15 @@
 'use client';
 
-import { env } from '@/config/env';
-import { paths } from '@/config/paths';
 import { createClient } from '@/lib/supabase/client';
 
 import { checkAuthAccess } from '../api/check-auth-access';
 
-interface AuthResponse {
-  success: boolean;
-  message: string;
-  needsVerification?: boolean;
-}
+type AuthResponse =
+  | { success: true }
+  | {
+      success: false;
+      message: string;
+    };
 
 const GENERIC_ERROR_MSG =
   'The email address must be a valid email address and must not be in use by another user.';
@@ -36,9 +35,6 @@ export async function signUpWithEmail(
     const { data, error } = await supabase.auth.signUp({
       email: normalizedEmail,
       password,
-      options: {
-        emailRedirectTo: `${env.APP_URL}/api/auth/confirm?next=${encodeURIComponent(paths.business.getHref())}`,
-      },
     });
 
     if (error) {
@@ -48,20 +44,14 @@ export async function signUpWithEmail(
       };
     }
 
-    if (data.session) {
-      await supabase.auth.signOut();
+    if (!data.session) {
       return {
-        success: true,
-        message: 'Account created. Please sign in.',
-        needsVerification: false,
+        success: false,
+        message: 'A session could not be started. Please try signing in.',
       };
     }
 
-    return {
-      success: true,
-      message: 'Check your work inbox to confirm your email.',
-      needsVerification: true,
-    };
+    return { success: true };
   } catch (err) {
     return {
       success: false,

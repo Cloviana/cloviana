@@ -11,7 +11,7 @@ export async function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const isAuthRoute = ['/login', '/signup', '/verify-email'].some((route) =>
+  const isAuthRoute = ['/login', '/signup'].some((route) =>
     pathname.startsWith(route),
   );
   if (isAuthRoute) {
@@ -37,13 +37,11 @@ export async function proxy(request: NextRequest) {
     },
   );
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const { data } = await supabase.auth.getClaims();
 
-  const isConfirmed = Boolean(user?.email_confirmed_at);
+  const isAuthenticated = Boolean(data?.claims.sub);
 
-  if (!isConfirmed) {
+  if (!isAuthenticated) {
     const url = request.nextUrl.clone();
     url.pathname = '/login';
     return NextResponse.redirect(url);

@@ -18,7 +18,7 @@ type FinalCtaProps = {
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export const FinalCta = ({ className, auditId }: FinalCtaProps) => (
-  <section className={cn(className, 'padding-global')}>
+  <section className={cn(className, 'padding-global', 'print:hidden')}>
     <div className="padding-section-medium container flex flex-col items-center gap-4 md:flex-row md:items-center md:justify-between">
       <h2 className="text-center text-2xl md:text-left lg:text-3xl">
         Stop losing deals you never knew were on the table.

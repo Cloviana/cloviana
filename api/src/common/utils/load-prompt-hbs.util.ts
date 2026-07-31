@@ -27,7 +27,7 @@ async function listFilesRecursive(dir: string): Promise<string[]> {
 
 export async function loadPromptHbs(
   name: string,
-  data?: Record<string, any>,
+  data?: Record<string, unknown>,
   opts: LoadPromptOptions = {},
 ): Promise<string> {
   const baseDir = opts.baseDir ?? path.resolve(__dirname, "..", "prompts");

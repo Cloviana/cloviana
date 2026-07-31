@@ -2,13 +2,14 @@ import "dotenv/config";
 import { GroqService } from "@/clients/groq/groq.service";
 import { AppConfiguration } from "@/config/app.configuration";
 import { DataForSeoService } from "@/integrations/dataforseo/dataforseo.service";
-import { monitoringGraph } from "@/workflows/monitoring/monitoring.graph";
-import type { MonitoringState } from "@/workflows/monitoring/monitoring.state";
-import { computePromptMetrics } from "@/workflows/monitoring/metrics/monitoring-metric-calculator";
+import { MonitoringAnalysisService } from "@/modules/monitoring/background/workflows/monitoring/monitoring-analysis.service";
+import { MonitoringEngineService } from "@/modules/monitoring/background/workflows/monitoring/monitoring-engine.service";
+import { computePromptMetrics } from "@/modules/monitoring/background/workflows/monitoring/monitoring.metrics";
+import type { MonitoringRunInput } from "@/modules/monitoring/background/workflows/monitoring/monitoring.types";
 import { HttpService } from "@nestjs/axios";
 import axios from "axios";
 
-const input: MonitoringState = {
+const input: MonitoringRunInput = {
   businessId: "rexi-finance",
   prompts: [
     {
@@ -26,18 +27,8 @@ const input: MonitoringState = {
   profile: {
     domain: "rexi.finance",
     name: "Rexi",
-    category: "AI-powered reconciliation infrastructure",
-    description:
-      "Rexi is an AI-native financial reconciliation and FinOps automation platform for fintechs, neobanks, payment companies, and regulated financial operations teams. It unifies transaction sources, creates a reconciled source of truth, automates matching and exception handling, and gives finance and ops teams auditable control without relying on spreadsheets, brittle scripts, or engineering for every workflow change.",
-    icp: "Scaling fintechs, neobanks, payment companies, PSPs, PayFacs, marketplaces, and finance or FinOps teams with high transaction volume, multi-source reconciliation complexity, audit pressure, revenue leakage risk, and a need to scale operations without adding headcount.",
   },
   date: new Date(),
-  rawEngineResponses: [],
-  responseMentions: [],
-  fanOutInferences: [],
-  engineResponses: [],
-  engineFailures: [],
-  promptMetrics: [],
 };
 
 function requireEnv(name: string): string {
@@ -56,57 +47,32 @@ function getConfig(): AppConfiguration {
   });
 }
 
-function isState(value: unknown): value is MonitoringState {
-  return (
-    typeof value === "object" &&
-    value !== null &&
-    "engineResponses" in value &&
-    "engineFailures" in value &&
-    "promptMetrics" in value
-  );
-}
-
 async function main() {
   const config = getConfig();
+  const dataForSeoService = new DataForSeoService(
+    new HttpService(axios),
+    config,
+  );
+  const engineService = new MonitoringEngineService(dataForSeoService);
+  const analysisService = new MonitoringAnalysisService(
+    new GroqService(config),
+  );
 
   console.log("Running monitoring for:");
   console.log(JSON.stringify(input.prompts, null, 2));
 
-  const stream = monitoringGraph.streamEvents(input, {
-    version: "v2",
-    configurable: {
-      dataForSeo: new DataForSeoService(new HttpService(axios), config),
-      groq: new GroqService(config),
-      logger: undefined,
-    },
-  });
-
-  let result: MonitoringState | undefined;
-
-  for await (const event of stream) {
-    if (event.event === "on_chain_start" && event.name) {
-      console.log(`▶ ${event.name}`);
-    }
-
-    if (event.event === "on_chain_end" && event.name) {
-      console.log(`✓ ${event.name}`);
-
-      const output = event.data?.output;
-      if (isState(output)) {
-        result = output;
-      }
-    }
-  }
-
-  if (!result) {
-    throw new Error("Monitoring graph completed without a final state");
-  }
-  const promptMetrics = computePromptMetrics(result, result.engineResponses);
+  const { engineResponses, engineFailures } =
+    await engineService.executeEngines(input);
+  const analyzedResponses = await analysisService.enrichResponses(
+    input,
+    engineResponses,
+  );
+  const promptMetrics = computePromptMetrics(input, analyzedResponses);
 
   console.log("\nResponses:");
   console.log(
     JSON.stringify(
-      result.engineResponses.map((response) => ({
+      analyzedResponses.map((response) => ({
         engine: response.engine,
         promptId: response.promptId,
         content: response.content,
@@ -123,7 +89,7 @@ async function main() {
   console.log(JSON.stringify(promptMetrics, null, 2));
 
   console.log("\nFailures:");
-  console.log(JSON.stringify(result.engineFailures, null, 2));
+  console.log(JSON.stringify(engineFailures, null, 2));
 
   console.log(
     "\nBusiness metrics are computed from the persisted latest-response snapshot during workflow persistence.",

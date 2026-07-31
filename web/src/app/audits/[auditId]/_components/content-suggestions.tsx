@@ -116,7 +116,7 @@ export const ContentSuggestions = ({
 
           {/* CTA overlay */}
           {lockedCount > 0 && (
-            <div className="absolute right-0 bottom-0 left-0 flex h-32 items-center justify-center">
+            <div className="absolute right-0 bottom-0 left-0 flex h-32 items-center justify-center print:hidden">
               <Button
                 onClick={() =>
                   gaEvent('book_demo', {

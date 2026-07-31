@@ -3,7 +3,9 @@ import { Client } from "pg";
 
 async function main() {
   const conn = process.env.DATABASE_URL;
-  if (!conn) throw new Error("Missing DATABASE_URL");
+  if (!conn) {
+    throw new Error("Missing DATABASE_URL");
+  }
 
   const client = new Client({ connectionString: conn });
   await client.connect();

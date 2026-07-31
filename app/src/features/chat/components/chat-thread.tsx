@@ -75,13 +75,13 @@ const ResultRow = ({ item }: { item: ActionResultItem }) => {
           className="size-3.5 shrink-0 rounded-[3px] opacity-70"
         />
       ) : (
-        <FileTextIcon className="size-3.5 shrink-0 text-stone-400" />
+        <FileTextIcon className="text-foreground-lighter size-3.5 shrink-0" />
       )}
-      <span className="min-w-0 flex-1 truncate text-[13px] leading-6 font-normal text-stone-500">
+      <span className="text-foreground-light min-w-0 flex-1 truncate text-[13px] leading-6 font-normal">
         {item.title || item.source || 'Untitled'}
       </span>
       {item.source && (
-        <span className="max-w-[10rem] shrink-0 truncate text-[11px] font-medium text-stone-400">
+        <span className="text-foreground-lighter max-w-[10rem] shrink-0 truncate text-[11px] font-medium">
           {item.source}
         </span>
       )}
@@ -93,7 +93,7 @@ const ResultRow = ({ item }: { item: ActionResultItem }) => {
         href={item.url}
         target="_blank"
         rel="noreferrer"
-        className="block rounded-md transition-colors hover:bg-stone-100/70"
+        className="hover:bg-accent block rounded-md transition-colors"
       >
         {row}
       </a>
@@ -112,10 +112,13 @@ const TimelineReasoningGroup: NonNullable<
     <div className="relative flex items-start gap-3 py-1">
       <TimelineDot>
         <ClockFadingIcon
-          className={cn('size-3.5 text-stone-400', running && 'animate-pulse')}
+          className={cn(
+            'text-foreground-lighter size-3.5',
+            running && 'animate-pulse',
+          )}
         />
       </TimelineDot>
-      <div className="min-w-0 flex-1 text-[13px] leading-6 text-stone-500 italic">
+      <div className="text-foreground-light min-w-0 flex-1 text-[13px] leading-6 italic">
         {children}
       </div>
     </div>
@@ -162,22 +165,22 @@ const TimelineToolFallback: ToolCallMessagePartComponent = ({
         <TimelineDot>
           <Icon
             className={cn(
-              'size-3.5 text-stone-400',
+              'text-foreground-lighter size-3.5',
               running && 'animate-pulse',
             )}
           />
         </TimelineDot>
-        <span className="min-w-0 flex-1 truncate text-[13px] leading-6 text-stone-600">
+        <span className="text-foreground-light min-w-0 flex-1 truncate text-[13px] leading-6">
           {label}
         </span>
         {!running && !isFileTool && count !== undefined && (
-          <span className="shrink-0 text-[12px] text-stone-400 tabular-nums">
+          <span className="text-foreground-lighter shrink-0 text-[12px] tabular-nums">
             {count} result{count === 1 ? '' : 's'}
           </span>
         )}
       </div>
       {items.length > 0 && (
-        <div className="ms-7 overflow-hidden rounded-xl border border-stone-200/70 bg-white/90 shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)] backdrop-blur-md">
+        <div className="border-border bg-card ms-7 overflow-hidden rounded-xl border shadow-[inset_0_1px_2px_rgba(0,0,0,0.18)] backdrop-blur-md">
           {items.map((item, index) => (
             <ResultRow key={item.url ?? index} item={item} />
           ))}

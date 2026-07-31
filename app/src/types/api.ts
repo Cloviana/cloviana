@@ -38,6 +38,7 @@ export type Competitor = Entity<{
   businessId: ID;
   domain: string;
   name: string;
+  aliases: string[];
 }>;
 
 export type Business = Entity<{
@@ -101,11 +102,35 @@ export interface CursorPaginatedResponse<T> {
   meta: CursorPaginationMeta;
 }
 
-export type DocumentTag = 'business' | 'domain';
+export type DocumentStatus = 'PENDING' | 'PROCESSING' | 'READY';
+
+export type Folder = Entity<{
+  businessId: ID;
+  parentId: ID | null;
+  name: string;
+  position: number;
+  isDefault: boolean;
+  _count: {
+    children: number;
+    documents: number;
+  };
+}>;
 
 export type Document = Entity<{
   businessId: ID;
+  folderId: ID;
   name: string;
   extension: string;
-  tag: DocumentTag;
+  filename: string | null;
+  mimeType: string | null;
+  sizeBytes: number;
+  position: number;
+  status: DocumentStatus;
+  chunkCount: number | null;
+  indexedAt: ISODate | null;
+  folder: {
+    id: ID;
+    name: string;
+    parentId: ID | null;
+  };
 }>;

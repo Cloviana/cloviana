@@ -1,11 +1,15 @@
 'use client';
 
-import { LinkIcon } from 'lucide-react';
+import { Download } from 'lucide-react';
 import Link from 'next/link';
+import { useState } from 'react';
+import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/button';
 import { Leaderboard } from '@/components/ui/leaderboard';
 import { ShinyButton } from '@/components/ui/shiny-button';
+import { Spinner } from '@/components/ui/spinner';
+import { env } from '@/config/env';
 import { links } from '@/config/links';
 import { Audit } from '@/features/audit';
 import { gaEvent } from '@/lib/ga/client';
@@ -24,12 +28,42 @@ type HeroProps = {
 };
 
 export const Hero = ({ className, auditId, audit }: HeroProps) => {
+  const [downloading, setDownloading] = useState(false);
+
   const brand = audit.visibilityLeaderboard?.find(
     (b) => b.domain === audit.domain,
   );
   const rankLabel = brand
     ? `You rank ${ordinal(brand.position)}`
     : "You're not ranking";
+
+  // fetched as a blob rather than a plain <a download> so the button can show
+  // progress — PDF generation renders the page headlessly and takes seconds
+  const downloadPdf = async () => {
+    setDownloading(true);
+    gaEvent('download_pdf', { location: 'hero', audit_id: auditId });
+
+    try {
+      const response = await fetch(`${env.API_URL}/audits/${auditId}/pdf`);
+      if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+
+      const url = URL.createObjectURL(await response.blob());
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${audit.domain}-ai-visibility-audit.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      // revoking synchronously cancels the download before it starts
+      setTimeout(() => URL.revokeObjectURL(url), 10_000);
+    } catch {
+      toast.error("Couldn't generate your PDF", {
+        description: 'Please try again in a moment.',
+      });
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   return (
     <section className={cn(className, 'padding-global')}>
@@ -60,7 +94,7 @@ export const Hero = ({ className, auditId, audit }: HeroProps) => {
                 name — or your competitor's.
               </p>
             </div>
-            <div className="mt-6 flex flex-col items-stretch gap-4 md:flex-row md:items-center">
+            <div className="mt-6 flex flex-col items-stretch gap-4 md:flex-row md:items-center print:hidden">
               <ShinyButton>
                 <Button
                   asChild
@@ -79,12 +113,11 @@ export const Hero = ({ className, auditId, audit }: HeroProps) => {
               <Button
                 variant="ghost"
                 size="lg"
-                onClick={() =>
-                  navigator.clipboard.writeText(window.location.href)
-                }
+                onClick={downloadPdf}
+                disabled={downloading}
               >
-                <LinkIcon />
-                Copy report link
+                {downloading ? <Spinner /> : <Download />}
+                {downloading ? 'Preparing PDF…' : 'Download PDF'}
               </Button>
             </div>
           </div>

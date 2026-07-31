@@ -5,12 +5,9 @@ import { ScheduleModule } from "@nestjs/schedule";
 import * as Clients from "@/clients";
 import * as infrastructure from "@/infrastructure";
 import * as Integrations from "@/integrations";
-import { AuditsWorkerModule } from "@/modules/audits/audits.worker.module";
-import { BlogsWorkerModule } from "@/modules/blogs/blogs.worker.module";
-import { BusinessesWorkerModule } from "@/modules/businesses/businesses.worker.module";
-import { JobsModule } from "@/modules/jobs/jobs.module";
-import { KnowledgeWorkerModule } from "@/modules/knowledge/knowledge.worker.module";
-import { MonitoringWorkerModule } from "@/modules/monitoring/monitoring.worker.module";
+import { AuditsBackgroundModule } from "@/modules/audits/background/audits-background.module";
+import { KnowledgeBackgroundModule } from "@/modules/knowledge/background/knowledge-background.module";
+import { MonitoringBackgroundModule } from "@/modules/monitoring/background/monitoring-background.module";
 
 @Module({
   imports: [
@@ -19,12 +16,9 @@ import { MonitoringWorkerModule } from "@/modules/monitoring/monitoring.worker.m
     ...Object.values(Clients),
     ...Object.values(infrastructure),
     ...Object.values(Integrations),
-    JobsModule,
-    AuditsWorkerModule,
-    BlogsWorkerModule,
-    BusinessesWorkerModule,
-    KnowledgeWorkerModule,
-    MonitoringWorkerModule,
+    AuditsBackgroundModule,
+    KnowledgeBackgroundModule,
+    MonitoringBackgroundModule,
   ],
 })
 export class WorkerModule {}

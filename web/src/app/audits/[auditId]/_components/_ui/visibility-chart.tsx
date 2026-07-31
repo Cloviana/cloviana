@@ -77,7 +77,13 @@ export const VisibilityChart = ({ brandVisibility }: VisibilityChartProps) => {
                 <ChartTooltipContent {...props} hideLabel nameKey="engine" />
               )}
             />
-            <RadialBar dataKey="value" background={{ fill: 'hsl(0, 0%, 94%)' }}>
+            {/* no animation: labels only mount once it finishes, which the PDF
+                renderer would otherwise capture mid-flight */}
+            <RadialBar
+              dataKey="value"
+              background={{ fill: 'hsl(0, 0%, 94%)' }}
+              isAnimationActive={false}
+            >
               <LabelList
                 position="insideStart"
                 dataKey="engine"

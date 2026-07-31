@@ -6,12 +6,12 @@ import * as React from 'react';
 import { cn } from '@/utils/cn';
 
 const inputGroupVariants = cva(
-  'group/input-group file:text-foreground selection:bg-primary selection:text-primary-foreground border-input relative flex w-full min-w-0 rounded-lg border text-sm transition-[color,box-shadow] outline-none has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:opacity-50 focus-within:bg-secondary/10 focus-within:border-secondary focus-within:ring-ring/50 aria-invalid:bg-destructive/5 aria-invalid:ring-destructive/20 aria-invalid:border-destructive has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>textarea]:h-auto',
+  'group/input-group file:text-foreground selection:bg-primary selection:text-primary-foreground border-input relative flex w-full min-w-0 rounded-lg border text-sm transition-[color,box-shadow] outline-none has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:opacity-50 focus-within:border-ring focus-within:ring-ring/30 focus-within:ring-[3px] aria-invalid:bg-destructive/5 aria-invalid:ring-destructive/20 aria-invalid:border-destructive has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>textarea]:h-auto',
   {
     variants: {
       variant: {
         default:
-          'bg-white text-foreground border-input placeholder:text-foreground-lighter/70',
+          'bg-control text-foreground border-input placeholder:text-foreground-lighter/70',
       },
       size: {
         default: 'h-8 focus-within:ring-[3px]',

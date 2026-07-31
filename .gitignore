@@ -19,6 +19,8 @@ api/scripts/reports/*.md
 
 # Secrets
 .env
-.env.*
 !.env.example
 
+# Supabase CLI state
+supabase/.branches/
+supabase/.temp/

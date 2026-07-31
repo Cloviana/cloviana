@@ -5,7 +5,8 @@ import { cn } from '@/utils/cn';
 type DashboardPageLayoutProps = {
   children: ReactNode;
   header?: ReactNode;
-  content?: 'default' | 'centered';
+  content?: 'full' | 'default';
+  contentWidth?: 'constrained' | 'full';
   className?: string;
 };
 
@@ -20,12 +21,14 @@ export function DashboardPageLayout({
       {header}
       <main
         className={cn(
-          'flex min-h-0 flex-1 flex-col overflow-y-auto px-16 py-8',
-          content === 'centered' && 'items-center justify-center',
+          'flex min-h-0 flex-1 flex-col overflow-y-auto',
+          content === 'default' ? 'p-3' : 'w-full',
           className,
         )}
       >
-        {children}
+        <div className={cn('flex min-h-0 w-full flex-1 flex-col')}>
+          {children}
+        </div>
       </main>
     </div>
   );

@@ -12,6 +12,18 @@ type RequestOptions = {
   signal?: AbortSignal;
 };
 
+const SESSION_EXPIRED_PATH = '/api/auth/session-expired';
+
+async function redirectAfterUnauthorized(): Promise<never> {
+  if (typeof window !== 'undefined') {
+    window.location.replace(SESSION_EXPIRED_PATH);
+    return new Promise<never>(() => undefined);
+  }
+
+  const { redirect } = await import('next/navigation');
+  redirect(SESSION_EXPIRED_PATH);
+}
+
 function filterParams(
   params?: RequestOptions['params'],
 ): Record<string, any> | undefined {
@@ -62,8 +74,15 @@ async function axiosApi<T>(
     signal,
   };
 
-  const response = await axios.request<T>(config);
-  return response.data;
+  try {
+    const response = await axios.request<T>(config);
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error) && error.response?.status === 401) {
+      return redirectAfterUnauthorized();
+    }
+    throw error;
+  }
 }
 
 export const api = {

@@ -1,3 +1,31 @@
+export type DataForSeoAiEngine =
+  | "chatgpt"
+  | "claude"
+  | "perplexity"
+  | "google-ai-overview";
+
+export interface DataForSeoAiAnswerRequest {
+  engine: DataForSeoAiEngine;
+  prompt: string;
+  modelName?: string;
+  maxOutputTokens?: number;
+  locationCode?: number;
+  languageCode?: string;
+}
+
+export interface DataForSeoAiSource {
+  url: string;
+  title: string;
+  excerpt: string | null;
+}
+
+export interface DataForSeoAiAnswer {
+  content: string;
+  citations: DataForSeoAiSource[];
+  searchSources: DataForSeoAiSource[];
+  fanOutQueries: string[];
+}
+
 export interface RelatedKeywordsTask {
   keyword: string;
   location_name?: string;

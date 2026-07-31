@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools==81.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent"
+version = "1.0.0"
+description = "Tenant-isolated, headless AI agent service"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "anthropic>=0.75",
+  "deepagents>=0.6.0",
+  "fastapi==0.133.1",
+  "httpx==0.28.1",
+  "langchain>=1.3.0",
+  "langchain-core>=1.4.0",
+  "langchain-openai>=1.0.0",
+  "langgraph>=1.2.0",
+  "langgraph-checkpoint-postgres>=3.1.0",
+  "mcp>=1.20",
+  "openai>=2.26.0",
+  # Bare psycopg (pulled in by langgraph-checkpoint-postgres) needs the system
+  # libpq library, which python:3.11-slim doesn't have; [binary] bundles it.
+  "psycopg[binary]>=3.3",
+  "pybars3==0.9.7",
+  "pydantic==2.13.4",
+  "pydantic-settings>=2.14.0",
+  "pypdf==6.1.3",
+  "uvicorn==0.41.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "watchfiles",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["agent", "agent.*"]
+
+[tool.setuptools.package-data]
+agent = [
+  "agents/prompts/*.md",
+  "skills/*/*.md",
+]

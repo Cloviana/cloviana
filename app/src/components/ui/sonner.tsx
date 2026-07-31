@@ -19,12 +19,12 @@ const Toaster = ({ ...props }: ToasterProps) => {
       className="toaster group"
       icons={{
         success: (
-          <div className="flex size-4 items-center justify-center rounded-full bg-green-700">
-            <Check className="size-2 text-white" strokeWidth={4} />
+          <div className="bg-success flex size-4 items-center justify-center rounded-full">
+            <Check className="text-background size-2" strokeWidth={4} />
           </div>
         ),
         info: <InfoIcon className="size-4" />,
-        warning: <TriangleAlertIcon className="size-4 text-amber-700" />,
+        warning: <TriangleAlertIcon className="text-warning size-4" />,
         error: <OctagonXIcon className="size-4" />,
         loading: <Loader2Icon className="size-4 animate-spin" />,
       }}
@@ -42,22 +42,22 @@ const Toaster = ({ ...props }: ToasterProps) => {
       cn-toast
       group/toast
       shadow-none!
-      data-[type=success]:border-green-600!
-      data-[type=success]:bg-green-50!
-      data-[type=warning]:border-amber-500!
-      data-[type=warning]:bg-amber-50!
-      data-[type=error]:border-red-600!
-      data-[type=error]:bg-red-50!
+      data-[type=success]:border-success-border!
+      data-[type=success]:bg-success-surface!
+      data-[type=warning]:border-warning-border!
+      data-[type=warning]:bg-warning-surface!
+      data-[type=error]:border-destructive!
+      data-[type=error]:bg-destructive/10!
     `,
           title: `
-      group-data-[type=success]/toast:text-green-800!
-      group-data-[type=warning]/toast:text-amber-800!
-      group-data-[type=error]/toast:text-red-800!
+      group-data-[type=success]/toast:text-success-foreground!
+      group-data-[type=warning]/toast:text-warning-foreground!
+      group-data-[type=error]/toast:text-destructive!
     `,
           description: `
-      group-data-[type=success]/toast:text-green-800/90!
-      group-data-[type=warning]/toast:text-amber-700/90!
-      group-data-[type=error]/toast:text-red-800/90!
+      group-data-[type=success]/toast:text-success-foreground/90!
+      group-data-[type=warning]/toast:text-warning-foreground/90!
+      group-data-[type=error]/toast:text-destructive/90!
     `,
         },
       }}

@@ -1,24 +1,45 @@
-import { MonitoringProducer } from "@/infrastructure/messaging/producers/monitoring.producer";
-import { ManagedJobsService } from "@/modules/jobs/services/managed-jobs.service";
-import {
-  buildMonitoringJobDedupeKey,
-  startOfUtcDay,
-} from "@/workflows/monitoring/monitoring.job-key";
+import { createHash } from "node:crypto";
+import { PrismaService } from "@/clients/prisma/prisma.service";
+import { ManagedJobsService } from "@/modules/jobs/managed-jobs.service";
 import { Injectable, Logger } from "@nestjs/common";
-import { JobType } from "@prisma/client";
+import { JobType, PromptStatus } from "@prisma/client";
+import { MonitoringProducer } from "../background/queue/monitoring.producer";
 import { MonitoringEligibilityService } from "./monitoring-eligibility.service";
+
+function buildMonitoringDedupeKey(date: Date, promptIds: string[]): string {
+  const promptKey = [...new Set(promptIds)].sort().join(",");
+  const digest = createHash("sha256")
+    .update(promptKey)
+    .digest("hex")
+    .slice(0, 16);
+
+  return `monitoring:${date.toISOString().slice(0, 10)}:${digest}`;
+}
 
 @Injectable()
 export class MonitoringEnqueueService {
   private readonly logger = new Logger(MonitoringEnqueueService.name);
 
   constructor(
-    private readonly monitoringEligibility: MonitoringEligibilityService,
-    private readonly monitoringProducer: MonitoringProducer,
+    private readonly prisma: PrismaService,
+    private readonly eligibilityService: MonitoringEligibilityService,
+    private readonly producer: MonitoringProducer,
     private readonly managedJobs: ManagedJobsService,
   ) {}
 
-  async enqueue(
+  async enqueueActivePrompts(businessId: string) {
+    const activePrompts = await this.prisma.prompt.findMany({
+      where: { businessId, status: PromptStatus.ACTIVE },
+      select: { id: true },
+    });
+
+    return this.enqueueMonitoring(
+      businessId,
+      activePrompts.map((prompt) => prompt.id),
+    );
+  }
+
+  async enqueueMonitoring(
     businessId: string,
     promptIds: string[],
     requestedDate = new Date(),
@@ -28,9 +49,7 @@ export class MonitoringEnqueueService {
       return { jobId: null, enqueued: false, reason: "no_prompts" as const };
     }
 
-    if (
-      await this.monitoringEligibility.hasFreshActiveRunForBusiness(businessId)
-    ) {
+    if (await this.eligibilityService.hasActiveMonitoringJob(businessId)) {
       return {
         jobId: null,
         enqueued: false,
@@ -38,11 +57,12 @@ export class MonitoringEnqueueService {
       };
     }
 
-    const runDate = startOfUtcDay(requestedDate);
+    const runDate = new Date(requestedDate);
+    runDate.setUTCHours(0, 0, 0, 0);
     const reservation = await this.managedJobs.reserveJob({
       type: JobType.MONITORING,
       businessId,
-      dedupeKey: buildMonitoringJobDedupeKey(runDate, uniquePromptIds),
+      dedupeKey: buildMonitoringDedupeKey(runDate, uniquePromptIds),
       payload: {
         businessId,
         promptIds: uniquePromptIds,
@@ -58,7 +78,7 @@ export class MonitoringEnqueueService {
       };
     }
 
-    await this.monitoringProducer.runMonitoring({
+    await this.producer.enqueueMonitoringRun({
       jobId: reservation.jobId,
       businessId,
       promptIds: uniquePromptIds,

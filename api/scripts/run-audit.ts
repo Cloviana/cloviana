@@ -2,16 +2,17 @@ import "dotenv/config";
 import { AnthropicService } from "@/clients/anthropic/anthropic.service";
 import { GroqService } from "@/clients/groq/groq.service";
 import { OpenAIService } from "@/clients/openai/openai.service";
-import { PerplexityService } from "@/clients/perplexity/perplexity.service";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { ResendService } from "@/clients/resend/resend.service";
 import type { AppConfiguration } from "@/config/app.configuration";
 import { AppCacheService } from "@/infrastructure/cache/cache.service";
 import { DataForSeoService } from "@/integrations/dataforseo/dataforseo.service";
 import { ExaService } from "@/integrations/exa/exa.service";
-import { BusinessResearchService } from "@/modules/businesses/services/business-research.service";
-import { graph } from "@/workflows/audits/audit.graph";
-import type { StateType } from "@/workflows/audits/audit.state";
+import { AuditAnalysis } from "@/modules/audits/background/workflows/audit/audit.analysis";
+import { AuditEngines } from "@/modules/audits/background/workflows/audit/audit.engines";
+import { AuditPersistence } from "@/modules/audits/background/workflows/audit/audit.persistence";
+import { AuditWorkflow } from "@/modules/audits/background/workflows/audit/audit.workflow";
+import { BusinessResearchService } from "@/modules/businesses/research/business-research.service";
 import { HttpService } from "@nestjs/axios";
 import axios from "axios";
 
@@ -34,7 +35,6 @@ function getConfig(): AppConfiguration {
     exaApiKey: requireEnv("EXA_API_KEY"),
     groqApiKey: requireEnv("GROQ_API_KEY"),
     openaiApiKey: requireEnv("OPENAI_API_KEY"),
-    perplexityApiKey: requireEnv("PERPLEXITY_API_KEY"),
     resendApiKey: process.env.RESEND_API_KEY ?? "noop",
   } as AppConfiguration;
 }
@@ -83,7 +83,6 @@ async function main() {
   const anthropic = new AnthropicService(config);
   const groq = new GroqService(config);
   const openai = new OpenAIService(config);
-  const perplexity = new PerplexityService(config);
   const dataForSeo = new DataForSeoService(new HttpService(axios), config);
   const exa = new ExaService(config);
   const cache = new AppCacheService(createMemoryCache() as never);
@@ -105,101 +104,31 @@ async function main() {
       country,
     },
   });
-  const profile = await businessResearch.enrichProfile(domain);
-  const competitorDomains = await businessResearch.findCompetitors(domain, 30);
+  const auditWorkflow = new AuditWorkflow(
+    prisma,
+    businessResearch,
+    new AuditEngines(dataForSeo),
+    new AuditAnalysis(anthropic, groq),
+    new AuditPersistence(prisma, resend),
+  );
 
-  const input: StateType = {
-    auditId: audit.id,
-    email,
-    country,
-    profile: {
-      ...profile,
-      domain,
-    },
-    competitors: competitorDomains.map((competitor) => ({
-      id: competitor.domain,
-      domain: competitor.domain,
-      name: competitor.name,
-    })),
-    prompts: [],
-    engineResponses: [],
-    contentIdeas: [],
-    sentimentResult: {
-      positivePercent: 0,
-      negativePercent: 0,
-      claims: [],
-      responses: [],
-    },
-  };
-
-  console.log("Running audit graph:");
+  console.log("Running audit workflow:");
   console.log(
     JSON.stringify({
       auditId: audit.id,
       email,
       country,
-      profile: input.profile,
-      competitors: input.competitors,
+      domain,
     }),
   );
 
   try {
-    const stream = graph.streamEvents(input, {
-      version: "v2",
-      configurable: {
-        anthropic,
-        dataForSeo,
-        groq,
-        logger: undefined,
-        openai,
-        perplexity,
-        prisma,
-        resend,
-      },
-    });
-
-    let result: StateType | undefined;
-
-    for await (const event of stream) {
-      if (event.event === "on_chain_start" && event.name) {
-        console.log(`▶ ${event.name}`);
-      }
-
-      if (event.event === "on_chain_end" && event.name) {
-        console.log(`✓ ${event.name}`);
-
-        const output = event.data?.output;
-        if (
-          typeof output === "object" &&
-          output !== null &&
-          "engineResponses" in output
-        ) {
-          result = output as StateType;
-        }
-      }
-    }
-
-    if (!result) {
-      throw new Error("Audit graph completed without a final state");
-    }
+    await auditWorkflow.run(audit.id);
 
     const saved = await prisma.audit.findUniqueOrThrow({
       where: { id: audit.id },
     });
 
-    console.log("\nAudit graph summary:");
-    console.log(
-      JSON.stringify(
-        {
-          promptCount: result.prompts.length,
-          responseCount: result.engineResponses.length,
-          contentIdeaCount: result.contentIdeas.length,
-          sentimentClaimCount: result.sentimentResult.claims.length,
-        },
-        null,
-        2,
-      ),
-    );
     console.log("\nPersisted report fields:");
     console.log(
       JSON.stringify(

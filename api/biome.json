@@ -14,14 +14,16 @@
         "noStaticOnlyClass": "off"
       },
       "correctness": {
-        "useArrayLiterals": "off"
+        "noUnusedImports": "error",
+        "noUnusedVariables": "error",
+        "useArrayLiterals": "error"
       },
       "style": {
-        "useBlockStatements": "off",
+        "useBlockStatements": "error",
         "useImportType": "off"
       },
       "suspicious": {
-        "noExplicitAny": "off"
+        "noExplicitAny": "error"
       }
     }
   },

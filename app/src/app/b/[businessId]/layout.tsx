@@ -3,7 +3,6 @@ import { ReactNode } from 'react';
 
 import { paths } from '@/config/paths';
 import { getBusinessQueryOptions } from '@/features/businesses/api/get-business';
-import { BusinessAccessTracker } from '@/features/businesses/components/business-access-tracker';
 import { getQueryClient } from '@/lib/react-query/server';
 
 interface LayoutProps {
@@ -25,10 +24,5 @@ export default async function Layout({ children, params }: LayoutProps) {
     redirect(paths.business.getHref());
   }
 
-  return (
-    <>
-      <BusinessAccessTracker businessId={businessId} />
-      {children}
-    </>
-  );
+  return children;
 }

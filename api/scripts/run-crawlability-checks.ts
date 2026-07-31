@@ -3,11 +3,9 @@ import {
   type CrawlabilityFinding,
   buildFindings,
   checkHtmlContent,
-  checkPageSpeed,
   checkRobots,
   checkSitemap,
 } from "@/common/crawlability";
-import { AppConfiguration } from "@/config/app.configuration";
 
 const domain = "https://rexi.finance";
 
@@ -15,21 +13,6 @@ const keyPages = [
   "https://rexi.finance/",
   "https://rexi.finance/blog/speed-as-a-time-bomb.html",
 ];
-
-function requireEnv(name: string): string {
-  const value = process.env[name];
-  if (!value) {
-    throw new Error(`${name} is required`);
-  }
-
-  return value;
-}
-
-function getConfig(): AppConfiguration {
-  return Object.assign(new AppConfiguration(), {
-    googlePagespeedApiKey: requireEnv("GOOGLE_PAGESPEED_API_KEY"),
-  });
-}
 
 function severityRank(finding: CrawlabilityFinding): number {
   switch (finding.severity) {
@@ -66,8 +49,6 @@ function printFindings(findings: CrawlabilityFinding[]) {
 }
 
 async function main() {
-  const config = getConfig();
-
   console.log("Running crawlability checks:");
   console.log(JSON.stringify({ domain, keyPages }, null, 2));
 
@@ -78,15 +59,7 @@ async function main() {
     keyPages,
     robotsResult.raw.sitemapUrls,
   );
-  const pageSpeedResults = await Promise.all(
-    keyPages.map((url) => checkPageSpeed(url, config.googlePagespeedApiKey)),
-  );
-  const results = [
-    ...htmlContentResults,
-    robotsResult,
-    sitemapResult,
-    ...pageSpeedResults,
-  ];
+  const results = [...htmlContentResults, robotsResult, sitemapResult];
   const findings = buildFindings(results);
 
   console.log("");
