@@ -4,7 +4,6 @@ import { getLinkAttributes } from '@platejs/link';
 import type { TLinkElement } from 'platejs';
 import type { PlateElementProps } from 'platejs/react';
 import { PlateElement } from 'platejs/react';
-import * as React from 'react';
 
 import { inlineSuggestionVariants } from '@/lib/suggestion';
 import { cn } from '@/utils/cn';

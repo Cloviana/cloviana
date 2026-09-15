@@ -1,3 +1,5 @@
+export {};
+
 if (process.env.NODE_ENV === 'development') {
   try {
     const { worker } = await import('@/mocks/browser');

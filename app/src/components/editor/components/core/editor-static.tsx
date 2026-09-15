@@ -1,7 +1,6 @@
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 import { type PlateStaticProps, PlateStatic } from 'platejs/static';
-import * as React from 'react';
 
 import { cn } from '@/utils/cn';
 

@@ -14,7 +14,6 @@ import {
 } from 'lucide-react';
 import { KEYS } from 'platejs';
 import { useEditorReadOnly } from 'platejs/react';
-import * as React from 'react';
 
 import { AIToolbarButton } from '../ai/ai-toolbar-button';
 import { CommentToolbarButton } from '../collaboration/comment-toolbar-button';

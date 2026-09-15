@@ -1987,10 +1987,7 @@ export function Filters<T = unknown>({
                                 {field.icon}
                                 <span>{field.label}</span>
                               </DropdownMenuSubTrigger>
-                              <DropdownMenuSubContent
-                                className="w-[200px]"
-                                side="right"
-                              >
+                              <DropdownMenuSubContent className="w-[200px]">
                                 <FilterSubmenuContent
                                   field={field}
                                   currentValues={currentValues}

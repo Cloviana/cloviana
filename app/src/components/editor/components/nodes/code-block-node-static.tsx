@@ -5,7 +5,6 @@ import {
   SlateElement,
   SlateLeaf,
 } from 'platejs/static';
-import * as React from 'react';
 
 type CodeBlockElementStaticProps = SlateElementProps<TCodeBlockElement> & {
   showLanguageLabel?: boolean;

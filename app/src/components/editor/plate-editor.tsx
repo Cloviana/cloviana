@@ -2,7 +2,6 @@
 
 import { normalizeStaticValue } from 'platejs';
 import { Plate, usePlateEditor } from 'platejs/react';
-import * as React from 'react';
 
 import {
   Editor,

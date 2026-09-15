@@ -3,7 +3,6 @@ import type { TFileElement } from 'platejs';
 import type { TSuggestionData } from 'platejs';
 import type { SlateElementProps } from 'platejs/static';
 import { SlateElement } from 'platejs/static';
-import * as React from 'react';
 
 import { cn } from '@/utils/cn';
 
