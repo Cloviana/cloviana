@@ -19,7 +19,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
       className="toaster group"
       icons={{
         success: (
-          <div className="bg-success flex size-4 items-center justify-center rounded-full">
+          <div className="bg-success-accent flex size-4 items-center justify-center rounded-full">
             <Check className="text-background size-2" strokeWidth={4} />
           </div>
         ),
@@ -42,7 +42,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
       cn-toast
       group/toast
       shadow-none!
-      data-[type=success]:border-success-border!
+      data-[type=success]:border-success-accent!
       data-[type=success]:bg-success-surface!
       data-[type=warning]:border-warning-border!
       data-[type=warning]:bg-warning-surface!

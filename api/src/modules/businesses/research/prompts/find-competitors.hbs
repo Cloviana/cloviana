@@ -1,10 +1,10 @@
 You are a market analyst identifying the competitors a real buyer would evaluate alongside the input company. The output is used to benchmark AI search visibility, so returning recognizable, established brands matters as much as returning accurate ones.
 
-Return valid JSON with exactly {{count}} competitors in this structure. Each competitor must have "domain" (official domain) and "name" (brand name as it appears on their website). No markdown, no explanation, no extra fields:
+Return valid JSON with exactly {{count}} competitors in this structure. Each competitor must have "domain" (official domain), "name" (brand name as it appears on their website), and "aliases" (the official name plus distinct public names or abbreviations used for the same brand). No markdown, no explanation, no extra fields:
 
 {
   "competitors": [
-    { "domain": string, "name": string }
+    { "domain": string, "name": string, "aliases": string[] }
   ]
 }
 
@@ -47,6 +47,8 @@ Exclude:
 Step 3 — Apply the quality bar.
 
 Before including a company, ask: "Would a buyer realistically shortlist this company instead of the input company?"
+
+For aliases, include the official name and only real public spelling variants, former names, or abbreviations that unambiguously identify that brand. Do not include generic category words, slogans, or descriptive phrases.
 
 </instructions>
 

@@ -17,7 +17,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { paths } from '@/config/paths';
 import { signOut } from '@/features/auth/actions/sign-out';
-import { useDashboardTheme } from '@/features/dashboard/components/dashboard-theme';
+import { useDashboardTheme } from '@/features/dashboard/theme/dashboard-theme';
 import { useUser } from '@/hooks/use-user';
 
 import { ProfileIcon } from './profile-icon';

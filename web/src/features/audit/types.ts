@@ -1,4 +1,4 @@
-export type AuditJobStatus = 'PENDING' | 'RUNNING' | 'SUCCESS' | 'FAILED';
+export type WorkflowRunStatus = 'PENDING' | 'RUNNING' | 'SUCCESS' | 'FAILED';
 
 export type ContentType =
   | 'problem_solution'
@@ -77,7 +77,7 @@ export type Audit = {
   domain: string;
   country: string;
   brandName: string | null;
-  jobId: string | null;
+  workflowRunId: string | null;
   createdAt: string;
   updatedAt: string;
   visibilityLeaderboard: MentionedBrand[] | null;
@@ -87,5 +87,5 @@ export type Audit = {
   contentSuggestions: ContentIdea[] | null;
   brandVisibility: BrandVisibility | null;
   promptCoverage: AuditPromptCoverage[] | null;
-  job: { status: AuditJobStatus; error: string | null } | null;
+  workflowRun: { status: WorkflowRunStatus; error: string | null } | null;
 };

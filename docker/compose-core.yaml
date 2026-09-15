@@ -1,5 +1,20 @@
 name: cloviana
 
+x-api-env: &api-env
+  NODE_ENV: production
+  ENVIRONMENT: production
+  API_PORT: 5000
+  API_HOST: 0.0.0.0
+  REDIS_URL: redis://redis:6379
+  KNOWLEDGE_BASE_URL: http://knowledge-base:8080
+  INNGEST_DEV: "0"
+  INNGEST_BASE_URL: http://inngest:8288
+  INNGEST_CONNECT_GATEWAY_URL: ws://inngest:8289/v0/connect
+  INNGEST_EVENT_KEY: ${INNGEST_EVENT_KEY:-0123456789abcdef0123456789abcdef}
+  INNGEST_SIGNING_KEY: ${INNGEST_SIGNING_KEY:-abcdef0123456789abcdef0123456789}
+  INNGEST_APP_VERSION: ${TAG:-local}
+  INNGEST_MAX_WORKER_CONCURRENCY: ${INNGEST_MAX_WORKER_CONCURRENCY:-40}
+
 x-api-base: &api-base
   build:
     context: ../api
@@ -9,15 +24,9 @@ x-api-base: &api-base
   env_file:
     - .env
   environment:
-    NODE_ENV: production
-    ENVIRONMENT: production
-    API_PORT: 5000
-    API_HOST: 0.0.0.0
-    RABBITMQ_URI: amqp://guest:guest@rabbitmq:5672
-    REDIS_URL: redis://redis:6379
-    KNOWLEDGE_BASE_URL: http://knowledge-base:8080
+    <<: *api-env
   depends_on:
-    rabbitmq:
+    inngest:
       condition: service_healthy
     redis:
       condition: service_healthy
@@ -37,6 +46,8 @@ volumes:
   certbot-var:
     name: cloviana_certbot_var
   redis-data:
+  inngest-postgres-data:
+  inngest-redis-data:
   qdrant-data:
   knowledge-uploads:
 
@@ -47,21 +58,31 @@ services:
   api:
     <<: *api-base
     container_name: api
+    # memswap_limit == mem_limit disables swap for the container: without it
+    # Docker grants an equal amount of swap on top and a leaking container
+    # thrashes the host instead of dying cleanly.
+    mem_limit: 2g
+    memswap_limit: 2g
+    environment:
+      <<: *api-env
+      # Without this V8 sizes its heap against *host* RAM, sails past the
+      # cgroup limit and gets SIGKILLed with no stack trace. Keep it well
+      # under mem_limit — Inngest functions and PDF Chromiums share this budget.
+      NODE_OPTIONS: --max-old-space-size=1024
     healthcheck:
       test: ["CMD", "node", "-e", "require('http').get('http://localhost:5000/api/health',r=>process.exit(r.statusCode===200?0:1))"]
       interval: 10s
       timeout: 5s
       retries: 5
 
-  worker:
-    <<: *api-base
-    container_name: worker
-    command: ["node", "dist/worker.js"]
-
   qdrant:
     image: qdrant/qdrant:v1.12.4
     container_name: qdrant
     restart: unless-stopped
+    # Grows with the vector count — the first limit to revisit as the
+    # knowledge base fills up.
+    mem_limit: 512m
+    memswap_limit: 512m
     volumes:
       - qdrant-data:/qdrant/storage
     networks:
@@ -85,6 +106,8 @@ services:
       VOYAGE_API_KEY: ${VOYAGE_API_KEY:?VOYAGE_API_KEY is required}
     depends_on:
       - qdrant
+    mem_limit: 384m
+    memswap_limit: 384m
     networks:
       - appnet
 
@@ -119,9 +142,21 @@ services:
       NEXT_PUBLIC_SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
       NEXT_PUBLIC_GA4_ID: G-C4Z5BHM2R1
       SHADCNBLOCKS_API_KEY: sk_live_VUqEYAYbmOfoQE0oQgHRemcYL_ZgRq1R
+      NODE_OPTIONS: --max-old-space-size=512
     depends_on:
       - api
     restart: always
+    mem_limit: 640m
+    memswap_limit: 640m
+    # `next start` from .next/standalone is lean; dev overrides this upward
+    # because Turbopack is not. Any non-5xx counts as healthy — app's "/"
+    # redirects to login when signed out.
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://127.0.0.1:3000/',r=>process.exit(r.statusCode<500?0:1)).on('error',()=>process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
     networks:
       - appnet
 
@@ -139,32 +174,108 @@ services:
       NEXT_PUBLIC_GA4_ID: G-VSMD7B6WN1
       NEXT_PUBLIC_CLARITY_PROJECT_ID: w8oqyeitz6
       SHADCNBLOCKS_API_KEY: sk_live_VUqEYAYbmOfoQE0oQgHRemcYL_ZgRq1R
+      NODE_OPTIONS: --max-old-space-size=512
     image: ghcr.io/cloviana/web:latest
     container_name: web
     env_file:
       - .env
     restart: always
+    mem_limit: 640m
+    memswap_limit: 640m
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://127.0.0.1:3000/',r=>process.exit(r.statusCode<500?0:1)).on('error',()=>process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
     networks:
       - appnet
 
-  rabbitmq:
-    image: rabbitmq:3-management-alpine
-    container_name: rabbitmq
+  inngest:
+    image: inngest/inngest:v1.22.0
+    container_name: inngest
+    command: ["inngest", "start"]
     environment:
-      RABBITMQ_DEFAULT_USER: guest
-      RABBITMQ_DEFAULT_PASS: guest
+      INNGEST_EVENT_KEY: ${INNGEST_EVENT_KEY:-0123456789abcdef0123456789abcdef}
+      INNGEST_SIGNING_KEY: ${INNGEST_SIGNING_KEY:-abcdef0123456789abcdef0123456789}
+      INNGEST_POSTGRES_URI: postgresql://inngest:${INNGEST_POSTGRES_PASSWORD:-inngest}@inngest-postgres:5432/inngest
+      INNGEST_REDIS_URI: redis://inngest-redis:6379
+    depends_on:
+      inngest-postgres:
+        condition: service_healthy
+      inngest-redis:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8288:8288"
     healthcheck:
-      test: ["CMD", "rabbitmqctl", "status"]
-      interval: 10s
+      test: ["CMD", "inngest", "alpha", "doctor", "healthcheck"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+    mem_limit: 384m
+    memswap_limit: 384m
+    networks:
+      - appnet
+
+  inngest-postgres:
+    image: postgres:17-alpine
+    container_name: inngest-postgres
+    environment:
+      POSTGRES_DB: inngest
+      POSTGRES_USER: inngest
+      POSTGRES_PASSWORD: ${INNGEST_POSTGRES_PASSWORD:-inngest}
+    volumes:
+      - inngest-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U inngest -d inngest"]
+      interval: 5s
       timeout: 5s
       retries: 5
+    restart: unless-stopped
+    mem_limit: 384m
+    memswap_limit: 384m
+    networks:
+      - appnet
+
+  inngest-redis:
+    image: redis:7-alpine
+    container_name: inngest-redis
+    # Deliberately NO --maxmemory-policy here: this holds Inngest run state,
+    # not cache. Evicting keys would silently corrupt in-flight runs. The
+    # container limit is the guard instead.
+    command: ["redis-server", "--appendonly", "yes"]
+    mem_limit: 256m
+    memswap_limit: 256m
+    volumes:
+      - inngest-redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
     networks:
       - appnet
 
   redis:
     image: redis:7-alpine
     container_name: redis
-    command: ["redis-server", "--appendonly", "yes"]
+    # Application cache: eviction is the correct behaviour when full, so cap
+    # it rather than letting it grow into the host's memory.
+    command:
+      - redis-server
+      - --appendonly
+      - "yes"
+      - --maxmemory
+      - 192mb
+      - --maxmemory-policy
+      - allkeys-lru
+    # maxmemory covers the dataset only; the container needs headroom above it
+    # for buffers, COW during AOF rewrite, and the allocator.
+    mem_limit: 256m
+    memswap_limit: 256m
     volumes:
       - redis-data:/data
     healthcheck:

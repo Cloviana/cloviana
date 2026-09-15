@@ -1,34 +1,51 @@
-import type { ComponentProps, ReactNode } from 'react';
+import type { ComponentProps } from 'react';
 
 import { cn } from '@/utils/cn';
 
-type PageHeaderProps = {
-  title: ReactNode;
-  actions?: ReactNode;
-  children?: ReactNode;
-};
-
-export function PageHeader({ title, actions, children }: PageHeaderProps) {
+export function PageHeader({ className, ...props }: ComponentProps<'header'>) {
   return (
-    <header className="bg-surface shrink-0">
-      <PageHeaderRow className="h-12 justify-between gap-4">
-        <h1 className="text-base font-medium">{title}</h1>
-        {actions && (
-          <div className="flex shrink-0 items-center gap-2">{actions}</div>
-        )}
-      </PageHeaderRow>
-      {children}
-    </header>
+    <header
+      data-slot="page-header"
+      className={cn(
+        'bg-surface flex shrink-0 flex-col gap-y-3 py-3 has-data-[slot=tabs-list]:pb-0',
+        className,
+      )}
+      {...props}
+    />
   );
 }
 
-type PageHeaderRowProps = ComponentProps<'div'>;
-
-export function PageHeaderRow({ className, ...props }: PageHeaderRowProps) {
+export function PageHeaderRow({ className, ...props }: ComponentProps<'div'>) {
   return (
     <div
       data-slot="page-header-row"
-      className={cn('flex items-center px-3', className)}
+      className={cn(
+        'flex items-center px-3.5 has-data-[slot=breadcrumb]:min-h-[30px] has-data-[slot=page-header-title]:min-h-[30px]',
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+
+export function PageHeaderTitle({ className, ...props }: ComponentProps<'h1'>) {
+  return (
+    <h1
+      data-slot="page-header-title"
+      className={cn('text-base font-medium', className)}
+      {...props}
+    />
+  );
+}
+
+export function PageHeaderActions({
+  className,
+  ...props
+}: ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot="page-header-actions"
+      className={cn('flex shrink-0 items-center gap-2', className)}
       {...props}
     />
   );

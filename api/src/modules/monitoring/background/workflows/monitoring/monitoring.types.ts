@@ -1,13 +1,28 @@
-import type { AiEngine, PromptAwarenessStage } from "@prisma/client";
+import type {
+  AiEngine,
+  CitationDomainType,
+  CitationUrlType,
+  MetricEngine,
+  PromptAwarenessStage,
+} from "@prisma/client";
 
 export interface MonitoringCitation {
   url: string;
+  canonicalUrl: string;
   title: string;
   excerpt: string;
+  urlType: CitationUrlType | null;
+  domainType: CitationDomainType | null;
 }
+
+export type MonitoringCitationClassification = Pick<
+  MonitoringCitation,
+  "urlType" | "domainType"
+>;
 
 export interface MonitoringMention {
   domain: string;
+  position: number;
 }
 
 export interface MonitoringFanOutQuery {
@@ -15,21 +30,29 @@ export interface MonitoringFanOutQuery {
   inferred: boolean;
 }
 
+export interface MonitoringSentimentEvidence {
+  startOffset: number;
+  endOffset: number;
+}
+
+export interface MonitoringSentimentClaim {
+  /** Domain of the tracked brand this claim evaluates. */
+  brandDomain: string;
+  label: string;
+  sentiment: "POSITIVE" | "NEGATIVE";
+  evidences: MonitoringSentimentEvidence[];
+}
+
 export interface MonitoringEngineResponse {
   responseKey: string;
   engine: AiEngine;
   promptId: string;
   content: string;
+  webSearch: boolean;
   citations: MonitoringCitation[];
-  inferenceSources: MonitoringCitation[];
   mentions: MonitoringMention[];
   fanOutQueries: MonitoringFanOutQuery[];
-}
-
-export interface MonitoringEngineFailure {
-  engine: AiEngine;
-  promptId: string;
-  errorMessage: string;
+  sentimentClaims: MonitoringSentimentClaim[];
 }
 
 export interface MonitoringPrompt {
@@ -37,42 +60,71 @@ export interface MonitoringPrompt {
   text: string;
 }
 
-export interface MonitoringCompetitor {
+// One tracked brand: the business itself or one of its competitors. Both are
+// treated uniformly here — no more distinguishing "us" from "them" by id.
+export interface MonitoringBrand {
   id: string;
+  kind: "BUSINESS" | "COMPETITOR";
   domain: string;
   name: string;
+  aliases: string[];
 }
 
 export interface MonitoringRunInput {
   businessId: string;
   prompts: MonitoringPrompt[];
-  competitors: MonitoringCompetitor[];
-  profile: { name: string; domain: string };
+  brands: MonitoringBrand[];
   date: Date;
 }
 
+export interface SerializedMonitoringRunInput
+  extends Omit<MonitoringRunInput, "date"> {
+  dateIso: string;
+}
+
+export interface MonitoringRunEventData extends Record<string, unknown> {
+  workflowRunId: string;
+  businessId: string;
+  promptIds: string[];
+  runDateIso: string;
+}
+
+export interface MonitoringRunSummary {
+  date: string;
+  promptCount: number;
+  responseCount: number;
+  promptMetricCount: number;
+  businessMetricCount: number;
+}
+
 export interface ComputedPromptMetric {
+  businessId: string;
   promptId: string;
-  competitorId: string | null;
+  brandId: string;
   date: Date;
   mentionRate: number;
   citationShare: number;
-  sov: number;
+  shareOfVoice: number;
+  positiveClaimCount: number | null;
+  negativeClaimCount: number | null;
+  positiveSentimentShare: number | null;
 }
 
 export interface ComputedBusinessMetric {
   businessId: string;
-  competitorId: string | null;
-  engine: AiEngine | null;
+  brandId: string;
+  engine: MetricEngine;
   date: Date;
   mentionRate: number;
   citationShare: number;
-  sov: number;
+  shareOfVoice: number;
+  positiveClaimCount: number | null;
+  negativeClaimCount: number | null;
+  positiveSentimentShare: number | null;
 }
 
 export interface MonitoringRunResult extends MonitoringRunInput {
   engineResponses: MonitoringEngineResponse[];
-  engineFailures: MonitoringEngineFailure[];
   promptMetrics: ComputedPromptMetric[];
 }
 
@@ -80,6 +132,12 @@ export interface MonitoringMetricResponse {
   engine: AiEngine;
   promptId: string;
   citations: Pick<MonitoringCitation, "url" | "title">[];
-  mentions: MonitoringMention[];
+  mentions: Pick<MonitoringMention, "domain">[];
+  sentimentClaims: Array<
+    Pick<MonitoringSentimentClaim, "sentiment"> & {
+      // Null only for rows written before sentiment was analysed per brand.
+      brandDomain: string | null;
+    }
+  >;
   awarenessStage: PromptAwarenessStage;
 }

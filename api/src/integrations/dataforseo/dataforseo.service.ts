@@ -5,6 +5,13 @@ import pLimit from "p-limit";
 import pRetry, { AbortError } from "p-retry";
 import { firstValueFrom } from "rxjs";
 import {
+  appendCitationMarkers,
+  linkNumberedCitationMarkers,
+  rewriteInlineCitations,
+} from "./citation-markers.util";
+import {
+  AiKeywordSearchVolumeResult,
+  AiKeywordSearchVolumeTask,
   AiOverviewItem,
   ChatGptLlmResponseResult,
   ChatGptLlmResponseTask,
@@ -20,7 +27,6 @@ import {
   CompetitorsDomainTask,
   DataForSeoAiAnswer,
   DataForSeoAiAnswerRequest,
-  DataForSeoAiSource,
   DataForSeoResponse,
   GeminiScrapeResult,
   GeminiScrapeTask,
@@ -53,6 +59,7 @@ const DEFAULT_AI_LANGUAGE_CODE = "en";
 const DEFAULT_MAX_OUTPUT_TOKENS = 2_048;
 const DEFAULT_CLAUDE_MODEL = "claude-sonnet-4-6";
 const DEFAULT_PERPLEXITY_MODEL = "sonar";
+const DEFAULT_CHATGPT_MODEL = "gpt-5.6-luna";
 
 function requireFirstResult<T>(
   response: DataForSeoResponse<T>,
@@ -65,22 +72,54 @@ function requireFirstResult<T>(
   return result;
 }
 
-function normalizeLlmAnswer(result: LlmResponseResult): DataForSeoAiAnswer {
+/**
+ * Claude returns plain prose with its sources hanging off each section.
+ * Perplexity places numbered references such as `[1][2]` in the prose, with the
+ * numbers matching the section's annotations. Both are normalised to the same
+ * citation links every other engine produces.
+ */
+function normalizeLlmAnswer(
+  result: LlmResponseResult,
+  linkNumberedCitations = false,
+): DataForSeoAiAnswer {
   const sections = (result.items ?? [])
     .filter((item) => item.type === "message")
     .flatMap((item) => item.sections ?? []);
-  const citations = sections.flatMap((section) =>
-    (section.annotations ?? []).map((source) => ({
-      url: source.url,
-      title: source.title ?? "",
+
+  const titleByUrl = new Map<string, string>();
+  const blocks = sections.map((section) => {
+    const sources = (section.annotations ?? []).map((annotation) => ({
+      url: annotation.url,
+      title: annotation.title ?? "",
       excerpt: null,
-    })),
+    }));
+
+    for (const source of sources) {
+      if (!titleByUrl.has(source.url)) {
+        titleByUrl.set(source.url, source.title);
+      }
+    }
+
+    const text = section.text ?? "";
+    if (linkNumberedCitations) {
+      const linkedText = linkNumberedCitationMarkers(text, sources);
+      if (linkedText !== text) {
+        return linkedText;
+      }
+    }
+
+    return appendCitationMarkers(text, sources);
+  });
+
+  const { content, citations } = rewriteInlineCitations(
+    blocks.join("\n\n"),
+    titleByUrl,
   );
 
   return {
-    content: sections.map((section) => section.text ?? "").join("\n\n"),
+    content,
+    webSearch: result.web_search ?? true,
     citations,
-    searchSources: citations,
     fanOutQueries: result.fan_out_queries ?? [],
   };
 }
@@ -89,7 +128,7 @@ function normalizeLlmAnswer(result: LlmResponseResult): DataForSeoAiAnswer {
 export class DataForSeoService {
   // Same pattern as the other API clients: cap concurrent requests so bursts
   // queue here instead of triggering DataForSEO 429s.
-  private readonly limit = pLimit(4);
+  private readonly limit = pLimit(30);
 
   constructor(
     private readonly http: HttpService,
@@ -103,6 +142,7 @@ export class DataForSeoService {
     maxOutputTokens = DEFAULT_MAX_OUTPUT_TOKENS,
     locationCode = DEFAULT_AI_LOCATION_CODE,
     languageCode = DEFAULT_AI_LANGUAGE_CODE,
+    forceWebSearch = true,
   }: DataForSeoAiAnswerRequest): Promise<DataForSeoAiAnswer> {
     switch (engine) {
       case "google-ai-overview": {
@@ -118,18 +158,29 @@ export class DataForSeoService {
         const overview = result.items?.find(
           (item): item is AiOverviewItem => item.type === "ai_overview",
         );
-        const citations: DataForSeoAiSource[] = (
-          overview?.references ?? []
-        ).map((source) => ({
-          url: source.url,
-          title: source.title ?? "",
-          excerpt: source.text ?? null,
-        }));
+        // AI Overviews already place `[[1]](url)` markers in the markdown, so
+        // only the numbering is normalised. `references` supplies the titles
+        // and excerpts the markdown itself does not carry.
+        const referenceByUrl = new Map(
+          (overview?.references ?? []).map((source) => [source.url, source]),
+        );
+        const { content, citations } = rewriteInlineCitations(
+          overview?.markdown ?? "",
+          new Map(
+            [...referenceByUrl].map(([url, source]) => [
+              url,
+              source.title ?? "",
+            ]),
+          ),
+        );
 
         return {
-          content: overview?.markdown ?? "",
-          citations,
-          searchSources: citations,
+          content,
+          webSearch: true,
+          citations: citations.map((citation) => ({
+            ...citation,
+            excerpt: referenceByUrl.get(citation.url)?.text ?? null,
+          })),
           fanOutQueries: [],
         };
       }
@@ -143,7 +194,7 @@ export class DataForSeoService {
           }),
           "Perplexity response returned no result",
         );
-        return normalizeLlmAnswer(result);
+        return normalizeLlmAnswer(result, true);
       }
 
       case "claude": {
@@ -153,7 +204,7 @@ export class DataForSeoService {
             model_name: modelName ?? DEFAULT_CLAUDE_MODEL,
             max_output_tokens: maxOutputTokens,
             web_search: true,
-            force_web_search: true,
+            force_web_search: forceWebSearch,
           }),
           "Claude response returned no result",
         );
@@ -162,43 +213,32 @@ export class DataForSeoService {
 
       case "chatgpt": {
         const result = requireFirstResult(
-          await this.getChatGptScrape({
-            keyword: prompt,
-            language_code: languageCode,
-            location_code: locationCode,
-            force_web_search: true,
+          await this.getChatGptLlmResponse({
+            user_prompt: prompt,
+            model_name: modelName ?? DEFAULT_CHATGPT_MODEL,
+            max_output_tokens: maxOutputTokens,
+            web_search: true,
+            force_web_search: forceWebSearch,
           }),
           "ChatGPT response returned no result",
         );
-        const citations: DataForSeoAiSource[] = (result.sources ?? [])
-          .filter(
-            (source) =>
-              typeof source.url === "string" && source.url.trim().length > 0,
-          )
-          .map((source) => ({
-            url: source.url,
-            title: source.title ?? source.source_name ?? "",
-            excerpt: source.snippet ?? source.markdown ?? null,
-          }));
-        const searchSources: DataForSeoAiSource[] = (
-          result.search_results ?? []
-        ).map((source) => ({
-          url: source.url,
-          title: source.title ?? "",
-          excerpt: source.description ?? null,
-        }));
-
-        return {
-          content: result.markdown ?? "",
-          citations,
-          searchSources,
-          fanOutQueries: result.fan_out_queries ?? [],
-        };
+        return normalizeLlmAnswer(result);
       }
 
       default:
         throw new Error(`Unsupported DataForSEO AI engine: ${engine}`);
     }
+  }
+
+  // --- AI Optimization keyword data ---
+
+  async getAiKeywordSearchVolume(
+    task: AiKeywordSearchVolumeTask,
+  ): Promise<DataForSeoResponse<AiKeywordSearchVolumeResult>> {
+    return this.postWithRetry<AiKeywordSearchVolumeResult>(
+      `${BASE_URL}/ai_optimization/ai_keyword_data/keywords_search_volume/live`,
+      [task],
+    );
   }
 
   // --- DataForSEO Labs (Google keyword & competitor data) ---

@@ -1,10 +1,10 @@
 import { createHash } from "node:crypto";
 import { PrismaService } from "@/clients/prisma/prisma.service";
-import { ManagedJobsService } from "@/modules/jobs/managed-jobs.service";
+import { InngestService } from "@/infrastructure/inngest/inngest.service";
+import { WorkflowRunsService } from "@/modules/workflow-runs/workflow-runs.service";
 import { Injectable, Logger } from "@nestjs/common";
-import { JobType, PromptStatus } from "@prisma/client";
-import { MonitoringProducer } from "../background/queue/monitoring.producer";
-import { MonitoringEligibilityService } from "./monitoring-eligibility.service";
+import { PromptStatus, WorkflowRunType } from "@prisma/client";
+import { monitoringRunRequested } from "../background/workflows/monitoring/monitoring.events";
 
 function buildMonitoringDedupeKey(date: Date, promptIds: string[]): string {
   const promptKey = [...new Set(promptIds)].sort().join(",");
@@ -22,9 +22,8 @@ export class MonitoringEnqueueService {
 
   constructor(
     private readonly prisma: PrismaService,
-    private readonly eligibilityService: MonitoringEligibilityService,
-    private readonly producer: MonitoringProducer,
-    private readonly managedJobs: ManagedJobsService,
+    private readonly inngestService: InngestService,
+    private readonly workflowRuns: WorkflowRunsService,
   ) {}
 
   async enqueueActivePrompts(businessId: string) {
@@ -46,51 +45,55 @@ export class MonitoringEnqueueService {
   ) {
     const uniquePromptIds = Array.from(new Set(promptIds.filter(Boolean)));
     if (uniquePromptIds.length === 0) {
-      return { jobId: null, enqueued: false, reason: "no_prompts" as const };
-    }
-
-    if (await this.eligibilityService.hasActiveMonitoringJob(businessId)) {
       return {
-        jobId: null,
+        workflowRunId: null,
         enqueued: false,
-        reason: "fresh_active_run" as const,
+        reason: "no_prompts" as const,
       };
     }
 
     const runDate = new Date(requestedDate);
     runDate.setUTCHours(0, 0, 0, 0);
-    const reservation = await this.managedJobs.reserveJob({
-      type: JobType.MONITORING,
+    const reservation = await this.workflowRuns.reserveWorkflowRun({
+      type: WorkflowRunType.MONITORING,
       businessId,
       dedupeKey: buildMonitoringDedupeKey(runDate, uniquePromptIds),
-      payload: {
-        businessId,
-        promptIds: uniquePromptIds,
-        runDate: runDate.toISOString(),
-      },
     });
 
-    if (!reservation.shouldPublish) {
+    if (
+      reservation.reason === "already_succeeded" ||
+      reservation.reason === "already_running"
+    ) {
       return {
-        jobId: reservation.jobId,
+        workflowRunId: reservation.workflowRunId,
         enqueued: false,
         reason: reservation.reason,
       };
     }
 
-    await this.producer.enqueueMonitoringRun({
-      jobId: reservation.jobId,
-      businessId,
-      promptIds: uniquePromptIds,
-      runDateIso: runDate.toISOString(),
+    if (!reservation.eventId) {
+      throw new Error(
+        `Workflow run ${reservation.workflowRunId} is missing an Inngest event ID`,
+      );
+    }
+
+    await this.inngestService.send({
+      id: reservation.eventId,
+      name: monitoringRunRequested.name,
+      data: {
+        workflowRunId: reservation.workflowRunId,
+        businessId,
+        promptIds: uniquePromptIds,
+        runDateIso: runDate.toISOString(),
+      },
     });
 
     this.logger.log(
-      `Enqueued monitoring businessId=${businessId} jobId=${reservation.jobId} promptCount=${uniquePromptIds.length}`,
+      `Enqueued monitoring businessId=${businessId} workflowRunId=${reservation.workflowRunId} promptCount=${uniquePromptIds.length}`,
     );
 
     return {
-      jobId: reservation.jobId,
+      workflowRunId: reservation.workflowRunId,
       enqueued: true,
       reason: reservation.reason,
     };

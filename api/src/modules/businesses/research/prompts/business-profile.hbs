@@ -4,6 +4,7 @@ Return valid JSON only. No markdown, no commentary, no extra fields:
 
 {
   "name": string,
+  "aliases": string[],
   "description": string,
   "icp": string,
   "category": string
@@ -13,6 +14,10 @@ Return valid JSON only. No markdown, no commentary, no extra fields:
 
 <field name="name">
 The official brand or product name as displayed on the site. Include suffixes like ".io" or ".ai" only when the site uses them as part of the brand. Do not return the raw domain unless it is clearly the brand itself.
+</field>
+
+<field name="aliases">
+The official name plus other distinct public names or abbreviations that explicitly identify this same product or company. Include the official name. Only include names a reader could actually use in prose; do not include generic category words, slogans, or descriptive phrases.
 </field>
 
 <field name="description">

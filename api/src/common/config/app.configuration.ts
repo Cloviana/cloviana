@@ -73,10 +73,16 @@ export class AppConfiguration {
   readonly stripeWebhookSecret!: string;
 
   @IsString()
-  @Value("RABBITMQ_URI", {
-    parse: (value) => value || "amqp://guest:guest@rabbitmq:5672",
+  @Value("INNGEST_CONNECT_GATEWAY_URL", {
+    parse: (value) => value || "ws://inngest:8289/v0/connect",
   })
-  readonly rabbitmqUri!: string;
+  readonly inngestConnectGatewayUrl!: string;
+
+  @IsNumber()
+  @Value("INNGEST_MAX_WORKER_CONCURRENCY", {
+    parse: (value) => Number(value || 12),
+  })
+  readonly inngestMaxWorkerConcurrency!: number;
 
   @IsString()
   @Value("REDIS_URL", {

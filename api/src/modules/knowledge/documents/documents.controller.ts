@@ -15,7 +15,16 @@ import {
   Req,
   UseGuards,
 } from "@nestjs/common";
-import { IsInt, IsOptional, IsUUID, Min, isUUID } from "class-validator";
+import {
+  IsInt,
+  IsOptional,
+  IsString,
+  IsUUID,
+  MaxLength,
+  Min,
+  MinLength,
+  isUUID,
+} from "class-validator";
 import type { FastifyRequest } from "fastify";
 import type { DocumentUpload } from "../knowledge.types";
 import { DocumentsService } from "./documents.service";
@@ -29,6 +38,12 @@ const SUPPORTED_DOCUMENT_EXTENSIONS = new Set([
 ]);
 
 class UpdateDocumentDto {
+  @IsOptional()
+  @IsString()
+  @MinLength(1)
+  @MaxLength(255)
+  name?: string;
+
   @IsOptional()
   @IsUUID()
   folderId?: string;

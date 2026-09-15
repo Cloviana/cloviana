@@ -10,6 +10,14 @@ import {
 import { AppModule } from "@/app.module";
 import { AppConfiguration } from "@/common/config/app.configuration";
 import { AllExceptionsFilter } from "@/common/filters/all-exceptions.filter";
+import { inngest } from "@/infrastructure/inngest/inngest.client";
+import { AuditWorkflow } from "@/modules/audits/background/workflows/audit/audit.workflow";
+import { ContentTypeResearchWorkflow } from "@/modules/brand-kit/background/workflows/content-type-research/content-type-research.workflow";
+import { ProductResearchWorkflow } from "@/modules/brand-kit/background/workflows/product-research/product-research.workflow";
+import { KnowledgeWorkflow } from "@/modules/knowledge/background/workflows/knowledge/knowledge.workflow";
+import { MonitoringScheduler } from "@/modules/monitoring/background/schedulers/monitoring.scheduler";
+import { MonitoringWorkflow } from "@/modules/monitoring/background/workflows/monitoring/monitoring.workflow";
+import { connect } from "inngest/connect";
 import { SupabaseAuthGuard } from "./modules/auth/guards/supabase-auth.guards";
 
 async function bootstrap() {
@@ -65,6 +73,30 @@ async function bootstrap() {
   // Start HTTP server
   await app.listen(port, host);
   logger.log(`Listening on ${host}:${port}`);
+
+  const connection = await connect({
+    apps: [
+      {
+        client: inngest,
+        functions: [
+          app.get(AuditWorkflow).inngestFunction,
+          ...app.get(KnowledgeWorkflow).inngestFunctions,
+          app.get(MonitoringScheduler).inngestFunction,
+          app.get(MonitoringWorkflow).inngestFunction,
+          app.get(ContentTypeResearchWorkflow).inngestFunction,
+          app.get(ProductResearchWorkflow).inngestFunction,
+        ],
+      },
+    ],
+    gatewayUrl: app.get(AppConfiguration).inngestConnectGatewayUrl,
+    maxWorkerConcurrency: app.get(AppConfiguration).inngestMaxWorkerConcurrency,
+  });
+
+  logger.log(
+    `Connected to Inngest gateway ${app.get(AppConfiguration).inngestConnectGatewayUrl}`,
+  );
+  await connection.closed;
+  await app.close();
 }
 
 bootstrap();

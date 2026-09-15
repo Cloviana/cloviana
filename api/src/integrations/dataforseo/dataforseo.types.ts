@@ -11,6 +11,7 @@ export interface DataForSeoAiAnswerRequest {
   maxOutputTokens?: number;
   locationCode?: number;
   languageCode?: string;
+  forceWebSearch?: boolean;
 }
 
 export interface DataForSeoAiSource {
@@ -21,8 +22,8 @@ export interface DataForSeoAiSource {
 
 export interface DataForSeoAiAnswer {
   content: string;
+  webSearch: boolean;
   citations: DataForSeoAiSource[];
-  searchSources: DataForSeoAiSource[];
   fanOutQueries: string[];
 }
 
@@ -69,6 +70,36 @@ export interface DataForSeoTask<TTaskResult> {
   // Claude's llm_responses task_get puts fan_out_queries here (task level)
   // instead of inside result[0], unlike ChatGPT's scraper endpoint.
   fan_out_queries?: string[];
+}
+
+// --- AI Optimization keyword data ---
+
+export interface AiKeywordSearchVolumeTask {
+  keywords: string[];
+  location_name?: string;
+  location_code?: number;
+  language_name?: string;
+  language_code?: string;
+  tag?: string;
+}
+
+export interface AiKeywordMonthlySearch {
+  year: number;
+  month: number;
+  ai_search_volume: number;
+}
+
+export interface AiKeywordSearchVolumeItem {
+  keyword: string;
+  ai_search_volume: number;
+  ai_monthly_searches: AiKeywordMonthlySearch[];
+}
+
+export interface AiKeywordSearchVolumeResult {
+  location_code: number;
+  language_code: string;
+  items_count: number;
+  items: AiKeywordSearchVolumeItem[];
 }
 
 export interface RelatedKeywordsResult {

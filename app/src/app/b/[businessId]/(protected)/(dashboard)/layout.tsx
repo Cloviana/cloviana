@@ -7,8 +7,8 @@ import { getBusinessQueryOptions } from '@/features/businesses/api/get-business'
 import { getBusinessesQueryOptions } from '@/features/businesses/api/get-businesses';
 import { DashboardHeader } from '@/features/dashboard/components/dashboard-header';
 import { DashboardSidebar } from '@/features/dashboard/components/dashboard-sidebar';
-import { DashboardTheme } from '@/features/dashboard/components/dashboard-theme';
-import { DASHBOARD_THEME_COOKIE } from '@/features/dashboard/components/dashboard-theme-cookie';
+import { DashboardTheme } from '@/features/dashboard/theme/dashboard-theme';
+import { DASHBOARD_THEME_COOKIE } from '@/features/dashboard/theme/dashboard-theme-cookie';
 import { getQueryClient } from '@/lib/react-query/server';
 
 type LayoutProps = {

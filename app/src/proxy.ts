@@ -20,7 +20,7 @@ export async function proxy(request: NextRequest) {
   }
 
   // Prepare the response we’ll mutate with cookies
-  const res = NextResponse.next();
+  let res = NextResponse.next({ request });
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -29,6 +29,10 @@ export async function proxy(request: NextRequest) {
       cookies: {
         getAll: () => request.cookies.getAll(),
         setAll: (pairs: any[]) => {
+          pairs.forEach(({ name, value }) => {
+            request.cookies.set(name, value);
+          });
+          res = NextResponse.next({ request });
           pairs.forEach(({ name, value, options }) => {
             res.cookies.set(name, value, options);
           });

@@ -1,191 +1,119 @@
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import { GroqService } from "@/clients/groq/groq.service";
-import { loadPromptHbs } from "@/common/utils/load-prompt-hbs.util";
-import { z } from "zod";
-
-const MentionsSchema = z.object({
-  ids: z.array(z.string()),
-});
-
-export type Brand = { name: string; domain: string };
-
-export type MentionBatchItem = {
-  customId: string;
-  text: string;
+export type Brand = {
+  name: string;
+  domain: string;
+  aliases?: string[];
 };
 
-export type MentionBatchResult = {
-  customId: string;
-  domains: string[];
+export type ExtractedMention = {
+  domain: string;
+  position: number;
 };
 
-const BASE_DIR = path.resolve(
-  path.dirname(fileURLToPath(import.meta.url)),
-  "prompts",
-);
+type AliasMatch = {
+  domain: string;
+  index: number;
+  length: number;
+};
 
-function parseDomains(
-  content: string,
-  brandsById: Map<string, Brand>,
-): string[] {
-  const parsed = MentionsSchema.parse(JSON.parse(content));
-  return [...new Set(parsed.ids)]
-    .map((id) => brandsById.get(id)?.domain)
-    .filter((domain): domain is string => domain !== undefined);
+function normalizeAlias(alias: string): string {
+  return alias.trim().replace(/\s+/g, " ");
 }
 
-export async function extractMentions(
-  groq: GroqService,
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function aliasPattern(alias: string): RegExp {
+  const pattern = alias.split(" ").map(escapeRegExp).join("\\s+");
+  return new RegExp(`(?<![\\p{L}\\p{N}])${pattern}(?![\\p{L}\\p{N}])`, "giu");
+}
+
+function visibleText(markdown: string): string {
+  return markdown
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+    .replace(/<https?:\/\/[^>]+>/giu, " ")
+    .replace(/https?:\/\/[^\s)>\]]+/giu, " ")
+    .replace(/`[^`]*`/g, " ");
+}
+
+function overlaps(match: AliasMatch, accepted: AliasMatch[]): boolean {
+  const end = match.index + match.length;
+  return accepted.some((other) => {
+    const otherEnd = other.index + other.length;
+    return match.index < otherEnd && end > other.index;
+  });
+}
+
+export function extractMentions(
   text: string,
   brands: Brand[],
-): Promise<string[]> {
+): ExtractedMention[] {
   if (!text || brands.length === 0) {
     return [];
   }
 
-  const prompt = await loadPromptHbs(
-    "extract-mentions",
-    {},
-    { baseDir: BASE_DIR },
-  );
-  const brandsById = new Map<string, Brand>(
-    brands.map((brand, index) => [`brand-${index + 1}`, brand]),
-  );
+  const aliasOwners = new Map<
+    string,
+    { alias: string; domains: Set<string> }
+  >();
 
-  const result = await groq.parse({
-    name: "extract-mentions",
-    schema: MentionsSchema,
-    model: "openai/gpt-oss-120b",
-    temperature: 0,
-    messages: [
-      { role: "system", content: prompt },
-      {
-        role: "user",
-        content: JSON.stringify({
-          text,
-          brands: brands.map((brand, index) => ({
-            id: `brand-${index + 1}`,
-            name: brand.name,
-          })),
-        }),
-      },
-    ],
-  });
-
-  return [...new Set(result.ids)]
-    .map((id) => brandsById.get(id)?.domain)
-    .filter((domain): domain is string => domain !== undefined);
-}
-
-export async function batchExtractMentions(
-  groq: GroqService,
-  items: MentionBatchItem[],
-  brands: Brand[],
-): Promise<MentionBatchResult[]> {
-  if (items.length === 0 || brands.length === 0) {
-    return items.map((item) => ({ customId: item.customId, domains: [] }));
-  }
-
-  const prompt = await loadPromptHbs(
-    "extract-mentions",
-    {},
-    { baseDir: BASE_DIR },
-  );
-  const brandsById = new Map<string, Brand>(
-    brands.map((brand, index) => [`brand-${index + 1}`, brand]),
-  );
-  const brandList = brands.map((brand, index) => ({
-    id: `brand-${index + 1}`,
-    name: brand.name,
-  }));
-
-  const { withText, withoutText } = items.reduce<{
-    withText: MentionBatchItem[];
-    withoutText: MentionBatchItem[];
-  }>(
-    (acc, item) => {
-      (item.text ? acc.withText : acc.withoutText).push(item);
-      return acc;
-    },
-    { withText: [], withoutText: [] },
-  );
-
-  const emptyResults: MentionBatchResult[] = withoutText.map((item) => ({
-    customId: item.customId,
-    domains: [],
-  }));
-
-  if (withText.length === 0) {
-    return emptyResults;
-  }
-
-  const batchResults = await groq.batch(
-    withText.map((item) => ({
-      custom_id: item.customId,
-      body: {
-        model: "openai/gpt-oss-120b" as const,
-        temperature: 0,
-        messages: [
-          { role: "system" as const, content: prompt },
-          {
-            role: "user" as const,
-            content: JSON.stringify({ text: item.text, brands: brandList }),
-          },
-        ],
-        response_format: {
-          type: "json_schema" as const,
-          json_schema: {
-            name: "extract-mentions",
-            strict: true,
-            schema: z.toJSONSchema(MentionsSchema),
-          },
-        },
-      },
-    })),
-  );
-
-  const results: MentionBatchResult[] = [...emptyResults];
-  const fallbackItems: MentionBatchItem[] = [];
-
-  for (const batchResult of batchResults) {
-    if (batchResult.error || !batchResult.content) {
-      const original = withText.find(
-        (i) => i.customId === batchResult.custom_id,
-      );
-      if (original) {
-        fallbackItems.push(original);
+  for (const brand of brands) {
+    for (const rawAlias of [brand.name, ...(brand.aliases ?? [])]) {
+      const alias = normalizeAlias(rawAlias);
+      if (!alias) {
+        continue;
       }
+
+      const key = alias.toLocaleLowerCase();
+      const existing = aliasOwners.get(key);
+      if (existing) {
+        existing.domains.add(brand.domain);
+      } else {
+        aliasOwners.set(key, {
+          alias,
+          domains: new Set([brand.domain]),
+        });
+      }
+    }
+  }
+
+  const searchableText = visibleText(text);
+  const matches: AliasMatch[] = [];
+
+  for (const { alias, domains } of aliasOwners.values()) {
+    if (domains.size !== 1) {
       continue;
     }
 
-    try {
-      results.push({
-        customId: batchResult.custom_id,
-        domains: parseDomains(batchResult.content, brandsById),
-      });
-    } catch {
-      const original = withText.find(
-        (i) => i.customId === batchResult.custom_id,
-      );
-      if (original) {
-        fallbackItems.push(original);
+    const domain = domains.values().next().value;
+    if (!domain) {
+      continue;
+    }
+
+    for (const match of searchableText.matchAll(aliasPattern(alias))) {
+      if (match.index === undefined) {
+        continue;
       }
+      matches.push({ domain, index: match.index, length: match[0].length });
     }
   }
 
-  if (fallbackItems.length > 0) {
-    await Promise.all(
-      fallbackItems.map(async (item) => {
-        try {
-          const domains = await extractMentions(groq, item.text, brands);
-          results.push({ customId: item.customId, domains });
-        } catch {
-          results.push({ customId: item.customId, domains: [] });
-        }
-      }),
-    );
+  matches.sort((a, b) => a.index - b.index || b.length - a.length);
+
+  const accepted: AliasMatch[] = [];
+  const mentionedDomains = new Set<string>();
+  for (const match of matches) {
+    if (mentionedDomains.has(match.domain) || overlaps(match, accepted)) {
+      continue;
+    }
+    accepted.push(match);
+    mentionedDomains.add(match.domain);
   }
 
-  return results;
+  return accepted.map((mention, index) => ({
+    domain: mention.domain,
+    position: index + 1,
+  }));
 }

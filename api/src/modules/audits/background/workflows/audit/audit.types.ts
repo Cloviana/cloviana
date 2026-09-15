@@ -1,6 +1,7 @@
 export interface BusinessProfile {
   domain: string;
   name: string;
+  aliases: string[];
   description: string;
   icp: string;
   category: string;
@@ -10,6 +11,7 @@ export interface Competitor {
   id: string;
   domain: string;
   name: string;
+  aliases: string[];
 }
 
 export interface AuditInput {
@@ -36,13 +38,13 @@ export interface EngineSource {
 export interface EngineMention {
   name: string;
   domain: string;
+  position: number;
 }
 
 export interface EngineResult {
   promptId: string;
   prompt: string;
   engine: EngineName;
-  status: "success" | "failed";
   text: string;
   sources: EngineSource[];
   mentions: EngineMention[];

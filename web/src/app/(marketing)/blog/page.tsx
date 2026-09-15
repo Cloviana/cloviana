@@ -22,6 +22,8 @@ export const metadata: Metadata = {
     'Research, playbooks, and GEO strategy for B2B brands building visibility in ChatGPT, Perplexity, and Google AI Overviews.',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function BlogPage() {
   const featuredPost = await sanityClient.fetch<FeaturedPost | null>(
     FEATURED_POST_QUERY,

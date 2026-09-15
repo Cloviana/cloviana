@@ -38,10 +38,7 @@ export function buildPromptCoverage(
   return prompts.map((prompt) => {
     const successfulByEngine = new Map(
       responses
-        .filter(
-          (response) =>
-            response.promptId === prompt.id && response.status === "success",
-        )
+        .filter((response) => response.promptId === prompt.id)
         .map((response) => [response.engine, response] as const),
     );
     const metrics = computeDomainMetrics(

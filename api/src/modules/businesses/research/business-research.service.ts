@@ -31,6 +31,7 @@ function normalizeResearchDomain(domain: string): string {
 
 const businessProfileSchema = z.object({
   name: z.string().trim().min(1).refine(isMeaningfulText),
+  aliases: z.array(z.string().trim().min(1)).min(1),
   description: z.string().trim().min(1).refine(isMeaningfulText),
   icp: z.string().trim().min(1).refine(isMeaningfulText),
   category: z.string().trim().min(1).refine(isMeaningfulText),
@@ -47,6 +48,7 @@ function createCompetitorsSchema(count: number) {
         z.object({
           domain: z.string().trim().min(1),
           name: z.string().trim().min(1),
+          aliases: z.array(z.string().trim().min(1)).min(1),
         }),
       )
       .length(count),
@@ -55,9 +57,10 @@ function createCompetitorsSchema(count: number) {
 
 const businessProfileOutputSchema: DeepOutputSchema = {
   type: "object",
-  required: ["name", "description", "icp", "category"],
+  required: ["name", "aliases", "description", "icp", "category"],
   properties: {
     name: { type: "string" },
+    aliases: { type: "array", items: { type: "string" } },
     description: { type: "string" },
     icp: { type: "string" },
     category: { type: "string" },
@@ -66,9 +69,9 @@ const businessProfileOutputSchema: DeepOutputSchema = {
 
 const PROFILE_TTL_MS = 1000 * 60 * 60 * 24 * 7;
 const COMPETITOR_TTL_MS = 1000 * 60 * 60 * 24 * 3;
-const PROFILE_CACHE_VERSION = "v5";
+const PROFILE_CACHE_VERSION = "v6";
 const BRAND_NAME_CACHE_VERSION = "v1";
-const COMPETITORS_CACHE_VERSION = "v5";
+const COMPETITORS_CACHE_VERSION = "v6";
 
 @Injectable()
 export class BusinessResearchService {
@@ -175,7 +178,7 @@ export class BusinessResearchService {
           type: "auto",
           numResults: 5,
           systemPrompt:
-            "Create a concise business profile from public web sources. Prefer the official company website and official product pages when available. Return strict JSON with only name, description, icp, and category. The category must be buyer-facing market language useful for finding competitors.",
+            "Create a concise business profile from public web sources. Prefer the official company website and official product pages when available. Return strict JSON with only name, aliases, description, icp, and category. Aliases must contain the official name plus only distinct public names or abbreviations that unambiguously identify the same brand. The category must be buyer-facing market language useful for finding competitors.",
           outputSchema: businessProfileOutputSchema,
         },
       );
@@ -260,7 +263,18 @@ export class BusinessResearchService {
       }
 
       seenDomains.add(competitorDomain);
-      competitors.push({ domain: competitorDomain, name: competitor.name });
+      competitors.push({
+        domain: competitorDomain,
+        name: competitor.name,
+        aliases: Array.from(
+          new Map(
+            [competitor.name, ...competitor.aliases]
+              .map((alias) => alias.trim().replace(/\s+/g, " "))
+              .filter(Boolean)
+              .map((alias) => [alias.toLocaleLowerCase(), alias]),
+          ).values(),
+        ),
+      });
     }
 
     return competitors.slice(0, count);

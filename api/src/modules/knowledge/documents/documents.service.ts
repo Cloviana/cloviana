@@ -4,13 +4,14 @@ import { join } from "node:path";
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { AppConfiguration } from "@/common/config/app.configuration";
 import {
+  BadRequestException,
   ConflictException,
   Injectable,
   Logger,
   NotFoundException,
 } from "@nestjs/common";
 import { DocumentStatus, Prisma } from "@prisma/client";
-import { KnowledgeProducer } from "../background/queue/knowledge.producer";
+import { KnowledgeEventsService } from "../background/workflows/knowledge/knowledge.events";
 import { FoldersService } from "../folders/folders.service";
 import { KnowledgeBaseClient } from "../knowledge-base.client";
 import type { DocumentUpload } from "../knowledge.types";
@@ -33,7 +34,10 @@ const DOCUMENT_RESPONSE_SELECT = {
   folder: { select: { id: true, name: true, parentId: true } },
 } as const;
 
+const MAX_DOCUMENT_NAME_LENGTH = 255;
+
 interface UpdateDocumentInput {
+  name?: string;
   folderId?: string;
   position?: number;
 }
@@ -56,7 +60,7 @@ export class DocumentsService {
     private readonly prisma: PrismaService,
     private readonly foldersService: FoldersService,
     private readonly knowledgeBaseClient: KnowledgeBaseClient,
-    private readonly knowledgeProducer: KnowledgeProducer,
+    private readonly knowledgeEvents: KnowledgeEventsService,
     config: AppConfiguration,
   ) {
     this.uploadsDir = config.knowledgeUploadsDir;
@@ -166,6 +170,18 @@ export class DocumentsService {
       ? await this.foldersService.findFolderOrThrow(businessId, targetFolderId)
       : document.folder;
 
+    // Renaming only touches Postgres: Qdrant stores the uploaded filename, not
+    // this display name, so there is nothing to sync to the knowledge base.
+    if (update.name !== undefined) {
+      const normalizedName = this.normalizeDocumentName(update.name);
+      if (normalizedName !== document.name) {
+        await this.prisma.document.updateMany({
+          where: { id: documentId, businessId, deletedAt: null },
+          data: { name: normalizedName },
+        });
+      }
+    }
+
     if (!folderChanged && update.position === undefined) {
       return this.getDocumentOrThrow(businessId, documentId);
     }
@@ -219,7 +235,7 @@ export class DocumentsService {
       return;
     }
 
-    void this.knowledgeProducer
+    void this.knowledgeEvents
       .enqueueDeletion({ businessId, documentId })
       .catch((error) =>
         this.logger.error(
@@ -234,7 +250,7 @@ export class DocumentsService {
     documentId: string,
   ): Promise<void> {
     try {
-      await this.knowledgeProducer.enqueueIngestion({
+      await this.knowledgeEvents.enqueueIngestion({
         businessId,
         documentId,
       });
@@ -253,6 +269,19 @@ export class DocumentsService {
         error instanceof Error ? error.stack : undefined,
       );
     }
+  }
+
+  private normalizeDocumentName(name: string): string {
+    const normalizedName = name.trim().replace(/\s+/g, " ");
+    if (!normalizedName) {
+      throw new BadRequestException("Document name is required");
+    }
+    if (normalizedName.length > MAX_DOCUMENT_NAME_LENGTH) {
+      throw new BadRequestException(
+        `Document name cannot be longer than ${MAX_DOCUMENT_NAME_LENGTH} characters`,
+      );
+    }
+    return normalizedName;
   }
 
   private async reorderDocument(input: ReorderDocumentInput): Promise<void> {

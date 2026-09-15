@@ -1,12 +1,18 @@
+minimumReleaseAge: 1440
+
 allowBuilds:
   esbuild: true
   msw: true
   sharp: true
   unrs-resolver: true
 
-# Temporary allowlist for the Next/React upgrade while these eslint packages are
-# inside the configured minimum release age window.
+overrides:
+  nanoid: 3.3.12
+
+# Temporary allowlist for reviewed dependencies while they are inside the
+# configured minimum release age window.
 minimumReleaseAgeExclude:
+  - '@lobehub/ui@5.25.0'
   - '@typescript-eslint/eslint-plugin'
   - '@typescript-eslint/parser'
   - '@typescript-eslint/project-service'

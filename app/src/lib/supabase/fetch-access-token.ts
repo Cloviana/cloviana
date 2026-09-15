@@ -11,11 +11,6 @@ const getSupabase = async () => {
   return createServerClient(env.SUPABASE_URL, env.SUPABASE_ANON_KEY, {
     cookies: {
       getAll: () => store.getAll(),
-      setAll: (pairs: any[]) => {
-        pairs.forEach(({ name, value, options }) =>
-          store.set(name, value, options),
-        );
-      },
     },
   });
 };

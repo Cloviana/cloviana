@@ -6,7 +6,7 @@ import {
   computeDomainMetrics,
   computeRate,
 } from "@/common/visibility/visibility-metric-calculator";
-import { PromptAwarenessStage } from "@prisma/client";
+import { AiEngine, MetricEngine, PromptAwarenessStage } from "@prisma/client";
 import type {
   ComputedBusinessMetric,
   ComputedPromptMetric,
@@ -15,22 +15,22 @@ import type {
 } from "./monitoring.types";
 
 interface MonitoredBrand {
-  competitorId: string | null;
+  brandId: string;
+  kind: "BUSINESS" | "COMPETITOR";
   domain: string;
 }
 
 interface MetricContext {
   date: Date;
-  profile: {
-    domain: string;
-  };
-  competitors: {
+  brands: {
     id: string;
+    kind: "BUSINESS" | "COMPETITOR";
     domain: string;
   }[];
 }
 
 interface PromptMetricContext extends MetricContext {
+  businessId: string;
   prompts: {
     id: string;
   }[];
@@ -47,7 +47,48 @@ type NormalizedMetricResponse = Omit<
 > & {
   awarenessStage?: PromptAwarenessStage;
 };
-type MetricRow = Omit<ComputedPromptMetric, "promptId">;
+type MetricRow = Omit<ComputedPromptMetric, "businessId" | "promptId">;
+
+const metricEngineByAiEngine: Record<AiEngine, MetricEngine> = {
+  [AiEngine.CLAUDE]: MetricEngine.CLAUDE,
+  [AiEngine.CHATGPT]: MetricEngine.CHATGPT,
+  [AiEngine.PERPLEXITY]: MetricEngine.PERPLEXITY,
+  [AiEngine.AI_OVERVIEWS]: MetricEngine.AI_OVERVIEWS,
+};
+
+function computeSentimentMetrics(
+  responses: NormalizedMetricResponse[],
+  brandDomain: string,
+): Pick<
+  MetricRow,
+  "positiveClaimCount" | "negativeClaimCount" | "positiveSentimentShare"
+> {
+  // Claims are analysed one brand at a time, so a response's claims belong to
+  // several brands and only this brand's count towards its row.
+  const claims = responses
+    .flatMap((response) => response.sentimentClaims)
+    .filter(
+      (claim) =>
+        claim.brandDomain !== null &&
+        normalizeBrandDomain(claim.brandDomain) === brandDomain,
+    );
+  const positiveClaimCount = claims.filter(
+    (claim) => claim.sentiment === "POSITIVE",
+  ).length;
+  const negativeClaimCount = claims.filter(
+    (claim) => claim.sentiment === "NEGATIVE",
+  ).length;
+  const totalClaimCount = positiveClaimCount + negativeClaimCount;
+
+  return {
+    positiveClaimCount,
+    negativeClaimCount,
+    positiveSentimentShare:
+      totalClaimCount > 0
+        ? computeRate(positiveClaimCount, totalClaimCount)
+        : null,
+  };
+}
 
 function normalizeBrandDomain(domain: string): string {
   return normalizeDomain(domain) ?? domain;
@@ -57,13 +98,26 @@ function buildMetricRow(
   brand: MonitoredBrand,
   responses: NormalizedMetricResponse[],
   date: Date,
-  sov: number,
+  shareOfVoice: number,
 ): MetricRow {
+  // computeDomainMetrics also derives its own sov (mentionRate x citationShare
+  // formula), but the relative, mention-share-based value computed below by
+  // buildCompetitiveSovByDomain is what's actually stored — so only mentionRate
+  // and citationShare are taken from it.
+  const { mentionRate, citationShare } = computeDomainMetrics(
+    brand.domain,
+    responses,
+  );
+
   return {
-    competitorId: brand.competitorId,
+    brandId: brand.brandId,
     date,
-    ...computeDomainMetrics(brand.domain, responses),
-    sov,
+    mentionRate,
+    citationShare,
+    shareOfVoice,
+    // Every tracked brand now gets its own sentiment, not just the business —
+    // knowing how an answer describes a competitor is the actionable half.
+    ...computeSentimentMetrics(responses, brand.domain),
   };
 }
 
@@ -116,16 +170,11 @@ function buildMetricRows(
 }
 
 function buildMonitoredBrands(context: MetricContext): MonitoredBrand[] {
-  return [
-    {
-      competitorId: null,
-      domain: normalizeBrandDomain(context.profile.domain),
-    },
-    ...context.competitors.map((competitor) => ({
-      competitorId: competitor.id,
-      domain: normalizeBrandDomain(competitor.domain),
-    })),
-  ];
+  return context.brands.map((brand) => ({
+    brandId: brand.id,
+    kind: brand.kind,
+    domain: normalizeBrandDomain(brand.domain),
+  }));
 }
 
 function normalizeResponses(
@@ -136,6 +185,7 @@ function normalizeResponses(
     promptId: response.promptId,
     citations: response.citations,
     mentions: response.mentions,
+    sentimentClaims: response.sentimentClaims,
     ...("awarenessStage" in response
       ? { awarenessStage: response.awarenessStage }
       : {}),
@@ -154,8 +204,12 @@ export function computePromptMetrics(
     const promptResponses = normalizedResponses.filter(
       (response) => response.promptId === prompt.id,
     );
+    if (promptResponses.length === 0) {
+      return [];
+    }
 
     return buildMetricRows(brands, promptResponses, date).map((metric) => ({
+      businessId: context.businessId,
       promptId: prompt.id,
       ...metric,
     }));
@@ -182,7 +236,7 @@ export function computeBusinessMetrics(
 
     return buildMetricRows(brands, engineResponses, date).map((metric) => ({
       businessId: context.businessId,
-      engine,
+      engine: metricEngineByAiEngine[engine],
       ...metric,
     }));
   });
@@ -193,7 +247,7 @@ export function computeBusinessMetrics(
     date,
   ).map((metric) => ({
     businessId: context.businessId,
-    engine: null,
+    engine: MetricEngine.ALL,
     ...metric,
   }));
 

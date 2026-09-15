@@ -1,21 +1,30 @@
-import { cva, VariantProps } from 'class-variance-authority';
+import { cva, type VariantProps } from 'class-variance-authority';
 import Link from 'next/link';
-import { AnchorHTMLAttributes, FC, ReactNode } from 'react';
+import type { AnchorHTMLAttributes, FC, ReactNode } from 'react';
 
 import { cn } from '@/utils/cn';
 
-const anchorVariants = cva('underline transition-opacity duration-150', {
-  variants: {
-    variant: {
-      default: 'text-primary hover:opacity-90',
-      dark: 'text-foreground hover:opacity-90',
-      subtle: 'hover:text-primary opacity-80',
+const anchorVariants = cva(
+  'underline decoration-dashed underline-offset-4 transition-[opacity,text-decoration-style] hover:opacity-80',
+  {
+    variants: {
+      variant: {
+        primary: 'text-primary',
+        inherit: 'text-inherit',
+      },
+      size: {
+        xs: 'text-xs',
+        sm: 'text-[13px]',
+        default: 'text-sm',
+        lg: 'text-base',
+      },
+    },
+    defaultVariants: {
+      variant: 'primary',
+      size: 'default',
     },
   },
-  defaultVariants: {
-    variant: 'default',
-  },
-});
+);
 
 export interface AnchorProps
   extends
@@ -34,6 +43,7 @@ export const Anchor: FC<AnchorProps> = ({
   className,
   dataPrimaryLink,
   variant,
+  size,
   external = false,
   ...rest
 }) => {
@@ -44,7 +54,7 @@ export const Anchor: FC<AnchorProps> = ({
   return (
     <Link
       href={href}
-      className={cn(anchorVariants({ variant }), className)}
+      className={cn(anchorVariants({ variant, size }), className)}
       data-primary-link={dataPrimaryLink}
       {...externalProps}
       {...rest}
@@ -53,3 +63,5 @@ export const Anchor: FC<AnchorProps> = ({
     </Link>
   );
 };
+
+export { anchorVariants };

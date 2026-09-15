@@ -1,5 +1,6 @@
 export interface BusinessResearchProfile {
   name: string;
+  aliases: string[];
   description: string;
   icp: string;
   category: string;
@@ -8,4 +9,5 @@ export interface BusinessResearchProfile {
 export interface BusinessResearchCompetitor {
   domain: string;
   name: string;
+  aliases: string[];
 }

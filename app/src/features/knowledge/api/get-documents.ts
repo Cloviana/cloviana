@@ -5,26 +5,24 @@ import { documentKeys, QueryConfig } from '@/lib/react-query';
 import { getAuthHeaders } from '@/lib/supabase/get-auth-headers';
 import type { Document } from '@/types/api';
 
-export const getDocuments = async (
-  businessId: string,
-  folderId: string,
-): Promise<Document[]> => {
+// ponytail: one query for every document in the business — folder lists are
+// derived client-side. Switch to per-folder `?folderId=` fetches if a business
+// ever holds enough documents that the payload hurts.
+export const getDocuments = async (businessId: string): Promise<Document[]> => {
   const headers = await getAuthHeaders();
+
   return api.get<Document[]>(`/businesses/${businessId}/documents`, {
     headers,
-    params: { folderId },
   });
 };
 
-export const getDocumentsQueryOptions = (
-  businessId: string,
-  folderId?: string,
-) =>
+export const getDocumentsQueryOptions = (businessId: string) =>
   queryOptions({
-    queryKey: documentKeys.list(businessId, folderId ?? ''),
-    queryFn: () =>
-      folderId ? getDocuments(businessId, folderId) : Promise.resolve([]),
-    enabled: Boolean(businessId && folderId),
+    queryKey: documentKeys.lists(businessId),
+    queryFn: () => getDocuments(businessId),
+    enabled: Boolean(businessId),
+    // Ingestion is async and has no terminal failure state — a document that
+    // fails is soft-deleted server-side, so it disappears from this list.
     refetchInterval: (query) =>
       query.state.data?.some(
         (document) =>
@@ -40,10 +38,9 @@ type UseGetDocumentsOptions = {
 
 export const useGetDocuments = (
   businessId: string,
-  folderId?: string,
   { queryConfig }: UseGetDocumentsOptions = {},
 ) =>
   useQuery({
-    ...getDocumentsQueryOptions(businessId, folderId),
+    ...getDocumentsQueryOptions(businessId),
     ...queryConfig,
   });

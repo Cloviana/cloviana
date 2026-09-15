@@ -30,11 +30,59 @@ export const paths = {
     prompts: {
       getHref: (businessId: string, query?: Record<string, any>) =>
         buildPath(`/b/${businessId}/prompts`, query),
+
+      responses: {
+        getHref: (businessId: string, query?: Record<string, any>) =>
+          buildPath(`/b/${businessId}/prompts/responses`, query),
+      },
+
+      detail: {
+        getHref: (
+          businessId: string,
+          promptId: string,
+          query?: Record<string, any>,
+        ) => buildPath(`/b/${businessId}/prompts/${promptId}`, query),
+      },
     },
 
-    skills: {
+    onsite: {
       getHref: (businessId: string, query?: Record<string, any>) =>
-        buildPath(`/b/${businessId}/skills`, query),
+        buildPath(`/b/${businessId}/onsite`, query),
+    },
+
+    playbook: {
+      getHref: (businessId: string, query?: Record<string, any>) =>
+        buildPath(`/b/${businessId}/playbook`, query),
+    },
+
+    workflows: {
+      getHref: (businessId: string, query?: Record<string, any>) =>
+        buildPath(`/b/${businessId}/workflows`, query),
+
+      detail: {
+        getHref: (
+          businessId: string,
+          workflowId: string,
+          query?: Record<string, any>,
+        ) => buildPath(`/b/${businessId}/workflows/${workflowId}`, query),
+
+        settings: {
+          getHref: (
+            businessId: string,
+            workflowId: string,
+            query?: Record<string, any>,
+          ) =>
+            buildPath(
+              `/b/${businessId}/workflows/${workflowId}/settings`,
+              query,
+            ),
+        },
+      },
+
+      templates: {
+        getHref: (businessId: string, query?: Record<string, any>) =>
+          buildPath(`/b/${businessId}/workflows/templates`, query),
+      },
     },
 
     integrations: {
@@ -42,14 +90,79 @@ export const paths = {
         buildPath(`/b/${businessId}/integrations`, query),
     },
 
-    brand: {
+    brandKit: {
       getHref: (businessId: string, query?: Record<string, any>) =>
-        buildPath(`/b/${businessId}/brand`, query),
-    },
+        buildPath(`/b/${businessId}/brand-kit/foundations`, query),
 
-    competitors: {
-      getHref: (businessId: string, query?: Record<string, any>) =>
-        buildPath(`/b/${businessId}/competitors`, query),
+      foundations: {
+        getHref: (businessId: string, query?: Record<string, any>) =>
+          buildPath(`/b/${businessId}/brand-kit/foundations`, query),
+      },
+
+      productLines: {
+        getHref: (businessId: string, query?: Record<string, any>) =>
+          buildPath(`/b/${businessId}/brand-kit/product-lines`, query),
+
+        detail: {
+          getHref: (
+            businessId: string,
+            productId: string,
+            query?: Record<string, any>,
+          ) =>
+            buildPath(
+              `/b/${businessId}/brand-kit/product-lines/${productId}`,
+              query,
+            ),
+        },
+      },
+
+      contentTypes: {
+        getHref: (businessId: string, query?: Record<string, any>) =>
+          buildPath(`/b/${businessId}/brand-kit/content-types`, query),
+
+        detail: {
+          getHref: (
+            businessId: string,
+            contentTypeId: string,
+            query?: Record<string, any>,
+          ) =>
+            buildPath(
+              `/b/${businessId}/brand-kit/content-types/${contentTypeId}`,
+              query,
+            ),
+        },
+      },
+
+      audiences: {
+        getHref: (businessId: string, query?: Record<string, any>) =>
+          buildPath(`/b/${businessId}/brand-kit/audiences`, query),
+
+        detail: {
+          getHref: (
+            businessId: string,
+            audienceId: string,
+            query?: Record<string, any>,
+          ) =>
+            buildPath(
+              `/b/${businessId}/brand-kit/audiences/${audienceId}`,
+              query,
+            ),
+        },
+      },
+
+      regions: {
+        getHref: (businessId: string, query?: Record<string, any>) =>
+          buildPath(`/b/${businessId}/brand-kit/regions`, query),
+
+        detail: {
+          getHref: (
+            businessId: string,
+            regionId: string,
+            query?: Record<string, any>,
+          ) =>
+            buildPath(`/b/${businessId}/brand-kit/regions/${regionId}`, query),
+        },
+      },
     },
 
     chat: {

@@ -4,16 +4,29 @@ import { ResendService } from "@/clients/resend/resend.service";
 import { AppConfiguration } from "@/common/config/app.configuration";
 import { isWorkEmail } from "@/common/email/work-email";
 import { normalizeDomain } from "@/common/utils/normalize-domain.util";
-import { AuditsProducer } from "@/modules/audits/background/queue/audits.producer";
+import { InngestService } from "@/infrastructure/inngest/inngest.service";
+import { auditRunRequested } from "@/modules/audits/background/workflows/audit/audit.events";
 import { CACHE_MANAGER, Cache } from "@nestjs/cache-manager";
 import {
   BadRequestException,
   Inject,
   Injectable,
   NotFoundException,
+  ServiceUnavailableException,
 } from "@nestjs/common";
 import { Prisma } from "@prisma/client";
+import pLimit from "p-limit";
 import { chromium } from "playwright";
+
+// ponytail: GET /audits/:id/pdf is @Public() and every call launches a
+// ~250MB Chromium. Two at a time matches the box's 2 vCPUs and fits the api
+// container's mem_limit; past a short queue we shed load instead of letting
+// anonymous traffic OOM the box. The queue is kept short deliberately — a
+// fast 503 beats a request that waits minutes behind a CPU-bound render.
+// Raise PDF_CONCURRENCY with the vCPU count and api mem_limit, never alone.
+const PDF_CONCURRENCY = 2;
+const PDF_MAX_QUEUE = 6;
+const pdfLimit = pLimit(PDF_CONCURRENCY);
 
 const VERIFY_PREFIX = "audit-verify";
 const VERIFY_TTL_MS = 10 * 60 * 1000; // 10 minutes
@@ -57,7 +70,7 @@ export class AuditsService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly resend: ResendService,
-    private readonly auditsProducer: AuditsProducer,
+    private readonly inngestService: InngestService,
     private readonly appConfiguration: AppConfiguration,
     @Inject(CACHE_MANAGER) private readonly cache: Cache,
   ) {}
@@ -128,7 +141,11 @@ export class AuditsService {
       country: payload.country,
     });
 
-    await this.auditsProducer.runAudit({ auditId: audit.id });
+    await this.inngestService.send({
+      id: `audit:${audit.id}`,
+      name: auditRunRequested.name,
+      data: { auditId: audit.id },
+    });
 
     return { auditSlug: audit.slug };
   }
@@ -138,9 +155,7 @@ export class AuditsService {
       ? { OR: [{ slug: auditSlug }, { id: auditSlug }] }
       : { slug: auditSlug };
 
-    const audit = await this.prisma.audit.findFirst({
-      where,
-    });
+    const audit = await this.prisma.audit.findFirst({ where });
 
     if (!audit) {
       throw new NotFoundException("Audit not found");
@@ -150,11 +165,20 @@ export class AuditsService {
   }
 
   async generateAuditPdf(auditSlug: string) {
+    if (pdfLimit.pendingCount >= PDF_MAX_QUEUE) {
+      throw new ServiceUnavailableException(
+        "PDF generation is busy, please retry shortly",
+      );
+    }
+    return pdfLimit(() => this.renderAuditPdf(auditSlug));
+  }
+
+  private async renderAuditPdf(auditSlug: string) {
     const audit = await this.getAudit(auditSlug);
     const url = `${this.appConfiguration.webInternalUrl}/audits/${audit.slug}`;
 
-    // ponytail: one browser launch per request, like crawlability's
-    // rendered-dom check; pool/queue it if PDF traffic ever matters
+    // ponytail: one browser launch per render, like crawlability's
+    // rendered-dom check; pooled by pdfLimit above
     const browser = await chromium.launch({ headless: true });
     try {
       const page = await browser.newPage({

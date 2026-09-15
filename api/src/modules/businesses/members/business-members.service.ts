@@ -51,7 +51,7 @@ export class BusinessMembersService {
       {
         profileId: ownerProfileId,
         email: business.owner.email,
-        role: BusinessMembershipRole.OWNER,
+        role: "OWNER" as const,
         joinedAt: business.createdAt,
       },
       ...business.members

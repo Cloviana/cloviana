@@ -27,7 +27,7 @@ export const AuditContent = ({ auditSlug, initialData }: AuditContentProps) => {
     ...getAuditQueryOptions(auditSlug),
     initialData: initialData ?? undefined,
     refetchInterval: (query) => {
-      const status = query.state.data?.job?.status;
+      const status = query.state.data?.workflowRun?.status;
       if (status === 'PENDING' || status === 'RUNNING') return 3000;
       return false;
     },

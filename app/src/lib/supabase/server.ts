@@ -11,9 +11,14 @@ export async function createClient() {
         return store.getAll();
       },
       setAll(cookiesToSet: any[]) {
-        cookiesToSet.forEach(({ name, value, options }) =>
-          store.set(name, value, options),
-        );
+        try {
+          cookiesToSet.forEach(({ name, value, options }) =>
+            store.set(name, value, options),
+          );
+        } catch {
+          // Server Components cannot write cookies. The proxy refreshes the
+          // session before rendering and passes the updated request cookies on.
+        }
       },
     },
     auth: { flowType: 'pkce' },

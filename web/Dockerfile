@@ -3,10 +3,15 @@
 FROM node:22-bookworm AS base
 WORKDIR /app
 RUN corepack enable
+# pnpm's default store path is derived from $PNPM_HOME. Setting it explicitly
+# gives the cache mount below a fixed target to persist across builds instead
+# of re-downloading the whole dependency tree on every lockfile change.
+ENV PNPM_HOME=/pnpm
+ENV PATH="$PNPM_HOME:$PATH"
 
 FROM base AS deps
 COPY package.json pnpm-lock.yaml* pnpm-workspace.yaml* ./
-RUN pnpm install
+RUN --mount=type=cache,id=pnpm-web,target=/pnpm/store pnpm install --frozen-lockfile
 
 FROM deps AS builder
 ARG NEXT_PUBLIC_API_URL
@@ -26,9 +31,12 @@ RUN pnpm build
 FROM deps AS dev
 WORKDIR /app
 ENV NODE_ENV=development
-COPY . .
+# No COPY of the source here on purpose: compose-dev.yaml bind-mounts ../web
+# over /app, so anything copied in would be shadowed at runtime anyway. Leaving
+# it out keeps this stage cache-valid across source edits — it only rebuilds
+# when the lockfile changes. This image is not runnable without that mount.
 EXPOSE 3000
-CMD [ "pnpm", "dev", "-H", "0.0.0.0", "-p", "3000" ]
+CMD [ "pnpm", "exec", "next", "dev", "-H", "0.0.0.0", "-p", "3000" ]
 
 FROM node:22-bookworm-slim AS runner
 WORKDIR /app

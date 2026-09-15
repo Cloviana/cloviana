@@ -47,6 +47,12 @@ jobs:
             DATABASE_URL=${{ secrets.DATABASE_URL }}
             DIRECT_URL=${{ secrets.DIRECT_URL }}
 
+            INNGEST_EVENT_KEY=${{ secrets.INNGEST_EVENT_KEY }}
+            INNGEST_SIGNING_KEY=${{ secrets.INNGEST_SIGNING_KEY }}
+            INNGEST_POSTGRES_PASSWORD=${{ secrets.INNGEST_POSTGRES_PASSWORD }}
+            # Cap active Inngest steps sharing the API process.
+            INNGEST_MAX_WORKER_CONCURRENCY=8
+
             STRIPE_API_KEY=${{ secrets.STRIPE_API_KEY }}
             STRIPE_WEBHOOK_SECRET=${{ secrets.STRIPE_WEBHOOK_SECRET }}
 
@@ -72,6 +78,9 @@ jobs:
               SUPABASE_SERVICE_ROLE_KEY \
               DATABASE_URL \
               DIRECT_URL \
+              INNGEST_EVENT_KEY \
+              INNGEST_SIGNING_KEY \
+              INNGEST_POSTGRES_PASSWORD \
               DEEPSEEK_API_KEY \
               GROQ_API_KEY \
               EXA_API_KEY \
@@ -98,4 +107,10 @@ jobs:
             
             docker compose -f compose-core.yaml -f compose-prod.yaml restart nginx
 
-            docker system prune -af --volumes
+            # Never `system prune -af --volumes` here. `-a` deleted the
+            # previous images, leaving no local rollback target for a bad
+            # deploy, and `--volumes` puts qdrant/postgres/redis/certbot data
+            # in scope the moment a container is absent rather than stopped.
+            # Keep a week of images so rolling back is a retag, not a re-pull.
+            docker image prune -af --filter "until=168h"
+            docker builder prune -f --filter "until=168h"

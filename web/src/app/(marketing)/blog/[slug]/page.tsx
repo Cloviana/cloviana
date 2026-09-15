@@ -11,11 +11,7 @@ import {
 import { env } from '@/config/env';
 import { paths } from '@/config/paths';
 import { sanityClient } from '@/sanity/client';
-import {
-  POST_QUERY,
-  POST_SLUGS_QUERY,
-  type BlogPost,
-} from '@/sanity/queries/post';
+import { POST_QUERY, type BlogPost } from '@/sanity/queries/post';
 import { RELATED_POSTS_QUERY, type Post } from '@/sanity/queries/posts';
 
 import { PostCard } from '../_components/post-card';
@@ -40,11 +36,7 @@ type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export async function generateStaticParams() {
-  const slugs =
-    await sanityClient.fetch<Array<{ slug: string }>>(POST_SLUGS_QUERY);
-  return slugs.map(({ slug }) => ({ slug }));
-}
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({
   params,

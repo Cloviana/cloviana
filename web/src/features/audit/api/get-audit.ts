@@ -23,7 +23,7 @@ export const useGetAudit = (auditSlug: string) =>
   useQuery({
     ...getAuditQueryOptions(auditSlug),
     refetchInterval: (query) => {
-      const status = query.state.data?.job?.status;
+      const status = query.state.data?.workflowRun?.status;
       if (status === 'PENDING' || status === 'RUNNING') return 3000;
       return false;
     },

@@ -9,6 +9,10 @@
 
     // Output and compilation
     "target": "ES2021",
+    // ES2021 baseline plus the ES2022 Intl declarations, which is where
+    // `Intl.Segmenter` is typed. Node has shipped it since v16, so this adds
+    // the missing types without moving the emit target.
+    "lib": ["ES2021", "ES2022.Intl"],
     "outDir": "./dist",
     "sourceMap": true,
     "declaration": true,

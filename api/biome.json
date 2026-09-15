@@ -50,6 +50,6 @@
 
   "files": {
     "ignoreUnknown": true,
-    "ignore": ["**/*.prisma"]
+    "ignore": ["**/*.prisma", "scripts/reports/**/*.json"]
   }
 }

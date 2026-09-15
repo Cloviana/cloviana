@@ -10,6 +10,14 @@ export function normalizeDomain(urlOrHostname: string): string | null {
 }
 
 /**
+ * Root domain, falling back to the raw value when it cannot be parsed.
+ * The comparison form used whenever two stored domains are matched up.
+ */
+export function toRootDomain(urlOrHostname: string): string {
+  return normalizeDomain(urlOrHostname) ?? urlOrHostname;
+}
+
+/**
  * Extract the normalized hostname while preserving official subdomains.
  * e.g. "https://analytics.google.com/path" -> "analytics.google.com"
  */

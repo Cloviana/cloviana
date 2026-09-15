@@ -1,7 +1,7 @@
 import {
-  useIsMutating,
   useMutation,
   useQueryClient,
+  type UseMutationOptions,
 } from '@tanstack/react-query';
 
 import { api } from '@/lib/api-client';
@@ -9,33 +9,31 @@ import { documentKeys, folderKeys } from '@/lib/react-query';
 import { getAuthHeaders } from '@/lib/supabase/get-auth-headers';
 import type { Document, Folder } from '@/types/api';
 
-import {
-  cacheUpdatedDocument,
-  cancelKnowledgeQueries,
-  findCachedDocument,
-  type KnowledgeCacheSnapshot,
-  revalidateKnowledgeCache,
-  restoreKnowledgeCache,
-  snapshotKnowledgeCache,
-} from './knowledge-cache';
+import { revalidateKnowledge } from './revalidate-knowledge';
 
-type UpdateDocumentInput = {
+export type UpdateDocumentInput = {
   businessId: string;
   documentId: string;
+  name?: string;
   folderId?: string;
   position?: number;
 };
 
+// Returns 409 when the document is still PROCESSING — it cannot change folders
+// mid-ingestion.
 export const updateDocument = async ({
   businessId,
   documentId,
+  name,
   folderId,
   position,
 }: UpdateDocumentInput): Promise<Document> => {
   const headers = await getAuthHeaders();
+
   return api.patch<Document>(
     `/businesses/${businessId}/documents/${documentId}`,
     {
+      ...(name === undefined ? {} : { name }),
       ...(folderId === undefined ? {} : { folderId }),
       ...(position === undefined ? {} : { position }),
     },
@@ -43,91 +41,155 @@ export const updateDocument = async ({
   );
 };
 
-type UpdateDocumentContext = {
-  snapshot: KnowledgeCacheSnapshot;
+const byPosition = (a: Document, b: Document) =>
+  a.position - b.position ||
+  b.createdAt.localeCompare(a.createdAt) ||
+  b.id.localeCompare(a.id);
+
+const renumber = (documents: Document[]) =>
+  documents.map((document, position) =>
+    document.position === position ? document : { ...document, position },
+  );
+
+type ReorderInput = {
+  documentId: string;
+  folderId?: string;
+  position?: number;
+  folder?: Document['folder'];
 };
 
-export const useUpdateDocument = (businessId: string) => {
+/**
+ * Mirrors the server's reorder: the moved document lands at `position` in the
+ * target folder and every sibling in both the source and target folder is
+ * renumbered. Pure so a drag can be previewed before the request resolves.
+ */
+function reorderDocuments(
+  documents: Document[],
+  { documentId, folderId, position, folder }: ReorderInput,
+): Document[] {
+  const moving = documents.find((document) => document.id === documentId);
+  if (!moving) return documents;
+
+  const targetFolderId = folderId ?? moving.folderId;
+  const folderChanged = targetFolderId !== moving.folderId;
+  const rest = documents.filter((document) => document.id !== documentId);
+
+  const target = rest
+    .filter((document) => document.folderId === targetFolderId)
+    .sort(byPosition);
+  const targetPosition = Math.min(
+    position ?? (folderChanged ? target.length : moving.position),
+    target.length,
+  );
+  target.splice(targetPosition, 0, {
+    ...moving,
+    folderId: targetFolderId,
+    folder: folder ?? moving.folder,
+  });
+
+  const source = folderChanged
+    ? renumber(
+        rest
+          .filter((document) => document.folderId === moving.folderId)
+          .sort(byPosition),
+      )
+    : [];
+  const untouched = rest.filter(
+    (document) =>
+      document.folderId !== targetFolderId &&
+      document.folderId !== moving.folderId,
+  );
+
+  // Keep the cache in the same order a fresh fetch would return.
+  return [...untouched, ...source, ...renumber(target)].sort(
+    (a, b) => a.folderId.localeCompare(b.folderId) || byPosition(a, b),
+  );
+}
+
+type UpdateDocumentContext = {
+  previousDocuments?: Document[];
+};
+
+type UseUpdateDocumentOptions = {
+  mutationConfig?: Omit<
+    UseMutationOptions<
+      Document,
+      Error,
+      UpdateDocumentInput,
+      UpdateDocumentContext
+    >,
+    'mutationFn' | 'onMutate'
+  >;
+};
+
+export const useUpdateDocument = ({
+  mutationConfig,
+}: UseUpdateDocumentOptions = {}) => {
   const queryClient = useQueryClient();
-  const mutationKey = ['knowledge', 'structure', businessId] as const;
-  const activeStructureMutations = useIsMutating({
-    mutationKey,
-    exact: true,
-  });
 
-  const mutation = useMutation<
-    Document,
-    Error,
-    UpdateDocumentInput,
-    UpdateDocumentContext
-  >({
-    mutationKey,
-    scope: { id: `knowledge-structure:${businessId}` },
+  return useMutation({
     mutationFn: updateDocument,
-    onMutate: async (variables) => {
-      await cancelKnowledgeQueries(queryClient, variables.businessId);
+    ...mutationConfig,
+    // Owned by this hook — a drag has to preview instantly to feel right.
+    onMutate: async (variables): Promise<UpdateDocumentContext> => {
+      const documentsKey = documentKeys.lists(variables.businessId);
+      await queryClient.cancelQueries({ queryKey: documentsKey, exact: true });
 
-      const snapshot = snapshotKnowledgeCache(
-        queryClient,
-        variables.businessId,
-      );
-      const folders = queryClient.getQueryData<Folder[]>(
-        folderKeys.list(variables.businessId),
-      );
-      const document = findCachedDocument(
-        queryClient,
-        variables.businessId,
-        variables.documentId,
-      );
+      const previousDocuments =
+        queryClient.getQueryData<Document[]>(documentsKey);
+      if (!previousDocuments) return {};
 
-      if (document) {
-        const targetFolderId = variables.folderId ?? document.folderId;
-        const targetFolder = folders?.find(
-          (folder) => folder.id === targetFolderId,
-        );
-        const folderChanged = targetFolderId !== document.folderId;
-        const targetDocuments = queryClient.getQueryData<Document[]>(
-          documentKeys.list(variables.businessId, targetFolderId),
-        );
-        const position =
-          variables.position ??
-          (folderChanged ? (targetDocuments?.length ?? 0) : document.position);
-
-        cacheUpdatedDocument(queryClient, variables.businessId, {
-          ...document,
-          folderId: targetFolderId,
-          position,
-          ...(targetFolder
-            ? {
-                folder: {
-                  id: targetFolder.id,
-                  name: targetFolder.name,
-                  parentId: targetFolder.parentId,
-                },
-              }
-            : {}),
-        });
+      // A rename touches no ordering, so skip the reorder entirely.
+      if (
+        variables.folderId === undefined &&
+        variables.position === undefined
+      ) {
+        if (variables.name !== undefined) {
+          queryClient.setQueryData<Document[]>(documentsKey, (documents) =>
+            documents?.map((item) =>
+              item.id === variables.documentId
+                ? { ...item, name: variables.name as string }
+                : item,
+            ),
+          );
+        }
+        return { previousDocuments };
       }
 
-      return { snapshot };
+      const targetFolder = queryClient
+        .getQueryData<Folder[]>(folderKeys.list(variables.businessId))
+        ?.find((folder) => folder.id === variables.folderId);
+
+      queryClient.setQueryData<Document[]>(
+        documentsKey,
+        reorderDocuments(previousDocuments, {
+          documentId: variables.documentId,
+          folderId: variables.folderId,
+          position: variables.position,
+          folder: targetFolder && {
+            id: targetFolder.id,
+            name: targetFolder.name,
+            parentId: targetFolder.parentId,
+          },
+        }),
+      );
+
+      return { previousDocuments };
     },
-    onError: (_error, variables, context) => {
-      if (context) {
-        restoreKnowledgeCache(
-          queryClient,
-          variables.businessId,
-          context.snapshot,
+    onError: (...args) => {
+      const [, variables, context] = args;
+      if (context?.previousDocuments) {
+        queryClient.setQueryData(
+          documentKeys.lists(variables.businessId),
+          context.previousDocuments,
         );
-        void revalidateKnowledgeCache(queryClient, variables.businessId);
       }
+      mutationConfig?.onError?.(...args);
     },
-    onSuccess: (data, variables) => {
-      cacheUpdatedDocument(queryClient, variables.businessId, data);
+    onSettled: (...args) => {
+      const variables = args[2];
+      void revalidateKnowledge(queryClient, variables.businessId);
+      mutationConfig?.onSettled?.(...args);
     },
   });
-
-  return {
-    ...mutation,
-    isPending: activeStructureMutations > 0,
-  };
 };

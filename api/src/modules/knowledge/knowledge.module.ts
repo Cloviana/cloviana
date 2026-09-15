@@ -1,6 +1,7 @@
 import { BusinessAccessGuard } from "@/common/guards/business-access.guard";
 import { Module } from "@nestjs/common";
-import { KnowledgeQueueModule } from "./background/queue/knowledge-queue.module";
+import { KnowledgeEventsService } from "./background/workflows/knowledge/knowledge.events";
+import { KnowledgeWorkflow } from "./background/workflows/knowledge/knowledge.workflow";
 import { DocumentsController } from "./documents/documents.controller";
 import { DocumentsService } from "./documents/documents.service";
 import { FoldersController } from "./folders/folders.controller";
@@ -10,7 +11,6 @@ import { KnowledgeSearchController } from "./search/knowledge-search.controller"
 import { KnowledgeSearchService } from "./search/knowledge-search.service";
 
 @Module({
-  imports: [KnowledgeQueueModule],
   controllers: [
     DocumentsController,
     FoldersController,
@@ -21,6 +21,8 @@ import { KnowledgeSearchService } from "./search/knowledge-search.service";
     DocumentsService,
     FoldersService,
     KnowledgeSearchService,
+    KnowledgeEventsService,
+    KnowledgeWorkflow,
     BusinessAccessGuard,
   ],
 })

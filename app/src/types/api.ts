@@ -5,22 +5,24 @@ export type SubscriptionStatus =
   | 'ACTIVE'
   | 'PAST_DUE'
   | 'CANCELED'
-  | 'INCOMPLETE';
+  | 'INCOMPLETE'
+  | 'TRIALING';
 export type PlanName = 'STARTER' | 'GROWTH' | 'PRO';
-export type BusinessMembershipRole = 'OWNER' | 'MEMBER';
+export type BusinessMembershipRole = 'OWNER' | 'ADMIN' | 'MEMBER';
 export type BusinessInviteStatus =
   | 'PENDING'
   | 'ACCEPTED'
   | 'REVOKED'
   | 'EXPIRED';
 
-export type JobType =
-  | 'SITE_AUDIT'
+export type WorkflowRunType =
   | 'BUSINESS_INITIALIZATION'
   | 'PROMPT_RESEARCH'
   | 'PROMPT_GENERATION'
+  | 'PRODUCT_RESEARCH'
+  | 'CONTENT_TYPE_RESEARCH'
   | 'MONITORING';
-export type JobStatus = 'PENDING' | 'RUNNING' | 'SUCCESS' | 'FAILED';
+export type WorkflowRunStatus = 'PENDING' | 'RUNNING' | 'SUCCESS' | 'FAILED';
 
 export type Entity<T extends object> = T & {
   id: ID;
@@ -35,20 +37,23 @@ export type Meta = {
 };
 
 export type Competitor = Entity<{
-  businessId: ID;
+  brandKitId: ID;
   domain: string;
   name: string;
   aliases: string[];
 }>;
 
 export type Business = Entity<{
-  name: string;
   ownerId: ID;
-  domain: string;
-  category?: string | null;
   stripeCustomerId?: string | null;
   profileUrl?: string | null;
-  description?: string | null;
+  brand: Entity<{
+    brandKitId: ID;
+    kind: 'BUSINESS';
+    domain: string;
+    name: string;
+    aliases: string[];
+  }>;
   icp?: string | null;
   location?: string | null;
   timezone?: string | null;
@@ -67,14 +72,15 @@ export type Business = Entity<{
   };
 }>;
 
-export type Job = {
+export type WorkflowRun = {
   id: ID;
-  type: JobType;
-  status: JobStatus;
-  attempts: number;
+  type: WorkflowRunType;
+  status: WorkflowRunStatus;
+  eventId: string | null;
+  progress: unknown | null;
+  result: unknown | null;
   startedAt: ISODate | null;
   finishedAt: ISODate | null;
-  lastHeartbeatAt: ISODate | null;
   error: string | null;
   createdAt: ISODate;
 };

@@ -1,4 +1,4 @@
-import type { ISODate, JobStatus } from '@/types/api';
+import type { ISODate, WorkflowRunStatus } from '@/types/api';
 
 export type MonitoringMetric = {
   date: ISODate;
@@ -17,7 +17,7 @@ export type MonitoringOverview = {
   };
   latestRun: {
     id: string;
-    status: JobStatus;
+    status: WorkflowRunStatus;
     error: string | null;
     createdAt: ISODate;
     finishedAt: ISODate | null;
@@ -36,12 +36,7 @@ export type MonitoringOverview = {
     list: Array<{
       id: string;
       text: string;
-      awarenessStage:
-        | 'AWARENESS'
-        | 'EXPLORE'
-        | 'CONSIDERATION'
-        | 'EVALUATE'
-        | 'DECIDE';
+      awarenessStage: 'AWARENESS' | 'CONSIDERATION' | 'EVALUATE' | 'DECIDE';
       lastRunAt: string | null;
       topics: string[];
     }>;

@@ -81,6 +81,13 @@ async function axiosApi<T>(
     if (axios.isAxiosError(error) && error.response?.status === 401) {
       return redirectAfterUnauthorized();
     }
+
+    if (typeof window === 'undefined' && axios.isAxiosError(error)) {
+      const status = error.response?.status;
+      const statusSuffix = status ? ` (${status})` : '';
+      throw new Error(`API request failed: ${method} ${url}${statusSuffix}`);
+    }
+
     throw error;
   }
 }

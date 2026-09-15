@@ -1,13 +1,12 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { api } from '@/lib/api-client';
-import { folderKeys, MutationConfig } from '@/lib/react-query';
+import { MutationConfig } from '@/lib/react-query';
 import { getAuthHeaders } from '@/lib/supabase/get-auth-headers';
-import type { Folder } from '@/types/api';
 
-import { cacheCreatedFolder } from './knowledge-cache';
+import type { FolderMutationResult } from '../types';
 
-type FolderMutationResult = Omit<Folder, '_count'>;
+import { revalidateKnowledge } from './revalidate-knowledge';
 
 export type CreateFolderInput = {
   businessId: string;
@@ -42,16 +41,7 @@ export const useCreateFolder = ({
     mutationFn: createFolder,
     ...mutationConfig,
     onSuccess: (...args) => {
-      const hasFolderCache =
-        queryClient.getQueryData(folderKeys.list(args[1].businessId)) !==
-        undefined;
-      cacheCreatedFolder(queryClient, args[1].businessId, args[0]);
-      if (!hasFolderCache) {
-        void queryClient.invalidateQueries({
-          queryKey: folderKeys.list(args[1].businessId),
-          exact: true,
-        });
-      }
+      void revalidateKnowledge(queryClient, args[1].businessId);
       mutationConfig?.onSuccess?.(...args);
     },
   });

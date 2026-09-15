@@ -1,164 +1,192 @@
-// Loads a business's active prompts, runs providers in parallel, enriches the
-// responses, computes metrics, and persists the completed monitoring run.
+import { GroqService } from "@/clients/groq/groq.service";
 import { PrismaService } from "@/clients/prisma/prisma.service";
-import { ManagedJobsService } from "@/modules/jobs/managed-jobs.service";
+import { inngest } from "@/infrastructure/inngest/inngest.client";
+import { DataForSeoService } from "@/integrations/dataforseo/dataforseo.service";
+import { WorkflowRunsService } from "@/modules/workflow-runs/workflow-runs.service";
 import { Injectable, Logger } from "@nestjs/common";
-import { PromptStatus } from "@prisma/client";
-import { MonitoringAnalysisService } from "./monitoring-analysis.service";
-import { MonitoringEngineService } from "./monitoring-engine.service";
-import { MonitoringPersistenceService } from "./monitoring-persistence.service";
-import { computePromptMetrics } from "./monitoring.metrics";
+import type { Prisma } from "@prisma/client";
+import { monitoringRunRequested } from "./monitoring.events";
 import type {
-  MonitoringRunInput,
-  MonitoringRunResult,
+  MonitoringEngineResponse,
+  MonitoringMention,
+  MonitoringRunSummary,
+  MonitoringSentimentClaim,
+  SerializedMonitoringRunInput,
 } from "./monitoring.types";
-
-type MonitoringRunSummary = {
-  date: string;
-  promptCount: number;
-  responseCount: number;
-  failureCount: number;
-  promptMetricCount: number;
-  businessMetricCount: number;
-};
-
-function formatDateKey(date: Date): string {
-  return date.toISOString().slice(0, 10);
-}
-
-function createRunSummary(
-  runDate: Date,
-  runResult: MonitoringRunResult,
-  businessMetricCount: number,
-): MonitoringRunSummary {
-  return {
-    date: formatDateKey(runDate),
-    promptCount: runResult.prompts.length,
-    responseCount: runResult.engineResponses.length,
-    failureCount: runResult.engineFailures.length,
-    promptMetricCount: runResult.promptMetrics.length,
-    businessMetricCount,
-  };
-}
+import { analyzeSentimentStep } from "./steps/analyze-sentiment.step";
+import { classifyCitationsStep } from "./steps/classify-citations.step";
+import { executeAiOverviewStep } from "./steps/execute-ai-overview.step";
+import { executeChatgptStep } from "./steps/execute-chatgpt.step";
+import { executeClaudeStep } from "./steps/execute-claude.step";
+import { executePerplexityStep } from "./steps/execute-perplexity.step";
+import { extractMentionsStep } from "./steps/extract-mentions.step";
+import { finalizeRunStep } from "./steps/finalize-run.step";
+import { inferFanOutQueriesStep } from "./steps/infer-fan-out-queries.step";
+import { loadContextStep } from "./steps/load-context.step";
 
 @Injectable()
 export class MonitoringWorkflow {
   private readonly logger = new Logger(MonitoringWorkflow.name);
+  readonly inngestFunction;
 
   constructor(
     private readonly prisma: PrismaService,
-    private readonly managedJobs: ManagedJobsService,
-    private readonly engineService: MonitoringEngineService,
-    private readonly analysisService: MonitoringAnalysisService,
-    private readonly persistenceService: MonitoringPersistenceService,
-  ) {}
-
-  async run(
-    jobId: string,
-    businessId: string,
-    promptIds?: string[],
-    runDate = new Date(),
+    private readonly workflowRuns: WorkflowRunsService,
+    private readonly dataForSeo: DataForSeoService,
+    private readonly groq: GroqService,
   ) {
-    const normalizedRunDate = new Date(runDate);
-    normalizedRunDate.setUTCHours(0, 0, 0, 0);
-
-    return this.managedJobs.runJob({
-      jobId,
-      execute: () => this.executeRun(businessId, normalizedRunDate, promptIds),
-      serializeResult: (jobResult) => jobResult,
-    });
-  }
-
-  private async executeRun(
-    businessId: string,
-    runDate: Date,
-    promptIds?: string[],
-  ): Promise<MonitoringRunSummary> {
-    const runInput = await this.loadRunInput(businessId, runDate, promptIds);
-    const dateKey = formatDateKey(runDate);
-
-    if (runInput.prompts.length === 0) {
-      this.logger.log(
-        `[${businessId}] Skipping monitoring; no active prompts matched the requested subset`,
-      );
-
-      return {
-        date: dateKey,
-        promptCount: 0,
-        responseCount: 0,
-        failureCount: 0,
-        promptMetricCount: 0,
-        businessMetricCount: 0,
-      };
-    }
-
-    this.logger.log(
-      `[${businessId}] Starting monitoring date=${dateKey} promptCount=${runInput.prompts.length}`,
-    );
-
-    const { engineResponses, engineFailures } =
-      await this.engineService.executeEngines(runInput);
-
-    if (engineResponses.length === 0 && engineFailures.length > 0) {
-      throw new Error(
-        `Monitoring failed: all ${engineFailures.length} engine requests failed`,
-      );
-    }
-
-    const analyzedResponses = await this.analysisService.enrichResponses(
-      runInput,
-      engineResponses,
-    );
-    const runResult: MonitoringRunResult = {
-      ...runInput,
-      engineResponses: analyzedResponses,
-      engineFailures,
-      promptMetrics: computePromptMetrics(runInput, analyzedResponses),
-    };
-    const { businessMetricCount } =
-      await this.persistenceService.persistRun(runResult);
-
-    const summary = createRunSummary(runDate, runResult, businessMetricCount);
-
-    this.logger.log(
-      `[${businessId}] Completed monitoring ${JSON.stringify(summary)}`,
-    );
-
-    return summary;
-  }
-
-  private async loadRunInput(
-    businessId: string,
-    runDate: Date,
-    promptIds?: string[],
-  ): Promise<MonitoringRunInput> {
-    const business = await this.prisma.business.findUniqueOrThrow({
-      where: { id: businessId },
-      include: {
-        competitors: { orderBy: { createdAt: "asc" } },
-        prompts: {
-          where: {
-            status: PromptStatus.ACTIVE,
-            ...(promptIds?.length ? { id: { in: promptIds } } : {}),
-          },
-          orderBy: { createdAt: "asc" },
-        },
+    this.inngestFunction = inngest.createFunction(
+      {
+        id: "monitoring-run",
+        name: "Monitoring run",
+        triggers: [monitoringRunRequested],
+        retries: 3,
+        concurrency: [{ limit: 6 }, { limit: 1, key: "event.data.businessId" }],
       },
-    });
+      async ({ event, step }) => {
+        const { workflowRunId, businessId, promptIds, runDateIso } = event.data;
 
-    return {
-      businessId: business.id,
-      date: runDate,
-      prompts: business.prompts.map(({ id, text }) => ({ id, text })),
-      competitors: business.competitors.map(({ id, domain, name }) => ({
-        id,
-        domain,
-        name,
-      })),
-      profile: {
-        name: business.name,
-        domain: business.domain,
+        try {
+          const start = await step.run("start-workflow-run", () =>
+            this.workflowRuns.startWorkflowRun(workflowRunId),
+          );
+          if (!start.shouldExecute) {
+            return { workflowRunId, skipped: true };
+          }
+
+          const input = (await step.run("load-context", () =>
+            loadContextStep(this.prisma, businessId, runDateIso, promptIds),
+          )) as SerializedMonitoringRunInput;
+
+          if (input.prompts.length === 0) {
+            const summary: MonitoringRunSummary = {
+              date: runDateIso.slice(0, 10),
+              promptCount: 0,
+              responseCount: 0,
+              promptMetricCount: 0,
+              businessMetricCount: 0,
+            };
+            await step.run("complete-empty-workflow-run", () =>
+              this.workflowRuns.completeWorkflowRun(
+                workflowRunId,
+                summary as unknown as Prisma.InputJsonValue,
+              ),
+            );
+            return summary;
+          }
+
+          this.logger.log(
+            `[${businessId}] Starting monitoring date=${runDateIso.slice(0, 10)} promptCount=${input.prompts.length}`,
+          );
+          const executions = await Promise.all([
+            step.run("execute-chatgpt", () =>
+              executeChatgptStep(this.dataForSeo, input),
+            ),
+            step.run("execute-claude", () =>
+              executeClaudeStep(this.dataForSeo, input),
+            ),
+            step.run("execute-perplexity", () =>
+              executePerplexityStep(this.dataForSeo, input),
+            ),
+            step.run("execute-ai-overview", () =>
+              executeAiOverviewStep(this.dataForSeo, input),
+            ),
+          ]);
+          const engineResponses =
+            executions.flat() as MonitoringEngineResponse[];
+
+          const [
+            mentionsByResponseKey,
+            queriesByResponseKey,
+            sentimentClaimsByResponseKey,
+            citationClassificationsByCanonicalUrl,
+          ] = await Promise.all([
+            step.run("extract-mentions", () =>
+              extractMentionsStep(input, engineResponses),
+            ),
+            step.run("infer-fan-out-queries", () =>
+              inferFanOutQueriesStep(this.groq, input, engineResponses),
+            ),
+            step.run("analyze-sentiment", () =>
+              analyzeSentimentStep(this.groq, input, engineResponses),
+            ),
+            step.run("classify-citations", () =>
+              classifyCitationsStep(
+                this.prisma,
+                this.groq,
+                input,
+                engineResponses,
+              ),
+            ),
+          ]);
+          const analyzedResponses = engineResponses.map((response) => ({
+            ...response,
+            citations: response.citations.map((citation) => ({
+              ...citation,
+              ...(citationClassificationsByCanonicalUrl[
+                citation.canonicalUrl
+              ] ?? {
+                urlType: null,
+                domainType: null,
+              }),
+            })),
+            mentions: Array.from(
+              new Map(
+                [
+                  ...response.mentions,
+                  ...(mentionsByResponseKey[response.responseKey] ?? []),
+                ]
+                  .filter(
+                    (mention): mention is MonitoringMention =>
+                      typeof mention.domain === "string" &&
+                      typeof mention.position === "number",
+                  )
+                  .map((mention) => [mention.domain, mention] as const),
+              ).values(),
+            ),
+            fanOutQueries: [
+              ...response.fanOutQueries,
+              ...(queriesByResponseKey[response.responseKey] ?? []).map(
+                (query) => ({ query, inferred: true }),
+              ),
+            ],
+            sentimentClaims: (
+              sentimentClaimsByResponseKey[response.responseKey] ?? []
+            ).filter(
+              (claim): claim is MonitoringSentimentClaim =>
+                typeof claim.brandDomain === "string" &&
+                typeof claim.label === "string" &&
+                (claim.sentiment === "POSITIVE" ||
+                  claim.sentiment === "NEGATIVE") &&
+                Array.isArray(claim.evidences) &&
+                claim.evidences.every(
+                  (evidence) =>
+                    typeof evidence.startOffset === "number" &&
+                    typeof evidence.endOffset === "number",
+                ),
+            ),
+          }));
+          const summary = (await step.run("finalize-run", () =>
+            finalizeRunStep(this.prisma, input, analyzedResponses),
+          )) as MonitoringRunSummary;
+          await step.run("complete-workflow-run", async () => {
+            const completedRun = await this.workflowRuns.completeWorkflowRun(
+              workflowRunId,
+              summary as unknown as Prisma.InputJsonValue,
+            );
+            this.logger.log(
+              `[${businessId}] Completed monitoring ${JSON.stringify(summary)}`,
+            );
+            return completedRun;
+          });
+          return summary;
+        } catch (error) {
+          await step.run("fail-workflow-run", () =>
+            this.workflowRuns.failWorkflowRun(workflowRunId, error),
+          );
+          throw error;
+        }
       },
-    };
+    );
   }
 }

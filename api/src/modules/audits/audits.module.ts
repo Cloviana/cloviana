@@ -1,10 +1,10 @@
 import { Module } from "@nestjs/common";
 import { AuditsController } from "./audits.controller";
 import { AuditsService } from "./audits.service";
-import { AuditsQueueModule } from "./background/queue/audits-queue.module";
+import { AuditWorkflowModule } from "./background/workflows/audit/audit.module";
 
 @Module({
-  imports: [AuditsQueueModule],
+  imports: [AuditWorkflowModule],
   controllers: [AuditsController],
   providers: [AuditsService],
 })

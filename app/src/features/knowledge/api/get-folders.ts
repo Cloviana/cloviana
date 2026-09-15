@@ -8,9 +8,7 @@ import type { Folder } from '@/types/api';
 export const getFolders = async (businessId: string): Promise<Folder[]> => {
   const headers = await getAuthHeaders();
 
-  return api.get<Folder[]>(`/businesses/${businessId}/folders`, {
-    headers,
-  });
+  return api.get<Folder[]>(`/businesses/${businessId}/folders`, { headers });
 };
 
 export const getFoldersQueryOptions = (businessId: string) =>

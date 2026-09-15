@@ -1,8 +1,13 @@
+minimumReleaseAge: 1440
+
 allowBuilds:
   esbuild: true
   framer: true
   sharp: true
   unrs-resolver: true
+
+overrides:
+  nanoid: 3.3.12
 
 # Temporary, version-scoped exceptions for packages reviewed during the
 # Next.js 16/Sanity migration. The default 24-hour policy remains enabled for

@@ -1,9 +1,33 @@
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import type { AuthUser } from "@/interfaces/auth-user.interface";
 import { Injectable } from "@nestjs/common";
-import type { Prisma } from "@prisma/client";
+import { BrandKind, type Prisma } from "@prisma/client";
 
-type BusinessLookupOptions = Omit<Prisma.BusinessFindFirstOrThrowArgs, "where">;
+const businessBrandKitInclude = {
+  select: {
+    brands: {
+      where: { kind: BrandKind.BUSINESS },
+      orderBy: { createdAt: "asc" as const },
+      take: 1,
+    },
+  },
+};
+
+function withBusinessBrand<
+  T extends {
+    id: string;
+    brandKit: { brands: Array<{ name: string; domain: string }> } | null;
+  },
+>(record: T) {
+  const { brandKit, ...business } = record;
+  const brand = brandKit?.brands[0];
+
+  if (!brand) {
+    throw new Error(`Business ${record.id} is missing its BUSINESS brand`);
+  }
+
+  return { ...business, brand };
+}
 
 function buildAccessibleBusinessWhere(
   profileId: string,
@@ -55,14 +79,19 @@ export class BusinessesService {
   }
 
   async listBusinesses(user: AuthUser) {
-    return this.prisma.business.findMany({
+    const businesses = await this.prisma.business.findMany({
       where: buildAccessibleBusinessWhere(user.sub),
+      include: { brandKit: businessBrandKitInclude },
     });
+
+    return businesses.map(withBusinessBrand);
   }
 
   async getBusiness(user: AuthUser, businessId: string) {
-    return this.findAccessibleBusiness(user.sub, businessId, {
+    const business = await this.prisma.business.findFirstOrThrow({
+      where: buildAccessibleBusinessWhere(user.sub, businessId),
       include: {
+        brandKit: businessBrandKitInclude,
         subscription: {
           select: {
             status: true,
@@ -77,6 +106,8 @@ export class BusinessesService {
         },
       },
     });
+
+    return withBusinessBrand(business);
   }
 
   async setLastAccessedBusiness(user: AuthUser, businessId: string) {
@@ -90,20 +121,33 @@ export class BusinessesService {
     return { ok: true };
   }
 
-  getBusinessProfile(businessId: string) {
-    return this.prisma.business.findUniqueOrThrow({
-      where: { id: businessId },
-      select: { name: true, description: true },
+  async getBusinessProfile(businessId: string) {
+    const brandKit = await this.prisma.brandKit.findUniqueOrThrow({
+      where: { businessId },
+      select: {
+        id: true,
+        about: true,
+        brands: {
+          where: { kind: BrandKind.BUSINESS },
+          select: { name: true },
+          orderBy: { createdAt: "asc" },
+          take: 1,
+        },
+      },
     });
+    const brand = brandKit.brands[0];
+    if (!brand) {
+      throw new Error(`Brand kit ${brandKit.id} is missing its BUSINESS brand`);
+    }
+
+    return {
+      name: brand.name,
+      description: brandKit.about ?? "",
+    };
   }
 
-  private findAccessibleBusiness(
-    profileId: string,
-    businessId: string,
-    options?: BusinessLookupOptions,
-  ) {
+  private findAccessibleBusiness(profileId: string, businessId: string) {
     return this.prisma.business.findFirstOrThrow({
-      ...options,
       where: buildAccessibleBusinessWhere(profileId, businessId),
     });
   }

@@ -25,7 +25,9 @@ export const BusinessChip = ({ className }: { className?: string }) => {
         <AvatarImage src={business.profileUrl ?? undefined} />
         <AvatarFallback />
       </Avatar>
-      <div className="flex-1 text-left font-semibold">{business.name}</div>
+      <div className="flex-1 text-left font-semibold">
+        {business.brand.name}
+      </div>
 
       <ChevronsUpDown
         size={13}

@@ -1,11 +1,12 @@
 import { PrismaService } from "@/clients/prisma/prisma.service";
 import { ResendService } from "@/clients/resend/resend.service";
-import { Injectable, Logger } from "@nestjs/common";
+import { Logger } from "@nestjs/common";
 import { Prisma } from "@prisma/client";
 import type { AuditReport, AuditRunResult, CitedPage } from "./audit.types";
 
 const MISSING_DESCRIPTION = "Click this preview to learn more";
 const AUDIT_COMPLETION_EMAIL_BLOCKLIST = new Set(["samuel@cloviana.com"]);
+const logger = new Logger("PersistAudit");
 
 async function fetchMetaDescription(url: string): Promise<string> {
   try {
@@ -50,52 +51,46 @@ async function enrichMissingDescriptions(
   );
 }
 
-@Injectable()
-export class AuditPersistence {
-  private readonly logger = new Logger(AuditPersistence.name);
+export async function persistAudit(
+  prisma: PrismaService,
+  resend: ResendService,
+  result: AuditRunResult,
+  report: AuditReport,
+): Promise<void> {
+  const topPages = await enrichMissingDescriptions(report.topPages);
+  const audit = await prisma.audit.update({
+    where: { id: result.auditId },
+    data: {
+      brandName: result.profile.name,
+      visibilityLeaderboard:
+        report.visibilityLeaderboard as unknown as Prisma.InputJsonValue,
+      citationLeaderboard:
+        report.citationLeaderboard as unknown as Prisma.InputJsonValue,
+      sentiment: report.sentiment as unknown as Prisma.InputJsonValue,
+      topPages: topPages as unknown as Prisma.InputJsonValue,
+      contentSuggestions:
+        report.contentSuggestions as unknown as Prisma.InputJsonValue,
+      brandVisibility:
+        report.brandVisibility as unknown as Prisma.InputJsonValue,
+      promptCoverage: report.promptCoverage as unknown as Prisma.InputJsonValue,
+    },
+  });
 
-  constructor(
-    private readonly prisma: PrismaService,
-    private readonly resend: ResendService,
-  ) {}
+  if (AUDIT_COMPLETION_EMAIL_BLOCKLIST.has(result.email.toLowerCase())) {
+    return;
+  }
 
-  async persist(result: AuditRunResult, report: AuditReport): Promise<void> {
-    const topPages = await enrichMissingDescriptions(report.topPages);
-    const audit = await this.prisma.audit.update({
-      where: { id: result.auditId },
-      data: {
-        brandName: result.profile.name,
-        visibilityLeaderboard:
-          report.visibilityLeaderboard as unknown as Prisma.InputJsonValue,
-        citationLeaderboard:
-          report.citationLeaderboard as unknown as Prisma.InputJsonValue,
-        sentiment: report.sentiment as unknown as Prisma.InputJsonValue,
-        topPages: topPages as unknown as Prisma.InputJsonValue,
-        contentSuggestions:
-          report.contentSuggestions as unknown as Prisma.InputJsonValue,
-        brandVisibility:
-          report.brandVisibility as unknown as Prisma.InputJsonValue,
-        promptCoverage:
-          report.promptCoverage as unknown as Prisma.InputJsonValue,
-      },
-    });
-
-    if (AUDIT_COMPLETION_EMAIL_BLOCKLIST.has(result.email.toLowerCase())) {
-      return;
-    }
-
-    try {
-      await this.resend.sendAuditComplete(
-        result.email,
-        audit.slug,
-        result.profile.name,
-      );
-    } catch (error) {
-      this.logger.error(
-        `Failed to send audit completion email auditId=${result.auditId}: ${
-          error instanceof Error ? error.message : String(error)
-        }`,
-      );
-    }
+  try {
+    await resend.sendAuditComplete(
+      result.email,
+      audit.slug,
+      result.profile.name,
+    );
+  } catch (error) {
+    logger.error(
+      `Failed to send audit completion email auditId=${result.auditId}: ${
+        error instanceof Error ? error.message : String(error)
+      }`,
+    );
   }
 }

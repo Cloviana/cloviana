@@ -8,23 +8,6 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
-// --- ENUMS ---
-
-enum JobType {
-  SITE_AUDIT
-  BUSINESS_INITIALIZATION
-  PROMPT_RESEARCH
-  PROMPT_GENERATION
-  MONITORING
-}
-
-enum JobStatus {
-  PENDING
-  RUNNING
-  SUCCESS
-  FAILED
-}
-
 enum PlanName {
   STARTER
   PRO
@@ -36,11 +19,11 @@ enum SubscriptionStatus {
   PAST_DUE
   CANCELED
   INCOMPLETE
-  TRIALLING
+  TRIALING
 }
 
 enum BusinessMembershipRole {
-  OWNER
+  ADMIN
   MEMBER
 }
 
@@ -51,27 +34,36 @@ enum BusinessInviteStatus {
   EXPIRED
 }
 
-enum BusinessSetupStatus {
-  NOT_STARTED
-  IN_PROGRESS
-  COMPLETED
-}
-
-enum BusinessSetupStep {
-  DOMAIN
-  PROFILE
-  LOCATION
-  COMPETITORS
-  ATTRIBUTION
-  TOPICS
-  PROMPTS
-  COMPLETED
-}
-
 enum BusinessStatus {
   LOCKED
   PROCESSING
   ACTIVE
+  FAILED
+}
+
+enum BrandKind {
+  BUSINESS
+  COMPETITOR
+}
+
+enum ChatMessageRole {
+  user
+  assistant
+}
+
+enum WorkflowRunType {
+  BUSINESS_INITIALIZATION
+  PROMPT_RESEARCH
+  PROMPT_GENERATION
+  PRODUCT_RESEARCH
+  CONTENT_TYPE_RESEARCH
+  MONITORING
+}
+
+enum WorkflowRunStatus {
+  PENDING
+  RUNNING
+  SUCCESS
   FAILED
 }
 
@@ -87,6 +79,14 @@ enum AiEngine {
   AI_OVERVIEWS
 }
 
+enum MetricEngine {
+  CLAUDE
+  CHATGPT
+  PERPLEXITY
+  AI_OVERVIEWS
+  ALL
+}
+
 enum PromptRunStatus {
   RUNNING
   COMPLETED
@@ -99,12 +99,44 @@ enum PromptResponseStatus {
   FAILED
 }
 
+enum ClaimSentiment {
+  POSITIVE
+  NEGATIVE
+}
+
+enum CitationUrlType {
+  COMPARISON
+  OTHER
+  ARTICLE
+  HOW_TO_GUIDE
+  PRODUCT_PAGE
+  DISCUSSION
+  LISTICLE
+  VIDEO
+  PROFILE
+  HOMEPAGE
+}
+
+enum CitationDomainType {
+  CORPORATE
+  UGC
+  OTHER
+  REFERENCE
+  COMPETITOR
+  INSTITUTIONAL
+  EDITORIAL
+}
+
 enum PromptAwarenessStage {
   AWARENESS
-  EXPLORE
   CONSIDERATION
   EVALUATE
   DECIDE
+}
+
+enum PromptBranding {
+  BRANDED
+  UNBRANDED
 }
 
 enum DocumentStatus {
@@ -113,14 +145,24 @@ enum DocumentStatus {
   READY
 }
 
-// --- BILLING MODELS ---
+enum SampleKind {
+  URL
+  TEXT
+}
+
+enum RuleScope {
+  GLOBAL
+  AUDIENCE
+  REGION
+  CONTENT_TYPE
+}
 
 model Plan {
   id            String   @id @default(uuid()) @db.Uuid
-  name          PlanName
+  name          PlanName @unique
   stripePriceId String   @unique
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  createdAt     DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime @updatedAt @db.Timestamptz(3)
 
   subscriptions Subscription[]
 
@@ -134,41 +176,38 @@ model Subscription {
 
   stripeSubscriptionId String? @unique
 
-  trialEndsAt DateTime?
+  trialEndsAt DateTime? @db.Timestamptz(3)
   businessId  String    @unique
 
   planId String @db.Uuid
   plan   Plan   @relation(fields: [planId], references: [id])
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
 
   business Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
 
+  @@index([planId])
   @@map("subscriptions")
 }
 
-// --- CORE MODELS ---
-
 model Business {
-  id                        String              @id @default(cuid())
-  ownerId                   String              @db.Uuid
-  stripeCustomerId          String?
-  name                      String
-  domain                    String
-  category                  String
-  description               String
-  personas                  String[]  @default([])
-  status                    BusinessStatus      @default(LOCKED)
+  id               String         @id @default(cuid())
+  ownerId          String         @db.Uuid
+  stripeCustomerId String?        @unique
+  status           BusinessStatus @default(LOCKED)
 
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+
   subscription Subscription?
 
-  owner          Profile          @relation("BusinessOwner", fields: [ownerId], references: [id], onDelete: Cascade)
-  competitors    Competitor[]
-  jobs           Job[]
+  owner          Profile          @relation("BusinessOwner", fields: [ownerId], references: [id], onDelete: Restrict)
+  lastAccessedBy Profile[]        @relation("LastAccessedBusiness")
+  brandKit       BrandKit?
+  workflowRuns   WorkflowRun[]
   prompts        Prompt[]
+  topics         Topic[]
   tags           Tag[]
   members        BusinessMember[]
   invites        BusinessInvite[]
@@ -181,17 +220,12 @@ model Business {
   @@map("businesses")
 }
 
-enum ChatMessageRole {
-  user
-  assistant
-}
-
 model Chat {
   id         String   @id @default(uuid()) @db.Uuid
   businessId String
   title      String
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  createdAt  DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt  DateTime @updatedAt @db.Timestamptz(3)
 
   business Business      @relation(fields: [businessId], references: [id], onDelete: Cascade)
   messages ChatMessage[]
@@ -205,7 +239,7 @@ model ChatMessage {
   chatId    String          @db.Uuid
   role      ChatMessageRole
   content   Json            @db.JsonB
-  createdAt DateTime        @default(now())
+  createdAt DateTime        @default(now()) @db.Timestamptz(3)
 
   chat Chat @relation(fields: [chatId], references: [id], onDelete: Cascade)
 
@@ -213,39 +247,254 @@ model ChatMessage {
   @@map("chat_messages")
 }
 
-model Competitor {
-  id         String   @id @default(uuid()) @db.Uuid
-  businessId String
+model Brand {
+  id         String    @id @default(uuid()) @db.Uuid
+  brandKitId String    @db.Uuid
+  kind       BrandKind
   domain     String
   name       String
-  aliases    String[] @default([])
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  aliases    String[]  @default([])
+  createdAt  DateTime  @default(now()) @db.Timestamptz(3)
+  updatedAt  DateTime  @updatedAt @db.Timestamptz(3)
 
-  business        Business         @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  brandKit        BrandKit            @relation(fields: [brandKitId], references: [id], onDelete: Cascade)
   mentions        Mention[]
+  sentimentClaims SentimentClaim[]
   promptMetrics   PromptMetric[]
   businessMetrics BusinessMetric[]
+  competitorLinks ProductCompetitor[]
 
-  @@unique([businessId, domain])
-  @@index([businessId])
-  @@map("competitors")
+  @@index([brandKitId])
+  @@map("brands")
+}
+
+model BrandKit {
+  id                 String   @id @default(uuid()) @db.Uuid
+  businessId         String   @unique
+  publishedVersionId String?  @unique @db.Uuid
+  about              String?  @db.Text
+  voice              String?  @db.Text
+  writerPersona      String?  @db.Text
+  draftRevision      Int      @default(0)
+  createdAt          DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt          DateTime @updatedAt @db.Timestamptz(3)
+
+  business         Business          @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  brands           Brand[]
+  products         Product[]
+  contentTypes     ContentType[]
+  audiences        Audience[]
+  regions          Region[]
+  variables        CustomVariable[]
+  rules            Rule[]
+  versions         BrandKitVersion[] @relation("BrandKitVersions")
+  samples          Sample[]
+  publishedVersion BrandKitVersion?  @relation("PublishedBrandKitVersion", fields: [publishedVersionId, id], references: [id, brandKitId], onDelete: Restrict)
+
+  @@unique([publishedVersionId, id])
+  @@map("brand_kits")
+}
+
+model BrandKitVersion {
+  id             String   @id @default(uuid()) @db.Uuid
+  brandKitId     String   @db.Uuid
+  number         Int
+  sourceRevision Int
+  snapshot       Json     @db.JsonB
+  publishedAt    DateTime @default(now()) @db.Timestamptz(3)
+
+  brandKit     BrandKit  @relation("BrandKitVersions", fields: [brandKitId], references: [id], onDelete: Cascade)
+  publishedFor BrandKit? @relation("PublishedBrandKitVersion")
+
+  @@unique([id, brandKitId])
+  @@unique([brandKitId, number])
+  @@map("brand_kit_versions")
+}
+
+model Product {
+  id            String   @id @default(uuid()) @db.Uuid
+  brandKitId    String   @db.Uuid
+  name          String
+  description   String?  @db.Text
+  positioning   String?  @db.Text
+  idealCustomer String?  @db.Text
+  createdAt     DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime @updatedAt @db.Timestamptz(3)
+
+  brandKit        BrandKit            @relation(fields: [brandKitId], references: [id], onDelete: Cascade)
+  competitorLinks ProductCompetitor[]
+
+  @@unique([brandKitId, name])
+  @@map("products")
+}
+
+model ProductCompetitor {
+  productId         String   @db.Uuid
+  competitorBrandId String   @db.Uuid
+  createdAt         DateTime @default(now()) @db.Timestamptz(3)
+
+  product         Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  competitorBrand Brand   @relation(fields: [competitorBrandId], references: [id], onDelete: Cascade)
+
+  @@id([productId, competitorBrandId])
+  @@index([competitorBrandId])
+  @@map("product_competitors")
+}
+
+model ContentType {
+  id         String   @id @default(uuid()) @db.Uuid
+  brandKitId String   @db.Uuid
+  name       String
+  ctaText    String?
+  ctaUrl     String?
+  createdAt  DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt  DateTime @updatedAt @db.Timestamptz(3)
+
+  brandKit BrandKit @relation(fields: [brandKitId], references: [id], onDelete: Cascade)
+  samples     Sample[]
+  rules       Rule[]
+
+  @@unique([id, brandKitId])
+  @@unique([brandKitId, name])
+  @@map("content_types")
+}
+
+model Audience {
+  id          String   @id @default(uuid()) @db.Uuid
+  brandKitId  String   @db.Uuid
+  name        String
+  description String?  @db.Text
+  createdAt   DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt   DateTime @updatedAt @db.Timestamptz(3)
+
+  brandKit BrandKit @relation(fields: [brandKitId], references: [id], onDelete: Cascade)
+  sampleLinks SampleAudience[]
+  rules       Rule[]
+
+  @@unique([id, brandKitId])
+  @@unique([brandKitId, name])
+  @@map("audiences")
+}
+
+model Region {
+  id          String   @id @default(uuid()) @db.Uuid
+  brandKitId  String   @db.Uuid
+  name        String
+  description String?  @db.Text
+  createdAt   DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt   DateTime @updatedAt @db.Timestamptz(3)
+
+  brandKit BrandKit @relation(fields: [brandKitId], references: [id], onDelete: Cascade)
+  sampleLinks SampleRegion[]
+  rules       Rule[]
+
+  @@unique([id, brandKitId])
+  @@unique([brandKitId, name])
+  @@map("regions")
+}
+
+model CustomVariable {
+  id         String   @id @default(uuid()) @db.Uuid
+  brandKitId String   @db.Uuid
+  name       String
+  key        String
+  value      String?  @db.Text
+  createdAt  DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt  DateTime @updatedAt @db.Timestamptz(3)
+
+  brandKit BrandKit @relation(fields: [brandKitId], references: [id], onDelete: Cascade)
+
+  @@unique([brandKitId, key])
+  @@map("custom_variables")
+}
+
+model Rule {
+  id            String    @id @default(uuid()) @db.Uuid
+  brandKitId    String    @db.Uuid
+  scope         RuleScope
+  content       String    @db.Text
+  position      Int       @default(0)
+  audienceId    String?   @db.Uuid
+  regionId      String?   @db.Uuid
+  contentTypeId String?   @db.Uuid
+  createdAt     DateTime  @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime  @updatedAt @db.Timestamptz(3)
+
+  brandKit    BrandKit     @relation(fields: [brandKitId], references: [id], onDelete: Cascade)
+  audience    Audience?    @relation(fields: [audienceId, brandKitId], references: [id, brandKitId], onDelete: Cascade)
+  region      Region?      @relation(fields: [regionId, brandKitId], references: [id, brandKitId], onDelete: Cascade)
+  contentType ContentType? @relation(fields: [contentTypeId, brandKitId], references: [id, brandKitId], onDelete: Cascade)
+
+  @@index([brandKitId, scope])
+  @@index([audienceId])
+  @@index([regionId])
+  @@index([contentTypeId])
+  @@map("rules")
+}
+
+model Sample {
+  id            String     @id @default(uuid()) @db.Uuid
+  brandKitId    String     @db.Uuid
+  contentTypeId String     @db.Uuid
+  kind          SampleKind
+  value         String     @db.Text
+  content       String?    @db.Text
+  createdAt     DateTime   @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime   @updatedAt @db.Timestamptz(3)
+
+  brandKit      BrandKit         @relation(fields: [brandKitId], references: [id], onDelete: Cascade)
+  contentType   ContentType      @relation(fields: [contentTypeId, brandKitId], references: [id, brandKitId], onDelete: Cascade)
+  audienceLinks SampleAudience[]
+  regionLinks   SampleRegion[]
+
+  @@unique([id, brandKitId])
+  @@index([brandKitId])
+  @@index([contentTypeId, brandKitId])
+  @@map("samples")
+}
+
+model SampleAudience {
+  sampleId   String @db.Uuid
+  audienceId String @db.Uuid
+  brandKitId String @db.Uuid
+
+  sample   Sample   @relation(fields: [sampleId, brandKitId], references: [id, brandKitId], onDelete: Cascade)
+  audience Audience @relation(fields: [audienceId, brandKitId], references: [id, brandKitId], onDelete: Cascade)
+
+  @@id([sampleId, audienceId])
+  @@index([audienceId, brandKitId])
+  @@map("sample_audiences")
+}
+
+model SampleRegion {
+  sampleId   String @db.Uuid
+  regionId   String @db.Uuid
+  brandKitId String @db.Uuid
+
+  sample Sample @relation(fields: [sampleId, brandKitId], references: [id, brandKitId], onDelete: Cascade)
+  region Region @relation(fields: [regionId, brandKitId], references: [id, brandKitId], onDelete: Cascade)
+
+  @@id([sampleId, regionId])
+  @@index([regionId, brandKitId])
+  @@map("sample_regions")
 }
 
 model Profile {
   id                     String    @id @default(uuid()) @db.Uuid
   email                  String    @unique @db.Citext
   heardAboutUs           String?
-  heardAboutUsCapturedAt DateTime?
+  heardAboutUsCapturedAt DateTime? @db.Timestamptz(3)
   lastAccessedBusinessId String?
-  createdAt              DateTime  @default(now())
-  updatedAt              DateTime  @updatedAt
+  createdAt              DateTime  @default(now()) @db.Timestamptz(3)
+  updatedAt              DateTime  @updatedAt @db.Timestamptz(3)
 
-  businessesOwned Business[]       @relation("BusinessOwner")
-  memberships     BusinessMember[]
-  sentInvites     BusinessInvite[] @relation("BusinessInviteSentBy")
-  acceptedInvites BusinessInvite[] @relation("BusinessInviteAcceptedBy")
+  lastAccessedBusiness Business?        @relation("LastAccessedBusiness", fields: [lastAccessedBusinessId], references: [id], onDelete: SetNull)
+  businessesOwned      Business[]       @relation("BusinessOwner")
+  memberships          BusinessMember[]
+  sentInvites          BusinessInvite[] @relation("BusinessInviteSentBy")
+  acceptedInvites      BusinessInvite[] @relation("BusinessInviteAcceptedBy")
 
+  @@index([lastAccessedBusinessId])
   @@map("profiles")
 }
 
@@ -254,8 +503,8 @@ model BusinessMember {
   businessId String
   profileId  String                 @db.Uuid
   role       BusinessMembershipRole @default(MEMBER)
-  createdAt  DateTime               @default(now())
-  updatedAt  DateTime               @updatedAt
+  createdAt  DateTime               @default(now()) @db.Timestamptz(3)
+  updatedAt  DateTime               @updatedAt @db.Timestamptz(3)
 
   business Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
   profile  Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
@@ -273,10 +522,10 @@ model BusinessInvite {
   status       BusinessInviteStatus   @default(PENDING)
   invitedById  String                 @db.Uuid
   acceptedById String?                @db.Uuid
-  expiresAt    DateTime?
-  acceptedAt   DateTime?
-  createdAt    DateTime               @default(now())
-  updatedAt    DateTime               @updatedAt
+  expiresAt    DateTime?              @db.Timestamptz(3)
+  acceptedAt   DateTime?              @db.Timestamptz(3)
+  createdAt    DateTime               @default(now()) @db.Timestamptz(3)
+  updatedAt    DateTime               @updatedAt @db.Timestamptz(3)
 
   business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
   invitedBy  Profile  @relation("BusinessInviteSentBy", fields: [invitedById], references: [id], onDelete: Cascade)
@@ -285,35 +534,31 @@ model BusinessInvite {
   @@unique([businessId, email])
   @@index([email, status, expiresAt])
   @@index([invitedById])
+  @@index([acceptedById])
   @@map("business_invites")
 }
 
-model Job {
-  id              String    @id @default(uuid()) @db.Uuid
-  type            JobType
-  businessId      String
-  status          JobStatus @default(PENDING)
-  priority        Int       @default(0)
-  progress        Json?     @db.JsonB
-  attempts        Int       @default(0)
-  scheduledAt     DateTime?
-  startedAt       DateTime?
-  finishedAt      DateTime?
-  lastHeartbeatAt DateTime?
-  payload         Json?     @db.JsonB
-  result          Json?     @db.JsonB
-  error           String?
-  dedupeKey       String?
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
+model WorkflowRun {
+  id         String            @id @default(uuid()) @db.Uuid
+  type       WorkflowRunType
+  businessId String
+  status     WorkflowRunStatus @default(PENDING)
+  dedupeKey  String?
+  eventId    String?           @unique
+  progress   Json?             @db.JsonB
+  result     Json?             @db.JsonB
+  error      String?
+  startedAt  DateTime?         @db.Timestamptz(3)
+  finishedAt DateTime?         @db.Timestamptz(3)
+  createdAt  DateTime          @default(now()) @db.Timestamptz(3)
+  updatedAt  DateTime          @updatedAt @db.Timestamptz(3)
 
   business Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
-  audits   Audit[]
 
   @@unique([type, businessId, dedupeKey])
-  @@index([type, status, priority, scheduledAt])
   @@index([businessId, type, status])
-  @@map("jobs")
+  @@index([businessId, type, createdAt(sort: Desc)])
+  @@map("workflow_runs")
 }
 
 model Prompt {
@@ -322,65 +567,112 @@ model Prompt {
   text           String
   status         PromptStatus
   awarenessStage PromptAwarenessStage
-  lastRunAt      DateTime?
-  createdAt      DateTime             @default(now())
-  updatedAt      DateTime             @updatedAt
+  branding       PromptBranding
+  lastRunAt      DateTime?            @db.Timestamptz(3)
+  createdAt      DateTime             @default(now()) @db.Timestamptz(3)
+  updatedAt      DateTime             @updatedAt @db.Timestamptz(3)
 
-  business  Business         @relation(fields: [businessId], references: [id], onDelete: Cascade)
-  tags      Tag[]
-  runs      PromptRun[]
-  responses PromptResponse[]
-  metrics   PromptMetric[]
+  business     Business       @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  promptTopics PromptTopic[]
+  promptTags   PromptTag[]
+  runs         PromptRun[]
+  metrics      PromptMetric[]
 
+  @@unique([id, businessId])
   @@unique([businessId, text])
-  @@index([businessId])
+  @@index([businessId, createdAt, id])
   @@map("prompts")
+}
+
+model Topic {
+  id         String   @id @default(uuid()) @db.Uuid
+  businessId String
+  name       String
+  createdAt  DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt  DateTime @updatedAt @db.Timestamptz(3)
+
+  business     Business      @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  promptTopics PromptTopic[]
+
+  @@unique([id, businessId])
+  @@unique([businessId, name])
+  @@map("topics")
 }
 
 model Tag {
   id         String   @id @default(uuid()) @db.Uuid
   businessId String
   text       String
-  createdAt  DateTime @default(now())
+  createdAt  DateTime @default(now()) @db.Timestamptz(3)
 
-  business Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
-  prompts  Prompt[]
+  business   Business    @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  promptTags PromptTag[]
 
+  @@unique([id, businessId])
   @@unique([businessId, text])
   @@map("tags")
+}
+
+model PromptTopic {
+  promptId   String   @db.Uuid
+  topicId    String   @db.Uuid
+  businessId String
+  createdAt  DateTime @default(now()) @db.Timestamptz(3)
+
+  prompt Prompt @relation(fields: [promptId, businessId], references: [id, businessId], onDelete: Cascade)
+  topic  Topic  @relation(fields: [topicId, businessId], references: [id, businessId], onDelete: Cascade)
+
+  @@id([promptId, topicId])
+  @@index([topicId, businessId])
+  @@map("prompt_topics")
+}
+
+model PromptTag {
+  promptId   String   @db.Uuid
+  tagId      String   @db.Uuid
+  businessId String
+  createdAt  DateTime @default(now()) @db.Timestamptz(3)
+
+  prompt Prompt @relation(fields: [promptId, businessId], references: [id, businessId], onDelete: Cascade)
+  tag    Tag    @relation(fields: [tagId, businessId], references: [id, businessId], onDelete: Cascade)
+
+  @@id([promptId, tagId])
+  @@index([tagId, businessId])
+  @@map("prompt_tags")
 }
 
 model PromptRun {
   id          String          @id @default(uuid()) @db.Uuid
   promptId    String          @db.Uuid
   status      PromptRunStatus
-  completedAt DateTime?
-  createdAt   DateTime        @default(now())
+  completedAt DateTime?       @db.Timestamptz(3)
+  createdAt   DateTime        @default(now()) @db.Timestamptz(3)
 
   prompt    Prompt           @relation(fields: [promptId], references: [id], onDelete: Cascade)
   responses PromptResponse[]
 
+  @@index([promptId, status, completedAt(sort: Desc), createdAt(sort: Desc)])
   @@map("prompt_runs")
 }
 
 model PromptResponse {
   id          String               @id @default(uuid()) @db.Uuid
   promptRunId String               @db.Uuid
-  promptId    String               @db.Uuid
   engine      AiEngine
   text        String?
+  webSearch   Boolean              @default(true)
   status      PromptResponseStatus
   error       String?
-  createdAt   DateTime             @default(now())
+  createdAt   DateTime             @default(now()) @db.Timestamptz(3)
 
-  promptRun     PromptRun     @relation(fields: [promptRunId], references: [id], onDelete: Cascade)
-  prompt        Prompt        @relation(fields: [promptId], references: [id], onDelete: Cascade)
-  mentions      Mention[]
-  citations     Citation[]
-  fanOutQueries FanOutQuery[]
+  promptRun       PromptRun        @relation(fields: [promptRunId], references: [id], onDelete: Cascade)
+  mentions        Mention[]
+  citations       Citation[]
+  fanOutQueries   FanOutQuery[]
+  sentimentClaims SentimentClaim[]
 
   @@unique([promptRunId, engine])
-  @@index([promptId])
+  @@index([promptRunId, createdAt(sort: Desc)])
   @@map("prompt_responses")
 }
 
@@ -389,28 +681,35 @@ model Mention {
   promptResponseId String   @db.Uuid
   name             String
   domain           String
-  position         Int
-  competitorId     String?  @db.Uuid
-  createdAt        DateTime @default(now())
+  order            Int
+  brandId          String   @db.Uuid
+  createdAt        DateTime @default(now()) @db.Timestamptz(3)
 
   promptResponse PromptResponse @relation(fields: [promptResponseId], references: [id], onDelete: Cascade)
-  competitor     Competitor?    @relation(fields: [competitorId], references: [id], onDelete: Cascade)
+  brand          Brand          @relation(fields: [brandId], references: [id], onDelete: Cascade)
 
-  @@index([competitorId])
+  @@index([brandId])
+  @@index([promptResponseId, order])
   @@map("mentions")
 }
 
 model Citation {
-  id               String   @id @default(uuid()) @db.Uuid
-  promptResponseId String   @db.Uuid
+  id               String              @id @default(uuid()) @db.Uuid
+  promptResponseId String              @db.Uuid
   url              String
+  canonicalUrl     String
   domain           String
   title            String?
-  position         Int
-  createdAt        DateTime @default(now())
+  urlType          CitationUrlType?
+  domainType       CitationDomainType?
+  order            Int
+  createdAt        DateTime            @default(now()) @db.Timestamptz(3)
 
   promptResponse PromptResponse @relation(fields: [promptResponseId], references: [id], onDelete: Cascade)
 
+  @@index([promptResponseId, order])
+  @@index([canonicalUrl, createdAt(sort: Desc)])
+  @@index([domain, createdAt(sort: Desc)])
   @@map("citations")
 }
 
@@ -419,47 +718,85 @@ model FanOutQuery {
   promptResponseId String   @db.Uuid
   query            String
   inferred         Boolean  @default(false)
-  createdAt        DateTime @default(now())
+  createdAt        DateTime @default(now()) @db.Timestamptz(3)
 
   promptResponse PromptResponse @relation(fields: [promptResponseId], references: [id], onDelete: Cascade)
 
+  @@index([promptResponseId])
   @@map("fan_out_queries")
 }
 
+model SentimentClaim {
+  id               String         @id @default(uuid()) @db.Uuid
+  promptResponseId String         @db.Uuid
+  brandId          String         @db.Uuid
+  label            String
+  sentiment        ClaimSentiment
+  createdAt        DateTime       @default(now()) @db.Timestamptz(3)
+
+  promptResponse PromptResponse      @relation(fields: [promptResponseId], references: [id], onDelete: Cascade)
+  brand          Brand               @relation(fields: [brandId], references: [id], onDelete: Cascade)
+  evidences      SentimentEvidence[]
+
+  @@unique([promptResponseId, brandId, sentiment, label])
+  @@index([brandId])
+  @@map("sentiment_claims")
+}
+
+model SentimentEvidence {
+  id               String @id @default(uuid()) @db.Uuid
+  sentimentClaimId String @db.Uuid
+  startOffset      Int
+  endOffset        Int
+
+  sentimentClaim SentimentClaim @relation(fields: [sentimentClaimId], references: [id], onDelete: Cascade)
+
+  @@unique([sentimentClaimId, startOffset, endOffset])
+  @@map("sentiment_evidence")
+}
+
 model PromptMetric {
-  id            String   @id @default(uuid()) @db.Uuid
-  promptId      String   @db.Uuid
-  competitorId  String?  @db.Uuid
-  date          DateTime @db.Date
-  mentionRate   Float
-  citationShare Float
-  sov           Float
-  createdAt     DateTime @default(now())
+  id                     String   @id @default(uuid()) @db.Uuid
+  businessId             String
+  promptId               String   @db.Uuid
+  brandId                String   @db.Uuid
+  date                   DateTime @db.Date
+  mentionRate            Float
+  citationShare          Float
+  shareOfVoice           Float
+  positiveClaimCount     Int?
+  negativeClaimCount     Int?
+  positiveSentimentShare Float?
+  createdAt              DateTime @default(now()) @db.Timestamptz(3)
 
-  prompt     Prompt      @relation(fields: [promptId], references: [id], onDelete: Cascade)
-  competitor Competitor? @relation(fields: [competitorId], references: [id], onDelete: Cascade)
+  prompt Prompt @relation(fields: [promptId, businessId], references: [id, businessId], onDelete: Cascade)
+  brand  Brand  @relation(fields: [brandId], references: [id], onDelete: Cascade)
 
-  @@unique([promptId, competitorId, date])
-  @@index([competitorId])
+  @@unique([promptId, brandId, date])
+  @@index([brandId])
+  @@index([promptId, businessId])
   @@map("prompt_metrics")
 }
 
 model BusinessMetric {
-  id            String    @id @default(uuid()) @db.Uuid
-  businessId    String
-  competitorId  String?   @db.Uuid
-  engine        AiEngine?
-  date          DateTime  @db.Date
-  mentionRate   Float
-  citationShare Float
-  sov           Float
-  createdAt     DateTime  @default(now())
+  id                     String       @id @default(uuid()) @db.Uuid
+  businessId             String
+  brandId                String       @db.Uuid
+  engine                 MetricEngine
+  date                   DateTime     @db.Date
+  mentionRate            Float
+  citationShare          Float
+  shareOfVoice           Float
+  positiveClaimCount     Int?
+  negativeClaimCount     Int?
+  positiveSentimentShare Float?
+  createdAt              DateTime     @default(now()) @db.Timestamptz(3)
 
-  business   Business    @relation(fields: [businessId], references: [id], onDelete: Cascade)
-  competitor Competitor? @relation(fields: [competitorId], references: [id], onDelete: Cascade)
+  business Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  brand    Brand    @relation(fields: [brandId], references: [id], onDelete: Cascade)
 
-  @@index([businessId, competitorId, date, engine])
-  @@index([competitorId])
+  @@unique([businessId, brandId, engine, date])
+  @@index([brandId])
   @@map("business_metrics")
 }
 
@@ -470,8 +807,8 @@ model Folder {
   name       String   @db.Citext
   position   Int      @default(0)
   isDefault  Boolean  @default(false)
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  createdAt  DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt  DateTime @updatedAt @db.Timestamptz(3)
 
   business  Business   @relation(fields: [businessId], references: [id], onDelete: Cascade)
   parent    Folder?    @relation("FolderHierarchy", fields: [parentId, businessId], references: [id, businessId], onDelete: Restrict)
@@ -492,30 +829,26 @@ model Document {
   extension          String
   filename           String?
   mimeType           String?
-  sizeBytes           Int            @default(0)
-  position            Int            @default(0)
+  sizeBytes          Int            @default(0)
+  position           Int            @default(0)
   filePath           String?
   status             DocumentStatus @default(PENDING)
   chunkCount         Int?
-  ingestionQueuedAt  DateTime?
-  ingestionStartedAt DateTime?
-  deletedAt          DateTime?
-  indexedAt          DateTime?
-  createdAt          DateTime       @default(now())
-  updatedAt          DateTime       @updatedAt
+  ingestionQueuedAt  DateTime?      @db.Timestamptz(3)
+  ingestionStartedAt DateTime?      @db.Timestamptz(3)
+  deletedAt          DateTime?      @db.Timestamptz(3)
+  indexedAt          DateTime?      @db.Timestamptz(3)
+  createdAt          DateTime       @default(now()) @db.Timestamptz(3)
+  updatedAt          DateTime       @updatedAt @db.Timestamptz(3)
 
   business Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
   folder   Folder   @relation(fields: [folderId, businessId], references: [id, businessId], onDelete: Restrict)
 
   @@index([businessId, status])
-  @@index([businessId, folderId, position])
   @@index([status, ingestionQueuedAt, createdAt])
   @@index([status, ingestionStartedAt])
-  @@index([deletedAt, createdAt])
   @@map("documents")
 }
-
-// --- AUDIT MODELS ---
 
 model Audit {
   id        String   @id @default(uuid()) @db.Uuid
@@ -524,21 +857,18 @@ model Audit {
   domain    String
   country   String   @default("US")
   brandName String?
-  jobId     String?  @db.Uuid
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
 
-  // Report data (JSON blobs, populated by build-report node)
-  visibilityLeaderboard Json? // MentionedBrand[]  — top 6 (+target if outside top 6)
-  citationLeaderboard   Json? // CitedDomain[]     — top 6 (+target if outside top 6)
-  sentiment             Json? // SentimentResult   — { positivePercent, negativePercent, claims[], responses[] }
-  topPages              Json? // CitedPage[]       — top 3
-  contentSuggestions    Json? // ContentIdea[]     — 4 items
-  brandVisibility       Json? // BrandVisibility   — { google_aio, chatgpt, perplexity, overall } mention rates for target brand
-  promptCoverage        Json? // AuditPromptCoverage[] — per-prompt mention and citation rates
-
-  job Job? @relation(fields: [jobId], references: [id], onDelete: SetNull)
+  visibilityLeaderboard Json?
+  citationLeaderboard   Json?
+  sentiment             Json?
+  topPages              Json?
+  contentSuggestions    Json?
+  brandVisibility       Json?
+  promptCoverage        Json?
 
   @@index([email])
+  @@index([domain, createdAt(sort: Desc)])
   @@map("audits")
 }

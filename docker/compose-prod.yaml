@@ -11,10 +11,18 @@ services:
   api:
     environment:
       <<: *urls
+      INNGEST_EVENT_KEY: ${INNGEST_EVENT_KEY:?INNGEST_EVENT_KEY is required}
+      INNGEST_SIGNING_KEY: ${INNGEST_SIGNING_KEY:?INNGEST_SIGNING_KEY is required}
 
-  worker:
+  inngest:
     environment:
-      <<: *urls
+      INNGEST_EVENT_KEY: ${INNGEST_EVENT_KEY:?INNGEST_EVENT_KEY is required}
+      INNGEST_SIGNING_KEY: ${INNGEST_SIGNING_KEY:?INNGEST_SIGNING_KEY is required}
+      INNGEST_POSTGRES_URI: postgresql://inngest:${INNGEST_POSTGRES_PASSWORD:?INNGEST_POSTGRES_PASSWORD is required}@inngest-postgres:5432/inngest
+
+  inngest-postgres:
+    environment:
+      POSTGRES_PASSWORD: ${INNGEST_POSTGRES_PASSWORD:?INNGEST_POSTGRES_PASSWORD is required}
 
   app:
     build:
@@ -47,6 +55,8 @@ services:
       - certbot-etc:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot:ro
     restart: unless-stopped
+    mem_limit: 96m
+    memswap_limit: 96m
     networks:
       appnet:
         aliases:

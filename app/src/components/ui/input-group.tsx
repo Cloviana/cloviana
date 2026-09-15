@@ -6,7 +6,7 @@ import * as React from 'react';
 import { cn } from '@/utils/cn';
 
 const inputGroupVariants = cva(
-  'group/input-group file:text-foreground selection:bg-primary selection:text-primary-foreground border-input relative flex w-full min-w-0 rounded-lg border text-sm transition-[color,box-shadow] outline-none has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:opacity-50 focus-within:border-ring focus-within:ring-ring/30 focus-within:ring-[3px] aria-invalid:bg-destructive/5 aria-invalid:ring-destructive/20 aria-invalid:border-destructive has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>textarea]:h-auto',
+  'group/input-group file:text-foreground border-input relative flex w-full min-w-0 rounded-lg border text-[13px] transition-[color,box-shadow] outline-none has-disabled:pointer-events-none has-disabled:cursor-not-allowed has-disabled:opacity-50 focus-within:border-ring focus-within:ring-ring/30 focus-within:ring-[3px] aria-invalid:bg-destructive/5 aria-invalid:ring-destructive/20 aria-invalid:border-destructive has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>textarea]:h-auto',
   {
     variants: {
       variant: {
@@ -15,7 +15,7 @@ const inputGroupVariants = cva(
       },
       size: {
         default: 'h-8 focus-within:ring-[3px]',
-        sm: 'h-7 text-xs focus-within:ring-[3px]',
+        sm: 'h-[30px] text-xs focus-within:ring-[3px]',
         xs: 'h-6 text-xs focus-within:ring-[3px]',
         lg: 'h-9 focus-within:ring-[3.5px]',
       },
@@ -56,10 +56,10 @@ const inputGroupAddonVariants = cva(
         'block-end': 'order-last w-full justify-start px-3 pb-2',
       },
       size: {
-        default: 'text-sm',
+        default: 'text-[13px]',
         sm: 'text-xs',
         xs: 'text-xs',
-        lg: 'text-sm',
+        lg: 'text-[13px]',
       },
     },
     defaultVariants: {
@@ -99,10 +99,10 @@ const inputGroupButtonVariants = cva(
   {
     variants: {
       size: {
-        default: 'h-7 px-2 text-xs',
+        default: 'h-[30px] px-2 text-xs',
         sm: 'h-6 px-2 text-xs',
         xs: 'h-5 px-1.5 text-xs',
-        lg: 'h-8 px-3 text-sm',
+        lg: 'h-8 px-3 text-[13px]',
         'icon-xs': 'size-5 p-0',
         'icon-sm': 'size-6 p-0',
       },
@@ -155,7 +155,7 @@ function InputGroupInput({
     <input
       data-slot="input-group-control"
       className={cn(
-        'placeholder:text-foreground-lighter/70 min-w-0 flex-1 border-0 bg-transparent px-3 py-1 text-inherit ring-0 outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-0 focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:ring-0',
+        'placeholder:text-foreground-lighter/70 min-w-0 flex-1 border-0 bg-transparent px-3 py-1 text-inherit ring-0 outline-none file:inline-flex file:h-[30px] file:border-0 file:bg-transparent file:text-[13px] file:font-medium focus-visible:ring-0 focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:ring-0',
         'group-has-[>[data-align=inline-start]]/input-group:pl-1',
         'group-has-[>[data-align=inline-end]]/input-group:pr-1',
         'group-has-[>[data-align=block-start]]/input-group:pb-3',

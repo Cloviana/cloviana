@@ -28,7 +28,7 @@ export class BusinessOwnerGuard implements CanActivate {
             members: {
               some: {
                 profileId: request.user.sub,
-                role: BusinessMembershipRole.OWNER,
+                role: BusinessMembershipRole.ADMIN,
               },
             },
           },

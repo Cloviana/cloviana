@@ -3,6 +3,15 @@
 ## Codex Operating Rules
 
 - Do not run `npm run build` unless Samuel explicitly asks for a build.
+- Do not run type checks or lint on every edit. Run them only for a big change (many files, or logic worth verifying) or when Samuel asks. Small edits — a prop, a className, a copy tweak — ship without them; the IDE already reports type errors.
+
+## Frontend Conventions
+
+- Use `Field`, `FieldLabel`, `FieldDescription` (`@/components/ui/field`) for any labeled input/textarea instead of hand-rolling `Label` + a `<p>` caption.
+- If a card/section has exactly one field and its title already names what the field is (e.g. a "Voice" card with one Voice textarea), make `FieldLabel` `sr-only` — the title already serves as the visible label, so the label stays for accessibility only.
+- If a card has multiple fields, keep every `FieldLabel` visible — there's no title to redundantly repeat.
+- In dialogs, keep `FieldLabel` visible even for a single field — the dialog title names the action ("Add Global Rule"), not the field, so the label isn't redundant with it.
+- Don't let `FieldDescription`/`DialogDescription` repeat text the user already saw one step earlier (e.g. a dialog opened from a card shouldn't restate the card's own description verbatim). Keep description text specific to what that field needs.
 
 ## What is Cloviana?
 

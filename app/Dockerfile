@@ -3,12 +3,18 @@
 FROM node:22-bookworm AS base
 WORKDIR /app
 RUN corepack enable
+# pnpm's default store path is derived from $PNPM_HOME. Setting it explicitly
+# gives the cache mount below a fixed target to persist across builds instead
+# of re-downloading the whole dependency tree on every lockfile change.
+ENV PNPM_HOME=/pnpm
+ENV PATH="$PNPM_HOME:$PATH"
 
 FROM base AS deps
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* pnpm-workspace.yaml* .npmrc* ./
-RUN if [ -f yarn.lock ]; then yarn install --frozen-lockfile; \
+RUN --mount=type=cache,id=pnpm-app,target=/pnpm/store \
+    if [ -f yarn.lock ]; then yarn install --frozen-lockfile; \
     elif [ -f package-lock.json ]; then npm ci; \
-    elif [ -f pnpm-lock.yaml ]; then pnpm install; \
+    elif [ -f pnpm-lock.yaml ]; then pnpm install --frozen-lockfile; \
     else npm install; fi
 
 FROM deps AS builder
@@ -33,9 +39,12 @@ RUN if [ -f yarn.lock ]; then yarn build; \
 FROM deps AS dev
 WORKDIR /app
 ENV NODE_ENV=development
-COPY . .
+# No COPY of the source here on purpose: compose-dev.yaml bind-mounts ../app
+# over /app, so anything copied in would be shadowed at runtime anyway. Leaving
+# it out keeps this stage cache-valid across source edits — it only rebuilds
+# when the lockfile changes. This image is not runnable without that mount.
 EXPOSE 3000
-CMD [ "npm", "run", "dev", "--", "-H", "0.0.0.0", "-p", "3000" ]
+CMD [ "pnpm", "exec", "next", "dev", "-H", "0.0.0.0", "-p", "3000" ]
 
 FROM node:22-bookworm-slim AS runner
 WORKDIR /app

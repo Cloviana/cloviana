@@ -4,18 +4,20 @@ import { api } from '@/lib/api-client';
 import { MutationConfig } from '@/lib/react-query';
 import { getAuthHeaders } from '@/lib/supabase/get-auth-headers';
 
-import { cacheDeletedDocument } from './knowledge-cache';
+import { revalidateKnowledge } from './revalidate-knowledge';
 
-type DeleteDocumentInput = {
+export type DeleteDocumentInput = {
   businessId: string;
   documentId: string;
 };
 
+// Soft-deletes immediately; purging the vectors happens in the background.
 export const deleteDocument = async ({
   businessId,
   documentId,
 }: DeleteDocumentInput): Promise<void> => {
   const headers = await getAuthHeaders();
+
   return api.delete(`/businesses/${businessId}/documents/${documentId}`, {
     headers,
   });
@@ -34,7 +36,7 @@ export const useDeleteDocument = ({
     mutationFn: deleteDocument,
     ...mutationConfig,
     onSuccess: (...args) => {
-      cacheDeletedDocument(queryClient, args[1].businessId, args[1].documentId);
+      void revalidateKnowledge(queryClient, args[1].businessId);
       mutationConfig?.onSuccess?.(...args);
     },
   });
