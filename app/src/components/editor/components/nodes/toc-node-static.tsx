@@ -3,7 +3,6 @@ import { cva } from 'class-variance-authority';
 import { type SlateEditor, type TElement, NodeApi } from 'platejs';
 import type { SlateElementProps } from 'platejs/static';
 import { SlateElement } from 'platejs/static';
-import * as React from 'react';
 
 import { Button } from '@/components/ui/button';
 
