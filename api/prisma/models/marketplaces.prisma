@@ -1,0 +1,159 @@
+enum MarketplaceStatus {
+  DRAFT
+  ACTIVE
+  SUSPENDED
+  ARCHIVED
+}
+
+model Marketplace {
+  id        String            @id @default(uuid()) @db.Uuid
+  name      String            @default("My marketplace")
+  slug      String            @unique @db.Citext
+  ownerId   String            @db.Uuid
+  status    MarketplaceStatus @default(DRAFT)
+  createdAt DateTime          @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime          @updatedAt @db.Timestamptz(3)
+
+  owner PlatformUser @relation(fields: [ownerId], references: [id], onDelete: Restrict)
+
+  // Root tenant tables only. Every other table reaches the marketplace through a
+  // composite (marketplaceId, id) key on its parent.
+  domains                         MarketplaceDomain[]
+  roles                           Role[]
+  members                         Member[]
+  sellers                         Seller[]
+  customers                       Customer[]
+  carts                           Cart[]
+  productTypes                    ProductType[]
+  productCollections              ProductCollection[]
+  productCategories               ProductCategory[]
+  productTags                     ProductTag[]
+  products                        Product[]
+  mediaAssets                     MediaAsset[]
+  productAttributes               ProductAttribute[]
+  commissionRates                 CommissionRate[]
+  sequences                       MarketplaceSequence[]
+  themes                          Theme[]
+  themeRevisionRecords            ThemeRevision[]
+  themeSandboxRecords             ThemeSandbox[]
+  agentConversationRecords        AgentConversation[]
+  agentMessageRecords             AgentMessage[]
+  agentRunRecords                 AgentRun[]
+  agentRunEventRecords            AgentRunEvent[]
+  agentAttachmentRecords          AgentAttachment[]
+  agentUsageRecords               AgentUsage[]
+  themeDeploymentRecords          ThemeDeployment[]
+  storefrontPublicationRecords    StorefrontPublication[]
+  themeEnvironmentVariableRecords ThemeEnvironmentVariable[]
+
+  @@index([ownerId])
+  @@map("marketplaces")
+}
+
+enum SequenceName {
+  ORDER_GROUP
+  ORDER
+  PAYOUT
+  REVIEW
+}
+
+// -----------------------------------------------------------------------------
+// Hosts and identity
+// -----------------------------------------------------------------------------
+
+// Custom domains. <slug>.<PLATFORM_BASE_DOMAIN> resolves from Marketplace.slug without a row.
+model MarketplaceDomain {
+  id            String    @id @default(uuid()) @db.Uuid
+  marketplaceId String    @db.Uuid
+  hostname      String    @unique @db.Citext
+  isPrimary     Boolean   @default(false)
+  verifiedAt    DateTime? @db.Timestamptz(3)
+  createdAt     DateTime  @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime  @updatedAt @db.Timestamptz(3)
+
+  marketplace Marketplace @relation(fields: [marketplaceId], references: [id], onDelete: Cascade)
+
+  @@index([marketplaceId])
+  @@map("marketplace_domains")
+}
+
+// -----------------------------------------------------------------------------
+// Store: sellers, members, roles
+// -----------------------------------------------------------------------------
+model Role {
+  id            String   @id @default(uuid()) @db.Uuid
+  marketplaceId String   @db.Uuid
+  name          String
+  description   String?
+  permissions   String[]
+  isSystem      Boolean  @default(false)
+  createdAt     DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime @updatedAt @db.Timestamptz(3)
+
+  marketplace   Marketplace    @relation(fields: [marketplaceId], references: [id], onDelete: Restrict)
+  sellerMembers SellerMember[]
+  invites       MemberInvite[]
+
+  @@unique([marketplaceId, id])
+  @@unique([marketplaceId, name])
+  @@map("roles")
+}
+
+// A user's identity inside one marketplace. marketplaceUserId is the shared marketplace-realm login
+// (Better Auth); platform owners and staff live in PlatformUser instead.
+model Member {
+  id                String   @id @default(uuid()) @db.Uuid
+  marketplaceId     String   @db.Uuid
+  marketplaceUserId String   @db.Uuid
+  email             String   @db.Citext
+  firstName         String?
+  lastName          String?
+  locale            String?
+  isActive          Boolean  @default(true)
+  metadata          Json?
+  createdAt         DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt         DateTime @updatedAt @db.Timestamptz(3)
+
+  marketplace     Marketplace     @relation(fields: [marketplaceId], references: [id], onDelete: Restrict)
+  marketplaceUser MarketplaceUser @relation(fields: [marketplaceUserId], references: [id], onDelete: Restrict)
+  sellerMembers   SellerMember[]
+
+  @@unique([marketplaceId, id])
+  @@unique([marketplaceId, marketplaceUserId])
+  @@index([marketplaceId, email])
+  @@map("members")
+}
+
+model MemberInvite {
+  id            String    @id @default(uuid()) @db.Uuid
+  marketplaceId String    @db.Uuid
+  sellerId      String    @db.Uuid
+  roleId        String    @db.Uuid
+  email         String    @db.Citext
+  tokenHash     String    @unique
+  isOwner       Boolean   @default(false)
+  expiresAt     DateTime  @db.Timestamptz(3)
+  acceptedAt    DateTime? @db.Timestamptz(3)
+  createdAt     DateTime  @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime  @updatedAt @db.Timestamptz(3)
+
+  seller Seller @relation(fields: [marketplaceId, sellerId], references: [marketplaceId, id], onDelete: Cascade)
+  role   Role   @relation(fields: [marketplaceId, roleId], references: [marketplaceId, id], onDelete: Restrict)
+
+  @@index([marketplaceId, sellerId])
+  @@index([marketplaceId, email])
+  @@map("member_invites")
+}
+
+// Per-marketplace human-readable numbers (order #1001). Increment atomically:
+//   UPDATE marketplace_sequences SET value = value + 1 WHERE ... RETURNING value
+model MarketplaceSequence {
+  marketplaceId String       @db.Uuid
+  name          SequenceName
+  value         Int          @default(0)
+
+  marketplace Marketplace @relation(fields: [marketplaceId], references: [id], onDelete: Cascade)
+
+  @@id([marketplaceId, name])
+  @@map("marketplace_sequences")
+}

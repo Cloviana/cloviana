@@ -5,7 +5,6 @@ import { FC } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { links } from '@/config/links';
-import { paths } from '@/config/paths';
 import { gaEvent } from '@/lib/ga/client';
 import { cn } from '@/utils/cn';
 
@@ -35,9 +34,6 @@ export const Solution: FC<{ className?: string }> = ({ className }) => (
             onClick={() => gaEvent('book_demo', { location: 'solution' })}
           >
             <Link href={links.demo}>Request a demo</Link>
-          </Button>
-          <Button asChild size="lg" variant="outline">
-            <Link href={paths.audit.getHref()}>Free audit</Link>
           </Button>
         </div>
       </div>

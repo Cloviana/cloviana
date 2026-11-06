@@ -1,170 +1,30 @@
-x-urls: &urls
-  APP_URL: http://app.localhost
-  API_URL: http://api.localhost/api
-  # web runs on the host in dev (see the `web` service below), so the API
-  # reaches it back out through the gateway rather than over appnet.
-  WEB_INTERNAL_URL: http://host.docker.internal:3001
-
-x-local-supabase: &local-supabase
-  SUPABASE_URL: http://host.docker.internal:54321
-  SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0
-  SUPABASE_SERVICE_ROLE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU
-  SUPABASE_JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
-  DATABASE_URL: postgresql://postgres:postgres@host.docker.internal:54322/postgres
-  DIRECT_URL: postgresql://postgres:postgres@host.docker.internal:54322/postgres
-
-x-next-public-urls: &next-public-urls
-  NEXT_PUBLIC_API_URL: http://api.localhost/api
-  NEXT_PUBLIC_APP_URL: http://app.localhost
-
-x-local-supabase-public: &local-supabase-public
-  NEXT_PUBLIC_SUPABASE_URL: http://supabase.localhost
-  NEXT_PUBLIC_SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0
-
-# IMPORTANT: Docker seeds a named volume from the image only while the volume is
-# still empty; after that the image's copy is ignored forever. So rebuilding an
-# image after a dependency change does NOT refresh these — the container keeps
-# the old node_modules, pnpm notices it disagrees with the bind-mounted lockfile
-# (verifyDepsBeforeRun defaults to "install" on pnpm 11) and silently runs a full
-# network install on every single start. After changing dependencies, drop the
-# matching volume so it reseeds:
-#
-#   docker volume rm cloviana_app-node-modules   # or web-/api-
-#
-# Use targeted `volume rm`, never `down -v` — that would also wipe redis-data,
-# inngest-postgres-data, qdrant-data and knowledge-uploads.
+# Development runs the API, admin and web on the host (`pnpm dev` in each
+# folder). Docker only provides the shared infrastructure from compose-core.yaml
+# (redis, inngest) plus the nginx below, which maps *.localhost names to the
+# host ports. The database is the local postgres service below.
 volumes:
-  api-node-modules:
-  app-node-modules:
-  app-next-cache:
-  web-node-modules:
-  web-next-cache:
+  postgres-data:
 
-# Dev limits are deliberately higher than compose-core.yaml's production
-# values: `pnpm start:dev` runs a TypeScript watch build and Next runs
-# Turbopack, both far heavier than the compiled production entrypoints.
-# Applying the prod numbers here would OOM on startup.
 services:
-  api:
-    build:
-      target: dev
-    image: ghcr.io/cloviana/api:dev
-    command: ["pnpm", "start:dev"]
+  postgres:
+    image: postgres:18-alpine
+    container_name: postgres
     environment:
-      <<: [*urls, *local-supabase]
-      NODE_ENV: development
-      ENVIRONMENT: development
-      NODE_OPTIONS: --max-old-space-size=1536
-    # Overrides compose-core.yaml's prod restart policy. In dev a crash should
-    # stop and stay stopped so the error is visible — restarting on loop just
-    # buries the stack trace under a rerun (this hid 284 restarts once).
-    restart: "no"
-    mem_limit: 2g
-    memswap_limit: 2g
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+      POSTGRES_DB: cloviana
+      POSTGRES_USER: cloviana
+      POSTGRES_PASSWORD: cloviana
+    ports:
+      - "127.0.0.1:5433:5432"
+    # Postgres 18 images keep data under /var/lib/postgresql (versioned subdir).
     volumes:
-      - ../api:/app:cached
-      - api-node-modules:/app/node_modules
-
-  knowledge-base:
-    command:
-      - uvicorn
-      - knowledge_base.main:app
-      - --host
-      - 0.0.0.0
-      - --port
-      - "8080"
-      - --reload
-      - --reload-dir
-      - /app/src
-    environment:
-      <<: *local-supabase
-      ENVIRONMENT: development
-      PYTHONPATH: /app/src
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    volumes:
-      - ../knowledge-base:/app:cached
-
-  # app and web are NOT started by default — you run them on the host with
-  # `pnpm dev` (app on :3000, web on :3001) and nginx proxies to
-  # host.docker.internal. Next's own docs advise against Docker for dev on
-  # macOS: the bind mount makes HMR take seconds to minutes, and the container
-  # needed a second node_modules that drifted from the host's on every install.
-  #
-  # The definitions stay here behind a profile so the containerized path is
-  # still one flag away (and so compose-core.yaml's *production* app/web
-  # definitions don't leak into dev if these were simply deleted):
-  #
-  #   docker compose --profile containerized up -d app web
-  #
-  # Note: going back also means pointing the two proxy_pass lines in
-  # nginx/nginx.dev.conf at http://app:3000 / http://web:3000 again.
-  app:
-    profiles: ["containerized"]
-    build:
-      target: dev
-      args:
-        <<: [*next-public-urls, *local-supabase-public]
-    image: ghcr.io/cloviana/app:dev
-    command: ["pnpm", "exec", "next", "dev", "-H", "0.0.0.0", "-p", "3000"]
-    environment:
-      <<: [*next-public-urls, *local-supabase-public, *local-supabase]
-      INTERNAL_API_URL: http://api:5000/api
-      CI: "true"
-      NODE_ENV: development
-      ENVIRONMENT: development
-      # Caps the JS heap only. Turbopack's core is Rust, so its allocations
-      # are native and this flag does NOT bound them — mem_limit is the only
-      # ceiling on the compiler itself. Measured: a cold compile of this app
-      # (232 source files) peaks just over 2GB, so 2g killed it mid-build.
-      # ponytail: 3g was sized for 232 files; the app has since grown to
-      # ~259 and was OOMKilling on every cold compile. Bump when it grows further.
-      NODE_OPTIONS: --max-old-space-size=1536
-    restart: "no"
-    mem_limit: 4g
-    memswap_limit: 4g
-    # Disabled in dev on purpose. Docker doesn't restart on health status, so
-    # the check buys nothing here — it just polled "/" every 30s, which 404s
-    # and made Turbopack compile /_not-found on a cold cache. It stays enabled
-    # in compose-core.yaml, where prod actually needs it.
+      - postgres-data:/var/lib/postgresql
     healthcheck:
-      disable: true
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    volumes:
-      - ../app:/app:cached
-      - app-node-modules:/app/node_modules
-      - app-next-cache:/app/.next
-
-  web:
-    profiles: ["containerized"]
-    build:
-      target: dev
-      args:
-        <<: [*next-public-urls, *local-supabase-public]
-        NEXT_PUBLIC_WEB_URL: http://localhost
-    image: ghcr.io/cloviana/web:dev
-    command: ["pnpm", "exec", "next", "dev", "-H", "0.0.0.0", "-p", "3000"]
-    environment:
-      <<: [*next-public-urls, *local-supabase-public, *local-supabase]
-      CI: "true"
-      NODE_ENV: development
-      ENVIRONMENT: development
-      NEXT_PUBLIC_WEB_URL: http://localhost
-      NODE_OPTIONS: --max-old-space-size=768
-    restart: "no"
-    mem_limit: 1g
-    memswap_limit: 1g
-    healthcheck:
-      disable: true
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    volumes:
-      - ../web:/app:cached
-      - web-node-modules:/app/node_modules
-      - web-next-cache:/app/.next
+      test: ["CMD-SHELL", "pg_isready -U cloviana -d cloviana"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - appnet
 
   nginx:
     image: nginx:alpine
@@ -175,8 +35,6 @@ services:
     volumes:
       - ./nginx/nginx.dev.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/ssl:/etc/nginx/ssl:ro
-    depends_on:
-      - api
     mem_limit: 128m
     memswap_limit: 128m
     extra_hosts:
@@ -185,13 +43,13 @@ services:
       appnet:
         aliases:
           - api.localhost
-          - app.localhost
-          - supabase.localhost
-          - studio.supabase.localhost
+          - admin.localhost
           - localhost
 
-  migrate:
-    environment:
-      <<: *local-supabase
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+  redis:
+    ports:
+      - "127.0.0.1:6379:6379"
+
+  inngest:
+    ports:
+      - "127.0.0.1:8289:8289"

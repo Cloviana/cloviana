@@ -17,13 +17,13 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm fetch
 FROM dependencies AS dev
 ENV NODE_ENV=development
 ENV ENVIRONMENT=development
-# Only the Prisma schema is copied: db:generate needs it, and its output lands
+# The Prisma schema and CLI config are copied: db:generate needs them, and its output lands
 # in node_modules, which the named volume seeds from this image. The rest of the
 # source is bind-mounted by compose-dev.yaml, so copying it here would just be
 # shadowed at runtime and would invalidate this layer on every edit.
 COPY prisma ./prisma
+COPY prisma.config.ts ./
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --offline --frozen-lockfile
-RUN pnpm exec playwright install --with-deps chromium
 RUN pnpm db:generate
 EXPOSE 5000
 CMD ["pnpm", "start:dev"]
@@ -31,7 +31,6 @@ CMD ["pnpm", "start:dev"]
 FROM dependencies AS builder
 COPY . .
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --offline --frozen-lockfile
-RUN pnpm exec playwright install --with-deps chromium
 RUN pnpm db:generate
 RUN pnpm build
 
@@ -49,8 +48,5 @@ COPY --from=pruned /app/package.json .
 COPY --from=pruned /app/node_modules ./node_modules
 COPY --from=pruned /app/dist ./dist
 COPY --from=pruned /app/prisma ./prisma
-COPY --from=builder /root/.cache/ms-playwright /root/.cache/ms-playwright
-RUN ./node_modules/.bin/playwright install-deps chromium \
-    && rm -rf /var/lib/apt/lists/*
 EXPOSE 5000
 CMD ["node", "dist/main.js"]

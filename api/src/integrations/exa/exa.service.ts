@@ -1,4 +1,4 @@
-import { AppConfiguration } from "@/config/app.configuration";
+import { AppConfiguration } from "@/platform/config/app.configuration";
 import { Injectable } from "@nestjs/common";
 import Exa from "exa-js";
 import pLimit from "p-limit";
@@ -26,11 +26,17 @@ const STANDARD_RETRY: RetryOptions = {
 
 @Injectable()
 export class ExaService {
-  private readonly exa: Exa;
+  private client: Exa | null = null;
   private readonly limit = pLimit(4);
 
-  constructor(private readonly config: AppConfiguration) {
-    this.exa = new Exa(this.config.exaApiKey);
+  constructor(private readonly config: AppConfiguration) {}
+
+  private get exa(): Exa {
+    if (!this.config.exaApiKey) {
+      throw new Error("EXA_API_KEY is not configured");
+    }
+    this.client ??= new Exa(this.config.exaApiKey);
+    return this.client;
   }
 
   async search<

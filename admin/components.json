@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.cjs",
+    "css": "src/styles/globals.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "iconLibrary": "lucide",
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  },
+  "registries": {
+    "@shadcn-editor": "https://shadcn-editor.vercel.app/r/{name}.json",
+    "@shadcnblocks": {
+      "url": "https://shadcnblocks.com/r/{name}",
+      "headers": {
+        "Authorization": "Bearer ${SHADCNBLOCKS_API_KEY}"
+      }
+    },
+    "@magicui": "https://magicui.design/r/{name}",
+    "@plate": "https://platejs.org/r/{name}.json",
+    "@reui": "https://reui.io/r/{style}/{name}.json"
+  }
+}

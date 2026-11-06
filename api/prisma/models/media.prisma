@@ -1,0 +1,29 @@
+enum MediaType {
+  IMAGE
+  VIDEO
+}
+
+model MediaAsset {
+  id            String    @id @default(uuid()) @db.Uuid
+  marketplaceId String    @db.Uuid
+  storageKey    String?
+  stagingPath   String?
+  url           String
+  filename      String?
+  sortName      String?
+  type          MediaType
+  mimeType      String?
+  size          Int?
+  createdAt     DateTime  @default(now()) @db.Timestamptz(3)
+
+  marketplace   Marketplace    @relation(fields: [marketplaceId], references: [id], onDelete: Restrict)
+  productImages ProductImage[]
+  themes        Theme[]        @relation("Theme_thumbnailId")
+
+  @@unique([marketplaceId, id])
+  @@unique([marketplaceId, stagingPath])
+  @@index([marketplaceId, createdAt, id])
+  @@index([marketplaceId, sortName, id])
+  @@index([marketplaceId, size, id])
+  @@map("media_assets")
+}

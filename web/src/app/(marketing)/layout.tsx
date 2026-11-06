@@ -3,8 +3,6 @@ import type { ReactNode } from 'react';
 import { Footer } from '@/components/layout/footer/default';
 import { Navbar } from '@/components/layout/navbar/navbar';
 
-import { AuditCta } from './_components/audit-cta';
-
 export default function MarketingLayout({ children }: { children: ReactNode }) {
   return (
     <div className="bg-background relative flex min-h-screen flex-col">
@@ -13,7 +11,6 @@ export default function MarketingLayout({ children }: { children: ReactNode }) {
       </header>
       <main className="flex-1 space-y-0">{children}</main>
       <Footer />
-      <AuditCta />
     </div>
   );
 }

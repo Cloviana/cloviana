@@ -1,103 +1,93 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="128" alt="Nest Logo" /></a>
-</p>
+# Cloviana API
 
-<p align="center">
-  <a href="https://github.com/solufyapp/nestjs-template" alt="Repo">
-    <b>NestJS Template</b>
-  </a>
-</p>
+NestJS/Fastify backend organized as a modular monolith. Business capabilities
+live in `src/modules`, shared runtime services in `src/platform`, and external
+provider clients in `src/integrations`.
 
-<div align="center">
-  <div style="width: fit-content; display: flex; align-items: flex-start; gap: 4px;">    
-    <img alt="Pnpm" src="https://img.shields.io/badge/pnpm-f69220?style=flat&logo=pnpm&logoColor=white">
-    <img alt="Fastify" src="https://img.shields.io/badge/fastify-378e5e?style=flat&logo=fastify&logoColor=white">
-    <img alt="Docker" src="https://img.shields.io/badge/docker-2496ed?style=flat&logo=docker&logoColor=white">
-    <img alt="Prisma" src="https://img.shields.io/badge/prisma-6865ff?style=flat&logo=prisma&logoColor=white">
-    <img alt="Swc" src="https://img.shields.io/badge/swc-cc846b?style=flat&logo=swc&logoColor=white">
-    <img alt="Biome" src="https://img.shields.io/badge/biome-60a5fa?style=flat&logo=biome&logoColor=white">
-    <img alt="Configify" src="https://img.shields.io/badge/configify-e0234e?style=flat&logo=dotenv&logoColor=white">
-  </div>
-</div>
+Start with [the architecture and coding guide](ARCHITECTURE.md). It explains
+where code belongs, dependency rules, module registration, ports/adapters,
+background jobs, and how to implement a feature. The primary reference is
+[Sairyss/domain-driven-hexagon](https://github.com/Sairyss/domain-driven-hexagon).
 
-## Features
+## Current implementation
 
-- [PNPM](https://pnpm.io/): faster dependencies management than NPM.
-- [Fastify](https://fastify.dev/): faster http requests handling than Express.
-- [Docker](https://www.docker.com/): already dockerized (plus a docker compose to run PostgreSQL locally).
-- [Prisma](https://www.prisma.io/): type-safety database ORM. (defaults to PostgreSQL)
-- [SWC](https://swc.rs/): faster compiling times than Webpack.
-- [BiomeJS](https://biomejs.dev/): faster linting and formatting than ESLint and Prettier.
-- [Configify](https://github.com/it-gorillaz/configify): easy env variables management for NestJS. (compatible with class-validator)
-- Premade CI workflow for Github.
-- Using ESM modules.
+- `platform/auth`: Better Auth session guard (platform users), public-route metadata, and the
+  current-user decorator. Routes require authentication unless marked `@Public()`.
+- `platform/auth/marketplace` and `platform/tenancy`: Better Auth for vendors and shoppers,
+  host-to-marketplace resolution, and Row Level Security scoping.
+- `platform`: configuration, Prisma, Redis/cache, health, and Inngest support.
+- `integrations`: Exa, OpenRouter, and Resend clients.
+- `modules`: marketplaces, platform-users, onboarding, customers and vendors have routes. The other
+  module directories (memberships, billing, catalog, orders) are documented scaffolding.
 
-## Requirements
+Existing route:
 
-- [Node.js](https://nodejs.org/) (v18+)
-- [Docker](https://www.docker.com/)
-- [PNPM](https://pnpm.io/)
+| Route | Access | Purpose |
+| --- | --- | --- |
+| `GET /api/health` | Public | Basic process liveness response |
 
-## Installation
+Token validation alone does not grant access to a marketplace. See the guide
+for future membership checks.
 
-1. **Clone the repository:**
+## Configuration and development
 
-   ```bash
-   git clone https://github.com/solufyapp/nestjs-template.git
-   cd nestjs-template
-   ```
+Use Node.js 22.12+ (or 24+) and the pnpm version in `package.json`. Copy
+`.env.example` to `.env` and configure local services. The database is Neon Postgres 18: set
+`DATABASE_URL` (pooled) and `DIRECT_URL` (direct) in `.env`.
 
-2. **Set up environment variables:**
+From the repository root, the existing Compose setup can start the other
+local services:
 
-   Copy the `.env.example` file to `.env`.
+```sh
+docker compose -f docker/compose-core.yaml -f docker/compose-dev.yaml up -d redis inngest nginx
+```
 
-   ```bash
-   cp .env.example .env
-   ```
+From `api/`, install dependencies, generate Prisma's client, and start the API:
 
-   Edit the `.env` file with your own configuration.
-
-3. **Install dependencies:**
-
-   ```bash
-   pnpm install
-   ```
-
-## Running the app
-
-```bash
-# development
-pnpm start
-
-# watch mode
+```sh
+pnpm install
+pnpm db:generate
 pnpm start:dev
-
-# production mode
-pnpm start:prod
 ```
 
-## Linting and formatting
+In development the API, admin and web run on the host; Docker only
+runs redis, Inngest and the dev nginx. Production-only services are in
+`docker/compose-prod.yaml`.
 
-```bash
-# format only
-pnpm format
+Configuration is in `src/platform/config/app.configuration.ts` using the
+existing Configify setup. Exa, OpenRouter, and Resend credentials are optional
+at boot and required when their clients are used. Provider modules must be
+imported explicitly by modules that consume them.
 
-# lint, format and organize imports
-pnpm lint
+## Database changes
 
-# lint without fixing
-pnpm lint:ci
+`prisma/schema.prisma` currently contains `PlatformUser`. Prisma 7 CLI connections
+are configured in `prisma.config.ts`: `DIRECT_URL` takes precedence over
+`DATABASE_URL`. Runtime Prisma queries use `DATABASE_URL` and the PostgreSQL
+adapter in `src/platform/database/prisma`.
 
-# lint staged files only
-pnpm lint:staged
+From `api/`, apply existing pending migration files with:
+
+```sh
+pnpm migrate:deploy
 ```
 
-## Contributing
+For a new schema change against a development database:
 
-Feel free to contribute with suggestions or bug reports at the [template reposity](https://github.com/solufyapp/nestjs-template).
+```sh
+pnpm migrate:dev --name describe_change
+pnpm db:generate
+```
 
-## Authors
+Keep SQL-only database features in version-controlled migrations. `PlatformUser` is
+the Better Auth platform user, so Better Auth creates it at sign-up.
+Do not edit migration files already applied to a shared database; add a new
+migration. Resolve existing tables or migration-history conflicts deliberately
+before applying a fresh migration history to an older database.
 
-- [@joaotonaco](https://github.com/joaotonaco)
+## Background work
 
-<!-- api rebuild marker -->
+Inngest's shared client and event sender are in `src/platform/jobs/inngest`.
+There are currently no registered feature functions or active worker connection.
+When implementing a workflow, follow [the guide](ARCHITECTURE.md#background-work)
+for feature ownership, durable execution, retries, and registration.

@@ -112,11 +112,6 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
                   name: 'Blog',
                   url: 'https://cloviana.com/blog',
                 },
-                {
-                  '@type': 'SiteNavigationElement',
-                  name: 'Request a Demo',
-                  url: 'https://cloviana.com/audits',
-                },
               ],
             }),
           }}

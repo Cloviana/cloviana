@@ -10,9 +10,8 @@ import {
 } from '@/components/ui/accordion';
 import { env } from '@/config/env';
 import { paths } from '@/config/paths';
-import { sanityClient } from '@/sanity/client';
-import { POST_QUERY, type BlogPost } from '@/sanity/queries/post';
-import { RELATED_POSTS_QUERY, type Post } from '@/sanity/queries/posts';
+import { getPost, listRelatedPosts } from '@/sanity/blog-content';
+import type { BlogPost } from '@/sanity/queries/post';
 
 import { PostCard } from '../_components/post-card';
 
@@ -43,11 +42,7 @@ export async function generateMetadata({
 }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
 
-  const post = await sanityClient.fetch<BlogPost | null>(
-    POST_QUERY,
-    { slug },
-    { next: { revalidate: 60 } },
-  );
+  const post = await getPost(slug);
 
   if (!post) return {};
 
@@ -196,18 +191,13 @@ function serializeJsonLd(jsonLd: ReturnType<typeof buildJsonLd>) {
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
 
-  const post = await sanityClient.fetch<BlogPost | null>(
-    POST_QUERY,
-    { slug },
-    { next: { revalidate: 60 } },
-  );
+  const post = await getPost(slug);
 
   if (!post) notFound();
 
-  const relatedPosts = await sanityClient.fetch<Post[]>(
-    RELATED_POSTS_QUERY,
-    { currentId: post._id, topicIds: post.topics.map((t) => t._id) },
-    { next: { revalidate: 60 } },
+  const relatedPosts = await listRelatedPosts(
+    post._id,
+    post.topics.map((topic) => topic._id),
   );
 
   const jsonLd = buildJsonLd(post, slug);

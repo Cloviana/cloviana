@@ -1,0 +1,184 @@
+// -----------------------------------------------------------------------------
+// For the migration SQL (Prisma cannot express these):
+// - Partial unique: offers (marketplaceId, sellerId, sku) WHERE deletedAt IS NULL
+// - Partial unique: commission_rates (marketplaceId) WHERE isDefault
+// - Partial unique: agent_runs (themeId) WHERE status IN ('QUEUED','RUNNING') -- one active run per theme
+// - Partial unique: theme_sandboxes (themeId) WHERE status IN ('REQUESTED','STARTING','RUNNING','STOPPING')
+// - CHECK: reviews, exactly one of productId / sellerId, matching reference
+// - CHECK: commission_lines, exactly one of itemId / shippingMethodId
+// - CHECK: inventory_items, reservedQuantity <= stockedQuantity, both >= 0
+// - CHECK: reviews.rating BETWEEN 1 AND 5; quantities > 0 on cart_items / order_items
+// - Row Level Security on every table that has marketplaceId
+// - Composite FKs on themes (head/redo revision) and agent_runs (base/result revision) that also
+//   match the theme: (marketplaceId, themeId, id) -> theme_revisions. `prisma migrate diff` wants to
+//   drop these, plus a few tenant-scoped unique indexes that exist only to back composite FKs
+//   (agent_messages, theme_revisions, theme_deployments, theme_sandboxes). Do not accept those drops.
+// =============================================================================
+
+// Code-based storefronts and agent orchestration.
+enum ThemeStatus {
+  ACTIVE
+  ARCHIVED
+}
+
+enum ThemeProvisioningStatus {
+  PROVISIONING
+  READY
+  FAILED
+}
+
+enum ThemeRevisionOrigin {
+  AGENT
+  RESTORE
+  SYSTEM
+}
+
+enum ThemeSandboxStatus {
+  REQUESTED
+  STARTING
+  RUNNING
+  STOPPING
+  STOPPED
+  FAILED
+  DELETED
+}
+
+enum ThemeEnvironment {
+  PREVIEW
+  PRODUCTION
+}
+
+enum ThemeVariableKind {
+  PUBLIC
+  SECRET
+}
+
+// One storefront codebase. The R2 snapshot is the source of truth; git history lives in ThemeRevision.
+model Theme {
+  id                 String                  @id @default(uuid()) @db.Uuid
+  marketplaceId      String                  @db.Uuid
+  name               String
+  description        String?
+  thumbnailId        String?                 @db.Uuid
+  status             ThemeStatus             @default(ACTIVE)
+  templateKey        String?
+  templateVersion    String?
+  provisioningStatus ThemeProvisioningStatus @default(PROVISIONING)
+  lastErrorCode      String?
+  // Upload with compare-and-set on snapshotVersion:
+  //   UPDATE themes SET snapshotVersion = snapshotVersion + 1 WHERE id = ? AND snapshotVersion = <expected>
+  storageKey         String?
+  snapshotVersion    BigInt                  @default(0)
+  lastSnapshotAt     DateTime?               @db.Timestamptz(3)
+  headRevisionId     String?                 @db.Uuid
+  // Set by undo, cleared when a new revision is created.
+  redoRevisionId     String?                 @db.Uuid
+  redoStack          String[]                @default([]) @db.Uuid
+  workspaceLeaseToken String?                @db.Uuid
+  workspaceLeaseUntil DateTime?              @db.Timestamptz(3)
+  createdBy          String?                 @db.Uuid
+  archivedAt         DateTime?               @db.Timestamptz(3)
+  createdAt          DateTime                @default(now()) @db.Timestamptz(3)
+  updatedAt          DateTime                @updatedAt @db.Timestamptz(3)
+
+  marketplace  Marketplace    @relation(fields: [marketplaceId], references: [id], onDelete: Restrict)
+  thumbnail    MediaAsset?    @relation("Theme_thumbnailId", fields: [marketplaceId, thumbnailId], references: [marketplaceId, id], onDelete: Restrict)
+  headRevision ThemeRevision? @relation("Theme_headRevisionId", fields: [marketplaceId, headRevisionId], references: [marketplaceId, id], onDelete: Restrict)
+  redoRevision ThemeRevision? @relation("Theme_redoRevisionId", fields: [marketplaceId, redoRevisionId], references: [marketplaceId, id], onDelete: Restrict)
+
+  themeRevision_themeId            ThemeRevision[]            @relation("ThemeRevision_themeId")
+  themeSandbox_themeId             ThemeSandbox[]             @relation("ThemeSandbox_themeId")
+  agentRun_themeId                 AgentRun[]                 @relation("AgentRun_themeId")
+  themeDeployment_themeId          ThemeDeployment[]          @relation("ThemeDeployment_themeId")
+  themeEnvironmentVariable_themeId ThemeEnvironmentVariable[] @relation("ThemeEnvironmentVariable_themeId")
+
+  @@unique([marketplaceId, id])
+  @@index([marketplaceId, status])
+  @@map("themes")
+}
+
+model ThemeRevision {
+  id                     String              @id @default(uuid()) @db.Uuid
+  marketplaceId          String              @db.Uuid
+  themeId                String              @db.Uuid
+  commitSha              String
+  // Immutable archive whose working tree matches this commit (also retains its Git history).
+  storageKey             String?
+  parentRevisionId       String?             @db.Uuid
+  restoredFromRevisionId String?             @db.Uuid
+  // Optional user-facing name for a saved version.
+  label                  String?
+  message                String?
+  origin                 ThemeRevisionOrigin
+  createdBy              String?             @db.Uuid
+  agentRunId             String?             @db.Uuid
+  createdAt              DateTime            @default(now()) @db.Timestamptz(3)
+
+  marketplace          Marketplace    @relation(fields: [marketplaceId], references: [id], onDelete: Restrict)
+  theme                Theme          @relation("ThemeRevision_themeId", fields: [marketplaceId, themeId], references: [marketplaceId, id], onDelete: Restrict)
+  agentRun             AgentRun?      @relation("ThemeRevision_agentRunId", fields: [marketplaceId, agentRunId], references: [marketplaceId, id], onDelete: Restrict)
+  parentRevision       ThemeRevision? @relation("ThemeRevision_parentRevisionId", fields: [marketplaceId, parentRevisionId], references: [marketplaceId, id], onDelete: Restrict)
+  restoredFromRevision ThemeRevision? @relation("ThemeRevision_restoredFromRevisionId", fields: [marketplaceId, restoredFromRevisionId], references: [marketplaceId, id], onDelete: Restrict)
+
+  themeRevision_parentRevisionId       ThemeRevision[]   @relation("ThemeRevision_parentRevisionId")
+  themeRevision_restoredFromRevisionId ThemeRevision[]   @relation("ThemeRevision_restoredFromRevisionId")
+  headOfThemes                         Theme[]           @relation("Theme_headRevisionId")
+  redoOfThemes                         Theme[]           @relation("Theme_redoRevisionId")
+  themeSandbox_restoredRevisionId      ThemeSandbox[]    @relation("ThemeSandbox_restoredRevisionId")
+  agentRun_baseRevisionId              AgentRun[]        @relation("AgentRun_baseRevisionId")
+  agentRun_resultRevisionId            AgentRun[]        @relation("AgentRun_resultRevisionId")
+  themeDeployment_revisionId           ThemeDeployment[] @relation("ThemeDeployment_revisionId")
+
+  @@unique([marketplaceId, id])
+  @@unique([themeId, commitSha])
+  @@index([marketplaceId, themeId, createdAt])
+  @@map("theme_revisions")
+}
+
+model ThemeSandbox {
+  id                 String             @id @default(uuid()) @db.Uuid
+  marketplaceId      String             @db.Uuid
+  themeId            String             @db.Uuid
+  provider           String             @default("DAYTONA")
+  providerSandboxId  String?
+  status             ThemeSandboxStatus @default(REQUESTED)
+  restoredRevisionId String?            @db.Uuid
+  devServerPort      Int?
+  lastHeartbeatAt    DateTime?          @db.Timestamptz(3)
+  lastActivityAt     DateTime?          @db.Timestamptz(3)
+  expiresAt          DateTime?          @db.Timestamptz(3)
+  lastErrorCode      String?
+  createdAt          DateTime           @default(now()) @db.Timestamptz(3)
+  updatedAt          DateTime           @updatedAt @db.Timestamptz(3)
+
+  marketplace      Marketplace    @relation(fields: [marketplaceId], references: [id], onDelete: Restrict)
+  theme            Theme          @relation("ThemeSandbox_themeId", fields: [marketplaceId, themeId], references: [marketplaceId, id], onDelete: Restrict)
+  restoredRevision ThemeRevision? @relation("ThemeSandbox_restoredRevisionId", fields: [marketplaceId, restoredRevisionId], references: [marketplaceId, id], onDelete: Restrict)
+
+  @@unique([marketplaceId, id])
+  @@unique([provider, providerSandboxId])
+  @@index([marketplaceId, themeId, status])
+  @@map("theme_sandboxes")
+}
+
+model ThemeEnvironmentVariable {
+  id              String            @id @default(uuid()) @db.Uuid
+  marketplaceId   String            @db.Uuid
+  themeId         String            @db.Uuid
+  environment     ThemeEnvironment
+  name            String
+  kind            ThemeVariableKind
+  publicValue     String?
+  secretReference String?
+  createdBy       String?           @db.Uuid
+  updatedBy       String?           @db.Uuid
+  createdAt       DateTime          @default(now()) @db.Timestamptz(3)
+  updatedAt       DateTime          @updatedAt @db.Timestamptz(3)
+
+  marketplace Marketplace @relation(fields: [marketplaceId], references: [id], onDelete: Restrict)
+  theme       Theme       @relation("ThemeEnvironmentVariable_themeId", fields: [marketplaceId, themeId], references: [marketplaceId, id], onDelete: Restrict)
+
+  @@unique([marketplaceId, id])
+  @@unique([themeId, environment, name])
+  @@map("theme_environment_variables")
+}

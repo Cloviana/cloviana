@@ -41,7 +41,7 @@ function InputOTPGroup({ className, ...props }: React.ComponentProps<'div'>) {
       className={cn(
         'flex items-center rounded-lg',
         'has-aria-invalid:border-destructive has-aria-invalid:ring-3',
-        'has-aria-invalid:ring-destructive/20 dark:has-aria-invalid:ring-destructive/40',
+        'has-aria-invalid:ring-destructive/20',
         className,
       )}
       {...props}
@@ -67,13 +67,13 @@ function InputOTPSlot({ index, className, ...props }: InputOTPSlotProps) {
         'size-8 border-y border-r text-sm outline-none',
         'transition-all first:rounded-l-lg first:border-l last:rounded-r-lg',
         // Colors
-        'border-input dark:bg-input/30',
+        'border-input',
         // Active state
         'data-[active=true]:border-ring data-[active=true]:ring-ring/50 data-[active=true]:z-10 data-[active=true]:ring-3',
         // Invalid state
         'aria-invalid:border-destructive',
         'data-[active=true]:aria-invalid:border-destructive',
-        'data-[active=true]:aria-invalid:ring-destructive/20 dark:data-[active=true]:aria-invalid:ring-destructive/40',
+        'data-[active=true]:aria-invalid:ring-destructive/20',
         className,
       )}
       {...props}

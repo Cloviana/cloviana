@@ -39,37 +39,21 @@ jobs:
           cache-to: type=registry,ref=ghcr.io/cloviana/api:buildcache,mode=max
           provenance: false
 
-      - name: Build & push Knowledge Base
+      - name: Build & push Admin
         uses: docker/build-push-action@v6
         with:
-          context: ./knowledge-base
-          file: ./knowledge-base/Dockerfile
-          push: true
-          tags: |
-            ghcr.io/cloviana/knowledge-base:${{ github.sha }}
-            ghcr.io/cloviana/knowledge-base:latest
-          cache-from: type=registry,ref=ghcr.io/cloviana/knowledge-base:buildcache
-          cache-to: type=registry,ref=ghcr.io/cloviana/knowledge-base:buildcache,mode=max
-          provenance: false
-
-      - name: Build & push App
-        uses: docker/build-push-action@v6
-        with:
-          context: ./app
-          file: ./app/Dockerfile
+          context: ./admin
+          file: ./admin/Dockerfile
           target: runner
           push: true
           tags: |
-            ghcr.io/cloviana/app:${{ github.sha }}
-            ghcr.io/cloviana/app:latest
+            ghcr.io/cloviana/admin:${{ github.sha }}
+            ghcr.io/cloviana/admin:latest
           build-args: |
             NEXT_PUBLIC_API_URL=${{ vars.API_URL }}
             NEXT_PUBLIC_APP_URL=${{ vars.APP_URL }}
-            NEXT_PUBLIC_SUPABASE_URL=${{ vars.SUPABASE_URL }}
-            NEXT_PUBLIC_SUPABASE_ANON_KEY=${{ vars.SUPABASE_ANON_KEY }}
-            NEXT_PUBLIC_GA4_ID=${{ vars.APP_GA4_ID }}
-          cache-from: type=registry,ref=ghcr.io/cloviana/app:buildcache
-          cache-to: type=registry,ref=ghcr.io/cloviana/app:buildcache,mode=max
+          cache-from: type=registry,ref=ghcr.io/cloviana/admin:buildcache
+          cache-to: type=registry,ref=ghcr.io/cloviana/admin:buildcache,mode=max
           provenance: false
 
       - name: Build & push Web
@@ -91,3 +75,4 @@ jobs:
           cache-from: type=registry,ref=ghcr.io/cloviana/web:buildcache
           cache-to: type=registry,ref=ghcr.io/cloviana/web:buildcache,mode=max
           provenance: false
+

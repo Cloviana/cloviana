@@ -42,6 +42,12 @@
     "enabled": true
   },
 
+  "json": {
+    "parser": {
+      "allowComments": true
+    }
+  },
+
   "javascript": {
     "parser": {
       "unsafeParameterDecoratorsEnabled": true

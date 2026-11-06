@@ -1,0 +1,30 @@
+// -----------------------------------------------------------------------------
+// Buyers, carts, and orders. Medusa-native in Mercur; listed here because
+// Mercur's order group, commission and review models reference them.
+// -----------------------------------------------------------------------------
+
+// marketplaceUserId is null for guest checkout.
+model Customer {
+  id                String   @id @default(uuid()) @db.Uuid
+  marketplaceId     String   @db.Uuid
+  marketplaceUserId String?  @db.Uuid
+  email             String   @db.Citext
+  firstName         String?
+  lastName          String?
+  phone             String?
+  metadata          Json?
+  createdAt         DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt         DateTime @updatedAt @db.Timestamptz(3)
+
+  marketplace     Marketplace      @relation(fields: [marketplaceId], references: [id], onDelete: Restrict)
+  marketplaceUser MarketplaceUser? @relation(fields: [marketplaceUserId], references: [id], onDelete: Restrict)
+  carts           Cart[]
+  orderGroups     OrderGroup[]
+  orders          Order[]
+  reviews         Review[]
+
+  @@unique([marketplaceId, id])
+  @@unique([marketplaceId, marketplaceUserId])
+  @@index([marketplaceId, email])
+  @@map("customers")
+}

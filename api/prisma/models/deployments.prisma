@@ -1,0 +1,53 @@
+enum ThemeDeploymentStatus {
+  QUEUED
+  BUILDING
+  READY
+  FAILED
+}
+
+// One deploy of a revision. The external ids and url are null until the provider (Vercel) accepts it.
+model ThemeDeployment {
+  id                   String                @id @default(uuid()) @db.Uuid
+  marketplaceId        String                @db.Uuid
+  themeId              String                @db.Uuid
+  revisionId           String                @db.Uuid
+  requestedBy          String                @db.Uuid
+  status               ThemeDeploymentStatus @default(QUEUED)
+  provider             String                @default("VERCEL")
+  externalDeploymentId String?
+  url                  String?
+  errorCode            String?
+  errorSummary         String?
+  readyAt              DateTime?             @db.Timestamptz(3)
+  createdAt            DateTime              @default(now()) @db.Timestamptz(3)
+  updatedAt            DateTime              @updatedAt @db.Timestamptz(3)
+
+  marketplace Marketplace   @relation(fields: [marketplaceId], references: [id], onDelete: Restrict)
+  theme       Theme         @relation("ThemeDeployment_themeId", fields: [marketplaceId, themeId], references: [marketplaceId, id], onDelete: Restrict)
+  revision    ThemeRevision @relation("ThemeDeployment_revisionId", fields: [marketplaceId, revisionId], references: [marketplaceId, id], onDelete: Restrict)
+
+  storefrontPublication_liveDeploymentId StorefrontPublication[] @relation("StorefrontPublication_liveDeploymentId")
+
+  @@unique([marketplaceId, id])
+  @@unique([provider, externalDeploymentId])
+  @@index([marketplaceId, themeId, createdAt])
+  @@map("theme_deployments")
+}
+
+// What is live for a marketplace: one row, pointing at one deployment of the store's Vercel project.
+model StorefrontPublication {
+  id                String   @id @default(uuid()) @db.Uuid
+  marketplaceId     String   @db.Uuid
+  liveDeploymentId  String?  @db.Uuid
+  externalProjectId String?
+  updatedBy         String?  @db.Uuid
+  createdAt         DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt         DateTime @updatedAt @db.Timestamptz(3)
+
+  marketplace    Marketplace      @relation(fields: [marketplaceId], references: [id], onDelete: Restrict)
+  liveDeployment ThemeDeployment? @relation("StorefrontPublication_liveDeploymentId", fields: [marketplaceId, liveDeploymentId], references: [marketplaceId, id], onDelete: Restrict)
+
+  @@unique([marketplaceId, id])
+  @@unique([marketplaceId])
+  @@map("storefront_publications")
+}

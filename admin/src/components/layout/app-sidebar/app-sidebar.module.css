@@ -1,0 +1,35 @@
+.submenu {
+  overflow: hidden;
+}
+
+.submenu[data-state='open'] {
+  animation: expand var(--ds-duration-medium) var(--ds-easing-out-practical);
+}
+
+.submenu[data-state='closed'] {
+  animation: collapse var(--ds-duration-medium) var(--ds-easing-in-practical);
+}
+
+@keyframes expand {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-collapsible-content-height);
+  }
+}
+
+@keyframes collapse {
+  from {
+    height: var(--radix-collapsible-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .submenu[data-state] {
+    animation: none;
+  }
+}

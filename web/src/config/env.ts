@@ -3,7 +3,7 @@ import 'dotenv/config';
 
 const createEnv = () => {
   const EnvSchema = z.object({
-    APP_URL: z.string().optional().default('http://app.localhost'),
+    APP_URL: z.string().optional().default('http://admin.localhost'),
     WEB_URL: z.string().optional().default('http://localhost'),
     ENVIRONMENT: z
       .enum(['development', 'production'])
@@ -17,6 +17,7 @@ const createEnv = () => {
   const envVars = {
     ENVIRONMENT: process.env.NEXT_PUBLIC_ENVIRONMENT,
     APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+    WEB_URL: process.env.NEXT_PUBLIC_WEB_URL,
     GA4_ID: process.env.NEXT_PUBLIC_GA4_ID,
     CLARITY_PROJECT_ID: process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID,
     API_URL: process.env.NEXT_PUBLIC_API_URL,

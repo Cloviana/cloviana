@@ -49,7 +49,13 @@ export const authorType = defineType({
       type: 'url',
       validation: (rule) =>
         rule.uri({scheme: ['https'], allowRelative: false}).custom((value) => {
-          if (!value || value.includes('linkedin.com/')) return true
+          if (!value) return true
+          try {
+            const host = new URL(value).hostname.toLowerCase()
+            if (host === 'linkedin.com' || host.endsWith('.linkedin.com')) return true
+          } catch {
+            // The URI validator supplies the format error.
+          }
           return 'Enter a LinkedIn URL'
         }),
     }),

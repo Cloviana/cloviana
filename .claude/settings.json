@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:www.tryprofound.com)",
-      "mcp__claude_ai_Exa__web_search_exa"
+      "mcp__claude_ai_Exa__web_search_exa",
+      "mcp__claude-in-chrome__tabs_context_mcp",
+      "ClaudeInChromeDomain(admin.localhost)",
+      "ClaudeInChromeDomain(admin.shopify.com)",
+      "ClaudeInChromeDomain(lovable.dev)"
     ]
   }
 }

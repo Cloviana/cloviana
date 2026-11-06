@@ -4,10 +4,6 @@ import { paths } from '@/config/paths';
 
 const NAV = [
   {
-    heading: 'Platform',
-    links: [{ label: 'AI Visibility Audit', href: '/audits' }],
-  },
-  {
     heading: 'Company',
     links: [
       { label: 'LinkedIn', href: 'https://www.linkedin.com/company/cloviana' },

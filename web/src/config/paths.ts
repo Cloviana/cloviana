@@ -29,10 +29,6 @@ export const paths = {
     },
   },
 
-  audit: {
-    getHref: (query?: Record<string, any>) => buildPath('/audits', query),
-  },
-
   regulations: {
     termsOfService: {
       getHref: (query?: Record<string, any>) =>

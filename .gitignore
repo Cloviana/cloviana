@@ -1,12 +1,21 @@
 package-lock.json
 node_modules
 .pnpm-store/
-app/.pnpm-store/
+admin/.pnpm-store/
 web/.pnpm-store/
-app/yarn.lock
+admin/yarn.lock
 enrichment-automation
 .vscode
 .DS_Store
+.windsurf
+.claude
+
+reports
+research_notes
+perfect-web-clone
+open-lovable
+curator-oss
+libra
 
 # Confidential data — stored in D:\confidential
 api/scripts/rexi_transcripts_ytd/
@@ -21,6 +30,3 @@ api/scripts/reports/*.md
 .env
 !.env.example
 
-# Supabase CLI state
-supabase/.branches/
-supabase/.temp/

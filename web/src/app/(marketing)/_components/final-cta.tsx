@@ -5,7 +5,6 @@ import { FC } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { links } from '@/config/links';
-import { paths } from '@/config/paths';
 import { gaEvent } from '@/lib/ga/client';
 import { cn } from '@/utils/cn';
 
@@ -18,15 +17,6 @@ export const FinalCta: FC<{ className?: string }> = ({ className }) => (
         </h2>
 
         <div className="flex w-full shrink-0 flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:justify-center lg:justify-end">
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="w-full sm:w-auto"
-            onClick={() => gaEvent('free_audit', { location: 'final_cta' })}
-          >
-            <Link href={paths.audit.getHref()}>Free audit</Link>
-          </Button>
           <Button
             asChild
             size="lg"

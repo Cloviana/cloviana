@@ -1,0 +1,134 @@
+// Platform-realm login (Better Auth): owners and staff. The PlatformUser row is the Better Auth user.
+model PlatformUser {
+  id            String    @id @default(uuid()) @db.Uuid
+  email         String    @unique @db.Citext
+  name          String    @default("")
+  emailVerified Boolean   @default(false)
+  image         String?
+  onboardedAt   DateTime? @db.Timestamptz(3)
+  createdAt     DateTime  @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime  @updatedAt @db.Timestamptz(3)
+
+  marketplaces Marketplace[]
+  sessions     PlatformSession[]
+  accounts     PlatformAccount[]
+
+  @@map("platform_users")
+}
+
+model PlatformSession {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @db.Uuid
+  token     String   @unique
+  expiresAt DateTime @db.Timestamptz(3)
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+
+  user PlatformUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("platform_sessions")
+}
+
+model PlatformAccount {
+  id                    String    @id @default(uuid()) @db.Uuid
+  userId                String    @db.Uuid
+  accountId             String
+  providerId            String
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime? @db.Timestamptz(3)
+  refreshTokenExpiresAt DateTime? @db.Timestamptz(3)
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now()) @db.Timestamptz(3)
+  updatedAt             DateTime  @updatedAt @db.Timestamptz(3)
+
+  user PlatformUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("platform_accounts")
+}
+
+model PlatformVerification {
+  id         String   @id @default(uuid()) @db.Uuid
+  identifier String
+  value      String
+  expiresAt  DateTime @db.Timestamptz(3)
+  createdAt  DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt  DateTime @updatedAt @db.Timestamptz(3)
+
+  @@index([identifier])
+  @@map("platform_verifications")
+}
+
+// Marketplace-realm login (Better Auth): vendors and shoppers. One account can be used on many
+// marketplaces; each marketplace only ever sees its own Member / Customer row for it.
+model MarketplaceUser {
+  id            String   @id @default(uuid()) @db.Uuid
+  name          String
+  email         String   @unique @db.Citext
+  emailVerified Boolean  @default(false)
+  image         String?
+  createdAt     DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime @updatedAt @db.Timestamptz(3)
+
+  sessions  MarketplaceSession[]
+  accounts  MarketplaceAccount[]
+  members   Member[]
+  customers Customer[]
+
+  @@map("marketplace_users")
+}
+
+model MarketplaceSession {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @db.Uuid
+  token     String   @unique
+  expiresAt DateTime @db.Timestamptz(3)
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+
+  user MarketplaceUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("marketplace_sessions")
+}
+
+model MarketplaceAccount {
+  id                    String    @id @default(uuid()) @db.Uuid
+  userId                String    @db.Uuid
+  accountId             String
+  providerId            String
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime? @db.Timestamptz(3)
+  refreshTokenExpiresAt DateTime? @db.Timestamptz(3)
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now()) @db.Timestamptz(3)
+  updatedAt             DateTime  @updatedAt @db.Timestamptz(3)
+
+  user MarketplaceUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("marketplace_accounts")
+}
+
+model MarketplaceVerification {
+  id         String   @id @default(uuid()) @db.Uuid
+  identifier String
+  value      String
+  expiresAt  DateTime @db.Timestamptz(3)
+  createdAt  DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt  DateTime @updatedAt @db.Timestamptz(3)
+
+  @@index([identifier])
+  @@map("marketplace_verifications")
+}

@@ -1,19 +1,57 @@
+# Production-only services. Shared infrastructure (redis, inngest) lives in
+# compose-core.yaml, so always run both:
+#   docker compose -f compose-core.yaml -f compose-prod.yaml ...
 x-urls: &urls
-  APP_URL: https://app.cloviana.com
+  APP_URL: https://admin.cloviana.com
   API_URL: https://api.cloviana.com/api
-  WEB_INTERNAL_URL: http://web:3000
 
 x-next-public-urls: &next-public-urls
   NEXT_PUBLIC_API_URL: https://api.cloviana.com/api
-  NEXT_PUBLIC_APP_URL: https://app.cloviana.com
+  NEXT_PUBLIC_APP_URL: https://admin.cloviana.com
+
+x-api-env: &api-env
+  NODE_ENV: production
+  ENVIRONMENT: production
+  API_PORT: 5000
+  API_HOST: 0.0.0.0
+  REDIS_URL: redis://redis:6379
+  INNGEST_DEV: "0"
+  INNGEST_BASE_URL: http://inngest:8288
+  INNGEST_CONNECT_GATEWAY_URL: ws://inngest:8289/v0/connect
+  INNGEST_EVENT_KEY: ${INNGEST_EVENT_KEY:-0123456789abcdef0123456789abcdef}
+  INNGEST_SIGNING_KEY: ${INNGEST_SIGNING_KEY:-abcdef0123456789abcdef0123456789}
+  INNGEST_APP_VERSION: ${TAG:-local}
+  INNGEST_MAX_WORKER_CONCURRENCY: ${INNGEST_MAX_WORKER_CONCURRENCY:-40}
+
+x-api-base: &api-base
+  build:
+    context: ../api
+    dockerfile: Dockerfile
+    target: runner
+  image: ghcr.io/cloviana/api:latest
+  env_file:
+    - .env
+  environment:
+    <<: *api-env
+  depends_on:
+    inngest:
+      condition: service_healthy
+    redis:
+      condition: service_healthy
+    migrate:
+      condition: service_completed_successfully
+  restart: unless-stopped
+  networks:
+    - appnet
+
+volumes:
+  certbot-etc:
+    name: cloviana_certbot_etc
+  certbot-var:
+    name: cloviana_certbot_var
 
 services:
-  api:
-    environment:
-      <<: *urls
-      INNGEST_EVENT_KEY: ${INNGEST_EVENT_KEY:?INNGEST_EVENT_KEY is required}
-      INNGEST_SIGNING_KEY: ${INNGEST_SIGNING_KEY:?INNGEST_SIGNING_KEY is required}
-
+  # Production requires these secrets (core falls back to dev defaults).
   inngest:
     environment:
       INNGEST_EVENT_KEY: ${INNGEST_EVENT_KEY:?INNGEST_EVENT_KEY is required}
@@ -24,28 +62,110 @@ services:
     environment:
       POSTGRES_PASSWORD: ${INNGEST_POSTGRES_PASSWORD:?INNGEST_POSTGRES_PASSWORD is required}
 
-  app:
+  api:
+    <<: *api-base
+    container_name: api
+    # memswap_limit == mem_limit disables swap for the container: without it
+    # Docker grants an equal amount of swap on top and a leaking container
+    # thrashes the host instead of dying cleanly.
+    mem_limit: 2g
+    memswap_limit: 2g
+    environment:
+      <<: [*api-env, *urls]
+      INNGEST_EVENT_KEY: ${INNGEST_EVENT_KEY:?INNGEST_EVENT_KEY is required}
+      INNGEST_SIGNING_KEY: ${INNGEST_SIGNING_KEY:?INNGEST_SIGNING_KEY is required}
+      # Without this V8 sizes its heap against *host* RAM, sails past the
+      # cgroup limit and gets SIGKILLed with no stack trace. Keep it well
+      # under mem_limit so background functions have room for native allocations.
+      NODE_OPTIONS: --max-old-space-size=1024
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:5000/api/health',r=>process.exit(r.statusCode===200?0:1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  migrate:
     build:
+      context: ../api
+      dockerfile: Dockerfile
+      target: builder
+    command: npx prisma migrate deploy
+    env_file:
+      - .env
+    networks:
+      - appnet
+
+  admin:
+    build:
+      context: ../admin
+      dockerfile: Dockerfile
+      target: runner
       args:
         <<: *next-public-urls
+    image: ghcr.io/cloviana/admin:latest
+    container_name: admin
+    env_file:
+      - .env
     environment:
       <<: *next-public-urls
+      NODE_ENV: production
+      ENVIRONMENT: production
+      NODE_OPTIONS: --max-old-space-size=512
+    depends_on:
+      - api
+    restart: always
+    mem_limit: 640m
+    memswap_limit: 640m
+    # Any non-5xx counts as healthy: admin's "/" redirects to login when signed out.
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://127.0.0.1:3000/',r=>process.exit(r.statusCode<500?0:1)).on('error',()=>process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - appnet
 
   web:
     build:
+      context: ../web
+      dockerfile: Dockerfile
+      target: runner
       args:
         <<: *next-public-urls
         NEXT_PUBLIC_WEB_URL: https://cloviana.com
+        NEXT_PUBLIC_GA4_ID: G-VSMD7B6WN1
+        NEXT_PUBLIC_CLARITY_PROJECT_ID: w8oqyeitz6
+    image: ghcr.io/cloviana/web:latest
+    container_name: web
+    env_file:
+      - .env
     environment:
       <<: *next-public-urls
       NEXT_PUBLIC_WEB_URL: https://cloviana.com
+      NODE_ENV: production
+      ENVIRONMENT: production
+      NEXT_PUBLIC_GA4_ID: G-VSMD7B6WN1
+      NEXT_PUBLIC_CLARITY_PROJECT_ID: w8oqyeitz6
+      NODE_OPTIONS: --max-old-space-size=512
+    restart: always
+    mem_limit: 640m
+    memswap_limit: 640m
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://127.0.0.1:3000/',r=>process.exit(r.statusCode<500?0:1)).on('error',()=>process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - appnet
 
   nginx:
     image: nginx:alpine
     container_name: nginx
     depends_on:
       - api
-      - app
+      - admin
       - web
     ports:
       - "80:80"
@@ -61,7 +181,7 @@ services:
       appnet:
         aliases:
           - api.cloviana.com
-          - app.cloviana.com
+          - admin.cloviana.com
           - cloviana.com
 
   certbot:
@@ -75,7 +195,8 @@ services:
       --cert-name cloviana
       -d cloviana.com
       -d api.cloviana.com
-      -d app.cloviana.com
+      -d admin.cloviana.com
+      -d '*.cloviana.com'
       --non-interactive
     volumes:
       - certbot-etc:/etc/letsencrypt

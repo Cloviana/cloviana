@@ -1,5 +1,7 @@
 # 🗄️ Project Structure
 
+Use [UI-COLORS.md](../UI-COLORS.md) for colour tokens and interaction states.
+
 Most of the code lives in the `src` folder and looks something like this:
 
 ```sh

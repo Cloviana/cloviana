@@ -1,0 +1,147 @@
+// =============================================================================
+// Marketplace domain, modelled on Mercur and scoped per marketplace (tenant).
+//
+// Conventions
+// - Every tenant-owned table has marketplaceId. A child references its parent
+//   with a composite (marketplaceId, id) key, so Postgres rejects a row that
+//   points at another marketplace's parent. Postgres RLS is the second layer.
+// - Money is BigInt minor units (cents) with an ISO 4217 currencyCode.
+// - createdBy / confirmedBy / declinedBy ... are plain ids with no foreign key,
+//   so audit history outlives the member who acted.
+// - Prisma cannot express partial unique indexes or CHECK constraints. The ones
+//   this schema relies on are listed at the bottom for the migration SQL.
+// =============================================================================
+enum SellerStatus {
+  PENDING
+  ACTIVE
+  SUSPENDED
+  TERMINATED
+}
+
+model Seller {
+  id            String       @id @default(uuid()) @db.Uuid
+  marketplaceId String       @db.Uuid
+  name          String
+  handle        String       @db.Citext
+  email         String       @db.Citext
+  phone         String?
+  description   String?
+  logo          String?
+  banner        String?
+  websiteUrl    String?
+  externalId    String?
+  currencyCode  String       @db.Char(3)
+  status        SellerStatus @default(PENDING)
+  statusReason  String?
+  approvedAt    DateTime?    @db.Timestamptz(3)
+  rejectedAt    DateTime?    @db.Timestamptz(3)
+  closedFrom    DateTime?    @db.Timestamptz(3)
+  closedTo      DateTime?    @db.Timestamptz(3)
+  closureNote   String?
+  isPremium     Boolean      @default(false)
+  metadata      Json?
+  createdAt     DateTime     @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime     @updatedAt @db.Timestamptz(3)
+
+  marketplace         Marketplace                @relation(fields: [marketplaceId], references: [id], onDelete: Restrict)
+  professionalDetails SellerProfessionalDetails?
+  address             SellerAddress?
+  paymentDetails      SellerPaymentDetails?
+  members             SellerMember[]
+  invites             MemberInvite[]
+  shippingProfiles    ShippingProfile[]
+  inventoryItems      InventoryItem[]
+  productLinks        ProductSeller[]
+  categoryLinks       CategorySeller[]
+  offers              Offer[]
+  orders              Order[]
+  payoutAccount       PayoutAccount?
+  reviews             Review[]
+
+  @@unique([marketplaceId, id])
+  @@unique([marketplaceId, handle])
+  @@index([marketplaceId, status])
+  @@map("sellers")
+}
+
+model SellerProfessionalDetails {
+  id                 String   @id @default(uuid()) @db.Uuid
+  marketplaceId      String   @db.Uuid
+  sellerId           String   @db.Uuid
+  corporateName      String
+  registrationNumber String?
+  taxId              String?
+  createdAt          DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt          DateTime @updatedAt @db.Timestamptz(3)
+
+  seller Seller @relation(fields: [marketplaceId, sellerId], references: [marketplaceId, id], onDelete: Cascade)
+
+  @@unique([marketplaceId, sellerId])
+  @@map("seller_professional_details")
+}
+
+model SellerAddress {
+  id            String   @id @default(uuid()) @db.Uuid
+  marketplaceId String   @db.Uuid
+  sellerId      String   @db.Uuid
+  name          String?
+  company       String?
+  firstName     String?
+  lastName      String?
+  address1      String
+  address2      String?
+  city          String
+  countryCode   String   @db.Char(2)
+  province      String?
+  postalCode    String
+  phone         String?
+  metadata      Json?
+  createdAt     DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime @updatedAt @db.Timestamptz(3)
+
+  seller Seller @relation(fields: [marketplaceId, sellerId], references: [marketplaceId, id], onDelete: Cascade)
+
+  @@unique([marketplaceId, sellerId])
+  @@map("seller_addresses")
+}
+
+// Bank details are sensitive: encrypt at rest, or leave empty when Stripe Connect holds them.
+model SellerPaymentDetails {
+  id            String   @id @default(uuid()) @db.Uuid
+  marketplaceId String   @db.Uuid
+  sellerId      String   @db.Uuid
+  countryCode   String   @db.Char(2)
+  holderName    String
+  bankName      String?
+  iban          String?
+  bic           String?
+  routingNumber String?
+  accountNumber String?
+  createdAt     DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime @updatedAt @db.Timestamptz(3)
+
+  seller Seller @relation(fields: [marketplaceId, sellerId], references: [marketplaceId, id], onDelete: Cascade)
+
+  @@unique([marketplaceId, sellerId])
+  @@map("seller_payment_details")
+}
+
+model SellerMember {
+  id            String   @id @default(uuid()) @db.Uuid
+  marketplaceId String   @db.Uuid
+  sellerId      String   @db.Uuid
+  memberId      String   @db.Uuid
+  roleId        String   @db.Uuid
+  isOwner       Boolean  @default(false)
+  metadata      Json?
+  createdAt     DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime @updatedAt @db.Timestamptz(3)
+
+  seller Seller @relation(fields: [marketplaceId, sellerId], references: [marketplaceId, id], onDelete: Cascade)
+  member Member @relation(fields: [marketplaceId, memberId], references: [marketplaceId, id], onDelete: Cascade)
+  role   Role   @relation(fields: [marketplaceId, roleId], references: [marketplaceId, id], onDelete: Restrict)
+
+  @@unique([marketplaceId, sellerId, memberId])
+  @@index([marketplaceId, memberId])
+  @@map("seller_members")
+}

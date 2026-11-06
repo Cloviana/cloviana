@@ -1,0 +1,1 @@
+export const MARKETPLACE_AUTH = Symbol("MARKETPLACE_AUTH");

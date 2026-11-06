@@ -1,0 +1,100 @@
+'use client';
+
+import { useMemo, useState } from 'react';
+
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from '@/components/ui/resizable';
+
+import { useAgentThread } from '../hooks/use-agent-thread';
+import { useEditorWorkspace } from '../hooks/use-editor-workspace';
+import { useRevisionHistory } from '../hooks/use-revision-history';
+import { previewRoutes } from '../lib/preview-routes';
+
+import { AgentChat } from './chat/agent-chat';
+import { CodePane } from './code/code-pane';
+import { EditorTopBar, type EditorTab } from './editor-top-bar';
+import { HistoryPanel } from './history/history-panel';
+import { PreviewPane, type PreviewDevice } from './preview/preview-pane';
+
+const HOME_ROUTE = '/';
+
+export function ThemeEditor({
+  slug,
+  themeId,
+  themeName,
+}: {
+  slug: string;
+  themeId: string;
+  themeName: string;
+}) {
+  const [tab, setTab] = useState<EditorTab>('preview');
+  const [historyOpen, setHistoryOpen] = useState(false);
+  const [device, setDevice] = useState<PreviewDevice>('desktop');
+  const [route, setRoute] = useState(HOME_ROUTE);
+  const [reloadKey, setReloadKey] = useState(0);
+
+  const workspace = useEditorWorkspace(slug, themeId);
+  const history = useRevisionHistory(slug, themeId, workspace.refresh);
+  const thread = useAgentThread({
+    slug,
+    themeId,
+    onRevisionSaved: workspace.refresh,
+  });
+
+  const routes = useMemo(() => {
+    const found = previewRoutes(workspace.files ?? []);
+    return found.includes(HOME_ROUTE) ? found : [HOME_ROUTE, ...found];
+  }, [workspace.files]);
+
+  const busy = thread.isRunning || history.isNavigating;
+
+  return (
+    <div className="bg-surface flex h-dvh flex-col">
+      <EditorTopBar
+        slug={slug}
+        themeName={themeName}
+        tab={tab}
+        onTabChange={setTab}
+        historyOpen={historyOpen}
+        onToggleHistory={() => setHistoryOpen(!historyOpen)}
+        canUndo={history.canUndo && !busy}
+        canRedo={history.canRedo && !busy}
+        onUndo={history.undo}
+        onRedo={history.redo}
+        device={device}
+        onDeviceChange={setDevice}
+        route={route}
+        routes={routes}
+        onRouteChange={setRoute}
+        onReload={() => setReloadKey((key) => key + 1)}
+        previewUrl={workspace.preview?.ready ? workspace.preview.url : null}
+      />
+
+      <ResizablePanelGroup className="min-h-0 flex-1">
+        <ResizablePanel defaultSize="30%" minSize={320} maxSize="50%">
+          {/* The chat stays mounted under the history so a running stream isn't dropped. */}
+          <div className={historyOpen ? 'hidden' : 'h-full'}>
+            <AgentChat thread={thread} />
+          </div>
+          {historyOpen && <HistoryPanel history={history} disabled={busy} />}
+        </ResizablePanel>
+        <ResizableHandle />
+        <ResizablePanel>
+          {tab === 'preview' ? (
+            <PreviewPane
+              workspace={workspace}
+              device={device}
+              route={route}
+              reloadKey={reloadKey}
+            />
+          ) : (
+            <CodePane slug={slug} themeId={themeId} files={workspace.files} />
+          )}
+        </ResizablePanel>
+      </ResizablePanelGroup>
+    </div>
+  );
+}

@@ -1,0 +1,165 @@
+enum AgentConversationStatus {
+  ACTIVE
+  ARCHIVED
+}
+
+enum AgentMessageRole {
+  USER
+  ASSISTANT
+  SYSTEM
+  TOOL
+}
+
+enum AgentRunStatus {
+  QUEUED
+  RUNNING
+  WAITING_FOR_INPUT
+  SUCCEEDED
+  FAILED
+  CANCELLED
+}
+
+model AgentConversation {
+  id            String                  @id @default(uuid()) @db.Uuid
+  marketplaceId String                  @db.Uuid
+  title         String?
+  status        AgentConversationStatus @default(ACTIVE)
+  createdBy     String                  @db.Uuid
+  createdAt     DateTime                @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime                @updatedAt @db.Timestamptz(3)
+
+  marketplace                 Marketplace    @relation(fields: [marketplaceId], references: [id], onDelete: Restrict)
+  agentMessage_conversationId AgentMessage[] @relation("AgentMessage_conversationId")
+  agentRun_conversationId     AgentRun[]     @relation("AgentRun_conversationId")
+
+  @@unique([marketplaceId, id])
+  @@index([marketplaceId, updatedAt])
+  @@map("agent_conversations")
+}
+
+// Append-only.
+model AgentMessage {
+  id             String           @id @default(uuid()) @db.Uuid
+  marketplaceId  String           @db.Uuid
+  conversationId String           @db.Uuid
+  sequence       BigInt
+  role           AgentMessageRole
+  content        Json
+  createdBy      String?          @db.Uuid
+  createdAt      DateTime         @default(now()) @db.Timestamptz(3)
+
+  marketplace  Marketplace       @relation(fields: [marketplaceId], references: [id], onDelete: Restrict)
+  conversation AgentConversation @relation("AgentMessage_conversationId", fields: [marketplaceId, conversationId], references: [marketplaceId, id], onDelete: Restrict)
+
+  agentRun_triggerMessageId AgentRun[]        @relation("AgentRun_triggerMessageId")
+  agentAttachment_messageId AgentAttachment[] @relation("AgentAttachment_messageId")
+
+  @@unique([marketplaceId, id])
+  @@unique([conversationId, sequence])
+  @@map("agent_messages")
+}
+
+// A run optionally targets one theme: it starts from baseRevision and produces resultRevision.
+model AgentRun {
+  id                String         @id @default(uuid()) @db.Uuid
+  marketplaceId     String         @db.Uuid
+  conversationId    String         @db.Uuid
+  triggerMessageId  String         @db.Uuid
+  themeId           String?        @db.Uuid
+  baseRevisionId    String?        @db.Uuid
+  resultRevisionId  String?        @db.Uuid
+  requestedBy       String         @db.Uuid
+  status            AgentRunStatus @default(QUEUED)
+  idempotencyKey    String
+  modelProvider     String?
+  modelName         String?
+  startedAt         DateTime?      @db.Timestamptz(3)
+  finishedAt        DateTime?      @db.Timestamptz(3)
+  cancelRequestedAt DateTime?      @db.Timestamptz(3)
+  errorCode         String?
+  errorSummary      String?
+  workerToken       String?        @db.Uuid
+  heartbeatAt       DateTime?      @db.Timestamptz(3)
+  modelTokenHash    String?
+  modelRequestCount Int            @default(0)
+  attachmentIds     String[]       @default([]) @db.Uuid
+  createdAt         DateTime       @default(now()) @db.Timestamptz(3)
+  updatedAt         DateTime       @updatedAt @db.Timestamptz(3)
+
+  marketplace    Marketplace       @relation(fields: [marketplaceId], references: [id], onDelete: Restrict)
+  conversation   AgentConversation @relation("AgentRun_conversationId", fields: [marketplaceId, conversationId], references: [marketplaceId, id], onDelete: Restrict)
+  triggerMessage AgentMessage      @relation("AgentRun_triggerMessageId", fields: [marketplaceId, triggerMessageId], references: [marketplaceId, id], onDelete: Restrict)
+  theme          Theme?            @relation("AgentRun_themeId", fields: [marketplaceId, themeId], references: [marketplaceId, id], onDelete: Restrict)
+  baseRevision   ThemeRevision?    @relation("AgentRun_baseRevisionId", fields: [marketplaceId, baseRevisionId], references: [marketplaceId, id], onDelete: Restrict)
+  resultRevision ThemeRevision?    @relation("AgentRun_resultRevisionId", fields: [marketplaceId, resultRevisionId], references: [marketplaceId, id], onDelete: Restrict)
+
+  themeRevision_agentRunId ThemeRevision[] @relation("ThemeRevision_agentRunId")
+  agentRunEvent_runId      AgentRunEvent[] @relation("AgentRunEvent_runId")
+  agentUsage_runId         AgentUsage[]    @relation("AgentUsage_runId")
+
+  @@unique([marketplaceId, id])
+  @@unique([marketplaceId, idempotencyKey])
+  @@index([marketplaceId, conversationId, createdAt])
+  @@index([marketplaceId, themeId])
+  @@map("agent_runs")
+}
+
+// Append-only. Tool calls are recorded here (type + payload) and in TOOL messages.
+model AgentRunEvent {
+  id            String   @id @default(uuid()) @db.Uuid
+  marketplaceId String   @db.Uuid
+  runId         String   @db.Uuid
+  sequence      BigInt
+  type          String
+  payload       Json
+  createdAt     DateTime @default(now()) @db.Timestamptz(3)
+
+  marketplace Marketplace @relation(fields: [marketplaceId], references: [id], onDelete: Restrict)
+  run         AgentRun    @relation("AgentRunEvent_runId", fields: [marketplaceId, runId], references: [marketplaceId, id], onDelete: Restrict)
+
+  @@unique([marketplaceId, id])
+  @@unique([runId, sequence])
+  @@map("agent_run_events")
+}
+
+model AgentAttachment {
+  id               String   @id @default(uuid()) @db.Uuid
+  marketplaceId    String   @db.Uuid
+  messageId        String   @db.Uuid
+  objectStorageKey String
+  name             String
+  mimeType         String
+  sizeBytes        BigInt
+  uploadStatus     String   @default("PENDING")
+  expiresAt        DateTime? @db.Timestamptz(3)
+  createdAt        DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt        DateTime @updatedAt @db.Timestamptz(3)
+
+  marketplace Marketplace  @relation(fields: [marketplaceId], references: [id], onDelete: Restrict)
+  message     AgentMessage @relation("AgentAttachment_messageId", fields: [marketplaceId, messageId], references: [marketplaceId, id], onDelete: Restrict)
+
+  @@unique([marketplaceId, id])
+  @@index([marketplaceId, messageId])
+  @@map("agent_attachments")
+}
+
+// Append-only.
+model AgentUsage {
+  id                String   @id @default(uuid()) @db.Uuid
+  marketplaceId     String   @db.Uuid
+  runId             String   @db.Uuid
+  provider          String
+  model             String
+  inputTokens       BigInt
+  outputTokens      BigInt
+  cachedInputTokens BigInt?
+  costMicros        BigInt?
+  createdAt         DateTime @default(now()) @db.Timestamptz(3)
+
+  marketplace Marketplace @relation(fields: [marketplaceId], references: [id], onDelete: Restrict)
+  run         AgentRun    @relation("AgentUsage_runId", fields: [marketplaceId, runId], references: [marketplaceId, id], onDelete: Restrict)
+
+  @@unique([marketplaceId, id])
+  @@index([marketplaceId, runId])
+  @@map("agent_usages")
+}

@@ -33,7 +33,7 @@
     // Path configuration
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/common/*", "./src/*"]
+      "@/*": ["./src/*"]
     },
 
     // Incremental compilation

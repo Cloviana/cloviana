@@ -1,0 +1,266 @@
+enum CommissionRateType {
+  PERCENTAGE
+  FIXED
+}
+
+enum CommissionRuleReference {
+  PRODUCT
+  CATEGORY
+  SELLER
+}
+
+enum PayoutAccountStatus {
+  PENDING
+  ACTIVE
+  RESTRICTED
+  DISABLED
+}
+
+enum PayoutStatus {
+  PENDING
+  PROCESSING
+  PAID
+  FAILED
+  CANCELED
+}
+
+enum PaymentStatus {
+  REQUIRES_PAYMENT
+  PROCESSING
+  SUCCEEDED
+  FAILED
+  CANCELED
+}
+
+enum RefundStatus {
+  PENDING
+  SUCCEEDED
+  FAILED
+}
+
+// -----------------------------------------------------------------------------
+// Commission
+// -----------------------------------------------------------------------------
+model CommissionRate {
+  id              String             @id @default(uuid()) @db.Uuid
+  marketplaceId   String             @db.Uuid
+  name            String
+  code            String
+  type            CommissionRateType
+  value           Decimal            @default(0) @db.Decimal(9, 4) // percentage when type = PERCENTAGE
+  currencyCode    String?            @db.Char(3)
+  includeTax      Boolean            @default(false)
+  includeShipping Boolean            @default(false)
+  isEnabled       Boolean            @default(true)
+  isDefault       Boolean            @default(false)
+  createdAt       DateTime           @default(now()) @db.Timestamptz(3)
+  updatedAt       DateTime           @updatedAt @db.Timestamptz(3)
+
+  marketplace Marketplace           @relation(fields: [marketplaceId], references: [id], onDelete: Restrict)
+  rules       CommissionRule[]
+  values      CommissionRateValue[]
+  lines       CommissionLine[]
+
+  @@unique([marketplaceId, id])
+  @@unique([marketplaceId, code])
+  @@map("commission_rates")
+}
+
+// Attaches a rate to a product, category or seller. referenceId is polymorphic, so it has no
+// foreign key; the application validates it against `reference`.
+model CommissionRule {
+  id               String                  @id @default(uuid()) @db.Uuid
+  marketplaceId    String                  @db.Uuid
+  commissionRateId String                  @db.Uuid
+  reference        CommissionRuleReference
+  referenceId      String                  @db.Uuid
+  createdAt        DateTime                @default(now()) @db.Timestamptz(3)
+
+  commissionRate CommissionRate @relation(fields: [marketplaceId, commissionRateId], references: [marketplaceId, id], onDelete: Cascade)
+
+  @@unique([marketplaceId, commissionRateId, reference, referenceId])
+  @@index([marketplaceId, reference, referenceId])
+  @@map("commission_rules")
+}
+
+// Per-currency amounts for FIXED rates.
+model CommissionRateValue {
+  id               String   @id @default(uuid()) @db.Uuid
+  marketplaceId    String   @db.Uuid
+  commissionRateId String   @db.Uuid
+  currencyCode     String   @db.Char(3)
+  amount           BigInt
+  createdAt        DateTime @default(now()) @db.Timestamptz(3)
+
+  commissionRate CommissionRate @relation(fields: [marketplaceId, commissionRateId], references: [marketplaceId, id], onDelete: Cascade)
+
+  @@unique([marketplaceId, commissionRateId, currencyCode])
+  @@map("commission_rate_values")
+}
+
+// Commission charged on one order item or one shipping method, recorded when the order is split.
+// code and rate are snapshots, so later rate edits never rewrite history.
+model CommissionLine {
+  id               String   @id @default(uuid()) @db.Uuid
+  marketplaceId    String   @db.Uuid
+  orderId          String   @db.Uuid
+  itemId           String?  @db.Uuid
+  shippingMethodId String?  @db.Uuid
+  commissionRateId String?  @db.Uuid
+  code             String
+  rate             Decimal  @db.Decimal(9, 4)
+  amount           BigInt
+  description      String?
+  createdAt        DateTime @default(now()) @db.Timestamptz(3)
+
+  order          Order                @relation(fields: [marketplaceId, orderId], references: [marketplaceId, id], onDelete: Restrict)
+  item           OrderItem?           @relation(fields: [marketplaceId, itemId], references: [marketplaceId, id], onDelete: Restrict)
+  shippingMethod OrderShippingMethod? @relation(fields: [marketplaceId, shippingMethodId], references: [marketplaceId, id], onDelete: Restrict)
+  commissionRate CommissionRate?      @relation(fields: [marketplaceId, commissionRateId], references: [marketplaceId, id], onDelete: Restrict)
+
+  @@index([marketplaceId, orderId])
+  @@map("commission_lines")
+}
+
+// -----------------------------------------------------------------------------
+// Payouts
+// -----------------------------------------------------------------------------
+model PayoutAccount {
+  id                String              @id @default(uuid()) @db.Uuid
+  marketplaceId     String              @db.Uuid
+  sellerId          String              @db.Uuid
+  status            PayoutAccountStatus @default(PENDING)
+  provider          String              @default("stripe")
+  externalAccountId String?
+  data              Json                @default("{}")
+  context           Json?
+  createdAt         DateTime            @default(now()) @db.Timestamptz(3)
+  updatedAt         DateTime            @updatedAt @db.Timestamptz(3)
+
+  seller     Seller            @relation(fields: [marketplaceId, sellerId], references: [marketplaceId, id], onDelete: Restrict)
+  onboarding PayoutOnboarding?
+  payouts    Payout[]
+
+  @@unique([marketplaceId, id])
+  @@unique([marketplaceId, sellerId])
+  @@unique([provider, externalAccountId])
+  @@map("payout_accounts")
+}
+
+model PayoutOnboarding {
+  id            String   @id @default(uuid()) @db.Uuid
+  marketplaceId String   @db.Uuid
+  accountId     String   @db.Uuid
+  data          Json?
+  context       Json?
+  createdAt     DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime @updatedAt @db.Timestamptz(3)
+
+  account PayoutAccount @relation(fields: [marketplaceId, accountId], references: [marketplaceId, id], onDelete: Cascade)
+
+  @@unique([marketplaceId, accountId])
+  @@map("payout_onboardings")
+}
+
+model Payout {
+  id            String       @id @default(uuid()) @db.Uuid
+  marketplaceId String       @db.Uuid
+  displayId     Int
+  accountId     String       @db.Uuid
+  currencyCode  String       @db.Char(3)
+  amount        BigInt
+  status        PayoutStatus @default(PENDING)
+  data          Json?
+  paidAt        DateTime?    @db.Timestamptz(3)
+  createdAt     DateTime     @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime     @updatedAt @db.Timestamptz(3)
+
+  account PayoutAccount @relation(fields: [marketplaceId, accountId], references: [marketplaceId, id], onDelete: Restrict)
+  orders  PayoutOrder[]
+
+  @@unique([marketplaceId, id])
+  @@unique([marketplaceId, displayId])
+  @@index([marketplaceId, accountId, status])
+  @@map("payouts")
+}
+
+// Which orders a payout settles, so every payout can be reconciled. An order settles once.
+model PayoutOrder {
+  marketplaceId    String   @db.Uuid
+  payoutId         String   @db.Uuid
+  orderId          String   @db.Uuid
+  grossAmount      BigInt
+  commissionAmount BigInt
+  netAmount        BigInt
+  createdAt        DateTime @default(now()) @db.Timestamptz(3)
+
+  payout Payout @relation(fields: [marketplaceId, payoutId], references: [marketplaceId, id], onDelete: Restrict)
+  order  Order  @relation(fields: [marketplaceId, orderId], references: [marketplaceId, id], onDelete: Restrict)
+
+  @@id([marketplaceId, payoutId, orderId])
+  @@unique([marketplaceId, orderId])
+  @@map("payout_orders")
+}
+
+// -----------------------------------------------------------------------------
+// Buyer payments and platform plumbing
+// -----------------------------------------------------------------------------
+
+// One Stripe PaymentIntent for a whole checkout (an order group).
+model Payment {
+  id                String        @id @default(uuid()) @db.Uuid
+  marketplaceId     String        @db.Uuid
+  orderGroupId      String        @db.Uuid
+  provider          String        @default("stripe")
+  providerPaymentId String
+  status            PaymentStatus @default(REQUIRES_PAYMENT)
+  currencyCode      String        @db.Char(3)
+  amount            BigInt
+  capturedAt        DateTime?     @db.Timestamptz(3)
+  data              Json?
+  createdAt         DateTime      @default(now()) @db.Timestamptz(3)
+  updatedAt         DateTime      @updatedAt @db.Timestamptz(3)
+
+  orderGroup OrderGroup @relation(fields: [marketplaceId, orderGroupId], references: [marketplaceId, id], onDelete: Restrict)
+  refunds    Refund[]
+
+  @@unique([marketplaceId, id])
+  @@unique([provider, providerPaymentId])
+  @@index([marketplaceId, orderGroupId])
+  @@map("payments")
+}
+
+model Refund {
+  id               String       @id @default(uuid()) @db.Uuid
+  marketplaceId    String       @db.Uuid
+  paymentId        String       @db.Uuid
+  orderId          String?      @db.Uuid
+  amount           BigInt
+  reason           String?
+  status           RefundStatus @default(PENDING)
+  providerRefundId String?      @unique
+  createdBy        String?      @db.Uuid
+  createdAt        DateTime     @default(now()) @db.Timestamptz(3)
+  updatedAt        DateTime     @updatedAt @db.Timestamptz(3)
+
+  payment Payment @relation(fields: [marketplaceId, paymentId], references: [marketplaceId, id], onDelete: Restrict)
+  order   Order?  @relation(fields: [marketplaceId, orderId], references: [marketplaceId, id], onDelete: Restrict)
+
+  @@index([marketplaceId, paymentId])
+  @@index([marketplaceId, orderId])
+  @@map("refunds")
+}
+
+// Platform-level (not tenant-scoped): a webhook arrives before its marketplace is known.
+// Insert the event id first; a unique violation means it was already handled.
+model WebhookEvent {
+  id          String    @id @default(uuid()) @db.Uuid
+  provider    String
+  eventId     String
+  type        String
+  receivedAt  DateTime  @default(now()) @db.Timestamptz(3)
+  processedAt DateTime? @db.Timestamptz(3)
+
+  @@unique([provider, eventId])
+  @@map("webhook_events")
+}

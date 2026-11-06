@@ -39,10 +39,12 @@ jobs:
             WEB_URL=${{ vars.WEB_URL }}
             API_URL=${{ vars.API_URL }}
 
-            SUPABASE_URL=${{ vars.SUPABASE_URL }}
-            SUPABASE_ANON_KEY=${{ vars.SUPABASE_ANON_KEY }}
-            SUPABASE_SERVICE_ROLE_KEY=${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-            SUPABASE_JWT_SECRET=${{ secrets.SUPABASE_JWT_SECRET }}
+            PLATFORM_BASE_DOMAIN=${{ vars.PLATFORM_BASE_DOMAIN }}
+            MARKETPLACE_AUTH_URL=${{ vars.MARKETPLACE_AUTH_URL }}
+            MARKETPLACE_AUTH_EMAIL_FROM=${{ vars.MARKETPLACE_AUTH_EMAIL_FROM }}
+            MARKETPLACE_AUTH_SECRET=${{ secrets.MARKETPLACE_AUTH_SECRET }}
+
+            PLATFORM_AUTH_SECRET=${{ secrets.PLATFORM_AUTH_SECRET }}
 
             DATABASE_URL=${{ secrets.DATABASE_URL }}
             DIRECT_URL=${{ secrets.DIRECT_URL }}
@@ -50,22 +52,21 @@ jobs:
             INNGEST_EVENT_KEY=${{ secrets.INNGEST_EVENT_KEY }}
             INNGEST_SIGNING_KEY=${{ secrets.INNGEST_SIGNING_KEY }}
             INNGEST_POSTGRES_PASSWORD=${{ secrets.INNGEST_POSTGRES_PASSWORD }}
-            # Cap active Inngest steps sharing the API process.
             INNGEST_MAX_WORKER_CONCURRENCY=8
 
-            STRIPE_API_KEY=${{ secrets.STRIPE_API_KEY }}
-            STRIPE_WEBHOOK_SECRET=${{ secrets.STRIPE_WEBHOOK_SECRET }}
-
+            OPENROUTER_API_KEY=${{ secrets.OPENROUTER_API_KEY }}
             RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
 
-            OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
-            GROQ_API_KEY=${{ secrets.GROQ_API_KEY }}
-            ANTHROPIC_API_KEY=${{ secrets.ANTHROPIC_API_KEY }}
-            DEEPSEEK_API_KEY=${{ secrets.DEEPSEEK_API_KEY }}
-            DATA_FOR_SEO_BASE64_CREDENTIALS=${{ secrets.DATA_FOR_SEO_BASE64_CREDENTIALS }}
             EXA_API_KEY=${{ secrets.EXA_API_KEY }}
-            UNSTRUCTURED_API_KEY=${{ secrets.UNSTRUCTURED_API_KEY }}
-            VOYAGE_API_KEY=${{ secrets.VOYAGE_API_KEY }}
+
+            GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}
+            GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}
+
+            R2_ENDPOINT=${{ secrets.R2_ENDPOINT }}
+            R2_BUCKET=${{ secrets.R2_BUCKET }}
+            R2_ACCESS_KEY_ID=${{ secrets.R2_ACCESS_KEY_ID }}
+            R2_SECRET_ACCESS_KEY=${{ secrets.R2_SECRET_ACCESS_KEY }}
+            R2_PUBLIC_BASE_URL=${{ vars.R2_PUBLIC_BASE_URL }}
 
             GA4_API_SECRET=${{ secrets.GA4_API_SECRET }}
 
@@ -73,19 +74,15 @@ jobs:
             chmod 600 .env
 
             for variable in \
-              SUPABASE_URL \
-              SUPABASE_ANON_KEY \
-              SUPABASE_SERVICE_ROLE_KEY \
+              PLATFORM_AUTH_SECRET \
               DATABASE_URL \
               DIRECT_URL \
+              PLATFORM_BASE_DOMAIN \
+              MARKETPLACE_AUTH_URL \
+              MARKETPLACE_AUTH_SECRET \
               INNGEST_EVENT_KEY \
               INNGEST_SIGNING_KEY \
-              INNGEST_POSTGRES_PASSWORD \
-              DEEPSEEK_API_KEY \
-              GROQ_API_KEY \
-              EXA_API_KEY \
-              UNSTRUCTURED_API_KEY \
-              VOYAGE_API_KEY
+              INNGEST_POSTGRES_PASSWORD
             do
               if ! grep -q "^${variable}=." .env; then
                 echo "Missing required production value: ${variable}" >&2
@@ -98,8 +95,7 @@ jobs:
             echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io --username samuelito22 --password-stdin
 
             docker pull ghcr.io/cloviana/api:${TAG}
-            docker pull ghcr.io/cloviana/knowledge-base:${TAG}
-            docker pull ghcr.io/cloviana/app:${TAG}
+            docker pull ghcr.io/cloviana/admin:${TAG}
             docker pull ghcr.io/cloviana/web:${TAG}
 
             docker compose -f compose-core.yaml -f compose-prod.yaml pull
@@ -109,7 +105,7 @@ jobs:
 
             # Never `system prune -af --volumes` here. `-a` deleted the
             # previous images, leaving no local rollback target for a bad
-            # deploy, and `--volumes` puts qdrant/postgres/redis/certbot data
+            # deploy, and `--volumes` puts postgres/redis/certbot data
             # in scope the moment a container is absent rather than stopped.
             # Keep a week of images so rolling back is a retag, not a re-pull.
             docker image prune -af --filter "until=168h"

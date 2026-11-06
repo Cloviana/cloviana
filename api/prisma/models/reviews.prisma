@@ -1,0 +1,44 @@
+enum ReviewReference {
+  PRODUCT
+  SELLER
+}
+
+enum ReviewStatus {
+  PENDING
+  PUBLISHED
+  REJECTED
+}
+
+// -----------------------------------------------------------------------------
+// Reviews
+// -----------------------------------------------------------------------------
+
+// Exactly one of productId / sellerId is set, matching `reference` (CHECK in migration SQL).
+model Review {
+  id            String          @id @default(uuid()) @db.Uuid
+  marketplaceId String          @db.Uuid
+  displayId     Int
+  reference     ReviewReference
+  rating        Int
+  customerNote  String?
+  sellerNote    String?
+  status        ReviewStatus    @default(PENDING)
+  customerId    String          @db.Uuid
+  productId     String?         @db.Uuid
+  sellerId      String?         @db.Uuid
+  orderId       String?         @db.Uuid
+  deletedAt     DateTime?       @db.Timestamptz(3)
+  createdAt     DateTime        @default(now()) @db.Timestamptz(3)
+  updatedAt     DateTime        @updatedAt @db.Timestamptz(3)
+
+  customer Customer @relation(fields: [marketplaceId, customerId], references: [marketplaceId, id], onDelete: Restrict)
+  product  Product? @relation(fields: [marketplaceId, productId], references: [marketplaceId, id], onDelete: Restrict)
+  seller   Seller?  @relation(fields: [marketplaceId, sellerId], references: [marketplaceId, id], onDelete: Restrict)
+  order    Order?   @relation(fields: [marketplaceId, orderId], references: [marketplaceId, id], onDelete: Restrict)
+
+  @@unique([marketplaceId, id])
+  @@unique([marketplaceId, displayId])
+  @@index([marketplaceId, productId, status])
+  @@index([marketplaceId, sellerId, status])
+  @@map("reviews")
+}

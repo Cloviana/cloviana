@@ -6,7 +6,6 @@ const NAV = [
   {
     heading: 'Platform',
     links: [
-      { label: 'AI Visibility Audit', href: '/audits' },
       { label: 'GEO Optimization', href: '#' },
       { label: 'AI Search Monitoring', href: '#' },
     ],

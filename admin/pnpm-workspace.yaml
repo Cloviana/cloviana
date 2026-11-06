@@ -1,0 +1,22 @@
+minimumReleaseAge: 1440
+
+allowBuilds:
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
+
+
+# Temporary allowlist for reviewed dependencies while they are inside the
+# configured minimum release age window.
+minimumReleaseAgeExclude:
+  - '@typescript-eslint/eslint-plugin'
+  - '@typescript-eslint/parser'
+  - '@typescript-eslint/project-service'
+  - '@typescript-eslint/scope-manager'
+  - '@typescript-eslint/tsconfig-utils'
+  - '@typescript-eslint/type-utils'
+  - '@typescript-eslint/types'
+  - '@typescript-eslint/typescript-estree'
+  - '@typescript-eslint/utils'
+  - '@typescript-eslint/visitor-keys'
+  - typescript-eslint
