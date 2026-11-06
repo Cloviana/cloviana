@@ -17,7 +17,6 @@ import { ConversationPicker } from '../../chat/components/conversation-picker';
 import { AssistantMessage, UserMessage } from '../../chat/components/messages';
 import { DetailsProvider } from '../../chat/components/transcript/details-context';
 import type { Chip } from '../../chat/model/run-context';
-import type { SlashCommandId } from '../../chat/model/slash-commands';
 import { SUGGESTIONS } from '../../chat/model/suggestions';
 import type { useAgentThread } from '../../hooks/use-agent-thread';
 import type { SourceFile } from '../../types';
@@ -31,7 +30,6 @@ export function AgentChat({
   onDismissChip,
   files,
   onMention,
-  onCommand,
   rewindTargets,
   onRewind,
 }: {
@@ -40,7 +38,6 @@ export function AgentChat({
   onDismissChip: (chip: Chip) => void;
   files: readonly SourceFile[];
   onMention: (path: string) => void;
-  onCommand: (id: SlashCommandId) => void;
   /** Per message the user sent: the revision to go back to. */
   rewindTargets: ReadonlyMap<string, string>;
   onRewind: (revisionId: string) => void;
@@ -153,7 +150,6 @@ export function AgentChat({
               onDismissChip={onDismissChip}
               files={files}
               onMention={onMention}
-              onCommand={onCommand}
             />
           </ThreadPrimitive.Root>
         </DetailsProvider>

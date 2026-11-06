@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import {
   ResizableHandle,
@@ -11,7 +11,6 @@ import { paths } from '@/config/paths';
 
 import { rewindTargets } from '../chat/model/rewind';
 import type { Selection } from '../chat/model/run-context';
-import type { SlashCommandId } from '../chat/model/slash-commands';
 import { useAgentThread } from '../hooks/use-agent-thread';
 import { useEditorWorkspace } from '../hooks/use-editor-workspace';
 import { useRevisionHistory } from '../hooks/use-revision-history';
@@ -90,16 +89,6 @@ export function ThemeEditor({
     [thread.savedMessages, history.revisions],
   );
 
-  const runCommand = useCallback(
-    (id: SlashCommandId) => {
-      if (id === 'new') thread.newConversation();
-      else if (id === 'history') setHistoryOpen(true);
-      else if (id === 'undo' && history.canUndo && !busy) history.undo();
-      else if (id === 'redo' && history.canRedo && !busy) history.redo();
-    },
-    [busy, history, thread],
-  );
-
   return (
     <div className="bg-surface flex h-dvh flex-col">
       <EditorTopBar
@@ -132,7 +121,6 @@ export function ThemeEditor({
               onDismissChip={runContext.dismiss}
               files={source.files}
               onMention={runContext.addMention}
-              onCommand={runCommand}
               rewindTargets={rewindTargetsByMessage}
               onRewind={(revisionId) => !busy && history.restore(revisionId)}
             />

@@ -10,7 +10,7 @@ chat/
   components/   Transcript, messages, plan approval, conversation picker.
 components/
   chat/         The thread: messages, empty state, scrolling.
-  composer/     The message box: chips, @ and / menus, modes, queue, attachments.
+  composer/     The message box: chips, the @ menu, modes, queue, attachments.
 hooks/
   use-agent-thread.ts   Sends messages, follows a run's stream, queues, retries.
   use-run-context.ts    What the user is looking at, as removable chips.

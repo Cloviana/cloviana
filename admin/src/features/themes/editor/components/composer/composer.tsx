@@ -14,7 +14,6 @@ import { Button } from '@/components/ui/button';
 import { ACCEPT_ATTRIBUTE } from '../../chat/model/attachment-rules';
 import { recall } from '../../chat/model/prompt-history';
 import type { Chip } from '../../chat/model/run-context';
-import type { SlashCommandId } from '../../chat/model/slash-commands';
 import type { useAgentThread } from '../../hooks/use-agent-thread';
 import type { SourceFile } from '../../types';
 
@@ -24,7 +23,6 @@ import { MentionPopover } from './mention-popover';
 import { ModePicker } from './mode-picker';
 import { PinnedTodos } from './pinned-todos';
 import { QueuedMessages } from './queued-messages';
-import { SlashPopover } from './slash-popover';
 
 /** The message box: what is attached, the text, `@` and `/` menus, the mode, and send or stop. */
 export function Composer({
@@ -33,14 +31,12 @@ export function Composer({
   onDismissChip,
   files,
   onMention,
-  onCommand,
 }: {
   thread: ReturnType<typeof useAgentThread>;
   chips: readonly Chip[];
   onDismissChip: (chip: Chip) => void;
   files: readonly SourceFile[];
   onMention: (path: string) => void;
-  onCommand: (id: SlashCommandId) => void;
 }) {
   const aui = useAui();
   const text = useAuiState((state) => state.composer.text);
@@ -142,11 +138,10 @@ export function Composer({
             onKeyDown={onKeyDown}
             onPaste={onPaste}
             addAttachmentOnPaste={false}
-            placeholder="Ask the agent about your theme. @ points at a file, / runs a command."
+            placeholder="Ask the agent about your theme. @ points at a file."
             className="text-body text-text-default placeholder:text-text-subtlest block max-h-40 w-full resize-none bg-transparent px-3 pt-2 outline-none"
           />
           <MentionPopover files={files} onMention={onMention} />
-          <SlashPopover onCommand={onCommand} />
           <div className="flex items-center justify-between p-2">
             <div className="flex items-center gap-1">
               <ModePicker
