@@ -6,9 +6,9 @@ import Editor, { loader } from '@monaco-editor/react';
 import * as monaco from 'monaco-editor/editor/editor.api.js';
 import 'monaco-editor/basic-languages/monaco.contribution.js';
 
-import { Spinner } from '@/components/ui/spinner';
-
 import { languageForPath } from '../../lib/language';
+
+import { PlainCode } from './plain-code';
 
 // Bundled rather than left to the library's default, which loads Monaco from a public CDN.
 loader.config({ monaco });
@@ -32,7 +32,7 @@ export default function CodeViewer({
       path={path}
       value={content}
       language={languageForPath(path)}
-      loading={<Spinner />}
+      loading={<PlainCode content={content} />}
       options={{
         readOnly: true,
         domReadOnly: true,

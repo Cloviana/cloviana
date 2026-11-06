@@ -1,5 +1,7 @@
+import { AppConfiguration } from "@/platform/config/app.configuration";
 import { Injectable, Logger } from "@nestjs/common";
 import type { EditorTheme } from "../../domain/editor-workspace";
+import { ThemeSource } from "../editor/theme-source";
 import { ThemeEditorStore } from "../ports/theme-editor.store";
 import { ThemeWorkspacePort } from "../ports/theme-workspace.port";
 import { type WorkspaceLease } from "../ports/workspace-lease.port";
@@ -10,6 +12,8 @@ export class ThemeWorkspaceLifecycle {
   constructor(
     private readonly store: ThemeEditorStore,
     private readonly workspace: ThemeWorkspacePort,
+    private readonly source: ThemeSource,
+    private readonly config: AppConfiguration,
   ) {}
   async stop(theme: EditorTheme, lease: WorkspaceLease) {
     const current = await this.store.workspace(theme.marketplaceId, theme.id);
@@ -34,6 +38,84 @@ export class ThemeWorkspaceLifecycle {
       lease,
     );
   }
+  /**
+   * After the head moves: keep a sandbox whose history is clean and let `prepare` revert it in
+   * place, or discard it. Only this leaves a REQUESTED record holding a sandbox. The revision is
+   * cleared first, so a crash part-way can never pass as a healthy sandbox on the old revision.
+   */
+  async release(theme: EditorTheme, lease: WorkspaceLease) {
+    const current = await this.store.workspace(theme.marketplaceId, theme.id);
+    const reusable =
+      this.config.themeInPlaceRevert &&
+      !!current?.providerSandboxId &&
+      ["RUNNING", "REQUESTED"].includes(current.status) &&
+      (await this.store.lastRunSucceeded(theme.marketplaceId, theme.id));
+    if (!reusable) {
+      await this.stop(theme, lease);
+      await this.store.requestWorkspace(theme.marketplaceId, theme.id);
+      return;
+    }
+    await this.store.updateWorkspace(
+      theme.marketplaceId,
+      theme.id,
+      current.id,
+      { status: "REQUESTED", restoredRevisionId: null },
+      lease,
+    );
+  }
+
+  private async revertInPlace(
+    theme: EditorTheme,
+    record: { id: string; sandboxId: string },
+    lease: WorkspaceLease,
+    signal?: AbortSignal,
+  ) {
+    const startedAt = Date.now();
+    await this.store.updateWorkspace(
+      theme.marketplaceId,
+      theme.id,
+      record.id,
+      { status: "STARTING", lastErrorCode: null },
+      lease,
+    );
+    try {
+      const result = await this.workspace.revert(
+        record.sandboxId,
+        theme.commitSha,
+      );
+      if (result !== "OK") {
+        this.logger.log(`In-place revert of theme ${theme.id}: ${result}`);
+        return null;
+      }
+      signal?.throwIfAborted();
+      await lease.assert();
+      await this.workspace.startPreview(record.sandboxId);
+      await this.store.updateWorkspace(
+        theme.marketplaceId,
+        theme.id,
+        record.id,
+        { status: "RUNNING", restoredRevisionId: theme.headRevisionId },
+        lease,
+      );
+      this.source.capturePicture(
+        theme.marketplaceId,
+        theme.id,
+        theme.headRevisionId,
+        record.sandboxId,
+      );
+      this.logger.log(
+        `In-place revert of theme ${theme.id}: OK in ${Date.now() - startedAt}ms`,
+      );
+      return record.sandboxId;
+    } catch (error) {
+      if (signal?.aborted || lease.signal.aborted) {
+        throw error;
+      }
+      this.logger.warn(`In-place revert of theme ${theme.id} failed`);
+      return null;
+    }
+  }
+
   async prepare(
     theme: EditorTheme,
     lease: WorkspaceLease,
@@ -68,6 +150,17 @@ export class ThemeWorkspaceLifecycle {
         );
       }
     }
+    if (record.status === "REQUESTED" && record.providerSandboxId) {
+      const sandboxId = await this.revertInPlace(
+        theme,
+        { id: record.id, sandboxId: record.providerSandboxId },
+        lease,
+        signal,
+      );
+      if (sandboxId) {
+        return sandboxId;
+      }
+    }
     await this.store.updateWorkspace(
       theme.marketplaceId,
       theme.id,
@@ -76,6 +169,7 @@ export class ThemeWorkspaceLifecycle {
       lease,
     );
     let ownedSandboxId: string | undefined;
+    const startedAt = Date.now();
     try {
       if (record.providerSandboxId) {
         // Discard processes and partial files left by an interrupted worker.
@@ -92,6 +186,7 @@ export class ThemeWorkspaceLifecycle {
       }
       // Recover a provision interrupted after provider creation but before the ID reached the DB.
       const sandboxId = await this.workspace.create(`cloviana-${record.id}`);
+      const createdAt = Date.now();
       ownedSandboxId = sandboxId;
       await this.store.updateWorkspace(
         theme.marketplaceId,
@@ -108,6 +203,7 @@ export class ThemeWorkspaceLifecycle {
       );
       signal?.throwIfAborted();
       await lease.assert();
+      const restoredAt = Date.now();
       await this.workspace.startPreview(sandboxId);
       await this.store.updateWorkspace(
         theme.marketplaceId,
@@ -115,6 +211,15 @@ export class ThemeWorkspaceLifecycle {
         record.id,
         { status: "RUNNING", restoredRevisionId: theme.headRevisionId },
         lease,
+      );
+      this.source.capturePicture(
+        theme.marketplaceId,
+        theme.id,
+        theme.headRevisionId,
+        sandboxId,
+      );
+      this.logger.log(
+        `Workspace ready for theme ${theme.id}: create ${createdAt - startedAt}ms, restore ${restoredAt - createdAt}ms, start ${Date.now() - restoredAt}ms`,
       );
       return sandboxId;
     } catch (error) {

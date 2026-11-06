@@ -75,6 +75,12 @@ export function AgentChat({
           </ThreadPrimitive.Messages>
         </ThreadPrimitive.Viewport>
 
+        {thread.status && (
+          <p className="text-body-small text-text-subtle px-4 pb-2">
+            {thread.status}
+          </p>
+        )}
+
         {thread.error && (
           <p
             role="alert"

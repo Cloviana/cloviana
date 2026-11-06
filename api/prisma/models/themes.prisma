@@ -128,11 +128,28 @@ model ThemeRevision {
   agentRun_baseRevisionId              AgentRun[]        @relation("AgentRun_baseRevisionId")
   agentRun_resultRevisionId            AgentRun[]        @relation("AgentRun_resultRevisionId")
   themeDeployment_revisionId           ThemeDeployment[] @relation("ThemeDeployment_revisionId")
+  manifest                             ThemeRevisionManifest?
 
   @@unique([marketplaceId, id])
   @@unique([themeId, commitSha])
   @@index([marketplaceId, themeId, createdAt])
   @@map("theme_revisions")
+}
+
+// Which files a revision holds, so the code view never needs a sandbox. Derived from the revision's
+// archive and rebuilt on first read when missing, so losing a row loses nothing.
+model ThemeRevisionManifest {
+  revisionId    String   @id @db.Uuid
+  marketplaceId String   @db.Uuid
+  // [{ path, size, sha256 }]; sha256 is null for a file the code view can't show.
+  files         Json
+  createdAt     DateTime @default(now()) @db.Timestamptz(3)
+
+  marketplace Marketplace   @relation(fields: [marketplaceId], references: [id], onDelete: Restrict)
+  revision    ThemeRevision @relation(fields: [marketplaceId, revisionId], references: [marketplaceId, id], onDelete: Cascade)
+
+  @@unique([marketplaceId, revisionId])
+  @@map("theme_revision_manifests")
 }
 
 model ThemeSandbox {

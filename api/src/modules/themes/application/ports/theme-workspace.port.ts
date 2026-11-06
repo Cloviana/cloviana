@@ -14,6 +14,7 @@ export abstract class ThemeWorkspacePort {
   abstract tree(
     sandboxId: string,
   ): Promise<Array<{ path: string; size: number }>>;
+  abstract changes(sandboxId: string): Promise<string[]>;
   abstract file(
     sandboxId: string,
     path: string,
@@ -22,7 +23,11 @@ export abstract class ThemeWorkspacePort {
     sandboxId: string,
     storageKey: string,
     message: string,
+    baseCommitSha: string,
   ): Promise<{ commitSha: string }>;
+  /** Moves a running sandbox to a commit in place; any result but "OK" means rebuild it. */
+  abstract revert(sandboxId: string, commitSha: string): Promise<string>;
+  abstract screenshot(sandboxId: string): Promise<Buffer>;
   abstract download(storageKey: string): Promise<string>;
   abstract discard(storageKey: string): Promise<void>;
 }

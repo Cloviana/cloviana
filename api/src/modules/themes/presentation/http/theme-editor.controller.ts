@@ -4,10 +4,12 @@ import {
   Body,
   Controller,
   Get,
+  Header,
   Param,
   ParseUUIDPipe,
   Post,
   Query,
+  StreamableFile,
 } from "@nestjs/common";
 import { ThemeEditor } from "../../application/editor/theme-editor";
 import { FileQuery, NavigateDto } from "./dto/editor.dto";
@@ -51,13 +53,53 @@ export class ThemeEditorController {
   ) {
     return this.editor.preview(this.input(user, slug, themeId));
   }
-  @Get("files")
-  files(
+  @Get("revisions/:revisionId/files")
+  @Header("Cache-Control", "private, max-age=31536000, immutable")
+  revisionFiles(
+    @CurrentUser() user: AuthUser,
+    @Param("slug") slug: string,
+    @Param("themeId", ParseUUIDPipe) themeId: string,
+    @Param("revisionId", ParseUUIDPipe) revisionId: string,
+  ) {
+    return this.editor.manifest(this.input(user, slug, themeId), revisionId);
+  }
+  @Get("revisions/:revisionId/picture")
+  @Header("Cache-Control", "private, max-age=31536000, immutable")
+  @Header("X-Content-Type-Options", "nosniff")
+  async revisionPicture(
+    @CurrentUser() user: AuthUser,
+    @Param("slug") slug: string,
+    @Param("themeId", ParseUUIDPipe) themeId: string,
+    @Param("revisionId", ParseUUIDPipe) revisionId: string,
+  ) {
+    return new StreamableFile(
+      await this.editor.picture(this.input(user, slug, themeId), revisionId),
+      { type: "image/png" },
+    );
+  }
+  // Content-addressed, so a response never changes. Text only and never sniffed: this is the
+  // agent's output, and it must not render as a page on the API's origin.
+  @Get("blobs/:sha256")
+  @Header("Cache-Control", "private, max-age=31536000, immutable")
+  @Header("X-Content-Type-Options", "nosniff")
+  async blob(
+    @CurrentUser() user: AuthUser,
+    @Param("slug") slug: string,
+    @Param("themeId", ParseUUIDPipe) themeId: string,
+    @Param("sha256") sha256: string,
+  ) {
+    return new StreamableFile(
+      await this.editor.blob(this.input(user, slug, themeId), sha256),
+      { type: "text/plain; charset=utf-8" },
+    );
+  }
+  @Get("changes")
+  changes(
     @CurrentUser() user: AuthUser,
     @Param("slug") slug: string,
     @Param("themeId", ParseUUIDPipe) themeId: string,
   ) {
-    return this.editor.tree(this.input(user, slug, themeId));
+    return this.editor.changes(this.input(user, slug, themeId));
   }
   @Get("file")
   file(

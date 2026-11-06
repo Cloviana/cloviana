@@ -55,8 +55,12 @@ else:
 export const RESTORE_SCRIPT = `
 import tarfile,pathlib,shutil
 root=pathlib.Path(${JSON.stringify(PROJECT_ROOT)})
-shutil.rmtree(root,ignore_errors=True)
-root.mkdir(parents=True)
+root.mkdir(parents=True,exist_ok=True)
+# The image bakes these in, and a restore always runs in a sandbox created from that image.
+for child in root.iterdir():
+  if child.name in ('node_modules','.next'): continue
+  if child.is_dir() and not child.is_symlink(): shutil.rmtree(child)
+  else: child.unlink()
 with tarfile.open(${JSON.stringify(`${RUNTIME_ROOT}/restore.tar.gz`)},'r:gz') as t:
   entries=t.getmembers()
   if len(entries)>${MAX_SNAPSHOT_ENTRIES} or sum(m.size for m in entries)>${MAX_EXTRACTED_SNAPSHOT_BYTES}: raise ValueError('Archive too large')
@@ -70,6 +74,58 @@ with tarfile.open(${JSON.stringify(`${RUNTIME_ROOT}/restore.tar.gz`)},'r:gz') as
       path.parent.mkdir(parents=True,exist_ok=True)
       with t.extractfile(m) as source, path.open('wb') as destination: shutil.copyfileobj(source,destination)
       path.chmod(m.mode & 0o777)
+# The archive carries the agent's .git, and a replace ref would change what the reset writes.
+shutil.rmtree(root/'.git'/'refs'/'replace',ignore_errors=True)
+`;
+
+export const REVERT_RESULT = {
+  ok: "OK",
+  missingCommit: "MISSING_COMMIT",
+  dependenciesChanged: "DEPENDENCIES_CHANGED",
+} as const;
+
+// Moves a healthy sandbox to another revision without reinstalling. Any answer but OK, or any error,
+// sends the caller to a clean rebuild. The agent could write to .git, so nothing in it is trusted:
+// config, hooks, attributes and replace refs are all able to run code or change the bytes written.
+export const REVERT_SCRIPT = `
+import os,pathlib,shutil,signal,subprocess,sys
+root=pathlib.Path(${JSON.stringify(PROJECT_ROOT)})
+runtime=${JSON.stringify(RUNTIME_ROOT)}
+target=sys.argv[1]
+keep={os.getpid(),os.getppid(),1}
+for entry in pathlib.Path('/proc').iterdir():
+  if not entry.name.isdigit() or int(entry.name) in keep: continue
+  try:
+    cwd=os.readlink(entry/'cwd')
+    if cwd.startswith(str(root)) or cwd.startswith(runtime): os.kill(int(entry.name),signal.SIGKILL)
+  except (OSError,ProcessLookupError): pass
+git=root/'.git'
+if git.is_symlink() or not git.is_dir(): raise ValueError('Invalid repository')
+for name in ('config','info/attributes','info/exclude','objects/info/alternates','shallow'):
+  path=git/name
+  if path.is_dir() and not path.is_symlink(): shutil.rmtree(path)
+  elif path.exists() or path.is_symlink(): path.unlink()
+for name in ('hooks','refs/replace'): shutil.rmtree(git/name,ignore_errors=True)
+(git/'config').write_text('[core]\\n\\trepositoryformatversion = 0\\n\\tfilemode = true\\n\\tbare = false\\n\\thooksPath = /dev/null\\n[user]\\n\\tname = Cloviana\\n\\temail = agent@cloviana.invalid\\n')
+(git/'info').mkdir(exist_ok=True)
+(git/'info'/'exclude').write_text('.env*\\nnode_modules/\\n.next/\\n.opencode/\\n.cloviana/\\ndist/\\n.turbo/\\n')
+env={**os.environ,'GIT_NO_REPLACE_OBJECTS':'1','GIT_CONFIG_GLOBAL':'/dev/null','GIT_CONFIG_NOSYSTEM':'1','GIT_ATTR_NOSYSTEM':'1'}
+def run(*args,check=True):
+  return subprocess.run(['git',*args],cwd=root,env=env,check=check,capture_output=True)
+if run('cat-file','-e',target+'^{commit}',check=False).returncode!=0:
+  print('${REVERT_RESULT.missingCommit}')
+  sys.exit(0)
+lock=root/'package-lock.json'
+wanted=run('show',target+':package-lock.json',check=False)
+if wanted.returncode!=0 or not lock.is_file() or lock.is_symlink() or lock.read_bytes()!=wanted.stdout:
+  print('${REVERT_RESULT.dependenciesChanged}')
+  sys.exit(0)
+run('reset','--hard',target)
+run('clean','-ffdx','-e','node_modules','-e','.next')
+if run('rev-parse','HEAD').stdout.decode().strip()!=target or run('status','--porcelain').stdout.strip():
+  raise ValueError('Revert did not reach the target')
+(root/'.next'/'dev'/'lock').unlink(missing_ok=True)
+print('${REVERT_RESULT.ok}')
 `;
 
 export const PREPARE_GIT_SCRIPT = `

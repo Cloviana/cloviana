@@ -1,13 +1,16 @@
 import { queryOptions } from '@tanstack/react-query';
 
+import { paths } from '@/config/paths';
+
 import { getActiveRunAction } from './actions/get-active-run';
 import { getEditorStateAction } from './actions/get-editor-state';
 import { getPreviewAction } from './actions/get-preview';
 import { getSourceFileAction } from './actions/get-source-file';
+import { listChangesAction } from './actions/list-changes';
 import { listConversationsAction } from './actions/list-conversations';
 import { listMessagesAction } from './actions/list-messages';
 import { listRevisionsAction } from './actions/list-revisions';
-import { listSourceFilesAction } from './actions/list-source-files';
+import type { SourceFile } from './types';
 
 export const editorKeys = {
   all: (slug: string, themeId: string) =>
@@ -18,8 +21,6 @@ export const editorKeys = {
     [...editorKeys.all(slug, themeId), 'preview'] as const,
   files: (slug: string, themeId: string) =>
     [...editorKeys.all(slug, themeId), 'files'] as const,
-  file: (slug: string, themeId: string, path: string) =>
-    [...editorKeys.files(slug, themeId), path] as const,
   revisions: (slug: string, themeId: string) =>
     [...editorKeys.all(slug, themeId), 'revisions'] as const,
   conversations: (slug: string, themeId: string) =>
@@ -42,19 +43,58 @@ export const previewQueryOptions = (slug: string, themeId: string) =>
     queryFn: () => getPreviewAction(slug, themeId),
   });
 
-export const sourceFilesQueryOptions = (slug: string, themeId: string) =>
+async function readSource(url: string) {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`Could not load ${url}`);
+  return response;
+}
+
+/** A revision's file list and a file's bytes never change, so one fetch lasts the session. */
+export const revisionFilesQueryOptions = (
+  slug: string,
+  themeId: string,
+  revisionId: string,
+) =>
   queryOptions({
-    queryKey: editorKeys.files(slug, themeId),
-    queryFn: () => listSourceFilesAction(slug, themeId),
+    queryKey: [...editorKeys.files(slug, themeId), 'revision', revisionId],
+    queryFn: async (): Promise<SourceFile[]> =>
+      (
+        await readSource(
+          `${paths.mp.themes.editor.getHref(slug, themeId)}/source/revisions/${encodeURIComponent(revisionId)}`,
+        )
+      ).json(),
+    staleTime: Infinity,
   });
 
-export const sourceFileQueryOptions = (
+export const storedFileQueryOptions = (
+  slug: string,
+  themeId: string,
+  sha256: string,
+) =>
+  queryOptions({
+    queryKey: [...editorKeys.files(slug, themeId), 'blob', sha256],
+    queryFn: async () =>
+      (
+        await readSource(
+          `${paths.mp.themes.editor.getHref(slug, themeId)}/source/blobs/${sha256}`,
+        )
+      ).text(),
+    staleTime: Infinity,
+  });
+
+export const liveChangesQueryOptions = (slug: string, themeId: string) =>
+  queryOptions({
+    queryKey: [...editorKeys.files(slug, themeId), 'changes'],
+    queryFn: () => listChangesAction(slug, themeId),
+  });
+
+export const liveFileQueryOptions = (
   slug: string,
   themeId: string,
   path: string,
 ) =>
   queryOptions({
-    queryKey: editorKeys.file(slug, themeId, path),
+    queryKey: [...editorKeys.files(slug, themeId), 'live', path],
     queryFn: () => getSourceFileAction(slug, themeId, path),
   });
 

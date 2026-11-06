@@ -1,13 +1,10 @@
 import { execFile, spawn } from "node:child_process";
 import { promisify } from "node:util";
-import {
-  OPENCODE_PORT,
-  OPENCODE_VERSION,
-} from "@/integrations/opencode/opencode.constants";
+import { OPENCODE_PORT } from "@/integrations/opencode/opencode.constants";
+import { sandboxImage } from "@/integrations/sandbox/sandbox-image";
 import type { RuntimeSandbox } from "@/integrations/sandbox/sandbox-runtime";
 import {
   PREVIEW_PORT,
-  SANDBOX_NODE_IMAGE,
   shellQuote,
 } from "@/integrations/sandbox/sandbox.constants";
 import { AppConfiguration } from "@/platform/config/app.configuration";
@@ -15,7 +12,6 @@ import { DependencyUnavailableError } from "@/shared/errors/application-error";
 import { Injectable } from "@nestjs/common";
 
 const execute = promisify(execFile);
-const IMAGE = `cloviana-sandbox:opencode-${OPENCODE_VERSION}`;
 const isMissingDockerResource = (error: unknown) => {
   if (typeof error !== "object" || error === null || !("stderr" in error)) {
     return false;
@@ -41,9 +37,10 @@ export class DockerService {
     return execute("docker", args, { timeout, maxBuffer: 110 * 1024 * 1024 });
   }
   private async ensureImage() {
+    const image = sandboxImage();
     try {
-      await this.run(["image", "inspect", IMAGE]);
-      return;
+      await this.run(["image", "inspect", image.tag]);
+      return image.tag;
     } catch (error) {
       if (!isMissingDockerResource(error)) {
         throw new DependencyUnavailableError(
@@ -52,10 +49,12 @@ export class DockerService {
       }
     }
     this.building ??= new Promise<void>((resolve, reject) => {
-      const child = spawn("docker", ["build", "-t", IMAGE, "-"], {
-        stdio: ["pipe", "ignore", "ignore"],
-      });
-      const timeout = setTimeout(() => child.kill(), 600_000);
+      const child = spawn(
+        "docker",
+        ["build", "-t", image.tag, "-f", image.dockerfile, image.context],
+        { stdio: "ignore" },
+      );
+      const timeout = setTimeout(() => child.kill(), 900_000);
       timeout.unref();
       child.once("error", () => {
         clearTimeout(timeout);
@@ -71,15 +70,12 @@ export class DockerService {
               ),
             );
       });
-      child.stdin.on("error", () => undefined);
-      child.stdin.end(
-        `FROM ${SANDBOX_NODE_IMAGE}\nRUN apt-get update && apt-get install -y --no-install-recommends git python3 curl && rm -rf /var/lib/apt/lists/*\nRUN npm install -g opencode-ai@${OPENCODE_VERSION}\nRUN mkdir -p /home/daytona/cloviana && chown -R node:node /home/daytona\nUSER node\nWORKDIR /home/daytona/cloviana\nCMD ["sleep", "infinity"]\n`,
-      );
     }).catch((error) => {
       this.building = undefined;
       throw error;
     });
-    return this.building;
+    await this.building;
+    return image.tag;
   }
 
   async create(name: string): Promise<RuntimeSandbox> {
@@ -94,7 +90,7 @@ export class DockerService {
         throw error;
       }
     }
-    await this.ensureImage();
+    const image = await this.ensureImage();
     // No bind mounts, Docker socket, platform environment, privileges, or host networking.
     const { stdout } = await this.run([
       "run",
@@ -120,7 +116,7 @@ export class DockerService {
       `127.0.0.1::${PREVIEW_PORT}`,
       "-p",
       `127.0.0.1::${OPENCODE_PORT}`,
-      IMAGE,
+      image,
     ]);
     return this.get(`docker:${stdout.trim()}`);
   }

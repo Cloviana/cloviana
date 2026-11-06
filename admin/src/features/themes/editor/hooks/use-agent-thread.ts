@@ -24,6 +24,7 @@ interface CodingStep {
 /** What the agent has streamed so far; cleared once the saved message replaces it. */
 interface LiveRun {
   id: string;
+  preparing: boolean;
   text: string;
   codingText: Record<string, string>;
   steps: Record<string, CodingStep>;
@@ -33,7 +34,7 @@ const TERMINAL_EVENTS = ['run.succeeded', 'run.failed', 'run.cancelled'];
 const TERMINAL_STATUSES = ['SUCCEEDED', 'FAILED', 'CANCELLED'];
 
 function newLiveRun(id: string): LiveRun {
-  return { id, text: '', codingText: {}, steps: {} };
+  return { id, preparing: false, text: '', codingText: {}, steps: {} };
 }
 
 function liveMessage(run: LiveRun): ThreadMessageLike {
@@ -130,6 +131,9 @@ export function useAgentThread({
       const update = (change: (run: LiveRun) => LiveRun) =>
         setLive((run) => (run?.id === runId ? change(run) : run));
 
+      on('coding.started', () =>
+        update((run) => ({ ...run, preparing: true })),
+      );
       on<{ text: string }>('assistant.delta', ({ text }) =>
         update((run) => ({ ...run, text: run.text + text })),
       );
@@ -144,6 +148,7 @@ export function useAgentThread({
         ({ partId, name, status }) =>
           update((run) => ({
             ...run,
+            preparing: false,
             steps: { ...run.steps, [partId]: { name, status } },
           })),
       );
@@ -238,6 +243,7 @@ export function useAgentThread({
     isRunning: starting || !!live,
     isLoading:
       conversations.isPending || (!!conversationId && messages.isPending),
+    status: live?.preparing ? 'Preparing workspace…' : null,
     error,
     onNew,
     onCancel,

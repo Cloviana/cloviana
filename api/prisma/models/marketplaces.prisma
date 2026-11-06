@@ -35,6 +35,7 @@ model Marketplace {
   sequences                       MarketplaceSequence[]
   themes                          Theme[]
   themeRevisionRecords            ThemeRevision[]
+  themeRevisionManifests ThemeRevisionManifest[]
   themeSandboxRecords             ThemeSandbox[]
   agentConversationRecords        AgentConversation[]
   agentMessageRecords             AgentMessage[]

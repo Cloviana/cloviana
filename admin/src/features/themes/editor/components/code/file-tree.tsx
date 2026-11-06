@@ -13,11 +13,13 @@ function TreeRow({
   node,
   depth,
   selected,
+  live,
   onSelect,
 }: {
   node: TreeNode;
   depth: number;
   selected: string | null;
+  live: Set<string>;
   onSelect: (path: string) => void;
 }) {
   const [open, setOpen] = useState(depth === 0);
@@ -52,6 +54,12 @@ function TreeRow({
           <File className="text-icon-subtle size-4 shrink-0" />
         )}
         <span className="truncate">{node.name}</span>
+        {live.has(node.path) && (
+          <span
+            aria-label="Changed by the agent"
+            className="bg-icon-information ml-auto size-2 shrink-0 rounded-full"
+          />
+        )}
       </button>
       {isFolder && open && (
         <ul role="group">
@@ -61,6 +69,7 @@ function TreeRow({
               node={child}
               depth={depth + 1}
               selected={selected}
+              live={live}
               onSelect={onSelect}
             />
           ))}
@@ -73,10 +82,12 @@ function TreeRow({
 export function FileTree({
   nodes,
   selected,
+  live,
   onSelect,
 }: {
   nodes: TreeNode[];
   selected: string | null;
+  live: Set<string>;
   onSelect: (path: string) => void;
 }) {
   return (
@@ -87,6 +98,7 @@ export function FileTree({
           node={node}
           depth={0}
           selected={selected}
+          live={live}
           onSelect={onSelect}
         />
       ))}

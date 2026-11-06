@@ -71,6 +71,12 @@ try {
     sandboxId,
     key,
     "Verification checkpoint",
+    (
+      await runtime.command(
+        sandboxId,
+        "git -C /home/daytona/cloviana/project rev-parse HEAD",
+      )
+    ).trim(),
   );
   if (
     !/^[a-f0-9]{40}$/.test(snapshot.commitSha) ||

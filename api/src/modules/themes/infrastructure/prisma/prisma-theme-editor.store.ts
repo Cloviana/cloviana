@@ -4,6 +4,7 @@ import {
   StateConflictError,
 } from "@/shared/errors/application-error";
 import { Injectable } from "@nestjs/common";
+import type { Prisma } from "@prisma/client";
 import { ThemeEditorStore } from "../../application/ports/theme-editor.store";
 import type { WorkspaceLease } from "../../application/ports/workspace-lease.port";
 import type {
@@ -11,6 +12,7 @@ import type {
   WorkspaceRecord,
   WorkspaceUpdate,
 } from "../../domain/editor-workspace";
+import type { SourceFile } from "../../domain/source-manifest";
 import {
   REVISION_PAGE_SIZE,
   WORKSPACE_START_STALE_AFTER_MS,
@@ -59,6 +61,45 @@ export class PrismaThemeEditorStore extends ThemeEditorStore {
         origin: true,
         createdAt: true,
       },
+    });
+  }
+
+  async lastRunSucceeded(marketplaceId: string, themeId: string) {
+    const run = await this.db.agentRun.findFirst({
+      where: { marketplaceId, themeId },
+      orderBy: { createdAt: "desc" },
+      select: { status: true },
+    });
+    return !run || run.status === "SUCCEEDED";
+  }
+
+  revision(marketplaceId: string, themeId: string, revisionId: string) {
+    return this.db.themeRevision.findFirst({
+      where: { id: revisionId, marketplaceId, themeId },
+      select: { storageKey: true, parentRevisionId: true },
+    });
+  }
+
+  async manifest(marketplaceId: string, themeId: string, revisionId: string) {
+    const row = await this.db.themeRevisionManifest.findFirst({
+      where: { revisionId, marketplaceId, revision: { themeId } },
+      select: { files: true },
+    });
+    return row ? (row.files as unknown as SourceFile[]) : null;
+  }
+
+  async saveManifest(
+    marketplaceId: string,
+    revisionId: string,
+    files: SourceFile[],
+  ) {
+    await this.db.themeRevisionManifest.createMany({
+      data: {
+        marketplaceId,
+        revisionId,
+        files: files as unknown as Prisma.InputJsonValue,
+      },
+      skipDuplicates: true,
     });
   }
 

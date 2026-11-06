@@ -17,6 +17,7 @@ import { ThemeEditorStore } from "../ports/theme-editor.store";
 import { ThemeWorkspacePort } from "../ports/theme-workspace.port";
 import { PrepareThemeWorkspaceUseCase } from "../prepare-theme-workspace/prepare-theme-workspace.use-case";
 import { RestartThemeWorkspaceUseCase } from "../restart-theme-workspace/restart-theme-workspace.use-case";
+import { ThemeSource } from "./theme-source";
 
 /** Public theme capability; authorization and mutation workflows remain in their use cases. */
 @Injectable()
@@ -24,6 +25,7 @@ export class ThemeEditor {
   constructor(
     private readonly getTheme: GetEditorThemeUseCase,
     private readonly store: ThemeEditorStore,
+    private readonly source: ThemeSource,
     private readonly workspace: ThemeWorkspacePort,
     private readonly editTheme: EditThemeUseCase,
     private readonly navigateVersion: NavigateThemeVersionUseCase,
@@ -99,10 +101,31 @@ export class ThemeEditor {
   }
   async preview(input: ThemeEditorAccess) {
     const { sandboxId } = await this.ready(input);
-    return this.workspace.preview(sandboxId);
+    try {
+      return await this.workspace.preview(sandboxId);
+    } catch {
+      // The record says RUNNING but the sandbox can't be reached: providers stop and delete idle
+      // ones without telling us. Replacing it is cheap, and the source of truth isn't in it.
+      await this.restart(input).catch(() => undefined);
+      return { url: null, ready: false, expiresAt: null };
+    }
   }
-  async tree(input: ThemeEditorAccess) {
-    return this.workspace.tree((await this.ready(input)).sandboxId);
+  async manifest(input: ThemeEditorAccess, revisionId: string) {
+    const { marketplaceId, id } = await this.access(input);
+    return this.source.manifest(marketplaceId, id, revisionId);
+  }
+  async picture(input: ThemeEditorAccess, revisionId: string) {
+    const { marketplaceId, id } = await this.access(input);
+    return this.source.picture(marketplaceId, id, revisionId);
+  }
+  async blob(input: ThemeEditorAccess, sha256: string) {
+    const { marketplaceId, id } = await this.access(input);
+    return this.source.blob(marketplaceId, id, sha256);
+  }
+  /** Files the agent has changed in the sandbox but not saved. Read live, and never stored. */
+  async changes(input: ThemeEditorAccess) {
+    const { sandboxId } = await this.ready(input);
+    return (await this.workspace.changes(sandboxId)).filter(isSourcePath);
   }
   async file(input: ThemeEditorAccess, path: string) {
     if (!isSourcePath(path)) {

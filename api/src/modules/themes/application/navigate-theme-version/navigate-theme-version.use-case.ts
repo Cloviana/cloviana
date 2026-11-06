@@ -36,8 +36,7 @@ export class NavigateThemeVersionUseCase {
           operation,
           revisionId,
         );
-        await this.lifecycle.stop(current, lease);
-        await this.store.requestWorkspace(current.marketplaceId, current.id);
+        await this.lifecycle.release(current, lease);
         return { revisionId: next, workspaceStatus: "REQUESTED" };
       },
     );

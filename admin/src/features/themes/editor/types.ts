@@ -26,6 +26,8 @@ export interface PreviewState {
 export interface SourceFile {
   path: string;
   size: number;
+  /** Null for a binary or oversized file, which is listed but can't be shown. */
+  sha256: string | null;
 }
 
 export interface SourceFileContent {

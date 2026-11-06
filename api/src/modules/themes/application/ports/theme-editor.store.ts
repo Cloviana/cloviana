@@ -4,6 +4,7 @@ import type {
   WorkspaceRecord,
   WorkspaceUpdate,
 } from "../../domain/editor-workspace";
+import type { SourceFile } from "../../domain/source-manifest";
 import type { WorkspaceLease } from "./workspace-lease.port";
 
 export abstract class ThemeEditorStore {
@@ -12,6 +13,29 @@ export abstract class ThemeEditorStore {
     marketplaceId: string,
     themeId: string,
   ): Promise<EditorRevision[]>;
+  /** False after a failed or cancelled run, whose leftovers a sandbox must not carry forward. */
+  abstract lastRunSucceeded(
+    marketplaceId: string,
+    themeId: string,
+  ): Promise<boolean>;
+  abstract revision(
+    marketplaceId: string,
+    themeId: string,
+    revisionId: string,
+  ): Promise<{
+    storageKey: string | null;
+    parentRevisionId: string | null;
+  } | null>;
+  abstract manifest(
+    marketplaceId: string,
+    themeId: string,
+    revisionId: string,
+  ): Promise<SourceFile[] | null>;
+  abstract saveManifest(
+    marketplaceId: string,
+    revisionId: string,
+    files: SourceFile[],
+  ): Promise<void>;
   abstract workspace(
     marketplaceId: string,
     themeId: string,

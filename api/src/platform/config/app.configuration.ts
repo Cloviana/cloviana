@@ -163,6 +163,10 @@ export class AppConfiguration {
   })
   readonly codingAgentModel!: string;
 
+  // Off sends every undo through a full sandbox rebuild.
+  @Value("THEME_IN_PLACE_REVERT", { parse: (value) => value !== "false" })
+  readonly themeInPlaceRevert!: boolean;
+
   @IsOptional()
   @IsString()
   @Value("AGENT_MODEL_PROXY_URL")

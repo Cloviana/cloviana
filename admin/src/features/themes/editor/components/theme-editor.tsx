@@ -7,11 +7,14 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from '@/components/ui/resizable';
+import { paths } from '@/config/paths';
 
 import { useAgentThread } from '../hooks/use-agent-thread';
 import { useEditorWorkspace } from '../hooks/use-editor-workspace';
 import { useRevisionHistory } from '../hooks/use-revision-history';
+import { useThemeSource } from '../hooks/use-theme-source';
 import { previewRoutes } from '../lib/preview-routes';
+import type { EditorState } from '../types';
 
 import { AgentChat } from './chat/agent-chat';
 import { CodePane } from './code/code-pane';
@@ -25,10 +28,12 @@ export function ThemeEditor({
   slug,
   themeId,
   themeName,
+  initialState,
 }: {
   slug: string;
   themeId: string;
   themeName: string;
+  initialState: EditorState;
 }) {
   const [tab, setTab] = useState<EditorTab>('preview');
   const [historyOpen, setHistoryOpen] = useState(false);
@@ -36,7 +41,12 @@ export function ThemeEditor({
   const [route, setRoute] = useState(HOME_ROUTE);
   const [reloadKey, setReloadKey] = useState(0);
 
-  const workspace = useEditorWorkspace(slug, themeId);
+  const workspace = useEditorWorkspace(
+    slug,
+    themeId,
+    initialState,
+    tab === 'preview',
+  );
   const history = useRevisionHistory(slug, themeId, workspace.refresh);
   const thread = useAgentThread({
     slug,
@@ -44,10 +54,13 @@ export function ThemeEditor({
     onRevisionSaved: workspace.refresh,
   });
 
+  const revisionId = workspace.state?.revisionId ?? initialState.revisionId;
+  const source = useThemeSource(slug, themeId, revisionId, thread.isRunning);
+
   const routes = useMemo(() => {
-    const found = previewRoutes(workspace.files ?? []);
+    const found = previewRoutes(source.files);
     return found.includes(HOME_ROUTE) ? found : [HOME_ROUTE, ...found];
-  }, [workspace.files]);
+  }, [source.files]);
 
   const busy = thread.isRunning || history.isNavigating;
 
@@ -89,9 +102,10 @@ export function ThemeEditor({
               device={device}
               route={route}
               reloadKey={reloadKey}
+              pictureUrl={`${paths.mp.themes.editor.getHref(slug, themeId)}/source/revisions/${encodeURIComponent(revisionId)}/picture`}
             />
           ) : (
-            <CodePane slug={slug} themeId={themeId} files={workspace.files} />
+            <CodePane slug={slug} themeId={themeId} source={source} />
           )}
         </ResizablePanel>
       </ResizablePanelGroup>

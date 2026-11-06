@@ -5,6 +5,7 @@ import type {
   CodingWorkspace,
   ThemeEditorAccess,
 } from "../editor/editor.types";
+import { ThemeSource } from "../editor/theme-source";
 import { GetEditorThemeUseCase } from "../get-editor-theme/get-editor-theme.use-case";
 import { ThemeEditorStore } from "../ports/theme-editor.store";
 import { ThemeWorkspacePort } from "../ports/theme-workspace.port";
@@ -16,6 +17,7 @@ export class EditThemeUseCase {
   constructor(
     private readonly getTheme: GetEditorThemeUseCase,
     private readonly store: ThemeEditorStore,
+    private readonly source: ThemeSource,
     private readonly workspace: ThemeWorkspacePort,
     private readonly leases: WorkspaceLeases,
     private readonly lifecycle: ThemeWorkspaceLifecycle,
@@ -60,6 +62,7 @@ export class EditThemeUseCase {
             sandboxId,
             storageKey,
             input.message,
+            current.commitSha,
           );
           signal.throwIfAborted();
           commitStarted = true;
@@ -76,7 +79,14 @@ export class EditThemeUseCase {
             });
           }
           storageKey = undefined; // The DB now owns this immutable object.
+          this.source.prepare(theme.marketplaceId, theme.id, revisionId);
           await this.workspace.startPreview(sandboxId);
+          this.source.capturePicture(
+            theme.marketplaceId,
+            theme.id,
+            revisionId,
+            sandboxId,
+          );
           const sandbox = await this.store.workspace(
             theme.marketplaceId,
             theme.id,

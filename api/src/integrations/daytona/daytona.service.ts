@@ -1,8 +1,6 @@
-import { OPENCODE_VERSION } from "@/integrations/opencode/opencode.constants";
-import { SANDBOX_NODE_IMAGE } from "@/integrations/sandbox/sandbox.constants";
 import { AppConfiguration } from "@/platform/config/app.configuration";
 import { DependencyUnavailableError } from "@/shared/errors/application-error";
-import { Daytona, Image } from "@daytona/sdk";
+import { Daytona } from "@daytona/sdk";
 import { Injectable } from "@nestjs/common";
 
 @Injectable()
@@ -39,22 +37,16 @@ export class DaytonaService {
       autoDeleteInterval: 1440,
       labels: { application: "cloviana", workspace: name },
     };
-    return this.config.daytonaSnapshot
-      ? client.create(
-          { ...base, snapshot: this.config.daytonaSnapshot },
-          { timeout: 180 },
-        )
-      : client.create(
-          {
-            ...base,
-            image: Image.base(SANDBOX_NODE_IMAGE).runCommands(
-              "apt-get update && apt-get install -y --no-install-recommends git python3 curl && rm -rf /var/lib/apt/lists/*",
-              `npm install -g opencode-ai@${OPENCODE_VERSION}`,
-            ),
-            resources: { cpu: 2, memory: 4, disk: 10 },
-          },
-          { timeout: 180 },
-        );
+    // Without a baked snapshot the first sandbox has to build the whole image, which outlasts a request.
+    if (!this.config.daytonaSnapshot) {
+      throw new DependencyUnavailableError(
+        "Set DAYTONA_SNAPSHOT to the name printed by scripts/publish-sandbox-snapshot.ts",
+      );
+    }
+    return client.create(
+      { ...base, snapshot: this.config.daytonaSnapshot },
+      { timeout: 180 },
+    );
   }
 
   get(id: string) {

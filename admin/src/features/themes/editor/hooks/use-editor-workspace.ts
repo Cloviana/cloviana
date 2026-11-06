@@ -9,24 +9,34 @@ import {
   editorKeys,
   editorStateQueryOptions,
   previewQueryOptions,
-  sourceFilesQueryOptions,
 } from '../queries';
+import type { EditorState, WorkspaceStatus } from '../types';
 
 const STARTING_POLL_MS = 2000;
 const SETTLED_POLL_MS = 15000;
 // Signed preview URLs last an hour; refreshing often keeps a long session's URL valid.
 const PREVIEW_REFRESH_MS = 60000;
 
-/** Starts the theme's sandbox on arrival and follows it until the preview is reachable. */
-export function useEditorWorkspace(slug: string, themeId: string) {
+const TRANSITIONING: WorkspaceStatus[] = ['REQUESTED', 'STARTING', 'STOPPING'];
+
+/** Starts the theme's sandbox once a preview is wanted and follows it until it is reachable. */
+export function useEditorWorkspace(
+  slug: string,
+  themeId: string,
+  initialState: EditorState,
+  previewWanted: boolean,
+) {
   const queryClient = useQueryClient();
 
   const state = useQuery({
     ...editorStateQueryOptions(slug, themeId),
+    initialData: initialState,
     refetchInterval: (query) =>
-      query.state.data?.workspace?.status === 'RUNNING'
-        ? SETTLED_POLL_MS
-        : STARTING_POLL_MS,
+      TRANSITIONING.includes(
+        query.state.data?.workspace?.status as WorkspaceStatus,
+      )
+        ? STARTING_POLL_MS
+        : SETTLED_POLL_MS,
     // A first start takes minutes, and people switch tabs while it happens.
     refetchIntervalInBackground: true,
   });
@@ -42,18 +52,10 @@ export function useEditorWorkspace(slug: string, themeId: string) {
     refetchIntervalInBackground: true,
   });
 
-  const files = useQuery({
-    ...sourceFilesQueryOptions(slug, themeId),
-    enabled: running,
-    refetchInterval: (query) =>
-      query.state.data === null ? STARTING_POLL_MS : false,
-    refetchIntervalInBackground: true,
-  });
-
   // Runs once per page visit; a failed sandbox waits for the user to press Restart.
   const requested = useRef(false);
   useEffect(() => {
-    if (!state.data || requested.current) return;
+    if (!previewWanted || requested.current) return;
     if (status === 'STOPPED' || status === 'DELETED') {
       requested.current = true;
       void restartWorkspaceAction(slug, themeId);
@@ -61,7 +63,7 @@ export function useEditorWorkspace(slug: string, themeId: string) {
       requested.current = true;
       void requestWorkspaceAction(slug, themeId);
     }
-  }, [state.data, status, slug, themeId]);
+  }, [previewWanted, status, slug, themeId]);
 
   const refresh = useCallback(() => {
     void queryClient.invalidateQueries({
@@ -88,7 +90,6 @@ export function useEditorWorkspace(slug: string, themeId: string) {
     status,
     errorCode: state.data?.workspace?.errorCode ?? null,
     preview: preview.data,
-    files: files.data ?? null,
     refresh,
     restart,
   };

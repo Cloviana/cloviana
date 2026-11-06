@@ -18,6 +18,7 @@ import {
   FILES_SCRIPT,
   PREPARE_GIT_SCRIPT,
   RESTORE_SCRIPT,
+  REVERT_SCRIPT,
 } from "./workspace-scripts";
 
 @Injectable()
@@ -57,7 +58,9 @@ export class SandboxThemeWorkspace extends ThemeWorkspacePort {
     // Install lifecycle scripts execute only in the tenant's isolated sandbox.
     await this.sandboxes.command(
       id,
-      `cd ${shellQuote(PROJECT_ROOT)} && if [ -f package-lock.json ]; then npm ci --no-audit --no-fund; else npm install --no-audit --no-fund; fi`,
+      // A matching lockfile means the baked install is already right. npm install, unlike npm ci,
+      // keeps node_modules and fetches only what changed.
+      `cd ${shellQuote(PROJECT_ROOT)} && (cmp -s package-lock.json node_modules/.cloviana-lock || (npm install --no-audit --no-fund --prefer-offline && cp package-lock.json node_modules/.cloviana-lock))`,
       300,
     );
   }
@@ -137,6 +140,17 @@ export class SandboxThemeWorkspace extends ThemeWorkspacePort {
       size: number;
     }>;
   }
+  async changes(id: string) {
+    const output = await this.sandboxes.command(
+      id,
+      `git -C ${shellQuote(PROJECT_ROOT)} status --porcelain=v1 -z --no-renames --untracked-files=all`,
+      30,
+    );
+    return output
+      .split("\0")
+      .filter((entry) => entry.length > 3 && !entry.slice(0, 2).includes("D"))
+      .map((entry) => entry.slice(3));
+  }
   async file(id: string, path: string) {
     return JSON.parse(await this.sandboxes.python(id, FILES_SCRIPT, path)) as {
       path: string;
@@ -144,8 +158,42 @@ export class SandboxThemeWorkspace extends ThemeWorkspacePort {
     };
   }
 
-  async checkpoint(id: string, storageKey: string, message: string) {
+  async revert(id: string, commitSha: string) {
+    if (!/^[a-f0-9]{40}$/.test(commitSha)) {
+      throw new Error("Invalid Git commit");
+    }
+    const output = await this.sandboxes.python(id, REVERT_SCRIPT, commitSha);
+    return output.trim().split("\n").at(-1) ?? "";
+  }
+
+  async screenshot(id: string) {
+    const file = `${RUNTIME_ROOT}/preview.png`;
+    await this.sandboxes.command(
+      id,
+      `for attempt in $(seq 1 60); do curl -sf -o /dev/null http://127.0.0.1:3000 && break; sleep 1; done; timeout 45 chromium --headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage --hide-scrollbars --window-size=1440,900 --virtual-time-budget=3000 --screenshot=${shellQuote(file)} http://127.0.0.1:3000/ >/dev/null 2>&1`,
+      120,
+    );
+    const sandbox = await this.sandboxes.get(id);
+    const image = await sandbox.fs.downloadFile(file);
+    await sandbox.fs.deleteFile(file);
+    return image;
+  }
+
+  async checkpoint(
+    id: string,
+    storageKey: string,
+    message: string,
+    baseCommitSha: string,
+  ) {
     const qroot = shellQuote(PROJECT_ROOT);
+    // A sandbox can now outlive a revert. A worker that lost its lease must not commit onto a tree
+    // that has since moved to another revision.
+    const head = (
+      await this.sandboxes.command(id, `git -C ${qroot} rev-parse HEAD`)
+    ).trim();
+    if (head !== baseCommitSha) {
+      throw new Error("Workspace moved to another revision during the edit");
+    }
     await this.sandboxes.python(id, PREPARE_GIT_SCRIPT);
     // Never persist credentials, dependency trees, runtime configuration or build output.
     await this.sandboxes.command(
