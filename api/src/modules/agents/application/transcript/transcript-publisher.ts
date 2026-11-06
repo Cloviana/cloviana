@@ -29,6 +29,7 @@ export class TranscriptPublisher {
   private readonly buffered = new Map<string, string>();
   private chain: Promise<void> = Promise.resolve();
   private failure: unknown;
+  private savedRevisionId: string | undefined;
   private timer: NodeJS.Timeout | undefined;
 
   constructor(
@@ -86,8 +87,23 @@ export class TranscriptPublisher {
     }
   }
 
+  /** The run saved a theme revision. Announces it, and remembers it for the saved message. */
+  revisionSaved(revisionId: string) {
+    this.savedRevisionId = revisionId;
+    this.event("revision.saved", { revisionId });
+  }
+
   parts() {
     return this.builder.parts();
+  }
+
+  /** Everything that is saved with the assistant message when the run ends. */
+  saved() {
+    return {
+      text: this.text(),
+      parts: this.parts(),
+      ...(this.savedRevisionId ? { revisionId: this.savedRevisionId } : {}),
+    };
   }
 
   text() {

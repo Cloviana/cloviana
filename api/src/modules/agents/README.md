@@ -145,7 +145,7 @@ and `notice`. Two events carry them:
 - `part.delta` `{ id, text }`: text appended to a `text` or `reasoning` part.
 
 The browser applies these in order, so it needs no other rules. When the run ends, the same
-parts are saved with the assistant message as `content: { text, parts, mode }`, so a reload shows
+parts are saved with the assistant message as `content: { text, parts, mode, revisionId? }`, so a reload shows
 what the stream showed. A run that is stopped or fails keeps what it had done, with a final
 `notice`. Older messages that have only `text` render as a single text part.
 

@@ -1,17 +1,24 @@
 'use client';
 
 import { ComposerPrimitive, useAui, useAuiState } from '@assistant-ui/react';
-import { ArrowUp, ListPlus, Square } from 'lucide-react';
-import { useRef, type KeyboardEvent } from 'react';
+import { ArrowUp, ListPlus, Paperclip, Square } from 'lucide-react';
+import {
+  useRef,
+  type ClipboardEvent,
+  type DragEvent,
+  type KeyboardEvent,
+} from 'react';
 
 import { Button } from '@/components/ui/button';
 
+import { ACCEPT_ATTRIBUTE } from '../../chat/model/attachment-rules';
 import { recall } from '../../chat/model/prompt-history';
 import type { Chip } from '../../chat/model/run-context';
 import type { SlashCommandId } from '../../chat/model/slash-commands';
 import type { useAgentThread } from '../../hooks/use-agent-thread';
 import type { SourceFile } from '../../types';
 
+import { AttachmentChips } from './attachment-chips';
 import { ContextChips } from './context-chips';
 import { MentionPopover } from './mention-popover';
 import { ModePicker } from './mode-picker';
@@ -39,6 +46,24 @@ export function Composer({
   const text = useAuiState((state) => state.composer.text);
   // Where the user is in the history of what they sent, and what that put in the box.
   const recalled = useRef<{ cursor: number; text: string } | null>(null);
+  const picker = useRef<HTMLInputElement>(null);
+
+  const attach = (files: FileList | File[] | null) => {
+    if (files?.length) void thread.addAttachments(Array.from(files));
+  };
+  const onPaste = (event: ClipboardEvent<HTMLTextAreaElement>) => {
+    // Only files are ours; pasted text goes into the box as usual.
+    if (event.clipboardData.files.length) {
+      event.preventDefault();
+      attach(event.clipboardData.files);
+    }
+  };
+  const onDrop = (event: DragEvent<HTMLFormElement>) => {
+    if (event.dataTransfer.files.length) {
+      event.preventDefault();
+      attach(event.dataTransfer.files);
+    }
+  };
 
   const queueNow = () => {
     thread.enqueueMessage(text);
@@ -94,28 +119,61 @@ export function Composer({
 
   return (
     <div className="p-3 pt-0">
-      <ComposerPrimitive.Root className="border-line bg-surface focus-within:border-border-focused border-border-input relative rounded-lg">
+      <ComposerPrimitive.Root
+        onDragOver={(event: DragEvent<HTMLFormElement>) =>
+          event.preventDefault()
+        }
+        onDrop={onDrop}
+        className="border-line bg-surface focus-within:border-border-focused border-border-input relative rounded-lg"
+      >
         <ComposerPrimitive.TriggerPopoverRoot>
           <PinnedTodos todos={thread.pinnedTodos} />
           <QueuedMessages
             queued={thread.queued}
             onRemove={thread.removeQueuedMessage}
           />
+          <AttachmentChips
+            items={thread.attachments}
+            onRemove={thread.removeAttachment}
+          />
           <ContextChips chips={chips} onDismiss={onDismissChip} />
           <ComposerPrimitive.Input
             rows={2}
             onKeyDown={onKeyDown}
+            onPaste={onPaste}
+            addAttachmentOnPaste={false}
             placeholder="Ask the agent about your theme. @ points at a file, / runs a command."
             className="text-body text-text-default placeholder:text-text-subtlest block max-h-40 w-full resize-none bg-transparent px-3 pt-2 outline-none"
           />
           <MentionPopover files={files} onMention={onMention} />
           <SlashPopover onCommand={onCommand} />
           <div className="flex items-center justify-between p-2">
-            <ModePicker
-              value={thread.mode}
-              onChange={thread.setMode}
-              disabled={thread.isRunning}
-            />
+            <div className="flex items-center gap-1">
+              <ModePicker
+                value={thread.mode}
+                onChange={thread.setMode}
+                disabled={thread.isRunning}
+              />
+              <Button
+                size="icon-xs"
+                variant="ghost"
+                aria-label="Attach an image or text file"
+                onClick={() => picker.current?.click()}
+              >
+                <Paperclip />
+              </Button>
+              <input
+                ref={picker}
+                type="file"
+                multiple
+                hidden
+                accept={ACCEPT_ATTRIBUTE}
+                onChange={(event) => {
+                  attach(event.target.files);
+                  event.target.value = '';
+                }}
+              />
+            </div>
             {thread.isRunning ? (
               <div className="flex gap-1">
                 <Button

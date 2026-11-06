@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/resizable';
 import { paths } from '@/config/paths';
 
+import { rewindTargets } from '../chat/model/rewind';
 import type { Selection } from '../chat/model/run-context';
 import type { SlashCommandId } from '../chat/model/slash-commands';
 import { useAgentThread } from '../hooks/use-agent-thread';
@@ -84,6 +85,11 @@ export function ThemeEditor({
 
   const busy = thread.isRunning || history.isNavigating;
 
+  const rewindTargetsByMessage = useMemo(
+    () => rewindTargets(thread.savedMessages, history.revisions),
+    [thread.savedMessages, history.revisions],
+  );
+
   const runCommand = useCallback(
     (id: SlashCommandId) => {
       if (id === 'new') thread.newConversation();
@@ -127,6 +133,8 @@ export function ThemeEditor({
               files={source.files}
               onMention={runContext.addMention}
               onCommand={runCommand}
+              rewindTargets={rewindTargetsByMessage}
+              onRewind={(revisionId) => !busy && history.restore(revisionId)}
             />
           </div>
           {historyOpen && <HistoryPanel history={history} disabled={busy} />}

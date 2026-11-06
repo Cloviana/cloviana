@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button';
 import { Heading } from '@/components/ui/typography';
 
 import { ChatActionsProvider } from '../../chat/components/chat-actions-context';
+import { ConversationPicker } from '../../chat/components/conversation-picker';
 import { AssistantMessage, UserMessage } from '../../chat/components/messages';
 import { DetailsProvider } from '../../chat/components/transcript/details-context';
 import type { Chip } from '../../chat/model/run-context';
@@ -31,6 +32,8 @@ export function AgentChat({
   files,
   onMention,
   onCommand,
+  rewindTargets,
+  onRewind,
 }: {
   thread: ReturnType<typeof useAgentThread>;
   chips: readonly Chip[];
@@ -38,6 +41,9 @@ export function AgentChat({
   files: readonly SourceFile[];
   onMention: (path: string) => void;
   onCommand: (id: SlashCommandId) => void;
+  /** Per message the user sent: the revision to go back to. */
+  rewindTargets: ReadonlyMap<string, string>;
+  onRewind: (revisionId: string) => void;
 }) {
   const [showDetails, setShowDetails] = useState(false);
   const runtime = useExternalStoreRuntime<ThreadMessageLike>({
@@ -51,10 +57,26 @@ export function AgentChat({
 
   return (
     <AssistantRuntimeProvider runtime={runtime}>
-      <ChatActionsProvider value={{ approvePlan: thread.approvePlan }}>
+      <ChatActionsProvider
+        value={{
+          approvePlan: thread.approvePlan,
+          rewindTargetOf: (id) => rewindTargets.get(id),
+          rewind: (id) => {
+            const target = rewindTargets.get(id);
+            if (target) onRewind(target);
+          },
+        }}
+      >
         <DetailsProvider value={showDetails}>
           <ThreadPrimitive.Root className="flex h-full min-h-0 flex-col">
-            <div className="flex justify-end px-3 pt-2">
+            <div className="flex items-center justify-between gap-2 px-3 pt-2">
+              <ConversationPicker
+                conversations={thread.conversations}
+                currentId={thread.conversationId}
+                disabled={thread.isRunning}
+                onSelect={thread.selectConversation}
+                onNew={thread.newConversation}
+              />
               <Button
                 size="xs"
                 variant="ghost"

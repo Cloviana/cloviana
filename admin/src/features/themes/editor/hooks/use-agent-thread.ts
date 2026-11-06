@@ -7,6 +7,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { paths } from '@/config/paths';
 
 import { cancelRunAction } from '../actions/cancel-run';
+import { createConversationAction } from '../actions/create-conversation';
 import { getRunAction } from '../actions/get-run';
 import { startRunAction } from '../actions/start-run';
 import { applyPartEvent } from '../chat/model/apply-part-event';
@@ -38,6 +39,8 @@ import {
   messagesQueryOptions,
 } from '../queries';
 import type { AgentMode } from '../types';
+
+import { useReferenceUploads } from './use-reference-uploads';
 
 /** What the agent has produced so far; cleared once the saved message replaces it. */
 interface LiveRun {
@@ -82,6 +85,8 @@ export function useAgentThread({
   });
 
   const [mode, setMode] = useState<AgentMode>(DEFAULT_MODE);
+  /** A conversation made for an attachment, before the state that names it has caught up. */
+  const startedConversation = useRef<string | null>(null);
   const [live, setLive] = useState<LiveRun | null>(null);
   const [pendingPrompt, setPendingPrompt] = useState<string | null>(null);
   const [starting, setStarting] = useState(false);
@@ -95,6 +100,23 @@ export function useAgentThread({
   useEffect(() => {
     onRevision.current = onRevisionSaved;
   }, [onRevisionSaved]);
+
+  const ensureConversation = useCallback(async () => {
+    const existing = startedConversation.current ?? conversationId;
+    if (existing) return existing;
+    const created = await createConversationAction(slug);
+    if (!created.success) throw new Error(created.message);
+    startedConversation.current = created.id;
+    setChosen(created.id);
+    return created.id;
+  }, [conversationId, slug]);
+
+  const uploads = useReferenceUploads({
+    slug,
+    themeId,
+    ensureConversation,
+    onProblem: setError,
+  });
 
   const finish = useCallback(
     async (runId: string, conversation: string) => {
@@ -176,10 +198,11 @@ export function useAgentThread({
       setPendingPrompt(prompt);
       setStarting(true);
       const result = await startRunAction(slug, themeId, {
-        conversationId,
+        conversationId: startedConversation.current ?? conversationId,
         prompt,
         mode: runMode,
         context: getContext(),
+        attachmentIds: uploads.readyIds,
         idempotencyKey: crypto.randomUUID(),
       });
       setStarting(false);
@@ -194,10 +217,21 @@ export function useAgentThread({
         queryKey: editorKeys.messages(slug, themeId, result.run.conversationId),
       });
       setPendingPrompt(null);
+      startedConversation.current = null;
+      uploads.clear();
       onSent();
       follow(result.run.id, result.run.conversationId);
     },
-    [conversationId, follow, getContext, onSent, queryClient, slug, themeId],
+    [
+      conversationId,
+      follow,
+      getContext,
+      onSent,
+      queryClient,
+      slug,
+      themeId,
+      uploads,
+    ],
   );
 
   const onNew = useCallback(
@@ -206,15 +240,33 @@ export function useAgentThread({
         .flatMap((part) => (part.type === 'text' ? [part.text] : []))
         .join('\n')
         .trim();
-      if (prompt) await send(prompt, mode);
+      if (!prompt) return;
+      if (uploads.uploading) {
+        setError('Wait for the attachments to finish uploading.');
+        return;
+      }
+      await send(prompt, mode);
     },
-    [mode, send],
+    [mode, send, uploads.uploading],
   );
 
   /** The next message starts a new conversation instead of continuing this one. */
   const newConversation = useCallback(() => {
-    if (!live) setChosen('new');
-  }, [live]);
+    if (live) return;
+    startedConversation.current = null;
+    uploads.clear();
+    setChosen('new');
+  }, [live, uploads]);
+
+  const selectConversation = useCallback(
+    (id: string) => {
+      if (live) return;
+      startedConversation.current = null;
+      uploads.clear();
+      setChosen(id);
+    },
+    [live, uploads],
+  );
 
   /** Building a plan is a build run, whatever mode the picker was left on. */
   const approvePlan = useCallback(() => {
@@ -287,6 +339,14 @@ export function useAgentThread({
     setMode,
     approvePlan,
     newConversation,
+    conversations: conversations.data ?? [],
+    conversationId,
+    selectConversation,
+    savedMessages: messages.data ?? [],
+    attachments: uploads.items,
+    addAttachments: uploads.add,
+    removeAttachment: uploads.remove,
+    uploading: uploads.uploading,
     queued,
     enqueueMessage,
     removeQueuedMessage,

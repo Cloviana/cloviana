@@ -5,6 +5,9 @@ import { createContext, useContext } from 'react';
 interface ChatActions {
   /** Turns the plan the agent just proposed into a build run. */
   approvePlan(): void;
+  /** Where "restore code to before this message" would go back to, if anywhere. */
+  rewindTargetOf(messageId: string): string | undefined;
+  rewind(messageId: string): void;
 }
 
 const ChatActionsContext = createContext<ChatActions | null>(null);

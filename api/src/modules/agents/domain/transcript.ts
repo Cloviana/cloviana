@@ -75,6 +75,8 @@ export type TranscriptPart =
 export interface SavedTranscript {
   text: string;
   parts: TranscriptPart[];
+  /** The revision this run saved, so the conversation can offer to go back to before it. */
+  revisionId?: string;
 }
 
 /** Event payloads on the run stream. */

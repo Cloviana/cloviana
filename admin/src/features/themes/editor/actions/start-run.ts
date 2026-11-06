@@ -18,6 +18,7 @@ export async function startRunAction(
     idempotencyKey: string;
     mode: AgentMode;
     context?: RunContext;
+    attachmentIds?: string[];
   },
 ): Promise<ThemeActionResult<{ run: AgentRun }>> {
   try {
@@ -30,6 +31,7 @@ export async function startRunAction(
       themeId,
       mode: input.mode,
       context: input.context,
+      attachmentIds: input.attachmentIds,
     });
     return { success: true, run };
   } catch (error) {

@@ -14,6 +14,7 @@ export function startRun(
     themeId: string;
     mode: AgentMode;
     context?: RunContext;
+    attachmentIds?: string[];
   },
 ) {
   return api.post<AgentRun>(

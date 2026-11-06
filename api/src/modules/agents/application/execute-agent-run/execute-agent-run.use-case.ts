@@ -58,8 +58,8 @@ export class ExecuteAgentRunUseCase {
       await transcript.flush();
       signal.throwIfAborted();
       await this.execution.complete(run, workerToken, {
+        ...transcript.saved(),
         text: transcript.text() || "Done.",
-        parts: transcript.parts(),
       });
     } catch {
       // Whatever the run had shown so far stays on record, even though it didn't finish.
@@ -76,7 +76,7 @@ export class ExecuteAgentRunUseCase {
               ? "RUN_TIMEOUT"
               : "EXECUTION_FAILED",
         !!current.cancelRequestedAt,
-        { text: transcript.text(), parts: transcript.parts() },
+        transcript.saved(),
       );
     } finally {
       clearInterval(heartbeat);

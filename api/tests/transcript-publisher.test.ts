@@ -144,3 +144,22 @@ test("exposes the finished transcript", async () => {
     ["a", "t"],
   );
 });
+
+test("remembers the saved revision and announces it in order", async () => {
+  const { events, publisher } = setup();
+  publisher.snapshot(text("Done"));
+  publisher.revisionSaved("rev-9");
+  await publisher.flush();
+  assert.deepEqual(events.at(-1), {
+    type: "revision.saved",
+    payload: { revisionId: "rev-9" },
+  });
+  assert.deepEqual(publisher.saved().revisionId, "rev-9");
+  assert.equal(publisher.saved().text, "Done");
+});
+
+test("a run that saved no revision carries none", async () => {
+  const { publisher } = setup();
+  publisher.snapshot(text("Hi"));
+  assert.equal("revisionId" in publisher.saved(), false);
+});

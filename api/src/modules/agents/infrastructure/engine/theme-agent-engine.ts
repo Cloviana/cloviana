@@ -159,7 +159,7 @@ export class ThemeAgentEngine extends AgentEngine {
         },
         work,
       );
-      transcript.event("revision.saved", { revisionId: saved.revisionId });
+      transcript.revisionSaved(saved.revisionId);
     } finally {
       await this.models
         .revokeModelToken(run, workerToken)
