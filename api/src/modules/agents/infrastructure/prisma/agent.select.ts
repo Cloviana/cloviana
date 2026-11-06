@@ -5,6 +5,7 @@ export const runSelect = {
   marketplaceId: true,
   conversationId: true,
   themeId: true,
+  mode: true,
   baseRevisionId: true,
   resultRevisionId: true,
   requestedBy: true,

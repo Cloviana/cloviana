@@ -4,6 +4,7 @@ import { EditThemeUseCase } from "./application/edit-theme/edit-theme.use-case";
 import { ThemeEditor } from "./application/editor/theme-editor";
 import { ThemeSource } from "./application/editor/theme-source";
 import { GetEditorThemeUseCase } from "./application/get-editor-theme/get-editor-theme.use-case";
+import { InspectThemeUseCase } from "./application/inspect-theme/inspect-theme.use-case";
 import { NavigateThemeVersionUseCase } from "./application/navigate-theme-version/navigate-theme-version.use-case";
 import { ThemeEditorStore } from "./application/ports/theme-editor.store";
 import { ThemeSourceStorage } from "./application/ports/theme-source.storage.port";
@@ -43,6 +44,7 @@ import { ThemesController } from "./presentation/http/themes.controller";
     ThemeSource,
     GetEditorThemeUseCase,
     EditThemeUseCase,
+    InspectThemeUseCase,
     NavigateThemeVersionUseCase,
     RestartThemeWorkspaceUseCase,
     PrepareThemeWorkspaceUseCase,

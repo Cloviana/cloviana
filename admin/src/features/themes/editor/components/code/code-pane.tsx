@@ -1,11 +1,12 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
-import { lazy, Suspense, useMemo, useState } from 'react';
+import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
 
 import { Badge } from '@/components/ui/badge';
 import { Spinner } from '@/components/ui/spinner';
 
+import type { Selection } from '../../chat/model/run-context';
 import type { useThemeSource } from '../../hooks/use-theme-source';
 import { buildFileTree } from '../../lib/file-tree';
 import { liveFileQueryOptions, storedFileQueryOptions } from '../../queries';
@@ -22,10 +23,16 @@ export function CodePane({
   slug,
   themeId,
   source,
+  onFileChange,
+  onSelectionChange,
 }: {
   slug: string;
   themeId: string;
   source: ReturnType<typeof useThemeSource>;
+  /** The file being shown, so the chat can refer to it. */
+  onFileChange: (path: string | null) => void;
+  /** The lines the user has selected, so the chat can refer to them. */
+  onSelectionChange: (selection: Selection | null) => void;
 }) {
   const { files, live } = source;
   const [picked, setPicked] = useState<string | null>(null);
@@ -46,6 +53,15 @@ export function CodePane({
     refetchInterval: isLive ? LIVE_POLL_MS : false,
   });
   const content = isLive ? liveFile.data?.content : stored.data;
+
+  useEffect(() => {
+    onFileChange(path);
+    onSelectionChange(null);
+    return () => {
+      onFileChange(null);
+      onSelectionChange(null);
+    };
+  }, [path, onFileChange, onSelectionChange]);
 
   if (source.isLoading) {
     return (
@@ -92,7 +108,11 @@ export function CodePane({
             content !== undefined &&
             path && (
               <Suspense fallback={<PlainCode content={content} />}>
-                <CodeViewer path={path} content={content} />
+                <CodeViewer
+                  path={path}
+                  content={content}
+                  onSelectionChange={onSelectionChange}
+                />
               </Suspense>
             )
           )}

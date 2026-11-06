@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import {
   ResizableHandle,
@@ -9,9 +9,12 @@ import {
 } from '@/components/ui/resizable';
 import { paths } from '@/config/paths';
 
+import type { Selection } from '../chat/model/run-context';
+import type { SlashCommandId } from '../chat/model/slash-commands';
 import { useAgentThread } from '../hooks/use-agent-thread';
 import { useEditorWorkspace } from '../hooks/use-editor-workspace';
 import { useRevisionHistory } from '../hooks/use-revision-history';
+import { useRunContext } from '../hooks/use-run-context';
 import { useThemeSource } from '../hooks/use-theme-source';
 import { previewRoutes } from '../lib/preview-routes';
 import type { EditorState } from '../types';
@@ -40,6 +43,8 @@ export function ThemeEditor({
   const [device, setDevice] = useState<PreviewDevice>('desktop');
   const [route, setRoute] = useState(HOME_ROUTE);
   const [reloadKey, setReloadKey] = useState(0);
+  const [openFile, setOpenFile] = useState<string | null>(null);
+  const [selection, setSelection] = useState<Selection | null>(null);
 
   const workspace = useEditorWorkspace(
     slug,
@@ -48,10 +53,25 @@ export function ThemeEditor({
     tab === 'preview',
   );
   const history = useRevisionHistory(slug, themeId, workspace.refresh);
+
+  // What the user is looking at: the page in the preview, or the file and lines in the code view.
+  const sources = useMemo(
+    () =>
+      tab === 'preview'
+        ? { page: route }
+        : {
+            file: openFile ?? undefined,
+            selection: selection ?? undefined,
+          },
+    [tab, route, openFile, selection],
+  );
+  const runContext = useRunContext(sources);
   const thread = useAgentThread({
     slug,
     themeId,
     onRevisionSaved: workspace.refresh,
+    getContext: () => runContext.context,
+    onSent: runContext.afterSend,
   });
 
   const revisionId = workspace.state?.revisionId ?? initialState.revisionId;
@@ -63,6 +83,16 @@ export function ThemeEditor({
   }, [source.files]);
 
   const busy = thread.isRunning || history.isNavigating;
+
+  const runCommand = useCallback(
+    (id: SlashCommandId) => {
+      if (id === 'new') thread.newConversation();
+      else if (id === 'history') setHistoryOpen(true);
+      else if (id === 'undo' && history.canUndo && !busy) history.undo();
+      else if (id === 'redo' && history.canRedo && !busy) history.redo();
+    },
+    [busy, history, thread],
+  );
 
   return (
     <div className="bg-surface flex h-dvh flex-col">
@@ -90,7 +120,14 @@ export function ThemeEditor({
         <ResizablePanel defaultSize="30%" minSize={320} maxSize="50%">
           {/* The chat stays mounted under the history so a running stream isn't dropped. */}
           <div className={historyOpen ? 'hidden' : 'h-full'}>
-            <AgentChat thread={thread} />
+            <AgentChat
+              thread={thread}
+              chips={runContext.chips}
+              onDismissChip={runContext.dismiss}
+              files={source.files}
+              onMention={runContext.addMention}
+              onCommand={runCommand}
+            />
           </div>
           {historyOpen && <HistoryPanel history={history} disabled={busy} />}
         </ResizablePanel>
@@ -105,7 +142,13 @@ export function ThemeEditor({
               pictureUrl={`${paths.mp.themes.editor.getHref(slug, themeId)}/source/revisions/${encodeURIComponent(revisionId)}/picture`}
             />
           ) : (
-            <CodePane slug={slug} themeId={themeId} source={source} />
+            <CodePane
+              slug={slug}
+              themeId={themeId}
+              source={source}
+              onFileChange={setOpenFile}
+              onSelectionChange={setSelection}
+            />
           )}
         </ResizablePanel>
       </ResizablePanelGroup>

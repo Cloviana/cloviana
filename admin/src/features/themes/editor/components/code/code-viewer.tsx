@@ -6,6 +6,7 @@ import Editor, { loader } from '@monaco-editor/react';
 import * as monaco from 'monaco-editor/editor/editor.api.js';
 import 'monaco-editor/basic-languages/monaco.contribution.js';
 
+import type { Selection } from '../../chat/model/run-context';
 import { languageForPath } from '../../lib/language';
 
 import { PlainCode } from './plain-code';
@@ -23,13 +24,35 @@ self.MonacoEnvironment = {
 export default function CodeViewer({
   path,
   content,
+  onSelectionChange,
 }: {
   path: string;
   content: string;
+  /** Called with the selected lines, or null when nothing is selected. */
+  onSelectionChange?: (selection: Selection | null) => void;
 }) {
   return (
     <Editor
       path={path}
+      onMount={(editor) => {
+        editor.onDidChangeCursorSelection(({ selection }) => {
+          const model = editor.getModel();
+          if (!onSelectionChange || !model) return;
+          const text = selection.isEmpty()
+            ? ''
+            : model.getValueInRange(selection);
+          onSelectionChange(
+            text.trim()
+              ? {
+                  path,
+                  startLine: selection.startLineNumber,
+                  endLine: selection.endLineNumber,
+                  text,
+                }
+              : null,
+          );
+        });
+      }}
       value={content}
       language={languageForPath(path)}
       loading={<PlainCode content={content} />}

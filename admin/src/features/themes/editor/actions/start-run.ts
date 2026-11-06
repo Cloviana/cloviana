@@ -4,7 +4,8 @@ import { themeActionError } from '../../lib/action-error';
 import type { ThemeActionResult } from '../../types/theme';
 import { createConversation } from '../api/create-conversation';
 import { startRun } from '../api/start-run';
-import type { AgentRun } from '../types';
+import type { RunContext } from '../chat/model/run-context';
+import type { AgentMode, AgentRun } from '../types';
 
 const TITLE_LENGTH = 80;
 
@@ -15,6 +16,8 @@ export async function startRunAction(
     conversationId: string | null;
     prompt: string;
     idempotencyKey: string;
+    mode: AgentMode;
+    context?: RunContext;
   },
 ): Promise<ThemeActionResult<{ run: AgentRun }>> {
   try {
@@ -25,6 +28,8 @@ export async function startRunAction(
       prompt: input.prompt,
       idempotencyKey: input.idempotencyKey,
       themeId,
+      mode: input.mode,
+      context: input.context,
     });
     return { success: true, run };
   } catch (error) {

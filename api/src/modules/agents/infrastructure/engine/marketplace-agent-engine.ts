@@ -14,22 +14,23 @@ import { AgentEngine } from "../../application/ports/agent-engine.port";
 import { AgentExecutionStore } from "../../application/ports/agent-execution.store.port";
 import { AgentModelAccess } from "../../application/ports/agent-model-access.port";
 import { ConversationRepository } from "../../application/ports/conversation.repository.port";
-import type { Json, Run } from "../../domain/agent.types";
-import { ThemeCodingTool } from "./theme-coding-tool";
+import type { TranscriptPublisher } from "../../application/transcript/transcript-publisher";
+import type { Run } from "../../domain/agent.types";
+import { ToolCallTracker } from "./langgraph-tool-parts";
 
 const jsonText = (value: unknown) =>
   JSON.stringify(value, (_key, item) =>
     typeof item === "bigint" ? item.toString() : item,
   );
 
+/** The marketplace assistant: answers questions using the marketplace's own data. It has no way to change a theme; that is what a theme run is for. */
 @Injectable()
-export class DeepAgentEngine extends AgentEngine {
+export class MarketplaceAgentEngine extends AgentEngine {
   constructor(
     private readonly config: AppConfiguration,
     private readonly conversations: ConversationRepository,
     private readonly execution: AgentExecutionStore,
     private readonly models: AgentModelAccess,
-    private readonly themeCoding: ThemeCodingTool,
     private readonly listThemes: ListThemesUseCase,
     private readonly listProducts: ListProductsUseCase,
     private readonly getProduct: GetProductUseCase,
@@ -38,58 +39,29 @@ export class DeepAgentEngine extends AgentEngine {
     super();
   }
 
-  assertConfigured(coding: boolean) {
+  assertConfigured() {
     if (!this.config.openrouterApiKey) {
       throw new DependencyUnavailableError(
         "The assistant model is not configured",
       );
     }
-    if (coding) {
-      if (
-        this.config.sandboxProvider !== "docker" &&
-        !this.config.daytonaApiKey
-      ) {
-        throw new DependencyUnavailableError("Daytona is not configured");
-      }
-      this.proxyOrigin();
-    }
   }
 
-  private proxyOrigin() {
-    if (this.config.sandboxProvider === "docker") {
-      if (this.config.environment !== "development") {
-        throw new DependencyUnavailableError(
-          "Local Docker sandboxes are available only in development",
-        );
-      }
-      return `http://host.docker.internal:${this.config.port}/api`;
-    }
-    const url = new URL(this.config.agentModelProxyUrl || this.config.apiUrl);
-    if (
-      url.protocol !== "https:" ||
-      /(^|\.)localhost$/.test(url.hostname) ||
-      ["127.0.0.1", "[::1]"].includes(url.hostname)
-    ) {
-      throw new DependencyUnavailableError(
-        "Set AGENT_MODEL_PROXY_URL to the public HTTPS API base URL, including /api; Daytona cannot reach api.localhost",
-      );
-    }
-    return url.toString().replace(/\/$/, "");
-  }
-
-  async execute(run: Run, workerToken: string, signal: AbortSignal) {
-    this.assertConfigured(!!run.themeId);
+  async execute(
+    run: Run,
+    workerToken: string,
+    signal: AbortSignal,
+    transcript: TranscriptPublisher,
+  ) {
+    this.assertConfigured();
     const context = await this.execution.executionContext(run);
     await this.models.recordModel(run, workerToken, this.config.agentModel);
     const access = { ownerId: context.ownerId, slug: context.slug };
     const references = await this.attachments.references(run);
-    const emit = (type: string, payload: Json) =>
-      this.execution.emit(run, workerToken, type, payload);
     const tools: StructuredToolInterface[] = [
       tool(async () => jsonText(await this.listThemes.execute(access)), {
         name: "list_themes",
-        description:
-          "List this marketplace's storefront themes. Coding requires a run explicitly scoped to a theme.",
+        description: "List this marketplace's storefront themes.",
         schema: z.object({}),
       }),
       tool(
@@ -118,21 +90,6 @@ export class DeepAgentEngine extends AgentEngine {
         },
       ),
     ];
-    const coding = run.themeId
-      ? this.themeCoding.create({
-          run,
-          workerToken,
-          access,
-          signal,
-          references,
-          emit,
-          proxyOrigin: this.proxyOrigin(),
-        })
-      : undefined;
-    if (coding) {
-      tools.push(coding.tool);
-    }
-
     // StateBackend is the default: scratch files exist in agent state, never on the API host.
     // Durable conversation messages are loaded explicitly, scoped to the current marketplace.
     const model = new ChatOpenRouter({
@@ -146,7 +103,7 @@ export class DeepAgentEngine extends AgentEngine {
     const agent = await createDeepAgent({
       model,
       tools,
-      systemPrompt: `You are Cloviana's marketplace assistant for ${context.name}. Help across the product, using only the supplied tools and verified marketplace data. All tool access is scoped to this marketplace. Read catalog data when it helps. ${run.themeId ? "This conversation run targets a theme. For code changes, delegate once to code_theme with the entire request and relevant context. The editor shows code read-only." : "This is a general assistant run. You can explain and read marketplace context. To change storefront code, ask the user to select a theme and start a theme-scoped run."} Do not claim tools or business write capabilities you do not have. Never publish or deploy; publishing is disabled. Never describe internal credentials. If more information is needed, ask a concise question in your response.`,
+      systemPrompt: `You are Cloviana's marketplace assistant for ${context.name}. Help across the product, using only the supplied tools and verified marketplace data. All tool access is scoped to this marketplace. Read catalog data when it helps. You can explain and read marketplace context but cannot change storefront code: to change a theme, ask the user to open it in the theme editor. Do not claim tools or business write capabilities you do not have. Never publish or deploy; publishing is disabled. Never describe internal credentials. If more information is needed, ask a concise question in your response.`,
       subagents: [],
     });
     const history = await this.conversations.contextMessages(
@@ -194,14 +151,32 @@ export class DeepAgentEngine extends AgentEngine {
         ],
       };
     }
-    await emit("assistant.started", {});
     const stream = await agent.stream(
       { messages },
-      { signal, streamMode: "messages", recursionLimit: 80 },
+      {
+        signal,
+        streamMode: ["messages", "updates"],
+        recursionLimit: 80,
+      },
     );
-    let text = "";
-    for await (const [chunk] of stream) {
+    const toolCalls = new ToolCallTracker();
+    // Each stretch of text between tool calls is its own part, so the transcript reads in order.
+    let stretch = 0;
+    let textId: string | undefined;
+    for await (const [mode, data] of stream) {
       signal.throwIfAborted();
+      if (mode === "updates") {
+        const parts = toolCalls.observe(data);
+        for (const part of parts) {
+          transcript.snapshot(part);
+        }
+        if (parts.length) {
+          stretch += 1;
+          textId = undefined;
+        }
+        continue;
+      }
+      const [chunk] = data;
       // Messages mode also yields tool results, which are raw data rather than the reply.
       if (!isAIMessage(chunk)) {
         continue;
@@ -214,8 +189,11 @@ export class DeepAgentEngine extends AgentEngine {
               .map((p) => p.text)
               .join("");
       if (content) {
-        text += content;
-        await emit("assistant.delta", { text: content.slice(0, 10000) });
+        if (!textId) {
+          textId = `text-${stretch}`;
+          transcript.snapshot({ id: textId, type: "text", text: "" });
+        }
+        transcript.append(textId, content);
       }
       if (chunk.usage_metadata) {
         const usage = chunk.usage_metadata;
@@ -234,7 +212,5 @@ export class DeepAgentEngine extends AgentEngine {
         }
       }
     }
-    coding?.throwIfFailed();
-    return text.slice(-100000) || "Done.";
   }
 }

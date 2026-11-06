@@ -81,8 +81,10 @@ try {
         marketplaceId,
         runId: run.id,
         sequence: 1n,
-        type: "assistant.delta",
-        payload: { text: "Stream verification" },
+        type: "part.upsert",
+        payload: {
+          part: { id: "text", type: "text", text: "Stream verification" },
+        },
       },
       {
         marketplaceId,

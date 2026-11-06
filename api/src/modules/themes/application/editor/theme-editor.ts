@@ -12,6 +12,7 @@ import type {
   ThemeEditorAccess,
 } from "../editor/editor.types";
 import { GetEditorThemeUseCase } from "../get-editor-theme/get-editor-theme.use-case";
+import { InspectThemeUseCase } from "../inspect-theme/inspect-theme.use-case";
 import { NavigateThemeVersionUseCase } from "../navigate-theme-version/navigate-theme-version.use-case";
 import { ThemeEditorStore } from "../ports/theme-editor.store";
 import { ThemeWorkspacePort } from "../ports/theme-workspace.port";
@@ -28,6 +29,7 @@ export class ThemeEditor {
     private readonly source: ThemeSource,
     private readonly workspace: ThemeWorkspacePort,
     private readonly editTheme: EditThemeUseCase,
+    private readonly inspectTheme: InspectThemeUseCase,
     private readonly navigateVersion: NavigateThemeVersionUseCase,
     private readonly restartWorkspace: RestartThemeWorkspaceUseCase,
     private readonly prepareWorkspace: PrepareThemeWorkspaceUseCase,
@@ -41,6 +43,12 @@ export class ThemeEditor {
     code: (workspace: CodingWorkspace) => Promise<T>,
   ) {
     return this.editTheme.execute(input, code);
+  }
+  inspect<T>(
+    input: Parameters<InspectThemeUseCase["execute"]>[0],
+    inspect: (workspace: CodingWorkspace) => Promise<T>,
+  ) {
+    return this.inspectTheme.execute(input, inspect);
   }
   navigate(
     input: ThemeEditorAccess,

@@ -50,6 +50,8 @@ export interface RevisionHistory {
   revisions: Revision[];
 }
 
+export type AgentMode = 'CHAT' | 'PLAN' | 'BUILD';
+
 export interface Conversation {
   id: string;
   title: string | null;
@@ -62,7 +64,7 @@ export interface AgentMessage {
   id: string;
   sequence: string;
   role: AgentRole;
-  content: { text?: string } | null;
+  content: unknown;
   createdAt: string;
 }
 

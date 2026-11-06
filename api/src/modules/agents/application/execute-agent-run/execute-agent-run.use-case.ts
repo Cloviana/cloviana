@@ -7,6 +7,7 @@ import type { Run } from "../../domain/agent.types";
 import { AgentEngine } from "../ports/agent-engine.port";
 import { AgentExecutionStore } from "../ports/agent-execution.store.port";
 import { AgentRunRepository } from "../ports/agent-run.repository.port";
+import { TranscriptPublisher } from "../transcript/transcript-publisher";
 
 @Injectable()
 export class ExecuteAgentRunUseCase {
@@ -21,6 +22,9 @@ export class ExecuteAgentRunUseCase {
       controller.signal,
       AbortSignal.timeout(RUN_TIMEOUT_MS),
     ]);
+    const transcript = new TranscriptPublisher((type, payload) =>
+      this.execution.emit(run, workerToken, type, payload),
+    );
     let checking = false;
     const heartbeat = setInterval(async () => {
       if (checking) {
@@ -50,10 +54,16 @@ export class ExecuteAgentRunUseCase {
         controller.abort();
       }
       signal.throwIfAborted();
-      const text = await this.engine.execute(run, workerToken, signal);
+      await this.engine.execute(run, workerToken, signal, transcript);
+      await transcript.flush();
       signal.throwIfAborted();
-      await this.execution.complete(run, workerToken, text);
+      await this.execution.complete(run, workerToken, {
+        text: transcript.text() || "Done.",
+        parts: transcript.parts(),
+      });
     } catch {
+      // Whatever the run had shown so far stays on record, even though it didn't finish.
+      await transcript.flush().catch(() => undefined);
       const current = await this.runs.run(run.marketplaceId, run.id);
       await this.execution.fail(
         run,
@@ -66,6 +76,7 @@ export class ExecuteAgentRunUseCase {
               ? "RUN_TIMEOUT"
               : "EXECUTION_FAILED",
         !!current.cancelRequestedAt,
+        { text: transcript.text(), parts: transcript.parts() },
       );
     } finally {
       clearInterval(heartbeat);

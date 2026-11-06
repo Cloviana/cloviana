@@ -158,6 +158,7 @@ test(
             prompt: "Build a storefront",
             idempotencyKey: randomUUID(),
             themeId: theme.id,
+            mode: "BUILD" as const,
             baseRevisionId: revisions[1],
           };
           const run = await agents.enqueue(input);

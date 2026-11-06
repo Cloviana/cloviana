@@ -71,6 +71,12 @@ export type TranscriptPart =
   | TodosPart
   | NoticePart;
 
+/** What is saved with an assistant message: the answer text plus every part, in order. */
+export interface SavedTranscript {
+  text: string;
+  parts: TranscriptPart[];
+}
+
 /** Event payloads on the run stream. */
 export interface PartUpsertEvent {
   part: TranscriptPart;

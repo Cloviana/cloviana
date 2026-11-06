@@ -7,6 +7,8 @@ import { Injectable } from "@nestjs/common";
 import { AgentExecutionStore } from "../../application/ports/agent-execution.store.port";
 import { RUN_STALE_AFTER_MS } from "../../domain/agent.policy";
 import type { Json, Run } from "../../domain/agent.types";
+import type { RunContext } from "../../domain/run-context";
+import type { SavedTranscript, TranscriptPart } from "../../domain/transcript";
 import { appendConversationMessage, appendRunEvent } from "./agent-message-log";
 import { runSelect } from "./agent.select";
 
@@ -76,7 +78,21 @@ export class PrismaAgentExecutionStore extends AgentExecutionStore {
       });
     });
   }
-  async complete(run: Run, workerToken: string, text: string) {
+  async input(run: Run) {
+    const row = await this.db.agentRun.findFirst({
+      where: { id: run.id, marketplaceId: run.marketplaceId },
+      select: { triggerMessage: { select: { content: true } } },
+    });
+    const content = row?.triggerMessage.content as {
+      text?: unknown;
+      context?: RunContext;
+    } | null;
+    return {
+      text: typeof content?.text === "string" ? content.text : "",
+      context: content?.context,
+    };
+  }
+  async complete(run: Run, workerToken: string, transcript: SavedTranscript) {
     await this.db.$transaction(async (tx) => {
       await tx.$queryRaw`SELECT id FROM agent_conversations WHERE id=${run.conversationId}::uuid AND "marketplaceId"=${run.marketplaceId}::uuid FOR UPDATE`;
       const updated = await tx.agentRun.updateMany({
@@ -101,7 +117,7 @@ export class PrismaAgentExecutionStore extends AgentExecutionStore {
         marketplaceId: run.marketplaceId,
         conversationId: run.conversationId,
         role: "ASSISTANT",
-        content: { text },
+        content: { ...transcript, mode: run.mode } as unknown as Json,
       });
       await appendRunEvent(tx, {
         marketplaceId: run.marketplaceId,
@@ -115,8 +131,15 @@ export class PrismaAgentExecutionStore extends AgentExecutionStore {
       });
     });
   }
-  async fail(run: Run, workerToken: string, code: string, cancelled: boolean) {
+  async fail(
+    run: Run,
+    workerToken: string,
+    code: string,
+    cancelled: boolean,
+    transcript: SavedTranscript,
+  ) {
     await this.db.$transaction(async (tx) => {
+      await tx.$queryRaw`SELECT id FROM agent_conversations WHERE id=${run.conversationId}::uuid AND "marketplaceId"=${run.marketplaceId}::uuid FOR UPDATE`;
       const changed = await tx.agentRun.updateMany({
         where: {
           id: run.id,
@@ -137,6 +160,26 @@ export class PrismaAgentExecutionStore extends AgentExecutionStore {
       });
       if (!changed.count) {
         return;
+      }
+      if (transcript.parts.length) {
+        const ended: TranscriptPart = cancelled
+          ? { id: "ended", type: "notice", level: "info", text: "Stopped." }
+          : {
+              id: "ended",
+              type: "notice",
+              level: "error",
+              text: "The run stopped before it finished.",
+            };
+        await appendConversationMessage(tx, {
+          marketplaceId: run.marketplaceId,
+          conversationId: run.conversationId,
+          role: "ASSISTANT",
+          content: {
+            text: transcript.text,
+            parts: [...transcript.parts, ended],
+            mode: run.mode,
+          } as unknown as Json,
+        });
       }
       await appendRunEvent(tx, {
         marketplaceId: run.marketplaceId,

@@ -2,7 +2,9 @@ import { GetMarketplaceUseCase } from "@/modules/marketplaces/application/get-ma
 import { ThemeEditor } from "@/modules/themes/application/editor/theme-editor";
 import { InvalidInputError } from "@/shared/errors/application-error";
 import { Injectable } from "@nestjs/common";
+import { type AgentMode, DEFAULT_AGENT_MODE } from "../../domain/agent-mode";
 import { isValidRunRequest } from "../../domain/agent.policy";
+import type { RunContext } from "../../domain/run-context";
 import { AgentAttachments } from "../attachments/agent-attachments";
 import { AgentEngine } from "../ports/agent-engine.port";
 import { AgentRunRepository } from "../ports/agent-run.repository.port";
@@ -56,6 +58,8 @@ export class Assistant {
       prompt: string;
       idempotencyKey: string;
       themeId?: string;
+      mode?: AgentMode;
+      context?: RunContext;
       attachmentIds?: string[];
     },
   ) {
@@ -69,6 +73,8 @@ export class Assistant {
       : undefined;
     return this.runs.enqueue({
       ...input,
+      // Without a theme there is nothing to change, so the run can only discuss.
+      mode: theme ? (input.mode ?? DEFAULT_AGENT_MODE) : "CHAT",
       marketplaceId: marketplace.id,
       baseRevisionId: theme?.headRevisionId,
     });

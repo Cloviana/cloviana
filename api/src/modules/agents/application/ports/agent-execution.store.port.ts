@@ -1,4 +1,6 @@
 import type { Json, Run } from "../../domain/agent.types";
+import type { RunContext } from "../../domain/run-context";
+import type { SavedTranscript } from "../../domain/transcript";
 
 export abstract class AgentExecutionStore {
   abstract claim(workerToken: string): Promise<Run | null>;
@@ -16,12 +18,20 @@ export abstract class AgentExecutionStore {
     type: string,
     payload: Json,
   ): Promise<void>;
-  abstract complete(run: Run, workerToken: string, text: string): Promise<void>;
+  /** What the user sent that started the run: their words, and what they were looking at. */
+  abstract input(run: Run): Promise<{ text: string; context?: RunContext }>;
+  abstract complete(
+    run: Run,
+    workerToken: string,
+    transcript: SavedTranscript,
+  ): Promise<void>;
   abstract fail(
     run: Run,
     workerToken: string,
     code: string,
     cancelled: boolean,
+    /** What the run had done before it stopped, kept so the user still sees it. */
+    transcript: SavedTranscript,
   ): Promise<void>;
   abstract recoverStale(): Promise<void>;
 }

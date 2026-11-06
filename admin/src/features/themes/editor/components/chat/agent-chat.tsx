@@ -2,125 +2,140 @@
 
 import {
   AssistantRuntimeProvider,
-  ComposerPrimitive,
-  MessagePrimitive,
   ThreadPrimitive,
   useExternalStoreRuntime,
   type ThreadMessageLike,
 } from '@assistant-ui/react';
-import { ArrowUp, Square } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
+import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Heading } from '@/components/ui/typography';
 
+import { ChatActionsProvider } from '../../chat/components/chat-actions-context';
+import { AssistantMessage, UserMessage } from '../../chat/components/messages';
+import { DetailsProvider } from '../../chat/components/transcript/details-context';
+import type { Chip } from '../../chat/model/run-context';
+import type { SlashCommandId } from '../../chat/model/slash-commands';
+import { SUGGESTIONS } from '../../chat/model/suggestions';
 import type { useAgentThread } from '../../hooks/use-agent-thread';
-
-import { CodingStep } from './coding-step';
-import { MarkdownText } from './markdown-text';
+import type { SourceFile } from '../../types';
+import { Composer } from '../composer/composer';
 
 const identity = (message: ThreadMessageLike) => message;
 
-function UserMessage() {
-  return (
-    <MessagePrimitive.Root className="flex justify-end">
-      <div className="bg-background-neutral text-body text-text-default max-w-[85%] rounded-lg px-3 py-2 break-words whitespace-pre-wrap">
-        <MessagePrimitive.Parts />
-      </div>
-    </MessagePrimitive.Root>
-  );
-}
-
-function AssistantMessage() {
-  return (
-    <MessagePrimitive.Root className="flex flex-col gap-2">
-      <MessagePrimitive.Parts
-        components={{ Text: MarkdownText, tools: { Override: CodingStep } }}
-      />
-    </MessagePrimitive.Root>
-  );
-}
-
 export function AgentChat({
   thread,
+  chips,
+  onDismissChip,
+  files,
+  onMention,
+  onCommand,
 }: {
   thread: ReturnType<typeof useAgentThread>;
+  chips: readonly Chip[];
+  onDismissChip: (chip: Chip) => void;
+  files: readonly SourceFile[];
+  onMention: (path: string) => void;
+  onCommand: (id: SlashCommandId) => void;
 }) {
+  const [showDetails, setShowDetails] = useState(false);
   const runtime = useExternalStoreRuntime<ThreadMessageLike>({
     messages: thread.messages,
     isRunning: thread.isRunning,
     onNew: thread.onNew,
     onCancel: thread.onCancel,
+    onReload: async () => thread.retry(),
     convertMessage: identity,
   });
 
   return (
     <AssistantRuntimeProvider runtime={runtime}>
-      <ThreadPrimitive.Root className="flex h-full min-h-0 flex-col">
-        <ThreadPrimitive.Viewport className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto p-4">
-          {!thread.isLoading && thread.messages.length === 0 && (
-            <div className="m-auto max-w-64 text-center">
-              <Heading as="h2" variant="compact">
-                What should we change?
-              </Heading>
-              <p className="text-body text-text-subtle mt-1">
-                Describe the storefront you want and the agent will edit this
-                theme.
-              </p>
+      <ChatActionsProvider value={{ approvePlan: thread.approvePlan }}>
+        <DetailsProvider value={showDetails}>
+          <ThreadPrimitive.Root className="flex h-full min-h-0 flex-col">
+            <div className="flex justify-end px-3 pt-2">
+              <Button
+                size="xs"
+                variant="ghost"
+                aria-pressed={showDetails}
+                onClick={() => setShowDetails(!showDetails)}
+              >
+                {showDetails ? 'Hide details' : 'Show details'}
+              </Button>
             </div>
-          )}
-          <ThreadPrimitive.Messages>
-            {({ message }) =>
-              message.role === 'user' ? <UserMessage /> : <AssistantMessage />
-            }
-          </ThreadPrimitive.Messages>
-        </ThreadPrimitive.Viewport>
-
-        {thread.status && (
-          <p className="text-body-small text-text-subtle px-4 pb-2">
-            {thread.status}
-          </p>
-        )}
-
-        {thread.error && (
-          <p
-            role="alert"
-            className="text-body-small text-text-danger px-4 pb-2"
-          >
-            {thread.error}
-          </p>
-        )}
-
-        <div className="p-3 pt-0">
-          <ComposerPrimitive.Root className="border-line bg-surface focus-within:border-border-focused border-border-input rounded-lg">
-            <ComposerPrimitive.Input
-              rows={2}
-              placeholder="Ask the agent to change your theme"
-              className="text-body text-text-default placeholder:text-text-subtlest block max-h-40 w-full resize-none bg-transparent px-3 pt-2 outline-none"
-            />
-            <div className="flex justify-end p-2">
-              {thread.isRunning ? (
-                <ComposerPrimitive.Cancel
-                  render={
-                    <Button
-                      size="icon-xs"
-                      variant="secondary"
-                      aria-label="Stop the agent"
-                    />
-                  }
-                >
-                  <Square />
-                </ComposerPrimitive.Cancel>
-              ) : (
-                <ComposerPrimitive.Send
-                  render={<Button size="icon-xs" aria-label="Send" />}
-                >
-                  <ArrowUp />
-                </ComposerPrimitive.Send>
+            <ThreadPrimitive.Viewport className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto p-4">
+              {!thread.isLoading && thread.messages.length === 0 && (
+                <div className="m-auto flex max-w-72 flex-col items-center gap-3 text-center">
+                  <div>
+                    <Heading as="h2" variant="compact">
+                      What should we change?
+                    </Heading>
+                    <p className="text-body text-text-subtle mt-1">
+                      Describe the storefront you want, or try one of these.
+                    </p>
+                  </div>
+                  <ul className="flex flex-col gap-1.5">
+                    {SUGGESTIONS[thread.mode].map((suggestion) => (
+                      <li key={suggestion}>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="h-auto py-1.5 text-left whitespace-normal"
+                          onClick={() => void thread.submit(suggestion)}
+                        >
+                          {suggestion}
+                        </Button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               )}
+              <ThreadPrimitive.Messages>
+                {({ message }) =>
+                  message.role === 'user' ? (
+                    <UserMessage />
+                  ) : (
+                    <AssistantMessage />
+                  )
+                }
+              </ThreadPrimitive.Messages>
+            </ThreadPrimitive.Viewport>
+            <div className="relative">
+              <ThreadPrimitive.ScrollToBottom
+                render={
+                  <Button
+                    size="icon-sm"
+                    variant="outline"
+                    aria-label="Scroll to the latest message"
+                    className="shadow-overlay absolute -top-12 left-1/2 -translate-x-1/2 disabled:hidden"
+                  />
+                }
+              >
+                <ArrowDown />
+              </ThreadPrimitive.ScrollToBottom>
             </div>
-          </ComposerPrimitive.Root>
-        </div>
-      </ThreadPrimitive.Root>
+
+            {thread.error && (
+              <p
+                role="alert"
+                className="text-body-small text-text-danger px-4 pb-2"
+              >
+                {thread.error}
+              </p>
+            )}
+
+            <Composer
+              thread={thread}
+              chips={chips}
+              onDismissChip={onDismissChip}
+              files={files}
+              onMention={onMention}
+              onCommand={onCommand}
+            />
+          </ThreadPrimitive.Root>
+        </DetailsProvider>
+      </ChatActionsProvider>
     </AssistantRuntimeProvider>
   );
 }

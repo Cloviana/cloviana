@@ -7,12 +7,25 @@ import {
 } from "@/integrations/sandbox/sandbox.constants";
 import { SandboxService } from "@/integrations/sandbox/sandbox.service";
 import { Injectable, Logger } from "@nestjs/common";
-import { createOpencodeClient } from "@opencode-ai/sdk/v2/client";
+import {
+  type OpencodeClient,
+  type Part,
+  createOpencodeClient,
+} from "@opencode-ai/sdk/v2/client";
 import { CODING_MAX_OUTPUT_TOKENS, OPENCODE_PORT } from "./opencode.constants";
 
+const HEALTH_ATTEMPTS = 60;
+const POLL_INTERVAL_MS = 1000;
+/** Tools that change files or run code. Read-only runs may not use them. */
+const MUTATING_TOOLS = ["edit", "bash", "webfetch", "websearch"] as const;
+
 export interface CodingEvents {
-  text(partId: string, text: string): Promise<void>;
-  tool(partId: string, tool: string, status: string): Promise<void>;
+  /** The full current state of one of the agent's message parts. */
+  part(part: Part): Promise<void>;
+  /** Text appended to a part that was reported earlier. */
+  delta(partId: string, text: string): Promise<void>;
+  /** The platform's own build check, which isn't part of the agent's work. */
+  build(status: "running" | "completed" | "error"): Promise<void>;
   usage(input: {
     inputTokens: number;
     outputTokens: number;
@@ -21,45 +34,60 @@ export interface CodingEvents {
   }): Promise<void>;
 }
 
+export interface CodingRequest {
+  sandboxId: string;
+  prompt: string;
+  system: string;
+  model: string;
+  proxyUrl: string;
+  token: string;
+  signal: AbortSignal;
+  events: CodingEvents;
+  /** A read-only run is refused every tool that would change files or run commands. */
+  readOnly: boolean;
+  /** Checks the project once the agent stops and asks it to repair what fails. */
+  validation?: { run(): Promise<boolean>; repairPrompt: string };
+  references?: Array<{ name: string; mimeType: string; data: Buffer }>;
+}
+
+function permissions(readOnly: boolean) {
+  const denied = readOnly ? MUTATING_TOOLS : [];
+  return {
+    config: {
+      "*": "allow",
+      external_directory: "deny",
+      question: "deny",
+      doom_loop: "deny",
+      ...Object.fromEntries(denied.map((tool) => [tool, "deny"])),
+    },
+    // Later rules win, so the denials follow the blanket allow.
+    session: [
+      { permission: "*", pattern: "*", action: "allow" as const },
+      {
+        permission: "external_directory",
+        pattern: "*",
+        action: "deny" as const,
+      },
+      { permission: "question", pattern: "*", action: "deny" as const },
+      ...denied.map((tool) => ({
+        permission: tool,
+        pattern: "*",
+        action: "deny" as const,
+      })),
+    ],
+  };
+}
+
 @Injectable()
 export class OpenCodeService {
   private readonly logger = new Logger(OpenCodeService.name);
   constructor(private readonly sandboxes: SandboxService) {}
 
-  async code(input: {
-    sandboxId: string;
-    prompt: string;
-    system: string;
-    repairPrompt: string;
-    validate(): Promise<boolean>;
-    model: string;
-    proxyUrl: string;
-    token: string;
-    signal: AbortSignal;
-    events: CodingEvents;
-    references?: Array<{ name: string; mimeType: string; data: Buffer }>;
-  }) {
+  async code(input: CodingRequest) {
     const sandbox = await this.sandboxes.get(input.sandboxId);
     const password = randomBytes(32).toString("hex");
-    const references: string[] = [];
-    await this.sandboxes.command(
-      input.sandboxId,
-      `rm -rf ${shellQuote(`${PROJECT_ROOT}/.cloviana/references`)}`,
-    );
-    if (input.references?.length) {
-      await this.sandboxes.command(
-        input.sandboxId,
-        `mkdir -p ${shellQuote(`${PROJECT_ROOT}/.cloviana/references`)}`,
-      );
-      for (const [index, reference] of input.references.entries()) {
-        const name =
-          reference.name.replace(/[^a-zA-Z0-9._-]/g, "_").slice(-80) ||
-          "reference";
-        const path = `${PROJECT_ROOT}/.cloviana/references/${index}-${name}`;
-        await sandbox.fs.uploadFile(reference.data, path);
-        references.push(`${path} (${reference.mimeType})`);
-      }
-    }
+    const references = await this.uploadReferences(input);
+    const rules = permissions(input.readOnly);
     const config = {
       $schema: "https://opencode.ai/config.json",
       autoupdate: false,
@@ -79,21 +107,19 @@ export class OpenCodeService {
           },
         },
       },
-      permission: {
-        "*": "allow",
-        external_directory: "deny",
-        question: "deny",
-        doom_loop: "deny",
-      },
+      permission: rules.config,
     };
     const configFile = `${RUNTIME_ROOT}/opencode.json`;
     const processSession = `opencode-${randomBytes(8).toString("hex")}`;
-    let client: ReturnType<typeof createOpencodeClient> | undefined;
-    let sessionId: string | undefined;
     const scrub = (text: string) =>
       text
         .replaceAll(input.token, "[redacted]")
         .replaceAll(password, "[redacted]");
+    const scrubbed = <T>(value: T): T =>
+      JSON.parse(scrub(JSON.stringify(value)));
+    let client: OpencodeClient | undefined;
+    let sessionId: string | undefined;
+    const live = new AbortController();
     try {
       await sandbox.fs.uploadFile(
         Buffer.from(JSON.stringify(config)),
@@ -101,7 +127,7 @@ export class OpenCodeService {
       );
       await sandbox.process.createSession(processSession);
       await sandbox.process.executeSessionCommand(processSession, {
-        command: `cd ${shellQuote(PROJECT_ROOT)} && OPENCODE_CONFIG_CONTENT="$(cat ${shellQuote(configFile)})" OPENCODE_SERVER_PASSWORD=${shellQuote(password)} XDG_DATA_HOME=${shellQuote(`${RUNTIME_ROOT}/data`)} opencode serve --hostname 0.0.0.0 --port ${OPENCODE_PORT}`,
+        command: `cd ${shellQuote(PROJECT_ROOT)} && OPENCODE_CONFIG_CONTENT="$(cat ${shellQuote(configFile)})" OPENCODE_SERVER_PASSWORD=${shellQuote(password)} XDG_DATA_HOME=${shellQuote(`${RUNTIME_ROOT}/opencode-data`)} opencode serve --hostname 0.0.0.0 --port ${OPENCODE_PORT}`,
         runAsync: true,
       });
       const preview = await sandbox.getPreviewLink(OPENCODE_PORT);
@@ -115,140 +141,35 @@ export class OpenCodeService {
         },
         throwOnError: true,
       });
-      let healthy = false;
-      for (let i = 0; i < 60; i++) {
-        input.signal.throwIfAborted();
-        try {
-          await client.global.health({ signal: input.signal });
-          healthy = true;
-          break;
-        } catch {
-          await delay(1000, undefined, { signal: input.signal });
-        }
-      }
-      if (!healthy) {
-        throw new Error("Coding service failed to start");
-      }
+      await this.waitUntilHealthy(client, input.signal);
       const created = await client.session.create<true>(
-        {
-          title: "Theme edit",
-          permission: [
-            { permission: "*", pattern: "*", action: "allow" },
-            { permission: "external_directory", pattern: "*", action: "deny" },
-            { permission: "question", pattern: "*", action: "deny" },
-          ],
-        },
+        { title: "Theme edit", permission: rules.session },
         { signal: input.signal, throwOnError: true },
       );
       sessionId = created.data.id;
-      await client.session.promptAsync(
-        {
-          sessionID: sessionId,
-          model: { providerID: "cloviana", modelID: input.model },
-          parts: [
-            {
-              type: "text",
-              text:
-                input.prompt +
-                (references.length
-                  ? `\n\nUser-provided reference files (read them before editing):\n${references.join("\n")}`
-                  : ""),
-            },
-          ],
-          system: input.system,
-        },
-        { signal: input.signal },
+
+      // Live updates make the transcript feel instant; the polling below stays as the fallback
+      // and as the source of truth for how the run ended.
+      const following = this.follow(
+        client,
+        sessionId,
+        input.events,
+        scrubbed,
+        AbortSignal.any([input.signal, live.signal]),
       );
-      const seen = new Map<string, string>();
-      const usage = new Set<string>();
-      let repairAttempts = 0;
-      let completedMessageId: string | undefined;
-      for (;;) {
-        input.signal.throwIfAborted();
-        const { data: messages } = await client.session.messages<true>(
-          { sessionID: sessionId },
-          { signal: input.signal, throwOnError: true },
-        );
-        let latestFinish: string | undefined;
-        let latestMessageId: string | undefined;
-        let finalText = "";
-        for (const message of messages) {
-          if (message.info.role !== "assistant") {
-            continue;
-          }
-          latestMessageId = message.info.id;
-          if (message.info.error) {
-            throw new Error("Coding provider returned an error");
-          }
-          latestFinish = message.info.time.completed
-            ? message.info.finish
-            : undefined;
-          for (const part of message.parts) {
-            if (part.type === "text" && !part.synthetic) {
-              const value = scrub(part.text);
-              finalText = value;
-              if (seen.get(part.id) !== value) {
-                await input.events.text(part.id, value.slice(0, 50000));
-                seen.set(part.id, value);
-              }
-            }
-            if (
-              part.type === "tool" &&
-              seen.get(part.id) !== part.state.status
-            ) {
-              await input.events.tool(part.id, part.tool, part.state.status);
-              seen.set(part.id, part.state.status);
-            }
-            if (part.type === "step-finish" && !usage.has(part.id)) {
-              await input.events.usage({
-                inputTokens: part.tokens.input,
-                outputTokens: part.tokens.output,
-                cachedInputTokens: part.tokens.cache.read,
-                costMicros: part.cost * 1_000_000,
-              });
-              usage.add(part.id);
-            }
-          }
-        }
-        if (
-          latestFinish &&
-          latestMessageId !== completedMessageId &&
-          !["tool-calls", "unknown"].includes(latestFinish)
-        ) {
-          if (latestFinish !== "stop") {
-            throw new Error(
-              `Coding stopped before completion: ${latestFinish}`,
-            );
-          }
-          completedMessageId = latestMessageId;
-          await input.events.tool("platform-build", "build", "running");
-          const valid = await input.validate();
-          input.signal.throwIfAborted();
-          if (valid) {
-            await input.events.tool("platform-build", "build", "completed");
-            return scrub(finalText).slice(0, 50000);
-          }
-          await input.events.tool("platform-build", "build", "error");
-          if (++repairAttempts > 2) {
-            throw new Error("The edited project did not pass validation");
-          }
-          await client.session.promptAsync(
-            {
-              sessionID: sessionId,
-              model: { providerID: "cloviana", modelID: input.model },
-              parts: [
-                {
-                  type: "text",
-                  text: input.repairPrompt,
-                },
-              ],
-            },
-            { signal: input.signal },
-          );
-        }
-        await delay(1000, undefined, { signal: input.signal });
-      }
+      await this.sendPrompt(client, sessionId, input, {
+        text:
+          input.prompt +
+          (references.length
+            ? `\n\nUser-provided reference files (read them before editing):\n${references.join("\n")}`
+            : ""),
+        system: input.system,
+      });
+      await this.waitForCompletion(client, sessionId, input, scrubbed);
+      live.abort();
+      await following;
     } finally {
+      live.abort();
       if (sessionId && client) {
         await client.session
           .abort(
@@ -266,6 +187,190 @@ export class OpenCodeService {
         .catch(() =>
           this.logger.warn("Could not stop the coding service session"),
         );
+    }
+  }
+
+  private async uploadReferences(input: CodingRequest) {
+    const sandbox = await this.sandboxes.get(input.sandboxId);
+    const directory = `${PROJECT_ROOT}/.cloviana/references`;
+    const uploaded: string[] = [];
+    await this.sandboxes.command(
+      input.sandboxId,
+      `rm -rf ${shellQuote(directory)}`,
+    );
+    if (!input.references?.length) {
+      return uploaded;
+    }
+    await this.sandboxes.command(
+      input.sandboxId,
+      `mkdir -p ${shellQuote(directory)}`,
+    );
+    for (const [index, reference] of input.references.entries()) {
+      const name =
+        reference.name.replace(/[^a-zA-Z0-9._-]/g, "_").slice(-80) ||
+        "reference";
+      const path = `${directory}/${index}-${name}`;
+      await sandbox.fs.uploadFile(reference.data, path);
+      uploaded.push(`${path} (${reference.mimeType})`);
+    }
+    return uploaded;
+  }
+
+  private async waitUntilHealthy(client: OpencodeClient, signal: AbortSignal) {
+    for (let attempt = 0; attempt < HEALTH_ATTEMPTS; attempt++) {
+      signal.throwIfAborted();
+      try {
+        await client.global.health({ signal });
+        return;
+      } catch {
+        await delay(1000, undefined, { signal });
+      }
+    }
+    throw new Error("Coding service failed to start");
+  }
+
+  private sendPrompt(
+    client: OpencodeClient,
+    sessionID: string,
+    input: CodingRequest,
+    message: { text: string; system?: string },
+  ) {
+    return client.session.promptAsync(
+      {
+        sessionID,
+        model: { providerID: "cloviana", modelID: input.model },
+        parts: [{ type: "text", text: message.text }],
+        system: message.system,
+      },
+      { signal: input.signal },
+    );
+  }
+
+  /**
+   * Forwards the agent's progress as it happens. Anything this misses, the polling in
+   * `waitForCompletion` reports a second later, so a failure here only costs smoothness.
+   */
+  private async follow(
+    client: OpencodeClient,
+    sessionId: string,
+    events: CodingEvents,
+    scrubbed: <T>(value: T) => T,
+    signal: AbortSignal,
+  ) {
+    const assistantMessages = new Set<string>();
+    try {
+      const { stream } = await client.event.subscribe(undefined, { signal });
+      for await (const event of stream) {
+        signal.throwIfAborted();
+        const { properties } = event as {
+          properties?: Record<string, unknown> & { sessionID?: string };
+        };
+        if (properties?.sessionID !== sessionId) {
+          continue;
+        }
+        if (event.type === "message.updated") {
+          if (event.properties.info.role === "assistant") {
+            assistantMessages.add(event.properties.info.id);
+          }
+        } else if (
+          event.type === "message.part.updated" &&
+          assistantMessages.has(event.properties.part.messageID)
+        ) {
+          await events.part(scrubbed(event.properties.part));
+        } else if (
+          event.type === "message.part.delta" &&
+          event.properties.field === "text" &&
+          assistantMessages.has(event.properties.messageID)
+        ) {
+          await events.delta(
+            event.properties.partID,
+            scrubbed(event.properties.delta),
+          );
+        }
+      }
+    } catch (error) {
+      if (!signal.aborted) {
+        this.logger.warn(
+          `Live coding updates unavailable, falling back to polling: ${String(error)}`,
+        );
+      }
+    }
+  }
+
+  private async waitForCompletion(
+    client: OpencodeClient,
+    sessionID: string,
+    input: CodingRequest,
+    scrubbed: <T>(value: T) => T,
+  ) {
+    const seen = new Map<string, string>();
+    const usage = new Set<string>();
+    let repairAttempts = 0;
+    let completedMessageId: string | undefined;
+    for (;;) {
+      input.signal.throwIfAborted();
+      const { data: messages } = await client.session.messages<true>(
+        { sessionID },
+        { signal: input.signal, throwOnError: true },
+      );
+      let latestFinish: string | undefined;
+      let latestMessageId: string | undefined;
+      for (const message of messages) {
+        if (message.info.role !== "assistant") {
+          continue;
+        }
+        latestMessageId = message.info.id;
+        if (message.info.error) {
+          throw new Error("Coding provider returned an error");
+        }
+        latestFinish = message.info.time.completed
+          ? message.info.finish
+          : undefined;
+        for (const part of message.parts) {
+          const snapshot = JSON.stringify(part);
+          if (seen.get(part.id) !== snapshot) {
+            seen.set(part.id, snapshot);
+            await input.events.part(scrubbed(part));
+          }
+          if (part.type === "step-finish" && !usage.has(part.id)) {
+            await input.events.usage({
+              inputTokens: part.tokens.input,
+              outputTokens: part.tokens.output,
+              cachedInputTokens: part.tokens.cache.read,
+              costMicros: part.cost * 1_000_000,
+            });
+            usage.add(part.id);
+          }
+        }
+      }
+      if (
+        latestFinish &&
+        latestMessageId !== completedMessageId &&
+        !["tool-calls", "unknown"].includes(latestFinish)
+      ) {
+        if (latestFinish !== "stop") {
+          throw new Error(`Coding stopped before completion: ${latestFinish}`);
+        }
+        completedMessageId = latestMessageId;
+        if (!input.validation) {
+          return;
+        }
+        await input.events.build("running");
+        const valid = await input.validation.run();
+        input.signal.throwIfAborted();
+        if (valid) {
+          await input.events.build("completed");
+          return;
+        }
+        await input.events.build("error");
+        if (++repairAttempts > 2) {
+          throw new Error("The edited project did not pass validation");
+        }
+        await this.sendPrompt(client, sessionID, input, {
+          text: input.validation.repairPrompt,
+        });
+      }
+      await delay(POLL_INTERVAL_MS, undefined, { signal: input.signal });
     }
   }
 }

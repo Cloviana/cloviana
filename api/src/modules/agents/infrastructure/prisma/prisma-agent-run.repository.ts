@@ -6,6 +6,7 @@ import {
 import { Injectable } from "@nestjs/common";
 import { Prisma } from "@prisma/client";
 import { AgentRunRepository } from "../../application/ports/agent-run.repository.port";
+import type { AgentMode } from "../../domain/agent-mode";
 import {
   EVENT_PAGE_SIZE,
   ACTIVE_RUN_STATUSES as active,
@@ -14,6 +15,7 @@ import {
 import type { QueueAgentRunInput } from "../../domain/agent.types";
 import type { Json, Run } from "../../domain/agent.types";
 import { MAX_RUN_REFERENCES } from "../../domain/attachment.policy";
+import type { RunContext } from "../../domain/run-context";
 import { appendConversationMessage, appendRunEvent } from "./agent-message-log";
 import { runSelect } from "./agent.select";
 
@@ -94,7 +96,11 @@ export class PrismaAgentRunRepository extends AgentRunRepository {
           marketplaceId: input.marketplaceId,
           conversationId: input.conversationId,
           role: "USER",
-          content: { text: input.prompt },
+          // The context was validated at the edge and holds only plain data.
+          content: {
+            text: input.prompt,
+            ...(input.context ? { context: input.context } : {}),
+          } as unknown as Json,
           createdBy: input.ownerId,
         });
         const run = await tx.agentRun.create({
@@ -104,6 +110,7 @@ export class PrismaAgentRunRepository extends AgentRunRepository {
             triggerMessageId: message.id,
             requestedBy: input.ownerId,
             themeId: input.themeId,
+            mode: input.mode,
             baseRevisionId: input.baseRevisionId,
             idempotencyKey: input.idempotencyKey,
             attachmentIds,
@@ -227,15 +234,23 @@ export class PrismaAgentRunRepository extends AgentRunRepository {
     input: {
       conversationId: string;
       themeId?: string;
+      mode: AgentMode;
       prompt: string;
+      context?: RunContext;
       attachmentIds?: string[];
     },
   ) {
-    const content = row.triggerMessage.content as { text?: string };
+    const content = row.triggerMessage.content as {
+      text?: string;
+      context?: unknown;
+    };
     if (
       row.conversationId !== input.conversationId ||
       row.themeId !== (input.themeId ?? null) ||
+      row.mode !== input.mode ||
       content.text !== input.prompt ||
+      JSON.stringify(content.context ?? null) !==
+        JSON.stringify(input.context ?? null) ||
       JSON.stringify([...row.attachmentIds].sort()) !==
         JSON.stringify([...new Set(input.attachmentIds ?? [])].sort())
     ) {

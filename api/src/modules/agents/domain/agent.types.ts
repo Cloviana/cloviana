@@ -1,3 +1,6 @@
+import type { AgentMode } from "./agent-mode";
+import type { RunContext } from "./run-context";
+
 export type Json =
   | null
   | string
@@ -33,6 +36,7 @@ export interface Run {
   marketplaceId: string;
   conversationId: string;
   themeId: string | null;
+  mode: AgentMode;
   baseRevisionId: string | null;
   resultRevisionId: string | null;
   requestedBy: string;
@@ -62,6 +66,8 @@ export interface QueueAgentRunInput {
   prompt: string;
   idempotencyKey: string;
   themeId?: string;
+  mode: AgentMode;
+  context?: RunContext;
   baseRevisionId?: string;
   attachmentIds?: string[];
 }

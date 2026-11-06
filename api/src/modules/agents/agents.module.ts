@@ -15,9 +15,10 @@ import { AttachmentRepository } from "./application/ports/attachment.repository.
 import { ConversationRepository } from "./application/ports/conversation.repository.port";
 import { ModelGateway } from "./application/ports/model-gateway.port";
 import { ReferenceStorage } from "./application/ports/reference-storage.port";
-import { DeepAgentEngine } from "./infrastructure/engine/deep-agent-engine";
+import { AgentEngineRouter } from "./infrastructure/engine/agent-engine-router";
+import { MarketplaceAgentEngine } from "./infrastructure/engine/marketplace-agent-engine";
 import { OpenRouterModelGateway } from "./infrastructure/engine/openrouter-model-gateway";
-import { ThemeCodingTool } from "./infrastructure/engine/theme-coding-tool";
+import { ThemeAgentEngine } from "./infrastructure/engine/theme-agent-engine";
 import { PrismaAgentExecutionStore } from "./infrastructure/prisma/prisma-agent-execution.store";
 import { PrismaAgentModelAccess } from "./infrastructure/prisma/prisma-agent-model-access";
 import { PrismaAgentRunRepository } from "./infrastructure/prisma/prisma-agent-run.repository";
@@ -41,12 +42,13 @@ import { ModelProxyController } from "./presentation/http/model-proxy.controller
     Assistant,
     ExecuteAgentRunUseCase,
     AgentWorker,
-    ThemeCodingTool,
+    MarketplaceAgentEngine,
+    ThemeAgentEngine,
     { provide: ConversationRepository, useClass: PrismaConversationRepository },
     { provide: AgentRunRepository, useClass: PrismaAgentRunRepository },
     { provide: AgentExecutionStore, useClass: PrismaAgentExecutionStore },
     { provide: AgentModelAccess, useClass: PrismaAgentModelAccess },
-    { provide: AgentEngine, useClass: DeepAgentEngine },
+    { provide: AgentEngine, useClass: AgentEngineRouter },
     { provide: ModelGateway, useClass: OpenRouterModelGateway },
     AgentAttachments,
     { provide: AttachmentRepository, useClass: PrismaAttachmentRepository },

@@ -10,6 +10,13 @@ enum AgentMessageRole {
   TOOL
 }
 
+// What a run may do in a theme; see agents/domain/agent-mode.ts.
+enum AgentRunMode {
+  CHAT
+  PLAN
+  BUILD
+}
+
 enum AgentRunStatus {
   QUEUED
   RUNNING
@@ -66,6 +73,7 @@ model AgentRun {
   conversationId    String         @db.Uuid
   triggerMessageId  String         @db.Uuid
   themeId           String?        @db.Uuid
+  mode              AgentRunMode   @default(BUILD)
   baseRevisionId    String?        @db.Uuid
   resultRevisionId  String?        @db.Uuid
   requestedBy       String         @db.Uuid

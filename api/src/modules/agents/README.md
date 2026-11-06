@@ -1,9 +1,24 @@
 # Marketplace assistant and storefront editor API
 
-Deep Agents is the main assistant. It can read marketplace catalog/theme context.
-A run with a `themeId` also gets one `code_theme` tool, which delegates the entire
-coding request to OpenCode. OpenCode edits a sandbox copy of the Next.js theme;
-the browser's code view is read-only. Publishing returns HTTP 501.
+A run is scoped to a theme or it isn't.
+
+- **No `themeId`:** Deep Agents is the marketplace assistant. It reads catalog and theme
+  context and cannot change code.
+- **With a `themeId`:** the run goes straight to OpenCode, with no assistant in between, so
+  the user sees the coding agent's own work. OpenCode works on a sandbox copy of the Next.js
+  theme. What it may do depends on the run's `mode`:
+
+  | Mode | Behavior |
+  | --- | --- |
+  | `BUILD` (default) | Edits the theme, checks the build, saves a revision. |
+  | `PLAN` | Read-only. Explores and replies with a plan. Saves nothing. |
+  | `CHAT` | Read-only. Answers questions about the theme. Saves nothing. |
+
+  Read-only modes are enforced three ways: the prompt, OpenCode's permission rules (edit, bash
+  and web tools are denied), and a check afterwards. If a read-only run left any change in the
+  workspace, the workspace is discarded and the run fails.
+
+The browser's code view is read-only. Publishing returns HTTP 501.
 
 The API owns authentication, tenant scope, jobs, cancellation, versions, snapshots
 and model credentials. No platform database, R2, or OpenRouter credentials enter
@@ -97,6 +112,7 @@ Create a run with:
 ```json
 {
   "prompt": "Build a warm, minimalist clothing storefront using these references",
+  "mode": "BUILD",
   "idempotencyKey": "a-client-generated-unique-key",
   "themeId": "the-theme-uuid",
   "attachmentIds": []
@@ -116,9 +132,29 @@ strings where PostgreSQL uses BigInt. The assistant loads the latest bounded
 conversation context, rather than silently dropping the newest user message.
 
 SSE supports `Last-Event-ID` or `after`. Reconnecting replays persisted events, so
-the UI can survive disconnects. `coding.text` replaces the text for its `partId`;
-`assistant.delta` appends text. Other events include `run.queued`, `coding.started`,
-`coding.tool`, `revision.saved`, `run.succeeded`, `run.failed` and `run.cancelled`.
+the UI can survive disconnects.
+
+### The transcript
+
+What the assistant did is an ordered list of typed parts (`domain/transcript.ts`): `text`,
+`reasoning`, `tool` (with a short input, truncated output and, for edits, a diff), `todos`
+and `notice`. Two events carry them:
+
+- `part.upsert` `{ part }`: the part's complete current state. A later one with the same id
+  replaces it.
+- `part.delta` `{ id, text }`: text appended to a `text` or `reasoning` part.
+
+The browser applies these in order, so it needs no other rules. When the run ends, the same
+parts are saved with the assistant message as `content: { text, parts, mode }`, so a reload shows
+what the stream showed. A run that is stopped or fails keeps what it had done, with a final
+`notice`. Older messages that have only `text` render as a single text part.
+
+Other events: `run.queued`, `revision.saved`, `run.succeeded`, `run.failed`, `run.cancelled`.
+Everything is bounded (`TRANSCRIPT_LIMITS`) and file contents never reach the browser: a read
+reports a line count, an edit reports its diff.
+
+OpenCode's progress comes from its live event stream, with polling as the fallback. The
+mapping from its parts to ours is `infrastructure/engine/opencode-part-mapper.ts`.
 
 ## Screenshot and text references
 
@@ -150,7 +186,7 @@ revokes model access, and requests a clean workspace restore. Arbitrary tool eff
 process crash. Review `resultRevisionId` on interrupted or cancelled runs: a save
 that completed before cancellation remains durable.
 
-The coding specialist runs the app's checks; the platform additionally requires
+In build mode the coding agent runs the app's checks; the platform additionally requires
 `npm run build` to pass, asking OpenCode to repair failures up to twice. The API
 then commits Git changes, uploads an immutable archive containing tracked source and Git history to
 private R2, and atomically advances the database head with a snapshot-version and
