@@ -10,7 +10,8 @@
     "start": "next start",
     "lint": "eslint src --no-warn-ignored",
     "check-types": "tsc --project tsconfig.json --pretty --noEmit",
-    "format": "prettier --write src"
+    "format": "prettier --write src",
+    "test": "vitest run"
   },
   "dependencies": {
     "@assistant-ui/react": "^0.15.32",
@@ -111,7 +112,8 @@
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4.1.14",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "vitest": "^5.1.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
